@@ -209,18 +209,18 @@ const JLPTTestDashboard = ({
                                 </select>
                             </div>
                         </div>
-                        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-6">
                             {sortedSkillTests.map(test => {
                                 const status = getTestStatus(test);
                                 const totalQ = (test.sections || []).reduce((s, sec) => s + (sec.questions?.length || 0), 0);
                                 const isLocked = test.isPremium && !hasPremiumAccess;
 
                                 return (
-                                    <div key={test.id} className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50 p-6 hover:shadow-lg transition flex flex-col justify-between min-h-[240px] relative overflow-hidden group">
+                                    <div key={test.id} className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-slate-800 p-4 sm:p-6 hover:shadow-lg transition flex flex-col justify-between min-h-[auto] sm:min-h-[220px] relative overflow-hidden group">
                                         <div>
-                                            <div className="flex items-center justify-between mb-4">
-                                                <div className="w-10 h-10 rounded-xl bg-slate-50 dark:bg-slate-900 text-slate-600 dark:text-slate-300 flex items-center justify-center">
-                                                    <SkillIcon className="w-5 h-5" />
+                                            <div className="flex items-center justify-between mb-3">
+                                                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 flex items-center justify-center">
+                                                    <SkillIcon className="w-4.5 h-4.5 sm:w-5 sm:h-5" />
                                                 </div>
                                                 <div className="flex items-center gap-1.5">
 
@@ -230,7 +230,7 @@ const JLPTTestDashboard = ({
                                                             className={`p-1.5 rounded-lg border transition-all cursor-pointer ${
                                                                 test.isPremium
                                                                     ? 'bg-amber-50 dark:bg-amber-950/40 border-amber-300 dark:border-amber-700 text-amber-600 dark:text-amber-400 hover:scale-105'
-                                                                    : 'bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 text-slate-400 hover:text-slate-600 hover:scale-105'
+                                                                    : 'bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-400 hover:text-slate-600 hover:scale-105'
                                                             }`}
                                                             title={test.isPremium ? 'Đề thi khoá Premium (Click để mở)' : 'Đề thi Miễn phí (Click để khoá Premium)'}
                                                         >
@@ -264,17 +264,17 @@ const JLPTTestDashboard = ({
                                                     })()}
                                                 </div>
                                             </div>
-                                            <h4 className="text-base font-extrabold text-slate-800 dark:text-white leading-snug flex items-center gap-1.5">
+                                            <h4 className="text-sm sm:text-base font-extrabold text-slate-800 dark:text-white leading-snug flex items-center gap-1.5">
                                                 {test.isPremium && <Lock className="w-4 h-4 text-amber-500 shrink-0 inline-block" />}
                                                 <span>{test.title}</span>
                                             </h4>
-                                            <div className="flex items-center gap-3 text-slate-400 dark:text-slate-500 text-[11px] font-bold mt-3">
+                                            <div className="flex items-center gap-3 text-slate-400 dark:text-slate-500 text-[11px] font-bold mt-2.5">
                                                 <span>{totalQ} Câu hỏi</span>
                                                 <span>•</span>
                                                 <span>{test.timeLimit} Phút</span>
                                             </div>
                                         </div>
-                                        <div className="mt-6 pt-4 border-t border-slate-50 dark:border-slate-700/50 flex items-center justify-end gap-2">
+                                        <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-end gap-2">
                                             <button onClick={(e) => { e.stopPropagation(); handleStartPrint(test); }} className="p-1.5 text-slate-400 hover:text-[#2E5B70] transition cursor-pointer">
                                                 <Printer className="w-4 h-4" />
                                             </button>
@@ -351,10 +351,10 @@ const JLPTTestDashboard = ({
         const lvlGradient = LEVEL_GRADIENTS[level] || 'from-slate-500 to-slate-600';
 
         return (
-            <div className="min-h-screen bg-transparent p-4 md:p-8 font-sans animate-fade-in">
-                <div className="flex items-center justify-between mb-8">
+            <div className="min-h-screen bg-transparent p-3.5 sm:p-5 md:p-8 font-sans animate-fade-in">
+                <div className="flex items-center justify-between mb-4 sm:mb-8">
                     <div className="flex items-center gap-3">
-                        <button onClick={() => setSelectedFullExamLevel(null)} className="p-2.5 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700/50 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:scale-105 transition-all shadow-sm cursor-pointer">
+                        <button onClick={() => setSelectedFullExamLevel(null)} className="p-2.5 bg-white dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700/50 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 active:scale-95 transition-all shadow-sm cursor-pointer">
                             <ChevronLeft className="w-5 h-5" />
                         </button>
                         <div>
@@ -362,29 +362,29 @@ const JLPTTestDashboard = ({
                                 <Award className="w-3.5 h-3.5" />
                                 <span>Đề thi JLPT các năm</span>
                             </div>
-                            <h2 className="text-xl font-extrabold text-slate-800 dark:text-white flex items-center gap-2 mt-1">
+                            <h2 className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white flex items-center gap-2 mt-0.5">
                                 Cấp độ {level}
                             </h2>
                         </div>
                     </div>
                     {canEdit && (
                         <Link to={ROUTES.JLPT_ADMIN}
-                            className="px-4 py-2 bg-[#2E5B70] hover:bg-[#254A5C] text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm shrink-0">
+                            className="px-3.5 py-2 bg-[#2E5B70] hover:bg-[#254A5C] text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm shrink-0 active:scale-95">
                             <FileText className="w-3.5 h-3.5" /> Quản lý đề thi
                         </Link>
                     )}
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-6">
                     {sortedLvlTests.map(test => {
                         const status = getTestStatus(test);
                         const totalQ = (test.sections || []).reduce((s, sec) => s + (sec.questions?.length || 0), 0);
                         const isLocked = test.isPremium && !hasPremiumAccess;
 
                         return (
-                            <div key={test.id} className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 hover:shadow-xl transition flex flex-col justify-between min-h-[250px] relative overflow-hidden group">
+                            <div key={test.id} className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-slate-800 p-4 sm:p-6 hover:shadow-xl transition flex flex-col justify-between min-h-[auto] sm:min-h-[220px] relative overflow-hidden group">
                                 <div>
-                                    <div className="flex items-center justify-between mb-4">
-                                        <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${lvlGradient} text-white flex items-center justify-center font-black text-xs`}>
+                                    <div className="flex items-center justify-between mb-3">
+                                        <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-gradient-to-br ${lvlGradient} text-white flex items-center justify-center font-black text-xs shadow-xs`}>
                                             {test.level}
                                         </div>
                                         <div className="flex items-center gap-1.5">
@@ -429,17 +429,17 @@ const JLPTTestDashboard = ({
                                             })()}
                                         </div>
                                     </div>
-                                    <h4 className="text-base font-extrabold text-slate-800 dark:text-white leading-tight flex items-center gap-1.5">
+                                    <h4 className="text-sm sm:text-base font-extrabold text-slate-800 dark:text-white leading-tight flex items-center gap-1.5">
                                         {test.isPremium && <Lock className="w-4 h-4 text-amber-500 shrink-0 inline-block" />}
                                         <span>{test.title}</span>
                                     </h4>
-                                    <div className="flex items-center gap-3 text-slate-400 dark:text-slate-500 text-[11px] font-bold mt-4">
+                                    <div className="flex items-center gap-3 text-slate-400 dark:text-slate-500 text-[11px] font-bold mt-2.5">
                                         <span>{totalQ} Câu hỏi</span>
                                         <span>•</span>
                                         <span>{test.timeLimit} Phút</span>
                                     </div>
                                 </div>
-                                <div className="mt-6 pt-4 border-t border-slate-50 dark:border-slate-800 flex items-center justify-end gap-2">
+                                <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-end gap-2">
                                     <button onClick={(e) => { e.stopPropagation(); handleStartPrint(test); }} className="p-1.5 text-slate-400 hover:text-[#2E5B70] transition cursor-pointer">
                                         <Printer className="w-4 h-4" />
                                     </button>
@@ -492,76 +492,75 @@ const JLPTTestDashboard = ({
     }
 
     return (
-        <div className="jlpt-screen min-h-screen bg-transparent p-4 md:p-8 font-sans animate-fade-in">
+        <div className="jlpt-screen min-h-screen bg-transparent p-3.5 sm:p-5 md:p-8 font-sans animate-fade-in">
             {notification && (
                 <div className="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-xl border border-slate-700/50 flex items-center gap-2 text-xs font-bold animate-bounce">
                     <span>{notification}</span>
                 </div>
             )}
-            <div className="max-w-6xl mx-auto space-y-8">
+            <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
                 {/* Header Banner */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 sm:gap-4">
                     <div>
-                        <h1 className="text-[26px] font-extrabold text-slate-800 dark:text-white tracking-tight">
+                        <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
                             Trung tâm Luyện thi JLPT
                         </h1>
                         <p className="text-slate-500 dark:text-slate-400 mt-1 text-xs font-medium max-w-xl leading-relaxed">
                             Môi trường yên tĩnh để tập trung tối đa. Chúc bạn có một kỳ ôn luyện thật hiệu quả và đạt kết quả cao nhất.
                         </p>
                     </div>
-                    <div className="flex items-center gap-3 self-start md:self-center">
-                        {canEdit && (
+                    {canEdit && (
+                        <div className="flex items-center gap-3 self-start md:self-center">
                             <Link to={ROUTES.JLPT_ADMIN}
-                                className="px-4 py-2 bg-[#2E5B70] hover:bg-[#254A5C] text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm">
+                                className="px-3.5 py-2 bg-[#2E5B70] hover:bg-[#254A5C] text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm active:scale-95">
                                 <FileText className="w-3.5 h-3.5" /> Quản lý đề thi
                             </Link>
-                        )}
-                        <div className="flex items-center gap-2">
-                            <span className="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Mục tiêu:</span>
-                            <select
-                                value={targetLevel}
-                                onChange={(e) => handleUpdateTargetLevel(e.target.value)}
-                                className="bg-emerald-50 text-emerald-700 dark:bg-emerald-950/20 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-900/30 rounded-xl px-3 py-1.5 text-[10px] font-bold focus:outline-none cursor-pointer uppercase"
-                            >
-                                <option value="N1">Cấp độ N1</option>
-                                <option value="N2">Cấp độ N2</option>
-                                <option value="N3">Cấp độ N3</option>
-                                <option value="N4">Cấp độ N4</option>
-                                <option value="N5">Cấp độ N5</option>
-                            </select>
                         </div>
-                    </div>
+                    )}
                 </div>
 
                 {/* Section 1: Full Exam Levels */}
-                <div>
-                    <h3 className="text-base font-bold text-slate-800 dark:text-white flex items-center gap-2 pl-2 border-l-4 border-[#2E5B70] dark:border-sky-500 mb-6">
+                <div className="space-y-3 sm:space-y-4">
+                    <h3 className="text-sm sm:text-base font-bold text-slate-800 dark:text-white flex items-center gap-2 pl-2.5 border-l-4 border-[#2E5B70] dark:border-sky-500 uppercase tracking-wide font-mono">
                         Đề JLPT Các Năm
                     </h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-4">
                         {['N5', 'N4', 'N3', 'N2', 'N1'].map(lvl => {
                             const progress = getLevelProgress(lvl);
                             const gradient = LEVEL_GRADIENTS[lvl] || 'from-slate-500 to-slate-600';
                             return (
-                                <div key={lvl} className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700/50 p-5 hover:shadow-md transition flex flex-col justify-between min-h-[14rem] relative overflow-hidden">
+                                <div
+                                    key={lvl}
+                                    onClick={() => setSelectedFullExamLevel(lvl)}
+                                    className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-slate-800 p-3 sm:p-4 hover:shadow-md hover:border-cyan-500/50 dark:hover:border-cyan-500/40 transition-all flex flex-col justify-between cursor-pointer group active:scale-[0.98] shadow-2xs"
+                                >
                                     <div>
-                                        <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${gradient} text-white flex items-center justify-center font-black text-sm mb-4`}>
-                                            {lvl}
+                                        <div className="flex items-center justify-between gap-2 mb-2.5">
+                                            <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-gradient-to-br ${gradient} text-white flex items-center justify-center font-black text-sm shadow-xs group-hover:scale-105 transition-transform shrink-0`}>
+                                                {lvl}
+                                            </div>
+                                            <span className="text-[10px] sm:text-xs font-bold font-mono px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 shrink-0">
+                                                {progress}%
+                                            </span>
                                         </div>
-                                        <h4 className="text-base font-bold text-slate-800 dark:text-white">Cấp độ {lvl}</h4>
-                                        <p className="text-xs text-slate-400 dark:text-slate-500 mt-2 leading-relaxed">
-                                            Đề thi trọn gói đầy đủ các kỹ năng từ đề thi JLPT chính thức các năm của cấp độ {lvl}.
+                                        <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors truncate">
+                                            Cấp độ {lvl}
+                                        </h4>
+                                        <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5 leading-snug line-clamp-1 sm:line-clamp-2">
+                                            Đề thi chuẩn các năm {lvl}
                                         </p>
                                     </div>
-                                    <div className="mt-4 flex flex-col gap-3">
-                                        <div className="flex items-center gap-2">
-                                            <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-1.5">
-                                                <div className={`bg-gradient-to-r ${gradient} h-1.5 rounded-full`} style={{ width: `${progress}%` }} />
-                                            </div>
-                                            <span className="text-[10px] font-extrabold text-slate-450 dark:text-slate-500 w-8 text-right">{progress}%</span>
+
+                                    <div className="mt-3 space-y-2">
+                                        <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                                            <div className={`bg-gradient-to-r ${gradient} h-1.5 rounded-full transition-all duration-300`} style={{ width: `${progress}%` }} />
                                         </div>
-                                        <button onClick={() => setSelectedFullExamLevel(lvl)} className="w-full py-2 bg-slate-50 hover:bg-slate-100 dark:bg-slate-900 text-slate-750 dark:text-slate-300 font-extrabold text-[10px] tracking-wider rounded-xl transition cursor-pointer border border-slate-100 dark:border-slate-700/50 text-center">
-                                            BẮT ĐẦU LUYỆN
+                                        <button
+                                            type="button"
+                                            onClick={(e) => { e.stopPropagation(); setSelectedFullExamLevel(lvl); }}
+                                            className="w-full py-1.5 px-2 bg-slate-100 group-hover:bg-[#2E5B70] hover:bg-[#254A5C] dark:bg-slate-800 dark:group-hover:bg-cyan-600 text-slate-700 group-hover:text-white dark:text-slate-200 dark:group-hover:text-white font-extrabold text-[10px] tracking-wider rounded-xl transition-all cursor-pointer text-center"
+                                        >
+                                            LUYỆN ĐỀ →
                                         </button>
                                     </div>
                                 </div>
@@ -571,38 +570,53 @@ const JLPTTestDashboard = ({
                 </div>
 
                 {/* Section 2: Skill Practice */}
-                <div>
-                    <h3 className="text-base font-bold text-slate-800 dark:text-white flex items-center gap-2 pl-2 border-l-4 border-[#2E5B70] dark:border-sky-500 mb-6">
+                <div className="space-y-3 sm:space-y-4 pt-2">
+                    <h3 className="text-sm sm:text-base font-bold text-slate-800 dark:text-white flex items-center gap-2 pl-2.5 border-l-4 border-[#2E5B70] dark:border-sky-500 uppercase tracking-wide font-mono">
                         Luyện từng Kỹ Năng
                     </h3>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-4">
                         {[
-                            { key: 'vocabulary', label: 'Từ vựng (Vocabulary)', icon: Languages, color: 'blue', desc: `Ôn luyện từ vựng cần thiết cho cấp độ ${countdownLevel}` },
-                            { key: 'grammar', label: 'Ngữ pháp (Grammar)', icon: BookOpen, color: 'sky', desc: 'Tổng hợp cấu trúc câu phức và chia động từ' },
-                            { key: 'kanji', label: 'Hán tự (Kanji)', icon: Award, color: 'teal', desc: 'Trau dồi bộ thủ và âm On-Kun qua Flashcard' },
-                            { key: 'reading', label: 'Đọc hiểu (Reading)', icon: FileText, color: 'rose', desc: 'Rèn luyện kỹ năng đọc lướt và tìm ý chính' },
-                            { key: 'listening', label: 'Nghe hiểu (Listening)', icon: Headphones, color: 'cyan', desc: 'Luyện nghe với giọng người bản xứ' },
+                            { key: 'vocabulary', label: 'Từ vựng', sub: 'Vocabulary', icon: Languages, color: 'blue' },
+                            { key: 'grammar', label: 'Ngữ pháp', sub: 'Grammar', icon: BookOpen, color: 'sky' },
+                            { key: 'kanji', label: 'Hán tự', sub: 'Kanji', icon: Award, color: 'teal' },
+                            { key: 'reading', label: 'Đọc hiểu', sub: 'Reading', icon: FileText, color: 'rose' },
+                            { key: 'listening', label: 'Nghe hiểu', sub: 'Listening', icon: Headphones, color: 'cyan' },
                         ].map(skill => {
                             const Icon = skill.icon;
                             const progress = getSkillProgress(skill.key);
                             return (
-                                <div key={skill.key} className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700/50 p-6 hover:shadow-md transition flex flex-col justify-between min-h-[14rem]">
+                                <div
+                                    key={skill.key}
+                                    onClick={() => handleStartPractice(skill.key, `${skill.label} (${skill.sub})`)}
+                                    className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-slate-800 p-3 sm:p-4 hover:shadow-md hover:border-cyan-500/50 dark:hover:border-cyan-500/40 transition-all flex flex-col justify-between cursor-pointer group active:scale-[0.98] shadow-2xs"
+                                >
                                     <div>
-                                        <div className={`w-10 h-10 rounded-xl bg-${skill.color}-50 text-${skill.color}-600 dark:bg-${skill.color}-950/30 dark:text-${skill.color}-400 flex items-center justify-center mb-4`}>
-                                            <Icon className="w-5 h-5" />
-                                        </div>
-                                        <h4 className="text-base font-bold text-slate-800 dark:text-white">{skill.label}</h4>
-                                        <p className="text-xs text-slate-400 dark:text-slate-500 mt-2 leading-relaxed">{skill.desc}</p>
-                                    </div>
-                                    <div className="mt-4 flex flex-col gap-3">
-                                        <div className="flex items-center gap-2">
-                                            <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-1.5">
-                                                <div className={`bg-${skill.color}-500 h-1.5 rounded-full`} style={{ width: `${progress}%` }} />
+                                        <div className="flex items-center justify-between gap-2 mb-2.5">
+                                            <div className={`w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-${skill.color}-500/10 text-${skill.color}-600 dark:text-${skill.color}-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform`}>
+                                                <Icon className="w-4.5 h-4.5" />
                                             </div>
-                                            <span className="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 w-8 text-right">{progress}%</span>
+                                            <span className="text-[10px] sm:text-xs font-bold font-mono px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 shrink-0">
+                                                {progress}%
+                                            </span>
                                         </div>
-                                        <button onClick={() => handleStartPractice(skill.key, skill.label)} className={`w-full py-2 bg-${skill.color}-50 text-${skill.color}-600 font-bold text-[10px] tracking-wider rounded-xl transition cursor-pointer text-center`}>
-                                            BẮT ĐẦU LUYỆN
+                                        <h4 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors truncate">
+                                            {skill.label}
+                                        </h4>
+                                        <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5 leading-snug truncate">
+                                            {skill.sub}
+                                        </p>
+                                    </div>
+
+                                    <div className="mt-3 space-y-2">
+                                        <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 overflow-hidden">
+                                            <div className={`bg-${skill.color}-500 h-1.5 rounded-full transition-all duration-300`} style={{ width: `${progress}%` }} />
+                                        </div>
+                                        <button
+                                            type="button"
+                                            onClick={(e) => { e.stopPropagation(); handleStartPractice(skill.key, `${skill.label} (${skill.sub})`); }}
+                                            className="w-full py-1.5 px-2 bg-slate-100 group-hover:bg-[#2E5B70] hover:bg-[#254A5C] dark:bg-slate-800 dark:group-hover:bg-cyan-600 text-slate-700 group-hover:text-white dark:text-slate-200 dark:group-hover:text-white font-extrabold text-[10px] tracking-wider rounded-xl transition-all cursor-pointer text-center"
+                                        >
+                                            ÔN TẬP →
                                         </button>
                                     </div>
                                 </div>

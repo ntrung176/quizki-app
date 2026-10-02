@@ -34,25 +34,25 @@ const HelpScreen = ({ isFirstTime, onConfirmFirstTime }) => {
     ];
 
     return (
-        <div className="max-w-6xl mx-auto space-y-8 pb-16 animate-fade-in text-slate-800 dark:text-slate-100">
+        <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8 px-3.5 sm:px-6 py-4 md:py-6 pb-20 animate-fade-in text-slate-800 dark:text-slate-100">
             
             {/* TOP HEADER BAR */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-6">
-                <div className="flex items-center gap-4">
+                <div className="flex items-start gap-2.5 sm:gap-4 min-w-0 flex-1">
                     {!isFirstTime && (
                         <Link
                             to={ROUTES.HOME}
-                            className="p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 shadow-sm transition-all shrink-0"
+                            className="p-2.5 sm:p-3 rounded-2xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 shadow-sm transition-all shrink-0 active:scale-95 mt-0.5"
                             title="Về trang chủ"
                         >
                             <ArrowLeft className="w-5 h-5" />
                         </Link>
                     )}
-                    <div>
-                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-xs font-mono font-bold mb-1">
+                    <div className="min-w-0 flex-1">
+                        <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:py-1 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-[11px] font-mono font-bold mb-1">
                             <Sparkles className="w-3.5 h-3.5" /> BÁCH KHOA TOÀN THƯ QUIZKI AI
                         </div>
-                        <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 dark:text-white">
+                        <h1 className="text-lg sm:text-2xl md:text-3xl font-black tracking-tight text-slate-900 dark:text-white leading-snug break-words whitespace-normal">
                             Hướng Dẫn Chi Tiết Từng Bước & Quy Trình Thao Tác
                         </h1>
                     </div>
@@ -95,18 +95,18 @@ const HelpScreen = ({ isFirstTime, onConfirmFirstTime }) => {
 
             {/* STEP-BY-STEP VISUAL WORKFLOW GUIDE (CÁC BƯỚC THỰC HIỆN THỰC TẾ) */}
             {(activeSection === 'ALL' || activeSection === 'STEPS') && (
-                <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 sm:p-7 space-y-6 shadow-sm">
+                <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-4 sm:p-7 space-y-6 shadow-sm">
                     <div className="flex items-center gap-3 border-b border-slate-100 dark:border-slate-800 pb-4">
-                        <span className="p-2.5 rounded-2xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold">
+                        <span className="p-2.5 rounded-2xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 font-bold shrink-0">
                             <MousePointer className="w-6 h-6" />
                         </span>
                         <div>
-                            <h2 className="text-xl font-extrabold text-slate-900 dark:text-white">🚀 Hướng Dẫn Các Bước Thao Tác Thực Hiện Chi Tiết</h2>
+                            <h2 className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white">🚀 Hướng Dẫn Các Bước Thao Tác Thực Hiện Chi Tiết</h2>
                             <p className="text-xs text-slate-500">Các bước click từng bước cụ thể giúp bạn dễ dàng hình dung và làm chủ ứng dụng ngay lập tức</p>
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 text-xs">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 text-xs">
                         
                         {/* Step Flow 1: Create Set & AI OCR */}
                         <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 space-y-2.5">
@@ -114,10 +114,10 @@ const HelpScreen = ({ isFirstTime, onConfirmFirstTime }) => {
                                 <BookOpen className="w-4 h-4" /> 1. Cách Tạo Bộ Bài & Quét Ảnh Từ Vựng Bằng AI OCR
                             </h3>
                             <ol className="space-y-2 text-slate-600 dark:text-slate-300 font-medium leading-relaxed list-decimal list-inside">
-                                <li>Vào Menu <b>Từ Vựng</b> ở Sidebar $\rightarrow$ Chọn tab <b>Bộ Từ Vựng</b>.</li>
-                                <li>Bấm nút màu xanh <b>+ Tạo bộ bài học</b> $\rightarrow$ Nhập tên bộ thẻ.</li>
-                                <li>Bấm <b>✨ AI Quét Từ Ảnh</b> $\rightarrow$ Tải ảnh chụp trang sách hoặc đề thi lên.</li>
-                                <li>AI sẽ tự trích xuất Kanji, Furigana & Nghĩa Tiếng Việt $\rightarrow$ Bấm <b>Lưu thẻ</b>.</li>
+                                <li>Vào Menu <b>Từ Vựng</b> ở Sidebar → Chọn tab <b>Bộ Từ Vựng</b>.</li>
+                                <li>Bấm nút màu xanh <b>+ Tạo bộ bài học</b> → Nhập tên bộ thẻ.</li>
+                                <li>Bấm <b>✨ AI Quét Từ Ảnh</b> → Tải ảnh chụp trang sách hoặc đề thi lên.</li>
+                                <li>AI sẽ tự trích xuất Kanji, Furigana & Nghĩa Tiếng Việt → Bấm <b>Lưu thẻ</b>.</li>
                             </ol>
                         </div>
 
@@ -130,7 +130,7 @@ const HelpScreen = ({ isFirstTime, onConfirmFirstTime }) => {
                                 <li>Trong lúc Ôn tập SRS hoặc Flashcard, lật mặt sau của thẻ từ vựng / Kanji.</li>
                                 <li>Nhấp nút <b>💡 + Thêm mẹo nhớ cá nhân</b> (hoặc bấm <b>+ Mẹo nhớ</b> trong Quản Lý Thẻ Khó).</li>
                                 <li>Bấm nút <b>✨ AI Gợi ý</b> để AI tự bịa ra câu chuyện vui liên tưởng âm Hán Việt.</li>
-                                <li>Chỉnh sửa nội dung theo ý muốn $\rightarrow$ Bấm dấu <b>Check (Lưu)</b> để hoàn tất.</li>
+                                <li>Chỉnh sửa nội dung theo ý muốn → Bấm dấu <b>Check (Lưu)</b> để hoàn tất.</li>
                             </ol>
                         </div>
 
@@ -140,7 +140,7 @@ const HelpScreen = ({ isFirstTime, onConfirmFirstTime }) => {
                                 <PenTool className="w-4 h-4" /> 3. Cách Tập Viết Nét Bút Kanji & Chấm Điểm
                             </h3>
                             <ol className="space-y-2 text-slate-600 dark:text-slate-300 font-medium leading-relaxed list-decimal list-inside">
-                                <li>Vào Menu <b>Thư viện Kanji</b> $\rightarrow$ Tìm chọn chữ Kanji bạn muốn luyện tập.</li>
+                                <li>Vào Menu <b>Thư viện Kanji</b> → Tìm chọn chữ Kanji bạn muốn luyện tập.</li>
                                 <li>Quan sát hình vẽ animation di chuyển nét theo thứ tự ở bên trái.</li>
                                 <li>Dùng ngón tay hoặc giữ chuột vẽ từng nét trực tiếp lên bảng cảm ứng bên phải.</li>
                                 <li>Hệ thống tự nhận diện nét vẽ và báo điểm độ chính xác nét bút tức thì.</li>
@@ -153,7 +153,7 @@ const HelpScreen = ({ isFirstTime, onConfirmFirstTime }) => {
                                 <FileCheck className="w-4 h-4" /> 4. Cách Làm Bài Thi JLPT, Highlight Đề & In A4
                             </h3>
                             <ol className="space-y-2 text-slate-600 dark:text-slate-300 font-medium leading-relaxed list-decimal list-inside">
-                                <li>Vào Menu <b>Luyện đề JLPT</b> $\rightarrow$ Chọn cấp độ N5 - N1 $\rightarrow$ Bấm <b>Bắt đầu thi</b>.</li>
+                                <li>Vào Menu <b>Luyện đề JLPT</b> → Chọn cấp độ N5 - N1 → Bấm <b>Bắt đầu thi</b>.</li>
                                 <li>Bật công cụ <b>🖊️ Highlight Pen</b> để bôi màu từ khóa trọng tâm khi đọc bài.</li>
                                 <li>Chọn đáp án và bấm <b>Nộp bài</b> để xem điểm thi và giải thích chi tiết từng câu.</li>
                                 <li>Muốn in đề thi ra giấy A4: Bấm biểu tượng <b>🖨️ In Đề</b> ở góc trên màn hình.</li>
@@ -167,8 +167,8 @@ const HelpScreen = ({ isFirstTime, onConfirmFirstTime }) => {
                             </h3>
                             <ol className="space-y-2 text-slate-600 dark:text-slate-300 font-medium leading-relaxed list-decimal list-inside">
                                 <li>Nhấp vào biểu tượng <b>⏱️</b> ở thanh nút dưới cùng của Sidebar.</li>
-                                <li>Dùng 2 nút $\bigwedge / \bigvee$ để chọn số phút (25m Pomodoro, 40m, 60m).</li>
-                                <li>Bấm <b>▶️ Bắt đầu phiên tập trung</b> $\rightarrow$ Đồng hồ tự đếm ngược ngầm.</li>
+                                <li>Dùng 2 nút <b>▲ / ▼</b> để chọn số phút (25m Pomodoro, 40m, 60m).</li>
+                                <li>Bấm <b>▶️ Bắt đầu phiên tập trung</b> → Đồng hồ tự đếm ngược ngầm.</li>
                                 <li>Hệ thống phát chuông thông báo khi hoàn thành phiên học và chuyển sang giờ nghỉ 5 phút.</li>
                             </ol>
                         </div>
@@ -269,7 +269,7 @@ const HelpScreen = ({ isFirstTime, onConfirmFirstTime }) => {
                         </div>
 
                         <div className="overflow-x-auto">
-                            <table className="w-full text-xs text-left border-collapse">
+                            <table className="w-full min-w-[540px] text-xs text-left border-collapse">
                                 <thead>
                                     <tr className="bg-slate-50 dark:bg-slate-800/70 text-slate-500 dark:text-slate-400 font-mono uppercase text-[10px] border-b border-slate-200 dark:border-slate-700">
                                         <th className="p-3.5 rounded-l-xl w-1/4">Thành Phần / Khối UI</th>
@@ -318,7 +318,7 @@ const HelpScreen = ({ isFirstTime, onConfirmFirstTime }) => {
                         </div>
 
                         <div className="overflow-x-auto">
-                            <table className="w-full text-xs text-left border-collapse">
+                            <table className="w-full min-w-[540px] text-xs text-left border-collapse">
                                 <thead>
                                     <tr className="bg-slate-50 dark:bg-slate-800/70 text-slate-500 dark:text-slate-400 font-mono uppercase text-[10px] border-b border-slate-200 dark:border-slate-700">
                                         <th className="p-3.5 rounded-l-xl w-1/4">Tab Con / Tính Năng</th>
@@ -374,7 +374,7 @@ const HelpScreen = ({ isFirstTime, onConfirmFirstTime }) => {
                         </div>
 
                         <div className="overflow-x-auto">
-                            <table className="w-full text-xs text-left border-collapse">
+                            <table className="w-full min-w-[540px] text-xs text-left border-collapse">
                                 <thead>
                                     <tr className="bg-slate-50 dark:bg-slate-800/70 text-slate-500 dark:text-slate-400 font-mono uppercase text-[10px] border-b border-slate-200 dark:border-slate-700">
                                         <th className="p-3.5 rounded-l-xl w-1/4">Tính Năng Kanji</th>
@@ -418,7 +418,7 @@ const HelpScreen = ({ isFirstTime, onConfirmFirstTime }) => {
                         </div>
 
                         <div className="overflow-x-auto">
-                            <table className="w-full text-xs text-left border-collapse">
+                            <table className="w-full min-w-[540px] text-xs text-left border-collapse">
                                 <thead>
                                     <tr className="bg-slate-50 dark:bg-slate-800/70 text-slate-500 dark:text-slate-400 font-mono uppercase text-[10px] border-b border-slate-200 dark:border-slate-700">
                                         <th className="p-3.5 rounded-l-xl w-1/4">Thành Phần Ngữ Pháp</th>
@@ -467,7 +467,7 @@ const HelpScreen = ({ isFirstTime, onConfirmFirstTime }) => {
                         </div>
 
                         <div className="overflow-x-auto">
-                            <table className="w-full text-xs text-left border-collapse">
+                            <table className="w-full min-w-[540px] text-xs text-left border-collapse">
                                 <thead>
                                     <tr className="bg-slate-50 dark:bg-slate-800/70 text-slate-500 dark:text-slate-400 font-mono uppercase text-[10px] border-b border-slate-200 dark:border-slate-700">
                                         <th className="p-3.5 rounded-l-xl w-1/4">Công Cụ Đề Thi</th>
@@ -541,7 +541,7 @@ const HelpScreen = ({ isFirstTime, onConfirmFirstTime }) => {
                         </div>
 
                         <div className="overflow-x-auto">
-                            <table className="w-full text-xs text-left border-collapse">
+                            <table className="w-full min-w-[540px] text-xs text-left border-collapse">
                                 <thead>
                                     <tr className="bg-slate-50 dark:bg-slate-800/70 text-slate-500 dark:text-slate-400 font-mono uppercase text-[10px] border-b border-slate-200 dark:border-slate-700">
                                         <th className="p-3.5 rounded-l-xl w-1/4">Tiện Ích Đáy Sidebar</th>

@@ -873,6 +873,8 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                     startNewPracticeConfirm={() => initTest(pendingStartTest, 'practice')}
                     startRealExamConfirm={() => initTest(pendingStartTest, 'real')}
                     handleToggleTestFixed={handleToggleTestFixed}
+                    handleStartPrint={() => handleStartPrint(activeTest)}
+                    setAnswers={setAnswers}
                 />
                 {renderModeSelectionModal()}
                 {renderPrintElements()}

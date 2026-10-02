@@ -383,7 +383,7 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
         <>
             {/* Chatbox Container - Anchored beside Sidebar menu */}
             {isOpen && (
-                <div className="fixed bottom-4 left-4 lg:left-68 z-55 w-[330px] sm:w-[380px] h-[490px] sm:h-[530px] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-cyan-500/30 flex flex-col overflow-hidden animate-fade-in font-sans">
+                <div className="fixed bottom-[calc(4.75rem+env(safe-area-inset-bottom,0px))] left-3 right-3 sm:right-auto sm:left-4 lg:bottom-4 lg:left-68 z-55 w-auto sm:w-[380px] max-w-[calc(100vw-24px)] h-[480px] sm:h-[530px] bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-cyan-500/30 flex flex-col overflow-hidden animate-fade-in font-sans">
                     {/* Header */}
                     <div className="bg-[#2E5B70] p-4 flex items-center justify-between text-white">
                         <div className="flex items-center gap-2.5">

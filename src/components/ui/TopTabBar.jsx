@@ -32,28 +32,6 @@ const isTabActive = (tab, pathname, search) => {
 };
 
 const getThemeClasses = (pathname, tabs, themeProp) => {
-    if (
-        themeProp === 'red' || 
-        themeProp === 'kanji' || 
-        pathname.startsWith('/kanji') || 
-        tabs?.some(t => t.id?.startsWith('kanji') || t.route?.startsWith('/kanji'))
-    ) {
-        return {
-            bg: 'bg-rose-600',
-            shadow: 'shadow-rose-500/20 dark:shadow-rose-950/40',
-        };
-    }
-    if (
-        themeProp === 'green' || 
-        themeProp === 'grammar' || 
-        pathname.startsWith('/grammar') || 
-        tabs?.some(t => t.id?.startsWith('grammar') || t.route?.startsWith('/grammar'))
-    ) {
-        return {
-            bg: 'bg-emerald-600',
-            shadow: 'shadow-emerald-500/20 dark:shadow-emerald-950/40',
-        };
-    }
     return {
         bg: 'bg-blue-600',
         shadow: 'shadow-blue-500/20 dark:shadow-blue-950/20',

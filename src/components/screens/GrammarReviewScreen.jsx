@@ -1108,15 +1108,17 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             </p>
                         </div>
 
-                        <div className="flex flex-col items-center bg-slate-50 dark:bg-slate-950/80 rounded-2xl p-3.5 sm:p-4 border border-slate-200/90 dark:border-slate-800 text-center w-full md:w-60 shrink-0 shadow-xs">
-                            <span className="text-3xl sm:text-4xl font-black font-mono text-slate-900 dark:text-white tracking-tight mb-0.5">
-                                {stats.dueToday}
-                            </span>
-                            <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider">{t('grammar.dueGrammarLabel', 'Mẫu câu cần ôn tập')}</span>
+                        <div className="flex flex-row md:flex-col items-center justify-between bg-slate-50 dark:bg-slate-950/80 rounded-2xl p-3.5 sm:p-4 border border-slate-200/90 dark:border-slate-800 text-center w-full md:w-60 shrink-0 shadow-xs gap-3">
+                            <div className="flex flex-col items-start md:items-center text-left md:text-center">
+                                <span className="text-3xl sm:text-4xl font-black font-mono text-slate-900 dark:text-white tracking-tight leading-none">
+                                    {stats.dueToday}
+                                </span>
+                                <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mt-0.5">{t('grammar.dueGrammarLabel', 'MẪU CÂU CẦN ÔN TẬP')}</span>
+                            </div>
                             {stats.dueToday > 0 ? (
                                 <button
                                     onClick={() => startReview()}
-                                    className="mt-3 w-full py-2.5 px-5 rounded-full text-xs font-black tracking-wide uppercase transition-all duration-300 shadow-md shadow-emerald-500/25 hover:shadow-lg transform hover:scale-[1.03] bg-emerald-600 hover:bg-emerald-700 text-white active:scale-95 flex items-center justify-center gap-2 cursor-pointer min-h-[42px]"
+                                    className="md:mt-3 px-5 py-2.5 md:w-full rounded-full text-xs font-black tracking-wide uppercase transition-all duration-300 shadow-md shadow-blue-500/25 hover:shadow-lg transform hover:scale-[1.03] bg-blue-600 hover:bg-blue-700 text-white active:scale-95 flex items-center justify-center gap-2 cursor-pointer shrink-0 min-h-[42px]"
                                 >
                                     <Play className="w-4 h-4 fill-white text-white ml-0.5 shrink-0" />
                                     <span>{t('vocab.startReviewBtn', 'BẮT ĐẦU ÔN TẬP')}</span>
@@ -1126,7 +1128,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             ) : (
                                 <button
                                     disabled
-                                    className="mt-3 w-full py-2.5 px-5 rounded-full text-xs font-black tracking-wide uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed flex items-center justify-center gap-2 min-h-[42px]"
+                                    className="md:mt-3 px-5 py-2.5 md:w-full rounded-full text-xs font-black tracking-wide uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed flex items-center justify-center gap-2 shrink-0 min-h-[42px]"
                                 >
                                     <span>{t('vocab.allReviewed', 'HẾT THẺ ÔN TẬP')}</span>
                                 </button>

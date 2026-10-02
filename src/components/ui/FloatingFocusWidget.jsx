@@ -27,7 +27,7 @@ const FloatingFocusWidget = () => {
     return (
         <button
             onClick={() => setIsModalOpen(true)}
-            className={`fixed bottom-6 right-6 z-[9990] flex items-center gap-2.5 px-4 py-2.5 rounded-full shadow-2xl backdrop-blur-xl border transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95 animate-bounce-subtle select-none ${
+            className={`fixed bottom-[calc(4.75rem+env(safe-area-inset-bottom,0px))] right-4 lg:bottom-6 lg:right-6 z-[9990] flex items-center gap-2.5 px-4 py-2.5 rounded-full shadow-2xl backdrop-blur-xl border transition-all duration-300 cursor-pointer hover:scale-105 active:scale-95 animate-bounce-subtle select-none ${
                 isBreak
                     ? 'bg-amber-950/90 border-amber-500/50 text-amber-300 shadow-amber-950/50'
                     : isPaused
