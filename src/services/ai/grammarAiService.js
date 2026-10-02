@@ -1,7 +1,28 @@
-// grammarAiService.js — AI Standardizer for Japanese Grammar Structures
-// Converts messy Mazii / raw grammar connection notes into clean, pedagogical textbook bracket formulas and concise explanations
 import { callAI, getEffectiveModel } from '../../utils/aiProvider';
-import { updateGrammarPoint, getSharedGrammarData, invalidateGrammarCache } from '../../utils/grammarService';
+import { updateGrammarPoint, getSharedGrammarData, invalidateGrammarCache, getStandardizedGrammarIds, addStandardizedGrammarIds } from '../../utils/grammarService';
+
+/**
+ * Check if a grammar point has already been standardized
+ */
+export const isGrammarPointStandardized = (gp) => {
+    if (!gp) return false;
+    if (gp.isStandardized === true) return true;
+
+    // Check localStorage / memory standardized IDs set
+    const stdIds = getStandardizedGrammarIds();
+    if (gp.id && stdIds.has(gp.id)) return true;
+
+    // Check structureRaw / connection for [ ] brackets
+    const raw = (gp.structureRaw || (Array.isArray(gp.connection) ? gp.connection.join('\n') : '')).trim();
+    if (raw.includes('[') && raw.includes(']')) return true;
+
+    if (Array.isArray(gp.structure) && gp.structure.length > 0) {
+        const hasStructuredBracket = gp.structure.some(s => (s.text || '').includes('[') && (s.text || '').includes(']'));
+        if (hasStructuredBracket) return true;
+    }
+
+    return false;
+};
 
 /**
  * Prompt template for standardizing grammar structure into textbook bracket notation and concise explanations
@@ -163,20 +184,32 @@ export const aiBatchStandardizeGrammarStructures = async (
         signal = null,
         forcedModel = null,
         concurrency = 2,
-        saveToFirestore = true
+        saveToFirestore = true,
+        skipAlreadyStandardized = true,
+        limit = null,
+        startIndex = 0
     } = {}
 ) => {
     if (!Array.isArray(grammarPointsList) || grammarPointsList.length === 0) {
-        return { total: 0, processed: 0, succeeded: 0, failed: 0, results: [] };
+        return { total: 0, processed: 0, succeeded: 0, skipped: 0, failed: 0, results: [] };
     }
 
-    const total = grammarPointsList.length;
+    let targetList = grammarPointsList;
+    if (startIndex > 0) {
+        targetList = targetList.slice(startIndex);
+    }
+    if (limit && limit > 0) {
+        targetList = targetList.slice(0, limit);
+    }
+
+    const total = targetList.length;
     let processed = 0;
     let succeeded = 0;
+    let skipped = 0;
     let failed = 0;
     const results = [];
 
-    onLog(`🚀 Bắt đầu chuẩn hóa cấu trúc cho ${total} mẫu ngữ pháp (Đồng thời: ${concurrency})...`);
+    onLog(`🚀 Bắt đầu chuẩn hóa cấu trúc cho ${total} mẫu ngữ pháp (Đồng thời: ${concurrency}, Bỏ qua đã chuẩn hóa: ${skipAlreadyStandardized ? 'BẬT' : 'TẮT'})...`);
 
     // Helper for running queue with concurrency limit
     let queueIndex = 0;
@@ -188,10 +221,28 @@ export const aiBatchStandardizeGrammarStructures = async (
             }
 
             const currentIndex = queueIndex++;
-            const gp = grammarPointsList[currentIndex];
+            const gp = targetList[currentIndex];
             if (!gp) continue;
 
             const patternName = gp.pattern || `GP #${currentIndex + 1}`;
+
+            // Check if already standardized
+            if (skipAlreadyStandardized && isGrammarPointStandardized(gp)) {
+                skipped++;
+                processed++;
+                onLog(`⏩ [${currentIndex + 1}/${total}] Bỏ qua: "${patternName}" (Đã chuẩn hóa trước đó)`);
+                onProgress({
+                    total,
+                    processed,
+                    succeeded,
+                    skipped,
+                    failed,
+                    percent: Math.round((processed / total) * 100),
+                    currentPattern: patternName
+                });
+                continue;
+            }
+
             try {
                 onLog(`[${currentIndex + 1}/${total}] Đang xử lý: "${patternName}" (Level: ${gp.level || '?'})...`);
                 const stdResult = await aiStandardizeGrammarStructure(gp, forcedModel);
@@ -205,7 +256,9 @@ export const aiBatchStandardizeGrammarStructures = async (
                         meaningShort: stdResult.meaningShort || gp.meaningShort || '',
                         meaning: stdResult.meaning || gp.meaning || '',
                         meaningFull: stdResult.meaningFull || gp.meaningFull || '',
-                        tips: (stdResult.tips && stdResult.tips.length > 0) ? stdResult.tips : (gp.tips || [])
+                        tips: (stdResult.tips && stdResult.tips.length > 0) ? stdResult.tips : (gp.tips || []),
+                        isStandardized: true,
+                        standardizedAt: Date.now()
                     };
 
                     if (saveToFirestore && (gp.textbookId || gp.docPath || gp.lessonId)) {
@@ -218,7 +271,9 @@ export const aiBatchStandardizeGrammarStructures = async (
                             meaningShort: updatedGp.meaningShort,
                             meaning: updatedGp.meaning,
                             meaningFull: updatedGp.meaningFull,
-                            tips: updatedGp.tips
+                            tips: updatedGp.tips,
+                            isStandardized: true,
+                            standardizedAt: Date.now()
                         });
                     }
 
@@ -255,6 +310,7 @@ export const aiBatchStandardizeGrammarStructures = async (
                     total,
                     processed,
                     succeeded,
+                    skipped,
                     failed,
                     percent: Math.round((processed / total) * 100),
                     currentPattern: patternName
@@ -273,11 +329,12 @@ export const aiBatchStandardizeGrammarStructures = async (
         invalidateGrammarCache();
     }
 
-    onLog(`🏁 Hoàn tất xử lý: Thành công ${succeeded}/${total}, Thất bại ${failed}.`);
+    onLog(`🏁 Hoàn tất xử lý: Thành công ${succeeded}/${total}, Bỏ qua ${skipped}, Thất bại ${failed}.`);
     return {
         total,
         processed,
         succeeded,
+        skipped,
         failed,
         results
     };

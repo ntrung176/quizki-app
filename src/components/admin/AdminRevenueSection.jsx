@@ -54,7 +54,14 @@ const AdminRevenueSection = ({
                             <div className="w-7 h-7 rounded-lg bg-indigo-500 flex items-center justify-center">
                                 <Bot className="w-4 h-4 text-white" />
                             </div>
-                            <span className="font-bold text-sm text-indigo-700 dark:text-indigo-300">OpenRouter</span>
+                            <div className="flex items-center gap-1.5 flex-wrap">
+                                <span className="font-bold text-sm text-indigo-700 dark:text-indigo-300">OpenRouter</span>
+                                {apiBalances.openRouter?.isProxy && (
+                                    <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300 font-semibold">
+                                        🛡️ Cloudflare Proxy
+                                    </span>
+                                )}
+                            </div>
                         </div>
                         {apiBalances.openRouter === null ? (
                             <p className="text-xs text-gray-400 italic">Nhấn "Kiểm tra" để xem số dư</p>

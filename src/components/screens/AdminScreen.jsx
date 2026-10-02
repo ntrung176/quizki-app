@@ -88,8 +88,25 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         const results = { openRouter: null, speechGen: null, loading: false, error: '' };
 
         try {
+            const aiProxyUrl = import.meta.env.VITE_AI_PROXY_URL || import.meta.env.VITE_OPENROUTER_PROXY_URL;
             const openRouterKey = import.meta.env.VITE_OPENROUTER_API_KEY;
-            if (openRouterKey) {
+
+            if (aiProxyUrl) {
+                const baseProxy = aiProxyUrl.replace(/\/+$/, '');
+                const res = await fetch(`${baseProxy}/credits`);
+                if (res.ok) {
+                    const data = await res.json();
+                    results.openRouter = {
+                        totalCredits: data.data?.total_credits || 0,
+                        totalUsage: data.data?.total_usage || 0,
+                        remaining: (data.data?.total_credits || 0) - (data.data?.total_usage || 0),
+                        isProxy: true,
+                    };
+                } else {
+                    const errData = await res.json().catch(() => ({}));
+                    results.openRouter = { error: `Proxy Error: HTTP ${res.status}${errData.error ? ` - ${errData.error}` : ''}` };
+                }
+            } else if (openRouterKey) {
                 const res = await fetch('https://openrouter.ai/api/v1/credits', {
                     headers: { 'Authorization': `Bearer ${openRouterKey}` }
                 });
@@ -104,7 +121,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                     results.openRouter = { error: `HTTP ${res.status}` };
                 }
             } else {
-                results.openRouter = { error: 'Chưa cấu hình API key' };
+                results.openRouter = { error: 'Chưa cấu hình API key hoặc AI Proxy URL' };
             }
         } catch (e) {
             results.openRouter = { error: e.message };

@@ -1,26 +1,33 @@
 // AdminGrammarStandardizerModal.jsx — Batch AI Grammar Structure Standardizer
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
     X, Sparkles, CheckCircle2, AlertTriangle, Play, Pause, Square, Download,
-    RefreshCw, Layers, BookOpen, ChevronDown, ChevronRight, Check, Eye
+    RefreshCw, Layers, BookOpen, ChevronDown, ChevronRight, Check, Eye, RotateCcw
 } from 'lucide-react';
-import { getSharedGrammarData, updateGrammarPoint } from '../../utils/grammarService';
-import { aiStandardizeGrammarStructure, aiBatchStandardizeGrammarStructures } from '../../services/ai/grammarAiService';
+import { getSharedGrammarData, updateGrammarPoint, clearStandardizedGrammarIds } from '../../utils/grammarService';
+import { aiStandardizeGrammarStructure, aiBatchStandardizeGrammarStructures, isGrammarPointStandardized } from '../../services/ai/grammarAiService';
 import { OPENROUTER_MODELS } from '../../utils/adminSettings';
-import { showToast } from '../../utils/toast';
+import { showToast, showConfirm } from '../../utils/toast';
 
 const LEVELS = ['ALL', 'N5', 'N4', 'N3', 'N2', 'N1'];
+const BATCH_SIZES = [
+    { value: 20, label: '20 mẫu / đợt' },
+    { value: 50, label: '50 mẫu / đợt (Khuyên dùng)' },
+    { value: 100, label: '100 mẫu / đợt' },
+    { value: 200, label: '200 mẫu / đợt' },
+    { value: 'ALL', label: 'Tất cả còn lại' }
+];
 
 const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCache }) => {
     const [selectedLevel, setSelectedLevel] = useState('ALL');
     const [onlyUnstandardized, setOnlyUnstandardized] = useState(true);
+    const [batchSize, setBatchSize] = useState(50);
     const [concurrency, setConcurrency] = useState(2);
     const [selectedModel, setSelectedModel] = useState(adminConfig?.aiFeatureModels?.grammar_gen || 'google/gemini-2.5-flash');
 
     // Data loading states
     const [isLoadingData, setIsLoadingData] = useState(false);
     const [allGrammarPoints, setAllGrammarPoints] = useState([]);
-    const [filteredPoints, setFilteredPoints] = useState([]);
 
     // Single preview states
     const [isPreviewing, setIsPreviewing] = useState(false);
@@ -28,10 +35,9 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
 
     // Batch run states
     const [isRunning, setIsRunning] = useState(false);
-    const [progress, setProgress] = useState({ total: 0, processed: 0, succeeded: 0, failed: 0, percent: 0, currentPattern: '' });
+    const [progress, setProgress] = useState({ total: 0, processed: 0, succeeded: 0, skipped: 0, failed: 0, percent: 0, currentPattern: '' });
     const [logs, setLogs] = useState([]);
     const [batchResults, setBatchResults] = useState([]);
-    const [expandedResultId, setExpandedResultId] = useState(null);
 
     const abortControllerRef = useRef(null);
     const logsEndRef = useRef(null);
@@ -78,21 +84,36 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
         loadData();
     }, [isOpen]);
 
+    // Compute stats
+    const stats = useMemo(() => {
+        let levelList = allGrammarPoints;
+        if (selectedLevel !== 'ALL') {
+            levelList = levelList.filter(gp => (gp.level || '').toUpperCase() === selectedLevel);
+        }
+        const total = levelList.length;
+        const standardized = levelList.filter(isGrammarPointStandardized).length;
+        const unstandardized = total - standardized;
+        const percent = total > 0 ? Math.round((standardized / total) * 100) : 0;
+        return { total, standardized, unstandardized, percent };
+    }, [allGrammarPoints, selectedLevel]);
+
     // Filter points based on selected level & options
-    useEffect(() => {
+    const filteredPoints = useMemo(() => {
         let list = [...allGrammarPoints];
         if (selectedLevel !== 'ALL') {
             list = list.filter(gp => (gp.level || '').toUpperCase() === selectedLevel);
         }
         if (onlyUnstandardized) {
-            list = list.filter(gp => {
-                const raw = (gp.structureRaw || (Array.isArray(gp.connection) ? gp.connection.join('\n') : '')).trim();
-                const hasBrackets = raw.includes('[') && raw.includes(']');
-                return !hasBrackets;
-            });
+            list = list.filter(gp => !isGrammarPointStandardized(gp));
         }
-        setFilteredPoints(list);
+        return list;
     }, [allGrammarPoints, selectedLevel, onlyUnstandardized]);
+
+    // Target slice to process in current batch
+    const currentBatchList = useMemo(() => {
+        if (batchSize === 'ALL') return filteredPoints;
+        return filteredPoints.slice(0, Number(batchSize));
+    }, [filteredPoints, batchSize]);
 
     const addLog = (msg) => {
         const time = new Date().toLocaleTimeString('vi-VN');
@@ -140,7 +161,9 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
                 meaningShort: result.meaningShort || gp.meaningShort || '',
                 meaning: result.meaning || gp.meaning || '',
                 meaningFull: result.meaningFull || gp.meaningFull || '',
-                tips: (result.tips && result.tips.length > 0) ? result.tips : (gp.tips || [])
+                tips: (result.tips && result.tips.length > 0) ? result.tips : (gp.tips || []),
+                isStandardized: true,
+                standardizedAt: Date.now()
             });
 
             // Update in local state
@@ -151,7 +174,9 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
                 meaningShort: result.meaningShort || p.meaningShort,
                 meaning: result.meaning || p.meaning,
                 meaningFull: result.meaningFull || p.meaningFull,
-                tips: (result.tips && result.tips.length > 0) ? result.tips : p.tips
+                tips: (result.tips && result.tips.length > 0) ? result.tips : p.tips,
+                isStandardized: true,
+                standardizedAt: Date.now()
             } : p));
             showToast(`Đã lưu cấu trúc mới cho "${gp.pattern}"!`, 'success');
         } catch (err) {
@@ -159,28 +184,29 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
         }
     };
 
-    // 2. Start Batch Standardization
+    // 2. Start Batch Standardization (Processes currentBatchList and skips already standardized)
     const handleStartBatch = async () => {
-        if (filteredPoints.length === 0) {
-            showToast('Danh sách xử lý đang rỗng', 'warning');
+        if (currentBatchList.length === 0) {
+            showToast('Không còn mẫu ngữ pháp nào chưa chuẩn hóa trong bộ lọc này!', 'success');
             return;
         }
 
         setIsRunning(true);
         setLogs([]);
         setBatchResults([]);
-        setProgress({ total: filteredPoints.length, processed: 0, succeeded: 0, failed: 0, percent: 0, currentPattern: '' });
+        setProgress({ total: currentBatchList.length, processed: 0, succeeded: 0, skipped: 0, failed: 0, percent: 0, currentPattern: '' });
 
         abortControllerRef.current = new AbortController();
 
         try {
-            const outcome = await aiBatchStandardizeGrammarStructures(filteredPoints, {
+            const outcome = await aiBatchStandardizeGrammarStructures(currentBatchList, {
                 onProgress: (prog) => setProgress(prog),
                 onLog: (msg) => addLog(msg),
                 signal: abortControllerRef.current.signal,
                 forcedModel: selectedModel,
                 concurrency: Number(concurrency),
-                saveToFirestore: true
+                saveToFirestore: true,
+                skipAlreadyStandardized: onlyUnstandardized
             });
 
             setBatchResults(outcome.results || []);
@@ -196,7 +222,7 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
                 setAllGrammarPoints(prev => prev.map(p => updatedMap.get(p.id) || p));
             }
 
-            showToast(`Hoàn tất! Thành công: ${outcome.succeeded}/${outcome.total}`, 'success');
+            showToast(`Hoàn tất đợt! Thành công: ${outcome.succeeded}, Bỏ qua: ${outcome.skipped || 0}, Thất bại: ${outcome.failed}`, 'success');
         } catch (err) {
             console.error('Batch error:', err);
             addLog(`❌ Lỗi batch: ${err.message}`);
@@ -215,7 +241,18 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
         }
     };
 
-    // 4. Export JSON
+    // 4. Reset Standardized flags
+    const handleResetStandardizedFlags = async () => {
+        const confirmed = await showConfirm(
+            'Bạn có chắc chắn muốn xóa bộ nhớ cờ đã chuẩn hóa trên thiết bị này? (Dữ liệu đã lưu trên Firestore vẫn giữ nguyên)',
+            { confirmText: 'Xóa cờ để chạy lại', cancelText: 'Hủy' }
+        );
+        if (!confirmed) return;
+        clearStandardizedGrammarIds();
+        showToast('Đã xóa cờ ghi nhớ chuẩn hóa', 'info');
+    };
+
+    // 5. Export JSON
     const handleExportJson = () => {
         if (allGrammarPoints.length === 0) return;
         const blob = new Blob([JSON.stringify(allGrammarPoints, null, 2)], { type: 'application/json' });
@@ -232,7 +269,7 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
 
     return (
         <div className="fixed inset-0 z-[10010] bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-3 md:p-6 animate-fade-in">
-            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl w-full max-w-4xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden">
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl w-full max-w-4xl max-h-[92vh] flex flex-col shadow-2xl overflow-hidden text-left">
                 {/* Header */}
                 <div className="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50/50 dark:bg-slate-850/50">
                     <div className="flex items-center gap-3">
@@ -241,13 +278,13 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
                         </div>
                         <div>
                             <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                                AI Chuẩn Hóa Cấu Trúc Ngữ Pháp Giáo Trình
-                                <span className="text-[11px] px-2 py-0.5 rounded-full bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 font-bold border border-indigo-500/20">
-                                    [ ] Bracket Formula
+                                AI Chuẩn Hóa Cấu Trúc Ngữ Pháp
+                                <span className="text-[11px] px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-bold border border-emerald-500/20 flex items-center gap-1">
+                                    <CheckCircle2 className="w-3 h-3" /> Tự động bỏ qua đã chuẩn hóa
                                 </span>
                             </h2>
                             <p className="text-xs text-slate-500 dark:text-slate-400">
-                                Tự động chuyển đổi cấu trúc Mazii rải rác thành công thức đóng mở ngoặc gọn gàng theo sách Shinkanzen Master / Soumatome
+                                Chuẩn hóa công thức đóng mở ngoặc [ ... ] & giải thích ngắn gọn. Hỗ trợ chạy từng đợt và tiếp tục phiên trước.
                             </p>
                         </div>
                     </div>
@@ -258,6 +295,35 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
                     >
                         <X className="w-5 h-5" />
                     </button>
+                </div>
+
+                {/* Overall Repository Progress Banner */}
+                <div className="bg-gradient-to-r from-indigo-50/80 via-purple-50/60 to-emerald-50/80 dark:from-indigo-950/30 dark:via-purple-950/20 dark:to-emerald-950/30 px-6 py-3 border-b border-slate-200/80 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex items-center gap-4 text-xs font-semibold text-slate-700 dark:text-slate-300">
+                        <span>📊 Tiến độ ({selectedLevel === 'ALL' ? 'Toàn bộ kho' : selectedLevel}):</span>
+                        <div className="flex items-center gap-2">
+                            <div className="w-32 bg-slate-200 dark:bg-slate-700 h-2.5 rounded-full overflow-hidden">
+                                <div
+                                    className="bg-emerald-500 h-full rounded-full transition-all duration-500"
+                                    style={{ width: `${stats.percent}%` }}
+                                />
+                            </div>
+                            <span className="font-bold font-mono text-emerald-600 dark:text-emerald-400">{stats.percent}%</span>
+                        </div>
+                    </div>
+                    <div className="flex items-center gap-3 text-xs">
+                        <span className="text-emerald-600 dark:text-emerald-400 font-bold">
+                            ✓ Đã chuẩn hóa: {stats.standardized.toLocaleString()}
+                        </span>
+                        <span className="text-slate-400">•</span>
+                        <span className="text-indigo-600 dark:text-indigo-400 font-bold">
+                            Chưa chuẩn hóa: {stats.unstandardized.toLocaleString()}
+                        </span>
+                        <span className="text-slate-400">•</span>
+                        <span className="text-slate-500">
+                            Tổng: {stats.total.toLocaleString()}
+                        </span>
+                    </div>
                 </div>
 
                 {/* Content Area */}
@@ -288,21 +354,22 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
                             </div>
                         </div>
 
-                        {/* Filter Option & Model */}
+                        {/* Batch Size & Model */}
                         <div className="space-y-2">
                             <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-                                Bộ lọc & Mô hình AI
+                                Số lượng xử lý mỗi đợt
                             </label>
-                            <label className="flex items-center gap-2 cursor-pointer text-xs text-slate-700 dark:text-slate-300">
-                                <input
-                                    type="checkbox"
-                                    disabled={isRunning}
-                                    checked={onlyUnstandardized}
-                                    onChange={(e) => setOnlyUnstandardized(e.target.checked)}
-                                    className="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
-                                />
-                                <span>Chỉ mẫu chưa có ngoặc [ ]</span>
-                            </label>
+                            <select
+                                value={batchSize}
+                                disabled={isRunning}
+                                onChange={(e) => setBatchSize(e.target.value === 'ALL' ? 'ALL' : Number(e.target.value))}
+                                className="w-full px-2.5 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold text-slate-800 dark:text-slate-200 outline-none"
+                            >
+                                {BATCH_SIZES.map(b => (
+                                    <option key={b.value} value={b.value}>{b.label}</option>
+                                ))}
+                            </select>
+
                             <select
                                 value={selectedModel}
                                 disabled={isRunning}
@@ -315,8 +382,8 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
                             </select>
                         </div>
 
-                        {/* Concurrency & Stats */}
-                        <div className="flex flex-col justify-between">
+                        {/* Concurrency & Auto Skip Setting */}
+                        <div className="flex flex-col justify-between space-y-2">
                             <div>
                                 <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
                                     Đồng thời (Luồng)
@@ -325,7 +392,7 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
                                     value={concurrency}
                                     disabled={isRunning}
                                     onChange={(e) => setConcurrency(Number(e.target.value))}
-                                    className="w-full px-2.5 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs text-slate-800 dark:text-slate-200 outline-none mb-2"
+                                    className="w-full px-2.5 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-xs text-slate-800 dark:text-slate-200 outline-none"
                                 >
                                     <option value={1}>1 request (An toàn, chống rate limit)</option>
                                     <option value={2}>2 requests (Khuyên dùng)</option>
@@ -333,12 +400,16 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
                                     <option value={5}>5 requests (Siêu tốc)</option>
                                 </select>
                             </div>
-                            <div className="text-xs font-semibold text-slate-600 dark:text-slate-300 flex items-center justify-between">
-                                <span>Mẫu cần chuẩn hóa:</span>
-                                <span className="font-mono font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-2 py-0.5 rounded-lg border border-indigo-200 dark:border-indigo-800">
-                                    {isLoadingData ? 'Đang đếm...' : `${filteredPoints.length} / ${allGrammarPoints.length}`}
-                                </span>
-                            </div>
+                            <label className="flex items-center gap-2 cursor-pointer text-xs font-bold text-slate-700 dark:text-slate-300">
+                                <input
+                                    type="checkbox"
+                                    disabled={isRunning}
+                                    checked={onlyUnstandardized}
+                                    onChange={(e) => setOnlyUnstandardized(e.target.checked)}
+                                    className="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                                />
+                                <span>Tự động bỏ qua các mẫu đã chuẩn hóa</span>
+                            </label>
                         </div>
                     </div>
 
@@ -404,10 +475,12 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
                             <div className="flex items-center justify-between text-xs font-bold">
                                 <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
                                     <RefreshCw className={`w-3.5 h-3.5 text-indigo-500 ${isRunning ? 'animate-spin' : ''}`} />
-                                    Tiến độ: {progress.processed} / {progress.total} ({progress.percent}%)
+                                    Tiến độ đợt này: {progress.processed} / {progress.total} ({progress.percent}%)
                                 </span>
-                                <span className="text-slate-500">
-                                    Thành công: <strong className="text-emerald-600">{progress.succeeded}</strong> | Thất bại: <strong className="text-rose-600">{progress.failed}</strong>
+                                <span className="text-slate-500 flex items-center gap-2">
+                                    <span className="text-emerald-600 font-bold">✓ Thành công: {progress.succeeded}</span>
+                                    {progress.skipped > 0 && <span className="text-sky-600 font-bold">⏩ Bỏ qua: {progress.skipped}</span>}
+                                    {progress.failed > 0 && <span className="text-rose-600 font-bold">✗ Lỗi: {progress.failed}</span>}
                                 </span>
                             </div>
                             <div className="w-full bg-slate-200 dark:bg-slate-700 h-2.5 rounded-full overflow-hidden">
@@ -437,22 +510,34 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
 
                 {/* Footer Action Bar */}
                 <div className="px-6 py-4 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50/50 dark:bg-slate-850/50">
-                    <button
-                        type="button"
-                        onClick={handleExportJson}
-                        disabled={isRunning || allGrammarPoints.length === 0}
-                        className="px-3.5 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold flex items-center gap-1.5 transition-all disabled:opacity-40"
-                    >
-                        <Download className="w-4 h-4" />
-                        Tải file JSON ({allGrammarPoints.length})
-                    </button>
+                    <div className="flex items-center gap-2">
+                        <button
+                            type="button"
+                            onClick={handleExportJson}
+                            disabled={isRunning || allGrammarPoints.length === 0}
+                            className="px-3 py-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold flex items-center gap-1.5 transition-all disabled:opacity-40"
+                        >
+                            <Download className="w-4 h-4" />
+                            Tải file JSON ({allGrammarPoints.length})
+                        </button>
+                        <button
+                            type="button"
+                            onClick={handleResetStandardizedFlags}
+                            disabled={isRunning}
+                            className="px-3 py-2 rounded-xl text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 text-xs font-semibold flex items-center gap-1 transition-all"
+                            title="Xóa bộ nhớ cờ đã chuẩn hóa trên máy"
+                        >
+                            <RotateCcw className="w-3.5 h-3.5" />
+                            Đặt lại cờ
+                        </button>
+                    </div>
 
                     <div className="flex items-center gap-2.5">
                         {isRunning ? (
                             <button
                                 type="button"
                                 onClick={handleStopBatch}
-                                className="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all"
+                                className="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all cursor-pointer"
                             >
                                 <Square className="w-4 h-4 fill-white" />
                                 Dừng lại
@@ -461,11 +546,15 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
                             <button
                                 type="button"
                                 onClick={handleStartBatch}
-                                disabled={filteredPoints.length === 0}
-                                className="px-5 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all disabled:opacity-40"
+                                disabled={currentBatchList.length === 0}
+                                className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold text-xs flex items-center gap-2 shadow-md shadow-indigo-500/20 transition-all disabled:opacity-40 cursor-pointer"
                             >
                                 <Play className="w-4 h-4 fill-white" />
-                                Chạy chuẩn hóa {filteredPoints.length} mẫu
+                                {currentBatchList.length === filteredPoints.length ? (
+                                    <span>Chạy {currentBatchList.length} mẫu còn lại</span>
+                                ) : (
+                                    <span>Tiếp tục đợt này ({currentBatchList.length} / {filteredPoints.length} mẫu còn lại)</span>
+                                )}
                             </button>
                         )}
                     </div>

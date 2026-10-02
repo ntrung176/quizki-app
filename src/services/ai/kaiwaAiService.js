@@ -1,4 +1,4 @@
-import { getOpenRouterKeys, OPENROUTER_MODELS, getEffectiveModel, extractOpenRouterText, callAI } from '../../utils/aiProvider';
+import { getOpenRouterKeys, OPENROUTER_MODELS, getEffectiveModel, extractOpenRouterText, callAI, getAiProxyUrl } from '../../utils/aiProvider';
 
 export const callKaiwaAI = async (systemPrompt, conversationHistory = [], userMessage = '', forcedModel = null) => {
     const keys = getOpenRouterKeys();
@@ -49,16 +49,28 @@ export const callKaiwaAI = async (systemPrompt, conversationHistory = [], userMe
             controller.abort();
         }, 18000);
 
-        const url = 'https://openrouter.ai/api/v1/chat/completions';
+        const proxyUrl = getAiProxyUrl();
+        const isProxy = !!proxyUrl;
+        const targetUrl = isProxy
+            ? (proxyUrl.endsWith('/chat/completions') || proxyUrl.endsWith('/v1/chat/completions')
+                ? proxyUrl
+                : `${proxyUrl.replace(/\/+$/, '')}/v1/chat/completions`)
+            : 'https://openrouter.ai/api/v1/chat/completions';
+
+        const headers = {
+            'Content-Type': 'application/json',
+            'HTTP-Referer': safeOrigin,
+            'X-Title': 'Quizki Kaiwa'
+        };
+
+        if (!isProxy && currentKey && currentKey !== 'cloudflare-proxy-active') {
+            headers['Authorization'] = `Bearer ${currentKey}`;
+        }
+
         const options = {
             method: 'POST',
             signal: controller.signal,
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${currentKey}`,
-                'HTTP-Referer': safeOrigin,
-                'X-Title': 'Quizki Kaiwa'
-            },
+            headers,
             body: JSON.stringify({
                 model: currentModel,
                 messages: messagesList,

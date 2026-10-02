@@ -542,10 +542,42 @@ export const clearEditedGrammarLocalCache = () => {
     } catch (_) { }
 };
 
+const STANDARDIZED_GRAMMAR_KEY = 'quizki_standardized_grammar_ids';
+
+export const getStandardizedGrammarIds = () => {
+    try {
+        const stored = localStorage.getItem(STANDARDIZED_GRAMMAR_KEY);
+        return stored ? new Set(JSON.parse(stored)) : new Set();
+    } catch (e) {
+        return new Set();
+    }
+};
+
+export const addStandardizedGrammarIds = (ids) => {
+    try {
+        const current = getStandardizedGrammarIds();
+        ids.forEach(id => {
+            if (id) current.add(id);
+        });
+        localStorage.setItem(STANDARDIZED_GRAMMAR_KEY, JSON.stringify(Array.from(current)));
+    } catch (e) {
+        console.error('Error saving standardized grammar IDs:', e);
+    }
+};
+
+export const clearStandardizedGrammarIds = () => {
+    try {
+        localStorage.removeItem(STANDARDIZED_GRAMMAR_KEY);
+    } catch (_) { }
+};
+
 export const updateGrammarPoint = async (textbookId, lessonId, grammarId, data) => {
     try {
         clearSharedGrammarPointsListCache();
         const updatedDoc = { ...data, id: grammarId, textbookId, lessonId, updatedAt: Date.now() };
+        if (data.isStandardized) {
+            addStandardizedGrammarIds([grammarId]);
+        }
         updateEditedGrammarLocalCache(grammarId, updatedDoc);
 
         const cleanPayload = sanitizeGrammarPointForFirestore(data);

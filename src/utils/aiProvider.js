@@ -13,7 +13,11 @@ import { getLanguageService } from '../languages';
 import { getJotobaKanjiData } from '../data/jotobaKanjiData';
 // ============== KEY MANAGEMENT ==============
 
-// Lấy tất cả OpenRouter keys
+export const getAiProxyUrl = () => {
+    return (import.meta.env.VITE_AI_PROXY_URL || import.meta.env.VITE_OPENROUTER_PROXY_URL || '').trim();
+};
+
+// Lấy tất cả OpenRouter keys (hoặc kích hoạt proxy mode nếu có proxyUrl)
 export const getOpenRouterKeys = () => {
     const keys = [];
     let i = 1;
@@ -29,6 +33,10 @@ export const getOpenRouterKeys = () => {
     const singleKey = import.meta.env.VITE_OPENROUTER_API_KEY;
     if (singleKey && !keys.includes(singleKey)) {
         keys.unshift(singleKey);
+    }
+    // Nếu có Cloudflare Proxy URL và không có key client nào, đưa một identifier giả lập để qua được guard check
+    if (keys.length === 0 && getAiProxyUrl()) {
+        keys.push('cloudflare-proxy-active');
     }
     return keys;
 };
@@ -65,6 +73,9 @@ export const getEffectiveModel = (model) => {
 
 
 const buildOpenRouterRequest = (prompt, model, apiKey, maxTokens = 1500) => {
+    const proxyUrl = getAiProxyUrl();
+    const isProxy = !!proxyUrl;
+
     const safeOrigin = (typeof window !== 'undefined' && window.location?.origin && window.location.origin.startsWith('http'))
         ? window.location.origin
         : 'https://quizki.app';
@@ -80,16 +91,27 @@ const buildOpenRouterRequest = (prompt, model, apiKey, maxTokens = 1500) => {
             { role: 'user', content: prompt }
         ];
 
+    const headers = {
+        'Content-Type': 'application/json',
+        'HTTP-Referer': safeOrigin,
+        'X-Title': 'Quizki Vocab'
+    };
+
+    if (!isProxy && apiKey && apiKey !== 'cloudflare-proxy-active') {
+        headers['Authorization'] = `Bearer ${apiKey}`;
+    }
+
+    const targetUrl = isProxy
+        ? (proxyUrl.endsWith('/chat/completions') || proxyUrl.endsWith('/v1/chat/completions')
+            ? proxyUrl
+            : `${proxyUrl.replace(/\/+$/, '')}/v1/chat/completions`)
+        : 'https://openrouter.ai/api/v1/chat/completions';
+
     return {
-        url: 'https://openrouter.ai/api/v1/chat/completions',
+        url: targetUrl,
         options: {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${apiKey}`,
-                'HTTP-Referer': safeOrigin,
-                'X-Title': 'Quizki Vocab'
-            },
+            headers,
             body: JSON.stringify({
                 model: model,
                 messages,
@@ -111,7 +133,7 @@ const extractOpenRouterText = (result) => result?.choices?.[0]?.message?.content
 const callWithRetry = async (prompt, keyIndex = 0, modelIndex = 0, preferredModel = null, maxTokensOverride = null) => {
     const keys = getOpenRouterKeys();
     if (keys.length === 0) {
-        throw new Error('Không có OpenRouter API key. Vui lòng thêm VITE_OPENROUTER_API_KEY vào file .env');
+        throw new Error('Chưa cấu hình AI. Vui lòng thêm VITE_AI_PROXY_URL hoặc VITE_OPENROUTER_API_KEY vào file .env');
     }
 
     let models = [...OPENROUTER_MODELS];
@@ -210,7 +232,7 @@ const callWithRetry = async (prompt, keyIndex = 0, modelIndex = 0, preferredMode
 export const callAI = async (prompt, forcedOpenRouterModel = null, featureId = null, maxTokens = null) => {
     const keys = getOpenRouterKeys();
     if (keys.length === 0) {
-        throw new Error('Không có OpenRouter API key. Vui lòng thêm VITE_OPENROUTER_API_KEY vào file .env');
+        throw new Error('Chưa cấu hình AI. Vui lòng thêm VITE_AI_PROXY_URL hoặc VITE_OPENROUTER_API_KEY vào file .env');
     }
 
     let activeModel = forcedOpenRouterModel;
@@ -233,17 +255,19 @@ export const callAI = async (prompt, forcedOpenRouterModel = null, featureId = n
             more_examples: 'openai/gpt-4o-mini',
             ocr_image: 'openai/gpt-4o-mini',
             grammar_check: 'openai/gpt-4o-mini',
-            kaiwa_agent: 'google/gemini-2.5-flash'
+            kaiwa_agent: 'google/gemini-2.5-flash',
+            pdf_ingest: 'google/gemini-2.5-flash'
         };
         activeModel = FEATURE_DEFAULTS[featureId] || 'google/gemini-2.5-flash';
     }
 
     activeModel = getEffectiveModel(activeModel);
+    const effectiveMaxTokens = maxTokens || (featureId === 'pdf_ingest' ? 8192 : null);
     console.log(
-        `%c[AI Provider] 🔵 OPENROUTER (${keys.length} keys) | Feature: ${featureId || 'default'} | Model: ${activeModel}`,
+        `%c[AI Provider] 🔵 OPENROUTER (${keys.length} keys) | Feature: ${featureId || 'default'} | Model: ${activeModel} | MaxTokens: ${effectiveMaxTokens || 1500}`,
         'color: #38bdf8; font-weight: bold; background: #0c4a6e; padding: 4px 8px; border-radius: 4px;'
     );
-    return callWithRetry(prompt, 0, 0, activeModel, maxTokens);
+    return callWithRetry(prompt, 0, 0, activeModel, effectiveMaxTokens);
 };
 
 
@@ -890,18 +914,20 @@ Không trả về bất kỳ văn bản giải thích nào khác ngoài mảng J
 // ============== INFO ==============
 
 export const getAIProviderInfo = () => {
+    const proxyUrl = getAiProxyUrl();
     const keys = getOpenRouterKeys();
+    const hasProxy = !!proxyUrl;
     return {
         available: [{
             id: 'openrouter',
-            name: 'OpenRouter (Gemini)',
+            name: hasProxy ? 'Cloudflare AI Proxy (OpenRouter)' : 'OpenRouter (Gemini)',
             models: OPENROUTER_MODELS,
-            keyCount: keys.length
+            keyCount: hasProxy ? 'Cloudflare Proxy Active' : keys.length
         }],
-        totalKeys: keys.length,
-        summary: keys.length > 0
-            ? `OpenRouter(${keys.length} keys)`
-            : 'Chưa cấu hình OpenRouter API key'
+        totalKeys: hasProxy ? 1 : keys.length,
+        summary: hasProxy
+            ? 'Cloudflare AI Proxy (Bảo mật)'
+            : (keys.length > 0 ? `OpenRouter(${keys.length} keys)` : 'Chưa cấu hình OpenRouter API key')
     };
 };
 
@@ -1024,16 +1050,28 @@ export const callKaiwaAI = async (systemPrompt, conversationHistory = [], userMe
             controller.abort();
         }, 18000);
 
-        const url = 'https://openrouter.ai/api/v1/chat/completions';
+        const proxyUrl = getAiProxyUrl();
+        const isProxy = !!proxyUrl;
+        const targetUrl = isProxy
+            ? (proxyUrl.endsWith('/chat/completions') || proxyUrl.endsWith('/v1/chat/completions')
+                ? proxyUrl
+                : `${proxyUrl.replace(/\/+$/, '')}/v1/chat/completions`)
+            : 'https://openrouter.ai/api/v1/chat/completions';
+
+        const headers = {
+            'Content-Type': 'application/json',
+            'HTTP-Referer': safeOrigin,
+            'X-Title': 'Quizki Kaiwa'
+        };
+
+        if (!isProxy && currentKey && currentKey !== 'cloudflare-proxy-active') {
+            headers['Authorization'] = `Bearer ${currentKey}`;
+        }
+
         const options = {
             method: 'POST',
             signal: controller.signal,
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${currentKey}`,
-                'HTTP-Referer': safeOrigin,
-                'X-Title': 'Quizki Kaiwa'
-            },
+            headers,
             body: JSON.stringify({
                 model: currentModel,
                 messages: messagesList,

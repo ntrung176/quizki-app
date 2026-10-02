@@ -8,9 +8,9 @@
 const isDev = import.meta.env.DEV;
 const SEPAY_PROXY_URL = import.meta.env.VITE_SEPAY_PROXY_URL || '';
 
-// Lấy SePay token: ưu tiên admin config, fallback .env
+// Lấy SePay token: ưu tiên admin config, fallback .env hoặc cờ proxy
 export const getSepayToken = (adminConfig) => {
-    return adminConfig?.sepayToken || import.meta.env.VITE_SEPAY_API_KEY || '';
+    return adminConfig?.sepayToken || import.meta.env.VITE_SEPAY_API_KEY || (SEPAY_PROXY_URL ? 'proxy-active' : '');
 };
 
 /**
@@ -38,7 +38,7 @@ export const generateVietQR = (bankId, accountNo, accountName, amount, content) 
  * Kiểm tra giao dịch qua SePay API
  */
 export const checkPaymentStatus = async (sepayToken, orderCode, expectedAmount, pollingStartTime) => {
-    if (!sepayToken) {
+    if (!sepayToken && !SEPAY_PROXY_URL) {
         console.warn('❌ SePay token not configured');
         return null;
     }
@@ -61,12 +61,12 @@ export const checkPaymentStatus = async (sepayToken, orderCode, expectedAmount, 
             return null;
         }
 
-        const response = await fetch(url, {
-            headers: {
-                'Authorization': `Bearer ${sepayToken}`,
-                'Content-Type': 'application/json'
-            }
-        });
+        const headers = { 'Content-Type': 'application/json' };
+        if (sepayToken && sepayToken !== 'proxy-active') {
+            headers['Authorization'] = `Bearer ${sepayToken}`;
+        }
+
+        const response = await fetch(url, { headers });
 
         if (!response.ok) {
             const errText = await response.text().catch(() => '');

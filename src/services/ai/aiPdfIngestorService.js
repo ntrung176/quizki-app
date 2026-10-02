@@ -1,7 +1,7 @@
 // aiPdfIngestorService.js — AI Parsing & Ingestion Service for PDF Documents
 import { callAI, getEffectiveModel } from '../../utils/aiProvider';
 import { db, appId } from '../../config/firebase';
-import { collection, addDoc, doc, setDoc, getDocs, updateDoc } from 'firebase/firestore';
+import { collection, addDoc, doc, setDoc, getDocs, updateDoc, serverTimestamp } from 'firebase/firestore';
 import { extractPdfText, chunkPdfPages } from './pdfExtractorService';
 import { invalidateGrammarCache } from '../../utils/grammarService';
 
@@ -37,11 +37,11 @@ export const INGESTOR_CATEGORIES = {
 };
 
 export const RECOMMENDED_INGESTOR_MODELS = [
-    { id: 'google/gemini-2.5-flash', name: 'Gemini 2.5 Flash', desc: 'Rất nhanh, rẻ, xử lý văn bản dài cực tốt (Khuyên dùng)', tag: 'Tốc độ & Rẻ' },
-    { id: 'google/gemini-2.5-pro', name: 'Gemini 2.5 Pro', desc: 'Độ chính xác cao nhất cho cấu trúc phức tạp và đọc hiểu dài', tag: 'Chính xác cao' },
-    { id: 'anthropic/claude-3.5-sonnet', name: 'Claude 3.5 Sonnet', desc: 'Văn phong dịch nghĩa tiếng Nhật & giải thích tuyệt hảo', tag: 'Chất lượng cao' },
+    { id: 'google/gemini-2.5-flash', name: 'Gemini 2.5 Flash', desc: 'Rất nhanh, rẻ, cửa sổ ngữ cảnh 1M token cực lớn, giải đề JLPT và trích xuất JSON siêu chuẩn (Khuyên dùng)', tag: '⭐ Khuyên dùng' },
+    { id: 'google/gemini-2.5-pro', name: 'Gemini 2.5 Pro', desc: 'Độ chính xác cao nhất cho phần Đọc hiểu phức tạp N1/N2 và bài đọc dài so sánh A & B', tag: 'Chính xác cao nhất' },
+    { id: 'anthropic/claude-3.5-sonnet', name: 'Claude 3.5 Sonnet', desc: 'Văn phong dịch nghĩa tiếng Nhật & giải thích ngữ pháp tuyệt hảo', tag: 'Chất lượng cao' },
     { id: 'openai/gpt-4o', name: 'GPT-4o', desc: 'Ổn định, mạnh về phân tích đề thi và định dạng JSON', tag: 'Tiêu chuẩn' },
-    { id: 'deepseek/deepseek-chat', name: 'DeepSeek Chat', desc: 'Chi phí cực thấp, phù hợp trích xuất số lượng lớn', tag: 'Tiết kiệm' }
+    { id: 'deepseek/deepseek-chat', name: 'DeepSeek Chat', desc: 'Chi phí siêu tiết kiệm, tốc độ phản hồi nhanh', tag: 'Tiết kiệm' }
 ];
 
 /**
@@ -101,35 +101,48 @@ TRẢ VỀ DUY NHẤT 1 OBJECT JSON HỢP LỆ (KHÔNG DÙNG MARKDOWN, KHÔNG GI
 }`;
 
         case 'JLPT_TEST':
-            return `Bạn là chuyên gia biên soạn đề thi JLPT Nhật ngữ học thuật chính thức.
-Nhiệm vụ: Phân tích đoạn văn bản đề thi PDF sau (Phần ${chunkIndex}/${totalChunks}) và trích xuất thành CẤU TRÚC ĐỀ THI JLPT HOÀN CHỈNH.
+            return `Bạn là chuyên gia khảo thí và biên soạn đề thi JLPT Nhật ngữ học thuật chính thức (N1 - N5).
+Nhiệm vụ: Hãy phân tích kỹ lưỡng văn bản đề thi PDF sau (Phần ${chunkIndex}/${totalChunks}) và trích xuất thành CẤU TRÚC ĐỀ THI JLPT CHUẨN HOÀN CHỈNH 100%.
 
-HƯỚNG DẪN TÙY CHỈNH:
-"${customInstructions || 'Trích xuất toàn bộ các Mondai, câu hỏi, 4 đáp án và lời giải thích.'}"
+HƯỚNG DẪN TÙY CHỈNH CỦA NGƯỜI DÙNG:
+"${customInstructions || 'Trích xuất toàn bộ các Mondai, câu hỏi, 4 phương án, tự giải đề chính xác và kèm đầy đủ đoạn văn đọc hiểu.'}"
 
-VĂN BẢN TRÍCH XUẤT TỪ PDF:
+VĂN BẢN ĐỀ THI TỪ PDF:
 """
 ${chunkText}
 """
 
-QUY TẮC BẮT BUỘC CHO ĐỀ THI JLPT:
-1. "sections": Phân chia thành các phần:
-   - "vocabulary": Kiến thức ngôn ngữ - Chữ Hán & Từ vựng (文字・語彙)
-   - "grammar": Ngữ pháp (文法)
-   - "reading": Đọc hiểu (読解) -> Kèm theo trường "passage" chứa toàn bộ bài đọc!
-   - "listening": Nghe hiểu (聴解)
-2. "questions":
-   - "question": Nội dung câu hỏi. Dùng thẻ <u>...</u> để gạch chân từ khóa/chỗ trống cần hỏi.
-   - "options": Mảng chính xác 4 lựa chọn ["1...", "2...", "3...", "4..."].
-   - "correctAnswer": Index của đáp án đúng (0 cho đáp án 1, 1 cho đáp án 2, 2 cho đáp án 3, 3 cho đáp án 4).
-   - "explanation": Giải thích ngắn gọn tại sao đáp án đó đúng và dịch nghĩa câu.
-   - "passage": Nội dung bài đọc dài (nếu là bài Đọc hiểu / Mondai đọc).
+QUY TẮC BẮT BUỘC KHI TRÍCH XUẤT ĐỀ THI JLPT:
+1. TIÊU ĐỀ & CẤP ĐỘ:
+   - "title": Tên đề thi rõ ràng từ header tài liệu (Ví dụ: "JLPT N2 - Đề thi 07/2021" hoặc "JLPT N3 - Đề chính thức").
+   - "level": Cấp độ JLPT ("N1", "N2", "N3", "N4", "N5").
+   - "timeLimit": Thời gian làm bài theo quy chuẩn JLPT (N1: 110, N2: 105, N3: 70, N4: 60, N5: 60 phút).
+
+2. PHÂN CHIA SECTIONS (CÁC PHẦN THI CHUẨN):
+   - "vocabulary": Từ vựng & Chữ Hán (文字・語彙: Mondai 1 đến Mondai 6).
+   - "grammar": Ngữ pháp (文法: Mondai 7 đến Mondai 9, bao gồm bài điền từ, bài sao ★ và điền từ vào bài văn).
+   - "reading": Đọc hiểu (読解: Mondai 10 đến Mondai 14, bao gồm đoạn văn ngắn, trung, dài, so sánh A & B, tìm kiếm thông tin).
+   - "listening": Nghe hiểu (聴解: Mondai 1 đến Mondai 5 nếu có).
+
+3. TỰ GIẢI ĐỀ & ĐÁP ÁN ĐÚNG (CRITICAL):
+   - Đề thi gốc PDF là đề thi cho thí sinh, KHÔNG CÓ sẵn bảng đáp án. Bạn BẮT BUỘC PHẢI GIẢI TỪNG CÂU HỎI theo kiến thức JLPT chuẩn để xác định "correctAnswer" (0 cho đáp án 1, 1 cho đáp án 2, 2 cho đáp án 3, 3 cho đáp án 4).
+   - "explanation": Viết giải thích súc tích, dịch nghĩa câu tiếng Nhật sang tiếng Việt và nêu rõ tại sao chọn đáp án đó.
+
+4. BÀI ĐỌC HIỂU ("passage"):
+   - Với tất cả các câu hỏi thuộc phần Đọc hiểu (読解) hoặc bài văn điền từ (問題 9): BẮT BUỘC phải trích xuất toàn bộ nội dung bài văn gốc vào trường "passage" (giữ nguyên các đoạn văn, tiêu đề phụ, chú thích từ vựng 注1, 注2).
+   - Nếu nhiều câu hỏi cùng dùng chung một đoạn văn (ví dụ: Mondai 11 (1) có câu 57, 58, 59): hãy gán cùng đoạn văn đó vào trường "passage" của tất cả các câu hỏi đó.
+
+5. ĐỊNH DẠNG CÂU HỎI & ĐÁP ÁN:
+   - Dùng thẻ <u>...</u> cho từ gạch chân (ví dụ: "海外市場に進出するために販売部門を<u>拡充</u>した。").
+   - Dùng "（　）" cho chỗ trống cần điền.
+   - Dùng "<u>　</u> <u>　</u> <u>★</u> <u>　</u>" cho bài tập sắp xếp từ có dấu sao.
+   - "options": Mảng chính xác 4 lựa chọn không chứa tiền tố số thứ tự (ví dụ: ["こうじゅ", "かくじゅ", "こうじゅう", "かくじゅう"]).
 
 TRẢ VỀ DUY NHẤT 1 OBJECT JSON HỢP LỆ (KHÔNG DÙNG MARKDOWN, KHÔNG GIẢI THÍCH):
 {
-  "title": "Đề thi thử JLPT N3 - Đề số 1",
-  "level": "N3",
-  "timeLimit": 60,
+  "title": "JLPT N2 - Đề thi 07/2021",
+  "level": "N2",
+  "timeLimit": 105,
   "isSkillTest": false,
   "sections": [
     {
@@ -137,10 +150,10 @@ TRẢ VỀ DUY NHẤT 1 OBJECT JSON HỢP LỆ (KHÔNG DÙNG MARKDOWN, KHÔNG GI
       "title": "Từ vựng (文字・語彙)",
       "questions": [
         {
-          "question": "この<u>法律</u>は来年から施行される。",
-          "options": ["ほうりつ", "ほうりち", "ほりつ", "ほうりっ"],
-          "correctAnswer": 0,
-          "explanation": "法律（ほうりつ）= pháp luật."
+          "question": "海外市場に進出するために販売部門を<u>拡充</u>した。",
+          "options": ["こうじゅ", "かくじゅ", "こうじゅう", "かくじゅう"],
+          "correctAnswer": 3,
+          "explanation": "拡充（かくじゅう）= Mở rộng, bành trướng quy mô. Câu: Đã mở rộng bộ phận bán hàng để tiến ra thị trường nước ngoài."
         }
       ]
     },
@@ -149,11 +162,16 @@ TRẢ VỀ DUY NHẤT 1 OBJECT JSON HỢP LỆ (KHÔNG DÙNG MARKDOWN, KHÔNG GI
       "title": "Đọc hiểu (読解)",
       "questions": [
         {
-          "passage": "<b>[Đoạn văn đọc hiểu]</b><br/>最近、環境問題についての関心が高まっている...",
-          "question": "筆者が最も言いたいことは何か。",
-          "options": ["Lựa chọn 1", "Lựa chọn 2", "Lựa chọn 3", "Lựa chọn 4"],
-          "correctAnswer": 2,
-          "explanation": "Dựa vào đoạn cuối bài..."
+          "passage": "<b>【Bài đọc 1】</b><br/>以下は、保護者に向けて書かれた文章である。<br/>最初に知っておきたいのは、保護者が嫌いなものは...",
+          "question": "筆者の考えに合うのはどれか。",
+          "options": [
+            "大人は子供の好き嫌いを気にしすぎない方が良い。",
+            "大人の食べ物に対する態度が、子供の好き嫌いに影響する。",
+            "子供のころの好き嫌いは、大人になってからも変わらない。",
+            "子供の好き嫌いを無くすより、食事を楽しむことの方が大切だ。"
+          ],
+          "correctAnswer": 1,
+          "explanation": "Đoạn 1 và đoạn 2 nhấn mạnh thái độ của người lớn đối với đồ ăn sẽ ảnh hưởng đến việc trẻ có thích hay ghét món đó hay không."
         }
       ]
     }
@@ -297,32 +315,70 @@ const mergeExtractedChunks = (category, chunksData) => {
             const merged = {
                 title: first.title || 'Đề thi JLPT AI Ingested',
                 level: first.level || 'N3',
-                timeLimit: first.timeLimit || 60,
+                timeLimit: first.timeLimit || 105,
                 isSkillTest: Boolean(first.isSkillTest),
                 sections: []
             };
 
+            const sectionOrder = ['vocabulary', 'grammar', 'reading', 'listening'];
             const sectionMap = new Map();
 
-            for (const chunk of chunksData) {
-                if (!chunk || !Array.isArray(chunk.sections)) continue;
-                for (const sec of chunk.sections) {
-                    const secType = sec.type || 'vocabulary';
-                    if (!sectionMap.has(secType)) {
-                        sectionMap.set(secType, {
-                            type: secType,
-                            title: sec.title || secType,
+            for (const rawChunk of chunksData) {
+                if (!rawChunk) continue;
+                const chunk = rawChunk.test || rawChunk.data || rawChunk;
+
+                if (chunk.title && chunk.title.length > merged.title.length) {
+                    merged.title = chunk.title;
+                }
+                if (chunk.level) merged.level = chunk.level;
+                if (chunk.timeLimit) merged.timeLimit = chunk.timeLimit;
+
+                if (Array.isArray(chunk.sections)) {
+                    for (const sec of chunk.sections) {
+                        const secType = (sec.type || 'vocabulary').toLowerCase();
+                        if (!sectionMap.has(secType)) {
+                            sectionMap.set(secType, {
+                                type: secType,
+                                title: sec.title || (
+                                    secType === 'vocabulary' ? 'Từ vựng (文字・語彙)' :
+                                    secType === 'grammar' ? 'Ngữ pháp (文法)' :
+                                    secType === 'reading' ? 'Đọc hiểu (読解)' :
+                                    secType === 'listening' ? 'Nghe hiểu (聴解)' : secType
+                                ),
+                                questions: []
+                            });
+                        }
+                        const targetSec = sectionMap.get(secType);
+                        if (Array.isArray(sec.questions)) {
+                            targetSec.questions.push(...sec.questions);
+                        }
+                    }
+                } else if (Array.isArray(chunk.questions)) {
+                    const defaultType = 'vocabulary';
+                    if (!sectionMap.has(defaultType)) {
+                        sectionMap.set(defaultType, {
+                            type: defaultType,
+                            title: 'Tổng hợp câu hỏi',
                             questions: []
                         });
                     }
-                    const targetSec = sectionMap.get(secType);
-                    if (Array.isArray(sec.questions)) {
-                        targetSec.questions.push(...sec.questions);
-                    }
+                    sectionMap.get(defaultType).questions.push(...chunk.questions);
                 }
             }
 
-            merged.sections = Array.from(sectionMap.values());
+            // Sort sections in standard JLPT exam order
+            const sortedSections = [];
+            for (const type of sectionOrder) {
+                if (sectionMap.has(type)) {
+                    sortedSections.push(sectionMap.get(type));
+                    sectionMap.delete(type);
+                }
+            }
+            for (const sec of sectionMap.values()) {
+                sortedSections.push(sec);
+            }
+
+            merged.sections = sortedSections;
             return merged;
         }
 
@@ -375,73 +431,86 @@ export const safeParseJsonWithRepair = (rawText) => {
         throw new Error('Không có dữ liệu phản hồi từ AI.');
     }
 
-    let cleaned = rawText.trim();
+    let text = rawText.trim();
 
-    // 1. Remove markdown code fences
-    cleaned = cleaned.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/, '').trim();
+    // 1. Remove markdown code fences anywhere in text
+    text = text.replace(/```(?:json)?([\s\S]*?)```/gi, '$1').trim();
+    text = text.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/i, '').trim();
 
-    // 2. Direct JSON.parse
+    // 2. Direct parse attempt
     try {
-        return JSON.parse(cleaned);
+        return JSON.parse(text);
     } catch (e) {
-        // Proceed to extracting and repairing
+        // Continue
     }
 
-    // 3. Extract outermost JSON structure ({ ... } or [ ... ])
-    const firstBrace = cleaned.indexOf('{');
-    const firstBracket = cleaned.indexOf('[');
+    // 3. Extract candidate between outermost { } or [ ]
+    const firstBrace = text.indexOf('{');
+    const firstBracket = text.indexOf('[');
     
     let startIndex = -1;
-    let expectedEndChar = '';
+    let endChar = '';
     if (firstBrace !== -1 && (firstBracket === -1 || firstBrace < firstBracket)) {
         startIndex = firstBrace;
-        expectedEndChar = '}';
+        endChar = '}';
     } else if (firstBracket !== -1) {
         startIndex = firstBracket;
-        expectedEndChar = ']';
+        endChar = ']';
     }
 
     if (startIndex !== -1) {
-        const lastMatchingIndex = cleaned.lastIndexOf(expectedEndChar);
-        if (lastMatchingIndex > startIndex) {
-            const candidate = cleaned.slice(startIndex, lastMatchingIndex + 1);
+        const lastIndex = text.lastIndexOf(endChar);
+        if (lastIndex > startIndex) {
+            const candidate = text.slice(startIndex, lastIndex + 1);
             try {
                 return JSON.parse(candidate);
             } catch (e) {
-                cleaned = candidate;
+                text = candidate;
             }
         } else {
-            cleaned = cleaned.slice(startIndex);
+            text = text.slice(startIndex);
         }
     }
 
-    // 4. Automatic repair of unclosed quotes, brackets, or trailing dangling tokens
+    // 4. Advanced sanitizer: escape raw control characters in string literals & stack repair
     try {
-        let repaired = cleaned;
-        
-        // Remove trailing commas
-        repaired = repaired.replace(/,\s*$/, '');
-        
-        // Track open quotes and brackets
+        let sanitized = '';
         let inString = false;
         let escaped = false;
         const stack = [];
-        
-        for (let i = 0; i < repaired.length; i++) {
-            const char = repaired[i];
+
+        for (let i = 0; i < text.length; i++) {
+            const char = text[i];
+
             if (escaped) {
+                sanitized += char;
                 escaped = false;
                 continue;
             }
+
             if (char === '\\') {
+                sanitized += char;
                 escaped = true;
                 continue;
             }
+
             if (char === '"') {
                 inString = !inString;
+                sanitized += char;
                 continue;
             }
-            if (!inString) {
+
+            if (inString) {
+                if (char === '\n') {
+                    sanitized += '\\n';
+                } else if (char === '\r') {
+                    // ignore
+                } else if (char === '\t') {
+                    sanitized += '\\t';
+                } else {
+                    sanitized += char;
+                }
+            } else {
                 if (char === '{' || char === '[') {
                     stack.push(char);
                 } else if (char === '}') {
@@ -449,28 +518,31 @@ export const safeParseJsonWithRepair = (rawText) => {
                 } else if (char === ']') {
                     if (stack.length > 0 && stack[stack.length - 1] === '[') stack.pop();
                 }
+                sanitized += char;
             }
         }
 
-        // If truncated inside a string literal, close it
+        // Close unclosed quote if truncated inside string
         if (inString) {
-            repaired += '"';
+            sanitized += '"';
         }
 
-        // Remove trailing dangling key/colon or comma
-        repaired = repaired.replace(/,\s*$/, '').replace(/:\s*$/, ': null');
+        // Clean trailing comma / dangling keys
+        sanitized = sanitized.replace(/,\s*([\}\]])/g, '$1');
+        sanitized = sanitized.replace(/,\s*$/, '');
+        sanitized = sanitized.replace(/:\s*$/, ': null');
 
-        // Close unclosed brackets/braces in reverse order
+        // Close unclosed brackets/braces
         while (stack.length > 0) {
             const last = stack.pop();
-            if (last === '{') repaired += '}';
-            else if (last === '[') repaired += ']';
+            if (last === '{') sanitized += '}';
+            else if (last === '[') sanitized += ']';
         }
 
-        return JSON.parse(repaired);
-    } catch (repairErr) {
-        console.error('Failed to repair JSON. Raw text preview:', rawText.slice(0, 300));
-        throw new Error(`Phản hồi AI không đúng định dạng JSON: ${repairErr.message}`);
+        return JSON.parse(sanitized);
+    } catch (finalErr) {
+        console.error('JSON parsing failed. Raw preview:', rawText.slice(0, 400));
+        throw new Error(`Phản hồi AI không đúng định dạng JSON: ${finalErr.message}`);
     }
 };
 
@@ -507,9 +579,10 @@ export const processPdfWithAI = async (pdfFile, {
         throw new Error('Không tìm thấy nội dung văn bản trong tài liệu PDF này. Có thể đây là file PDF dạng hình ảnh quét (Scanned Image).');
     }
 
-    // 2. Chunk text logically (3500 chars for optimal balance of speed, accuracy and token limits)
-    const chunks = chunkPdfPages(pages, 3500);
-    onLog(`🧩 Đã chia văn bản thành ${chunks.length} phân đoạn xử lý AI.`);
+    // 2. Chunk text logically (7,000 chars for JLPT tests ~3-4 pages, 4,000 for vocab books)
+    const maxChars = category === 'JLPT_TEST' ? 7000 : 4000;
+    const chunks = chunkPdfPages(pages, maxChars);
+    onLog(`🧩 Đã phân tích và chia tài liệu thành ${chunks.length} phân đoạn ngữ cảnh lớn.`);
 
     const effectiveModel = getEffectiveModel(model || 'google/gemini-2.5-flash');
     const parsedChunksData = [];
@@ -533,7 +606,8 @@ export const processPdfWithAI = async (pdfFile, {
         const prompt = buildPromptForCategory(category, chunk.text, customInstructions, chunkIndex, chunks.length);
 
         try {
-            const rawResponse = await callAI(prompt, effectiveModel, 'pdf_ingest');
+            // Pass maxTokens = 8192 explicitly for full JSON completion
+            const rawResponse = await callAI(prompt, effectiveModel, 'pdf_ingest', 8192);
             if (!rawResponse) throw new Error('Mô hình AI không trả về phản hồi.');
 
             const chunkJson = safeParseJsonWithRepair(rawResponse);
@@ -706,8 +780,8 @@ export const saveIngestedDataToFirestore = async (category, extractedData, optio
                 skillType: data.skillType || (data.sections?.[0]?.type || 'vocabulary'),
                 isPremium: false,
                 sections: data.sections || [],
-                createdAt: Date.now(),
-                updatedAt: Date.now()
+                createdAt: serverTimestamp(),
+                updatedAt: serverTimestamp()
             });
 
             const totalQuestions = (data.sections || []).reduce((sum, s) => sum + (s.questions?.length || 0), 0);
