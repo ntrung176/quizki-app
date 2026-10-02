@@ -39,17 +39,20 @@ export const getOpenRouterKeys = () => {
 const OPENROUTER_MODELS = [
     'google/gemini-2.5-flash',
     'google/gemini-3.1-flash-lite',
-    'google/gemini-2.5-pro',
     'openai/gpt-4o-mini',
+    'deepseek/deepseek-chat',
+    'meta-llama/llama-3.1-8b-instruct',
+    'google/gemini-2.0-flash-exp:free',
+    'meta-llama/llama-3.3-70b-instruct:free',
+    'deepseek/deepseek-r1:free',
+    'google/gemini-2.5-pro',
     'openai/gpt-4o',
     'anthropic/claude-sonnet-4.6',
     'anthropic/claude-sonnet-4.5',
     'anthropic/claude-sonnet-4',
     '~anthropic/claude-sonnet-latest',
     'anthropic/claude-3.5-haiku',
-    'anthropic/claude-3.5-sonnet',
-    'deepseek/deepseek-chat',
-    'meta-llama/llama-3.1-8b-instruct'
+    'anthropic/claude-3.5-sonnet'
 ];
 
 const MODEL_ALIASES = {
@@ -61,37 +64,51 @@ export const getEffectiveModel = (model) => {
 };
 
 
-const buildOpenRouterRequest = (prompt, model, apiKey) => ({
-    url: 'https://openrouter.ai/api/v1/chat/completions',
-    options: {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`,
-            'HTTP-Referer': window.location.origin,
-            'X-Title': 'Quizki Vocab'
-        },
-        body: JSON.stringify({
-            model: model,
-            messages: [
-                { role: 'system', content: 'You are a professional dictionary and language assistant. Always respond with valid JSON only, no markdown, no explanation.' },
-                { role: 'user', content: prompt }
-            ],
-            temperature: 0.3,
-            max_tokens: 8192,
-            provider: {
-                sort: 'price',
-                allow_fallbacks: true
-            }
-        })
-    }
-});
+const buildOpenRouterRequest = (prompt, model, apiKey, maxTokens = 1500) => {
+    const safeOrigin = (typeof window !== 'undefined' && window.location?.origin && window.location.origin.startsWith('http'))
+        ? window.location.origin
+        : 'https://quizki.app';
+
+    const isMultimodal = Array.isArray(prompt);
+    const messages = isMultimodal
+        ? [
+            { role: 'system', content: 'You are a professional dictionary and language assistant. Always respond with valid JSON only, no markdown, no explanation.' },
+            { role: 'user', content: prompt }
+        ]
+        : [
+            { role: 'system', content: 'You are a professional dictionary and language assistant. Always respond with valid JSON only, no markdown, no explanation.' },
+            { role: 'user', content: prompt }
+        ];
+
+    return {
+        url: 'https://openrouter.ai/api/v1/chat/completions',
+        options: {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${apiKey}`,
+                'HTTP-Referer': safeOrigin,
+                'X-Title': 'Quizki Vocab'
+            },
+            body: JSON.stringify({
+                model: model,
+                messages,
+                temperature: 0.3,
+                max_tokens: maxTokens,
+                provider: {
+                    sort: 'price',
+                    allow_fallbacks: true
+                }
+            })
+        }
+    };
+};
 
 const extractOpenRouterText = (result) => result?.choices?.[0]?.message?.content || null;
 
 
 // Core API call with retry across keys and models
-const callWithRetry = async (prompt, keyIndex = 0, modelIndex = 0, preferredModel = null) => {
+const callWithRetry = async (prompt, keyIndex = 0, modelIndex = 0, preferredModel = null, maxTokensOverride = null) => {
     const keys = getOpenRouterKeys();
     if (keys.length === 0) {
         throw new Error('Không có OpenRouter API key. Vui lòng thêm VITE_OPENROUTER_API_KEY vào file .env');
@@ -106,7 +123,8 @@ const callWithRetry = async (prompt, keyIndex = 0, modelIndex = 0, preferredMode
     const currentKey = keys[keyIndex];
     const currentModel = models[modelIndex];
 
-    const { url, options } = buildOpenRouterRequest(prompt, currentModel, currentKey);
+    const currentMaxTokens = maxTokensOverride || 1500;
+    const { url, options } = buildOpenRouterRequest(prompt, currentModel, currentKey, currentMaxTokens);
 
     try {
         const response = await fetch(url, options);
@@ -121,28 +139,56 @@ const callWithRetry = async (prompt, keyIndex = 0, modelIndex = 0, preferredMode
         }
 
         const status = response.status;
+        const errorText = await response.text().catch(() => '');
 
-        // Rate limited → thử key tiếp theo
+        // 402: Payment Required / Credit limit exceeded max_tokens
+        if (status === 402) {
+            console.warn(`⚠️ OpenRouter 402 (Hạn mức credit hoặc max_tokens trên ${currentModel}):`, errorText);
+
+            // Kiểm tra xem OpenRouter có gợi ý số token tối đa người dùng có thể chi trả:
+            const affordMatch = errorText.match(/can only afford (\d+)/i);
+            if (affordMatch && affordMatch[1]) {
+                const affordableTokens = parseInt(affordMatch[1], 10);
+                if (affordableTokens >= 150 && (!maxTokensOverride || maxTokensOverride > affordableTokens)) {
+                    const loweredTokens = Math.max(150, affordableTokens - 30);
+                    console.log(`🔄 Tự động thử lại với max_tokens = ${loweredTokens}...`);
+                    return callWithRetry(prompt, keyIndex, modelIndex, preferredModel, loweredTokens);
+                }
+            }
+
+            // Thử key tiếp theo nếu còn
+            if (keyIndex < keys.length - 1) {
+                console.log(`⚠️ Thử OpenRouter key ${keyIndex + 2}...`);
+                return callWithRetry(prompt, keyIndex + 1, modelIndex, preferredModel, maxTokensOverride);
+            }
+
+            // Hết key -> Thử model tiếp theo (bao gồm model giá rẻ hoặc model free)
+            if (modelIndex < models.length - 1) {
+                console.log(`⚠️ Hết credits cho ${currentModel}, chuyển sang model dự phòng ${models[modelIndex + 1]}...`);
+                return callWithRetry(prompt, 0, modelIndex + 1, preferredModel, maxTokensOverride);
+            }
+        }
+
+        // Rate limited (429, 503) → thử key tiếp theo
         if ((status === 429 || status === 503) && keyIndex < keys.length - 1) {
             console.log(`⚠️ OpenRouter key ${keyIndex + 1} rate limited, thử key ${keyIndex + 2}...`);
             await new Promise(r => setTimeout(r, 500));
-            return callWithRetry(prompt, keyIndex + 1, modelIndex, preferredModel);
+            return callWithRetry(prompt, keyIndex + 1, modelIndex, preferredModel, maxTokensOverride);
         }
 
-        // Hết key cho model này → thử model tiếp
+        // Hết quota cho model này → thử model tiếp
         if ((status === 429 || status === 503) && modelIndex < models.length - 1) {
             console.log(`⚠️ Hết quota cho ${currentModel}, thử ${models[modelIndex + 1]}...`);
             await new Promise(r => setTimeout(r, 500));
-            return callWithRetry(prompt, 0, modelIndex + 1, preferredModel);
+            return callWithRetry(prompt, 0, modelIndex + 1, preferredModel, maxTokensOverride);
         }
 
-        // Model not found
+        // Model not found (404)
         if (status === 404 && modelIndex < models.length - 1) {
             console.log(`⚠️ Model ${currentModel} không tồn tại, thử ${models[modelIndex + 1]}...`);
-            return callWithRetry(prompt, keyIndex, modelIndex + 1, preferredModel);
+            return callWithRetry(prompt, keyIndex, modelIndex + 1, preferredModel, maxTokensOverride);
         }
 
-        const errorText = await response.text().catch(() => '');
         console.error(`❌ OpenRouter error (${status}):`, errorText);
         throw new Error(`OpenRouter API error: ${status}`);
 
@@ -150,182 +196,21 @@ const callWithRetry = async (prompt, keyIndex = 0, modelIndex = 0, preferredMode
         if (error.message?.startsWith('OpenRouter API error')) throw error;
         console.error(`❌ OpenRouter network error:`, error.message);
         if (keyIndex < keys.length - 1) {
-            return callWithRetry(prompt, keyIndex + 1, modelIndex, preferredModel);
+            return callWithRetry(prompt, keyIndex + 1, modelIndex, preferredModel, maxTokensOverride);
+        }
+        if (modelIndex < models.length - 1) {
+            return callWithRetry(prompt, 0, modelIndex + 1, preferredModel, maxTokensOverride);
         }
         throw error;
     }
 };
 
+// ============== UNIFIED AI CALL (OPENROUTER ONLY) ==============
 
-// ============== DIRECT GOOGLE GEMINI API CALL ==============
-
-export const getGeminiApiKey = () => {
-    try {
-        const localKey = localStorage.getItem('quizki_gemini_api_key');
-        if (localKey) return localKey;
-    } catch (e) {}
-    return import.meta.env.VITE_GEMINI_API_KEY || '';
-};
-
-const callDirectGeminiApi = async (prompt, model = 'gemini-3.1-flash-lite') => {
-    const apiKey = getGeminiApiKey();
-    if (!apiKey) throw new Error('No Gemini API Key configured');
-
-    let initialModel = model || 'gemini-3.1-flash-lite';
-    if (initialModel.includes('/')) {
-        initialModel = initialModel.split('/').pop();
-    }
-    if (!initialModel.startsWith('gemini-')) {
-        initialModel = 'gemini-3.1-flash-lite';
-    }
-
-    const candidateModels = Array.from(new Set([initialModel, 'gemini-2.5-flash', 'gemini-3.1-flash-lite', 'gemini-2.0-flash', 'gemini-2.0-flash-lite']));
-
-    let lastError = null;
-    for (const currentModel of candidateModels) {
-        try {
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/${currentModel}:generateContent?key=${apiKey}`;
-            const payload = {
-                contents: [
-                    {
-                        role: 'user',
-                        parts: [{ text: prompt }]
-                    }
-                ],
-                generationConfig: {
-                    temperature: 0.3,
-                    maxOutputTokens: 8192
-                }
-            };
-
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
-            });
-
-            if (!response.ok) {
-                const errText = await response.text().catch(() => '');
-                console.warn(`⚠️ Gemini model ${currentModel} returned ${response.status}: ${errText}`);
-                lastError = new Error(`Google Gemini API error (${response.status}): ${errText}`);
-                if (response.status === 404) {
-                    continue; // try next model
-                }
-                throw lastError;
-            }
-
-            const data = await response.json();
-            const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-            if (text) return text;
-        } catch (e) {
-            lastError = e;
-            if (e.message?.includes('404')) continue;
-            throw e;
-        }
-    }
-    throw lastError || new Error('All Gemini models failed');
-};
-
-const callVertexAiApi = async (prompt, model = 'gemini-2.5-flash') => {
-    const apiKey = getGeminiApiKey();
-    if (!apiKey) throw new Error('No Key configured for Vertex AI');
-    const projectId = import.meta.env.VITE_FIREBASE_PROJECT_ID || 'quizki-988e9';
-
-    let normalizedModel = model || 'gemini-2.5-flash';
-    if (normalizedModel.includes('/')) normalizedModel = normalizedModel.split('/').pop();
-    if (!normalizedModel.startsWith('gemini-')) normalizedModel = 'gemini-2.5-flash';
-
-    const url = `https://us-central1-aiplatform.googleapis.com/v1/projects/${projectId}/locations/us-central1/publishers/google/models/${normalizedModel}:generateContent?key=${apiKey}`;
-    const payload = {
-        contents: [
-            {
-                role: 'user',
-                parts: [{ text: prompt }]
-            }
-        ],
-        generationConfig: {
-            temperature: 0.3,
-            maxOutputTokens: 8192
-        }
-    };
-
-    const response = await fetch(url, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-    });
-
-    if (!response.ok) {
-        const errText = await response.text().catch(() => '');
-        throw new Error(`Vertex AI error (${response.status}): ${errText}`);
-    }
-
-    const data = await response.json();
-    const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-    if (!text) throw new Error('Empty response from Vertex AI API');
-    return text;
-};
-
-// ============== UNIFIED AI CALL ==============
-
-export const callAI = async (prompt, forcedOpenRouterModel = null, featureId = null) => {
+export const callAI = async (prompt, forcedOpenRouterModel = null, featureId = null, maxTokens = null) => {
     const keys = getOpenRouterKeys();
-    const isNonGeminiModel = forcedOpenRouterModel && (
-        forcedOpenRouterModel.startsWith('openai/') ||
-        forcedOpenRouterModel.startsWith('anthropic/') ||
-        forcedOpenRouterModel.startsWith('deepseek/') ||
-        forcedOpenRouterModel.startsWith('meta-llama/')
-    );
-
-    // If user explicitly picked an OpenRouter non-gemini model (Claude, GPT-4o, DeepSeek) and OpenRouter key exists:
-    if (isNonGeminiModel && keys.length > 0) {
-        const activeModel = getEffectiveModel(forcedOpenRouterModel);
-        console.log(
-            `%c[AI Provider] 🔵 OPENROUTER DIRECT (${keys.length} keys) | Feature: ${featureId || 'default'} | Model: ${activeModel}`,
-            'color: #38bdf8; font-weight: bold; background: #0c4a6e; padding: 4px 8px; border-radius: 4px;'
-        );
-        return callWithRetry(prompt, 0, 0, activeModel);
-    }
-
-    // 1. Try Direct Google Gemini API (Free Tier / Cloud API Key)
-    const geminiKey = getGeminiApiKey();
-    if (geminiKey) {
-        try {
-            let normalizedModel = forcedOpenRouterModel || 'gemini-2.5-flash';
-            if (normalizedModel.includes('/')) normalizedModel = normalizedModel.split('/').pop();
-            if (!normalizedModel.startsWith('gemini-')) {
-                normalizedModel = 'gemini-2.5-flash';
-            }
-
-            console.log(
-                `%c[AI Provider] 🟢 GOOGLE GEMINI API | Feature: ${featureId || 'default'} | Model: ${normalizedModel}`,
-                'color: #00ffaa; font-weight: bold; background: #002b1d; padding: 4px 8px; border-radius: 4px;'
-            );
-            const geminiResult = await callDirectGeminiApi(prompt, normalizedModel);
-            if (geminiResult) {
-                console.log(`%c[AI Provider] ✅ Google Gemini API Phản hồi Thành Công!`, 'color: #10b981; font-weight: bold;');
-                return geminiResult;
-            }
-        } catch (geminiError) {
-            console.warn(`%c[AI Provider] ⚠️ Direct Gemini API: ${geminiError.message}, thử Vertex AI...`, 'color: #fbbf24;');
-            try {
-                const vertexResult = await callVertexAiApi(prompt, 'gemini-2.5-flash');
-                if (vertexResult) {
-                    console.log(`%c[AI Provider] ✅ Vertex AI Phản hồi Thành Công!`, 'color: #10b981; font-weight: bold;');
-                    return vertexResult;
-                }
-            } catch (vertexError) {
-                console.error(
-                    `%c[AI Provider] ❌ Google AI thất bại (Chi tiết: ${vertexError.message}), tự động chuyển sang OpenRouter`,
-                    'color: #f87171; font-weight: bold;'
-                );
-            }
-        }
-    }
-
-    // 2. Fallback: OpenRouter API
     if (keys.length === 0) {
-        throw new Error('Không có API key khả dụng (cả Gemini và OpenRouter). Vui lòng thêm VITE_GEMINI_API_KEY hoặc VITE_OPENROUTER_API_KEY vào .env');
+        throw new Error('Không có OpenRouter API key. Vui lòng thêm VITE_OPENROUTER_API_KEY vào file .env');
     }
 
     let activeModel = forcedOpenRouterModel;
@@ -342,7 +227,7 @@ export const callAI = async (prompt, forcedOpenRouterModel = null, featureId = n
     }
     if (!activeModel) {
         const FEATURE_DEFAULTS = {
-            vocab_gen: 'openai/gpt-4o-mini',
+            vocab_gen: 'google/gemini-2.5-flash',
             grammar_gen: 'google/gemini-2.5-flash',
             vocab_sino_viet: 'google/gemini-3.1-flash-lite',
             more_examples: 'openai/gpt-4o-mini',
@@ -355,10 +240,10 @@ export const callAI = async (prompt, forcedOpenRouterModel = null, featureId = n
 
     activeModel = getEffectiveModel(activeModel);
     console.log(
-        `%c[AI Provider] 🔵 DỰ PHÒNG OPENROUTER (${keys.length} keys) | Feature: ${featureId || 'default'} | Model: ${activeModel}`,
+        `%c[AI Provider] 🔵 OPENROUTER (${keys.length} keys) | Feature: ${featureId || 'default'} | Model: ${activeModel}`,
         'color: #38bdf8; font-weight: bold; background: #0c4a6e; padding: 4px 8px; border-radius: 4px;'
     );
-    return callWithRetry(prompt, 0, 0, activeModel);
+    return callWithRetry(prompt, 0, 0, activeModel, maxTokens);
 };
 
 
@@ -1202,7 +1087,7 @@ export const callKaiwaAI = async (systemPrompt, conversationHistory = [], userMe
             if (modelIndex < models.length - 1) {
                 return callWithMessagesRetry(messagesList, 0, modelIndex + 1, preferredModel);
             }
-            console.warn('⚠️ OpenRouter thất bại, chuyển sang Google Gemini fallback qua callAI...');
+            console.warn('⚠️ OpenRouter hội thoại thất bại, chuyển sang fallback qua callAI...');
             const historyText = conversationHistory.map(m => `${m.role === 'assistant' ? 'AI' : 'User'}: ${m.content}`).join('\n');
             const prompt = `${systemPrompt}\n\n${historyText ? `Lịch sử hội thoại:\n${historyText}\n\n` : ''}Người dùng: ${userMessage}`;
             return callAI(prompt, forcedModel, 'kaiwa_agent');
@@ -1708,7 +1593,7 @@ QUY TẮC BẮT BUỘC:
 7. exampleMeaning: Dịch nghĩa câu ví dụ sang tiếng Việt tự nhiên.
 8. nuance: Giải thích ngắn gọn bối cảnh sử dụng (1 câu).`;
 
-    const rawText = await callAI(prompt, 'gemini-3.1-flash-lite', 'kanji-vocab-generator');
+    const rawText = await callAI(prompt, 'google/gemini-3.1-flash-lite', 'kanji-vocab-generator');
     if (!rawText) throw new Error('Không nhận được phản hồi từ AI');
 
     let cleanJson = rawText.trim();

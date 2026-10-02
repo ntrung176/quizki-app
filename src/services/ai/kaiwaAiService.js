@@ -112,7 +112,7 @@ export const callKaiwaAI = async (systemPrompt, conversationHistory = [], userMe
             if (modelIndex < models.length - 1) {
                 return callWithMessagesRetry(messagesList, 0, modelIndex + 1, preferredModel);
             }
-            console.warn('⚠️ OpenRouter thất bại, chuyển sang Google Gemini fallback qua callAI...');
+            console.warn('⚠️ OpenRouter hội thoại thất bại, chuyển sang fallback qua callAI...');
             const historyText = conversationHistory.map(m => `${m.role === 'assistant' ? 'AI' : 'User'}: ${m.content}`).join('\n');
             const prompt = `${systemPrompt}\n\n${historyText ? `Lịch sử hội thoại:\n${historyText}\n\n` : ''}Người dùng: ${userMessage}`;
             return callAI(prompt, forcedModel, 'kaiwa_agent');

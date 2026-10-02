@@ -952,41 +952,46 @@ const AddCardForm = ({
         }));
 
         setIsAiLoadingMap(prev => ({ ...prev, [id]: true }));
-        const aiData = await onGeminiAssist(card.front, selectedPos, selectedLevel, selectedBack, false);
+        try {
+            const aiData = await onGeminiAssist(card.front, selectedPos, selectedLevel, selectedBack, false);
 
-        if (aiData) {
-            const langService = getLanguageService(card.front || card, isEnglishMode);
-            const cardIsEng = langService.code === 'en';
+            if (aiData) {
+                const langService = getLanguageService(card.front || card, isEnglishMode);
+                const cardIsEng = langService.code === 'en';
 
-            setCards(prev => prev.map(c => {
-                if (c.id === id) {
-                    const rawFront = cardIsEng ? (aiData.front || c.front) : (aiData.front || aiData.frontWithFurigana || c.front);
-                    const bracketMatch = !cardIsEng ? rawFront.match(/^([^（\(]+)[（\(]([^）\)]+)[）\)]/) : null;
-                    const cleanFront = bracketMatch ? bracketMatch[1].trim() : rawFront.replace(/[（\(][^）\)]+[）\)]/g, '').trim();
-                    const cleanReading = !cardIsEng ? (aiData.reading || (bracketMatch ? bracketMatch[2].trim() : c.reading || '')) : '';
+                setCards(prev => prev.map(c => {
+                    if (c.id === id) {
+                        const rawFront = cardIsEng ? (aiData.front || c.front) : (aiData.front || aiData.frontWithFurigana || c.front);
+                        const bracketMatch = !cardIsEng ? rawFront.match(/^([^（\(]+)[（\(]([^）\)]+)[）\)]/) : null;
+                        const cleanFront = bracketMatch ? bracketMatch[1].trim() : rawFront.replace(/[（\(][^）\)]+[）\)]/g, '').trim();
+                        const cleanReading = !cardIsEng ? (aiData.reading || (bracketMatch ? bracketMatch[2].trim() : c.reading || '')) : '';
 
-                    return {
-                        ...c,
-                        front: cleanFront,
-                        back: aiData.meaning || '',
-                        ipa: cardIsEng ? (aiData.ipa || c.ipa || '') : '',
-                        sinoVietnamese: cardIsEng ? '' : (aiData.sinoVietnamese || ''),
-                        synonym: (aiData.synonym || '').replace(/[（\(][^）\)]+[）\)]/g, '').trim(),
-                        synonymSinoVietnamese: cardIsEng ? '' : (aiData.synonymSinoVietnamese || ''),
-                        example: aiData.example || '',
-                        exampleMeaning: aiData.exampleMeaning || '',
-                        nuance: aiData.nuance || '',
-                        pos: aiData.pos || selectedPos || '',
-                        level: aiData.level || selectedLevel || '',
-                        reading: cleanReading,
-                        accent: cardIsEng ? '' : (aiData.accent !== undefined ? String(aiData.accent) : ''),
-                        targetLanguage: cardIsEng ? 'en' : 'ja'
-                    };
-                }
-                return c;
-            }));
+                        return {
+                            ...c,
+                            front: cleanFront,
+                            back: aiData.meaning || '',
+                            ipa: cardIsEng ? (aiData.ipa || c.ipa || '') : '',
+                            sinoVietnamese: cardIsEng ? '' : (aiData.sinoVietnamese || ''),
+                            synonym: (aiData.synonym || '').replace(/[（\(][^）\)]+[）\)]/g, '').trim(),
+                            synonymSinoVietnamese: cardIsEng ? '' : (aiData.synonymSinoVietnamese || ''),
+                            example: aiData.example || '',
+                            exampleMeaning: aiData.exampleMeaning || '',
+                            nuance: aiData.nuance || '',
+                            pos: aiData.pos || selectedPos || '',
+                            level: aiData.level || selectedLevel || '',
+                            reading: cleanReading,
+                            accent: cardIsEng ? '' : (aiData.accent !== undefined ? String(aiData.accent) : ''),
+                            targetLanguage: cardIsEng ? 'en' : 'ja'
+                        };
+                    }
+                    return c;
+                }));
+            }
+        } catch (err) {
+            console.error('Error assisting card with AI:', err);
+        } finally {
+            setIsAiLoadingMap(prev => ({ ...prev, [id]: false }));
         }
-        setIsAiLoadingMap(prev => ({ ...prev, [id]: false }));
     };
 
     const handleBatchAiComplete = (generatedCards) => {
