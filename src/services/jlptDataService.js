@@ -123,7 +123,6 @@ export const getSharedJLPTTests = async (forceRefresh = false) => {
     }
 
     sharedPromise = (async () => {
-        let loadedBase = false;
         let cacheConfig = null;
         try {
             cacheConfig = await getCacheConfig();
@@ -131,7 +130,22 @@ export const getSharedJLPTTests = async (forceRefresh = false) => {
             console.warn('[jlptDataService] Cache config fetch warning:', e);
         }
 
-        // 1. Try Firebase Storage CDN if available
+        // 1. ALWAYS load comprehensive static base file /data/jlpt_data.json (591 roadmap & skill tests)
+        try {
+            const res = await fetch(`/data/jlpt_data.json?t=${Date.now()}`);
+            if (res && res.ok) {
+                const data = await res.json();
+                if (Array.isArray(data) && data.length > 0) {
+                    data.forEach((t) => {
+                        if (t && t.id) baseTestsMap.set(t.id, t);
+                    });
+                }
+            }
+        } catch (e) {
+            console.warn('[jlptDataService] Local jlpt_data.json load warning:', e);
+        }
+
+        // 2. Overlay Firebase Storage CDN if available (for newly synced or custom tests)
         if (cacheConfig && cacheConfig.jlptUrl) {
             try {
                 const urlWithBuster = cacheConfig.jlptUrl.includes('?')
@@ -141,30 +155,13 @@ export const getSharedJLPTTests = async (forceRefresh = false) => {
                 if (res && res.ok) {
                     const data = await res.json();
                     if (Array.isArray(data) && data.length > 0) {
-                        baseTestsMap.clear();
-                        data.forEach((t) => baseTestsMap.set(t.id, t));
-                        loadedBase = true;
+                        data.forEach((t) => {
+                            if (t && t.id) baseTestsMap.set(t.id, t);
+                        });
                     }
                 }
             } catch (cdnErr) {
-                console.warn('[jlptDataService] CDN jlpt_data.json load failed, trying local bundle:', cdnErr);
-            }
-        }
-
-        // 2. Fallback to static local file /data/jlpt_data.json
-        if (!loadedBase) {
-            try {
-                const res = await fetch(`/data/jlpt_data.json?t=${Date.now()}`);
-                if (res && res.ok) {
-                    const data = await res.json();
-                    if (Array.isArray(data) && data.length > 0) {
-                        baseTestsMap.clear();
-                        data.forEach((t) => baseTestsMap.set(t.id, t));
-                        loadedBase = true;
-                    }
-                }
-            } catch (e) {
-                console.warn('[jlptDataService] Local jlpt_data.json load warning:', e);
+                console.warn('[jlptDataService] CDN jlpt_data.json load warning:', cdnErr);
             }
         }
 
