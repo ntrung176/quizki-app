@@ -181,6 +181,16 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
 
     // Cache Sync Handlers
     const fetchAllBooksData = async () => {
+        let baseBooks = [];
+        try {
+            const res = await fetch(`/data/books_data.json?t=${Date.now()}`);
+            if (res.ok) {
+                baseBooks = await res.json();
+            }
+        } catch (e) {
+            console.warn('Could not load /data/books_data.json as base:', e);
+        }
+
         const COLLECTION = 'bookGroups';
         const groupsSnap = await getDocs(collection(db, COLLECTION));
         const groups = await Promise.all(groupsSnap.docs.map(async (groupDoc) => {
@@ -202,7 +212,17 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             return group;
         }));
         groups.sort((a, b) => (a.order || 0) - (b.order || 0));
-        return groups;
+
+        const mergedMap = new Map();
+        baseBooks.forEach(g => mergedMap.set(g.id || g.name, g));
+        groups.forEach(g => {
+            if (mergedMap.has(g.id || g.name)) {
+                mergedMap.set(g.id || g.name, { ...mergedMap.get(g.id || g.name), ...g });
+            } else {
+                mergedMap.set(g.id || g.name, g);
+            }
+        });
+        return Array.from(mergedMap.values());
     };
 
     const fetchAllGrammarData = async () => {

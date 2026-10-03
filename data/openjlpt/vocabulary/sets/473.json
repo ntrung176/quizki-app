@@ -1,0 +1,143 @@
+{
+  "id": 473,
+  "title": "食・料理 · 調理法・食材準備",
+  "description": "Cách nấu nướng và chuẩn bị thực phẩm — chủ đề Ẩm thực & nấu nướng · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.782614",
+  "cards": [
+    {
+      "id": 11948,
+      "term": "蒸す (むす)",
+      "reading": "むす",
+      "romaji": null,
+      "definition": "hấp",
+      "exampleSentence": "魚を蒸すと、やわらかくておいしくなります。",
+      "exampleTranslation": "Nếu hấp cá, cá sẽ mềm và ngon hơn.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11949,
+      "term": "食材 (しょくざい)",
+      "reading": "しょくざい",
+      "romaji": null,
+      "definition": "nguyên liệu nấu ăn",
+      "exampleSentence": "新鮮な食材を使って、家族のために夕食を作ります。",
+      "exampleTranslation": "Tôi dùng nguyên liệu tươi để nấu bữa tối cho gia đình.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11950,
+      "term": "調理 (ちょうり)",
+      "reading": "ちょうり",
+      "romaji": null,
+      "definition": "nấu nướng/chế biến",
+      "exampleSentence": "魚の調理には、思ったより時間がかかりました。",
+      "exampleTranslation": "Việc chế biến cá mất nhiều thời gian hơn tôi tưởng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11951,
+      "term": "味付け (あじつけ)",
+      "reading": "あじつけ",
+      "romaji": null,
+      "definition": "nêm nếm/gia vị",
+      "exampleSentence": "母は味付けに使う調味料を少しずつ加えました。",
+      "exampleTranslation": "Mẹ lần lượt cho từng ít gia vị dùng để nêm nếm.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11952,
+      "term": "揚げる (あげる)",
+      "reading": "あげる",
+      "romaji": null,
+      "definition": "chiên ngập dầu",
+      "exampleSentence": "野菜を揚げる前に、油を十分に熱してください。",
+      "exampleTranslation": "Hãy làm nóng dầu đầy đủ trước khi chiên rau.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11953,
+      "term": "洋食 (ようしょく)",
+      "reading": "ようしょく",
+      "romaji": null,
+      "definition": "ẩm thực phương Tây",
+      "exampleSentence": "駅の近くに、おいしい洋食の店があります。",
+      "exampleTranslation": "Gần nhà ga có một quán món Tây rất ngon.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11954,
+      "term": "炒める (いためる)",
+      "reading": "いためる",
+      "romaji": null,
+      "definition": "xào",
+      "exampleSentence": "野菜を強火で炒めると、歯ごたえが残ります。",
+      "exampleTranslation": "Nếu xào rau ở lửa lớn, rau sẽ vẫn giữ được độ giòn.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11955,
+      "term": "グルメ",
+      "reading": "グルメ",
+      "romaji": null,
+      "definition": "ẩm thực/gourmet",
+      "exampleSentence": "彼はグルメなので、食材や料理について詳しいです。",
+      "exampleTranslation": "Vì là người sành ẩm thực nên anh ấy hiểu rõ về nguyên liệu và món ăn.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11956,
+      "term": "加工食品 (かこうしょくひん)",
+      "reading": "かこうしょくひん",
+      "romaji": null,
+      "definition": "thực phẩm chế biến",
+      "exampleSentence": "加工食品ばかり食べず、できるだけ自炊しましょう。",
+      "exampleTranslation": "Đừng chỉ ăn thực phẩm chế biến, hãy cố gắng tự nấu ăn.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11957,
+      "term": "煮込む (にこむ)",
+      "reading": "にこむ",
+      "romaji": null,
+      "definition": "hầm/ninh",
+      "exampleSentence": "牛肉を野菜と一緒に煮込むと、柔らかくなります。",
+      "exampleTranslation": "Hầm thịt bò cùng rau thì thịt sẽ mềm hơn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11958,
+      "term": "冷凍食品 (れいとうしょくひん)",
+      "reading": "れいとうしょくひん",
+      "romaji": null,
+      "definition": "thực phẩm đông lạnh",
+      "exampleSentence": "忙しい日は、冷凍食品を温めて簡単に食べます。",
+      "exampleTranslation": "Những ngày bận rộn, tôi hâm nóng thực phẩm đông lạnh để ăn nhanh.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11959,
+      "term": "食品添加物 (しょくひんてんかぶつ)",
+      "reading": "しょくひんてんかぶつ",
+      "romaji": null,
+      "definition": "phụ gia thực phẩm",
+      "exampleSentence": "食品添加物の安全性について、専門家が説明しました。",
+      "exampleTranslation": "Chuyên gia đã giải thích về độ an toàn của phụ gia thực phẩm.",
+      "forms": [],
+      "displayOrder": 11
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "id": 485,
+  "title": "教育・学習 · 抽象概念・時間表現",
+  "description": "Khái niệm trừu tượng & thời gian — chủ đề Giáo dục & học tập · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:50.162713",
+  "cards": [
+    {
+      "id": 12177,
+      "term": "過去 (かこ)",
+      "reading": "かこ",
+      "romaji": null,
+      "definition": "quá khứ",
+      "exampleSentence": "過去の失敗を生かして、今度は同じ間違いをしないようにした。",
+      "exampleTranslation": "Tôi rút kinh nghiệm từ những thất bại trong quá khứ và lần này cố gắng không lặp lại lỗi tương tự.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12178,
+      "term": "過程 (かてい)",
+      "reading": "かてい",
+      "romaji": null,
+      "definition": "quá trình, tiến trình",
+      "exampleSentence": "この仕事では、結果だけでなく、そこに至る過程も大切です。",
+      "exampleTranslation": "Trong công việc này, không chỉ kết quả mà cả quá trình dẫn đến kết quả cũng quan trọng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12179,
+      "term": "機会 (きかい)",
+      "reading": "きかい",
+      "romaji": null,
+      "definition": "cơ hội, dịp",
+      "exampleSentence": "日本の文化について学ぶ機会があれば、ぜひ参加したいです。",
+      "exampleTranslation": "Nếu có cơ hội học về văn hóa Nhật Bản, tôi nhất định muốn tham gia.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12180,
+      "term": "記憶 (きおく)",
+      "reading": "きおく",
+      "romaji": null,
+      "definition": "trí nhớ/ký ức",
+      "exampleSentence": "子どものころの夏休みの記憶は、今でもはっきり残っています。",
+      "exampleTranslation": "Ký ức về những kỳ nghỉ hè thời thơ ấu đến giờ vẫn còn in đậm trong tôi.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12181,
+      "term": "記憶する (きおくする)",
+      "reading": "きおくする",
+      "romaji": null,
+      "definition": "ghi nhớ, lưu trong ký ức",
+      "exampleSentence": "新しい漢字を記憶するために、何度も書いて練習しました。",
+      "exampleTranslation": "Để ghi nhớ chữ Hán mới, tôi đã luyện viết nhiều lần.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12182,
+      "term": "現在 (げんざい)",
+      "reading": "げんざい",
+      "romaji": null,
+      "definition": "hiện tại, hiện nay",
+      "exampleSentence": "現在、この駅では新しい改札口を作っています。",
+      "exampleTranslation": "Hiện nay, nhà ga này đang xây dựng một cổng soát vé mới.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12183,
+      "term": "手段 (しゅだん)",
+      "reading": "しゅだん",
+      "romaji": null,
+      "definition": "phương tiện, cách thức, biện pháp",
+      "exampleSentence": "インターネットは、遠くの人と連絡を取る便利な手段です。",
+      "exampleTranslation": "Internet là một phương tiện tiện lợi để liên lạc với những người ở xa.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12184,
+      "term": "将来 (しょうらい)",
+      "reading": "しょうらい",
+      "romaji": null,
+      "definition": "tương lai",
+      "exampleSentence": "将来、外国で働くために、毎日英語を勉強しています。",
+      "exampleTranslation": "Để sau này làm việc ở nước ngoài, tôi học tiếng Anh mỗi ngày.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12185,
+      "term": "詳しい (くわしい)",
+      "reading": "くわしい",
+      "romaji": null,
+      "definition": "chi tiết, am hiểu, rành",
+      "exampleSentence": "兄はパソコンに詳しいので、困ったときはいつも相談します。",
+      "exampleTranslation": "Anh trai tôi rất am hiểu máy tính nên tôi luôn hỏi anh khi gặp khó khăn.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12186,
+      "term": "知識 (ちしき)",
+      "reading": "ちしき",
+      "romaji": null,
+      "definition": "kiến thức",
+      "exampleSentence": "この仕事には、専門的な知識と経験が必要です。",
+      "exampleTranslation": "Công việc này cần kiến thức chuyên môn và kinh nghiệm.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12187,
+      "term": "変化 (へんか)",
+      "reading": "へんか",
+      "romaji": null,
+      "definition": "sự thay đổi, biến hóa",
+      "exampleSentence": "春になると、町の景色にも少しずつ変化が見られます。",
+      "exampleTranslation": "Khi mùa xuân đến, cảnh vật trong thành phố cũng dần dần thay đổi.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12188,
+      "term": "方法 (ほうほう)",
+      "reading": "ほうほう",
+      "romaji": null,
+      "definition": "phương pháp, cách thức",
+      "exampleSentence": "もっと効率のいい方法を先生に教えてもらいました。",
+      "exampleTranslation": "Tôi đã được giáo viên chỉ cho một phương pháp hiệu quả hơn.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12189,
+      "term": "目的 (もくてき)",
+      "reading": "もくてき",
+      "romaji": null,
+      "definition": "mục đích, mục tiêu",
+      "exampleSentence": "この調査の目的は、地域の課題を明らかにすることです。",
+      "exampleTranslation": "Mục đích của cuộc khảo sát này là làm rõ những vấn đề của khu vực.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12190,
+      "term": "カリキュラム",
+      "reading": "カリキュラム",
+      "romaji": null,
+      "definition": "chương trình học",
+      "exampleSentence": "大学では、実践的なカリキュラムに沿って授業が行われます。",
+      "exampleTranslation": "Ở trường đại học, các giờ học được tiến hành theo một chương trình mang tính thực tiễn.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12191,
+      "term": "突然 (とつぜん)",
+      "reading": "とつぜん",
+      "romaji": null,
+      "definition": "đột nhiên/bất ngờ",
+      "exampleSentence": "突然、駅のアナウンスが止まり、乗客は不安そうな顔をしました。",
+      "exampleTranslation": "Đột nhiên, loa thông báo ở nhà ga ngừng hoạt động, khiến hành khách có vẻ lo lắng.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12192,
+      "term": "背景 (はいけい)",
+      "reading": "はいけい",
+      "romaji": null,
+      "definition": "bối cảnh/nền tảng",
+      "exampleSentence": "その政策が実施された背景には、深刻な少子化があります。",
+      "exampleTranslation": "Bối cảnh đằng sau việc chính sách đó được thực hiện là tình trạng tỷ lệ sinh giảm nghiêm trọng.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 12193,
+      "term": "博士 (はかせ)",
+      "reading": "はかせ",
+      "romaji": null,
+      "definition": "tiến sĩ",
+      "exampleSentence": "その博士は、長年この病気の研究を続けています。",
+      "exampleTranslation": "Vị tiến sĩ đó đã nghiên cứu căn bệnh này במשך nhiều năm.",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

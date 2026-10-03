@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import LoadingIndicator from '../ui/LoadingIndicator';
-import { Search, Filter, Bookmark, BookOpen, ExternalLink, Trash2, CheckSquare, Square, ListChecks, X, Check, FileJson, Plus, Loader2, Sparkles } from 'lucide-react';
+import { Search, Filter, Heart, BookOpen, ExternalLink, Trash2, CheckSquare, Square, ListChecks, X, Check, FileJson, Plus, Loader2, Sparkles } from 'lucide-react';
 import { db, appId } from '../../config/firebase';
 import { doc, setDoc, increment } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
@@ -678,10 +678,10 @@ const GrammarListScreen = ({ isAdmin }) => {
 
                                                     <button
                                                         onClick={(e) => toggleBookmark(e, gp)}
-                                                        className={`p-2 rounded-xl border transition-all duration-200 active:scale-95 ${isBookmarked ? 'bg-indigo-50 dark:bg-indigo-950/40 border-indigo-200/60 text-indigo-650 dark:text-indigo-400' : 'bg-slate-50 dark:bg-slate-900 border-slate-200/80 dark:border-slate-750 text-slate-400 hover:text-indigo-500'}`}
+                                                        className={`p-2 rounded-xl border transition-all duration-200 active:scale-95 ${isBookmarked ? 'bg-pink-50 dark:bg-pink-950/40 border-pink-200/60 text-pink-500 dark:text-pink-400' : 'bg-slate-50 dark:bg-slate-900 border-slate-200/80 dark:border-slate-750 text-slate-400 hover:text-pink-500'}`}
                                                         title="Lưu ôn tập (SRS)"
                                                     >
-                                                        <Bookmark className={`w-4 h-4 ${isBookmarked ? 'fill-indigo-500' : ''}`} />
+                                                        <Heart className={`w-4 h-4 ${isBookmarked ? 'fill-pink-500 text-pink-500' : ''}`} />
                                                     </button>
                                                 </>
                                             )}
@@ -731,7 +731,7 @@ const GrammarListScreen = ({ isAdmin }) => {
                     </div>
                 ) : (
                     <div className="bg-white dark:bg-slate-800 rounded-3xl p-16 shadow-sm border border-gray-200/60 dark:border-slate-700/60 text-center space-y-4">
-                        <Bookmark className="w-12 h-12 text-slate-300 dark:text-slate-600 mx-auto" />
+                        <Heart className="w-12 h-12 text-slate-300 dark:text-slate-600 mx-auto" />
                         <div className="space-y-1">
                             <h3 className="font-extrabold text-slate-700 dark:text-slate-300 text-base">Không tìm thấy mẫu ngữ pháp nào</h3>
                             <p className="text-xs text-slate-400 max-w-sm mx-auto leading-relaxed">

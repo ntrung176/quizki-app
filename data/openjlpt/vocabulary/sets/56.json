@@ -1,0 +1,359 @@
+{
+  "id": 56,
+  "title": "家と部屋",
+  "description": "Nhà cửa và các phòng · 42 từ",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:52.178653",
+  "cards": [
+    {
+      "id": 1781,
+      "term": "家",
+      "reading": "いえ",
+      "romaji": "ie",
+      "definition": "Nhà",
+      "exampleSentence": "新しい家に引越した。",
+      "exampleTranslation": "Tôi đã chuyển đến nhà mới.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 1782,
+      "term": "部屋",
+      "reading": "へや",
+      "romaji": "heya",
+      "definition": "Phòng",
+      "exampleSentence": "私の部屋はせまい。",
+      "exampleTranslation": "Phòng của tôi hẹp.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 1783,
+      "term": "台所",
+      "reading": "だいどころ",
+      "romaji": "daidokoro",
+      "definition": "Nhà bếp",
+      "exampleSentence": "台所で料理をする。",
+      "exampleTranslation": "Nấu ăn ở nhà bếp.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 1784,
+      "term": "お風呂",
+      "reading": "おふろ",
+      "romaji": "ofuro",
+      "definition": "Phòng tắm / Bồn tắm",
+      "exampleSentence": "毎晩お風呂に入る。",
+      "exampleTranslation": "Mỗi tối tắm bồn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 1785,
+      "term": "トイレ",
+      "reading": "といれ",
+      "romaji": "toire",
+      "definition": "Nhà vệ sinh",
+      "exampleSentence": "トイレはどこですか。",
+      "exampleTranslation": "Nhà vệ sinh ở đâu?",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 1786,
+      "term": "寝室",
+      "reading": "しんしつ",
+      "romaji": "shinshitsu",
+      "definition": "Phòng ngủ",
+      "exampleSentence": "寝室で本を読む。",
+      "exampleTranslation": "Đọc sách trong phòng ngủ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 1787,
+      "term": "リビング",
+      "reading": "りびんぐ",
+      "romaji": "ribingu",
+      "definition": "Phòng khách",
+      "exampleSentence": "リビングでテレビを見る。",
+      "exampleTranslation": "Xem TV ở phòng khách.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 1788,
+      "term": "玄関",
+      "reading": "げんかん",
+      "romaji": "genkan",
+      "definition": "Lối vào / Hành lang",
+      "exampleSentence": "玄関で靴を脱ぐ。",
+      "exampleTranslation": "Cởi giày ở lối vào.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 1789,
+      "term": "窓",
+      "reading": "まど",
+      "romaji": "mado",
+      "definition": "Cửa sổ",
+      "exampleSentence": "窓を開けてください。",
+      "exampleTranslation": "Vui lòng mở cửa sổ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 1790,
+      "term": "ドア",
+      "reading": "どあ",
+      "romaji": "doa",
+      "definition": "Cửa",
+      "exampleSentence": "ドアを閉めてください。",
+      "exampleTranslation": "Vui lòng đóng cửa.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 1791,
+      "term": "机",
+      "reading": "つくえ",
+      "romaji": "tsukue",
+      "definition": "Bàn học",
+      "exampleSentence": "机の上に本がある。",
+      "exampleTranslation": "Có sách trên bàn.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 1792,
+      "term": "椅子",
+      "reading": "いす",
+      "romaji": "isu",
+      "definition": "Ghế",
+      "exampleSentence": "椅子に座ってください。",
+      "exampleTranslation": "Vui lòng ngồi xuống ghế.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 1793,
+      "term": "ベッド",
+      "reading": "べっど",
+      "romaji": "beddo",
+      "definition": "Giường",
+      "exampleSentence": "ベッドで寝る。",
+      "exampleTranslation": "Ngủ trên giường.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 1794,
+      "term": "テーブル",
+      "reading": "てーぶる",
+      "romaji": "teeburu",
+      "definition": "Bàn (ăn/phòng khách)",
+      "exampleSentence": "テーブルの上に置く。",
+      "exampleTranslation": "Đặt lên bàn.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 1795,
+      "term": "冷蔵庫",
+      "reading": "れいぞうこ",
+      "romaji": "reizouko",
+      "definition": "Tủ lạnh",
+      "exampleSentence": "冷蔵庫に牛乳がある。",
+      "exampleTranslation": "Có sữa trong tủ lạnh.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 1796,
+      "term": "洗濯機",
+      "reading": "せんたくき",
+      "romaji": "sentakuki",
+      "definition": "Máy giặt",
+      "exampleSentence": "洗濯機で服を洗う。",
+      "exampleTranslation": "Giặt quần áo bằng máy giặt.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 1797,
+      "term": "エアコン",
+      "reading": "えあこん",
+      "romaji": "eakon",
+      "definition": "Điều hòa",
+      "exampleSentence": "エアコンをつけてください。",
+      "exampleTranslation": "Vui lòng bật điều hòa.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 1798,
+      "term": "電気",
+      "reading": "でんき",
+      "romaji": "denki",
+      "definition": "Điện / Đèn",
+      "exampleSentence": "電気を消してください。",
+      "exampleTranslation": "Vui lòng tắt đèn.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 1799,
+      "term": "カーテン",
+      "reading": "かーてん",
+      "romaji": "kaaten",
+      "definition": "Rèm cửa",
+      "exampleSentence": "カーテンを引く。",
+      "exampleTranslation": "Kéo rèm cửa.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 1800,
+      "term": "棚",
+      "reading": "たな",
+      "romaji": "tana",
+      "definition": "Kệ, giá sách",
+      "exampleSentence": "棚に本を並べる。",
+      "exampleTranslation": "Xếp sách lên kệ.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 1801,
+      "term": "押し入れ",
+      "reading": "おしいれ",
+      "romaji": "oshiire",
+      "definition": "Tủ âm tường kiểu Nhật",
+      "exampleSentence": "布団を押し入れに入れる。",
+      "exampleTranslation": "Cho chăn vào tủ âm tường.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 1802,
+      "term": "風呂場",
+      "reading": "ふろば",
+      "romaji": "furoba",
+      "definition": "Phòng tắm",
+      "exampleSentence": "風呂場を掃除する。",
+      "exampleTranslation": "Dọn dẹp phòng tắm.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 1803,
+      "term": "廊下",
+      "reading": "ろうか",
+      "romaji": "rouka",
+      "definition": "Hành lang",
+      "exampleSentence": "廊下を歩く。",
+      "exampleTranslation": "Đi qua hành lang.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 1804,
+      "term": "階段",
+      "reading": "かいだん",
+      "romaji": "kaidan",
+      "definition": "Cầu thang",
+      "exampleSentence": "階段を上る。",
+      "exampleTranslation": "Leo lên cầu thang.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 1805,
+      "term": "屋根",
+      "reading": "やね",
+      "romaji": "yane",
+      "definition": "Mái nhà",
+      "exampleSentence": "屋根に雪が積もった。",
+      "exampleTranslation": "Tuyết tích trên mái nhà.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 1806,
+      "term": "庭",
+      "reading": "にわ",
+      "romaji": "niwa",
+      "definition": "Sân vườn",
+      "exampleSentence": "庭で花を育てる。",
+      "exampleTranslation": "Trồng hoa trong sân vườn.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 1807,
+      "term": "ベランダ",
+      "reading": "べらんだ",
+      "romaji": "beranda",
+      "definition": "Ban công",
+      "exampleSentence": "ベランダで洗濯物を干す。",
+      "exampleTranslation": "Phơi quần áo ở ban công.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 1808,
+      "term": "住む",
+      "reading": "すむ",
+      "romaji": "sumu",
+      "definition": "Sống, ở",
+      "exampleSentence": "東京に住んでいます。",
+      "exampleTranslation": "Tôi sống ở Tokyo.",
+      "forms": [
+        "住みます",
+        "住んで",
+        "住んだ",
+        "住まない",
+        "住める"
+      ],
+      "displayOrder": 27
+    },
+    {
+      "id": 1809,
+      "term": "掃除する",
+      "reading": "そうじする",
+      "romaji": "souji suru",
+      "definition": "Dọn dẹp",
+      "exampleSentence": "毎週部屋を掃除する。",
+      "exampleTranslation": "Mỗi tuần dọn phòng.",
+      "forms": [
+        "掃除します",
+        "掃除して",
+        "掃除した",
+        "掃除しない",
+        "掃除できる"
+      ],
+      "displayOrder": 28
+    },
+    {
+      "id": 1810,
+      "term": "引越す",
+      "reading": "ひっこす",
+      "romaji": "hikkosu",
+      "definition": "Dọn nhà",
+      "exampleSentence": "来月引越す予定です。",
+      "exampleTranslation": "Tôi dự định dọn nhà tháng tới.",
+      "forms": [
+        "引越します",
+        "引越して",
+        "引越した",
+        "引越さない",
+        "引越せる"
+      ],
+      "displayOrder": 29
+    }
+  ]
+}

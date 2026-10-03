@@ -1,0 +1,198 @@
+{
+  "id": 458,
+  "title": "科学・技術 · 先端技術・エネルギー",
+  "description": "Công nghệ tiên tiến và năng lượng — chủ đề Khoa học & công nghệ · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.326982",
+  "cards": [
+    {
+      "id": 11657,
+      "term": "エネルギー",
+      "reading": "エネルギー",
+      "romaji": null,
+      "definition": "năng lượng",
+      "exampleSentence": "家庭で使うエネルギーを少しでも節約したいです。",
+      "exampleTranslation": "Tôi muốn tiết kiệm dù chỉ một chút năng lượng dùng trong nhà.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11658,
+      "term": "ロボット",
+      "reading": "ロボット",
+      "romaji": null,
+      "definition": "rô bốt",
+      "exampleSentence": "工場では、ロボットが複雑な作業を正確に繰り返している。",
+      "exampleTranslation": "Trong nhà máy, rô bốt đang lặp đi lặp lại những công việc phức tạp một cách chính xác.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11659,
+      "term": "ゲノム",
+      "reading": "ゲノム",
+      "romaji": null,
+      "definition": "bộ gen/genome",
+      "exampleSentence": "ゲノムの解析によって、病気の原因が明らかになる可能性がある。",
+      "exampleTranslation": "Thông qua việc phân tích bộ gen, nguyên nhân của bệnh có khả năng sẽ được làm sáng tỏ.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11660,
+      "term": "ナノテクノロジー",
+      "reading": "ナノテクノロジー",
+      "romaji": null,
+      "definition": "công nghệ nano",
+      "exampleSentence": "ナノテクノロジーは、医療分野でも応用が期待されている。",
+      "exampleTranslation": "Công nghệ nano cũng được kỳ vọng sẽ được ứng dụng trong lĩnh vực y tế.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11661,
+      "term": "バイオテクノロジー",
+      "reading": "バイオテクノロジー",
+      "romaji": null,
+      "definition": "công nghệ sinh học",
+      "exampleSentence": "バイオテクノロジーを活用した新薬の開発が、世界中で進められている。",
+      "exampleTranslation": "Việc phát triển các loại thuốc mới ứng dụng công nghệ sinh học đang được tiến hành trên toàn thế giới.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11662,
+      "term": "エネルギー効率",
+      "reading": "エネルギー効率",
+      "romaji": null,
+      "definition": "hiệu suất năng lượng",
+      "exampleSentence": "この製品は、従来のものよりエネルギー効率が高い。",
+      "exampleTranslation": "Sản phẩm này có hiệu suất năng lượng cao hơn các sản phẩm trước đây.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11663,
+      "term": "省エネ技術",
+      "reading": "省エネ技術",
+      "romaji": null,
+      "definition": "công nghệ tiết kiệm năng lượng",
+      "exampleSentence": "省エネ技術を取り入れた家電が、次々に発売されている。",
+      "exampleTranslation": "Các thiết bị gia dụng áp dụng công nghệ tiết kiệm năng lượng đang lần lượt được tung ra thị trường.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11664,
+      "term": "パターン",
+      "reading": "パターン",
+      "romaji": null,
+      "definition": "mẫu/kiểu/pattern",
+      "exampleSentence": "過去のデータを分析すると、消費者の行動パターンが見えてくる。",
+      "exampleTranslation": "Khi phân tích dữ liệu trong quá khứ, có thể nhận ra kiểu hành vi của người tiêu dùng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11665,
+      "term": "エネルギー",
+      "reading": "エネルギー",
+      "romaji": null,
+      "definition": "năng lượng/energy",
+      "exampleSentence": "再生可能エネルギーの利用で、化石燃料への依存を減らせる。",
+      "exampleTranslation": "Việc sử dụng năng lượng tái tạo có thể làm giảm sự phụ thuộc vào nhiên liệu hóa thạch.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11666,
+      "term": "テクノロジー",
+      "reading": "テクノロジー",
+      "romaji": null,
+      "definition": "công nghệ/technology",
+      "exampleSentence": "最新のテクノロジーを活用すれば、遠隔地でも質の高い教育を受けられる。",
+      "exampleTranslation": "Nếu tận dụng công nghệ mới nhất, ngay cả người ở vùng xa cũng có thể tiếp nhận nền giáo dục chất lượng cao.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11667,
+      "term": "アルゴリズム",
+      "reading": "アルゴリズム",
+      "romaji": null,
+      "definition": "thuật toán/algorithm",
+      "exampleSentence": "このアルゴリズムは、大量のデータを短時間で処理できる。",
+      "exampleTranslation": "Thuật toán này có thể xử lý một lượng lớn dữ liệu trong thời gian ngắn.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11668,
+      "term": "スマート",
+      "reading": "スマート",
+      "romaji": null,
+      "definition": "thông minh/smart",
+      "exampleSentence": "スマートな暮らしを実現するため、家の設備をアプリで管理している。",
+      "exampleTranslation": "Để hiện thực hóa cuộc sống thông minh, tôi quản lý các thiết bị trong nhà bằng ứng dụng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11669,
+      "term": "宇宙開発 (うちゅうかいはつ)",
+      "reading": "うちゅうかいはつ",
+      "romaji": null,
+      "definition": "phát triển vũ trụ",
+      "exampleSentence": "各国が協力して、宇宙開発に必要な技術の研究を進めている。",
+      "exampleTranslation": "Các quốc gia đang hợp tác để thúc đẩy nghiên cứu những công nghệ cần thiết cho việc phát triển vũ trụ.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11670,
+      "term": "環境技術 (かんきょうぎじゅつ)",
+      "reading": "かんきょうぎじゅつ",
+      "romaji": null,
+      "definition": "công nghệ môi trường",
+      "exampleSentence": "環境技術の導入は、企業のコスト削減にもつながる。",
+      "exampleTranslation": "Việc đưa vào sử dụng công nghệ môi trường cũng góp phần giúp doanh nghiệp giảm chi phí.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 11671,
+      "term": "再生医療 (さいせいいりょう)",
+      "reading": "さいせいいりょう",
+      "romaji": null,
+      "definition": "y học tái tạo",
+      "exampleSentence": "再生医療の進歩により、治療が難しかった病気にも希望が生まれている。",
+      "exampleTranslation": "Nhờ sự tiến bộ của y học tái tạo, những căn bệnh từng khó điều trị cũng đang có thêm hy vọng.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 11672,
+      "term": "耐震 (たいしん)",
+      "reading": "たいしん",
+      "romaji": null,
+      "definition": "chống động đất",
+      "exampleSentence": "新しい校舎には、最新の耐震設計が採用されている。",
+      "exampleTranslation": "Tòa nhà trường học mới được áp dụng thiết kế chống động đất hiện đại nhất.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 11673,
+      "term": "防音 (ぼうおん)",
+      "reading": "ぼうおん",
+      "romaji": null,
+      "definition": "cách âm",
+      "exampleSentence": "このマンションは防音設備が整っているので、隣の部屋の音がほとんど聞こえない。",
+      "exampleTranslation": "Căn hộ này có thiết bị cách âm tốt nên hầu như không nghe thấy tiếng từ phòng bên cạnh.",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

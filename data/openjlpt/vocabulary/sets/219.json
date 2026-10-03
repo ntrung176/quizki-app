@@ -1,0 +1,176 @@
+{
+  "id": 219,
+  "title": "Tuần 4 · Ngày 5 - 複合名詞・派生語 (Danh từ ghép & Từ phái sinh)",
+  "description": "Nihongo Soumatome N3 語彙 — 複合名詞・派生語 (Danh từ ghép & Từ phái sinh)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.467905",
+  "cards": [
+    {
+      "id": 5581,
+      "term": "申し込み (もうしこみ)",
+      "reading": "もうしこみ",
+      "romaji": "moushikomi",
+      "definition": "đơn đăng ký, sự đăng ký",
+      "exampleSentence": "奨学金の申し込みは、今月末まで受け付けています。",
+      "exampleTranslation": "Đơn đăng ký học bổng được tiếp nhận đến cuối tháng này.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5582,
+      "term": "取り組み (とりくみ)",
+      "reading": "とりくみ",
+      "romaji": "torikumi",
+      "definition": "nỗ lực, hoạt động, cách tiếp cận",
+      "exampleSentence": "この町では、ごみを減らすための取り組みが進められている。",
+      "exampleTranslation": "Thị trấn này đang triển khai các hoạt động nhằm giảm rác thải.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5583,
+      "term": "問い合わせ (といあわせ)",
+      "reading": "といあわせ",
+      "romaji": "toiawase",
+      "definition": "hỏi thăm, thắc mắc, câu hỏi",
+      "exampleSentence": "分からないことがあれば、会社の窓口にお問い合わせください。",
+      "exampleTranslation": "Nếu có điều gì không hiểu, xin vui lòng liên hệ với bộ phận tư vấn của công ty.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5584,
+      "term": "打ち合わせ (うちあわせ)",
+      "reading": "うちあわせ",
+      "romaji": "uchiawase",
+      "definition": "họp bàn, thảo luận trước",
+      "exampleSentence": "明日の発表について、午後に打ち合わせを行います。",
+      "exampleTranslation": "Chiều nay chúng tôi sẽ họp bàn về phần thuyết trình ngày mai.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5585,
+      "term": "話し合い (はなしあい)",
+      "reading": "はなしあい",
+      "romaji": "hanashiai",
+      "definition": "cuộc thảo luận, sự bàn bạc",
+      "exampleSentence": "家族で旅行の予定について話し合いをしました。",
+      "exampleTranslation": "Cả gia đình đã bàn bạc về kế hoạch đi du lịch.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5586,
+      "term": "取り消し (とりけし)",
+      "reading": "とりけし",
+      "romaji": "torikeshi",
+      "definition": "sự hủy bỏ, việc xóa bỏ",
+      "exampleSentence": "予約の取り消しは、前日までに連絡してください。",
+      "exampleTranslation": "Nếu muốn hủy đặt chỗ, vui lòng liên hệ trước ngày hôm đó.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5587,
+      "term": "見直し (みなおし)",
+      "reading": "みなおし",
+      "romaji": "minaoshi",
+      "definition": "sự xem xét lại, sự đánh giá lại",
+      "exampleSentence": "試験の結果を受けて、会社は勤務制度の見直しを行った。",
+      "exampleTranslation": "Sau kết quả kỳ thi, công ty đã xem xét lại chế độ làm việc.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5588,
+      "term": "引き受け (ひきうけ)",
+      "reading": "ひきうけ",
+      "romaji": "hikiuke",
+      "definition": "sự chấp nhận, sự đảm nhận",
+      "exampleSentence": "彼はその仕事の引き受けを申し出た。",
+      "exampleTranslation": "Anh ấy đã đề nghị đảm nhận công việc đó.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5589,
+      "term": "受け取り (うけとり)",
+      "reading": "うけとり",
+      "romaji": "uketori",
+      "definition": "sự nhận, biên nhận",
+      "exampleSentence": "荷物の受け取りには、本人確認書類が必要です。",
+      "exampleTranslation": "Khi nhận hàng, cần có giấy tờ tùy thân để xác minh danh tính.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5590,
+      "term": "繰り返し (くりかえし)",
+      "reading": "くりかえし",
+      "romaji": "kurikaeshi",
+      "definition": "sự lặp lại, việc làm đi làm lại",
+      "exampleSentence": "同じ質問の繰り返しに、先生は少し困っていた。",
+      "exampleTranslation": "Giáo viên hơi lúng túng trước việc cứ lặp đi lặp lại cùng một câu hỏi.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5591,
+      "term": "乗り換え (のりかえ)",
+      "reading": "のりかえ",
+      "romaji": "norikae",
+      "definition": "sự chuyển tàu/xe, điểm trung chuyển",
+      "exampleSentence": "東京駅で一度乗り換えをすれば、空港まで行けます。",
+      "exampleTranslation": "Nếu chuyển tàu một lần ở ga Tokyo thì có thể đi đến sân bay.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5592,
+      "term": "引っ越し (ひっこし)",
+      "reading": "ひっこし",
+      "romaji": "hikkoshi",
+      "definition": "sự chuyển nhà, việc dọn nhà",
+      "exampleSentence": "来月の引っ越しに向けて、少しずつ荷物を整理している。",
+      "exampleTranslation": "Để chuẩn bị chuyển nhà vào tháng sau, tôi đang dần sắp xếp đồ đạc.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5593,
+      "term": "取り扱い (とりあつかい)",
+      "reading": "とりあつかい",
+      "romaji": "toriatsukai",
+      "definition": "cách xử lý, cách đối xử",
+      "exampleSentence": "この薬の取り扱いには、十分な注意が必要です。",
+      "exampleTranslation": "Cần hết sức cẩn thận khi sử dụng loại thuốc này.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5594,
+      "term": "仕上がり (しあがり)",
+      "reading": "しあがり",
+      "romaji": "shiagari",
+      "definition": "sự hoàn thành, chất lượng thành phẩm",
+      "exampleSentence": "完成した作品の仕上がりを見て、先生は満足そうだった。",
+      "exampleTranslation": "Nhìn chất lượng thành phẩm của tác phẩm đã hoàn thành, giáo viên có vẻ hài lòng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5595,
+      "term": "出来上がり (できあがり)",
+      "reading": "できあがり",
+      "romaji": "dekiagari",
+      "definition": "thành phẩm, sự hoàn chỉnh",
+      "exampleSentence": "料理の出来上がりを確認してから、皿に盛り付けた。",
+      "exampleTranslation": "Sau khi kiểm tra món ăn đã hoàn thành, tôi bày lên đĩa.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

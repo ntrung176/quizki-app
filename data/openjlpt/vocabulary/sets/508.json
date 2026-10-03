@@ -1,0 +1,154 @@
+{
+  "id": 508,
+  "title": "生活・住まい · 日常生活・家事",
+  "description": "Sinh hoạt hằng ngày & việc nhà — chủ đề Đời sống & nhà cửa · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:50.969416",
+  "cards": [
+    {
+      "id": 12643,
+      "term": "上着 (うわぎ)",
+      "reading": "うわぎ",
+      "romaji": null,
+      "definition": "áo khoác ngoài",
+      "exampleSentence": "外は寒いから、出かける前に上着を着てください。",
+      "exampleTranslation": "Bên ngoài lạnh nên hãy mặc áo khoác trước khi ra ngoài.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12644,
+      "term": "洗濯 (せんたく)",
+      "reading": "せんたく",
+      "romaji": null,
+      "definition": "giặt giũ",
+      "exampleSentence": "今日は天気がいいので、朝から洗濯をしています。",
+      "exampleTranslation": "Hôm nay thời tiết đẹp nên tôi đã giặt giũ từ sáng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12645,
+      "term": "掃除 (そうじ)",
+      "reading": "そうじ",
+      "romaji": null,
+      "definition": "dọn dẹp",
+      "exampleSentence": "週末は家族みんなで部屋の掃除をします。",
+      "exampleTranslation": "Cuối tuần, cả gia đình cùng nhau dọn dẹp phòng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12646,
+      "term": "通う (かよう)",
+      "reading": "かよう",
+      "romaji": null,
+      "definition": "đi lại, thường xuyên đến",
+      "exampleSentence": "大学に通うために、駅の近くに部屋を借りました。",
+      "exampleTranslation": "Để đi học đại học thường xuyên, tôi đã thuê phòng gần nhà ga.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12647,
+      "term": "暮らす (くらす)",
+      "reading": "くらす",
+      "romaji": null,
+      "definition": "sinh sống, sinh hoạt",
+      "exampleSentence": "将来は海の近くで静かに暮らすのが夢です。",
+      "exampleTranslation": "Ước mơ của tôi là sau này được sống yên bình gần biển.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12648,
+      "term": "家事 (かじ)",
+      "reading": "かじ",
+      "romaji": null,
+      "definition": "việc nhà",
+      "exampleSentence": "仕事が忙しくても、家事を家族で分担しています。",
+      "exampleTranslation": "Dù công việc bận rộn, gia đình tôi vẫn phân chia việc nhà.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12649,
+      "term": "過ごす (すごす)",
+      "reading": "すごす",
+      "romaji": null,
+      "definition": "trải qua, sống qua (thời gian)",
+      "exampleSentence": "夏休みは田舎で祖父母とゆっくり過ごす予定です。",
+      "exampleTranslation": "Kỳ nghỉ hè này, tôi dự định thong thả ở quê cùng ông bà.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12650,
+      "term": "起床 (きしょう)",
+      "reading": "きしょう",
+      "romaji": null,
+      "definition": "thức dậy, dậy giường",
+      "exampleSentence": "健康のため、毎朝同じ時間に起床するようにしています。",
+      "exampleTranslation": "Vì sức khỏe, tôi cố gắng thức dậy vào cùng một giờ mỗi sáng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12651,
+      "term": "就寝 (しゅうしん)",
+      "reading": "しゅうしん",
+      "romaji": null,
+      "definition": "đi ngủ, lên giường",
+      "exampleSentence": "就寝前にスマートフォンを見ると、眠れなくなることがあります。",
+      "exampleTranslation": "Đôi khi xem điện thoại trước khi ngủ khiến tôi không thể ngủ được.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12652,
+      "term": "入浴 (にゅうよく)",
+      "reading": "にゅうよく",
+      "romaji": null,
+      "definition": "tắm, tắm bồn",
+      "exampleSentence": "入浴後は体が温まって、よく眠れます。",
+      "exampleTranslation": "Sau khi tắm, cơ thể ấm lên nên tôi ngủ rất ngon.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12653,
+      "term": "目が覚める (めがさめる)",
+      "reading": "めがさめる",
+      "romaji": null,
+      "definition": "tỉnh giấc, nhận ra sự thật",
+      "exampleSentence": "朝は鳥の声を聞くと、自然に目が覚める。",
+      "exampleTranslation": "Buổi sáng, nghe tiếng chim hót là tôi tự nhiên tỉnh giấc.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12654,
+      "term": "取り除く (とりのぞく)",
+      "reading": "とりのぞく",
+      "romaji": null,
+      "definition": "loại bỏ/dọn dẹp",
+      "exampleSentence": "専門家は、川からプラスチックごみを取り除く活動を続けています。",
+      "exampleTranslation": "Các chuyên gia vẫn tiếp tục hoạt động loại bỏ rác nhựa khỏi sông.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12655,
+      "term": "炊事 (すいじ)",
+      "reading": "すいじ",
+      "romaji": null,
+      "definition": "nấu nướng",
+      "exampleSentence": "祖母は毎日、家族のために炊事を担当しています。",
+      "exampleTranslation": "Bà tôi mỗi ngày phụ trách việc nấu nướng cho gia đình.",
+      "forms": [],
+      "displayOrder": 12
+    }
+  ]
+}

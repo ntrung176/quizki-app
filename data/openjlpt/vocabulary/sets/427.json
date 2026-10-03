@@ -1,0 +1,154 @@
+{
+  "id": 427,
+  "title": "ビジネス・仕事 · 部門・組織",
+  "description": "Phòng ban & tổ chức công ty — chủ đề Công việc & kinh doanh · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:47.692445",
+  "cards": [
+    {
+      "id": 11102,
+      "term": "営業 (えいぎょう)",
+      "reading": "えいぎょう",
+      "romaji": null,
+      "definition": "bộ phận kinh doanh",
+      "exampleSentence": "営業部の担当者が、新しい商品の説明に来ました。",
+      "exampleTranslation": "Nhân viên phụ trách bộ phận kinh doanh đã đến để giới thiệu sản phẩm mới.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11103,
+      "term": "株式会社 (かぶしきがいしゃ)",
+      "reading": "かぶしきがいしゃ",
+      "romaji": null,
+      "definition": "công ty cổ phần",
+      "exampleSentence": "父は東京の株式会社で、経理の仕事をしています。",
+      "exampleTranslation": "Bố tôi làm công việc kế toán tại một công ty cổ phần ở Tokyo.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11104,
+      "term": "企業 (きぎょう)",
+      "reading": "きぎょう",
+      "romaji": null,
+      "definition": "doanh nghiệp/công ty",
+      "exampleSentence": "この企業は、環境に配慮した商品を作っています。",
+      "exampleTranslation": "Doanh nghiệp này đang sản xuất những sản phẩm thân thiện với môi trường.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11105,
+      "term": "経営 (けいえい)",
+      "reading": "けいえい",
+      "romaji": null,
+      "definition": "quản lý/điều hành kinh doanh",
+      "exampleSentence": "父は小さな店を経営しています。",
+      "exampleTranslation": "Bố tôi đang điều hành một cửa hàng nhỏ.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11106,
+      "term": "人事 (じんじ)",
+      "reading": "じんじ",
+      "romaji": null,
+      "definition": "bộ phận nhân sự",
+      "exampleSentence": "詳しいことは、明日人事に確認してください。",
+      "exampleTranslation": "Về thông tin chi tiết, hãy xác nhận với phòng nhân sự vào ngày mai.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11107,
+      "term": "組織 (そしき)",
+      "reading": "そしき",
+      "romaji": null,
+      "definition": "tổ chức",
+      "exampleSentence": "大きな組織では、情報を共有することが大切です。",
+      "exampleTranslation": "Trong một tổ chức lớn, việc chia sẻ thông tin rất quan trọng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11108,
+      "term": "運営 (うんえい)",
+      "reading": "うんえい",
+      "romaji": null,
+      "definition": "vận hành/điều hành",
+      "exampleSentence": "学生たちが中心となって、文化祭の運営を行った。",
+      "exampleTranslation": "Các sinh viên đã đóng vai trò nòng cốt trong việc điều hành lễ hội văn hóa.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11109,
+      "term": "経理 (けいり)",
+      "reading": "けいり",
+      "romaji": null,
+      "definition": "kế toán",
+      "exampleSentence": "経理に必要な書類を、今週中に提出してください。",
+      "exampleTranslation": "Vui lòng nộp các giấy tờ cần thiết cho bộ phận kế toán trong tuần này.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11110,
+      "term": "支社 (ししゃ)",
+      "reading": "ししゃ",
+      "romaji": null,
+      "definition": "chi nhánh",
+      "exampleSentence": "来月、名古屋の支社へ転勤することになりました。",
+      "exampleTranslation": "Tháng sau, tôi sẽ được chuyển công tác đến chi nhánh Nagoya.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11111,
+      "term": "総務 (そうむ)",
+      "reading": "そうむ",
+      "romaji": null,
+      "definition": "bộ phận tổng vụ/hành chính",
+      "exampleSentence": "備品の注文については、総務に問い合わせてください。",
+      "exampleTranslation": "Về việc đặt mua đồ dùng, hãy liên hệ với bộ phận hành chính.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11112,
+      "term": "部署 (ぶしょ)",
+      "reading": "ぶしょ",
+      "romaji": null,
+      "definition": "phòng ban",
+      "exampleSentence": "新しい部署では、最初に社員の名前を覚えました。",
+      "exampleTranslation": "Ở phòng ban mới, trước tiên tôi đã ghi nhớ tên các nhân viên.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11113,
+      "term": "部門 (ぶもん)",
+      "reading": "ぶもん",
+      "romaji": null,
+      "definition": "bộ phận/phòng ban",
+      "exampleSentence": "この会社では、部門ごとに目標を設定しています。",
+      "exampleTranslation": "Ở công ty này, mục tiêu được thiết lập cho từng bộ phận.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11114,
+      "term": "本社 (ほんしゃ)",
+      "reading": "ほんしゃ",
+      "romaji": null,
+      "definition": "trụ sở chính",
+      "exampleSentence": "詳しい情報は、本社の担当者に確認してください。",
+      "exampleTranslation": "Vui lòng xác nhận thông tin chi tiết với người phụ trách ở trụ sở chính.",
+      "forms": [],
+      "displayOrder": 12
+    }
+  ]
+}

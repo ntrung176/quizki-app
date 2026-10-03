@@ -493,7 +493,7 @@ export const useBookData = ({
         try {
             const nextVal = !lessonItem.isPremium;
             const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', activeChapterId, 'lessons', lessonItem.id);
-            await updateDoc(lessonRef, { isPremium: nextVal });
+            await setDoc(lessonRef, { isPremium: nextVal }, { merge: true });
             setBookGroups(prev => prev.map(g => g.id === groupId ? {
                 ...g,
                 books: g.books.map(b => b.id === bookId ? {
@@ -528,7 +528,7 @@ export const useBookData = ({
                 subtitle: formSubtitle.trim(),
                 imageUrl: formImageUrl.trim()
             };
-            await updateDoc(ref, updateObj);
+            await setDoc(ref, updateObj, { merge: true });
             updateEditedBookGroupLocalCache({ id: editTarget.id, ...updateObj });
             setBookGroups(prev => prev.map(g => g.id === editTarget.id ? {
                 ...g, ...updateObj
@@ -556,7 +556,7 @@ export const useBookData = ({
                 name: formName.trim(), subtitle: formSubtitle.trim(), color: formColor,
                 wordCount: formWordCount.trim(), description: formDescription.trim()
             };
-            await updateDoc(ref, updateObj);
+            await setDoc(ref, updateObj, { merge: true });
 
             const updatedGroup = (bookGroups || []).find(g => g.id === groupId);
             if (updatedGroup) {
@@ -588,7 +588,7 @@ export const useBookData = ({
             const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lessonId);
             const newVocab = [...(currentLesson?.vocab || [])];
             newVocab[editingVocabIndex] = { ...editingVocabData };
-            await updateDoc(lessonRef, { vocab: newVocab });
+            await setDoc(lessonRef, { vocab: newVocab }, { merge: true });
 
             let updatedGroupToSave = null;
             setBookGroups(prev => prev.map(g => {
@@ -629,7 +629,7 @@ export const useBookData = ({
         if (!lessonId || !groupId || !bookId || !chapterId) return false;
         try {
             const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lessonId);
-            await updateDoc(lessonRef, { vocab: newVocabList });
+            await setDoc(lessonRef, { vocab: newVocabList }, { merge: true });
 
             let updatedGroupToSave = null;
             setBookGroups(prev => prev.map(g => {
@@ -668,7 +668,7 @@ export const useBookData = ({
         try {
             const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lessonId);
             const newVocab = (currentLesson?.vocab || []).filter((_, i) => i !== index);
-            await updateDoc(lessonRef, { vocab: newVocab });
+            await setDoc(lessonRef, { vocab: newVocab }, { merge: true });
 
             setBookGroups(prev => prev.map(g => g.id === groupId ? {
                 ...g,
@@ -765,7 +765,7 @@ export const useBookData = ({
                     addedCount++;
                 }
             }
-            await updateDoc(lessonRef, { vocab: existing });
+            await setDoc(lessonRef, { vocab: existing }, { merge: true });
 
             setBookGroups(prev => prev.map(g => g.id === groupId ? {
                 ...g,

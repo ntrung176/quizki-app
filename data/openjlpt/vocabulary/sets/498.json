@@ -1,0 +1,209 @@
+{
+  "id": 498,
+  "title": "感情・性格 · 怒り・後悔",
+  "description": "Giận, hối hận & khó chịu — chủ đề Cảm xúc & tính cách · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:50.607875",
+  "cards": [
+    {
+      "id": 12441,
+      "term": "恥ずかしい (はずかしい)",
+      "reading": "はずかしい",
+      "romaji": null,
+      "definition": "xấu hổ, mắc cỡ",
+      "exampleSentence": "みんなの前で名前を間違えて、とても恥ずかしい思いをした。",
+      "exampleTranslation": "Vì gọi nhầm tên trước mặt mọi người nên tôi đã rất xấu hổ.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12442,
+      "term": "怒る (おこる)",
+      "reading": "おこる",
+      "romaji": null,
+      "definition": "tức giận, nổi giận",
+      "exampleSentence": "父は私が約束を守らないと、すぐに怒る。",
+      "exampleTranslation": "Bố tôi sẽ nổi giận ngay khi tôi không giữ lời hứa.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12443,
+      "term": "悔しい (くやしい)",
+      "reading": "くやしい",
+      "romaji": null,
+      "definition": "ức tức, cay cú, hối tiếc",
+      "exampleSentence": "試合に負けたのが、今でも悔しい。",
+      "exampleTranslation": "Đến bây giờ tôi vẫn còn cay cú vì thua trận.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12444,
+      "term": "後悔 (こうかい)",
+      "reading": "こうかい",
+      "romaji": null,
+      "definition": "sự hối hận",
+      "exampleSentence": "あのとき彼に謝らなかったことを、今でも後悔している。",
+      "exampleTranslation": "Đến bây giờ tôi vẫn hối hận vì đã không xin lỗi anh ấy lúc đó.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12445,
+      "term": "後悔する (こうかいする)",
+      "reading": "こうかいする",
+      "romaji": null,
+      "definition": "hối hận, hối tiếc",
+      "exampleSentence": "大切な人にひどいことを言うと、あとで後悔する。",
+      "exampleTranslation": "Nếu nói những lời quá đáng với người quan trọng, sau này bạn sẽ hối hận.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12446,
+      "term": "惜しい (おしい)",
+      "reading": "おしい",
+      "romaji": null,
+      "definition": "đáng tiếc, uổng",
+      "exampleSentence": "あと少しで合格できたのに、本当に惜しい。",
+      "exampleTranslation": "Chỉ còn thiếu một chút nữa là đỗ rồi, thật đáng tiếc.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12447,
+      "term": "羨ましい (うらやましい)",
+      "reading": "うらやましい",
+      "romaji": null,
+      "definition": "ghen tị, thèm muốn",
+      "exampleSentence": "毎日好きな仕事ができるあなたが羨ましい。",
+      "exampleTranslation": "Tôi ghen tị với bạn vì ngày nào cũng có thể làm công việc mình yêu thích.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12448,
+      "term": "恥じる (はじる)",
+      "reading": "はじる",
+      "romaji": null,
+      "definition": "xấu hổ, hổ thẹn",
+      "exampleSentence": "彼は自分の失敗を恥じることなく、最後まで努力した。",
+      "exampleTranslation": "Anh ấy không hổ thẹn vì thất bại của mình mà vẫn nỗ lực đến cuối cùng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12449,
+      "term": "恥ずかしさ (はずかしさ)",
+      "reading": "はずかしさ",
+      "romaji": null,
+      "definition": "cảm giác xấu hổ",
+      "exampleSentence": "発表が終わると、彼女は恥ずかしさで顔を赤くした。",
+      "exampleTranslation": "Sau khi phần thuyết trình kết thúc, cô ấy đỏ mặt vì ngượng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12450,
+      "term": "怒り (いかり)",
+      "reading": "いかり",
+      "romaji": null,
+      "definition": "cơn giận",
+      "exampleSentence": "彼は怒りを抑えながら、相手の話を最後まで聞いた。",
+      "exampleTranslation": "Anh ấy vừa kiềm chế cơn giận vừa lắng nghe đối phương nói đến cuối.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12451,
+      "term": "不満 (ふまん)",
+      "reading": "ふまん",
+      "romaji": null,
+      "definition": "bất mãn, không thỏa mãn",
+      "exampleSentence": "社員たちは会社の新しい規則に不満を持っている。",
+      "exampleTranslation": "Các nhân viên bất mãn với quy định mới của công ty.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12452,
+      "term": "罪悪感 (ざいあくかん)",
+      "reading": "ざいあくかん",
+      "romaji": null,
+      "definition": "cảm giác tội lỗi",
+      "exampleSentence": "友達を傷つけたことに、強い罪悪感を覚えた。",
+      "exampleTranslation": "Tôi cảm thấy vô cùng tội lỗi vì đã làm tổn thương bạn mình.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12453,
+      "term": "嫉妬 (しっと)",
+      "reading": "しっと",
+      "romaji": null,
+      "definition": "ghen tuông",
+      "exampleSentence": "彼女は恋人の友人にまで嫉妬している。",
+      "exampleTranslation": "Cô ấy ghen tuông đến cả những người bạn của người yêu.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12454,
+      "term": "憎しみ (にくしみ)",
+      "reading": "にくしみ",
+      "romaji": null,
+      "definition": "sự căm ghét",
+      "exampleSentence": "長年の憎しみを抱えたままでは、幸せになれない。",
+      "exampleTranslation": "Nếu cứ ôm lòng căm ghét suốt nhiều năm thì không thể hạnh phúc.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12455,
+      "term": "怒鳴る (どなる)",
+      "reading": "どなる",
+      "romaji": null,
+      "definition": "quát tháo/hét lên",
+      "exampleSentence": "どんなに腹が立っても、子どもに怒鳴るのはよくない。",
+      "exampleTranslation": "Dù có tức giận đến đâu thì quát mắng trẻ con cũng không tốt.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12456,
+      "term": "鼻につく (はなにつく)",
+      "reading": "はなにつく",
+      "romaji": null,
+      "definition": "gây khó chịu/ngán ngẩm",
+      "exampleSentence": "彼の自慢話は、聞いているうちに鼻につくようになった。",
+      "exampleTranslation": "Những câu chuyện khoe khoang của anh ta dần khiến người nghe thấy ngán ngẩm.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 12457,
+      "term": "腹を立てる (はらをたてる)",
+      "reading": "はらをたてる",
+      "romaji": null,
+      "definition": "nổi giận/tức giận",
+      "exampleSentence": "店員の失礼な態度に腹を立てる客も少なくなかった。",
+      "exampleTranslation": "Không ít khách hàng đã nổi giận trước thái độ bất lịch sự của nhân viên.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 12458,
+      "term": "眉をひそめる (まゆをひそめる)",
+      "reading": "まゆをひそめる",
+      "romaji": null,
+      "definition": "cau mày",
+      "exampleSentence": "彼はその無責任な発言を聞いて、思わず眉をひそめる。",
+      "exampleTranslation": "Nghe lời phát biểu vô trách nhiệm đó, anh ấy bất giác cau mày.",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

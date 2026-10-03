@@ -1,0 +1,154 @@
+{
+  "id": 439,
+  "title": "ビジネス・仕事 · 仕事の慣用句",
+  "description": "Thành ngữ trong công việc — chủ đề Công việc & kinh doanh · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:48.516098",
+  "cards": [
+    {
+      "id": 11287,
+      "term": "実現する (じつげんする)",
+      "reading": "じつげんする",
+      "romaji": null,
+      "definition": "thực hiện, hiện thực hóa",
+      "exampleSentence": "長年の夢を実現するために、毎日努力している。",
+      "exampleTranslation": "Tôi nỗ lực mỗi ngày để biến ước mơ nhiều năm thành hiện thực.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11288,
+      "term": "実行する (じっこうする)",
+      "reading": "じっこうする",
+      "romaji": null,
+      "definition": "thực hiện, thực hành",
+      "exampleSentence": "計画を実行する前に、必要な費用を確認しましょう。",
+      "exampleTranslation": "Trước khi thực hiện kế hoạch, hãy kiểm tra các chi phí cần thiết.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11289,
+      "term": "絵に描いた餅 (えにかいたもち)",
+      "reading": "えにかいたもち",
+      "romaji": null,
+      "definition": "bánh vẽ/kế hoạch không thực tế",
+      "exampleSentence": "その計画は実現できなければ、絵に描いた餅にすぎない。",
+      "exampleTranslation": "Nếu không thể thực hiện thì kế hoạch đó chẳng khác nào bánh vẽ.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11290,
+      "term": "骨を折る (ほねをおる)",
+      "reading": "ほねをおる",
+      "romaji": null,
+      "definition": "cố gắng hết sức/bỏ nhiều công sức",
+      "exampleSentence": "彼は地域の子どもたちのためなら、骨を折ることもいとわない。",
+      "exampleTranslation": "Vì những đứa trẻ trong khu vực, anh ấy không ngại bỏ nhiều công sức.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11291,
+      "term": "時は金なり (ときはかねなり)",
+      "reading": "ときはかねなり",
+      "romaji": null,
+      "definition": "thời gian là vàng bạc",
+      "exampleSentence": "成功したければ、時は金なりという言葉を忘れてはいけない。",
+      "exampleTranslation": "Nếu muốn thành công, bạn không được quên câu thời gian là vàng bạc.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11292,
+      "term": "手が回らない (てがまわらない)",
+      "reading": "てがまわらない",
+      "romaji": null,
+      "definition": "không đủ tay/không xuể",
+      "exampleSentence": "今日は忙しくて、細かいところまで手が回らない。",
+      "exampleTranslation": "Hôm nay tôi bận đến mức không thể lo liệu cả những việc nhỏ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11293,
+      "term": "手を抜く (てをぬく)",
+      "reading": "てをぬく",
+      "romaji": null,
+      "definition": "làm qua loa/không hết sức",
+      "exampleSentence": "仕事では、どんなに忙しくても手を抜くべきではない。",
+      "exampleTranslation": "Trong công việc, dù bận đến đâu cũng không nên làm qua loa.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11294,
+      "term": "切り開く (きりひらく)",
+      "reading": "きりひらく",
+      "romaji": null,
+      "definition": "khai phá/mở đường",
+      "exampleSentence": "若者には、自分の未来を切り開く勇気が必要だ。",
+      "exampleTranslation": "Người trẻ cần có lòng dũng cảm để tự mở đường cho tương lai.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11295,
+      "term": "追い込む (おいこむ)",
+      "reading": "おいこむ",
+      "romaji": null,
+      "definition": "dồn vào góc tường/ép buộc",
+      "exampleSentence": "相手を追い込むだけでなく、解決策も示すべきだ。",
+      "exampleTranslation": "Không chỉ nên dồn đối phương vào thế bí mà còn cần đưa ra giải pháp.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11296,
+      "term": "踏み切る (ふみきる)",
+      "reading": "ふみきる",
+      "romaji": null,
+      "definition": "dứt khoát bước qua/quyết định",
+      "exampleSentence": "会社は新事業への投資に踏み切る方針を示した。",
+      "exampleTranslation": "Công ty đã thể hiện chủ trương quyết định đầu tư vào lĩnh vực kinh doanh mới.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11297,
+      "term": "立ち向かう (たちむかう)",
+      "reading": "たちむかう",
+      "romaji": null,
+      "definition": "đương đầu/đối phó với",
+      "exampleSentence": "困難から逃げず、正面から立ち向かうことが大切だ。",
+      "exampleTranslation": "Điều quan trọng là không chạy trốn khó khăn mà phải trực diện đối mặt.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11298,
+      "term": "立ち上がる (たちあがる)",
+      "reading": "たちあがる",
+      "romaji": null,
+      "definition": "đứng dậy/khởi động lại",
+      "exampleSentence": "転んだ子どもは、涙を拭いてすぐに立ち上がる。",
+      "exampleTranslation": "Đứa trẻ bị ngã lau nước mắt rồi nhanh chóng đứng dậy.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11299,
+      "term": "臨機応変 (りんきおうへん)",
+      "reading": "りんきおうへん",
+      "romaji": null,
+      "definition": "tuỳ cơ ứng biến",
+      "exampleSentence": "予想外の事態にも、臨機応変に対応してください。",
+      "exampleTranslation": "Hãy tùy cơ ứng biến trước cả những tình huống bất ngờ.",
+      "forms": [],
+      "displayOrder": 12
+    }
+  ]
+}

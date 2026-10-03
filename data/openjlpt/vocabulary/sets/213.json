@@ -1,0 +1,176 @@
+{
+  "id": 213,
+  "title": "Tuần 3 · Ngày 6 - 科学・技術 (Khoa học & Công nghệ)",
+  "description": "Nihongo Soumatome N3 語彙 — 科学・技術 (Khoa học & Công nghệ)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.291452",
+  "cards": [
+    {
+      "id": 5506,
+      "term": "技術 (ぎじゅつ)",
+      "reading": "ぎじゅつ",
+      "romaji": "gijutsu",
+      "definition": "kỹ thuật, công nghệ",
+      "exampleSentence": "新しい技術を使って、作業の時間を短くしました。",
+      "exampleTranslation": "Chúng tôi đã rút ngắn thời gian làm việc bằng công nghệ mới.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5507,
+      "term": "機械 (きかい)",
+      "reading": "きかい",
+      "romaji": "kikai",
+      "definition": "máy móc, thiết bị",
+      "exampleSentence": "工場の機械が故障したので、今日は仕事ができません。",
+      "exampleTranslation": "Vì máy móc trong nhà máy bị hỏng nên hôm nay không thể làm việc.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5508,
+      "term": "装置 (そうち)",
+      "reading": "そうち",
+      "romaji": "souchi",
+      "definition": "thiết bị, bộ thiết bị",
+      "exampleSentence": "この装置を使えば、水の温度を正確に測れます。",
+      "exampleTranslation": "Nếu sử dụng thiết bị này, có thể đo chính xác nhiệt độ nước.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5509,
+      "term": "材料 (ざいりょう)",
+      "reading": "ざいりょう",
+      "romaji": "zairyou",
+      "definition": "nguyên liệu, vật liệu",
+      "exampleSentence": "料理を始める前に、必要な材料を全部そろえました。",
+      "exampleTranslation": "Trước khi bắt đầu nấu ăn, tôi đã chuẩn bị đầy đủ nguyên liệu cần thiết.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5510,
+      "term": "成分 (せいぶん)",
+      "reading": "せいぶん",
+      "romaji": "seibun",
+      "definition": "thành phần, thành tố",
+      "exampleSentence": "この飲み物には、体に必要な成分が含まれています。",
+      "exampleTranslation": "Thức uống này chứa những thành phần cần thiết cho cơ thể.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5511,
+      "term": "物質 (ぶっしつ)",
+      "reading": "ぶっしつ",
+      "romaji": "busshitsu",
+      "definition": "vật chất, chất",
+      "exampleSentence": "この物質は水に溶けやすい性質があります。",
+      "exampleTranslation": "Chất này có tính chất dễ tan trong nước.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5512,
+      "term": "実験 (じっけん)",
+      "reading": "じっけん",
+      "romaji": "jikken",
+      "definition": "thí nghiệm, thực nghiệm",
+      "exampleSentence": "授業で水の温度による変化を調べる実験をしました。",
+      "exampleTranslation": "Trong giờ học, chúng tôi đã làm thí nghiệm tìm hiểu sự thay đổi theo nhiệt độ của nước.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5513,
+      "term": "研究 (けんきゅう)",
+      "reading": "けんきゅう",
+      "romaji": "kenkyuu",
+      "definition": "nghiên cứu",
+      "exampleSentence": "大学で日本の教育について研究しています。",
+      "exampleTranslation": "Tôi đang nghiên cứu về giáo dục Nhật Bản tại trường đại học.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5514,
+      "term": "発見 (はっけん)",
+      "reading": "はっけん",
+      "romaji": "hakken",
+      "definition": "phát hiện, khám phá",
+      "exampleSentence": "新しい星の発見が、世界中で大きな話題になりました。",
+      "exampleTranslation": "Việc phát hiện một ngôi sao mới đã trở thành chủ đề lớn trên toàn thế giới.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5515,
+      "term": "発明 (はつめい)",
+      "reading": "はつめい",
+      "romaji": "hatsumei",
+      "definition": "phát minh, sáng chế",
+      "exampleSentence": "この発明は、私たちの生活を大きく変えました。",
+      "exampleTranslation": "Phát minh này đã làm thay đổi lớn cuộc sống của chúng ta.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5516,
+      "term": "開発 (かいはつ)",
+      "reading": "かいはつ",
+      "romaji": "kaihatsu",
+      "definition": "phát triển, khai phát, nghiên cứu phát triển",
+      "exampleSentence": "会社は環境にやさしい車の開発を進めています。",
+      "exampleTranslation": "Công ty đang thúc đẩy việc phát triển những chiếc xe thân thiện với môi trường.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5517,
+      "term": "製造 (せいぞう)",
+      "reading": "せいぞう",
+      "romaji": "seizou",
+      "definition": "sản xuất, chế tạo",
+      "exampleSentence": "この工場では、毎日たくさんの部品を製造しています。",
+      "exampleTranslation": "Nhà máy này mỗi ngày sản xuất rất nhiều linh kiện.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5518,
+      "term": "環境 (かんきょう)",
+      "reading": "かんきょう",
+      "romaji": "kankyou",
+      "definition": "môi trường",
+      "exampleSentence": "将来の環境を守るために、今から行動しましょう。",
+      "exampleTranslation": "Hãy bắt đầu hành động ngay từ bây giờ để bảo vệ môi trường trong tương lai.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5519,
+      "term": "汚染 (おせん)",
+      "reading": "おせん",
+      "romaji": "osen",
+      "definition": "ô nhiễm",
+      "exampleSentence": "川の汚染が進み、魚が少なくなりました。",
+      "exampleTranslation": "Tình trạng ô nhiễm sông ngày càng nghiêm trọng khiến cá trở nên ít đi.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5520,
+      "term": "エネルギー",
+      "reading": "エネルギー",
+      "romaji": "enerugii",
+      "definition": "năng lượng",
+      "exampleSentence": "太陽のエネルギーを利用して電気を作ります。",
+      "exampleTranslation": "Chúng ta sử dụng năng lượng mặt trời để tạo ra điện.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "id": 531,
+  "title": "オノマトペ・副詞 · 時間・順序を表す副詞",
+  "description": "Phó từ chỉ thời điểm & trình tự — chủ đề Từ tượng thanh & phó từ · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:51.514718",
+  "cards": [
+    {
+      "id": 13087,
+      "term": "まず",
+      "reading": "まず",
+      "romaji": null,
+      "definition": "trước tiên, đầu tiên",
+      "exampleSentence": "まず名前を書いて、それから問題を読んでください。",
+      "exampleTranslation": "Trước tiên hãy viết tên, sau đó đọc đề bài.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13088,
+      "term": "いきなり",
+      "reading": "いきなり",
+      "romaji": null,
+      "definition": "bỗng nhiên, đột ngột, không báo trước",
+      "exampleSentence": "彼はいきなり知らない人に話しかけられて、驚きました。",
+      "exampleTranslation": "Anh ấy bất ngờ bị một người lạ bắt chuyện nên đã rất ngạc nhiên.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13089,
+      "term": "いつのまにか",
+      "reading": "いつのまにか",
+      "romaji": null,
+      "definition": "lúc nào không hay, không biết từ khi nào",
+      "exampleSentence": "いつのまにか春になり、庭の桜が満開になっていた。",
+      "exampleTranslation": "Chẳng biết từ lúc nào mùa xuân đã đến, hoa anh đào trong vườn đã nở rộ.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13090,
+      "term": "とうとう",
+      "reading": "とうとう",
+      "romaji": null,
+      "definition": "cuối cùng, rốt cuộc",
+      "exampleSentence": "長い間練習を続けて、とうとう試合で勝つことができた。",
+      "exampleTranslation": "Sau một thời gian dài luyện tập, cuối cùng tôi đã có thể thắng trong trận đấu.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13091,
+      "term": "どんどん",
+      "reading": "どんどん",
+      "romaji": null,
+      "definition": "liên tục, ngày càng, dần dần",
+      "exampleSentence": "新しい経験を重ねるたびに、自信がどんどんついてきた。",
+      "exampleTranslation": "Mỗi lần có thêm một trải nghiệm mới, tôi lại ngày càng tự tin hơn.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13092,
+      "term": "ふと",
+      "reading": "ふと",
+      "romaji": null,
+      "definition": "bỗng nhiên, thoáng qua",
+      "exampleSentence": "駅へ向かう途中、ふと昔の友達のことを思い出した。",
+      "exampleTranslation": "Trên đường đến ga, tôi chợt nhớ đến một người bạn cũ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13093,
+      "term": "ようやく",
+      "reading": "ようやく",
+      "romaji": null,
+      "definition": "cuối cùng, vừa mới, mới được",
+      "exampleSentence": "何度も練習して、ようやく漢字が読めるようになった。",
+      "exampleTranslation": "Sau nhiều lần luyện tập, cuối cùng tôi cũng đã có thể đọc được kanji.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13094,
+      "term": "わざわざ",
+      "reading": "わざわざ",
+      "romaji": null,
+      "definition": "cố tình, đặc biệt đến, không cần cũng làm",
+      "exampleSentence": "先生は私のために、わざわざ駅まで迎えに来てくださった。",
+      "exampleTranslation": "Thầy đã đặc biệt đến tận ga để đón tôi.",
+      "forms": [],
+      "displayOrder": 7
+    }
+  ]
+}

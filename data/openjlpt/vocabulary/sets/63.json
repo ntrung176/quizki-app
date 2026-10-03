@@ -1,0 +1,359 @@
+{
+  "id": 63,
+  "title": "学校の言葉",
+  "description": "Từ vựng ở trường học · N5",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:52.478491",
+  "cards": [
+    {
+      "id": 1995,
+      "term": "学校",
+      "reading": "がっこう",
+      "romaji": "gakkou",
+      "definition": "Trường học",
+      "exampleSentence": "学校に行く。",
+      "exampleTranslation": "Đi học.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 1996,
+      "term": "教室",
+      "reading": "きょうしつ",
+      "romaji": "kyoushitsu",
+      "definition": "Lớp học",
+      "exampleSentence": "教室で勉強する。",
+      "exampleTranslation": "Học trong lớp.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 1997,
+      "term": "先生",
+      "reading": "せんせい",
+      "romaji": "sensei",
+      "definition": "Giáo viên",
+      "exampleSentence": "先生に質問する。",
+      "exampleTranslation": "Hỏi giáo viên.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 1998,
+      "term": "生徒",
+      "reading": "せいと",
+      "romaji": "seito",
+      "definition": "Học sinh",
+      "exampleSentence": "生徒が50人います。",
+      "exampleTranslation": "Có 50 học sinh.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 1999,
+      "term": "学生",
+      "reading": "がくせい",
+      "romaji": "gakusei",
+      "definition": "Sinh viên / Học sinh",
+      "exampleSentence": "大学学生です。",
+      "exampleTranslation": "Tôi là sinh viên đại học.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 2000,
+      "term": "授業",
+      "reading": "じゅぎょう",
+      "romaji": "jugyou",
+      "definition": "Tiết học / Bài giảng",
+      "exampleSentence": "授業が始まる。",
+      "exampleTranslation": "Tiết học bắt đầu.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 2001,
+      "term": "宿題",
+      "reading": "しゅくだい",
+      "romaji": "shukudai",
+      "definition": "Bài tập về nhà",
+      "exampleSentence": "宿題をする。",
+      "exampleTranslation": "Làm bài tập về nhà.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 2002,
+      "term": "テスト",
+      "reading": "てすと",
+      "romaji": "tesuto",
+      "definition": "Bài kiểm tra",
+      "exampleSentence": "明日テストがある。",
+      "exampleTranslation": "Ngày mai có kiểm tra.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 2003,
+      "term": "試験",
+      "reading": "しけん",
+      "romaji": "shiken",
+      "definition": "Kỳ thi",
+      "exampleSentence": "試験に合格した。",
+      "exampleTranslation": "Vượt qua kỳ thi.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 2004,
+      "term": "勉強",
+      "reading": "べんきょう",
+      "romaji": "benkyou",
+      "definition": "Học tập",
+      "exampleSentence": "日本語を勉強する。",
+      "exampleTranslation": "Học tiếng Nhật.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 2005,
+      "term": "図書館",
+      "reading": "としょかん",
+      "romaji": "toshokan",
+      "definition": "Thư viện",
+      "exampleSentence": "図書館で本を借りる。",
+      "exampleTranslation": "Mượn sách ở thư viện.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 2006,
+      "term": "本",
+      "reading": "ほん",
+      "romaji": "hon",
+      "definition": "Sách",
+      "exampleSentence": "本を読む。",
+      "exampleTranslation": "Đọc sách.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 2007,
+      "term": "ノート",
+      "reading": "のーと",
+      "romaji": "nooto",
+      "definition": "Vở, tập",
+      "exampleSentence": "ノートを取る。",
+      "exampleTranslation": "Ghi chép.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 2008,
+      "term": "鉛筆",
+      "reading": "えんぴつ",
+      "romaji": "enpitsu",
+      "definition": "Bút chì",
+      "exampleSentence": "鉛筆で書く。",
+      "exampleTranslation": "Viết bằng bút chì.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 2009,
+      "term": "消しゴム",
+      "reading": "けしごむ",
+      "romaji": "keshigomu",
+      "definition": "Tẩy",
+      "exampleSentence": "消しゴムで消す。",
+      "exampleTranslation": "Dùng tẩy xóa.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 2010,
+      "term": "辞書",
+      "reading": "じしょ",
+      "romaji": "jisho",
+      "definition": "Từ điển",
+      "exampleSentence": "辞書で調べる。",
+      "exampleTranslation": "Tra từ điển.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 2011,
+      "term": "文法",
+      "reading": "ぶんぽう",
+      "romaji": "bunpou",
+      "definition": "Ngữ pháp",
+      "exampleSentence": "文法を学ぶ。",
+      "exampleTranslation": "Học ngữ pháp.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 2012,
+      "term": "単語",
+      "reading": "たんご",
+      "romaji": "tango",
+      "definition": "Từ vựng",
+      "exampleSentence": "新しい単語を覚える。",
+      "exampleTranslation": "Học thuộc từ mới.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 2013,
+      "term": "発音",
+      "reading": "はつおん",
+      "romaji": "hatsuon",
+      "definition": "Phát âm",
+      "exampleSentence": "発音を練習する。",
+      "exampleTranslation": "Luyện phát âm.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 2014,
+      "term": "練習",
+      "reading": "れんしゅう",
+      "romaji": "renshuu",
+      "definition": "Luyện tập",
+      "exampleSentence": "毎日練習する。",
+      "exampleTranslation": "Luyện tập mỗi ngày.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 2015,
+      "term": "質問",
+      "reading": "しつもん",
+      "romaji": "shitsumon",
+      "definition": "Câu hỏi",
+      "exampleSentence": "質問があります。",
+      "exampleTranslation": "Tôi có câu hỏi.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 2016,
+      "term": "答え",
+      "reading": "こたえ",
+      "romaji": "kotae",
+      "definition": "Câu trả lời",
+      "exampleSentence": "答えが分からない。",
+      "exampleTranslation": "Không biết câu trả lời.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 2017,
+      "term": "成績",
+      "reading": "せいせき",
+      "romaji": "seiseki",
+      "definition": "Điểm số / Kết quả học tập",
+      "exampleSentence": "成績が良い。",
+      "exampleTranslation": "Kết quả học tập tốt.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 2018,
+      "term": "卒業する",
+      "reading": "そつぎょうする",
+      "romaji": "sotsugyou suru",
+      "definition": "Tốt nghiệp",
+      "exampleSentence": "大学を卒業する。",
+      "exampleTranslation": "Tốt nghiệp đại học.",
+      "forms": [
+        "卒業します",
+        "卒業して",
+        "卒業した",
+        "卒業しない",
+        "卒業できる"
+      ],
+      "displayOrder": 23
+    },
+    {
+      "id": 2019,
+      "term": "入学する",
+      "reading": "にゅうがくする",
+      "romaji": "nyuugaku suru",
+      "definition": "Nhập học",
+      "exampleSentence": "高校に入学する。",
+      "exampleTranslation": "Nhập học trung học.",
+      "forms": [
+        "入学します",
+        "入学して",
+        "入学した",
+        "入学しない",
+        "入学できる"
+      ],
+      "displayOrder": 24
+    },
+    {
+      "id": 2020,
+      "term": "合格する",
+      "reading": "ごうかくする",
+      "romaji": "goukaku suru",
+      "definition": "Đỗ, vượt qua kỳ thi",
+      "exampleSentence": "試験に合格する。",
+      "exampleTranslation": "Vượt qua kỳ thi.",
+      "forms": [
+        "合格します",
+        "合格して",
+        "合格した",
+        "合格しない",
+        "合格できる"
+      ],
+      "displayOrder": 25
+    },
+    {
+      "id": 2021,
+      "term": "卒業式",
+      "reading": "そつぎょうしき",
+      "romaji": "sotsugyoushiki",
+      "definition": "Lễ tốt nghiệp",
+      "exampleSentence": "卒業式に出席する。",
+      "exampleTranslation": "Tham dự lễ tốt nghiệp.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 2022,
+      "term": "入学式",
+      "reading": "にゅうがくしき",
+      "romaji": "nyuugakushiki",
+      "definition": "Lễ nhập học",
+      "exampleSentence": "入学式が四月にある。",
+      "exampleTranslation": "Lễ nhập học vào tháng 4.",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 2023,
+      "term": "校長",
+      "reading": "こうちょう",
+      "romaji": "kouchou",
+      "definition": "Hiệu trưởng",
+      "exampleSentence": "校長先生に挨拶する。",
+      "exampleTranslation": "Chào hiệu trưởng.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 2024,
+      "term": "部活",
+      "reading": "ぶかつ",
+      "romaji": "bukatsu",
+      "definition": "Câu lạc bộ trường",
+      "exampleSentence": "部活でサッカーをする。",
+      "exampleTranslation": "Chơi bóng đá trong câu lạc bộ.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

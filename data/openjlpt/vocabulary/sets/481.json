@@ -1,0 +1,253 @@
+{
+  "id": 481,
+  "title": "教育・学習 · 学習動作・言語活動",
+  "description": "Hoạt động học tập hàng ngày — chủ đề Giáo dục & học tập · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.99466",
+  "cards": [
+    {
+      "id": 12086,
+      "term": "授業 (じゅぎょう)",
+      "reading": "じゅぎょう",
+      "romaji": null,
+      "definition": "bài học/tiết học",
+      "exampleSentence": "授業が終わったら、その日のうちにノートを整理しましょう。",
+      "exampleTranslation": "Sau khi tiết học kết thúc, hãy sắp xếp lại vở ngay trong ngày hôm đó.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12087,
+      "term": "復習 (ふくしゅう)",
+      "reading": "ふくしゅう",
+      "romaji": null,
+      "definition": "ôn lại bài",
+      "exampleSentence": "毎晩、授業で習ったことを復習しています。",
+      "exampleTranslation": "Tối nào tôi cũng ôn lại những điều đã học trong tiết học.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12088,
+      "term": "予習 (よしゅう)",
+      "reading": "よしゅう",
+      "romaji": null,
+      "definition": "học trước bài",
+      "exampleSentence": "明日の授業のために、教科書を予習しておきます。",
+      "exampleTranslation": "Tôi sẽ học trước sách giáo khoa để chuẩn bị cho tiết học ngày mai.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12089,
+      "term": "いじめ",
+      "reading": "いじめ",
+      "romaji": null,
+      "definition": "bắt nạt/bạo lực học đường",
+      "exampleSentence": "学校では、いじめをなくすための取り組みが進められている。",
+      "exampleTranslation": "Ở trường, các hoạt động nhằm xóa bỏ nạn bắt nạt đang được tiến hành.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12090,
+      "term": "暗記 (あんき)",
+      "reading": "あんき",
+      "romaji": null,
+      "definition": "học thuộc lòng",
+      "exampleSentence": "試験の前に、重要な単語を暗記しなければならない。",
+      "exampleTranslation": "Trước kỳ thi, tôi phải học thuộc những từ vựng quan trọng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12091,
+      "term": "家庭教師 (かていきょうし)",
+      "reading": "かていきょうし",
+      "romaji": null,
+      "definition": "gia sư",
+      "exampleSentence": "数学が苦手なので、週に一度家庭教師に教えてもらっている。",
+      "exampleTranslation": "Vì kém môn toán nên mỗi tuần tôi nhờ gia sư dạy một lần.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12092,
+      "term": "繰り返し (くりかえし)",
+      "reading": "くりかえし",
+      "romaji": null,
+      "definition": "sự lặp lại, việc làm đi làm lại",
+      "exampleSentence": "繰り返し練習することで、難しい漢字も覚えられるようになる。",
+      "exampleTranslation": "Nhờ luyện tập lặp đi lặp lại, bạn sẽ có thể nhớ cả những chữ Hán khó.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12093,
+      "term": "繰り返す (くりかえす)",
+      "reading": "くりかえす",
+      "romaji": null,
+      "definition": "lặp lại, làm lại nhiều lần",
+      "exampleSentence": "同じ練習を何度も繰り返すと、少しずつ上達します。",
+      "exampleTranslation": "Nếu lặp đi lặp lại cùng một bài luyện tập, bạn sẽ tiến bộ từng chút một.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12094,
+      "term": "書き取る (かきとる)",
+      "reading": "かきとる",
+      "romaji": null,
+      "definition": "ghi lại khi nghe, chép lại",
+      "exampleSentence": "先生の話を聞きながら、重要な部分を書き取る練習をしています。",
+      "exampleTranslation": "Tôi đang luyện tập ghi lại những phần quan trọng trong khi nghe thầy cô giảng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12095,
+      "term": "書き直す (かきなおす)",
+      "reading": "かきなおす",
+      "romaji": null,
+      "definition": "viết lại",
+      "exampleSentence": "間違いが多かったので、レポートを書き直すことにしました。",
+      "exampleTranslation": "Vì có nhiều lỗi nên tôi đã quyết định viết lại bản báo cáo.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12096,
+      "term": "頭を使う (あたまをつかう)",
+      "reading": "あたまをつかう",
+      "romaji": null,
+      "definition": "dùng đầu óc, suy nghĩ",
+      "exampleSentence": "この問題は、頭を使うよい練習になります。",
+      "exampleTranslation": "Bài toán này là một bài luyện tập tốt để vận dụng đầu óc.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12097,
+      "term": "読み直す (よみなおす)",
+      "reading": "よみなおす",
+      "romaji": null,
+      "definition": "đọc lại",
+      "exampleSentence": "提出する前に、もう一度文章を読み直すようにしてください。",
+      "exampleTranslation": "Trước khi nộp, hãy đọc lại bài viết một lần nữa.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12098,
+      "term": "発表 (はっぴょう)",
+      "reading": "はっぴょう",
+      "romaji": null,
+      "definition": "trình bày/công bố",
+      "exampleSentence": "来週の発表に向けて、毎日資料を確認しています。",
+      "exampleTranslation": "Để chuẩn bị cho buổi thuyết trình tuần tới, tôi kiểm tra tài liệu mỗi ngày.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12099,
+      "term": "発表する (はっぴょうする)",
+      "reading": "はっぴょうする",
+      "romaji": null,
+      "definition": "trình bày, công bố",
+      "exampleSentence": "来週の授業で、調査の結果を発表する予定です。",
+      "exampleTranslation": "Tôi dự định trình bày kết quả khảo sát trong giờ học tuần tới.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12100,
+      "term": "聞き取る (ききとる)",
+      "reading": "ききとる",
+      "romaji": null,
+      "definition": "nghe và hiểu, nghe rõ",
+      "exampleSentence": "駅のアナウンスを正確に聞き取るのは難しいです。",
+      "exampleTranslation": "Nghe và hiểu chính xác thông báo ở nhà ga là điều khó.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12101,
+      "term": "忘れる (わすれる)",
+      "reading": "わすれる",
+      "romaji": null,
+      "definition": "quên, lãng quên",
+      "exampleSentence": "大切な約束を忘れるなんて、彼らしくありません。",
+      "exampleTranslation": "Quên một lời hứa quan trọng như vậy thật không giống anh ấy chút nào.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 12102,
+      "term": "しつけ",
+      "reading": "しつけ",
+      "romaji": null,
+      "definition": "dạy dỗ/kỷ luật",
+      "exampleSentence": "子どものしつけでは、厳しさと愛情の両方が大切です。",
+      "exampleTranslation": "Trong việc dạy dỗ trẻ, cả sự nghiêm khắc và tình yêu thương đều quan trọng.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 12103,
+      "term": "バイリンガル",
+      "reading": "バイリンガル",
+      "romaji": null,
+      "definition": "song ngữ/người nói được 2 ngôn ngữ",
+      "exampleSentence": "彼女は日本語と英語を自由に話せるバイリンガルです。",
+      "exampleTranslation": "Cô ấy là người song ngữ có thể nói thành thạo tiếng Nhật và tiếng Anh.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 12104,
+      "term": "多言語 (たげんご)",
+      "reading": "たげんご",
+      "romaji": null,
+      "definition": "đa ngôn ngữ",
+      "exampleSentence": "この案内板は、外国人のために多言語で表示されています。",
+      "exampleTranslation": "Bảng hướng dẫn này được hiển thị bằng nhiều ngôn ngữ dành cho người nước ngoài.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 12105,
+      "term": "通訳 (つうやく)",
+      "reading": "つうやく",
+      "romaji": null,
+      "definition": "phiên dịch",
+      "exampleSentence": "国際会議では、専門用語に詳しい通訳が必要になる。",
+      "exampleTranslation": "Trong các hội nghị quốc tế, cần có phiên dịch viên am hiểu các thuật ngữ chuyên môn.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 12106,
+      "term": "読み取る (よみとる)",
+      "reading": "よみとる",
+      "romaji": null,
+      "definition": "đọc hiểu/nhận ra ý nghĩa",
+      "exampleSentence": "相手の表情から、言葉にできない気持ちを読み取ることが大切だ。",
+      "exampleTranslation": "Điều quan trọng là nhận ra những cảm xúc không thể diễn đạt bằng lời từ nét mặt của đối phương.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 12107,
+      "term": "翻訳 (ほんやく)",
+      "reading": "ほんやく",
+      "romaji": null,
+      "definition": "dịch thuật",
+      "exampleSentence": "この小説は多くの言語に翻訳され、海外でも読まれている。",
+      "exampleTranslation": "Cuốn tiểu thuyết này đã được dịch sang nhiều ngôn ngữ và cũng được đọc ở nước ngoài.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

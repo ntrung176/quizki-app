@@ -1,0 +1,521 @@
+{
+  "id": 58,
+  "title": "動き・動作語",
+  "description": "Động từ hành động thường dùng N5",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:52.272258",
+  "cards": [
+    {
+      "id": 1841,
+      "term": "歩く",
+      "reading": "あるく",
+      "romaji": "aruku",
+      "definition": "Đi bộ",
+      "exampleSentence": "毎日公園を歩く。",
+      "exampleTranslation": "Mỗi ngày đi bộ trong công viên.",
+      "forms": [
+        "歩きます",
+        "歩いて",
+        "歩いた",
+        "歩かない",
+        "歩ける"
+      ],
+      "displayOrder": 0
+    },
+    {
+      "id": 1842,
+      "term": "走る",
+      "reading": "はしる",
+      "romaji": "hashiru",
+      "definition": "Chạy",
+      "exampleSentence": "毎朝走っています。",
+      "exampleTranslation": "Tôi chạy bộ mỗi sáng.",
+      "forms": [
+        "走ります",
+        "走って",
+        "走った",
+        "走らない",
+        "走れる"
+      ],
+      "displayOrder": 1
+    },
+    {
+      "id": 1843,
+      "term": "飛ぶ",
+      "reading": "とぶ",
+      "romaji": "tobu",
+      "definition": "Bay",
+      "exampleSentence": "鳥が空を飛ぶ。",
+      "exampleTranslation": "Chim bay trên bầu trời.",
+      "forms": [
+        "飛びます",
+        "飛んで",
+        "飛んだ",
+        "飛ばない",
+        "飛べる"
+      ],
+      "displayOrder": 2
+    },
+    {
+      "id": 1844,
+      "term": "泳ぐ",
+      "reading": "およぐ",
+      "romaji": "oyogu",
+      "definition": "Bơi",
+      "exampleSentence": "プールで泳ぐ。",
+      "exampleTranslation": "Bơi trong bể bơi.",
+      "forms": [
+        "泳ぎます",
+        "泳いで",
+        "泳いだ",
+        "泳がない",
+        "泳げる"
+      ],
+      "displayOrder": 3
+    },
+    {
+      "id": 1845,
+      "term": "食べる",
+      "reading": "たべる",
+      "romaji": "taberu",
+      "definition": "Ăn",
+      "exampleSentence": "ゆっくり食べる。",
+      "exampleTranslation": "Ăn từ từ.",
+      "forms": [
+        "食べます",
+        "食べて",
+        "食べた",
+        "食べない",
+        "食べられる"
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": 1846,
+      "term": "飲む",
+      "reading": "のむ",
+      "romaji": "nomu",
+      "definition": "Uống",
+      "exampleSentence": "水をたくさん飲む。",
+      "exampleTranslation": "Uống nhiều nước.",
+      "forms": [
+        "飲みます",
+        "飲んで",
+        "飲んだ",
+        "飲まない",
+        "飲める"
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": 1847,
+      "term": "見る",
+      "reading": "みる",
+      "romaji": "miru",
+      "definition": "Nhìn, xem",
+      "exampleSentence": "テレビを見る。",
+      "exampleTranslation": "Xem TV.",
+      "forms": [
+        "見ます",
+        "見て",
+        "見た",
+        "見ない",
+        "見られる"
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": 1848,
+      "term": "聞く",
+      "reading": "きく",
+      "romaji": "kiku",
+      "definition": "Nghe / Hỏi",
+      "exampleSentence": "音楽を聞く。",
+      "exampleTranslation": "Nghe nhạc.",
+      "forms": [
+        "聞きます",
+        "聞いて",
+        "聞いた",
+        "聞かない",
+        "聞ける"
+      ],
+      "displayOrder": 7
+    },
+    {
+      "id": 1849,
+      "term": "話す",
+      "reading": "はなす",
+      "romaji": "hanasu",
+      "definition": "Nói, nói chuyện",
+      "exampleSentence": "日本語で話す。",
+      "exampleTranslation": "Nói bằng tiếng Nhật.",
+      "forms": [
+        "話します",
+        "話して",
+        "話した",
+        "話さない",
+        "話せる"
+      ],
+      "displayOrder": 8
+    },
+    {
+      "id": 1850,
+      "term": "読む",
+      "reading": "よむ",
+      "romaji": "yomu",
+      "definition": "Đọc",
+      "exampleSentence": "本を読む。",
+      "exampleTranslation": "Đọc sách.",
+      "forms": [
+        "読みます",
+        "読んで",
+        "読んだ",
+        "読まない",
+        "読める"
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": 1851,
+      "term": "書く",
+      "reading": "かく",
+      "romaji": "kaku",
+      "definition": "Viết",
+      "exampleSentence": "手紙を書く。",
+      "exampleTranslation": "Viết thư.",
+      "forms": [
+        "書きます",
+        "書いて",
+        "書いた",
+        "書かない",
+        "書ける"
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": 1852,
+      "term": "立つ",
+      "reading": "たつ",
+      "romaji": "tatsu",
+      "definition": "Đứng",
+      "exampleSentence": "椅子から立つ。",
+      "exampleTranslation": "Đứng dậy khỏi ghế.",
+      "forms": [
+        "立ちます",
+        "立って",
+        "立った",
+        "立たない",
+        "立てる"
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": 1853,
+      "term": "座る",
+      "reading": "すわる",
+      "romaji": "suwaru",
+      "definition": "Ngồi",
+      "exampleSentence": "椅子に座る。",
+      "exampleTranslation": "Ngồi xuống ghế.",
+      "forms": [
+        "座ります",
+        "座って",
+        "座った",
+        "座らない",
+        "座れる"
+      ],
+      "displayOrder": 12
+    },
+    {
+      "id": 1854,
+      "term": "寝る",
+      "reading": "ねる",
+      "romaji": "neru",
+      "definition": "Ngủ, nằm",
+      "exampleSentence": "十時に寝る。",
+      "exampleTranslation": "Ngủ lúc 10 giờ.",
+      "forms": [
+        "寝ます",
+        "寝て",
+        "寝た",
+        "寝ない",
+        "寝られる"
+      ],
+      "displayOrder": 13
+    },
+    {
+      "id": 1855,
+      "term": "起きる",
+      "reading": "おきる",
+      "romaji": "okiru",
+      "definition": "Thức dậy / Xảy ra",
+      "exampleSentence": "七時に起きる。",
+      "exampleTranslation": "Dậy lúc 7 giờ.",
+      "forms": [
+        "起きます",
+        "起きて",
+        "起きた",
+        "起きない",
+        "起きられる"
+      ],
+      "displayOrder": 14
+    },
+    {
+      "id": 1856,
+      "term": "開ける",
+      "reading": "あける",
+      "romaji": "akeru",
+      "definition": "Mở",
+      "exampleSentence": "ドアを開ける。",
+      "exampleTranslation": "Mở cửa.",
+      "forms": [
+        "開けます",
+        "開けて",
+        "開けた",
+        "開けない",
+        "開けられる"
+      ],
+      "displayOrder": 15
+    },
+    {
+      "id": 1857,
+      "term": "閉める",
+      "reading": "しめる",
+      "romaji": "shimeru",
+      "definition": "Đóng",
+      "exampleSentence": "窓を閉める。",
+      "exampleTranslation": "Đóng cửa sổ.",
+      "forms": [
+        "閉めます",
+        "閉めて",
+        "閉めた",
+        "閉めない",
+        "閉められる"
+      ],
+      "displayOrder": 16
+    },
+    {
+      "id": 1858,
+      "term": "持つ",
+      "reading": "もつ",
+      "romaji": "motsu",
+      "definition": "Cầm, mang",
+      "exampleSentence": "荷物を持つ。",
+      "exampleTranslation": "Mang đồ.",
+      "forms": [
+        "持ちます",
+        "持って",
+        "持った",
+        "持たない",
+        "持てる"
+      ],
+      "displayOrder": 17
+    },
+    {
+      "id": 1859,
+      "term": "使う",
+      "reading": "つかう",
+      "romaji": "tsukau",
+      "definition": "Sử dụng",
+      "exampleSentence": "箸を使う。",
+      "exampleTranslation": "Dùng đũa.",
+      "forms": [
+        "使います",
+        "使って",
+        "使った",
+        "使わない",
+        "使える"
+      ],
+      "displayOrder": 18
+    },
+    {
+      "id": 1860,
+      "term": "作る",
+      "reading": "つくる",
+      "romaji": "tsukuru",
+      "definition": "Làm, tạo ra",
+      "exampleSentence": "料理を作る。",
+      "exampleTranslation": "Nấu ăn.",
+      "forms": [
+        "作ります",
+        "作って",
+        "作った",
+        "作らない",
+        "作れる"
+      ],
+      "displayOrder": 19
+    },
+    {
+      "id": 1861,
+      "term": "買う",
+      "reading": "かう",
+      "romaji": "kau",
+      "definition": "Mua",
+      "exampleSentence": "スーパーで買う。",
+      "exampleTranslation": "Mua ở siêu thị.",
+      "forms": [
+        "買います",
+        "買って",
+        "買った",
+        "買わない",
+        "買える"
+      ],
+      "displayOrder": 20
+    },
+    {
+      "id": 1862,
+      "term": "売る",
+      "reading": "うる",
+      "romaji": "uru",
+      "definition": "Bán",
+      "exampleSentence": "店で売る。",
+      "exampleTranslation": "Bán ở cửa hàng.",
+      "forms": [
+        "売ります",
+        "売って",
+        "売った",
+        "売らない",
+        "売れる"
+      ],
+      "displayOrder": 21
+    },
+    {
+      "id": 1863,
+      "term": "来る",
+      "reading": "くる",
+      "romaji": "kuru",
+      "definition": "Đến",
+      "exampleSentence": "明日来てください。",
+      "exampleTranslation": "Vui lòng đến ngày mai.",
+      "forms": [
+        "来ます",
+        "来て",
+        "来た",
+        "来ない",
+        "来られる"
+      ],
+      "displayOrder": 22
+    },
+    {
+      "id": 1864,
+      "term": "行く",
+      "reading": "いく",
+      "romaji": "iku",
+      "definition": "Đi",
+      "exampleSentence": "学校に行く。",
+      "exampleTranslation": "Đi học.",
+      "forms": [
+        "行きます",
+        "行って",
+        "行った",
+        "行かない",
+        "行ける"
+      ],
+      "displayOrder": 23
+    },
+    {
+      "id": 1865,
+      "term": "帰る",
+      "reading": "かえる",
+      "romaji": "kaeru",
+      "definition": "Về nhà",
+      "exampleSentence": "家に帰る。",
+      "exampleTranslation": "Về nhà.",
+      "forms": [
+        "帰ります",
+        "帰って",
+        "帰った",
+        "帰らない",
+        "帰れる"
+      ],
+      "displayOrder": 24
+    },
+    {
+      "id": 1866,
+      "term": "入る",
+      "reading": "はいる",
+      "romaji": "hairu",
+      "definition": "Vào",
+      "exampleSentence": "部屋に入る。",
+      "exampleTranslation": "Vào phòng.",
+      "forms": [
+        "入ります",
+        "入って",
+        "入った",
+        "入らない",
+        "入れる"
+      ],
+      "displayOrder": 25
+    },
+    {
+      "id": 1867,
+      "term": "出る",
+      "reading": "でる",
+      "romaji": "deru",
+      "definition": "Ra ngoài / Ra",
+      "exampleSentence": "外に出る。",
+      "exampleTranslation": "Ra ngoài.",
+      "forms": [
+        "出ます",
+        "出て",
+        "出た",
+        "出ない",
+        "出られる"
+      ],
+      "displayOrder": 26
+    },
+    {
+      "id": 1868,
+      "term": "上がる",
+      "reading": "あがる",
+      "romaji": "agaru",
+      "definition": "Lên, lên trên",
+      "exampleSentence": "階段を上がる。",
+      "exampleTranslation": "Leo lên cầu thang.",
+      "forms": [
+        "上がります",
+        "上がって",
+        "上がった",
+        "上がらない",
+        "上がれる"
+      ],
+      "displayOrder": 27
+    },
+    {
+      "id": 1869,
+      "term": "下がる",
+      "reading": "さがる",
+      "romaji": "sagaru",
+      "definition": "Xuống, giảm",
+      "exampleSentence": "気温が下がる。",
+      "exampleTranslation": "Nhiệt độ giảm.",
+      "forms": [
+        "下がります",
+        "下がって",
+        "下がった",
+        "下がらない",
+        "下がれる"
+      ],
+      "displayOrder": 28
+    },
+    {
+      "id": 1870,
+      "term": "押す",
+      "reading": "おす",
+      "romaji": "osu",
+      "definition": "Đẩy, ấn",
+      "exampleSentence": "ボタンを押す。",
+      "exampleTranslation": "Bấm nút.",
+      "forms": [
+        "押します",
+        "押して",
+        "押した",
+        "押さない",
+        "押せる"
+      ],
+      "displayOrder": 29
+    }
+  ]
+}

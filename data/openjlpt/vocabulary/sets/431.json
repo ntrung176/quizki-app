@@ -1,0 +1,154 @@
+{
+  "id": 431,
+  "title": "ビジネス・仕事 · 契約・取引・顧客対応",
+  "description": "Hợp đồng, giao dịch & chăm sóc khách hàng — chủ đề Công việc & kinh doanh · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:47.952324",
+  "cards": [
+    {
+      "id": 11158,
+      "term": "業務 (ぎょうむ)",
+      "reading": "ぎょうむ",
+      "romaji": null,
+      "definition": "công việc/nghiệp vụ",
+      "exampleSentence": "新しいシステムの導入後、業務の効率が大幅に向上した。",
+      "exampleTranslation": "Sau khi đưa hệ thống mới vào sử dụng, hiệu quả công việc đã tăng lên đáng kể.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11159,
+      "term": "契約 (けいやく)",
+      "reading": "けいやく",
+      "romaji": null,
+      "definition": "hợp đồng, hợp ước",
+      "exampleSentence": "契約を結ぶ前に、条件をもう一度確認してください。",
+      "exampleTranslation": "Trước khi ký hợp đồng, hãy kiểm tra lại các điều kiện một lần nữa.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11160,
+      "term": "見積もり (みつもり)",
+      "reading": "みつもり",
+      "romaji": null,
+      "definition": "báo giá, ước tính chi phí",
+      "exampleSentence": "依頼する前に、見積もりの内容と金額を確認した。",
+      "exampleTranslation": "Trước khi nhờ thực hiện, tôi đã kiểm tra nội dung và số tiền trong báo giá.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11161,
+      "term": "顧客 (こきゃく)",
+      "reading": "こきゃく",
+      "romaji": null,
+      "definition": "khách hàng",
+      "exampleSentence": "顧客からの問い合わせには、できるだけ早く対応します。",
+      "exampleTranslation": "Chúng tôi sẽ giải quyết các yêu cầu từ khách hàng sớm nhất có thể.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11162,
+      "term": "取り扱い (とりあつかい)",
+      "reading": "とりあつかい",
+      "romaji": null,
+      "definition": "cách xử lý, cách đối xử",
+      "exampleSentence": "商品の取り扱いについては、説明書をよく読んでください。",
+      "exampleTranslation": "Về cách sử dụng và bảo quản sản phẩm, hãy đọc kỹ hướng dẫn.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11163,
+      "term": "取り消し (とりけし)",
+      "reading": "とりけし",
+      "romaji": null,
+      "definition": "sự hủy bỏ, việc xóa bỏ",
+      "exampleSentence": "台風のため、旅行の取り消しを決めました。",
+      "exampleTranslation": "Vì bão, chúng tôi đã quyết định hủy chuyến đi.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11164,
+      "term": "取り消す (とりけす)",
+      "reading": "とりけす",
+      "romaji": null,
+      "definition": "hủy bỏ, xóa bỏ",
+      "exampleSentence": "都合が悪くなったので、予約を取り消すことにした。",
+      "exampleTranslation": "Vì có việc đột xuất, tôi đã quyết định hủy đặt chỗ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11165,
+      "term": "手が離せない (てがはなせない)",
+      "reading": "てがはなせない",
+      "romaji": null,
+      "definition": "không rảnh tay, đang bận",
+      "exampleSentence": "今は手が離せないので、後でこちらから電話します。",
+      "exampleTranslation": "Bây giờ tôi đang bận tay nên lát nữa tôi sẽ gọi lại.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11166,
+      "term": "受け取り (うけとり)",
+      "reading": "うけとり",
+      "romaji": null,
+      "definition": "sự nhận, biên nhận",
+      "exampleSentence": "荷物の受け取りには、身分証明書が必要です。",
+      "exampleTranslation": "Để nhận hành lý, cần có giấy tờ tùy thân.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11167,
+      "term": "受け取る (うけとる)",
+      "reading": "うけとる",
+      "romaji": null,
+      "definition": "nhận, tiếp nhận",
+      "exampleSentence": "駅に着いたら、受付で資料を受け取るようにしてください。",
+      "exampleTranslation": "Khi đến ga, hãy nhận tài liệu tại quầy lễ tân.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11168,
+      "term": "申し込み (もうしこみ)",
+      "reading": "もうしこみ",
+      "romaji": null,
+      "definition": "đơn đăng ký, sự đăng ký",
+      "exampleSentence": "参加したい人は、金曜日までに申し込みを済ませてください。",
+      "exampleTranslation": "Những ai muốn tham gia hãy hoàn tất đăng ký trước thứ Sáu.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11169,
+      "term": "顧客満足 (こきゃくまんぞく)",
+      "reading": "こきゃくまんぞく",
+      "romaji": null,
+      "definition": "sự hài lòng của khách hàng",
+      "exampleSentence": "顧客満足を高めるため、定期的にサービスの改善を行っています。",
+      "exampleTranslation": "Để nâng cao sự hài lòng của khách hàng, chúng tôi thường xuyên cải thiện dịch vụ.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11170,
+      "term": "取引先 (とりひきさき)",
+      "reading": "とりひきさき",
+      "romaji": null,
+      "definition": "đối tác kinh doanh",
+      "exampleSentence": "取引先との信頼関係を築くことは、長期的な事業の発展に欠かせません。",
+      "exampleTranslation": "Xây dựng mối quan hệ tin cậy với đối tác kinh doanh là điều không thể thiếu để phát triển hoạt động kinh doanh lâu dài.",
+      "forms": [],
+      "displayOrder": 12
+    }
+  ]
+}

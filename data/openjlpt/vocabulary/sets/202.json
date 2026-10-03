@@ -1,0 +1,176 @@
+{
+  "id": 202,
+  "title": "Tuần 2 · Ngày 2 - 感情名詞 (Danh từ cảm xúc)",
+  "description": "Nihongo Soumatome N3 語彙 — 感情名詞 (Danh từ cảm xúc)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.017656",
+  "cards": [
+    {
+      "id": 5356,
+      "term": "喜び (よろこび)",
+      "reading": "よろこび",
+      "romaji": "yorokobi",
+      "definition": "niềm vui, sự vui mừng",
+      "exampleSentence": "合格の知らせを聞いたときの喜びは、今でも忘れられません。",
+      "exampleTranslation": "Tôi vẫn không thể quên niềm vui khi nghe tin mình thi đỗ.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5357,
+      "term": "悲しみ (かなしみ)",
+      "reading": "かなしみ",
+      "romaji": "kanashimi",
+      "definition": "nỗi buồn, sự đau khổ",
+      "exampleSentence": "深い悲しみを乗り越えるには、時間が必要です。",
+      "exampleTranslation": "Để vượt qua nỗi buồn sâu sắc, cần có thời gian.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5358,
+      "term": "怒り (いかり)",
+      "reading": "いかり",
+      "romaji": "ikari",
+      "definition": "cơn giận, sự tức giận",
+      "exampleSentence": "彼は怒りを抑えながら、相手の話を静かに聞いた。",
+      "exampleTranslation": "Anh ấy vừa kiềm chế cơn giận vừa lặng lẽ lắng nghe đối phương.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5359,
+      "term": "驚き (おどろき)",
+      "reading": "おどろき",
+      "romaji": "odoroki",
+      "definition": "sự ngạc nhiên, cú sốc",
+      "exampleSentence": "そのニュースを聞いたとき、彼の顔には驚きが浮かんだ。",
+      "exampleTranslation": "Khi nghe tin đó, vẻ ngạc nhiên hiện lên trên khuôn mặt anh ấy.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5360,
+      "term": "不安 (ふあん)",
+      "reading": "ふあん",
+      "romaji": "fuan",
+      "definition": "sự lo âu, bất an",
+      "exampleSentence": "初めて一人で海外へ行くので、少し不安を感じている。",
+      "exampleTranslation": "Vì lần đầu đi nước ngoài một mình nên tôi cảm thấy hơi bất an.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5361,
+      "term": "安心 (あんしん)",
+      "reading": "あんしん",
+      "romaji": "anshin",
+      "definition": "sự yên tâm, an lòng",
+      "exampleSentence": "医者から大丈夫だと言われて、やっと安心した。",
+      "exampleTranslation": "Được bác sĩ nói rằng không sao, cuối cùng tôi cũng yên tâm.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5362,
+      "term": "緊張 (きんちょう)",
+      "reading": "きんちょう",
+      "romaji": "kinchou",
+      "definition": "sự căng thẳng, hồi hộp",
+      "exampleSentence": "大勢の人の前で話すと、いつも緊張してしまう。",
+      "exampleTranslation": "Mỗi khi nói trước đông người, tôi luôn cảm thấy hồi hộp.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5363,
+      "term": "満足 (まんぞく)",
+      "reading": "まんぞく",
+      "romaji": "manzoku",
+      "definition": "sự hài lòng, thỏa mãn",
+      "exampleSentence": "このホテルのサービスには、とても満足しています。",
+      "exampleTranslation": "Tôi rất hài lòng với dịch vụ của khách sạn này.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5364,
+      "term": "失望 (しつぼう)",
+      "reading": "しつぼう",
+      "romaji": "shitsubou",
+      "definition": "sự thất vọng",
+      "exampleSentence": "期待していた映画がつまらなくて、少し失望した。",
+      "exampleTranslation": "Bộ phim mà tôi mong đợi lại nhàm chán nên tôi hơi thất vọng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5365,
+      "term": "後悔 (こうかい)",
+      "reading": "こうかい",
+      "romaji": "koukai",
+      "definition": "sự hối hận, hối tiếc",
+      "exampleSentence": "あのとき彼に謝らなかったことを、今でも後悔している。",
+      "exampleTranslation": "Đến bây giờ tôi vẫn hối hận vì đã không xin lỗi anh ấy lúc đó.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5366,
+      "term": "感動 (かんどう)",
+      "reading": "かんどう",
+      "romaji": "kandou",
+      "definition": "cảm xúc, sự xúc động",
+      "exampleSentence": "卒業式で先生の言葉を聞いて、深く感動した。",
+      "exampleTranslation": "Nghe những lời của thầy giáo trong lễ tốt nghiệp, tôi vô cùng xúc động.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5367,
+      "term": "勇気 (ゆうき)",
+      "reading": "ゆうき",
+      "romaji": "yuuki",
+      "definition": "sự dũng cảm, can đảm",
+      "exampleSentence": "友達の励ましで、もう一度挑戦する勇気が出た。",
+      "exampleTranslation": "Nhờ sự động viên của bạn, tôi đã có dũng khí để thử lại một lần nữa.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5368,
+      "term": "自信 (じしん)",
+      "reading": "じしん",
+      "romaji": "jishin",
+      "definition": "sự tự tin",
+      "exampleSentence": "毎日練習したので、試験に合格する自信があります。",
+      "exampleTranslation": "Vì đã luyện tập mỗi ngày nên tôi tự tin sẽ đỗ kỳ thi.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5369,
+      "term": "希望 (きぼう)",
+      "reading": "きぼう",
+      "romaji": "kibou",
+      "definition": "hy vọng, kỳ vọng",
+      "exampleSentence": "多くの若者が、将来に希望を持っている。",
+      "exampleTranslation": "Nhiều người trẻ đang nuôi hy vọng vào tương lai.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5370,
+      "term": "絶望 (ぜつぼう)",
+      "reading": "ぜつぼう",
+      "romaji": "zetsubou",
+      "definition": "sự tuyệt vọng",
+      "exampleSentence": "何度挑戦しても失敗し、彼は絶望してしまった。",
+      "exampleTranslation": "Dù thử thách bao nhiêu lần vẫn thất bại, anh ấy đã rơi vào tuyệt vọng.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

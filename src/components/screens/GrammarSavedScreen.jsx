@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import LoadingIndicator from '../ui/LoadingIndicator';
-import { Search, Trash2, BookOpen, Clock, CheckCircle, AlertCircle, Filter, X, Eye, Folder, FolderPlus, Edit, Plus, Bookmark } from 'lucide-react';
+import { Search, Trash2, BookOpen, Clock, CheckCircle, AlertCircle, Filter, X, Eye, Folder, FolderPlus, Edit, Plus, Heart } from 'lucide-react';
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, deleteDoc, writeBatch } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
@@ -355,7 +355,7 @@ const GrammarSavedScreen = () => {
                         <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-sm border border-gray-200/60 dark:border-slate-700/60 space-y-4">
                             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                                 <h1 className="text-xl font-extrabold text-gray-800 dark:text-white flex items-center gap-2">
-                                    <Bookmark className="w-6 h-6 text-indigo-500 fill-indigo-500/20" />
+                                    <Heart className="w-6 h-6 text-pink-500 fill-pink-500" />
                                     Ngữ pháp đã lưu ({savedItems.length})
                                 </h1>
 
@@ -570,7 +570,7 @@ const GrammarSavedScreen = () => {
                             </div>
                         ) : (
                             <div className="bg-white dark:bg-slate-800 rounded-3xl p-12 shadow-sm border border-gray-200/60 dark:border-slate-700/60 text-center space-y-4">
-                                <Bookmark className="w-12 h-12 text-slate-300 dark:text-slate-600 mx-auto" />
+                                <Heart className="w-12 h-12 text-slate-300 dark:text-slate-600 mx-auto" />
                                 <div className="space-y-1">
                                     <h3 className="font-extrabold text-slate-700 dark:text-slate-300 text-base">Không tìm thấy cấu trúc ngữ pháp nào</h3>
                                     <p className="text-xs text-slate-400 max-w-sm mx-auto leading-relaxed">

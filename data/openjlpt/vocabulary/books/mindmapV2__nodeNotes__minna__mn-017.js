@@ -1,0 +1,1049 @@
+{
+  "default": {
+    "mn-017||core||Hành động THEO MẪU có sẵn": {
+      "title": "Hành động THEO MẪU có sẵn",
+      "sub": "〜とおりに · Ý nghĩa cốt lõi",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "core",
+        "isNode": true,
+        "parentBranch": "📖 Ý nghĩa cốt lõi",
+        "definition": "**〜とおりに** diễn tả việc thực hiện một hành động dựa trên **khuôn mẫu, lời dặn hoặc chỉ dẫn sẵn có**. Điểm quan trọng là người nói cố gắng **làm theo đúng từng chi tiết** của mẫu đó mà không tự ý thay đổi.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "私",
+                "r": "わたし",
+                "m": "tôi"
+              },
+              {
+                "t": "の"
+              },
+              {
+                "t": "言った",
+                "r": "いった",
+                "m": "đã nói"
+              },
+              {
+                "t": "とおりに",
+                "r": "とおりに",
+                "m": "theo đúng"
+              },
+              {
+                "t": "して",
+                "r": "して",
+                "m": "làm"
+              },
+              {
+                "t": "ください",
+                "r": "ください",
+                "m": "xin hãy"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Hãy làm theo đúng những gì tôi đã nói.",
+            "scene": "Giáo viên hướng dẫn học viên làm bài tập"
+          }
+        ]
+      }
+    },
+    "mn-017||core||Kết quả KHỚP VỚI kế hoạch/dự đoán": {
+      "title": "Kết quả KHỚP VỚI kế hoạch/dự đoán",
+      "sub": "〜とおりに · Ý nghĩa cốt lõi",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "core",
+        "isNode": true,
+        "parentBranch": "📖 Ý nghĩa cốt lõi",
+        "definition": "Node này nhấn mạnh khía cạnh **kết quả thực tế trùng khớp hoàn toàn** với những gì đã được **lên kế hoạch hoặc dự đoán** từ trước. Nó cho thấy sự việc diễn ra **đúng như suy nghĩ** hoặc dự kiến ban đầu.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "予定",
+                "r": "よてい",
+                "m": "kế hoạch"
+              },
+              {
+                "t": "どおりに",
+                "r": "どおりに",
+                "m": "theo đúng"
+              },
+              {
+                "t": "会議",
+                "r": "かいぎ",
+                "m": "cuộc họp"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "始まりました",
+                "r": "はじまりました",
+                "m": "đã bắt đầu"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Cuộc họp đã bắt đầu đúng như kế hoạch.",
+            "scene": "Sếp thông báo tiến độ làm việc với mọi người"
+          }
+        ]
+      }
+    },
+    "mn-017||core||とおり = CON ĐƯỜNG → 'đi đúng đường'": {
+      "title": "とおり = CON ĐƯỜNG → 'đi đúng đường'",
+      "sub": "〜とおりに · Ý nghĩa cốt lõi",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "core",
+        "isNode": true,
+        "parentBranch": "📖 Ý nghĩa cốt lõi",
+        "definition": "Từ **とおり** xuất phát từ danh từ **通り (con đường)**. Hình ảnh cốt lõi ở đây là người nói **đi đúng theo con đường đã vạch sẵn**, tức là làm đúng theo chỉ dẫn mà không đi chệch sang hướng khác.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "地図",
+                "r": "ちず",
+                "m": "bản đồ"
+              },
+              {
+                "t": "の"
+              },
+              {
+                "t": "とおりに",
+                "r": "とおりに",
+                "m": "theo đúng"
+              },
+              {
+                "t": "進みましょう",
+                "r": "すすみましょう",
+                "m": "hãy tiến lên"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Chúng ta hãy đi tiếp theo đúng bản đồ nhé.",
+            "scene": "Nhóm bạn đang đi du lịch tìm đường"
+          }
+        ]
+      }
+    },
+    "mn-017||forms||V辞書形 / た形 + とおりに → V2": {
+      "title": "V辞書形 / た形 + とおりに → V2",
+      "sub": "〜とおりに · Cấu trúc & cách chia",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "forms",
+        "isNode": true,
+        "parentBranch": "🧩 Cấu trúc & cách chia",
+        "definition": "Đi với động từ ở thể từ điển (**V辞書形**) khi diễn tả thói quen hoặc hành động mang tính quy tắc, và thể quá khứ (**Vた形**) khi diễn tả hành động làm theo **điều đã được nói hay suy nghĩ trước đó**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "教わった",
+                "r": "おそわった",
+                "m": "được dạy"
+              },
+              {
+                "t": "とおりに",
+                "r": "とおりに",
+                "m": "theo đúng"
+              },
+              {
+                "t": "作りました",
+                "r": "つくりました",
+                "m": "đã làm"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi đã làm đúng theo những gì được dạy.",
+            "scene": "Học viên khoe món ăn vừa hoàn thành"
+          }
+        ]
+      }
+    },
+    "mn-017||forms||N + の + とおりに → V2": {
+      "title": "N + の + とおりに → V2",
+      "sub": "〜とおりに · Cấu trúc & cách chia",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "forms",
+        "isNode": true,
+        "parentBranch": "🧩 Cấu trúc & cách chia",
+        "definition": "Khi đi với **danh từ**, bắt buộc phải thêm trợ từ **の** vào giữa thành **N + の + とおりに**. Danh từ ở đây thường là **bản đồ, hướng dẫn, công thức** đóng vai trò làm mẫu chuẩn.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "説明",
+                "r": "せつめい",
+                "m": "hướng dẫn"
+              },
+              {
+                "t": "の"
+              },
+              {
+                "t": "とおりに",
+                "r": "とおりに",
+                "m": "theo đúng"
+              },
+              {
+                "t": "操作",
+                "r": "そうさ",
+                "m": "thao tác"
+              },
+              {
+                "t": "します",
+                "r": "します",
+                "m": "làm"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi thao tác theo đúng hướng dẫn.",
+            "scene": "Nhân viên kĩ thuật cài đặt thiết bị"
+          }
+        ]
+      }
+    },
+    "mn-017||forms||N + どおりに: 予定どおり・時間どおり": {
+      "title": "N + どおりに: 予定どおり・時間どおり",
+      "sub": "〜とおりに · Cấu trúc & cách chia",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "forms",
+        "isNode": true,
+        "parentBranch": "🧩 Cấu trúc & cách chia",
+        "definition": "Một số danh từ đặc biệt (như 予定, 時間, 計画) ghép **trực tiếp với どおりに** mà **không dùng trợ từ の**, đồng thời biến âm **とおり → どおり**. Đây là các **cụm từ cố định** rất phổ biến.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "時間",
+                "r": "じかん",
+                "m": "thời gian"
+              },
+              {
+                "t": "どおりに",
+                "r": "どおりに",
+                "m": "theo đúng"
+              },
+              {
+                "t": "到着",
+                "r": "とうちゃく",
+                "m": "đến nơi"
+              },
+              {
+                "t": "しました",
+                "r": "しました",
+                "m": "đã làm"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi đã đến nơi đúng giờ.",
+            "scene": "Báo cáo với cấp trên khi tới điểm hẹn"
+          }
+        ]
+      }
+    },
+    "mn-017||usage||Nghe LỜI DẶN và làm từng bước": {
+      "title": "Nghe LỜI DẶN và làm từng bước",
+      "sub": "〜とおりに · Cách dùng & tình huống",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "usage",
+        "isNode": true,
+        "parentBranch": "🎬 Cách dùng & tình huống",
+        "definition": "Tình huống sử dụng khi bạn **lắng nghe lời dặn trực tiếp** từ người khác (thầy cô, sếp, bác sĩ) và **thực hiện chính xác từng bước** theo đúng lời dặn đó.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "先生",
+                "r": "せんせい",
+                "m": "thầy giáo"
+              },
+              {
+                "t": "の"
+              },
+              {
+                "t": "言う",
+                "r": "いう",
+                "m": "nói"
+              },
+              {
+                "t": "とおりに",
+                "r": "とおりに",
+                "m": "theo đúng"
+              },
+              {
+                "t": "練習",
+                "r": "れんしゅう",
+                "m": "luyện tập"
+              },
+              {
+                "t": "します",
+                "r": "します",
+                "m": "làm"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi sẽ luyện tập theo đúng lời thầy dặn.",
+            "scene": "Học viên hứa với thầy giáo"
+          }
+        ]
+      }
+    },
+    "mn-017||usage||Làm theo HƯỚNG DẪN/ tài liệu": {
+      "title": "Làm theo HƯỚNG DẪN/ tài liệu",
+      "sub": "〜とおりに · Cách dùng & tình huống",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "usage",
+        "isNode": true,
+        "parentBranch": "🎬 Cách dùng & tình huống",
+        "definition": "Dùng trong ngữ cảnh thực hiện hành động **dựa trên tài liệu viết sẵn** như sách nấu ăn, bản đồ, tài liệu hướng dẫn sử dụng thiết bị để đảm bảo **kết quả chính xác**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "レシピ",
+                "r": "れしぴ",
+                "m": "công thức"
+              },
+              {
+                "t": "の"
+              },
+              {
+                "t": "とおりに",
+                "r": "とおりに",
+                "m": "theo đúng"
+              },
+              {
+                "t": "ケーキ",
+                "r": "けーき",
+                "m": "bánh"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "焼いた",
+                "r": "やいた",
+                "m": "đã nướng"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi đã nướng bánh theo đúng công thức.",
+            "scene": "Chia sẻ thành quả làm bánh trên mạng"
+          }
+        ]
+      }
+    },
+    "mn-017||usage||Kết quả GIỐNG dự đoán/ kế hoạch": {
+      "title": "Kết quả GIỐNG dự đoán/ kế hoạch",
+      "sub": "〜とおりに · Cách dùng & tình huống",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "usage",
+        "isNode": true,
+        "parentBranch": "🎬 Cách dùng & tình huống",
+        "definition": "Sử dụng khi phản ánh thực tế rằng **kết quả xảy ra trùng khớp hoàn toàn** với dự đoán, suy nghĩ hay kế hoạch từ trước, thường dùng với **思い, 予定, 計画**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "私",
+                "r": "わたし",
+                "m": "tôi"
+              },
+              {
+                "t": "の"
+              },
+              {
+                "t": "思った",
+                "r": "おもった",
+                "m": "đã nghĩ"
+              },
+              {
+                "t": "とおりに",
+                "r": "とおりに",
+                "m": "theo đúng"
+              },
+              {
+                "t": "なりました",
+                "r": "なりました",
+                "m": "đã trở thành"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Mọi chuyện đã diễn ra đúng như tôi nghĩ.",
+            "scene": "Bày tỏ khi suy đoán ban đầu hoàn toàn chính xác"
+          }
+        ]
+      }
+    },
+    "mn-017||usage||Phổ biến: 言う・書く・思う・予定・時間": {
+      "title": "Phổ biến: 言う・書く・思う・予定・時間",
+      "sub": "〜とおりに · Cách dùng & tình huống",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "usage",
+        "isNode": true,
+        "parentBranch": "🎬 Cách dùng & tình huống",
+        "definition": "Các từ vựng **thường xuyên đi cùng nhất** với mẫu này gồm nhóm động từ **言う, 書く, 思う** và nhóm danh từ **予定, 時間**. Nhớ các từ này giúp bạn dùng tự nhiên hơn.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "書いた",
+                "r": "かいた",
+                "m": "đã viết"
+              },
+              {
+                "t": "とおりに",
+                "r": "とおりに",
+                "m": "theo đúng"
+              },
+              {
+                "t": "読んで",
+                "r": "よんで",
+                "m": "đọc"
+              },
+              {
+                "t": "ください",
+                "r": "ください",
+                "m": "xin hãy"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Hãy đọc đúng theo những gì đã viết.",
+            "scene": "Giáo viên yêu cầu học sinh đọc bài"
+          }
+        ]
+      }
+    },
+    "mn-017||compare||vs 〜ように: TƯƠNG TỰ vs CHÍNH XÁC": {
+      "title": "vs 〜ように: TƯƠNG TỰ vs CHÍNH XÁC",
+      "sub": "〜とおりに · Phân biệt vs mẫu dễ nhầm",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "compare",
+        "isNode": true,
+        "parentBranch": "⚖️ Phân biệt vs mẫu dễ nhầm",
+        "definition": "**〜とおりに** đòi hỏi sự **chính xác tuyệt đối 100%** theo mẫu, còn **〜ように** chỉ cần sự **tương tự, tương đối** mà không bắt buộc khớp từng chi tiết nhỏ.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "教わった",
+                "r": "おそわった",
+                "m": "được dạy"
+              },
+              {
+                "t": "とおりに",
+                "r": "とおりに",
+                "m": "theo đúng"
+              },
+              {
+                "t": "作りました",
+                "r": "つくりました",
+                "m": "đã làm"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi đã làm chính xác từng bước theo cách được dạy.",
+            "scene": "Giải thích khi được hỏi vì sao làm chuẩn thế"
+          }
+        ]
+      }
+    },
+    "mn-017||compare||vs 〜たあとで: THỨ TỰ vs PHƯƠNG THỨC": {
+      "title": "vs 〜たあとで: THỨ TỰ vs PHƯƠNG THỨC",
+      "sub": "〜とおりに · Phân biệt vs mẫu dễ nhầm",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "compare",
+        "isNode": true,
+        "parentBranch": "⚖️ Phân biệt vs mẫu dễ nhầm",
+        "definition": "**〜たあとで** chỉ đơn thuần diễn tả **trình tự thời gian** (làm A xong rồi làm B). Ngược lại, **〜とおりに** nhấn mạnh **cách thức thực hiện** B phải mô phỏng chính xác nội dung của A.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "言った",
+                "r": "いった",
+                "m": "đã nói"
+              },
+              {
+                "t": "とおりに",
+                "r": "とおりに",
+                "m": "theo đúng"
+              },
+              {
+                "t": "やって",
+                "r": "やって",
+                "m": "làm"
+              },
+              {
+                "t": "みてください",
+                "r": "みてください",
+                "m": "thử xem"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Hãy làm thử đúng theo cách tôi đã nói xem.",
+            "scene": "Hướng dẫn người khác giải quyết một vấn đề"
+          }
+        ]
+      }
+    },
+    "mn-017||compare||vs 〜て: ĐI KÈM vs LÀM THEO MẪU": {
+      "title": "vs 〜て: ĐI KÈM vs LÀM THEO MẪU",
+      "sub": "〜とおりに · Phân biệt vs mẫu dễ nhầm",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "compare",
+        "isNode": true,
+        "parentBranch": "⚖️ Phân biệt vs mẫu dễ nhầm",
+        "definition": "Thể **Vて** diễn tả **hành động đi kèm hoặc trạng thái** khi thực hiện V2. Trong khi đó, **〜とおりに** bắt buộc phải có một **khuôn mẫu chuẩn** để hành động V2 làm theo.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "指示",
+                "r": "しじ",
+                "m": "chỉ thị"
+              },
+              {
+                "t": "の"
+              },
+              {
+                "t": "とおりに",
+                "r": "とおりに",
+                "m": "theo đúng"
+              },
+              {
+                "t": "動いて",
+                "r": "うごいて",
+                "m": "hành động"
+              },
+              {
+                "t": "ください",
+                "r": "ください",
+                "m": "xin hãy"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Hãy hành động theo đúng chỉ thị.",
+            "scene": "Đội trưởng ra lệnh cho các thành viên"
+          }
+        ]
+      }
+    },
+    "mn-017||pitfalls||Sau N phải có の (trừ N+どおり)": {
+      "title": "Sau N phải có の (trừ N+どおり)",
+      "sub": "〜とおりに · Lỗi thường gặp",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "pitfalls",
+        "isNode": true,
+        "parentBranch": "🚨 Lỗi thường gặp",
+        "definition": "Lỗi phổ biến của người Việt là **quên thêm trợ từ の** sau danh từ (vd: nói sai *説明とおりに). Ngoại lệ duy nhất là các từ ghép cố định chuyển thành **どおり** (như 予定どおり).",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "説明",
+                "r": "せつめい",
+                "m": "hướng dẫn"
+              },
+              {
+                "t": "の"
+              },
+              {
+                "t": "とおりに",
+                "r": "とおりに",
+                "m": "theo đúng"
+              },
+              {
+                "t": "作ります",
+                "r": "つくります",
+                "m": "làm"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi làm theo đúng hướng dẫn (phải có の).",
+            "scene": "Sửa lỗi sai trợ từ cho học viên"
+          }
+        ]
+      }
+    },
+    "mn-017||pitfalls||Quá khứ phải dùng た形 trước とおり": {
+      "title": "Quá khứ phải dùng た形 trước とおり",
+      "sub": "〜とおりに · Lỗi thường gặp",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "pitfalls",
+        "isNode": true,
+        "parentBranch": "🚨 Lỗi thường gặp",
+        "definition": "Khi làm theo một việc **đã được nói hoặc suy nghĩ trước đó**, động từ đứng trước とおり **bắt buộc chia ở thể quá khứ (た形)**, ví dụ *言ったとおりに* chứ không dùng thể từ điển *言うとおりに*.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "思っていた",
+                "r": "おもっていた",
+                "m": "đã nghĩ"
+              },
+              {
+                "t": "とおりに",
+                "r": "とおりに",
+                "m": "theo đúng"
+              },
+              {
+                "t": "うまくいった",
+                "r": "うまくいった",
+                "m": "trôi chảy"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Mọi thứ đã trôi chảy đúng như tôi nghĩ từ trước.",
+            "scene": "Nói về kết quả một dự án thành công"
+          }
+        ]
+      }
+    },
+    "mn-017||pitfalls||Mục đích KHÔNG dùng とおり → ように": {
+      "title": "Mục đích KHÔNG dùng とおり → ように",
+      "sub": "〜とおりに · Lỗi thường gặp",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "pitfalls",
+        "isNode": true,
+        "parentBranch": "🚨 Lỗi thường gặp",
+        "definition": "Tuyệt đối **không dùng とおりに để chỉ mục đích** hành động (vd: muốn nói 'học để đỗ'). Để diễn tả **mục đích 'để cho/sao cho'**, bạn phải chuyển sang sử dụng mẫu **〜ように**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "合格",
+                "r": "ごうかく",
+                "m": "đỗ"
+              },
+              {
+                "t": "する",
+                "r": "する",
+                "m": "làm"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "勉強",
+                "r": "べんきょう",
+                "m": "học tập"
+              },
+              {
+                "t": "します",
+                "r": "します",
+                "m": "làm"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi học tập để đỗ kỳ thi (dùng ように, không dùng とおり).",
+            "scene": "Giải thích mục đích học tập của bản thân"
+          }
+        ]
+      }
+    },
+    "mn-017||memory||通り = con đường → 'đi đúng đường đã vạch'": {
+      "title": "通り = con đường → 'đi đúng đường đã vạch'",
+      "sub": "〜とおりに · Mẹo nhớ & chiết tự",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "memory",
+        "isNode": true,
+        "parentBranch": "🎯 Mẹo nhớ & chiết tự",
+        "definition": "Mẹo ghi nhớ nhanh: hãy liên tưởng chữ Kanji **通り (con đường)**. Dùng **とおりに** nghĩa là bạn đang **đi đúng con đường đã vạch sẵn**, không đi lệch hướng hay tự rẽ sang đường khác.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "案内",
+                "r": "あんない",
+                "m": "hướng dẫn"
+              },
+              {
+                "t": "の"
+              },
+              {
+                "t": "とおりに",
+                "r": "とおりに",
+                "m": "theo đúng"
+              },
+              {
+                "t": "進みます",
+                "r": "すすみます",
+                "m": "tiến lên"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi tiến lên theo đúng chỉ dẫn.",
+            "scene": "Đi theo lối chỉ dẫn ở sân bay"
+          }
+        ]
+      }
+    },
+    "mn-017||memory||Nối âm: とおり → どおり (連濁)": {
+      "title": "Nối âm: とおり → どおり (連濁)",
+      "sub": "〜とおりに · Mẹo nhớ & chiết tự",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "memory",
+        "isNode": true,
+        "parentBranch": "🎯 Mẹo nhớ & chiết tự",
+        "definition": "Khi ghép trực tiếp sau một số danh từ, âm đầu **と (to)** bị biến âm thành **ど (do)** gọi là hiện tượng **連濁 (rendaku)**. Ví dụ: 予定 + とおり → **予定どおり**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "計画",
+                "r": "けいかく",
+                "m": "kế hoạch"
+              },
+              {
+                "t": "どおりに",
+                "r": "どおりに",
+                "m": "theo đúng"
+              },
+              {
+                "t": "進んでいます",
+                "r": "すすんでいます",
+                "m": "đang tiến hành"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Công việc đang tiến hành đúng theo kế hoạch.",
+            "scene": "Báo cáo tiến độ công việc trong buổi họp"
+          }
+        ]
+      }
+    },
+    "mn-017||memory||Câu thần chú: 'Theo đường mà làm'": {
+      "title": "Câu thần chú: 'Theo đường mà làm'",
+      "sub": "〜とおりに · Mẹo nhớ & chiết tự",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "memory",
+        "isNode": true,
+        "parentBranch": "🎯 Mẹo nhớ & chiết tự",
+        "definition": "Câu thần chú dễ thuộc giúp bạn nhớ ngay ý nghĩa của mẫu này: **'Theo đường mà làm'**. Thấy **とおりに** là nhớ ngay đến việc **làm theo đúng khuôn mẫu/chỉ dẫn sẵn có**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "マニュアル",
+                "r": "まにゅある",
+                "m": "sách hướng dẫn"
+              },
+              {
+                "t": "の"
+              },
+              {
+                "t": "とおりに",
+                "r": "とおりに",
+                "m": "theo đúng"
+              },
+              {
+                "t": "やって",
+                "r": "やって",
+                "m": "làm"
+              },
+              {
+                "t": "みよう",
+                "r": "みよう",
+                "m": "thử xem"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Hãy thử làm theo đúng sách hướng dẫn xem sao.",
+            "scene": "Hai đồng nghiệp đang lắp ráp máy móc"
+          }
+        ]
+      }
+    },
+    "mn-017||phrases||言ったとおりに (như tôi nói)": {
+      "title": "言ったとおりに (như tôi nói)",
+      "sub": "〜とおりに · Cụm từ phổ biến",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "phrases",
+        "isNode": true,
+        "parentBranch": "💬 Cụm từ phổ biến",
+        "definition": "Cụm từ rất hay gặp **言ったとおりに** có nghĩa là **'đúng như (tôi/ai đó) đã nói'**. Thường dùng khi nhắc nhở hoặc khẳng định kết quả xảy ra đúng như lời tiên đoán.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "私",
+                "r": "わたし",
+                "m": "tôi"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "言った",
+                "r": "いった",
+                "m": "đã nói"
+              },
+              {
+                "t": "とおりに",
+                "r": "とおりに",
+                "m": "theo đúng"
+              },
+              {
+                "t": "なって",
+                "r": "なって",
+                "m": "trở thành"
+              },
+              {
+                "t": "しまった",
+                "r": "しまった",
+                "m": "mất rồi"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Mọi chuyện đã diễn ra đúng như lời tôi nói rồi.",
+            "scene": "Nói với bạn khi điều cảnh báo trước đó đã xảy ra"
+          }
+        ]
+      }
+    },
+    "mn-017||phrases||説明のとおりに (theo hướng dẫn)": {
+      "title": "説明のとおりに (theo hướng dẫn)",
+      "sub": "〜とおりに · Cụm từ phổ biến",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "phrases",
+        "isNode": true,
+        "parentBranch": "💬 Cụm từ phổ biến",
+        "definition": "Cụm cố định **説明のとおりに** dùng phổ biến trong công việc và đời sống với nghĩa **'theo đúng hướng dẫn'**. Lưu ý bắt buộc phải có trợ từ **の** giữa 説明 và とおりに.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "説明",
+                "r": "せつめい",
+                "m": "hướng dẫn"
+              },
+              {
+                "t": "の"
+              },
+              {
+                "t": "とおりに",
+                "r": "とおりに",
+                "m": "theo đúng"
+              },
+              {
+                "t": "組み立ててください",
+                "r": "くみたててください",
+                "m": "xin hãy lắp ráp"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Xin hãy lắp ráp theo đúng hướng dẫn.",
+            "scene": "Tờ hướng dẫn đi kèm khi mua đồ nội thất"
+          }
+        ]
+      }
+    },
+    "mn-017||phrases||予定どおりに / 時間どおりに (đúng kế hoạch/giờ)": {
+      "title": "予定どおりに / 時間どおりに (đúng kế hoạch/giờ)",
+      "sub": "〜とおりに · Cụm từ phổ biến",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "phrases",
+        "isNode": true,
+        "parentBranch": "💬 Cụm từ phổ biến",
+        "definition": "Hai cụm từ cực kỳ phổ biến trong giao tiếp công sở Nhật Bản: **予定どおりに** (đúng kế hoạch) và **時間どおりに** (đúng giờ). Lưu ý âm đọc là **どおりに**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "電車",
+                "r": "でんしゃ",
+                "m": "tàu điện"
+              },
+              {
+                "t": "は"
+              },
+              {
+                "t": "時間",
+                "r": "じかん",
+                "m": "thời gian"
+              },
+              {
+                "t": "どおりに",
+                "r": "どおりに",
+                "m": "theo đúng"
+              },
+              {
+                "t": "来ました",
+                "r": "きました",
+                "m": "đã đến"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tàu điện đã đến đúng giờ.",
+            "scene": "Hành khách đứng ở ga tàu nhận xét"
+          }
+        ]
+      }
+    },
+    "mn-017||phrases||レシピのとおりに (theo công thức)": {
+      "title": "レシピのとおりに (theo công thức)",
+      "sub": "〜とおりに · Cụm từ phổ biến",
+      "v2": {
+        "pattern": "〜とおりに",
+        "patternReading": "とおりに",
+        "coreMeaning": "Làm theo đúng như ~",
+        "slug": "phrases",
+        "isNode": true,
+        "parentBranch": "💬 Cụm từ phổ biến",
+        "definition": "Cụm từ quen thuộc trong nấu ăn **レシピのとおりに** có nghĩa là **'theo đúng công thức món ăn'**. Bắt buộc có trợ từ **の** nối từ mượn レシピ với とおりに.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "レシピ",
+                "r": "れしぴ",
+                "m": "công thức"
+              },
+              {
+                "t": "の"
+              },
+              {
+                "t": "とおりに",
+                "r": "とおりに",
+                "m": "theo đúng"
+              },
+              {
+                "t": "作れば",
+                "r": "つくれば",
+                "m": "nếu làm"
+              },
+              {
+                "t": "失敗",
+                "r": "しっぱい",
+                "m": "thất bại"
+              },
+              {
+                "t": "しません",
+                "r": "しません",
+                "m": "không làm"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Nếu làm theo đúng công thức thì sẽ không thất bại.",
+            "scene": "Kinh nghiệm chia sẻ trong lớp học nấu ăn"
+          }
+        ]
+      }
+    }
+  }
+}

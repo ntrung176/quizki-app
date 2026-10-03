@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Plus, Edit, Trash2, FolderPlus, ChevronUp, ChevronDown, ChevronRight, Lock, Unlock, Layers, CloudUpload, Loader2 } from 'lucide-react';
 import { showToast, showConfirm } from '../../utils/toast';
 import { syncBooksToCDN } from '../../utils/bookService';
+import BookThumbnail from './BookThumbnail';
 
 const BookView = ({
     currentGroup,
@@ -90,64 +91,35 @@ const BookView = ({
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredBooks.map(book => {
                         const progress = getBookProgress(groupId, book);
-                        let bookLevel = book.subtitle || '';
-                        if (book.name.includes('N5')) bookLevel = 'TRÌNH ĐỘ N5';
-                        else if (book.name.includes('N4')) bookLevel = 'TRÌNH ĐỘ N4';
-                        else if (book.name.includes('N3')) bookLevel = 'TRÌNH ĐỘ N3';
-                        else if (book.name.includes('N2')) bookLevel = 'TRÌNH ĐỘ N2';
-                        else if (book.name.includes('N1')) bookLevel = 'TRÌNH ĐỘ N1';
 
                         return (
                             <div key={book.id}
                                 onClick={() => navigateTo({ group: groupId, book: book.id })}
-                                className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200/60 dark:border-slate-700/60 p-6 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between min-h-[220px] group relative overflow-hidden"
+                                className="rounded-2xl border border-slate-700/20 dark:border-slate-700/60 shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1 hover:border-slate-400 dark:hover:border-slate-400 transition-all duration-300 cursor-pointer flex flex-col justify-between group relative"
                             >
-                                <div className="absolute inset-x-0 top-0 h-1.5" style={{ backgroundColor: book.color || '#4F87FF' }} />
-                                <div className="space-y-4">
-                                    <div className="flex items-start justify-between gap-4">
-                                        <div>
-                                            {bookLevel && (
-                                                <span className="inline-block px-2.5 py-0.5 text-[9px] font-black bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 rounded mb-2">
-                                                    {bookLevel}
-                                                </span>
-                                            )}
-                                            <h3 className="text-xl font-extrabold text-slate-800 dark:text-white leading-snug group-hover:text-sky-500 transition-colors">
-                                                {book.name}
-                                            </h3>
-                                        </div>
-                                        {isAdmin && (
-                                            <div className="flex items-center gap-0.5 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                <button onClick={(e) => { e.stopPropagation(); handleStartEditBook(book); }}
-                                                    className="p-1.5 text-slate-400 hover:text-sky-500 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
-                                                    <Edit className="w-3.5 h-3.5" />
-                                                </button>
-                                                <button onClick={(e) => { e.stopPropagation(); handleDeleteBook(book.id); }}
-                                                    className="p-1.5 text-slate-400 hover:text-red-500 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer">
-                                                    <Trash2 className="w-3.5 h-3.5" />
-                                                </button>
-                                            </div>
-                                        )}
+                                <BookThumbnail
+                                    item={book}
+                                    name={book.name}
+                                    subtitle={book.description}
+                                    groupName={currentGroup?.name}
+                                    progress={progress}
+                                    className="h-44 sm:h-48"
+                                />
+
+                                {isAdmin && (
+                                    <div className="absolute top-2.5 right-2.5 flex items-center gap-1 z-20 opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 backdrop-blur-xs p-1 rounded-xl">
+                                        <button onClick={(e) => { e.stopPropagation(); handleStartEditBook(book); }}
+                                            className="p-1.5 text-white/90 hover:text-white hover:bg-white/20 rounded-lg cursor-pointer"
+                                            title="Chỉnh sửa sách">
+                                            <Edit className="w-3.5 h-3.5" />
+                                        </button>
+                                        <button onClick={(e) => { e.stopPropagation(); handleDeleteBook(book.id); }}
+                                            className="p-1.5 text-red-300 hover:text-red-200 hover:bg-white/20 rounded-lg cursor-pointer"
+                                            title="Xoá sách">
+                                            <Trash2 className="w-3.5 h-3.5" />
+                                        </button>
                                     </div>
-                                    {book.description && (
-                                        <p className="text-xs text-slate-400 dark:text-slate-500 line-clamp-2">
-                                            {book.description}
-                                        </p>
-                                    )}
-                                </div>
-                                <div className="space-y-3 mt-4">
-                                    <div className="flex items-center justify-between text-xs">
-                                        <span className="text-slate-400 font-medium">
-                                            {book.wordCount || 0} từ vựng
-                                        </span>
-                                        <span className="text-sky-500 font-black">{progress}%</span>
-                                    </div>
-                                    <div className="w-full h-1 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                                        <div
-                                            className="h-full bg-gradient-to-r from-sky-400 to-indigo-500 rounded-full transition-all duration-500"
-                                            style={{ width: `${progress}%` }}
-                                        />
-                                    </div>
-                                </div>
+                                )}
                             </div>
                         );
                     })}
@@ -156,14 +128,14 @@ const BookView = ({
                     {isAdmin && (
                         <div
                             onClick={() => { resetForm(); setShowAddBook(true); }}
-                            className="bg-transparent dark:bg-transparent rounded-3xl border-2 border-dashed border-slate-300 dark:border-slate-700 p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:border-slate-400 dark:hover:border-slate-500 transition-all min-h-[220px] group"
+                            className="bg-transparent dark:bg-transparent rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-700 p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:border-slate-400 dark:hover:border-slate-500 transition-all h-44 sm:h-48 group"
                         >
-                            <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-3 group-hover:scale-110 transition-transform">
+                            <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
                                 <Plus className="w-5 h-5 text-slate-500 dark:text-slate-400" />
                             </div>
-                            <h3 className="font-bold text-slate-700 dark:text-slate-300 mb-1">Thêm sách mới</h3>
-                            <p className="text-xs text-slate-400 dark:text-slate-500 max-w-[200px] leading-relaxed">
-                                Tạo một cuốn sách thuộc nhóm này.
+                            <h3 className="font-bold text-slate-700 dark:text-slate-300 text-sm mb-0.5">Thêm sách mới</h3>
+                            <p className="text-[11px] text-slate-400 dark:text-slate-500 max-w-[200px] leading-relaxed">
+                                Tạo một cuốn sách thuộc nhóm này
                             </p>
                         </div>
                     )}

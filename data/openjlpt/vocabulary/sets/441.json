@@ -1,0 +1,242 @@
+{
+  "id": 441,
+  "title": "経済・金融 · 経済指標・時事用語",
+  "description": "Chỉ số kinh tế và thuật ngữ thời sự — chủ đề Kinh tế & tài chính · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:48.685631",
+  "cards": [
+    {
+      "id": 11322,
+      "term": "リスク",
+      "reading": "リスク",
+      "romaji": null,
+      "definition": "rủi ro/risk",
+      "exampleSentence": "新しい投資を始める前に、リスクを十分に調べる必要がある。",
+      "exampleTranslation": "Trước khi bắt đầu khoản đầu tư mới, cần tìm hiểu kỹ những rủi ro.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11323,
+      "term": "グローバル",
+      "reading": "グローバル",
+      "romaji": null,
+      "definition": "toàn cầu/global",
+      "exampleSentence": "その会社はグローバルな市場で競争するため、海外進出を進めている。",
+      "exampleTranslation": "Để cạnh tranh trên thị trường toàn cầu, công ty đó đang đẩy mạnh việc tiến ra nước ngoài.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11324,
+      "term": "GDP",
+      "reading": "GDP",
+      "romaji": null,
+      "definition": "tổng sản phẩm quốc nội",
+      "exampleSentence": "日本のGDPは、世界経済の影響を受けて変動している。",
+      "exampleTranslation": "GDP của Nhật Bản đang biến động do chịu ảnh hưởng của nền kinh tế thế giới.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11325,
+      "term": "インフレ",
+      "reading": "インフレ",
+      "romaji": null,
+      "definition": "lạm phát",
+      "exampleSentence": "インフレが進むと、物価が上がって生活費の負担が大きくなる。",
+      "exampleTranslation": "Khi lạm phát tiến triển, giá cả tăng lên khiến gánh nặng chi phí sinh hoạt lớn hơn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11326,
+      "term": "キャッシュレス",
+      "reading": "キャッシュレス",
+      "romaji": null,
+      "definition": "thanh toán không dùng tiền mặt",
+      "exampleSentence": "キャッシュレスの普及で、現金を持ち歩かない人が増えている。",
+      "exampleTranslation": "Nhờ thanh toán không dùng tiền mặt phổ biến hơn, số người không mang theo tiền mặt ngày càng tăng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11327,
+      "term": "デフレ",
+      "reading": "デフレ",
+      "romaji": null,
+      "definition": "giảm phát",
+      "exampleSentence": "デフレが長引くと、企業の利益が減り、賃金も上がりにくくなる。",
+      "exampleTranslation": "Nếu giảm phát kéo dài, lợi nhuận của doanh nghiệp giảm và tiền lương cũng khó tăng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11328,
+      "term": "バブル",
+      "reading": "バブル",
+      "romaji": null,
+      "definition": "bong bóng đầu cơ",
+      "exampleSentence": "バブルが崩壊した後、日本の景気は長く低迷した。",
+      "exampleTranslation": "Sau khi bong bóng đầu cơ sụp đổ, nền kinh tế Nhật Bản đã trì trệ trong thời gian dài.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11329,
+      "term": "ファンド",
+      "reading": "ファンド",
+      "romaji": null,
+      "definition": "quỹ đầu tư",
+      "exampleSentence": "将来に備えて、毎月少しずつファンドに投資している。",
+      "exampleTranslation": "Để chuẩn bị cho tương lai, tôi đầu tư một ít vào quỹ đầu tư mỗi tháng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11330,
+      "term": "フィンテック",
+      "reading": "フィンテック",
+      "romaji": null,
+      "definition": "công nghệ tài chính fintech",
+      "exampleSentence": "フィンテックの進歩により、スマートフォンで送金できるようになった。",
+      "exampleTranslation": "Nhờ sự phát triển của công nghệ tài chính fintech, giờ đây có thể chuyển tiền bằng điện thoại thông minh.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11331,
+      "term": "ブロックチェーン",
+      "reading": "ブロックチェーン",
+      "romaji": null,
+      "definition": "công nghệ blockchain",
+      "exampleSentence": "ブロックチェーンを利用した取引の安全性について研究している。",
+      "exampleTranslation": "Tôi đang nghiên cứu về tính an toàn của các giao dịch sử dụng công nghệ blockchain.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11332,
+      "term": "拡大 (かくだい)",
+      "reading": "かくだい",
+      "romaji": null,
+      "definition": "mở rộng (↔縮小)",
+      "exampleSentence": "海外市場への事業の拡大を目指している。",
+      "exampleTranslation": "Công ty đang hướng tới việc mở rộng hoạt động kinh doanh sang thị trường nước ngoài.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11333,
+      "term": "供給 (きょうきゅう)",
+      "reading": "きょうきゅう",
+      "romaji": null,
+      "definition": "nguồn cung (↔需要)",
+      "exampleSentence": "需要に対して供給が不足すると、商品の価格は上がりやすい。",
+      "exampleTranslation": "Khi nguồn cung không đủ so với nhu cầu, giá sản phẩm thường dễ tăng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11334,
+      "term": "景気 (けいき)",
+      "reading": "けいき",
+      "romaji": null,
+      "definition": "tình hình kinh tế",
+      "exampleSentence": "景気が回復すれば、企業は設備投資を増やすだろう。",
+      "exampleTranslation": "Nếu tình hình kinh tế phục hồi, các doanh nghiệp có lẽ sẽ tăng đầu tư vào thiết bị.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11335,
+      "term": "経済成長 (けいざいせいちょう)",
+      "reading": "けいざいせいちょう",
+      "romaji": null,
+      "definition": "tăng trưởng kinh tế",
+      "exampleSentence": "持続的な経済成長には、教育への投資が欠かせない。",
+      "exampleTranslation": "Đầu tư vào giáo dục là điều không thể thiếu để đạt được tăng trưởng kinh tế bền vững.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 11336,
+      "term": "経済成長率 (けいざいせいちょうりつ)",
+      "reading": "けいざいせいちょうりつ",
+      "romaji": null,
+      "definition": "tốc độ tăng trưởng kinh tế",
+      "exampleSentence": "今年の経済成長率は、政府の予測を下回る見込みだ。",
+      "exampleTranslation": "Tốc độ tăng trưởng kinh tế năm nay được dự đoán sẽ thấp hơn dự báo của chính phủ.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 11337,
+      "term": "減少 (げんしょう)",
+      "reading": "げんしょう",
+      "romaji": null,
+      "definition": "giảm xuống (↔増加)",
+      "exampleSentence": "少子化により、国内の労働人口が年々減少している。",
+      "exampleTranslation": "Do tình trạng tỷ lệ sinh giảm, dân số trong độ tuổi lao động trong nước đang giảm dần qua từng năm.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 11338,
+      "term": "好景気 (こうけいき)",
+      "reading": "こうけいき",
+      "romaji": null,
+      "definition": "kinh tế phát đạt/bùng nổ",
+      "exampleSentence": "好景気が続いているため、企業の採用活動も活発になっている。",
+      "exampleTranslation": "Vì nền kinh tế phát đạt tiếp diễn nên hoạt động tuyển dụng của các doanh nghiệp cũng trở nên sôi nổi.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 11339,
+      "term": "需要 (じゅよう)",
+      "reading": "じゅよう",
+      "romaji": null,
+      "definition": "nhu cầu (↔供給)",
+      "exampleSentence": "海外での需要が高まり、この製品の輸出量は大幅に増えた。",
+      "exampleTranslation": "Nhu cầu ở nước ngoài tăng cao, khiến lượng xuất khẩu sản phẩm này tăng đáng kể.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 11340,
+      "term": "縮小 (しゅくしょう)",
+      "reading": "しゅくしょう",
+      "romaji": null,
+      "definition": "thu hẹp (↔拡大)",
+      "exampleSentence": "市場の変化を受けて、会社は事業の規模を縮小した。",
+      "exampleTranslation": "Trước những thay đổi của thị trường, công ty đã thu hẹp quy mô kinh doanh.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 11341,
+      "term": "増加 (ぞうか)",
+      "reading": "ぞうか",
+      "romaji": null,
+      "definition": "tăng lên (↔減少)",
+      "exampleSentence": "高齢者の増加に伴い、医療費の負担が問題となっている。",
+      "exampleTranslation": "Cùng với sự gia tăng số người cao tuổi, gánh nặng chi phí y tế đang trở thành một vấn đề.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 11342,
+      "term": "不景気 (ふけいき)",
+      "reading": "ふけいき",
+      "romaji": null,
+      "definition": "kinh tế ảm đạm/suy thoái",
+      "exampleSentence": "不景気の影響で、今年はボーナスが支給されなかった。",
+      "exampleTranslation": "Do ảnh hưởng của nền kinh tế ảm đạm, năm nay tiền thưởng đã không được chi trả.",
+      "forms": [],
+      "displayOrder": 20
+    }
+  ]
+}

@@ -1,0 +1,485 @@
+{
+  "id": 136,
+  "title": "られる 受身形",
+  "description": "Thể bị động · 30 mẫu câu N4",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:56.210793",
+  "cards": [
+    {
+      "id": 3891,
+      "term": "食べられる",
+      "reading": "たべられる",
+      "romaji": "taberareru",
+      "definition": "Được ăn / bị ăn",
+      "exampleSentence": "ケーキが子どもに食べられました。",
+      "exampleTranslation": "Bánh bị đứa trẻ ăn mất.",
+      "forms": [
+        "食べられます",
+        "食べられて",
+        "食べられた",
+        "食べられない",
+        "食べられていた"
+      ],
+      "displayOrder": 0
+    },
+    {
+      "id": 3892,
+      "term": "見られる",
+      "reading": "みられる",
+      "romaji": "mirareru",
+      "definition": "Được nhìn / bị nhìn",
+      "exampleSentence": "人に見られるのが嫌いです。",
+      "exampleTranslation": "Tôi không thích bị người khác nhìn.",
+      "forms": [
+        "見られます",
+        "見られて",
+        "見られた",
+        "見られない",
+        "見られていた"
+      ],
+      "displayOrder": 1
+    },
+    {
+      "id": 3893,
+      "term": "言われる",
+      "reading": "いわれる",
+      "romaji": "iwareru",
+      "definition": "Được nói / bị nói",
+      "exampleSentence": "褒められるより叱られることが多いです。",
+      "exampleTranslation": "Tôi bị mắng nhiều hơn được khen.",
+      "forms": [
+        "言われます",
+        "言われて",
+        "言われた",
+        "言われない",
+        "言われていた"
+      ],
+      "displayOrder": 2
+    },
+    {
+      "id": 3894,
+      "term": "叱られる",
+      "reading": "しかられる",
+      "romaji": "shikarareru",
+      "definition": "Bị mắng",
+      "exampleSentence": "先生に叱られました。",
+      "exampleTranslation": "Tôi bị thầy giáo mắng.",
+      "forms": [
+        "叱られます",
+        "叱られて",
+        "叱られた",
+        "叱られない",
+        "叱られていた"
+      ],
+      "displayOrder": 3
+    },
+    {
+      "id": 3895,
+      "term": "褒められる",
+      "reading": "ほめられる",
+      "romaji": "homerareru",
+      "definition": "Được khen",
+      "exampleSentence": "先生に褒められました。",
+      "exampleTranslation": "Tôi được thầy giáo khen.",
+      "forms": [
+        "褒められます",
+        "褒められて",
+        "褒められた",
+        "褒められない",
+        "褒められていた"
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": 3896,
+      "term": "盗まれる",
+      "reading": "ぬすまれる",
+      "romaji": "nusumareru",
+      "definition": "Bị trộm / bị cướp",
+      "exampleSentence": "財布を盗まれました。",
+      "exampleTranslation": "Tôi bị trộm ví.",
+      "forms": [
+        "盗まれます",
+        "盗まれて",
+        "盗まれた",
+        "盗まれない",
+        "盗まれていた"
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": 3897,
+      "term": "押される",
+      "reading": "おされる",
+      "romaji": "osareru",
+      "definition": "Bị đẩy",
+      "exampleSentence": "電車で押されました。",
+      "exampleTranslation": "Tôi bị đẩy trên tàu.",
+      "forms": [
+        "押されます",
+        "押されて",
+        "押された",
+        "押されない",
+        "押されていた"
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": 3898,
+      "term": "呼ばれる",
+      "reading": "よばれる",
+      "romaji": "yobareru",
+      "definition": "Được gọi / bị gọi",
+      "exampleSentence": "名前を呼ばれました。",
+      "exampleTranslation": "Tôi được gọi tên.",
+      "forms": [
+        "呼ばれます",
+        "呼ばれて",
+        "呼ばれた",
+        "呼ばれない",
+        "呼ばれていた"
+      ],
+      "displayOrder": 7
+    },
+    {
+      "id": 3899,
+      "term": "頼まれる",
+      "reading": "たのまれる",
+      "romaji": "tanomareru",
+      "definition": "Được nhờ / bị nhờ",
+      "exampleSentence": "友達に手伝いを頼まれました。",
+      "exampleTranslation": "Tôi được bạn nhờ giúp đỡ.",
+      "forms": [
+        "頼まれます",
+        "頼まれて",
+        "頼まれた",
+        "頼まれない",
+        "頼まれていた"
+      ],
+      "displayOrder": 8
+    },
+    {
+      "id": 3900,
+      "term": "読まれる",
+      "reading": "よまれる",
+      "romaji": "yomareru",
+      "definition": "Được đọc / bị đọc",
+      "exampleSentence": "この本は多くの人に読まれています。",
+      "exampleTranslation": "Cuốn sách này được nhiều người đọc.",
+      "forms": [
+        "読まれます",
+        "読まれて",
+        "読まれた",
+        "読まれない",
+        "読まれていた"
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": 3901,
+      "term": "作られる",
+      "reading": "つくられる",
+      "romaji": "tsukurareru",
+      "definition": "Được làm / được sản xuất",
+      "exampleSentence": "この映画は有名な監督に作られました。",
+      "exampleTranslation": "Bộ phim này được đạo diễn nổi tiếng làm.",
+      "forms": [
+        "作られます",
+        "作られて",
+        "作られた",
+        "作られない",
+        "作られていた"
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": 3902,
+      "term": "発明される",
+      "reading": "はつめいされる",
+      "romaji": "hatsumei sareru",
+      "definition": "Được phát minh",
+      "exampleSentence": "電話はベルに発明されました。",
+      "exampleTranslation": "Điện thoại được Bell phát minh.",
+      "forms": [
+        "発明されます",
+        "発明されて",
+        "発明された",
+        "発明されない",
+        "発明されていた"
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": 3903,
+      "term": "使われる",
+      "reading": "つかわれる",
+      "romaji": "tsukawareru",
+      "definition": "Được sử dụng",
+      "exampleSentence": "この言葉はよく使われます。",
+      "exampleTranslation": "Từ này được sử dụng thường xuyên.",
+      "forms": [
+        "使われます",
+        "使われて",
+        "使われた",
+        "使われない",
+        "使われていた"
+      ],
+      "displayOrder": 12
+    },
+    {
+      "id": 3904,
+      "term": "決められる",
+      "reading": "きめられる",
+      "romaji": "kimerareru",
+      "definition": "Được quyết định / bị quyết định",
+      "exampleSentence": "ルールは会社に決められます。",
+      "exampleTranslation": "Quy tắc được công ty quyết định.",
+      "forms": [
+        "決められます",
+        "決められて",
+        "決められた",
+        "決められない",
+        "決められていた"
+      ],
+      "displayOrder": 13
+    },
+    {
+      "id": 3905,
+      "term": "批判される",
+      "reading": "ひはんされる",
+      "romaji": "hihan sareru",
+      "definition": "Bị chỉ trích",
+      "exampleSentence": "政策が多くの人に批判されました。",
+      "exampleTranslation": "Chính sách bị nhiều người chỉ trích.",
+      "forms": [
+        "批判されます",
+        "批判されて",
+        "批判された",
+        "批判されない",
+        "批判されていた"
+      ],
+      "displayOrder": 14
+    },
+    {
+      "id": 3906,
+      "term": "感動させられる",
+      "reading": "かんどうさせられる",
+      "romaji": "kandou saserareru",
+      "definition": "Bị làm cảm động",
+      "exampleSentence": "映画に感動させられました。",
+      "exampleTranslation": "Tôi bị bộ phim làm cảm động.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 3907,
+      "term": "驚かされる",
+      "reading": "おどろかされる",
+      "romaji": "odoroka sareru",
+      "definition": "Bị làm ngạc nhiên",
+      "exampleSentence": "彼の言葉に驚かされました。",
+      "exampleTranslation": "Tôi bị ngạc nhiên bởi lời nói của anh ấy.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 3908,
+      "term": "迷惑をかけられる",
+      "reading": "めいわくをかけられる",
+      "romaji": "meiwaku wo kakerareru",
+      "definition": "Bị làm phiền",
+      "exampleSentence": "隣人に迷惑をかけられます。",
+      "exampleTranslation": "Tôi bị hàng xóm làm phiền.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 3909,
+      "term": "愛される",
+      "reading": "あいされる",
+      "romaji": "ai sareru",
+      "definition": "Được yêu thương",
+      "exampleSentence": "みんなに愛される人になりたいです。",
+      "exampleTranslation": "Tôi muốn trở thành người được mọi người yêu thương.",
+      "forms": [
+        "愛されます",
+        "愛されて",
+        "愛された",
+        "愛されない",
+        "愛されていた"
+      ],
+      "displayOrder": 18
+    },
+    {
+      "id": 3910,
+      "term": "尊敬される",
+      "reading": "そんけいされる",
+      "romaji": "sonkei sareru",
+      "definition": "Được kính trọng",
+      "exampleSentence": "先生は生徒に尊敬されています。",
+      "exampleTranslation": "Thầy giáo được học sinh kính trọng.",
+      "forms": [
+        "尊敬されます",
+        "尊敬されて",
+        "尊敬された",
+        "尊敬されない",
+        "尊敬されていた"
+      ],
+      "displayOrder": 19
+    },
+    {
+      "id": 3911,
+      "term": "招待される",
+      "reading": "しょうたいされる",
+      "romaji": "shoutai sareru",
+      "definition": "Được mời",
+      "exampleSentence": "パーティーに招待されました。",
+      "exampleTranslation": "Tôi được mời đến bữa tiệc.",
+      "forms": [
+        "招待されます",
+        "招待されて",
+        "招待された",
+        "招待されない",
+        "招待されていた"
+      ],
+      "displayOrder": 20
+    },
+    {
+      "id": 3912,
+      "term": "傷つけられる",
+      "reading": "きずつけられる",
+      "romaji": "kizutsuke rareru",
+      "definition": "Bị làm tổn thương",
+      "exampleSentence": "彼の言葉に傷つけられました。",
+      "exampleTranslation": "Tôi bị tổn thương bởi lời nói của anh ấy.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 3913,
+      "term": "守られる",
+      "reading": "まもられる",
+      "romaji": "mamorareru",
+      "definition": "Được bảo vệ",
+      "exampleSentence": "法律によって権利が守られます。",
+      "exampleTranslation": "Quyền lợi được bảo vệ bởi pháp luật.",
+      "forms": [
+        "守られます",
+        "守られて",
+        "守られた",
+        "守られない",
+        "守られていた"
+      ],
+      "displayOrder": 22
+    },
+    {
+      "id": 3914,
+      "term": "覚えさせられる",
+      "reading": "おぼえさせられる",
+      "romaji": "oboe saserareru",
+      "definition": "Bị bắt học thuộc",
+      "exampleSentence": "漢字を100個覚えさせられました。",
+      "exampleTranslation": "Tôi bị bắt học thuộc 100 chữ Kanji.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 50736,
+      "term": "起こされる",
+      "reading": "おこされる",
+      "romaji": "okosareru",
+      "definition": "bị đánh thức",
+      "exampleSentence": "毎朝、母に起こされます。",
+      "exampleTranslation": "Mỗi sáng, tôi được mẹ đánh thức.",
+      "forms": [
+        "起こされます",
+        "起こされて",
+        "起こされた",
+        "起こされない"
+      ],
+      "displayOrder": 24
+    },
+    {
+      "id": 50737,
+      "term": "撮られる",
+      "reading": "とられる",
+      "romaji": "torareru",
+      "definition": "bị chụp ảnh",
+      "exampleSentence": "旅行中に、知らない人に写真を撮られました。",
+      "exampleTranslation": "Trong chuyến du lịch, tôi bị một người lạ chụp ảnh.",
+      "forms": [
+        "撮られます",
+        "撮られて",
+        "撮られた",
+        "撮られない"
+      ],
+      "displayOrder": 25
+    },
+    {
+      "id": 50738,
+      "term": "踏まれる",
+      "reading": "ふまれる",
+      "romaji": "fumareru",
+      "definition": "bị giẫm lên",
+      "exampleSentence": "電車の中で、足を踏まれました。",
+      "exampleTranslation": "Trên tàu điện, tôi bị giẫm lên chân.",
+      "forms": [
+        "踏まれます",
+        "踏まれて",
+        "踏まれた",
+        "踏まれない"
+      ],
+      "displayOrder": 26
+    },
+    {
+      "id": 50739,
+      "term": "降られる",
+      "reading": "ふられる",
+      "romaji": "furareru",
+      "definition": "bị dính mưa",
+      "exampleSentence": "帰る途中で雨に降られて、服がぬれました。",
+      "exampleTranslation": "Trên đường về, tôi gặp mưa nên quần áo bị ướt.",
+      "forms": [
+        "降られます",
+        "降られて",
+        "降られた",
+        "降られない"
+      ],
+      "displayOrder": 27
+    },
+    {
+      "id": 50740,
+      "term": "質問される",
+      "reading": "しつもんされる",
+      "romaji": "shitsumon sareru",
+      "definition": "bị hỏi",
+      "exampleSentence": "授業中、先生に質問されました。",
+      "exampleTranslation": "Trong giờ học, tôi bị giáo viên hỏi.",
+      "forms": [
+        "質問されます",
+        "質問されて",
+        "質問された",
+        "質問されない"
+      ],
+      "displayOrder": 28
+    },
+    {
+      "id": 50741,
+      "term": "注意される",
+      "reading": "ちゅういされる",
+      "romaji": "chuui sareru",
+      "definition": "bị nhắc nhở",
+      "exampleSentence": "学校で先生に注意されました。",
+      "exampleTranslation": "Tôi bị giáo viên nhắc nhở ở trường.",
+      "forms": [
+        "注意されます",
+        "注意されて",
+        "注意された",
+        "注意されない"
+      ],
+      "displayOrder": 29
+    }
+  ]
+}

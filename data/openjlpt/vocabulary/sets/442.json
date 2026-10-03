@@ -1,0 +1,143 @@
+{
+  "id": 442,
+  "title": "経済・金融 · 株式市場・投資",
+  "description": "Thị trường chứng khoán và đầu tư — chủ đề Kinh tế & tài chính · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:48.738485",
+  "cards": [
+    {
+      "id": 11343,
+      "term": "運用 (うんよう)",
+      "reading": "うんよう",
+      "romaji": null,
+      "definition": "quản lý/vận hành tài sản",
+      "exampleSentence": "退職後の生活に備えて、貯金の一部を投資で運用している。",
+      "exampleTranslation": "Để chuẩn bị cho cuộc sống sau khi nghỉ hưu, tôi đang dùng một phần tiền tiết kiệm để đầu tư.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11344,
+      "term": "株価 (かぶか)",
+      "reading": "かぶか",
+      "romaji": null,
+      "definition": "giá cổ phiếu",
+      "exampleSentence": "新商品の発表を受けて、その会社の株価が上昇した。",
+      "exampleTranslation": "Sau thông báo về sản phẩm mới, giá cổ phiếu của công ty đó đã tăng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11345,
+      "term": "株式 (かぶしき)",
+      "reading": "かぶしき",
+      "romaji": null,
+      "definition": "cổ phiếu",
+      "exampleSentence": "将来に備え、毎月少しずつ株式を購入している。",
+      "exampleTranslation": "Để chuẩn bị cho tương lai, mỗi tháng tôi đều mua cổ phiếu từng chút một.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11346,
+      "term": "株式市場 (かぶしきしじょう)",
+      "reading": "かぶしきしじょう",
+      "romaji": null,
+      "definition": "thị trường chứng khoán",
+      "exampleSentence": "世界情勢の悪化により、株式市場は不安定な動きを見せている。",
+      "exampleTranslation": "Do tình hình thế giới xấu đi, thị trường chứng khoán đang biến động bất ổn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11347,
+      "term": "株主 (かぶぬし)",
+      "reading": "かぶぬし",
+      "romaji": null,
+      "definition": "cổ đông",
+      "exampleSentence": "株主に対して、今年度の経営方針を説明した。",
+      "exampleTranslation": "Chúng tôi đã giải thích phương hướng quản lý năm nay cho các cổ đông.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11348,
+      "term": "急騰 (きゅうとう)",
+      "reading": "きゅうとう",
+      "romaji": null,
+      "definition": "giá tăng vọt đột ngột",
+      "exampleSentence": "新薬の開発成功が伝わると、その会社の株価が急騰した。",
+      "exampleTranslation": "Khi tin tức về việc phát triển thành công loại thuốc mới được truyền đi, giá cổ phiếu của công ty đó đã tăng vọt.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11349,
+      "term": "急落 (きゅうらく)",
+      "reading": "きゅうらく",
+      "romaji": null,
+      "definition": "giá sụt giảm mạnh",
+      "exampleSentence": "株価の急落を受けて、投資家の間に不安が広がった。",
+      "exampleTranslation": "Sau khi giá cổ phiếu sụt giảm mạnh, sự lo lắng lan rộng trong giới đầu tư.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11350,
+      "term": "証券取引所 (しょうけんとりひきじょ)",
+      "reading": "しょうけんとりひきじょ",
+      "romaji": null,
+      "definition": "sàn giao dịch chứng khoán",
+      "exampleSentence": "証券取引所では、朝から多くの株が売買されている。",
+      "exampleTranslation": "Tại sàn giao dịch chứng khoán, nhiều cổ phiếu được mua bán từ sáng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11351,
+      "term": "上場 (じょうじょう)",
+      "reading": "じょうじょう",
+      "romaji": null,
+      "definition": "niêm yết trên sàn chứng khoán",
+      "exampleSentence": "その会社は来月、東京証券取引所への上場を予定している。",
+      "exampleTranslation": "Công ty đó dự định niêm yết trên Sở Giao dịch Chứng khoán Tokyo vào tháng sau.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11352,
+      "term": "相場 (そうば)",
+      "reading": "そうば",
+      "romaji": null,
+      "definition": "thị giá/giá thị trường",
+      "exampleSentence": "最近、原油の相場が不安定になっている。",
+      "exampleTranslation": "Gần đây, giá thị trường của dầu thô trở nên bất ổn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11353,
+      "term": "投機 (とうき)",
+      "reading": "とうき",
+      "romaji": null,
+      "definition": "đầu cơ/spekulation",
+      "exampleSentence": "投機を目的とした取引は、大きな損失につながることがある。",
+      "exampleTranslation": "Các giao dịch nhằm mục đích đầu cơ đôi khi có thể dẫn đến tổn thất lớn.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11354,
+      "term": "配当 (はいとう)",
+      "reading": "はいとう",
+      "romaji": null,
+      "definition": "cổ tức chia cho cổ đông",
+      "exampleSentence": "この会社は毎年、株主に安定した配当を支払っている。",
+      "exampleTranslation": "Công ty này hằng năm đều trả cổ tức ổn định cho các cổ đông.",
+      "forms": [],
+      "displayOrder": 11
+    }
+  ]
+}

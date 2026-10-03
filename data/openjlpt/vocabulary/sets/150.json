@@ -1,0 +1,371 @@
+{
+  "id": 150,
+  "title": "心理学用語",
+  "description": "Thuật ngữ tâm lý học N3 · 30 từ",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:11.917",
+  "cards": [
+    {
+      "id": 4395,
+      "term": "心理",
+      "reading": "しんり",
+      "romaji": "shinri",
+      "definition": "Tâm lý",
+      "exampleSentence": "人間の心理は複雑です。",
+      "exampleTranslation": "Tâm lý con người rất phức tạp.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 4396,
+      "term": "意識",
+      "reading": "いしき",
+      "romaji": "ishiki",
+      "definition": "Ý thức / nhận thức",
+      "exampleSentence": "自己意識を高めることが大切です。",
+      "exampleTranslation": "Nâng cao nhận thức về bản thân là quan trọng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 4397,
+      "term": "無意識",
+      "reading": "むいしき",
+      "romaji": "muishiki",
+      "definition": "Vô thức",
+      "exampleSentence": "無意識の行動が多いです。",
+      "exampleTranslation": "Có nhiều hành động vô thức.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 4398,
+      "term": "感情",
+      "reading": "かんじょう",
+      "romaji": "kanjou",
+      "definition": "Cảm xúc / tình cảm",
+      "exampleSentence": "感情をコントロールするのが難しいです。",
+      "exampleTranslation": "Kiểm soát cảm xúc rất khó.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 4399,
+      "term": "ストレス",
+      "reading": "ストレス",
+      "romaji": "sutoresu",
+      "definition": "Căng thẳng",
+      "exampleSentence": "ストレスを発散する方法を探しています。",
+      "exampleTranslation": "Tôi đang tìm cách xả stress.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 4400,
+      "term": "トラウマ",
+      "reading": "トラウマ",
+      "romaji": "torauma",
+      "definition": "Chấn thương tâm lý",
+      "exampleSentence": "過去のトラウマを克服しました。",
+      "exampleTranslation": "Tôi đã vượt qua chấn thương tâm lý quá khứ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 4401,
+      "term": "自己肯定感",
+      "reading": "じここうていかん",
+      "romaji": "jiko koutei kan",
+      "definition": "Lòng tự trọng / tự chấp nhận bản thân",
+      "exampleSentence": "自己肯定感を高める練習をしています。",
+      "exampleTranslation": "Tôi đang luyện tập nâng cao lòng tự trọng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 4402,
+      "term": "共感",
+      "reading": "きょうかん",
+      "romaji": "kyoukan",
+      "definition": "Đồng cảm / thấu cảm",
+      "exampleSentence": "相手の気持ちに共感することが大切です。",
+      "exampleTranslation": "Đồng cảm với cảm xúc của người khác là quan trọng.",
+      "forms": [
+        "共感します",
+        "共感して",
+        "共感した",
+        "共感しない",
+        "共感できる"
+      ],
+      "displayOrder": 7
+    },
+    {
+      "id": 4403,
+      "term": "依存",
+      "reading": "いぞん",
+      "romaji": "izon",
+      "definition": "Phụ thuộc / lệ thuộc",
+      "exampleSentence": "スマートフォン依存が増えています。",
+      "exampleTranslation": "Sự phụ thuộc vào điện thoại thông minh đang tăng.",
+      "forms": [
+        "依存します",
+        "依存して",
+        "依存した",
+        "依存しない",
+        "依存できる"
+      ],
+      "displayOrder": 8
+    },
+    {
+      "id": 4404,
+      "term": "不安",
+      "reading": "ふあん",
+      "romaji": "fuan",
+      "definition": "Lo lắng / bất an",
+      "exampleSentence": "試験前は不安になります。",
+      "exampleTranslation": "Trước kỳ thi tôi trở nên lo lắng.",
+      "forms": [
+        "不安になります",
+        "不安になって",
+        "不安になった",
+        "不安にならない",
+        "不安になれる"
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": 4405,
+      "term": "うつ病",
+      "reading": "うつびょう",
+      "romaji": "utsubyou",
+      "definition": "Trầm cảm",
+      "exampleSentence": "うつ病の患者が増えています。",
+      "exampleTranslation": "Số bệnh nhân trầm cảm đang tăng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 4406,
+      "term": "モチベーション",
+      "reading": "モチベーション",
+      "romaji": "mochibeeshon",
+      "definition": "Động lực",
+      "exampleSentence": "モチベーションを維持するのが難しいです。",
+      "exampleTranslation": "Duy trì động lực rất khó.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 4407,
+      "term": "認知",
+      "reading": "にんち",
+      "romaji": "ninchi",
+      "definition": "Nhận thức",
+      "exampleSentence": "認知症の早期発見が重要です。",
+      "exampleTranslation": "Phát hiện sớm chứng mất trí nhớ là quan trọng.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 4408,
+      "term": "記憶",
+      "reading": "きおく",
+      "romaji": "kioku",
+      "definition": "Trí nhớ / ký ức",
+      "exampleSentence": "記憶力を高める方法があります。",
+      "exampleTranslation": "Có cách nâng cao trí nhớ.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 4409,
+      "term": "偏見",
+      "reading": "へんけん",
+      "romaji": "henken",
+      "definition": "Thành kiến / định kiến",
+      "exampleSentence": "偏見をなくすことが重要です。",
+      "exampleTranslation": "Loại bỏ thành kiến là quan trọng.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 4410,
+      "term": "自尊心",
+      "reading": "じそんしん",
+      "romaji": "jisonshin",
+      "definition": "Lòng tự trọng / tự ái",
+      "exampleSentence": "自尊心を傷つけないでください。",
+      "exampleTranslation": "Đừng làm tổn thương lòng tự trọng.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 4411,
+      "term": "人格",
+      "reading": "じんかく",
+      "romaji": "jinkaku",
+      "definition": "Nhân cách / tính cách",
+      "exampleSentence": "人格を形成するには時間がかかります。",
+      "exampleTranslation": "Hình thành nhân cách mất thời gian.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 4412,
+      "term": "行動",
+      "reading": "こうどう",
+      "romaji": "koudou",
+      "definition": "Hành vi / hành động",
+      "exampleSentence": "行動パターンを分析します。",
+      "exampleTranslation": "Tôi phân tích các mô hình hành vi.",
+      "forms": [
+        "行動します",
+        "行動して",
+        "行動した",
+        "行動しない",
+        "行動できる"
+      ],
+      "displayOrder": 17
+    },
+    {
+      "id": 4413,
+      "term": "適応",
+      "reading": "てきおう",
+      "romaji": "tekiou",
+      "definition": "Thích nghi / thích ứng",
+      "exampleSentence": "新しい環境への適応が必要です。",
+      "exampleTranslation": "Cần thích nghi với môi trường mới.",
+      "forms": [
+        "適応します",
+        "適応して",
+        "適応した",
+        "適応しない",
+        "適応できる"
+      ],
+      "displayOrder": 18
+    },
+    {
+      "id": 4414,
+      "term": "精神",
+      "reading": "せいしん",
+      "romaji": "seishin",
+      "definition": "Tinh thần / tâm thần",
+      "exampleSentence": "精神的に疲れています。",
+      "exampleTranslation": "Tôi mệt mỏi về tinh thần.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 50804,
+      "term": "恐怖",
+      "reading": "きょうふ",
+      "romaji": "kyoufu",
+      "definition": "nỗi sợ hãi",
+      "exampleSentence": "高い所に立つと、強い恐怖を感じる。",
+      "exampleTranslation": "Khi đứng ở nơi cao, tôi cảm thấy rất sợ hãi.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 50805,
+      "term": "孤独",
+      "reading": "こどく",
+      "romaji": "kodoku",
+      "definition": "sự cô đơn",
+      "exampleSentence": "一人暮らしを始めて、孤独を感じることが増えた。",
+      "exampleTranslation": "Từ khi bắt đầu sống một mình, tôi thường cảm thấy cô đơn hơn.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 50806,
+      "term": "嫉妬",
+      "reading": "しっと",
+      "romaji": "shitto",
+      "definition": "sự ghen tị",
+      "exampleSentence": "彼の成功を聞いて、少し嫉妬してしまった。",
+      "exampleTranslation": "Nghe tin anh ấy thành công, tôi đã hơi ghen tị.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 50807,
+      "term": "緊張",
+      "reading": "きんちょう",
+      "romaji": "kinchou",
+      "definition": "sự căng thẳng, hồi hộp",
+      "exampleSentence": "面接の前は誰でも緊張するものだ。",
+      "exampleTranslation": "Trước buổi phỏng vấn, ai cũng thường hồi hộp.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 50808,
+      "term": "欲求",
+      "reading": "よっきゅう",
+      "romaji": "yokkyuu",
+      "definition": "nhu cầu, ham muốn",
+      "exampleSentence": "人には食べたい、眠りたいという基本的な欲求がある。",
+      "exampleTranslation": "Con người có những nhu cầu cơ bản như muốn ăn và muốn ngủ.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 50809,
+      "term": "性格",
+      "reading": "せいかく",
+      "romaji": "seikaku",
+      "definition": "tính cách",
+      "exampleSentence": "性格は育った環境によって変わることがある。",
+      "exampleTranslation": "Tính cách đôi khi có thể thay đổi tùy theo môi trường trưởng thành.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 50810,
+      "term": "気分",
+      "reading": "きぶん",
+      "romaji": "kibun",
+      "definition": "tâm trạng",
+      "exampleSentence": "音楽を聞くと、気分が明るくなる。",
+      "exampleTranslation": "Nghe nhạc khiến tâm trạng trở nên vui vẻ hơn.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 50811,
+      "term": "思考",
+      "reading": "しこう",
+      "romaji": "shikou",
+      "definition": "tư duy, suy nghĩ",
+      "exampleSentence": "疲れていると、思考がうまくまとまらないことがある。",
+      "exampleTranslation": "Khi mệt, đôi khi suy nghĩ không thể tập trung tốt.",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 50812,
+      "term": "判断",
+      "reading": "はんだん",
+      "romaji": "handan",
+      "definition": "sự phán đoán",
+      "exampleSentence": "強いストレスがあると、冷静な判断ができなくなる。",
+      "exampleTranslation": "Khi bị căng thẳng nhiều, người ta không thể phán đoán bình tĩnh.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 50813,
+      "term": "悩み",
+      "reading": "なやみ",
+      "romaji": "nayami",
+      "definition": "nỗi lo, điều phiền muộn",
+      "exampleSentence": "誰にでも人には言えない悩みがある。",
+      "exampleTranslation": "Ai cũng có những nỗi lo không thể nói với người khác.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

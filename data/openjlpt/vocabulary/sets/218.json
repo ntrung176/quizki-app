@@ -1,0 +1,176 @@
+{
+  "id": 218,
+  "title": "Tuần 4 · Ngày 4 - 複合動詞② (Động từ ghép nhóm 2)",
+  "description": "Nihongo Soumatome N3 語彙 — 複合動詞② (Động từ ghép nhóm 2)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.433806",
+  "cards": [
+    {
+      "id": 5566,
+      "term": "落ち着く (おちつく)",
+      "reading": "おちつく",
+      "romaji": "ochitsuku",
+      "definition": "bình tĩnh lại, ổn định",
+      "exampleSentence": "試験の前は、深呼吸をすると気持ちが落ち着く。",
+      "exampleTranslation": "Trước kỳ thi, hít thở sâu sẽ giúp tinh thần bình tĩnh lại.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5567,
+      "term": "立ち上がる (たちあがる)",
+      "reading": "たちあがる",
+      "romaji": "tachiagaru",
+      "definition": "đứng dậy, vươn lên",
+      "exampleSentence": "転んだ子どもは、すぐに立ち上がることができた。",
+      "exampleTranslation": "Đứa trẻ bị ngã đã có thể đứng dậy ngay.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5568,
+      "term": "引っ越す (ひっこす)",
+      "reading": "ひっこす",
+      "romaji": "hikkosu",
+      "definition": "chuyển nhà",
+      "exampleSentence": "来月、駅に近いアパートへ引っ越す予定です。",
+      "exampleTranslation": "Tháng sau, tôi dự định chuyển đến một căn hộ gần ga.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5569,
+      "term": "乗り越える (のりこえる)",
+      "reading": "のりこえる",
+      "romaji": "norikoeru",
+      "definition": "vượt qua, khắc phục",
+      "exampleSentence": "家族と支え合えば、大きな困難も乗り越えることができます。",
+      "exampleTranslation": "Nếu cùng gia đình hỗ trợ lẫn nhau, chúng ta có thể vượt qua cả những khó khăn lớn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5570,
+      "term": "向き合う (むきあう)",
+      "reading": "むきあう",
+      "romaji": "mukiau",
+      "definition": "đối mặt, đối diện",
+      "exampleSentence": "問題から逃げずに、自分自身と向き合うことが大切です。",
+      "exampleTranslation": "Điều quan trọng là không trốn tránh vấn đề mà phải đối mặt với chính mình.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5571,
+      "term": "追いかける (おいかける)",
+      "reading": "おいかける",
+      "romaji": "oikakeru",
+      "definition": "đuổi theo, truy đuổi",
+      "exampleSentence": "逃げた犬を追いかけるために、弟は外へ走り出した。",
+      "exampleTranslation": "Để đuổi theo con chó bỏ chạy, em trai tôi đã chạy ra ngoài.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5572,
+      "term": "追い越す (おいこす)",
+      "reading": "おいこす",
+      "romaji": "oikosu",
+      "definition": "vượt qua, vượt mặt",
+      "exampleSentence": "この道では危険なので、前の車を無理に追い越すのはやめましょう。",
+      "exampleTranslation": "Vì con đường này nguy hiểm, chúng ta đừng cố vượt chiếc xe phía trước.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5573,
+      "term": "飛び出す (とびだす)",
+      "reading": "とびだす",
+      "romaji": "tobidasu",
+      "definition": "nhảy ra, bật ra, chạy ra",
+      "exampleSentence": "道路に子どもが飛び出すかもしれないので、運転には注意してください。",
+      "exampleTranslation": "Vì trẻ em có thể bất ngờ chạy ra đường, hãy chú ý khi lái xe.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5574,
+      "term": "飛び込む (とびこむ)",
+      "reading": "とびこむ",
+      "romaji": "tobikomu",
+      "definition": "nhảy vào, lao vào",
+      "exampleSentence": "暑い日に、子どもたちはプールへ飛び込む前に準備運動をした。",
+      "exampleTranslation": "Vào ngày nóng, bọn trẻ đã khởi động trước khi nhảy xuống hồ bơi.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5575,
+      "term": "見回す (みまわす)",
+      "reading": "みまわす",
+      "romaji": "mimawasu",
+      "definition": "nhìn quanh, quan sát xung quanh",
+      "exampleSentence": "避難した人々は、安全を確認するために周囲を見回す。",
+      "exampleTranslation": "Những người sơ tán nhìn quanh để xác nhận rằng nơi này an toàn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5576,
+      "term": "見つめる (みつめる)",
+      "reading": "みつめる",
+      "romaji": "mitsumeru",
+      "definition": "nhìn chằm chặp, nhìn chăm chú",
+      "exampleSentence": "子どもは窓の外の雪をじっと見つめる。",
+      "exampleTranslation": "Đứa trẻ chăm chú nhìn tuyết bên ngoài cửa sổ.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5577,
+      "term": "見直す (みなおす)",
+      "reading": "みなおす",
+      "romaji": "minaosu",
+      "definition": "xem lại, đánh giá lại",
+      "exampleSentence": "試験が終わる前に、答えをもう一度見直す。",
+      "exampleTranslation": "Hãy xem lại đáp án một lần nữa trước khi hết giờ thi.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5578,
+      "term": "聞き取る (ききとる)",
+      "reading": "ききとる",
+      "romaji": "kikitoru",
+      "definition": "nghe và hiểu, nghe rõ",
+      "exampleSentence": "駅のアナウンスを正確に聞き取るのは難しい。",
+      "exampleTranslation": "Nghe rõ thông báo ở nhà ga một cách chính xác thật khó.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5579,
+      "term": "書き取る (かきとる)",
+      "reading": "かきとる",
+      "romaji": "kakitoru",
+      "definition": "ghi lại khi nghe, chép lại",
+      "exampleSentence": "先生が読んだ文章をノートに書き取る。",
+      "exampleTranslation": "Tôi chép lại đoạn văn giáo viên đọc vào vở.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5580,
+      "term": "走り回る (はしりまわる)",
+      "reading": "はしりまわる",
+      "romaji": "hashirimawaru",
+      "definition": "chạy khắp nơi, chạy vòng quanh",
+      "exampleSentence": "犬が庭を元気に走り回る。",
+      "exampleTranslation": "Con chó chạy khắp sân một cách đầy năng lượng.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

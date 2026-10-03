@@ -1,0 +1,198 @@
+{
+  "id": 468,
+  "title": "環境・自然 · 汚染",
+  "description": "Ô nhiễm môi trường — chủ đề Môi trường & thiên nhiên · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.631632",
+  "cards": [
+    {
+      "id": 11849,
+      "term": "汚染 (おせん)",
+      "reading": "おせん",
+      "romaji": null,
+      "definition": "ô nhiễm",
+      "exampleSentence": "工場から出る汚染が、川の生態系に深刻な影響を与えている。",
+      "exampleTranslation": "Ô nhiễm từ các nhà máy đang gây ảnh hưởng nghiêm trọng đến hệ sinh thái sông.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11850,
+      "term": "オゾン層破壊 (オゾンそうはかい)",
+      "reading": "オゾンそうはかい",
+      "romaji": null,
+      "definition": "phá huỷ tầng ozone",
+      "exampleSentence": "オゾン層破壊を防ぐため、特定の化学物質の使用が制限された。",
+      "exampleTranslation": "Để ngăn chặn sự phá hủy tầng ozone, việc sử dụng một số hóa chất đã bị hạn chế.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11851,
+      "term": "マイクロプラスチック",
+      "reading": "マイクロプラスチック",
+      "romaji": null,
+      "definition": "vi nhựa/microplastic",
+      "exampleSentence": "海に流れ込んだマイクロプラスチックが、魚の体内から見つかった。",
+      "exampleTranslation": "Vi nhựa trôi ra biển đã được tìm thấy trong cơ thể cá.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11852,
+      "term": "温室効果ガス (おんしつこうかガス)",
+      "reading": "おんしつこうかガス",
+      "romaji": null,
+      "definition": "khí nhà kính",
+      "exampleSentence": "温室効果ガスの排出量を減らすには、社会全体の努力が必要だ。",
+      "exampleTranslation": "Để giảm lượng khí nhà kính thải ra, cần có sự nỗ lực của toàn xã hội.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11853,
+      "term": "温暖化 (おんだんか)",
+      "reading": "おんだんか",
+      "romaji": null,
+      "definition": "nóng lên toàn cầu",
+      "exampleSentence": "温暖化が進むと、異常気象による被害が増えるおそれがある。",
+      "exampleTranslation": "Nếu hiện tượng nóng lên toàn cầu tiếp diễn, thiệt hại do thời tiết bất thường có thể gia tăng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11854,
+      "term": "海洋汚染 (かいようおせん)",
+      "reading": "かいようおせん",
+      "romaji": null,
+      "definition": "ô nhiễm biển đại dương",
+      "exampleSentence": "海洋汚染を防ぐために、使い捨てプラスチックを減らすべきだ。",
+      "exampleTranslation": "Để ngăn ô nhiễm biển, chúng ta nên giảm nhựa dùng một lần.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11855,
+      "term": "公害 (こうがい)",
+      "reading": "こうがい",
+      "romaji": null,
+      "definition": "ô nhiễm công cộng",
+      "exampleSentence": "工場の廃液が原因で、深刻な公害が発生した。",
+      "exampleTranslation": "Do nước thải của nhà máy, một vụ ô nhiễm nghiêm trọng đã xảy ra.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11856,
+      "term": "酸性雨 (さんせいう)",
+      "reading": "さんせいう",
+      "romaji": null,
+      "definition": "mưa axit",
+      "exampleSentence": "酸性雨によって、森林や湖の生態系が破壊されている。",
+      "exampleTranslation": "Hệ sinh thái rừng và hồ đang bị hủy hoại bởi mưa axit.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11857,
+      "term": "森林破壊 (しんりんはかい)",
+      "reading": "しんりんはかい",
+      "romaji": null,
+      "definition": "phá rừng",
+      "exampleSentence": "森林破壊が進めば、多くの動物が住む場所を失ってしまう。",
+      "exampleTranslation": "Nếu nạn phá rừng tiếp diễn, nhiều loài động vật sẽ mất nơi sinh sống.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11858,
+      "term": "水質汚染 (すいしつおせん)",
+      "reading": "すいしつおせん",
+      "romaji": null,
+      "definition": "ô nhiễm nguồn nước",
+      "exampleSentence": "工場からの排水が川に流れ込み、水質汚染が深刻になっている。",
+      "exampleTranslation": "Nước thải từ nhà máy chảy vào sông, khiến ô nhiễm nguồn nước trở nên nghiêm trọng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11859,
+      "term": "大気汚染 (たいきおせん)",
+      "reading": "たいきおせん",
+      "romaji": null,
+      "definition": "ô nhiễm không khí",
+      "exampleSentence": "大気汚染を改善するには、公共交通機関の利用を増やす必要がある。",
+      "exampleTranslation": "Để cải thiện ô nhiễm không khí, cần tăng cường sử dụng phương tiện giao thông công cộng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11860,
+      "term": "地球温暖化 (ちきゅうおんだんか)",
+      "reading": "ちきゅうおんだんか",
+      "romaji": null,
+      "definition": "nóng lên toàn cầu",
+      "exampleSentence": "地球温暖化の影響で、海面の上昇が予測されている。",
+      "exampleTranslation": "Mực nước biển được dự đoán sẽ dâng lên do ảnh hưởng của hiện tượng nóng lên toàn cầu.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11861,
+      "term": "土壌汚染 (どじょうおせん)",
+      "reading": "どじょうおせん",
+      "romaji": null,
+      "definition": "ô nhiễm đất",
+      "exampleSentence": "農薬の使いすぎは、土壌汚染を引き起こす原因になる。",
+      "exampleTranslation": "Việc sử dụng quá nhiều thuốc trừ sâu có thể trở thành nguyên nhân gây ô nhiễm đất.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11862,
+      "term": "二酸化炭素 (にさんかたんそ)",
+      "reading": "にさんかたんそ",
+      "romaji": null,
+      "definition": "CO2/dioxide carbon",
+      "exampleSentence": "二酸化炭素の増加が、地球の気温上昇に影響を与えている。",
+      "exampleTranslation": "Sự gia tăng khí CO2 đang ảnh hưởng đến việc nhiệt độ Trái Đất tăng lên.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 11863,
+      "term": "廃棄物 (はいきぶつ)",
+      "reading": "はいきぶつ",
+      "romaji": null,
+      "definition": "chất thải",
+      "exampleSentence": "廃棄物を適切に処理しなければ、環境への負担が大きくなる。",
+      "exampleTranslation": "Nếu không xử lý chất thải đúng cách, gánh nặng đối với môi trường sẽ tăng lên.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 11864,
+      "term": "排出 (はいしゅつ)",
+      "reading": "はいしゅつ",
+      "romaji": null,
+      "definition": "thải ra môi trường",
+      "exampleSentence": "工場は有害物質の排出を抑えるため、新しい設備を導入した。",
+      "exampleTranslation": "Nhà máy đã đưa vào sử dụng thiết bị mới để hạn chế việc thải các chất độc hại ra môi trường.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 11865,
+      "term": "不法投棄 (ふほうとうき)",
+      "reading": "ふほうとうき",
+      "romaji": null,
+      "definition": "đổ rác/chất thải trái phép",
+      "exampleSentence": "山奥での不法投棄が問題になっている。",
+      "exampleTranslation": "Tình trạng đổ rác trái phép ở vùng núi hẻo lánh đang trở thành vấn đề.",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

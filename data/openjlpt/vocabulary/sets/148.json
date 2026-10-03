@@ -1,0 +1,353 @@
+{
+  "id": 148,
+  "title": "政治・社会問題",
+  "description": "Chính trị và vấn đề xã hội N3",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:11.311864",
+  "cards": [
+    {
+      "id": 4355,
+      "term": "少子化",
+      "reading": "しょうしか",
+      "romaji": "shoushika",
+      "definition": "Suy giảm dân số trẻ em",
+      "exampleSentence": "少子化が深刻な問題となっています。",
+      "exampleTranslation": "Suy giảm tỷ lệ sinh đang trở thành vấn đề nghiêm trọng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 4356,
+      "term": "高齢化",
+      "reading": "こうれいか",
+      "romaji": "koureika",
+      "definition": "Già hóa dân số",
+      "exampleSentence": "高齢化社会に対応する政策が必要です。",
+      "exampleTranslation": "Cần chính sách để ứng phó với xã hội già hóa.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 4357,
+      "term": "格差",
+      "reading": "かくさ",
+      "romaji": "kakusa",
+      "definition": "Bất bình đẳng / khoảng cách",
+      "exampleSentence": "所得格差が拡大しています。",
+      "exampleTranslation": "Khoảng cách thu nhập đang mở rộng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 4358,
+      "term": "貧困",
+      "reading": "ひんこん",
+      "romaji": "hinkon",
+      "definition": "Nghèo đói",
+      "exampleSentence": "子どもの貧困問題を解決すべきです。",
+      "exampleTranslation": "Nên giải quyết vấn đề nghèo đói trẻ em.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 4359,
+      "term": "移民",
+      "reading": "いみん",
+      "romaji": "imin",
+      "definition": "Di dân / nhập cư",
+      "exampleSentence": "移民政策について議論が続いています。",
+      "exampleTranslation": "Cuộc thảo luận về chính sách di dân tiếp tục.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 4360,
+      "term": "難民",
+      "reading": "なんみん",
+      "romaji": "nanmin",
+      "definition": "Người tị nạn",
+      "exampleSentence": "難民の受け入れ問題が複雑です。",
+      "exampleTranslation": "Vấn đề tiếp nhận người tị nạn rất phức tạp.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 4361,
+      "term": "差別",
+      "reading": "さべつ",
+      "romaji": "sabetsu",
+      "definition": "Phân biệt đối xử",
+      "exampleSentence": "差別を撤廃する法律が必要です。",
+      "exampleTranslation": "Cần luật để xóa bỏ phân biệt đối xử.",
+      "forms": [
+        "差別します",
+        "差別して",
+        "差別した",
+        "差別しない",
+        "差別できる"
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": 4362,
+      "term": "権利",
+      "reading": "けんり",
+      "romaji": "kenri",
+      "definition": "Quyền lợi / quyền",
+      "exampleSentence": "基本的人権を守ることが重要です。",
+      "exampleTranslation": "Bảo vệ quyền con người cơ bản là quan trọng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 4363,
+      "term": "民主主義",
+      "reading": "みんしゅしゅぎ",
+      "romaji": "minshu shugi",
+      "definition": "Dân chủ",
+      "exampleSentence": "民主主義を守るために戦っています。",
+      "exampleTranslation": "Chúng tôi đang chiến đấu để bảo vệ dân chủ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 4364,
+      "term": "選挙",
+      "reading": "せんきょ",
+      "romaji": "senkyo",
+      "definition": "Bầu cử",
+      "exampleSentence": "来月、総選挙が行われます。",
+      "exampleTranslation": "Tháng sau có tổng tuyển cử.",
+      "forms": [
+        "選挙します",
+        "選挙して",
+        "選挙した",
+        "選挙しない",
+        "選挙できる"
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": 4365,
+      "term": "政策",
+      "reading": "せいさく",
+      "romaji": "seisaku",
+      "definition": "Chính sách",
+      "exampleSentence": "新しい経済政策が発表されました。",
+      "exampleTranslation": "Chính sách kinh tế mới đã được công bố.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 4366,
+      "term": "国会",
+      "reading": "こっかい",
+      "romaji": "kokkai",
+      "definition": "Quốc hội",
+      "exampleSentence": "国会で法案が審議されています。",
+      "exampleTranslation": "Dự luật đang được thảo luận tại Quốc hội.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 4367,
+      "term": "外交",
+      "reading": "がいこう",
+      "romaji": "gaikou",
+      "definition": "Ngoại giao",
+      "exampleSentence": "二国間の外交関係が改善しました。",
+      "exampleTranslation": "Quan hệ ngoại giao giữa hai nước đã cải thiện.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 4368,
+      "term": "平和",
+      "reading": "へいわ",
+      "romaji": "heiwa",
+      "definition": "Hòa bình",
+      "exampleSentence": "世界平和のために努力します。",
+      "exampleTranslation": "Chúng tôi nỗ lực vì hòa bình thế giới.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 4369,
+      "term": "核兵器",
+      "reading": "かくへいき",
+      "romaji": "kaku heiki",
+      "definition": "Vũ khí hạt nhân",
+      "exampleSentence": "核兵器廃絶を目指しています。",
+      "exampleTranslation": "Chúng tôi nhắm tới xóa bỏ vũ khí hạt nhân.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 4370,
+      "term": "環境問題",
+      "reading": "かんきょうもんだい",
+      "romaji": "kankyou mondai",
+      "definition": "Vấn đề môi trường",
+      "exampleSentence": "地球温暖化は深刻な環境問題です。",
+      "exampleTranslation": "Nóng lên toàn cầu là vấn đề môi trường nghiêm trọng.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 4371,
+      "term": "社会保障",
+      "reading": "しゃかいほしょう",
+      "romaji": "shakai hoshou",
+      "definition": "An sinh xã hội",
+      "exampleSentence": "社会保障制度を充実させる必要があります。",
+      "exampleTranslation": "Cần củng cố hệ thống an sinh xã hội.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 4372,
+      "term": "労働問題",
+      "reading": "ろうどうもんだい",
+      "romaji": "roudou mondai",
+      "definition": "Vấn đề lao động",
+      "exampleSentence": "過重労働が社会問題になっています。",
+      "exampleTranslation": "Làm việc quá sức đang trở thành vấn đề xã hội.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 4373,
+      "term": "ジェンダー平等",
+      "reading": "ジェンダーびょうどう",
+      "romaji": "jendaa byoudou",
+      "definition": "Bình đẳng giới",
+      "exampleSentence": "ジェンダー平等を実現することが大切です。",
+      "exampleTranslation": "Thực hiện bình đẳng giới là quan trọng.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 4374,
+      "term": "多文化共生",
+      "reading": "たぶんかきょうせい",
+      "romaji": "tabunka kyousei",
+      "definition": "Cùng chung sống đa văn hóa",
+      "exampleSentence": "多文化共生社会を目指しています。",
+      "exampleTranslation": "Chúng tôi hướng tới xã hội cùng chung sống đa văn hóa.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 50784,
+      "term": "政党",
+      "reading": "せいとう",
+      "romaji": "seitō",
+      "definition": "đảng phái chính trị",
+      "exampleSentence": "若者の意見を取り入れる政党が増えています。",
+      "exampleTranslation": "Các đảng phái chính trị tiếp thu ý kiến của giới trẻ đang tăng lên.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 50785,
+      "term": "世論",
+      "reading": "よろん",
+      "romaji": "yoron",
+      "definition": "dư luận xã hội",
+      "exampleSentence": "その政策について世論が大きく分かれています。",
+      "exampleTranslation": "Dư luận xã hội đang chia rẽ sâu sắc về chính sách đó.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 50786,
+      "term": "政府",
+      "reading": "せいふ",
+      "romaji": "seifu",
+      "definition": "chính phủ",
+      "exampleSentence": "政府は問題を解決するための計画を発表しました。",
+      "exampleTranslation": "Chính phủ đã công bố kế hoạch giải quyết vấn đề.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 50787,
+      "term": "首相",
+      "reading": "しゅしょう",
+      "romaji": "shushō",
+      "definition": "thủ tướng",
+      "exampleSentence": "首相は記者会見で新しい政策を説明しました。",
+      "exampleTranslation": "Thủ tướng đã giải thích chính sách mới trong cuộc họp báo.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 50788,
+      "term": "議員",
+      "reading": "ぎいん",
+      "romaji": "giin",
+      "definition": "nghị viên; đại biểu quốc hội",
+      "exampleSentence": "議員たちは国民の意見を聞く必要があります。",
+      "exampleTranslation": "Các nghị viên cần lắng nghe ý kiến của người dân.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 50789,
+      "term": "改革",
+      "reading": "かいかく",
+      "romaji": "kaikaku",
+      "definition": "cải cách",
+      "exampleSentence": "教育制度の改革が必要だと考えられています。",
+      "exampleTranslation": "Người ta cho rằng cần cải cách chế độ giáo dục.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 50790,
+      "term": "憲法",
+      "reading": "けんぽう",
+      "romaji": "kenpō",
+      "definition": "hiến pháp",
+      "exampleSentence": "憲法は国の基本的なルールを定めています。",
+      "exampleTranslation": "Hiến pháp quy định những quy tắc cơ bản của đất nước.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 50791,
+      "term": "失業",
+      "reading": "しつぎょう",
+      "romaji": "shitsugyō",
+      "definition": "thất nghiệp",
+      "exampleSentence": "景気が悪くなると、失業する人が増えることがあります。",
+      "exampleTranslation": "Khi kinh tế suy thoái, số người thất nghiệp có thể tăng lên.",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 50792,
+      "term": "犯罪",
+      "reading": "はんざい",
+      "romaji": "hanzai",
+      "definition": "tội phạm; tội ác",
+      "exampleSentence": "犯罪を減らすために、地域で協力しています。",
+      "exampleTranslation": "Cộng đồng đang hợp tác để giảm tội phạm.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 50793,
+      "term": "課題",
+      "reading": "かだい",
+      "romaji": "kadai",
+      "definition": "vấn đề cần giải quyết",
+      "exampleSentence": "少子化は日本社会の大きな課題です。",
+      "exampleTranslation": "Tỷ lệ sinh giảm là một vấn đề lớn của xã hội Nhật Bản.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

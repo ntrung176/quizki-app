@@ -88,6 +88,10 @@ const BookScreen = lazyWithRetry(() => import('./screens/BookScreen'));
 const KanjiScreen = lazyWithRetry(() => import('./screens/KanjiScreen'));
 const GrammarPointsScreen = lazyWithRetry(() => import('./screens/GrammarPointsScreen'));
 const GrammarDetailScreen = lazyWithRetry(() => import('./screens/GrammarDetailScreen'));
+const GrammarCheatSheetsScreen = lazyWithRetry(() => import('./screens/GrammarCheatSheetsScreen'));
+const GrammarCheatSheetDetailScreen = lazyWithRetry(() => import('./screens/GrammarCheatSheetDetailScreen'));
+const GrammarCurriculumScreen = lazyWithRetry(() => import('./screens/GrammarCurriculumScreen'));
+const GrammarTopicDetailScreen = lazyWithRetry(() => import('./screens/GrammarTopicDetailScreen'));
 
 // Import card components
 import {
@@ -1307,6 +1311,46 @@ const AppRoutes = ({
                         <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <GrammarProtectedRoute isAdmin={isAdmin}>
                                 <GrammarSavedScreen />
+                            </GrammarProtectedRoute>
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path={ROUTES.GRAMMAR_CHEATSHEETS}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
+                            <GrammarProtectedRoute isAdmin={isAdmin}>
+                                <GrammarCheatSheetsScreen />
+                            </GrammarProtectedRoute>
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path={ROUTES.GRAMMAR_CHEATSHEET_DETAIL}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
+                            <GrammarProtectedRoute isAdmin={isAdmin}>
+                                <GrammarCheatSheetDetailScreen />
+                            </GrammarProtectedRoute>
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path={ROUTES.GRAMMAR_CURRICULUM}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
+                            <GrammarProtectedRoute isAdmin={isAdmin}>
+                                <GrammarCurriculumScreen />
+                            </GrammarProtectedRoute>
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path={ROUTES.GRAMMAR_TOPIC_DETAIL}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
+                            <GrammarProtectedRoute isAdmin={isAdmin}>
+                                <GrammarTopicDetailScreen />
                             </GrammarProtectedRoute>
                         </ProtectedRoute>
                     }

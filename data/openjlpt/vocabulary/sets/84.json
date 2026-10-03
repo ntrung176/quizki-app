@@ -1,0 +1,461 @@
+{
+  "id": 84,
+  "title": "挨拶と自己紹介",
+  "description": "Chào hỏi và tự giới thiệu · N5",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:53.45613",
+  "cards": [
+    {
+      "id": 2491,
+      "term": "おはようございます",
+      "reading": "おはようございます",
+      "romaji": "ohayou gozaimasu",
+      "definition": "Chào buổi sáng (lịch sự)",
+      "exampleSentence": "おはようございます、田中さん。",
+      "exampleTranslation": "Chào buổi sáng, Tanaka-san.",
+      "forms": [
+        "おはよう (thân mật)",
+        "早朝から使う",
+        "学校・職場でよく使う"
+      ],
+      "displayOrder": 0
+    },
+    {
+      "id": 2492,
+      "term": "こんにちは",
+      "reading": "こんにちは",
+      "romaji": "konnichiwa",
+      "definition": "Xin chào (ban ngày)",
+      "exampleSentence": "こんにちは！元気ですか。",
+      "exampleTranslation": "Xin chào! Bạn khỏe không?",
+      "forms": [
+        "昼間の挨拶",
+        "お昼から夕方まで",
+        "初対面でも使える"
+      ],
+      "displayOrder": 1
+    },
+    {
+      "id": 2493,
+      "term": "こんばんは",
+      "reading": "こんばんは",
+      "romaji": "konbanwa",
+      "definition": "Chào buổi tối",
+      "exampleSentence": "こんばんは、久しぶりです。",
+      "exampleTranslation": "Chào buổi tối, lâu rồi không gặp.",
+      "forms": [
+        "夕方から夜の挨拶",
+        "夜の場面で使う",
+        "Dùng từ chiều tối"
+      ],
+      "displayOrder": 2
+    },
+    {
+      "id": 2494,
+      "term": "おやすみなさい",
+      "reading": "おやすみなさい",
+      "romaji": "oyasumi nasai",
+      "definition": "Chúc ngủ ngon",
+      "exampleSentence": "おやすみなさい、また明日。",
+      "exampleTranslation": "Chúc ngủ ngon, hẹn gặp lại ngày mai.",
+      "forms": [
+        "就寝前の挨拶",
+        "おやすみ (thân mật)",
+        "家族や親しい人に"
+      ],
+      "displayOrder": 3
+    },
+    {
+      "id": 2495,
+      "term": "さようなら",
+      "reading": "さようなら",
+      "romaji": "sayounara",
+      "definition": "Tạm biệt",
+      "exampleSentence": "さようなら、またね。",
+      "exampleTranslation": "Tạm biệt, hẹn gặp lại.",
+      "forms": [
+        "別れの挨拶",
+        "長い別れに使うことが多い",
+        "じゃあ、またね (thân mật)"
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": 2496,
+      "term": "ありがとうございます",
+      "reading": "ありがとうございます",
+      "romaji": "arigatou gozaimasu",
+      "definition": "Cảm ơn (lịch sự)",
+      "exampleSentence": "助けてくれてありがとうございます。",
+      "exampleTranslation": "Cảm ơn bạn đã giúp tôi.",
+      "forms": [
+        "ありがとう (thân mật)",
+        "どうもありがとう (trung tính)",
+        "ありがとうございました (đã cảm ơn)"
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": 2497,
+      "term": "どういたしまして",
+      "reading": "どういたしまして",
+      "romaji": "dou itashimashite",
+      "definition": "Không có gì (đáp lại cảm ơn)",
+      "exampleSentence": "どういたしまして、またいつでも。",
+      "exampleTranslation": "Không có gì, cứ tự nhiên nhé.",
+      "forms": [
+        "ありがとうへの返答",
+        "いいえ (thân mật hơn)",
+        "お役に立てて光栄です (trang trọng hơn)"
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": 2498,
+      "term": "すみません",
+      "reading": "すみません",
+      "romaji": "sumimasen",
+      "definition": "Xin lỗi / Xin phép",
+      "exampleSentence": "すみません、道を教えてください。",
+      "exampleTranslation": "Xin lỗi, cho tôi hỏi đường.",
+      "forms": [
+        "謝罪・呼びかけに使う",
+        "ごめんなさい は謝罪のみ",
+        "ちょっとすみません (呼びかけ)"
+      ],
+      "displayOrder": 7
+    },
+    {
+      "id": 2499,
+      "term": "ごめんなさい",
+      "reading": "ごめんなさい",
+      "romaji": "gomen nasai",
+      "definition": "Xin lỗi (lỗi lầm)",
+      "exampleSentence": "遅くなってごめんなさい。",
+      "exampleTranslation": "Xin lỗi vì đến trễ.",
+      "forms": [
+        "謝罪の言葉",
+        "申し訳ありません (lịch sự nhất)",
+        "ごめん (thân mật)"
+      ],
+      "displayOrder": 8
+    },
+    {
+      "id": 2500,
+      "term": "はじめまして",
+      "reading": "はじめまして",
+      "romaji": "hajimemashite",
+      "definition": "Hân hạnh được làm quen",
+      "exampleSentence": "はじめまして、山田と申します。",
+      "exampleTranslation": "Hân hạnh được làm quen, tôi là Yamada.",
+      "forms": [
+        "初対面の挨拶",
+        "どうぞよろしく と組み合わせて",
+        "名前と一緒に使う"
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": 2501,
+      "term": "どうぞよろしく",
+      "reading": "どうぞよろしく",
+      "romaji": "douzo yoroshiku",
+      "definition": "Rất hân hạnh được quen biết",
+      "exampleSentence": "はじめまして、どうぞよろしくお願いします。",
+      "exampleTranslation": "Rất hân hạnh được quen biết bạn.",
+      "forms": [
+        "はじめましての後に続く",
+        "よろしくお願いします (trang trọng)",
+        "よろしく (thân mật)"
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": 2502,
+      "term": "お名前は何ですか",
+      "reading": "おなまえはなんですか",
+      "romaji": "onamae wa nan desu ka",
+      "definition": "Tên bạn là gì?",
+      "exampleSentence": "お名前は何ですか。",
+      "exampleTranslation": "Tên bạn là gì?",
+      "forms": [
+        "丁寧な名前の聞き方",
+        "何という名前ですか も使える",
+        "名前は？ (thân mật)"
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": 2503,
+      "term": "私の名前は〜です",
+      "reading": "わたしのなまえは〜です",
+      "romaji": "watashi no namae wa desu",
+      "definition": "Tên tôi là...",
+      "exampleSentence": "私の名前はリンです。",
+      "exampleTranslation": "Tên tôi là Linh.",
+      "forms": [
+        "自己紹介の基本",
+        "〜と申します (trang trọng)",
+        "〜といいます (trung tính)"
+      ],
+      "displayOrder": 12
+    },
+    {
+      "id": 2504,
+      "term": "どこから来ましたか",
+      "reading": "どこからきましたか",
+      "romaji": "doko kara kimashita ka",
+      "definition": "Bạn đến từ đâu?",
+      "exampleSentence": "どこから来ましたか。",
+      "exampleTranslation": "Bạn đến từ đâu?",
+      "forms": [
+        "出身を聞く質問",
+        "ベトナムから来ました",
+        "ご出身はどちらですか (trang trọng)"
+      ],
+      "displayOrder": 13
+    },
+    {
+      "id": 2505,
+      "term": "〜から来ました",
+      "reading": "〜からきました",
+      "romaji": "kara kimashita",
+      "definition": "Tôi đến từ...",
+      "exampleSentence": "ベトナムから来ました。",
+      "exampleTranslation": "Tôi đến từ Việt Nam.",
+      "forms": [
+        "出身を答える",
+        "〜人です も使える",
+        "ベトナム出身です (trang trọng)"
+      ],
+      "displayOrder": 14
+    },
+    {
+      "id": 2506,
+      "term": "日本語が話せますか",
+      "reading": "にほんごがはなせますか",
+      "romaji": "nihongo ga hanasemasu ka",
+      "definition": "Bạn có nói được tiếng Nhật không?",
+      "exampleSentence": "日本語が話せますか。",
+      "exampleTranslation": "Bạn có nói được tiếng Nhật không?",
+      "forms": [
+        "言語能力を尋ねる",
+        "少し話せます (một chút)",
+        "ペラペラです (nói trôi chảy)"
+      ],
+      "displayOrder": 15
+    },
+    {
+      "id": 2507,
+      "term": "少しだけ話せます",
+      "reading": "すこしだけはなせます",
+      "romaji": "sukoshi dake hanasemasu",
+      "definition": "Tôi chỉ nói được một ít",
+      "exampleSentence": "少しだけ話せます。",
+      "exampleTranslation": "Tôi chỉ nói được một ít.",
+      "forms": [
+        "謙遜した言い方",
+        "勉強中です も使える",
+        "まだ上手じゃありません"
+      ],
+      "displayOrder": 16
+    },
+    {
+      "id": 2508,
+      "term": "お仕事は何ですか",
+      "reading": "おしごとはなんですか",
+      "romaji": "oshigoto wa nan desu ka",
+      "definition": "Bạn làm nghề gì?",
+      "exampleSentence": "お仕事は何ですか。",
+      "exampleTranslation": "Bạn làm nghề gì?",
+      "forms": [
+        "職業を聞く丁寧な質問",
+        "何のお仕事をされていますか (trang trọng hơn)",
+        "仕事は？ (thân mật)"
+      ],
+      "displayOrder": 17
+    },
+    {
+      "id": 2509,
+      "term": "〜をしています",
+      "reading": "〜をしています",
+      "romaji": "wo shite imasu",
+      "definition": "Tôi đang làm (nghề)",
+      "exampleSentence": "会社員をしています。",
+      "exampleTranslation": "Tôi là nhân viên công ty.",
+      "forms": [
+        "職業を答える",
+        "〜です も使える",
+        "エンジニアとして働いています"
+      ],
+      "displayOrder": 18
+    },
+    {
+      "id": 2510,
+      "term": "よろしくお願いします",
+      "reading": "よろしくおねがいします",
+      "romaji": "yoroshiku onegai shimasu",
+      "definition": "Nhờ bạn quan tâm giúp đỡ",
+      "exampleSentence": "これからよろしくお願いします。",
+      "exampleTranslation": "Nhờ bạn quan tâm từ nay.",
+      "forms": [
+        "ビジネス・日常でよく使う",
+        "Kết thúc lời giới thiệu",
+        "Cũng dùng khi nhờ vả"
+      ],
+      "displayOrder": 19
+    },
+    {
+      "id": 2511,
+      "term": "お元気ですか",
+      "reading": "おげんきですか",
+      "romaji": "ogenki desu ka",
+      "definition": "Bạn có khỏe không?",
+      "exampleSentence": "お元気ですか、久しぶりですね。",
+      "exampleTranslation": "Bạn có khỏe không, lâu rồi không gặp nhỉ.",
+      "forms": [
+        "久しぶりに会う人への挨拶",
+        "元気ですか (thân mật)",
+        "いかがお過ごしですか (rất trang trọng)"
+      ],
+      "displayOrder": 20
+    },
+    {
+      "id": 2512,
+      "term": "おかげさまで元気です",
+      "reading": "おかげさまでげんきです",
+      "romaji": "okagesama de genki desu",
+      "definition": "Nhờ ơn trời tôi vẫn khỏe",
+      "exampleSentence": "おかげさまで元気です。",
+      "exampleTranslation": "Nhờ ơn trời tôi vẫn khỏe.",
+      "forms": [
+        "お元気ですかへの返答",
+        "謙虚な日本的表現",
+        "おかげさまで = nhờ sự quan tâm của bạn"
+      ],
+      "displayOrder": 21
+    },
+    {
+      "id": 2513,
+      "term": "お久しぶりです",
+      "reading": "おひさしぶりです",
+      "romaji": "ohisashiburi desu",
+      "definition": "Lâu rồi không gặp",
+      "exampleSentence": "お久しぶりです！お変わりないですか。",
+      "exampleTranslation": "Lâu rồi không gặp! Bạn có gì thay đổi không?",
+      "forms": [
+        "久しぶりに再会した時",
+        "ご無沙汰しております (trang trọng)",
+        "しばらくぶり (thân mật hơn)"
+      ],
+      "displayOrder": 22
+    },
+    {
+      "id": 2514,
+      "term": "では、また",
+      "reading": "ではまた",
+      "romaji": "dewa mata",
+      "definition": "Thôi, hẹn gặp lại",
+      "exampleSentence": "では、またね。",
+      "exampleTranslation": "Thôi, hẹn gặp lại nhé.",
+      "forms": [
+        "別れの言葉",
+        "じゃあね (thân mật)",
+        "それでは失礼します (trang trọng)"
+      ],
+      "displayOrder": 23
+    },
+    {
+      "id": 2515,
+      "term": "失礼します",
+      "reading": "しつれいします",
+      "romaji": "shitsurei shimasu",
+      "definition": "Tôi xin phép",
+      "exampleSentence": "では、失礼します。",
+      "exampleTranslation": "Thế thì tôi xin phép.",
+      "forms": [
+        "丁寧な別れの言葉",
+        "ビジネスや上司への別れ",
+        "失礼しました (đã thất lễ)"
+      ],
+      "displayOrder": 24
+    },
+    {
+      "id": 2516,
+      "term": "お邪魔します",
+      "reading": "おじゃまします",
+      "romaji": "ojama shimasu",
+      "definition": "Xin phép vào nhà (làm phiền)",
+      "exampleSentence": "お邪魔します！",
+      "exampleTranslation": "Xin phép vào!",
+      "forms": [
+        "人の家に入る時の挨拶",
+        "お邪魔しました (khi về)",
+        "どうぞ お上がりください (mời vào)"
+      ],
+      "displayOrder": 25
+    },
+    {
+      "id": 2517,
+      "term": "ただいま",
+      "reading": "ただいま",
+      "romaji": "tadaima",
+      "definition": "Tôi về rồi",
+      "exampleSentence": "ただいま！",
+      "exampleTranslation": "Tôi về rồi!",
+      "forms": [
+        "家に帰った時の挨拶",
+        "おかえり(なさい) はお返しの挨拶",
+        "家庭内でよく使う"
+      ],
+      "displayOrder": 26
+    },
+    {
+      "id": 2518,
+      "term": "いってきます",
+      "reading": "いってきます",
+      "romaji": "itte kimasu",
+      "definition": "Tôi đi đây (và sẽ về)",
+      "exampleSentence": "いってきます！",
+      "exampleTranslation": "Tôi đi đây!",
+      "forms": [
+        "出かける時の挨拶",
+        "いってらっしゃい はお返しの挨拶",
+        "家族間でよく使う"
+      ],
+      "displayOrder": 27
+    },
+    {
+      "id": 2519,
+      "term": "いただきます",
+      "reading": "いただきます",
+      "romaji": "itadakimasu",
+      "definition": "Tôi xin phép ăn",
+      "exampleSentence": "いただきます！",
+      "exampleTranslation": "Tôi xin phép ăn!",
+      "forms": [
+        "食事前の挨拶",
+        "感謝を表す",
+        "ごちそうさまでした = sau khi ăn"
+      ],
+      "displayOrder": 28
+    },
+    {
+      "id": 2520,
+      "term": "ごちそうさまでした",
+      "reading": "ごちそうさまでした",
+      "romaji": "gochisousama deshita",
+      "definition": "Tôi đã được thết đãi (sau ăn)",
+      "exampleSentence": "ごちそうさまでした！",
+      "exampleTranslation": "Tôi đã được thết đãi!",
+      "forms": [
+        "食事後の挨拶",
+        "いただきました = ăn xong",
+        "作ってくれた人への感謝"
+      ],
+      "displayOrder": 29
+    }
+  ]
+}

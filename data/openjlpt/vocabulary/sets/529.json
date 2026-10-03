@@ -1,0 +1,209 @@
+{
+  "id": 529,
+  "title": "文化・芸術・スポーツ · ことわざ・慣用句",
+  "description": "Tục ngữ & thành ngữ — chủ đề Văn hóa, nghệ thuật & thể thao · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:51.481104",
+  "cards": [
+    {
+      "id": 13057,
+      "term": "一期一会 (いちごいちえ)",
+      "reading": "いちごいちえ",
+      "romaji": null,
+      "definition": "gặp gỡ chỉ một lần trân trọng",
+      "exampleSentence": "旅先での出会いを一期一会と思い、大切にしている。",
+      "exampleTranslation": "Tôi trân trọng những cuộc gặp gỡ trong chuyến đi vì nghĩ rằng đó là những dịp chỉ có một lần.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13058,
+      "term": "一石二鳥 (いっせきにちょう)",
+      "reading": "いっせきにちょう",
+      "romaji": null,
+      "definition": "một mũi tên trúng hai đích",
+      "exampleSentence": "自転車通勤は運動にも節約にもなり、一石二鳥だ。",
+      "exampleTranslation": "Đi làm bằng xe đạp vừa giúp tập thể dục vừa tiết kiệm, đúng là một mũi tên trúng hai đích.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13059,
+      "term": "雨降って地固まる (あめふってじかたまる)",
+      "reading": "あめふってじかたまる",
+      "romaji": null,
+      "definition": "sau cơn mưa trời lại sáng",
+      "exampleSentence": "意見が衝突したが、話し合いの後は雨降って地固まる結果となった。",
+      "exampleTranslation": "Dù ý kiến đã va chạm, sau cuộc thảo luận, mọi chuyện lại trở nên tốt đẹp hơn.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13060,
+      "term": "花より団子 (はなよりだんご)",
+      "reading": "はなよりだんご",
+      "romaji": null,
+      "definition": "thực dụng hơn lãng mạn",
+      "exampleSentence": "彼は花より団子で、景色よりも名物料理を楽しみにしている。",
+      "exampleTranslation": "Anh ấy thực tế hơn lãng mạn, mong chờ các món đặc sản hơn là phong cảnh.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13061,
+      "term": "急がば回れ (いそがばまわれ)",
+      "reading": "いそがばまわれ",
+      "romaji": null,
+      "definition": "dục tốc bất đạt",
+      "exampleSentence": "早く終わらせたい仕事ほど、急がば回れの気持ちで丁寧に進めよう。",
+      "exampleTranslation": "Càng là công việc muốn hoàn thành nhanh thì càng nên làm cẩn thận với tinh thần dục tốc bất đạt.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13062,
+      "term": "泣き面に蜂 (なきつらにはち)",
+      "reading": "なきつらにはち",
+      "romaji": null,
+      "definition": "họa vô đơn chí/thêm khổ vào khổ",
+      "exampleSentence": "財布をなくしたうえに雨まで降り、まさに泣き面に蜂だった。",
+      "exampleTranslation": "Đã mất ví lại còn gặp mưa, đúng là họa vô đơn chí.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13063,
+      "term": "郷に入れば郷に従え (ごうにいればごうにしたがえ)",
+      "reading": "ごうにいればごうにしたがえ",
+      "romaji": null,
+      "definition": "nhập gia tuỳ tục",
+      "exampleSentence": "初めて訪れる国では、郷に入れば郷に従えを心がけている。",
+      "exampleTranslation": "Khi đến một đất nước lần đầu tiên, tôi luôn ghi nhớ câu nhập gia tùy tục.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13064,
+      "term": "七転び八起き (ななころびやおき)",
+      "reading": "ななころびやおき",
+      "romaji": null,
+      "definition": "ngã bảy lần dậy tám lần",
+      "exampleSentence": "失敗しても、七転び八起きの精神で挑戦を続けたい。",
+      "exampleTranslation": "Dù thất bại, tôi vẫn muốn tiếp tục thử thách với tinh thần ngã bảy lần đứng dậy tám lần.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13065,
+      "term": "七難隠す (しちなんかくす)",
+      "reading": "しちなんかくす",
+      "romaji": null,
+      "definition": "vẻ đẹp che lấp mọi khuyết điểm",
+      "exampleSentence": "昔から、美人は七難隠すと言われている。",
+      "exampleTranslation": "Từ xưa người ta vẫn nói rằng người đẹp có thể che lấp mọi khuyết điểm.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13066,
+      "term": "笑う門には福来たる (わらうかどにはふくきたる)",
+      "reading": "わらうかどにはふくきたる",
+      "romaji": null,
+      "definition": "nhà hay cười phúc đến",
+      "exampleSentence": "笑う門には福来たるというように、明るい家庭には自然と人が集まる。",
+      "exampleTranslation": "Đúng như câu nhà hay cười phúc sẽ đến, những gia đình vui vẻ tự nhiên thu hút mọi người.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13067,
+      "term": "石の上にも三年 (いしのうえにもさんねん)",
+      "reading": "いしのうえにもさんねん",
+      "romaji": null,
+      "definition": "kiên trì ắt thành công",
+      "exampleSentence": "石の上にも三年という気持ちで、仕事を続けてきた。",
+      "exampleTranslation": "Với tinh thần kiên trì ắt thành công, tôi đã tiếp tục công việc suốt thời gian qua.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13068,
+      "term": "棚からぼた餅 (たなからぼたもち)",
+      "reading": "たなからぼたもち",
+      "romaji": null,
+      "definition": "của trời cho/không công mà được",
+      "exampleSentence": "何もしていないのに賞金が当たり、まさに棚からぼた餅だった。",
+      "exampleTranslation": "Không làm gì cả mà lại trúng tiền thưởng, đúng là của trời cho.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13069,
+      "term": "知らぬが仏 (しらぬがほとけ)",
+      "reading": "しらぬがほとけ",
+      "romaji": null,
+      "definition": "không biết thì không lo",
+      "exampleSentence": "その事実は、彼には知らぬが仏かもしれない。",
+      "exampleTranslation": "Có lẽ đối với anh ấy, không biết chuyện đó thì sẽ đỡ lo hơn.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13070,
+      "term": "灯台下暗し (とうだいもとくらし)",
+      "reading": "とうだいもとくらし",
+      "romaji": null,
+      "definition": "đèn nhà ai nấy tỏ",
+      "exampleSentence": "探していた眼鏡は机の上にあり、まさに灯台下暗しだった。",
+      "exampleTranslation": "Chiếc kính tôi đang tìm lại ở ngay trên bàn, đúng là đèn nhà ai nấy tỏ.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13071,
+      "term": "猫に小判 (ねこにこばん)",
+      "reading": "ねこにこばん",
+      "romaji": null,
+      "definition": "đàn gảy tai trâu/của quý trao nhầm",
+      "exampleSentence": "専門家にその説明を聞かせても、猫に小判だろう。",
+      "exampleTranslation": "Dù có giải thích điều đó cho người không hiểu biết thì cũng như đàn gảy tai trâu.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 13072,
+      "term": "能ある鷹は爪を隠す (のうあるたかはつめをかくす)",
+      "reading": "のうあるたかはつめをかくす",
+      "romaji": null,
+      "definition": "tài giỏi thường không khoe",
+      "exampleSentence": "彼は実力があっても自慢しない、能ある鷹は爪を隠すタイプだ。",
+      "exampleTranslation": "Dù có năng lực, anh ấy không hề khoe khoang, đúng kiểu người tài giỏi thường không phô trương.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 13073,
+      "term": "馬の耳に念仏 (うまのみみにねんぶつ)",
+      "reading": "うまのみみにねんぶつ",
+      "romaji": null,
+      "definition": "nước đổ đầu vịt",
+      "exampleSentence": "何度注意しても聞かない彼には、馬の耳に念仏だ。",
+      "exampleTranslation": "Dù nhắc nhở bao nhiêu lần, với anh ta cũng như nước đổ đầu vịt.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 13074,
+      "term": "立つ鳥跡を濁さず (たつとりあとをにごさず)",
+      "reading": "たつとりあとをにごさず",
+      "romaji": null,
+      "definition": "khi ra đi phải để lại tiếng tốt",
+      "exampleSentence": "退職する前に、立つ鳥跡を濁さずの気持ちで仕事を整理した。",
+      "exampleTranslation": "Trước khi nghỉ việc, tôi đã sắp xếp công việc với tinh thần ra đi để lại tiếng tốt.",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "id": 195,
+  "title": "Tuần 1 · Ngày 2 - い形容詞② (Tính từ đuôi -い nhóm 2)",
+  "description": "Nihongo Soumatome N3 語彙 — い形容詞② (Tính từ đuôi -い nhóm 2)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:18.768795",
+  "cards": [
+    {
+      "id": 5266,
+      "term": "苦い (にがい)",
+      "reading": "にがい",
+      "romaji": "nigai",
+      "definition": "đắng",
+      "exampleSentence": "この薬は苦いが、病気を治すために飲まなければならない。",
+      "exampleTranslation": "Loại thuốc này đắng nhưng phải uống để chữa bệnh.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5267,
+      "term": "酸っぱい (すっぱい)",
+      "reading": "すっぱい",
+      "romaji": "suppai",
+      "definition": "chua",
+      "exampleSentence": "このレモンは酸っぱいので、砂糖を少し加えました。",
+      "exampleTranslation": "Quả chanh này chua nên tôi đã thêm một ít đường.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5268,
+      "term": "辛い (からい)",
+      "reading": "からい",
+      "romaji": "karai",
+      "definition": "cay",
+      "exampleSentence": "このカレーは辛いので、水をたくさん飲みました。",
+      "exampleTranslation": "Món cà ri này cay nên tôi đã uống rất nhiều nước.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5269,
+      "term": "固い (かたい)",
+      "reading": "かたい",
+      "romaji": "katai",
+      "definition": "cứng, rắn chắc",
+      "exampleSentence": "彼は一度決めたことを変えない、固い意志を持っている。",
+      "exampleTranslation": "Anh ấy có ý chí kiên định, không thay đổi những gì mình đã quyết định.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5270,
+      "term": "柔らかい (やわらかい)",
+      "reading": "やわらかい",
+      "romaji": "yawarakai",
+      "definition": "mềm, mềm mại",
+      "exampleSentence": "この枕は柔らかいので、よく眠れそうです。",
+      "exampleTranslation": "Chiếc gối này mềm nên có lẽ tôi sẽ ngủ ngon.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5271,
+      "term": "薄い (うすい)",
+      "reading": "うすい",
+      "romaji": "usui",
+      "definition": "mỏng, nhạt",
+      "exampleSentence": "この本は薄いので、旅行中でも簡単に読めます。",
+      "exampleTranslation": "Cuốn sách này mỏng nên có thể dễ dàng đọc ngay cả khi đi du lịch.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5272,
+      "term": "厚い (あつい)",
+      "reading": "あつい",
+      "romaji": "atsui",
+      "definition": "dày",
+      "exampleSentence": "この辞書は厚いので、持ち歩くには少し重いです。",
+      "exampleTranslation": "Cuốn từ điển này dày nên hơi nặng nếu mang theo bên mình.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5273,
+      "term": "細い (ほそい)",
+      "reading": "ほそい",
+      "romaji": "hosoi",
+      "definition": "mảnh, gầy, nhỏ",
+      "exampleSentence": "この道は細いので、車が通るときは注意してください。",
+      "exampleTranslation": "Con đường này hẹp nên hãy cẩn thận khi xe đi qua.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5274,
+      "term": "太い (ふとい)",
+      "reading": "ふとい",
+      "romaji": "futoi",
+      "definition": "to, dày, béo",
+      "exampleSentence": "この木は幹が太いので、強い風にも倒れません。",
+      "exampleTranslation": "Cây này có thân to nên không bị đổ ngay cả khi gió mạnh.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5275,
+      "term": "浅い (あさい)",
+      "reading": "あさい",
+      "romaji": "asai",
+      "definition": "nông, cạn",
+      "exampleSentence": "この川は浅いので、子どもでも安全に渡れます。",
+      "exampleTranslation": "Con sông này nông nên ngay cả trẻ em cũng có thể sang bờ an toàn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5276,
+      "term": "深い (ふかい)",
+      "reading": "ふかい",
+      "romaji": "fukai",
+      "definition": "sâu, sâu sắc",
+      "exampleSentence": "彼は日本の歴史について深い知識を持っています。",
+      "exampleTranslation": "Anh ấy có kiến thức sâu rộng về lịch sử Nhật Bản.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5277,
+      "term": "重い (おもい)",
+      "reading": "おもい",
+      "romaji": "omoi",
+      "definition": "nặng",
+      "exampleSentence": "この箱は重いので、二人で運びましょう。",
+      "exampleTranslation": "Cái thùng này nặng nên chúng ta hãy cùng khiêng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5278,
+      "term": "軽い (かるい)",
+      "reading": "かるい",
+      "romaji": "karui",
+      "definition": "nhẹ",
+      "exampleSentence": "このかばんは軽いので、長時間持っても疲れません。",
+      "exampleTranslation": "Chiếc cặp này nhẹ nên dù xách lâu cũng không mệt.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5279,
+      "term": "騒がしい (さわがしい)",
+      "reading": "さわがしい",
+      "romaji": "sawagashii",
+      "definition": "ồn ào, huyên náo",
+      "exampleSentence": "駅の前はいつも人が多くて騒がしいです。",
+      "exampleTranslation": "Trước ga lúc nào cũng đông người và ồn ào.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5280,
+      "term": "蒸し暑い (むしあつい)",
+      "reading": "むしあつい",
+      "romaji": "mushiatsui",
+      "definition": "oi bức, nóng ẩm",
+      "exampleSentence": "夏の日本は蒸し暑い日が多く、冷房が必要です。",
+      "exampleTranslation": "Mùa hè ở Nhật có nhiều ngày oi bức, nên cần dùng điều hòa.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

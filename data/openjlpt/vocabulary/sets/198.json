@@ -1,0 +1,176 @@
+{
+  "id": 198,
+  "title": "Tuần 1 · Ngày 5 - 副詞① (Trạng từ nhóm 1 - mức độ/tần suất)",
+  "description": "Nihongo Soumatome N3 語彙 — 副詞① (Trạng từ nhóm 1 - mức độ/tần suất)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:18.89915",
+  "cards": [
+    {
+      "id": 5311,
+      "term": "なかなか",
+      "reading": "なかなか",
+      "romaji": "nakanaka",
+      "definition": "khá, cũng khá, không dễ (phủ định)",
+      "exampleSentence": "この問題はなかなか難しくて、すぐには解けません。",
+      "exampleTranslation": "Bài này khá khó nên không thể giải ngay được.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5312,
+      "term": "ほとんど",
+      "reading": "ほとんど",
+      "romaji": "hotondo",
+      "definition": "hầu hết, gần như",
+      "exampleSentence": "週末はほとんど家で勉強しています。",
+      "exampleTranslation": "Cuối tuần tôi hầu như đều học ở nhà.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5313,
+      "term": "だいぶ",
+      "reading": "だいぶ",
+      "romaji": "daibu",
+      "definition": "khá nhiều, đáng kể",
+      "exampleSentence": "日本の生活にもだいぶ慣れてきました。",
+      "exampleTranslation": "Tôi đã khá quen với cuộc sống ở Nhật rồi.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5314,
+      "term": "ずっと",
+      "reading": "ずっと",
+      "romaji": "zutto",
+      "definition": "suốt, mãi, liên tục",
+      "exampleSentence": "彼は卒業してからずっと東京で働いています。",
+      "exampleTranslation": "Anh ấy đã làm việc ở Tokyo suốt từ khi tốt nghiệp.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5315,
+      "term": "やはり",
+      "reading": "やはり",
+      "romaji": "yahari",
+      "definition": "vẫn, dù sao, đúng như nghĩ",
+      "exampleSentence": "やはり早起きすると、一日を気持ちよく過ごせます。",
+      "exampleTranslation": "Đúng như dự đoán, dậy sớm giúp chúng ta trải qua một ngày thoải mái.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5316,
+      "term": "きっと",
+      "reading": "きっと",
+      "romaji": "kitto",
+      "definition": "chắc chắn, nhất định",
+      "exampleSentence": "毎日練習すれば、きっと上手になります。",
+      "exampleTranslation": "Nếu luyện tập mỗi ngày, chắc chắn bạn sẽ tiến bộ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5317,
+      "term": "ぜひ",
+      "reading": "ぜひ",
+      "romaji": "zehi",
+      "definition": "nhất định, nhất thiết, bằng được",
+      "exampleSentence": "日本へ行ったら、ぜひこの店のラーメンを食べてください。",
+      "exampleTranslation": "Nếu đến Nhật, nhất định hãy thử món ramen của quán này nhé.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5318,
+      "term": "もちろん",
+      "reading": "もちろん",
+      "romaji": "mochiron",
+      "definition": "dĩ nhiên, đương nhiên",
+      "exampleSentence": "その計画には、私ももちろん賛成です。",
+      "exampleTranslation": "Dĩ nhiên tôi cũng tán thành kế hoạch đó.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5319,
+      "term": "まず",
+      "reading": "まず",
+      "romaji": "mazu",
+      "definition": "trước tiên, đầu tiên",
+      "exampleSentence": "わからない言葉は、まず辞書で調べてみましょう。",
+      "exampleTranslation": "Những từ không hiểu thì trước tiên hãy thử tra từ điển.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5320,
+      "term": "特に (とくに)",
+      "reading": "とくに",
+      "romaji": "tokuni",
+      "definition": "đặc biệt, nhất là",
+      "exampleSentence": "この町は、春の桜が特に美しいです。",
+      "exampleTranslation": "Thị trấn này đặc biệt đẹp vào mùa xuân khi hoa anh đào nở.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5321,
+      "term": "必ず (かならず)",
+      "reading": "かならず",
+      "romaji": "kanarazu",
+      "definition": "nhất định, chắc chắn, không ngoại lệ",
+      "exampleSentence": "出かける前に、窓が閉まっているか必ず確認してください。",
+      "exampleTranslation": "Trước khi ra ngoài, nhất định hãy kiểm tra xem cửa sổ đã đóng chưa.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5322,
+      "term": "どうせ",
+      "reading": "どうせ",
+      "romaji": "douse",
+      "definition": "dù sao, đằng nào cũng",
+      "exampleSentence": "どうせ遅れるなら、駅でゆっくり待ちましょう。",
+      "exampleTranslation": "Đằng nào cũng sẽ muộn, vậy hãy thong thả đợi ở ga.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5323,
+      "term": "さすが",
+      "reading": "さすが",
+      "romaji": "sasuga",
+      "definition": "quả là, đúng là, xứng đáng",
+      "exampleSentence": "さすが田中さんは、難しい問題でもすぐに答えられます。",
+      "exampleTranslation": "Đúng là anh Tanaka, ngay cả câu hỏi khó cũng trả lời được ngay.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5324,
+      "term": "せっかく",
+      "reading": "せっかく",
+      "romaji": "sekkaku",
+      "definition": "đặc biệt làm, có công, không uổng",
+      "exampleSentence": "せっかく京都まで来たので、名物の料理を食べて帰りましょう。",
+      "exampleTranslation": "Đã cất công đến Kyoto thì hãy ăn món đặc sản rồi hãy về.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5325,
+      "term": "わざわざ",
+      "reading": "わざわざ",
+      "romaji": "wazawaza",
+      "definition": "cố tình, đặc biệt đến, không cần cũng làm",
+      "exampleSentence": "友達がわざわざ駅まで迎えに来てくれました。",
+      "exampleTranslation": "Bạn tôi đã đặc biệt đến tận ga để đón tôi.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

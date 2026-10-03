@@ -16,6 +16,13 @@ import { GRAMMAR_TABS } from '../../config/tabs';
 import MaziiStructureCard from '../grammar/MaziiStructureCard';
 import MaziiExampleItem from '../grammar/MaziiExampleItem';
 import MaziiSectionRow from '../grammar/MaziiSectionRow';
+import MentalModelCard from '../grammar/MentalModelCard';
+import NuanceComparisonCard from '../grammar/NuanceComparisonCard';
+import CultureNoteCard from '../grammar/CultureNoteCard';
+import RealDialogueCard from '../grammar/RealDialogueCard';
+import InteractiveDrillCard from '../grammar/InteractiveDrillCard';
+import QuickSummaryTable from '../grammar/QuickSummaryTable';
+import { findDeepGrammarForPattern, parseDeepSections } from '../../utils/deepGrammarHelper';
 import { aiStandardizeGrammarStructure } from '../../services/ai/grammarAiService';
 
 // Fallback illustration data for ~あげく
@@ -73,6 +80,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
     });
     const [saving, setSaving] = useState(false);
     const [isStandardizing, setIsStandardizing] = useState(false);
+    const [deepSections, setDeepSections] = useState(null);
 
     useEffect(() => {
         (async () => {
@@ -86,6 +94,18 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                 if (uid) {
                     recordRecentGrammar(uid, data.id);
                 }
+            }
+
+            // Load deep grammar breakdown if pattern exists
+            if (data?.pattern) {
+                const deepObj = await findDeepGrammarForPattern(data.pattern);
+                if (deepObj) {
+                    setDeepSections(parseDeepSections(deepObj));
+                } else {
+                    setDeepSections(null);
+                }
+            } else {
+                setDeepSections(null);
             }
         })();
     }, [grammarId, tb, ls]);
@@ -824,6 +844,52 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                         />
                                     ))}
                                 </div>
+                            </div>
+                        )}
+
+                        {/* 5. KHỐI GIẢNG DẠY CHUYÊN SÂU (Deep Pedagogical Blocks) */}
+                        {deepSections && (
+                            <div className="pt-4 space-y-6 border-t border-slate-100 dark:border-slate-800/80">
+                                {/* 5.1 Công thức tâm lý & Ý nghĩa chuyên sâu */}
+                                <MentalModelCard
+                                    mentalModel={deepSections.mentalModel}
+                                    meaning={deepSections.explanation?.slice(0, 140)}
+                                    speechType={deepSections.speechType}
+                                    formality={deepSections.formality}
+                                    explanation={deepSections.explanation}
+                                />
+
+                                {/* 5.2 Phân biệt sắc thái với mẫu câu tương tự */}
+                                {deepSections.nuanceComparisons?.length > 0 && (
+                                    <NuanceComparisonCard comparisons={deepSections.nuanceComparisons} />
+                                )}
+
+                                {/* 5.3 Lưu ý văn hóa & Bẫy thực tế */}
+                                {(deepSections.cultureNotes?.length > 0 || deepSections.cultureExamples?.length > 0) && (
+                                    <CultureNoteCard
+                                        cultureNotes={deepSections.cultureNotes}
+                                        examples={deepSections.cultureExamples}
+                                    />
+                                )}
+
+                                {/* 5.4 Hội thoại thực tế 2 nhân vật */}
+                                {deepSections.dialogues?.length > 0 && (
+                                    <RealDialogueCard dialogues={deepSections.dialogues} />
+                                )}
+
+                                {/* 5.5 Luyện tập tương tác tại chỗ */}
+                                {deepSections.exercises?.length > 0 && (
+                                    <InteractiveDrillCard exercises={deepSections.exercises} />
+                                )}
+
+                                {/* 5.6 Bảng tổng kết 1 phút */}
+                                {(deepSections.summaryTable?.rows?.length > 0 || deepSections.summaryTable?.keySentence) && (
+                                    <QuickSummaryTable
+                                        headers={deepSections.summaryTable.headers}
+                                        rows={deepSections.summaryTable.rows}
+                                        keySentence={deepSections.summaryTable.keySentence}
+                                    />
+                                )}
                             </div>
                         )}
                     </div>

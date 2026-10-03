@@ -1,0 +1,242 @@
+{
+  "id": 505,
+  "title": "生活・住まい · 素材・生地と形容詞",
+  "description": "Chất liệu vải & tính từ miêu tả — chủ đề Đời sống & nhà cửa · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:50.879065",
+  "cards": [
+    {
+      "id": 12585,
+      "term": "軽い (かるい)",
+      "reading": "かるい",
+      "romaji": null,
+      "definition": "nhẹ",
+      "exampleSentence": "このかばんは軽いので、旅行に持って行くのに便利です。",
+      "exampleTranslation": "Chiếc cặp này nhẹ nên rất tiện mang theo khi đi du lịch.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12586,
+      "term": "固い (かたい)",
+      "reading": "かたい",
+      "romaji": null,
+      "definition": "cứng, rắn chắc",
+      "exampleSentence": "このパンは少し固いので、スープにつけて食べましょう。",
+      "exampleTranslation": "Bánh mì này hơi cứng, nên hãy chấm vào súp để ăn.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12587,
+      "term": "厚い (あつい)",
+      "reading": "あつい",
+      "romaji": null,
+      "definition": "dày",
+      "exampleSentence": "冬は厚いコートを着て出かけます。",
+      "exampleTranslation": "Mùa đông, tôi mặc áo khoác dày rồi ra ngoài.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12588,
+      "term": "細い (ほそい)",
+      "reading": "ほそい",
+      "romaji": null,
+      "definition": "mảnh, gầy, nhỏ",
+      "exampleSentence": "この道は細いので、車では通れません。",
+      "exampleTranslation": "Con đường này hẹp nên không thể đi bằng ô tô.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12589,
+      "term": "柔らかい (やわらかい)",
+      "reading": "やわらかい",
+      "romaji": null,
+      "definition": "mềm, mềm mại",
+      "exampleSentence": "この枕は柔らかいので、よく眠れます。",
+      "exampleTranslation": "Chiếc gối này mềm nên tôi ngủ rất ngon.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12590,
+      "term": "重い (おもい)",
+      "reading": "おもい",
+      "romaji": null,
+      "definition": "nặng",
+      "exampleSentence": "この箱は重いから、一人で運ばないでください。",
+      "exampleTranslation": "Cái hộp này nặng nên đừng tự mình mang.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12591,
+      "term": "太い (ふとい)",
+      "reading": "ふとい",
+      "romaji": null,
+      "definition": "to, dày, béo",
+      "exampleSentence": "この木の幹は太いので、簡単には倒れません。",
+      "exampleTranslation": "Thân cây này to nên không dễ bị đổ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12592,
+      "term": "薄い (うすい)",
+      "reading": "うすい",
+      "romaji": null,
+      "definition": "mỏng, nhạt",
+      "exampleSentence": "このスープは味が薄いので、塩を少し入れました。",
+      "exampleTranslation": "Món súp này nhạt nên tôi đã cho thêm một chút muối.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12593,
+      "term": "衣服 (いふく)",
+      "reading": "いふく",
+      "romaji": null,
+      "definition": "quần áo",
+      "exampleSentence": "季節に合った衣服を選ぶことは大切です。",
+      "exampleTranslation": "Việc chọn quần áo phù hợp với mùa là rất quan trọng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12594,
+      "term": "下着 (したぎ)",
+      "reading": "したぎ",
+      "romaji": null,
+      "definition": "đồ lót",
+      "exampleSentence": "旅行の前に、下着を三日分かばんに入れました。",
+      "exampleTranslation": "Trước chuyến đi, tôi đã cho đồ lót đủ dùng trong ba ngày vào túi.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12595,
+      "term": "制服 (せいふく)",
+      "reading": "せいふく",
+      "romaji": null,
+      "definition": "đồng phục",
+      "exampleSentence": "学校では毎朝、制服を着て授業を受けます。",
+      "exampleTranslation": "Ở trường, mỗi sáng chúng tôi mặc đồng phục và học trên lớp.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12596,
+      "term": "普段着 (ふだんぎ)",
+      "reading": "ふだんぎ",
+      "romaji": null,
+      "definition": "trang phục hàng ngày",
+      "exampleSentence": "休日は普段着で近所の店へ買い物に行きます。",
+      "exampleTranslation": "Ngày nghỉ, tôi mặc quần áo thường ngày đi mua sắm ở cửa hàng gần nhà.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12597,
+      "term": "綿 (めん)",
+      "reading": "めん",
+      "romaji": null,
+      "definition": "vải bông/cotton",
+      "exampleSentence": "夏は綿のシャツを着ると、汗を吸ってくれるので快適です。",
+      "exampleTranslation": "Mùa hè, mặc áo sơ mi cotton sẽ rất thoải mái vì nó thấm hút mồ hôi.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12598,
+      "term": "衣替え (ころもがえ)",
+      "reading": "ころもがえ",
+      "romaji": null,
+      "definition": "thay đổi quần áo theo mùa",
+      "exampleSentence": "毎年十月になると、家族で衣替えをします。",
+      "exampleTranslation": "Mỗi năm cứ đến tháng mười, cả gia đình tôi lại thay quần áo theo mùa.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12599,
+      "term": "既製品 (きせいひん)",
+      "reading": "きせいひん",
+      "romaji": null,
+      "definition": "hàng may sẵn",
+      "exampleSentence": "忙しい人には、すぐ着られる既製品のスーツが便利です。",
+      "exampleTranslation": "Với những người bận rộn, bộ com-lê may sẵn có thể mặc ngay rất tiện.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12600,
+      "term": "絹 (きぬ)",
+      "reading": "きぬ",
+      "romaji": null,
+      "definition": "lụa tơ tằm",
+      "exampleSentence": "祖母は特別な日に、絹の着物を着て出かけます。",
+      "exampleTranslation": "Vào những dịp đặc biệt, bà tôi mặc kimono bằng lụa rồi ra ngoài.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 12601,
+      "term": "仕立て (したて)",
+      "reading": "したて",
+      "romaji": null,
+      "definition": "may đo",
+      "exampleSentence": "この店では、体に合った服の仕立てを頼むことができます。",
+      "exampleTranslation": "Ở cửa hàng này, bạn có thể đặt may quần áo vừa với cơ thể.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 12602,
+      "term": "縞 (しま)",
+      "reading": "しま",
+      "romaji": null,
+      "definition": "sọc",
+      "exampleSentence": "父は紺色の縞の入ったシャツをよく着ています。",
+      "exampleTranslation": "Bố tôi thường mặc chiếc áo sơ mi có sọc màu xanh đậm.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 12603,
+      "term": "柄 (がら)",
+      "reading": "がら",
+      "romaji": null,
+      "definition": "hoa văn/họa tiết",
+      "exampleSentence": "この着物は、春らしい花柄の柄がとても美しいです。",
+      "exampleTranslation": "Chiếc kimono này có họa tiết hoa mang vẻ đẹp rất đặc trưng của mùa xuân.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 12604,
+      "term": "麻 (あさ)",
+      "reading": "あさ",
+      "romaji": null,
+      "definition": "vải lanh/đay",
+      "exampleSentence": "夏には、通気性のよい麻の服がよく売れます。",
+      "exampleTranslation": "Vào mùa hè, quần áo bằng vải lanh thoáng khí thường bán rất chạy.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 12605,
+      "term": "無地 (むじ)",
+      "reading": "むじ",
+      "romaji": null,
+      "definition": "vải trơn không hoa văn",
+      "exampleSentence": "面接には、派手な柄より無地のシャツが適しています。",
+      "exampleTranslation": "Khi đi phỏng vấn, áo sơ mi trơn phù hợp hơn áo có họa tiết nổi bật.",
+      "forms": [],
+      "displayOrder": 20
+    }
+  ]
+}

@@ -1,0 +1,383 @@
+{
+  "id": 105,
+  "title": "食文化・料理",
+  "description": "Ẩm thực và nấu ăn · 54 từ N4",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:54.741757",
+  "cards": [
+    {
+      "id": 3091,
+      "term": "料理",
+      "reading": "りょうり",
+      "romaji": "ryouri",
+      "definition": "Nấu ăn, món ăn",
+      "exampleSentence": "日本料理が好き。",
+      "exampleTranslation": "Tôi thích ẩm thực Nhật.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 3092,
+      "term": "食文化",
+      "reading": "しょくぶんか",
+      "romaji": "shoku bunka",
+      "definition": "Văn hóa ẩm thực",
+      "exampleSentence": "日本の食文化。",
+      "exampleTranslation": "Văn hóa ẩm thực Nhật Bản.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 3093,
+      "term": "和食",
+      "reading": "わしょく",
+      "romaji": "washoku",
+      "definition": "Ẩm thực Nhật Bản",
+      "exampleSentence": "和食は健康的だ。",
+      "exampleTranslation": "Ẩm thực Nhật lành mạnh.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 3094,
+      "term": "洋食",
+      "reading": "ようしょく",
+      "romaji": "youshoku",
+      "definition": "Ẩm thực phương Tây",
+      "exampleSentence": "洋食レストラン。",
+      "exampleTranslation": "Nhà hàng ẩm thực phương Tây.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 3095,
+      "term": "中華料理",
+      "reading": "ちゅうかりょうり",
+      "romaji": "chuuka ryouri",
+      "definition": "Ẩm thực Trung Hoa",
+      "exampleSentence": "中華料理を食べに行く。",
+      "exampleTranslation": "Đi ăn ẩm thực Trung Hoa.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 3096,
+      "term": "食材",
+      "reading": "しょくざい",
+      "romaji": "shokuzai",
+      "definition": "Nguyên liệu nấu ăn",
+      "exampleSentence": "新鮮な食材を選ぶ。",
+      "exampleTranslation": "Chọn nguyên liệu tươi.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 3097,
+      "term": "調味料",
+      "reading": "ちょうみりょう",
+      "romaji": "chourmiryou",
+      "definition": "Gia vị",
+      "exampleSentence": "調味料を加える。",
+      "exampleTranslation": "Thêm gia vị.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 3098,
+      "term": "だし",
+      "reading": "だし",
+      "romaji": "dashi",
+      "definition": "Nước dùng dashi",
+      "exampleSentence": "だしを取る。",
+      "exampleTranslation": "Lấy nước dùng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 3099,
+      "term": "みりん",
+      "reading": "みりん",
+      "romaji": "mirin",
+      "definition": "Rượu ngọt mirin",
+      "exampleSentence": "みりんを加える。",
+      "exampleTranslation": "Thêm mirin.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 3100,
+      "term": "酢",
+      "reading": "す",
+      "romaji": "su",
+      "definition": "Giấm",
+      "exampleSentence": "酢を使う。",
+      "exampleTranslation": "Dùng giấm.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 3101,
+      "term": "煮る",
+      "reading": "にる",
+      "romaji": "niru",
+      "definition": "Nấu, luộc",
+      "exampleSentence": "野菜を煮る。",
+      "exampleTranslation": "Nấu rau.",
+      "forms": [
+        "煮ます",
+        "煮て",
+        "煮た",
+        "煮ない",
+        "煮られる"
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": 3102,
+      "term": "焼く",
+      "reading": "やく",
+      "romaji": "yaku",
+      "definition": "Nướng, rán",
+      "exampleSentence": "魚を焼く。",
+      "exampleTranslation": "Nướng cá.",
+      "forms": [
+        "焼きます",
+        "焼いて",
+        "焼いた",
+        "焼かない",
+        "焼ける"
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": 3103,
+      "term": "揚げる",
+      "reading": "あげる",
+      "romaji": "ageru",
+      "definition": "Chiên (ngập dầu)",
+      "exampleSentence": "天ぷらを揚げる。",
+      "exampleTranslation": "Chiên tempura.",
+      "forms": [
+        "揚げます",
+        "揚げて",
+        "揚げた",
+        "揚げない",
+        "揚げられる"
+      ],
+      "displayOrder": 12
+    },
+    {
+      "id": 3104,
+      "term": "炒める",
+      "reading": "いためる",
+      "romaji": "itameru",
+      "definition": "Xào",
+      "exampleSentence": "野菜を炒める。",
+      "exampleTranslation": "Xào rau.",
+      "forms": [
+        "炒めます",
+        "炒めて",
+        "炒めた",
+        "炒めない",
+        "炒められる"
+      ],
+      "displayOrder": 13
+    },
+    {
+      "id": 3105,
+      "term": "蒸す",
+      "reading": "むす",
+      "romaji": "musu",
+      "definition": "Hấp",
+      "exampleSentence": "茶碗蒸しを作る。",
+      "exampleTranslation": "Làm chawan mushi.",
+      "forms": [
+        "蒸します",
+        "蒸して",
+        "蒸した",
+        "蒸さない",
+        "蒸せる"
+      ],
+      "displayOrder": 14
+    },
+    {
+      "id": 3106,
+      "term": "切る",
+      "reading": "きる",
+      "romaji": "kiru",
+      "definition": "Cắt",
+      "exampleSentence": "野菜を切る。",
+      "exampleTranslation": "Cắt rau.",
+      "forms": [
+        "切ります",
+        "切って",
+        "切った",
+        "切らない",
+        "切れる"
+      ],
+      "displayOrder": 15
+    },
+    {
+      "id": 3107,
+      "term": "混ぜる",
+      "reading": "まぜる",
+      "romaji": "mazeru",
+      "definition": "Trộn",
+      "exampleSentence": "材料を混ぜる。",
+      "exampleTranslation": "Trộn nguyên liệu.",
+      "forms": [
+        "混ぜます",
+        "混ぜて",
+        "混ぜた",
+        "混ぜない",
+        "混ぜられる"
+      ],
+      "displayOrder": 16
+    },
+    {
+      "id": 3108,
+      "term": "盛り付け",
+      "reading": "もりつけ",
+      "romaji": "moritsuke",
+      "definition": "Bày trí món ăn",
+      "exampleSentence": "きれいに盛り付ける。",
+      "exampleTranslation": "Bày trí đẹp mắt.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 3109,
+      "term": "旬",
+      "reading": "しゅん",
+      "romaji": "shun",
+      "definition": "Mùa (của thực phẩm)",
+      "exampleSentence": "旬の野菜を使う。",
+      "exampleTranslation": "Dùng rau đúng mùa.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 3110,
+      "term": "発酵食品",
+      "reading": "はっこうしょくひん",
+      "romaji": "hakkou shokuhin",
+      "definition": "Thực phẩm lên men",
+      "exampleSentence": "納豆は発酵食品です。",
+      "exampleTranslation": "Natto là thực phẩm lên men.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 3111,
+      "term": "精進料理",
+      "reading": "しょうじんりょうり",
+      "romaji": "shoujin ryouri",
+      "definition": "Ẩm thực chay theo kiểu Phật giáo",
+      "exampleSentence": "精進料理を味わう。",
+      "exampleTranslation": "Thưởng thức ẩm thực chay Phật giáo.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 3112,
+      "term": "郷土料理",
+      "reading": "きょうどりょうり",
+      "romaji": "kyoudo ryouri",
+      "definition": "Ẩm thực địa phương",
+      "exampleSentence": "各地の郷土料理。",
+      "exampleTranslation": "Ẩm thực địa phương mỗi vùng.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 3113,
+      "term": "お節料理",
+      "reading": "おせちりょうり",
+      "romaji": "osechi ryouri",
+      "definition": "Ẩm thực Tết Nhật",
+      "exampleSentence": "お正月にお節料理を食べる。",
+      "exampleTranslation": "Ăn ẩm thực Tết vào dịp năm mới.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 3114,
+      "term": "懐石料理",
+      "reading": "かいせきりょうり",
+      "romaji": "kaiseki ryouri",
+      "definition": "Ẩm thực Kaiseki",
+      "exampleSentence": "懐石料理を楽しむ。",
+      "exampleTranslation": "Thưởng thức kaiseki.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 3115,
+      "term": "ラーメン",
+      "reading": "らーめん",
+      "romaji": "raamen",
+      "definition": "Mì ramen",
+      "exampleSentence": "ラーメン屋さん。",
+      "exampleTranslation": "Tiệm ramen.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 3116,
+      "term": "うどん",
+      "reading": "うどん",
+      "romaji": "udon",
+      "definition": "Mì udon",
+      "exampleSentence": "うどんを食べる。",
+      "exampleTranslation": "Ăn udon.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 3117,
+      "term": "そば",
+      "reading": "そば",
+      "romaji": "soba",
+      "definition": "Mì soba",
+      "exampleSentence": "年越しそば。",
+      "exampleTranslation": "Mì soba đón năm mới.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 3118,
+      "term": "天ぷら",
+      "reading": "てんぷら",
+      "romaji": "tenpura",
+      "definition": "Tempura",
+      "exampleSentence": "えびの天ぷら。",
+      "exampleTranslation": "Tôm tempura.",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 3119,
+      "term": "刺身",
+      "reading": "さしみ",
+      "romaji": "sashimi",
+      "definition": "Sashimi (cá sống)",
+      "exampleSentence": "新鮮な刺身。",
+      "exampleTranslation": "Sashimi tươi.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 3120,
+      "term": "おにぎり",
+      "reading": "おにぎり",
+      "romaji": "onigiri",
+      "definition": "Cơm nắm",
+      "exampleSentence": "コンビニのおにぎり。",
+      "exampleTranslation": "Cơm nắm cửa hàng tiện lợi.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

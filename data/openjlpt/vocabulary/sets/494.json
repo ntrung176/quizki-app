@@ -1,0 +1,143 @@
+{
+  "id": 494,
+  "title": "社会・人間関係 · 態度・性格・付き合い方",
+  "description": "Phong thái, tính cách & xã giao — chủ đề Xã hội & quan hệ · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:50.487344",
+  "cards": [
+    {
+      "id": 12354,
+      "term": "遠慮 (えんりょ)",
+      "reading": "えんりょ",
+      "romaji": null,
+      "definition": "e ngại/kiêng nể",
+      "exampleSentence": "どうぞ遠慮しないで、好きな料理を食べてください。",
+      "exampleTranslation": "Xin đừng ngại, cứ ăn những món mình thích nhé.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12355,
+      "term": "自由 (じゆう)",
+      "reading": "じゆう",
+      "romaji": null,
+      "definition": "tự do, thoải mái",
+      "exampleSentence": "旅行中は自分の好きな場所へ自由に行けます。",
+      "exampleTranslation": "Trong chuyến du lịch, bạn có thể tự do đi đến những nơi mình thích.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12356,
+      "term": "丁寧 (ていねい)",
+      "reading": "ていねい",
+      "romaji": null,
+      "definition": "lịch sự, cẩn thận, tỉ mỉ",
+      "exampleSentence": "先生は学生の質問に、いつも丁寧に答えてくれます。",
+      "exampleTranslation": "Thầy cô luôn tận tình trả lời các câu hỏi của học sinh.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12357,
+      "term": "ふさわしい",
+      "reading": "ふさわしい",
+      "romaji": null,
+      "definition": "thích hợp, phù hợp",
+      "exampleSentence": "この仕事には、責任感の強い人がふさわしい。",
+      "exampleTranslation": "Công việc này phù hợp với người có tinh thần trách nhiệm cao.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12358,
+      "term": "気を付ける (きをつける)",
+      "reading": "きをつける",
+      "romaji": null,
+      "definition": "cẩn thận, chú ý",
+      "exampleSentence": "雨の日は、足元に気を付けるようにしてください。",
+      "exampleTranslation": "Những ngày mưa, hãy chú ý bước chân của mình.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12359,
+      "term": "著しい (いちじるしい)",
+      "reading": "いちじるしい",
+      "romaji": null,
+      "definition": "đáng kể, nổi bật, rõ rệt",
+      "exampleSentence": "近年、この地域では人口の減少が著しい。",
+      "exampleTranslation": "Những năm gần đây, sự suy giảm dân số ở khu vực này rất rõ rệt.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12360,
+      "term": "スタートアップ",
+      "reading": "スタートアップ",
+      "romaji": null,
+      "definition": "công ty khởi nghiệp",
+      "exampleSentence": "そのスタートアップは、環境問題を解決する技術を開発している。",
+      "exampleTranslation": "Công ty khởi nghiệp đó đang phát triển công nghệ giải quyết các vấn đề môi trường.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12361,
+      "term": "アイデンティティ",
+      "reading": "アイデンティティ",
+      "romaji": null,
+      "definition": "bản sắc/danh tính",
+      "exampleSentence": "海外で暮らす中で、自分のアイデンティティについて考えるようになった。",
+      "exampleTranslation": "Trong quá trình sống ở nước ngoài, tôi bắt đầu suy nghĩ về bản sắc của mình.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12362,
+      "term": "恩義 (おんぎ)",
+      "reading": "おんぎ",
+      "romaji": null,
+      "definition": "ơn nghĩa/nghĩa tình",
+      "exampleSentence": "助けてくれた先生への恩義を、今でも忘れていない。",
+      "exampleTranslation": "Đến bây giờ tôi vẫn không quên ơn nghĩa đối với người thầy đã giúp mình.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12363,
+      "term": "気を使う (きをつかう)",
+      "reading": "きをつかう",
+      "romaji": null,
+      "definition": "quan tâm/lo lắng/cẩn thận",
+      "exampleSentence": "彼女は周りに気を使うあまり、自分の希望を言えないことがある。",
+      "exampleTranslation": "Vì quá để ý đến mọi người xung quanh nên đôi khi cô ấy không thể nói ra mong muốn của mình.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12364,
+      "term": "配慮 (はいりょ)",
+      "reading": "はいりょ",
+      "romaji": null,
+      "definition": "sự quan tâm/lưu ý",
+      "exampleSentence": "高齢者への配慮として、駅の階段に手すりが設置された。",
+      "exampleTranslation": "Để quan tâm đến người cao tuổi, tay vịn đã được lắp đặt ở cầu thang nhà ga.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12365,
+      "term": "気兼ね (きがね)",
+      "reading": "きがね",
+      "romaji": null,
+      "definition": "ngại ngùng/e dè",
+      "exampleSentence": "周囲に気兼ねして、自分の意見を言えない人もいる。",
+      "exampleTranslation": "Cũng có những người e dè trước mọi người xung quanh nên không thể nói lên ý kiến của mình.",
+      "forms": [],
+      "displayOrder": 11
+    }
+  ]
+}

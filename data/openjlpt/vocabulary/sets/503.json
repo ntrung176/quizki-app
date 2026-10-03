@@ -1,0 +1,198 @@
+{
+  "id": 503,
+  "title": "感情・性格 · 性格（否定的）",
+  "description": "Tính cách tiêu cực — chủ đề Cảm xúc & tính cách · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:50.787627",
+  "cards": [
+    {
+      "id": 12538,
+      "term": "いい加減 (いいかげん)",
+      "reading": "いいかげん",
+      "romaji": null,
+      "definition": "cẩu thả/tùy tiện",
+      "exampleSentence": "いい加減な仕事をすると、あとで必ず誰かに迷惑をかける。",
+      "exampleTranslation": "Nếu làm việc cẩu thả thì sau đó chắc chắn sẽ gây phiền hà cho người khác.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12539,
+      "term": "わがまま",
+      "reading": "わがまま",
+      "romaji": null,
+      "definition": "ích kỷ/cẩu thả",
+      "exampleSentence": "弟はわがままな性格で、家族の意見をなかなか聞かない。",
+      "exampleTranslation": "Em trai tôi có tính ích kỷ và hiếm khi chịu nghe ý kiến của gia đình.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12540,
+      "term": "厳しい (きびしい)",
+      "reading": "きびしい",
+      "romaji": null,
+      "definition": "nghiêm khắc, khắt khe",
+      "exampleSentence": "新しい上司は厳しいが、仕事の教え方はとても丁寧だ。",
+      "exampleTranslation": "Cấp trên mới nghiêm khắc, nhưng cách chỉ dạy công việc rất tận tình.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12541,
+      "term": "消極的 (しょうきょくてき)",
+      "reading": "しょうきょくてき",
+      "romaji": null,
+      "definition": "tiêu cực/thụ động",
+      "exampleSentence": "彼は人前で話すことに消極的だ。",
+      "exampleTranslation": "Anh ấy khá thụ động trong việc nói chuyện trước đám đông.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12542,
+      "term": "地味 (じみ)",
+      "reading": "じみ",
+      "romaji": null,
+      "definition": "giản dị, đơn giản, không nổi bật",
+      "exampleSentence": "彼女は地味な服を好むが、いつも上品に見える。",
+      "exampleTranslation": "Cô ấy thích quần áo giản dị nhưng lúc nào trông cũng thanh lịch.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12543,
+      "term": "適当 (てきとう)",
+      "reading": "てきとう",
+      "romaji": null,
+      "definition": "thích hợp, tạm được, qua loa",
+      "exampleSentence": "彼は質問に適当な返事をして、詳しく説明しようとしなかった。",
+      "exampleTranslation": "Anh ta trả lời qua loa câu hỏi và không định giải thích chi tiết.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12544,
+      "term": "鈍い (にぶい)",
+      "reading": "にぶい",
+      "romaji": null,
+      "definition": "chậm chạp, cùn, lờ đờ",
+      "exampleSentence": "朝は頭の働きが鈍いので、熱いお茶を飲みます。",
+      "exampleTranslation": "Buổi sáng đầu óc tôi hoạt động chậm chạp nên tôi uống trà nóng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12545,
+      "term": "派手 (はで)",
+      "reading": "はで",
+      "romaji": null,
+      "definition": "sặc sỡ, rực rỡ, phô trương",
+      "exampleSentence": "その歌手は派手な衣装でステージに登場した。",
+      "exampleTranslation": "Ca sĩ đó xuất hiện trên sân khấu trong bộ trang phục sặc sỡ.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12546,
+      "term": "ネガティブ",
+      "reading": "ネガティブ",
+      "romaji": null,
+      "definition": "tiêu cực/negative",
+      "exampleSentence": "失敗したときも、あまりネガティブな考え方をしないようにしている。",
+      "exampleTranslation": "Ngay cả khi thất bại, tôi cũng cố gắng không suy nghĩ quá tiêu cực.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12547,
+      "term": "依存 (いぞん)",
+      "reading": "いぞん",
+      "romaji": null,
+      "definition": "sự phụ thuộc",
+      "exampleSentence": "スマートフォンに依存すると、自分で考える時間が減ってしまう。",
+      "exampleTranslation": "Nếu phụ thuộc vào điện thoại thông minh, thời gian tự suy nghĩ sẽ bị giảm đi.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12548,
+      "term": "頑固 (がんこ)",
+      "reading": "がんこ",
+      "romaji": null,
+      "definition": "bướng bỉnh/cứng đầu",
+      "exampleSentence": "父は頑固だが、一度納得すれば約束を必ず守る。",
+      "exampleTranslation": "Bố tôi cứng đầu, nhưng một khi đã bị thuyết phục thì nhất định sẽ giữ lời.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12549,
+      "term": "攻撃性 (こうげきせい)",
+      "reading": "こうげきせい",
+      "romaji": null,
+      "definition": "tính hung hăng",
+      "exampleSentence": "彼は普段は穏やかだが、強いストレスを感じると攻撃性が表れる。",
+      "exampleTranslation": "Bình thường anh ấy hiền hòa, nhưng khi cảm thấy căng thẳng mạnh thì tính hung hăng lại bộc lộ.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12550,
+      "term": "自己中心 (じこちゅうしん)",
+      "reading": "じこちゅうしん",
+      "romaji": null,
+      "definition": "tự kỷ trung tâm",
+      "exampleSentence": "彼は自己中心であることに気づき、周りの意見も聞くようになった。",
+      "exampleTranslation": "Nhận ra mình quá coi bản thân là trung tâm, anh ấy đã bắt đầu lắng nghe ý kiến của mọi người xung quanh.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12551,
+      "term": "先入観 (せんにゅうかん)",
+      "reading": "せんにゅうかん",
+      "romaji": null,
+      "definition": "thành kiến có sẵn từ trước",
+      "exampleSentence": "初対面の人を先入観で判断してはいけない。",
+      "exampleTranslation": "Không được phán xét người mới gặp dựa trên thành kiến có sẵn.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12552,
+      "term": "短気 (たんき)",
+      "reading": "たんき",
+      "romaji": null,
+      "definition": "nóng tính/thiếu kiên nhẫn",
+      "exampleSentence": "兄は短気なので、思い通りにならないとすぐ怒る。",
+      "exampleTranslation": "Anh trai tôi nóng tính nên hễ mọi việc không như ý là nổi giận ngay.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12553,
+      "term": "悲観的 (ひかんてき)",
+      "reading": "ひかんてき",
+      "romaji": null,
+      "definition": "bi quan",
+      "exampleSentence": "彼は悲観的に考えがちだが、実際には多くの可能性が残っている。",
+      "exampleTranslation": "Anh ấy thường suy nghĩ bi quan, nhưng thực tế vẫn còn nhiều khả năng.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 12554,
+      "term": "傲慢 (ごうまん)",
+      "reading": "ごうまん",
+      "romaji": null,
+      "definition": "kiêu ngạo/ngạo mạn",
+      "exampleSentence": "成功したからといって、傲慢な態度を取ってはいけない。",
+      "exampleTranslation": "Không nên có thái độ ngạo mạn chỉ vì đã thành công.",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

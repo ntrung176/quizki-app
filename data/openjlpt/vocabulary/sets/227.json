@@ -1,0 +1,176 @@
+{
+  "id": 227,
+  "title": "Tuần 5 · Ngày 6 - 趣味・文化・娯楽 (Sở thích, Văn hóa & Giải trí)",
+  "description": "Nihongo Soumatome N3 語彙 — 趣味・文化・娯楽 (Sở thích, Văn hóa & Giải trí)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.655798",
+  "cards": [
+    {
+      "id": 5686,
+      "term": "趣味 (しゅみ)",
+      "reading": "しゅみ",
+      "romaji": "shumi",
+      "definition": "sở thích",
+      "exampleSentence": "私の趣味は休日に写真を撮ることです。",
+      "exampleTranslation": "Sở thích của tôi là chụp ảnh vào những ngày nghỉ.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5687,
+      "term": "娯楽 (ごらく)",
+      "reading": "ごらく",
+      "romaji": "goraku",
+      "definition": "giải trí, vui chơi",
+      "exampleSentence": "映画は年齢を問わず楽しめる娯楽の一つです。",
+      "exampleTranslation": "Phim ảnh là một trong những hình thức giải trí mà mọi lứa tuổi đều có thể thưởng thức.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5688,
+      "term": "鑑賞 (かんしょう)",
+      "reading": "かんしょう",
+      "romaji": "kanshou",
+      "definition": "thưởng thức (nghệ thuật), ngắm nhìn",
+      "exampleSentence": "休日は美術館で有名な絵画を鑑賞しました。",
+      "exampleTranslation": "Ngày nghỉ, tôi đã thưởng thức những bức tranh nổi tiếng tại bảo tàng mỹ thuật.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5689,
+      "term": "観戦 (かんせん)",
+      "reading": "かんせん",
+      "romaji": "kansen",
+      "definition": "xem thi đấu, xem thể thao",
+      "exampleSentence": "友達とスタジアムへサッカーの試合を観戦しに行った。",
+      "exampleTranslation": "Tôi đã cùng bạn đi đến sân vận động để xem một trận bóng đá.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5690,
+      "term": "旅行 (りょこう)",
+      "reading": "りょこう",
+      "romaji": "ryokou",
+      "definition": "du lịch, đi chơi",
+      "exampleSentence": "夏休みに家族と北海道へ旅行する予定です。",
+      "exampleTranslation": "Kỳ nghỉ hè này, tôi dự định đi du lịch Hokkaido cùng gia đình.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5691,
+      "term": "観光 (かんこう)",
+      "reading": "かんこう",
+      "romaji": "kankou",
+      "definition": "tham quan, du ngoạn",
+      "exampleSentence": "京都を観光するなら、朝早く出発したほうがいいです。",
+      "exampleTranslation": "Nếu muốn tham quan Kyoto, bạn nên xuất phát từ sáng sớm.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5692,
+      "term": "撮影 (さつえい)",
+      "reading": "さつえい",
+      "romaji": "satsuei",
+      "definition": "chụp ảnh, quay phim",
+      "exampleSentence": "この公園では映画の撮影が行われています。",
+      "exampleTranslation": "Việc quay phim đang được thực hiện tại công viên này.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5693,
+      "term": "演奏する (えんそうする)",
+      "reading": "えんそうする",
+      "romaji": "ensou suru",
+      "definition": "chơi nhạc cụ, biểu diễn âm nhạc",
+      "exampleSentence": "文化祭でギターを演奏する予定です。",
+      "exampleTranslation": "Tôi dự định chơi đàn guitar trong lễ hội văn hóa của trường.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5694,
+      "term": "創作 (そうさく)",
+      "reading": "そうさく",
+      "romaji": "sousaku",
+      "definition": "sáng tác, sáng tạo",
+      "exampleSentence": "この作家は自分の体験をもとに小説を創作している。",
+      "exampleTranslation": "Nhà văn này sáng tác tiểu thuyết dựa trên những trải nghiệm của bản thân.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5695,
+      "term": "収集 (しゅうしゅう)",
+      "reading": "しゅうしゅう",
+      "romaji": "shuushuu",
+      "definition": "sưu tầm, thu thập",
+      "exampleSentence": "趣味で古い切手を収集しています。",
+      "exampleTranslation": "Tôi sưu tầm những con tem cũ như một sở thích.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5696,
+      "term": "競技 (きょうぎ)",
+      "reading": "きょうぎ",
+      "romaji": "kyougi",
+      "definition": "thi đấu, cạnh tranh, môn thể thao",
+      "exampleSentence": "オリンピックでは、さまざまな競技が行われます。",
+      "exampleTranslation": "Tại Thế vận hội, nhiều môn thi đấu khác nhau được tổ chức.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5697,
+      "term": "試合 (しあい)",
+      "reading": "しあい",
+      "romaji": "shiai",
+      "definition": "trận đấu, cuộc thi",
+      "exampleSentence": "明日の試合に勝つために、毎日一生懸命練習しています。",
+      "exampleTranslation": "Để thắng trận đấu ngày mai, tôi luyện tập chăm chỉ mỗi ngày.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5698,
+      "term": "練習 (れんしゅう)",
+      "reading": "れんしゅう",
+      "romaji": "renshuu",
+      "definition": "luyện tập, tập luyện",
+      "exampleSentence": "発表会の前に、何度もピアノの練習をしました。",
+      "exampleTranslation": "Trước buổi biểu diễn, tôi đã luyện tập piano nhiều lần.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5699,
+      "term": "上達する (じょうたつする)",
+      "reading": "じょうたつする",
+      "romaji": "joutatsu suru",
+      "definition": "tiến bộ, ngày càng giỏi hơn",
+      "exampleSentence": "毎日会話の練習をすれば、日本語がすぐに上達するでしょう。",
+      "exampleTranslation": "Nếu luyện tập hội thoại mỗi ngày, tiếng Nhật sẽ nhanh chóng tiến bộ.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5700,
+      "term": "熟練する (じゅくれんする)",
+      "reading": "じゅくれんする",
+      "romaji": "jukuren suru",
+      "definition": "thành thạo, lành nghề",
+      "exampleSentence": "この仕事で熟練するには、長年の経験が必要です。",
+      "exampleTranslation": "Để thành thạo công việc này, cần có nhiều năm kinh nghiệm.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

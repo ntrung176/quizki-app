@@ -1,0 +1,421 @@
+{
+  "id": 81,
+  "title": "疑問文",
+  "description": "Câu hỏi · か, ですか 30 mẫu",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:53.342238",
+  "cards": [
+    {
+      "id": 2413,
+      "term": "〜か",
+      "reading": "〜か",
+      "romaji": "ka",
+      "definition": "Trợ từ câu hỏi",
+      "exampleSentence": "これは何ですか。",
+      "exampleTranslation": "Đây là cái gì?",
+      "forms": [
+        "Biến câu thành câu hỏi",
+        "Giọng lên cuối câu",
+        "Không đảo ngữ như tiếng Anh"
+      ],
+      "displayOrder": 0
+    },
+    {
+      "id": 2414,
+      "term": "何",
+      "reading": "なに・なん",
+      "romaji": "nani/nan",
+      "definition": "Gì / Cái gì",
+      "exampleSentence": "何が好きですか。",
+      "exampleTranslation": "Bạn thích gì?",
+      "forms": [
+        "Câu hỏi về sự vật, khái niệm",
+        "なん trước だ, の, 語",
+        "なに trước phần lớn các từ khác"
+      ],
+      "displayOrder": 1
+    },
+    {
+      "id": 2415,
+      "term": "だれ",
+      "reading": "だれ",
+      "romaji": "dare",
+      "definition": "Ai",
+      "exampleSentence": "だれですか。",
+      "exampleTranslation": "Là ai vậy?",
+      "forms": [
+        "Câu hỏi về người",
+        "= どなた (lịch sự)",
+        "だれの = của ai"
+      ],
+      "displayOrder": 2
+    },
+    {
+      "id": 2416,
+      "term": "どこ",
+      "reading": "どこ",
+      "romaji": "doko",
+      "definition": "Ở đâu / Chỗ nào",
+      "exampleSentence": "どこに住んでいますか。",
+      "exampleTranslation": "Bạn sống ở đâu?",
+      "forms": [
+        "Câu hỏi về địa điểm",
+        "どちら là dạng lịch sự",
+        "どこへ = đi đâu"
+      ],
+      "displayOrder": 3
+    },
+    {
+      "id": 2417,
+      "term": "いつ",
+      "reading": "いつ",
+      "romaji": "itsu",
+      "definition": "Khi nào / Lúc nào",
+      "exampleSentence": "いつ来ますか。",
+      "exampleTranslation": "Bạn đến khi nào?",
+      "forms": [
+        "Câu hỏi về thời gian",
+        "Không cần trợ từ khi hỏi thời gian",
+        "いつから = từ khi nào"
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": 2418,
+      "term": "どれ",
+      "reading": "どれ",
+      "romaji": "dore",
+      "definition": "Cái nào (trong nhiều)",
+      "exampleSentence": "どれがいいですか。",
+      "exampleTranslation": "Cái nào tốt?",
+      "forms": [
+        "Hỏi về lựa chọn trong 3+ cái",
+        "Khác どちら (chỉ 2 cái)",
+        "どれも = cái nào cũng"
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": 2419,
+      "term": "どちら",
+      "reading": "どちら",
+      "romaji": "dochira",
+      "definition": "Cái nào (trong hai)",
+      "exampleSentence": "どちらが好きですか。",
+      "exampleTranslation": "Bạn thích cái nào hơn?",
+      "forms": [
+        "Hỏi về lựa chọn giữa 2 thứ",
+        "Lịch sự hơn どれ",
+        "どちらも = cả hai"
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": 2420,
+      "term": "どんな",
+      "reading": "どんな",
+      "romaji": "donna",
+      "definition": "Loại nào / Như thế nào",
+      "exampleSentence": "どんな音楽が好きですか。",
+      "exampleTranslation": "Bạn thích loại nhạc nào?",
+      "forms": [
+        "Hỏi về tính chất hoặc loại",
+        "Theo sau bởi danh từ",
+        "Khác どう (câu hỏi về trạng thái)"
+      ],
+      "displayOrder": 7
+    },
+    {
+      "id": 2421,
+      "term": "どう",
+      "reading": "どう",
+      "romaji": "dou",
+      "definition": "Thế nào",
+      "exampleSentence": "調子はどうですか。",
+      "exampleTranslation": "Bạn khỏe không?",
+      "forms": [
+        "Câu hỏi về trạng thái hoặc đánh giá",
+        "どうやって = bằng cách nào",
+        "どうして = tại sao"
+      ],
+      "displayOrder": 8
+    },
+    {
+      "id": 2422,
+      "term": "なぜ・どうして",
+      "reading": "なぜ・どうして",
+      "romaji": "naze/doushite",
+      "definition": "Tại sao",
+      "exampleSentence": "なぜ来なかったですか。",
+      "exampleTranslation": "Tại sao không đến?",
+      "forms": [
+        "Câu hỏi về nguyên nhân",
+        "なぜ trang trọng hơn どうして",
+        "なんで là dạng thân mật"
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": 2423,
+      "term": "どのくらい",
+      "reading": "どのくらい",
+      "romaji": "dono kurai",
+      "definition": "Bao lâu / Bao nhiêu (lượng)",
+      "exampleSentence": "どのくらいかかりますか。",
+      "exampleTranslation": "Mất bao lâu?",
+      "forms": [
+        "Hỏi về thời gian hoặc mức độ",
+        "= どのぐらい, どれくらい",
+        "どれほど là dạng trang trọng"
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": 2424,
+      "term": "いくら",
+      "reading": "いくら",
+      "romaji": "ikura",
+      "definition": "Bao nhiêu (tiền)",
+      "exampleSentence": "これはいくらですか。",
+      "exampleTranslation": "Cái này bao nhiêu tiền?",
+      "forms": [
+        "Câu hỏi về giá tiền",
+        "いくらでも = bao nhiêu cũng được",
+        "いくらか = một ít"
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": 2425,
+      "term": "いくつ",
+      "reading": "いくつ",
+      "romaji": "ikutsu",
+      "definition": "Bao nhiêu (cái) / Mấy tuổi",
+      "exampleSentence": "りんごがいくつありますか。",
+      "exampleTranslation": "Có bao nhiêu quả táo?",
+      "forms": [
+        "Hỏi số lượng (vật không đếm bằng đơn vị)",
+        "Hỏi tuổi (いくつですか = bao nhiêu tuổi)",
+        "何個 cũng dùng cho số lượng"
+      ],
+      "displayOrder": 12
+    },
+    {
+      "id": 2426,
+      "term": "何人",
+      "reading": "なんにん",
+      "romaji": "nannin",
+      "definition": "Mấy người",
+      "exampleSentence": "何人来ましたか。",
+      "exampleTranslation": "Mấy người đã đến?",
+      "forms": [
+        "Hỏi số người",
+        "何個 (vật)",
+        "何匹 (động vật nhỏ), 何頭 (động vật lớn)"
+      ],
+      "displayOrder": 13
+    },
+    {
+      "id": 2427,
+      "term": "何時",
+      "reading": "なんじ",
+      "romaji": "nanji",
+      "definition": "Mấy giờ",
+      "exampleSentence": "今何時ですか。",
+      "exampleTranslation": "Bây giờ là mấy giờ?",
+      "forms": [
+        "Câu hỏi về giờ giấc",
+        "何時から何時まで = từ mấy giờ đến mấy giờ",
+        "何時に = lúc mấy giờ"
+      ],
+      "displayOrder": 14
+    },
+    {
+      "id": 2428,
+      "term": "どうやって",
+      "reading": "どうやって",
+      "romaji": "dou yatte",
+      "definition": "Bằng cách nào",
+      "exampleSentence": "駅にどうやって行きますか。",
+      "exampleTranslation": "Đến ga bằng cách nào?",
+      "forms": [
+        "Hỏi về phương pháp hoặc cách thức",
+        "= どのように (trang trọng hơn)",
+        "やって = làm (thân mật)"
+      ],
+      "displayOrder": 15
+    },
+    {
+      "id": 2429,
+      "term": "どのように",
+      "reading": "どのように",
+      "romaji": "dono you ni",
+      "definition": "Bằng cách nào (trang trọng)",
+      "exampleSentence": "どのように使いますか。",
+      "exampleTranslation": "Sử dụng như thế nào?",
+      "forms": [
+        "Trang trọng hơn どうやって",
+        "Thường dùng trong văn viết",
+        "= どんな風に (thân mật)"
+      ],
+      "displayOrder": 16
+    },
+    {
+      "id": 2430,
+      "term": "〜ましたか",
+      "reading": "〜ましたか",
+      "romaji": "mashita ka",
+      "definition": "Đã ... chưa / Có ... không (quá khứ)",
+      "exampleSentence": "食べましたか。",
+      "exampleTranslation": "Bạn đã ăn chưa?",
+      "forms": [
+        "Câu hỏi quá khứ lịch sự",
+        "はい、食べました / いいえ、食べませんでした",
+        "Xác nhận về hành động đã qua"
+      ],
+      "displayOrder": 17
+    },
+    {
+      "id": 2431,
+      "term": "〜ていますか",
+      "reading": "〜ていますか",
+      "romaji": "te imasu ka",
+      "definition": "Đang ... không / Có ... không (hiện tại)",
+      "exampleSentence": "今勉強していますか。",
+      "exampleTranslation": "Bạn có đang học không?",
+      "forms": [
+        "Câu hỏi về hành động đang tiếp diễn",
+        "はい、しています / いいえ、していません",
+        "Hỏi về trạng thái hiện tại"
+      ],
+      "displayOrder": 18
+    },
+    {
+      "id": 2432,
+      "term": "〜ことがありますか",
+      "reading": "〜ことがありますか",
+      "romaji": "koto ga arimasu ka",
+      "definition": "Bạn đã từng ... chưa?",
+      "exampleSentence": "日本料理を食べたことがありますか。",
+      "exampleTranslation": "Bạn đã từng ăn đồ Nhật chưa?",
+      "forms": [
+        "Hỏi về kinh nghiệm",
+        "はい、あります / いいえ、ありません",
+        "〜たことがある は kinh nghiệm"
+      ],
+      "displayOrder": 19
+    },
+    {
+      "id": 50556,
+      "term": "〜ますか",
+      "reading": "ますか",
+      "romaji": "〜masu ka",
+      "definition": "Hỏi về hành động ở hiện tại hoặc tương lai",
+      "exampleSentence": "毎朝、コーヒーを飲みますか。",
+      "exampleTranslation": "Mỗi sáng bạn có uống cà phê không?",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 50557,
+      "term": "〜ませんか",
+      "reading": "ませんか",
+      "romaji": "〜masen ka",
+      "definition": "Rủ hoặc đề nghị lịch sự",
+      "exampleSentence": "一緒に昼ご飯を食べませんか。",
+      "exampleTranslation": "Bạn ăn trưa cùng tôi nhé?",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 50558,
+      "term": "〜ましょうか",
+      "reading": "ましょうか",
+      "romaji": "〜mashou ka",
+      "definition": "Đề nghị làm gì đó",
+      "exampleSentence": "窓を開けましょうか。",
+      "exampleTranslation": "Tôi mở cửa sổ nhé?",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 50559,
+      "term": "〜たいですか",
+      "reading": "たいですか",
+      "romaji": "〜tai desu ka",
+      "definition": "Hỏi mong muốn làm gì",
+      "exampleSentence": "週末に映画を見たいですか。",
+      "exampleTranslation": "Cuối tuần bạn có muốn xem phim không?",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 50560,
+      "term": "〜てもいいですか",
+      "reading": "てもいいですか",
+      "romaji": "〜te mo ii desu ka",
+      "definition": "Xin phép làm gì",
+      "exampleSentence": "このペンを使ってもいいですか。",
+      "exampleTranslation": "Tôi dùng chiếc bút này được không?",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 50561,
+      "term": "〜てはいけませんか",
+      "reading": "てはいけませんか",
+      "romaji": "〜te wa ikemasen ka",
+      "definition": "Hỏi xem có được phép làm gì không",
+      "exampleSentence": "この部屋で写真を撮ってはいけませんか。",
+      "exampleTranslation": "Không được chụp ảnh trong phòng này sao?",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 50562,
+      "term": "〜ですか、〜ですか",
+      "reading": "ですか、ですか",
+      "romaji": "〜desu ka, 〜desu ka",
+      "definition": "Hỏi lựa chọn giữa hai điều",
+      "exampleSentence": "朝ご飯はパンですか、ご飯ですか。",
+      "exampleTranslation": "Bữa sáng là bánh mì hay cơm?",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 50563,
+      "term": "AとBと、どちらが〜ですか",
+      "reading": "とと、どちらがですか",
+      "romaji": "A to B to, dochira ga 〜 desu ka",
+      "definition": "Hỏi lựa chọn nào hơn giữa A và B",
+      "exampleSentence": "犬と猫と、どちらが好きですか。",
+      "exampleTranslation": "Bạn thích chó hay mèo hơn?",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 50564,
+      "term": "Nは何ですか",
+      "reading": "なにはなんですか",
+      "romaji": "N wa nan desu ka",
+      "definition": "Hỏi N là gì",
+      "exampleSentence": "これは何ですか。",
+      "exampleTranslation": "Cái này là gì?",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 50565,
+      "term": "Nはどこですか",
+      "reading": "なにはどこですか",
+      "romaji": "N wa doko desu ka",
+      "definition": "Hỏi N ở đâu",
+      "exampleSentence": "駅はどこですか。",
+      "exampleTranslation": "Nhà ga ở đâu ạ?",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

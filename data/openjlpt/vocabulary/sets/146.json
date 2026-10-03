@@ -1,0 +1,409 @@
+{
+  "id": 146,
+  "title": "恋愛ドラマ単語",
+  "description": "Từ vựng phim tình cảm Nhật · 30 từ",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:57.384912",
+  "cards": [
+    {
+      "id": 4315,
+      "term": "片思い",
+      "reading": "かたおもい",
+      "romaji": "kataomoi",
+      "definition": "Tình đơn phương",
+      "exampleSentence": "片思いで苦しんでいます。",
+      "exampleTranslation": "Tôi đang đau khổ vì tình đơn phương.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 4316,
+      "term": "告白",
+      "reading": "こくはく",
+      "romaji": "kokuhaku",
+      "definition": "Tỏ tình / thú nhận",
+      "exampleSentence": "彼女に告白しました。",
+      "exampleTranslation": "Tôi đã tỏ tình với cô ấy.",
+      "forms": [
+        "告白します",
+        "告白して",
+        "告白した",
+        "告白しない",
+        "告白できる"
+      ],
+      "displayOrder": 1
+    },
+    {
+      "id": 4317,
+      "term": "交際",
+      "reading": "こうさい",
+      "romaji": "kousai",
+      "definition": "Hẹn hò / quan hệ",
+      "exampleSentence": "彼女と交際しています。",
+      "exampleTranslation": "Tôi đang hẹn hò với cô ấy.",
+      "forms": [
+        "交際します",
+        "交際して",
+        "交際した",
+        "交際しない",
+        "交際できる"
+      ],
+      "displayOrder": 2
+    },
+    {
+      "id": 4318,
+      "term": "別れ",
+      "reading": "わかれ",
+      "romaji": "wakare",
+      "definition": "Chia tay / ly biệt",
+      "exampleSentence": "悲しい別れでした。",
+      "exampleTranslation": "Đó là cuộc chia tay buồn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 4319,
+      "term": "嫉妬",
+      "reading": "しっと",
+      "romaji": "shitto",
+      "definition": "Ghen tuông",
+      "exampleSentence": "嫉妬は愛の証拠だと言います。",
+      "exampleTranslation": "Người ta nói ghen tuông là bằng chứng của tình yêu.",
+      "forms": [
+        "嫉妬します",
+        "嫉妬して",
+        "嫉妬した",
+        "嫉妬しない",
+        "嫉妬できる"
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": 4320,
+      "term": "惚れる",
+      "reading": "ほれる",
+      "romaji": "horeru",
+      "definition": "Yêu / mê",
+      "exampleSentence": "彼女に一目惚れしました。",
+      "exampleTranslation": "Tôi yêu cô ấy ngay từ ánh nhìn đầu tiên.",
+      "forms": [
+        "惚れます",
+        "惚れて",
+        "惚れた",
+        "惚れない",
+        "惚れられる"
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": 4321,
+      "term": "縁",
+      "reading": "えん",
+      "romaji": "en",
+      "definition": "Duyên / mối nhân duyên",
+      "exampleSentence": "これも何かの縁ですね。",
+      "exampleTranslation": "Đây cũng là duyên số nhỉ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 4322,
+      "term": "運命",
+      "reading": "うんめい",
+      "romaji": "unmei",
+      "definition": "Số phận / định mệnh",
+      "exampleSentence": "運命の出会いだと思います。",
+      "exampleTranslation": "Tôi nghĩ đây là cuộc gặp gỡ định mệnh.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 4323,
+      "term": "純愛",
+      "reading": "じゅんあい",
+      "romaji": "junai",
+      "definition": "Tình yêu thuần khiết",
+      "exampleSentence": "純愛を信じています。",
+      "exampleTranslation": "Tôi tin vào tình yêu thuần khiết.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 4324,
+      "term": "失恋",
+      "reading": "しつれん",
+      "romaji": "shitsuren",
+      "definition": "Thất tình",
+      "exampleSentence": "失恋して落ち込んでいます。",
+      "exampleTranslation": "Tôi đang buồn vì thất tình.",
+      "forms": [
+        "失恋します",
+        "失恋して",
+        "失恋した",
+        "失恋しない",
+        "失恋できる"
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": 4325,
+      "term": "プロポーズ",
+      "reading": "プロポーズ",
+      "romaji": "puroozu",
+      "definition": "Cầu hôn",
+      "exampleSentence": "彼がプロポーズしてくれました。",
+      "exampleTranslation": "Anh ấy đã cầu hôn tôi.",
+      "forms": [
+        "プロポーズします",
+        "プロポーズして",
+        "プロポーズした",
+        "プロポーズしない",
+        "プロポーズできる"
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": 4326,
+      "term": "婚約",
+      "reading": "こんやく",
+      "romaji": "konyaku",
+      "definition": "Đính hôn",
+      "exampleSentence": "来月、婚約パーティーがあります。",
+      "exampleTranslation": "Tháng sau có tiệc đính hôn.",
+      "forms": [
+        "婚約します",
+        "婚約して",
+        "婚約した",
+        "婚約しない",
+        "婚約できる"
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": 4327,
+      "term": "初デート",
+      "reading": "はつデート",
+      "romaji": "hatsu deeto",
+      "definition": "Buổi hẹn đầu tiên",
+      "exampleSentence": "初デートはどこに行きますか。",
+      "exampleTranslation": "Buổi hẹn đầu tiên đi đâu?",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 4328,
+      "term": "ときめく",
+      "reading": "ときめく",
+      "romaji": "tokimeku",
+      "definition": "Rung động / hồi hộp (vì tình yêu)",
+      "exampleSentence": "彼を見るとときめきます。",
+      "exampleTranslation": "Nhìn thấy anh ấy tim tôi đập rộn ràng.",
+      "forms": [
+        "ときめきます",
+        "ときめいて",
+        "ときめいた",
+        "ときめかない",
+        "ときめける"
+      ],
+      "displayOrder": 13
+    },
+    {
+      "id": 4329,
+      "term": "胸が痛い",
+      "reading": "むねがいたい",
+      "romaji": "mune ga itai",
+      "definition": "Đau lòng / tim đau",
+      "exampleSentence": "失恋して胸が痛いです。",
+      "exampleTranslation": "Tim đau vì thất tình.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 4330,
+      "term": "やきもちを焼く",
+      "reading": "やきもちをやく",
+      "romaji": "yakimochi wo yaku",
+      "definition": "Ghen",
+      "exampleSentence": "彼女はすぐやきもちを焼きます。",
+      "exampleTranslation": "Cô ấy rất hay ghen.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 4331,
+      "term": "相思相愛",
+      "reading": "そうしそうあい",
+      "romaji": "soushi souai",
+      "definition": "Yêu nhau (cả hai)",
+      "exampleSentence": "二人は相思相愛です。",
+      "exampleTranslation": "Hai người yêu nhau.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 4332,
+      "term": "ラブレター",
+      "reading": "ラブレター",
+      "romaji": "rabu retaa",
+      "definition": "Thư tình",
+      "exampleSentence": "ラブレターを書いたことがありますか。",
+      "exampleTranslation": "Bạn đã từng viết thư tình chưa?",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 4333,
+      "term": "ドキドキ",
+      "reading": "ドキドキ",
+      "romaji": "dokidoki",
+      "definition": "Hồi hộp / tim đập nhanh",
+      "exampleSentence": "彼の前でドキドキします。",
+      "exampleTranslation": "Tim tôi đập nhanh trước mặt anh ấy.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 4334,
+      "term": "愛情",
+      "reading": "あいじょう",
+      "romaji": "aijou",
+      "definition": "Tình yêu thương / tình cảm",
+      "exampleSentence": "深い愛情を持っています。",
+      "exampleTranslation": "Tôi có tình yêu thương sâu sắc.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 50764,
+      "term": "恋人",
+      "reading": "こいびと",
+      "romaji": "koibito",
+      "definition": "người yêu",
+      "exampleSentence": "彼女は恋人の帰りを駅で待っていた。",
+      "exampleTranslation": "Cô ấy đã đợi người yêu trở về ở nhà ga.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 50765,
+      "term": "元彼",
+      "reading": "もとかれ",
+      "romaji": "motokare",
+      "definition": "bạn trai cũ",
+      "exampleSentence": "偶然、元彼と同じ電車に乗ってしまった。",
+      "exampleTranslation": "Tình cờ tôi lại đi cùng chuyến tàu với bạn trai cũ.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 50766,
+      "term": "元カノ",
+      "reading": "もとかの",
+      "romaji": "motokano",
+      "definition": "bạn gái cũ",
+      "exampleSentence": "彼の元カノが結婚したと聞いた。",
+      "exampleTranslation": "Tôi nghe nói bạn gái cũ của anh ấy đã kết hôn.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 50767,
+      "term": "遠距離恋愛",
+      "reading": "えんきょりれんあい",
+      "romaji": "enkyori ren'ai",
+      "definition": "yêu xa",
+      "exampleSentence": "二人は卒業後、遠距離恋愛を続けている。",
+      "exampleTranslation": "Sau khi tốt nghiệp, hai người vẫn tiếp tục yêu xa.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 50768,
+      "term": "三角関係",
+      "reading": "さんかくかんけい",
+      "romaji": "sankaku kankei",
+      "definition": "mối quan hệ tay ba",
+      "exampleSentence": "このドラマは三角関係をめぐる物語だ。",
+      "exampleTranslation": "Bộ phim này là câu chuyện xoay quanh mối quan hệ tay ba.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 50769,
+      "term": "一目ぼれ",
+      "reading": "ひとめぼれ",
+      "romaji": "hitomebore",
+      "definition": "tiếng sét ái tình",
+      "exampleSentence": "彼は彼女に会った瞬間、一目ぼれした。",
+      "exampleTranslation": "Anh ấy đã yêu cô ấy ngay từ lần đầu gặp mặt.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 50770,
+      "term": "すれ違う",
+      "reading": "すれちがう",
+      "romaji": "surechigau",
+      "definition": "không hiểu nhau; lướt qua nhau",
+      "exampleSentence": "二人の気持ちは少しずつすれ違っていった。",
+      "exampleTranslation": "Tình cảm của hai người dần dần trở nên không đồng điệu.",
+      "forms": [
+        "すれ違います",
+        "すれ違って",
+        "すれ違った",
+        "すれ違わない"
+      ],
+      "displayOrder": 26
+    },
+    {
+      "id": 50771,
+      "term": "口説く",
+      "reading": "くどく",
+      "romaji": "kudoku",
+      "definition": "tán tỉnh; ve vãn",
+      "exampleSentence": "彼は bar で知り合った女性を口説いていた。",
+      "exampleTranslation": "Anh ấy đang tán tỉnh một cô gái quen ở quán bar.",
+      "forms": [
+        "口説きます",
+        "口説いて",
+        "口説いた",
+        "口説かない"
+      ],
+      "displayOrder": 27
+    },
+    {
+      "id": 50772,
+      "term": "振る",
+      "reading": "ふる",
+      "romaji": "furu",
+      "definition": "từ chối; chia tay với ai",
+      "exampleSentence": "彼女は何度も考えた末、彼を振った。",
+      "exampleTranslation": "Sau khi suy nghĩ nhiều lần, cô ấy đã chia tay anh ấy.",
+      "forms": [
+        "振ります",
+        "振って",
+        "振った",
+        "振らない"
+      ],
+      "displayOrder": 28
+    },
+    {
+      "id": 50773,
+      "term": "仲直りする",
+      "reading": "なかなおりする",
+      "romaji": "nakanaori suru",
+      "definition": "làm lành",
+      "exampleSentence": "けんかの後、二人は電話で仲直りした。",
+      "exampleTranslation": "Sau khi cãi nhau, hai người đã làm lành qua điện thoại.",
+      "forms": [
+        "仲直りします",
+        "仲直りして",
+        "仲直りした",
+        "仲直りしない"
+      ],
+      "displayOrder": 29
+    }
+  ]
+}

@@ -1,0 +1,461 @@
+{
+  "id": 85,
+  "title": "お買い物会話",
+  "description": "Hội thoại mua sắm · N5",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:53.49593",
+  "cards": [
+    {
+      "id": 2521,
+      "term": "いらっしゃいませ",
+      "reading": "いらっしゃいませ",
+      "romaji": "irasshaimase",
+      "definition": "Xin chào, kính chào quý khách",
+      "exampleSentence": "いらっしゃいませ！",
+      "exampleTranslation": "Xin chào, kính chào quý khách!",
+      "forms": [
+        "店員が客に言う挨拶",
+        "お客様を迎える言葉",
+        "丁寧な歓迎の言葉"
+      ],
+      "displayOrder": 0
+    },
+    {
+      "id": 2522,
+      "term": "〜はありますか",
+      "reading": "〜はありますか",
+      "romaji": "wa arimasu ka",
+      "definition": "Có ... không?",
+      "exampleSentence": "この色はありますか。",
+      "exampleTranslation": "Màu này có không?",
+      "forms": [
+        "商品を探す質問",
+        "在庫確認",
+        "〜を探しています も使える"
+      ],
+      "displayOrder": 1
+    },
+    {
+      "id": 2523,
+      "term": "これをください",
+      "reading": "これをください",
+      "romaji": "kore wo kudasai",
+      "definition": "Cho tôi cái này",
+      "exampleSentence": "これを二つください。",
+      "exampleTranslation": "Cho tôi hai cái này.",
+      "forms": [
+        "購入時の表現",
+        "〜枚/個/本 など数え方と一緒に",
+        "これをお願いします も使える"
+      ],
+      "displayOrder": 2
+    },
+    {
+      "id": 2524,
+      "term": "いくらですか",
+      "reading": "いくらですか",
+      "romaji": "ikura desu ka",
+      "definition": "Bao nhiêu tiền?",
+      "exampleSentence": "このシャツはいくらですか。",
+      "exampleTranslation": "Áo này bao nhiêu tiền?",
+      "forms": [
+        "値段を聞く",
+        "お値段はいくらですか (lịch sự)",
+        "いくらになりますか も使える"
+      ],
+      "displayOrder": 3
+    },
+    {
+      "id": 2525,
+      "term": "少し安くなりますか",
+      "reading": "すこしやすくなりますか",
+      "romaji": "sukoshi yasuku narimasu ka",
+      "definition": "Có thể rẻ hơn một chút không?",
+      "exampleSentence": "少し安くなりますか。",
+      "exampleTranslation": "Có thể rẻ hơn một chút không?",
+      "forms": [
+        "値引き交渉",
+        "割引はありますか も使える",
+        "通常は交渉できない店もある"
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": 2526,
+      "term": "試着してもいいですか",
+      "reading": "しちゃくしてもいいですか",
+      "romaji": "shichaku shite mo ii desu ka",
+      "definition": "Tôi có thể thử không?",
+      "exampleSentence": "この服を試着してもいいですか。",
+      "exampleTranslation": "Tôi có thể thử quần áo này không?",
+      "forms": [
+        "服を試着する許可を求める",
+        "試着室はどこですか",
+        "どうぞ (được phép)"
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": 2527,
+      "term": "別のサイズはありますか",
+      "reading": "べつのさいずはありますか",
+      "romaji": "betsu no saizu wa arimasu ka",
+      "definition": "Có cỡ khác không?",
+      "exampleSentence": "もう少し大きいサイズはありますか。",
+      "exampleTranslation": "Có cỡ lớn hơn không?",
+      "forms": [
+        "サイズを確認する",
+        "Mサイズはありますか も使える",
+        "サイズが合わない = không vừa cỡ"
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": 2528,
+      "term": "これにします",
+      "reading": "これにします",
+      "romaji": "kore ni shimasu",
+      "definition": "Tôi sẽ lấy cái này",
+      "exampleSentence": "これにします、ありがとう。",
+      "exampleTranslation": "Tôi sẽ lấy cái này, cảm ơn.",
+      "forms": [
+        "最終決定の表現",
+        "これをください も使える",
+        "やめておきます = thôi không lấy"
+      ],
+      "displayOrder": 7
+    },
+    {
+      "id": 2529,
+      "term": "カードで払えますか",
+      "reading": "かーどではらえますか",
+      "romaji": "kaado de haraemasu ka",
+      "definition": "Có thể trả bằng thẻ không?",
+      "exampleSentence": "クレジットカードで払えますか。",
+      "exampleTranslation": "Có thể trả bằng thẻ tín dụng không?",
+      "forms": [
+        "支払い方法の確認",
+        "現金のみです = chỉ nhận tiền mặt",
+        "キャッシュレス決済 = thanh toán không tiền mặt"
+      ],
+      "displayOrder": 8
+    },
+    {
+      "id": 2530,
+      "term": "お釣りは〜です",
+      "reading": "おつりは〜です",
+      "romaji": "otsuri wa desu",
+      "definition": "Tiền thừa là...",
+      "exampleSentence": "お釣りは500円です。",
+      "exampleTranslation": "Tiền thừa là 500 yên.",
+      "forms": [
+        "お釣りを渡す時の表現",
+        "ちょうどいただきます = vừa đủ không thừa",
+        "レジで言われる言葉"
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": 2531,
+      "term": "袋に入れてください",
+      "reading": "ふくろにいれてください",
+      "romaji": "fukuro ni irete kudasai",
+      "definition": "Vui lòng bỏ vào túi",
+      "exampleSentence": "袋に入れてください。",
+      "exampleTranslation": "Vui lòng bỏ vào túi.",
+      "forms": [
+        "包装を依頼する",
+        "袋はいりません (không cần túi)",
+        "エコバッグを使います も使える"
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": 2532,
+      "term": "これはどこにありますか",
+      "reading": "これはどこにありますか",
+      "romaji": "kore wa doko ni arimasu ka",
+      "definition": "Cái này ở đâu?",
+      "exampleSentence": "パンはどこにありますか。",
+      "exampleTranslation": "Bánh mì ở đâu?",
+      "forms": [
+        "店内で商品の場所を聞く",
+        "〜のコーナーはどこですか も使える",
+        "案内します = để tôi dẫn"
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": 2533,
+      "term": "返品できますか",
+      "reading": "へんぴんできますか",
+      "romaji": "henpin dekimasu ka",
+      "definition": "Có thể trả hàng không?",
+      "exampleSentence": "これを返品できますか。",
+      "exampleTranslation": "Có thể trả hàng này không?",
+      "forms": [
+        "返品・交換を求める",
+        "レシートはありますか = có hóa đơn không",
+        "返品不可 = không hoàn trả"
+      ],
+      "displayOrder": 12
+    },
+    {
+      "id": 2534,
+      "term": "ポイントカードはありますか",
+      "reading": "ぽいんとかーどはありますか",
+      "romaji": "pointo kaado wa arimasu ka",
+      "definition": "Bạn có thẻ tích điểm không?",
+      "exampleSentence": "ポイントカードはありますか。",
+      "exampleTranslation": "Bạn có thẻ tích điểm không?",
+      "forms": [
+        "レジでよく聞かれる",
+        "ご利用ですか も使える",
+        "お作りしますか = có muốn làm thẻ không"
+      ],
+      "displayOrder": 13
+    },
+    {
+      "id": 2535,
+      "term": "贈り物用に包んでいただけますか",
+      "reading": "おくりものようにつつんでいただけますか",
+      "romaji": "okurimono you ni tsutsunde itadakemasu ka",
+      "definition": "Bạn có thể gói làm quà không?",
+      "exampleSentence": "プレゼント用に包んでいただけますか。",
+      "exampleTranslation": "Bạn có thể gói làm quà không?",
+      "forms": [
+        "ギフト包装を依頼",
+        "のし紙はいりますか = có cần giấy tặng quà không",
+        "別途料金がかかる場合もある"
+      ],
+      "displayOrder": 14
+    },
+    {
+      "id": 2536,
+      "term": "在庫を確認してください",
+      "reading": "ざいこをかくにんしてください",
+      "romaji": "zaiko wo kakunin shite kudasai",
+      "definition": "Vui lòng kiểm tra hàng tồn kho",
+      "exampleSentence": "在庫を確認していただけますか。",
+      "exampleTranslation": "Bạn có thể kiểm tra hàng tồn kho không?",
+      "forms": [
+        "在庫確認を依頼する",
+        "取り寄せできますか = có thể đặt hàng không",
+        "入荷予定はいつですか = khi nào sẽ có hàng"
+      ],
+      "displayOrder": 15
+    },
+    {
+      "id": 2537,
+      "term": "試食できますか",
+      "reading": "ししょくできますか",
+      "romaji": "shishoku dekimasu ka",
+      "definition": "Có thể nếm thử không?",
+      "exampleSentence": "これは試食できますか。",
+      "exampleTranslation": "Cái này có thể nếm thử không?",
+      "forms": [
+        "食べ物の試食を求める",
+        "どうぞご自由に = xin cứ tự nhiên",
+        "試食コーナー = khu thử ăn"
+      ],
+      "displayOrder": 16
+    },
+    {
+      "id": 2538,
+      "term": "賞味期限はいつですか",
+      "reading": "しょうみきげんはいつですか",
+      "romaji": "shoumikigen wa itsu desu ka",
+      "definition": "Hạn sử dụng là khi nào?",
+      "exampleSentence": "この商品の賞味期限はいつですか。",
+      "exampleTranslation": "Hạn sử dụng của sản phương này là khi nào?",
+      "forms": [
+        "食品の期限を確認する",
+        "消費期限 = hạn tiêu thụ (bắt buộc dùng trước)",
+        "賞味期限 = hạn sử dụng tốt nhất"
+      ],
+      "displayOrder": 17
+    },
+    {
+      "id": 2539,
+      "term": "セール品はどこですか",
+      "reading": "せーるひんはどこですか",
+      "romaji": "seeru hin wa doko desu ka",
+      "definition": "Hàng khuyến mãi ở đâu?",
+      "exampleSentence": "セール品はどこですか。",
+      "exampleTranslation": "Hàng khuyến mãi ở đâu?",
+      "forms": [
+        "特価品の場所を聞く",
+        "タイムセール = giảm giá trong thời gian giới hạn",
+        "お買い得品 = hàng giảm giá"
+      ],
+      "displayOrder": 18
+    },
+    {
+      "id": 2540,
+      "term": "割引はありますか",
+      "reading": "わりびきはありますか",
+      "romaji": "waribiki wa arimasu ka",
+      "definition": "Có giảm giá không?",
+      "exampleSentence": "今日は割引はありますか。",
+      "exampleTranslation": "Hôm nay có giảm giá không?",
+      "forms": [
+        "値引きを確認する",
+        "クーポンを使えますか = có thể dùng coupon không",
+        "会員割引 = giảm giá cho thành viên"
+      ],
+      "displayOrder": 19
+    },
+    {
+      "id": 2541,
+      "term": "まとめて買うと安くなりますか",
+      "reading": "まとめてかうとやすくなりますか",
+      "romaji": "matomete kau to yasuku narimasu ka",
+      "definition": "Mua nhiều có được rẻ hơn không?",
+      "exampleSentence": "まとめて買うと安くなりますか。",
+      "exampleTranslation": "Mua nhiều có được rẻ hơn không?",
+      "forms": [
+        "まとめ買い割引を確認する",
+        "大量購入割引がある場合も",
+        "店によって対応が違う"
+      ],
+      "displayOrder": 20
+    },
+    {
+      "id": 2542,
+      "term": "新商品はありますか",
+      "reading": "しんしょうひんはありますか",
+      "romaji": "shinshouhin wa arimasu ka",
+      "definition": "Có sản phẩm mới không?",
+      "exampleSentence": "この季節の新商品はありますか。",
+      "exampleTranslation": "Có sản phẩm mới theo mùa không?",
+      "forms": [
+        "新製品を探す",
+        "新作・新入荷 も使える",
+        "おすすめはありますか = có gì khuyên không"
+      ],
+      "displayOrder": 21
+    },
+    {
+      "id": 2543,
+      "term": "人気商品はどれですか",
+      "reading": "にんきしょうひんはどれですか",
+      "romaji": "ninki shouhin wa dore desu ka",
+      "definition": "Sản phẩm nào được ưa chuộng nhất?",
+      "exampleSentence": "今一番人気の商品はどれですか。",
+      "exampleTranslation": "Sản phẩm được ưa chuộng nhất hiện nay là cái nào?",
+      "forms": [
+        "人気の商品を聞く",
+        "おすすめを聞く場合にも",
+        "売れ筋商品 = hàng bán chạy"
+      ],
+      "displayOrder": 22
+    },
+    {
+      "id": 2544,
+      "term": "プレゼントにしたいのですが",
+      "reading": "ぷれぜんとにしたいのですが",
+      "romaji": "purezento ni shitai no desu ga",
+      "definition": "Tôi muốn dùng làm quà tặng",
+      "exampleSentence": "プレゼントにしたいのですが、何かおすすめはありますか。",
+      "exampleTranslation": "Tôi muốn tặng làm quà, bạn có gợi ý gì không?",
+      "forms": [
+        "贈り物を探す",
+        "予算を言うと案内しやすい",
+        "〜円以内でおすすめは = dưới ... yên có gì không"
+      ],
+      "displayOrder": 23
+    },
+    {
+      "id": 2545,
+      "term": "ありがとうございました",
+      "reading": "ありがとうございました",
+      "romaji": "arigatou gozaimashita",
+      "definition": "Cảm ơn (đã mua hàng)",
+      "exampleSentence": "ありがとうございました、また来ます。",
+      "exampleTranslation": "Cảm ơn, tôi sẽ lại đến.",
+      "forms": [
+        "購入後の感謝",
+        "またのご来店をお待ちしております = hẹn gặp lại",
+        "よいお買い物を = chúc mua sắm vui"
+      ],
+      "displayOrder": 24
+    },
+    {
+      "id": 2546,
+      "term": "領収書をください",
+      "reading": "りょうしゅうしょをください",
+      "romaji": "ryoushuusho wo kudasai",
+      "definition": "Cho tôi hóa đơn",
+      "exampleSentence": "領収書をください。",
+      "exampleTranslation": "Cho tôi hóa đơn.",
+      "forms": [
+        "領収書の依頼",
+        "宛名は何にしますか = ghi tên gì",
+        "レシートと領収書は違う"
+      ],
+      "displayOrder": 25
+    },
+    {
+      "id": 2547,
+      "term": "ちょっと考えます",
+      "reading": "ちょっとかんがえます",
+      "romaji": "chotto kangaemasu",
+      "definition": "Tôi cần suy nghĩ thêm một chút",
+      "exampleSentence": "ちょっと考えます。",
+      "exampleTranslation": "Tôi cần suy nghĩ thêm.",
+      "forms": [
+        "即決しない時の断り方",
+        "また後で来ます も使える",
+        "丁寧に断る表現"
+      ],
+      "displayOrder": 26
+    },
+    {
+      "id": 2548,
+      "term": "今日は見るだけです",
+      "reading": "きょうはみるだけです",
+      "romaji": "kyou wa miru dake desu",
+      "definition": "Hôm nay tôi chỉ xem thôi",
+      "exampleSentence": "今日は見るだけです。ありがとう。",
+      "exampleTranslation": "Hôm nay tôi chỉ xem thôi. Cảm ơn.",
+      "forms": [
+        "購入しない時の断り方",
+        "大丈夫です も使える",
+        "ウィンドウショッピング = chỉ đi xem không mua"
+      ],
+      "displayOrder": 27
+    },
+    {
+      "id": 2549,
+      "term": "包装してください",
+      "reading": "ほうそうしてください",
+      "romaji": "housou shite kudasai",
+      "definition": "Vui lòng gói cho tôi",
+      "exampleSentence": "プレゼントなので包装してください。",
+      "exampleTranslation": "Vì là quà nên vui lòng gói cho tôi.",
+      "forms": [
+        "包装を依頼する",
+        "のし紙 = giấy kèm quà",
+        "リボンをつけてください = vui lòng đính ruy băng"
+      ],
+      "displayOrder": 28
+    },
+    {
+      "id": 2550,
+      "term": "お願いします",
+      "reading": "おねがいします",
+      "romaji": "onegai shimasu",
+      "definition": "Vui lòng / Tôi nhờ bạn",
+      "exampleSentence": "では、これをお願いします。",
+      "exampleTranslation": "Thế thì vui lòng cho tôi cái này.",
+      "forms": [
+        "依頼や注文時に使う",
+        "広く使える丁寧な表現",
+        "〜してください と組み合わせて"
+      ],
+      "displayOrder": 29
+    }
+  ]
+}

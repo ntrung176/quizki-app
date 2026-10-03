@@ -1,0 +1,143 @@
+{
+  "id": 515,
+  "title": "生活・住まい · 社会・世代とその他語彙",
+  "description": "Xã hội, thế hệ & từ vựng bổ trợ — chủ đề Đời sống & nhà cửa · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:51.097947",
+  "cards": [
+    {
+      "id": 12764,
+      "term": "近所 (きんじょ)",
+      "reading": "きんじょ",
+      "romaji": null,
+      "definition": "hàng xóm/gần nhà",
+      "exampleSentence": "近所の人たちと協力して、町内の清掃活動に参加した。",
+      "exampleTranslation": "Tôi đã cùng những người sống gần nhà tham gia hoạt động vệ sinh khu phố.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12765,
+      "term": "かつて",
+      "reading": "かつて",
+      "romaji": null,
+      "definition": "xưa kia/đã từng",
+      "exampleSentence": "かつてこの町は、海外からの観光客でにぎわっていた。",
+      "exampleTranslation": "Xưa kia, thị trấn này từng nhộn nhịp du khách nước ngoài.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12766,
+      "term": "海外 (かいがい)",
+      "reading": "かいがい",
+      "romaji": null,
+      "definition": "nước ngoài",
+      "exampleSentence": "卒業したら、海外で働く経験をしてみたい。",
+      "exampleTranslation": "Sau khi tốt nghiệp, tôi muốn thử trải nghiệm làm việc ở nước ngoài.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12767,
+      "term": "国外 (こくがい)",
+      "reading": "こくがい",
+      "romaji": null,
+      "definition": "ngoài nước",
+      "exampleSentence": "この薬を国外へ持ち出すには、許可が必要です。",
+      "exampleTranslation": "Muốn mang loại thuốc này ra nước ngoài thì cần phải được cấp phép.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12768,
+      "term": "国内 (こくない)",
+      "reading": "こくない",
+      "romaji": null,
+      "definition": "trong nước",
+      "exampleSentence": "国内の多くの地域で、大雪による交通の混乱が続いている。",
+      "exampleTranslation": "Tình trạng giao thông hỗn loạn do tuyết rơi dày vẫn tiếp diễn ở nhiều khu vực trong nước.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12769,
+      "term": "世帯 (せたい)",
+      "reading": "せたい",
+      "romaji": null,
+      "definition": "hộ gia đình",
+      "exampleSentence": "この地域では、一つの世帯に二台以上の車がある家庭も多い。",
+      "exampleTranslation": "Ở khu vực này, có nhiều gia đình mỗi hộ có từ hai chiếc ô tô trở lên.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12770,
+      "term": "世代 (せだい)",
+      "reading": "せだい",
+      "romaji": null,
+      "definition": "thế hệ",
+      "exampleSentence": "世代を超えて受け継がれる伝統を、大切に守っていきたい。",
+      "exampleTranslation": "Tôi muốn gìn giữ thật trân trọng truyền thống được truyền lại qua nhiều thế hệ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12771,
+      "term": "前後 (ぜんご)",
+      "reading": "ぜんご",
+      "romaji": null,
+      "definition": "trước sau",
+      "exampleSentence": "試験の前後は、駅の周辺が学生で混雑する。",
+      "exampleTranslation": "Trước và sau kỳ thi, khu vực quanh nhà ga đông đúc học sinh.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12772,
+      "term": "素材 (そざい)",
+      "reading": "そざい",
+      "romaji": null,
+      "definition": "chất liệu",
+      "exampleSentence": "この家具は、丈夫な素材を使って丁寧に作られている。",
+      "exampleTranslation": "Đồ nội thất này được làm cẩn thận bằng chất liệu bền.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12773,
+      "term": "年齢 (ねんれい)",
+      "reading": "ねんれい",
+      "romaji": null,
+      "definition": "tuổi tác",
+      "exampleSentence": "年齢に関係なく、誰でもこの講座に参加できます。",
+      "exampleTranslation": "Bất kể tuổi tác, ai cũng có thể tham gia khóa học này.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12774,
+      "term": "立ち止まる (たちどまる)",
+      "reading": "たちどまる",
+      "romaji": null,
+      "definition": "dừng lại/dừng bước",
+      "exampleSentence": "彼は交差点の前で立ち止まると、周囲を見回した。",
+      "exampleTranslation": "Anh ấy dừng bước trước ngã tư rồi nhìn quanh.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12775,
+      "term": "定住 (ていじゅう)",
+      "reading": "ていじゅう",
+      "romaji": null,
+      "definition": "định cư",
+      "exampleSentence": "政府は地方への定住を希望する若者を支援している。",
+      "exampleTranslation": "Chính phủ đang hỗ trợ những người trẻ mong muốn định cư ở địa phương.",
+      "forms": [],
+      "displayOrder": 11
+    }
+  ]
+}

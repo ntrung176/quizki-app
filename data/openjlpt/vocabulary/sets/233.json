@@ -1,0 +1,176 @@
+{
+  "id": 233,
+  "title": "Tuần 6 · Ngày 5 - 慣用句② (Thành ngữ nhóm 2)",
+  "description": "Nihongo Soumatome N3 語彙 — 慣用句② (Thành ngữ nhóm 2)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.754343",
+  "cards": [
+    {
+      "id": 5761,
+      "term": "役に立つ (やくにたつ)",
+      "reading": "やくにたつ",
+      "romaji": "yaku ni tatsu",
+      "definition": "có ích, có tác dụng, hữu ích",
+      "exampleSentence": "この説明書は、初めて使う人にも役に立つでしょう。",
+      "exampleTranslation": "Cuốn hướng dẫn này có lẽ cũng hữu ích cho người dùng lần đầu.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5762,
+      "term": "気が向く (きがむく)",
+      "reading": "きがむく",
+      "romaji": "ki ga muku",
+      "definition": "có hứng, muốn làm gì đó",
+      "exampleSentence": "気が向くときに、好きな音楽を聴いています。",
+      "exampleTranslation": "Tôi nghe nhạc mình thích khi có hứng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5763,
+      "term": "気にする (きにする)",
+      "reading": "きにする",
+      "romaji": "ki ni suru",
+      "definition": "bận tâm, lo lắng, để ý",
+      "exampleSentence": "そんな小さな失敗を気にする必要はありません。",
+      "exampleTranslation": "Bạn không cần phải bận tâm về một lỗi nhỏ như vậy.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5764,
+      "term": "関心を持つ (かんしんをもつ)",
+      "reading": "かんしんをもつ",
+      "romaji": "kanshin wo motsu",
+      "definition": "quan tâm đến, có sự quan tâm",
+      "exampleSentence": "若い人も環境問題に関心を持つようになりました。",
+      "exampleTranslation": "Ngay cả những người trẻ cũng đã bắt đầu quan tâm đến các vấn đề môi trường.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5765,
+      "term": "興味を持つ (きょうみをもつ)",
+      "reading": "きょうみをもつ",
+      "romaji": "kyoumi wo motsu",
+      "definition": "hứng thú, có hứng thú",
+      "exampleSentence": "子どもが科学に興味を持つきっかけを作りたいです。",
+      "exampleTranslation": "Tôi muốn tạo cơ hội để trẻ em hứng thú với khoa học.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5766,
+      "term": "注目する (ちゅうもくする)",
+      "reading": "ちゅうもくする",
+      "romaji": "chuumoku suru",
+      "definition": "chú ý, chú trọng, tập trung vào",
+      "exampleSentence": "多くの人が、その新しい制度に注目するでしょう。",
+      "exampleTranslation": "Nhiều người sẽ chú ý đến chế độ mới đó.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5767,
+      "term": "印象を与える (いんしょうをあたえる)",
+      "reading": "いんしょうをあたえる",
+      "romaji": "inshou wo ataeru",
+      "definition": "gây ấn tượng, tạo ấn tượng",
+      "exampleSentence": "初対面で笑顔を見せると、相手に良い印象を与えることができます。",
+      "exampleTranslation": "Khi mỉm cười trong lần đầu gặp mặt, bạn có thể tạo ấn tượng tốt với đối phương.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5768,
+      "term": "影響を与える (えいきょうをあたえる)",
+      "reading": "えいきょうをあたえる",
+      "romaji": "eikyou wo ataeru",
+      "definition": "gây ảnh hưởng, tác động đến",
+      "exampleSentence": "テレビの広告は、消費者の購買行動に大きな影響を与える。",
+      "exampleTranslation": "Quảng cáo trên truyền hình gây ảnh hưởng lớn đến hành vi mua sắm của người tiêu dùng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5769,
+      "term": "努力する (どりょくする)",
+      "reading": "どりょくする",
+      "romaji": "doryoku suru",
+      "definition": "nỗ lực, cố gắng",
+      "exampleSentence": "日本語を上達させるには、毎日少しずつ努力することが大切です。",
+      "exampleTranslation": "Để tiến bộ tiếng Nhật, điều quan trọng là phải nỗ lực từng chút một mỗi ngày.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5770,
+      "term": "活躍する (かつやくする)",
+      "reading": "かつやくする",
+      "romaji": "katsuyaku suru",
+      "definition": "hoạt động tích cực, tỏa sáng",
+      "exampleSentence": "彼は海外のチームでも活躍することを目指している。",
+      "exampleTranslation": "Anh ấy đang hướng tới mục tiêu tỏa sáng גם trong một đội tuyển ở nước ngoài.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5771,
+      "term": "貢献する (こうけんする)",
+      "reading": "こうけんする",
+      "romaji": "kouken suru",
+      "definition": "đóng góp, cống hiến",
+      "exampleSentence": "地域の清掃活動に参加し、町の環境改善に貢献する。",
+      "exampleTranslation": "Tôi tham gia hoạt động dọn vệ sinh khu vực và đóng góp vào việc cải thiện môi trường của thị trấn.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5772,
+      "term": "解決する (かいけつする)",
+      "reading": "かいけつする",
+      "romaji": "kaiketsu suru",
+      "definition": "giải quyết, xử lý vấn đề",
+      "exampleSentence": "みんなで話し合えば、この問題を解決する方法が見つかるでしょう。",
+      "exampleTranslation": "Nếu mọi người cùng thảo luận, có lẽ chúng ta sẽ tìm ra cách giải quyết vấn đề này.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5773,
+      "term": "対応する (たいおうする)",
+      "reading": "たいおうする",
+      "romaji": "taiou suru",
+      "definition": "ứng phó, xử lý, đối ứng",
+      "exampleSentence": "店員はお客様からの質問に、丁寧に対応する必要がある。",
+      "exampleTranslation": "Nhân viên cửa hàng cần xử lý các câu hỏi của khách hàng một cách lịch sự.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5774,
+      "term": "確認する (かくにんする)",
+      "reading": "かくにんする",
+      "romaji": "kakunin suru",
+      "definition": "xác nhận, kiểm tra lại",
+      "exampleSentence": "出発する前に、忘れ物がないか確認する。",
+      "exampleTranslation": "Hãy kiểm tra xem có bỏ quên đồ gì trước khi xuất phát.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5775,
+      "term": "実現する (じつげんする)",
+      "reading": "じつげんする",
+      "romaji": "jitsugen suru",
+      "definition": "thực hiện, hiện thực hóa",
+      "exampleSentence": "長年の夢を実現するために、毎日努力しています。",
+      "exampleTranslation": "Tôi nỗ lực mỗi ngày để hiện thực hóa ước mơ suốt nhiều năm qua.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "id": 215,
+  "title": "Tuần 4 · Ngày 1 - コミュニケーション動詞 (Động từ giao tiếp)",
+  "description": "Nihongo Soumatome N3 語彙 — コミュニケーション動詞 (Động từ giao tiếp)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.320128",
+  "cards": [
+    {
+      "id": 5521,
+      "term": "説明する (せつめいする)",
+      "reading": "せつめいする",
+      "romaji": "setsumei suru",
+      "definition": "giải thích, thuyết minh",
+      "exampleSentence": "先生は学生に文法の使い方を説明する。",
+      "exampleTranslation": "Giáo viên giải thích cho học sinh cách sử dụng ngữ pháp.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5522,
+      "term": "質問する (しつもんする)",
+      "reading": "しつもんする",
+      "romaji": "shitsumon suru",
+      "definition": "hỏi, đặt câu hỏi",
+      "exampleSentence": "分からない点があれば、遠慮なく先生に質問する。",
+      "exampleTranslation": "Nếu có điểm nào không hiểu, hãy cứ mạnh dạn hỏi giáo viên.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5523,
+      "term": "確認する (かくにんする)",
+      "reading": "かくにんする",
+      "romaji": "kakunin suru",
+      "definition": "xác nhận, kiểm tra lại",
+      "exampleSentence": "出発する前に、もう一度時間を確認する。",
+      "exampleTranslation": "Trước khi khởi hành, tôi sẽ kiểm tra lại thời gian một lần nữa.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5524,
+      "term": "伝える (つたえる)",
+      "reading": "つたえる",
+      "romaji": "tsutaeru",
+      "definition": "truyền đạt, thông báo",
+      "exampleSentence": "会議で決まったことを、担当者に伝える。",
+      "exampleTranslation": "Tôi sẽ truyền đạt cho người phụ trách những điều đã được quyết định trong cuộc họp.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5525,
+      "term": "知らせる (しらせる)",
+      "reading": "しらせる",
+      "romaji": "shiraseru",
+      "definition": "thông báo, báo tin",
+      "exampleSentence": "結果が分かり次第、皆さんに知らせる。",
+      "exampleTranslation": "Ngay khi biết kết quả, tôi sẽ báo cho mọi người.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5526,
+      "term": "発表する (はっぴょうする)",
+      "reading": "はっぴょうする",
+      "romaji": "happyou suru",
+      "definition": "trình bày, công bố",
+      "exampleSentence": "来週の会議で、新しい計画を発表する。",
+      "exampleTranslation": "Tôi sẽ công bố kế hoạch mới trong cuộc họp tuần sau.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5527,
+      "term": "議論する (ぎろんする)",
+      "reading": "ぎろんする",
+      "romaji": "giron suru",
+      "definition": "tranh luận, thảo luận",
+      "exampleSentence": "私たちは環境問題について、授業で議論する予定です。",
+      "exampleTranslation": "Chúng tôi dự định sẽ thảo luận về vấn đề môi trường trong giờ học.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5528,
+      "term": "命令する (めいれいする)",
+      "reading": "めいれいする",
+      "romaji": "meirei suru",
+      "definition": "ra lệnh, mệnh lệnh",
+      "exampleSentence": "上司は部下に、今日中に報告書を提出するよう命令することがあります。",
+      "exampleTranslation": "Cấp trên đôi khi ra lệnh cho cấp dưới nộp báo cáo trong ngày hôm nay.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5529,
+      "term": "依頼する (いらいする)",
+      "reading": "いらいする",
+      "romaji": "irai suru",
+      "definition": "nhờ, yêu cầu, nhờ vả",
+      "exampleSentence": "忙しいときは、同僚に仕事を依頼することがあります。",
+      "exampleTranslation": "Khi bận, tôi thường nhờ đồng nghiệp làm giúp công việc.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5530,
+      "term": "許可する (きょかする)",
+      "reading": "きょかする",
+      "romaji": "kyoka suru",
+      "definition": "cho phép, cấp phép",
+      "exampleSentence": "店長は、店内での写真撮影を許可するかどうか検討しています。",
+      "exampleTranslation": "Quản lý cửa hàng đang xem xét có cho phép chụp ảnh trong cửa hàng hay không.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5531,
+      "term": "禁止する (きんしする)",
+      "reading": "きんしする",
+      "romaji": "kinshi suru",
+      "definition": "cấm, nghiêm cấm",
+      "exampleSentence": "この学校では、授業中に携帯電話を使うことを禁止する規則があります。",
+      "exampleTranslation": "Trường này có quy định cấm sử dụng điện thoại di động trong giờ học.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5532,
+      "term": "批判する (ひはんする)",
+      "reading": "ひはんする",
+      "romaji": "hihan suru",
+      "definition": "chỉ trích, phê phán",
+      "exampleSentence": "人の意見を批判する前に、まず最後まで話を聞きましょう。",
+      "exampleTranslation": "Trước khi phê phán ý kiến của người khác, hãy lắng nghe họ nói hết trước đã.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5533,
+      "term": "称賛する (しょうさんする)",
+      "reading": "しょうさんする",
+      "romaji": "shousan suru",
+      "definition": "khen ngợi, ca ngợi",
+      "exampleSentence": "多くの人が、彼の勇気ある行動を称賛する声を上げました。",
+      "exampleTranslation": "Nhiều người đã lên tiếng ca ngợi hành động dũng cảm của anh ấy.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5534,
+      "term": "宣言する (せんげんする)",
+      "reading": "せんげんする",
+      "romaji": "sengen suru",
+      "definition": "tuyên bố, tuyên ngôn",
+      "exampleSentence": "彼は会見で、来年までに会社を立て直すと宣言する予定です。",
+      "exampleTranslation": "Anh ấy dự định tuyên bố trong buổi họp báo rằng sẽ vực dậy công ty trước năm sau.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5535,
+      "term": "約束する (やくそくする)",
+      "reading": "やくそくする",
+      "romaji": "yakusoku suru",
+      "definition": "hứa, hẹn, lời hứa",
+      "exampleSentence": "彼は約束を守る人なので、簡単に約束することはありません。",
+      "exampleTranslation": "Vì là người giữ lời hứa nên anh ấy không dễ dàng hứa hẹn.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

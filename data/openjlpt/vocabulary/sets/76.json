@@ -1,0 +1,461 @@
+{
+  "id": 76,
+  "title": "助詞マスター",
+  "description": "Trợ từ N5 · は が を に で も",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:53.02236",
+  "cards": [
+    {
+      "id": 2271,
+      "term": "は",
+      "reading": "は",
+      "romaji": "wa",
+      "definition": "Trợ từ chủ đề",
+      "exampleSentence": "私は学生です。",
+      "exampleTranslation": "Tôi là học sinh.",
+      "forms": [
+        "Nhấn mạnh chủ đề câu",
+        "Dùng sau danh từ chủ đề",
+        "Khác が ở chỗ nhấn mạnh đối lập"
+      ],
+      "displayOrder": 0
+    },
+    {
+      "id": 2272,
+      "term": "が",
+      "reading": "が",
+      "romaji": "ga",
+      "definition": "Trợ từ chủ ngữ",
+      "exampleSentence": "猫が好きです。",
+      "exampleTranslation": "Tôi thích mèo.",
+      "forms": [
+        "Chỉ chủ ngữ thực hiện hành động",
+        "Dùng với tính từ chỉ cảm xúc・khả năng",
+        "Chỉ đối tượng mà chủ ngữ có cảm xúc"
+      ],
+      "displayOrder": 1
+    },
+    {
+      "id": 2273,
+      "term": "を",
+      "reading": "を",
+      "romaji": "wo",
+      "definition": "Trợ từ tân ngữ",
+      "exampleSentence": "本を読む。",
+      "exampleTranslation": "Đọc sách.",
+      "forms": [
+        "Theo sau danh từ nhận hành động",
+        "Động từ ngoại động từ dùng を",
+        "Biểu thị điểm xuất phát của chuyển động"
+      ],
+      "displayOrder": 2
+    },
+    {
+      "id": 2274,
+      "term": "に",
+      "reading": "に",
+      "romaji": "ni",
+      "definition": "Trợ từ chỉ hướng/thời gian/địa điểm",
+      "exampleSentence": "六時に起きる。",
+      "exampleTranslation": "Dậy lúc 6 giờ.",
+      "forms": [
+        "Chỉ thời điểm cụ thể",
+        "Chỉ hướng đến hoặc đích đến",
+        "Chỉ nơi tồn tại của vật"
+      ],
+      "displayOrder": 3
+    },
+    {
+      "id": 2275,
+      "term": "で",
+      "reading": "で",
+      "romaji": "de",
+      "definition": "Trợ từ phương tiện/địa điểm hành động",
+      "exampleSentence": "電車で行く。",
+      "exampleTranslation": "Đi bằng tàu điện.",
+      "forms": [
+        "Chỉ phương tiện hoặc cách thức",
+        "Chỉ địa điểm diễn ra hành động",
+        "Chỉ nguyên nhân"
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": 2276,
+      "term": "も",
+      "reading": "も",
+      "romaji": "mo",
+      "definition": "Trợ từ cũng",
+      "exampleSentence": "私も行きます。",
+      "exampleTranslation": "Tôi cũng đi.",
+      "forms": [
+        "Thay thế は hoặc が",
+        "Mang nghĩa đồng nhất hoặc bổ sung",
+        "も〜も = cả ... lẫn ..."
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": 2277,
+      "term": "の",
+      "reading": "の",
+      "romaji": "no",
+      "definition": "Trợ từ sở hữu/danh từ hóa",
+      "exampleSentence": "私の本",
+      "exampleTranslation": "Sách của tôi.",
+      "forms": [
+        "Chỉ sự sở hữu (A no B = B của A)",
+        "Danh từ hóa mệnh đề (の+động từ)",
+        "Đặt giữa hai danh từ để chỉ loại"
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": 2278,
+      "term": "と",
+      "reading": "と",
+      "romaji": "to",
+      "definition": "Trợ từ \"và\" / \"cùng với\"",
+      "exampleSentence": "友達と行く。",
+      "exampleTranslation": "Đi cùng bạn bè.",
+      "forms": [
+        "Nối danh từ (A to B = A và B)",
+        "Chỉ người đồng hành với chủ ngữ",
+        "Chỉ trích dẫn hoặc nội dung suy nghĩ"
+      ],
+      "displayOrder": 7
+    },
+    {
+      "id": 2279,
+      "term": "から",
+      "reading": "から",
+      "romaji": "kara",
+      "definition": "Từ / Vì (nguyên nhân)",
+      "exampleSentence": "九時から始まる。",
+      "exampleTranslation": "Bắt đầu từ 9 giờ.",
+      "forms": [
+        "Chỉ điểm bắt đầu thời gian hoặc không gian",
+        "Chỉ nguyên nhân (vì...)",
+        "Thứ tự = trước"
+      ],
+      "displayOrder": 8
+    },
+    {
+      "id": 2280,
+      "term": "まで",
+      "reading": "まで",
+      "romaji": "made",
+      "definition": "Đến (thời gian/không gian)",
+      "exampleSentence": "五時まで働く。",
+      "exampleTranslation": "Làm việc đến 5 giờ.",
+      "forms": [
+        "Chỉ giới hạn cuối của thời gian hoặc không gian",
+        "から〜まで = từ ... đến ...",
+        "Không thể dùng để chỉ đích đến"
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": 2281,
+      "term": "へ",
+      "reading": "へ",
+      "romaji": "e",
+      "definition": "Trợ từ chỉ hướng đến",
+      "exampleSentence": "学校へ行く。",
+      "exampleTranslation": "Đi đến trường.",
+      "forms": [
+        "Chỉ hướng đến đích",
+        "Nhấn mạnh phương hướng hơn là đích",
+        "Có thể thay bằng に trong nhiều trường hợp"
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": 2282,
+      "term": "や",
+      "reading": "や",
+      "romaji": "ya",
+      "definition": "Và (liệt kê không đầy đủ)",
+      "exampleSentence": "本や雑誌を買う。",
+      "exampleTranslation": "Mua sách và tạp chí (vân vân).",
+      "forms": [
+        "Liệt kê một số ví dụ trong số nhiều",
+        "と liệt kê đầy đủ, や liệt kê không đầy đủ",
+        "ya thường đi với など (vân vân)"
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": 2283,
+      "term": "ね",
+      "reading": "ね",
+      "romaji": "ne",
+      "definition": "Trợ từ cuối câu tìm sự đồng ý",
+      "exampleSentence": "いい天気ですね。",
+      "exampleTranslation": "Trời đẹp nhỉ.",
+      "forms": [
+        "Tìm kiếm sự đồng ý từ người nghe",
+        "Xác nhận thông tin chung",
+        "Giọng điệu mềm mỏng, thân thiện"
+      ],
+      "displayOrder": 12
+    },
+    {
+      "id": 2284,
+      "term": "よ",
+      "reading": "よ",
+      "romaji": "yo",
+      "definition": "Trợ từ cuối câu khẳng định",
+      "exampleSentence": "これはおいしいよ。",
+      "exampleTranslation": "Cái này ngon đấy.",
+      "forms": [
+        "Khẳng định, nhấn mạnh thông tin",
+        "Thông báo điều người nghe chưa biết",
+        "Đôi khi nghe hơi mạnh hoặc tự tin"
+      ],
+      "displayOrder": 13
+    },
+    {
+      "id": 2285,
+      "term": "か",
+      "reading": "か",
+      "romaji": "ka",
+      "definition": "Trợ từ câu hỏi",
+      "exampleSentence": "これは何ですか。",
+      "exampleTranslation": "Đây là cái gì?",
+      "forms": [
+        "Biến câu thành câu hỏi",
+        "Không cần đảo ngữ như tiếng Anh",
+        "Giọng lên cuối câu khi hỏi"
+      ],
+      "displayOrder": 14
+    },
+    {
+      "id": 2286,
+      "term": "より",
+      "reading": "より",
+      "romaji": "yori",
+      "definition": "Hơn (so sánh)",
+      "exampleSentence": "東京より大阪が好きです。",
+      "exampleTranslation": "Tôi thích Osaka hơn Tokyo.",
+      "forms": [
+        "Đặt sau danh từ so sánh",
+        "A より B のほうが = B hơn A",
+        "よりも = còn hơn là"
+      ],
+      "displayOrder": 15
+    },
+    {
+      "id": 2287,
+      "term": "しか",
+      "reading": "しか",
+      "romaji": "shika",
+      "definition": "Chỉ / Chỉ có ... thôi",
+      "exampleSentence": "百円しかない。",
+      "exampleTranslation": "Chỉ có 100 yên thôi.",
+      "forms": [
+        "Dùng với động từ phủ định (ない)",
+        "Nghĩa tương tự だけ nhưng mạnh hơn",
+        "しか〜ない = chỉ có ... mà thôi"
+      ],
+      "displayOrder": 16
+    },
+    {
+      "id": 2288,
+      "term": "だけ",
+      "reading": "だけ",
+      "romaji": "dake",
+      "definition": "Chỉ, duy nhất",
+      "exampleSentence": "一回だけ見た。",
+      "exampleTranslation": "Chỉ xem một lần.",
+      "forms": [
+        "Giới hạn phạm vi hoặc số lượng",
+        "Trung tính hơn しか (không nhất thiết phủ định)",
+        "Có thể dùng trong câu khẳng định"
+      ],
+      "displayOrder": 17
+    },
+    {
+      "id": 2289,
+      "term": "ごろ",
+      "reading": "ごろ",
+      "romaji": "goro",
+      "definition": "Khoảng (thời gian)",
+      "exampleSentence": "三時ごろ来る。",
+      "exampleTranslation": "Đến khoảng 3 giờ.",
+      "forms": [
+        "Chỉ thời điểm ước tính, không chính xác",
+        "Dùng với thời gian cụ thể",
+        "Khác ぐらい/くらい ở chỗ chỉ dùng với thời gian"
+      ],
+      "displayOrder": 18
+    },
+    {
+      "id": 2290,
+      "term": "ぐらい",
+      "reading": "ぐらい",
+      "romaji": "gurai",
+      "definition": "Khoảng (số lượng)",
+      "exampleSentence": "十分ぐらい待った。",
+      "exampleTranslation": "Đợi khoảng 10 phút.",
+      "forms": [
+        "Chỉ số lượng hoặc thời gian ước tính",
+        "Có thể viết là くらい",
+        "Dùng với số lượng và thời gian"
+      ],
+      "displayOrder": 19
+    },
+    {
+      "id": 2291,
+      "term": "に対して",
+      "reading": "にたいして",
+      "romaji": "ni taishite",
+      "definition": "Đối với / Đối lập với",
+      "exampleSentence": "勉強に対して努力する。",
+      "exampleTranslation": "Nỗ lực trong việc học.",
+      "forms": [
+        "Chỉ đối tượng của hành động/cảm xúc",
+        "Có thể chỉ sự tương phản",
+        "に対する + danh từ"
+      ],
+      "displayOrder": 20
+    },
+    {
+      "id": 2292,
+      "term": "について",
+      "reading": "について",
+      "romaji": "ni tsuite",
+      "definition": "Về (chủ đề)",
+      "exampleSentence": "日本について話す。",
+      "exampleTranslation": "Nói về Nhật Bản.",
+      "forms": [
+        "Chỉ chủ đề của hành động nói/viết/nghĩ",
+        "についての + danh từ",
+        "= に関して (trang trọng hơn)"
+      ],
+      "displayOrder": 21
+    },
+    {
+      "id": 2293,
+      "term": "によって",
+      "reading": "によって",
+      "romaji": "ni yotte",
+      "definition": "Bởi / Tùy theo",
+      "exampleSentence": "人によって違う。",
+      "exampleTranslation": "Tùy người mà khác nhau.",
+      "forms": [
+        "Chỉ nguyên nhân hoặc tác nhân",
+        "Chỉ sự khác nhau tùy điều kiện",
+        "による + danh từ"
+      ],
+      "displayOrder": 22
+    },
+    {
+      "id": 2294,
+      "term": "として",
+      "reading": "として",
+      "romaji": "to shite",
+      "definition": "Với tư cách là / Là",
+      "exampleSentence": "学生として勉強する。",
+      "exampleTranslation": "Học với tư cách là học sinh.",
+      "forms": [
+        "Chỉ vai trò hoặc tư cách",
+        "としての + danh từ",
+        "としては = xét từ góc độ là"
+      ],
+      "displayOrder": 23
+    },
+    {
+      "id": 2295,
+      "term": "に関して",
+      "reading": "にかんして",
+      "romaji": "ni kanshite",
+      "definition": "Liên quan đến",
+      "exampleSentence": "健康に関して話す。",
+      "exampleTranslation": "Nói về sức khỏe.",
+      "forms": [
+        "Về chủ đề (trang trọng hơn について)",
+        "に関する + danh từ",
+        "Dùng trong văn viết, tình huống trang trọng"
+      ],
+      "displayOrder": 24
+    },
+    {
+      "id": 2296,
+      "term": "という",
+      "reading": "という",
+      "romaji": "to iu",
+      "definition": "Gọi là / Mang tên",
+      "exampleSentence": "田中という人が来た。",
+      "exampleTranslation": "Người tên Tanaka đã đến.",
+      "forms": [
+        "Giải thích hoặc đặt tên cho thứ gì đó",
+        "という + danh từ",
+        "というのは = về (chủ đề)"
+      ],
+      "displayOrder": 25
+    },
+    {
+      "id": 2297,
+      "term": "のに",
+      "reading": "のに",
+      "romaji": "noni",
+      "definition": "Mặc dù / Dùng để",
+      "exampleSentence": "勉強したのに落ちた。",
+      "exampleTranslation": "Dù đã học nhưng vẫn trượt.",
+      "forms": [
+        "Bày tỏ sự thất vọng hoặc oán trách",
+        "Ngữ điệu thường hơi than vãn",
+        "Khác のために ở chỗ chỉ điều kiện trái ngược"
+      ],
+      "displayOrder": 26
+    },
+    {
+      "id": 2298,
+      "term": "ために",
+      "reading": "ために",
+      "romaji": "tame ni",
+      "definition": "Để / Vì lợi ích của",
+      "exampleSentence": "健康のために運動する。",
+      "exampleTranslation": "Tập thể dục để vì sức khỏe.",
+      "forms": [
+        "Chỉ mục đích hoặc lợi ích",
+        "Động từ thể từ điển + ために",
+        "Danh từ + のために"
+      ],
+      "displayOrder": 27
+    },
+    {
+      "id": 2299,
+      "term": "ように",
+      "reading": "ように",
+      "romaji": "you ni",
+      "definition": "Để / Như là",
+      "exampleSentence": "話せるように練習する。",
+      "exampleTranslation": "Luyện tập để nói được.",
+      "forms": [
+        "Chỉ mục tiêu hoặc mong muốn",
+        "ようになる = trở nên có thể",
+        "ようにする = cố gắng để"
+      ],
+      "displayOrder": 28
+    },
+    {
+      "id": 2300,
+      "term": "けれど",
+      "reading": "けれど",
+      "romaji": "keredo",
+      "definition": "Nhưng / Tuy nhiên",
+      "exampleSentence": "好きだけれど高い。",
+      "exampleTranslation": "Tuy thích nhưng đắt.",
+      "forms": [
+        "Nối hai vế đối lập",
+        "Mềm mỏng hơn でも",
+        "けれども là dạng đầy đủ"
+      ],
+      "displayOrder": 29
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+{
+  "id": 369,
+  "title": "Bài 48 - ～させます・～させていただけませんか (Thể sai khiến, xin phép lịch sự)",
+  "description": "Minna no Nihongo Sơ cấp II — ～させます・～させていただけませんか (Thể sai khiến, xin phép lịch sự)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T12:07:09.289208",
+  "cards": [
+    {
+      "id": 10105,
+      "term": "降ろします, 下ろします (おろします)",
+      "reading": "おろします",
+      "romaji": "oroshimasu",
+      "definition": "cho xuống, hạ xuống",
+      "exampleSentence": "父はトラックから荷物を降ろします。",
+      "exampleTranslation": "Bố tôi dỡ hành lý xuống khỏi xe tải.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10106,
+      "term": "届けます (とどけます)",
+      "reading": "とどけます",
+      "romaji": "todokemasu",
+      "definition": "gởi đến, chuyển đến",
+      "exampleSentence": "私は母が忘れたお弁当を学校へ届けます。",
+      "exampleTranslation": "Tôi mang hộp cơm mẹ để quên đến trường.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10107,
+      "term": "世話をします (せわをします)",
+      "reading": "せわをします",
+      "romaji": "sewa o shimasu",
+      "definition": "chăm sóc",
+      "exampleSentence": "旅行中、友達の犬の世話をします。",
+      "exampleTranslation": "Trong lúc đi du lịch, tôi chăm sóc chú chó của bạn.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10108,
+      "term": "録音します (ろくおんします)",
+      "reading": "ろくおんします",
+      "romaji": "rokuonshimasu",
+      "definition": "ghi âm",
+      "exampleSentence": "大切な説明なので、スマートフォンで録音します。",
+      "exampleTranslation": "Vì đó là phần giải thích quan trọng nên tôi sẽ ghi âm bằng điện thoại.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10109,
+      "term": "嫌[な] (いや[な])",
+      "reading": "いや[な]",
+      "romaji": "iya[na]",
+      "definition": "ngán, không thích",
+      "exampleSentence": "嫌な仕事でも、最後まで頑張ります。",
+      "exampleTranslation": "Dù là công việc không thích, tôi vẫn cố gắng đến cùng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10110,
+      "term": "塾 (じゅく)",
+      "reading": "じゅく",
+      "romaji": "juku",
+      "definition": "cơ sở học thêm",
+      "exampleSentence": "弟は毎週三回、駅の近くの塾へ通っています。",
+      "exampleTranslation": "Em trai tôi đi học thêm ở cơ sở gần ga ba lần mỗi tuần.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10111,
+      "term": "生徒 (せいと)",
+      "reading": "せいと",
+      "romaji": "seito",
+      "definition": "học sinh, học trò",
+      "exampleSentence": "教室の生徒たちは先生の話を静かに聞いています。",
+      "exampleTranslation": "Các học sinh trong lớp đang yên lặng nghe giáo viên nói.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10112,
+      "term": "ファイル",
+      "reading": "ファイル",
+      "romaji": "fairu",
+      "definition": "kẹp tài liệu, file tài liệu",
+      "exampleSentence": "大切な書類をこのファイルに入れてください。",
+      "exampleTranslation": "Hãy cho những tài liệu quan trọng vào chiếc bìa này.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10113,
+      "term": "自由に (じゆうに)",
+      "reading": "じゆうに",
+      "romaji": "jiyū ni",
+      "definition": "tự do",
+      "exampleSentence": "休み時間は図書館で自由に本を読んでもいいです。",
+      "exampleTranslation": "Trong giờ giải lao, bạn có thể tự do đọc sách trong thư viện.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10114,
+      "term": "～間 (～かん)",
+      "reading": "～かん",
+      "romaji": "~kan",
+      "definition": "trong ~ (dùng để chỉ khoảng thời gian)",
+      "exampleSentence": "「～間」は、時間の長さを表す表現です。",
+      "exampleTranslation": "「～間」 là cách diễn đạt chỉ độ dài thời gian.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10115,
+      "term": "いいことですね。",
+      "reading": "いいことですね。",
+      "romaji": "ii koto desu ne.",
+      "definition": "Hay nhỉ./ Được đấy nhỉ.",
+      "exampleSentence": "新しい仕事が見つかったそうで、いいことですね。",
+      "exampleTranslation": "Nghe nói bạn đã tìm được công việc mới, thật tốt nhỉ.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10116,
+      "term": "お忙しいですか。 (おいそがしいですか。)",
+      "reading": "おいそがしいですか。",
+      "romaji": "oisogashii desu ka.",
+      "definition": "Anh/chị có bận không? (được dùng khi nói với người trên)",
+      "exampleSentence": "「先生、お忙しいですか。」と学生が丁寧に尋ねました。",
+      "exampleTranslation": "Học sinh lễ phép hỏi: “Thưa thầy, thầy có bận không ạ?”",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10117,
+      "term": "営業 (えいぎょう)",
+      "reading": "えいぎょう",
+      "romaji": "eigyō",
+      "definition": "kinh doanh, bán hàng",
+      "exampleSentence": "父は大阪の会社で営業の仕事をしています。",
+      "exampleTranslation": "Bố tôi làm công việc kinh doanh tại một công ty ở Osaka.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10118,
+      "term": "それまでに",
+      "reading": "それまでに",
+      "romaji": "sore made ni",
+      "definition": "trước thời điểm đó",
+      "exampleSentence": "会議は三時ですから、それまでに資料を読んでください。",
+      "exampleTranslation": "Cuộc họp lúc ba giờ, nên hãy đọc tài liệu trước thời điểm đó.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10119,
+      "term": "かまいません",
+      "reading": "かまいません",
+      "romaji": "kamaimasen",
+      "definition": "Không sao./ Không có vấn đề gì.",
+      "exampleSentence": "少し遅れても、かまいませんので、気をつけて来てください。",
+      "exampleTranslation": "Bạn đến muộn một chút cũng không sao, nên hãy cẩn thận đến nhé.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10120,
+      "term": "楽しみます (たのしみます)",
+      "reading": "たのしみます",
+      "romaji": "tanoshimimasu",
+      "definition": "vui, vui thích",
+      "exampleSentence": "週末は家族と公園でゆっくり楽しみます。",
+      "exampleTranslation": "Cuối tuần tôi sẽ vui chơi thong thả cùng gia đình ở công viên.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 10121,
+      "term": "親 (おや)",
+      "reading": "おや",
+      "romaji": "oya",
+      "definition": "bố mẹ",
+      "exampleSentence": "私の親は毎朝近くの公園を散歩しています。",
+      "exampleTranslation": "Bố mẹ tôi đi dạo ở công viên gần nhà mỗi sáng.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 10122,
+      "term": "小学生 (しょうがくせい)",
+      "reading": "しょうがくせい",
+      "romaji": "shōgakusei",
+      "definition": "học sinh tiểu học",
+      "exampleSentence": "妹は小学生で、毎日元気に学校へ通っています。",
+      "exampleTranslation": "Em gái tôi là học sinh tiểu học và ngày nào cũng vui vẻ đến trường.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 10123,
+      "term": "―パーセント",
+      "reading": "―パーセント",
+      "romaji": "-pāsento",
+      "definition": "―phần trăm",
+      "exampleSentence": "このグラフの「―パーセント」の部分に、正しい数字を入れてください。",
+      "exampleTranslation": "Hãy điền con số chính xác vào phần “― phần trăm” của biểu đồ này.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 10124,
+      "term": "その次 (そのつぎ)",
+      "reading": "そのつぎ",
+      "romaji": "sono tsugi",
+      "definition": "tiếp theo đó",
+      "exampleSentence": "その次に、駅の前にある店へ行きましょう。",
+      "exampleTranslation": "Sau đó, chúng ta hãy đến cửa hàng ở phía trước nhà ga.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 10125,
+      "term": "習字 (しゅうじ)",
+      "reading": "しゅうじ",
+      "romaji": "shūji",
+      "definition": "học viết chữ bằng bút lông",
+      "exampleSentence": "弟は毎週土曜日に学校で習字をしています。",
+      "exampleTranslation": "Em trai tôi học viết chữ bằng bút lông ở trường vào mỗi thứ Bảy.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 10126,
+      "term": "普通の (ふつうの)",
+      "reading": "ふつうの",
+      "romaji": "futsū no",
+      "definition": "thông thường, bình thường",
+      "exampleSentence": "私は普通の生活をしたいです。",
+      "exampleTranslation": "Tôi muốn có một cuộc sống bình thường.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

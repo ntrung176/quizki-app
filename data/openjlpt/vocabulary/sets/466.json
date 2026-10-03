@@ -1,0 +1,231 @@
+{
+  "id": 466,
+  "title": "環境・自然 · 防災・救助・警報",
+  "description": "Phòng chống, cứu trợ & cảnh báo thiên tai — chủ đề Môi trường & thiên nhiên · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.587786",
+  "cards": [
+    {
+      "id": 11810,
+      "term": "ハザードマップ",
+      "reading": "ハザードマップ",
+      "romaji": null,
+      "definition": "bản đồ nguy cơ thiên tai",
+      "exampleSentence": "災害に備えて、市役所でハザードマップをもらった。",
+      "exampleTranslation": "Để chuẩn bị cho thiên tai, tôi đã nhận bản đồ nguy cơ thiên tai tại tòa thị chính.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11811,
+      "term": "危機管理 (ききかんり)",
+      "reading": "ききかんり",
+      "romaji": null,
+      "definition": "quản lý khủng hoảng",
+      "exampleSentence": "企業は日頃から危機管理の体制を整えている。",
+      "exampleTranslation": "Các doanh nghiệp luôn chuẩn bị hệ thống quản lý khủng hoảng từ thường ngày.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11812,
+      "term": "義援金 (ぎえんきん)",
+      "reading": "ぎえんきん",
+      "romaji": null,
+      "definition": "tiền cứu trợ đóng góp",
+      "exampleSentence": "被災地のために、全国から多くの義援金が集まった。",
+      "exampleTranslation": "Nhiều khoản tiền cứu trợ đóng góp đã được quyên góp từ khắp cả nước cho vùng bị thiên tai.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11813,
+      "term": "救助 (きゅうじょ)",
+      "reading": "きゅうじょ",
+      "romaji": null,
+      "definition": "cứu trợ/giải cứu",
+      "exampleSentence": "消防隊が川に取り残された人の救助に向かった。",
+      "exampleTranslation": "Đội cứu hỏa đã lên đường giải cứu những người bị mắc kẹt giữa sông.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11814,
+      "term": "緊急事態 (きんきゅうじたい)",
+      "reading": "きんきゅうじたい",
+      "romaji": null,
+      "definition": "tình trạng khẩn cấp",
+      "exampleSentence": "緊急事態に備え、職員は定期的に訓練を受けている。",
+      "exampleTranslation": "Để chuẩn bị cho tình trạng khẩn cấp, nhân viên thường xuyên được huấn luyện.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11815,
+      "term": "警戒 (けいかい)",
+      "reading": "けいかい",
+      "romaji": null,
+      "definition": "cảnh giới/đề phòng",
+      "exampleSentence": "台風の接近に伴い、地域全体で警戒を強めている。",
+      "exampleTranslation": "Cùng với việc bão đang đến gần, cả khu vực đang tăng cường cảnh giác.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11816,
+      "term": "警報 (けいほう)",
+      "reading": "けいほう",
+      "romaji": null,
+      "definition": "cảnh báo thiên tai",
+      "exampleSentence": "大雨警報が出たため、学校は休校になった。",
+      "exampleTranslation": "Vì cảnh báo mưa lớn được ban hành nên trường học đã cho nghỉ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11817,
+      "term": "原発事故 (げんぱつじこ)",
+      "reading": "げんぱつじこ",
+      "romaji": null,
+      "definition": "tai nạn hạt nhân",
+      "exampleSentence": "原発事故の影響で、周辺住民は長期間の避難生活を余儀なくされた。",
+      "exampleTranslation": "Do ảnh hưởng của tai nạn hạt nhân, người dân quanh khu vực buộc phải sống sơ tán trong thời gian dài.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11818,
+      "term": "減災 (げんさい)",
+      "reading": "げんさい",
+      "romaji": null,
+      "definition": "giảm nhẹ tác động thiên tai",
+      "exampleSentence": "地域全体で減災に取り組むため、定期的に防災訓練を行っている。",
+      "exampleTranslation": "Để cùng nhau giảm nhẹ tác động thiên tai trong toàn khu vực, mọi người thường xuyên tổ chức huấn luyện phòng chống thiên tai.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11819,
+      "term": "支援物資 (しえんぶっし)",
+      "reading": "しえんぶっし",
+      "romaji": null,
+      "definition": "hàng cứu trợ",
+      "exampleSentence": "被災地には全国から支援物資が届けられた。",
+      "exampleTranslation": "Hàng cứu trợ đã được chuyển đến vùng bị thiên tai từ khắp cả nước.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11820,
+      "term": "事故 (じこ)",
+      "reading": "じこ",
+      "romaji": null,
+      "definition": "tai nạn",
+      "exampleSentence": "事故の原因を調べるため、警察が現場を詳しく調査している。",
+      "exampleTranslation": "Cảnh sát đang điều tra kỹ hiện trường để tìm hiểu nguyên nhân vụ tai nạn.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11821,
+      "term": "捜索 (そうさく)",
+      "reading": "そうさく",
+      "romaji": null,
+      "definition": "tìm kiếm nạn nhân",
+      "exampleSentence": "行方不明者の捜索は、夜になっても続けられた。",
+      "exampleTranslation": "Việc tìm kiếm những người mất tích vẫn tiếp tục cho đến tận đêm.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11822,
+      "term": "注意報 (ちゅういほう)",
+      "reading": "ちゅういほう",
+      "romaji": null,
+      "definition": "thông báo đề phòng",
+      "exampleSentence": "強風注意報が発表されたため、船は港に戻った。",
+      "exampleTranslation": "Vì đã có thông báo đề phòng gió mạnh, con thuyền đã quay về cảng.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11823,
+      "term": "被害 (ひがい)",
+      "reading": "ひがい",
+      "romaji": null,
+      "definition": "thiệt hại",
+      "exampleSentence": "台風による被害は、予想以上に広い範囲に及んだ。",
+      "exampleTranslation": "Thiệt hại do bão gây ra lan rộng trên phạm vi lớn hơn dự đoán.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 11824,
+      "term": "被災者 (ひさいしゃ)",
+      "reading": "ひさいしゃ",
+      "romaji": null,
+      "definition": "nạn nhân thiên tai",
+      "exampleSentence": "市は被災者に一時的な住居と食事を提供した。",
+      "exampleTranslation": "Chính quyền thành phố đã cung cấp chỗ ở tạm thời và thức ăn cho các nạn nhân thiên tai.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 11825,
+      "term": "被災地 (ひさいち)",
+      "reading": "ひさいち",
+      "romaji": null,
+      "definition": "vùng bị thiên tai",
+      "exampleSentence": "ボランティアが被災地で家の片づけを手伝っている。",
+      "exampleTranslation": "Các tình nguyện viên đang giúp dọn dẹp nhà cửa tại vùng bị thiên tai.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 11826,
+      "term": "避難 (ひなん)",
+      "reading": "ひなん",
+      "romaji": null,
+      "definition": "sơ tán/lánh nạn",
+      "exampleSentence": "火災が発生した場合は、落ち着いて避難してください。",
+      "exampleTranslation": "Nếu xảy ra hỏa hoạn, hãy bình tĩnh sơ tán.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 11827,
+      "term": "避難所 (ひなんじょ)",
+      "reading": "ひなんじょ",
+      "romaji": null,
+      "definition": "nơi tránh nạn/chỗ sơ tán",
+      "exampleSentence": "地震の後、近くの学校が避難所として開設された。",
+      "exampleTranslation": "Sau trận động đất, một trường học gần đó đã được mở làm nơi tránh nạn.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 11828,
+      "term": "復旧 (ふっきゅう)",
+      "reading": "ふっきゅう",
+      "romaji": null,
+      "definition": "khôi phục sau thiên tai",
+      "exampleSentence": "電気の復旧には、少なくとも二日かかる見込みです。",
+      "exampleTranslation": "Dự kiến việc khôi phục điện sẽ mất ít nhất hai ngày.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 11829,
+      "term": "防災 (ぼうさい)",
+      "reading": "ぼうさい",
+      "romaji": null,
+      "definition": "phòng chống thiên tai",
+      "exampleSentence": "地域の防災訓練に参加して、地震への備えを確認した。",
+      "exampleTranslation": "Tôi đã tham gia buổi diễn tập phòng chống thiên tai của khu vực và kiểm tra việc chuẩn bị ứng phó với động đất.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

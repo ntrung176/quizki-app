@@ -1,0 +1,165 @@
+{
+  "id": 447,
+  "title": "政治・法律 · 紛争・平和・国際機関",
+  "description": "Xung đột, hòa bình & tổ chức quốc tế — chủ đề Chính trị & pháp luật · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:48.977599",
+  "cards": [
+    {
+      "id": 11450,
+      "term": "安全保障 (あんぜんほしょう)",
+      "reading": "あんぜんほしょう",
+      "romaji": null,
+      "definition": "an ninh quốc gia",
+      "exampleSentence": "地域の安全保障をめぐる議論が、国際会議で活発になっている。",
+      "exampleTranslation": "Các cuộc thảo luận về an ninh khu vực đang diễn ra sôi nổi tại hội nghị quốc tế.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11451,
+      "term": "経済制裁 (けいざいせいさい)",
+      "reading": "けいざいせいさい",
+      "romaji": null,
+      "definition": "trừng phạt kinh tế",
+      "exampleSentence": "国際社会は紛争を止めるため、その国に経済制裁を科した。",
+      "exampleTranslation": "Cộng đồng quốc tế đã áp đặt lệnh trừng phạt kinh tế lên nước đó để ngăn chặn xung đột.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11452,
+      "term": "国境 (こっきょう)",
+      "reading": "こっきょう",
+      "romaji": null,
+      "definition": "biên giới quốc gia",
+      "exampleSentence": "両国の代表は国境付近で会談を行った。",
+      "exampleTranslation": "Đại diện hai nước đã tiến hành hội đàm gần khu vực biên giới.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11453,
+      "term": "国連 (こくれん)",
+      "reading": "こくれん",
+      "romaji": null,
+      "definition": "Liên Hợp Quốc",
+      "exampleSentence": "国連は加盟国に対し、平和的な解決を呼びかけた。",
+      "exampleTranslation": "Liên Hợp Quốc kêu gọi các quốc gia thành viên giải quyết vấn đề một cách hòa bình.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11454,
+      "term": "国連安保理 (こくれんあんぽり)",
+      "reading": "こくれんあんぽり",
+      "romaji": null,
+      "definition": "Hội đồng bảo an LHQ",
+      "exampleSentence": "国連安保理は、停戦を求める決議を採択した。",
+      "exampleTranslation": "Hội đồng Bảo an Liên Hợp Quốc đã thông qua nghị quyết yêu cầu ngừng bắn.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11455,
+      "term": "人道支援 (じんどうしえん)",
+      "reading": "じんどうしえん",
+      "romaji": null,
+      "definition": "hỗ trợ nhân đạo",
+      "exampleSentence": "多くの団体が被災地で人道支援を行っている。",
+      "exampleTranslation": "Nhiều tổ chức đang thực hiện hỗ trợ nhân đạo tại những vùng bị thiên tai.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11456,
+      "term": "制裁 (せいさい)",
+      "reading": "せいさい",
+      "romaji": null,
+      "definition": "biện pháp trừng phạt",
+      "exampleSentence": "違反を繰り返した企業に、厳しい制裁が科された。",
+      "exampleTranslation": "Một biện pháp trừng phạt nghiêm khắc đã được áp dụng đối với công ty liên tục vi phạm.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11457,
+      "term": "停戦 (ていせん)",
+      "reading": "ていせん",
+      "romaji": null,
+      "definition": "ngừng bắn",
+      "exampleSentence": "両国は国際社会の要請を受け、停戦に合意した。",
+      "exampleTranslation": "Hai nước đã đồng ý ngừng bắn trước lời kêu gọi của cộng đồng quốc tế.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11458,
+      "term": "紛争 (ふんそう)",
+      "reading": "ふんそう",
+      "romaji": null,
+      "definition": "xung đột vũ trang",
+      "exampleSentence": "長年続いた紛争の解決に向けて、両国の代表が話し合った。",
+      "exampleTranslation": "Đại diện hai nước đã đàm phán nhằm giải quyết cuộc xung đột kéo dài nhiều năm.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11459,
+      "term": "平和 (へいわ)",
+      "reading": "へいわ",
+      "romaji": null,
+      "definition": "hòa bình",
+      "exampleSentence": "世界の平和を守るために、各国が協力する必要がある。",
+      "exampleTranslation": "Để bảo vệ hòa bình thế giới, các quốc gia cần hợp tác với nhau.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11460,
+      "term": "平和維持活動 (へいわいじかつどう)",
+      "reading": "へいわいじかつどう",
+      "romaji": null,
+      "definition": "hoạt động gìn giữ hòa bình",
+      "exampleSentence": "国連は紛争地域で平和維持活動を行っている。",
+      "exampleTranslation": "Liên Hợp Quốc đang tiến hành hoạt động gìn giữ hòa bình tại khu vực xung đột.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11461,
+      "term": "領土 (りょうど)",
+      "reading": "りょうど",
+      "romaji": null,
+      "definition": "lãnh thổ",
+      "exampleSentence": "両国はその島の領土をめぐって対立している。",
+      "exampleTranslation": "Hai nước đang đối đầu về chủ quyền lãnh thổ của hòn đảo đó.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11462,
+      "term": "領土問題 (りょうどもんだい)",
+      "reading": "りょうどもんだい",
+      "romaji": null,
+      "definition": "tranh chấp lãnh thổ",
+      "exampleSentence": "両国は領土問題を外交的に解決しようとしている。",
+      "exampleTranslation": "Hai nước đang cố gắng giải quyết tranh chấp lãnh thổ bằng biện pháp ngoại giao.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11463,
+      "term": "歴史問題 (れきしもんだい)",
+      "reading": "れきしもんだい",
+      "romaji": null,
+      "definition": "vấn đề lịch sử giữa các nước",
+      "exampleSentence": "首脳会談では、両国間の歴史問題について意見が交わされた。",
+      "exampleTranslation": "Tại hội nghị thượng đỉnh, hai bên đã trao đổi ý kiến về vấn đề lịch sử giữa hai nước.",
+      "forms": [],
+      "displayOrder": 13
+    }
+  ]
+}

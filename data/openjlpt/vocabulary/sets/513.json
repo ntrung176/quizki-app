@@ -1,0 +1,209 @@
+{
+  "id": 513,
+  "title": "生活・住まい · 都市化・社会問題",
+  "description": "Đô thị hóa & vấn đề xã hội — chủ đề Đời sống & nhà cửa · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:51.06096",
+  "cards": [
+    {
+      "id": 12728,
+      "term": "土地 (とち)",
+      "reading": "とち",
+      "romaji": null,
+      "definition": "đất đai, đất",
+      "exampleSentence": "この土地は駅に近く、住宅地として人気があります。",
+      "exampleTranslation": "Mảnh đất này gần ga nên được ưa chuộng làm khu dân cư.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12729,
+      "term": "インフラ",
+      "reading": "インフラ",
+      "romaji": null,
+      "definition": "hạ tầng cơ sở",
+      "exampleSentence": "地方のインフラを整備するために、国は多額の予算を投入した。",
+      "exampleTranslation": "Để xây dựng và cải thiện cơ sở hạ tầng ở địa phương, nhà nước đã đầu tư một khoản ngân sách lớn.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12730,
+      "term": "コンパクトシティ",
+      "reading": "コンパクトシティ",
+      "romaji": null,
+      "definition": "thành phố nhỏ gọn/thu gọn",
+      "exampleSentence": "高齢者が暮らしやすいように、コンパクトシティの計画が進められている。",
+      "exampleTranslation": "Kế hoạch xây dựng thành phố nhỏ gọn đang được thúc đẩy để người cao tuổi có thể sống thuận tiện hơn.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12731,
+      "term": "スマートシティ",
+      "reading": "スマートシティ",
+      "romaji": null,
+      "definition": "thành phố thông minh",
+      "exampleSentence": "この市は、最新技術を活用したスマートシティを目指している。",
+      "exampleTranslation": "Thành phố này đang hướng tới việc trở thành một thành phố thông minh ứng dụng công nghệ mới nhất.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12732,
+      "term": "バリアフリー",
+      "reading": "バリアフリー",
+      "romaji": null,
+      "definition": "không rào cản (tiếp cận)",
+      "exampleSentence": "駅をバリアフリーにするため、エレベーターが設置された。",
+      "exampleTranslation": "Thang máy đã được lắp đặt để giúp nhà ga trở nên thuận tiện hơn cho mọi người.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12733,
+      "term": "ふるさと納税 (ふるさとのうぜい)",
+      "reading": "ふるさとのうぜい",
+      "romaji": null,
+      "definition": "thuế quê hương",
+      "exampleSentence": "ふるさと納税を利用して、応援したい地域に寄付をした。",
+      "exampleTranslation": "Tôi đã sử dụng chế độ thuế quê hương để quyên góp cho khu vực mà mình muốn ủng hộ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12734,
+      "term": "一帯 (いったい)",
+      "reading": "いったい",
+      "romaji": null,
+      "definition": "toàn vùng xung quanh",
+      "exampleSentence": "台風の影響で、海岸一帯が立ち入り禁止になった。",
+      "exampleTranslation": "Do ảnh hưởng của bão, toàn bộ khu vực ven biển đã bị cấm vào.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12735,
+      "term": "過疎化 (かそか)",
+      "reading": "かそか",
+      "romaji": null,
+      "definition": "dân số nông thôn giảm mạnh",
+      "exampleSentence": "山間部では、若者の流出による過疎化が深刻になっている。",
+      "exampleTranslation": "Ở các vùng miền núi, tình trạng dân số giảm mạnh do người trẻ rời đi đang trở nên nghiêm trọng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12736,
+      "term": "過密 (かみつ)",
+      "reading": "かみつ",
+      "romaji": null,
+      "definition": "quá đông dân",
+      "exampleSentence": "都市部の過密を解消するため、新しい住宅地が開発された。",
+      "exampleTranslation": "Một khu dân cư mới đã được phát triển để giải quyết tình trạng quá đông dân ở đô thị.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12737,
+      "term": "空き家問題 (あきやもんだい)",
+      "reading": "あきやもんだい",
+      "romaji": null,
+      "definition": "vấn đề nhà bỏ hoang",
+      "exampleSentence": "人口減少に伴い、地方では空き家問題が深刻化している。",
+      "exampleTranslation": "Cùng với sự sụt giảm dân số, vấn đề nhà bỏ hoang ở các địa phương đang trở nên nghiêm trọng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12738,
+      "term": "景観 (けいかん)",
+      "reading": "けいかん",
+      "romaji": null,
+      "definition": "cảnh quan",
+      "exampleSentence": "歴史的な景観を守るため、建物の高さが制限されている。",
+      "exampleTranslation": "Để bảo vệ cảnh quan lịch sử, chiều cao của các tòa nhà bị hạn chế.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12739,
+      "term": "限界集落 (げんかいしゅうらく)",
+      "reading": "げんかいしゅうらく",
+      "romaji": null,
+      "definition": "làng lão hoá cực độ gần sụp đổ",
+      "exampleSentence": "高齢化と人口減少が進んだその村は、限界集落と呼ばれている。",
+      "exampleTranslation": "Ngôi làng đó, nơi tình trạng già hóa và suy giảm dân số diễn ra nghiêm trọng, được gọi là làng sắp biến mất.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12740,
+      "term": "郊外 (こうがい)",
+      "reading": "こうがい",
+      "romaji": null,
+      "definition": "ngoại ô",
+      "exampleSentence": "彼は都会の騒音を避けて、郊外に家を建てた。",
+      "exampleTranslation": "Anh ấy tránh tiếng ồn nơi thành thị và xây nhà ở ngoại ô.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12741,
+      "term": "少子高齢化 (しょうしこうれいか)",
+      "reading": "しょうしこうれいか",
+      "romaji": null,
+      "definition": "giảm tỷ lệ sinh & già hoá dân số",
+      "exampleSentence": "少子高齢化が進む日本では、働き手の不足が深刻な問題になっている。",
+      "exampleTranslation": "Ở Nhật Bản, nơi tỷ lệ sinh giảm và dân số già hóa đang tiến triển, tình trạng thiếu lao động đã trở thành vấn đề nghiêm trọng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12742,
+      "term": "人口集中 (じんこうしゅうちゅう)",
+      "reading": "じんこうしゅうちゅう",
+      "romaji": null,
+      "definition": "tập trung dân số đô thị",
+      "exampleSentence": "人口集中によって、都市部では住宅価格が上昇している。",
+      "exampleTranslation": "Do dân số tập trung, giá nhà ở các khu vực đô thị đang tăng lên.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12743,
+      "term": "地域活性化 (ちいきかっせいか)",
+      "reading": "ちいきかっせいか",
+      "romaji": null,
+      "definition": "kích hoạt phát triển khu vực",
+      "exampleSentence": "地域活性化を目指して、町は若者向けのイベントを開催した。",
+      "exampleTranslation": "Nhằm thúc đẩy phát triển địa phương, thị trấn đã tổ chức một sự kiện dành cho người trẻ.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 12744,
+      "term": "農村 (のうそん)",
+      "reading": "のうそん",
+      "romaji": null,
+      "definition": "làng/vùng nông thôn",
+      "exampleSentence": "農村では、高齢者を支えるための医療サービスが求められている。",
+      "exampleTranslation": "Ở vùng nông thôn, các dịch vụ y tế hỗ trợ người cao tuổi đang rất cần thiết.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 12745,
+      "term": "防災都市 (ぼうさいとし)",
+      "reading": "ぼうさいとし",
+      "romaji": null,
+      "definition": "thành phố phòng chống thiên tai",
+      "exampleSentence": "防災都市を実現するには、建物の耐震化だけでなく避難計画も重要だ。",
+      "exampleTranslation": "Để xây dựng một thành phố phòng chống thiên tai, kế hoạch sơ tán cũng quan trọng chứ không chỉ có việc gia cố chống động đất cho các tòa nhà.",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

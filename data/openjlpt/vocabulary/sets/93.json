@@ -1,0 +1,353 @@
+{
+  "id": 93,
+  "title": "自然現象",
+  "description": "Hiện tượng tự nhiên · 44 từ",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:53.846786",
+  "cards": [
+    {
+      "id": 2731,
+      "term": "自然",
+      "reading": "しぜん",
+      "romaji": "shizen",
+      "definition": "Thiên nhiên",
+      "exampleSentence": "自然の恵み。",
+      "exampleTranslation": "Ân sủng của thiên nhiên.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 2732,
+      "term": "現象",
+      "reading": "げんしょう",
+      "romaji": "genshou",
+      "definition": "Hiện tượng",
+      "exampleSentence": "自然現象。",
+      "exampleTranslation": "Hiện tượng thiên nhiên.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 2733,
+      "term": "地震",
+      "reading": "じしん",
+      "romaji": "jishin",
+      "definition": "Động đất",
+      "exampleSentence": "地震が起きた。",
+      "exampleTranslation": "Xảy ra động đất.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 2734,
+      "term": "津波",
+      "reading": "つなみ",
+      "romaji": "tsunami",
+      "definition": "Sóng thần",
+      "exampleSentence": "津波に注意する。",
+      "exampleTranslation": "Cảnh giác sóng thần.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 2735,
+      "term": "火山",
+      "reading": "かざん",
+      "romaji": "kazan",
+      "definition": "Núi lửa",
+      "exampleSentence": "火山が噴火した。",
+      "exampleTranslation": "Núi lửa phun trào.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 2736,
+      "term": "噴火",
+      "reading": "ふんか",
+      "romaji": "funka",
+      "definition": "Phun trào",
+      "exampleSentence": "火山が噴火する。",
+      "exampleTranslation": "Núi lửa phun trào.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 2737,
+      "term": "洪水",
+      "reading": "こうずい",
+      "romaji": "kouzui",
+      "definition": "Lũ lụt",
+      "exampleSentence": "大雨で洪水になった。",
+      "exampleTranslation": "Mưa lớn gây lũ lụt.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 2738,
+      "term": "干ばつ",
+      "reading": "かんばつ",
+      "romaji": "kanbatsu",
+      "definition": "Hạn hán",
+      "exampleSentence": "干ばつで作物が枯れた。",
+      "exampleTranslation": "Hạn hán làm cây chết.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 2739,
+      "term": "台風",
+      "reading": "たいふう",
+      "romaji": "taifuu",
+      "definition": "Bão",
+      "exampleSentence": "台風が接近している。",
+      "exampleTranslation": "Bão đang tiến gần.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 2740,
+      "term": "竜巻",
+      "reading": "たつまき",
+      "romaji": "tatsumaki",
+      "definition": "Lốc xoáy",
+      "exampleSentence": "竜巻が発生した。",
+      "exampleTranslation": "Lốc xoáy xuất hiện.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 2741,
+      "term": "雷",
+      "reading": "かみなり",
+      "romaji": "kaminari",
+      "definition": "Sấm sét",
+      "exampleSentence": "雷が落ちた。",
+      "exampleTranslation": "Sét đánh.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 2742,
+      "term": "霧",
+      "reading": "きり",
+      "romaji": "kiri",
+      "definition": "Sương mù",
+      "exampleSentence": "濃霧注意報。",
+      "exampleTranslation": "Cảnh báo sương mù dày.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 2743,
+      "term": "霜",
+      "reading": "しも",
+      "romaji": "shimo",
+      "definition": "Sương giá",
+      "exampleSentence": "霜が降りる。",
+      "exampleTranslation": "Sương giá xuống.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 2744,
+      "term": "凍る",
+      "reading": "こおる",
+      "romaji": "kooru",
+      "definition": "Đóng băng",
+      "exampleSentence": "湖が凍る。",
+      "exampleTranslation": "Hồ đóng băng.",
+      "forms": [
+        "凍ります",
+        "凍って",
+        "凍った",
+        "凍らない",
+        "凍れる"
+      ],
+      "displayOrder": 13
+    },
+    {
+      "id": 2745,
+      "term": "溶ける",
+      "reading": "とける",
+      "romaji": "tokeru",
+      "definition": "Tan chảy",
+      "exampleSentence": "雪が溶ける。",
+      "exampleTranslation": "Tuyết tan.",
+      "forms": [
+        "溶けます",
+        "溶けて",
+        "溶けた",
+        "溶けない",
+        "溶けられる"
+      ],
+      "displayOrder": 14
+    },
+    {
+      "id": 2746,
+      "term": "日照り",
+      "reading": "ひでり",
+      "romaji": "hideri",
+      "definition": "Nắng hạn",
+      "exampleSentence": "日照りが続く。",
+      "exampleTranslation": "Nắng hạn kéo dài.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 2747,
+      "term": "大雪",
+      "reading": "おおゆき",
+      "romaji": "ooyuki",
+      "definition": "Tuyết lớn",
+      "exampleSentence": "大雪で交通が麻痺した。",
+      "exampleTranslation": "Tuyết lớn làm tê liệt giao thông.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 2748,
+      "term": "吹雪",
+      "reading": "ふぶき",
+      "romaji": "fubuki",
+      "definition": "Bão tuyết",
+      "exampleSentence": "吹雪で視界がゼロだ。",
+      "exampleTranslation": "Bão tuyết tầm nhìn bằng không.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 2749,
+      "term": "熱波",
+      "reading": "ねっぱ",
+      "romaji": "neppa",
+      "definition": "Sóng nhiệt",
+      "exampleSentence": "熱波が続いている。",
+      "exampleTranslation": "Sóng nhiệt kéo dài.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 2750,
+      "term": "寒波",
+      "reading": "かんぱ",
+      "romaji": "kanpa",
+      "definition": "Sóng lạnh",
+      "exampleSentence": "強い寒波が来た。",
+      "exampleTranslation": "Sóng lạnh mạnh đến.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 2751,
+      "term": "気候変動",
+      "reading": "きこうへんどう",
+      "romaji": "kikou hendou",
+      "definition": "Biến đổi khí hậu",
+      "exampleSentence": "気候変動の影響。",
+      "exampleTranslation": "Ảnh hưởng của biến đổi khí hậu.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 2752,
+      "term": "温暖化",
+      "reading": "おんだんか",
+      "romaji": "ondanka",
+      "definition": "Nóng lên toàn cầu",
+      "exampleSentence": "地球温暖化。",
+      "exampleTranslation": "Nóng lên toàn cầu.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 2753,
+      "term": "オゾン層",
+      "reading": "おぞんそう",
+      "romaji": "ozon sou",
+      "definition": "Tầng ozone",
+      "exampleSentence": "オゾン層の破壊。",
+      "exampleTranslation": "Sự phá hủy tầng ozone.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 2754,
+      "term": "二酸化炭素",
+      "reading": "にさんかたんそ",
+      "romaji": "nisanka tanso",
+      "definition": "CO2, khí cacbonic",
+      "exampleSentence": "二酸化炭素の排出量。",
+      "exampleTranslation": "Lượng phát thải CO2.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 2755,
+      "term": "再生可能エネルギー",
+      "reading": "さいせいかのうえねるぎー",
+      "romaji": "saisei kanou enerugi",
+      "definition": "Năng lượng tái tạo",
+      "exampleSentence": "再生可能エネルギーを使う。",
+      "exampleTranslation": "Sử dụng năng lượng tái tạo.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 2756,
+      "term": "生態系",
+      "reading": "せいたいけい",
+      "romaji": "seitaikei",
+      "definition": "Hệ sinh thái",
+      "exampleSentence": "生態系を守る。",
+      "exampleTranslation": "Bảo vệ hệ sinh thái.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 2757,
+      "term": "絶滅危惧種",
+      "reading": "ぜつめつきぐしゅ",
+      "romaji": "zetsumetsu kigu shu",
+      "definition": "Loài có nguy cơ tuyệt chủng",
+      "exampleSentence": "絶滅危惧種を保護する。",
+      "exampleTranslation": "Bảo vệ loài có nguy cơ tuyệt chủng.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 2758,
+      "term": "環境破壊",
+      "reading": "かんきょうはかい",
+      "romaji": "kankyou hakai",
+      "definition": "Phá hủy môi trường",
+      "exampleSentence": "環境破壊を防ぐ。",
+      "exampleTranslation": "Ngăn chặn phá hủy môi trường.",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 2759,
+      "term": "自然災害",
+      "reading": "しぜんさいがい",
+      "romaji": "shizen saigai",
+      "definition": "Thiên tai",
+      "exampleSentence": "自然災害に備える。",
+      "exampleTranslation": "Chuẩn bị cho thiên tai.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 2760,
+      "term": "避難",
+      "reading": "ひなん",
+      "romaji": "hinan",
+      "definition": "Sơ tán, lánh nạn",
+      "exampleSentence": "避難場所に逃げる。",
+      "exampleTranslation": "Chạy đến nơi sơ tán.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

@@ -1,0 +1,471 @@
+{
+  "id": 135,
+  "title": "させる 使役形",
+  "description": "Thể sai khiến · 30 mẫu câu",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:56.159439",
+  "cards": [
+    {
+      "id": 3869,
+      "term": "食べさせる",
+      "reading": "たべさせる",
+      "romaji": "tabesaseru",
+      "definition": "Bắt/cho ăn",
+      "exampleSentence": "子どもに野菜を食べさせます。",
+      "exampleTranslation": "Tôi bắt con ăn rau.",
+      "forms": [
+        "食べさせます",
+        "食べさせて",
+        "食べさせた",
+        "食べさせない",
+        "食べさせられる"
+      ],
+      "displayOrder": 0
+    },
+    {
+      "id": 3870,
+      "term": "飲ませる",
+      "reading": "のませる",
+      "romaji": "nomaseru",
+      "definition": "Bắt/cho uống",
+      "exampleSentence": "薬を飲ませました。",
+      "exampleTranslation": "Tôi đã bắt uống thuốc.",
+      "forms": [
+        "飲ませます",
+        "飲ませて",
+        "飲ませた",
+        "飲ませない",
+        "飲ませられる"
+      ],
+      "displayOrder": 1
+    },
+    {
+      "id": 3871,
+      "term": "勉強させる",
+      "reading": "べんきょうさせる",
+      "romaji": "benkyou saseru",
+      "definition": "Bắt học",
+      "exampleSentence": "毎日、子どもに勉強させます。",
+      "exampleTranslation": "Tôi bắt con học mỗi ngày.",
+      "forms": [
+        "勉強させます",
+        "勉強させて",
+        "勉強させた",
+        "勉強させない",
+        "勉強させられる"
+      ],
+      "displayOrder": 2
+    },
+    {
+      "id": 3872,
+      "term": "待たせる",
+      "reading": "またせる",
+      "romaji": "mataseru",
+      "definition": "Bắt chờ",
+      "exampleSentence": "長い間、待たせてすみません。",
+      "exampleTranslation": "Xin lỗi đã bắt chờ lâu.",
+      "forms": [
+        "待たせます",
+        "待たせて",
+        "待たせた",
+        "待たせない",
+        "待たせられる"
+      ],
+      "displayOrder": 3
+    },
+    {
+      "id": 3873,
+      "term": "行かせる",
+      "reading": "いかせる",
+      "romaji": "ikaseru",
+      "definition": "Cho/bắt đi",
+      "exampleSentence": "部下を出張に行かせます。",
+      "exampleTranslation": "Tôi cho cấp dưới đi công tác.",
+      "forms": [
+        "行かせます",
+        "行かせて",
+        "行かせた",
+        "行かせない",
+        "行かせられる"
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": 3874,
+      "term": "話させる",
+      "reading": "はなさせる",
+      "romaji": "hanasaseru",
+      "definition": "Cho/bắt nói",
+      "exampleSentence": "学生に日本語で話させます。",
+      "exampleTranslation": "Tôi cho học sinh nói bằng tiếng Nhật.",
+      "forms": [
+        "話させます",
+        "話させて",
+        "話させた",
+        "話させない",
+        "話させられる"
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": 3875,
+      "term": "休ませる",
+      "reading": "やすませる",
+      "romaji": "yasumaseru",
+      "definition": "Cho nghỉ",
+      "exampleSentence": "具合が悪い社員を休ませます。",
+      "exampleTranslation": "Tôi cho nhân viên bị ốm nghỉ.",
+      "forms": [
+        "休ませます",
+        "休ませて",
+        "休ませた",
+        "休ませない",
+        "休ませられる"
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": 3876,
+      "term": "笑わせる",
+      "reading": "わらわせる",
+      "romaji": "warawaseru",
+      "definition": "Làm cười",
+      "exampleSentence": "みんなを笑わせるのが得意です。",
+      "exampleTranslation": "Tôi giỏi làm mọi người cười.",
+      "forms": [
+        "笑わせます",
+        "笑わせて",
+        "笑わせた",
+        "笑わせない",
+        "笑わせられる"
+      ],
+      "displayOrder": 7
+    },
+    {
+      "id": 3877,
+      "term": "泣かせる",
+      "reading": "なかせる",
+      "romaji": "nakaseru",
+      "definition": "Làm khóc",
+      "exampleSentence": "映画が私を泣かせました。",
+      "exampleTranslation": "Bộ phim đã làm tôi khóc.",
+      "forms": [
+        "泣かせます",
+        "泣かせて",
+        "泣かせた",
+        "泣かせない",
+        "泣かせられる"
+      ],
+      "displayOrder": 8
+    },
+    {
+      "id": 3878,
+      "term": "驚かせる",
+      "reading": "おどろかせる",
+      "romaji": "odorokaseru",
+      "definition": "Làm ngạc nhiên",
+      "exampleSentence": "サプライズで彼女を驚かせました。",
+      "exampleTranslation": "Tôi đã làm cô ấy ngạc nhiên bằng bất ngờ.",
+      "forms": [
+        "驚かせます",
+        "驚かせて",
+        "驚かせた",
+        "驚かせない",
+        "驚かせられる"
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": 3879,
+      "term": "喜ばせる",
+      "reading": "よろこばせる",
+      "romaji": "yorokobaseru",
+      "definition": "Làm vui lòng",
+      "exampleSentence": "プレゼントで親を喜ばせました。",
+      "exampleTranslation": "Tôi đã làm bố mẹ vui bằng quà tặng.",
+      "forms": [
+        "喜ばせます",
+        "喜ばせて",
+        "喜ばせた",
+        "喜ばせない",
+        "喜ばせられる"
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": 3880,
+      "term": "困らせる",
+      "reading": "こまらせる",
+      "romaji": "komaraseru",
+      "definition": "Làm khó xử",
+      "exampleSentence": "そんな質問で困らせないでください。",
+      "exampleTranslation": "Đừng làm tôi khó xử bằng câu hỏi như vậy.",
+      "forms": [
+        "困らせます",
+        "困らせて",
+        "困らせた",
+        "困らせない",
+        "困らせられる"
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": 3881,
+      "term": "考えさせる",
+      "reading": "かんがえさせる",
+      "romaji": "kangaesaseru",
+      "definition": "Làm suy nghĩ / bắt suy nghĩ",
+      "exampleSentence": "この問題は深く考えさせます。",
+      "exampleTranslation": "Vấn đề này làm tôi suy nghĩ sâu.",
+      "forms": [
+        "考えさせます",
+        "考えさせて",
+        "考えさせた",
+        "考えさせない",
+        "考えさせられる"
+      ],
+      "displayOrder": 12
+    },
+    {
+      "id": 3882,
+      "term": "安心させる",
+      "reading": "あんしんさせる",
+      "romaji": "anshin saseru",
+      "definition": "Làm yên lòng",
+      "exampleSentence": "彼女を安心させたいです。",
+      "exampleTranslation": "Tôi muốn làm cô ấy yên lòng.",
+      "forms": [
+        "安心させます",
+        "安心させて",
+        "安心させた",
+        "安心させない",
+        "安心させられる"
+      ],
+      "displayOrder": 13
+    },
+    {
+      "id": 3883,
+      "term": "心配させる",
+      "reading": "しんぱいさせる",
+      "romaji": "shinpai saseru",
+      "definition": "Làm lo lắng",
+      "exampleSentence": "親を心配させてすみません。",
+      "exampleTranslation": "Xin lỗi đã làm bố mẹ lo lắng.",
+      "forms": [
+        "心配させます",
+        "心配させて",
+        "心配させた",
+        "心配させない",
+        "心配させられる"
+      ],
+      "displayOrder": 14
+    },
+    {
+      "id": 3884,
+      "term": "〜させてください",
+      "reading": "〜させてください",
+      "romaji": "sasete kudasai",
+      "definition": "Xin cho phép tôi làm",
+      "exampleSentence": "発表させてください。",
+      "exampleTranslation": "Xin cho phép tôi trình bày.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 3885,
+      "term": "〜させていただく",
+      "reading": "〜させていただく",
+      "romaji": "sasete itadaku",
+      "definition": "Cho phép tôi được làm (khiêm tốn)",
+      "exampleSentence": "確認させていただきます。",
+      "exampleTranslation": "Cho phép tôi được xác nhận.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 3886,
+      "term": "〜させてもらう",
+      "reading": "〜させてもらう",
+      "romaji": "sasete morau",
+      "definition": "Được phép làm",
+      "exampleSentence": "少し休ませてもらいます。",
+      "exampleTranslation": "Tôi được phép nghỉ một chút.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 3887,
+      "term": "〜させることができる",
+      "reading": "〜させることができる",
+      "romaji": "saseru koto ga dekiru",
+      "definition": "Có thể bắt làm",
+      "exampleSentence": "学生を集中させることができます。",
+      "exampleTranslation": "Tôi có thể làm học sinh tập trung.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 3888,
+      "term": "〜させっぱなし",
+      "reading": "〜させっぱなし",
+      "romaji": "saseppanashi",
+      "definition": "Để mặc cho làm (không quản lý)",
+      "exampleSentence": "子どもにゲームをさせっぱなしはよくない。",
+      "exampleTranslation": "Để mặc con chơi game là không tốt.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 3889,
+      "term": "使役受身形",
+      "reading": "しえきうけみけい",
+      "romaji": "shiekiukemikei",
+      "definition": "Dạng bị động sai khiến (bị bắt làm)",
+      "exampleSentence": "残業をさせられました。",
+      "exampleTranslation": "Tôi bị bắt làm thêm giờ.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 3890,
+      "term": "〜させようとする",
+      "reading": "〜させようとする",
+      "romaji": "sase you to suru",
+      "definition": "Cố gắng bắt làm",
+      "exampleSentence": "彼を謝らせようとしました。",
+      "exampleTranslation": "Tôi đã cố gắng bắt anh ấy xin lỗi.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 50728,
+      "term": "見させる",
+      "reading": "みさせる",
+      "romaji": "misaseru",
+      "definition": "bắt/cho xem",
+      "exampleSentence": "母は私に昔の写真を見させました。",
+      "exampleTranslation": "Mẹ cho tôi xem những bức ảnh ngày xưa.",
+      "forms": [
+        "見させます",
+        "見させて",
+        "見させた",
+        "見させない"
+      ],
+      "displayOrder": 22
+    },
+    {
+      "id": 50729,
+      "term": "聞かせる",
+      "reading": "きかせる",
+      "romaji": "kikaseru",
+      "definition": "bắt/cho nghe",
+      "exampleSentence": "先生は学生に説明を聞かせました。",
+      "exampleTranslation": "Giáo viên cho học sinh nghe lời giải thích.",
+      "forms": [
+        "聞かせます",
+        "聞かせて",
+        "聞かせた",
+        "聞かせない"
+      ],
+      "displayOrder": 23
+    },
+    {
+      "id": 50730,
+      "term": "読ませる",
+      "reading": "よませる",
+      "romaji": "yomaseru",
+      "definition": "bắt/cho đọc",
+      "exampleSentence": "先生は学生に教科書を読ませました。",
+      "exampleTranslation": "Giáo viên bắt học sinh đọc sách giáo khoa.",
+      "forms": [
+        "読ませます",
+        "読ませて",
+        "読ませた",
+        "読ませない"
+      ],
+      "displayOrder": 24
+    },
+    {
+      "id": 50731,
+      "term": "書かせる",
+      "reading": "かかせる",
+      "romaji": "kakaseru",
+      "definition": "bắt/cho viết",
+      "exampleSentence": "母は弟に手紙を書かせました。",
+      "exampleTranslation": "Mẹ bắt em trai viết thư.",
+      "forms": [
+        "書かせます",
+        "書かせて",
+        "書かせた",
+        "書かせない"
+      ],
+      "displayOrder": 25
+    },
+    {
+      "id": 50732,
+      "term": "作らせる",
+      "reading": "つくらせる",
+      "romaji": "tsukuraseru",
+      "definition": "bắt/cho làm",
+      "exampleSentence": "父は私に夕食を作らせました。",
+      "exampleTranslation": "Bố bảo tôi nấu bữa tối.",
+      "forms": [
+        "作らせます",
+        "作らせて",
+        "作らせた",
+        "作らせない"
+      ],
+      "displayOrder": 26
+    },
+    {
+      "id": 50733,
+      "term": "使わせる",
+      "reading": "つかわせる",
+      "romaji": "tsukawaseru",
+      "definition": "bắt/cho sử dụng",
+      "exampleSentence": "先生は学生に辞書を使わせました。",
+      "exampleTranslation": "Giáo viên cho học sinh sử dụng từ điển.",
+      "forms": [
+        "使わせます",
+        "使わせて",
+        "使わせた",
+        "使わせない"
+      ],
+      "displayOrder": 27
+    },
+    {
+      "id": 50734,
+      "term": "持たせる",
+      "reading": "もたせる",
+      "romaji": "motaseru",
+      "definition": "bắt/cho mang",
+      "exampleSentence": "母は子どもに傘を持たせました。",
+      "exampleTranslation": "Mẹ cho con mang ô.",
+      "forms": [
+        "持たせます",
+        "持たせて",
+        "持たせた",
+        "持たせない"
+      ],
+      "displayOrder": 28
+    },
+    {
+      "id": 50735,
+      "term": "覚えさせる",
+      "reading": "おぼえさせる",
+      "romaji": "obo esaseru",
+      "definition": "bắt ghi nhớ",
+      "exampleSentence": "先生は学生に新しい漢字を覚えさせました。",
+      "exampleTranslation": "Giáo viên yêu cầu học sinh ghi nhớ chữ Hán mới.",
+      "forms": [
+        "覚えさせます",
+        "覚えさせて",
+        "覚えさせた",
+        "覚えさせない"
+      ],
+      "displayOrder": 29
+    }
+  ]
+}

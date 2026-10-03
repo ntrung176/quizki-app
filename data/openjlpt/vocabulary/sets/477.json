@@ -1,0 +1,198 @@
+{
+  "id": 477,
+  "title": "教育・学習 · 試験・成績・評価",
+  "description": "Thi cử, điểm số & thái độ học tập — chủ đề Giáo dục & học tập · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.862627",
+  "cards": [
+    {
+      "id": 12007,
+      "term": "苦手 (にがて)",
+      "reading": "にがて",
+      "romaji": null,
+      "definition": "không giỏi, điểm yếu, ngại",
+      "exampleSentence": "私は人前で話すのが苦手です。",
+      "exampleTranslation": "Tôi không giỏi nói trước đám đông.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12008,
+      "term": "試験 (しけん)",
+      "reading": "しけん",
+      "romaji": null,
+      "definition": "kỳ thi, bài kiểm tra",
+      "exampleSentence": "試験の前日は、早く寝るようにしています。",
+      "exampleTranslation": "Tôi cố gắng đi ngủ sớm vào ngày trước kỳ thi.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12009,
+      "term": "資格 (しかく)",
+      "reading": "しかく",
+      "romaji": null,
+      "definition": "bằng cấp/chứng chỉ",
+      "exampleSentence": "就職に役立つ資格を取るため、毎晩勉強しています。",
+      "exampleTranslation": "Để lấy chứng chỉ có ích cho việc xin việc, tôi học mỗi tối.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12010,
+      "term": "上達する (じょうたつする)",
+      "reading": "じょうたつする",
+      "romaji": null,
+      "definition": "tiến bộ, ngày càng giỏi hơn",
+      "exampleSentence": "日本語が上達するように、毎日ニュースを聞いています。",
+      "exampleTranslation": "Để tiếng Nhật tiến bộ, tôi nghe tin tức mỗi ngày.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12011,
+      "term": "成績 (せいせき)",
+      "reading": "せいせき",
+      "romaji": null,
+      "definition": "thành tích học tập",
+      "exampleSentence": "今学期は毎日復習したので、成績が大きく上がりました。",
+      "exampleTranslation": "Học kỳ này, vì ngày nào tôi cũng ôn tập nên thành tích học tập đã tăng đáng kể.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12012,
+      "term": "努力 (どりょく)",
+      "reading": "どりょく",
+      "romaji": null,
+      "definition": "sự nỗ lực",
+      "exampleSentence": "彼の努力が実り、難しい試験に合格しました。",
+      "exampleTranslation": "Nhờ những nỗ lực của anh ấy được đền đáp, anh ấy đã đỗ kỳ thi khó.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12013,
+      "term": "得意 (とくい)",
+      "reading": "とくい",
+      "romaji": null,
+      "definition": "giỏi, thế mạnh, sở trường",
+      "exampleSentence": "私は人前で話すことが得意です。",
+      "exampleTranslation": "Tôi giỏi nói chuyện trước đám đông.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12014,
+      "term": "評価 (ひょうか)",
+      "reading": "ひょうか",
+      "romaji": null,
+      "definition": "đánh giá/nhận xét",
+      "exampleSentence": "彼の研究は国内外で高い評価を受けています。",
+      "exampleTranslation": "Công trình nghiên cứu của anh ấy nhận được đánh giá cao ở cả trong và ngoài nước.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12015,
+      "term": "学力 (がくりょく)",
+      "reading": "がくりょく",
+      "romaji": null,
+      "definition": "học lực/năng lực học tập",
+      "exampleSentence": "学力を伸ばすには、基礎を繰り返し勉強することが大切です。",
+      "exampleTranslation": "Để nâng cao năng lực học tập, điều quan trọng là phải học đi học lại những kiến thức cơ bản.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12016,
+      "term": "集中力 (しゅうちゅうりょく)",
+      "reading": "しゅうちゅうりょく",
+      "romaji": null,
+      "definition": "khả năng tập trung",
+      "exampleSentence": "静かな場所で勉強すると、集中力が長く続きます。",
+      "exampleTranslation": "Nếu học ở nơi yên tĩnh, khả năng tập trung sẽ duy trì được lâu hơn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12017,
+      "term": "上達 (じょうたつ)",
+      "reading": "じょうたつ",
+      "romaji": null,
+      "definition": "tiến bộ/nâng cao",
+      "exampleSentence": "毎日の練習によって、ピアノの上達を実感しています。",
+      "exampleTranslation": "Nhờ luyện tập hằng ngày, tôi cảm nhận rõ sự tiến bộ khi chơi piano.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12018,
+      "term": "切磋琢磨 (せっさたくま)",
+      "reading": "せっさたくま",
+      "romaji": null,
+      "definition": "cùng nhau mài giũa/học hỏi lẫn nhau",
+      "exampleSentence": "彼らは互いに切磋琢磨しながら、研究の質を高めています。",
+      "exampleTranslation": "Họ cùng nhau mài giũa và nâng cao chất lượng nghiên cứu.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12019,
+      "term": "絶えず (たえず)",
+      "reading": "たえず",
+      "romaji": null,
+      "definition": "không ngừng/liên tục",
+      "exampleSentence": "彼は絶えず新しい知識を吸収し、仕事に生かしています。",
+      "exampleTranslation": "Anh ấy không ngừng tiếp thu kiến thức mới và áp dụng vào công việc.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12020,
+      "term": "評価基準 (ひょうかきじゅん)",
+      "reading": "ひょうかきじゅん",
+      "romaji": null,
+      "definition": "tiêu chí đánh giá",
+      "exampleSentence": "この奨学金の評価基準は、成績と出席率です。",
+      "exampleTranslation": "Tiêu chí đánh giá của học bổng này là thành tích học tập và tỷ lệ chuyên cần.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12021,
+      "term": "模擬試験 (もぎしけん)",
+      "reading": "もぎしけん",
+      "romaji": null,
+      "definition": "thi thử",
+      "exampleSentence": "来月の本番に備えて、週末に日本語の模擬試験を受ける予定です。",
+      "exampleTranslation": "Để chuẩn bị cho kỳ thi chính thức vào tháng sau, cuối tuần này tôi dự định làm một bài thi thử tiếng Nhật.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12022,
+      "term": "内申書 (ないしんしょ)",
+      "reading": "ないしんしょ",
+      "romaji": null,
+      "definition": "học bạ/phiếu nhận xét",
+      "exampleSentence": "高校への推薦入試では、内申書の内容が合否を左右することもある。",
+      "exampleTranslation": "Trong kỳ thi tuyển sinh theo diện tiến cử vào trường cấp ba, nội dung học bạ đôi khi cũng ảnh hưởng đến việc đỗ hay trượt.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 12023,
+      "term": "偏差値 (へんさち)",
+      "reading": "へんさち",
+      "romaji": null,
+      "definition": "chỉ số phân chuẩn thi",
+      "exampleSentence": "志望校を選ぶ際は、偏差値だけでなく校風も確認したい。",
+      "exampleTranslation": "Khi chọn trường mong muốn, tôi muốn xem xét cả môi trường, truyền thống của trường chứ không chỉ chỉ số phân chuẩn.",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

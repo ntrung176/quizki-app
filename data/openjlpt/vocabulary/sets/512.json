@@ -1,0 +1,187 @@
+{
+  "id": 512,
+  "title": "生活・住まい · 位置・方向",
+  "description": "Vị trí & phương hướng — chủ đề Đời sống & nhà cửa · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:51.045361",
+  "cards": [
+    {
+      "id": 12712,
+      "term": "あちら",
+      "reading": "あちら",
+      "romaji": null,
+      "definition": "phía kia/bên kia",
+      "exampleSentence": "駅はあちらですので、案内板に沿ってお進みください。",
+      "exampleTranslation": "Nhà ga ở phía kia, xin hãy đi theo bảng hướng dẫn.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12713,
+      "term": "こちら",
+      "reading": "こちら",
+      "romaji": null,
+      "definition": "phía này/bên này",
+      "exampleSentence": "受付はこちらですので、名前を書いて少々お待ちください。",
+      "exampleTranslation": "Quầy tiếp tân ở phía này, vui lòng ghi tên rồi chờ một lát.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12714,
+      "term": "そちら",
+      "reading": "そちら",
+      "romaji": null,
+      "definition": "phía đó/bên đó",
+      "exampleSentence": "そちらの都合がよければ、午後三時に伺います。",
+      "exampleTranslation": "Nếu bên đó thuận tiện, tôi sẽ đến lúc ba giờ chiều.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12715,
+      "term": "位置 (いち)",
+      "reading": "いち",
+      "romaji": null,
+      "definition": "vị trí",
+      "exampleSentence": "地図で現在地を確認し、目的地の位置を友人に伝えた。",
+      "exampleTranslation": "Tôi kiểm tra vị trí hiện tại trên bản đồ rồi báo vị trí điểm đến cho bạn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12716,
+      "term": "奥 (おく)",
+      "reading": "おく",
+      "romaji": null,
+      "definition": "bên trong sâu/phía trong",
+      "exampleSentence": "この道をまっすぐ進むと、奥に小さな神社があります。",
+      "exampleTranslation": "Đi thẳng theo con đường này, ở phía sâu bên trong có một ngôi đền nhỏ.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12717,
+      "term": "隅 (すみ)",
+      "reading": "すみ",
+      "romaji": null,
+      "definition": "góc khuất/góc",
+      "exampleSentence": "部屋の隅に、使わなくなった机が置いてある。",
+      "exampleTranslation": "Ở góc phòng có một chiếc bàn không còn sử dụng được đặt ở đó.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12718,
+      "term": "向こう (むこう)",
+      "reading": "むこう",
+      "romaji": null,
+      "definition": "phía bên kia",
+      "exampleSentence": "川の向こうに、古いお寺が見える。",
+      "exampleTranslation": "Có thể nhìn thấy một ngôi chùa cổ ở phía bên kia sông.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12719,
+      "term": "左右 (さゆう)",
+      "reading": "さゆう",
+      "romaji": null,
+      "definition": "trái phải",
+      "exampleSentence": "道路を渡る前に、左右をよく確認してください。",
+      "exampleTranslation": "Trước khi qua đường, hãy kiểm tra kỹ hai bên trái phải.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12720,
+      "term": "手前 (てまえ)",
+      "reading": "てまえ",
+      "romaji": null,
+      "definition": "phía trước/trước mặt",
+      "exampleSentence": "駅の手前に、大きなコンビニがあります。",
+      "exampleTranslation": "Có một cửa hàng tiện lợi lớn ngay trước ga.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12721,
+      "term": "場所 (ばしょ)",
+      "reading": "ばしょ",
+      "romaji": null,
+      "definition": "nơi chốn",
+      "exampleSentence": "この場所では、写真を撮ってはいけません。",
+      "exampleTranslation": "Không được chụp ảnh ở nơi này.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12722,
+      "term": "場所柄 (ばしょがら)",
+      "reading": "ばしょがら",
+      "romaji": null,
+      "definition": "tính chất phù hợp địa điểm",
+      "exampleSentence": "場所柄、派手な服装は避けたほうがよいでしょう。",
+      "exampleTranslation": "Vì tính chất của địa điểm này, bạn nên tránh mặc trang phục quá sặc sỡ.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12723,
+      "term": "真ん中 (まんなか)",
+      "reading": "まんなか",
+      "romaji": null,
+      "definition": "chính giữa",
+      "exampleSentence": "教室の真ん中に、大きな机を置きました。",
+      "exampleTranslation": "Tôi đã đặt một chiếc bàn lớn ở chính giữa lớp học.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12724,
+      "term": "端 (はし)",
+      "reading": "はし",
+      "romaji": null,
+      "definition": "đầu/mép/rìa",
+      "exampleSentence": "机の端にコップを置くと、落ちやすいですよ。",
+      "exampleTranslation": "Nếu đặt cốc ở mép bàn thì dễ rơi đấy.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12725,
+      "term": "中心 (ちゅうしん)",
+      "reading": "ちゅうしん",
+      "romaji": null,
+      "definition": "trung tâm",
+      "exampleSentence": "この町は駅を中心に発展してきました。",
+      "exampleTranslation": "Thị trấn này đã phát triển xoay quanh nhà ga.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12726,
+      "term": "付近 (ふきん)",
+      "reading": "ふきん",
+      "romaji": null,
+      "definition": "gần đó",
+      "exampleSentence": "事故のため、駅付近の道路が通行止めになっています。",
+      "exampleTranslation": "Do tai nạn, con đường gần nhà ga đang bị cấm lưu thông.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12727,
+      "term": "辺り (あたり)",
+      "reading": "あたり",
+      "romaji": null,
+      "definition": "xung quanh/khu vực này",
+      "exampleSentence": "この辺りは夜になると、とても静かです。",
+      "exampleTranslation": "Khu vực này trở nên rất yên tĩnh khi đêm xuống.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

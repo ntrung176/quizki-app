@@ -1,0 +1,176 @@
+{
+  "id": 205,
+  "title": "Tuần 2 · Ngày 5 - 社会・制度 (Xã hội & Thể chế)",
+  "description": "Nihongo Soumatome N3 語彙 — 社会・制度 (Xã hội & Thể chế)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.12453",
+  "cards": [
+    {
+      "id": 5401,
+      "term": "社会 (しゃかい)",
+      "reading": "しゃかい",
+      "romaji": "shakai",
+      "definition": "xã hội",
+      "exampleSentence": "インターネットは私たちの社会を大きく変えた。",
+      "exampleTranslation": "Internet đã làm thay đổi sâu sắc xã hội của chúng ta.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5402,
+      "term": "制度 (せいど)",
+      "reading": "せいど",
+      "romaji": "seido",
+      "definition": "chế độ, hệ thống, thể chế",
+      "exampleSentence": "この制度を利用すれば、学生は安く電車に乗れる。",
+      "exampleTranslation": "Nếu sử dụng chế độ này, học sinh có thể đi tàu với giá rẻ.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5403,
+      "term": "政策 (せいさく)",
+      "reading": "せいさく",
+      "romaji": "seisaku",
+      "definition": "chính sách",
+      "exampleSentence": "政府は環境を守るための新しい政策を発表した。",
+      "exampleTranslation": "Chính phủ đã công bố chính sách mới nhằm bảo vệ môi trường.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5404,
+      "term": "法律 (ほうりつ)",
+      "reading": "ほうりつ",
+      "romaji": "houritsu",
+      "definition": "pháp luật, luật pháp",
+      "exampleSentence": "その行為は法律で禁止されている。",
+      "exampleTranslation": "Hành vi đó bị pháp luật nghiêm cấm.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5405,
+      "term": "規則 (きそく)",
+      "reading": "きそく",
+      "romaji": "kisoku",
+      "definition": "quy tắc, quy định",
+      "exampleSentence": "学校の規則では、授業中に携帯電話を使ってはいけない。",
+      "exampleTranslation": "Theo quy định của trường, không được sử dụng điện thoại di động trong giờ học.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5406,
+      "term": "義務 (ぎむ)",
+      "reading": "ぎむ",
+      "romaji": "gimu",
+      "definition": "nghĩa vụ, bổn phận",
+      "exampleSentence": "国民には税金を納める義務がある。",
+      "exampleTranslation": "Công dân có nghĩa vụ nộp thuế.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5407,
+      "term": "権利 (けんり)",
+      "reading": "けんり",
+      "romaji": "kenri",
+      "definition": "quyền lợi, quyền hạn",
+      "exampleSentence": "すべての社員には、意見を自由に述べる権利があります。",
+      "exampleTranslation": "Tất cả nhân viên đều có quyền tự do nêu ý kiến.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5408,
+      "term": "責任 (せきにん)",
+      "reading": "せきにん",
+      "romaji": "sekinin",
+      "definition": "trách nhiệm",
+      "exampleSentence": "自分の発言には、最後まで責任を持ちましょう。",
+      "exampleTranslation": "Hãy chịu trách nhiệm đến cùng về lời nói của mình.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5409,
+      "term": "税金 (ぜいきん)",
+      "reading": "ぜいきん",
+      "romaji": "zeikin",
+      "definition": "thuế, tiền thuế",
+      "exampleSentence": "私たちは毎年、収入に応じて税金を納めます。",
+      "exampleTranslation": "Hằng năm, chúng tôi nộp thuế tùy theo thu nhập.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5410,
+      "term": "選挙 (せんきょ)",
+      "reading": "せんきょ",
+      "romaji": "senkyo",
+      "definition": "bầu cử",
+      "exampleSentence": "来月の選挙で、誰に投票するか決めました。",
+      "exampleTranslation": "Tôi đã quyết định sẽ bỏ phiếu cho ai trong cuộc bầu cử tháng tới.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5411,
+      "term": "政府 (せいふ)",
+      "reading": "せいふ",
+      "romaji": "seifu",
+      "definition": "chính phủ",
+      "exampleSentence": "政府は新しい制度について、国民に説明しました。",
+      "exampleTranslation": "Chính phủ đã giải thích cho người dân về chế độ mới.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5412,
+      "term": "地域 (ちいき)",
+      "reading": "ちいき",
+      "romaji": "chiiki",
+      "definition": "khu vực, địa phương, vùng",
+      "exampleSentence": "この地域では、毎年夏に大きな祭りが開かれます。",
+      "exampleTranslation": "Ở khu vực này, một lễ hội lớn được tổ chức vào mỗi mùa hè.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5413,
+      "term": "国際 (こくさい)",
+      "reading": "こくさい",
+      "romaji": "kokusai",
+      "definition": "quốc tế",
+      "exampleSentence": "大学で国際交流のイベントに参加しました。",
+      "exampleTranslation": "Tôi đã tham gia một sự kiện giao lưu quốc tế ở trường đại học.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5414,
+      "term": "文化 (ぶんか)",
+      "reading": "ぶんか",
+      "romaji": "bunka",
+      "definition": "văn hóa",
+      "exampleSentence": "異なる文化を理解するには、相手の話を聞くことが大切です。",
+      "exampleTranslation": "Để hiểu những nền văn hóa khác nhau, việc lắng nghe đối phương là rất quan trọng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5415,
+      "term": "伝統 (でんとう)",
+      "reading": "でんとう",
+      "romaji": "dentou",
+      "definition": "truyền thống",
+      "exampleSentence": "この町では、古い伝統が今も大切に守られています。",
+      "exampleTranslation": "Ở thị trấn này, truyền thống lâu đời vẫn được gìn giữ cẩn thận.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

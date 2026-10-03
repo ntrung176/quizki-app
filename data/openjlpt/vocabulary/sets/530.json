@@ -1,0 +1,143 @@
+{
+  "id": 530,
+  "title": "オノマトペ・副詞 · 確信・程度の副詞",
+  "description": "Phó từ khẳng định & mức độ — chủ đề Từ tượng thanh & phó từ · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:51.500607",
+  "cards": [
+    {
+      "id": 13075,
+      "term": "きっと",
+      "reading": "きっと",
+      "romaji": null,
+      "definition": "chắc chắn, nhất định",
+      "exampleSentence": "明日はきっと晴れるでしょう。",
+      "exampleTranslation": "Ngày mai chắc chắn trời sẽ nắng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13076,
+      "term": "ずっと",
+      "reading": "ずっと",
+      "romaji": null,
+      "definition": "suốt, mãi, liên tục",
+      "exampleSentence": "彼はこの町にずっと住み続けたいと思っている。",
+      "exampleTranslation": "Anh ấy muốn tiếp tục sống mãi ở thị trấn này.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13077,
+      "term": "ぜひ",
+      "reading": "ぜひ",
+      "romaji": null,
+      "definition": "nhất định, nhất thiết, bằng được",
+      "exampleSentence": "ぜひ一度、京都のお寺を訪ねてみてください。",
+      "exampleTranslation": "Nhất định hãy thử một lần ghé thăm những ngôi chùa ở Kyoto nhé.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13078,
+      "term": "ほとんど",
+      "reading": "ほとんど",
+      "romaji": null,
+      "definition": "hầu hết, gần như",
+      "exampleSentence": "ほとんどの学生が宿題を終えました。",
+      "exampleTranslation": "Hầu hết học sinh đã làm xong bài tập về nhà.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13079,
+      "term": "もちろん",
+      "reading": "もちろん",
+      "romaji": null,
+      "definition": "dĩ nhiên, đương nhiên",
+      "exampleSentence": "もちろん、明日のパーティーに参加します。",
+      "exampleTranslation": "Dĩ nhiên là tôi sẽ tham gia bữa tiệc ngày mai.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13080,
+      "term": "十分 (じゅうぶん)",
+      "reading": "じゅうぶん",
+      "romaji": null,
+      "definition": "đủ, đầy đủ, đủ rồi",
+      "exampleSentence": "これだけ準備すれば、試験には十分です。",
+      "exampleTranslation": "Chuẩn bị như thế này là đủ cho kỳ thi rồi.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13081,
+      "term": "すっかり",
+      "reading": "すっかり",
+      "romaji": null,
+      "definition": "hoàn toàn, hết sạch",
+      "exampleSentence": "旅行の疲れがすっかり取れました。",
+      "exampleTranslation": "Cơn mệt mỏi sau chuyến đi đã hoàn toàn biến mất.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13082,
+      "term": "だいぶ",
+      "reading": "だいぶ",
+      "romaji": null,
+      "definition": "khá nhiều, đáng kể",
+      "exampleSentence": "薬を飲んだら、だいぶ元気になりました。",
+      "exampleTranslation": "Sau khi uống thuốc, tôi đã khỏe lên khá nhiều.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13083,
+      "term": "なかなか",
+      "reading": "なかなか",
+      "romaji": null,
+      "definition": "khá, cũng khá, không dễ (phủ định)",
+      "exampleSentence": "この問題はなかなか解けません。",
+      "exampleTranslation": "Bài toán này không dễ giải chút nào.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13084,
+      "term": "もっとも",
+      "reading": "もっとも",
+      "romaji": null,
+      "definition": "tuy nhiên, dù sao, nhưng mà",
+      "exampleSentence": "もっとも、天気が悪ければ予定を変更します。",
+      "exampleTranslation": "Tuy nhiên, nếu thời tiết xấu thì chúng ta sẽ thay đổi kế hoạch.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13085,
+      "term": "やはり",
+      "reading": "やはり",
+      "romaji": null,
+      "definition": "vẫn, dù sao, đúng như nghĩ",
+      "exampleSentence": "やはり、電車で行くのが一番便利です。",
+      "exampleTranslation": "Đúng như tôi nghĩ, đi bằng tàu điện vẫn là tiện nhất.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13086,
+      "term": "必ず (かならず)",
+      "reading": "かならず",
+      "romaji": null,
+      "definition": "nhất định, chắc chắn, không ngoại lệ",
+      "exampleSentence": "健康のために、毎朝必ず朝ご飯を食べます。",
+      "exampleTranslation": "Vì sức khỏe, sáng nào tôi cũng nhất định ăn sáng.",
+      "forms": [],
+      "displayOrder": 11
+    }
+  ]
+}

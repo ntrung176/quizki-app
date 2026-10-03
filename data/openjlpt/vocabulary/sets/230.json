@@ -1,0 +1,176 @@
+{
+  "id": 230,
+  "title": "Tuần 6 · Ngày 2 - 擬態語 (Từ tượng hình)",
+  "description": "Nihongo Soumatome N3 語彙 — 擬態語 (Từ tượng hình)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.698415",
+  "cards": [
+    {
+      "id": 5716,
+      "term": "わくわく",
+      "reading": "わくわく",
+      "romaji": "wakuwaku",
+      "definition": "hào hứng, phấn khích, hồi hộp vui",
+      "exampleSentence": "来月の旅行を楽しみにして、毎日わくわくしている。",
+      "exampleTranslation": "Mong chờ chuyến du lịch tháng sau nên ngày nào tôi cũng thấy háo hức.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5717,
+      "term": "どきどき",
+      "reading": "どきどき",
+      "romaji": "dokidoki",
+      "definition": "hồi hộp, tim đập mạnh",
+      "exampleSentence": "初めて日本語で発表するので、朝からどきどきしている。",
+      "exampleTranslation": "Vì lần đầu thuyết trình bằng tiếng Nhật nên từ sáng tôi đã hồi hộp.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5718,
+      "term": "のんびり",
+      "reading": "のんびり",
+      "romaji": "nonbiri",
+      "definition": "thư thả, thoải mái, nhàn nhã",
+      "exampleSentence": "休日は家で音楽を聞きながら、のんびり過ごした。",
+      "exampleTranslation": "Ngày nghỉ, tôi thư thả ở nhà vừa nghe nhạc vừa tận hưởng thời gian.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5719,
+      "term": "ぼんやり",
+      "reading": "ぼんやり",
+      "romaji": "bonyari",
+      "definition": "lờ mờ, đờ đẫn, mơ màng",
+      "exampleSentence": "遠くの山が霧の中にぼんやり見えている。",
+      "exampleTranslation": "Ngọn núi phía xa hiện lên mờ ảo trong màn sương.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5720,
+      "term": "うろうろ",
+      "reading": "うろうろ",
+      "romaji": "urouro",
+      "definition": "đi lại vô mục đích, lảng vảng",
+      "exampleSentence": "駅の前で道が分からず、しばらくうろうろしていた。",
+      "exampleTranslation": "Vì không biết đường trước nhà ga nên tôi đã đi loanh quanh một lúc.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5721,
+      "term": "ふらふら",
+      "reading": "ふらふら",
+      "romaji": "furafura",
+      "definition": "lảo đảo, loạng choạng, chóng mặt",
+      "exampleSentence": "熱があるのか、足元がふらふらして歩けない。",
+      "exampleTranslation": "Không biết có phải bị sốt không mà tôi loạng choạng đến mức không đi nổi.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5722,
+      "term": "ぺこぺこ",
+      "reading": "ぺこぺこ",
+      "romaji": "pekopeko",
+      "definition": "đói bụng cồn cào, khúm núm",
+      "exampleSentence": "朝から何も食べていないので、おなかがぺこぺこだ。",
+      "exampleTranslation": "Vì từ sáng tôi chưa ăn gì nên bụng đói cồn cào.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5723,
+      "term": "くたくた",
+      "reading": "くたくた",
+      "romaji": "kutakuta",
+      "definition": "kiệt sức, mệt lả",
+      "exampleSentence": "一日中働いて、もうくたくたになった。",
+      "exampleTranslation": "Làm việc cả ngày khiến tôi mệt lả rồi.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5724,
+      "term": "へとへと",
+      "reading": "へとへと",
+      "romaji": "hetoheto",
+      "definition": "mệt nhoài, kiệt sức hoàn toàn",
+      "exampleSentence": "山を登り続けたので、みんなへとへとだった。",
+      "exampleTranslation": "Vì cứ leo núi mãi nên mọi người đều mệt nhoài.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5725,
+      "term": "ぺらぺら",
+      "reading": "ぺらぺら",
+      "romaji": "perapera",
+      "definition": "nói trôi chảy, thạo ngôn ngữ",
+      "exampleSentence": "彼女は三か国語をぺらぺらに話すことができる。",
+      "exampleTranslation": "Cô ấy có thể nói trôi chảy ba thứ tiếng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5726,
+      "term": "いらいら",
+      "reading": "いらいら",
+      "romaji": "iraira",
+      "definition": "bực bội, khó chịu, cáu kỉnh",
+      "exampleSentence": "電車が遅れて、朝からずっといらいらしている。",
+      "exampleTranslation": "Tàu điện bị trễ nên từ sáng tôi cứ bực bội mãi.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5727,
+      "term": "じろじろ",
+      "reading": "じろじろ",
+      "romaji": "jirojiro",
+      "definition": "nhìn chằm chặp, nhìn trừng trừng",
+      "exampleSentence": "知らない人にじろじろ見られて、落ち着かなかった。",
+      "exampleTranslation": "Bị người lạ nhìn chằm chặp khiến tôi cảm thấy không thoải mái.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5728,
+      "term": "もじもじ",
+      "reading": "もじもじ",
+      "romaji": "mojimoji",
+      "definition": "rụt rè, ngại ngùng, do dự",
+      "exampleSentence": "彼は好きな人の前で、恥ずかしそうにもじもじしていた。",
+      "exampleTranslation": "Trước mặt người mình thích, cậu ấy ngượng ngùng và bối rối.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5729,
+      "term": "ぼろぼろ",
+      "reading": "ぼろぼろ",
+      "romaji": "boroboro",
+      "definition": "tơi tả, hư hỏng, rách rưới",
+      "exampleSentence": "毎日使っていたかばんが、もうぼろぼろになってしまった。",
+      "exampleTranslation": "Chiếc cặp tôi dùng hằng ngày đã trở nên rách nát.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5730,
+      "term": "てきぱき",
+      "reading": "てきぱき",
+      "romaji": "tekipaki",
+      "definition": "nhanh nhẹn, gọn gàng, dứt khoát",
+      "exampleSentence": "店員は注文をてきぱき処理して、客を待たせなかった。",
+      "exampleTranslation": "Nhân viên nhanh nhẹn xử lý các đơn gọi món và không để khách phải chờ.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

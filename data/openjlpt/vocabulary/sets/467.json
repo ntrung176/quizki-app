@@ -1,0 +1,220 @@
+{
+  "id": 467,
+  "title": "環境・自然 · 地形・景観",
+  "description": "Địa hình & cảnh quan — chủ đề Môi trường & thiên nhiên · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.60917",
+  "cards": [
+    {
+      "id": 11830,
+      "term": "海岸 (かいがん)",
+      "reading": "かいがん",
+      "romaji": null,
+      "definition": "bờ biển",
+      "exampleSentence": "夏休みに家族と海岸を散歩し、美しい夕日を眺めた。",
+      "exampleTranslation": "Kỳ nghỉ hè, tôi đi dạo trên bờ biển cùng gia đình và ngắm hoàng hôn tuyệt đẹp.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11831,
+      "term": "湖 (みずうみ)",
+      "reading": "みずうみ",
+      "romaji": null,
+      "definition": "hồ, ao hồ",
+      "exampleSentence": "山の中にある湖は、驚くほど静かで美しかった。",
+      "exampleTranslation": "Cái hồ nằm giữa núi yên tĩnh và đẹp đến kinh ngạc.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11832,
+      "term": "山脈 (さんみゃく)",
+      "reading": "さんみゃく",
+      "romaji": null,
+      "definition": "dãy núi",
+      "exampleSentence": "飛行機の窓から、雪に覆われた山脈が見えた。",
+      "exampleTranslation": "Từ cửa sổ máy bay, tôi nhìn thấy dãy núi phủ đầy tuyết.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11833,
+      "term": "深い (ふかい)",
+      "reading": "ふかい",
+      "romaji": null,
+      "definition": "sâu, sâu sắc",
+      "exampleSentence": "この湖は見た目より深いので、泳いではいけません。",
+      "exampleTranslation": "Cái hồ này sâu hơn vẻ bề ngoài nên không được bơi.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11834,
+      "term": "川 (かわ)",
+      "reading": "かわ",
+      "romaji": null,
+      "definition": "sông, con sông",
+      "exampleSentence": "暑い日に、子どもたちは川で水遊びをした。",
+      "exampleTranslation": "Vào ngày nóng, bọn trẻ đã chơi nước ở sông.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11835,
+      "term": "浅い (あさい)",
+      "reading": "あさい",
+      "romaji": null,
+      "definition": "nông, cạn",
+      "exampleSentence": "この川は浅いので、子どもでも安全に渡れます。",
+      "exampleTranslation": "Con sông này nông nên ngay cả trẻ em cũng có thể sang bờ an toàn.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11836,
+      "term": "大陸 (たいりく)",
+      "reading": "たいりく",
+      "romaji": null,
+      "definition": "lục địa, châu lục",
+      "exampleSentence": "その動物は、遠い大陸から日本へ運ばれてきた。",
+      "exampleTranslation": "Loài động vật đó được đưa từ một châu lục xa xôi đến Nhật Bản.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11837,
+      "term": "島 (しま)",
+      "reading": "しま",
+      "romaji": null,
+      "definition": "đảo, hòn đảo",
+      "exampleSentence": "その島には、車が通れる橋が一本しかない。",
+      "exampleTranslation": "Hòn đảo đó chỉ có một cây cầu mà ô tô có thể đi qua.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11838,
+      "term": "河川 (かせん)",
+      "reading": "かせん",
+      "romaji": null,
+      "definition": "sông suối",
+      "exampleSentence": "大雨の後は、河川の水位が急に上がることがある。",
+      "exampleTranslation": "Sau những trận mưa lớn, mực nước sông suối có thể đột ngột dâng cao.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11839,
+      "term": "原野 (げんや)",
+      "reading": "げんや",
+      "romaji": null,
+      "definition": "đồng nguyên hoang vu",
+      "exampleSentence": "かつて原野だった場所に、新しい道路が建設された。",
+      "exampleTranslation": "Một con đường mới đã được xây dựng trên nơi từng là đồng hoang.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11840,
+      "term": "湖沼 (こしょう)",
+      "reading": "こしょう",
+      "romaji": null,
+      "definition": "hồ và đầm",
+      "exampleSentence": "この地域には大小さまざまな湖沼が点在している。",
+      "exampleTranslation": "Trong khu vực này có nhiều hồ và đầm lớn nhỏ nằm rải rác.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11841,
+      "term": "国立公園 (こくりつこうえん)",
+      "reading": "こくりつこうえん",
+      "romaji": null,
+      "definition": "vườn quốc gia",
+      "exampleSentence": "この国立公園では、珍しい野生動物を観察することができます。",
+      "exampleTranslation": "Ở vườn quốc gia này, có thể quan sát những loài động vật hoang dã quý hiếm.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11842,
+      "term": "砂漠 (さばく)",
+      "reading": "さばく",
+      "romaji": null,
+      "definition": "sa mạc",
+      "exampleSentence": "砂漠では昼と夜の気温差が非常に大きい。",
+      "exampleTranslation": "Ở sa mạc, chênh lệch nhiệt độ giữa ngày và đêm rất lớn.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11843,
+      "term": "山岳 (さんがく)",
+      "reading": "さんがく",
+      "romaji": null,
+      "definition": "núi cao/dãy núi",
+      "exampleSentence": "山岳地帯では、天候が急に変わることがある。",
+      "exampleTranslation": "Ở vùng núi, thời tiết đôi khi thay đổi đột ngột.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 11844,
+      "term": "湿地 (しっち)",
+      "reading": "しっち",
+      "romaji": null,
+      "definition": "vùng đất ngập nước",
+      "exampleSentence": "この湿地は、多くの渡り鳥が休む貴重な場所だ。",
+      "exampleTranslation": "Vùng đất ngập nước này là nơi quý giá để nhiều loài chim di cư nghỉ chân.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 11845,
+      "term": "森林 (しんりん)",
+      "reading": "しんりん",
+      "romaji": null,
+      "definition": "rừng",
+      "exampleSentence": "森林の減少は、地球温暖化にも影響を与えている。",
+      "exampleTranslation": "Sự suy giảm rừng cũng đang ảnh hưởng đến tình trạng nóng lên toàn cầu.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 11846,
+      "term": "地形 (ちけい)",
+      "reading": "ちけい",
+      "romaji": null,
+      "definition": "địa hình",
+      "exampleSentence": "この地域は複雑な地形のため、道路を造るのが難しい。",
+      "exampleTranslation": "Do địa hình phức tạp, việc xây dựng đường sá ở khu vực này rất khó.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 11847,
+      "term": "熱帯雨林 (ねったいうりん)",
+      "reading": "ねったいうりん",
+      "romaji": null,
+      "definition": "rừng mưa nhiệt đới",
+      "exampleSentence": "熱帯雨林には、まだ知られていない生物が数多く生息している。",
+      "exampleTranslation": "Trong rừng mưa nhiệt đới có rất nhiều sinh vật vẫn chưa được biết đến.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 11848,
+      "term": "平野 (へいや)",
+      "reading": "へいや",
+      "romaji": null,
+      "definition": "đồng bằng",
+      "exampleSentence": "広い平野に田畑が広がり、遠くまで見渡せる。",
+      "exampleTranslation": "Ruộng đồng trải rộng trên đồng bằng bao la, có thể nhìn thấy rất xa.",
+      "forms": [],
+      "displayOrder": 18
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "id": 428,
+  "title": "ビジネス・仕事 · 会議・報告・相談",
+  "description": "Họp hành, báo cáo & trao đổi — chủ đề Công việc & kinh doanh · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:47.763286",
+  "cards": [
+    {
+      "id": 11115,
+      "term": "依頼する (いらいする)",
+      "reading": "いらいする",
+      "romaji": null,
+      "definition": "nhờ, yêu cầu, nhờ vả",
+      "exampleSentence": "取引先に、商品の発送を依頼する予定です。",
+      "exampleTranslation": "Tôi dự định nhờ đối tác kinh doanh gửi hàng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11116,
+      "term": "引き受け (ひきうけ)",
+      "reading": "ひきうけ",
+      "romaji": null,
+      "definition": "sự chấp nhận, sự đảm nhận",
+      "exampleSentence": "新しい仕事の引き受けについて、部長と相談しました。",
+      "exampleTranslation": "Tôi đã trao đổi với trưởng phòng về việc đảm nhận công việc mới.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11117,
+      "term": "会議 (かいぎ)",
+      "reading": "かいぎ",
+      "romaji": null,
+      "definition": "cuộc họp",
+      "exampleSentence": "午後三時から、営業部との会議が始まります。",
+      "exampleTranslation": "Cuộc họp với bộ phận kinh doanh sẽ bắt đầu từ ba giờ chiều.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11118,
+      "term": "確認する (かくにんする)",
+      "reading": "かくにんする",
+      "romaji": null,
+      "definition": "xác nhận, kiểm tra lại",
+      "exampleSentence": "送信する前に、宛先と内容をもう一度確認するようにしてください。",
+      "exampleTranslation": "Trước khi gửi, hãy kiểm tra lại người nhận và nội dung một lần nữa.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11119,
+      "term": "相談する (そうだんする)",
+      "reading": "そうだんする",
+      "romaji": null,
+      "definition": "bàn bạc, thảo luận, hỏi ý kiến",
+      "exampleSentence": "困ったことがあれば、いつでも上司に相談するべきです。",
+      "exampleTranslation": "Nếu gặp chuyện khó khăn, bạn nên hỏi ý kiến cấp trên bất cứ lúc nào.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11120,
+      "term": "打ち合わせ (うちあわせ)",
+      "reading": "うちあわせ",
+      "romaji": null,
+      "definition": "họp bàn, thảo luận trước",
+      "exampleSentence": "明日の打ち合わせでは、新商品の販売計画を話し合います。",
+      "exampleTranslation": "Trong buổi họp bàn ngày mai, chúng ta sẽ thảo luận kế hoạch bán sản phẩm mới.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11121,
+      "term": "対応する (たいおうする)",
+      "reading": "たいおうする",
+      "romaji": null,
+      "definition": "ứng phó, xử lý, đối ứng",
+      "exampleSentence": "担当者はお客様からの苦情に丁寧に対応する必要があります。",
+      "exampleTranslation": "Người phụ trách cần xử lý khiếu nại của khách hàng một cách tận tình.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11122,
+      "term": "担当 (たんとう)",
+      "reading": "たんとう",
+      "romaji": null,
+      "definition": "phụ trách, người phụ trách",
+      "exampleSentence": "この仕事の担当は田中さんです。",
+      "exampleTranslation": "Người phụ trách công việc này là anh Tanaka.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11123,
+      "term": "提案 (ていあん)",
+      "reading": "ていあん",
+      "romaji": null,
+      "definition": "đề xuất, đề nghị",
+      "exampleSentence": "会議で新しい販売方法を提案しました。",
+      "exampleTranslation": "Tôi đã đề xuất một phương thức bán hàng mới trong cuộc họp.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11124,
+      "term": "命令する (めいれいする)",
+      "reading": "めいれいする",
+      "romaji": null,
+      "definition": "ra lệnh, mệnh lệnh",
+      "exampleSentence": "上司が部下に一方的に命令するのはよくありません。",
+      "exampleTranslation": "Cấp trên ra lệnh một chiều cho cấp dưới là điều không tốt.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11125,
+      "term": "問い合わせ (といあわせ)",
+      "reading": "といあわせ",
+      "romaji": null,
+      "definition": "hỏi thăm, thắc mắc, câu hỏi",
+      "exampleSentence": "分からないことがあれば、会社の窓口にお問い合わせください。",
+      "exampleTranslation": "Nếu có điều gì không hiểu, xin vui lòng liên hệ với bộ phận tư vấn của công ty.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11126,
+      "term": "議事 (ぎじ)",
+      "reading": "ぎじ",
+      "romaji": null,
+      "definition": "nghị sự/chương trình thảo luận",
+      "exampleSentence": "議事を円滑に進めるため、司会者が最初に予定を説明しました。",
+      "exampleTranslation": "Để tiến hành nội dung cuộc họp suôn sẻ, người chủ trì đã giải thích lịch trình trước.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11127,
+      "term": "議事録 (ぎじろく)",
+      "reading": "ぎじろく",
+      "romaji": null,
+      "definition": "biên bản cuộc họp",
+      "exampleSentence": "会議の議事録を読んで、決まったことを確認してください。",
+      "exampleTranslation": "Hãy đọc biên bản cuộc họp và xác nhận những việc đã được quyết định.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11128,
+      "term": "申し出る (もうしでる)",
+      "reading": "もうしでる",
+      "romaji": null,
+      "definition": "đề nghị/xin phép/tình nguyện",
+      "exampleSentence": "困っている人がいたので、手伝いを申し出ることにしました。",
+      "exampleTranslation": "Vì có người đang gặp khó khăn nên tôi đã quyết định đề nghị giúp đỡ.",
+      "forms": [],
+      "displayOrder": 13
+    }
+  ]
+}

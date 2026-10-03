@@ -1,0 +1,231 @@
+{
+  "id": 480,
+  "title": "教育・学習 · 学習スキル・思考法",
+  "description": "Kỹ năng học & tư duy — chủ đề Giáo dục & học tập · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.97135",
+  "cards": [
+    {
+      "id": 12066,
+      "term": "演習 (えんしゅう)",
+      "reading": "えんしゅう",
+      "romaji": null,
+      "definition": "luyện tập/bài tập",
+      "exampleSentence": "授業の後、学生たちは教科書の問題を使って演習を行った。",
+      "exampleTranslation": "Sau giờ học, các sinh viên đã luyện tập bằng cách làm các bài trong giáo trình.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12067,
+      "term": "応用 (おうよう)",
+      "reading": "おうよう",
+      "romaji": null,
+      "definition": "ứng dụng/áp dụng",
+      "exampleSentence": "基本的な知識を実際の仕事に応用する力が求められる。",
+      "exampleTranslation": "Người ta yêu cầu khả năng ứng dụng kiến thức cơ bản vào công việc thực tế.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12068,
+      "term": "客観的 (きゃっかんてき)",
+      "reading": "きゃっかんてき",
+      "romaji": null,
+      "definition": "khách quan",
+      "exampleSentence": "感情に流されず、客観的な立場から判断することが大切だ。",
+      "exampleTranslation": "Điều quan trọng là không để cảm xúc chi phối và phán đoán từ lập trường khách quan.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12069,
+      "term": "協働学習 (きょうどうがくしゅう)",
+      "reading": "きょうどうがくしゅう",
+      "romaji": null,
+      "definition": "học tập cộng tác",
+      "exampleSentence": "協働学習を取り入れた授業では、学生同士が教え合う機会が増える。",
+      "exampleTranslation": "Trong những giờ học áp dụng phương pháp học tập cộng tác, cơ hội để sinh viên cùng nhau dạy và học sẽ tăng lên.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12070,
+      "term": "具体的 (ぐたいてき)",
+      "reading": "ぐたいてき",
+      "romaji": null,
+      "definition": "cụ thể (↔抽象的)",
+      "exampleSentence": "具体的な目標を設定すると、学習の進み具合を確認しやすくなる。",
+      "exampleTranslation": "Nếu đặt ra mục tiêu cụ thể, chúng ta sẽ dễ kiểm tra tiến độ học tập hơn.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12071,
+      "term": "具体的に言えば (ぐたいてきにいえば)",
+      "reading": "ぐたいてきにいえば",
+      "romaji": null,
+      "definition": "nói cụ thể hơn là",
+      "exampleSentence": "具体的に言えば、今回の計画には予算と人員が不足している。",
+      "exampleTranslation": "Nói cụ thể hơn là kế hoạch lần này đang thiếu ngân sách và nhân lực.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12072,
+      "term": "合理的 (ごうりてき)",
+      "reading": "ごうりてき",
+      "romaji": null,
+      "definition": "hợp lý/có lý",
+      "exampleSentence": "合理的な方法を選べば、限られた時間でも成果を上げられる。",
+      "exampleTranslation": "Nếu chọn phương pháp hợp lý, ta vẫn có thể đạt kết quả tốt dù thời gian có hạn.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12073,
+      "term": "試行錯誤 (しこうさくご)",
+      "reading": "しこうさくご",
+      "romaji": null,
+      "definition": "thử và sai/mò mẫm tìm cách",
+      "exampleSentence": "新しい製品の開発では、試行錯誤を重ねることが成功につながる。",
+      "exampleTranslation": "Trong quá trình phát triển sản phẩm mới, việc không ngừng thử nghiệm và sửa sai sẽ dẫn đến thành công.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12074,
+      "term": "主観的 (しゅかんてき)",
+      "reading": "しゅかんてき",
+      "romaji": null,
+      "definition": "chủ quan",
+      "exampleSentence": "その評論は主観的な意見に偏っており、客観性に欠けている。",
+      "exampleTranslation": "Bài bình luận đó thiên về ý kiến chủ quan và thiếu tính khách quan.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12075,
+      "term": "主体的学習 (しゅたいてきがくしゅう)",
+      "reading": "しゅたいてきがくしゅう",
+      "romaji": null,
+      "definition": "học tập chủ động",
+      "exampleSentence": "主体的学習を促すため、教師は学生にテーマの選択を任せた。",
+      "exampleTranslation": "Để thúc đẩy việc học chủ động, giáo viên đã giao cho sinh viên tự chọn chủ đề.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12076,
+      "term": "習得 (しゅうとく)",
+      "reading": "しゅうとく",
+      "romaji": null,
+      "definition": "học được/thành thục",
+      "exampleSentence": "外国語の習得には、毎日少しずつ練習を続けることが大切だ。",
+      "exampleTranslation": "Để thành thạo ngoại ngữ, điều quan trọng là duy trì luyện tập từng chút một mỗi ngày.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12077,
+      "term": "対照 (たいしょう)",
+      "reading": "たいしょう",
+      "romaji": null,
+      "definition": "đối chiếu/tương phản",
+      "exampleSentence": "二つの調査結果を対照すると、世代による意識の違いが明らかになる。",
+      "exampleTranslation": "Khi đối chiếu hai kết quả khảo sát, sự khác biệt trong nhận thức giữa các thế hệ trở nên rõ ràng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12078,
+      "term": "知的好奇心 (ちてきこうきしん)",
+      "reading": "ちてきこうきしん",
+      "romaji": null,
+      "definition": "tò mò trí tuệ",
+      "exampleSentence": "知的好奇心が強い人は、知らない分野でも積極的に質問する。",
+      "exampleTranslation": "Những người có tính tò mò trí tuệ cao sẽ tích cực đặt câu hỏi ngay cả trong lĩnh vực mình chưa biết.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12079,
+      "term": "抽象的 (ちゅうしょうてき)",
+      "reading": "ちゅうしょうてき",
+      "romaji": null,
+      "definition": "trừu tượng (↔具体的)",
+      "exampleSentence": "説明が抽象的すぎて、具体的な行動がイメージできない。",
+      "exampleTranslation": "Phần giải thích quá trừu tượng nên không thể hình dung được hành động cụ thể.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12080,
+      "term": "批判的 (ひはんてき)",
+      "reading": "ひはんてき",
+      "romaji": null,
+      "definition": "có tư duy phê phán",
+      "exampleSentence": "問題を批判的に分析する姿勢が、より良い解決策を生み出す。",
+      "exampleTranslation": "Thái độ phân tích vấn đề một cách có tư duy phê phán sẽ tạo ra giải pháp tốt hơn.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12081,
+      "term": "批判的思考 (ひはんてきしこう)",
+      "reading": "ひはんてきしこう",
+      "romaji": null,
+      "definition": "tư duy phản biện",
+      "exampleSentence": "情報をそのまま信じず、批判的思考を働かせて判断することが大切だ。",
+      "exampleTranslation": "Điều quan trọng là không tin ngay thông tin mà phải vận dụng tư duy phản biện để phán đoán.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 12082,
+      "term": "比較 (ひかく)",
+      "reading": "ひかく",
+      "romaji": null,
+      "definition": "so sánh",
+      "exampleSentence": "二つの案を比較して、最も費用の少ない方を選んだ。",
+      "exampleTranslation": "Sau khi so sánh hai phương án, tôi đã chọn phương án ít tốn kém nhất.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 12083,
+      "term": "矛盾 (むじゅん)",
+      "reading": "むじゅん",
+      "romaji": null,
+      "definition": "mâu thuẫn/trái nhau",
+      "exampleSentence": "彼の説明にはいくつか矛盾があり、簡単には納得できなかった。",
+      "exampleTranslation": "Lời giải thích của anh ấy có một vài mâu thuẫn nên tôi không thể dễ dàng bị thuyết phục.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 12084,
+      "term": "明らか (あきらか)",
+      "reading": "あきらか",
+      "romaji": null,
+      "definition": "rõ ràng/hiển nhiên",
+      "exampleSentence": "調査の結果、事故の原因が管理不足であることは明らかだ。",
+      "exampleTranslation": "Kết quả điều tra cho thấy rõ ràng nguyên nhân vụ tai nạn là do quản lý kém.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 12085,
+      "term": "問題解決 (もんだいかいけつ)",
+      "reading": "もんだいかいけつ",
+      "romaji": null,
+      "definition": "giải quyết vấn đề",
+      "exampleSentence": "この研修では、現場で起こる問題解決の方法を学ぶ。",
+      "exampleTranslation": "Trong khóa đào tạo này, chúng ta học cách giải quyết những vấn đề xảy ra tại nơi làm việc.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

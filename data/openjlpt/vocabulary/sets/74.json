@@ -1,0 +1,371 @@
+{
+  "id": 74,
+  "title": "大きさの漢字",
+  "description": "Kanji kích thước · 大小長短多少",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:52.933897",
+  "cards": [
+    {
+      "id": 2239,
+      "term": "大",
+      "reading": "おお・だい",
+      "romaji": "oo/dai",
+      "definition": "To, lớn",
+      "exampleSentence": "大きい犬",
+      "exampleTranslation": "Con chó to.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 2240,
+      "term": "小",
+      "reading": "ちい・しょう",
+      "romaji": "chii/shou",
+      "definition": "Nhỏ",
+      "exampleSentence": "小さい子ども",
+      "exampleTranslation": "Đứa trẻ nhỏ.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 2241,
+      "term": "長",
+      "reading": "なが・ちょう",
+      "romaji": "naga/chou",
+      "definition": "Dài",
+      "exampleSentence": "長い道",
+      "exampleTranslation": "Con đường dài.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 2242,
+      "term": "短",
+      "reading": "みじか・たん",
+      "romaji": "mijika/tan",
+      "definition": "Ngắn",
+      "exampleSentence": "短い時間",
+      "exampleTranslation": "Khoảng thời gian ngắn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 2243,
+      "term": "多",
+      "reading": "おお・た",
+      "romaji": "oo/ta",
+      "definition": "Nhiều",
+      "exampleSentence": "人が多い。",
+      "exampleTranslation": "Nhiều người.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 2244,
+      "term": "少",
+      "reading": "すく・しょう",
+      "romaji": "suku/shou",
+      "definition": "Ít",
+      "exampleSentence": "時間が少ない。",
+      "exampleTranslation": "Ít thời gian.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 2245,
+      "term": "高",
+      "reading": "たか・こう",
+      "romaji": "taka/kou",
+      "definition": "Cao / Đắt",
+      "exampleSentence": "値段が高い。",
+      "exampleTranslation": "Giá đắt.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 2246,
+      "term": "低",
+      "reading": "ひく・てい",
+      "romaji": "hiku/tei",
+      "definition": "Thấp / Rẻ",
+      "exampleSentence": "背が低い。",
+      "exampleTranslation": "Thấp bé.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 2247,
+      "term": "広",
+      "reading": "ひろ・こう",
+      "romaji": "hiro/kou",
+      "definition": "Rộng",
+      "exampleSentence": "部屋が広い。",
+      "exampleTranslation": "Phòng rộng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 2248,
+      "term": "狭",
+      "reading": "せま・きょう",
+      "romaji": "sema/kyou",
+      "definition": "Hẹp",
+      "exampleSentence": "道が狭い。",
+      "exampleTranslation": "Đường hẹp.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 2249,
+      "term": "太",
+      "reading": "ふと・たい",
+      "romaji": "futo/tai",
+      "definition": "To, mập",
+      "exampleSentence": "線が太い。",
+      "exampleTranslation": "Nét to.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 2250,
+      "term": "細",
+      "reading": "ほそ・さい",
+      "romaji": "hoso/sai",
+      "definition": "Mỏng, gầy",
+      "exampleSentence": "糸が細い。",
+      "exampleTranslation": "Sợi chỉ mỏng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 2251,
+      "term": "重",
+      "reading": "おも・じゅう",
+      "romaji": "omo/juu",
+      "definition": "Nặng",
+      "exampleSentence": "荷物が重い。",
+      "exampleTranslation": "Hành lý nặng.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 2252,
+      "term": "軽",
+      "reading": "かる・けい",
+      "romaji": "karu/kei",
+      "definition": "Nhẹ",
+      "exampleSentence": "荷物が軽い。",
+      "exampleTranslation": "Hành lý nhẹ.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 50520,
+      "term": "厚",
+      "reading": "あつい・こう",
+      "romaji": "atsui・kō",
+      "definition": "dày",
+      "exampleSentence": "この本は表紙が厚いです。",
+      "exampleTranslation": "Quyển sách này có bìa dày.",
+      "forms": [
+        "厚い",
+        "厚くて",
+        "厚かった",
+        "厚くない"
+      ],
+      "displayOrder": 14
+    },
+    {
+      "id": 50521,
+      "term": "薄",
+      "reading": "うすい・はく",
+      "romaji": "usui・haku",
+      "definition": "mỏng",
+      "exampleSentence": "この紙はとても薄いです。",
+      "exampleTranslation": "Tờ giấy này rất mỏng.",
+      "forms": [
+        "薄い",
+        "薄くて",
+        "薄かった",
+        "薄くない"
+      ],
+      "displayOrder": 15
+    },
+    {
+      "id": 50522,
+      "term": "深",
+      "reading": "ふかい・しん",
+      "romaji": "fukai・shin",
+      "definition": "sâu",
+      "exampleSentence": "この川はここが深いです。",
+      "exampleTranslation": "Đoạn sông này sâu.",
+      "forms": [
+        "深い",
+        "深くて",
+        "深かった",
+        "深くない"
+      ],
+      "displayOrder": 16
+    },
+    {
+      "id": 50523,
+      "term": "浅",
+      "reading": "あさい・せん",
+      "romaji": "asai・sen",
+      "definition": "nông",
+      "exampleSentence": "このプールは浅いので、子どもも入れます。",
+      "exampleTranslation": "Hồ bơi này nông nên trẻ em cũng có thể vào.",
+      "forms": [
+        "浅い",
+        "浅くて",
+        "浅かった",
+        "浅くない"
+      ],
+      "displayOrder": 17
+    },
+    {
+      "id": 50524,
+      "term": "近",
+      "reading": "ちかい・きん",
+      "romaji": "chikai・kin",
+      "definition": "gần",
+      "exampleSentence": "駅はここから近いです。",
+      "exampleTranslation": "Nhà ga gần đây.",
+      "forms": [
+        "近い",
+        "近くて",
+        "近かった",
+        "近くない"
+      ],
+      "displayOrder": 18
+    },
+    {
+      "id": 50525,
+      "term": "遠",
+      "reading": "とおい・えん",
+      "romaji": "tōi・en",
+      "definition": "xa",
+      "exampleSentence": "学校は家から遠いです。",
+      "exampleTranslation": "Trường học xa nhà.",
+      "forms": [
+        "遠い",
+        "遠くて",
+        "遠かった",
+        "遠くない"
+      ],
+      "displayOrder": 19
+    },
+    {
+      "id": 50526,
+      "term": "中",
+      "reading": "なか・ちゅう・じゅう",
+      "romaji": "naka・chū・jū",
+      "definition": "ở giữa; cỡ vừa",
+      "exampleSentence": "中くらいの箱を選びました。",
+      "exampleTranslation": "Tôi đã chọn chiếc hộp cỡ vừa.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 50527,
+      "term": "半",
+      "reading": "なかば・はん",
+      "romaji": "nakaba・han",
+      "definition": "một nửa",
+      "exampleSentence": "ケーキを半分に切ります。",
+      "exampleTranslation": "Tôi cắt chiếc bánh thành một nửa.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 50528,
+      "term": "全",
+      "reading": "すべて・まったく・ぜん",
+      "romaji": "subete・mattaku・zen",
+      "definition": "toàn bộ",
+      "exampleSentence": "荷物全体の大きさを測ります。",
+      "exampleTranslation": "Tôi đo kích thước toàn bộ hành lý.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 50529,
+      "term": "数",
+      "reading": "かず・すう・かぞえる",
+      "romaji": "kazu・sū・kazoeru",
+      "definition": "số lượng; con số",
+      "exampleSentence": "箱の数を数えてください。",
+      "exampleTranslation": "Hãy đếm số hộp.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 50530,
+      "term": "量",
+      "reading": "はかる・りょう",
+      "romaji": "hakaru・ryō",
+      "definition": "lượng; khối lượng",
+      "exampleSentence": "荷物の量が多いです。",
+      "exampleTranslation": "Lượng hành lý nhiều.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 50531,
+      "term": "奥",
+      "reading": "おく",
+      "romaji": "oku",
+      "definition": "chiều sâu; phía trong",
+      "exampleSentence": "この箱は奥行きが深いです。",
+      "exampleTranslation": "Chiều sâu của chiếc hộp này lớn.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 50532,
+      "term": "幅",
+      "reading": "はば",
+      "romaji": "haba",
+      "definition": "chiều rộng",
+      "exampleSentence": "この机の幅は一メートルです。",
+      "exampleTranslation": "Chiều rộng chiếc bàn này là một mét.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 50533,
+      "term": "丈",
+      "reading": "たけ",
+      "romaji": "take",
+      "definition": "chiều dài; độ dài",
+      "exampleSentence": "このスカートは丈が長いです。",
+      "exampleTranslation": "Chiếc váy này có độ dài lớn.",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 50534,
+      "term": "倍",
+      "reading": "ばい",
+      "romaji": "bai",
+      "definition": "lần; gấp",
+      "exampleSentence": "この部屋は前の部屋の二倍の大きさです。",
+      "exampleTranslation": "Căn phòng này lớn gấp đôi căn phòng trước.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 50535,
+      "term": "同",
+      "reading": "おなじ・どう",
+      "romaji": "onaji・dō",
+      "definition": "giống nhau; bằng nhau",
+      "exampleSentence": "二つの箱は同じ大きさです。",
+      "exampleTranslation": "Hai chiếc hộp có kích thước bằng nhau.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

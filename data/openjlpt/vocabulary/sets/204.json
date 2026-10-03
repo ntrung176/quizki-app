@@ -1,0 +1,176 @@
+{
+  "id": 204,
+  "title": "Tuần 2 · Ngày 4 - 人間関係 (Quan hệ con người)",
+  "description": "Nihongo Soumatome N3 語彙 — 人間関係 (Quan hệ con người)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.09878",
+  "cards": [
+    {
+      "id": 5386,
+      "term": "仲間 (なかま)",
+      "reading": "なかま",
+      "romaji": "nakama",
+      "definition": "đồng đội, bạn bè cùng nhóm",
+      "exampleSentence": "同じ目標を持つ仲間と、毎日楽しく練習している。",
+      "exampleTranslation": "Tôi vui vẻ luyện tập mỗi ngày cùng những người bạn có chung mục tiêu.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5387,
+      "term": "知人 (ちじん)",
+      "reading": "ちじん",
+      "romaji": "chijin",
+      "definition": "người quen, quen biết",
+      "exampleSentence": "駅で偶然会った知人と、近況について少し話した。",
+      "exampleTranslation": "Tôi tình cờ gặp một người quen ở ga và nói chuyện một lát về tình hình gần đây.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5388,
+      "term": "恋人 (こいびと)",
+      "reading": "こいびと",
+      "romaji": "koibito",
+      "definition": "người yêu, bạn trai/gái",
+      "exampleSentence": "恋人の誕生日に、手作りのケーキをプレゼントした。",
+      "exampleTranslation": "Tôi đã tặng người yêu một chiếc bánh tự làm vào ngày sinh nhật của người ấy.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5389,
+      "term": "夫婦 (ふうふ)",
+      "reading": "ふうふ",
+      "romaji": "fuufu",
+      "definition": "vợ chồng",
+      "exampleSentence": "あの夫婦は、いつも互いに助け合って生活している。",
+      "exampleTranslation": "Cặp vợ chồng đó lúc nào cũng giúp đỡ lẫn nhau trong cuộc sống.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5390,
+      "term": "親戚 (しんせき)",
+      "reading": "しんせき",
+      "romaji": "shinseki",
+      "definition": "họ hàng, thân thích",
+      "exampleSentence": "夏休みには、遠くに住む親戚の家を訪ねる予定だ。",
+      "exampleTranslation": "Vào kỳ nghỉ hè, tôi dự định đến thăm nhà người họ hàng sống ở xa.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5391,
+      "term": "上司 (じょうし)",
+      "reading": "じょうし",
+      "romaji": "joushi",
+      "definition": "cấp trên, sếp",
+      "exampleSentence": "仕事で困ったときは、まず上司に相談してください。",
+      "exampleTranslation": "Khi gặp khó khăn trong công việc, trước hết hãy trao đổi với cấp trên.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5392,
+      "term": "部下 (ぶか)",
+      "reading": "ぶか",
+      "romaji": "buka",
+      "definition": "cấp dưới, nhân viên dưới quyền",
+      "exampleSentence": "上司は部下の意見を聞いてから、計画を決めた。",
+      "exampleTranslation": "Cấp trên đã lắng nghe ý kiến của cấp dưới rồi mới quyết định kế hoạch.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5393,
+      "term": "同僚 (どうりょう)",
+      "reading": "どうりょう",
+      "romaji": "douryou",
+      "definition": "đồng nghiệp",
+      "exampleSentence": "昼休みに、同僚と近くの店で昼ご飯を食べた。",
+      "exampleTranslation": "Trong giờ nghỉ trưa, tôi đã ăn trưa cùng đồng nghiệp tại một cửa hàng gần đó.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5394,
+      "term": "先輩 (せんぱい)",
+      "reading": "せんぱい",
+      "romaji": "senpai",
+      "definition": "đàn anh/chị, người đi trước",
+      "exampleSentence": "大学の先輩が、就職活動についてアドバイスをくれた。",
+      "exampleTranslation": "Một đàn anh ở trường đại học đã cho tôi lời khuyên về việc tìm việc.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5395,
+      "term": "後輩 (こうはい)",
+      "reading": "こうはい",
+      "romaji": "kouhai",
+      "definition": "đàn em, người đi sau",
+      "exampleSentence": "後輩が困っていたので、仕事のやり方を教えてあげた。",
+      "exampleTranslation": "Vì đàn em gặp khó khăn nên tôi đã chỉ cho em ấy cách làm việc.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5396,
+      "term": "近所 (きんじょ)",
+      "reading": "きんじょ",
+      "romaji": "kinjo",
+      "definition": "hàng xóm, khu vực lân cận",
+      "exampleSentence": "近所に新しいスーパーができて、買い物が便利になった。",
+      "exampleTranslation": "Trong khu phố có siêu thị mới nên việc mua sắm trở nên tiện lợi hơn.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5397,
+      "term": "市民 (しみん)",
+      "reading": "しみん",
+      "romaji": "shimin",
+      "definition": "công dân (thành phố)",
+      "exampleSentence": "市民の意見を聞くために、市長は説明会を開いた。",
+      "exampleTranslation": "Để lắng nghe ý kiến của người dân, thị trưởng đã tổ chức một buổi giải thích.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5398,
+      "term": "住民 (じゅうみん)",
+      "reading": "じゅうみん",
+      "romaji": "juumin",
+      "definition": "cư dân, dân cư",
+      "exampleSentence": "住民の安全を守るため、町は防犯カメラを設置した。",
+      "exampleTranslation": "Để bảo vệ an toàn cho cư dân, thành phố đã lắp đặt camera an ninh.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5399,
+      "term": "国民 (こくみん)",
+      "reading": "こくみん",
+      "romaji": "kokumin",
+      "definition": "nhân dân, công dân",
+      "exampleSentence": "国民の健康を守るために、政府は新しい制度を始めた。",
+      "exampleTranslation": "Để bảo vệ sức khỏe người dân, chính phủ đã bắt đầu một chế độ mới.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5400,
+      "term": "ボランティア",
+      "reading": "ボランティア",
+      "romaji": "borantia",
+      "definition": "tình nguyện viên, công việc tình nguyện",
+      "exampleSentence": "週末はボランティアとして、外国人に日本語を教えている。",
+      "exampleTranslation": "Cuối tuần, tôi làm tình nguyện viên dạy tiếng Nhật cho người nước ngoài.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

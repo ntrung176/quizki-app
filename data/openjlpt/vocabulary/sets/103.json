@@ -1,0 +1,353 @@
+{
+  "id": 103,
+  "title": "健康・ダイエット",
+  "description": "Sức khỏe và chế độ ăn · 42 từ",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:54.585817",
+  "cards": [
+    {
+      "id": 3031,
+      "term": "ダイエット",
+      "reading": "だいえっと",
+      "romaji": "daietto",
+      "definition": "Ăn kiêng, giảm cân",
+      "exampleSentence": "ダイエットする。",
+      "exampleTranslation": "Ăn kiêng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 3032,
+      "term": "カロリー",
+      "reading": "かろりー",
+      "romaji": "karorii",
+      "definition": "Calo",
+      "exampleSentence": "カロリーを控える。",
+      "exampleTranslation": "Hạn chế calo.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 3033,
+      "term": "栄養",
+      "reading": "えいよう",
+      "romaji": "eiyou",
+      "definition": "Dinh dưỡng",
+      "exampleSentence": "栄養を取る。",
+      "exampleTranslation": "Bổ sung dinh dưỡng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 3034,
+      "term": "バランス食",
+      "reading": "ばらんすしょく",
+      "romaji": "baransu shoku",
+      "definition": "Ăn uống cân bằng",
+      "exampleSentence": "バランスの良い食事。",
+      "exampleTranslation": "Bữa ăn cân bằng dinh dưỡng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 3035,
+      "term": "タンパク質",
+      "reading": "たんぱくしつ",
+      "romaji": "tanpaku shitsu",
+      "definition": "Protein",
+      "exampleSentence": "タンパク質を摂る。",
+      "exampleTranslation": "Bổ sung protein.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 3036,
+      "term": "炭水化物",
+      "reading": "たんすいかぶつ",
+      "romaji": "tansuika butsu",
+      "definition": "Carbohydrate",
+      "exampleSentence": "炭水化物を減らす。",
+      "exampleTranslation": "Giảm carbohydrate.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 3037,
+      "term": "脂質",
+      "reading": "ししつ",
+      "romaji": "shishitsu",
+      "definition": "Chất béo",
+      "exampleSentence": "脂質を控える。",
+      "exampleTranslation": "Hạn chế chất béo.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 3038,
+      "term": "ビタミン",
+      "reading": "びたみん",
+      "romaji": "bitamin",
+      "definition": "Vitamin",
+      "exampleSentence": "ビタミンを摂取する。",
+      "exampleTranslation": "Bổ sung vitamin.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 3039,
+      "term": "ミネラル",
+      "reading": "みねらる",
+      "romaji": "mineraru",
+      "definition": "Khoáng chất",
+      "exampleSentence": "ミネラルが大切。",
+      "exampleTranslation": "Khoáng chất quan trọng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 3040,
+      "term": "食物繊維",
+      "reading": "しょくもつせんい",
+      "romaji": "shokumotsuseni",
+      "definition": "Chất xơ",
+      "exampleSentence": "食物繊維を摂る。",
+      "exampleTranslation": "Bổ sung chất xơ.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 3041,
+      "term": "有酸素運動",
+      "reading": "ゆうさんそうんどう",
+      "romaji": "yuusanso undou",
+      "definition": "Vận động aerobic",
+      "exampleSentence": "有酸素運動をする。",
+      "exampleTranslation": "Tập vận động aerobic.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 3042,
+      "term": "筋力トレーニング",
+      "reading": "きんりょくとれーにんぐ",
+      "romaji": "kinryoku toreeningu",
+      "definition": "Tập sức cơ",
+      "exampleSentence": "筋力トレーニングをする。",
+      "exampleTranslation": "Tập tăng cơ.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 3043,
+      "term": "ヨガ",
+      "reading": "よが",
+      "romaji": "yoga",
+      "definition": "Yoga",
+      "exampleSentence": "ヨガで体を伸ばす。",
+      "exampleTranslation": "Giãn cơ bằng yoga.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 3044,
+      "term": "ストレッチ",
+      "reading": "すとれっち",
+      "romaji": "sutorecchi",
+      "definition": "Căng cơ, giãn cơ",
+      "exampleSentence": "毎朝ストレッチする。",
+      "exampleTranslation": "Giãn cơ mỗi sáng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 3045,
+      "term": "歩数",
+      "reading": "ほすう",
+      "romaji": "hosuu",
+      "definition": "Số bước chân",
+      "exampleSentence": "毎日1万歩歩く。",
+      "exampleTranslation": "Đi bộ 10.000 bước mỗi ngày.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 3046,
+      "term": "基礎代謝",
+      "reading": "きそたいしゃ",
+      "romaji": "kiso taisha",
+      "definition": "Chuyển hóa cơ bản",
+      "exampleSentence": "基礎代謝を上げる。",
+      "exampleTranslation": "Tăng chuyển hóa cơ bản.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 3047,
+      "term": "体脂肪",
+      "reading": "たいしぼう",
+      "romaji": "tai shibou",
+      "definition": "Mỡ cơ thể",
+      "exampleSentence": "体脂肪を減らす。",
+      "exampleTranslation": "Giảm mỡ cơ thể.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 3048,
+      "term": "BMI",
+      "reading": "びーえむあい",
+      "romaji": "bii emu ai",
+      "definition": "Chỉ số BMI",
+      "exampleSentence": "BMIを計算する。",
+      "exampleTranslation": "Tính chỉ số BMI.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 3049,
+      "term": "肥満",
+      "reading": "ひまん",
+      "romaji": "himan",
+      "definition": "Béo phì",
+      "exampleSentence": "肥満を防ぐ。",
+      "exampleTranslation": "Phòng ngừa béo phì.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 3050,
+      "term": "痩せる",
+      "reading": "やせる",
+      "romaji": "yaseru",
+      "definition": "Gầy đi, giảm cân",
+      "exampleSentence": "3キロ痩せた。",
+      "exampleTranslation": "Giảm được 3 kg.",
+      "forms": [
+        "痩せます",
+        "痩せて",
+        "痩せた",
+        "痩せない",
+        "痩せられる"
+      ],
+      "displayOrder": 19
+    },
+    {
+      "id": 3051,
+      "term": "太る",
+      "reading": "ふとる",
+      "romaji": "futoru",
+      "definition": "Béo lên, tăng cân",
+      "exampleSentence": "太ってしまった。",
+      "exampleTranslation": "Đã bị béo lên.",
+      "forms": [
+        "太ります",
+        "太って",
+        "太った",
+        "太らない",
+        "太れる"
+      ],
+      "displayOrder": 20
+    },
+    {
+      "id": 3052,
+      "term": "水分補給",
+      "reading": "すいぶんほきゅう",
+      "romaji": "suibun houkyuu",
+      "definition": "Bổ sung nước",
+      "exampleSentence": "十分な水分補給が必要。",
+      "exampleTranslation": "Cần bổ sung đủ nước.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 3053,
+      "term": "睡眠不足",
+      "reading": "すいみんぶそく",
+      "romaji": "suimin busoku",
+      "definition": "Thiếu ngủ",
+      "exampleSentence": "睡眠不足は健康に悪い。",
+      "exampleTranslation": "Thiếu ngủ có hại cho sức khỏe.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 3054,
+      "term": "腸活",
+      "reading": "ちょうかつ",
+      "romaji": "choukatsu",
+      "definition": "Chăm sóc sức khỏe đường ruột",
+      "exampleSentence": "腸活のために発酵食品を食べる。",
+      "exampleTranslation": "Ăn thực phẩm lên men để chăm sóc ruột.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 3055,
+      "term": "プロバイオティクス",
+      "reading": "ぷろばいおてぃくす",
+      "romaji": "purobaio tikusu",
+      "definition": "Probiotic",
+      "exampleSentence": "プロバイオティクスを摂る。",
+      "exampleTranslation": "Bổ sung probiotic.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 3056,
+      "term": "断食",
+      "reading": "だんじき",
+      "romaji": "danjiki",
+      "definition": "Nhịn ăn (fasting)",
+      "exampleSentence": "間欠的断食をする。",
+      "exampleTranslation": "Thực hiện nhịn ăn gián đoạn.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 3057,
+      "term": "健康診断",
+      "reading": "けんこうしんだん",
+      "romaji": "kenkou shindan",
+      "definition": "Khám sức khỏe",
+      "exampleSentence": "年1回健康診断を受ける。",
+      "exampleTranslation": "Khám sức khỏe một lần mỗi năm.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 3058,
+      "term": "生活習慣病",
+      "reading": "せいかつしゅうかんびょう",
+      "romaji": "seikatsu shuukan byou",
+      "definition": "Bệnh lối sống",
+      "exampleSentence": "生活習慣病を予防する。",
+      "exampleTranslation": "Phòng ngừa bệnh lối sống.",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 3059,
+      "term": "免疫力",
+      "reading": "めんえきりょく",
+      "romaji": "meneki ryoku",
+      "definition": "Sức đề kháng",
+      "exampleSentence": "免疫力を高める。",
+      "exampleTranslation": "Tăng cường sức đề kháng.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 3060,
+      "term": "ウェルネス",
+      "reading": "うぇるねす",
+      "romaji": "uerunesu",
+      "definition": "Sức khỏe toàn diện (wellness)",
+      "exampleSentence": "ウェルネスを意識する。",
+      "exampleTranslation": "Chú ý đến sức khỏe toàn diện.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

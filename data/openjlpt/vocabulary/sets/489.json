@@ -1,0 +1,209 @@
+{
+  "id": 489,
+  "title": "社会・人間関係 · 友人・仲間・信頼関係",
+  "description": "Bạn bè, cộng đồng & lòng tin — chủ đề Xã hội & quan hệ · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:50.283864",
+  "cards": [
+    {
+      "id": 12250,
+      "term": "集まる (あつまる)",
+      "reading": "あつまる",
+      "romaji": null,
+      "definition": "tập hợp, tụ họp",
+      "exampleSentence": "毎週土曜日、公園に子どもたちが集まる。",
+      "exampleTranslation": "Mỗi thứ Bảy, bọn trẻ tập trung ở công viên.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12251,
+      "term": "印象を与える (いんしょうをあたえる)",
+      "reading": "いんしょうをあたえる",
+      "romaji": null,
+      "definition": "gây ấn tượng, tạo ấn tượng",
+      "exampleSentence": "彼の落ち着いた話し方は、聞く人に良い印象を与える。",
+      "exampleTranslation": "Cách nói chuyện điềm tĩnh của anh ấy tạo ấn tượng tốt cho người nghe.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12252,
+      "term": "後輩 (こうはい)",
+      "reading": "こうはい",
+      "romaji": null,
+      "definition": "đàn em, người đi sau",
+      "exampleSentence": "後輩が困っていたので、仕事の進め方を丁寧に教えた。",
+      "exampleTranslation": "Vì đàn em gặp khó khăn nên tôi đã tận tình chỉ cách tiến hành công việc.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12253,
+      "term": "信頼する (しんらいする)",
+      "reading": "しんらいする",
+      "romaji": null,
+      "definition": "tin tưởng, tin cậy",
+      "exampleSentence": "私は、約束を守る彼を心から信頼する。",
+      "exampleTranslation": "Tôi thực sự tin tưởng anh ấy, người luôn giữ lời hứa.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12254,
+      "term": "先輩 (せんぱい)",
+      "reading": "せんぱい",
+      "romaji": null,
+      "definition": "đàn anh/chị, người đi trước",
+      "exampleSentence": "先輩から面接での話し方について、貴重なアドバイスをもらった。",
+      "exampleTranslation": "Tôi đã nhận được lời khuyên quý báu từ đàn anh về cách nói chuyện khi phỏng vấn.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12255,
+      "term": "知人 (ちじん)",
+      "reading": "ちじん",
+      "romaji": null,
+      "definition": "người quen, quen biết",
+      "exampleSentence": "駅で偶然会った知人と、近況について少し話した。",
+      "exampleTranslation": "Tôi đã tình cờ gặp một người quen ở ga và nói chuyện một chút về tình hình gần đây.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12256,
+      "term": "仲間 (なかま)",
+      "reading": "なかま",
+      "romaji": null,
+      "definition": "đồng đội, bạn bè cùng nhóm",
+      "exampleSentence": "同じ目標を持つ仲間と、毎日楽しく練習している。",
+      "exampleTranslation": "Tôi vui vẻ luyện tập mỗi ngày cùng những người bạn có chung mục tiêu.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12257,
+      "term": "誘う (さそう)",
+      "reading": "さそう",
+      "romaji": null,
+      "definition": "rủ rê, mời, lôi cuốn",
+      "exampleSentence": "部長は新入社員を昼食に誘うことが多い。",
+      "exampleTranslation": "Trưởng phòng thường rủ những nhân viên mới đi ăn trưa.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12258,
+      "term": "コミュニケーション",
+      "reading": "コミュニケーション",
+      "romaji": null,
+      "definition": "giao tiếp",
+      "exampleSentence": "言葉が通じなくても、笑顔があればコミュニケーションは取れる。",
+      "exampleTranslation": "Ngay cả khi không hiểu ngôn ngữ, chỉ cần có nụ cười thì vẫn có thể giao tiếp.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12259,
+      "term": "飲み会 (のみかい)",
+      "reading": "のみかい",
+      "romaji": null,
+      "definition": "buổi uống rượu giao lưu",
+      "exampleSentence": "会社の飲み会では、仕事以外の話もできて楽しい。",
+      "exampleTranslation": "Trong những buổi liên hoan uống rượu của công ty, thật vui vì có thể nói cả những chuyện ngoài công việc.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12260,
+      "term": "協力 (きょうりょく)",
+      "reading": "きょうりょく",
+      "romaji": null,
+      "definition": "hợp tác",
+      "exampleSentence": "地域の問題を解決するには、住民同士の協力が必要だ。",
+      "exampleTranslation": "Để giải quyết các vấn đề của địa phương, cần có sự hợp tác giữa người dân.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12261,
+      "term": "交際 (こうさい)",
+      "reading": "こうさい",
+      "romaji": null,
+      "definition": "giao lưu/quan hệ",
+      "exampleSentence": "仕事だけでなく、地域の人との交際も大切にしている。",
+      "exampleTranslation": "Tôi coi trọng cả việc giao lưu với người dân trong khu vực, không chỉ trong công việc.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12262,
+      "term": "支える (ささえる)",
+      "reading": "ささえる",
+      "romaji": null,
+      "definition": "chống đỡ/hỗ trợ",
+      "exampleSentence": "互いに支える気持ちがあれば、困難な時期も乗り越えられる。",
+      "exampleTranslation": "Nếu có tinh thần hỗ trợ lẫn nhau thì chúng ta có thể vượt qua cả những giai đoạn khó khăn.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12263,
+      "term": "信頼 (しんらい)",
+      "reading": "しんらい",
+      "romaji": null,
+      "definition": "tin tưởng",
+      "exampleSentence": "信頼は一度失うと、取り戻すのに長い時間がかかる。",
+      "exampleTranslation": "Một khi đã mất niềm tin thì sẽ mất nhiều thời gian để lấy lại.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12264,
+      "term": "人間関係 (にんげんかんけい)",
+      "reading": "にんげんかんけい",
+      "romaji": null,
+      "definition": "quan hệ con người",
+      "exampleSentence": "相手の立場を理解することが、良い人間関係につながる。",
+      "exampleTranslation": "Thấu hiểu lập trường của đối phương sẽ dẫn đến những mối quan hệ tốt đẹp.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12265,
+      "term": "付き合い (つきあい)",
+      "reading": "つきあい",
+      "romaji": null,
+      "definition": "giao thiệp/quan hệ xã giao",
+      "exampleSentence": "忙しくても、昔からの友人との付き合いは大切にしている。",
+      "exampleTranslation": "Dù bận rộn, tôi vẫn coi trọng việc giữ quan hệ với những người bạn lâu năm.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 12266,
+      "term": "力になる (ちからになる)",
+      "reading": "ちからになる",
+      "romaji": null,
+      "definition": "có ích/giúp đỡ được",
+      "exampleSentence": "親身になって相談に乗ってくれる友人は、本当に力になる。",
+      "exampleTranslation": "Một người bạn tận tình lắng nghe và tư vấn thực sự có thể giúp ích cho ta.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 12267,
+      "term": "絆 (きずな)",
+      "reading": "きずな",
+      "romaji": null,
+      "definition": "mối liên kết/tình cảm gắn bó",
+      "exampleSentence": "離れて暮らしていても、家族の絆は簡単には切れない。",
+      "exampleTranslation": "Dù sống xa nhau, tình cảm gắn bó giữa các thành viên trong gia đình cũng không dễ bị chia cắt.",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

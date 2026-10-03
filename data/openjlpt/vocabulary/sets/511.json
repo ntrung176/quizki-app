@@ -1,0 +1,154 @@
+{
+  "id": 511,
+  "title": "生活・住まい · 生活リズム・習慣",
+  "description": "Nhịp sống & thói quen — chủ đề Đời sống & nhà cửa · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:51.030725",
+  "cards": [
+    {
+      "id": 12699,
+      "term": "スケジュール",
+      "reading": "スケジュール",
+      "romaji": null,
+      "definition": "lịch/kế hoạch",
+      "exampleSentence": "仕事のスケジュールを調整して、休暇を取りました。",
+      "exampleTranslation": "Tôi đã điều chỉnh lịch làm việc để nghỉ phép.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12700,
+      "term": "バランス",
+      "reading": "バランス",
+      "romaji": null,
+      "definition": "sự cân bằng",
+      "exampleSentence": "健康のためには、食事と運動のバランスが大切です。",
+      "exampleTranslation": "Để giữ gìn sức khỏe, sự cân bằng giữa ăn uống và vận động rất quan trọng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12701,
+      "term": "リラックス",
+      "reading": "リラックス",
+      "romaji": null,
+      "definition": "thư giãn",
+      "exampleSentence": "温泉に入ると、体の力が抜けてリラックスできます。",
+      "exampleTranslation": "Khi ngâm mình trong suối nước nóng, cơ thể thả lỏng và có thể thư giãn.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12702,
+      "term": "ペース",
+      "reading": "ペース",
+      "romaji": null,
+      "definition": "tốc độ/nhịp độ",
+      "exampleSentence": "周りの人に合わせず、自分のペースで進めてください。",
+      "exampleTranslation": "Đừng cố theo những người xung quanh, hãy tiến hành theo nhịp độ của mình.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12703,
+      "term": "ルーティン",
+      "reading": "ルーティン",
+      "romaji": null,
+      "definition": "thói quen/routine",
+      "exampleSentence": "朝のルーティンを見直して、時間を有効に使うようにしました。",
+      "exampleTranslation": "Tôi đã xem xét lại thói quen buổi sáng để sử dụng thời gian hiệu quả hơn.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12704,
+      "term": "しばらく",
+      "reading": "しばらく",
+      "romaji": null,
+      "definition": "một lúc/tạm thời",
+      "exampleSentence": "しばらくこの町を離れることになりました。",
+      "exampleTranslation": "Tôi sẽ phải tạm thời rời khỏi thị trấn này.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12705,
+      "term": "ついに",
+      "reading": "ついに",
+      "romaji": null,
+      "definition": "cuối cùng rồi",
+      "exampleSentence": "長年の努力が実を結び、ついに夢だった店を開くことができた。",
+      "exampleTranslation": "Sau nhiều năm nỗ lực, cuối cùng tôi đã có thể mở cửa hàng trong mơ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12706,
+      "term": "やがて",
+      "reading": "やがて",
+      "romaji": null,
+      "definition": "rồi sẽ/dần dần về sau",
+      "exampleSentence": "やがて春が来れば、この雪もすっかり溶けるだろう。",
+      "exampleTranslation": "Rồi khi mùa xuân đến, tuyết này có lẽ cũng sẽ tan hết.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12707,
+      "term": "一瞬 (いっしゅん)",
+      "reading": "いっしゅん",
+      "romaji": null,
+      "definition": "tức thì/một thoáng",
+      "exampleSentence": "一瞬の出来事だったが、彼の表情を今でも覚えている。",
+      "exampleTranslation": "Đó chỉ là một khoảnh khắc thoáng qua, nhưng đến giờ tôi vẫn nhớ vẻ mặt của anh ấy.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12708,
+      "term": "次第に (しだいに)",
+      "reading": "しだいに",
+      "romaji": null,
+      "definition": "dần dần",
+      "exampleSentence": "春が近づくにつれて、山の雪は次第に少なくなっていった。",
+      "exampleTranslation": "Khi mùa xuân đến gần, tuyết trên núi dần dần ít đi.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12709,
+      "term": "瞬間 (しゅんかん)",
+      "reading": "しゅんかん",
+      "romaji": null,
+      "definition": "khoảnh khắc",
+      "exampleSentence": "ドアを開けた瞬間、冷たい風が部屋に入ってきた。",
+      "exampleTranslation": "Ngay khoảnh khắc mở cửa, gió lạnh tràn vào phòng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12710,
+      "term": "即座に (そくざに)",
+      "reading": "そくざに",
+      "romaji": null,
+      "definition": "ngay lập tức",
+      "exampleSentence": "事故の知らせを受けた店長は、即座に救急車を呼んだ。",
+      "exampleTranslation": "Nhận được tin báo về vụ tai nạn, quản lý cửa hàng lập tức gọi xe cấp cứu.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12711,
+      "term": "直ちに (ただちに)",
+      "reading": "ただちに",
+      "romaji": null,
+      "definition": "lập tức ngay",
+      "exampleSentence": "問題が見つかった場合は、直ちに担当者へご連絡ください。",
+      "exampleTranslation": "Nếu phát hiện vấn đề, vui lòng liên hệ ngay với người phụ trách.",
+      "forms": [],
+      "displayOrder": 12
+    }
+  ]
+}

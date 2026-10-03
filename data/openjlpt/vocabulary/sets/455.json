@@ -1,0 +1,231 @@
+{
+  "id": 455,
+  "title": "医療・健康 · 病院・受診・介護",
+  "description": "Bệnh viện, khám bệnh & chăm sóc — chủ đề Y tế & sức khỏe · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.259465",
+  "cards": [
+    {
+      "id": 11608,
+      "term": "健康診断 (けんこうしんだん)",
+      "reading": "けんこうしんだん",
+      "romaji": null,
+      "definition": "khám sức khỏe định kỳ",
+      "exampleSentence": "会社の健康診断で、血圧が少し高いことが分かった。",
+      "exampleTranslation": "Qua đợt khám sức khỏe định kỳ của công ty, tôi phát hiện huyết áp hơi cao.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11609,
+      "term": "健康保険 (けんこうほけん)",
+      "reading": "けんこうほけん",
+      "romaji": null,
+      "definition": "bảo hiểm y tế",
+      "exampleSentence": "日本では、健康保険に加入していると医療費の負担が軽くなる。",
+      "exampleTranslation": "Ở Nhật, nếu tham gia bảo hiểm y tế thì gánh nặng chi phí điều trị sẽ giảm đi.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11610,
+      "term": "検査 (けんさ)",
+      "reading": "けんさ",
+      "romaji": null,
+      "definition": "xét nghiệm/kiểm tra",
+      "exampleSentence": "医師は原因を調べるため、血液検査を受けるように勧めた。",
+      "exampleTranslation": "Để tìm hiểu nguyên nhân, bác sĩ khuyên tôi nên làm xét nghiệm máu.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11611,
+      "term": "退院 (たいいん)",
+      "reading": "たいいん",
+      "romaji": null,
+      "definition": "xuất viện",
+      "exampleSentence": "手術後の経過が順調だったため、予定より早く退院できた。",
+      "exampleTranslation": "Vì tình hình sau phẫu thuật tiến triển tốt nên tôi đã được xuất viện sớm hơn dự kiến.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11612,
+      "term": "入院 (にゅういん)",
+      "reading": "にゅういん",
+      "romaji": null,
+      "definition": "nhập viện",
+      "exampleSentence": "母は検査の結果、二週間ほど入院することになった。",
+      "exampleTranslation": "Sau khi có kết quả kiểm tra, mẹ tôi phải nhập viện khoảng hai tuần.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11613,
+      "term": "ケア",
+      "reading": "ケア",
+      "romaji": null,
+      "definition": "chăm sóc",
+      "exampleSentence": "患者一人ひとりに合わせたケアが大切です。",
+      "exampleTranslation": "Việc chăm sóc phù hợp với từng bệnh nhân là rất quan trọng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11614,
+      "term": "医療費 (いりょうひ)",
+      "reading": "いりょうひ",
+      "romaji": null,
+      "definition": "chi phí y tế",
+      "exampleSentence": "高額な医療費を払うために、保険に加入しておくべきです。",
+      "exampleTranslation": "Nên tham gia bảo hiểm để chi trả các khoản chi phí y tế cao.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11615,
+      "term": "介護 (かいご)",
+      "reading": "かいご",
+      "romaji": null,
+      "definition": "chăm sóc người già/bệnh",
+      "exampleSentence": "祖母の介護を家族だけで続けるのは大変です。",
+      "exampleTranslation": "Việc gia đình tự chăm sóc bà một mình rất vất vả.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11616,
+      "term": "快復 (かいふく)",
+      "reading": "かいふく",
+      "romaji": null,
+      "definition": "bình phục",
+      "exampleSentence": "手術後の快復には、十分な休養と栄養が必要です。",
+      "exampleTranslation": "Để hồi phục sau phẫu thuật, cần nghỉ ngơi đầy đủ và bổ sung dinh dưỡng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11617,
+      "term": "外来 (がいらい)",
+      "reading": "がいらい",
+      "romaji": null,
+      "definition": "khám ngoại trú",
+      "exampleSentence": "この病院の外来は、平日の午後五時まで受け付けています。",
+      "exampleTranslation": "Khoa khám ngoại trú của bệnh viện này tiếp nhận bệnh nhân đến 5 giờ chiều các ngày trong tuần.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11618,
+      "term": "緩和ケア (かんわケア)",
+      "reading": "かんわケア",
+      "romaji": null,
+      "definition": "chăm sóc giảm nhẹ",
+      "exampleSentence": "緩和ケアでは、痛みだけでなく心の苦しみも和らげます。",
+      "exampleTranslation": "Trong chăm sóc giảm nhẹ, không chỉ nỗi đau thể xác mà cả sự khổ sở trong lòng cũng được xoa dịu.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11619,
+      "term": "休養 (きゅうよう)",
+      "reading": "きゅうよう",
+      "romaji": null,
+      "definition": "nghỉ ngơi dưỡng sức",
+      "exampleSentence": "医師から、しばらく仕事を休んで休養するように言われました。",
+      "exampleTranslation": "Bác sĩ bảo tôi tạm thời nghỉ việc để dưỡng sức.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11620,
+      "term": "検診 (けんしん)",
+      "reading": "けんしん",
+      "romaji": null,
+      "definition": "khám sàng lọc định kỳ",
+      "exampleSentence": "病気を早く見つけるために、毎年検診を受けています。",
+      "exampleTranslation": "Tôi đi khám sàng lọc định kỳ hằng năm để phát hiện bệnh sớm.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11621,
+      "term": "献血 (けんけつ)",
+      "reading": "けんけつ",
+      "romaji": null,
+      "definition": "hiến máu",
+      "exampleSentence": "駅前で献血に協力した人には、記念品が配られました。",
+      "exampleTranslation": "Những người tham gia hiến máu trước ga đã được tặng quà lưu niệm.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 11622,
+      "term": "在宅医療 (ざいたくいりょう)",
+      "reading": "ざいたくいりょう",
+      "romaji": null,
+      "definition": "chăm sóc y tế tại nhà",
+      "exampleSentence": "在宅医療を受けながら、住み慣れた自宅で療養する人が増えています。",
+      "exampleTranslation": "Ngày càng có nhiều người điều trị tại ngôi nhà thân thuộc trong khi nhận chăm sóc y tế tại nhà.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 11623,
+      "term": "通院 (つういん)",
+      "reading": "つういん",
+      "romaji": null,
+      "definition": "đi khám bệnh định kỳ",
+      "exampleSentence": "病気を悪化させないためにも、定期的な通院を続けてください。",
+      "exampleTranslation": "Để bệnh không trở nặng, hãy tiếp tục đi khám định kỳ.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 11624,
+      "term": "人間ドック (にんげんドック)",
+      "reading": "にんげんドック",
+      "romaji": null,
+      "definition": "khám tổng quát định kỳ",
+      "exampleSentence": "健康に自信があっても、年に一度は人間ドックを受けたほうがいいです。",
+      "exampleTranslation": "Dù tự tin về sức khỏe, mỗi năm bạn vẫn nên khám tổng quát một lần.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 11625,
+      "term": "臓器移植 (ぞうきいしょく)",
+      "reading": "ぞうきいしょく",
+      "romaji": null,
+      "definition": "ghép tạng",
+      "exampleSentence": "臓器移植をめぐる倫理的な議論は、今なお社会全体に重い課題を突きつけている。",
+      "exampleTranslation": "Những tranh luận đạo đức xoay quanh việc ghép tạng đến nay vẫn đặt ra thách thức lớn cho toàn xã hội.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 11626,
+      "term": "問診 (もんしん)",
+      "reading": "もんしん",
+      "romaji": null,
+      "definition": "hỏi bệnh sử",
+      "exampleSentence": "問診では、既往症や服用中の薬について、できるだけ正確に医師へ伝える必要がある。",
+      "exampleTranslation": "Khi hỏi bệnh sử, cần thông báo cho bác sĩ chính xác nhất có thể về các bệnh từng mắc và thuốc đang dùng.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 11627,
+      "term": "輸血 (ゆけつ)",
+      "reading": "ゆけつ",
+      "romaji": null,
+      "definition": "truyền máu",
+      "exampleSentence": "輸血の安全性を確保するため、提供された血液は厳格な検査を受けている。",
+      "exampleTranslation": "Để đảm bảo an toàn truyền máu, máu được hiến phải trải qua các cuộc kiểm tra nghiêm ngặt.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

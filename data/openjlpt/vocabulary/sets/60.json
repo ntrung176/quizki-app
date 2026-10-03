@@ -1,0 +1,373 @@
+{
+  "id": 60,
+  "title": "お買い物",
+  "description": "Mua sắm · từ vựng cửa hàng N5",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:52.358447",
+  "cards": [
+    {
+      "id": 1899,
+      "term": "買う",
+      "reading": "かう",
+      "romaji": "kau",
+      "definition": "Mua",
+      "exampleSentence": "スーパーで野菜を買う。",
+      "exampleTranslation": "Mua rau ở siêu thị.",
+      "forms": [
+        "買います",
+        "買って",
+        "買った",
+        "買わない",
+        "買える"
+      ],
+      "displayOrder": 0
+    },
+    {
+      "id": 1900,
+      "term": "売る",
+      "reading": "うる",
+      "romaji": "uru",
+      "definition": "Bán",
+      "exampleSentence": "この店では魚を売っている。",
+      "exampleTranslation": "Cửa hàng này bán cá.",
+      "forms": [
+        "売ります",
+        "売って",
+        "売った",
+        "売らない",
+        "売れる"
+      ],
+      "displayOrder": 1
+    },
+    {
+      "id": 1901,
+      "term": "値段",
+      "reading": "ねだん",
+      "romaji": "nedan",
+      "definition": "Giá cả",
+      "exampleSentence": "値段はいくらですか。",
+      "exampleTranslation": "Giá là bao nhiêu?",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 1902,
+      "term": "高い",
+      "reading": "たかい",
+      "romaji": "takai",
+      "definition": "Đắt / Cao",
+      "exampleSentence": "このバッグは高い。",
+      "exampleTranslation": "Túi này đắt.",
+      "forms": [
+        "高くない",
+        "高かった",
+        "高くなかった"
+      ],
+      "displayOrder": 3
+    },
+    {
+      "id": 1903,
+      "term": "安い",
+      "reading": "やすい",
+      "romaji": "yasui",
+      "definition": "Rẻ / Thấp",
+      "exampleSentence": "このお店は安い。",
+      "exampleTranslation": "Cửa hàng này rẻ.",
+      "forms": [
+        "安くない",
+        "安かった",
+        "安くなかった"
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": 1904,
+      "term": "お金",
+      "reading": "おかね",
+      "romaji": "okane",
+      "definition": "Tiền",
+      "exampleSentence": "お金がない。",
+      "exampleTranslation": "Không có tiền.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 1905,
+      "term": "円",
+      "reading": "えん",
+      "romaji": "en",
+      "definition": "Yên (đơn vị tiền)",
+      "exampleSentence": "千円です。",
+      "exampleTranslation": "Là 1000 yên.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 1906,
+      "term": "レジ",
+      "reading": "れじ",
+      "romaji": "reji",
+      "definition": "Quầy tính tiền",
+      "exampleSentence": "レジに並ぶ。",
+      "exampleTranslation": "Xếp hàng ở quầy tính tiền.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 1907,
+      "term": "袋",
+      "reading": "ふくろ",
+      "romaji": "fukuro",
+      "definition": "Túi",
+      "exampleSentence": "袋に入れてください。",
+      "exampleTranslation": "Vui lòng cho vào túi.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 1908,
+      "term": "領収書",
+      "reading": "りょうしゅうしょ",
+      "romaji": "ryoushuusho",
+      "definition": "Hóa đơn",
+      "exampleSentence": "領収書をください。",
+      "exampleTranslation": "Cho tôi hóa đơn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 1909,
+      "term": "割引",
+      "reading": "わりびき",
+      "romaji": "waribiki",
+      "definition": "Giảm giá",
+      "exampleSentence": "10%割引になりました。",
+      "exampleTranslation": "Được giảm giá 10%.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 1910,
+      "term": "セール",
+      "reading": "せーる",
+      "romaji": "seeru",
+      "definition": "Khuyến mãi, giảm giá",
+      "exampleSentence": "セール中です。",
+      "exampleTranslation": "Đang trong thời gian giảm giá.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 1911,
+      "term": "試着",
+      "reading": "しちゃく",
+      "romaji": "shichaku",
+      "definition": "Thử quần áo",
+      "exampleSentence": "試着してもいいですか。",
+      "exampleTranslation": "Tôi có thể thử không?",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 1912,
+      "term": "サイズ",
+      "reading": "さいず",
+      "romaji": "saizu",
+      "definition": "Cỡ, kích thước",
+      "exampleSentence": "サイズは何ですか。",
+      "exampleTranslation": "Cỡ là bao nhiêu?",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 1913,
+      "term": "店員",
+      "reading": "てんいん",
+      "romaji": "ten in",
+      "definition": "Nhân viên cửa hàng",
+      "exampleSentence": "店員さんに聞く。",
+      "exampleTranslation": "Hỏi nhân viên cửa hàng.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 1914,
+      "term": "スーパー",
+      "reading": "すーぱー",
+      "romaji": "suupaa",
+      "definition": "Siêu thị",
+      "exampleSentence": "スーパーで買い物する。",
+      "exampleTranslation": "Mua sắm ở siêu thị.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 1915,
+      "term": "コンビニ",
+      "reading": "こんびに",
+      "romaji": "konbini",
+      "definition": "Cửa hàng tiện lợi",
+      "exampleSentence": "コンビニで買う。",
+      "exampleTranslation": "Mua ở cửa hàng tiện lợi.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 1916,
+      "term": "デパート",
+      "reading": "でぱーと",
+      "romaji": "depaato",
+      "definition": "Trung tâm thương mại",
+      "exampleSentence": "デパートで服を買う。",
+      "exampleTranslation": "Mua quần áo ở trung tâm thương mại.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 1917,
+      "term": "品物",
+      "reading": "しなもの",
+      "romaji": "shinamono",
+      "definition": "Hàng hóa",
+      "exampleSentence": "品物を選ぶ。",
+      "exampleTranslation": "Chọn hàng hóa.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 1918,
+      "term": "支払い",
+      "reading": "しはらい",
+      "romaji": "shiharai",
+      "definition": "Thanh toán",
+      "exampleSentence": "カードで支払う。",
+      "exampleTranslation": "Thanh toán bằng thẻ.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 1919,
+      "term": "お釣り",
+      "reading": "おつり",
+      "romaji": "otsuri",
+      "definition": "Tiền thừa",
+      "exampleSentence": "お釣りを受け取る。",
+      "exampleTranslation": "Nhận tiền thừa.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 1920,
+      "term": "現金",
+      "reading": "げんきん",
+      "romaji": "genkin",
+      "definition": "Tiền mặt",
+      "exampleSentence": "現金で払う。",
+      "exampleTranslation": "Trả bằng tiền mặt.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 1921,
+      "term": "クレジットカード",
+      "reading": "くれじっとかーど",
+      "romaji": "kurejitto kaado",
+      "definition": "Thẻ tín dụng",
+      "exampleSentence": "クレジットカードで払う。",
+      "exampleTranslation": "Thanh toán bằng thẻ tín dụng.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 1922,
+      "term": "ポイント",
+      "reading": "ぽいんと",
+      "romaji": "pointo",
+      "definition": "Điểm thưởng",
+      "exampleSentence": "ポイントカードはありますか。",
+      "exampleTranslation": "Bạn có thẻ tích điểm không?",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 1923,
+      "term": "返品",
+      "reading": "へんぴん",
+      "romaji": "henpin",
+      "definition": "Trả hàng",
+      "exampleSentence": "返品できますか。",
+      "exampleTranslation": "Có thể trả hàng không?",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 1924,
+      "term": "交換",
+      "reading": "こうかん",
+      "romaji": "koukan",
+      "definition": "Đổi hàng",
+      "exampleSentence": "サイズを交換したい。",
+      "exampleTranslation": "Tôi muốn đổi cỡ.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 1925,
+      "term": "在庫",
+      "reading": "ざいこ",
+      "romaji": "zaiko",
+      "definition": "Hàng tồn kho / Còn hàng",
+      "exampleSentence": "在庫はありますか。",
+      "exampleTranslation": "Còn hàng không?",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 1926,
+      "term": "品切れ",
+      "reading": "しなぎれ",
+      "romaji": "shinagire",
+      "definition": "Hết hàng",
+      "exampleSentence": "品切れです。",
+      "exampleTranslation": "Hết hàng rồi.",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 1927,
+      "term": "注文する",
+      "reading": "ちゅうもんする",
+      "romaji": "chuumon suru",
+      "definition": "Đặt hàng",
+      "exampleSentence": "オンラインで注文する。",
+      "exampleTranslation": "Đặt hàng trực tuyến.",
+      "forms": [
+        "注文します",
+        "注文して",
+        "注文した",
+        "注文しない",
+        "注文できる"
+      ],
+      "displayOrder": 28
+    },
+    {
+      "id": 1928,
+      "term": "包む",
+      "reading": "つつむ",
+      "romaji": "tsutsumu",
+      "definition": "Bọc, gói",
+      "exampleSentence": "プレゼントを包む。",
+      "exampleTranslation": "Gói quà.",
+      "forms": [
+        "包みます",
+        "包んで",
+        "包んだ",
+        "包まない",
+        "包める"
+      ],
+      "displayOrder": 29
+    }
+  ]
+}

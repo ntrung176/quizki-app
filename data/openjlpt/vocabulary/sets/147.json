@@ -1,0 +1,365 @@
+{
+  "id": 147,
+  "title": "経済・金融語彙",
+  "description": "Kinh tế và tài chính N3 · 30 từ",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:57.422947",
+  "cards": [
+    {
+      "id": 4335,
+      "term": "株式",
+      "reading": "かぶしき",
+      "romaji": "kabushiki",
+      "definition": "Cổ phiếu",
+      "exampleSentence": "株式を購入しました。",
+      "exampleTranslation": "Tôi đã mua cổ phiếu.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 4336,
+      "term": "為替レート",
+      "reading": "かわせレート",
+      "romaji": "kawase reeto",
+      "definition": "Tỷ giá hối đoái",
+      "exampleSentence": "円ドルの為替レートはいくらですか。",
+      "exampleTranslation": "Tỷ giá yên-đô là bao nhiêu?",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 4337,
+      "term": "インフレ",
+      "reading": "インフレ",
+      "romaji": "infure",
+      "definition": "Lạm phát",
+      "exampleSentence": "インフレが続いています。",
+      "exampleTranslation": "Lạm phát đang tiếp tục.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 4338,
+      "term": "デフレ",
+      "reading": "デフレ",
+      "romaji": "defure",
+      "definition": "Giảm phát",
+      "exampleSentence": "デフレから脱却しました。",
+      "exampleTranslation": "Đã thoát khỏi giảm phát.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 4339,
+      "term": "GDP",
+      "reading": "GDP",
+      "romaji": "GDP",
+      "definition": "Tổng sản phẩm quốc nội",
+      "exampleSentence": "今年のGDPが発表されました。",
+      "exampleTranslation": "GDP năm nay đã được công bố.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 4340,
+      "term": "金利",
+      "reading": "きんり",
+      "romaji": "kinri",
+      "definition": "Lãi suất",
+      "exampleSentence": "日本銀行が金利を引き下げました。",
+      "exampleTranslation": "Ngân hàng Nhật Bản đã hạ lãi suất.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 4341,
+      "term": "融資",
+      "reading": "ゆうし",
+      "romaji": "yuushi",
+      "definition": "Cho vay / cấp vốn",
+      "exampleSentence": "銀行から融資を受けました。",
+      "exampleTranslation": "Chúng tôi được ngân hàng cho vay.",
+      "forms": [
+        "融資します",
+        "融資して",
+        "融資した",
+        "融資しない",
+        "融資できる"
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": 4342,
+      "term": "投資",
+      "reading": "とうし",
+      "romaji": "toushi",
+      "definition": "Đầu tư",
+      "exampleSentence": "不動産に投資しています。",
+      "exampleTranslation": "Tôi đang đầu tư bất động sản.",
+      "forms": [
+        "投資します",
+        "投資して",
+        "投資した",
+        "投資しない",
+        "投資できる"
+      ],
+      "displayOrder": 7
+    },
+    {
+      "id": 4343,
+      "term": "赤字",
+      "reading": "あかじ",
+      "romaji": "akaji",
+      "definition": "Thâm hụt / lỗ",
+      "exampleSentence": "今期は赤字になりました。",
+      "exampleTranslation": "Kỳ này bị lỗ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 4344,
+      "term": "黒字",
+      "reading": "くろじ",
+      "romaji": "kuroji",
+      "definition": "Thặng dư / có lãi",
+      "exampleSentence": "ようやく黒字になりました。",
+      "exampleTranslation": "Cuối cùng đã có lãi.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 4345,
+      "term": "貿易",
+      "reading": "ぼうえき",
+      "romaji": "boueki",
+      "definition": "Thương mại (quốc tế)",
+      "exampleSentence": "貿易赤字が拡大しています。",
+      "exampleTranslation": "Thâm hụt thương mại đang mở rộng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 4346,
+      "term": "輸出",
+      "reading": "ゆしゅつ",
+      "romaji": "yushutsu",
+      "definition": "Xuất khẩu",
+      "exampleSentence": "自動車の輸出が増加しました。",
+      "exampleTranslation": "Xuất khẩu ô tô đã tăng.",
+      "forms": [
+        "輸出します",
+        "輸出して",
+        "輸出した",
+        "輸出しない",
+        "輸出できる"
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": 4347,
+      "term": "輸入",
+      "reading": "ゆにゅう",
+      "romaji": "yunyuu",
+      "definition": "Nhập khẩu",
+      "exampleSentence": "石油を輸入しています。",
+      "exampleTranslation": "Chúng tôi nhập khẩu dầu mỏ.",
+      "forms": [
+        "輸入します",
+        "輸入して",
+        "輸入した",
+        "輸入しない",
+        "輸入できる"
+      ],
+      "displayOrder": 12
+    },
+    {
+      "id": 4348,
+      "term": "景気",
+      "reading": "けいき",
+      "romaji": "keiki",
+      "definition": "Tình hình kinh tế / cảnh khí",
+      "exampleSentence": "景気が回復してきました。",
+      "exampleTranslation": "Kinh tế đang hồi phục.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 4349,
+      "term": "財政",
+      "reading": "ざいせい",
+      "romaji": "zaisei",
+      "definition": "Tài chính (công)",
+      "exampleSentence": "財政赤字の削減が急務です。",
+      "exampleTranslation": "Cắt giảm thâm hụt tài chính là cấp thiết.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 4350,
+      "term": "税制",
+      "reading": "ぜいせい",
+      "romaji": "zeisei",
+      "definition": "Chế độ thuế",
+      "exampleSentence": "税制改革が行われました。",
+      "exampleTranslation": "Cải cách thuế đã được thực hiện.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 4351,
+      "term": "資産",
+      "reading": "しさん",
+      "romaji": "shisan",
+      "definition": "Tài sản",
+      "exampleSentence": "資産運用を考えています。",
+      "exampleTranslation": "Tôi đang suy nghĩ về quản lý tài sản.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 4352,
+      "term": "負債",
+      "reading": "ふさい",
+      "romaji": "fusai",
+      "definition": "Nợ / khoản nợ",
+      "exampleSentence": "負債を返済しました。",
+      "exampleTranslation": "Tôi đã trả nợ.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 4353,
+      "term": "利潤",
+      "reading": "りじゅん",
+      "romaji": "rijun",
+      "definition": "Lợi nhuận (kinh tế học)",
+      "exampleSentence": "利潤を最大化するのが目的です。",
+      "exampleTranslation": "Mục tiêu là tối đa hóa lợi nhuận.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 4354,
+      "term": "証券",
+      "reading": "しょうけん",
+      "romaji": "shouken",
+      "definition": "Chứng khoán",
+      "exampleSentence": "証券会社で働いています。",
+      "exampleTranslation": "Tôi làm việc ở công ty chứng khoán.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 50774,
+      "term": "収入",
+      "reading": "しゅうにゅう",
+      "romaji": "shūnyū",
+      "definition": "thu nhập",
+      "exampleSentence": "毎月の収入と支出を記録しています。",
+      "exampleTranslation": "Tôi ghi lại thu nhập và chi tiêu hằng tháng.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 50775,
+      "term": "支出",
+      "reading": "ししゅつ",
+      "romaji": "shishutsu",
+      "definition": "chi tiêu; khoản chi",
+      "exampleSentence": "今月は支出が予定より多くなりました。",
+      "exampleTranslation": "Tháng này các khoản chi đã nhiều hơn dự định.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 50776,
+      "term": "予算",
+      "reading": "よさん",
+      "romaji": "yosan",
+      "definition": "ngân sách; dự toán",
+      "exampleSentence": "政府は来年度の予算案を発表しました。",
+      "exampleTranslation": "Chính phủ đã công bố dự thảo ngân sách cho năm tài chính tới.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 50777,
+      "term": "消費",
+      "reading": "しょうひ",
+      "romaji": "shōhi",
+      "definition": "tiêu dùng",
+      "exampleSentence": "物価が上がると、消費が減ることがあります。",
+      "exampleTranslation": "Khi giá cả tăng, tiêu dùng có thể giảm.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 50778,
+      "term": "生産",
+      "reading": "せいさん",
+      "romaji": "seisan",
+      "definition": "sản xuất",
+      "exampleSentence": "この工場では自動車を生産しています。",
+      "exampleTranslation": "Nhà máy này đang sản xuất ô tô.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 50779,
+      "term": "企業",
+      "reading": "きぎょう",
+      "romaji": "kigyō",
+      "definition": "doanh nghiệp",
+      "exampleSentence": "多くの企業が海外市場に進出しています。",
+      "exampleTranslation": "Nhiều doanh nghiệp đang mở rộng vào thị trường nước ngoài.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 50780,
+      "term": "市場",
+      "reading": "しじょう",
+      "romaji": "shijō",
+      "definition": "thị trường",
+      "exampleSentence": "市場の動きに注意しながら計画を立てます。",
+      "exampleTranslation": "Chúng tôi lập kế hoạch trong khi chú ý đến diễn biến thị trường.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 50781,
+      "term": "価格",
+      "reading": "かかく",
+      "romaji": "kakaku",
+      "definition": "giá cả; mức giá",
+      "exampleSentence": "商品の価格は需要と供給によって変わります。",
+      "exampleTranslation": "Giá sản phẩm thay đổi tùy theo cung và cầu.",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 50782,
+      "term": "売上",
+      "reading": "うりあげ",
+      "romaji": "uriage",
+      "definition": "doanh thu",
+      "exampleSentence": "今年は去年より売上が伸びました。",
+      "exampleTranslation": "Năm nay doanh thu đã tăng so với năm ngoái.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 50783,
+      "term": "預金",
+      "reading": "よきん",
+      "romaji": "yokin",
+      "definition": "tiền gửi ngân hàng",
+      "exampleSentence": "将来のために銀行へ毎月預金しています。",
+      "exampleTranslation": "Tôi gửi tiền vào ngân hàng mỗi tháng cho tương lai.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

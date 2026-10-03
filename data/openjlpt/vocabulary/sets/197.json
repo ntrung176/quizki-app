@@ -1,0 +1,176 @@
+{
+  "id": 197,
+  "title": "Tuần 1 · Ngày 4 - な形容詞② (Tính từ -な nhóm 2)",
+  "description": "Nihongo Soumatome N3 語彙 — な形容詞② (Tính từ -な nhóm 2)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:18.842638",
+  "cards": [
+    {
+      "id": 5296,
+      "term": "複雑 (ふくざつ)",
+      "reading": "ふくざつ",
+      "romaji": "fukuzatsu",
+      "definition": "phức tạp, rắc rối",
+      "exampleSentence": "この問題は複雑なので、簡単には説明できません。",
+      "exampleTranslation": "Vấn đề này phức tạp nên không thể giải thích một cách đơn giản.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5297,
+      "term": "豊か (ゆたか)",
+      "reading": "ゆたか",
+      "romaji": "yutaka",
+      "definition": "phong phú, giàu có, sung túc",
+      "exampleSentence": "この地域は豊かな自然に恵まれています。",
+      "exampleTranslation": "Khu vực này được thiên nhiên phong phú ưu đãi.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5298,
+      "term": "親切 (しんせつ)",
+      "reading": "しんせつ",
+      "romaji": "shinsetsu",
+      "definition": "tốt bụng, thân thiện, ân cần",
+      "exampleSentence": "親切な店員が商品の場所を教えてくれました。",
+      "exampleTranslation": "Một nhân viên ân cần đã chỉ cho tôi vị trí của sản phẩm.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5299,
+      "term": "冷静 (れいせい)",
+      "reading": "れいせい",
+      "romaji": "reisei",
+      "definition": "bình tĩnh, điềm tĩnh",
+      "exampleSentence": "彼は問題が起きても、いつも冷静です。",
+      "exampleTranslation": "Dù có xảy ra vấn đề, anh ấy lúc nào cũng bình tĩnh.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5300,
+      "term": "積極的 (せっきょくてき)",
+      "reading": "せっきょくてき",
+      "romaji": "sekkyokuteki",
+      "definition": "chủ động, tích cực, năng nổ",
+      "exampleSentence": "彼女は授業で積極的に発言します。",
+      "exampleTranslation": "Cô ấy tích cực phát biểu trong giờ học.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5301,
+      "term": "消極的 (しょうきょくてき)",
+      "reading": "しょうきょくてき",
+      "romaji": "shoukyokuteki",
+      "definition": "thụ động, tiêu cực",
+      "exampleSentence": "彼は失敗を恐れて、何事にも消極的です。",
+      "exampleTranslation": "Vì sợ thất bại nên anh ấy thụ động trong mọi việc.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5302,
+      "term": "得意 (とくい)",
+      "reading": "とくい",
+      "romaji": "tokui",
+      "definition": "giỏi, thế mạnh, sở trường",
+      "exampleSentence": "私は人前で話すことが得意です。",
+      "exampleTranslation": "Tôi giỏi nói chuyện trước đám đông.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5303,
+      "term": "苦手 (にがて)",
+      "reading": "にがて",
+      "romaji": "nigate",
+      "definition": "không giỏi, điểm yếu, ngại",
+      "exampleSentence": "私は人前で話すのが苦手です。",
+      "exampleTranslation": "Tôi không giỏi nói chuyện trước đám đông.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5304,
+      "term": "適当 (てきとう)",
+      "reading": "てきとう",
+      "romaji": "tekitou",
+      "definition": "thích hợp, tạm được, qua loa",
+      "exampleSentence": "彼は仕事を適当にせず、最後まで丁寧に取り組みます。",
+      "exampleTranslation": "Anh ấy không làm việc qua loa mà luôn tận tâm đến cuối.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5305,
+      "term": "確か (たしか)",
+      "reading": "たしか",
+      "romaji": "tashika",
+      "definition": "chắc chắn, đúng, hình như",
+      "exampleSentence": "その話は確かだと思います。",
+      "exampleTranslation": "Tôi nghĩ câu chuyện đó là đúng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5306,
+      "term": "残念 (ざんねん)",
+      "reading": "ざんねん",
+      "romaji": "zannen",
+      "definition": "tiếc, đáng tiếc",
+      "exampleSentence": "試合に負けて残念ですが、次は頑張ります。",
+      "exampleTranslation": "Tuy tiếc vì thua trận, nhưng lần sau tôi sẽ cố gắng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5307,
+      "term": "急 (きゅう)",
+      "reading": "きゅう",
+      "romaji": "kyuu",
+      "definition": "khẩn cấp, đột ngột, gấp",
+      "exampleSentence": "急な用事が入ったので、今日は早く帰ります。",
+      "exampleTranslation": "Vì có việc gấp đột xuất nên hôm nay tôi sẽ về sớm.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5308,
+      "term": "自由 (じゆう)",
+      "reading": "じゆう",
+      "romaji": "jiyuu",
+      "definition": "tự do, thoải mái",
+      "exampleSentence": "休日は自由な時間をゆっくり過ごしたいです。",
+      "exampleTranslation": "Ngày nghỉ, tôi muốn thong thả tận hưởng khoảng thời gian tự do.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5309,
+      "term": "十分 (じゅうぶん)",
+      "reading": "じゅうぶん",
+      "romaji": "juubun",
+      "definition": "đủ, đầy đủ, đủ rồi",
+      "exampleSentence": "これだけ説明すれば、準備は十分です。",
+      "exampleTranslation": "Giải thích đến mức này thì việc chuẩn bị đã đủ rồi.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5310,
+      "term": "大事 (だいじ)",
+      "reading": "だいじ",
+      "romaji": "daiji",
+      "definition": "quan trọng, cẩn thận",
+      "exampleSentence": "家族との時間を大事にしています。",
+      "exampleTranslation": "Tôi coi trọng thời gian bên gia đình.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

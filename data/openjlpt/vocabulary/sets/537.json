@@ -1,0 +1,176 @@
+{
+  "id": 537,
+  "title": "オノマトペ・副詞 · 擬態語・副詞（動作・態度）",
+  "description": "Từ tượng hình & phó từ chỉ động tác, thái độ — chủ đề Từ tượng thanh & phó từ · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:51.622352",
+  "cards": [
+    {
+      "id": 13149,
+      "term": "ゆっくり",
+      "reading": "ゆっくり",
+      "romaji": null,
+      "definition": "từ từ, chậm rãi, thong thả",
+      "exampleSentence": "朝はコーヒーを飲みながら、ゆっくり新聞を読みます。",
+      "exampleTranslation": "Buổi sáng, tôi vừa uống cà phê vừa thong thả đọc báo.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13150,
+      "term": "うっかり",
+      "reading": "うっかり",
+      "romaji": null,
+      "definition": "sơ ý, vô tình, bất cẩn",
+      "exampleSentence": "うっかり傘を電車の中に忘れてしまいました。",
+      "exampleTranslation": "Tôi sơ ý để quên ô trên tàu điện.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13151,
+      "term": "うろうろ",
+      "reading": "うろうろ",
+      "romaji": null,
+      "definition": "đi lại vô mục đích, lảng vảng",
+      "exampleSentence": "駅の周りをうろうろしている人がいました。",
+      "exampleTranslation": "Có một người cứ đi lang thang quanh nhà ga.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13152,
+      "term": "さすが",
+      "reading": "さすが",
+      "romaji": null,
+      "definition": "quả là, đúng là, xứng đáng",
+      "exampleSentence": "さすが田中さん、難しい仕事もすぐに終わらせました。",
+      "exampleTranslation": "Quả là anh Tanaka, đến công việc khó cũng hoàn thành ngay.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13153,
+      "term": "さっぱり",
+      "reading": "さっぱり",
+      "romaji": null,
+      "definition": "sảng khoái, gọn gàng, hoàn toàn không (phủ định)",
+      "exampleSentence": "シャワーを浴びたら、体がさっぱりしました。",
+      "exampleTranslation": "Sau khi tắm vòi sen, người tôi cảm thấy sảng khoái.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13154,
+      "term": "ざわざわ",
+      "reading": "ざわざわ",
+      "romaji": null,
+      "definition": "xôn xao, ồn ào, náo nhiệt",
+      "exampleSentence": "教室の後ろが急にざわざわし始めました。",
+      "exampleTranslation": "Phía cuối lớp học đột nhiên trở nên xôn xao.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13155,
+      "term": "しっかり",
+      "reading": "しっかり",
+      "romaji": null,
+      "definition": "chắc chắn, vững chắc, đàng hoàng",
+      "exampleSentence": "明日の発表に備えて、今夜はしっかり準備しましょう。",
+      "exampleTranslation": "Để chuẩn bị cho bài thuyết trình ngày mai, tối nay chúng ta hãy chuẩn bị thật kỹ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13156,
+      "term": "じろじろ",
+      "reading": "じろじろ",
+      "romaji": null,
+      "definition": "nhìn chằm chặp, nhìn trừng trừng",
+      "exampleSentence": "知らない人にじろじろ見られて、少し不安になりました。",
+      "exampleTranslation": "Bị một người lạ nhìn chằm chằm, tôi cảm thấy hơi bất an.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13157,
+      "term": "せっかく",
+      "reading": "せっかく",
+      "romaji": null,
+      "definition": "đặc biệt làm, có công, không uổng",
+      "exampleSentence": "せっかく京都まで来たので、古いお寺を見て回りましょう。",
+      "exampleTranslation": "Đã cất công đến tận Kyoto, chúng ta hãy đi tham quan những ngôi chùa cổ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13158,
+      "term": "てきぱき",
+      "reading": "てきぱき",
+      "romaji": null,
+      "definition": "nhanh nhẹn, gọn gàng, dứt khoát",
+      "exampleSentence": "彼女は忙しい朝でも、てきぱき朝食を用意します。",
+      "exampleTranslation": "Dù buổi sáng bận rộn, cô ấy vẫn nhanh nhẹn chuẩn bị bữa sáng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13159,
+      "term": "どうせ",
+      "reading": "どうせ",
+      "romaji": null,
+      "definition": "dù sao, đằng nào cũng",
+      "exampleSentence": "どうせ雨が降るなら、家で映画を見ませんか。",
+      "exampleTranslation": "Đằng nào trời cũng mưa, hay là chúng ta xem phim ở nhà nhé?",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13160,
+      "term": "のんびり",
+      "reading": "のんびり",
+      "romaji": null,
+      "definition": "thư thả, thoải mái, thong dong",
+      "exampleSentence": "休みの日は、海を眺めながらのんびり過ごします。",
+      "exampleTranslation": "Vào ngày nghỉ, tôi thong thả tận hưởng thời gian trong lúc ngắm biển.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13161,
+      "term": "はっきり",
+      "reading": "はっきり",
+      "romaji": null,
+      "definition": "rõ ràng, dứt khoát",
+      "exampleSentence": "彼は自分の意見をはっきり述べた。",
+      "exampleTranslation": "Anh ấy đã trình bày rõ ràng ý kiến của mình.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13162,
+      "term": "ぴったり",
+      "reading": "ぴったり",
+      "romaji": null,
+      "definition": "vừa khít, khớp hoàn toàn",
+      "exampleSentence": "この靴は私の足にぴったり合っている。",
+      "exampleTranslation": "Đôi giày này vừa khít với chân tôi.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13163,
+      "term": "ぺらぺら",
+      "reading": "ぺらぺら",
+      "romaji": null,
+      "definition": "nói trôi chảy, thạo ngôn ngữ",
+      "exampleSentence": "彼女は日本に三年住んでいて、日本語がぺらぺらだ。",
+      "exampleTranslation": "Cô ấy đã sống ở Nhật ba năm nên nói tiếng Nhật rất lưu loát.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

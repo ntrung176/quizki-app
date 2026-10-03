@@ -1,0 +1,1247 @@
+{
+  "default": {
+    "mn-022||core||MỤC TIÊU = trạng thái / khả năng": {
+      "title": "MỤC TIÊU = trạng thái / khả năng",
+      "sub": "〜ように · Ý nghĩa cốt lõi",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "core",
+        "isNode": true,
+        "parentBranch": "📖 Ý nghĩa cốt lõi",
+        "definition": "**Mục tiêu của ように** là hướng tới một trạng thái hoặc khả năng mong muốn chứ không phải một hành động tác động trực tiếp. Điều này giúp phân biệt ように với các cấu trúc chỉ mục đích hành động thuần túy như ために.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "日本語",
+                "r": "にほんご",
+                "m": "tiếng Nhật"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "話せる",
+                "r": "はなせる",
+                "m": "có thể nói"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "毎日",
+                "r": "まいにち",
+                "m": "mỗi ngày"
+              },
+              {
+                "t": "勉強",
+                "r": "べんきょう",
+                "m": "học"
+              },
+              {
+                "t": "します"
+              }
+            ],
+            "vi": "Tôi học mỗi ngày để có thể nói tiếng Nhật.",
+            "scene": "Chia sẻ về mục tiêu học ngoại ngữ"
+          }
+        ]
+      }
+    },
+    "mn-022||core||Vế sau = NỖ LỰC, hành động": {
+      "title": "Vế sau = NỖ LỰC, hành động",
+      "sub": "〜ように · Ý nghĩa cốt lõi",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "core",
+        "isNode": true,
+        "parentBranch": "📖 Ý nghĩa cốt lõi",
+        "definition": "Vế sau ように luôn là **hành động nỗ lực cụ thể** mà người nói chủ động thực hiện nhằm tạo điều kiện cho mục tiêu vế trước đạt được. Không dùng vế sau là trạng thái tự nhiên nằm ngoài tầm kiểm soát.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "事故",
+                "r": "じこ",
+                "m": "tai nạn"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "起きない",
+                "r": "おきない",
+                "m": "không xảy ra"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "安全",
+                "r": "あんぜん",
+                "m": "an toàn"
+              },
+              {
+                "t": "に"
+              },
+              {
+                "t": "運転",
+                "r": "うんてん",
+                "m": "lái xe"
+              },
+              {
+                "t": "します"
+              }
+            ],
+            "vi": "Tôi lái xe an toàn để tai nạn không xảy ra.",
+            "scene": "Quy tắc an toàn giao thông"
+          }
+        ]
+      }
+    },
+    "mn-022||core||CHƯA đạt, đang HƯỚNG TỚI": {
+      "title": "CHƯA đạt, đang HƯỚNG TỚI",
+      "sub": "〜ように · Ý nghĩa cốt lõi",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "core",
+        "isNode": true,
+        "parentBranch": "📖 Ý nghĩa cốt lõi",
+        "definition": "Cấu trúc ように diễn tả **mục tiêu ở tương lai** mà hiện tại người nói **chưa đạt được**. Người nói đang thực hiện hành động để hướng tới kết quả mong muốn đó.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "試験",
+                "r": "しけん",
+                "m": "kỳ thi"
+              },
+              {
+                "t": "に"
+              },
+              {
+                "t": "合格",
+                "r": "ごうかく",
+                "m": "đỗ"
+              },
+              {
+                "t": "できる",
+                "m": "có thể"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "頑張って",
+                "r": "がんばって",
+                "m": "cố gắng"
+              },
+              {
+                "t": "います"
+              }
+            ],
+            "vi": "Tôi đang cố gắng để có thể đỗ kỳ thi.",
+            "scene": "Tâm sự trước kỳ thi sắp tới"
+          }
+        ]
+      }
+    },
+    "mn-022||core||Vế trước: V辞書形・ない形・可能形": {
+      "title": "Vế trước: V辞書形・ない形・可能形",
+      "sub": "〜ように · Ý nghĩa cốt lõi",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "core",
+        "isNode": true,
+        "parentBranch": "📖 Ý nghĩa cốt lõi",
+        "definition": "Động từ đứng trước ように phải ở **dạng phi chủ động**, bao gồm động từ thể từ điển (như わかる, 見える), thể phủ định ない, hoặc thể khả năng. Tuyệt đối không dùng động từ thể lịch sự ます.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "字",
+                "r": "じ",
+                "m": "chữ"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "よく",
+                "m": "rõ"
+              },
+              {
+                "t": "見える",
+                "r": "みえる",
+                "m": "nhìn thấy"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "前",
+                "r": "まえ",
+                "m": "phía trước"
+              },
+              {
+                "t": "に"
+              },
+              {
+                "t": "座ります",
+                "r": "すわります",
+                "m": "ngồi"
+              }
+            ],
+            "vi": "Tôi ngồi phía trước để có thể nhìn rõ chữ.",
+            "scene": "Chọn chỗ ngồi trong lớp học"
+          }
+        ]
+      }
+    },
+    "mn-022||forms||V辞書形 + ように → mục tiêu": {
+      "title": "V辞書形 + ように → mục tiêu",
+      "sub": "〜ように · Cấu trúc & cách chia",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "forms",
+        "isNode": true,
+        "parentBranch": "🧩 Cấu trúc & cách chia",
+        "definition": "Khi dùng **thể từ điển (Vる)** trước ように, động từ được chọn phải là **động từ trạng thái hoặc phi chủ động** (như わかる, 見える, 届く). Dạng này thể hiện mục tiêu trạng thái tích cực mong muốn đạt được.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "声",
+                "r": "こえ",
+                "m": "tiếng"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "届く",
+                "r": "とどく",
+                "m": "tới nơi"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "大声",
+                "r": "おおごえ",
+                "m": "giọng to"
+              },
+              {
+                "t": "で"
+              },
+              {
+                "t": "話しました",
+                "r": "はなしました",
+                "m": "đã nói"
+              }
+            ],
+            "vi": "Tôi đã nói to để tiếng của mình tới được mọi người.",
+            "scene": "Nói chuyện ở nơi đông người"
+          }
+        ]
+      }
+    },
+    "mn-022||forms||Vない形 + ように → mục tiêu TRÁNH": {
+      "title": "Vない形 + ように → mục tiêu TRÁNH",
+      "sub": "〜ように · Cấu trúc & cách chia",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "forms",
+        "isNode": true,
+        "parentBranch": "🧩 Cấu trúc & cách chia",
+        "definition": "Dạng **Vない + ように** được dùng khi mục tiêu là **phòng ngừa, tránh né** một tình huống xấu hoặc không mong muốn. Vế sau là hành động cụ thể nhằm ngăn chặn điều đó xảy ra.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "風邪",
+                "r": "かぜ",
+                "m": "cảm cúm"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "引かない",
+                "r": "ひかない",
+                "m": "không bị"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "暖かく",
+                "r": "あたたかく",
+                "m": "ấm áp"
+              },
+              {
+                "t": "して"
+              },
+              {
+                "t": "寝ます",
+                "r": "ねます",
+                "m": "ngủ"
+              }
+            ],
+            "vi": "Tôi mặc ấm đi ngủ để không bị cảm cúm.",
+            "scene": "Chuẩn bị đi ngủ mùa đông"
+          }
+        ]
+      }
+    },
+    "mn-022||forms||V可能形 + ように → để CÓ THỂ": {
+      "title": "V可能形 + ように → để CÓ THỂ",
+      "sub": "〜ように · Cấu trúc & cách chia",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "forms",
+        "isNode": true,
+        "parentBranch": "🧩 Cấu trúc & cách chia",
+        "definition": "Kết hợp **thể khả năng (V可能形) với ように** là cách dùng cực kỳ phổ biến để biểu đạt **mục tiêu đạt được năng lực hay kỹ năng mới**. Việc chuyển sang thể khả năng giúp động từ phù hợp để đứng trước ように.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "泳げる",
+                "r": "およげる",
+                "m": "có thể bơi"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "毎週",
+                "r": "まいしゅう",
+                "m": "mỗi tuần"
+              },
+              {
+                "t": "練習",
+                "r": "れんしゅう",
+                "m": "luyện tập"
+              },
+              {
+                "t": "します"
+              }
+            ],
+            "vi": "Tôi luyện tập mỗi tuần để có thể bơi được.",
+            "scene": "Nói về việc đi học bơi"
+          }
+        ]
+      }
+    },
+    "mn-022||forms||Vế sau: する・なる・努力・お願い": {
+      "title": "Vế sau: する・なる・努力・お願い",
+      "sub": "〜ように · Cấu trúc & cách chia",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "forms",
+        "isNode": true,
+        "parentBranch": "🧩 Cấu trúc & cách chia",
+        "definition": "Vế sau ように vô cùng linh hoạt: có thể là hành động **nỗ lực (努力)**, lời **nhờ vả khuyên bảo (お願い)**, hoặc đi cùng **する (tạo thói quen)** và **なる (thay đổi trạng thái)**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "忘れない",
+                "r": "わすれない",
+                "m": "không quên"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "メモ",
+                "r": "めも",
+                "m": "ghi chú"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "取って",
+                "r": "とって",
+                "m": "lấy, ghi"
+              },
+              {
+                "t": "ください"
+              }
+            ],
+            "vi": "Xin hãy ghi chú lại để không bị quên.",
+            "scene": "Nhắc nhở đồng nghiệp trong cuộc họp"
+          }
+        ]
+      }
+    },
+    "mn-022||usage||Mục tiêu KHẢ NĂNG: 話せる・できる": {
+      "title": "Mục tiêu KHẢ NĂNG: 話せる・できる",
+      "sub": "〜ように · Cách dùng & tình huống",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "usage",
+        "isNode": true,
+        "parentBranch": "🎬 Cách dùng & tình huống",
+        "definition": "Mẫu ように rất hay đi với các động từ khả năng như **話せる (có thể nói), できる (có thể làm)** để thể hiện mục tiêu phát triển bản thân, nâng cao trình độ hoặc chinh phục kỹ năng mới.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "一人",
+                "r": "ひとり",
+                "m": "một mình"
+              },
+              {
+                "t": "で"
+              },
+              {
+                "t": "生活",
+                "r": "せいかつ",
+                "m": "sinh sống"
+              },
+              {
+                "t": "できる",
+                "m": "có thể"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "料理",
+                "r": "りょうり",
+                "m": "nấu ăn"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "習います",
+                "r": "ならいます",
+                "m": "học"
+              }
+            ],
+            "vi": "Tôi học nấu ăn để có thể tự sống một mình.",
+            "scene": "Chuẩn bị đi du học"
+          }
+        ]
+      }
+    },
+    "mn-022||usage||Mục tiêu TRÁNH: ないように": {
+      "title": "Mục tiêu TRÁNH: ないように",
+      "sub": "〜ように · Cách dùng & tình huống",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "usage",
+        "isNode": true,
+        "parentBranch": "🎬 Cách dùng & tình huống",
+        "definition": "Trong giao tiếp thực tế, **ないように** được sử dụng rất nhiều để tự nhắc nhở hoặc khuyên người khác thực hiện biện pháp phòng ngừa rủi ro, sai sót hay bệnh tật.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "遅刻",
+                "r": "ちこく",
+                "m": "đi trễ"
+              },
+              {
+                "t": "しない",
+                "m": "không làm"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "目覚まし",
+                "r": "めざまし",
+                "m": "báo thức"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "セットします",
+                "m": "cài đặt"
+              }
+            ],
+            "vi": "Tôi cài báo thức để không bị đi trễ.",
+            "scene": "Chuẩn bị trước khi đi ngủ"
+          }
+        ]
+      }
+    },
+    "mn-022||usage||MỤC TIÊU gián tiếp, không trực tiếp": {
+      "title": "MỤC TIÊU gián tiếp, không trực tiếp",
+      "sub": "〜ように · Cách dùng & tình huống",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "usage",
+        "isNode": true,
+        "parentBranch": "🎬 Cách dùng & tình huống",
+        "definition": "Cấu trúc ように thể hiện **mục tiêu gián tiếp** — tức hành động vế sau chỉ tạo điều kiện thuận lợi chứ không thể trực tiếp áp đặt hay ép buộc kết quả vế trước xảy ra ngay lập tức.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "赤ちゃん",
+                "r": "あかちゃん",
+                "m": "em bé"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "起きて",
+                "r": "おきて",
+                "m": "thức dậy"
+              },
+              {
+                "t": "しまわない",
+                "m": "không lỡ"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "静かに",
+                "r": "しずかに",
+                "m": "lặng lẽ"
+              },
+              {
+                "t": "歩きます",
+                "r": "あるきます",
+                "m": "đi bộ"
+              }
+            ],
+            "vi": "Tôi đi thật nhẹ nhàng để em bé không bị thức giấc.",
+            "scene": "Đi lại trong phòng có bé ngủ"
+          }
+        ]
+      }
+    },
+    "mn-022||usage||Thường gặp ở LỜI KHUYÊN, lời nhắc": {
+      "title": "Thường gặp ở LỜI KHUYÊN, lời nhắc",
+      "sub": "〜ように · Cách dùng & tình huống",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "usage",
+        "isNode": true,
+        "parentBranch": "🎬 Cách dùng & tình huống",
+        "definition": "Khi kết hợp vế sau với **してください hoặc 気をつけてください**, mẫu ように tạo thành lời nhắc nhở hoặc khuyên bảo **nhẹ nhàng, lịch sự** giúp người nghe chú ý đạt được mục tiêu tốt đẹp.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "風邪",
+                "r": "かぜ",
+                "m": "cảm cúm"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "引かない",
+                "r": "ひかない",
+                "m": "không bị"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "気をつけて",
+                "r": "きをつけて",
+                "m": "chú ý"
+              },
+              {
+                "t": "ください"
+              }
+            ],
+            "vi": "Hãy chú ý giữ gìn để không bị cảm nhé.",
+            "scene": "Lời dặn dò bạn bè khi thời tiết lạnh"
+          }
+        ]
+      }
+    },
+    "mn-022||compare||vs ために: TRỰC TIẾP vs GIÁN TIẾP": {
+      "title": "vs ために: TRỰC TIẾP vs GIÁN TIẾP",
+      "sub": "〜ように · Phân biệt vs ために/ようにする/ようになる",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "compare",
+        "isNode": true,
+        "parentBranch": "⚖️ Phân biệt vs ために/ようにする/ようになる",
+        "definition": "Mẫu **ために** dùng cho mục đích **trực tiếp, chủ động** (do bản thân hoàn toàn kiểm soát và thực hiện), còn **ように** dùng cho mục tiêu **gián tiếp, trạng thái/khả năng** (không kiểm soát hoàn toàn được kết quả).",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "車",
+                "r": "くるま",
+                "m": "xe hơi"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "買う",
+                "r": "かう",
+                "m": "mua"
+              },
+              {
+                "t": "ために",
+                "r": "ために",
+                "m": "để (trực tiếp)"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "貯金",
+                "r": "ちょきん",
+                "m": "tiết kiệm"
+              },
+              {
+                "t": "します"
+              }
+            ],
+            "vi": "Tôi tiết kiệm tiền để mua xe hơi.",
+            "scene": "Phân biệt ために (hành động mua xe chủ động) với ように (trạng thái)"
+          }
+        ]
+      }
+    },
+    "mn-022||compare||vs ようにする: MỤC TIÊU vs NỖ LỰC THÓI QUEN": {
+      "title": "vs ようにする: MỤC TIÊU vs NỖ LỰC THÓI QUEN",
+      "sub": "〜ように · Phân biệt vs ために/ようにする/ようになる",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "compare",
+        "isNode": true,
+        "parentBranch": "⚖️ Phân biệt vs ために/ようにする/ようになる",
+        "definition": "Dạng **〜ように** đơn thuần đặt ra mục tiêu cho một hành động đi kèm ở vế sau, còn **〜ようにする (hoặc ようにしている)** nhấn mạnh vào **nỗ lực tạo lập và duy trì một thói quen** hằng ngày.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "野菜",
+                "r": "やさい",
+                "m": "rau"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "食べる",
+                "r": "たべる",
+                "m": "ăn"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "して",
+                "m": "làm"
+              },
+              {
+                "t": "います"
+              }
+            ],
+            "vi": "Tôi luôn cố gắng duy trì thói quen ăn rau.",
+            "scene": "Nói về thói quen ăn uống lành mạnh"
+          }
+        ]
+      }
+    },
+    "mn-022||compare||vs ようになる: HƯỚNG TỚI vs ĐÃ THAY ĐỔI": {
+      "title": "vs ようになる: HƯỚNG TỚI vs ĐÃ THAY ĐỔI",
+      "sub": "〜ように · Phân biệt vs ために/ようにする/ようになる",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "compare",
+        "isNode": true,
+        "parentBranch": "⚖️ Phân biệt vs ために/ようにする/ようになる",
+        "definition": "Dạng **〜ように** hướng tới một mục tiêu **chưa đạt được trong tương lai**, trong khi **〜ようになる (hoặc ようになった)** khẳng định sự **thay đổi trạng thái/khả năng đã hoàn tất**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "日本語",
+                "r": "にほんご",
+                "m": "tiếng Nhật"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "話せる",
+                "r": "はなせる",
+                "m": "có thể nói"
+              },
+              {
+                "t": "ようになりました",
+                "r": "ようになりました",
+                "m": "đã trở nên"
+              }
+            ],
+            "vi": "Tôi đã trở nên nói được tiếng Nhật.",
+            "scene": "Báo cáo kết quả sau một năm học tiếng Nhật"
+          }
+        ]
+      }
+    },
+    "mn-022||pitfalls||KHÔNG dùng Vます + ように": {
+      "title": "KHÔNG dùng Vます + ように",
+      "sub": "〜ように · Lỗi thường gặp",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "pitfalls",
+        "isNode": true,
+        "parentBranch": "🚨 Lỗi thường gặp",
+        "definition": "Lỗi phổ biến là chia động từ thể lịch sự **Vます** trước ように (như 話しますように). Bắt buộc phải dùng **dạng nguyên thể Vる, Vない hoặc thể khả năng** trước ように.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "日本語",
+                "r": "にほんご",
+                "m": "tiếng Nhật"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "話せる",
+                "r": "はなせる",
+                "m": "có thể nói"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "勉強",
+                "r": "べんきょう",
+                "m": "học"
+              },
+              {
+                "t": "します"
+              }
+            ],
+            "vi": "Tôi học để có thể nói tiếng Nhật (dùng 話せるように, không dùng 話しますように).",
+            "scene": "Sửa lỗi dùng sai thể lịch sự trước ように"
+          }
+        ]
+      }
+    },
+    "mn-022||pitfalls||KHÔNG dùng ません + ように": {
+      "title": "KHÔNG dùng ません + ように",
+      "sub": "〜ように · Lỗi thường gặp",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "pitfalls",
+        "isNode": true,
+        "parentBranch": "🚨 Lỗi thường gặp",
+        "definition": "Tránh dùng thể phủ định lịch sự **ません** trước ように (như 忘れませんように). Khi diễn tả mục tiêu \"để không...\", bắt buộc dùng thể phủ định thông thường **Vない + ように**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "忘れない",
+                "r": "わすれない",
+                "m": "không quên"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "メモ",
+                "r": "めも",
+                "m": "ghi chú"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "書きます",
+                "r": "かきます",
+                "m": "viết"
+              }
+            ],
+            "vi": "Tôi viết ghi chú để không quên (dùng 忘れないように, không dùng 忘れませんように).",
+            "scene": "Sửa lỗi sai cấu trúc phủ định trước ように"
+          }
+        ]
+      }
+    },
+    "mn-022||pitfalls||KHÔNG dùng ために với động từ PHI CHỦ ĐỘNG": {
+      "title": "KHÔNG dùng ために với động từ PHI CHỦ ĐỘNG",
+      "sub": "〜ように · Lỗi thường gặp",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "pitfalls",
+        "isNode": true,
+        "parentBranch": "🚨 Lỗi thường gặp",
+        "definition": "Động từ phi chủ động (như わかる, 見える, 届く) hoặc thể khả năng không thể đi với **ために**. Trong các trường hợp diễn tả mục tiêu năng lực hoặc trạng thái này, **bắt buộc dùng ように**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "意味",
+                "r": "いみ",
+                "m": "ý nghĩa"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "わかる",
+                "m": "hiểu"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "説明",
+                "r": "せつめい",
+                "m": "giải thích"
+              },
+              {
+                "t": "します"
+              }
+            ],
+            "vi": "Tôi giải thích để mọi người hiểu ý nghĩa (わかる là phi chủ động nên phải dùng ように).",
+            "scene": "Sửa lỗi dùng sai ために với động từ phi chủ động"
+          }
+        ]
+      }
+    },
+    "mn-022||pitfalls||Phân biệt ように / ようになる": {
+      "title": "Phân biệt ように / ようになる",
+      "sub": "〜ように · Lỗi thường gặp",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "pitfalls",
+        "isNode": true,
+        "parentBranch": "🚨 Lỗi thường gặp",
+        "definition": "Cần lưu ý sự khác biệt: **〜ように** chỉ mục tiêu **đang nỗ lực hướng tới (chưa đạt)**, còn **〜ようになる** khẳng định trạng thái đó **đã đạt được hoặc đã thay đổi xong**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "漢字",
+                "r": "かんじ",
+                "m": "chữ kanji"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "読める",
+                "r": "よめる",
+                "m": "có thể đọc"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "練習",
+                "r": "れんしゅう",
+                "m": "luyện tập"
+              },
+              {
+                "t": "しています"
+              }
+            ],
+            "vi": "Tôi đang luyện tập để có thể đọc chữ kanji (đang nỗ lực hướng tới).",
+            "scene": "Phân biệt ý nghĩa mục tiêu với sự thay đổi trạng thái"
+          }
+        ]
+      }
+    },
+    "mn-022||memory||よう = HÌNH DẠNG / trạng thái; に = hướng tới": {
+      "title": "よう = HÌNH DẠNG / trạng thái; に = hướng tới",
+      "sub": "〜ように · Mẹo nhớ",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "memory",
+        "isNode": true,
+        "parentBranch": "🎯 Mẹo nhớ",
+        "definition": "Mẹo ghi nhớ chiết tự: **よう (様)** mang nghĩa hình dáng, diện mạo hoặc trạng thái, còn **に** là trợ từ chỉ hướng tới. Ghép lại, **ように** nghĩa là \"hướng tới một trạng thái mong muốn\".",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "上手",
+                "r": "じょうず",
+                "m": "giỏi"
+              },
+              {
+                "t": "に"
+              },
+              {
+                "t": "なる",
+                "m": "trở nên"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "努力",
+                "r": "どりょく",
+                "m": "nỗ lực"
+              },
+              {
+                "t": "します"
+              }
+            ],
+            "vi": "Tôi nỗ lực để trở nên giỏi giang.",
+            "scene": "Mẹo nhớ ý nghĩa của các thành phần trong ように"
+          }
+        ]
+      }
+    },
+    "mn-022||memory||Câu thần chú: MỤC TIÊU + ように + HÀNH ĐỘNG": {
+      "title": "Câu thần chú: MỤC TIÊU + ように + HÀNH ĐỘNG",
+      "sub": "〜ように · Mẹo nhớ",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "memory",
+        "isNode": true,
+        "parentBranch": "🎯 Mẹo nhớ",
+        "definition": "Nhớ nhanh trật tự câu theo công thức: **Vế trước là MỤC TIÊU** (trạng thái/khả năng mong muốn), đứng trước **ように**, theo sau là **Vế sau HÀNH ĐỘNG** (nỗ lực thực hiện).",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "合格",
+                "r": "ごうかく",
+                "m": "đỗ"
+              },
+              {
+                "t": "できる",
+                "m": "có thể"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "勉強",
+                "r": "べんきょう",
+                "m": "học"
+              },
+              {
+                "t": "します"
+              }
+            ],
+            "vi": "Tôi học (hành động) để có thể đỗ (mục tiêu).",
+            "scene": "Mẹo ghi nhớ cấu trúc ngữ pháp ように"
+          }
+        ]
+      }
+    },
+    "mn-022||memory||Liên hệ ようになる: TRỞ NÊN": {
+      "title": "Liên hệ ようになる: TRỞ NÊN",
+      "sub": "〜ように · Mẹo nhớ",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "memory",
+        "isNode": true,
+        "parentBranch": "🎯 Mẹo nhớ",
+        "definition": "Hãy liên kết ように với mẫu **〜ようになる (trở nên ~)** đã học. Cả hai đều xoay quanh từ gốc **よう** (trạng thái), một bên là \"hướng tới trạng thái\" (ように), một bên là \"trở nên đạt trạng thái\" (ようになる).",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "話せる",
+                "r": "はなせる",
+                "m": "có thể nói"
+              },
+              {
+                "t": "よう",
+                "r": "よう",
+                "m": "trạng thái"
+              },
+              {
+                "t": "に"
+              },
+              {
+                "t": "なりたい",
+                "m": "muốn trở thành"
+              },
+              {
+                "t": "です"
+              }
+            ],
+            "vi": "Tôi muốn trở nên có thể nói được.",
+            "scene": "Mẹo liên kết các mẫu ngữ pháp chứa よう"
+          }
+        ]
+      }
+    },
+    "mn-022||phrases||〜ように気をつける: CẨN THẬN để ~": {
+      "title": "〜ように気をつける: CẨN THẬN để ~",
+      "sub": "〜ように · Cụm hay gặp",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "phrases",
+        "isNode": true,
+        "parentBranch": "💬 Cụm hay gặp",
+        "definition": "Cụm cố định **〜ように気をつける** nghĩa là **cẩn thận, chú ý thực hiện hoặc tránh điều gì** để đạt mục tiêu an toàn hay đúng đắn. Vế trước thường là Vない hoặc Vる.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "間違えない",
+                "r": "まちがえない",
+                "m": "không nhầm"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "気をつけて",
+                "r": "きをつけて",
+                "m": "chú ý"
+              },
+              {
+                "t": "ください"
+              }
+            ],
+            "vi": "Hãy chú ý để không bị nhầm lẫn.",
+            "scene": "Dặn dò khi kiểm tra giấy tờ, hồ sơ"
+          }
+        ]
+      }
+    },
+    "mn-022||phrases||〜ように心がける: LUÔN CỐ GẮNG để ~": {
+      "title": "〜ように心がける: LUÔN CỐ GẮNG để ~",
+      "sub": "〜ように · Cụm hay gặp",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "phrases",
+        "isNode": true,
+        "parentBranch": "💬 Cụm hay gặp",
+        "definition": "Cụm **〜ように心がける** diễn tả thái độ **luôn ghi nhớ và nỗ lực trong tâm trí** để duy trì một thói quen tốt hoặc đạt được trạng thái mong muốn trong cuộc sống.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "早起き",
+                "r": "はやおき",
+                "m": "dậy sớm"
+              },
+              {
+                "t": "する",
+                "m": "làm"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "心がけて",
+                "r": "こころがけて",
+                "m": "cố gắng chú ý"
+              },
+              {
+                "t": "います"
+              }
+            ],
+            "vi": "Tôi luôn cố gắng ghi nhớ việc thức dậy sớm.",
+            "scene": "Chia sẻ bí quyết quản lý thời gian"
+          }
+        ]
+      }
+    },
+    "mn-022||phrases||〜ように祈る: CẦU CHÚC cho ~": {
+      "title": "〜ように祈る: CẦU CHÚC cho ~",
+      "sub": "〜ように · Cụm hay gặp",
+      "v2": {
+        "pattern": "〜ように",
+        "patternReading": "ように",
+        "coreMeaning": "Để có thể ~ (mục tiêu hướng tới)",
+        "slug": "phrases",
+        "isNode": true,
+        "parentBranch": "💬 Cụm hay gặp",
+        "definition": "Cụm **〜ように祈る (祈っています)** mang ý nghĩa **cầu mong, cầu chúc** cho ai đó đạt được điều tốt đẹp hoặc bình an. Đây là cách diễn đạt tình cảm rất đẹp và phổ biến trong giao tiếp.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "合格",
+                "r": "ごうかく",
+                "m": "đỗ"
+              },
+              {
+                "t": "できる",
+                "m": "có thể"
+              },
+              {
+                "t": "ように",
+                "r": "ように",
+                "m": "để"
+              },
+              {
+                "t": "祈って",
+                "r": "いのって",
+                "m": "cầu chúc"
+              },
+              {
+                "t": "います"
+              }
+            ],
+            "vi": "Tôi cầu chúc cho bạn đỗ kỳ thi.",
+            "scene": "Gửi lời chúc thi tốt tới bạn bè"
+          }
+        ]
+      }
+    }
+  }
+}

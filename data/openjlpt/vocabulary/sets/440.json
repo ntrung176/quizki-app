@@ -1,0 +1,253 @@
+{
+  "id": 440,
+  "title": "経済・金融 · 家計・個人経済",
+  "description": "Chi tiêu và kinh tế cá nhân — chủ đề Kinh tế & tài chính · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:48.596064",
+  "cards": [
+    {
+      "id": 11300,
+      "term": "価格 (かかく)",
+      "reading": "かかく",
+      "romaji": null,
+      "definition": "giá cả, mức giá",
+      "exampleSentence": "この製品は品質の割に価格が安く、多くの人に選ばれている。",
+      "exampleTranslation": "Sản phẩm này có mức giá rẻ so với chất lượng nên được nhiều người lựa chọn.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11301,
+      "term": "経済 (けいざい)",
+      "reading": "けいざい",
+      "romaji": null,
+      "definition": "kinh tế",
+      "exampleSentence": "最近、日本経済は少しずつ回復している。",
+      "exampleTranslation": "Gần đây, nền kinh tế Nhật Bản đang dần dần phục hồi.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11302,
+      "term": "経費 (けいひ)",
+      "reading": "けいひ",
+      "romaji": null,
+      "definition": "chi phí kinh doanh, kinh phí",
+      "exampleSentence": "出張にかかった経費は、会社が払ってくれます。",
+      "exampleTranslation": "Chi phí phát sinh trong chuyến công tác sẽ được công ty thanh toán.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11303,
+      "term": "支出 (ししゅつ)",
+      "reading": "ししゅつ",
+      "romaji": null,
+      "definition": "chi tiêu/khoản chi",
+      "exampleSentence": "今月は支出が多かったので、来月は気をつけよう。",
+      "exampleTranslation": "Tháng này khoản chi tiêu nhiều nên tháng sau phải chú ý hơn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11304,
+      "term": "借金 (しゃっきん)",
+      "reading": "しゃっきん",
+      "romaji": null,
+      "definition": "nợ tiền",
+      "exampleSentence": "彼は借金を返すために、毎月少しずつ貯金している。",
+      "exampleTranslation": "Anh ấy đang tiết kiệm từng chút mỗi tháng để trả nợ.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11305,
+      "term": "収入 (しゅうにゅう)",
+      "reading": "しゅうにゅう",
+      "romaji": null,
+      "definition": "thu nhập",
+      "exampleSentence": "収入が増えたら、将来のために貯金したい。",
+      "exampleTranslation": "Nếu thu nhập tăng, tôi muốn tiết kiệm cho tương lai.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11306,
+      "term": "振り込む (ふりこむ)",
+      "reading": "ふりこむ",
+      "romaji": null,
+      "definition": "chuyển khoản tiền",
+      "exampleSentence": "会社は毎月二十五日に給料を銀行口座へ振り込む。",
+      "exampleTranslation": "Công ty chuyển tiền lương vào tài khoản ngân hàng vào ngày 25 hằng tháng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11307,
+      "term": "税金 (ぜいきん)",
+      "reading": "ぜいきん",
+      "romaji": null,
+      "definition": "thuế, tiền thuế",
+      "exampleSentence": "日本では、毎年市役所に税金を納めなければなりません。",
+      "exampleTranslation": "Ở Nhật, hằng năm phải nộp thuế cho tòa thị chính.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11308,
+      "term": "節約 (せつやく)",
+      "reading": "せつやく",
+      "romaji": null,
+      "definition": "tiết kiệm",
+      "exampleSentence": "電気代を減らすために、家族で節約を始めました。",
+      "exampleTranslation": "Để giảm tiền điện, gia đình tôi đã bắt đầu tiết kiệm.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11309,
+      "term": "節約する (せつやくする)",
+      "reading": "せつやくする",
+      "romaji": null,
+      "definition": "tiết kiệm",
+      "exampleSentence": "将来のために、毎月少しずつ節約するようにしています。",
+      "exampleTranslation": "Vì tương lai, tôi cố gắng tiết kiệm một chút mỗi tháng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11310,
+      "term": "損失 (そんしつ)",
+      "reading": "そんしつ",
+      "romaji": null,
+      "definition": "tổn thất, thiệt hại",
+      "exampleSentence": "台風による損失は、予想以上に大きかった。",
+      "exampleTranslation": "Thiệt hại do bão gây ra lớn hơn dự kiến.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11311,
+      "term": "貯金 (ちょきん)",
+      "reading": "ちょきん",
+      "romaji": null,
+      "definition": "tiết kiệm, tiền tiết kiệm",
+      "exampleSentence": "旅行のために、毎月二万円ずつ貯金をしています。",
+      "exampleTranslation": "Tôi tiết kiệm 20.000 yên mỗi tháng để đi du lịch.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11312,
+      "term": "貯蓄する (ちょちくする)",
+      "reading": "ちょちくする",
+      "romaji": null,
+      "definition": "tích lũy, dành dụm",
+      "exampleSentence": "老後の生活に備えて、若いうちから貯蓄することが大切です。",
+      "exampleTranslation": "Để chuẩn bị cho cuộc sống khi về già, tích lũy từ lúc còn trẻ là điều quan trọng.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11313,
+      "term": "投資 (とうし)",
+      "reading": "とうし",
+      "romaji": null,
+      "definition": "đầu tư",
+      "exampleSentence": "将来の成長を期待して、新しい事業に多額の投資を行った。",
+      "exampleTranslation": "Với kỳ vọng phát triển trong tương lai, công ty đã đầu tư một khoản tiền lớn vào lĩnh vực kinh doanh mới.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 11314,
+      "term": "売上 (うりあげ)",
+      "reading": "うりあげ",
+      "romaji": null,
+      "definition": "doanh thu, doanh số",
+      "exampleSentence": "新商品の発売後、店の売上が大きく伸びた。",
+      "exampleTranslation": "Sau khi sản phẩm mới được tung ra, doanh số của cửa hàng đã tăng mạnh.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 11315,
+      "term": "払い戻し (はらいもどし)",
+      "reading": "はらいもどし",
+      "romaji": null,
+      "definition": "hoàn tiền, trả lại tiền",
+      "exampleSentence": "台風で飛行機が欠航したため、チケット代の払い戻しを受けた。",
+      "exampleTranslation": "Vì chuyến bay bị hủy do bão, tôi đã được hoàn lại tiền vé.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 11316,
+      "term": "物価 (ぶっか)",
+      "reading": "ぶっか",
+      "romaji": null,
+      "definition": "giá cả hàng hóa",
+      "exampleSentence": "物価の上昇で、以前より生活費がかかるようになった。",
+      "exampleTranslation": "Do giá cả hàng hóa tăng, chi phí sinh hoạt đã trở nên đắt đỏ hơn trước.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 11317,
+      "term": "豊か (ゆたか)",
+      "reading": "ゆたか",
+      "romaji": null,
+      "definition": "phong phú, giàu có, sung túc",
+      "exampleSentence": "この地域は自然が豊かで、季節ごとの景色を楽しめる。",
+      "exampleTranslation": "Khu vực này có thiên nhiên phong phú nên có thể thưởng ngoạn cảnh sắc theo từng mùa.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 11318,
+      "term": "乏しい (とぼしい)",
+      "reading": "とぼしい",
+      "romaji": null,
+      "definition": "nghèo nàn, thiếu thốn, ít ỏi",
+      "exampleSentence": "この村は水資源が乏しいため、農業があまり発達していない。",
+      "exampleTranslation": "Vì ngôi làng này thiếu nguồn nước nên nông nghiệp chưa phát triển lắm.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 11319,
+      "term": "貿易 (ぼうえき)",
+      "reading": "ぼうえき",
+      "romaji": null,
+      "definition": "thương mại/buôn bán",
+      "exampleSentence": "日本は多くの国と貿易を行っている。",
+      "exampleTranslation": "Nhật Bản tiến hành thương mại với nhiều quốc gia.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 11320,
+      "term": "予算 (よさん)",
+      "reading": "よさん",
+      "romaji": null,
+      "definition": "ngân sách, dự toán",
+      "exampleSentence": "限られた予算の中で、必要な設備をそろえなければならない。",
+      "exampleTranslation": "Chúng ta phải chuẩn bị đầy đủ thiết bị cần thiết trong phạm vi ngân sách hạn hẹp.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 11321,
+      "term": "利益 (りえき)",
+      "reading": "りえき",
+      "romaji": null,
+      "definition": "lợi nhuận, lợi ích",
+      "exampleSentence": "会社は今年、昨年より大きな利益を上げた。",
+      "exampleTranslation": "Năm nay, công ty đã thu được lợi nhuận lớn hơn năm ngoái.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

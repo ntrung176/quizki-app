@@ -1,0 +1,77 @@
+{
+  "id": 535,
+  "title": "オノマトペ・副詞 · 擬態語（光・形・様子）",
+  "description": "Từ tượng hình ánh sáng & hình dạng — chủ đề Từ tượng thanh & phó từ · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:51.584487",
+  "cards": [
+    {
+      "id": 13132,
+      "term": "きらきら",
+      "reading": "きらきら",
+      "romaji": null,
+      "definition": "lấp lánh, sáng lấp lánh",
+      "exampleSentence": "夜空の星がきらきら輝いていて、とてもきれいだった。",
+      "exampleTranslation": "Những ngôi sao trên bầu trời đêm lấp lánh trông rất đẹp.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13133,
+      "term": "さらさら",
+      "reading": "さらさら",
+      "romaji": null,
+      "definition": "trơn tru, chảy nhẹ nhàng",
+      "exampleSentence": "春の小川の水がさらさら流れている。",
+      "exampleTranslation": "Nước con suối mùa xuân đang chảy róc rách nhẹ nhàng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13134,
+      "term": "ちらちら",
+      "reading": "ちらちら",
+      "romaji": null,
+      "definition": "le lói, nhìn trộm, lác đác",
+      "exampleSentence": "木の間から、朝の光がちらちら見えていた。",
+      "exampleTranslation": "Ánh nắng ban mai le lói qua những tán cây.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13135,
+      "term": "ばらばら",
+      "reading": "ばらばら",
+      "romaji": null,
+      "definition": "rời rạc, tản mác, không thống nhất",
+      "exampleSentence": "引っ越しの後、荷物が部屋中にばらばらに置かれていた。",
+      "exampleTranslation": "Sau khi chuyển nhà, đồ đạc bị đặt rải rác khắp phòng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13136,
+      "term": "ぴかぴか",
+      "reading": "ぴかぴか",
+      "romaji": null,
+      "definition": "sáng bóng, lấp lánh",
+      "exampleSentence": "父は休日に車を洗って、ぴかぴかにした。",
+      "exampleTranslation": "Bố tôi rửa xe vào ngày nghỉ và làm cho nó sáng bóng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13137,
+      "term": "ぼろぼろ",
+      "reading": "ぼろぼろ",
+      "romaji": null,
+      "definition": "tơi tả, hư hỏng, rách rưới",
+      "exampleSentence": "長年使ったそのかばんは、もうぼろぼろになっている。",
+      "exampleTranslation": "Chiếc cặp đó đã được dùng nhiều năm nên giờ đã tơi tả.",
+      "forms": [],
+      "displayOrder": 5
+    }
+  ]
+}

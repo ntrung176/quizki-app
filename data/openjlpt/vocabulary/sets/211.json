@@ -1,0 +1,176 @@
+{
+  "id": 211,
+  "title": "Tuần 3 · Ngày 4 - 体・健康 (Cơ thể & Sức khỏe)",
+  "description": "Nihongo Soumatome N3 語彙 — 体・健康 (Cơ thể & Sức khỏe)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.24196",
+  "cards": [
+    {
+      "id": 5476,
+      "term": "心臓 (しんぞう)",
+      "reading": "しんぞう",
+      "romaji": "shinzou",
+      "definition": "tim, trái tim",
+      "exampleSentence": "健康診断で、心臓の働きに問題がないか調べてもらった。",
+      "exampleTranslation": "Trong buổi khám sức khỏe, tôi đã nhờ kiểm tra xem tim có vấn đề gì không.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5477,
+      "term": "肺 (はい)",
+      "reading": "はい",
+      "romaji": "hai",
+      "definition": "phổi",
+      "exampleSentence": "喫煙は肺に大きな負担をかける。",
+      "exampleTranslation": "Hút thuốc gây áp lực lớn lên phổi.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5478,
+      "term": "胃 (い)",
+      "reading": "い",
+      "romaji": "i",
+      "definition": "dạ dày",
+      "exampleSentence": "食べ過ぎて、胃が痛くなった。",
+      "exampleTranslation": "Vì ăn quá nhiều nên tôi bị đau dạ dày.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5479,
+      "term": "骨 (ほね)",
+      "reading": "ほね",
+      "romaji": "hone",
+      "definition": "xương",
+      "exampleSentence": "転んで腕を痛めたので、病院で骨に異常がないか調べてもらった。",
+      "exampleTranslation": "Vì bị ngã đau tay nên tôi đã nhờ bệnh viện kiểm tra xem xương có bất thường không.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5480,
+      "term": "筋肉 (きんにく)",
+      "reading": "きんにく",
+      "romaji": "kinniku",
+      "definition": "cơ bắp, cơ",
+      "exampleSentence": "毎朝運動しているので、少しずつ筋肉がついてきた。",
+      "exampleTranslation": "Vì tập thể dục mỗi sáng nên cơ bắp của tôi đang dần phát triển.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5481,
+      "term": "皮膚 (ひふ)",
+      "reading": "ひふ",
+      "romaji": "hifu",
+      "definition": "da, lớp da",
+      "exampleSentence": "この薬は皮膚のかゆみを抑える効果があります。",
+      "exampleTranslation": "Loại thuốc này có tác dụng làm giảm ngứa da.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5482,
+      "term": "血液 (けつえき)",
+      "reading": "けつえき",
+      "romaji": "ketsueki",
+      "definition": "máu, huyết",
+      "exampleSentence": "健康診断で血液を調べたところ、特に問題はなかった。",
+      "exampleTranslation": "Khi kiểm tra máu trong đợt khám sức khỏe, tôi thấy không có vấn đề gì đặc biệt.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5483,
+      "term": "神経 (しんけい)",
+      "reading": "しんけい",
+      "romaji": "shinkei",
+      "definition": "thần kinh",
+      "exampleSentence": "事故の後、足の神経に痛みが残った。",
+      "exampleTranslation": "Sau tai nạn, dây thần kinh ở chân vẫn còn đau.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5484,
+      "term": "呼吸 (こきゅう)",
+      "reading": "こきゅう",
+      "romaji": "kokyuu",
+      "definition": "hô hấp, hơi thở",
+      "exampleSentence": "緊張したときは、ゆっくり呼吸すると気持ちが落ち着きます。",
+      "exampleTranslation": "Khi căng thẳng, nếu hít thở chậm thì tinh thần sẽ bình tĩnh lại.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5485,
+      "term": "消化 (しょうか)",
+      "reading": "しょうか",
+      "romaji": "shouka",
+      "definition": "tiêu hóa",
+      "exampleSentence": "よくかんで食べると、食べ物の消化を助けることができます。",
+      "exampleTranslation": "Nhai kỹ khi ăn có thể giúp tiêu hóa thức ăn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5486,
+      "term": "体力 (たいりょく)",
+      "reading": "たいりょく",
+      "romaji": "tairyoku",
+      "definition": "thể lực, sức lực",
+      "exampleSentence": "最近体力が落ちたので、毎晩歩くことにした。",
+      "exampleTranslation": "Gần đây thể lực giảm sút nên tôi quyết định đi bộ mỗi tối.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5487,
+      "term": "体重 (たいじゅう)",
+      "reading": "たいじゅう",
+      "romaji": "taijuu",
+      "definition": "cân nặng, trọng lượng cơ thể",
+      "exampleSentence": "毎朝体重を測って、健康管理に気をつけています。",
+      "exampleTranslation": "Tôi cân mỗi sáng và chú ý quản lý sức khỏe.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5488,
+      "term": "体温 (たいおん)",
+      "reading": "たいおん",
+      "romaji": "taion",
+      "definition": "nhiệt độ cơ thể",
+      "exampleSentence": "体温を測ったら、三十八度もあった。",
+      "exampleTranslation": "Khi đo nhiệt độ cơ thể, tôi thấy sốt tới 38 độ.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5489,
+      "term": "脈拍 (みゃくはく)",
+      "reading": "みゃくはく",
+      "romaji": "myakuhaku",
+      "definition": "mạch, nhịp mạch",
+      "exampleSentence": "医者は運動の前後に脈拍を測りました。",
+      "exampleTranslation": "Bác sĩ đã đo mạch trước và sau khi vận động.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5490,
+      "term": "免疫 (めんえき)",
+      "reading": "めんえき",
+      "romaji": "men'eki",
+      "definition": "miễn dịch, hệ miễn dịch",
+      "exampleSentence": "十分な睡眠は、免疫力を高めるのに役立ちます。",
+      "exampleTranslation": "Ngủ đủ giấc giúp tăng cường hệ miễn dịch.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

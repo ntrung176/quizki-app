@@ -1,0 +1,165 @@
+{
+  "id": 437,
+  "title": "ビジネス・仕事 · 生産・品質・企業理念",
+  "description": "Sản xuất, chất lượng & triết lý doanh nghiệp — chủ đề Công việc & kinh doanh · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:48.418498",
+  "cards": [
+    {
+      "id": 11261,
+      "term": "仕上がり (しあがり)",
+      "reading": "しあがり",
+      "romaji": null,
+      "definition": "sự hoàn thành, chất lượng thành phẩm",
+      "exampleSentence": "写真で見るより、実際の仕上がりのほうがきれいだった。",
+      "exampleTranslation": "Sản phẩm hoàn thiện thực tế còn đẹp hơn so với trong ảnh.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11262,
+      "term": "出来上がり (できあがり)",
+      "reading": "できあがり",
+      "romaji": null,
+      "definition": "thành phẩm, sự hoàn chỉnh",
+      "exampleSentence": "料理の出来上がりを確認してから、客に出した。",
+      "exampleTranslation": "Sau khi kiểm tra món ăn đã hoàn thành, tôi mới dọn ra cho khách.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11263,
+      "term": "製造 (せいぞう)",
+      "reading": "せいぞう",
+      "romaji": null,
+      "definition": "sản xuất, chế tạo",
+      "exampleSentence": "この工場では、自動車の部品を製造している。",
+      "exampleTranslation": "Nhà máy này đang sản xuất các linh kiện ô tô.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11264,
+      "term": "企業倫理 (きぎょうりんり)",
+      "reading": "きぎょうりんり",
+      "romaji": null,
+      "definition": "đạo đức doanh nghiệp",
+      "exampleSentence": "企業倫理を守ることは、会社の信頼を保つうえで重要だ。",
+      "exampleTranslation": "Tuân thủ đạo đức doanh nghiệp là điều quan trọng để duy trì sự tin tưởng đối với công ty.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11265,
+      "term": "在庫管理 (ざいこかんり)",
+      "reading": "ざいこかんり",
+      "romaji": null,
+      "definition": "quản lý hàng tồn kho",
+      "exampleSentence": "在庫管理を徹底して、商品の欠品や過剰在庫を防いでいる。",
+      "exampleTranslation": "Chúng tôi quản lý hàng tồn kho chặt chẽ để ngăn tình trạng thiếu hoặc tồn quá nhiều hàng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11266,
+      "term": "持続可能 (じぞくかのう)",
+      "reading": "じぞくかのう",
+      "romaji": null,
+      "definition": "phát triển bền vững",
+      "exampleSentence": "持続可能な社会を実現するには、企業と消費者の協力が欠かせない。",
+      "exampleTranslation": "Để xây dựng một xã hội phát triển bền vững, sự hợp tác giữa doanh nghiệp và người tiêu dùng là không thể thiếu.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11267,
+      "term": "重要 (じゅうよう)",
+      "reading": "じゅうよう",
+      "romaji": null,
+      "definition": "quan trọng",
+      "exampleSentence": "重要な判断をする前に、関係者の意見を十分に聞く必要がある。",
+      "exampleTranslation": "Trước khi đưa ra quyết định quan trọng, cần lắng nghe đầy đủ ý kiến của những người liên quan.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11268,
+      "term": "食料自給率 (しょくりょうじきゅうりつ)",
+      "reading": "しょくりょうじきゅうりつ",
+      "romaji": null,
+      "definition": "tỷ lệ tự cung cấp thực phẩm",
+      "exampleSentence": "食料自給率を高めるため、国内の農業を支援する政策が求められている。",
+      "exampleTranslation": "Để nâng cao tỷ lệ tự cung cấp thực phẩm, cần có những chính sách hỗ trợ nông nghiệp trong nước.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11269,
+      "term": "生産ライン (せいさんライン)",
+      "reading": "せいさんライン",
+      "romaji": null,
+      "definition": "dây chuyền sản xuất",
+      "exampleSentence": "生産ラインの設備を更新した結果、作業の効率が大幅に向上した。",
+      "exampleTranslation": "Nhờ đổi mới thiết bị của dây chuyền sản xuất, hiệu suất công việc đã tăng lên đáng kể.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11270,
+      "term": "知的財産 (ちてきざいさん)",
+      "reading": "ちてきざいさん",
+      "romaji": null,
+      "definition": "tài sản trí tuệ",
+      "exampleSentence": "知的財産を守るため、社員に情報管理の重要性を伝えている。",
+      "exampleTranslation": "Để bảo vệ tài sản trí tuệ, công ty đang truyền đạt cho nhân viên tầm quan trọng của việc quản lý thông tin.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11271,
+      "term": "適切 (てきせつ)",
+      "reading": "てきせつ",
+      "romaji": null,
+      "definition": "thích hợp/phù hợp",
+      "exampleSentence": "適切な対応を取れば、問題が大きくなる前に解決できる。",
+      "exampleTranslation": "Nếu có cách xử lý phù hợp, chúng ta có thể giải quyết vấn đề trước khi nó trở nên nghiêm trọng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11272,
+      "term": "特許 (とっきょ)",
+      "reading": "とっきょ",
+      "romaji": null,
+      "definition": "bằng sáng chế",
+      "exampleSentence": "特許を取得した新技術を利用して、製品の性能を高めた。",
+      "exampleTranslation": "Công ty đã sử dụng công nghệ mới được cấp bằng sáng chế để nâng cao hiệu năng sản phẩm.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11273,
+      "term": "品質管理 (ひんしつかんり)",
+      "reading": "ひんしつかんり",
+      "romaji": null,
+      "definition": "quản lý chất lượng sản phẩm",
+      "exampleSentence": "当社は品質管理を強化し、製品の安全性と信頼性を高めている。",
+      "exampleTranslation": "Công ty chúng tôi đang tăng cường quản lý chất lượng để nâng cao độ an toàn và độ tin cậy của sản phẩm.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11274,
+      "term": "方針 (ほうしん)",
+      "reading": "ほうしん",
+      "romaji": null,
+      "definition": "phương châm/chính sách",
+      "exampleSentence": "方針を明確に示さなければ、社員は目指す方向が分からなくなる。",
+      "exampleTranslation": "Nếu không nêu rõ phương châm, nhân viên sẽ không biết mình nên hướng tới đâu.",
+      "forms": [],
+      "displayOrder": 13
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "id": 429,
+  "title": "ビジネス・仕事 · 業務遂行・意思決定",
+  "description": "Thực hiện công việc & ra quyết định — chủ đề Công việc & kinh doanh · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:47.822117",
+  "cards": [
+    {
+      "id": 11129,
+      "term": "参加する (さんかする)",
+      "reading": "さんかする",
+      "romaji": null,
+      "definition": "tham gia, tham dự",
+      "exampleSentence": "来週の文化祭に、クラスのみんなで参加する予定です。",
+      "exampleTranslation": "Tuần sau, cả lớp chúng tôi dự định tham gia lễ hội văn hóa.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11130,
+      "term": "解決する (かいけつする)",
+      "reading": "かいけつする",
+      "romaji": null,
+      "definition": "giải quyết, xử lý vấn đề",
+      "exampleSentence": "話し合いを続ければ、この問題を解決する方法が見つかるでしょう。",
+      "exampleTranslation": "Nếu tiếp tục thảo luận, có lẽ chúng ta sẽ tìm ra cách giải quyết vấn đề này.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11131,
+      "term": "競争する (きょうそうする)",
+      "reading": "きょうそうする",
+      "romaji": null,
+      "definition": "cạnh tranh, thi đua",
+      "exampleSentence": "同じ目標に向かって、友達と競争するのは楽しいです。",
+      "exampleTranslation": "Cạnh tranh với bạn bè cùng hướng tới một mục tiêu giống nhau thật vui.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11132,
+      "term": "協力する (きょうりょくする)",
+      "reading": "きょうりょくする",
+      "romaji": null,
+      "definition": "hợp tác, cộng tác",
+      "exampleSentence": "困ったときは、家族と協力することが大切です。",
+      "exampleTranslation": "Khi gặp khó khăn, hợp tác với gia đình là điều quan trọng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11133,
+      "term": "決心する (けっしんする)",
+      "reading": "けっしんする",
+      "romaji": null,
+      "definition": "quyết tâm, quyết định",
+      "exampleSentence": "彼が海外留学を決心するまでには、長い時間がかかった。",
+      "exampleTranslation": "Anh ấy đã mất một thời gian dài mới quyết tâm đi du học nước ngoài.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11134,
+      "term": "決定する (けっていする)",
+      "reading": "けっていする",
+      "romaji": null,
+      "definition": "quyết định, xác định",
+      "exampleSentence": "取締役会が新しい計画を決定するまで、発表を待ってください。",
+      "exampleTranslation": "Xin hãy chờ công bố cho đến khi hội đồng quản trị quyết định kế hoạch mới.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11135,
+      "term": "見直し (みなおし)",
+      "reading": "みなおし",
+      "romaji": null,
+      "definition": "sự xem xét lại, sự đánh giá lại",
+      "exampleSentence": "政府は現在の制度の見直しを進めている。",
+      "exampleTranslation": "Chính phủ đang tiến hành xem xét lại chế độ hiện tại.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11136,
+      "term": "影響を与える (えいきょうをあたえる)",
+      "reading": "えいきょうをあたえる",
+      "romaji": null,
+      "definition": "gây ảnh hưởng đến",
+      "exampleSentence": "睡眠不足は仕事の効率に大きな影響を与える。",
+      "exampleTranslation": "Thiếu ngủ gây ảnh hưởng lớn đến hiệu suất công việc.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11137,
+      "term": "課題 (かだい)",
+      "reading": "かだい",
+      "romaji": null,
+      "definition": "vấn đề cần giải quyết/nhiệm vụ",
+      "exampleSentence": "この課題を解決するには、みんなの協力が必要だ。",
+      "exampleTranslation": "Để giải quyết vấn đề này, cần có sự hợp tác của mọi người.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11138,
+      "term": "検討する (けんとうする)",
+      "reading": "けんとうする",
+      "romaji": null,
+      "definition": "xem xét/nghiên cứu kỹ",
+      "exampleSentence": "専門家が対策を検討する間、私たちは必要な資料を準備した。",
+      "exampleTranslation": "Trong lúc các chuyên gia xem xét biện pháp đối phó, chúng tôi đã chuẩn bị tài liệu cần thiết.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11139,
+      "term": "取り組み (とりくみ)",
+      "reading": "とりくみ",
+      "romaji": null,
+      "definition": "nỗ lực/hoạt động/sáng kiến",
+      "exampleSentence": "地域の環境を守る取り組みが、全国に広がっている。",
+      "exampleTranslation": "Các hoạt động bảo vệ môi trường địa phương đang lan rộng trên toàn quốc.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11140,
+      "term": "取り入れる (とりいれる)",
+      "reading": "とりいれる",
+      "romaji": null,
+      "definition": "đưa vào/tiếp thu/áp dụng",
+      "exampleSentence": "海外の成功例を取り入れることで、サービスの質が向上した。",
+      "exampleTranslation": "Bằng cách áp dụng những ví dụ thành công từ nước ngoài, chất lượng dịch vụ đã được nâng cao.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11141,
+      "term": "把握 (はあく)",
+      "reading": "はあく",
+      "romaji": null,
+      "definition": "nắm bắt (≈理解)",
+      "exampleSentence": "現状の把握には、十分な時間と正確な情報が必要だ。",
+      "exampleTranslation": "Để nắm bắt tình hình hiện tại, cần có đủ thời gian và thông tin chính xác.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11142,
+      "term": "判断する (はんだんする)",
+      "reading": "はんだんする",
+      "romaji": null,
+      "definition": "phán đoán/quyết định",
+      "exampleSentence": "限られた情報だけで判断するのは危険だ。",
+      "exampleTranslation": "Phán đoán chỉ dựa trên thông tin hạn chế là rất nguy hiểm.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 11143,
+      "term": "評価する (ひょうかする)",
+      "reading": "ひょうかする",
+      "romaji": null,
+      "definition": "đánh giá/nhận xét",
+      "exampleSentence": "結果だけで人の能力を評価するべきではない。",
+      "exampleTranslation": "Không nên đánh giá năng lực của một người chỉ dựa vào kết quả.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 11144,
+      "term": "分析する (ぶんせきする)",
+      "reading": "ぶんせきする",
+      "romaji": null,
+      "definition": "phân tích",
+      "exampleSentence": "専門家は調査結果を詳しく分析する。",
+      "exampleTranslation": "Các chuyên gia phân tích chi tiết kết quả điều tra.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

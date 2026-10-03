@@ -1,0 +1,231 @@
+{
+  "id": 475,
+  "title": "教育・学習 · 学校・進学・制度",
+  "description": "Trường lớp, cấp bậc & chế độ giáo dục — chủ đề Giáo dục & học tập · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.820725",
+  "cards": [
+    {
+      "id": 11972,
+      "term": "卒業 (そつぎょう)",
+      "reading": "そつぎょう",
+      "romaji": null,
+      "definition": "tốt nghiệp",
+      "exampleSentence": "大学を卒業したら、海外で働いてみたい。",
+      "exampleTranslation": "Sau khi tốt nghiệp đại học, tôi muốn thử làm việc ở nước ngoài.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11973,
+      "term": "入学 (にゅうがく)",
+      "reading": "にゅうがく",
+      "romaji": null,
+      "definition": "nhập học",
+      "exampleSentence": "春から姉が大学に入学します。",
+      "exampleTranslation": "Từ mùa xuân, chị tôi sẽ nhập học đại học.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11974,
+      "term": "幼稚園 (ようちえん)",
+      "reading": "ようちえん",
+      "romaji": null,
+      "definition": "trường mẫu giáo",
+      "exampleSentence": "息子は来年、近所の幼稚園に通います。",
+      "exampleTranslation": "Năm sau, con trai tôi sẽ đi học tại trường mẫu giáo gần nhà.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11975,
+      "term": "進学 (しんがく)",
+      "reading": "しんがく",
+      "romaji": null,
+      "definition": "lên bậc học cao hơn",
+      "exampleSentence": "卒業後の進学について、家族と相談しています。",
+      "exampleTranslation": "Tôi đang bàn bạc với gia đình về việc học lên sau khi tốt nghiệp.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11976,
+      "term": "海外研修 (かいがいけんしゅう)",
+      "reading": "かいがいけんしゅう",
+      "romaji": null,
+      "definition": "đào tạo/thực tập ở nước ngoài",
+      "exampleSentence": "会社の海外研修に参加して、現地の仕事を学びました。",
+      "exampleTranslation": "Tôi đã tham gia chương trình đào tạo ở nước ngoài của công ty và học hỏi công việc tại địa phương.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11977,
+      "term": "外国語教育 (がいこくごきょういく)",
+      "reading": "がいこくごきょういく",
+      "romaji": null,
+      "definition": "giáo dục ngoại ngữ",
+      "exampleSentence": "この大学では、外国語教育に力を入れています。",
+      "exampleTranslation": "Trường đại học này rất chú trọng giáo dục ngoại ngữ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11978,
+      "term": "義務教育 (ぎむきょういく)",
+      "reading": "ぎむきょういく",
+      "romaji": null,
+      "definition": "giáo dục bắt buộc",
+      "exampleSentence": "日本の義務教育は、小学校と中学校の九年間です。",
+      "exampleTranslation": "Giáo dục bắt buộc ở Nhật Bản kéo dài chín năm, gồm tiểu học và trung học cơ sở.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11979,
+      "term": "教育制度 (きょういくせいど)",
+      "reading": "きょういくせいど",
+      "romaji": null,
+      "definition": "chế độ giáo dục",
+      "exampleSentence": "国によって教育制度は大きく異なります。",
+      "exampleTranslation": "Chế độ giáo dục khác nhau đáng kể tùy theo từng quốc gia.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11980,
+      "term": "高等教育 (こうとうきょういく)",
+      "reading": "こうとうきょういく",
+      "romaji": null,
+      "definition": "giáo dục đại học",
+      "exampleSentence": "誰もが高等教育を受けられる社会を目指すべきです。",
+      "exampleTranslation": "Chúng ta nên hướng tới một xã hội nơi mọi người đều có thể tiếp nhận giáo dục đại học.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11981,
+      "term": "修士 (しゅうし)",
+      "reading": "しゅうし",
+      "romaji": null,
+      "definition": "thạc sĩ",
+      "exampleSentence": "修士を目指して、大学院で研究を続けています。",
+      "exampleTranslation": "Tôi đang tiếp tục nghiên cứu ở trường cao học với mục tiêu lấy bằng thạc sĩ.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11982,
+      "term": "初等教育 (しょとうきょういく)",
+      "reading": "しょとうきょういく",
+      "romaji": null,
+      "definition": "giáo dục tiểu học",
+      "exampleSentence": "初等教育では、読み書きや計算の基礎を学びます。",
+      "exampleTranslation": "Trong giáo dục tiểu học, học sinh học những kiến thức cơ bản về đọc, viết và tính toán.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11983,
+      "term": "職業訓練 (しょくぎょうくんれん)",
+      "reading": "しょくぎょうくんれん",
+      "romaji": null,
+      "definition": "đào tạo nghề",
+      "exampleSentence": "失業した人が職業訓練を受けられる制度があります。",
+      "exampleTranslation": "Có một chế độ giúp những người thất nghiệp được đào tạo nghề.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11984,
+      "term": "生涯学習 (しょうがいがくしゅう)",
+      "reading": "しょうがいがくしゅう",
+      "romaji": null,
+      "definition": "học tập suốt đời",
+      "exampleSentence": "地域の講座は、生涯学習の機会として役立っています。",
+      "exampleTranslation": "Các lớp học trong khu vực mang lại cơ hội học tập suốt đời rất hữu ích.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11985,
+      "term": "退学 (たいがく)",
+      "reading": "たいがく",
+      "romaji": null,
+      "definition": "thôi học/bỏ học",
+      "exampleSentence": "経済的な理由で大学を退学する学生も少なくない。",
+      "exampleTranslation": "Không ít sinh viên thôi học đại học vì lý do kinh tế.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 11986,
+      "term": "大学院 (だいがくいん)",
+      "reading": "だいがくいん",
+      "romaji": null,
+      "definition": "trường sau đại học",
+      "exampleSentence": "卒業後は大学院に進み、専門分野をさらに研究したい。",
+      "exampleTranslation": "Sau khi tốt nghiệp, tôi muốn học lên cao học và tiếp tục nghiên cứu chuyên ngành.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 11987,
+      "term": "中等教育 (ちゅうとうきょういく)",
+      "reading": "ちゅうとうきょういく",
+      "romaji": null,
+      "definition": "giáo dục trung học",
+      "exampleSentence": "中等教育の充実は、将来の社会を支える人材の育成につながる。",
+      "exampleTranslation": "Việc nâng cao chất lượng giáo dục trung học góp phần đào tạo nhân lực hỗ trợ xã hội tương lai.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 11988,
+      "term": "転校 (てんこう)",
+      "reading": "てんこう",
+      "romaji": null,
+      "definition": "chuyển trường",
+      "exampleSentence": "父の転勤をきっかけに、東京の学校へ転校した。",
+      "exampleTranslation": "Nhân dịp bố chuyển công tác, tôi đã chuyển sang một trường ở Tokyo.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 11989,
+      "term": "保育 (ほいく)",
+      "reading": "ほいく",
+      "romaji": null,
+      "definition": "chăm sóc trẻ nhỏ",
+      "exampleSentence": "母は保育の仕事を通して、子どもたちの成長を見守っている。",
+      "exampleTranslation": "Mẹ tôi dõi theo sự trưởng thành của trẻ nhỏ thông qua công việc chăm sóc trẻ.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 11990,
+      "term": "留学 (りゅうがく)",
+      "reading": "りゅうがく",
+      "romaji": null,
+      "definition": "du học nước ngoài",
+      "exampleSentence": "大学卒業後、研究を深めるために一年間留学した。",
+      "exampleTranslation": "Sau khi tốt nghiệp đại học, tôi đã đi du học một năm để nghiên cứu sâu hơn.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 11991,
+      "term": "留年 (りゅうねん)",
+      "reading": "りゅうねん",
+      "romaji": null,
+      "definition": "ở lại lớp/năm",
+      "exampleSentence": "必修科目の単位を落とすと、留年する可能性がある。",
+      "exampleTranslation": "Nếu trượt tín chỉ của môn bắt buộc, bạn có khả năng phải học lại một năm.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

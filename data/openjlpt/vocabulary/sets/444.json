@@ -1,0 +1,209 @@
+{
+  "id": 444,
+  "title": "経済・金融 · 財務・貯蓄・負債",
+  "description": "Tài chính doanh nghiệp, tiết kiệm và nợ — chủ đề Kinh tế & tài chính · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:48.812002",
+  "cards": [
+    {
+      "id": 11375,
+      "term": "決済 (けっさい)",
+      "reading": "けっさい",
+      "romaji": null,
+      "definition": "thanh toán/quyết toán",
+      "exampleSentence": "商品の代金は、クレジットカードで決済できます。",
+      "exampleTranslation": "Bạn có thể thanh toán tiền hàng bằng thẻ tín dụng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11376,
+      "term": "国債 (こくさい)",
+      "reading": "こくさい",
+      "romaji": null,
+      "definition": "trái phiếu chính phủ",
+      "exampleSentence": "安全性を重視する投資家が、国債を買い求めている。",
+      "exampleTranslation": "Các nhà đầu tư coi trọng tính an toàn đang tìm mua trái phiếu chính phủ.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11377,
+      "term": "黒字 (くろじ)",
+      "reading": "くろじ",
+      "romaji": null,
+      "definition": "lãi/thặng dư tài chính",
+      "exampleSentence": "今年度、当社は三年ぶりに黒字となった。",
+      "exampleTranslation": "Trong năm tài chính này, công ty chúng tôi lần đầu có lãi sau ba năm.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11378,
+      "term": "債券 (さいけん)",
+      "reading": "さいけん",
+      "romaji": null,
+      "definition": "trái phiếu",
+      "exampleSentence": "金利が上がると、保有している債券の価格が下がることがある。",
+      "exampleTranslation": "Khi lãi suất tăng, giá trái phiếu đang nắm giữ đôi khi có thể giảm.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11379,
+      "term": "財政 (ざいせい)",
+      "reading": "ざいせい",
+      "romaji": null,
+      "definition": "tài chính công/ngân sách",
+      "exampleSentence": "政府は財政の健全化に向けて、歳出の見直しを進めている。",
+      "exampleTranslation": "Chính phủ đang tiến hành rà soát các khoản chi nhằm củng cố tình hình tài chính công.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11380,
+      "term": "財務諸表 (ざいむしょひょう)",
+      "reading": "ざいむしょひょう",
+      "romaji": null,
+      "definition": "báo cáo tài chính",
+      "exampleSentence": "会計担当者は、株主総会に向けて財務諸表を作成した。",
+      "exampleTranslation": "Nhân viên phụ trách kế toán đã lập báo cáo tài chính để chuẩn bị cho đại hội cổ đông.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11381,
+      "term": "資産 (しさん)",
+      "reading": "しさん",
+      "romaji": null,
+      "definition": "tài sản",
+      "exampleSentence": "相続した資産をどのように運用するか、専門家に相談した。",
+      "exampleTranslation": "Tôi đã hỏi ý kiến chuyên gia về cách quản lý số tài sản được thừa kế.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11382,
+      "term": "取らぬ狸の皮算用 (とらぬたぬきのかわざんよう)",
+      "reading": "とらぬたぬきのかわざんよう",
+      "romaji": null,
+      "definition": "tính trước khi bắt được/chưa đến mà tính",
+      "exampleSentence": "まだ契約も決まっていないのに、利益の使い道を考えるなんて、取らぬ狸の皮算用だ。",
+      "exampleTranslation": "Hợp đồng còn chưa được quyết định mà đã nghĩ cách sử dụng lợi nhuận thì đúng là tính cua trong lỗ.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11383,
+      "term": "純資産 (じゅんしさん)",
+      "reading": "じゅんしさん",
+      "romaji": null,
+      "definition": "tài sản ròng",
+      "exampleSentence": "長年の経営努力により、会社の純資産は着実に増えている。",
+      "exampleTranslation": "Nhờ nhiều năm nỗ lực kinh doanh, tài sản ròng của công ty đang tăng lên đều đặn.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11384,
+      "term": "税収 (ぜいしゅう)",
+      "reading": "ぜいしゅう",
+      "romaji": null,
+      "definition": "thu thuế nhà nước",
+      "exampleSentence": "景気の低迷で、今年度の税収は前年度を下回った。",
+      "exampleTranslation": "Do nền kinh tế trì trệ, thu thuế của năm tài chính này thấp hơn năm trước.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11385,
+      "term": "赤字 (あかじ)",
+      "reading": "あかじ",
+      "romaji": null,
+      "definition": "lỗ/thâm hụt",
+      "exampleSentence": "今年度、会社は大幅な赤字を計上した。",
+      "exampleTranslation": "Trong năm tài chính này, công ty đã ghi nhận khoản thâm hụt lớn.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11386,
+      "term": "損益計算書 (そんえきけいさんしょ)",
+      "reading": "そんえきけいさんしょ",
+      "romaji": null,
+      "definition": "báo cáo lãi lỗ",
+      "exampleSentence": "経理部が作成した損益計算書を取締役会で確認した。",
+      "exampleTranslation": "Hội đồng quản trị đã kiểm tra báo cáo lãi lỗ do phòng kế toán lập.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11387,
+      "term": "貸借対照表 (たいしゃくたいしょうひょう)",
+      "reading": "たいしゃくたいしょうひょう",
+      "romaji": null,
+      "definition": "bảng cân đối kế toán",
+      "exampleSentence": "株主総会で、最新の貸借対照表が公開された。",
+      "exampleTranslation": "Bảng cân đối kế toán mới nhất đã được công bố tại đại hội cổ đông.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11388,
+      "term": "仲介料 (ちゅうかいりょう)",
+      "reading": "ちゅうかいりょう",
+      "romaji": null,
+      "definition": "phí môi giới",
+      "exampleSentence": "不動産会社へ仲介料を支払い、部屋を契約した。",
+      "exampleTranslation": "Tôi đã trả phí môi giới cho công ty bất động sản và ký hợp đồng thuê phòng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 11389,
+      "term": "貯蓄 (ちょちく)",
+      "reading": "ちょちく",
+      "romaji": null,
+      "definition": "tiết kiệm/dành dụm",
+      "exampleSentence": "将来のために、毎月給料の一部を貯蓄に回している。",
+      "exampleTranslation": "Để dành cho tương lai, mỗi tháng tôi đều dành một phần tiền lương để tiết kiệm.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 11390,
+      "term": "負債 (ふさい)",
+      "reading": "ふさい",
+      "romaji": null,
+      "definition": "nợ/khoản nợ",
+      "exampleSentence": "会社は負債を減らすため、不要な資産を売却した。",
+      "exampleTranslation": "Để giảm các khoản nợ, công ty đã bán những tài sản không cần thiết.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 11391,
+      "term": "返済 (へんさい)",
+      "reading": "へんさい",
+      "romaji": null,
+      "definition": "trả nợ/hoàn trả",
+      "exampleSentence": "奨学金の返済が始まる前に、生活費を見直した。",
+      "exampleTranslation": "Trước khi bắt đầu trả khoản vay học bổng, tôi đã xem xét lại chi phí sinh hoạt.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 11392,
+      "term": "浪費 (ろうひ)",
+      "reading": "ろうひ",
+      "romaji": null,
+      "definition": "lãng phí",
+      "exampleSentence": "電気の浪費を避けるため、使わない部屋の照明を消した。",
+      "exampleTranslation": "Để tránh lãng phí điện, tôi đã tắt đèn ở những phòng không sử dụng.",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

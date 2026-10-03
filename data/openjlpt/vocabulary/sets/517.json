@@ -1,0 +1,231 @@
+{
+  "id": 517,
+  "title": "旅行・交通 · 道路・交通規則",
+  "description": "Đường sá & luật giao thông — chủ đề Du lịch & giao thông · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:51.133972",
+  "cards": [
+    {
+      "id": 12801,
+      "term": "迂回路 (うかいろ)",
+      "reading": "うかいろ",
+      "romaji": null,
+      "definition": "đường vòng, đường tránh",
+      "exampleSentence": "工事中のため、駅まで迂回路を通って行きました。",
+      "exampleTranslation": "Vì đang thi công nên tôi đã đi đến nhà ga bằng đường vòng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12802,
+      "term": "横断歩道 (おうだんほどう)",
+      "reading": "おうだんほどう",
+      "romaji": null,
+      "definition": "vạch kẻ sang đường",
+      "exampleSentence": "横断歩道を渡る前に、左右をよく確認しましょう。",
+      "exampleTranslation": "Trước khi qua vạch sang đường, hãy kiểm tra kỹ bên trái và bên phải.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12803,
+      "term": "距離 (きょり)",
+      "reading": "きょり",
+      "romaji": null,
+      "definition": "khoảng cách, cự ly",
+      "exampleSentence": "駅から会社までの距離は、歩いて十五分ほどです。",
+      "exampleTranslation": "Khoảng cách từ nhà ga đến công ty đi bộ mất khoảng 15 phút.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12804,
+      "term": "交通 (こうつう)",
+      "reading": "こうつう",
+      "romaji": null,
+      "definition": "giao thông",
+      "exampleSentence": "朝は交通が混雑するので、早めに家を出ます。",
+      "exampleTranslation": "Buổi sáng giao thông đông đúc nên tôi ra khỏi nhà sớm.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12805,
+      "term": "高速道路 (こうそくどうろ)",
+      "reading": "こうそくどうろ",
+      "romaji": null,
+      "definition": "đường cao tốc",
+      "exampleSentence": "この高速道路を使えば、二時間で大阪に着きます。",
+      "exampleTranslation": "Nếu đi đường cao tốc này thì sẽ đến Osaka trong hai tiếng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12806,
+      "term": "信号 (しんごう)",
+      "reading": "しんごう",
+      "romaji": null,
+      "definition": "đèn tín hiệu giao thông",
+      "exampleSentence": "信号が青に変わってから、道路を渡ってください。",
+      "exampleTranslation": "Hãy qua đường sau khi đèn tín hiệu chuyển sang màu xanh.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12807,
+      "term": "駐車場 (ちゅうしゃじょう)",
+      "reading": "ちゅうしゃじょう",
+      "romaji": null,
+      "definition": "bãi đậu xe",
+      "exampleSentence": "駅の近くの駐車場に車を止めて、買い物をしました。",
+      "exampleTranslation": "Tôi đỗ xe ở bãi đậu gần nhà ga rồi đi mua sắm.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12808,
+      "term": "追い越す (おいこす)",
+      "reading": "おいこす",
+      "romaji": null,
+      "definition": "vượt qua, vượt mặt",
+      "exampleSentence": "急いでいても、前の車を無理に追い越すのは危険です。",
+      "exampleTranslation": "Dù đang vội, cố vượt chiếc xe phía trước vẫn rất nguy hiểm.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12809,
+      "term": "歩道 (ほどう)",
+      "reading": "ほどう",
+      "romaji": null,
+      "definition": "vỉa hè",
+      "exampleSentence": "自転車に乗るときは、歩道を走らないでください。",
+      "exampleTranslation": "Khi đi xe đạp, xin đừng chạy trên vỉa hè.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12810,
+      "term": "一方通行 (いっぽうつうこう)",
+      "reading": "いっぽうつうこう",
+      "romaji": null,
+      "definition": "đường một chiều",
+      "exampleSentence": "この道は一方通行なので、反対方向には進めません。",
+      "exampleTranslation": "Con đường này là đường một chiều nên không thể đi theo hướng ngược lại.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12811,
+      "term": "迂回 (うかい)",
+      "reading": "うかい",
+      "romaji": null,
+      "definition": "đường vòng tránh",
+      "exampleSentence": "事故のため、しばらく迂回して目的地へ向かいました。",
+      "exampleTranslation": "Vì có tai nạn nên chúng tôi đã đi đường vòng một lúc để đến địa điểm cần đến.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12812,
+      "term": "交差点 (こうさてん)",
+      "reading": "こうさてん",
+      "romaji": null,
+      "definition": "ngã tư/giao lộ",
+      "exampleSentence": "次の交差点を右に曲がると、病院が見えます。",
+      "exampleTranslation": "Rẽ phải ở ngã tư tiếp theo thì sẽ thấy bệnh viện.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12813,
+      "term": "交通事故 (こうつうじこ)",
+      "reading": "こうつうじこ",
+      "romaji": null,
+      "definition": "tai nạn giao thông",
+      "exampleSentence": "昨日の朝、駅の近くで交通事故が起きて、道路が一時通行止めになった。",
+      "exampleTranslation": "Sáng hôm qua, một vụ tai nạn giao thông xảy ra gần nhà ga, khiến con đường tạm thời bị cấm lưu thông.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12814,
+      "term": "公共交通 (こうきょうこうつう)",
+      "reading": "こうきょうこうつう",
+      "romaji": null,
+      "definition": "giao thông công cộng",
+      "exampleSentence": "環境を守るために、できるだけ公共交通を利用しましょう。",
+      "exampleTranslation": "Để bảo vệ môi trường, chúng ta hãy cố gắng sử dụng giao thông công cộng nhiều nhất có thể.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12815,
+      "term": "車検 (しゃけん)",
+      "reading": "しゃけん",
+      "romaji": null,
+      "definition": "kiểm định xe",
+      "exampleSentence": "車検の期限が近いので、今週中に車を整備工場へ持っていく。",
+      "exampleTranslation": "Vì thời hạn kiểm định xe sắp đến nên tôi sẽ mang xe đến xưởng sửa chữa trong tuần này.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12816,
+      "term": "渋滞 (じゅうたい)",
+      "reading": "じゅうたい",
+      "romaji": null,
+      "definition": "tắc đường/ùn tắc",
+      "exampleSentence": "事故の影響で高速道路が渋滞し、予定より一時間遅れて到着した。",
+      "exampleTranslation": "Do ảnh hưởng của vụ tai nạn, đường cao tốc bị ùn tắc và tôi đã đến trễ một tiếng so với dự định.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 12817,
+      "term": "制限速度 (せいげんそくど)",
+      "reading": "せいげんそくど",
+      "romaji": null,
+      "definition": "tốc độ giới hạn",
+      "exampleSentence": "この道路は制限速度が時速四十キロなので、スピードを出しすぎないでください。",
+      "exampleTranslation": "Con đường này có tốc độ giới hạn là 40 km/giờ, vì vậy xin đừng chạy quá nhanh.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 12818,
+      "term": "燃費 (ねんぴ)",
+      "reading": "ねんぴ",
+      "romaji": null,
+      "definition": "mức tiêu hao nhiên liệu",
+      "exampleSentence": "この車は燃費がいいので、長距離の旅行にも向いている。",
+      "exampleTranslation": "Chiếc xe này tiết kiệm nhiên liệu nên cũng phù hợp cho những chuyến đi đường dài.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 12819,
+      "term": "免許証 (めんきょしょう)",
+      "reading": "めんきょしょう",
+      "romaji": null,
+      "definition": "bằng lái xe",
+      "exampleSentence": "車を借りるときは、免許証を受付に見せてください。",
+      "exampleTranslation": "Khi thuê xe, hãy xuất trình bằng lái xe tại quầy tiếp tân.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 12820,
+      "term": "料金所 (りょうきんじょ)",
+      "reading": "りょうきんじょ",
+      "romaji": null,
+      "definition": "trạm thu phí",
+      "exampleSentence": "料金所で通行料金を支払ってから、高速道路を出た。",
+      "exampleTranslation": "Sau khi trả phí đường bộ tại trạm thu phí, tôi đã ra khỏi đường cao tốc.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

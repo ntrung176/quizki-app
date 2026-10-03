@@ -1,0 +1,176 @@
+{
+  "id": 224,
+  "title": "Tuần 5 · Ngày 3 - お金・経済 (Tiền bạc & Kinh tế)",
+  "description": "Nihongo Soumatome N3 語彙 — お金・経済 (Tiền bạc & Kinh tế)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.602538",
+  "cards": [
+    {
+      "id": 5641,
+      "term": "価格 (かかく)",
+      "reading": "かかく",
+      "romaji": "kakaku",
+      "definition": "giá cả, mức giá",
+      "exampleSentence": "同じ商品でも、店によって価格が違うことがあります。",
+      "exampleTranslation": "Ngay cả cùng một sản phẩm, giá cả đôi khi cũng khác nhau tùy cửa hàng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5642,
+      "term": "割引 (わりびき)",
+      "reading": "わりびき",
+      "romaji": "waribiki",
+      "definition": "giảm giá, chiết khấu",
+      "exampleSentence": "会員になると、商品を一割引で買うことができます。",
+      "exampleTranslation": "Nếu trở thành hội viên, bạn có thể mua sản phẩm với mức giảm 10 phần trăm.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5643,
+      "term": "定価 (ていか)",
+      "reading": "ていか",
+      "romaji": "teika",
+      "definition": "giá niêm yết, giá gốc",
+      "exampleSentence": "この辞書の定価は三千円ですが、今なら二千五百円で買えます。",
+      "exampleTranslation": "Giá niêm yết của cuốn từ điển này là 3.000 yên, nhưng hiện giờ có thể mua với giá 2.500 yên.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5644,
+      "term": "消費税 (しょうひぜい)",
+      "reading": "しょうひぜい",
+      "romaji": "shouhizei",
+      "definition": "thuế tiêu thụ, thuế VAT",
+      "exampleSentence": "この値段には消費税が含まれていません。",
+      "exampleTranslation": "Mức giá này chưa bao gồm thuế tiêu thụ.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5645,
+      "term": "領収書 (りょうしゅうしょ)",
+      "reading": "りょうしゅうしょ",
+      "romaji": "ryoushuusho",
+      "definition": "hóa đơn, biên lai",
+      "exampleSentence": "会社に提出するので、領収書を忘れずにもらってください。",
+      "exampleTranslation": "Vì cần nộp cho công ty, hãy nhớ lấy hóa đơn.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5646,
+      "term": "見積もり (みつもり)",
+      "reading": "みつもり",
+      "romaji": "mitsumori",
+      "definition": "báo giá, ước tính chi phí",
+      "exampleSentence": "修理を始める前に、見積もりを出してもらいました。",
+      "exampleTranslation": "Trước khi bắt đầu sửa chữa, tôi đã nhờ họ báo giá.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5647,
+      "term": "払い戻し (はらいもどし)",
+      "reading": "はらいもどし",
+      "romaji": "haraimodoshi",
+      "definition": "hoàn tiền, trả lại tiền",
+      "exampleSentence": "台風で旅行を中止したので、ホテル代の払い戻しを受けた。",
+      "exampleTranslation": "Vì hủy chuyến du lịch do bão nên tôi đã được hoàn lại tiền khách sạn.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5648,
+      "term": "分割払い (ぶんかつばらい)",
+      "reading": "ぶんかつばらい",
+      "romaji": "bunkatsubarai",
+      "definition": "trả góp, thanh toán từng phần",
+      "exampleSentence": "高いパソコンを分割払いで買うことにしました。",
+      "exampleTranslation": "Tôi quyết định mua chiếc máy tính đắt tiền bằng hình thức trả góp.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5649,
+      "term": "預金 (よきん)",
+      "reading": "よきん",
+      "romaji": "yokin",
+      "definition": "tiền gửi ngân hàng",
+      "exampleSentence": "毎月、給料の一部を銀行に預金しています。",
+      "exampleTranslation": "Mỗi tháng, tôi gửi một phần tiền lương vào ngân hàng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5650,
+      "term": "貯金 (ちょきん)",
+      "reading": "ちょきん",
+      "romaji": "chokin",
+      "definition": "tiết kiệm, tiền tiết kiệm",
+      "exampleSentence": "将来のために、毎月少しずつ貯金しています。",
+      "exampleTranslation": "Tôi đang tiết kiệm từng chút một mỗi tháng cho tương lai.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5651,
+      "term": "投資 (とうし)",
+      "reading": "とうし",
+      "romaji": "toushi",
+      "definition": "đầu tư",
+      "exampleSentence": "将来に備えて、少額から投資を始めました。",
+      "exampleTranslation": "Để chuẩn bị cho tương lai, tôi đã bắt đầu đầu tư từ một khoản nhỏ.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5652,
+      "term": "借金 (しゃっきん)",
+      "reading": "しゃっきん",
+      "romaji": "shakkin",
+      "definition": "nợ, khoản nợ",
+      "exampleSentence": "借金をしてまで、その高い車を買う必要はない。",
+      "exampleTranslation": "Không cần phải vay nợ để mua chiếc xe đắt tiền đó.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5653,
+      "term": "返済 (へんさい)",
+      "reading": "へんさい",
+      "romaji": "hensai",
+      "definition": "hoàn trả nợ, thanh toán nợ",
+      "exampleSentence": "毎月決まった金額を返済しています。",
+      "exampleTranslation": "Mỗi tháng tôi đều trả một khoản tiền cố định.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5654,
+      "term": "経済 (けいざい)",
+      "reading": "けいざい",
+      "romaji": "keizai",
+      "definition": "kinh tế",
+      "exampleSentence": "最近、日本の経済について勉強しています。",
+      "exampleTranslation": "Gần đây, tôi đang học về nền kinh tế Nhật Bản.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5655,
+      "term": "景気 (けいき)",
+      "reading": "けいき",
+      "romaji": "keiki",
+      "definition": "tình hình kinh tế, cảnh khí kinh tế",
+      "exampleSentence": "景気が悪くなり、会社の売り上げも減っている。",
+      "exampleTranslation": "Tình hình kinh tế trở nên xấu đi, doanh thu của công ty cũng giảm.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

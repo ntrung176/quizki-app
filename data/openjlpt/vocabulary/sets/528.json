@@ -1,0 +1,242 @@
+{
+  "id": 528,
+  "title": "文化・芸術・スポーツ · 文化・国際交流",
+  "description": "Văn hóa & giao lưu quốc tế — chủ đề Văn hóa, nghệ thuật & thể thao · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:51.4375",
+  "cards": [
+    {
+      "id": 13036,
+      "term": "カルチャーショック",
+      "reading": "カルチャーショック",
+      "romaji": null,
+      "definition": "sốc văn hoá",
+      "exampleSentence": "初めて海外で暮らしたとき、食事の習慣にカルチャーショックを受けた。",
+      "exampleTranslation": "Khi lần đầu sống ở nước ngoài, tôi đã bị sốc văn hóa trước thói quen ăn uống.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13037,
+      "term": "ステレオタイプ",
+      "reading": "ステレオタイプ",
+      "romaji": null,
+      "definition": "định kiến rập khuôn/stereotype",
+      "exampleSentence": "その映画は、外国人に対するステレオタイプを見直すきっかけになった。",
+      "exampleTranslation": "Bộ phim đó đã trở thành cơ hội để nhìn nhận lại những định kiến rập khuôn về người nước ngoài.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13038,
+      "term": "外交文化 (がいこうぶんか)",
+      "reading": "がいこうぶんか",
+      "romaji": null,
+      "definition": "văn hoá ngoại giao",
+      "exampleSentence": "国際交流を進めるには、相手国の外交文化を理解することが重要だ。",
+      "exampleTranslation": "Để thúc đẩy giao lưu quốc tế, việc hiểu văn hóa ngoại giao của nước đối tác là rất quan trọng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13039,
+      "term": "慣習 (かんしゅう)",
+      "reading": "かんしゅう",
+      "romaji": null,
+      "definition": "tập quán/phong tục",
+      "exampleSentence": "地域によって慣習が異なるため、訪問前に確認しておくと安心だ。",
+      "exampleTranslation": "Vì tập quán khác nhau tùy từng địa phương, nên kiểm tra trước khi đến sẽ yên tâm hơn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13040,
+      "term": "継承 (けいしょう)",
+      "reading": "けいしょう",
+      "romaji": null,
+      "definition": "kế thừa/tiếp nối",
+      "exampleSentence": "伝統芸能を継承するには、若い世代が学べる環境が必要だ。",
+      "exampleTranslation": "Để kế thừa nghệ thuật truyền thống, cần có môi trường để thế hệ trẻ học hỏi.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13041,
+      "term": "国際交流 (こくさいこうりゅう)",
+      "reading": "こくさいこうりゅう",
+      "romaji": null,
+      "definition": "giao lưu quốc tế",
+      "exampleSentence": "大学では、留学生との国際交流を通じて、異なる価値観を学ぶ機会が多い。",
+      "exampleTranslation": "Ở trường đại học, có nhiều cơ hội học hỏi những giá trị khác nhau thông qua giao lưu quốc tế với du học sinh.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13042,
+      "term": "祭り (まつり)",
+      "reading": "まつり",
+      "romaji": null,
+      "definition": "lễ hội truyền thống",
+      "exampleSentence": "地域の祭りでは、昔から伝わる踊りを子どもたちも楽しそうに披露する。",
+      "exampleTranslation": "Trong lễ hội của địa phương, cả trẻ em cũng vui vẻ biểu diễn những điệu múa được truyền lại từ xa xưa.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13043,
+      "term": "姉妹都市 (しまいとし)",
+      "reading": "しまいとし",
+      "romaji": null,
+      "definition": "thành phố kết nghĩa",
+      "exampleSentence": "本市は海外の姉妹都市と毎年交流事業を行っている。",
+      "exampleTranslation": "Thành phố chúng tôi hằng năm tổ chức các hoạt động giao lưu với thành phố kết nghĩa ở nước ngoài.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13044,
+      "term": "相互理解 (そうごりかい)",
+      "reading": "そうごりかい",
+      "romaji": null,
+      "definition": "hiểu biết lẫn nhau",
+      "exampleSentence": "国境を越えた協力には、相手の文化を尊重し、相互理解を深める姿勢が欠かせない。",
+      "exampleTranslation": "Để hợp tác vượt qua biên giới, thái độ tôn trọng văn hóa đối phương và thúc đẩy hiểu biết lẫn nhau là điều không thể thiếu.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13045,
+      "term": "多文化共生 (たぶんかきょうせい)",
+      "reading": "たぶんかきょうせい",
+      "romaji": null,
+      "definition": "cùng tồn tại đa văn hoá",
+      "exampleSentence": "多文化共生を実現するには、外国人住民も安心して暮らせる環境が必要だ。",
+      "exampleTranslation": "Để hiện thực hóa việc cùng tồn tại đa văn hóa, cần có một môi trường nơi cư dân nước ngoài cũng có thể sống yên tâm.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13046,
+      "term": "伝承 (でんしょう)",
+      "reading": "でんしょう",
+      "romaji": null,
+      "definition": "truyền thừa qua miệng/truyền khẩu",
+      "exampleSentence": "この地域では、昔話の伝承を通じて、先祖の知恵が受け継がれてきた。",
+      "exampleTranslation": "Ở khu vực này, trí tuệ của tổ tiên đã được truyền lại qua việc lưu truyền những câu chuyện cổ.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13047,
+      "term": "伝統 (でんとう)",
+      "reading": "でんとう",
+      "romaji": null,
+      "definition": "truyền thống",
+      "exampleSentence": "伝統を守りながら、現代の生活に合う形へ工夫していくことも大切だ。",
+      "exampleTranslation": "Bên cạnh việc gìn giữ truyền thống, việc cải tiến sao cho phù hợp với cuộc sống hiện đại cũng rất quan trọng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13048,
+      "term": "日本食ブーム (にほんしょくブーム)",
+      "reading": "にほんしょくブーム",
+      "romaji": null,
+      "definition": "xu hướng ẩm thực Nhật bùng nổ",
+      "exampleSentence": "海外での日本食ブームをきっかけに、地方の食材にも注目が集まっている。",
+      "exampleTranslation": "Nhờ xu hướng ẩm thực Nhật bùng nổ ở nước ngoài, các nguyên liệu địa phương cũng đang nhận được nhiều sự chú ý.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13049,
+      "term": "文化 (ぶんか)",
+      "reading": "ぶんか",
+      "romaji": null,
+      "definition": "văn hoá",
+      "exampleSentence": "旅行先の文化を事前に調べておくと、現地の人々とより深く交流できる。",
+      "exampleTranslation": "Nếu tìm hiểu trước về văn hóa nơi mình du lịch, bạn có thể giao lưu sâu sắc hơn với người dân địa phương.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13050,
+      "term": "文化遺産 (ぶんかいさん)",
+      "reading": "ぶんかいさん",
+      "romaji": null,
+      "definition": "di sản văn hoá",
+      "exampleSentence": "その寺は、地域の歴史を伝える貴重な文化遺産として登録されている。",
+      "exampleTranslation": "Ngôi chùa đó được đăng ký là di sản văn hóa quý giá truyền tải lịch sử của khu vực.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 13051,
+      "term": "文化交流 (ぶんかこうりゅう)",
+      "reading": "ぶんかこうりゅう",
+      "romaji": null,
+      "definition": "giao lưu văn hoá",
+      "exampleSentence": "両国の学生による文化交流が、友好関係を深めるきっかけとなった。",
+      "exampleTranslation": "Hoạt động giao lưu văn hóa giữa sinh viên hai nước đã trở thành cơ hội để thắt chặt quan hệ hữu nghị.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 13052,
+      "term": "文化財 (ぶんかざい)",
+      "reading": "ぶんかざい",
+      "romaji": null,
+      "definition": "di vật văn hoá",
+      "exampleSentence": "市は貴重な文化財を後世に残すため、保存活動に力を入れている。",
+      "exampleTranslation": "Thành phố đang nỗ lực bảo tồn những di vật văn hóa quý giá để lưu lại cho thế hệ sau.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 13053,
+      "term": "文化的差異 (ぶんかてきさい)",
+      "reading": "ぶんかてきさい",
+      "romaji": null,
+      "definition": "sự khác biệt văn hoá",
+      "exampleSentence": "海外で暮らすと、文化的差異を理解する大切さがよく分かる。",
+      "exampleTranslation": "Khi sống ở nước ngoài, tôi nhận ra rõ tầm quan trọng của việc hiểu sự khác biệt văn hóa.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 13054,
+      "term": "文化摩擦 (ぶんかまさつ)",
+      "reading": "ぶんかまさつ",
+      "romaji": null,
+      "definition": "va chạm/xung đột văn hoá",
+      "exampleSentence": "言葉の誤解が、職場での文化摩擦を生むことがある。",
+      "exampleTranslation": "Sự hiểu lầm về ngôn ngữ đôi khi có thể gây ra va chạm văn hóa ở nơi làm việc.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 13055,
+      "term": "民俗 (みんぞく)",
+      "reading": "みんぞく",
+      "romaji": null,
+      "definition": "phong tục dân gian",
+      "exampleSentence": "大学で日本各地の民俗について調査している。",
+      "exampleTranslation": "Tôi đang nghiên cứu về phong tục dân gian ở nhiều vùng của Nhật Bản tại trường đại học.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 13056,
+      "term": "無形文化財 (むけいぶんかざい)",
+      "reading": "むけいぶんかざい",
+      "romaji": null,
+      "definition": "di sản văn hoá phi vật thể",
+      "exampleSentence": "その伝統芸能は、国の無形文化財に指定されている。",
+      "exampleTranslation": "Loại hình nghệ thuật truyền thống đó được chỉ định là di sản văn hóa phi vật thể của quốc gia.",
+      "forms": [],
+      "displayOrder": 20
+    }
+  ]
+}

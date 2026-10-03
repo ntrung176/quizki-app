@@ -1,0 +1,383 @@
+{
+  "id": 54,
+  "title": "色と形",
+  "description": "Màu sắc và hình dạng · 30 từ",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:52.095993",
+  "cards": [
+    {
+      "id": 1721,
+      "term": "赤",
+      "reading": "あか",
+      "romaji": "aka",
+      "definition": "Màu đỏ",
+      "exampleSentence": "赤いりんご",
+      "exampleTranslation": "Quả táo đỏ.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 1722,
+      "term": "青",
+      "reading": "あお",
+      "romaji": "ao",
+      "definition": "Màu xanh dương",
+      "exampleSentence": "空が青い。",
+      "exampleTranslation": "Trời màu xanh.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 1723,
+      "term": "黄色",
+      "reading": "きいろ",
+      "romaji": "kiiro",
+      "definition": "Màu vàng",
+      "exampleSentence": "黄色い花が咲いた。",
+      "exampleTranslation": "Hoa vàng đã nở.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 1724,
+      "term": "緑",
+      "reading": "みどり",
+      "romaji": "midori",
+      "definition": "Màu xanh lá",
+      "exampleSentence": "緑の葉っぱ",
+      "exampleTranslation": "Lá màu xanh.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 1725,
+      "term": "白",
+      "reading": "しろ",
+      "romaji": "shiro",
+      "definition": "Màu trắng",
+      "exampleSentence": "白い雪が降った。",
+      "exampleTranslation": "Tuyết trắng rơi.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 1726,
+      "term": "黒",
+      "reading": "くろ",
+      "romaji": "kuro",
+      "definition": "Màu đen",
+      "exampleSentence": "黒い猫",
+      "exampleTranslation": "Con mèo đen.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 1727,
+      "term": "茶色",
+      "reading": "ちゃいろ",
+      "romaji": "chairо",
+      "definition": "Màu nâu",
+      "exampleSentence": "茶色い犬",
+      "exampleTranslation": "Con chó màu nâu.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 1728,
+      "term": "ピンク",
+      "reading": "ぴんく",
+      "romaji": "pinku",
+      "definition": "Màu hồng",
+      "exampleSentence": "ピンクの花",
+      "exampleTranslation": "Hoa màu hồng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 1729,
+      "term": "オレンジ",
+      "reading": "おれんじ",
+      "romaji": "orenji",
+      "definition": "Màu cam",
+      "exampleSentence": "オレンジ色のシャツ",
+      "exampleTranslation": "Áo màu cam.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 1730,
+      "term": "紫",
+      "reading": "むらさき",
+      "romaji": "murasaki",
+      "definition": "Màu tím",
+      "exampleSentence": "紫の葡萄",
+      "exampleTranslation": "Nho tím.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 1731,
+      "term": "丸",
+      "reading": "まる",
+      "romaji": "maru",
+      "definition": "Hình tròn",
+      "exampleSentence": "丸い月",
+      "exampleTranslation": "Mặt trăng tròn.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 1732,
+      "term": "四角",
+      "reading": "しかく",
+      "romaji": "shikaku",
+      "definition": "Hình vuông/chữ nhật",
+      "exampleSentence": "四角いテーブル",
+      "exampleTranslation": "Bàn hình vuông.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 1733,
+      "term": "三角",
+      "reading": "さんかく",
+      "romaji": "sankaku",
+      "definition": "Hình tam giác",
+      "exampleSentence": "三角形のサンドイッチ",
+      "exampleTranslation": "Sandwich hình tam giác.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 1734,
+      "term": "大きい",
+      "reading": "おおきい",
+      "romaji": "ookii",
+      "definition": "To, lớn",
+      "exampleSentence": "大きい犬",
+      "exampleTranslation": "Con chó to.",
+      "forms": [
+        "大きくない",
+        "大きかった",
+        "大きくなかった"
+      ],
+      "displayOrder": 13
+    },
+    {
+      "id": 1735,
+      "term": "小さい",
+      "reading": "ちいさい",
+      "romaji": "chiisai",
+      "definition": "Nhỏ",
+      "exampleSentence": "小さい子ども",
+      "exampleTranslation": "Đứa trẻ nhỏ.",
+      "forms": [
+        "小さくない",
+        "小さかった",
+        "小さくなかった"
+      ],
+      "displayOrder": 14
+    },
+    {
+      "id": 1736,
+      "term": "長い",
+      "reading": "ながい",
+      "romaji": "nagai",
+      "definition": "Dài",
+      "exampleSentence": "長い髪",
+      "exampleTranslation": "Tóc dài.",
+      "forms": [
+        "長くない",
+        "長かった",
+        "長くなかった"
+      ],
+      "displayOrder": 15
+    },
+    {
+      "id": 1737,
+      "term": "短い",
+      "reading": "みじかい",
+      "romaji": "mijikai",
+      "definition": "Ngắn",
+      "exampleSentence": "短いスカート",
+      "exampleTranslation": "Váy ngắn.",
+      "forms": [
+        "短くない",
+        "短かった",
+        "短くなかった"
+      ],
+      "displayOrder": 16
+    },
+    {
+      "id": 1738,
+      "term": "細い",
+      "reading": "ほそい",
+      "romaji": "hosoi",
+      "definition": "Mảnh, gầy",
+      "exampleSentence": "細い道",
+      "exampleTranslation": "Con đường nhỏ hẹp.",
+      "forms": [
+        "細くない",
+        "細かった",
+        "細くなかった"
+      ],
+      "displayOrder": 17
+    },
+    {
+      "id": 1739,
+      "term": "太い",
+      "reading": "ふとい",
+      "romaji": "futoi",
+      "definition": "Dày, mập",
+      "exampleSentence": "太いペン",
+      "exampleTranslation": "Bút to.",
+      "forms": [
+        "太くない",
+        "太かった",
+        "太くなかった"
+      ],
+      "displayOrder": 18
+    },
+    {
+      "id": 1740,
+      "term": "星形",
+      "reading": "ほしがた",
+      "romaji": "hoshigata",
+      "definition": "Hình ngôi sao",
+      "exampleSentence": "星形のクッキー",
+      "exampleTranslation": "Bánh quy hình ngôi sao.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 1741,
+      "term": "楕円",
+      "reading": "だえん",
+      "romaji": "daen",
+      "definition": "Hình elip/bầu dục",
+      "exampleSentence": "楕円形のテーブル",
+      "exampleTranslation": "Bàn hình bầu dục.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 1742,
+      "term": "透明",
+      "reading": "とうめい",
+      "romaji": "toumei",
+      "definition": "Trong suốt",
+      "exampleSentence": "透明なガラス",
+      "exampleTranslation": "Kính trong suốt.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 1743,
+      "term": "光る",
+      "reading": "ひかる",
+      "romaji": "hikaru",
+      "definition": "Sáng, lấp lánh",
+      "exampleSentence": "星が光っている。",
+      "exampleTranslation": "Các ngôi sao đang lấp lánh.",
+      "forms": [
+        "光ります",
+        "光って",
+        "光った",
+        "光らない",
+        "光れる"
+      ],
+      "displayOrder": 22
+    },
+    {
+      "id": 1744,
+      "term": "濃い",
+      "reading": "こい",
+      "romaji": "koi",
+      "definition": "Đậm (màu)",
+      "exampleSentence": "濃い青",
+      "exampleTranslation": "Xanh đậm.",
+      "forms": [
+        "濃くない",
+        "濃かった",
+        "濃くなかった"
+      ],
+      "displayOrder": 23
+    },
+    {
+      "id": 1745,
+      "term": "薄い",
+      "reading": "うすい",
+      "romaji": "usui",
+      "definition": "Nhạt (màu)",
+      "exampleSentence": "薄いピンク",
+      "exampleTranslation": "Hồng nhạt.",
+      "forms": [
+        "薄くない",
+        "薄かった",
+        "薄くなかった"
+      ],
+      "displayOrder": 24
+    },
+    {
+      "id": 1746,
+      "term": "鮮やか",
+      "reading": "あざやか",
+      "romaji": "azayaka",
+      "definition": "Rực rỡ, tươi sáng",
+      "exampleSentence": "鮮やかな色",
+      "exampleTranslation": "Màu sắc rực rỡ.",
+      "forms": [
+        "鮮やかじゃない",
+        "鮮やかだった",
+        "鮮やかじゃなかった"
+      ],
+      "displayOrder": 25
+    },
+    {
+      "id": 1747,
+      "term": "灰色",
+      "reading": "はいいろ",
+      "romaji": "haiiro",
+      "definition": "Màu xám",
+      "exampleSentence": "灰色の空",
+      "exampleTranslation": "Bầu trời xám.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 1748,
+      "term": "金色",
+      "reading": "きんいろ",
+      "romaji": "kin iro",
+      "definition": "Màu vàng kim",
+      "exampleSentence": "金色のリング",
+      "exampleTranslation": "Nhẫn vàng kim.",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 1749,
+      "term": "銀色",
+      "reading": "ぎんいろ",
+      "romaji": "gin iro",
+      "definition": "Màu bạc",
+      "exampleSentence": "銀色の指輪",
+      "exampleTranslation": "Nhẫn bạc.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 1750,
+      "term": "模様",
+      "reading": "もよう",
+      "romaji": "moyou",
+      "definition": "Hoa văn, họa tiết",
+      "exampleSentence": "きれいな模様のシャツ",
+      "exampleTranslation": "Áo có hoa văn đẹp.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

@@ -1,0 +1,1314 @@
+{
+  "default": {
+    "mn-014||core||ĐIỀU KIỆN giả định: Nếu ~ thì ~": {
+      "title": "ĐIỀU KIỆN giả định: Nếu ~ thì ~",
+      "sub": "〜たら · Ý nghĩa cốt lõi",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "core",
+        "isNode": true,
+        "parentBranch": "📖 Ý nghĩa cốt lõi",
+        "definition": "Diễn tả **điều kiện giả định chưa xảy ra**: vế A xảy ra là tiền đề cho vế B thực hiện. Vế A có thể xảy ra hoặc không, khác với trường hợp trình tự chắc chắn.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "明日",
+                "r": "あした",
+                "m": "ngày mai"
+              },
+              {
+                "t": "雨",
+                "r": "あめ",
+                "m": "mưa"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "降ったら",
+                "r": "ふったら",
+                "m": "nếu rơi"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "家",
+                "r": "うち",
+                "m": "nhà"
+              },
+              {
+                "t": "に"
+              },
+              {
+                "t": "います",
+                "r": "います",
+                "m": "ở"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Nếu ngày mai trời mưa, tôi sẽ ở nhà.",
+            "scene": "Bàn kế hoạch cho ngày mai với bạn"
+          }
+        ]
+      }
+    },
+    "mn-014||core||TRÌNH TỰ: Sau khi ~ thì ~": {
+      "title": "TRÌNH TỰ: Sau khi ~ thì ~",
+      "sub": "〜たら · Ý nghĩa cốt lõi",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "core",
+        "isNode": true,
+        "parentBranch": "📖 Ý nghĩa cốt lõi",
+        "definition": "Diễn tả **trình tự thời gian**: hành động A chắc chắn xảy ra trước, sau khi A hoàn thành hẳn thì hành động B mới nối tiếp. Vế A ở đây không mang tính hên xui giả định.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "家",
+                "r": "うち",
+                "m": "nhà"
+              },
+              {
+                "t": "に"
+              },
+              {
+                "t": "帰ったら",
+                "r": "かえったら",
+                "m": "sau khi về"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "お風呂",
+                "r": "おふろ",
+                "m": "bồn tắm"
+              },
+              {
+                "t": "に"
+              },
+              {
+                "t": "入ります",
+                "r": "はいります",
+                "m": "tắm"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Sau khi về đến nhà, tôi sẽ tắm rửa.",
+            "scene": "Kế hoạch công việc sau giờ làm"
+          }
+        ]
+      }
+    },
+    "mn-014||core||PHÁT HIỆN bất ngờ: Hoá ra ~": {
+      "title": "PHÁT HIỆN bất ngờ: Hoá ra ~",
+      "sub": "〜たら · Ý nghĩa cốt lõi",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "core",
+        "isNode": true,
+        "parentBranch": "📖 Ý nghĩa cốt lõi",
+        "definition": "Diễn tả việc **sau khi thực hiện hành động A** thì tình cờ **phát hiện ra một sự thật hay trạng thái B** (thường ngoài dự đoán). Vế B luôn chia ở thể quá khứ hoặc trạng thái có sẵn.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "窓",
+                "r": "まど",
+                "m": "cửa sổ"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "開けたら",
+                "r": "あけたら",
+                "m": "khi mở"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "雪",
+                "r": "ゆき",
+                "m": "tuyết"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "降っていました",
+                "r": "ふっていました",
+                "m": "đang rơi"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Mở cửa sổ ra thì phát hiện tuyết đang rơi.",
+            "scene": "Mở cửa sổ ngắm cảnh sáng sớm"
+          }
+        ]
+      }
+    },
+    "mn-014||core||KHÔNG dùng cho quy luật chung": {
+      "title": "KHÔNG dùng cho quy luật chung",
+      "sub": "〜たら · Ý nghĩa cốt lõi",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "core",
+        "isNode": true,
+        "parentBranch": "📖 Ý nghĩa cốt lõi",
+        "definition": "**〜たら nhấn mạnh tình huống một lần cụ thể**. Tuyệt đối không dùng 〜たら để diễn tả quy luật tự nhiên, chân lý hiển nhiên hay thói quen lặp lại (những trường hợp đó phải dùng **〜と**).",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "春",
+                "r": "はる",
+                "m": "mùa xuân"
+              },
+              {
+                "t": "に"
+              },
+              {
+                "t": "なると",
+                "r": "なると",
+                "m": "hễ đến"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "花",
+                "r": "はな",
+                "m": "hoa"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "咲きます",
+                "r": "さきます",
+                "m": "nở"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Hễ mùa xuân đến thì hoa nở. (Quy luật tự nhiên dùng 〜と, không dùng 〜たら)",
+            "scene": "Giải thích hiện tượng thiên nhiên"
+          }
+        ]
+      }
+    },
+    "mn-014||forms||Động từ: Vた + ら → 行ったら": {
+      "title": "Động từ: Vた + ら → 行ったら",
+      "sub": "〜たら · Cấu trúc & cách chia",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "forms",
+        "isNode": true,
+        "parentBranch": "🧩 Cấu trúc & cách chia",
+        "definition": "Quy tắc chia động từ: chuyển động từ về **thể た** (quá khứ thông thường) rồi thêm **ら**. Ví dụ: 行く → 行った → **行ったら**; 食べる → 食べた → **食べたら**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "ご飯",
+                "r": "ごはん",
+                "m": "cơm"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "食べたら",
+                "r": "たべたら",
+                "m": "sau khi ăn"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "薬",
+                "r": "くすり",
+                "m": "thuốc"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "飲みます",
+                "r": "のみます",
+                "m": "uống"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Sau khi ăn cơm xong thì uống thuốc nhé.",
+            "scene": "Bác sĩ dặn bệnh nhân uống thuốc"
+          }
+        ]
+      }
+    },
+    "mn-014||forms||Tính từ い: 安かったら": {
+      "title": "Tính từ い: 安かったら",
+      "sub": "〜たら · Cấu trúc & cách chia",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "forms",
+        "isNode": true,
+        "parentBranch": "🧩 Cấu trúc & cách chia",
+        "definition": "Quy tắc chia tính từ đuôi い: **bỏ い** ở cuối từ gốc, thêm **かったら**. Ví dụ: 安い → **安かったら**; 暑い → **暑かったら**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "暑かったら",
+                "r": "あつかったら",
+                "m": "nếu nóng"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "エアコン",
+                "m": "điều hòa"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "つけて",
+                "m": "bật"
+              },
+              {
+                "t": "ください",
+                "m": "hãy"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Nếu nóng thì bạn hãy bật điều hòa lên nhé.",
+            "scene": "Chủ nhà mời khách vào phòng"
+          }
+        ]
+      }
+    },
+    "mn-014||forms||Tính từ な: 静かだったら": {
+      "title": "Tính từ な: 静かだったら",
+      "sub": "〜たら · Cấu trúc & cách chia",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "forms",
+        "isNode": true,
+        "parentBranch": "🧩 Cấu trúc & cách chia",
+        "definition": "Quy tắc chia tính từ đuôi な: **giữ nguyên từ gốc** (bỏ な) và thêm **だったら**. Ví dụ: 静か → **静かだったら**; 暇 → **暇だったら**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "暇だったら",
+                "r": "ひまだったら",
+                "m": "nếu rảnh"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "散歩",
+                "r": "さんぽ",
+                "m": "đi dạo"
+              },
+              {
+                "t": "に"
+              },
+              {
+                "t": "行きましょう",
+                "r": "いきましょう",
+                "m": "cùng đi"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Nếu rảnh rỗi thì chúng mình cùng đi dạo nhé.",
+            "scene": "Rủ bạn thân đi dạo chiều cuối tuần"
+          }
+        ]
+      }
+    },
+    "mn-014||forms||Danh từ: 学生だったら": {
+      "title": "Danh từ: 学生だったら",
+      "sub": "〜たら · Cấu trúc & cách chia",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "forms",
+        "isNode": true,
+        "parentBranch": "🧩 Cấu trúc & cách chia",
+        "definition": "Quy tắc chia danh từ: **thêm だったら** trực tiếp ngay sau danh từ. Ví dụ: 学生 → **学生だったら**; 雨 → **雨だったら**. Cách chia này hoàn toàn tương tự tính từ đuôi な.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "学生だったら",
+                "r": "がくせいだったら",
+                "m": "nếu là học sinh"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "割引",
+                "r": "わりびき",
+                "m": "giảm giá"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "あります",
+                "r": "あります",
+                "m": "có"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Nếu là học sinh sinh viên thì sẽ được giảm giá.",
+            "scene": "Nhân viên bán vé thông báo chính sách"
+          }
+        ]
+      }
+    },
+    "mn-014||forms||Phủ định: 行かなかったら": {
+      "title": "Phủ định: 行かなかったら",
+      "sub": "〜たら · Cấu trúc & cách chia",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "forms",
+        "isNode": true,
+        "parentBranch": "🧩 Cấu trúc & cách chia",
+        "definition": "Quy tắc chia phủ định: chuyển động từ/tính từ về dạng **phủ định thể ない**, sau đó đổi ない thành **なかったら**. Ví dụ: 行かない → **行かなかったら**; 安くない → **安くなかったら**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "安くなかったら",
+                "r": "やすくなかったら",
+                "m": "nếu không rẻ"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "買いません",
+                "r": "かいません",
+                "m": "không mua"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Nếu không rẻ thì tôi không mua đâu.",
+            "scene": "Đi mua sắm đồ đạc"
+          }
+        ]
+      }
+    },
+    "mn-014||usage||Điều kiện giả định: Nếu ~ (thường kèm もし)": {
+      "title": "Điều kiện giả định: Nếu ~ (thường kèm もし)",
+      "sub": "〜たら · Cách dùng & tình huống",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "usage",
+        "isNode": true,
+        "parentBranch": "🎬 Cách dùng & tình huống",
+        "definition": "Dùng khi đưa ra một **tình huống giả định ở tương lai** chưa biết có xảy ra hay không. Thường đi kèm phó từ **もし** ở đầu câu để nhấn mạnh sắc thái \"nếu giả sử\".",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "もし"
+              },
+              {
+                "t": "時間",
+                "r": "じかん",
+                "m": "thời gian"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "あったら",
+                "r": "あったら",
+                "m": "nếu có"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "お茶",
+                "r": "おちゃ",
+                "m": "trà"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "飲みましょう",
+                "r": "のみましょう",
+                "m": "cùng uống"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Nếu có thời gian, chúng ta cùng đi uống trà nhé.",
+            "scene": "Rủ bạn đồng nghiệp giải lao"
+          }
+        ]
+      }
+    },
+    "mn-014||usage||Trình tự: Sau khi ~ (chắc chắn)": {
+      "title": "Trình tự: Sau khi ~ (chắc chắn)",
+      "sub": "〜たら · Cách dùng & tình huống",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "usage",
+        "isNode": true,
+        "parentBranch": "🎬 Cách dùng & tình huống",
+        "definition": "Dùng khi **vế A chắc chắn xảy ra trong tương lai** (thời gian, sự kiện tất yếu), sau khi A xong mới làm B. Không mang tính hên xui và **tuyệt đối không dùng もし**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "仕事",
+                "r": "しごと",
+                "m": "công việc"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "終わったら",
+                "r": "おわったら",
+                "m": "sau khi xong"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "電話",
+                "r": "でんわ",
+                "m": "điện thoại"
+              },
+              {
+                "t": "します",
+                "r": "します",
+                "m": "gọi"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Sau khi làm xong việc, tôi sẽ gọi điện.",
+            "scene": "Hứa với bạn sau giờ làm"
+          }
+        ]
+      }
+    },
+    "mn-014||usage||Phát hiện: Hoá ra ~": {
+      "title": "Phát hiện: Hoá ra ~",
+      "sub": "〜たら · Cách dùng & tình huống",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "usage",
+        "isNode": true,
+        "parentBranch": "🎬 Cách dùng & tình huống",
+        "definition": "Diễn tả việc sau khi hành động A thực hiện xong thì **bất ngờ phát hiện ra sự việc B** (thường ngoài mong đợi). Vế B không mang ý chí người nói và luôn chia thể quá khứ.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "箱",
+                "r": "はこ",
+                "m": "hộp"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "開けたら",
+                "r": "あけたら",
+                "m": "khi mở"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "手紙",
+                "r": "てがみ",
+                "m": "bức thư"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "ありました",
+                "r": "ありました",
+                "m": "có"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Mở hộp ra thì thấy có một bức thư bên trong.",
+            "scene": "Mở quà sinh nhật được tặng"
+          }
+        ]
+      }
+    },
+    "mn-014||usage||Gợi ý: 〜たらどう・〜たらいい": {
+      "title": "Gợi ý: 〜たらどう・〜たらいい",
+      "sub": "〜たら · Cách dùng & tình huống",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "usage",
+        "isNode": true,
+        "parentBranch": "🎬 Cách dùng & tình huống",
+        "definition": "Dùng **〜たらどうですか** hoặc **〜たらいいですよ** để **đề xuất, gợi ý nhẹ nhàng** giải pháp cho đối phương khi họ đang băn khoăn hay gặp rắc rối.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "少し",
+                "r": "すこし",
+                "m": "một chút"
+              },
+              {
+                "t": "休んだら",
+                "r": "やすんだら",
+                "m": "nếu nghỉ"
+              },
+              {
+                "t": "どうですか",
+                "m": "thấy sao?"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Bạn nghỉ ngơi một chút xem sao?",
+            "scene": "Khuyên đồng nghiệp đang mệt mỏi"
+          }
+        ]
+      }
+    },
+    "mn-014||usage||Ước muốn: 〜たらいいな": {
+      "title": "Ước muốn: 〜たらいいな",
+      "sub": "〜たら · Cách dùng & tình huống",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "usage",
+        "isNode": true,
+        "parentBranch": "🎬 Cách dùng & tình huống",
+        "definition": "Cấu trúc **〜たらいいな** (hoặc 〜たらいいのに) diễn tả **nguyện vọng, ước muốn** một điều gì đó xảy ra trong tương lai hoặc trái với thực tế hiện tại.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "明日",
+                "r": "あした",
+                "m": "ngày mai"
+              },
+              {
+                "t": "晴れたら",
+                "r": "はれたら",
+                "m": "nếu nắng"
+              },
+              {
+                "t": "いいな",
+                "m": "thì tốt biết mấy"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Ước gì ngày mai trời nắng thì tốt biết mấy.",
+            "scene": "Hy vọng thời tiết đẹp cho chuyến dã ngoại"
+          }
+        ]
+      }
+    },
+    "mn-014||compare||vs 〜ば: điều kiện chung, ít ý chí": {
+      "title": "vs 〜ば: điều kiện chung, ít ý chí",
+      "sub": "〜たら · Phân biệt: たら vs ば vs と",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "compare",
+        "isNode": true,
+        "parentBranch": "⚖️ Phân biệt: たら vs ば vs と",
+        "definition": "So với **〜ば** (nghiêng về điều kiện chung, giả định giả thiết mang tính lý thuyết, vế sau hạn chế ý chí), **〜たら linh hoạt hơn**, dùng được cho tình huống một lần và vế sau thoải mái dùng ý chí/mệnh lệnh.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "安ければ",
+                "r": "やすければ",
+                "m": "nếu rẻ (điều kiện chung)"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "売れます",
+                "r": "うれます",
+                "m": "bán chạy"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Nếu rẻ thì sẽ bán chạy. (Điều kiện mang tính quy luật/lý thuyết chung)",
+            "scene": "Giải thích nguyên lý kinh doanh"
+          }
+        ]
+      }
+    },
+    "mn-014||compare||vs 〜と: quy luật, KHÔNG ý chí": {
+      "title": "vs 〜と: quy luật, KHÔNG ý chí",
+      "sub": "〜たら · Phân biệt: たら vs ば vs と",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "compare",
+        "isNode": true,
+        "parentBranch": "⚖️ Phân biệt: たら vs ば vs と",
+        "definition": "So với **〜と** (dùng cho kết quả tự nhiên, quy luật máy móc, vế sau KHÔNG ĐƯỢC dùng ý chí/mệnh lệnh), **〜たら phù hợp cho tình huống riêng lẻ** và vế sau thoải mái mang ý chí người nói.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "この",
+                "m": "này"
+              },
+              {
+                "t": "ボタン",
+                "m": "nút"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "押すと",
+                "r": "おすと",
+                "m": "hễ ấn"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "水",
+                "r": "みず",
+                "m": "nước"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "出ます",
+                "r": "でます",
+                "m": "chảy ra"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Hễ ấn nút này thì nước sẽ chảy ra. (Kết quả tự nhiên/máy móc dùng 〜と)",
+            "scene": "Hướng dẫn cách dùng máy bán nước"
+          }
+        ]
+      }
+    },
+    "mn-014||compare||vs 〜たあとで: chỉ 'sau khi' , không 'nếu'": {
+      "title": "vs 〜たあとで: chỉ 'sau khi' , không 'nếu'",
+      "sub": "〜たら · Phân biệt: たら vs ば vs と",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "compare",
+        "isNode": true,
+        "parentBranch": "⚖️ Phân biệt: たら vs ば vs と",
+        "definition": "Mẫu **〜たあとで** chỉ thuần túy diễn tả **thứ tự thời gian** \"sau khi làm A thì làm B\", không bao giờ mang nghĩa \"nếu\" (giả định). Trong khi đó, **〜たら linh hoạt hơn** vì bao hàm cả nghĩa \"nếu\" lẫn \"sau khi\".",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "ご飯",
+                "r": "ごはん",
+                "m": "cơm"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "食べた",
+                "r": "たべた",
+                "m": "đã ăn"
+              },
+              {
+                "t": "あとで",
+                "m": "sau khi"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "散歩",
+                "r": "さんぽ",
+                "m": "đi dạo"
+              },
+              {
+                "t": "します",
+                "r": "します",
+                "m": "lทำ"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Sau khi ăn cơm xong, tôi đi dạo. (Thuần túy mốc thời gian sau khi)",
+            "scene": "Kể lại thói quen sinh hoạt"
+          }
+        ]
+      }
+    },
+    "mn-014||pitfalls||Phát hiện: vế sau KHÔNG ý chí": {
+      "title": "Phát hiện: vế sau KHÔNG ý chí",
+      "sub": "〜たら · Lỗi & bẫy thường gặp",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "pitfalls",
+        "isNode": true,
+        "parentBranch": "🚨 Lỗi & bẫy thường gặp",
+        "definition": "**Lỗi hay gặp**: Khi 〜たら dùng với nghĩa \"phát hiện ra sự việc bất ngờ\", **vế sau tuyệt đối không được mang ý chí**, lời mời hay mệnh lệnh. Vế sau phải là hành động đã xảy ra hoặc trạng thái khách quan.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "ドア",
+                "m": "cửa"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "開けたら",
+                "r": "あけたら",
+                "m": "khi mở"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "猫",
+                "r": "ねこ",
+                "m": "con mèo"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "いました",
+                "r": "いました",
+                "m": "đã có"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Mở cửa ra thì thấy có con mèo ở đó (vế sau là trạng thái khách quan, không dùng ý chí).",
+            "scene": "Sự cố bất ngờ khi về nhà"
+          }
+        ]
+      }
+    },
+    "mn-014||pitfalls||Quy luật chung nên dùng 〜と": {
+      "title": "Quy luật chung nên dùng 〜と",
+      "sub": "〜たら · Lỗi & bẫy thường gặp",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "pitfalls",
+        "isNode": true,
+        "parentBranch": "🚨 Lỗi & bẫy thường gặp",
+        "definition": "**Lỗi hay gặp**: Dùng 〜たら cho quy luật tự nhiên hay phản ứng máy móc hiển nhiên. Sự thật khách quan như \"đun nước nóng thì sôi\" phải dùng **〜と**, không dùng 〜たら.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "水",
+                "r": "みず",
+                "m": "nước"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "熱すると",
+                "r": "ねっすると",
+                "m": "hễ đun nóng"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "沸騰します",
+                "r": "ふっとうします",
+                "m": "sôi"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Hễ đun nóng nước thì nước sôi. (Chân lý khoa học dùng 〜と)",
+            "scene": "Giải thích bài học vật lý"
+          }
+        ]
+      }
+    },
+    "mn-014||pitfalls||Nghĩa 'sau khi' KHÔNG thêm もし": {
+      "title": "Nghĩa 'sau khi' KHÔNG thêm もし",
+      "sub": "〜たら · Lỗi & bẫy thường gặp",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "pitfalls",
+        "isNode": true,
+        "parentBranch": "🚨 Lỗi & bẫy thường gặp",
+        "definition": "**Lỗi hay gặp**: Thêm phó từ **もし** vào câu mang nghĩa trình tự thời gian chắc chắn. **もし chỉ đi với nghĩa giả định \"nếu\"**, tuyệt đối không dùng khi vế A chắc chắn xảy ra (như \"sau khi 6 giờ\", \"sau khi về nhà\").",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "六時",
+                "r": "ろくじ",
+                "m": "6 giờ"
+              },
+              {
+                "t": "に"
+              },
+              {
+                "t": "なったら",
+                "r": "なったら",
+                "m": "khi đến"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "帰ります",
+                "r": "かえります",
+                "m": "về"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Đến 6 giờ thì tôi sẽ về. (Sự kiện chắc chắn tới, không thêm もし)",
+            "scene": "Hẹn giờ ra về với đồng nghiệp"
+          }
+        ]
+      }
+    },
+    "mn-014||memory||たら = TA + RA: 'đã TA thì RA'": {
+      "title": "たら = TA + RA: 'đã TA thì RA'",
+      "sub": "〜たら · Mẹo nhớ nhanh",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "memory",
+        "isNode": true,
+        "parentBranch": "🎯 Mẹo nhớ nhanh",
+        "definition": "**Mẹo ghi nhớ**: Ghép từ thể quá khứ **TA** (đã xong) + **RA** (thì). Cụm này có nghĩa thần chú là: \"Đã làm xong A thì B xảy ra\".",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "宿題",
+                "r": "しゅくだい",
+                "m": "bài tập"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "終わったら",
+                "r": "おわったら",
+                "m": "đã xong thì"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "遊ぼう",
+                "r": "あそぼう",
+                "m": "chơi thôi"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Làm xong bài tập thì đi chơi thôi! (Đã TA thì RA)",
+            "scene": "Rủ bạn cùng lớp đi chơi"
+          }
+        ]
+      }
+    },
+    "mn-014||memory||MỘT LẦN — không phải quy luật": {
+      "title": "MỘT LẦN — không phải quy luật",
+      "sub": "〜たら · Mẹo nhớ nhanh",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "memory",
+        "isNode": true,
+        "parentBranch": "🎯 Mẹo nhớ nhanh",
+        "definition": "**Mẹo ghi nhớ cốt lõi**: Luôn nhớ 〜たら dùng cho **sự việc một lần cụ thể trong thực tế** (ngày mai nếu..., lúc nãy khi...); không dùng cho quy luật vĩnh cửu.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "明日",
+                "r": "あした",
+                "m": "ngày mai"
+              },
+              {
+                "t": "暇だったら",
+                "r": "ひまだったら",
+                "m": "nếu rảnh"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "会いませんか",
+                "r": "あいませんか",
+                "m": "gặp không?"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Ngày mai nếu rảnh thì gặp nhau nhé? (Tình huống một lần cụ thể)",
+            "scene": "Hẹn gặp bạn ngày mai"
+          }
+        ]
+      }
+    },
+    "mn-014||memory||行ったら = 'đã đi thì ~'": {
+      "title": "行ったら = 'đã đi thì ~'",
+      "sub": "〜たら · Mẹo nhớ nhanh",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "memory",
+        "isNode": true,
+        "parentBranch": "🎯 Mẹo nhớ nhanh",
+        "definition": "**Mẹo ghi nhớ qua từ mẫu**: Dịch nhẩm **行ったら** thành *\"đã đi đến nơi rồi thì...\"* để nhớ ngay cả 2 nghĩa giả định (nếu đi đến đó) và trình tự (sau khi đi đến đó).",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "学校",
+                "r": "がっこう",
+                "m": "trường học"
+              },
+              {
+                "t": "に"
+              },
+              {
+                "t": "行ったら",
+                "r": "いったら",
+                "m": "nếu/sau khi đi"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "先生",
+                "r": "せんせい",
+                "m": "thầy giáo"
+              },
+              {
+                "t": "に"
+              },
+              {
+                "t": "会います",
+                "r": "あいます",
+                "m": "gặp"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Đến trường thì tôi sẽ gặp thầy giáo. (Đã đi tới trường rồi thì...)",
+            "scene": "Dự định buổi sáng trước khi đi học"
+          }
+        ]
+      }
+    },
+    "mn-014||phrases||時間があったら (nếu có thời gian)": {
+      "title": "時間があったら (nếu có thời gian)",
+      "sub": "〜たら · Cụm 〜たら phổ biến",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "phrases",
+        "isNode": true,
+        "parentBranch": "💬 Cụm 〜たら phổ biến",
+        "definition": "Cụm từ cố định **時間があったら** thường dùng mở đầu câu lời mời, nhờ vả một cách lịch sự, nghĩa là \"nếu anh/chị có thời gian rảnh\".",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "時間",
+                "r": "じかん",
+                "m": "thời gian"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "あったら",
+                "r": "あったら",
+                "m": "nếu có"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "手伝って",
+                "r": "てつだって",
+                "m": "giúp"
+              },
+              {
+                "t": "ください",
+                "m": "hãy"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Nếu có thời gian, hãy giúp tôi một tay nhé.",
+            "scene": "Nhờ đồng nghiệp hỗ trợ công việc"
+          }
+        ]
+      }
+    },
+    "mn-014||phrases||よかったら (nếu không phiền)": {
+      "title": "よかったら (nếu không phiền)",
+      "sub": "〜たら · Cụm 〜たら phổ biến",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "phrases",
+        "isNode": true,
+        "parentBranch": "💬 Cụm 〜たら phổ biến",
+        "definition": "Cụm từ lịch sự cực kỳ phổ biến **よかったら** (nếu tiện / nếu được / nếu bạn không phiền), dùng khi đưa ra lời mời, đề nghị hoặc tặng quà cho ai đó.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "よかったら",
+                "m": "nếu được"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "これ",
+                "m": "cái này"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "食べて",
+                "r": "たべて",
+                "m": "ăn"
+              },
+              {
+                "t": "ください",
+                "m": "hãy"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Nếu được thì bạn ăn cái này đi nhé.",
+            "scene": "Mời đồng nghiệp ăn bánh mỳ"
+          }
+        ]
+      }
+    },
+    "mn-014||phrases||日本に行ったら (nếu đi Nhật)": {
+      "title": "日本に行ったら (nếu đi Nhật)",
+      "sub": "〜たら · Cụm 〜たら phổ biến",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "phrases",
+        "isNode": true,
+        "parentBranch": "💬 Cụm 〜たら phổ biến",
+        "definition": "Cụm từ hay gặp **日本に行ったら** dùng khi bàn về dự định, kế hoạch sẽ làm sau khi đặt chân tới Nhật Bản.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "日本",
+                "r": "にほん",
+                "m": "Nhật Bản"
+              },
+              {
+                "t": "に"
+              },
+              {
+                "t": "行ったら",
+                "r": "いったら",
+                "m": "nếu/sau khi đi"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "着物",
+                "r": "きもの",
+                "m": "áo Kimono"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "着たいです",
+                "r": "きたいです",
+                "m": "muốn mặc"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Nếu sang Nhật, tôi muốn mặc thử kimono.",
+            "scene": "Chia sẻ ước mơ du lịch Nhật Bản"
+          }
+        ]
+      }
+    },
+    "mn-014||phrases||友達に聞いたら (nếu hỏi bạn)": {
+      "title": "友達に聞いたら (nếu hỏi bạn)",
+      "sub": "〜たら · Cụm 〜たら phổ biến",
+      "v2": {
+        "pattern": "〜たら",
+        "patternReading": "たら",
+        "coreMeaning": "Nếu ~ / sau khi ~ / phát hiện bất ngờ",
+        "slug": "phrases",
+        "isNode": true,
+        "parentBranch": "💬 Cụm 〜たら phổ biến",
+        "definition": "Cụm từ **友達に聞いたら** mang nghĩa \"sau khi hỏi bạn xong thì (biết được thông tin)\" hoặc \"nếu thử hỏi bạn xem sao\".",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "友達",
+                "r": "ともだち",
+                "m": "bạn"
+              },
+              {
+                "t": "に"
+              },
+              {
+                "t": "聞いたら",
+                "r": "きいたら",
+                "m": "sau khi hỏi"
+              },
+              {
+                "t": "、"
+              },
+              {
+                "t": "場所",
+                "r": "ばしょ",
+                "m": "địa điểm"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "分かりました",
+                "r": "わかりました",
+                "m": "đã hiểu"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Hỏi bạn xong thì tôi đã biết địa điểm rồi.",
+            "scene": "Tìm đường tới quán ăn"
+          }
+        ]
+      }
+    }
+  }
+}

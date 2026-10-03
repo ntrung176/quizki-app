@@ -1,0 +1,176 @@
+{
+  "id": 223,
+  "title": "Tuần 5 · Ngày 2 - 仕事・職場 (Công việc & Nơi làm)",
+  "description": "Nihongo Soumatome N3 語彙 — 仕事・職場 (Công việc & Nơi làm)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.568757",
+  "cards": [
+    {
+      "id": 5626,
+      "term": "締め切り (しめきり)",
+      "reading": "しめきり",
+      "romaji": "shimekiri",
+      "definition": "hạn chót, deadline",
+      "exampleSentence": "レポートの締め切りは来週の金曜日です。",
+      "exampleTranslation": "Hạn chót nộp báo cáo là thứ Sáu tuần sau.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5627,
+      "term": "残業 (ざんぎょう)",
+      "reading": "ざんぎょう",
+      "romaji": "zangyou",
+      "definition": "làm thêm giờ, tăng ca",
+      "exampleSentence": "今月は仕事が忙しくて、毎日残業をしています。",
+      "exampleTranslation": "Tháng này công việc bận rộn nên ngày nào tôi cũng phải làm thêm giờ.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5628,
+      "term": "給料 (きゅうりょう)",
+      "reading": "きゅうりょう",
+      "romaji": "kyuuryou",
+      "definition": "lương, tiền lương",
+      "exampleSentence": "今度の給料が入ったら、新しい自転車を買うつもりです。",
+      "exampleTranslation": "Khi nhận được tiền lương đợt tới, tôi định mua một chiếc xe đạp mới.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5629,
+      "term": "昇進 (しょうしん)",
+      "reading": "しょうしん",
+      "romaji": "shoushin",
+      "definition": "thăng chức, thăng tiến",
+      "exampleSentence": "彼は努力が認められ、課長に昇進しました。",
+      "exampleTranslation": "Nhờ những nỗ lực được ghi nhận, anh ấy đã được thăng chức lên trưởng phòng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5630,
+      "term": "転職 (てんしょく)",
+      "reading": "てんしょく",
+      "romaji": "tenshoku",
+      "definition": "chuyển việc, đổi nghề",
+      "exampleSentence": "仕事の環境を変えるために、来年転職する予定です。",
+      "exampleTranslation": "Để thay đổi môi trường làm việc, tôi dự định chuyển việc vào năm sau.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5631,
+      "term": "退職 (たいしょく)",
+      "reading": "たいしょく",
+      "romaji": "taishoku",
+      "definition": "nghỉ việc, về hưu",
+      "exampleSentence": "父は六十五歳で会社を退職しました。",
+      "exampleTranslation": "Bố tôi đã nghỉ việc ở công ty khi sáu mươi lăm tuổi.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5632,
+      "term": "採用する (さいようする)",
+      "reading": "さいようする",
+      "romaji": "saiyou suru",
+      "definition": "tuyển dụng, thuê người",
+      "exampleSentence": "会社は経験のある人を採用する方針です。",
+      "exampleTranslation": "Công ty có chủ trương tuyển dụng những người có kinh nghiệm.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5633,
+      "term": "解雇する (かいこする)",
+      "reading": "かいこする",
+      "romaji": "kaiko suru",
+      "definition": "sa thải, đuổi việc",
+      "exampleSentence": "会社は規則に違反した社員を解雇することにしました。",
+      "exampleTranslation": "Công ty đã quyết định sa thải nhân viên vi phạm quy định.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5634,
+      "term": "賞与 (しょうよ)",
+      "reading": "しょうよ",
+      "romaji": "shouyo",
+      "definition": "tiền thưởng, bonus",
+      "exampleSentence": "夏の賞与で、家族と旅行に行く予定です。",
+      "exampleTranslation": "Tôi dự định dùng tiền thưởng mùa hè để đi du lịch cùng gia đình.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5635,
+      "term": "経費 (けいひ)",
+      "reading": "けいひ",
+      "romaji": "keihi",
+      "definition": "chi phí kinh doanh, kinh phí",
+      "exampleSentence": "出張にかかった経費は、会社に申請すれば支払ってもらえます。",
+      "exampleTranslation": "Chi phí phát sinh trong chuyến công tác sẽ được công ty thanh toán nếu bạn làm đơn đề nghị.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5636,
+      "term": "予算 (よさん)",
+      "reading": "よさん",
+      "romaji": "yosan",
+      "definition": "ngân sách, dự toán",
+      "exampleSentence": "今年の予算では、新しいパソコンを十台購入する予定です。",
+      "exampleTranslation": "Theo ngân sách năm nay, chúng tôi dự định mua mười chiếc máy tính mới.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5637,
+      "term": "売上 (うりあげ)",
+      "reading": "うりあげ",
+      "romaji": "uriage",
+      "definition": "doanh thu, doanh số",
+      "exampleSentence": "店の売上は、夏休みの間に大きく伸びました。",
+      "exampleTranslation": "Doanh thu của cửa hàng đã tăng mạnh trong kỳ nghỉ hè.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5638,
+      "term": "利益 (りえき)",
+      "reading": "りえき",
+      "romaji": "rieki",
+      "definition": "lợi nhuận, lợi ích",
+      "exampleSentence": "売上が増えても、経費が高ければ利益はあまり残りません。",
+      "exampleTranslation": "Dù doanh thu tăng, nếu chi phí cao thì lợi nhuận cũng không còn lại bao nhiêu.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5639,
+      "term": "損失 (そんしつ)",
+      "reading": "そんしつ",
+      "romaji": "sonshitsu",
+      "definition": "tổn thất, thiệt hại",
+      "exampleSentence": "台風による損失は、数千万円に達しました。",
+      "exampleTranslation": "Thiệt hại do bão gây ra đã lên tới vài chục triệu yên.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5640,
+      "term": "契約 (けいやく)",
+      "reading": "けいやく",
+      "romaji": "keiyaku",
+      "definition": "hợp đồng, hợp ước",
+      "exampleSentence": "内容をよく確認してから、契約にサインしてください。",
+      "exampleTranslation": "Hãy kiểm tra kỹ nội dung trước khi ký hợp đồng.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

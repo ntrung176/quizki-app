@@ -1,0 +1,365 @@
+{
+  "id": 91,
+  "title": "仕事・職業",
+  "description": "Công việc và nghề nghiệp · 60 từ",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:53.705603",
+  "cards": [
+    {
+      "id": 2671,
+      "term": "仕事",
+      "reading": "しごと",
+      "romaji": "shigoto",
+      "definition": "Công việc",
+      "exampleSentence": "仕事を探している。",
+      "exampleTranslation": "Đang tìm việc làm.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 2672,
+      "term": "職業",
+      "reading": "しょくぎょう",
+      "romaji": "shokugyou",
+      "definition": "Nghề nghiệp",
+      "exampleSentence": "職業は何ですか。",
+      "exampleTranslation": "Nghề nghiệp của bạn là gì?",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 2673,
+      "term": "会社員",
+      "reading": "かいしゃいん",
+      "romaji": "kaishain",
+      "definition": "Nhân viên công ty",
+      "exampleSentence": "会社員として働く。",
+      "exampleTranslation": "Làm việc với tư cách nhân viên công ty.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 2674,
+      "term": "公務員",
+      "reading": "こうむいん",
+      "romaji": "koumuin",
+      "definition": "Công chức",
+      "exampleSentence": "公務員試験を受ける。",
+      "exampleTranslation": "Thi công chức.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 2675,
+      "term": "教師",
+      "reading": "きょうし",
+      "romaji": "kyoushi",
+      "definition": "Giáo viên",
+      "exampleSentence": "小学校の教師。",
+      "exampleTranslation": "Giáo viên tiểu học.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 2676,
+      "term": "医師",
+      "reading": "いし",
+      "romaji": "ishi",
+      "definition": "Bác sĩ",
+      "exampleSentence": "医師になりたい。",
+      "exampleTranslation": "Muốn trở thành bác sĩ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 2677,
+      "term": "看護師",
+      "reading": "かんごし",
+      "romaji": "kangoshi",
+      "definition": "Y tá",
+      "exampleSentence": "病院で看護師として働く。",
+      "exampleTranslation": "Làm y tá ở bệnh viện.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 2678,
+      "term": "弁護士",
+      "reading": "べんごし",
+      "romaji": "bengoshi",
+      "definition": "Luật sư",
+      "exampleSentence": "弁護士に相談する。",
+      "exampleTranslation": "Tham khảo ý kiến luật sư.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 2679,
+      "term": "エンジニア",
+      "reading": "えんじにあ",
+      "romaji": "enjinia",
+      "definition": "Kỹ sư",
+      "exampleSentence": "ソフトウェアエンジニア。",
+      "exampleTranslation": "Kỹ sư phần mềm.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 2680,
+      "term": "デザイナー",
+      "reading": "でざいなー",
+      "romaji": "dezainaa",
+      "definition": "Nhà thiết kế",
+      "exampleSentence": "グラフィックデザイナー。",
+      "exampleTranslation": "Nhà thiết kế đồ họa.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 2681,
+      "term": "プログラマー",
+      "reading": "ぷろぐらまー",
+      "romaji": "puroguramaa",
+      "definition": "Lập trình viên",
+      "exampleSentence": "プログラマーとして働く。",
+      "exampleTranslation": "Làm lập trình viên.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 2682,
+      "term": "経営者",
+      "reading": "けいえいしゃ",
+      "romaji": "keieisha",
+      "definition": "Giám đốc, chủ doanh nghiệp",
+      "exampleSentence": "会社の経営者。",
+      "exampleTranslation": "Giám đốc công ty.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 2683,
+      "term": "管理職",
+      "reading": "かんりしょく",
+      "romaji": "kanrishoku",
+      "definition": "Vị trí quản lý",
+      "exampleSentence": "管理職に昇進する。",
+      "exampleTranslation": "Thăng chức lên vị trí quản lý.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 2684,
+      "term": "部長",
+      "reading": "ぶちょう",
+      "romaji": "buchou",
+      "definition": "Trưởng phòng",
+      "exampleSentence": "部長の命令に従う。",
+      "exampleTranslation": "Tuân theo lệnh trưởng phòng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 2685,
+      "term": "課長",
+      "reading": "かちょう",
+      "romaji": "kachou",
+      "definition": "Trưởng nhóm/phó phòng",
+      "exampleSentence": "課長に報告する。",
+      "exampleTranslation": "Báo cáo với trưởng nhóm.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 2686,
+      "term": "新入社員",
+      "reading": "しんにゅうしゃいん",
+      "romaji": "shinnyuu shain",
+      "definition": "Nhân viên mới",
+      "exampleSentence": "今年の新入社員。",
+      "exampleTranslation": "Nhân viên mới năm nay.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 2687,
+      "term": "アルバイト",
+      "reading": "あるばいと",
+      "romaji": "arubaito",
+      "definition": "Làm thêm, việc bán thời gian",
+      "exampleSentence": "アルバイトをする。",
+      "exampleTranslation": "Làm thêm.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 2688,
+      "term": "パート",
+      "reading": "ぱーと",
+      "romaji": "paato",
+      "definition": "Việc bán thời gian (thường chỉ phụ nữ)",
+      "exampleSentence": "パートで働く。",
+      "exampleTranslation": "Làm việc bán thời gian.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 2689,
+      "term": "フリーランス",
+      "reading": "ふりーらんす",
+      "romaji": "furii ransu",
+      "definition": "Tự do (freelance)",
+      "exampleSentence": "フリーランスで仕事する。",
+      "exampleTranslation": "Làm việc tự do.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 2690,
+      "term": "起業する",
+      "reading": "きぎょうする",
+      "romaji": "kigyou suru",
+      "definition": "Khởi nghiệp",
+      "exampleSentence": "会社を起業する。",
+      "exampleTranslation": "Thành lập công ty.",
+      "forms": [
+        "起業します",
+        "起業して",
+        "起業した",
+        "起業しない",
+        "起業できる"
+      ],
+      "displayOrder": 19
+    },
+    {
+      "id": 2691,
+      "term": "転職する",
+      "reading": "てんしょくする",
+      "romaji": "tenshoku suru",
+      "definition": "Chuyển việc",
+      "exampleSentence": "新しい会社に転職する。",
+      "exampleTranslation": "Chuyển sang công ty mới.",
+      "forms": [
+        "転職します",
+        "転職して",
+        "転職した",
+        "転職しない",
+        "転職できる"
+      ],
+      "displayOrder": 20
+    },
+    {
+      "id": 2692,
+      "term": "昇進する",
+      "reading": "しょうしんする",
+      "romaji": "shoushin suru",
+      "definition": "Thăng chức",
+      "exampleSentence": "課長に昇進した。",
+      "exampleTranslation": "Được thăng chức lên trưởng nhóm.",
+      "forms": [
+        "昇進します",
+        "昇進して",
+        "昇進した",
+        "昇進しない",
+        "昇進できる"
+      ],
+      "displayOrder": 21
+    },
+    {
+      "id": 2693,
+      "term": "解雇される",
+      "reading": "かいこされる",
+      "romaji": "kaiko sareru",
+      "definition": "Bị sa thải",
+      "exampleSentence": "突然解雇された。",
+      "exampleTranslation": "Đột ngột bị sa thải.",
+      "forms": [
+        "解雇されます",
+        "解雇されて",
+        "解雇された",
+        "解雇されない",
+        "解雇できる"
+      ],
+      "displayOrder": 22
+    },
+    {
+      "id": 2694,
+      "term": "給料",
+      "reading": "きゅうりょう",
+      "romaji": "kyuuryou",
+      "definition": "Lương",
+      "exampleSentence": "給料を上げてほしい。",
+      "exampleTranslation": "Muốn tăng lương.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 2695,
+      "term": "残業",
+      "reading": "ざんぎょう",
+      "romaji": "zangyou",
+      "definition": "Làm thêm giờ",
+      "exampleSentence": "毎日残業している。",
+      "exampleTranslation": "Mỗi ngày làm thêm giờ.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 2696,
+      "term": "有給休暇",
+      "reading": "ゆうきゅうきゅうか",
+      "romaji": "yuukyuu kyuuka",
+      "definition": "Nghỉ phép có lương",
+      "exampleSentence": "有給休暇を取る。",
+      "exampleTranslation": "Lấy ngày nghỉ phép.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 2697,
+      "term": "求人",
+      "reading": "きゅうじん",
+      "romaji": "kyuujin",
+      "definition": "Tuyển dụng",
+      "exampleSentence": "求人広告を見る。",
+      "exampleTranslation": "Xem quảng cáo tuyển dụng.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 2698,
+      "term": "履歴書",
+      "reading": "りれきしょ",
+      "romaji": "rirekisho",
+      "definition": "Lý lịch, CV",
+      "exampleSentence": "履歴書を書く。",
+      "exampleTranslation": "Viết CV.",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 2699,
+      "term": "面接",
+      "reading": "めんせつ",
+      "romaji": "mensetsu",
+      "definition": "Phỏng vấn",
+      "exampleSentence": "就職面接を受ける。",
+      "exampleTranslation": "Tham gia phỏng vấn xin việc.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 2700,
+      "term": "採用",
+      "reading": "さいよう",
+      "romaji": "saiyou",
+      "definition": "Tuyển dụng, chấp nhận",
+      "exampleSentence": "採用されました。",
+      "exampleTranslation": "Được tuyển dụng.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

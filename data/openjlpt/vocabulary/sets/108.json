@@ -1,0 +1,351 @@
+{
+  "id": 108,
+  "title": "N4 単語 総まとめ",
+  "description": "Ôn tập tổng hợp từ vựng N4",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:54.920576",
+  "cards": [
+    {
+      "id": 3181,
+      "term": "総まとめ",
+      "reading": "そうまとめ",
+      "romaji": "soumatomme",
+      "definition": "Ôn tập tổng hợp",
+      "exampleSentence": "N4の総まとめ。",
+      "exampleTranslation": "Ôn tập tổng hợp N4.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 3182,
+      "term": "単語",
+      "reading": "たんご",
+      "romaji": "tango",
+      "definition": "Từ vựng",
+      "exampleSentence": "単語を覚える。",
+      "exampleTranslation": "Ghi nhớ từ vựng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 3183,
+      "term": "文法",
+      "reading": "ぶんぽう",
+      "romaji": "bunpou",
+      "definition": "Ngữ pháp",
+      "exampleSentence": "文法を復習する。",
+      "exampleTranslation": "Ôn lại ngữ pháp.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 3184,
+      "term": "語彙力",
+      "reading": "ごいりょく",
+      "romaji": "goi ryoku",
+      "definition": "Vốn từ",
+      "exampleSentence": "語彙力を増やす。",
+      "exampleTranslation": "Tăng vốn từ.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 3185,
+      "term": "読解",
+      "reading": "どっかい",
+      "romaji": "dokkai",
+      "definition": "Đọc hiểu",
+      "exampleSentence": "読解問題を解く。",
+      "exampleTranslation": "Giải bài đọc hiểu.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 3186,
+      "term": "聴解",
+      "reading": "ちょうかい",
+      "romaji": "choukai",
+      "definition": "Nghe hiểu",
+      "exampleSentence": "聴解を練習する。",
+      "exampleTranslation": "Luyện nghe hiểu.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 3187,
+      "term": "表現",
+      "reading": "ひょうげん",
+      "romaji": "hyougen",
+      "definition": "Biểu đạt, cách diễn đạt",
+      "exampleSentence": "表現を学ぶ。",
+      "exampleTranslation": "Học cách biểu đạt.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 3188,
+      "term": "慣用句",
+      "reading": "かんようく",
+      "romaji": "kan you ku",
+      "definition": "Thành ngữ",
+      "exampleSentence": "慣用句を覚える。",
+      "exampleTranslation": "Ghi nhớ thành ngữ.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 3189,
+      "term": "JLPT",
+      "reading": "じぇいえるぴーてぃー",
+      "romaji": "jei eru pii tii",
+      "definition": "Kỳ thi JLPT",
+      "exampleSentence": "JLPTのN4を受ける。",
+      "exampleTranslation": "Thi N4 của JLPT.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 3190,
+      "term": "合格率",
+      "reading": "ごうかくりつ",
+      "romaji": "goukaku ritsu",
+      "definition": "Tỷ lệ đỗ",
+      "exampleSentence": "N4の合格率。",
+      "exampleTranslation": "Tỷ lệ đỗ N4.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 3191,
+      "term": "模擬テスト",
+      "reading": "もぎてすと",
+      "romaji": "mogi tesuto",
+      "definition": "Thi thử",
+      "exampleSentence": "模擬テストをする。",
+      "exampleTranslation": "Làm bài thi thử.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 3192,
+      "term": "弱点",
+      "reading": "じゃくてん",
+      "romaji": "jakuten",
+      "definition": "Điểm yếu",
+      "exampleSentence": "弱点を克服する。",
+      "exampleTranslation": "Khắc phục điểm yếu.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 3193,
+      "term": "得点",
+      "reading": "とくてん",
+      "romaji": "tokuten",
+      "definition": "Điểm số (đạt được)",
+      "exampleSentence": "高得点を狙う。",
+      "exampleTranslation": "Nhắm đến điểm cao.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 3194,
+      "term": "時間管理",
+      "reading": "じかんかんり",
+      "romaji": "jikan kanri",
+      "definition": "Quản lý thời gian",
+      "exampleSentence": "時間管理が大切。",
+      "exampleTranslation": "Quản lý thời gian quan trọng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 3195,
+      "term": "コツ",
+      "reading": "こつ",
+      "romaji": "kotsu",
+      "definition": "Bí quyết, mẹo",
+      "exampleSentence": "勉強のコツ。",
+      "exampleTranslation": "Bí quyết học tập.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 3196,
+      "term": "暗記",
+      "reading": "あんき",
+      "romaji": "anki",
+      "definition": "Học thuộc",
+      "exampleSentence": "単語を暗記する。",
+      "exampleTranslation": "Học thuộc từ vựng.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 3197,
+      "term": "反復練習",
+      "reading": "はんぷくれんしゅう",
+      "romaji": "hanpuku renshuu",
+      "definition": "Luyện tập lặp đi lặp lại",
+      "exampleSentence": "反復練習が大切。",
+      "exampleTranslation": "Luyện tập lặp lại quan trọng.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 3198,
+      "term": "自信",
+      "reading": "じしん",
+      "romaji": "jishin",
+      "definition": "Tự tin",
+      "exampleSentence": "試験に自信を持つ。",
+      "exampleTranslation": "Tự tin vào kỳ thi.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 3199,
+      "term": "努力",
+      "reading": "どりょく",
+      "romaji": "doryoku",
+      "definition": "Nỗ lực, cố gắng",
+      "exampleSentence": "努力が実る。",
+      "exampleTranslation": "Nỗ lực đơm hoa kết quả.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 3200,
+      "term": "目標",
+      "reading": "もくひょう",
+      "romaji": "mokuhyou",
+      "definition": "Mục tiêu",
+      "exampleSentence": "目標を達成する。",
+      "exampleTranslation": "Đạt được mục tiêu.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 50598,
+      "term": "予定",
+      "reading": "よてい",
+      "romaji": "yotei",
+      "definition": "dự định; lịch trình",
+      "exampleSentence": "来週の予定を手帳に書きました。",
+      "exampleTranslation": "Tôi đã viết lịch trình tuần sau vào sổ tay.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 50599,
+      "term": "準備",
+      "reading": "じゅんび",
+      "romaji": "junbi",
+      "definition": "sự chuẩn bị",
+      "exampleSentence": "旅行の準備はもう終わりました。",
+      "exampleTranslation": "Tôi đã chuẩn bị xong cho chuyến du lịch.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 50600,
+      "term": "経験",
+      "reading": "けいけん",
+      "romaji": "keiken",
+      "definition": "kinh nghiệm",
+      "exampleSentence": "私は海外旅行の経験があります。",
+      "exampleTranslation": "Tôi có kinh nghiệm đi du lịch nước ngoài.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 50601,
+      "term": "必要",
+      "reading": "ひつよう",
+      "romaji": "hitsuyou",
+      "definition": "cần thiết",
+      "exampleSentence": "この仕事にはパソコンが必要です。",
+      "exampleTranslation": "Công việc này cần máy tính.",
+      "forms": [
+        "必要です",
+        "必要な",
+        "必要だった",
+        "必要ではない"
+      ],
+      "displayOrder": 23
+    },
+    {
+      "id": 50602,
+      "term": "場合",
+      "reading": "ばあい",
+      "romaji": "baai",
+      "definition": "trường hợp",
+      "exampleSentence": "雨の場合は、試合を中止します。",
+      "exampleTranslation": "Trong trường hợp trời mưa, trận đấu sẽ bị hủy.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 50603,
+      "term": "理由",
+      "reading": "りゆう",
+      "romaji": "riyuu",
+      "definition": "lý do",
+      "exampleSentence": "遅れた理由を先生に説明しました。",
+      "exampleTranslation": "Tôi đã giải thích lý do đến muộn với giáo viên.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 50604,
+      "term": "方法",
+      "reading": "ほうほう",
+      "romaji": "houhou",
+      "definition": "phương pháp; cách thức",
+      "exampleSentence": "この漢字の覚え方にはいろいろな方法があります。",
+      "exampleTranslation": "Có nhiều phương pháp ghi nhớ chữ Hán này.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 50605,
+      "term": "連絡",
+      "reading": "れんらく",
+      "romaji": "renraku",
+      "definition": "liên lạc; thông báo",
+      "exampleSentence": "着いたら、家族に連絡してください。",
+      "exampleTranslation": "Khi đến nơi, hãy liên lạc với gia đình.",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 50606,
+      "term": "参加",
+      "reading": "さんか",
+      "romaji": "sanka",
+      "definition": "tham gia",
+      "exampleSentence": "来月のイベントに参加する予定です。",
+      "exampleTranslation": "Tôi dự định tham gia sự kiện tháng sau.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 50607,
+      "term": "比べる",
+      "reading": "くらべる",
+      "romaji": "kuraberu",
+      "definition": "so sánh",
+      "exampleSentence": "二つの商品を比べてから買いました。",
+      "exampleTranslation": "Tôi đã so sánh hai sản phẩm rồi mới mua.",
+      "forms": [
+        "比べます",
+        "比べて",
+        "比べた",
+        "比べない"
+      ],
+      "displayOrder": 29
+    }
+  ]
+}

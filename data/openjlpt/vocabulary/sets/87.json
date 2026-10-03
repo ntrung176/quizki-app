@@ -1,0 +1,453 @@
+{
+  "id": 87,
+  "title": "電話会話",
+  "description": "Hội thoại qua điện thoại · N5",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:53.56014",
+  "cards": [
+    {
+      "id": 2571,
+      "term": "もしもし",
+      "reading": "もしもし",
+      "romaji": "moshimoshi",
+      "definition": "A lô",
+      "exampleSentence": "もしもし、田中です。",
+      "exampleTranslation": "A lô, tôi là Tanaka.",
+      "forms": [
+        "電話をかけた時の最初の言葉",
+        "返事: もしもし, はい",
+        "ビジネスでは社名や名前を言う"
+      ],
+      "displayOrder": 0
+    },
+    {
+      "id": 2572,
+      "term": "〜と申しますが",
+      "reading": "〜ともうしますが",
+      "romaji": "to moushimasu ga",
+      "definition": "Tôi là ... (lịch sự)",
+      "exampleSentence": "山田と申しますが、鈴木さんはいらっしゃいますか。",
+      "exampleTranslation": "Tôi là Yamada, Suzuki-san có ở đó không?",
+      "forms": [
+        "ビジネス電話での自己紹介",
+        "〜ですが (thân mật hơn)",
+        "申す = nói (khiêm nhường ngữ)"
+      ],
+      "displayOrder": 1
+    },
+    {
+      "id": 2573,
+      "term": "〜さんはいらっしゃいますか",
+      "reading": "〜さんはいらっしゃいますか",
+      "romaji": "san wa irasshaimasu ka",
+      "definition": "... có ở đó không? (lịch sự)",
+      "exampleSentence": "田中部長はいらっしゃいますか。",
+      "exampleTranslation": "Trưởng phòng Tanaka có ở đó không?",
+      "forms": [
+        "不在の方を呼ぶ",
+        "いる の尊敬語 = いらっしゃる",
+        "ただ今席を外しております (đang vắng mặt)"
+      ],
+      "displayOrder": 2
+    },
+    {
+      "id": 2574,
+      "term": "少々お待ちください",
+      "reading": "しょうしょうおまちください",
+      "romaji": "shoushou omachi kudasai",
+      "definition": "Vui lòng chờ một chút",
+      "exampleSentence": "少々お待ちください。",
+      "exampleTranslation": "Vui lòng chờ một chút.",
+      "forms": [
+        "保留・待たせる時の表現",
+        "お待たせしました = xin lỗi đã để chờ",
+        "しばらくお待ちください も使える"
+      ],
+      "displayOrder": 3
+    },
+    {
+      "id": 2575,
+      "term": "伝言をお願いできますか",
+      "reading": "でんごんをおねがいできますか",
+      "romaji": "dengon wo onegai dekimasu ka",
+      "definition": "Bạn có thể nhắn tin giúp tôi không?",
+      "exampleSentence": "伝言をお願いできますか。",
+      "exampleTranslation": "Bạn có thể nhắn tin giúp tôi không?",
+      "forms": [
+        "メッセージを頼む",
+        "お伝えします = tôi sẽ nhắn",
+        "伝言を残す = để lại tin nhắn"
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": 2576,
+      "term": "折り返し電話していただけますか",
+      "reading": "おりかえしでんわしていただけますか",
+      "romaji": "orikaeshi denwa shite itadakemasu ka",
+      "definition": "Bạn có thể gọi lại không?",
+      "exampleSentence": "折り返しお電話していただけますか。",
+      "exampleTranslation": "Bạn có thể gọi lại không?",
+      "forms": [
+        "コールバックを頼む",
+        "後ほど折り返します = tôi sẽ gọi lại",
+        "お電話番号を教えていただけますか"
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": 2577,
+      "term": "電話番号は何番ですか",
+      "reading": "でんわばんごうはなんばんですか",
+      "romaji": "denwa bangou wa nanban desu ka",
+      "definition": "Số điện thoại là bao nhiêu?",
+      "exampleSentence": "お電話番号は何番でしょうか。",
+      "exampleTranslation": "Số điện thoại là bao nhiêu?",
+      "forms": [
+        "番号を聞く",
+        "〇〇にかけてください も使える",
+        "メモを取ります = ghi lại"
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": 2578,
+      "term": "ゆっくり話してください",
+      "reading": "ゆっくりはなしてください",
+      "romaji": "yukkuri hanashite kudasai",
+      "definition": "Vui lòng nói chậm lại",
+      "exampleSentence": "もう少しゆっくり話してください。",
+      "exampleTranslation": "Vui lòng nói chậm hơn một chút.",
+      "forms": [
+        "理解できない時の頼み方",
+        "もう一度言ってください も使える",
+        "はっきり話してください = nói rõ hơn"
+      ],
+      "displayOrder": 7
+    },
+    {
+      "id": 2579,
+      "term": "聞き取れませんでした",
+      "reading": "ききとれませんでした",
+      "romaji": "kikitoremasen deshita",
+      "definition": "Tôi không nghe rõ được",
+      "exampleSentence": "すみません、聞き取れませんでした。",
+      "exampleTranslation": "Xin lỗi, tôi không nghe rõ.",
+      "forms": [
+        "聞き取れない時の表現",
+        "もう一度おっしゃっていただけますか",
+        "電波が悪い = sóng kém"
+      ],
+      "displayOrder": 8
+    },
+    {
+      "id": 2580,
+      "term": "電話をかけます",
+      "reading": "でんわをかけます",
+      "romaji": "denwa wo kakemasu",
+      "definition": "Gọi điện",
+      "exampleSentence": "後で電話をかけます。",
+      "exampleTranslation": "Tôi sẽ gọi điện sau.",
+      "forms": [
+        "電話する = gọi điện (thân mật hơn)",
+        "お電話差し上げます (trang trọng)",
+        "電話をかけ直す = gọi lại"
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": 2581,
+      "term": "電話を切ります",
+      "reading": "でんわをきります",
+      "romaji": "denwa wo kirimasu",
+      "definition": "Cúp máy",
+      "exampleSentence": "では、失礼します。電話を切ります。",
+      "exampleTranslation": "Thế thì xin phép, tôi cúp máy.",
+      "forms": [
+        "電話を終わらせる",
+        "では、また (lời tạm biệt qua điện thoại)",
+        "失礼します を使う"
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": 2582,
+      "term": "通話中です",
+      "reading": "つうわちゅうです",
+      "romaji": "tsuuwa chuu desu",
+      "definition": "Đang bận máy",
+      "exampleSentence": "ただいま通話中です。",
+      "exampleTranslation": "Hiện đang bận máy.",
+      "forms": [
+        "電話が繋がらない状況",
+        "あとでかけ直します",
+        "話し中 (nghĩa tương tự)"
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": 2583,
+      "term": "電話に出る",
+      "reading": "でんわにでる",
+      "romaji": "denwa ni deru",
+      "definition": "Nghe điện thoại",
+      "exampleSentence": "電話に出てください。",
+      "exampleTranslation": "Vui lòng nghe điện thoại.",
+      "forms": [
+        "電話を受ける",
+        "はい、〇〇です (khi nghe)",
+        "電話に出られない = không nghe được"
+      ],
+      "displayOrder": 12
+    },
+    {
+      "id": 2584,
+      "term": "留守番電話に残す",
+      "reading": "るすばんでんわにのこす",
+      "romaji": "rusuban denwa ni nokosu",
+      "definition": "Để lại tin nhắn thoại",
+      "exampleSentence": "留守番電話にメッセージを残してください。",
+      "exampleTranslation": "Vui lòng để lại tin nhắn thoại.",
+      "forms": [
+        "留守電 = hộp thư thoại",
+        "ピーの後にメッセージを = sau tiếng bíp để lại"
+      ],
+      "displayOrder": 13
+    },
+    {
+      "id": 2585,
+      "term": "スマホ",
+      "reading": "すまーとふぉん",
+      "romaji": "sumaho",
+      "definition": "Điện thoại thông minh",
+      "exampleSentence": "スマホで電話する。",
+      "exampleTranslation": "Gọi điện bằng điện thoại thông minh.",
+      "forms": [
+        "スマートフォンの略語",
+        "ガラケー = điện thoại nắp gập",
+        "アプリで電話もできる"
+      ],
+      "displayOrder": 14
+    },
+    {
+      "id": 2586,
+      "term": "着信",
+      "reading": "ちゃくしん",
+      "romaji": "chakushin",
+      "definition": "Cuộc gọi đến",
+      "exampleSentence": "着信があった。",
+      "exampleTranslation": "Có cuộc gọi đến.",
+      "forms": [
+        "電話がかかってきた",
+        "着信履歴 = lịch sử cuộc gọi",
+        "不在着信 = cuộc gọi nhỡ"
+      ],
+      "displayOrder": 15
+    },
+    {
+      "id": 2587,
+      "term": "発信",
+      "reading": "はっしん",
+      "romaji": "hasshin",
+      "definition": "Cuộc gọi đi",
+      "exampleSentence": "発信履歴を確認する。",
+      "exampleTranslation": "Kiểm tra lịch sử cuộc gọi đi.",
+      "forms": [
+        "電話をかけた記録",
+        "発信ボタンを押す = bấm nút gọi",
+        "電話をかける = gọi điện"
+      ],
+      "displayOrder": 16
+    },
+    {
+      "id": 2588,
+      "term": "国際電話",
+      "reading": "こくさいでんわ",
+      "romaji": "kokusai denwa",
+      "definition": "Điện thoại quốc tế",
+      "exampleSentence": "国際電話をかける。",
+      "exampleTranslation": "Gọi điện thoại quốc tế.",
+      "forms": [
+        "海外への電話",
+        "国番号 = mã quốc gia (Việt Nam: 84)",
+        "LINEで国際電話もできる"
+      ],
+      "displayOrder": 17
+    },
+    {
+      "id": 2589,
+      "term": "電話が切れた",
+      "reading": "でんわがきれた",
+      "romaji": "denwa ga kireta",
+      "definition": "Điện thoại bị cúp/mất liên lạc",
+      "exampleSentence": "電波が悪くて電話が切れた。",
+      "exampleTranslation": "Sóng kém nên điện thoại bị cúp.",
+      "forms": [
+        "通話が途切れた",
+        "もしもし？聞こえますか = a lô, bạn nghe không",
+        "電波が弱い = sóng yếu"
+      ],
+      "displayOrder": 18
+    },
+    {
+      "id": 2590,
+      "term": "ビデオ通話をする",
+      "reading": "びでおつうわをする",
+      "romaji": "bideo tsuuwa wo suru",
+      "definition": "Thực hiện cuộc gọi video",
+      "exampleSentence": "ビデオ通話で話しましょう。",
+      "exampleTranslation": "Hãy nói chuyện qua cuộc gọi video.",
+      "forms": [
+        "テレビ電話とも言う",
+        "ZoomやLINEで使える",
+        "カメラをオンにしてください = hãy bật camera"
+      ],
+      "displayOrder": 19
+    },
+    {
+      "id": 2591,
+      "term": "〜に電話する",
+      "reading": "〜にでんわする",
+      "romaji": "ni denwa suru",
+      "definition": "Gọi điện cho...",
+      "exampleSentence": "友達に電話する。",
+      "exampleTranslation": "Gọi điện cho bạn bè.",
+      "forms": [
+        "基本的な電話の表現",
+        "お電話する (lịch sự)",
+        "電話で連絡する も使える"
+      ],
+      "displayOrder": 20
+    },
+    {
+      "id": 2592,
+      "term": "かけ直す",
+      "reading": "かけなおす",
+      "romaji": "kake naosu",
+      "definition": "Gọi lại",
+      "exampleSentence": "後でかけ直します。",
+      "exampleTranslation": "Sau tôi sẽ gọi lại.",
+      "forms": [
+        "再度電話する",
+        "折り返し電話する も使える",
+        "また電話します (thân mật)"
+      ],
+      "displayOrder": 21
+    },
+    {
+      "id": 50578,
+      "term": "どちら様ですか",
+      "reading": "どちらさまですか",
+      "romaji": "dochira-sama desu ka",
+      "definition": "Xin hỏi ai vậy ạ?",
+      "exampleSentence": "失礼ですが、どちら様ですか。",
+      "exampleTranslation": "Xin lỗi, cho hỏi ai vậy ạ?",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 50579,
+      "term": "お電話ありがとうございます",
+      "reading": "おでんわありがとうございます",
+      "romaji": "odenwa arigatō gozaimasu",
+      "definition": "Cảm ơn bạn đã gọi điện",
+      "exampleSentence": "お電話ありがとうございます。ABC商店です。",
+      "exampleTranslation": "Cảm ơn bạn đã gọi. Đây là cửa hàng ABC.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 50580,
+      "term": "お名前をお願いします",
+      "reading": "おなまえをおねがいします",
+      "romaji": "onamae o onegai shimasu",
+      "definition": "Vui lòng cho biết tên",
+      "exampleSentence": "すみません、お名前をお願いします。",
+      "exampleTranslation": "Xin lỗi, vui lòng cho biết tên ạ.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 50581,
+      "term": "電話を取る",
+      "reading": "でんわをとる",
+      "romaji": "denwa o toru",
+      "definition": "Nhấc máy, nghe điện thoại",
+      "exampleSentence": "電話が鳴ったので、すぐに電話を取りました。",
+      "exampleTranslation": "Điện thoại reo nên tôi đã nhấc máy ngay.",
+      "forms": [
+        "電話を取ります",
+        "電話を取って",
+        "電話を取った",
+        "電話を取らない"
+      ],
+      "displayOrder": 25
+    },
+    {
+      "id": 50582,
+      "term": "電話が鳴る",
+      "reading": "でんわがなる",
+      "romaji": "denwa ga naru",
+      "definition": "Điện thoại reo",
+      "exampleSentence": "朝、電話が何度も鳴りました。",
+      "exampleTranslation": "Sáng nay, điện thoại reo nhiều lần.",
+      "forms": [
+        "電話が鳴ります",
+        "電話が鳴って",
+        "電話が鳴った",
+        "電話が鳴らない"
+      ],
+      "displayOrder": 26
+    },
+    {
+      "id": 50583,
+      "term": "〜に代わります",
+      "reading": "〜にかわります",
+      "romaji": "~ ni kawarimasu",
+      "definition": "Tôi sẽ chuyển máy cho…",
+      "exampleSentence": "少々お待ちください。田中に代わります。",
+      "exampleTranslation": "Xin chờ một chút. Tôi sẽ chuyển máy cho anh Tanaka.",
+      "forms": [
+        "〜に代わります",
+        "〜に代わって",
+        "〜に代わった",
+        "〜に代わらない"
+      ],
+      "displayOrder": 27
+    },
+    {
+      "id": 50584,
+      "term": "電話をつなぐ",
+      "reading": "でんわをつなぐ",
+      "romaji": "denwa o tsunagu",
+      "definition": "Nối máy, chuyển máy",
+      "exampleSentence": "担当の人に電話をつなぎます。",
+      "exampleTranslation": "Tôi sẽ nối máy với người phụ trách.",
+      "forms": [
+        "電話をつなぎます",
+        "電話をつないで",
+        "電話をつないだ",
+        "電話をつながない"
+      ],
+      "displayOrder": 28
+    },
+    {
+      "id": 50585,
+      "term": "電波が悪い",
+      "reading": "でんぱがわるい",
+      "romaji": "denpa ga warui",
+      "definition": "Sóng điện thoại yếu",
+      "exampleSentence": "すみません、電波が悪くて、よく聞こえません。",
+      "exampleTranslation": "Xin lỗi, sóng yếu nên tôi nghe không rõ.",
+      "forms": [
+        "電波が悪いです",
+        "電波が悪くて",
+        "電波が悪かったです",
+        "電波が悪くないです"
+      ],
+      "displayOrder": 29
+    }
+  ]
+}

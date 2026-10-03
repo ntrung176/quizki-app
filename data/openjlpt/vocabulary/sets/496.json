@@ -1,0 +1,253 @@
+{
+  "id": 496,
+  "title": "感情・性格 · 喜び・幸せ",
+  "description": "Vui & hạnh phúc — chủ đề Cảm xúc & tính cách · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:50.530847",
+  "cards": [
+    {
+      "id": 12396,
+      "term": "安心 (あんしん)",
+      "reading": "あんしん",
+      "romaji": null,
+      "definition": "sự yên tâm, an lòng",
+      "exampleSentence": "旅行の日が近づくと、家族は安心を求めて保険に加入した。",
+      "exampleTranslation": "Khi ngày đi du lịch đến gần, gia đình tôi đã mua bảo hiểm để yên tâm hơn.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12397,
+      "term": "安心する (あんしんする)",
+      "reading": "あんしんする",
+      "romaji": null,
+      "definition": "yên tâm, an lòng",
+      "exampleSentence": "無事だと分かれば、母もきっと安心するでしょう。",
+      "exampleTranslation": "Nếu biết tôi vẫn bình an, chắc mẹ cũng sẽ yên tâm.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12398,
+      "term": "幸せ (しあわせ)",
+      "reading": "しあわせ",
+      "romaji": null,
+      "definition": "hạnh phúc",
+      "exampleSentence": "家族と一緒に食卓を囲む時間は、とても幸せな時間です。",
+      "exampleTranslation": "Thời gian quây quần bên bàn ăn cùng gia đình là khoảng thời gian vô cùng hạnh phúc.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12399,
+      "term": "感謝 (かんしゃ)",
+      "reading": "かんしゃ",
+      "romaji": null,
+      "definition": "lòng biết ơn",
+      "exampleSentence": "先生への感謝の気持ちを、卒業式で伝えました。",
+      "exampleTranslation": "Tôi đã bày tỏ lòng biết ơn đối với thầy cô trong lễ tốt nghiệp.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12400,
+      "term": "感動 (かんどう)",
+      "reading": "かんどう",
+      "romaji": null,
+      "definition": "xúc động sâu sắc",
+      "exampleSentence": "試合に勝った瞬間、会場全体が感動に包まれた。",
+      "exampleTranslation": "Ngay khoảnh khắc chiến thắng trận đấu, cả khán đài tràn ngập cảm xúc.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12401,
+      "term": "感動する (かんどうする)",
+      "reading": "かんどうする",
+      "romaji": null,
+      "definition": "cảm động, xúc động",
+      "exampleSentence": "映画の最後の場面に感動する人は多い。",
+      "exampleTranslation": "Có nhiều người cảm động trước cảnh cuối của bộ phim.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12402,
+      "term": "喜び (よろこび)",
+      "reading": "よろこび",
+      "romaji": null,
+      "definition": "niềm vui",
+      "exampleSentence": "合格の知らせを聞いたときの喜びは、今でも忘れられない。",
+      "exampleTranslation": "Tôi vẫn không thể quên niềm vui khi nghe tin mình đỗ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12403,
+      "term": "喜ぶ (よろこぶ)",
+      "reading": "よろこぶ",
+      "romaji": null,
+      "definition": "vui mừng, hân hoan",
+      "exampleSentence": "この知らせを聞けば、両親もきっと喜ぶでしょう。",
+      "exampleTranslation": "Nếu nghe tin này, chắc bố mẹ tôi cũng sẽ rất vui mừng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12404,
+      "term": "希望 (きぼう)",
+      "reading": "きぼう",
+      "romaji": null,
+      "definition": "hy vọng, kỳ vọng",
+      "exampleSentence": "多くの学生が、卒業後の進路について希望を持っている。",
+      "exampleTranslation": "Nhiều sinh viên đang nuôi hy vọng về con đường sau khi tốt nghiệp.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12405,
+      "term": "同情 (どうじょう)",
+      "reading": "どうじょう",
+      "romaji": null,
+      "definition": "thương cảm/thông cảm",
+      "exampleSentence": "彼の苦しい立場に、多くの人が同情を寄せた。",
+      "exampleTranslation": "Nhiều người đã bày tỏ sự thông cảm với hoàn cảnh khó khăn của anh ấy.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12406,
+      "term": "満足 (まんぞく)",
+      "reading": "まんぞく",
+      "romaji": null,
+      "definition": "sự hài lòng/thỏa mãn",
+      "exampleSentence": "このサービスには、利用者から高い満足が得られている。",
+      "exampleTranslation": "Dịch vụ này nhận được mức độ hài lòng cao từ người sử dụng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12407,
+      "term": "満足する (まんぞくする)",
+      "reading": "まんぞくする",
+      "romaji": null,
+      "definition": "hài lòng, thỏa mãn",
+      "exampleSentence": "今の結果に満足することなく、さらに努力を続けたい。",
+      "exampleTranslation": "Tôi muốn tiếp tục nỗ lực hơn nữa mà không hài lòng với kết quả hiện tại.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12408,
+      "term": "ポジティブ",
+      "reading": "ポジティブ",
+      "romaji": null,
+      "definition": "tích cực/positive",
+      "exampleSentence": "彼女はいつもポジティブな考え方で困難を乗り越えている。",
+      "exampleTranslation": "Cô ấy luôn vượt qua khó khăn bằng lối suy nghĩ tích cực.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12409,
+      "term": "気に入る (きにいる)",
+      "reading": "きにいる",
+      "romaji": null,
+      "definition": "thích/ưng ý/vừa lòng",
+      "exampleSentence": "これはきっと皆さんの気に入るデザインだと思います。",
+      "exampleTranslation": "Tôi nghĩ đây chắc chắn là thiết kế mà mọi người sẽ thích.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12410,
+      "term": "胸を打つ (むねをうつ)",
+      "reading": "むねをうつ",
+      "romaji": null,
+      "definition": "chạm đến lòng/xúc động sâu sắc",
+      "exampleSentence": "その歌声は、会場にいた全員の胸を打つほど美しかった。",
+      "exampleTranslation": "Giọng hát ấy hay đến mức chạm đến trái tim của tất cả mọi người trong khán phòng.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12411,
+      "term": "誇り (ほこり)",
+      "reading": "ほこり",
+      "romaji": null,
+      "definition": "niềm tự hào",
+      "exampleSentence": "自分の仕事に誇りを持って、毎日努力しています。",
+      "exampleTranslation": "Tôi luôn nỗ lực mỗi ngày với niềm tự hào về công việc của mình.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 12412,
+      "term": "充実感 (じゅうじつかん)",
+      "reading": "じゅうじつかん",
+      "romaji": null,
+      "definition": "cảm giác trọn vẹn",
+      "exampleSentence": "目標を達成したとき、大きな充実感を味わった。",
+      "exampleTranslation": "Khi đạt được mục tiêu, tôi cảm nhận được sự trọn vẹn lớn lao.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 12413,
+      "term": "憧れ (あこがれ)",
+      "reading": "あこがれ",
+      "romaji": null,
+      "definition": "sự ngưỡng mộ/ước mơ",
+      "exampleSentence": "彼は私にとって、今でも憧れの存在です。",
+      "exampleTranslation": "Đối với tôi, anh ấy vẫn luôn là một người đáng ngưỡng mộ.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 12414,
+      "term": "鼻が高い (はながたかい)",
+      "reading": "はながたかい",
+      "romaji": null,
+      "definition": "tự hào/kiêu hãnh",
+      "exampleSentence": "息子が国際大会で優勝し、両親は鼻が高い。",
+      "exampleTranslation": "Con trai giành chức vô địch cuộc thi quốc tế khiến bố mẹ rất tự hào.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 12415,
+      "term": "目を細める (めをほそめる)",
+      "reading": "めをほそめる",
+      "romaji": null,
+      "definition": "nheo mắt (vì vui/hài lòng)",
+      "exampleSentence": "祖父は孫の成長を見ながら、嬉しそうに目を細める。",
+      "exampleTranslation": "Ông nheo mắt đầy vui sướng khi nhìn cháu mình trưởng thành.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 12416,
+      "term": "安堵 (あんど)",
+      "reading": "あんど",
+      "romaji": null,
+      "definition": "cảm giác nhẹ nhõm",
+      "exampleSentence": "無事に手術が終わり、家族はようやく安堵した。",
+      "exampleTranslation": "Ca phẫu thuật kết thúc an toàn, gia đình cuối cùng cũng thấy nhẹ nhõm.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 12417,
+      "term": "高揚感 (こうようかん)",
+      "reading": "こうようかん",
+      "romaji": null,
+      "definition": "cảm giác phấn khích",
+      "exampleSentence": "会場全体が一つになった瞬間、選手たちは言葉では表せない高揚感に包まれた。",
+      "exampleTranslation": "Khoảnh khắc cả khán phòng hòa làm một, các tuyển thủ chìm trong cảm giác phấn khích không thể diễn tả bằng lời.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "id": 461,
+  "title": "IT・メディア · セキュリティ・プライバシー",
+  "description": "Bảo mật & quyền riêng tư — chủ đề CNTT & truyền thông · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.43725",
+  "cards": [
+    {
+      "id": 11712,
+      "term": "フェイクニュース",
+      "reading": "フェイクニュース",
+      "romaji": null,
+      "definition": "tin giả",
+      "exampleSentence": "フェイクニュースに惑わされないよう、情報源を確認することが大切だ。",
+      "exampleTranslation": "Để không bị tin giả làm cho hoang mang, việc kiểm tra nguồn thông tin là rất quan trọng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11713,
+      "term": "プライバシー",
+      "reading": "プライバシー",
+      "romaji": null,
+      "definition": "quyền riêng tư",
+      "exampleSentence": "インターネットを利用する際は、プライバシーを守る意識が必要だ。",
+      "exampleTranslation": "Khi sử dụng Internet, cần có ý thức bảo vệ quyền riêng tư.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11714,
+      "term": "セキュリティ",
+      "reading": "セキュリティ",
+      "romaji": null,
+      "definition": "bảo mật thông tin",
+      "exampleSentence": "会社では、セキュリティを強化するために定期的な点検を行っている。",
+      "exampleTranslation": "Ở công ty, người ta tiến hành kiểm tra định kỳ để tăng cường bảo mật thông tin.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11715,
+      "term": "サイバー攻撃 (サイバーこうげき)",
+      "reading": "サイバーこうげき",
+      "romaji": null,
+      "definition": "tấn công mạng",
+      "exampleSentence": "サイバー攻撃によって、企業の重要なデータが流出した。",
+      "exampleTranslation": "Do một cuộc tấn công mạng, dữ liệu quan trọng của doanh nghiệp đã bị rò rỉ.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11716,
+      "term": "デジタルデバイド",
+      "reading": "デジタルデバイド",
+      "romaji": null,
+      "definition": "khoảng cách số",
+      "exampleSentence": "デジタルデバイドを解消するには、高齢者への支援が欠かせない。",
+      "exampleTranslation": "Để xóa bỏ khoảng cách số, việc hỗ trợ người cao tuổi là không thể thiếu.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11717,
+      "term": "デマ",
+      "reading": "デマ",
+      "romaji": null,
+      "definition": "tin đồn sai/thất thiệt",
+      "exampleSentence": "その情報はデマだと分かり、拡散した人は謝罪した。",
+      "exampleTranslation": "Sau khi biết thông tin đó là tin đồn thất thiệt, người đã phát tán nó đã xin lỗi.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11718,
+      "term": "フィッシング",
+      "reading": "フィッシング",
+      "romaji": null,
+      "definition": "lừa đảo phishing",
+      "exampleSentence": "フィッシングの被害を防ぐため、怪しいメールのリンクは開かないでください。",
+      "exampleTranslation": "Để phòng tránh thiệt hại do lừa đảo phishing, xin đừng mở các liên kết trong email đáng ngờ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11719,
+      "term": "プライバシー設定 (プライバシーせってい)",
+      "reading": "プライバシーせってい",
+      "romaji": null,
+      "definition": "cài đặt quyền riêng tư",
+      "exampleSentence": "SNSを始める前に、プライバシー設定を確認しておこう。",
+      "exampleTranslation": "Trước khi bắt đầu sử dụng mạng xã hội, hãy kiểm tra cài đặt quyền riêng tư.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11720,
+      "term": "個人情報 (こじんじょうほう)",
+      "reading": "こじんじょうほう",
+      "romaji": null,
+      "definition": "thông tin cá nhân",
+      "exampleSentence": "個人情報を入力する前に、そのサイトが安全かどうか確認してください。",
+      "exampleTranslation": "Trước khi nhập thông tin cá nhân, hãy kiểm tra xem trang web đó có an toàn hay không.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11721,
+      "term": "個人情報保護 (こじんじょうほうほご)",
+      "reading": "こじんじょうほうほご",
+      "romaji": null,
+      "definition": "bảo vệ thông tin cá nhân",
+      "exampleSentence": "個人情報保護のため、登録時に本人確認を行っています。",
+      "exampleTranslation": "Để bảo vệ thông tin cá nhân, chúng tôi xác minh danh tính khi đăng ký.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11722,
+      "term": "著作権 (ちょさくけん)",
+      "reading": "ちょさくけん",
+      "romaji": null,
+      "definition": "bản quyền tác giả",
+      "exampleSentence": "この写真を掲載する前に、著作権の所在を確認してください。",
+      "exampleTranslation": "Trước khi đăng bức ảnh này, hãy kiểm tra chủ sở hữu bản quyền.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11723,
+      "term": "著作権侵害 (ちょさくけんしんがい)",
+      "reading": "ちょさくけんしんがい",
+      "romaji": null,
+      "definition": "xâm phạm bản quyền",
+      "exampleSentence": "許可なく記事を転載すると、著作権侵害になるおそれがあります。",
+      "exampleTranslation": "Nếu đăng lại bài viết mà không được phép, có nguy cơ bị coi là xâm phạm bản quyền.",
+      "forms": [],
+      "displayOrder": 11
+    }
+  ]
+}

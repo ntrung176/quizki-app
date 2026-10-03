@@ -1,0 +1,176 @@
+{
+  "id": 210,
+  "title": "Tuần 3 · Ngày 3 - 動植物 (Động vật & Thực vật)",
+  "description": "Nihongo Soumatome N3 語彙 — 動植物 (Động vật & Thực vật)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.22063",
+  "cards": [
+    {
+      "id": 5461,
+      "term": "植物 (しょくぶつ)",
+      "reading": "しょくぶつ",
+      "romaji": "shokubutsu",
+      "definition": "thực vật, cây cối",
+      "exampleSentence": "この公園には、珍しい植物がたくさんあります。",
+      "exampleTranslation": "Trong công viên này có rất nhiều loài thực vật quý hiếm.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5462,
+      "term": "動物 (どうぶつ)",
+      "reading": "どうぶつ",
+      "romaji": "doubutsu",
+      "definition": "động vật",
+      "exampleSentence": "動物が好きな妹は、将来獣医になりたいそうです。",
+      "exampleTranslation": "Em gái tôi, người yêu động vật, nói rằng sau này muốn trở thành bác sĩ thú y.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5463,
+      "term": "種 (たね)",
+      "reading": "たね",
+      "romaji": "tane",
+      "definition": "hạt giống, hạt",
+      "exampleSentence": "春になったので、庭に野菜の種をまきました。",
+      "exampleTranslation": "Vì mùa xuân đã đến nên tôi đã gieo hạt rau trong vườn.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5464,
+      "term": "根 (ね)",
+      "reading": "ね",
+      "romaji": "ne",
+      "definition": "rễ, gốc rễ",
+      "exampleSentence": "大きな木の根が道まで伸びています。",
+      "exampleTranslation": "Rễ của cây lớn vươn dài đến tận đường.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5465,
+      "term": "葉 (は)",
+      "reading": "は",
+      "romaji": "ha",
+      "definition": "lá, lá cây",
+      "exampleSentence": "秋になると、木の葉が赤や黄色に変わります。",
+      "exampleTranslation": "Khi mùa thu đến, lá cây chuyển sang màu đỏ hoặc vàng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5466,
+      "term": "実 (み)",
+      "reading": "み",
+      "romaji": "mi",
+      "definition": "quả, hạt, trái",
+      "exampleSentence": "秋になると、庭の柿の実が赤く熟します。",
+      "exampleTranslation": "Đến mùa thu, những quả hồng trong vườn chín đỏ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5467,
+      "term": "育つ (そだつ)",
+      "reading": "そだつ",
+      "romaji": "sodatsu",
+      "definition": "lớn lên, phát triển, trưởng thành",
+      "exampleSentence": "子どもは自然の中でのびのびと育つ。",
+      "exampleTranslation": "Trẻ em lớn lên khỏe mạnh và tự do trong thiên nhiên.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5468,
+      "term": "枯れる (かれる)",
+      "reading": "かれる",
+      "romaji": "kareru",
+      "definition": "héo tàn, chết (cây)",
+      "exampleSentence": "水をやらないと、庭の花がすぐに枯れる。",
+      "exampleTranslation": "Nếu không tưới nước, hoa trong vườn sẽ nhanh chóng héo tàn.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5469,
+      "term": "咲く (さく)",
+      "reading": "さく",
+      "romaji": "saku",
+      "definition": "nở (hoa)",
+      "exampleSentence": "春になると、公園の桜が一斉に咲く。",
+      "exampleTranslation": "Khi mùa xuân đến, hoa anh đào trong công viên đồng loạt nở.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5470,
+      "term": "生える (はえる)",
+      "reading": "はえる",
+      "romaji": "haeru",
+      "definition": "mọc, mọc lên",
+      "exampleSentence": "雨の後、庭に新しい草が生える。",
+      "exampleTranslation": "Sau cơn mưa, cỏ mới mọc lên trong vườn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5471,
+      "term": "繁殖する (はんしょくする)",
+      "reading": "はんしょくする",
+      "romaji": "hanshoku suru",
+      "definition": "sinh sản, sinh đẻ, nhân giống",
+      "exampleSentence": "この魚は水温が高い場所で繁殖する。",
+      "exampleTranslation": "Loài cá này sinh sản ở những nơi có nhiệt độ nước cao.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5472,
+      "term": "生態系 (せいたいけい)",
+      "reading": "せいたいけい",
+      "romaji": "seitaikei",
+      "definition": "hệ sinh thái",
+      "exampleSentence": "森林の生態系を守るために、木を植えている。",
+      "exampleTranslation": "Chúng tôi trồng cây để bảo vệ hệ sinh thái rừng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5473,
+      "term": "種類 (しゅるい)",
+      "reading": "しゅるい",
+      "romaji": "shurui",
+      "definition": "loại, chủng loại, loài",
+      "exampleSentence": "この店では、季節ごとに違う種類の野菜を販売している。",
+      "exampleTranslation": "Cửa hàng này bán những loại rau khác nhau theo từng mùa.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5474,
+      "term": "絶滅 (ぜつめつ)",
+      "reading": "ぜつめつ",
+      "romaji": "zetsumetsu",
+      "definition": "tuyệt chủng",
+      "exampleSentence": "環境の変化によって、多くの動物が絶滅の危機にさらされている。",
+      "exampleTranslation": "Do những thay đổi của môi trường, nhiều loài động vật đang đứng trước nguy cơ tuyệt chủng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5475,
+      "term": "保護する (ほごする)",
+      "reading": "ほごする",
+      "romaji": "hogo suru",
+      "definition": "bảo vệ, bảo tồn",
+      "exampleSentence": "絶滅のおそれがある動物を保護する活動が広がっている。",
+      "exampleTranslation": "Các hoạt động bảo vệ những loài động vật có nguy cơ tuyệt chủng đang lan rộng.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

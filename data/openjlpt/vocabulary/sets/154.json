@@ -1,0 +1,365 @@
+{
+  "id": 154,
+  "title": "建築・デザイン",
+  "description": "Kiến trúc và thiết kế · 30 từ",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:12.426123",
+  "cards": [
+    {
+      "id": 4475,
+      "term": "建築",
+      "reading": "けんちく",
+      "romaji": "kenchiku",
+      "definition": "Kiến trúc",
+      "exampleSentence": "近代建築を学んでいます。",
+      "exampleTranslation": "Tôi đang học kiến trúc hiện đại.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 4476,
+      "term": "設計",
+      "reading": "せっけい",
+      "romaji": "sekkei",
+      "definition": "Thiết kế (kiến trúc)",
+      "exampleSentence": "新しいビルを設計しました。",
+      "exampleTranslation": "Tôi đã thiết kế tòa nhà mới.",
+      "forms": [
+        "設計します",
+        "設計して",
+        "設計した",
+        "設計しない",
+        "設計できる"
+      ],
+      "displayOrder": 1
+    },
+    {
+      "id": 4477,
+      "term": "デザイン",
+      "reading": "デザイン",
+      "romaji": "dezain",
+      "definition": "Thiết kế (mỹ thuật)",
+      "exampleSentence": "シンプルなデザインが好きです。",
+      "exampleTranslation": "Tôi thích thiết kế đơn giản.",
+      "forms": [
+        "デザインします",
+        "デザインして",
+        "デザインした",
+        "デザインしない",
+        "デザインできる"
+      ],
+      "displayOrder": 2
+    },
+    {
+      "id": 4478,
+      "term": "構造",
+      "reading": "こうぞう",
+      "romaji": "kouzou",
+      "definition": "Cấu trúc",
+      "exampleSentence": "この建物の構造は独特です。",
+      "exampleTranslation": "Cấu trúc tòa nhà này độc đáo.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 4479,
+      "term": "基礎",
+      "reading": "きそ",
+      "romaji": "kiso",
+      "definition": "Móng / nền tảng",
+      "exampleSentence": "建物の基礎をしっかり作ります。",
+      "exampleTranslation": "Xây móng tòa nhà thật chắc.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 4480,
+      "term": "外観",
+      "reading": "がいかん",
+      "romaji": "gaikan",
+      "definition": "Ngoại thất / vẻ ngoài",
+      "exampleSentence": "このビルの外観は美しいです。",
+      "exampleTranslation": "Ngoại thất tòa nhà này đẹp.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 4481,
+      "term": "内装",
+      "reading": "ないそう",
+      "romaji": "naisou",
+      "definition": "Nội thất / trang trí bên trong",
+      "exampleSentence": "モダンな内装にしました。",
+      "exampleTranslation": "Tôi đã trang trí nội thất theo phong cách hiện đại.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 4482,
+      "term": "間取り",
+      "reading": "まどり",
+      "romaji": "madori",
+      "definition": "Sơ đồ mặt bằng / phân chia phòng",
+      "exampleSentence": "使いやすい間取りを考えました。",
+      "exampleTranslation": "Tôi đã nghĩ ra cách phân chia phòng tiện dụng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 4483,
+      "term": "採光",
+      "reading": "さいこう",
+      "romaji": "saikou",
+      "definition": "Ánh sáng tự nhiên",
+      "exampleSentence": "採光を考えた設計です。",
+      "exampleTranslation": "Đây là thiết kế xét đến ánh sáng tự nhiên.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 4484,
+      "term": "換気",
+      "reading": "かんき",
+      "romaji": "kanki",
+      "definition": "Thông gió / thông khí",
+      "exampleSentence": "十分な換気が大切です。",
+      "exampleTranslation": "Thông gió đủ là quan trọng.",
+      "forms": [
+        "換気します",
+        "換気して",
+        "換気した",
+        "換気しない",
+        "換気できる"
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": 4485,
+      "term": "耐震",
+      "reading": "たいしん",
+      "romaji": "taishin",
+      "definition": "Chống chịu động đất",
+      "exampleSentence": "耐震構造の家を建てます。",
+      "exampleTranslation": "Tôi xây nhà có cấu trúc chống động đất.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 4486,
+      "term": "省エネ",
+      "reading": "しょうエネ",
+      "romaji": "shou ene",
+      "definition": "Tiết kiệm năng lượng",
+      "exampleSentence": "省エネ設計の建物が増えています。",
+      "exampleTranslation": "Số tòa nhà thiết kế tiết kiệm năng lượng đang tăng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 4487,
+      "term": "バリアフリー",
+      "reading": "バリアフリー",
+      "romaji": "baria furii",
+      "definition": "Không rào cản (cho người khuyết tật)",
+      "exampleSentence": "バリアフリーな設計にしました。",
+      "exampleTranslation": "Tôi đã thiết kế không rào cản.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 4488,
+      "term": "ユニバーサルデザイン",
+      "reading": "ユニバーサルデザイン",
+      "romaji": "yunibasaru dezain",
+      "definition": "Thiết kế phổ quát",
+      "exampleSentence": "ユニバーサルデザインを取り入れています。",
+      "exampleTranslation": "Chúng tôi áp dụng thiết kế phổ quát.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 4489,
+      "term": "景観",
+      "reading": "けいかん",
+      "romaji": "keikan",
+      "definition": "Cảnh quan",
+      "exampleSentence": "街の景観を守ることが大切です。",
+      "exampleTranslation": "Bảo vệ cảnh quan của thành phố là quan trọng.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 4490,
+      "term": "リノベーション",
+      "reading": "リノベーション",
+      "romaji": "rinobeshon",
+      "definition": "Cải tạo / renovate",
+      "exampleSentence": "古い家をリノベーションしました。",
+      "exampleTranslation": "Tôi đã cải tạo ngôi nhà cũ.",
+      "forms": [
+        "リノベーションします",
+        "リノベーションして",
+        "リノベーションした",
+        "リノベーションしない",
+        "リノベーションできる"
+      ],
+      "displayOrder": 15
+    },
+    {
+      "id": 4491,
+      "term": "サステナブル",
+      "reading": "サステナブル",
+      "romaji": "sasuteinaburu",
+      "definition": "Bền vững",
+      "exampleSentence": "サステナブルな建築を目指します。",
+      "exampleTranslation": "Chúng tôi hướng tới kiến trúc bền vững.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 4492,
+      "term": "素材",
+      "reading": "そざい",
+      "romaji": "sozai",
+      "definition": "Vật liệu / chất liệu",
+      "exampleSentence": "自然素材を使った建物です。",
+      "exampleTranslation": "Đây là tòa nhà sử dụng vật liệu tự nhiên.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 4493,
+      "term": "照明",
+      "reading": "しょうめい",
+      "romaji": "shoumei",
+      "definition": "Chiếu sáng",
+      "exampleSentence": "照明が雰囲気を作り出します。",
+      "exampleTranslation": "Ánh sáng tạo ra không khí.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 4494,
+      "term": "空間",
+      "reading": "くうかん",
+      "romaji": "kuukan",
+      "definition": "Không gian",
+      "exampleSentence": "開放的な空間を作りたいです。",
+      "exampleTranslation": "Tôi muốn tạo không gian thoáng đãng.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 50844,
+      "term": "建物",
+      "reading": "たてもの",
+      "romaji": "tatemono",
+      "definition": "tòa nhà, công trình",
+      "exampleSentence": "この建物は百年前に建てられた。",
+      "exampleTranslation": "Tòa nhà này được xây cách đây một trăm năm.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 50845,
+      "term": "建設",
+      "reading": "けんせつ",
+      "romaji": "kensetsu",
+      "definition": "xây dựng, thi công",
+      "exampleSentence": "駅の近くで新しいマンションの建設が始まった。",
+      "exampleTranslation": "Việc xây dựng một khu căn hộ mới đã bắt đầu gần nhà ga.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 50846,
+      "term": "住宅",
+      "reading": "じゅうたく",
+      "romaji": "jūtaku",
+      "definition": "nhà ở, khu nhà ở",
+      "exampleSentence": "若い世代向けの住宅を設計している。",
+      "exampleTranslation": "Chúng tôi đang thiết kế nhà ở dành cho thế hệ trẻ.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 50847,
+      "term": "屋根",
+      "reading": "やね",
+      "romaji": "yane",
+      "definition": "mái nhà",
+      "exampleSentence": "大雨の前に、屋根が壊れていないか確認した。",
+      "exampleTranslation": "Trước trận mưa lớn, tôi đã kiểm tra xem mái nhà có bị hư hỏng không.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 50848,
+      "term": "柱",
+      "reading": "はしら",
+      "romaji": "hashira",
+      "definition": "cột trụ",
+      "exampleSentence": "地震に備えて、太い柱を使っている。",
+      "exampleTranslation": "Để chuẩn bị cho động đất, người ta sử dụng những cột trụ chắc chắn.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 50849,
+      "term": "壁",
+      "reading": "かべ",
+      "romaji": "kabe",
+      "definition": "tường",
+      "exampleSentence": "部屋の壁を白く塗ると、広く見える。",
+      "exampleTranslation": "Nếu sơn tường phòng màu trắng thì căn phòng trông sẽ rộng hơn.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 50850,
+      "term": "床",
+      "reading": "ゆか",
+      "romaji": "yuka",
+      "definition": "sàn nhà",
+      "exampleSentence": "木の床は温かい感じがする。",
+      "exampleTranslation": "Sàn gỗ tạo cảm giác ấm áp.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 50851,
+      "term": "窓",
+      "reading": "まど",
+      "romaji": "mado",
+      "definition": "cửa sổ",
+      "exampleSentence": "大きな窓から庭の景色が見える。",
+      "exampleTranslation": "Có thể nhìn thấy cảnh khu vườn qua cửa sổ lớn.",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 50852,
+      "term": "図面",
+      "reading": "ずめん",
+      "romaji": "zumen",
+      "definition": "bản vẽ, bản thiết kế",
+      "exampleSentence": "工事を始める前に、図面を何度も確認した。",
+      "exampleTranslation": "Trước khi bắt đầu thi công, chúng tôi đã kiểm tra bản vẽ nhiều lần.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 50853,
+      "term": "配置",
+      "reading": "はいち",
+      "romaji": "haichi",
+      "definition": "bố trí, sắp xếp vị trí",
+      "exampleSentence": "家具の配置を変えると、部屋を広く使える。",
+      "exampleTranslation": "Nếu thay đổi cách bố trí đồ đạc, có thể sử dụng căn phòng rộng rãi hơn.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

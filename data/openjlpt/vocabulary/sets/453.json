@@ -1,0 +1,176 @@
+{
+  "id": 453,
+  "title": "医療・健康 · 症状・急性疾患",
+  "description": "Triệu chứng & bệnh cấp tính — chủ đề Y tế & sức khỏe · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.207361",
+  "cards": [
+    {
+      "id": 11570,
+      "term": "怪我 (けが)",
+      "reading": "けが",
+      "romaji": null,
+      "definition": "thương tích, vết thương",
+      "exampleSentence": "試合中に転んで、足を怪我しました。",
+      "exampleTranslation": "Tôi bị ngã trong lúc thi đấu và bị thương ở chân.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11571,
+      "term": "咳 (せき)",
+      "reading": "せき",
+      "romaji": null,
+      "definition": "ho, tiếng ho",
+      "exampleSentence": "風邪をひいてから、夜になると咳が止まりません。",
+      "exampleTranslation": "Từ khi bị cảm, cứ đến tối là tôi ho không ngừng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11572,
+      "term": "呼吸 (こきゅう)",
+      "reading": "こきゅう",
+      "romaji": null,
+      "definition": "hô hấp, hơi thở",
+      "exampleSentence": "緊張すると呼吸が浅くなるので、ゆっくり息を吐きましょう。",
+      "exampleTranslation": "Khi căng thẳng, hơi thở sẽ trở nên nông, vì vậy hãy từ từ thở ra.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11573,
+      "term": "消化 (しょうか)",
+      "reading": "しょうか",
+      "romaji": null,
+      "definition": "tiêu hóa",
+      "exampleSentence": "よくかんで食べると、食べ物の消化がよくなります。",
+      "exampleTranslation": "Nhai kỹ khi ăn sẽ giúp thức ăn được tiêu hóa tốt hơn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11574,
+      "term": "症状 (しょうじょう)",
+      "reading": "しょうじょう",
+      "romaji": null,
+      "definition": "triệu chứng",
+      "exampleSentence": "医師に症状を詳しく説明して、薬を処方してもらいました。",
+      "exampleTranslation": "Tôi đã giải thích chi tiết các triệu chứng với bác sĩ và được kê thuốc.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11575,
+      "term": "頭痛 (ずつう)",
+      "reading": "ずつう",
+      "romaji": null,
+      "definition": "đau đầu",
+      "exampleSentence": "昨夜から頭痛が続いているので、今日は早く寝ます。",
+      "exampleTranslation": "Vì bị đau đầu từ tối qua nên hôm nay tôi sẽ đi ngủ sớm.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11576,
+      "term": "発熱 (はつねつ)",
+      "reading": "はつねつ",
+      "romaji": null,
+      "definition": "sốt, phát sốt",
+      "exampleSentence": "発熱が続く場合は、無理をせず病院で診てもらいましょう。",
+      "exampleTranslation": "Nếu tiếp tục bị sốt, hãy đi khám ở bệnh viện và đừng cố quá sức.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11577,
+      "term": "腹痛 (ふくつう)",
+      "reading": "ふくつう",
+      "romaji": null,
+      "definition": "đau bụng",
+      "exampleSentence": "昨夜から腹痛が続いているので、今日は早めに病院へ行くことにした。",
+      "exampleTranslation": "Vì đau bụng kéo dài từ tối qua nên hôm nay tôi quyết định đi bệnh viện sớm.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11578,
+      "term": "脈拍 (みゃくはく)",
+      "reading": "みゃくはく",
+      "romaji": null,
+      "definition": "mạch, nhịp mạch",
+      "exampleSentence": "看護師は患者の脈拍を測り、記録に残した。",
+      "exampleTranslation": "Y tá đã đo mạch của bệnh nhân và ghi lại vào hồ sơ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11579,
+      "term": "悪化 (あっか)",
+      "reading": "あっか",
+      "romaji": null,
+      "definition": "tình trạng xấu đi",
+      "exampleSentence": "症状が悪化する前に、できるだけ早く医師に相談してください。",
+      "exampleTranslation": "Hãy tham khảo ý kiến bác sĩ càng sớm càng tốt trước khi triệu chứng trở nên nặng hơn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11580,
+      "term": "急性 (きゅうせい)",
+      "reading": "きゅうせい",
+      "romaji": null,
+      "definition": "cấp tính",
+      "exampleSentence": "これは急性の病気なので、しばらく安静にしてください。",
+      "exampleTranslation": "Vì đây là bệnh cấp tính nên hãy nghỉ ngơi một thời gian.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11581,
+      "term": "後遺症 (こういしょう)",
+      "reading": "こういしょう",
+      "romaji": null,
+      "definition": "di chứng sau bệnh",
+      "exampleSentence": "退院してからも、事故の後遺症で右手がうまく動かない。",
+      "exampleTranslation": "Dù đã xuất viện nhưng do di chứng của vụ tai nạn, tay phải vẫn không cử động tốt.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11582,
+      "term": "合併症 (がっぺいしょう)",
+      "reading": "がっぺいしょう",
+      "romaji": null,
+      "definition": "biến chứng",
+      "exampleSentence": "糖尿病の患者は、合併症を防ぐために定期検査を受ける必要がある。",
+      "exampleTranslation": "Bệnh nhân tiểu đường cần kiểm tra định kỳ để phòng ngừa biến chứng.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11583,
+      "term": "再発 (さいはつ)",
+      "reading": "さいはつ",
+      "romaji": null,
+      "definition": "tái phát bệnh",
+      "exampleSentence": "医師は再発を防ぐため、薬を毎日飲むように指示した。",
+      "exampleTranslation": "Bác sĩ dặn tôi uống thuốc hằng ngày để ngăn bệnh tái phát.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 11584,
+      "term": "発症 (はっしょう)",
+      "reading": "はっしょう",
+      "romaji": null,
+      "definition": "phát bệnh",
+      "exampleSentence": "この病気は、若い人でも突然発症することがある。",
+      "exampleTranslation": "Căn bệnh này đôi khi cũng phát bệnh đột ngột ở người trẻ.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

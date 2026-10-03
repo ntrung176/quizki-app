@@ -1,0 +1,231 @@
+{
+  "id": 443,
+  "title": "経済・金融 · 為替・貿易・金融政策",
+  "description": "Tỷ giá, thương mại và chính sách tiền tệ — chủ đề Kinh tế & tài chính · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:48.782562",
+  "cards": [
+    {
+      "id": 11355,
+      "term": "為替 (かわせ)",
+      "reading": "かわせ",
+      "romaji": null,
+      "definition": "tỉ giá hối đoái",
+      "exampleSentence": "海外旅行の前に、為替の動きを確認しておこう。",
+      "exampleTranslation": "Trước khi đi du lịch nước ngoài, hãy kiểm tra biến động tỷ giá hối đoái.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11356,
+      "term": "為替介入 (かわせかいにゅう)",
+      "reading": "かわせかいにゅう",
+      "romaji": null,
+      "definition": "can thiệp tỷ giá hối đoái",
+      "exampleSentence": "政府は急激な円安を抑えるため、為替介入を実施した。",
+      "exampleTranslation": "Chính phủ đã can thiệp tỷ giá hối đoái để kiềm chế tình trạng đồng yên mất giá nhanh chóng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11357,
+      "term": "円安 (えんやす)",
+      "reading": "えんやす",
+      "romaji": null,
+      "definition": "đồng yên yếu",
+      "exampleSentence": "円安が進むと、輸入品の価格が上がりやすい。",
+      "exampleTranslation": "Khi đồng yên yếu đi, giá hàng nhập khẩu dễ tăng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11358,
+      "term": "円高 (えんだか)",
+      "reading": "えんだか",
+      "romaji": null,
+      "definition": "đồng yên mạnh",
+      "exampleSentence": "円高の影響で、日本からの輸出が減少する可能性がある。",
+      "exampleTranslation": "Do ảnh hưởng của đồng yên mạnh, xuất khẩu từ Nhật Bản có khả năng giảm.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11359,
+      "term": "仮想通貨 (かそうつうか)",
+      "reading": "かそうつうか",
+      "romaji": null,
+      "definition": "tiền điện tử/tiền ảo",
+      "exampleSentence": "仮想通貨への投資には、価格変動のリスクが伴う。",
+      "exampleTranslation": "Đầu tư vào tiền điện tử đi kèm với rủi ro biến động giá.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11360,
+      "term": "金融政策 (きんゆうせいさく)",
+      "reading": "きんゆうせいさく",
+      "romaji": null,
+      "definition": "chính sách tiền tệ",
+      "exampleSentence": "政府は景気を支えるため、新たな金融政策を発表した。",
+      "exampleTranslation": "Chính phủ đã công bố chính sách tiền tệ mới để hỗ trợ nền kinh tế.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11361,
+      "term": "金利 (きんり)",
+      "reading": "きんり",
+      "romaji": null,
+      "definition": "lãi suất",
+      "exampleSentence": "銀行によって住宅ローンの金利が異なるため、条件を比較してから申し込みましょう。",
+      "exampleTranslation": "Vì lãi suất vay mua nhà khác nhau tùy ngân hàng, hãy so sánh các điều kiện rồi mới đăng ký.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11362,
+      "term": "消費者 (しょうひしゃ)",
+      "reading": "しょうひしゃ",
+      "romaji": null,
+      "definition": "người tiêu dùng",
+      "exampleSentence": "消費者の意見を商品開発に生かすため、会社は定期的にアンケートを実施している。",
+      "exampleTranslation": "Để áp dụng ý kiến của người tiêu dùng vào việc phát triển sản phẩm, công ty thường xuyên tiến hành khảo sát.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11363,
+      "term": "消費税 (しょうひぜい)",
+      "reading": "しょうひぜい",
+      "romaji": null,
+      "definition": "thuế tiêu dùng",
+      "exampleSentence": "来月から消費税が上がるため、日用品を早めに買う人が増えている。",
+      "exampleTranslation": "Vì từ tháng sau thuế tiêu dùng sẽ tăng, số người mua đồ dùng hằng ngày sớm đang tăng lên.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11364,
+      "term": "中央銀行 (ちゅうおうぎんこう)",
+      "reading": "ちゅうおうぎんこう",
+      "romaji": null,
+      "definition": "ngân hàng trung ương",
+      "exampleSentence": "中央銀行は景気の動きを見ながら、金融政策を慎重に決めている。",
+      "exampleTranslation": "Ngân hàng trung ương đang thận trọng quyết định chính sách tiền tệ תוך theo dõi diễn biến kinh tế.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11365,
+      "term": "貿易黒字 (ぼうえきくろじ)",
+      "reading": "ぼうえきくろじ",
+      "romaji": null,
+      "definition": "thặng dư thương mại",
+      "exampleSentence": "今年、日本は輸出が増えたため、貿易黒字を記録した。",
+      "exampleTranslation": "Năm nay, do xuất khẩu tăng, Nhật Bản đã ghi nhận thặng dư thương mại.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11366,
+      "term": "貿易赤字 (ぼうえきあかじ)",
+      "reading": "ぼうえきあかじ",
+      "romaji": null,
+      "definition": "thâm hụt thương mại",
+      "exampleSentence": "資源の輸入額が増えた結果、今年は大幅な貿易赤字となった。",
+      "exampleTranslation": "Do giá trị nhập khẩu tài nguyên tăng, năm nay đã xảy ra thâm hụt thương mại lớn.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11367,
+      "term": "輸出 (ゆしゅつ)",
+      "reading": "ゆしゅつ",
+      "romaji": null,
+      "definition": "xuất khẩu",
+      "exampleSentence": "この会社は高品質な部品をアジア各国へ輸出している。",
+      "exampleTranslation": "Công ty này đang xuất khẩu linh kiện chất lượng cao sang các nước châu Á.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11368,
+      "term": "輸入 (ゆにゅう)",
+      "reading": "ゆにゅう",
+      "romaji": null,
+      "definition": "nhập khẩu",
+      "exampleSentence": "日本は多くの食料を海外から輸入している。",
+      "exampleTranslation": "Nhật Bản nhập khẩu nhiều thực phẩm từ nước ngoài.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 11369,
+      "term": "融資 (ゆうし)",
+      "reading": "ゆうし",
+      "romaji": null,
+      "definition": "cho vay/tài trợ vốn",
+      "exampleSentence": "銀行から融資を受けて、新しい店舗を開くことにした。",
+      "exampleTranslation": "Tôi đã quyết định vay vốn ngân hàng để mở cửa hàng mới.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 11370,
+      "term": "預金 (よきん)",
+      "reading": "よきん",
+      "romaji": null,
+      "definition": "tiền gửi ngân hàng",
+      "exampleSentence": "将来のために、毎月給料の一部を銀行に預金している。",
+      "exampleTranslation": "Để dành cho tương lai, mỗi tháng tôi gửi một phần tiền lương vào ngân hàng.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 11371,
+      "term": "利下げ (りさげ)",
+      "reading": "りさげ",
+      "romaji": null,
+      "definition": "hạ lãi suất",
+      "exampleSentence": "中央銀行の利下げを受けて、住宅ローンの金利が低くなった。",
+      "exampleTranslation": "Sau khi ngân hàng trung ương hạ lãi suất, lãi suất vay mua nhà đã giảm.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 11372,
+      "term": "利上げ (りあげ)",
+      "reading": "りあげ",
+      "romaji": null,
+      "definition": "tăng lãi suất",
+      "exampleSentence": "中央銀行が利上げを発表したため、企業は資金調達の計画を見直した。",
+      "exampleTranslation": "Vì ngân hàng trung ương công bố tăng lãi suất, các doanh nghiệp đã xem xét lại kế hoạch huy động vốn.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 11373,
+      "term": "利息 (りそく)",
+      "reading": "りそく",
+      "romaji": null,
+      "definition": "tiền lãi/lợi tức",
+      "exampleSentence": "銀行に預けたお金には、毎年少しずつ利息がつく。",
+      "exampleTranslation": "Tiền gửi trong ngân hàng mỗi năm đều được tính thêm một ít tiền lãi.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 11374,
+      "term": "量的緩和 (りょうてきかんわ)",
+      "reading": "りょうてきかんわ",
+      "romaji": null,
+      "definition": "nới lỏng định lượng",
+      "exampleSentence": "日銀は景気を支えるため、量的緩和を続ける方針を示した。",
+      "exampleTranslation": "Ngân hàng Trung ương Nhật Bản cho biết sẽ tiếp tục nới lỏng định lượng để hỗ trợ nền kinh tế.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

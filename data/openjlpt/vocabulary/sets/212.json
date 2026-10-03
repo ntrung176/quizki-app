@@ -1,0 +1,176 @@
+{
+  "id": 212,
+  "title": "Tuần 3 · Ngày 5 - 病気・医療 (Bệnh & Y tế)",
+  "description": "Nihongo Soumatome N3 語彙 — 病気・医療 (Bệnh & Y tế)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.261662",
+  "cards": [
+    {
+      "id": 5491,
+      "term": "症状 (しょうじょう)",
+      "reading": "しょうじょう",
+      "romaji": "shoujou",
+      "definition": "triệu chứng",
+      "exampleSentence": "医師に症状を詳しく説明して、適切な薬を処方してもらいました。",
+      "exampleTranslation": "Tôi đã mô tả chi tiết các triệu chứng với bác sĩ và được kê loại thuốc phù hợp.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5492,
+      "term": "発熱 (はつねつ)",
+      "reading": "はつねつ",
+      "romaji": "hatsunetsu",
+      "definition": "sốt, phát sốt",
+      "exampleSentence": "昨夜から発熱が続いているので、今日は仕事を休みます。",
+      "exampleTranslation": "Vì bị sốt liên tục từ tối qua nên hôm nay tôi sẽ nghỉ làm.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5493,
+      "term": "咳 (せき)",
+      "reading": "せき",
+      "romaji": "seki",
+      "definition": "ho, tiếng ho",
+      "exampleSentence": "風邪をひいてから、咳がなかなか止まりません。",
+      "exampleTranslation": "Từ khi bị cảm, tôi ho mãi không dứt.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5494,
+      "term": "頭痛 (ずつう)",
+      "reading": "ずつう",
+      "romaji": "zutsuu",
+      "definition": "đau đầu",
+      "exampleSentence": "強い頭痛がするので、少し休ませてください。",
+      "exampleTranslation": "Vì bị đau đầu dữ dội nên hãy cho tôi nghỉ một lát.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5495,
+      "term": "腹痛 (ふくつう)",
+      "reading": "ふくつう",
+      "romaji": "fukutsuu",
+      "definition": "đau bụng",
+      "exampleSentence": "昼食後から腹痛が続いているので、病院へ行きます。",
+      "exampleTranslation": "Từ sau bữa trưa tôi bị đau bụng liên tục nên sẽ đến bệnh viện.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5496,
+      "term": "怪我 (けが)",
+      "reading": "けが",
+      "romaji": "kega",
+      "definition": "thương tích, vết thương",
+      "exampleSentence": "階段で転んで、足を怪我してしまいました。",
+      "exampleTranslation": "Tôi bị ngã ở cầu thang và làm chân bị thương.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5497,
+      "term": "手術 (しゅじゅつ)",
+      "reading": "しゅじゅつ",
+      "romaji": "shujutsu",
+      "definition": "phẫu thuật, mổ",
+      "exampleSentence": "来週、父は目の手術を受ける予定です。",
+      "exampleTranslation": "Tuần sau bố tôi dự định phẫu thuật mắt.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5498,
+      "term": "入院 (にゅういん)",
+      "reading": "にゅういん",
+      "romaji": "nyuuin",
+      "definition": "nhập viện",
+      "exampleSentence": "祖父は検査のため、三日間入院することになりました。",
+      "exampleTranslation": "Ông tôi sẽ nhập viện ba ngày để kiểm tra.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5499,
+      "term": "退院 (たいいん)",
+      "reading": "たいいん",
+      "romaji": "taiin",
+      "definition": "xuất viện",
+      "exampleSentence": "母は順調に回復し、来週退院できるそうです。",
+      "exampleTranslation": "Mẹ tôi hồi phục thuận lợi và nghe nói tuần sau có thể xuất viện.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5500,
+      "term": "治療 (ちりょう)",
+      "reading": "ちりょう",
+      "romaji": "chiryou",
+      "definition": "điều trị, chữa trị",
+      "exampleSentence": "医師と相談しながら、しばらく治療を続けることにしました。",
+      "exampleTranslation": "Sau khi trao đổi với bác sĩ, tôi quyết định tiếp tục điều trị một thời gian.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5501,
+      "term": "回復 (かいふく)",
+      "reading": "かいふく",
+      "romaji": "kaifuku",
+      "definition": "hồi phục, bình phục",
+      "exampleSentence": "けがからの回復には、十分な休養が必要です。",
+      "exampleTranslation": "Để hồi phục sau chấn thương, cần nghỉ ngơi đầy đủ.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5502,
+      "term": "診断 (しんだん)",
+      "reading": "しんだん",
+      "romaji": "shindan",
+      "definition": "chẩn đoán",
+      "exampleSentence": "検査の結果、医師から胃炎だと診断されました。",
+      "exampleTranslation": "Sau khi kiểm tra, tôi được bác sĩ chẩn đoán là bị viêm dạ dày.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5503,
+      "term": "処方 (しょほう)",
+      "reading": "しょほう",
+      "romaji": "shohou",
+      "definition": "đơn thuốc, kê đơn",
+      "exampleSentence": "医師の処方に従って、毎日三回この薬を飲んでください。",
+      "exampleTranslation": "Hãy uống thuốc này mỗi ngày ba lần theo đơn của bác sĩ.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5504,
+      "term": "予防 (よぼう)",
+      "reading": "よぼう",
+      "romaji": "yobou",
+      "definition": "phòng ngừa, phòng bệnh",
+      "exampleSentence": "病気の予防には、十分な睡眠と手洗いが大切です。",
+      "exampleTranslation": "Để phòng bệnh, ngủ đủ giấc và rửa tay là rất quan trọng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5505,
+      "term": "副作用 (ふくさよう)",
+      "reading": "ふくさよう",
+      "romaji": "fukusayou",
+      "definition": "tác dụng phụ",
+      "exampleSentence": "この薬には、眠くなる副作用があります。",
+      "exampleTranslation": "Loại thuốc này có tác dụng phụ là gây buồn ngủ.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

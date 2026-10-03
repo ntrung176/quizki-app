@@ -1,0 +1,356 @@
+{
+  "id": 72,
+  "title": "学校の漢字",
+  "description": "Kanji ở trường · 学校先生生徒",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:52.856782",
+  "cards": [
+    {
+      "id": 2205,
+      "term": "学",
+      "reading": "まな・がく",
+      "romaji": "mana/gaku",
+      "definition": "Học",
+      "exampleSentence": "学校に行く。",
+      "exampleTranslation": "Đi học.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 2206,
+      "term": "校",
+      "reading": "こう",
+      "romaji": "kou",
+      "definition": "Trường",
+      "exampleSentence": "高校生です。",
+      "exampleTranslation": "Tôi là học sinh trung học.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 2207,
+      "term": "先",
+      "reading": "せん",
+      "romaji": "sen",
+      "definition": "Trước / Thầy",
+      "exampleSentence": "先生に質問する。",
+      "exampleTranslation": "Hỏi thầy giáo.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 2208,
+      "term": "生",
+      "reading": "せい・なま",
+      "romaji": "sei/nama",
+      "definition": "Sinh / Học sinh",
+      "exampleSentence": "学生です。",
+      "exampleTranslation": "Tôi là học sinh.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 2209,
+      "term": "教",
+      "reading": "おし・きょう",
+      "romaji": "oshi/kyou",
+      "definition": "Dạy",
+      "exampleSentence": "先生が教える。",
+      "exampleTranslation": "Thầy giáo dạy.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 2210,
+      "term": "室",
+      "reading": "しつ",
+      "romaji": "shitsu",
+      "definition": "Phòng",
+      "exampleSentence": "教室で勉強する。",
+      "exampleTranslation": "Học ở lớp học.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 2211,
+      "term": "読",
+      "reading": "よ",
+      "romaji": "yo",
+      "definition": "Đọc",
+      "exampleSentence": "本を読む。",
+      "exampleTranslation": "Đọc sách.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 2212,
+      "term": "書",
+      "reading": "か",
+      "romaji": "ka",
+      "definition": "Viết",
+      "exampleSentence": "漢字を書く。",
+      "exampleTranslation": "Viết chữ Hán.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 2213,
+      "term": "算",
+      "reading": "さん",
+      "romaji": "san",
+      "definition": "Toán / Tính",
+      "exampleSentence": "算数を勉強する。",
+      "exampleTranslation": "Học toán.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 2214,
+      "term": "語",
+      "reading": "ご",
+      "romaji": "go",
+      "definition": "Ngôn ngữ / Tiếng",
+      "exampleSentence": "日本語を話す。",
+      "exampleTranslation": "Nói tiếng Nhật.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 2215,
+      "term": "文",
+      "reading": "ぶん",
+      "romaji": "bun",
+      "definition": "Văn / Câu",
+      "exampleSentence": "文法を学ぶ。",
+      "exampleTranslation": "Học ngữ pháp.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 2216,
+      "term": "字",
+      "reading": "じ",
+      "romaji": "ji",
+      "definition": "Chữ",
+      "exampleSentence": "漢字を覚える。",
+      "exampleTranslation": "Ghi nhớ chữ Hán.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 2217,
+      "term": "試",
+      "reading": "し",
+      "romaji": "shi",
+      "definition": "Thử / Thi",
+      "exampleSentence": "試験を受ける。",
+      "exampleTranslation": "Thi.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 2218,
+      "term": "験",
+      "reading": "けん",
+      "romaji": "ken",
+      "definition": "Trải nghiệm / Thi",
+      "exampleSentence": "試験に合格する。",
+      "exampleTranslation": "Vượt qua kỳ thi.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 2219,
+      "term": "問",
+      "reading": "もん・と",
+      "romaji": "mon/to",
+      "definition": "Hỏi / Vấn đề",
+      "exampleSentence": "問題を解く。",
+      "exampleTranslation": "Giải bài tập.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 2220,
+      "term": "答",
+      "reading": "こた・とう",
+      "romaji": "kota/tou",
+      "definition": "Trả lời",
+      "exampleSentence": "答えを書く。",
+      "exampleTranslation": "Viết câu trả lời.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 2221,
+      "term": "点",
+      "reading": "てん",
+      "romaji": "ten",
+      "definition": "Điểm",
+      "exampleSentence": "百点を取る。",
+      "exampleTranslation": "Đạt 100 điểm.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 2222,
+      "term": "級",
+      "reading": "きゅう",
+      "romaji": "kyuu",
+      "definition": "Cấp / Lớp",
+      "exampleSentence": "N3級に合格する。",
+      "exampleTranslation": "Vượt qua cấp N3.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 50494,
+      "term": "大",
+      "reading": "だい・たい・おお",
+      "romaji": "dai・tai・ō",
+      "definition": "lớn; đại học",
+      "exampleSentence": "大学で日本語を勉強します。",
+      "exampleTranslation": "Tôi học tiếng Nhật ở đại học.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 50495,
+      "term": "小",
+      "reading": "しょう・ちい",
+      "romaji": "shō・chii",
+      "definition": "nhỏ; tiểu học",
+      "exampleSentence": "小学校は八時に始まります。",
+      "exampleTranslation": "Trường tiểu học bắt đầu lúc tám giờ.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 50496,
+      "term": "中",
+      "reading": "ちゅう・なか",
+      "romaji": "chū・naka",
+      "definition": "giữa; trung học cơ sở",
+      "exampleSentence": "中学校で英語を勉強します。",
+      "exampleTranslation": "Tôi học tiếng Anh ở trường trung học cơ sở.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 50497,
+      "term": "高",
+      "reading": "こう・たか",
+      "romaji": "kō・taka",
+      "definition": "cao; trung học phổ thông",
+      "exampleSentence": "高校で数学を勉強します。",
+      "exampleTranslation": "Tôi học toán ở trường trung học phổ thông.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 50498,
+      "term": "本",
+      "reading": "ほん・もと",
+      "romaji": "hon・moto",
+      "definition": "sách; quyển",
+      "exampleSentence": "図書館で本を読みます。",
+      "exampleTranslation": "Tôi đọc sách ở thư viện.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 50499,
+      "term": "名",
+      "reading": "めい・な",
+      "romaji": "mei・na",
+      "definition": "tên",
+      "exampleSentence": "名前を紙に書いてください。",
+      "exampleTranslation": "Hãy viết tên lên giấy.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 50500,
+      "term": "友",
+      "reading": "ゆう・とも",
+      "romaji": "yū・tomo",
+      "definition": "bạn",
+      "exampleSentence": "友達と学校へ行きます。",
+      "exampleTranslation": "Tôi đi đến trường cùng bạn.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 50501,
+      "term": "年",
+      "reading": "ねん・とし",
+      "romaji": "nen・toshi",
+      "definition": "năm; niên học",
+      "exampleSentence": "今年は二年生です。",
+      "exampleTranslation": "Năm nay tôi là học sinh năm hai.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 50502,
+      "term": "毎",
+      "reading": "まい",
+      "romaji": "mai",
+      "definition": "mỗi; hằng",
+      "exampleSentence": "毎日学校へ行きます。",
+      "exampleTranslation": "Mỗi ngày tôi đi học.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 50503,
+      "term": "行",
+      "reading": "こう・ぎょう・い・ゆ",
+      "romaji": "kō・gyō・i・yu",
+      "definition": "đi",
+      "exampleSentence": "授業の前に教室へ行きます。",
+      "exampleTranslation": "Tôi đến lớp trước giờ học.",
+      "forms": [
+        "行きます",
+        "行って",
+        "行った",
+        "行かない"
+      ],
+      "displayOrder": 27
+    },
+    {
+      "id": 50504,
+      "term": "来",
+      "reading": "らい・く・き・こ",
+      "romaji": "rai・ku・ki・ko",
+      "definition": "đến",
+      "exampleSentence": "先生が教室に来ます。",
+      "exampleTranslation": "Giáo viên đến lớp.",
+      "forms": [
+        "来ます",
+        "来て",
+        "来た",
+        "来ない"
+      ],
+      "displayOrder": 28
+    },
+    {
+      "id": 50505,
+      "term": "帰",
+      "reading": "き・かえ",
+      "romaji": "ki・kae",
+      "definition": "về; trở về",
+      "exampleSentence": "学校から家へ帰ります。",
+      "exampleTranslation": "Tôi về nhà từ trường.",
+      "forms": [
+        "帰ります",
+        "帰って",
+        "帰った",
+        "帰らない"
+      ],
+      "displayOrder": 29
+    }
+  ]
+}

@@ -1,0 +1,356 @@
+{
+  "id": 173,
+  "title": "侍の物語",
+  "description": "Đọc truyện samurai · ngữ pháp cổ",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:14.068548",
+  "cards": [
+    {
+      "id": 4855,
+      "term": "武士",
+      "reading": "ぶし",
+      "romaji": "bushi",
+      "definition": "Võ sĩ samurai",
+      "exampleSentence": "武士は名誉を重んじる。",
+      "exampleTranslation": "Võ sĩ coi trọng danh dự.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 4856,
+      "term": "刀",
+      "reading": "かたな",
+      "romaji": "katana",
+      "definition": "Kiếm katana",
+      "exampleSentence": "武士は刀を携えて歩く。",
+      "exampleTranslation": "Võ sĩ đi với thanh kiếm bên mình.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 4857,
+      "term": "忠義",
+      "reading": "ちゅうぎ",
+      "romaji": "chuugi",
+      "definition": "Trung nghĩa / lòng trung thành",
+      "exampleSentence": "武士は主君への忠義を誓った。",
+      "exampleTranslation": "Võ sĩ thề trung thành với chủ nhân.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 4858,
+      "term": "武士道",
+      "reading": "ぶしどう",
+      "romaji": "bushidou",
+      "definition": "Võ sĩ đạo",
+      "exampleSentence": "武士道は日本の精神文化の柱だ。",
+      "exampleTranslation": "Võ sĩ đạo là cột trụ văn hóa tinh thần Nhật Bản.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 4859,
+      "term": "切腹",
+      "reading": "せっぷく",
+      "romaji": "seppuku",
+      "definition": "Tự mổ bụng (nghi lễ samurai)",
+      "exampleSentence": "武士の切腹は名誉の死とされた。",
+      "exampleTranslation": "Cái chết bằng cách tự mổ bụng được coi là cái chết danh dự.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 4860,
+      "term": "主君",
+      "reading": "しゅくん",
+      "romaji": "shukun",
+      "definition": "Chủ nhân / lãnh chúa",
+      "exampleSentence": "武士は主君に忠実に仕える。",
+      "exampleTranslation": "Võ sĩ phục vụ chủ nhân trung thành.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 4861,
+      "term": "浪人",
+      "reading": "ろうにん",
+      "romaji": "rounin",
+      "definition": "Rounin (samurai không có chủ)",
+      "exampleSentence": "浪人となった武士は仕事を探した。",
+      "exampleTranslation": "Võ sĩ trở thành rounin đi tìm việc.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 4862,
+      "term": "道場",
+      "reading": "どうじょう",
+      "romaji": "doujou",
+      "definition": "Võ đường / nơi luyện tập",
+      "exampleSentence": "毎朝、道場で剣を磨く。",
+      "exampleTranslation": "Mỗi sáng mài giũa kiếm ở võ đường.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 4863,
+      "term": "武芸",
+      "reading": "ぶげい",
+      "romaji": "bugei",
+      "definition": "Võ nghệ / võ thuật",
+      "exampleSentence": "武芸十八般を習得した。",
+      "exampleTranslation": "Đã thành thạo 18 loại võ nghệ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 4864,
+      "term": "誇り",
+      "reading": "ほこり",
+      "romaji": "hokori",
+      "definition": "Niềm tự hào / danh dự",
+      "exampleSentence": "武士の誇りを汚すことはできない。",
+      "exampleTranslation": "Không thể làm ô danh dự của võ sĩ.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 4865,
+      "term": "策略",
+      "reading": "さくりゃく",
+      "romaji": "sakuryaku",
+      "definition": "Kế sách / mưu lược",
+      "exampleSentence": "敵の策略を見破った。",
+      "exampleTranslation": "Đã phá vỡ kế sách của kẻ thù.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 4866,
+      "term": "決闘",
+      "reading": "けっとう",
+      "romaji": "kettou",
+      "definition": "Quyết đấu / tỉ thí",
+      "exampleSentence": "武士同士の決闘が始まった。",
+      "exampleTranslation": "Cuộc quyết đấu giữa hai võ sĩ bắt đầu.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 51034,
+      "term": "拙者",
+      "reading": "せっしゃ",
+      "romaji": "sessha",
+      "definition": "tôi (cách nói cổ của samurai)",
+      "exampleSentence": "拙者が必ず殿をお守りいたします。",
+      "exampleTranslation": "Tôi nhất định sẽ bảo vệ ngài.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 51035,
+      "term": "殿",
+      "reading": "との",
+      "romaji": "tono",
+      "definition": "lãnh chúa; ngài",
+      "exampleSentence": "殿は家臣に城を守るよう命じた。",
+      "exampleTranslation": "Lãnh chúa ra lệnh cho các gia thần bảo vệ thành.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 51036,
+      "term": "家臣",
+      "reading": "かしん",
+      "romaji": "kashin",
+      "definition": "gia thần; thuộc hạ",
+      "exampleSentence": "家臣たちは殿の命令に従った。",
+      "exampleTranslation": "Các gia thần đã tuân theo mệnh lệnh của lãnh chúa.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 51037,
+      "term": "城",
+      "reading": "しろ",
+      "romaji": "shiro",
+      "definition": "thành; lâu đài",
+      "exampleSentence": "敵が近づいたため、兵たちは城へ戻った。",
+      "exampleTranslation": "Vì quân địch đến gần nên binh lính đã trở về thành.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 51038,
+      "term": "合戦",
+      "reading": "かっせん",
+      "romaji": "kassen",
+      "definition": "trận chiến",
+      "exampleSentence": "合戦が始まると、太鼓の音が戦場に響いた。",
+      "exampleTranslation": "Khi trận chiến bắt đầu, tiếng trống vang vọng khắp chiến trường.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 51039,
+      "term": "戦場",
+      "reading": "せんじょう",
+      "romaji": "senjo",
+      "definition": "chiến trường",
+      "exampleSentence": "戦場では一瞬の油断が命取りになる。",
+      "exampleTranslation": "Trên chiến trường, chỉ một thoáng sơ suất cũng có thể mất mạng.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 51040,
+      "term": "敵陣",
+      "reading": "てきじん",
+      "romaji": "tekijin",
+      "definition": "trận địa quân địch",
+      "exampleSentence": "夜明け前、少人数の兵が敵陣に忍び込んだ。",
+      "exampleTranslation": "Trước lúc bình minh, một nhóm nhỏ binh lính đã lẻn vào trận địa địch.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 51041,
+      "term": "味方",
+      "reading": "みかた",
+      "romaji": "mikata",
+      "definition": "quân ta; phe mình",
+      "exampleSentence": "味方の旗を見つけて、兵たちは安心した。",
+      "exampleTranslation": "Nhìn thấy cờ của quân ta, binh lính đã yên tâm.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 51042,
+      "term": "援軍",
+      "reading": "えんぐん",
+      "romaji": "engun",
+      "definition": "quân tiếp viện",
+      "exampleSentence": "援軍が到着するまで、城を守り続けなければならない。",
+      "exampleTranslation": "Phải tiếp tục bảo vệ thành cho đến khi quân tiếp viện đến.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 51043,
+      "term": "鎧",
+      "reading": "よろい",
+      "romaji": "yoroi",
+      "definition": "áo giáp",
+      "exampleSentence": "彼は重い鎧を身につけて馬に乗った。",
+      "exampleTranslation": "Anh ấy mặc áo giáp nặng rồi cưỡi ngựa.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 51044,
+      "term": "兜",
+      "reading": "かぶと",
+      "romaji": "kabuto",
+      "definition": "mũ sắt; mũ chiến",
+      "exampleSentence": "武士は兜をかぶり、戦いの準備をした。",
+      "exampleTranslation": "Võ sĩ đội mũ chiến và chuẩn bị chiến đấu.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 51045,
+      "term": "槍",
+      "reading": "やり",
+      "romaji": "yari",
+      "definition": "giáo; thương",
+      "exampleSentence": "兵は槍を手にして門の前に立った。",
+      "exampleTranslation": "Binh lính cầm giáo đứng trước cổng.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 51046,
+      "term": "家紋",
+      "reading": "かもん",
+      "romaji": "kamon",
+      "definition": "gia huy",
+      "exampleSentence": "旗に描かれた家紋を見て、味方だと分かった。",
+      "exampleTranslation": "Nhìn gia huy trên lá cờ, họ biết đó là quân ta.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 51047,
+      "term": "仕える",
+      "reading": "つかえる",
+      "romaji": "tsukaeru",
+      "definition": "phụng sự; hầu hạ",
+      "exampleSentence": "彼は若い頃から殿に仕えてきた。",
+      "exampleTranslation": "Từ khi còn trẻ, ông ấy đã phụng sự lãnh chúa.",
+      "forms": [
+        "仕えます",
+        "仕えて",
+        "仕えた",
+        "仕えない"
+      ],
+      "displayOrder": 25
+    },
+    {
+      "id": 51048,
+      "term": "討ち取る",
+      "reading": "うちとる",
+      "romaji": "uchitoru",
+      "definition": "đánh bại; hạ sát trong trận",
+      "exampleSentence": "若い武士は敵の大将を討ち取った。",
+      "exampleTranslation": "Võ sĩ trẻ đã hạ được tướng địch.",
+      "forms": [
+        "討ち取ります",
+        "討ち取って",
+        "討ち取った",
+        "討ち取らない"
+      ],
+      "displayOrder": 26
+    },
+    {
+      "id": 51049,
+      "term": "退く",
+      "reading": "しりぞく",
+      "romaji": "shirizoku",
+      "definition": "rút lui",
+      "exampleSentence": "兵は命令を受けて、ゆっくり退いた。",
+      "exampleTranslation": "Binh lính nhận lệnh rồi từ từ rút lui.",
+      "forms": [
+        "退きます",
+        "退いて",
+        "退いた",
+        "退かない"
+      ],
+      "displayOrder": 27
+    },
+    {
+      "id": 51050,
+      "term": "〜ぬ",
+      "reading": "ぬ",
+      "romaji": "nu",
+      "definition": "không… (lối nói cổ)",
+      "exampleSentence": "この城は決して落ちぬ。",
+      "exampleTranslation": "Tòa thành này nhất định sẽ không thất thủ.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 51051,
+      "term": "でござる",
+      "reading": "でござる",
+      "romaji": "de gozaru",
+      "definition": "là… (cách nói cổ, trang trọng)",
+      "exampleSentence": "拙者は殿に仕える者でござる。",
+      "exampleTranslation": "Tôi là người phụng sự lãnh chúa.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

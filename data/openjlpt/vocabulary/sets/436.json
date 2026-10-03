@@ -1,0 +1,154 @@
+{
+  "id": 436,
+  "title": "ビジネス・仕事 · 給与・労働条件",
+  "description": "Lương, phúc lợi & điều kiện lao động — chủ đề Công việc & kinh doanh · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:48.363565",
+  "cards": [
+    {
+      "id": 11248,
+      "term": "給料 (きゅうりょう)",
+      "reading": "きゅうりょう",
+      "romaji": null,
+      "definition": "lương, tiền lương",
+      "exampleSentence": "今月の給料が銀行口座に振り込まれた。",
+      "exampleTranslation": "Tiền lương tháng này đã được chuyển vào tài khoản ngân hàng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11249,
+      "term": "残業 (ざんぎょう)",
+      "reading": "ざんぎょう",
+      "romaji": null,
+      "definition": "làm thêm giờ",
+      "exampleSentence": "仕事が多かったので、昨日は二時間残業をした。",
+      "exampleTranslation": "Vì có nhiều việc nên hôm qua tôi đã làm thêm hai tiếng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11250,
+      "term": "賞与 (しょうよ)",
+      "reading": "しょうよ",
+      "romaji": null,
+      "definition": "tiền thưởng, bonus",
+      "exampleSentence": "会社の業績がよかったため、今年は賞与が支給された。",
+      "exampleTranslation": "Do thành tích kinh doanh của công ty tốt nên năm nay nhân viên được nhận tiền thưởng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11251,
+      "term": "給与 (きゅうよ)",
+      "reading": "きゅうよ",
+      "romaji": null,
+      "definition": "lương/thù lao",
+      "exampleSentence": "給与の一部が毎月、自動的に貯金されるよう設定している。",
+      "exampleTranslation": "Tôi đã cài đặt để một phần tiền lương được tự động tiết kiệm mỗi tháng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11252,
+      "term": "共働き (ともばたらき)",
+      "reading": "ともばたらき",
+      "romaji": null,
+      "definition": "cả hai vợ chồng đi làm",
+      "exampleSentence": "共働きの家庭では、家事や育児の分担が重要になる。",
+      "exampleTranslation": "Trong các gia đình mà cả hai vợ chồng đều đi làm, việc phân chia việc nhà và chăm con rất quan trọng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11253,
+      "term": "手当 (てあて)",
+      "reading": "てあて",
+      "romaji": null,
+      "definition": "trợ cấp/phụ cấp",
+      "exampleSentence": "海外赴任者には、毎月特別な手当が支給される。",
+      "exampleTranslation": "Nhân viên được cử đi nước ngoài sẽ được nhận một khoản phụ cấp đặc biệt mỗi tháng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11254,
+      "term": "職場環境 (しょくばかんきょう)",
+      "reading": "しょくばかんきょう",
+      "romaji": null,
+      "definition": "môi trường nơi làm việc",
+      "exampleSentence": "職場環境を改善するため、社員から意見を集めている。",
+      "exampleTranslation": "Công ty đang thu thập ý kiến của nhân viên để cải thiện môi trường làm việc.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11255,
+      "term": "賃金 (ちんぎん)",
+      "reading": "ちんぎん",
+      "romaji": null,
+      "definition": "tiền công/lương",
+      "exampleSentence": "物価が上がっているのに、賃金はほとんど上がっていない。",
+      "exampleTranslation": "Mặc dù giá cả đang tăng, tiền lương hầu như không tăng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11256,
+      "term": "有給 (ゆうきゅう)",
+      "reading": "ゆうきゅう",
+      "romaji": null,
+      "definition": "nghỉ phép có lương",
+      "exampleSentence": "忙しい時期を避けて、来月有給を取ることにした。",
+      "exampleTranslation": "Tôi quyết định nghỉ phép có lương vào tháng sau để tránh thời gian bận rộn.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11257,
+      "term": "労使 (ろうし)",
+      "reading": "ろうし",
+      "romaji": null,
+      "definition": "người lao động và sử dụng lao động",
+      "exampleSentence": "労使が協力して、働きやすい職場づくりを進めている。",
+      "exampleTranslation": "Người lao động và người sử dụng lao động đang hợp tác xây dựng một nơi làm việc dễ làm việc.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11258,
+      "term": "労働災害 (ろうどうさいがい)",
+      "reading": "ろうどうさいがい",
+      "romaji": null,
+      "definition": "tai nạn lao động",
+      "exampleSentence": "会社は労働災害を防ぐため、安全教育を徹底している。",
+      "exampleTranslation": "Công ty đang tăng cường triệt để việc đào tạo an toàn nhằm phòng tránh tai nạn lao động.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11259,
+      "term": "労働条件 (ろうどうじょうけん)",
+      "reading": "ろうどうじょうけん",
+      "romaji": null,
+      "definition": "điều kiện lao động",
+      "exampleSentence": "就職する前に、労働条件をよく確認しておきましょう。",
+      "exampleTranslation": "Trước khi xin việc, hãy kiểm tra kỹ các điều kiện lao động.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11260,
+      "term": "副業 (ふくぎょう)",
+      "reading": "ふくぎょう",
+      "romaji": null,
+      "definition": "việc làm thêm",
+      "exampleSentence": "副業を解禁する企業が増える一方、情報管理の徹底が課題となっている。",
+      "exampleTranslation": "Trong khi ngày càng có nhiều doanh nghiệp cho phép làm thêm, việc quản lý thông tin chặt chẽ vẫn là một vấn đề cần giải quyết.",
+      "forms": [],
+      "displayOrder": 12
+    }
+  ]
+}

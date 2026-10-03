@@ -9,7 +9,7 @@ import {
     Home, BookOpen, LogOut, Sun, Moon, ChevronRight, ChevronLeft, X,
     List, Repeat2, FileCheck, Languages, Shield, Crown, Bell,
     MessageSquare, HelpCircle, Trophy, Cpu, Zap, Activity, Bot, Timer, Globe, Film,
-    FileText, GitBranch, MoreHorizontal, Layers, Settings, Library, LayoutGrid, TrendingUp
+    FileText, GitBranch, MoreHorizontal, Layers, Settings, Library, LayoutGrid, TrendingUp, Bookmark
 } from 'lucide-react'
 import { SafeAvatarImage } from '../ui';
 import LanguageSelector from '../ui/LanguageSelector';
@@ -605,6 +605,14 @@ const Sidebar = ({
                 label: 'Lộ trình Hán tự',
                 icon: Languages,
                 route: ROUTES.KANJI_STUDY,
+                badge: null,
+            });
+            // 3. Sổ tay Ngữ pháp
+            items.push({
+                id: 'grammar_cheatsheets',
+                label: 'Sổ tay Ngữ pháp',
+                icon: Bookmark,
+                route: ROUTES.GRAMMAR_CHEATSHEETS,
                 badge: null,
             });
         } else if (isKoreanMode) {

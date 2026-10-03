@@ -1,0 +1,231 @@
+{
+  "id": 526,
+  "title": "文化・芸術・スポーツ · 哲学・価値観",
+  "description": "Triết học & giá trị quan — chủ đề Văn hóa, nghệ thuật & thể thao · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:51.373164",
+  "cards": [
+    {
+      "id": 12992,
+      "term": "因果 (いんが)",
+      "reading": "いんが",
+      "romaji": null,
+      "definition": "nhân quả",
+      "exampleSentence": "仏教では、現在の苦しみを過去の因果と結び付けて考えることがある。",
+      "exampleTranslation": "Trong Phật giáo, đôi khi người ta cho rằng nỗi khổ hiện tại có liên quan đến nhân quả trong quá khứ.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12993,
+      "term": "宇宙観 (うちゅうかん)",
+      "reading": "うちゅうかん",
+      "romaji": null,
+      "definition": "vũ trụ quan",
+      "exampleSentence": "古代の人々は、神話を通して独自の宇宙観を表現していた。",
+      "exampleTranslation": "Người xưa đã thể hiện vũ trụ quan độc đáo của mình thông qua thần thoại.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12994,
+      "term": "価値観 (かちかん)",
+      "reading": "かちかん",
+      "romaji": null,
+      "definition": "hệ giá trị",
+      "exampleSentence": "異なる価値観を持つ人とも、互いに尊重し合うことが大切だ。",
+      "exampleTranslation": "Tôn trọng lẫn nhau, kể cả với những người có hệ giá trị khác biệt, là điều quan trọng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12995,
+      "term": "概念 (がいねん)",
+      "reading": "がいねん",
+      "romaji": null,
+      "definition": "khái niệm",
+      "exampleSentence": "この研究では、地域社会という概念を改めて考察する。",
+      "exampleTranslation": "Nghiên cứu này xem xét lại khái niệm cộng đồng địa phương.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12996,
+      "term": "思想 (しそう)",
+      "reading": "しそう",
+      "romaji": null,
+      "definition": "tư tưởng",
+      "exampleSentence": "その思想は、後の社会運動に大きな影響を与えた。",
+      "exampleTranslation": "Tư tưởng đó đã có ảnh hưởng lớn đến các phong trào xã hội về sau.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12997,
+      "term": "象徴 (しょうちょう)",
+      "reading": "しょうちょう",
+      "romaji": null,
+      "definition": "biểu tượng",
+      "exampleSentence": "桜は、日本の春の象徴として多くの人に親しまれている。",
+      "exampleTranslation": "Hoa anh đào được nhiều người yêu mến như một biểu tượng của mùa xuân Nhật Bản.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12998,
+      "term": "真理 (しんり)",
+      "reading": "しんり",
+      "romaji": null,
+      "definition": "chân lý",
+      "exampleSentence": "哲学者たちは、長い議論を重ねながら真理を追い求めた。",
+      "exampleTranslation": "Các triết gia đã không ngừng tìm kiếm chân lý qua những cuộc tranh luận kéo dài.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12999,
+      "term": "人生観 (じんせいかん)",
+      "reading": "じんせいかん",
+      "romaji": null,
+      "definition": "quan niệm về cuộc đời",
+      "exampleSentence": "海外での生活を経験して、彼の人生観は大きく変わった。",
+      "exampleTranslation": "Sau khi trải nghiệm cuộc sống ở nước ngoài, quan niệm về cuộc đời của anh ấy đã thay đổi rất nhiều.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13000,
+      "term": "世界観 (せかいかん)",
+      "reading": "せかいかん",
+      "romaji": null,
+      "definition": "thế giới quan",
+      "exampleSentence": "その小説は、独特な世界観で読者を魅了した。",
+      "exampleTranslation": "Cuốn tiểu thuyết đó đã cuốn hút độc giả bằng thế giới quan độc đáo.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13001,
+      "term": "正義 (せいぎ)",
+      "reading": "せいぎ",
+      "romaji": null,
+      "definition": "công lý/chính nghĩa",
+      "exampleSentence": "立場が変われば、正義の意味も変わるのだろうか。",
+      "exampleTranslation": "Nếu lập trường thay đổi, liệu ý nghĩa của công lý cũng sẽ thay đổi chăng?",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13002,
+      "term": "善悪 (ぜんあく)",
+      "reading": "ぜんあく",
+      "romaji": null,
+      "definition": "thiện và ác",
+      "exampleSentence": "子どもに善悪の判断を教えるのは、親の大切な役割である。",
+      "exampleTranslation": "Dạy trẻ phân biệt thiện ác là một vai trò quan trọng của cha mẹ.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13003,
+      "term": "存在 (そんざい)",
+      "reading": "そんざい",
+      "romaji": null,
+      "definition": "sự tồn tại",
+      "exampleSentence": "彼の存在が、チーム全体に安心感を与えている。",
+      "exampleTranslation": "Sự hiện diện của anh ấy mang lại cảm giác yên tâm cho cả đội.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13004,
+      "term": "存在論 (そんざいろん)",
+      "reading": "そんざいろん",
+      "romaji": null,
+      "definition": "bản thể luận",
+      "exampleSentence": "大学の授業で、古代ギリシャの存在論について学んだ。",
+      "exampleTranslation": "Trong giờ học đại học, tôi đã học về bản thể luận của Hy Lạp cổ đại.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13005,
+      "term": "哲学 (てつがく)",
+      "reading": "てつがく",
+      "romaji": null,
+      "definition": "triết học",
+      "exampleSentence": "大学では哲学を学び、人間はどう生きるべきかを考えている。",
+      "exampleTranslation": "Ở trường đại học, tôi học triết học và suy nghĩ về cách con người nên sống.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13006,
+      "term": "道徳 (どうとく)",
+      "reading": "どうとく",
+      "romaji": null,
+      "definition": "đạo đức",
+      "exampleSentence": "子どもたちに道徳の大切さを教えることは、家庭と学校の役割です。",
+      "exampleTranslation": "Dạy trẻ em tầm quan trọng của đạo đức là vai trò của gia đình và nhà trường.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 13007,
+      "term": "批判 (ひはん)",
+      "reading": "ひはん",
+      "romaji": null,
+      "definition": "phê phán/chỉ trích",
+      "exampleSentence": "その映画への批判も多いが、私は十分楽しめた。",
+      "exampleTranslation": "Bộ phim đó cũng nhận nhiều lời chỉ trích, nhưng tôi vẫn xem rất vui.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 13008,
+      "term": "本質 (ほんしつ)",
+      "reading": "ほんしつ",
+      "romaji": null,
+      "definition": "bản chất",
+      "exampleSentence": "問題の本質を見極めなければ、適切な解決策は見つからない。",
+      "exampleTranslation": "Nếu không nhìn thấu bản chất của vấn đề thì sẽ không tìm được cách giải quyết phù hợp.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 13009,
+      "term": "理念 (りねん)",
+      "reading": "りねん",
+      "romaji": null,
+      "definition": "lý tưởng/lý niệm",
+      "exampleSentence": "会社の理念に共感し、この仕事を選びました。",
+      "exampleTranslation": "Tôi đồng cảm với lý tưởng của công ty nên đã chọn công việc này.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 13010,
+      "term": "倫理 (りんり)",
+      "reading": "りんり",
+      "romaji": null,
+      "definition": "đạo đức/luân lý",
+      "exampleSentence": "科学技術の発展には、倫理に基づく判断が求められる。",
+      "exampleTranslation": "Sự phát triển của khoa học kỹ thuật đòi hỏi những phán đoán dựa trên đạo đức.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 13011,
+      "term": "倫理学 (りんりがく)",
+      "reading": "りんりがく",
+      "romaji": null,
+      "definition": "đạo đức học",
+      "exampleSentence": "大学で倫理学を専攻し、医療現場の問題を研究している。",
+      "exampleTranslation": "Tôi chuyên ngành đạo đức học ở đại học và nghiên cứu các vấn đề trong ngành y.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

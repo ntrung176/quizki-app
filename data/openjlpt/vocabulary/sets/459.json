@@ -1,0 +1,231 @@
+{
+  "id": 459,
+  "title": "科学・技術 · 研究開発・現象",
+  "description": "Nghiên cứu, phát triển và hiện tượng khoa học — chủ đề Khoa học & công nghệ · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.348621",
+  "cards": [
+    {
+      "id": 11674,
+      "term": "影響 (えいきょう)",
+      "reading": "えいきょう",
+      "romaji": null,
+      "definition": "ảnh hưởng",
+      "exampleSentence": "地球温暖化は私たちの生活にさまざまな影響を与えている。",
+      "exampleTranslation": "Hiện tượng nóng lên toàn cầu đang gây ra nhiều ảnh hưởng đến cuộc sống của chúng ta.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11675,
+      "term": "応用研究 (おうようけんきゅう)",
+      "reading": "おうようけんきゅう",
+      "romaji": null,
+      "definition": "nghiên cứu ứng dụng",
+      "exampleSentence": "大学では、基礎研究だけでなく応用研究にも力を入れている。",
+      "exampleTranslation": "Trường đại học đang chú trọng không chỉ nghiên cứu cơ bản mà cả nghiên cứu ứng dụng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11676,
+      "term": "可能性 (かのうせい)",
+      "reading": "かのうせい",
+      "romaji": null,
+      "definition": "khả năng/tiềm năng",
+      "exampleSentence": "この技術は、将来医療の現場で活用される可能性がある。",
+      "exampleTranslation": "Công nghệ này có khả năng sẽ được ứng dụng trong lĩnh vực y tế trong tương lai.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11677,
+      "term": "革新 (かくしん)",
+      "reading": "かくしん",
+      "romaji": null,
+      "definition": "cách tân/đổi mới",
+      "exampleSentence": "技術革新によって、私たちの生活は大きく変化した。",
+      "exampleTranslation": "Nhờ sự đổi mới công nghệ, cuộc sống của chúng ta đã thay đổi rất nhiều.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11678,
+      "term": "学術論文 (がくじゅつろんぶん)",
+      "reading": "がくじゅつろんぶん",
+      "romaji": null,
+      "definition": "bài báo khoa học",
+      "exampleSentence": "卒業するためには、学術論文を一本提出しなければならない。",
+      "exampleTranslation": "Để tốt nghiệp, phải nộp một bài báo khoa học.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11679,
+      "term": "観測衛星 (かんそくえいせい)",
+      "reading": "かんそくえいせい",
+      "romaji": null,
+      "definition": "vệ tinh quan sát",
+      "exampleSentence": "観測衛星から送られたデータをもとに、台風の進路を予測する。",
+      "exampleTranslation": "Dựa trên dữ liệu do vệ tinh quan sát gửi về, người ta dự đoán đường đi của bão.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11680,
+      "term": "基礎研究 (きそけんきゅう)",
+      "reading": "きそけんきゅう",
+      "romaji": null,
+      "definition": "nghiên cứu cơ bản",
+      "exampleSentence": "基礎研究の成果が、数十年後に新しい薬の開発につながることもある。",
+      "exampleTranslation": "Thành quả của nghiên cứu cơ bản đôi khi có thể dẫn đến việc phát triển loại thuốc mới sau vài chục năm.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11681,
+      "term": "傾向 (けいこう)",
+      "reading": "けいこう",
+      "romaji": null,
+      "definition": "xu hướng/khuynh hướng",
+      "exampleSentence": "最近の若者には、新聞を読まない傾向が見られる。",
+      "exampleTranslation": "Gần đây, có thể thấy xu hướng giới trẻ không đọc báo.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11682,
+      "term": "結果 (けっか)",
+      "reading": "けっか",
+      "romaji": null,
+      "definition": "kết quả (↔原因)",
+      "exampleSentence": "努力した結果、希望していた大学に合格することができた。",
+      "exampleTranslation": "Nhờ những nỗ lực của mình, tôi đã đỗ vào trường đại học mơ ước.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11683,
+      "term": "研究開発 (けんきゅうかいはつ)",
+      "reading": "けんきゅうかいはつ",
+      "romaji": null,
+      "definition": "nghiên cứu và phát triển",
+      "exampleSentence": "この会社は、新製品の研究開発に多額の費用を投じている。",
+      "exampleTranslation": "Công ty này đang đầu tư một khoản tiền lớn vào nghiên cứu và phát triển sản phẩm mới.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11684,
+      "term": "原因 (げんいん)",
+      "reading": "げんいん",
+      "romaji": null,
+      "definition": "nguyên nhân (↔結果)",
+      "exampleSentence": "事故の原因を詳しく調べるため、専門家が現場を訪れた。",
+      "exampleTranslation": "Các chuyên gia đã đến hiện trường để điều tra kỹ nguyên nhân vụ tai nạn.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11685,
+      "term": "効果 (こうか)",
+      "reading": "こうか",
+      "romaji": null,
+      "definition": "hiệu quả/tác dụng",
+      "exampleSentence": "この薬は、飲み始めてから三日ほどで効果が現れます。",
+      "exampleTranslation": "Loại thuốc này sẽ phát huy tác dụng sau khoảng ba ngày kể từ khi bắt đầu uống.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11686,
+      "term": "構造 (こうぞう)",
+      "reading": "こうぞう",
+      "romaji": null,
+      "definition": "cấu trúc",
+      "exampleSentence": "この建物は、地震に強い構造になっています。",
+      "exampleTranslation": "Tòa nhà này có cấu trúc chắc chắn trước động đất.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11687,
+      "term": "仕組み (しくみ)",
+      "reading": "しくみ",
+      "romaji": null,
+      "definition": "cơ chế/hệ thống",
+      "exampleSentence": "この機械の仕組みを、図を使って説明しましょう。",
+      "exampleTranslation": "Hãy dùng hình vẽ để giải thích cơ chế của chiếc máy này.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 11688,
+      "term": "特許出願 (とっきょしゅつがん)",
+      "reading": "とっきょしゅつがん",
+      "romaji": null,
+      "definition": "nộp đơn xin cấp bằng sáng chế",
+      "exampleSentence": "研究チームは、新素材について特許出願を行いました。",
+      "exampleTranslation": "Nhóm nghiên cứu đã nộp đơn xin cấp bằng sáng chế cho vật liệu mới.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 11689,
+      "term": "発見 (はっけん)",
+      "reading": "はっけん",
+      "romaji": null,
+      "definition": "phát hiện",
+      "exampleSentence": "この発見は、病気の治療法を大きく変える可能性があります。",
+      "exampleTranslation": "Phát hiện này có khả năng làm thay đổi đáng kể phương pháp điều trị bệnh.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 11690,
+      "term": "発明 (はつめい)",
+      "reading": "はつめい",
+      "romaji": null,
+      "definition": "phát minh",
+      "exampleSentence": "彼の発明は、工場の作業時間を大幅に短縮しました。",
+      "exampleTranslation": "Phát minh của anh ấy đã rút ngắn đáng kể thời gian làm việc trong nhà máy.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 11691,
+      "term": "複雑 (ふくざつ)",
+      "reading": "ふくざつ",
+      "romaji": null,
+      "definition": "phức tạp",
+      "exampleSentence": "この手続きは複雑なので、担当者に確認してください。",
+      "exampleTranslation": "Thủ tục này phức tạp, nên hãy xác nhận lại với người phụ trách.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 11692,
+      "term": "要因 (よういん)",
+      "reading": "よういん",
+      "romaji": null,
+      "definition": "yếu tố nguyên nhân",
+      "exampleSentence": "売り上げが落ちた主な要因は、商品の値上げです。",
+      "exampleTranslation": "Yếu tố chính khiến doanh thu giảm là việc tăng giá sản phẩm.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 11693,
+      "term": "理論 (りろん)",
+      "reading": "りろん",
+      "romaji": null,
+      "definition": "lý thuyết (↔実践)",
+      "exampleSentence": "理論だけでなく、実践を通して理解を深めることが大切です。",
+      "exampleTranslation": "Điều quan trọng là phải hiểu sâu hơn thông qua thực hành chứ không chỉ dựa vào lý thuyết.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

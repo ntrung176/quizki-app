@@ -1,0 +1,132 @@
+{
+  "id": 536,
+  "title": "オノマトペ・副詞 · 擬態語（身体感覚・気持ち）",
+  "description": "Từ tượng hình cảm giác cơ thể & tâm trạng — chủ đề Từ tượng thanh & phó từ · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:51.59375",
+  "cards": [
+    {
+      "id": 13138,
+      "term": "びっくり",
+      "reading": "びっくり",
+      "romaji": null,
+      "definition": "giật mình, ngạc nhiên bất ngờ",
+      "exampleSentence": "突然、後ろから名前を呼ばれて、びっくりした。",
+      "exampleTranslation": "Bất ngờ bị gọi tên từ phía sau, tôi đã giật mình.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13139,
+      "term": "いらいら",
+      "reading": "いらいら",
+      "romaji": null,
+      "definition": "bực bội, khó chịu, cáu kỉnh",
+      "exampleSentence": "電車がなかなか来なくて、いらいらしている。",
+      "exampleTranslation": "Tàu mãi không đến khiến tôi rất bực bội.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13140,
+      "term": "くたくた",
+      "reading": "くたくた",
+      "romaji": null,
+      "definition": "kiệt sức, mệt lả",
+      "exampleSentence": "一日中歩き回って、もうくたくただ。",
+      "exampleTranslation": "Đi bộ khắp nơi cả ngày khiến tôi mệt lả rồi.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13141,
+      "term": "ぐっすり",
+      "reading": "ぐっすり",
+      "romaji": null,
+      "definition": "ngủ say, ngủ sâu",
+      "exampleSentence": "昨夜は疲れていたので、朝までぐっすり眠った。",
+      "exampleTranslation": "Tối qua vì mệt nên tôi đã ngủ say đến sáng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13142,
+      "term": "どきどき",
+      "reading": "どきどき",
+      "romaji": null,
+      "definition": "hồi hộp, tim đập mạnh",
+      "exampleSentence": "面接の結果を待っている間、胸がどきどきしていた。",
+      "exampleTranslation": "Trong lúc chờ kết quả phỏng vấn, tim tôi đập thình thịch.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13143,
+      "term": "ふらふら",
+      "reading": "ふらふら",
+      "romaji": null,
+      "definition": "lảo đảo, loạng choạng, chóng mặt",
+      "exampleSentence": "熱があるのか、立ち上がるとふらふらする。",
+      "exampleTranslation": "Không biết có phải bị sốt không mà cứ đứng lên là tôi lại loạng choạng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13144,
+      "term": "ぺこぺこ",
+      "reading": "ぺこぺこ",
+      "romaji": null,
+      "definition": "đói bụng cồn cào, khúm núm",
+      "exampleSentence": "朝から何も食べていないので、お腹がぺこぺこだ。",
+      "exampleTranslation": "Từ sáng tôi chưa ăn gì nên bụng đói cồn cào.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13145,
+      "term": "へとへと",
+      "reading": "へとへと",
+      "romaji": null,
+      "definition": "mệt nhoài, kiệt sức hoàn toàn",
+      "exampleSentence": "引っ越しの荷物を運び続けて、彼はへとへとになった。",
+      "exampleTranslation": "Vận chuyển đồ đạc chuyển nhà mãi khiến anh ấy mệt nhoài.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13146,
+      "term": "ぼんやり",
+      "reading": "ぼんやり",
+      "romaji": null,
+      "definition": "lờ mờ, đờ đẫn, mơ màng",
+      "exampleSentence": "窓の外をぼんやり眺めながら、昔のことを思い出した。",
+      "exampleTranslation": "Vừa lơ đãng nhìn ra ngoài cửa sổ, tôi vừa nhớ lại những chuyện ngày xưa.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13147,
+      "term": "もじもじ",
+      "reading": "もじもじ",
+      "romaji": null,
+      "definition": "rụt rè, ngại ngùng, do dự",
+      "exampleSentence": "彼女は何か言いたそうに、しばらくもじもじしていた。",
+      "exampleTranslation": "Cô ấy có vẻ muốn nói gì đó nhưng cứ ngượng ngùng một lúc lâu.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13148,
+      "term": "わくわく",
+      "reading": "わくわく",
+      "romaji": null,
+      "definition": "hào hứng, phấn khích, hồi hộp vui",
+      "exampleSentence": "来月の旅行を楽しみにして、毎日わくわくしている。",
+      "exampleTranslation": "Mong chờ chuyến du lịch tháng sau nên ngày nào tôi cũng thấy hào hứng.",
+      "forms": [],
+      "displayOrder": 10
+    }
+  ]
+}

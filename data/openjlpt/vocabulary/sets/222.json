@@ -1,0 +1,176 @@
+{
+  "id": 222,
+  "title": "Tuần 5 · Ngày 1 - 日常生活 (Sinh hoạt hàng ngày)",
+  "description": "Nihongo Soumatome N3 語彙 — 日常生活 (Sinh hoạt hàng ngày)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.54169",
+  "cards": [
+    {
+      "id": 5611,
+      "term": "朝食 (ちょうしょく)",
+      "reading": "ちょうしょく",
+      "romaji": "choushoku",
+      "definition": "bữa sáng",
+      "exampleSentence": "毎朝、家族そろって朝食を食べてから、学校や会社へ出かけます。",
+      "exampleTranslation": "Mỗi sáng, cả gia đình ăn sáng cùng nhau rồi đi học hoặc đi làm.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5612,
+      "term": "昼食 (ちゅうしょく)",
+      "reading": "ちゅうしょく",
+      "romaji": "chuushoku",
+      "definition": "bữa trưa",
+      "exampleSentence": "昼食は会社の近くの食堂で同僚と一緒に食べました。",
+      "exampleTranslation": "Tôi đã ăn trưa cùng đồng nghiệp tại căng tin gần công ty.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5613,
+      "term": "夕食 (ゆうしょく)",
+      "reading": "ゆうしょく",
+      "romaji": "yuushoku",
+      "definition": "bữa tối",
+      "exampleSentence": "今日は家族の帰りが遅いので、夕食を八時に食べます。",
+      "exampleTranslation": "Hôm nay gia đình về muộn nên chúng tôi sẽ ăn tối lúc tám giờ.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5614,
+      "term": "掃除 (そうじ)",
+      "reading": "そうじ",
+      "romaji": "souji",
+      "definition": "dọn dẹp, quét dọn",
+      "exampleSentence": "週末は家族みんなで部屋の掃除をします。",
+      "exampleTranslation": "Cuối tuần, cả gia đình cùng nhau dọn dẹp phòng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5615,
+      "term": "洗濯 (せんたく)",
+      "reading": "せんたく",
+      "romaji": "sentaku",
+      "definition": "giặt đồ, giặt giũ",
+      "exampleSentence": "天気がいいので、朝から洗濯をしています。",
+      "exampleTranslation": "Vì thời tiết đẹp nên tôi đã giặt đồ từ sáng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5616,
+      "term": "炊事 (すいじ)",
+      "reading": "すいじ",
+      "romaji": "suiji",
+      "definition": "nấu ăn, việc bếp núc",
+      "exampleSentence": "仕事から帰ったら、すぐに炊事に取りかかります。",
+      "exampleTranslation": "Sau khi đi làm về, tôi bắt tay ngay vào việc nấu nướng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5617,
+      "term": "入浴 (にゅうよく)",
+      "reading": "にゅうよく",
+      "romaji": "nyuuyoku",
+      "definition": "tắm, tắm bồn",
+      "exampleSentence": "一日の疲れを取るために、ゆっくり入浴しました。",
+      "exampleTranslation": "Để xua tan mệt mỏi trong ngày, tôi đã thong thả tắm bồn.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5618,
+      "term": "就寝 (しゅうしん)",
+      "reading": "しゅうしん",
+      "romaji": "shuushin",
+      "definition": "đi ngủ, lên giường",
+      "exampleSentence": "明日は早く起きるので、十一時までに就寝します。",
+      "exampleTranslation": "Ngày mai tôi phải dậy sớm nên sẽ đi ngủ trước mười một giờ.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5619,
+      "term": "起床 (きしょう)",
+      "reading": "きしょう",
+      "romaji": "kishou",
+      "definition": "thức dậy, dậy giường",
+      "exampleSentence": "平日は毎朝六時に起床して、ジョギングをします。",
+      "exampleTranslation": "Các ngày trong tuần, sáng nào tôi cũng thức dậy lúc sáu giờ rồi đi chạy bộ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5620,
+      "term": "家事 (かじ)",
+      "reading": "かじ",
+      "romaji": "kaji",
+      "definition": "việc nhà, việc gia đình",
+      "exampleSentence": "家事は大変ですが、家族で分担すれば楽になります。",
+      "exampleTranslation": "Việc nhà tuy vất vả nhưng nếu cả gia đình chia nhau làm thì sẽ nhẹ nhàng hơn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5621,
+      "term": "育児 (いくじ)",
+      "reading": "いくじ",
+      "romaji": "ikuji",
+      "definition": "chăm sóc trẻ, nuôi dạy con",
+      "exampleSentence": "姉は育児をしながら、在宅で仕事をしています。",
+      "exampleTranslation": "Chị tôi vừa chăm con vừa làm việc tại nhà.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5622,
+      "term": "介護 (かいご)",
+      "reading": "かいご",
+      "romaji": "kaigo",
+      "definition": "chăm sóc người cao tuổi/bệnh nhân",
+      "exampleSentence": "母は祖父の介護をしながら働いています。",
+      "exampleTranslation": "Mẹ tôi vừa chăm sóc ông vừa đi làm.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5623,
+      "term": "節約する (せつやくする)",
+      "reading": "せつやくする",
+      "romaji": "setsuyaku suru",
+      "definition": "tiết kiệm",
+      "exampleSentence": "電気代を節約するために、使っていない部屋の電気を消しています。",
+      "exampleTranslation": "Để tiết kiệm tiền điện, tôi tắt đèn ở những phòng không sử dụng.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5624,
+      "term": "貯蓄する (ちょちくする)",
+      "reading": "ちょちくする",
+      "romaji": "chochiku suru",
+      "definition": "tích lũy, dành dụm",
+      "exampleSentence": "将来のために、毎月給料の一部を貯蓄するようにしています。",
+      "exampleTranslation": "Vì tương lai, tôi cố gắng dành dụm một phần tiền lương mỗi tháng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5625,
+      "term": "生活費 (せいかつひ)",
+      "reading": "せいかつひ",
+      "romaji": "seikatsuhi",
+      "definition": "chi phí sinh hoạt",
+      "exampleSentence": "一人暮らしを始めてから、生活費が思ったよりかかることに気づきました。",
+      "exampleTranslation": "Sau khi bắt đầu sống một mình, tôi nhận ra chi phí sinh hoạt tốn hơn mình nghĩ.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

@@ -1,0 +1,457 @@
+{
+  "id": 61,
+  "title": "乗り物・交通",
+  "description": "Phương tiện giao thông · N5",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:52.396134",
+  "cards": [
+    {
+      "id": 1929,
+      "term": "電車",
+      "reading": "でんしゃ",
+      "romaji": "densha",
+      "definition": "Tàu điện",
+      "exampleSentence": "電車で学校に行く。",
+      "exampleTranslation": "Đi học bằng tàu điện.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 1930,
+      "term": "バス",
+      "reading": "ばす",
+      "romaji": "basu",
+      "definition": "Xe buýt",
+      "exampleSentence": "バスに乗る。",
+      "exampleTranslation": "Lên xe buýt.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 1931,
+      "term": "タクシー",
+      "reading": "たくしー",
+      "romaji": "takushii",
+      "definition": "Taxi",
+      "exampleSentence": "タクシーを呼ぶ。",
+      "exampleTranslation": "Gọi taxi.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 1932,
+      "term": "自転車",
+      "reading": "じてんしゃ",
+      "romaji": "jitensha",
+      "definition": "Xe đạp",
+      "exampleSentence": "自転車で駅まで行く。",
+      "exampleTranslation": "Đi xe đạp đến ga.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 1933,
+      "term": "車",
+      "reading": "くるま",
+      "romaji": "kuruma",
+      "definition": "Xe hơi",
+      "exampleSentence": "車で旅行する。",
+      "exampleTranslation": "Du lịch bằng xe hơi.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 1934,
+      "term": "バイク",
+      "reading": "ばいく",
+      "romaji": "baiku",
+      "definition": "Xe máy",
+      "exampleSentence": "バイクで通勤する。",
+      "exampleTranslation": "Đi làm bằng xe máy.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 1935,
+      "term": "飛行機",
+      "reading": "ひこうき",
+      "romaji": "hikouki",
+      "definition": "Máy bay",
+      "exampleSentence": "飛行機に乗るのが好き。",
+      "exampleTranslation": "Tôi thích đi máy bay.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 1936,
+      "term": "船",
+      "reading": "ふね",
+      "romaji": "fune",
+      "definition": "Tàu thuyền",
+      "exampleSentence": "船で島に行く。",
+      "exampleTranslation": "Đi thuyền ra đảo.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 1937,
+      "term": "地下鉄",
+      "reading": "ちかてつ",
+      "romaji": "chikatetsu",
+      "definition": "Tàu điện ngầm",
+      "exampleSentence": "地下鉄が便利です。",
+      "exampleTranslation": "Tàu điện ngầm rất tiện lợi.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 1938,
+      "term": "新幹線",
+      "reading": "しんかんせん",
+      "romaji": "shinkansen",
+      "definition": "Tàu cao tốc shinkansen",
+      "exampleSentence": "新幹線で東京へ行く。",
+      "exampleTranslation": "Đi Tokyo bằng shinkansen.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 1939,
+      "term": "駅",
+      "reading": "えき",
+      "romaji": "eki",
+      "definition": "Ga tàu",
+      "exampleSentence": "駅で待っています。",
+      "exampleTranslation": "Tôi đang đợi ở ga.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 1940,
+      "term": "空港",
+      "reading": "くうこう",
+      "romaji": "kuukou",
+      "definition": "Sân bay",
+      "exampleSentence": "空港に迎えに行く。",
+      "exampleTranslation": "Ra sân bay đón.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 1941,
+      "term": "バス停",
+      "reading": "ばすてい",
+      "romaji": "basutei",
+      "definition": "Trạm xe buýt",
+      "exampleSentence": "バス停で待つ。",
+      "exampleTranslation": "Đợi ở trạm xe buýt.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 1942,
+      "term": "信号",
+      "reading": "しんごう",
+      "romaji": "shingou",
+      "definition": "Đèn tín hiệu giao thông",
+      "exampleSentence": "信号を守る。",
+      "exampleTranslation": "Tuân thủ đèn hiệu.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 1943,
+      "term": "交差点",
+      "reading": "こうさてん",
+      "romaji": "kousaten",
+      "definition": "Ngã tư",
+      "exampleSentence": "交差点を曲がる。",
+      "exampleTranslation": "Rẽ tại ngã tư.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 1944,
+      "term": "道路",
+      "reading": "どうろ",
+      "romaji": "douro",
+      "definition": "Đường bộ",
+      "exampleSentence": "道路が混んでいる。",
+      "exampleTranslation": "Đường bị kẹt xe.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 1945,
+      "term": "高速道路",
+      "reading": "こうそくどうろ",
+      "romaji": "kousoku douro",
+      "definition": "Đường cao tốc",
+      "exampleSentence": "高速道路で行く。",
+      "exampleTranslation": "Đi bằng đường cao tốc.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 1946,
+      "term": "踏切",
+      "reading": "ふみきり",
+      "romaji": "fumikiri",
+      "definition": "Đường ngang qua đường sắt",
+      "exampleSentence": "踏切で電車が来るまで待つ。",
+      "exampleTranslation": "Đợi ở đường ngang đến khi tàu qua.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 1947,
+      "term": "乗る",
+      "reading": "のる",
+      "romaji": "noru",
+      "definition": "Lên xe / Đi (phương tiện)",
+      "exampleSentence": "電車に乗る。",
+      "exampleTranslation": "Đi tàu điện.",
+      "forms": [
+        "乗ります",
+        "乗って",
+        "乗った",
+        "乗らない",
+        "乗れる"
+      ],
+      "displayOrder": 18
+    },
+    {
+      "id": 1948,
+      "term": "降りる",
+      "reading": "おりる",
+      "romaji": "oriru",
+      "definition": "Xuống xe",
+      "exampleSentence": "次の駅で降りる。",
+      "exampleTranslation": "Xuống ở ga tiếp theo.",
+      "forms": [
+        "降ります",
+        "降りて",
+        "降りた",
+        "降りない",
+        "降りられる"
+      ],
+      "displayOrder": 19
+    },
+    {
+      "id": 1949,
+      "term": "乗り換える",
+      "reading": "のりかえる",
+      "romaji": "norikaeru",
+      "definition": "Chuyển tàu/xe",
+      "exampleSentence": "渋谷で乗り換える。",
+      "exampleTranslation": "Chuyển tàu ở Shibuya.",
+      "forms": [
+        "乗り換えます",
+        "乗り換えて",
+        "乗り換えた",
+        "乗り換えない",
+        "乗り換えられる"
+      ],
+      "displayOrder": 20
+    },
+    {
+      "id": 1950,
+      "term": "切符",
+      "reading": "きっぷ",
+      "romaji": "kippu",
+      "definition": "Vé",
+      "exampleSentence": "切符を買う。",
+      "exampleTranslation": "Mua vé.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 1951,
+      "term": "定期券",
+      "reading": "ていきけん",
+      "romaji": "teikiken",
+      "definition": "Thẻ đi lại định kỳ",
+      "exampleSentence": "定期券を買う。",
+      "exampleTranslation": "Mua thẻ đi lại.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 1952,
+      "term": "運転する",
+      "reading": "うんてんする",
+      "romaji": "unten suru",
+      "definition": "Lái xe",
+      "exampleSentence": "車を運転する。",
+      "exampleTranslation": "Lái xe ô tô.",
+      "forms": [
+        "運転します",
+        "運転して",
+        "運転した",
+        "運転しない",
+        "運転できる"
+      ],
+      "displayOrder": 23
+    },
+    {
+      "id": 1953,
+      "term": "渋滞",
+      "reading": "じゅうたい",
+      "romaji": "juutai",
+      "definition": "Kẹt xe",
+      "exampleSentence": "渋滞で遅れた。",
+      "exampleTranslation": "Bị trễ vì kẹt xe.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 1954,
+      "term": "時刻表",
+      "reading": "じこくひょう",
+      "romaji": "jikokuhyou",
+      "definition": "Bảng giờ tàu/xe",
+      "exampleSentence": "時刻表を確認する。",
+      "exampleTranslation": "Xem bảng giờ tàu.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 1955,
+      "term": "方向",
+      "reading": "ほうこう",
+      "romaji": "houkou",
+      "definition": "Hướng",
+      "exampleSentence": "方向が分からない。",
+      "exampleTranslation": "Không biết hướng.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 1956,
+      "term": "右",
+      "reading": "みぎ",
+      "romaji": "migi",
+      "definition": "Bên phải",
+      "exampleSentence": "右に曲がる。",
+      "exampleTranslation": "Rẽ phải.",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 1957,
+      "term": "左",
+      "reading": "ひだり",
+      "romaji": "hidari",
+      "definition": "Bên trái",
+      "exampleSentence": "左に曲がる。",
+      "exampleTranslation": "Rẽ trái.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 1958,
+      "term": "真っ直ぐ",
+      "reading": "まっすぐ",
+      "romaji": "massugu",
+      "definition": "Thẳng",
+      "exampleSentence": "真っ直ぐ行く。",
+      "exampleTranslation": "Đi thẳng.",
+      "forms": [],
+      "displayOrder": 29
+    },
+    {
+      "id": 1959,
+      "term": "近い",
+      "reading": "ちかい",
+      "romaji": "chikai",
+      "definition": "Gần",
+      "exampleSentence": "駅が近い。",
+      "exampleTranslation": "Ga gần.",
+      "forms": [
+        "近くない",
+        "近かった",
+        "近くなかった"
+      ],
+      "displayOrder": 30
+    },
+    {
+      "id": 1960,
+      "term": "遠い",
+      "reading": "とおい",
+      "romaji": "tooi",
+      "definition": "Xa",
+      "exampleSentence": "学校が遠い。",
+      "exampleTranslation": "Trường xa.",
+      "forms": [
+        "遠くない",
+        "遠かった",
+        "遠くなかった"
+      ],
+      "displayOrder": 31
+    },
+    {
+      "id": 1961,
+      "term": "道",
+      "reading": "みち",
+      "romaji": "michi",
+      "definition": "Đường, con đường",
+      "exampleSentence": "この道を行く。",
+      "exampleTranslation": "Đi con đường này.",
+      "forms": [],
+      "displayOrder": 32
+    },
+    {
+      "id": 1962,
+      "term": "曲がる",
+      "reading": "まがる",
+      "romaji": "magaru",
+      "definition": "Rẽ, quẹo",
+      "exampleSentence": "右に曲がってください。",
+      "exampleTranslation": "Vui lòng rẽ phải.",
+      "forms": [
+        "曲がります",
+        "曲がって",
+        "曲がった",
+        "曲がらない",
+        "曲がれる"
+      ],
+      "displayOrder": 33
+    },
+    {
+      "id": 1963,
+      "term": "止まる",
+      "reading": "とまる",
+      "romaji": "tomaru",
+      "definition": "Dừng lại",
+      "exampleSentence": "バス停で止まる。",
+      "exampleTranslation": "Dừng ở trạm xe buýt.",
+      "forms": [
+        "止まります",
+        "止まって",
+        "止まった",
+        "止まらない",
+        "止まれる"
+      ],
+      "displayOrder": 34
+    },
+    {
+      "id": 1964,
+      "term": "急ぐ",
+      "reading": "いそぐ",
+      "romaji": "isogu",
+      "definition": "Vội, gấp",
+      "exampleSentence": "急いで行く。",
+      "exampleTranslation": "Đi gấp.",
+      "forms": [
+        "急ぎます",
+        "急いで",
+        "急いだ",
+        "急がない",
+        "急げる"
+      ],
+      "displayOrder": 35
+    }
+  ]
+}

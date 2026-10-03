@@ -1,0 +1,253 @@
+{
+  "id": 479,
+  "title": "教育・学習 · 論文・論理的思考",
+  "description": "Luận văn & lập luận học thuật — chủ đề Giáo dục & học tập · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.929994",
+  "cards": [
+    {
+      "id": 12044,
+      "term": "討論 (とうろん)",
+      "reading": "とうろん",
+      "romaji": null,
+      "definition": "thảo luận, tranh luận",
+      "exampleSentence": "学生たちは環境問題について活発に討論しました。",
+      "exampleTranslation": "Các sinh viên đã tích cực thảo luận về vấn đề môi trường.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12045,
+      "term": "引用 (いんよう)",
+      "reading": "いんよう",
+      "romaji": null,
+      "definition": "trích dẫn",
+      "exampleSentence": "レポートで他人の文章を引用する場合は、出典を必ず明記してください。",
+      "exampleTranslation": "Khi trích dẫn bài viết của người khác trong báo cáo, hãy nhớ ghi rõ nguồn.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12046,
+      "term": "仮定 (かてい)",
+      "reading": "かてい",
+      "romaji": null,
+      "definition": "giả thuyết/điều kiện giả định",
+      "exampleSentence": "まずこの仮定が正しいかどうかを検証する必要がある。",
+      "exampleTranslation": "Trước hết, cần kiểm chứng xem giả định này có đúng hay không.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12047,
+      "term": "観点 (かんてん)",
+      "reading": "かんてん",
+      "romaji": null,
+      "definition": "góc nhìn/quan điểm",
+      "exampleSentence": "環境問題を経済的な観点だけで判断してはいけない。",
+      "exampleTranslation": "Không nên đánh giá vấn đề môi trường chỉ từ góc nhìn kinh tế.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12048,
+      "term": "議論 (ぎろん)",
+      "reading": "ぎろん",
+      "romaji": null,
+      "definition": "tranh luận/thảo luận",
+      "exampleSentence": "その問題について、専門家たちは長時間にわたって議論を続けた。",
+      "exampleTranslation": "Các chuyên gia đã tiếp tục thảo luận về vấn đề đó trong thời gian dài.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12049,
+      "term": "根拠 (こんきょ)",
+      "reading": "こんきょ",
+      "romaji": null,
+      "definition": "căn cứ/lý do",
+      "exampleSentence": "その主張を支える根拠を、具体的なデータで示してください。",
+      "exampleTranslation": "Hãy đưa ra căn cứ chứng minh cho lập luận đó bằng những dữ liệu cụ thể.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12050,
+      "term": "主張 (しゅちょう)",
+      "reading": "しゅちょう",
+      "romaji": null,
+      "definition": "chủ trương/lập luận",
+      "exampleSentence": "彼は会議で、計画を見直すべきだと主張した。",
+      "exampleTranslation": "Trong cuộc họp, anh ấy lập luận rằng cần xem xét lại kế hoạch.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12051,
+      "term": "証明 (しょうめい)",
+      "reading": "しょうめい",
+      "romaji": null,
+      "definition": "chứng minh",
+      "exampleSentence": "この理論の証明には、さらに多くの実験データが必要だ。",
+      "exampleTranslation": "Để chứng minh lý thuyết này, cần có thêm nhiều dữ liệu thí nghiệm.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12052,
+      "term": "推測 (すいそく)",
+      "reading": "すいそく",
+      "romaji": null,
+      "definition": "suy đoán (≈推量)",
+      "exampleSentence": "現場の状況から推測すると、事故は夜中に起きたようだ。",
+      "exampleTranslation": "Suy đoán từ tình hình tại hiện trường, có vẻ vụ tai nạn xảy ra vào ban đêm.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12053,
+      "term": "推量 (すいりょう)",
+      "reading": "すいりょう",
+      "romaji": null,
+      "definition": "phỏng đoán (≈推測)",
+      "exampleSentence": "わずかな情報から結果を推量するのは難しい。",
+      "exampleTranslation": "Thật khó phỏng đoán kết quả chỉ từ một chút thông tin.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12054,
+      "term": "推論 (すいろん)",
+      "reading": "すいろん",
+      "romaji": null,
+      "definition": "suy luận",
+      "exampleSentence": "観察した事実から、原因を推論することができる。",
+      "exampleTranslation": "Có thể suy luận nguyên nhân từ những sự thật đã quan sát được.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12055,
+      "term": "前提 (ぜんてい)",
+      "reading": "ぜんてい",
+      "romaji": null,
+      "definition": "tiền đề/giả định cơ sở",
+      "exampleSentence": "この計画は、全員が協力することを前提に進められている。",
+      "exampleTranslation": "Kế hoạch này được triển khai với tiền đề là mọi người sẽ hợp tác.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12056,
+      "term": "文献 (ぶんけん)",
+      "reading": "ぶんけん",
+      "romaji": null,
+      "definition": "tài liệu tham khảo",
+      "exampleSentence": "卒業論文を書くために、関連する文献を図書館で調べた。",
+      "exampleTranslation": "Để viết luận văn tốt nghiệp, tôi đã tra cứu các tài liệu liên quan ở thư viện.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12057,
+      "term": "論拠 (ろんきょ)",
+      "reading": "ろんきょ",
+      "romaji": null,
+      "definition": "luận cứ/căn cứ lý luận",
+      "exampleSentence": "その主張を裏付ける論拠が、まだ十分に示されていない。",
+      "exampleTranslation": "Căn cứ lý luận chứng minh cho lập luận đó vẫn chưa được đưa ra đầy đủ.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12058,
+      "term": "論点 (ろんてん)",
+      "reading": "ろんてん",
+      "romaji": null,
+      "definition": "điểm tranh luận chính",
+      "exampleSentence": "まず、今回の議論の論点を整理する必要がある。",
+      "exampleTranslation": "Trước hết, cần sắp xếp lại những điểm tranh luận chính của cuộc thảo luận lần này.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12059,
+      "term": "論文 (ろんぶん)",
+      "reading": "ろんぶん",
+      "romaji": null,
+      "definition": "luận văn/bài nghiên cứu",
+      "exampleSentence": "私は環境問題に関する論文を執筆している。",
+      "exampleTranslation": "Tôi đang viết một bài nghiên cứu về vấn đề môi trường.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 12060,
+      "term": "論文審査 (ろんぶんしんさ)",
+      "reading": "ろんぶんしんさ",
+      "romaji": null,
+      "definition": "phản biện luận văn",
+      "exampleSentence": "論文審査の結果は、来週の教授会で発表される予定だ。",
+      "exampleTranslation": "Kết quả phản biện luận văn dự kiến sẽ được công bố tại hội đồng giáo sư vào tuần sau.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 12061,
+      "term": "論理 (ろんり)",
+      "reading": "ろんり",
+      "romaji": null,
+      "definition": "logic/lý luận",
+      "exampleSentence": "彼の説明は論理が明快で、誰にも理解しやすい。",
+      "exampleTranslation": "Cách giải thích của anh ấy rất logic và dễ hiểu đối với mọi người.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 12062,
+      "term": "剽窃 (ひょうせつ)",
+      "reading": "ひょうせつ",
+      "romaji": null,
+      "definition": "đạo văn",
+      "exampleSentence": "他人の研究成果を無断で使うことは、剽窃に当たる。",
+      "exampleTranslation": "Tự ý sử dụng thành quả nghiên cứu của người khác bị xem là đạo văn.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 12063,
+      "term": "仮説 (かせつ)",
+      "reading": "かせつ",
+      "romaji": null,
+      "definition": "giả thuyết",
+      "exampleSentence": "研究チームは、実験結果に基づいて新たな仮説を立てた。",
+      "exampleTranslation": "Nhóm nghiên cứu đã đưa ra một giả thuyết mới dựa trên kết quả thí nghiệm.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 12064,
+      "term": "検証 (けんしょう)",
+      "reading": "けんしょう",
+      "romaji": null,
+      "definition": "kiểm chứng/xác minh",
+      "exampleSentence": "提案された仮説を、実験によって検証する必要がある。",
+      "exampleTranslation": "Cần kiểm chứng giả thuyết được đề xuất bằng thí nghiệm.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 12065,
+      "term": "考察 (こうさつ)",
+      "reading": "こうさつ",
+      "romaji": null,
+      "definition": "xem xét/phân tích",
+      "exampleSentence": "調査結果を詳しく考察し、問題の原因を明らかにした。",
+      "exampleTranslation": "Sau khi phân tích kỹ kết quả khảo sát, chúng tôi đã làm rõ nguyên nhân của vấn đề.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

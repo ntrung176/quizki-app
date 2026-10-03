@@ -1,0 +1,253 @@
+{
+  "id": 470,
+  "title": "環境・自然 · 動物",
+  "description": "Động vật — chủ đề Môi trường & thiên nhiên · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.683519",
+  "cards": [
+    {
+      "id": 11891,
+      "term": "繁殖する (はんしょくする)",
+      "reading": "はんしょくする",
+      "romaji": null,
+      "definition": "sinh sản, sinh đẻ, nhân giống",
+      "exampleSentence": "この魚は水温が上がる春に繁殖する。",
+      "exampleTranslation": "Loài cá này sinh sản vào mùa xuân khi nhiệt độ nước tăng lên.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11892,
+      "term": "保護する (ほごする)",
+      "reading": "ほごする",
+      "romaji": null,
+      "definition": "bảo vệ, bảo tồn",
+      "exampleSentence": "市は絶滅のおそれがある鳥を保護する活動を続けている。",
+      "exampleTranslation": "Thành phố đang tiếp tục các hoạt động bảo vệ những loài chim có nguy cơ tuyệt chủng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11893,
+      "term": "ペット",
+      "reading": "ペット",
+      "romaji": null,
+      "definition": "thú cưng",
+      "exampleSentence": "ペットを飼うなら、最後まで責任を持って世話をしましょう。",
+      "exampleTranslation": "Nếu nuôi thú cưng, hãy có trách nhiệm chăm sóc chúng đến cùng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11894,
+      "term": "家畜 (かちく)",
+      "reading": "かちく",
+      "romaji": null,
+      "definition": "vật nuôi",
+      "exampleSentence": "この地域では牛や豚などの家畜が多く飼育されている。",
+      "exampleTranslation": "Ở khu vực này, nhiều vật nuôi như bò và lợn được chăn nuôi.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11895,
+      "term": "希少種 (きしょうしゅ)",
+      "reading": "きしょうしゅ",
+      "romaji": null,
+      "definition": "loài hiếm có nguy cơ tuyệt chủng",
+      "exampleSentence": "この島には、世界でも珍しい希少種が生息している。",
+      "exampleTranslation": "Trên hòn đảo này có một loài quý hiếm, hiếm thấy trên thế giới, đang sinh sống.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11896,
+      "term": "魚類 (ぎょるい)",
+      "reading": "ぎょるい",
+      "romaji": null,
+      "definition": "cá/loài cá",
+      "exampleSentence": "この水族館では、世界各地の魚類を展示している。",
+      "exampleTranslation": "Thủy cung này trưng bày các loài cá từ khắp nơi trên thế giới.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11897,
+      "term": "群れ (むれ)",
+      "reading": "むれ",
+      "romaji": null,
+      "definition": "đàn/bầy",
+      "exampleSentence": "海岸近くで、数百羽の鳥の群れが空を舞っていた。",
+      "exampleTranslation": "Gần bờ biển, một đàn chim vài trăm con đang bay lượn trên trời.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11898,
+      "term": "昆虫 (こんちゅう)",
+      "reading": "こんちゅう",
+      "romaji": null,
+      "definition": "côn trùng",
+      "exampleSentence": "子どものころ、夏休みに昆虫を観察するのが好きだった。",
+      "exampleTranslation": "Hồi còn nhỏ, tôi thích quan sát côn trùng vào kỳ nghỉ hè.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11899,
+      "term": "生息 (せいそく)",
+      "reading": "せいそく",
+      "romaji": null,
+      "definition": "sinh sống ở môi trường",
+      "exampleSentence": "パンダは中国の山地に生息している。",
+      "exampleTranslation": "Gấu trúc sinh sống ở vùng núi Trung Quốc.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11900,
+      "term": "絶滅 (ぜつめつ)",
+      "reading": "ぜつめつ",
+      "romaji": null,
+      "definition": "tuyệt chủng",
+      "exampleSentence": "乱獲が続けば、この動物は絶滅するおそれがある。",
+      "exampleTranslation": "Nếu việc đánh bắt quá mức tiếp diễn, loài động vật này có nguy cơ tuyệt chủng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11901,
+      "term": "絶滅危惧種 (ぜつめつきぐしゅ)",
+      "reading": "ぜつめつきぐしゅ",
+      "romaji": null,
+      "definition": "loài nguy cấp",
+      "exampleSentence": "この地域では、絶滅危惧種を守るために森林の開発が制限されている。",
+      "exampleTranslation": "Ở khu vực này, việc phát triển rừng bị hạn chế để bảo vệ các loài có nguy cơ tuyệt chủng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11902,
+      "term": "鳥類 (ちょうるい)",
+      "reading": "ちょうるい",
+      "romaji": null,
+      "definition": "loài chim",
+      "exampleSentence": "この湿地には、季節ごとにさまざまな鳥類が集まる。",
+      "exampleTranslation": "Vùng đất ngập nước này thu hút nhiều loài chim khác nhau theo từng mùa.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11903,
+      "term": "渡り鳥 (わたりどり)",
+      "reading": "わたりどり",
+      "romaji": null,
+      "definition": "chim di cư",
+      "exampleSentence": "春になると、多くの渡り鳥が北の国へ戻っていく。",
+      "exampleTranslation": "Khi mùa xuân đến, nhiều loài chim di cư lại trở về các nước phía Bắc.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11904,
+      "term": "冬眠 (とうみん)",
+      "reading": "とうみん",
+      "romaji": null,
+      "definition": "ngủ đông",
+      "exampleSentence": "熊は冬眠に入る前に、秋の間に十分な食料を蓄える。",
+      "exampleTranslation": "Trước khi ngủ đông, gấu tích trữ đủ thức ăn trong suốt mùa thu.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 11905,
+      "term": "動物 (どうぶつ)",
+      "reading": "どうぶつ",
+      "romaji": null,
+      "definition": "động vật",
+      "exampleSentence": "動物の生態を知るには、長期間にわたる観察が必要だ。",
+      "exampleTranslation": "Để hiểu về tập tính của động vật, cần phải quan sát trong thời gian dài.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 11906,
+      "term": "繁殖 (はんしょく)",
+      "reading": "はんしょく",
+      "romaji": null,
+      "definition": "sinh sản",
+      "exampleSentence": "動物園では、希少な動物の繁殖に成功した。",
+      "exampleTranslation": "Vườn thú đã thành công trong việc nhân giống một loài động vật quý hiếm.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 11907,
+      "term": "保護区 (ほごく)",
+      "reading": "ほごく",
+      "romaji": null,
+      "definition": "khu bảo tồn",
+      "exampleSentence": "この島は貴重な鳥を守るための保護区に指定されている。",
+      "exampleTranslation": "Hòn đảo này được chỉ định làm khu bảo tồn để bảo vệ các loài chim quý.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 11908,
+      "term": "保護動物 (ほごどうぶつ)",
+      "reading": "ほごどうぶつ",
+      "romaji": null,
+      "definition": "động vật được bảo vệ",
+      "exampleSentence": "保護動物を無断で捕獲すると、法律で罰せられることがある。",
+      "exampleTranslation": "Nếu tự ý bắt động vật được bảo vệ, bạn có thể bị pháp luật xử phạt.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 11909,
+      "term": "野生 (やせい)",
+      "reading": "やせい",
+      "romaji": null,
+      "definition": "hoang dã",
+      "exampleSentence": "その動物は野生では群れを作って生活している。",
+      "exampleTranslation": "Trong tự nhiên, loài động vật đó sống theo bầy đàn.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 11910,
+      "term": "両生類 (りょうせいるい)",
+      "reading": "りょうせいるい",
+      "romaji": null,
+      "definition": "lưỡng cư",
+      "exampleSentence": "両生類は水辺の環境変化の影響を受けやすい。",
+      "exampleTranslation": "Các loài lưỡng cư dễ chịu ảnh hưởng bởi sự thay đổi môi trường ven nước.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 11911,
+      "term": "哺乳類 (ほにゅうるい)",
+      "reading": "ほにゅうるい",
+      "romaji": null,
+      "definition": "động vật có vú",
+      "exampleSentence": "クジラは海で暮らしているが、哺乳類に分類される。",
+      "exampleTranslation": "Cá voi sống ở biển nhưng được phân loại là động vật có vú.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 11912,
+      "term": "爬虫類 (はちゅうるい)",
+      "reading": "はちゅうるい",
+      "romaji": null,
+      "definition": "loài bò sát",
+      "exampleSentence": "この施設では、爬虫類の飼育方法を詳しく紹介している。",
+      "exampleTranslation": "Cơ sở này giới thiệu chi tiết phương pháp nuôi bò sát.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

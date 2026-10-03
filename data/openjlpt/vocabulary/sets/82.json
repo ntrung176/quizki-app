@@ -1,0 +1,461 @@
+{
+  "id": 82,
+  "title": "い形容詞",
+  "description": "Tính từ đuôi い · 32 mẫu câu",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:53.36851",
+  "cards": [
+    {
+      "id": 2433,
+      "term": "大きい",
+      "reading": "おおきい",
+      "romaji": "ookii",
+      "definition": "To, lớn",
+      "exampleSentence": "大きい荷物を持つ。",
+      "exampleTranslation": "Mang đồ to.",
+      "forms": [
+        "大きくない",
+        "大きかった",
+        "大きくなかった"
+      ],
+      "displayOrder": 0
+    },
+    {
+      "id": 2434,
+      "term": "小さい",
+      "reading": "ちいさい",
+      "romaji": "chiisai",
+      "definition": "Nhỏ",
+      "exampleSentence": "小さい犬が可愛い。",
+      "exampleTranslation": "Con chó nhỏ dễ thương.",
+      "forms": [
+        "小さくない",
+        "小さかった",
+        "小さくなかった"
+      ],
+      "displayOrder": 1
+    },
+    {
+      "id": 2435,
+      "term": "新しい",
+      "reading": "あたらしい",
+      "romaji": "atarashii",
+      "definition": "Mới",
+      "exampleSentence": "新しい車を買った。",
+      "exampleTranslation": "Mua xe mới.",
+      "forms": [
+        "新しくない",
+        "新しかった",
+        "新しくなかった"
+      ],
+      "displayOrder": 2
+    },
+    {
+      "id": 2436,
+      "term": "古い",
+      "reading": "ふるい",
+      "romaji": "furui",
+      "definition": "Cũ",
+      "exampleSentence": "古い建物がある。",
+      "exampleTranslation": "Có tòa nhà cũ.",
+      "forms": [
+        "古くない",
+        "古かった",
+        "古くなかった"
+      ],
+      "displayOrder": 3
+    },
+    {
+      "id": 2437,
+      "term": "高い",
+      "reading": "たかい",
+      "romaji": "takai",
+      "definition": "Cao / Đắt",
+      "exampleSentence": "この山は高い。",
+      "exampleTranslation": "Núi này cao.",
+      "forms": [
+        "高くない",
+        "高かった",
+        "高くなかった"
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": 2438,
+      "term": "低い",
+      "reading": "ひくい",
+      "romaji": "hikui",
+      "definition": "Thấp",
+      "exampleSentence": "机が低い。",
+      "exampleTranslation": "Bàn thấp.",
+      "forms": [
+        "低くない",
+        "低かった",
+        "低くなかった"
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": 2439,
+      "term": "長い",
+      "reading": "ながい",
+      "romaji": "nagai",
+      "definition": "Dài",
+      "exampleSentence": "長い髪が好き。",
+      "exampleTranslation": "Thích tóc dài.",
+      "forms": [
+        "長くない",
+        "長かった",
+        "長くなかった"
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": 2440,
+      "term": "短い",
+      "reading": "みじかい",
+      "romaji": "mijikai",
+      "definition": "Ngắn",
+      "exampleSentence": "夏は夜が短い。",
+      "exampleTranslation": "Mùa hè đêm ngắn.",
+      "forms": [
+        "短くない",
+        "短かった",
+        "短くなかった"
+      ],
+      "displayOrder": 7
+    },
+    {
+      "id": 2441,
+      "term": "いい/よい",
+      "reading": "いい・よい",
+      "romaji": "ii/yoi",
+      "definition": "Tốt, hay",
+      "exampleSentence": "この映画はいい。",
+      "exampleTranslation": "Phim này hay.",
+      "forms": [
+        "よくない",
+        "よかった",
+        "よくなかった"
+      ],
+      "displayOrder": 8
+    },
+    {
+      "id": 2442,
+      "term": "悪い",
+      "reading": "わるい",
+      "romaji": "warui",
+      "definition": "Xấu, tệ",
+      "exampleSentence": "今日は調子が悪い。",
+      "exampleTranslation": "Hôm nay thể trạng tệ.",
+      "forms": [
+        "悪くない",
+        "悪かった",
+        "悪くなかった"
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": 2443,
+      "term": "楽しい",
+      "reading": "たのしい",
+      "romaji": "tanoshii",
+      "definition": "Vui vẻ",
+      "exampleSentence": "旅行は楽しい。",
+      "exampleTranslation": "Du lịch thật vui.",
+      "forms": [
+        "楽しくない",
+        "楽しかった",
+        "楽しくなかった"
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": 2444,
+      "term": "難しい",
+      "reading": "むずかしい",
+      "romaji": "muzukashii",
+      "definition": "Khó",
+      "exampleSentence": "漢字は難しい。",
+      "exampleTranslation": "Chữ Hán khó.",
+      "forms": [
+        "難しくない",
+        "難しかった",
+        "難しくなかった"
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": 2445,
+      "term": "易しい",
+      "reading": "やさしい",
+      "romaji": "yasashii",
+      "definition": "Dễ",
+      "exampleSentence": "この問題は易しい。",
+      "exampleTranslation": "Bài toán này dễ.",
+      "forms": [
+        "易しくない",
+        "易しかった",
+        "易しくなかった"
+      ],
+      "displayOrder": 12
+    },
+    {
+      "id": 2446,
+      "term": "面白い",
+      "reading": "おもしろい",
+      "romaji": "omoshiroi",
+      "definition": "Thú vị, buồn cười",
+      "exampleSentence": "この本は面白い。",
+      "exampleTranslation": "Quyển sách này thú vị.",
+      "forms": [
+        "面白くない",
+        "面白かった",
+        "面白くなかった"
+      ],
+      "displayOrder": 13
+    },
+    {
+      "id": 2447,
+      "term": "つまらない",
+      "reading": "つまらない",
+      "romaji": "tsumaranai",
+      "definition": "Chán",
+      "exampleSentence": "この映画はつまらない。",
+      "exampleTranslation": "Phim này chán.",
+      "forms": [
+        "つまらなくない",
+        "つまらなかった",
+        "つまらなくなかった"
+      ],
+      "displayOrder": 14
+    },
+    {
+      "id": 2448,
+      "term": "怖い",
+      "reading": "こわい",
+      "romaji": "kowai",
+      "definition": "Đáng sợ",
+      "exampleSentence": "お化けが怖い。",
+      "exampleTranslation": "Sợ ma.",
+      "forms": [
+        "怖くない",
+        "怖かった",
+        "怖くなかった"
+      ],
+      "displayOrder": 15
+    },
+    {
+      "id": 2449,
+      "term": "かわいい",
+      "reading": "かわいい",
+      "romaji": "kawaii",
+      "definition": "Dễ thương",
+      "exampleSentence": "猫がかわいい。",
+      "exampleTranslation": "Con mèo dễ thương.",
+      "forms": [
+        "かわいくない",
+        "かわいかった",
+        "かわいくなかった"
+      ],
+      "displayOrder": 16
+    },
+    {
+      "id": 2450,
+      "term": "きれい",
+      "reading": "きれい",
+      "romaji": "kirei",
+      "definition": "Đẹp, sạch sẽ",
+      "exampleSentence": "桜がきれいです。",
+      "exampleTranslation": "Hoa anh đào đẹp.",
+      "forms": [
+        "きれいじゃない",
+        "きれいだった",
+        "きれいじゃなかった"
+      ],
+      "displayOrder": 17
+    },
+    {
+      "id": 2451,
+      "term": "忙しい",
+      "reading": "いそがしい",
+      "romaji": "isogashii",
+      "definition": "Bận rộn",
+      "exampleSentence": "最近忙しい。",
+      "exampleTranslation": "Dạo này bận.",
+      "forms": [
+        "忙しくない",
+        "忙しかった",
+        "忙しくなかった"
+      ],
+      "displayOrder": 18
+    },
+    {
+      "id": 2452,
+      "term": "暇",
+      "reading": "ひま",
+      "romaji": "hima",
+      "definition": "Rảnh rỗi",
+      "exampleSentence": "今日は暇です。",
+      "exampleTranslation": "Hôm nay rảnh.",
+      "forms": [
+        "暇じゃない",
+        "暇だった",
+        "暇じゃなかった"
+      ],
+      "displayOrder": 19
+    },
+    {
+      "id": 2453,
+      "term": "痛い",
+      "reading": "いたい",
+      "romaji": "itai",
+      "definition": "Đau",
+      "exampleSentence": "頭が痛い。",
+      "exampleTranslation": "Đau đầu.",
+      "forms": [
+        "痛くない",
+        "痛かった",
+        "痛くなかった"
+      ],
+      "displayOrder": 20
+    },
+    {
+      "id": 2454,
+      "term": "眠い",
+      "reading": "ねむい",
+      "romaji": "nemui",
+      "definition": "Buồn ngủ",
+      "exampleSentence": "眠くて集中できない。",
+      "exampleTranslation": "Buồn ngủ không thể tập trung.",
+      "forms": [
+        "眠くない",
+        "眠かった",
+        "眠くなかった"
+      ],
+      "displayOrder": 21
+    },
+    {
+      "id": 2455,
+      "term": "嬉しい",
+      "reading": "うれしい",
+      "romaji": "ureshii",
+      "definition": "Vui mừng",
+      "exampleSentence": "合格して嬉しい。",
+      "exampleTranslation": "Vui vì đỗ thi.",
+      "forms": [
+        "嬉しくない",
+        "嬉しかった",
+        "嬉しくなかった"
+      ],
+      "displayOrder": 22
+    },
+    {
+      "id": 2456,
+      "term": "悲しい",
+      "reading": "かなしい",
+      "romaji": "kanashii",
+      "definition": "Buồn",
+      "exampleSentence": "別れが悲しい。",
+      "exampleTranslation": "Buồn vì chia tay.",
+      "forms": [
+        "悲しくない",
+        "悲しかった",
+        "悲しくなかった"
+      ],
+      "displayOrder": 23
+    },
+    {
+      "id": 2457,
+      "term": "寂しい",
+      "reading": "さびしい",
+      "romaji": "sabishii",
+      "definition": "Cô đơn, nhớ nhà",
+      "exampleSentence": "一人で寂しい。",
+      "exampleTranslation": "Ở một mình cô đơn.",
+      "forms": [
+        "寂しくない",
+        "寂しかった",
+        "寂しくなかった"
+      ],
+      "displayOrder": 24
+    },
+    {
+      "id": 2458,
+      "term": "重い",
+      "reading": "おもい",
+      "romaji": "omoi",
+      "definition": "Nặng",
+      "exampleSentence": "この荷物は重い。",
+      "exampleTranslation": "Hành lý này nặng.",
+      "forms": [
+        "重くない",
+        "重かった",
+        "重くなかった"
+      ],
+      "displayOrder": 25
+    },
+    {
+      "id": 2459,
+      "term": "軽い",
+      "reading": "かるい",
+      "romaji": "karui",
+      "definition": "Nhẹ",
+      "exampleSentence": "このバッグは軽い。",
+      "exampleTranslation": "Túi này nhẹ.",
+      "forms": [
+        "軽くない",
+        "軽かった",
+        "軽くなかった"
+      ],
+      "displayOrder": 26
+    },
+    {
+      "id": 2460,
+      "term": "熱い",
+      "reading": "あつい",
+      "romaji": "atsui",
+      "definition": "Nóng (nhiệt độ)",
+      "exampleSentence": "スープが熱い。",
+      "exampleTranslation": "Canh nóng.",
+      "forms": [
+        "熱くない",
+        "熱かった",
+        "熱くなかった"
+      ],
+      "displayOrder": 27
+    },
+    {
+      "id": 2461,
+      "term": "冷たい",
+      "reading": "つめたい",
+      "romaji": "tsumetai",
+      "definition": "Lạnh (xúc giác)",
+      "exampleSentence": "水が冷たい。",
+      "exampleTranslation": "Nước lạnh.",
+      "forms": [
+        "冷たくない",
+        "冷たかった",
+        "冷たくなかった"
+      ],
+      "displayOrder": 28
+    },
+    {
+      "id": 2462,
+      "term": "甘い",
+      "reading": "あまい",
+      "romaji": "amai",
+      "definition": "Ngọt",
+      "exampleSentence": "このケーキは甘い。",
+      "exampleTranslation": "Bánh này ngọt.",
+      "forms": [
+        "甘くない",
+        "甘かった",
+        "甘くなかった"
+      ],
+      "displayOrder": 29
+    }
+  ]
+}

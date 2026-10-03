@@ -1,0 +1,176 @@
+{
+  "id": 232,
+  "title": "Tuần 6 · Ngày 4 - 接尾語・接頭語 (Hậu tố & Tiền tố)",
+  "description": "Nihongo Soumatome N3 語彙 — 接尾語・接頭語 (Hậu tố & Tiền tố)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.735904",
+  "cards": [
+    {
+      "id": 5746,
+      "term": "〜的 (〜てき)",
+      "reading": "〜てき",
+      "romaji": "~teki",
+      "definition": "mang tính chất ~, kiểu ~ (hậu tố)",
+      "exampleSentence": "「〜的」は、名詞に付いて性質や特徴を表す接尾語です。",
+      "exampleTranslation": "“〜的” là hậu tố gắn sau danh từ để biểu thị tính chất hoặc đặc điểm.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5747,
+      "term": "〜化 (〜か)",
+      "reading": "〜か",
+      "romaji": "~ka",
+      "definition": "hóa ~, trở thành ~ (hậu tố)",
+      "exampleSentence": "「〜化」は、ある状態や性質に変わることを表す接尾語です。",
+      "exampleTranslation": "“〜化” là hậu tố biểu thị sự biến đổi thành một trạng thái hoặc tính chất nào đó.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5748,
+      "term": "〜性 (〜せい)",
+      "reading": "〜せい",
+      "romaji": "~sei",
+      "definition": "tính chất ~, đặc tính (hậu tố)",
+      "exampleSentence": "「〜性」は、物事の性質や特徴を表す言葉を作ります。",
+      "exampleTranslation": "“〜性” tạo ra những từ biểu thị tính chất hoặc đặc điểm của sự vật.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5749,
+      "term": "〜感 (〜かん)",
+      "reading": "〜かん",
+      "romaji": "~kan",
+      "definition": "cảm giác ~, cảm nhận ~ (hậu tố)",
+      "exampleSentence": "「〜感」は、ある気持ちや感覚を表す言葉を作ります。",
+      "exampleTranslation": "“〜感” tạo ra những từ biểu thị một cảm xúc hoặc cảm giác nào đó.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5750,
+      "term": "〜力 (〜りょく)",
+      "reading": "〜りょく",
+      "romaji": "~ryoku",
+      "definition": "sức ~, khả năng ~ (hậu tố)",
+      "exampleSentence": "「〜力」は、何かをする能力や力を表す接尾辞です。",
+      "exampleTranslation": "“〜力” là hậu tố biểu thị năng lực hoặc sức mạnh để làm việc gì đó.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5751,
+      "term": "〜式 (〜しき)",
+      "reading": "〜しき",
+      "romaji": "~shiki",
+      "definition": "kiểu ~, phong cách ~ (hậu tố)",
+      "exampleSentence": "「〜式」は、決まった方法やスタイルを表す言葉を作ります。",
+      "exampleTranslation": "“〜式” tạo ra những từ biểu thị phương pháp hoặc phong cách nhất định.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5752,
+      "term": "〜向け (〜むけ)",
+      "reading": "〜むけ",
+      "romaji": "~muke",
+      "definition": "dành cho ~, nhắm đến ~ (hậu tố)",
+      "exampleSentence": "「〜向け」は、特定の人や目的に合うことを表します。",
+      "exampleTranslation": "“〜向け” biểu thị việc phù hợp với một đối tượng hoặc mục đích cụ thể.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5753,
+      "term": "〜中 (〜ちゅう)",
+      "reading": "〜ちゅう",
+      "romaji": "~chuu",
+      "definition": "đang ~, trong lúc ~ (hậu tố)",
+      "exampleSentence": "「〜中」は、何かをしている途中であることを表します。",
+      "exampleTranslation": "“〜中” biểu thị việc đang trong quá trình làm một việc gì đó.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5754,
+      "term": "〜以上 (〜いじょう)",
+      "reading": "〜いじょう",
+      "romaji": "~ijou",
+      "definition": "trên ~, hơn ~, ít nhất ~ (hậu tố)",
+      "exampleSentence": "「〜以上」は、基準となる数を含む、それより多い範囲を表します。",
+      "exampleTranslation": "「〜以上」 biểu thị phạm vi bao gồm con số làm mốc trở lên.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5755,
+      "term": "〜以下 (〜いか)",
+      "reading": "〜いか",
+      "romaji": "~ika",
+      "definition": "dưới ~, ít hơn ~ (hậu tố)",
+      "exampleSentence": "「〜以下」は、18歳以下のように、基準を含む範囲を表します。",
+      "exampleTranslation": "「〜以下」 biểu thị phạm vi bao gồm cả mức 기준, như trong “từ 18 tuổi trở xuống”.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5756,
+      "term": "〜以内 (〜いない)",
+      "reading": "〜いない",
+      "romaji": "~inai",
+      "definition": "trong vòng ~, không vượt quá ~ (hậu tố)",
+      "exampleSentence": "「〜以内」は、三日以内のように、期限を示すときに使います。",
+      "exampleTranslation": "「〜以内」 được dùng để chỉ thời hạn, chẳng hạn như “trong vòng ba ngày”.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5757,
+      "term": "〜前後 (〜ぜんご)",
+      "reading": "〜ぜんご",
+      "romaji": "~zengo",
+      "definition": "khoảng ~, trước sau ~ (hậu tố)",
+      "exampleSentence": "「〜前後」は、ある時点の前後の期間を表す表現です。",
+      "exampleTranslation": "“〜前後” là cách diễn đạt khoảng thời gian trước và sau một thời điểm.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5758,
+      "term": "無〜 (む〜)",
+      "reading": "む〜",
+      "romaji": "mu~",
+      "definition": "không có ~, vô ~ (tiền tố)",
+      "exampleSentence": "「無〜」の言葉には、無意識や無関心などがあります。",
+      "exampleTranslation": "Những từ có tiền tố 「無〜」 gồm có 無意識 và 無関心.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5759,
+      "term": "非〜 (ひ〜)",
+      "reading": "ひ〜",
+      "romaji": "hi~",
+      "definition": "không ~, phi ~ (tiền tố)",
+      "exampleSentence": "「非〜」の例として、非公式という言葉があります。",
+      "exampleTranslation": "Một ví dụ về 「非〜」 là từ 非公式, nghĩa là không chính thức.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5760,
+      "term": "超〜 (ちょう〜)",
+      "reading": "ちょう〜",
+      "romaji": "chou~",
+      "definition": "siêu ~, cực kỳ ~ (tiền tố)",
+      "exampleSentence": "「超〜」を付けると、程度がとても高いことを表せます。",
+      "exampleTranslation": "Khi thêm 「超〜」, ta có thể biểu thị mức độ cực kỳ cao.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "id": 491,
+  "title": "社会・人間関係 · 発展・解決・維持",
+  "description": "Phát triển, giải quyết & duy trì — chủ đề Xã hội & quan hệ · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:50.348913",
+  "cards": [
+    {
+      "id": 12293,
+      "term": "維持 (いじ)",
+      "reading": "いじ",
+      "romaji": null,
+      "definition": "duy trì",
+      "exampleSentence": "健康を維持するために、毎日三十分ほど歩いている。",
+      "exampleTranslation": "Để duy trì sức khỏe, tôi đi bộ khoảng ba mươi phút mỗi ngày.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12294,
+      "term": "解決 (かいけつ)",
+      "reading": "かいけつ",
+      "romaji": null,
+      "definition": "giải quyết vấn đề",
+      "exampleSentence": "問題の解決には、関係者全員の協力が欠かせない。",
+      "exampleTranslation": "Để giải quyết vấn đề, sự hợp tác của tất cả những người liên quan là không thể thiếu.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12295,
+      "term": "改善 (かいぜん)",
+      "reading": "かいぜん",
+      "romaji": null,
+      "definition": "cải thiện",
+      "exampleSentence": "サービスの改善を求める声が、利用者から多く寄せられた。",
+      "exampleTranslation": "Nhiều người sử dụng đã lên tiếng yêu cầu cải thiện dịch vụ.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12296,
+      "term": "継続 (けいぞく)",
+      "reading": "けいぞく",
+      "romaji": null,
+      "definition": "tiếp tục",
+      "exampleSentence": "目標を達成するには、努力を継続することが大切だ。",
+      "exampleTranslation": "Để đạt được mục tiêu, việc tiếp tục nỗ lực là điều quan trọng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12297,
+      "term": "持続 (じぞく)",
+      "reading": "じぞく",
+      "romaji": null,
+      "definition": "bền vững/tiếp diễn",
+      "exampleSentence": "地域の発展を持続させるには、若者の参加が欠かせない。",
+      "exampleTranslation": "Để duy trì sự phát triển của địa phương, sự tham gia của người trẻ là điều không thể thiếu.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12298,
+      "term": "実現 (じつげん)",
+      "reading": "じつげん",
+      "romaji": null,
+      "definition": "hiện thực hoá",
+      "exampleSentence": "長年の夢を実現するために、毎日少しずつ努力している。",
+      "exampleTranslation": "Để hiện thực hóa ước mơ suốt nhiều năm qua, tôi đang nỗ lực từng chút một mỗi ngày.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12299,
+      "term": "取り組む (とりくむ)",
+      "reading": "とりくむ",
+      "romaji": null,
+      "definition": "nỗ lực giải quyết",
+      "exampleSentence": "私たちは地域の環境問題に、長期的な視点で取り組む必要がある。",
+      "exampleTranslation": "Chúng ta cần nỗ lực giải quyết các vấn đề môi trường của địa phương với tầm nhìn dài hạn.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12300,
+      "term": "乗り越える (のりこえる)",
+      "reading": "のりこえる",
+      "romaji": null,
+      "definition": "vượt qua khó khăn",
+      "exampleSentence": "困難を乗り越えるためには、周囲の支えと本人の努力が必要だ。",
+      "exampleTranslation": "Để vượt qua khó khăn, cần có sự hỗ trợ của những người xung quanh và nỗ lực của chính bản thân.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12301,
+      "term": "状況 (じょうきょう)",
+      "reading": "じょうきょう",
+      "romaji": null,
+      "definition": "tình trạng/hoàn cảnh",
+      "exampleSentence": "まず現場の状況を正確に把握してから、対応を決めよう。",
+      "exampleTranslation": "Trước hết hãy nắm bắt chính xác tình hình tại hiện trường rồi quyết định cách ứng phó.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12302,
+      "term": "推進 (すいしん)",
+      "reading": "すいしん",
+      "romaji": null,
+      "definition": "đẩy mạnh",
+      "exampleSentence": "政府は再生可能エネルギーの利用を推進している。",
+      "exampleTranslation": "Chính phủ đang đẩy mạnh việc sử dụng năng lượng tái tạo.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12303,
+      "term": "促進 (そくしん)",
+      "reading": "そくしん",
+      "romaji": null,
+      "definition": "thúc đẩy",
+      "exampleSentence": "この制度は、地域住民同士の交流を促進することを目的としている。",
+      "exampleTranslation": "Chế độ này nhằm thúc đẩy sự giao lưu giữa người dân trong khu vực.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12304,
+      "term": "多様性 (たようせい)",
+      "reading": "たようせい",
+      "romaji": null,
+      "definition": "sự đa dạng",
+      "exampleSentence": "職場の多様性を尊重することが、より良い社会につながる。",
+      "exampleTranslation": "Tôn trọng sự đa dạng tại nơi làm việc sẽ góp phần tạo nên một xã hội tốt đẹp hơn.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12305,
+      "term": "対処 (たいしょ)",
+      "reading": "たいしょ",
+      "romaji": null,
+      "definition": "đối phó/ứng phó",
+      "exampleSentence": "予想外のトラブルにも冷静に対処できるよう、訓練を重ねている。",
+      "exampleTranslation": "Chúng tôi đang không ngừng luyện tập để có thể bình tĩnh ứng phó với cả những sự cố ngoài dự đoán.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12306,
+      "term": "対立 (たいりつ)",
+      "reading": "たいりつ",
+      "romaji": null,
+      "definition": "đối lập/mâu thuẫn",
+      "exampleSentence": "両国の対立が深まり、問題の解決がさらに難しくなった。",
+      "exampleTranslation": "Mâu thuẫn giữa hai nước trở nên sâu sắc hơn, khiến việc giải quyết vấn đề càng khó khăn.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12307,
+      "term": "達成 (たっせい)",
+      "reading": "たっせい",
+      "romaji": null,
+      "definition": "đạt được mục tiêu",
+      "exampleSentence": "チーム全員の努力によって、ついに目標を達成することができた。",
+      "exampleTranslation": "Nhờ sự nỗ lực của toàn đội, cuối cùng chúng tôi đã đạt được mục tiêu.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12308,
+      "term": "普及 (ふきゅう)",
+      "reading": "ふきゅう",
+      "romaji": null,
+      "definition": "phổ biến/lan rộng",
+      "exampleSentence": "インターネットの普及により、情報を得る方法が大きく変わった。",
+      "exampleTranslation": "Sự phổ biến của Internet đã làm thay đổi đáng kể cách con người tiếp nhận thông tin.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

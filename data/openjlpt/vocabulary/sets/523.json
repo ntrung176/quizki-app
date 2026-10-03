@@ -1,0 +1,220 @@
+{
+  "id": 523,
+  "title": "文化・芸術・スポーツ · 文学・書物",
+  "description": "Văn học & sách vở — chủ đề Văn hóa, nghệ thuật & thể thao · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:51.271023",
+  "cards": [
+    {
+      "id": 12925,
+      "term": "読書 (どくしょ)",
+      "reading": "どくしょ",
+      "romaji": null,
+      "definition": "đọc sách",
+      "exampleSentence": "週末は静かなカフェで読書を楽しんでいます。",
+      "exampleTranslation": "Cuối tuần, tôi thường tận hưởng việc đọc sách trong một quán cà phê yên tĩnh.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12926,
+      "term": "現代文学 (げんだいぶんがく)",
+      "reading": "げんだいぶんがく",
+      "romaji": null,
+      "definition": "văn học hiện đại",
+      "exampleSentence": "大学では現代文学について幅広く研究しています。",
+      "exampleTranslation": "Ở trường đại học, tôi đang nghiên cứu sâu rộng về văn học hiện đại.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12927,
+      "term": "古典 (こてん)",
+      "reading": "こてん",
+      "romaji": null,
+      "definition": "văn học cổ điển",
+      "exampleSentence": "授業で古典を読むと、昔の人の考え方がよく分かります。",
+      "exampleTranslation": "Đọc các tác phẩm cổ điển trong giờ học giúp hiểu rõ cách suy nghĩ của người xưa.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12928,
+      "term": "作家 (さっか)",
+      "reading": "さっか",
+      "romaji": null,
+      "definition": "nhà văn/tác giả",
+      "exampleSentence": "その作家は、社会の変化を鋭く描いた作品で知られている。",
+      "exampleTranslation": "Nhà văn đó được biết đến qua những tác phẩm khắc họa sắc bén những thay đổi của xã hội.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12929,
+      "term": "詩歌 (しいか)",
+      "reading": "しいか",
+      "romaji": null,
+      "definition": "thơ ca",
+      "exampleSentence": "この本には、日本の美しい詩歌が数多く収められている。",
+      "exampleTranslation": "Cuốn sách này tuyển chọn rất nhiều bài thơ ca tuyệt đẹp của Nhật Bản.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12930,
+      "term": "主人公 (しゅじんこう)",
+      "reading": "しゅじんこう",
+      "romaji": null,
+      "definition": "nhân vật chính",
+      "exampleSentence": "物語の主人公は、困難に負けず夢を追い続けた。",
+      "exampleTranslation": "Nhân vật chính của câu chuyện không khuất phục trước khó khăn mà tiếp tục theo đuổi ước mơ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12931,
+      "term": "小説 (しょうせつ)",
+      "reading": "しょうせつ",
+      "romaji": null,
+      "definition": "tiểu thuyết",
+      "exampleSentence": "電車の中で夢中になって小説を読んでいた。",
+      "exampleTranslation": "Tôi đã mải mê đọc tiểu thuyết trên tàu điện.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12932,
+      "term": "随筆 (ずいひつ)",
+      "reading": "ずいひつ",
+      "romaji": null,
+      "definition": "tản văn/bút ký",
+      "exampleSentence": "休日には、好きな作家の随筆をゆっくり読みます。",
+      "exampleTranslation": "Vào ngày nghỉ, tôi thong thả đọc những tản văn của nhà văn mình yêu thích.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12933,
+      "term": "短歌 (たんか)",
+      "reading": "たんか",
+      "romaji": null,
+      "definition": "thơ tanka",
+      "exampleSentence": "この歌人は自然の美しさを詠んだ短歌を数多く残した。",
+      "exampleTranslation": "Nhà thơ này đã để lại rất nhiều bài thơ tanka viết về vẻ đẹp của thiên nhiên.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12934,
+      "term": "著者 (ちょしゃ)",
+      "reading": "ちょしゃ",
+      "romaji": null,
+      "definition": "tác giả sách",
+      "exampleSentence": "著者の経歴を知ると、この作品をより深く理解できる。",
+      "exampleTranslation": "Biết về quá trình hoạt động của tác giả sẽ giúp hiểu sâu hơn về tác phẩm này.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12935,
+      "term": "登場人物 (とうじょうじんぶつ)",
+      "reading": "とうじょうじんぶつ",
+      "romaji": null,
+      "definition": "nhân vật trong tác phẩm",
+      "exampleSentence": "登場人物の心の変化が丁寧に描かれている。",
+      "exampleTranslation": "Những thay đổi trong tâm trạng của các nhân vật được khắc họa rất tỉ mỉ.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12936,
+      "term": "読者 (どくしゃ)",
+      "reading": "どくしゃ",
+      "romaji": null,
+      "definition": "độc giả",
+      "exampleSentence": "この小説は若い読者にも大きな感動を与えた。",
+      "exampleTranslation": "Cuốn tiểu thuyết này cũng mang đến niềm xúc động lớn cho các độc giả trẻ.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12937,
+      "term": "俳句 (はいく)",
+      "reading": "はいく",
+      "romaji": null,
+      "definition": "thơ haiku",
+      "exampleSentence": "季節の言葉を使って、美しい俳句を作ってみましょう。",
+      "exampleTranslation": "Hãy thử dùng những từ ngữ chỉ mùa để sáng tác một bài haiku thật đẹp.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12938,
+      "term": "批評 (ひひょう)",
+      "reading": "ひひょう",
+      "romaji": null,
+      "definition": "bình luận phân tích",
+      "exampleSentence": "新聞に掲載された批評を読んで、作品について考え直した。",
+      "exampleTranslation": "Đọc bài bình luận đăng trên báo, tôi đã suy nghĩ lại về tác phẩm.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12939,
+      "term": "比喩 (ひゆ)",
+      "reading": "ひゆ",
+      "romaji": null,
+      "definition": "ví von/ẩn dụ",
+      "exampleSentence": "その小説には、想像力を広げる巧みな比喩が使われている。",
+      "exampleTranslation": "Cuốn tiểu thuyết đó sử dụng những phép ẩn dụ tinh tế giúp mở rộng trí tưởng tượng.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12940,
+      "term": "評論 (ひょうろん)",
+      "reading": "ひょうろん",
+      "romaji": null,
+      "definition": "phê bình nghệ thuật",
+      "exampleSentence": "大学の授業で、近代文学に関する評論を読んだ。",
+      "exampleTranslation": "Trong giờ học đại học, tôi đã đọc một bài phê bình về văn học hiện đại.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 12941,
+      "term": "伏線 (ふくせん)",
+      "reading": "ふくせん",
+      "romaji": null,
+      "definition": "tình tiết ngầm/cài dấu trong truyện",
+      "exampleSentence": "物語の終盤で、序盤に張られた伏線が一気に明らかになった。",
+      "exampleTranslation": "Ở phần cuối câu chuyện, những tình tiết được cài cắm từ đầu đã lần lượt sáng tỏ.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 12942,
+      "term": "文学 (ぶんがく)",
+      "reading": "ぶんがく",
+      "romaji": null,
+      "definition": "văn học",
+      "exampleSentence": "文学を学ぶことで、さまざまな時代の人々の考え方を知ることができる。",
+      "exampleTranslation": "Thông qua việc học văn học, ta có thể biết được cách suy nghĩ của con người ở nhiều thời đại khác nhau.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 12943,
+      "term": "名作 (めいさく)",
+      "reading": "めいさく",
+      "romaji": null,
+      "definition": "tác phẩm nổi tiếng",
+      "exampleSentence": "彼は日本文学の名作を原文で読むために、日本語を学んでいる。",
+      "exampleTranslation": "Anh ấy đang học tiếng Nhật để đọc các tác phẩm nổi tiếng của văn học Nhật bằng nguyên tác.",
+      "forms": [],
+      "displayOrder": 18
+    }
+  ]
+}

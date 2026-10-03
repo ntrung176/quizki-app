@@ -1,0 +1,461 @@
+{
+  "id": 77,
+  "title": "です・ます形",
+  "description": "Thể lịch sự · 40 mẫu câu thiết yếu",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:53.100771",
+  "cards": [
+    {
+      "id": 2301,
+      "term": "〜です",
+      "reading": "〜です",
+      "romaji": "desu",
+      "definition": "Là (thể lịch sự hiện tại)",
+      "exampleSentence": "私は学生です。",
+      "exampleTranslation": "Tôi là học sinh.",
+      "forms": [
+        "〜じゃありません",
+        "〜でした",
+        "〜じゃありませんでした"
+      ],
+      "displayOrder": 0
+    },
+    {
+      "id": 2302,
+      "term": "〜ます",
+      "reading": "〜ます",
+      "romaji": "masu",
+      "definition": "Thể lịch sự động từ",
+      "exampleSentence": "毎日勉強します。",
+      "exampleTranslation": "Mỗi ngày tôi học.",
+      "forms": [
+        "〜ません",
+        "〜ました",
+        "〜ませんでした"
+      ],
+      "displayOrder": 1
+    },
+    {
+      "id": 2303,
+      "term": "〜じゃありません",
+      "reading": "〜じゃありません",
+      "romaji": "ja arimasen",
+      "definition": "Không phải (thể lịch sự)",
+      "exampleSentence": "学生じゃありません。",
+      "exampleTranslation": "Tôi không phải học sinh.",
+      "forms": [
+        "Phủ định của 〜です",
+        "でもない (thân mật)",
+        "ではありません (trang trọng)"
+      ],
+      "displayOrder": 2
+    },
+    {
+      "id": 2304,
+      "term": "〜ました",
+      "reading": "〜ました",
+      "romaji": "mashita",
+      "definition": "Đã (quá khứ lịch sự)",
+      "exampleSentence": "昨日勉強しました。",
+      "exampleTranslation": "Hôm qua tôi đã học.",
+      "forms": [
+        "Quá khứ thể lịch sự",
+        "〜ませんでした là phủ định",
+        "Dùng kể sự kiện đã xảy ra"
+      ],
+      "displayOrder": 3
+    },
+    {
+      "id": 2305,
+      "term": "〜ませんでした",
+      "reading": "〜ませんでした",
+      "romaji": "masen deshita",
+      "definition": "Đã không (quá khứ phủ định)",
+      "exampleSentence": "昨日来ませんでした。",
+      "exampleTranslation": "Hôm qua không đến.",
+      "forms": [
+        "Quá khứ phủ định thể lịch sự",
+        "= 〜なかった (thân mật)",
+        "Dùng kể sự không xảy ra"
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": 2306,
+      "term": "〜ましょう",
+      "reading": "〜ましょう",
+      "romaji": "mashou",
+      "definition": "Hãy cùng (đề nghị)",
+      "exampleSentence": "一緒に行きましょう。",
+      "exampleTranslation": "Cùng đi nhé.",
+      "forms": [
+        "Đề nghị cùng làm",
+        "Lịch sự và tự nhiên",
+        "〜ませんか là dạng hỏi"
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": 2307,
+      "term": "〜ませんか",
+      "reading": "〜ませんか",
+      "romaji": "masen ka",
+      "definition": "Không ... (mời)",
+      "exampleSentence": "一緒に行きませんか。",
+      "exampleTranslation": "Cùng đi không?",
+      "forms": [
+        "Mời hoặc đề nghị nhẹ nhàng",
+        "Lịch sự hơn 〜ましょう",
+        "Thường dùng khi lần đầu đề nghị"
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": 2308,
+      "term": "〜てください",
+      "reading": "〜てください",
+      "romaji": "te kudasai",
+      "definition": "Vui lòng (yêu cầu lịch sự)",
+      "exampleSentence": "ここに書いてください。",
+      "exampleTranslation": "Vui lòng viết vào đây.",
+      "forms": [
+        "Yêu cầu lịch sự",
+        "= 〜てくれ (thân mật)",
+        "〜ないでください là phủ định"
+      ],
+      "displayOrder": 7
+    },
+    {
+      "id": 2309,
+      "term": "〜たいです",
+      "reading": "〜たいです",
+      "romaji": "tai desu",
+      "definition": "Muốn (lịch sự)",
+      "exampleSentence": "日本に行きたいです。",
+      "exampleTranslation": "Tôi muốn đến Nhật.",
+      "forms": [
+        "Biểu đạt mong muốn",
+        "Chỉ dùng cho ngôi thứ nhất",
+        "〜たくないです là phủ định"
+      ],
+      "displayOrder": 8
+    },
+    {
+      "id": 2310,
+      "term": "〜なければなりません",
+      "reading": "〜なければなりません",
+      "romaji": "nakereba narimasen",
+      "definition": "Phải (nghĩa vụ)",
+      "exampleSentence": "勉強しなければなりません。",
+      "exampleTranslation": "Tôi phải học.",
+      "forms": [
+        "Biểu đạt nghĩa vụ bắt buộc",
+        "Rút ngắn: 〜なきゃ (thân mật)",
+        "= 〜なくてはなりません"
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": 2311,
+      "term": "〜てもいいです",
+      "reading": "〜てもいいです",
+      "romaji": "te mo ii desu",
+      "definition": "Được phép (xin phép)",
+      "exampleSentence": "ここに座ってもいいですか。",
+      "exampleTranslation": "Tôi có thể ngồi đây không?",
+      "forms": [
+        "Hỏi hoặc cho phép",
+        "〜てもいいですよ = được phép",
+        "〜てはいけません = không được"
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": 2312,
+      "term": "〜ことができます",
+      "reading": "〜ことができます",
+      "romaji": "koto ga dekimasu",
+      "definition": "Có thể (khả năng)",
+      "exampleSentence": "日本語を話すことができます。",
+      "exampleTranslation": "Tôi có thể nói tiếng Nhật.",
+      "forms": [
+        "Diễn đạt khả năng",
+        "= 動詞の可能形 (dạng ngắn)",
+        "〜ことができません là phủ định"
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": 2313,
+      "term": "〜でしょう",
+      "reading": "〜でしょう",
+      "romaji": "deshou",
+      "definition": "Có lẽ / Chắc là",
+      "exampleSentence": "明日は晴れでしょう。",
+      "exampleTranslation": "Ngày mai có lẽ nắng.",
+      "forms": [
+        "Đoán hoặc suy đoán",
+        "だろう là dạng thân mật",
+        "Giọng điệu không chắc chắn"
+      ],
+      "displayOrder": 12
+    },
+    {
+      "id": 2314,
+      "term": "〜ようです",
+      "reading": "〜ようです",
+      "romaji": "you desu",
+      "definition": "Có vẻ như / Trông như",
+      "exampleSentence": "病気のようです。",
+      "exampleTranslation": "Có vẻ như bị bệnh.",
+      "forms": [
+        "Nhận định dựa trên bằng chứng trực quan",
+        "= 〜みたいです (thân mật)",
+        "よう → ような + danh từ"
+      ],
+      "displayOrder": 13
+    },
+    {
+      "id": 2315,
+      "term": "〜そうです",
+      "reading": "〜そうです",
+      "romaji": "sou desu",
+      "definition": "Nghe nói / Trông có vẻ",
+      "exampleSentence": "雨が降りそうです。",
+      "exampleTranslation": "Trông có vẻ sắp mưa.",
+      "forms": [
+        "Đuôi động từ/tính từ + そう: Trông có vẻ",
+        "Câu + そうです: Nghe nói",
+        "〜そうにない = Trông có vẻ không"
+      ],
+      "displayOrder": 14
+    },
+    {
+      "id": 2316,
+      "term": "〜と思います",
+      "reading": "〜とおもいます",
+      "romaji": "to omoimasu",
+      "definition": "Tôi nghĩ rằng",
+      "exampleSentence": "できると思います。",
+      "exampleTranslation": "Tôi nghĩ là được.",
+      "forms": [
+        "Diễn đạt ý kiến cá nhân",
+        "〜と思っています = đang nghĩ",
+        "とは思いません = không nghĩ rằng"
+      ],
+      "displayOrder": 15
+    },
+    {
+      "id": 2317,
+      "term": "〜かもしれません",
+      "reading": "〜かもしれません",
+      "romaji": "kamo shiremasen",
+      "definition": "Có thể (không chắc)",
+      "exampleSentence": "雨かもしれません。",
+      "exampleTranslation": "Có thể sẽ mưa.",
+      "forms": [
+        "Suy đoán không chắc chắn",
+        "〜だろう / でしょう = chắc là",
+        "程度: かもしれない < でしょう < はずです"
+      ],
+      "displayOrder": 16
+    },
+    {
+      "id": 2318,
+      "term": "〜はずです",
+      "reading": "〜はずです",
+      "romaji": "hazu desu",
+      "definition": "Đáng lẽ phải / Chắc chắn",
+      "exampleSentence": "三時に来るはずです。",
+      "exampleTranslation": "Đáng lẽ phải đến lúc 3 giờ.",
+      "forms": [
+        "Kỳ vọng logic",
+        "〜はずがない = không thể",
+        "Dựa trên suy luận hoặc kế hoạch"
+      ],
+      "displayOrder": 17
+    },
+    {
+      "id": 2319,
+      "term": "〜つもりです",
+      "reading": "〜つもりです",
+      "romaji": "tsumori desu",
+      "definition": "Có ý định / Dự định",
+      "exampleSentence": "来年日本へ行くつもりです。",
+      "exampleTranslation": "Tôi dự định đến Nhật năm tới.",
+      "forms": [
+        "Biểu đạt ý định cá nhân",
+        "つもりはない = không có ý định",
+        "〜予定です trang trọng hơn"
+      ],
+      "displayOrder": 18
+    },
+    {
+      "id": 2320,
+      "term": "〜予定です",
+      "reading": "〜よていです",
+      "romaji": "yotei desu",
+      "definition": "Dự kiến / Có kế hoạch",
+      "exampleSentence": "来月引越す予定です。",
+      "exampleTranslation": "Tôi dự kiến chuyển nhà tháng tới.",
+      "forms": [
+        "Kế hoạch hoặc lịch trình cụ thể",
+        "Trang trọng hơn つもり",
+        "〜予定がある = có kế hoạch"
+      ],
+      "displayOrder": 19
+    },
+    {
+      "id": 2321,
+      "term": "〜ています",
+      "reading": "〜ています",
+      "romaji": "te imasu",
+      "definition": "Đang (tiến hành) / Trạng thái",
+      "exampleSentence": "今勉強しています。",
+      "exampleTranslation": "Tôi đang học.",
+      "forms": [
+        "Hành động đang diễn ra",
+        "Trạng thái kết quả của hành động",
+        "〜ていません là phủ định"
+      ],
+      "displayOrder": 20
+    },
+    {
+      "id": 2322,
+      "term": "〜てから",
+      "reading": "〜てから",
+      "romaji": "te kara",
+      "definition": "Sau khi (làm gì đó)",
+      "exampleSentence": "食べてから薬を飲む。",
+      "exampleTranslation": "Uống thuốc sau khi ăn.",
+      "forms": [
+        "Tuần tự hành động (làm A rồi mới làm B)",
+        "Khác 〜たあとで ở chỗ nhấn mạnh trình tự",
+        "〜てからでないと = phải sau khi mới"
+      ],
+      "displayOrder": 21
+    },
+    {
+      "id": 2323,
+      "term": "〜たあとで",
+      "reading": "〜たあとで",
+      "romaji": "ta ato de",
+      "definition": "Sau khi (hoàn thành)",
+      "exampleSentence": "宿題をしたあとで遊ぶ。",
+      "exampleTranslation": "Sau khi làm bài tập về nhà mới chơi.",
+      "forms": [
+        "Sau khi hành động hoàn thành",
+        "〜てから cũng dùng cho trình tự",
+        "Nhấn mạnh hành động đã xong hoàn toàn"
+      ],
+      "displayOrder": 22
+    },
+    {
+      "id": 2324,
+      "term": "〜まえに",
+      "reading": "〜まえに",
+      "romaji": "mae ni",
+      "definition": "Trước khi",
+      "exampleSentence": "寝るまえに歯を磨く。",
+      "exampleTranslation": "Đánh răng trước khi ngủ.",
+      "forms": [
+        "Hành động xảy ra trước",
+        "動詞の辞書形 + まえに",
+        "Danh từ + の + まえに"
+      ],
+      "displayOrder": 23
+    },
+    {
+      "id": 2325,
+      "term": "〜ながら",
+      "reading": "〜ながら",
+      "romaji": "nagara",
+      "definition": "Vừa ... vừa",
+      "exampleSentence": "音楽を聴きながら勉強する。",
+      "exampleTranslation": "Vừa nghe nhạc vừa học.",
+      "forms": [
+        "Hai hành động cùng lúc",
+        "Chủ ngữ giống nhau cho cả hai hành động",
+        "ながら有時表達矛盾 (dù A nhưng B)"
+      ],
+      "displayOrder": 24
+    },
+    {
+      "id": 2326,
+      "term": "〜し、〜し",
+      "reading": "〜し、〜し",
+      "romaji": "shi, shi",
+      "definition": "Ngoài ra / Hơn nữa (liệt kê)",
+      "exampleSentence": "安いし、おいしいし、また来たい。",
+      "exampleTranslation": "Vừa rẻ vừa ngon nên muốn đến lại.",
+      "forms": [
+        "Liệt kê nhiều lý do hoặc đặc điểm",
+        "Giọng điệu nhẹ nhàng, không đầy đủ",
+        "Thường dùng để giải thích hoặc biện hộ"
+      ],
+      "displayOrder": 25
+    },
+    {
+      "id": 2327,
+      "term": "〜ので",
+      "reading": "〜ので",
+      "romaji": "node",
+      "definition": "Vì (lý do)",
+      "exampleSentence": "疲れているので、休みます。",
+      "exampleTranslation": "Vì mệt nên tôi nghỉ ngơi.",
+      "forms": [
+        "Lý do khách quan, lịch sự hơn から",
+        "Nhẹ nhàng hơn khi giải thích lý do",
+        "Thường được dùng trong văn trang trọng"
+      ],
+      "displayOrder": 26
+    },
+    {
+      "id": 2328,
+      "term": "〜から",
+      "reading": "〜から",
+      "romaji": "kara",
+      "definition": "Vì (nguyên nhân cá nhân)",
+      "exampleSentence": "眠いから寝ます。",
+      "exampleTranslation": "Vì buồn ngủ nên ngủ.",
+      "forms": [
+        "Nguyên nhân chủ quan hơn ので",
+        "Thường dùng trong văn nói thân mật",
+        "〜ですから = vì vậy"
+      ],
+      "displayOrder": 27
+    },
+    {
+      "id": 2329,
+      "term": "〜が",
+      "reading": "〜が",
+      "romaji": "ga",
+      "definition": "Nhưng (đối nghịch)",
+      "exampleSentence": "好きですが、高いです。",
+      "exampleTranslation": "Tôi thích nhưng đắt.",
+      "forms": [
+        "Nối hai ý đối lập nhẹ nhàng",
+        "Lịch sự hơn けど/でも",
+        "Đôi khi chỉ đưa ra thông tin nền"
+      ],
+      "displayOrder": 28
+    },
+    {
+      "id": 2330,
+      "term": "〜けど",
+      "reading": "〜けど",
+      "romaji": "kedo",
+      "definition": "Nhưng (thân mật)",
+      "exampleSentence": "行きたいけど、忙しい。",
+      "exampleTranslation": "Muốn đi nhưng bận.",
+      "forms": [
+        "Thân mật hơn が",
+        "Có thể dùng cuối câu để bỏ ngỏ",
+        "けれど、けれども là dạng đầy đủ hơn"
+      ],
+      "displayOrder": 29
+    }
+  ]
+}

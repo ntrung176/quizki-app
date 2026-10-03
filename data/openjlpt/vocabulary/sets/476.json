@@ -1,0 +1,176 @@
+{
+  "id": 476,
+  "title": "教育・学習 · 授業料・学費手続き",
+  "description": "Học phí, học bổng & thủ tục lớp học — chủ đề Giáo dục & học tập · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.840923",
+  "cards": [
+    {
+      "id": 11992,
+      "term": "時間割 (じかんわり)",
+      "reading": "じかんわり",
+      "romaji": null,
+      "definition": "thời khóa biểu",
+      "exampleSentence": "新しい時間割を確認してから、必要な教科書を買いに行った。",
+      "exampleTranslation": "Sau khi kiểm tra thời khóa biểu mới, tôi đã đi mua những giáo trình cần thiết.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11993,
+      "term": "授業料 (じゅぎょうりょう)",
+      "reading": "じゅぎょうりょう",
+      "romaji": null,
+      "definition": "học phí",
+      "exampleSentence": "奨学金のおかげで、高い授業料を何とか支払うことができた。",
+      "exampleTranslation": "Nhờ học bổng, tôi đã có thể xoay xở trả khoản học phí cao.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11994,
+      "term": "塾 (じゅく)",
+      "reading": "じゅく",
+      "romaji": null,
+      "definition": "lớp học thêm/luyện thi",
+      "exampleSentence": "受験に備えて、毎週三回塾に通っています。",
+      "exampleTranslation": "Để chuẩn bị cho kỳ thi, tôi đi học thêm ba lần mỗi tuần.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11995,
+      "term": "単位 (たんい)",
+      "reading": "たんい",
+      "romaji": null,
+      "definition": "tín chỉ/đơn vị học",
+      "exampleSentence": "卒業に必要な単位を取るため、計画的に授業を選んだ。",
+      "exampleTranslation": "Để lấy đủ tín chỉ cần thiết cho việc tốt nghiệp, tôi đã chọn môn học một cách có kế hoạch.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11996,
+      "term": "担任 (たんにん)",
+      "reading": "たんにん",
+      "romaji": null,
+      "definition": "giáo viên chủ nhiệm",
+      "exampleSentence": "分からないことがあれば、まず担任の先生に相談してください。",
+      "exampleTranslation": "Nếu có điều gì không hiểu, trước hết hãy trao đổi với giáo viên chủ nhiệm.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11997,
+      "term": "入試 (にゅうし)",
+      "reading": "にゅうし",
+      "romaji": null,
+      "definition": "kỳ thi tuyển sinh",
+      "exampleSentence": "来年の入試に向けて、毎日少しずつ勉強しています。",
+      "exampleTranslation": "Để chuẩn bị cho kỳ thi tuyển sinh năm sau, mỗi ngày tôi đều học một chút.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11998,
+      "term": "個別指導 (こべつしどう)",
+      "reading": "こべつしどう",
+      "romaji": null,
+      "definition": "hướng dẫn cá nhân",
+      "exampleSentence": "先生の個別指導を受けて、苦手な数学が分かるようになりました。",
+      "exampleTranslation": "Nhờ được giáo viên hướng dẫn cá nhân, tôi đã bắt đầu hiểu môn toán vốn không giỏi.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11999,
+      "term": "自習 (じしゅう)",
+      "reading": "じしゅう",
+      "romaji": null,
+      "definition": "tự học",
+      "exampleSentence": "放課後は図書館で自習する学生が多いです。",
+      "exampleTranslation": "Có nhiều học sinh tự học trong thư viện sau giờ học.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12000,
+      "term": "実習 (じっしゅう)",
+      "reading": "じっしゅう",
+      "romaji": null,
+      "definition": "thực hành/thực tập",
+      "exampleSentence": "来週から病院で看護の実習が始まります。",
+      "exampleTranslation": "Từ tuần sau, khóa thực tập điều dưỡng sẽ bắt đầu tại bệnh viện.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12001,
+      "term": "奨学金 (しょうがくきん)",
+      "reading": "しょうがくきん",
+      "romaji": null,
+      "definition": "học bổng",
+      "exampleSentence": "奨学金を利用して、大学の授業料を払っています。",
+      "exampleTranslation": "Tôi sử dụng học bổng để trả học phí đại học.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12002,
+      "term": "奨学制度 (しょうがくせいど)",
+      "reading": "しょうがくせいど",
+      "romaji": null,
+      "definition": "chế độ học bổng",
+      "exampleSentence": "この大学には、学生を支援する奨学制度があります。",
+      "exampleTranslation": "Trường đại học này có chế độ học bổng hỗ trợ sinh viên.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12003,
+      "term": "選択科目 (せんたくかもく)",
+      "reading": "せんたくかもく",
+      "romaji": null,
+      "definition": "môn học tự chọn",
+      "exampleSentence": "二年生になると、興味に合わせて選択科目を選べます。",
+      "exampleTranslation": "Khi lên năm hai, bạn có thể chọn các môn tự chọn phù hợp với sở thích.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12004,
+      "term": "必修 (ひっしゅう)",
+      "reading": "ひっしゅう",
+      "romaji": null,
+      "definition": "môn học bắt buộc",
+      "exampleSentence": "この授業は必修なので、全員が出席しなければなりません。",
+      "exampleTranslation": "Môn học này là bắt buộc nên tất cả mọi người phải tham dự.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12005,
+      "term": "不登校 (ふとうこう)",
+      "reading": "ふとうこう",
+      "romaji": null,
+      "definition": "trốn học/không chịu đến trường",
+      "exampleSentence": "彼は中学生のとき、不登校になった経験があります。",
+      "exampleTranslation": "Khi còn học trung học cơ sở, cậu ấy từng không chịu đến trường.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12006,
+      "term": "履修 (りしゅう)",
+      "reading": "りしゅう",
+      "romaji": null,
+      "definition": "đăng ký học phần",
+      "exampleSentence": "卒業に必要な科目を確認してから、履修登録をしてください。",
+      "exampleTranslation": "Hãy kiểm tra các môn cần thiết để tốt nghiệp rồi đăng ký học phần.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

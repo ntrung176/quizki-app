@@ -1,0 +1,253 @@
+{
+  "id": 500,
+  "title": "感情・性格 · 性格（意志・能力）",
+  "description": "Tính cách tích cực - ý chí & năng lực — chủ đề Cảm xúc & tính cách · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:50.652584",
+  "cards": [
+    {
+      "id": 12481,
+      "term": "気配り (きくばり)",
+      "reading": "きくばり",
+      "romaji": null,
+      "definition": "sự chu đáo/tinh tế",
+      "exampleSentence": "細やかな気配りが、初めて訪れた客にも安心感を与えた。",
+      "exampleTranslation": "Sự chu đáo tinh tế đã đem lại cảm giác yên tâm cho cả những vị khách lần đầu đến.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12482,
+      "term": "共感 (きょうかん)",
+      "reading": "きょうかん",
+      "romaji": null,
+      "definition": "sự đồng cảm",
+      "exampleSentence": "相手の立場に立って話を聞くことは、共感を示す大切な方法だ。",
+      "exampleTranslation": "Lắng nghe với vị trí của đối phương là một cách quan trọng để thể hiện sự đồng cảm.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12483,
+      "term": "共感力 (きょうかんりょく)",
+      "reading": "きょうかんりょく",
+      "romaji": null,
+      "definition": "khả năng đồng cảm",
+      "exampleSentence": "共感力の高い聞き手は、相手の気持ちを正確に理解できる。",
+      "exampleTranslation": "Người lắng nghe có khả năng đồng cảm cao có thể thấu hiểu chính xác cảm xúc của đối phương.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12484,
+      "term": "協調性 (きょうちょうせい)",
+      "reading": "きょうちょうせい",
+      "romaji": null,
+      "definition": "tinh thần hợp tác",
+      "exampleSentence": "職場では、協調性を持って周囲と協力する姿勢が求められる。",
+      "exampleTranslation": "Ở nơi làm việc, người ta yêu cầu thái độ hợp tác với mọi người và tinh thần phối hợp.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12485,
+      "term": "謙虚 (けんきょ)",
+      "reading": "けんきょ",
+      "romaji": null,
+      "definition": "khiêm tốn",
+      "exampleSentence": "彼は成功しても謙虚な姿勢を崩さず、周囲から信頼されている。",
+      "exampleTranslation": "Dù thành công, anh ấy vẫn giữ thái độ khiêm tốn nên được mọi người tin tưởng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12486,
+      "term": "向上心 (こうじょうしん)",
+      "reading": "こうじょうしん",
+      "romaji": null,
+      "definition": "ý chí tiến bộ",
+      "exampleSentence": "彼は向上心が強く、仕事に必要な資格を次々に取得している。",
+      "exampleTranslation": "Anh ấy có ý chí tiến bộ mạnh mẽ và lần lượt取得 những chứng chỉ cần thiết cho công việc.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12487,
+      "term": "思いやり (おもいやり)",
+      "reading": "おもいやり",
+      "romaji": null,
+      "definition": "lòng quan tâm/chia sẻ",
+      "exampleSentence": "困っている人に声をかける思いやりを、誰もが大切にしたい。",
+      "exampleTranslation": "Ai cũng muốn trân trọng lòng quan tâm, chẳng hạn như lên tiếng hỏi han người đang gặp khó khăn.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12488,
+      "term": "自己効力感 (じここうりょくかん)",
+      "reading": "じここうりょくかん",
+      "romaji": null,
+      "definition": "cảm giác hiệu quả bản thân",
+      "exampleSentence": "小さな目標を達成するたびに、自己効力感が少しずつ高まっていく。",
+      "exampleTranslation": "Mỗi lần đạt được một mục tiêu nhỏ, cảm giác hiệu quả bản thân lại dần tăng lên.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12489,
+      "term": "自信 (じしん)",
+      "reading": "じしん",
+      "romaji": null,
+      "definition": "sự tự tin",
+      "exampleSentence": "失敗を重ねても、自分の努力に自信を持ち続けている。",
+      "exampleTranslation": "Dù liên tiếp thất bại, tôi vẫn tiếp tục tin tưởng vào nỗ lực của mình.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12490,
+      "term": "自尊心 (じそんしん)",
+      "reading": "じそんしん",
+      "romaji": null,
+      "definition": "tự trọng/tự tôn",
+      "exampleSentence": "人前で厳しく批判され、彼の自尊心は大きく傷ついた。",
+      "exampleTranslation": "Bị chỉ trích gay gắt trước mặt mọi người khiến lòng tự trọng của anh ấy bị tổn thương nặng nề.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12491,
+      "term": "自立 (じりつ)",
+      "reading": "じりつ",
+      "romaji": null,
+      "definition": "sự tự lập",
+      "exampleSentence": "大学卒業後は、親に頼らず自立した生活を送りたい。",
+      "exampleTranslation": "Sau khi tốt nghiệp đại học, tôi muốn sống tự lập mà không phụ thuộc vào bố mẹ.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12492,
+      "term": "辛抱強い (しんぼうづよい)",
+      "reading": "しんぼうづよい",
+      "romaji": null,
+      "definition": "nhẫn nại/kiên nhẫn",
+      "exampleSentence": "彼女は辛抱強い性格で、難しい仕事にも最後まで取り組む。",
+      "exampleTranslation": "Cô ấy là người kiên nhẫn và luôn nỗ lực hoàn thành cả những công việc khó.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12493,
+      "term": "誠意 (せいい)",
+      "reading": "せいい",
+      "romaji": null,
+      "definition": "thành tâm/thành ý",
+      "exampleSentence": "問題を起こした会社は、誠意を示して被害者に謝罪した。",
+      "exampleTranslation": "Công ty gây ra vấn đề đã thể hiện thành ý và xin lỗi những người bị hại.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12494,
+      "term": "誠実 (せいじつ)",
+      "reading": "せいじつ",
+      "romaji": null,
+      "definition": "thành thật/chân thành",
+      "exampleSentence": "彼は誠実な人柄で、同僚から厚く信頼されている。",
+      "exampleTranslation": "Anh ấy có tính cách chân thành nên được đồng nghiệp hết sức tin tưởng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12495,
+      "term": "責任感 (せきにんかん)",
+      "reading": "せきにんかん",
+      "romaji": null,
+      "definition": "tinh thần trách nhiệm",
+      "exampleSentence": "責任感の強い彼なら、この仕事を安心して任せられる。",
+      "exampleTranslation": "Nếu là người có tinh thần trách nhiệm như anh ấy thì có thể yên tâm giao công việc này.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12496,
+      "term": "大胆 (だいたん)",
+      "reading": "だいたん",
+      "romaji": null,
+      "definition": "táo bạo/dũng cảm",
+      "exampleSentence": "彼は大胆な発想で、古い制度を大きく変えた。",
+      "exampleTranslation": "Anh ấy đã thay đổi lớn một制度 cũ bằng ý tưởng táo bạo.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 12497,
+      "term": "粘り強い (ねばりづよい)",
+      "reading": "ねばりづよい",
+      "romaji": null,
+      "definition": "kiên trì/bền bỉ",
+      "exampleSentence": "粘り強い交渉の結果、ようやく相手の同意を得た。",
+      "exampleTranslation": "Sau những cuộc đàm phán bền bỉ, cuối cùng chúng tôi cũng nhận được sự đồng ý của đối phương.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 12498,
+      "term": "粘る (ねばる)",
+      "reading": "ねばる",
+      "romaji": null,
+      "definition": "kiên trì/bám víu",
+      "exampleSentence": "最後まで粘る姿勢が、今回の勝利につながった。",
+      "exampleTranslation": "Thái độ kiên trì đến phút cuối đã dẫn đến chiến thắng lần này.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 12499,
+      "term": "利他 (りた)",
+      "reading": "りた",
+      "romaji": null,
+      "definition": "vị tha/hướng đến người khác",
+      "exampleSentence": "利他の精神は、社会全体の信頼関係を築く基盤となる。",
+      "exampleTranslation": "Tinh thần vị tha là nền tảng xây dựng mối quan hệ tin cậy trong toàn xã hội.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 12500,
+      "term": "率先 (そっせん)",
+      "reading": "そっせん",
+      "romaji": null,
+      "definition": "đi tiên phong/chủ động",
+      "exampleSentence": "部長は率先して現場に立ち、社員とともに作業を進めた。",
+      "exampleTranslation": "Trưởng phòng đã chủ động đứng ở hiện trường và cùng nhân viên tiến hành công việc.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 12501,
+      "term": "几帳面 (きちょうめん)",
+      "reading": "きちょうめん",
+      "romaji": null,
+      "definition": "cẩn thận/ngăn nắp",
+      "exampleSentence": "几帳面な彼は、毎朝机の上をきれいに整えてから仕事を始める。",
+      "exampleTranslation": "Anh ấy là người cẩn thận nên mỗi sáng đều sắp xếp bàn làm việc gọn gàng rồi mới bắt đầu công việc.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 12502,
+      "term": "温厚 (おんこう)",
+      "reading": "おんこう",
+      "romaji": null,
+      "definition": "hiền lành/ôn hòa",
+      "exampleSentence": "温厚な性格で知られる彼は、部下の失敗にも決して声を荒らげなかった。",
+      "exampleTranslation": "Anh ấy nổi tiếng là người ôn hòa, nên ngay cả khi cấp dưới mắc lỗi cũng không bao giờ nổi giận.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

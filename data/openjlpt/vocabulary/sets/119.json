@@ -1,0 +1,391 @@
+{
+  "id": 119,
+  "title": "形・状態漢字",
+  "description": "Kanji hình dạng và trạng thái",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:55.343886",
+  "cards": [
+    {
+      "id": 3473,
+      "term": "形",
+      "reading": "けい",
+      "romaji": "kei",
+      "definition": "Hình dạng",
+      "exampleSentence": "形を決める。",
+      "exampleTranslation": "Quyết định hình dạng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 3474,
+      "term": "状",
+      "reading": "じょう",
+      "romaji": "jou",
+      "definition": "Trạng thái",
+      "exampleSentence": "状況。",
+      "exampleTranslation": "Tình trạng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 3475,
+      "term": "様",
+      "reading": "よう",
+      "romaji": "you",
+      "definition": "Vẻ, dáng",
+      "exampleSentence": "様子。",
+      "exampleTranslation": "Tình hình, vẻ.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 3476,
+      "term": "態",
+      "reading": "たい",
+      "romaji": "tai",
+      "definition": "Thái độ, trạng thái",
+      "exampleSentence": "状態。",
+      "exampleTranslation": "Trạng thái.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 3477,
+      "term": "相",
+      "reading": "そう",
+      "romaji": "sou",
+      "definition": "Vẻ, tướng",
+      "exampleSentence": "相手。",
+      "exampleTranslation": "Đối phương.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 3478,
+      "term": "角",
+      "reading": "かく",
+      "romaji": "kaku",
+      "definition": "Góc",
+      "exampleSentence": "三角形。",
+      "exampleTranslation": "Hình tam giác.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 3479,
+      "term": "丸",
+      "reading": "がん",
+      "romaji": "gan",
+      "definition": "Tròn",
+      "exampleSentence": "丸い形。",
+      "exampleTranslation": "Hình tròn.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 3480,
+      "term": "直",
+      "reading": "ちょく",
+      "romaji": "choku",
+      "definition": "Thẳng, trực tiếp",
+      "exampleSentence": "直線。",
+      "exampleTranslation": "Đường thẳng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 3481,
+      "term": "曲",
+      "reading": "きょく",
+      "romaji": "kyoku",
+      "definition": "Cong, khúc nhạc",
+      "exampleSentence": "曲線。",
+      "exampleTranslation": "Đường cong.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 3482,
+      "term": "厚",
+      "reading": "こう",
+      "romaji": "kou",
+      "definition": "Dày",
+      "exampleSentence": "厚さ。",
+      "exampleTranslation": "Độ dày.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 3483,
+      "term": "薄",
+      "reading": "はく",
+      "romaji": "haku",
+      "definition": "Mỏng",
+      "exampleSentence": "薄さ。",
+      "exampleTranslation": "Độ mỏng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 3484,
+      "term": "軽",
+      "reading": "けい",
+      "romaji": "kei",
+      "definition": "Nhẹ",
+      "exampleSentence": "軽量。",
+      "exampleTranslation": "Khối lượng nhẹ.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 3485,
+      "term": "重",
+      "reading": "じゅう",
+      "romaji": "juu",
+      "definition": "Nặng",
+      "exampleSentence": "重さ。",
+      "exampleTranslation": "Trọng lượng.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 3486,
+      "term": "固",
+      "reading": "こ",
+      "romaji": "ko",
+      "definition": "Cứng, chắc",
+      "exampleSentence": "固定する。",
+      "exampleTranslation": "Cố định.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 3487,
+      "term": "柔",
+      "reading": "じゅう",
+      "romaji": "juu",
+      "definition": "Mềm mại",
+      "exampleSentence": "柔軟な考え。",
+      "exampleTranslation": "Suy nghĩ linh hoạt.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 3488,
+      "term": "鋭",
+      "reading": "えい",
+      "romaji": "ei",
+      "definition": "Sắc bén",
+      "exampleSentence": "鋭い感覚。",
+      "exampleTranslation": "Cảm giác nhạy bén.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 3489,
+      "term": "鈍",
+      "reading": "どん",
+      "romaji": "don",
+      "definition": "Tù, chậm chạp",
+      "exampleSentence": "鈍い動き。",
+      "exampleTranslation": "Chuyển động chậm chạp.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 3490,
+      "term": "透",
+      "reading": "とう",
+      "romaji": "tou",
+      "definition": "Trong suốt",
+      "exampleSentence": "透明な液体。",
+      "exampleTranslation": "Chất lỏng trong suốt.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 3491,
+      "term": "濁",
+      "reading": "だく",
+      "romaji": "daku",
+      "definition": "Đục, bẩn",
+      "exampleSentence": "濁った水。",
+      "exampleTranslation": "Nước đục.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 3492,
+      "term": "均",
+      "reading": "きん",
+      "romaji": "kin",
+      "definition": "Đều nhau",
+      "exampleSentence": "均一な品質。",
+      "exampleTranslation": "Chất lượng đồng đều.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 50638,
+      "term": "平",
+      "reading": "へい・ひら・たいら",
+      "romaji": "hei・hira・taira",
+      "definition": "bằng phẳng; phẳng",
+      "exampleSentence": "この道は平らで歩きやすいです。",
+      "exampleTranslation": "Con đường này bằng phẳng và dễ đi.",
+      "forms": [
+        "平らな",
+        "平らで",
+        "平らだった",
+        "平らではない"
+      ],
+      "displayOrder": 20
+    },
+    {
+      "id": 50639,
+      "term": "細",
+      "reading": "さい・ほそい・ほそる",
+      "romaji": "sai・hosoi・hosoru",
+      "definition": "mảnh; nhỏ",
+      "exampleSentence": "このペンは細くて書きやすいです。",
+      "exampleTranslation": "Cây bút này nhỏ và dễ viết.",
+      "forms": [
+        "細い",
+        "細くて",
+        "細かった",
+        "細くない"
+      ],
+      "displayOrder": 21
+    },
+    {
+      "id": 50640,
+      "term": "太",
+      "reading": "たい・ふとい・ふとる",
+      "romaji": "tai・futoi・futoru",
+      "definition": "to; dày",
+      "exampleSentence": "この木の枝は太いです。",
+      "exampleTranslation": "Cành cây này to.",
+      "forms": [
+        "太い",
+        "太くて",
+        "太かった",
+        "太くない"
+      ],
+      "displayOrder": 22
+    },
+    {
+      "id": 50641,
+      "term": "狭",
+      "reading": "きょう・せまい・せばめる・せばまる",
+      "romaji": "kyou・semai・sebameru・sebamaru",
+      "definition": "hẹp",
+      "exampleSentence": "私の部屋は少し狭いです。",
+      "exampleTranslation": "Phòng của tôi hơi hẹp.",
+      "forms": [
+        "狭い",
+        "狭くて",
+        "狭かった",
+        "狭くない"
+      ],
+      "displayOrder": 23
+    },
+    {
+      "id": 50642,
+      "term": "広",
+      "reading": "こう・ひろい・ひろがる・ひろげる",
+      "romaji": "kou・hiroi・hirogaru・hirogeru",
+      "definition": "rộng",
+      "exampleSentence": "この公園はとても広いです。",
+      "exampleTranslation": "Công viên này rất rộng.",
+      "forms": [
+        "広い",
+        "広くて",
+        "広かった",
+        "広くない"
+      ],
+      "displayOrder": 24
+    },
+    {
+      "id": 50643,
+      "term": "深",
+      "reading": "しん・ふかい・ふかまる・ふかめる",
+      "romaji": "shin・fukai・fukamaru・fukameru",
+      "definition": "sâu",
+      "exampleSentence": "この川は深いので、泳がないでください。",
+      "exampleTranslation": "Con sông này sâu nên xin đừng bơi.",
+      "forms": [
+        "深い",
+        "深くて",
+        "深かった",
+        "深くない"
+      ],
+      "displayOrder": 25
+    },
+    {
+      "id": 50644,
+      "term": "浅",
+      "reading": "せん・あさい",
+      "romaji": "sen・asai",
+      "definition": "nông; cạn",
+      "exampleSentence": "この川は浅いので、子どもも入れます。",
+      "exampleTranslation": "Con sông này cạn nên trẻ em cũng có thể xuống.",
+      "forms": [
+        "浅い",
+        "浅くて",
+        "浅かった",
+        "浅くない"
+      ],
+      "displayOrder": 26
+    },
+    {
+      "id": 50645,
+      "term": "温",
+      "reading": "おん・あたたかい・あたたまる・あたためる",
+      "romaji": "on・atatakai・atatamaru・atatameru",
+      "definition": "ấm",
+      "exampleSentence": "寒い朝は温かいスープを飲みます。",
+      "exampleTranslation": "Vào buổi sáng lạnh, tôi uống súp nóng ấm.",
+      "forms": [
+        "温かい",
+        "温かくて",
+        "温かかった",
+        "温かくない"
+      ],
+      "displayOrder": 27
+    },
+    {
+      "id": 50646,
+      "term": "冷",
+      "reading": "れい・つめたい・ひえる・ひやす・さめる・さます",
+      "romaji": "rei・tsumetai・hieru・hiyasu・sameru・samasu",
+      "definition": "lạnh",
+      "exampleSentence": "冷たい水を一杯ください。",
+      "exampleTranslation": "Cho tôi một cốc nước lạnh.",
+      "forms": [
+        "冷たい",
+        "冷たくて",
+        "冷たかった",
+        "冷たくない"
+      ],
+      "displayOrder": 28
+    },
+    {
+      "id": 50647,
+      "term": "静",
+      "reading": "せい・しずか・しずまる・しずめる",
+      "romaji": "sei・shizuka・shizumaru・shizumeru",
+      "definition": "yên tĩnh",
+      "exampleSentence": "この図書館はいつも静かです。",
+      "exampleTranslation": "Thư viện này lúc nào cũng yên tĩnh.",
+      "forms": [
+        "静かな",
+        "静かで",
+        "静かだった",
+        "静かではない"
+      ],
+      "displayOrder": 29
+    }
+  ]
+}

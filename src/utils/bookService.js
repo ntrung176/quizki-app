@@ -10,6 +10,43 @@ let lastLoadedExportedAt = null;
 // Loading promise to coordinate concurrent requests
 let bookGroupsPromise = null;
 
+const mergeWithLocalBundle = async (groups) => {
+    let baseList = Array.isArray(groups) ? [...groups] : [];
+    try {
+        const localRes = await fetch(`/data/books_data.json?t=${Date.now()}`);
+        if (localRes && localRes.ok) {
+            const localData = await localRes.json();
+            if (Array.isArray(localData) && localData.length > 0) {
+                const existingGroupIds = new Set(baseList.map(g => g.id));
+                const existingGroupNames = new Set(baseList.map(g => (g.name || '').trim().toLowerCase()));
+
+                for (const localGroup of localData) {
+                    const normName = (localGroup.name || '').trim().toLowerCase();
+                    if (!existingGroupIds.has(localGroup.id) && !existingGroupNames.has(normName)) {
+                        baseList.push(localGroup);
+                    } else {
+                        const existingGroup = baseList.find(g => g.id === localGroup.id || (g.name || '').trim().toLowerCase() === normName);
+                        if (existingGroup && Array.isArray(localGroup.books)) {
+                            const existingBookIds = new Set((existingGroup.books || []).map(b => b.id));
+                            const existingBookNames = new Set((existingGroup.books || []).map(b => (b.name || '').trim().toLowerCase()));
+                            for (const localBook of localGroup.books) {
+                                const normBookName = (localBook.name || '').trim().toLowerCase();
+                                if (!existingBookIds.has(localBook.id) && !existingBookNames.has(normBookName)) {
+                                    existingGroup.books = existingGroup.books || [];
+                                    existingGroup.books.push(localBook);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    } catch (err) {
+        console.warn('Could not merge local books bundle:', err);
+    }
+    return baseList;
+};
+
 /**
  * Fetches all book groups with books, chapters, and lessons from Firestore.
  * Caches the results and shares the promise if concurrently requested.
@@ -79,18 +116,27 @@ export const getSharedBookGroups = async (forceRefresh = false, forceLiveFiresto
                 }));
                 
                 groups.sort((a, b) => (a.order || 0) - (b.order || 0));
-                cachedBookGroups = groups;
+                const merged = await mergeWithLocalBundle(groups);
+                cachedBookGroups = merged;
                 lastLoadedExportedAt = currentExport || null;
                 return cachedBookGroups;
             } catch (fsErr) {
                 console.error('Error loading shared book groups from Firestore fallback:', fsErr);
+                try {
+                    const localOnly = await mergeWithLocalBundle([]);
+                    if (localOnly && localOnly.length > 0) {
+                        cachedBookGroups = localOnly;
+                        return cachedBookGroups;
+                    }
+                } catch (_) {}
                 bookGroupsPromise = null;
                 throw fsErr;
             }
         };
 
         if (forceLiveFirestore) {
-            return fetchFromFirestoreFallback();
+            const fsResult = await fetchFromFirestoreFallback();
+            return mergeEditedBookGroups(fsResult);
         }
 
         // 1. Try Firebase Storage CDN if available
@@ -104,7 +150,8 @@ export const getSharedBookGroups = async (forceRefresh = false, forceLiveFiresto
                 if (dataRes && dataRes.ok) {
                     const data = await dataRes.json();
                     if (Array.isArray(data) && data.length > 0) {
-                        cachedBookGroups = data;
+                        const merged = await mergeWithLocalBundle(data);
+                        cachedBookGroups = merged;
                         lastLoadedExportedAt = currentExport || null;
                         return mergeEditedBookGroups(cachedBookGroups);
                     }
@@ -117,7 +164,8 @@ export const getSharedBookGroups = async (forceRefresh = false, forceLiveFiresto
         // 2. Try Firestore live query as primary fallback when CDN is unavailable/fails
         try {
             console.log('Fetching shared book groups from Firestore live database...');
-            return await fetchFromFirestoreFallback();
+            const fsResult = await fetchFromFirestoreFallback();
+            return mergeEditedBookGroups(fsResult);
         } catch (fsErr) {
             console.warn('Firestore fetch failed, falling back to local bundle file...', fsErr);
         }
@@ -125,13 +173,13 @@ export const getSharedBookGroups = async (forceRefresh = false, forceLiveFiresto
         // 3. Last Resort Fallback: Local Bundle file /data/books_data.json
         try {
             console.log('Fetching shared book groups from local bundle (/data/books_data.json)...');
-            const dataRes = await fetch('/data/books_data.json');
+            const dataRes = await fetch(`/data/books_data.json?t=${Date.now()}`);
             if (dataRes && dataRes.ok) {
                 const data = await dataRes.json();
                 if (Array.isArray(data) && data.length > 0) {
                     cachedBookGroups = data;
                     lastLoadedExportedAt = null;
-                    return cachedBookGroups;
+                    return mergeEditedBookGroups(cachedBookGroups);
                 }
             }
         } catch (localErr) {
@@ -211,16 +259,18 @@ export const mergeEditedBookGroups = (groups) => {
     const editedMap = getEditedBookGroupsMap();
     if (Object.keys(editedMap).length === 0) return groups;
 
-    return groups.map(group => {
-        const editedGroup = editedMap[group.id];
-        if (editedGroup) {
-            return {
-                ...group,
-                ...editedGroup
-            };
-        }
-        return group;
-    });
+    return groups
+        .filter(group => !editedMap[group.id]?.isDeleted)
+        .map(group => {
+            const editedGroup = editedMap[group.id];
+            if (editedGroup) {
+                return {
+                    ...group,
+                    ...editedGroup
+                };
+            }
+            return group;
+        });
 };
 
 /**
@@ -262,15 +312,16 @@ export const syncBooksToCDN = async () => {
         return group;
     }));
     groups.sort((a, b) => (a.order || 0) - (b.order || 0));
+    const mergedGroups = await mergeWithLocalBundle(groups);
 
-    const blob = new Blob([JSON.stringify(groups)], { type: 'application/json' });
+    const blob = new Blob([JSON.stringify(mergedGroups)], { type: 'application/json' });
     const fileRef = ref(storage, `cache/${appId}/books_data.json`);
     await uploadBytes(fileRef, blob);
     const booksUrl = await getDownloadURL(fileRef);
     const exportedAt = Date.now();
 
     await setDoc(doc(db, `artifacts/${appId}/settings/cacheConfig`), { booksUrl, exportedAt }, { merge: true });
-    cachedBookGroups = groups;
+    cachedBookGroups = mergedGroups;
     lastLoadedExportedAt = exportedAt;
     window.dispatchEvent(new CustomEvent('cache-config-updated'));
     return { booksUrl, exportedAt };

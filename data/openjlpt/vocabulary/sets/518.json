@@ -1,0 +1,253 @@
+{
+  "id": 518,
+  "title": "旅行・交通 · 電車・通勤通学・移動",
+  "description": "Tàu xe, đi lại & di chuyển hàng ngày — chủ đề Du lịch & giao thông · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:51.158825",
+  "cards": [
+    {
+      "id": 12821,
+      "term": "終点 (しゅうてん)",
+      "reading": "しゅうてん",
+      "romaji": null,
+      "definition": "điểm cuối, ga cuối",
+      "exampleSentence": "このバスは駅前が終点です。",
+      "exampleTranslation": "Bến cuối của xe buýt này là trước nhà ga.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12822,
+      "term": "乗り換え (のりかえ)",
+      "reading": "のりかえ",
+      "romaji": null,
+      "definition": "chuyển tàu/xe",
+      "exampleSentence": "大阪へ行くには、京都駅で新幹線に乗り換えます。",
+      "exampleTranslation": "Để đi Osaka, tôi sẽ chuyển sang tàu Shinkansen tại ga Kyoto.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12823,
+      "term": "通学 (つうがく)",
+      "reading": "つうがく",
+      "romaji": null,
+      "definition": "đi học hàng ngày",
+      "exampleSentence": "毎朝、電車で通学している。",
+      "exampleTranslation": "Mỗi sáng, tôi đi tàu đến trường.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12824,
+      "term": "通勤 (つうきん)",
+      "reading": "つうきん",
+      "romaji": null,
+      "definition": "đi làm hàng ngày",
+      "exampleSentence": "父は毎日電車で通勤している。",
+      "exampleTranslation": "Bố tôi đi tàu đi làm mỗi ngày.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12825,
+      "term": "運転手 (うんてんしゅ)",
+      "reading": "うんてんしゅ",
+      "romaji": null,
+      "definition": "tài xế/người lái",
+      "exampleSentence": "運転手に目的地を伝えると、渋滞を避けて走ってくれた。",
+      "exampleTranslation": "Khi tôi nói điểm đến với tài xế, anh ấy đã lái xe tránh đoạn tắc đường.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12826,
+      "term": "回数券 (かいすうけん)",
+      "reading": "かいすうけん",
+      "romaji": null,
+      "definition": "vé tập/vé nhiều chuyến",
+      "exampleSentence": "毎日電車を利用するので、回数券を買ったほうが便利で安い。",
+      "exampleTranslation": "Vì đi tàu hằng ngày nên mua vé nhiều chuyến sẽ tiện và rẻ hơn.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12827,
+      "term": "各駅停車 (かくえきていしゃ)",
+      "reading": "かくえきていしゃ",
+      "romaji": null,
+      "definition": "tàu dừng ở mọi ga",
+      "exampleSentence": "急いでいなかったので、各駅停車に乗って車窓の景色を楽しんだ。",
+      "exampleTranslation": "Vì không vội nên tôi đã đi tàu dừng ở mọi ga và ngắm cảnh bên ngoài cửa sổ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12828,
+      "term": "急行 (きゅうこう)",
+      "reading": "きゅうこう",
+      "romaji": null,
+      "definition": "tàu/xe nhanh",
+      "exampleSentence": "この急行に乗れば、目的地まで各駅停車より早く着けます。",
+      "exampleTranslation": "Nếu đi chuyến tàu nhanh này, bạn sẽ đến nơi nhanh hơn tàu dừng ở mọi ga.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12829,
+      "term": "経由 (けいゆ)",
+      "reading": "けいゆ",
+      "romaji": null,
+      "definition": "quá cảnh/đi qua",
+      "exampleSentence": "この航空便は大阪経由で、乗り換えに二時間かかる。",
+      "exampleTranslation": "Chuyến bay này quá cảnh ở Osaka và mất hai tiếng để chuyển máy bay.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12830,
+      "term": "始発 (しはつ)",
+      "reading": "しはつ",
+      "romaji": null,
+      "definition": "chuyến tàu đầu tiên",
+      "exampleSentence": "朝一番の飛行機に乗るため、始発に間に合うよう家を出た。",
+      "exampleTranslation": "Để kịp chuyến bay đầu tiên buổi sáng, tôi đã ra khỏi nhà sao cho kịp chuyến tàu đầu.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12831,
+      "term": "時刻表 (じこくひょう)",
+      "reading": "じこくひょう",
+      "romaji": null,
+      "definition": "bảng giờ tàu/xe",
+      "exampleSentence": "駅で時刻表を確認してから、出発する時間を決めた。",
+      "exampleTranslation": "Sau khi kiểm tra bảng giờ tàu ở ga, tôi quyết định thời gian khởi hành.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12832,
+      "term": "時差 (じさ)",
+      "reading": "じさ",
+      "romaji": null,
+      "definition": "chênh lệch múi giờ",
+      "exampleSentence": "日本と現地の時差を計算して、会議の時間を調整した。",
+      "exampleTranslation": "Tôi đã tính chênh lệch múi giờ giữa Nhật Bản và địa phương rồi điều chỉnh thời gian họp.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12833,
+      "term": "時差ぼけ (じさぼけ)",
+      "reading": "じさぼけ",
+      "romaji": null,
+      "definition": "jet lag/mệt do lệch giờ",
+      "exampleSentence": "帰国後は時差ぼけがひどく、昼間でも眠くて仕方がなかった。",
+      "exampleTranslation": "Sau khi về nước, tôi bị jet lag nặng, ban ngày cũng buồn ngủ không chịu nổi.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12834,
+      "term": "車掌 (しゃしょう)",
+      "reading": "しゃしょう",
+      "romaji": null,
+      "definition": "nhân viên trên tàu",
+      "exampleSentence": "車掌が車内を回り、切符を一人ずつ確認していた。",
+      "exampleTranslation": "Nhân viên trên tàu đi quanh toa và kiểm tra vé từng người.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12835,
+      "term": "終電 (しゅうでん)",
+      "reading": "しゅうでん",
+      "romaji": null,
+      "definition": "chuyến tàu cuối ngày",
+      "exampleSentence": "終電に間に合うように、仕事を早めに切り上げて駅へ向かった。",
+      "exampleTranslation": "Để kịp chuyến tàu cuối, tôi kết thúc công việc sớm rồi đi đến ga.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12836,
+      "term": "乗り越し (のりこし)",
+      "reading": "のりこし",
+      "romaji": null,
+      "definition": "đi quá ga",
+      "exampleSentence": "乗り越しに気づいたので、次の駅で降りて精算した。",
+      "exampleTranslation": "Nhận ra mình đã đi quá ga, tôi xuống ở ga tiếp theo và thanh toán phần tiền còn thiếu.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 12837,
+      "term": "乗り継ぎ (のりつぎ)",
+      "reading": "のりつぎ",
+      "romaji": null,
+      "definition": "quá cảnh/chuyển chuyến",
+      "exampleSentence": "海外旅行では、乗り継ぎの時間を十分に確認しておきましょう。",
+      "exampleTranslation": "Khi đi du lịch nước ngoài, hãy kiểm tra trước thời gian chuyển chuyến cho đầy đủ.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 12838,
+      "term": "乗り込む (のりこむ)",
+      "reading": "のりこむ",
+      "romaji": null,
+      "definition": "lên (xe tàu)/xông vào",
+      "exampleSentence": "乗客が全員乗り込むまで、バスは出発しません。",
+      "exampleTranslation": "Xe buýt sẽ không khởi hành cho đến khi tất cả hành khách lên xe.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 12839,
+      "term": "直行便 (ちょっこうびん)",
+      "reading": "ちょっこうびん",
+      "romaji": null,
+      "definition": "chuyến bay thẳng",
+      "exampleSentence": "大阪から札幌までは、直行便を利用すると便利です。",
+      "exampleTranslation": "Từ Osaka đến Sapporo, đi chuyến bay thẳng sẽ rất thuận tiện.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 12840,
+      "term": "直通 (ちょくつう)",
+      "reading": "ちょくつう",
+      "romaji": null,
+      "definition": "thẳng không chuyển tuyến",
+      "exampleSentence": "この電車は東京駅まで直通なので、乗り換える必要がありません。",
+      "exampleTranslation": "Tàu điện này đi thẳng đến ga Tokyo nên không cần chuyển tàu.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 12841,
+      "term": "定期券 (ていきけん)",
+      "reading": "ていきけん",
+      "romaji": null,
+      "definition": "vé tháng",
+      "exampleSentence": "毎日電車で通学するので、定期券を買いました。",
+      "exampleTranslation": "Vì đi học bằng tàu điện mỗi ngày nên tôi đã mua vé tháng.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 12842,
+      "term": "路線 (ろせん)",
+      "reading": "ろせん",
+      "romaji": null,
+      "definition": "tuyến đường",
+      "exampleSentence": "この路線は朝の通勤時間帯になると、とても混雑します。",
+      "exampleTranslation": "Tuyến đường này trở nên rất đông đúc vào giờ đi làm buổi sáng.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

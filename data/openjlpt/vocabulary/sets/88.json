@@ -1,0 +1,413 @@
+{
+  "id": 88,
+  "title": "レストランで",
+  "description": "Gọi món và ăn uống tại nhà hàng N5",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:53.594145",
+  "cards": [
+    {
+      "id": 2593,
+      "term": "何名様ですか",
+      "reading": "なんめいさまですか",
+      "romaji": "nanmei sama desu ka",
+      "definition": "Quý khách có mấy người?",
+      "exampleSentence": "何名様ですか。",
+      "exampleTranslation": "Quý khách có mấy người?",
+      "forms": [
+        "店員が客に聞く",
+        "〜人です と答える",
+        "2名です = hai người"
+      ],
+      "displayOrder": 0
+    },
+    {
+      "id": 2594,
+      "term": "〜人です",
+      "reading": "〜にんです",
+      "romaji": "nin desu",
+      "definition": "Chúng tôi có ... người",
+      "exampleSentence": "二人です。",
+      "exampleTranslation": "Chúng tôi có hai người.",
+      "forms": [
+        "人数を答える",
+        "〇〇名です (lịch sự hơn)",
+        "一人です = chỉ một mình"
+      ],
+      "displayOrder": 1
+    },
+    {
+      "id": 2595,
+      "term": "席はありますか",
+      "reading": "せきはありますか",
+      "romaji": "seki wa arimasu ka",
+      "definition": "Có chỗ trống không?",
+      "exampleSentence": "窓際の席はありますか。",
+      "exampleTranslation": "Có chỗ gần cửa sổ không?",
+      "forms": [
+        "席を確認する",
+        "予約はされていますか = có đặt trước không",
+        "満席です = hết chỗ"
+      ],
+      "displayOrder": 2
+    },
+    {
+      "id": 2596,
+      "term": "予約をしたいのですが",
+      "reading": "よやくをしたいのですが",
+      "romaji": "yoyaku wo shitai no desu ga",
+      "definition": "Tôi muốn đặt bàn trước",
+      "exampleSentence": "今週の土曜日に予約をしたいのですが。",
+      "exampleTranslation": "Tôi muốn đặt bàn vào thứ Bảy tuần này.",
+      "forms": [
+        "予約する",
+        "何名様ですか (số người)",
+        "〜時に予約したい (lúc mấy giờ)"
+      ],
+      "displayOrder": 3
+    },
+    {
+      "id": 2597,
+      "term": "注文をお願いします",
+      "reading": "ちゅうもんをおねがいします",
+      "romaji": "chuumon wo onegai shimasu",
+      "definition": "Vui lòng cho tôi gọi món",
+      "exampleSentence": "注文をお願いします。",
+      "exampleTranslation": "Vui lòng cho tôi gọi món.",
+      "forms": [
+        "注文を呼ぶ",
+        "ご注文はお決まりですか = đã chọn xong chưa",
+        "すみません！と呼ぶ場合も"
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": 2598,
+      "term": "これをください",
+      "reading": "これをください",
+      "romaji": "kore wo kudasai",
+      "definition": "Cho tôi món này",
+      "exampleSentence": "このラーメンをください。",
+      "exampleTranslation": "Cho tôi món ramen này.",
+      "forms": [
+        "メニューを指しながら注文する",
+        "〜を一つください = cho tôi một phần",
+        "〜をお願いします も使える"
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": 2599,
+      "term": "おすすめは何ですか",
+      "reading": "おすすめはなんですか",
+      "romaji": "osusume wa nan desu ka",
+      "definition": "Bạn có gợi ý gì không?",
+      "exampleSentence": "今日のおすすめは何ですか。",
+      "exampleTranslation": "Bạn có gợi ý gì hôm nay không?",
+      "forms": [
+        "店員に聞く",
+        "おすすめ料理 = món được khuyên",
+        "本日のスペシャル = món đặc biệt hôm nay"
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": 2600,
+      "term": "アレルギーがあります",
+      "reading": "あれるぎーがあります",
+      "romaji": "arerugii ga arimasu",
+      "definition": "Tôi có dị ứng",
+      "exampleSentence": "ナッツアレルギーがあります。",
+      "exampleTranslation": "Tôi bị dị ứng hạt.",
+      "forms": [
+        "アレルギーを伝える",
+        "〜は入っていますか = có chứa ... không",
+        "〜なしでお願いします = vui lòng không cho ..."
+      ],
+      "displayOrder": 7
+    },
+    {
+      "id": 2601,
+      "term": "辛さは調整できますか",
+      "reading": "からさはちょうせいできますか",
+      "romaji": "karasa wa chousei dekimasu ka",
+      "definition": "Có thể điều chỉnh độ cay không?",
+      "exampleSentence": "辛さは調整できますか。",
+      "exampleTranslation": "Có thể điều chỉnh độ cay không?",
+      "forms": [
+        "辛さのレベルを聞く",
+        "辛くしてください = làm cay hơn",
+        "辛くないようにしてください = không cay"
+      ],
+      "displayOrder": 8
+    },
+    {
+      "id": 2602,
+      "term": "会計をお願いします",
+      "reading": "かいけいをおねがいします",
+      "romaji": "kaikei wo onegai shimasu",
+      "definition": "Cho tôi tính tiền",
+      "exampleSentence": "お会計をお願いします。",
+      "exampleTranslation": "Cho tôi tính tiền.",
+      "forms": [
+        "食事後に支払いを求める",
+        "お勘定 も使える",
+        "レジで払う場合もある"
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": 2603,
+      "term": "別々に払えますか",
+      "reading": "べつべつにはらえますか",
+      "romaji": "betsubetsu ni haraemasu ka",
+      "definition": "Chúng tôi có thể trả tiền riêng không?",
+      "exampleSentence": "別々に払えますか。",
+      "exampleTranslation": "Chúng tôi có thể trả tiền riêng không?",
+      "forms": [
+        "割り勘を頼む",
+        "割り勘にしましょう = chia đều tiền",
+        "一緒でいいです = trả chung cũng được"
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": 2604,
+      "term": "これは何ですか",
+      "reading": "これはなんですか",
+      "romaji": "kore wa nan desu ka",
+      "definition": "Đây là gì?",
+      "exampleSentence": "この料理は何ですか。",
+      "exampleTranslation": "Món này là gì?",
+      "forms": [
+        "メニューの内容を聞く",
+        "写真を指しながら聞く",
+        "説明してもらう"
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": 2605,
+      "term": "おいしかったです",
+      "reading": "おいしかったです",
+      "romaji": "oishikatta desu",
+      "definition": "Ngon lắm (đã ăn xong)",
+      "exampleSentence": "とてもおいしかったです。",
+      "exampleTranslation": "Ngon lắm.",
+      "forms": [
+        "食後の感想",
+        "ごちそうさまでした と一緒に使う",
+        "また来ます = tôi sẽ đến lại"
+      ],
+      "displayOrder": 12
+    },
+    {
+      "id": 2606,
+      "term": "持ち帰りにしてください",
+      "reading": "もちかえりにしてください",
+      "romaji": "mochikaeri ni shite kudasai",
+      "definition": "Vui lòng cho tôi mang về",
+      "exampleSentence": "残りを持ち帰りにしてください。",
+      "exampleTranslation": "Vui lòng cho tôi mang phần còn lại về.",
+      "forms": [
+        "残った料理を包んでもらう",
+        "テイクアウトで = để mang về",
+        "お持ち帰り袋をください も使える"
+      ],
+      "displayOrder": 13
+    },
+    {
+      "id": 2607,
+      "term": "テーブルを拭いてください",
+      "reading": "てーぶるをふいてください",
+      "romaji": "teeburu wo fuite kudasai",
+      "definition": "Vui lòng lau bàn",
+      "exampleSentence": "テーブルを拭いていただけますか。",
+      "exampleTranslation": "Bạn có thể lau bàn không?",
+      "forms": [
+        "汚れたテーブルを清掃してもらう",
+        "すみません、ここが汚れています",
+        "おしぼりをください = cho tôi khăn ướt"
+      ],
+      "displayOrder": 14
+    },
+    {
+      "id": 2608,
+      "term": "水をください",
+      "reading": "みずをください",
+      "romaji": "mizu wo kudasai",
+      "definition": "Cho tôi nước",
+      "exampleSentence": "お水をください。",
+      "exampleTranslation": "Cho tôi nước.",
+      "forms": [
+        "無料の水を頼む",
+        "お冷やをください も使える",
+        "氷なしでください = không cho đá"
+      ],
+      "displayOrder": 15
+    },
+    {
+      "id": 2609,
+      "term": "熱いものが苦手です",
+      "reading": "あついものがにがてです",
+      "romaji": "atsui mono ga nigate desu",
+      "definition": "Tôi không giỏi ăn đồ nóng",
+      "exampleSentence": "とても辛いものが苦手です。",
+      "exampleTranslation": "Tôi không ăn được đồ cay lắm.",
+      "forms": [
+        "食の好み・制限を伝える",
+        "〜が食べられません = không ăn được",
+        "〜なしでお願いします"
+      ],
+      "displayOrder": 16
+    },
+    {
+      "id": 2610,
+      "term": "ラストオーダーは何時ですか",
+      "reading": "らすとおーだーはなんじですか",
+      "romaji": "rasuto oodaa wa nanji desu ka",
+      "definition": "Cuối giờ gọi món là mấy giờ?",
+      "exampleSentence": "ラストオーダーは何時ですか。",
+      "exampleTranslation": "Cuối giờ gọi món là mấy giờ?",
+      "forms": [
+        "閉店間際に確認する",
+        "ラストオーダー = last order",
+        "閉店は何時ですか = đóng cửa lúc mấy giờ"
+      ],
+      "displayOrder": 17
+    },
+    {
+      "id": 50586,
+      "term": "メニューを見せてください",
+      "reading": "めにゅーをみせてください",
+      "romaji": "menyuu o misete kudasai",
+      "definition": "Cho tôi xem thực đơn",
+      "exampleSentence": "すみません、メニューを見せてください。",
+      "exampleTranslation": "Xin lỗi, cho tôi xem thực đơn.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 50587,
+      "term": "窓側の席にしてください",
+      "reading": "まどがわのせきにしてください",
+      "romaji": "madogawa no seki ni shite kudasai",
+      "definition": "Vui lòng xếp chỗ gần cửa sổ",
+      "exampleSentence": "窓側の席にしてください。",
+      "exampleTranslation": "Vui lòng xếp cho tôi chỗ gần cửa sổ.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 50588,
+      "term": "おしぼりをください",
+      "reading": "おしぼりをください",
+      "romaji": "oshibori o kudasai",
+      "definition": "Cho tôi khăn ướt",
+      "exampleSentence": "すみません、おしぼりをください。",
+      "exampleTranslation": "Xin lỗi, cho tôi một chiếc khăn ướt.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 50589,
+      "term": "お箸をください",
+      "reading": "おはしをください",
+      "romaji": "ohashi o kudasai",
+      "definition": "Cho tôi đũa",
+      "exampleSentence": "お箸をください。",
+      "exampleTranslation": "Cho tôi đũa.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 50590,
+      "term": "取り皿をください",
+      "reading": "とりざらをください",
+      "romaji": "torizara o kudasai",
+      "definition": "Cho tôi đĩa nhỏ",
+      "exampleSentence": "取り皿を二枚ください。",
+      "exampleTranslation": "Cho tôi hai chiếc đĩa nhỏ.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 50591,
+      "term": "肉が入っていますか",
+      "reading": "にくがはいっていますか",
+      "romaji": "niku ga haitte imasu ka",
+      "definition": "Món này có thịt không?",
+      "exampleSentence": "この料理に肉が入っていますか。",
+      "exampleTranslation": "Món ăn này có thịt không?",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 50592,
+      "term": "ご飯を大盛りにできますか",
+      "reading": "ごはんをおおもりにできますか",
+      "romaji": "gohan o oomori ni dekimasu ka",
+      "definition": "Có thể cho thêm cơm không?",
+      "exampleSentence": "ご飯を大盛りにできますか。",
+      "exampleTranslation": "Có thể cho tôi phần cơm lớn hơn không?",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 50593,
+      "term": "ドリンクバーはありますか",
+      "reading": "どりんくばーはありますか",
+      "romaji": "dorinku baa wa arimasu ka",
+      "definition": "Ở đây có quầy đồ uống tự phục vụ không?",
+      "exampleSentence": "この店にドリンクバーはありますか。",
+      "exampleTranslation": "Quán này có quầy đồ uống tự phục vụ không?",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 50594,
+      "term": "デザートはありますか",
+      "reading": "でざーとはありますか",
+      "romaji": "dezaato wa arimasu ka",
+      "definition": "Có món tráng miệng không?",
+      "exampleSentence": "デザートはありますか。",
+      "exampleTranslation": "Có món tráng miệng không?",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 50595,
+      "term": "お手洗いはどこですか",
+      "reading": "おてあらいはどこですか",
+      "romaji": "otearai wa doko desu ka",
+      "definition": "Nhà vệ sinh ở đâu?",
+      "exampleSentence": "すみません、お手洗いはどこですか。",
+      "exampleTranslation": "Xin lỗi, nhà vệ sinh ở đâu ạ?",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 50596,
+      "term": "ごちそうさまでした",
+      "reading": "ごちそうさまでした",
+      "romaji": "gochisousama deshita",
+      "definition": "Cảm ơn vì bữa ăn",
+      "exampleSentence": "食事のあとで、店員さんに「ごちそうさまでした」と言いました。",
+      "exampleTranslation": "Sau bữa ăn, tôi nói với nhân viên: “Cảm ơn vì bữa ăn.”",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 50597,
+      "term": "おかわりをお願いします",
+      "reading": "おかわりをおねがいします",
+      "romaji": "okawari o onegai shimasu",
+      "definition": "Cho tôi thêm một phần nữa",
+      "exampleSentence": "スープのおかわりをお願いします。",
+      "exampleTranslation": "Cho tôi thêm một phần súp nữa.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

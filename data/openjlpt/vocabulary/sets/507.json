@@ -1,0 +1,176 @@
+{
+  "id": 507,
+  "title": "生活・住まい · 賃貸・生活費",
+  "description": "Thuê nhà & chi phí sinh hoạt — chủ đề Đời sống & nhà cửa · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:50.942551",
+  "cards": [
+    {
+      "id": 12628,
+      "term": "引っ越し (ひっこし)",
+      "reading": "ひっこし",
+      "romaji": null,
+      "definition": "sự chuyển nhà, việc dọn nhà",
+      "exampleSentence": "来月の引っ越しに向けて、少しずつ荷物を整理している。",
+      "exampleTranslation": "Để chuẩn bị cho việc chuyển nhà vào tháng sau, tôi đang dần sắp xếp đồ đạc.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12629,
+      "term": "引っ越す (ひっこす)",
+      "reading": "ひっこす",
+      "romaji": null,
+      "definition": "chuyển nhà",
+      "exampleSentence": "仕事の都合で、来月大阪へ引っ越す予定です。",
+      "exampleTranslation": "Vì công việc, tôi dự định tháng sau sẽ chuyển nhà đến Osaka.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12630,
+      "term": "引越し (ひっこし)",
+      "reading": "ひっこし",
+      "romaji": null,
+      "definition": "chuyển nhà",
+      "exampleSentence": "引越しの荷造りは大変だったが、友人が手伝ってくれた。",
+      "exampleTranslation": "Việc đóng gói đồ đạc để chuyển nhà khá vất vả, nhưng bạn tôi đã giúp.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12631,
+      "term": "家賃 (やちん)",
+      "reading": "やちん",
+      "romaji": null,
+      "definition": "tiền thuê nhà",
+      "exampleSentence": "この地域は便利なわりに、家賃がそれほど高くない。",
+      "exampleTranslation": "Khu vực này tiện lợi nhưng tiền thuê nhà lại không quá đắt.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12632,
+      "term": "消費 (しょうひ)",
+      "reading": "しょうひ",
+      "romaji": null,
+      "definition": "tiêu dùng",
+      "exampleSentence": "資源の消費を減らすため、使い捨て製品を避けている。",
+      "exampleTranslation": "Để giảm tiêu dùng tài nguyên, tôi tránh sử dụng các sản phẩm dùng một lần.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12633,
+      "term": "生活費 (せいかつひ)",
+      "reading": "せいかつひ",
+      "romaji": null,
+      "definition": "chi phí sinh hoạt",
+      "exampleSentence": "毎月の生活費を抑えるために、自炊を始めました。",
+      "exampleTranslation": "Để tiết kiệm chi phí sinh hoạt hằng tháng, tôi đã bắt đầu tự nấu ăn.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12634,
+      "term": "大家 (おおや)",
+      "reading": "おおや",
+      "romaji": null,
+      "definition": "chủ nhà cho thuê",
+      "exampleSentence": "大家さんに、部屋のエアコンが壊れたことを伝えました。",
+      "exampleTranslation": "Tôi đã báo cho chủ nhà biết điều hòa trong phòng bị hỏng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12635,
+      "term": "家計 (かけい)",
+      "reading": "かけい",
+      "romaji": null,
+      "definition": "kinh tế gia đình",
+      "exampleSentence": "物価が上がってから、家計の負担が大きくなりました。",
+      "exampleTranslation": "Từ khi giá cả tăng, gánh nặng kinh tế gia đình đã trở nên lớn hơn.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12636,
+      "term": "家主 (やぬし)",
+      "reading": "やぬし",
+      "romaji": null,
+      "definition": "chủ nhà",
+      "exampleSentence": "家主に無断で部屋を改装してはいけません。",
+      "exampleTranslation": "Không được tự ý sửa sang căn phòng mà chưa xin phép chủ nhà.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12637,
+      "term": "管理費 (かんりひ)",
+      "reading": "かんりひ",
+      "romaji": null,
+      "definition": "phí quản lý",
+      "exampleSentence": "このマンションは家賃のほかに、毎月一万円の管理費がかかります。",
+      "exampleTranslation": "Ngoài tiền thuê nhà, căn hộ này còn phải trả mười nghìn yên phí quản lý mỗi tháng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12638,
+      "term": "光熱費 (こうねつひ)",
+      "reading": "こうねつひ",
+      "romaji": null,
+      "definition": "tiền điện nước",
+      "exampleSentence": "冬は暖房を使うので、光熱費が高くなりがちです。",
+      "exampleTranslation": "Vì sử dụng máy sưởi vào mùa đông nên tiền điện nước thường dễ tăng cao.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12639,
+      "term": "賃貸 (ちんたい)",
+      "reading": "ちんたい",
+      "romaji": null,
+      "definition": "thuê nhà",
+      "exampleSentence": "駅に近い賃貸物件は、家賃が高い傾向にあります。",
+      "exampleTranslation": "Những căn nhà cho thuê gần ga có xu hướng tiền thuê cao.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12640,
+      "term": "敷金 (しききん)",
+      "reading": "しききん",
+      "romaji": null,
+      "definition": "tiền đặt cọc",
+      "exampleSentence": "契約時に、敷金として家賃二か月分を支払いました。",
+      "exampleTranslation": "Khi ký hợp đồng, tôi đã trả khoản tiền tương đương hai tháng tiền thuê làm tiền đặt cọc.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12641,
+      "term": "無駄遣い (むだづかい)",
+      "reading": "むだづかい",
+      "romaji": null,
+      "definition": "tiêu tiền lãng phí",
+      "exampleSentence": "無駄遣いを減らすために、買い物の前に必要な物を確認します。",
+      "exampleTranslation": "Để giảm việc tiêu tiền lãng phí, tôi kiểm tra những thứ cần mua trước khi đi mua sắm.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12642,
+      "term": "礼金 (れいきん)",
+      "reading": "れいきん",
+      "romaji": null,
+      "definition": "tiền lễ (khi thuê nhà)",
+      "exampleSentence": "この物件は礼金が不要なので、初期費用を抑えられます。",
+      "exampleTranslation": "Vì căn nhà này không cần tiền lễ nên có thể giảm chi phí ban đầu.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

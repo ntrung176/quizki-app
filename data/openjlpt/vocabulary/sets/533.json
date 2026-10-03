@@ -1,0 +1,176 @@
+{
+  "id": 533,
+  "title": "オノマトペ・副詞 · 接尾語・接頭語",
+  "description": "Hậu tố & tiền tố — chủ đề Từ tượng thanh & phó từ · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:51.553293",
+  "cards": [
+    {
+      "id": 13109,
+      "term": "〜以下 (〜いか)",
+      "reading": "〜いか",
+      "romaji": null,
+      "definition": "dưới ~, ít hơn ~ (hậu tố)",
+      "exampleSentence": "「〜以下」は、その数を含む範囲を表します。",
+      "exampleTranslation": "「〜以下」 biểu thị phạm vi bao gồm cả con số đó trở xuống.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13110,
+      "term": "〜以上 (〜いじょう)",
+      "reading": "〜いじょう",
+      "romaji": null,
+      "definition": "trên ~, hơn ~, ít nhất ~ (hậu tố)",
+      "exampleSentence": "「〜以上」は、基準となる数を含む、それより多い範囲を表します。",
+      "exampleTranslation": "「〜以上」 biểu thị phạm vi bao gồm con số làm mốc trở lên.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13111,
+      "term": "〜以内 (〜いない)",
+      "reading": "〜いない",
+      "romaji": null,
+      "definition": "trong vòng ~, không vượt quá ~ (hậu tố)",
+      "exampleSentence": "「〜以内」は、決められた範囲や時間を超えないことを表します。",
+      "exampleTranslation": "「〜以内」 biểu thị việc không vượt quá phạm vi hoặc thời gian đã quy định.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13112,
+      "term": "〜化 (〜か)",
+      "reading": "〜か",
+      "romaji": null,
+      "definition": "hóa ~, trở thành ~ (hậu tố)",
+      "exampleSentence": "「〜化」は、物事がある状態に変わることを表す言葉です。",
+      "exampleTranslation": "「〜化」 là từ biểu thị sự vật chuyển thành một trạng thái nào đó.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13113,
+      "term": "〜感 (〜かん)",
+      "reading": "〜かん",
+      "romaji": null,
+      "definition": "cảm giác ~, cảm nhận ~ (hậu tố)",
+      "exampleSentence": "「〜感」は、気持ちや印象を表す接尾辞です。",
+      "exampleTranslation": "“〜感” là hậu tố biểu thị cảm giác hoặc ấn tượng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13114,
+      "term": "〜向け (〜むけ)",
+      "reading": "〜むけ",
+      "romaji": null,
+      "definition": "dành cho ~, nhắm đến ~ (hậu tố)",
+      "exampleSentence": "「〜向け」は、特定の人を対象にしたものを表します。",
+      "exampleTranslation": "“〜向け” biểu thị thứ gì đó dành cho một đối tượng cụ thể.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13115,
+      "term": "〜式 (〜しき)",
+      "reading": "〜しき",
+      "romaji": null,
+      "definition": "kiểu ~, phong cách ~ (hậu tố)",
+      "exampleSentence": "「〜式」は、特定の形式やスタイルを表す接尾辞です。",
+      "exampleTranslation": "“〜式” là hậu tố biểu thị một hình thức hoặc phong cách cụ thể.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13116,
+      "term": "〜性 (〜せい)",
+      "reading": "〜せい",
+      "romaji": null,
+      "definition": "tính chất ~, đặc tính (hậu tố)",
+      "exampleSentence": "「〜性」は、物事の性質や特徴を表す接尾辞です。",
+      "exampleTranslation": "“〜性” là hậu tố biểu thị tính chất hoặc đặc điểm của sự vật.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13117,
+      "term": "〜前後 (〜ぜんご)",
+      "reading": "〜ぜんご",
+      "romaji": null,
+      "definition": "khoảng ~, trước sau ~ (hậu tố)",
+      "exampleSentence": "「〜前後」は、ある時点の前後の期間を表す表現です。",
+      "exampleTranslation": "“〜前後” là cách diễn đạt khoảng thời gian trước và sau một thời điểm.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13118,
+      "term": "〜中 (〜ちゅう)",
+      "reading": "〜ちゅう",
+      "romaji": null,
+      "definition": "đang ~, trong lúc ~ (hậu tố)",
+      "exampleSentence": "「〜中」は、何かをしている間を表す接尾辞です。",
+      "exampleTranslation": "“〜中” là hậu tố biểu thị khoảng thời gian đang làm một việc gì đó.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13119,
+      "term": "〜的 (〜てき)",
+      "reading": "〜てき",
+      "romaji": null,
+      "definition": "mang tính chất ~, kiểu ~ (hậu tố)",
+      "exampleSentence": "「〜的」は、ある性質や傾向を持つことを表します。",
+      "exampleTranslation": "“〜的” biểu thị việc mang một tính chất hoặc khuynh hướng nào đó.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13120,
+      "term": "〜力 (〜りょく)",
+      "reading": "〜りょく",
+      "romaji": null,
+      "definition": "sức ~, khả năng ~ (hậu tố)",
+      "exampleSentence": "「〜力」は、何かをする能力や力を表す接尾辞です。",
+      "exampleTranslation": "“〜力” là hậu tố biểu thị năng lực hoặc sức mạnh để làm việc gì đó.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13121,
+      "term": "超〜 (ちょう〜)",
+      "reading": "ちょう〜",
+      "romaji": null,
+      "definition": "siêu ~, cực kỳ ~ (tiền tố)",
+      "exampleSentence": "「超〜」は、程度が非常に高いことを表す接頭辞です。",
+      "exampleTranslation": "“超〜” là tiền tố biểu thị mức độ cực kỳ cao.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13122,
+      "term": "非〜 (ひ〜)",
+      "reading": "ひ〜",
+      "romaji": null,
+      "definition": "không ~, phi ~ (tiền tố)",
+      "exampleSentence": "「非〜」は、普通ではないことや否定を表す接頭辞です。",
+      "exampleTranslation": "“非〜” là tiền tố biểu thị sự không bình thường hoặc ý phủ định.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13123,
+      "term": "無〜 (む〜)",
+      "reading": "む〜",
+      "romaji": null,
+      "definition": "không có ~, vô ~ (tiền tố)",
+      "exampleSentence": "「無〜」は、何かが存在しないことを表す接頭辞です。",
+      "exampleTranslation": "“無〜” là tiền tố biểu thị việc không tồn tại một thứ gì đó.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

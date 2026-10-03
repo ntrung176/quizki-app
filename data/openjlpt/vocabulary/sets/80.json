@@ -1,0 +1,453 @@
+{
+  "id": 80,
+  "title": "過去形・たこと",
+  "description": "Quá khứ và kinh nghiệm · 30 mẫu",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:53.304925",
+  "cards": [
+    {
+      "id": 2385,
+      "term": "食べた",
+      "reading": "たべた",
+      "romaji": "tabeta",
+      "definition": "Đã ăn",
+      "exampleSentence": "昨日すしを食べた。",
+      "exampleTranslation": "Hôm qua đã ăn sushi.",
+      "forms": [
+        "る動詞: 食べる→食べた",
+        "〜ました (lịch sự)",
+        "〜なかった (phủ định)"
+      ],
+      "displayOrder": 0
+    },
+    {
+      "id": 2386,
+      "term": "行った",
+      "reading": "いった",
+      "romaji": "itta",
+      "definition": "Đã đi",
+      "exampleSentence": "先週東京に行った。",
+      "exampleTranslation": "Tuần trước đã đi Tokyo.",
+      "forms": [
+        "う動詞: 行く→行った",
+        "書く→書いた",
+        "聞く→聞いた"
+      ],
+      "displayOrder": 1
+    },
+    {
+      "id": 2387,
+      "term": "見た",
+      "reading": "みた",
+      "romaji": "mita",
+      "definition": "Đã xem",
+      "exampleSentence": "映画を見た。",
+      "exampleTranslation": "Đã xem phim.",
+      "forms": [
+        "る動詞: 見る→見た",
+        "起きる→起きた",
+        "着る→着た"
+      ],
+      "displayOrder": 2
+    },
+    {
+      "id": 2388,
+      "term": "した",
+      "reading": "した",
+      "romaji": "shita",
+      "definition": "Đã làm",
+      "exampleSentence": "宿題をした。",
+      "exampleTranslation": "Đã làm bài tập.",
+      "forms": [
+        "不規則: する→した",
+        "勉強した",
+        "練習した"
+      ],
+      "displayOrder": 3
+    },
+    {
+      "id": 2389,
+      "term": "来た",
+      "reading": "きた",
+      "romaji": "kita",
+      "definition": "Đã đến",
+      "exampleSentence": "友達が来た。",
+      "exampleTranslation": "Bạn bè đã đến.",
+      "forms": [
+        "不規則: 来る→来た",
+        "発音: くる→きた",
+        "昨日来た。"
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": 2390,
+      "term": "飲んだ",
+      "reading": "のんだ",
+      "romaji": "nonda",
+      "definition": "Đã uống",
+      "exampleSentence": "コーヒーを飲んだ。",
+      "exampleTranslation": "Đã uống cà phê.",
+      "forms": [
+        "む動詞: 飲む→飲んだ",
+        "読む→読んだ",
+        "遊ぶ→遊んだ"
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": 2391,
+      "term": "書いた",
+      "reading": "かいた",
+      "romaji": "kaita",
+      "definition": "Đã viết",
+      "exampleSentence": "手紙を書いた。",
+      "exampleTranslation": "Đã viết thư.",
+      "forms": [
+        "く動詞: 書く→書いた",
+        "歩く→歩いた",
+        "聞く→聞いた"
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": 2392,
+      "term": "話した",
+      "reading": "はなした",
+      "romaji": "hanashita",
+      "definition": "Đã nói chuyện",
+      "exampleSentence": "先生と話した。",
+      "exampleTranslation": "Đã nói chuyện với giáo viên.",
+      "forms": [
+        "す動詞: 話す→話した",
+        "貸す→貸した",
+        "返す→返した"
+      ],
+      "displayOrder": 7
+    },
+    {
+      "id": 2393,
+      "term": "〜たことがある",
+      "reading": "〜たことがある",
+      "romaji": "ta koto ga aru",
+      "definition": "Đã từng (kinh nghiệm)",
+      "exampleSentence": "日本に行ったことがある。",
+      "exampleTranslation": "Tôi đã từng đến Nhật.",
+      "forms": [
+        "Biểu đạt kinh nghiệm đã qua",
+        "〜たことがない = chưa từng",
+        "〜たことがありますか = Bạn đã từng...?"
+      ],
+      "displayOrder": 8
+    },
+    {
+      "id": 2394,
+      "term": "〜たことがない",
+      "reading": "〜たことがない",
+      "romaji": "ta koto ga nai",
+      "definition": "Chưa từng",
+      "exampleSentence": "すしを食べたことがない。",
+      "exampleTranslation": "Tôi chưa từng ăn sushi.",
+      "forms": [
+        "Phủ định của 〜たことがある",
+        "= never (trong tiếng Anh)",
+        "とは言えない = không thể nói rằng"
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": 2395,
+      "term": "〜たばかり",
+      "reading": "〜たばかり",
+      "romaji": "ta bakari",
+      "definition": "Vừa mới (xong)",
+      "exampleSentence": "食べたばかりです。",
+      "exampleTranslation": "Tôi vừa mới ăn xong.",
+      "forms": [
+        "Hành động vừa xảy ra gần đây",
+        "Khác 〜たところ (ngay lúc này)",
+        "だいぶ前とはいえない (không thể nói từ lâu)"
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": 2396,
+      "term": "〜たところ",
+      "reading": "〜たところ",
+      "romaji": "ta tokoro",
+      "definition": "Vừa mới (ngay lúc)",
+      "exampleSentence": "今食べたところです。",
+      "exampleTranslation": "Tôi vừa mới ăn xong (ngay lúc này).",
+      "forms": [
+        "Ngay sau khi hành động hoàn thành",
+        "〜たばかり có phạm vi thời gian rộng hơn",
+        "Nhấn mạnh thời điểm ngay lập tức"
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": 2397,
+      "term": "〜たら",
+      "reading": "〜たら",
+      "romaji": "tara",
+      "definition": "Nếu / Khi (điều kiện quá khứ→tương lai)",
+      "exampleSentence": "家に帰ったら電話する。",
+      "exampleTranslation": "Khi về nhà sẽ gọi điện.",
+      "forms": [
+        "Điều kiện hoàn thành trước khi làm việc khác",
+        "〜たら là điều kiện linh hoạt nhất",
+        "〜ば、〜と、〜なら cũng là điều kiện"
+      ],
+      "displayOrder": 12
+    },
+    {
+      "id": 2398,
+      "term": "〜たり〜たり",
+      "reading": "〜たり〜たり",
+      "romaji": "tari tari",
+      "definition": "Khi thì ... khi thì",
+      "exampleSentence": "映画を見たり、本を読んだりした。",
+      "exampleTranslation": "Khi xem phim khi đọc sách.",
+      "forms": [
+        "Liệt kê hoạt động không đầy đủ",
+        "Liệt kê ví dụ tiêu biểu trong nhiều việc",
+        "Thường kết thúc bằng する hoặc した"
+      ],
+      "displayOrder": 13
+    },
+    {
+      "id": 2399,
+      "term": "〜ていた",
+      "reading": "〜ていた",
+      "romaji": "te ita",
+      "definition": "Đã đang (quá khứ tiếp diễn)",
+      "exampleSentence": "昨日勉強していた。",
+      "exampleTranslation": "Hôm qua đang học.",
+      "forms": [
+        "Quá khứ tiếp diễn",
+        "Trạng thái trong quá khứ",
+        "〜ていました là dạng lịch sự"
+      ],
+      "displayOrder": 14
+    },
+    {
+      "id": 2400,
+      "term": "〜てあった",
+      "reading": "〜てあった",
+      "romaji": "te atta",
+      "definition": "Đã được chuẩn bị sẵn",
+      "exampleSentence": "窓が開けてあった。",
+      "exampleTranslation": "Cửa sổ đã được mở sẵn.",
+      "forms": [
+        "Kết quả của hành động cố ý vẫn còn",
+        "〜てある là dạng hiện tại",
+        "Ai đó đã làm sẵn, kết quả vẫn còn"
+      ],
+      "displayOrder": 15
+    },
+    {
+      "id": 2401,
+      "term": "〜ておいた",
+      "reading": "〜ておいた",
+      "romaji": "te oita",
+      "definition": "Đã làm trước (chuẩn bị)",
+      "exampleSentence": "弁当を作っておいた。",
+      "exampleTranslation": "Đã chuẩn bị hộp cơm trước.",
+      "forms": [
+        "Quá khứ của 〜ておく",
+        "Làm trước để chuẩn bị cho tương lai",
+        "〜ておいてください = vui lòng làm sẵn"
+      ],
+      "displayOrder": 16
+    },
+    {
+      "id": 2402,
+      "term": "〜てしまった",
+      "reading": "〜てしまった",
+      "romaji": "te shimatta",
+      "definition": "Đã lỡ / Đã xong mất rồi",
+      "exampleSentence": "財布を忘れてしまった。",
+      "exampleTranslation": "Lỡ quên ví mất rồi.",
+      "forms": [
+        "Quá khứ của 〜てしまう",
+        "Nuối tiếc hoặc hoàn thành",
+        "〜ちゃった là dạng thân mật rất phổ biến"
+      ],
+      "displayOrder": 17
+    },
+    {
+      "id": 2403,
+      "term": "〜かった",
+      "reading": "〜かった",
+      "romaji": "katta",
+      "definition": "Đã ... (quá khứ tính từ い)",
+      "exampleSentence": "昨日は暑かった。",
+      "exampleTranslation": "Hôm qua nóng.",
+      "forms": [
+        "Quá khứ tính từ い",
+        "〜くなかった (phủ định quá khứ)",
+        "楽しかった・難しかった・良かった"
+      ],
+      "displayOrder": 18
+    },
+    {
+      "id": 2404,
+      "term": "〜だった",
+      "reading": "〜だった",
+      "romaji": "datta",
+      "definition": "Là (quá khứ danh từ/tính từ な)",
+      "exampleSentence": "昨日は休みだった。",
+      "exampleTranslation": "Hôm qua là ngày nghỉ.",
+      "forms": [
+        "Quá khứ của だ/です",
+        "〜じゃなかった (phủ định quá khứ)",
+        "〜でした là dạng lịch sự"
+      ],
+      "displayOrder": 19
+    },
+    {
+      "id": 2405,
+      "term": "〜ていたところ",
+      "reading": "〜ていたところ",
+      "romaji": "te ita tokoro",
+      "definition": "Đang trong lúc",
+      "exampleSentence": "勉強していたところ電話が来た。",
+      "exampleTranslation": "Đang học thì điện thoại reo.",
+      "forms": [
+        "Đang làm gì đó thì có sự kiện khác",
+        "Nhấn mạnh hành động đang tiếp diễn bị gián đoạn",
+        "〜ていた = đang (quá khứ)"
+      ],
+      "displayOrder": 20
+    },
+    {
+      "id": 2406,
+      "term": "〜て以来",
+      "reading": "〜ていらい",
+      "romaji": "te irai",
+      "definition": "Kể từ khi",
+      "exampleSentence": "日本に来て以来ずっと働いている。",
+      "exampleTranslation": "Kể từ khi đến Nhật tôi làm việc liên tục.",
+      "forms": [
+        "Từ thời điểm đó cho đến nay",
+        "Tương tự 〜てから（ずっと）",
+        "Thường dùng với khoảng thời gian dài"
+      ],
+      "displayOrder": 21
+    },
+    {
+      "id": 2407,
+      "term": "〜たあと",
+      "reading": "〜たあと",
+      "romaji": "ta ato",
+      "definition": "Sau khi đã",
+      "exampleSentence": "食べたあとで歯を磨く。",
+      "exampleTranslation": "Sau khi ăn đánh răng.",
+      "forms": [
+        "Hành động B xảy ra sau A",
+        "= 〜てから nhưng nhấn mạnh A đã hoàn thành",
+        "〜たあとで は trang trọng hơn 〜てから"
+      ],
+      "displayOrder": 22
+    },
+    {
+      "id": 2408,
+      "term": "〜たのに",
+      "reading": "〜たのに",
+      "romaji": "ta noni",
+      "definition": "Mặc dù đã ... nhưng",
+      "exampleSentence": "頑張ったのに失敗した。",
+      "exampleTranslation": "Mặc dù đã cố gắng nhưng thất bại.",
+      "forms": [
+        "Thất vọng hoặc oán trách",
+        "Điều mong đợi không xảy ra",
+        "Thường có sắc thái tiêu cực"
+      ],
+      "displayOrder": 23
+    },
+    {
+      "id": 2409,
+      "term": "〜ていなかった",
+      "reading": "〜ていなかった",
+      "romaji": "te inakatta",
+      "definition": "Đã không đang (phủ định quá khứ tiếp diễn)",
+      "exampleSentence": "昨日は勉強していなかった。",
+      "exampleTranslation": "Hôm qua không học.",
+      "forms": [
+        "Phủ định của 〜ていた",
+        "〜ていませんでした là dạng lịch sự",
+        "Không có hành động hoặc trạng thái trong quá khứ"
+      ],
+      "displayOrder": 24
+    },
+    {
+      "id": 2410,
+      "term": "〜たはずだ",
+      "reading": "〜たはずだ",
+      "romaji": "ta hazu da",
+      "definition": "Đáng lẽ đã phải",
+      "exampleSentence": "来たはずだ。",
+      "exampleTranslation": "Đáng lẽ đã đến rồi.",
+      "forms": [
+        "Kỳ vọng logic về quá khứ",
+        "〜たはずがない = không thể đã làm",
+        "Dựa trên kiến thức hoặc logic"
+      ],
+      "displayOrder": 25
+    },
+    {
+      "id": 2411,
+      "term": "〜たとたん",
+      "reading": "〜たとたん",
+      "romaji": "ta totan",
+      "definition": "Ngay khi vừa",
+      "exampleSentence": "ドアを開けたとたん猫が入ってきた。",
+      "exampleTranslation": "Ngay khi mở cửa mèo chạy vào.",
+      "forms": [
+        "Ngay lập tức sau khi làm A",
+        "Nhấn mạnh sự tức thì",
+        "Tương tự 〜たところ nhưng kịch tính hơn"
+      ],
+      "displayOrder": 26
+    },
+    {
+      "id": 2412,
+      "term": "〜ことになった",
+      "reading": "〜ことになった",
+      "romaji": "koto ni natta",
+      "definition": "Đã quyết định (khách quan)",
+      "exampleSentence": "転勤することになった。",
+      "exampleTranslation": "Đã được quyết định chuyển công tác.",
+      "forms": [
+        "Quyết định từ bên ngoài hoặc theo hoàn cảnh",
+        "〜ことにした = tự mình quyết định",
+        "Thụ động hơn 〜ことにした"
+      ],
+      "displayOrder": 27
+    },
+    {
+      "id": 50554,
+      "term": "〜なかった",
+      "reading": "〜なかった",
+      "romaji": "~nakatta",
+      "definition": "đã không...",
+      "exampleSentence": "昨日は学校へ行かなかった。",
+      "exampleTranslation": "Hôm qua tôi đã không đi học.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 50555,
+      "term": "〜た時",
+      "reading": "〜たとき",
+      "romaji": "~ta toki",
+      "definition": "khi đã...",
+      "exampleSentence": "日本へ行った時、写真を撮りました。",
+      "exampleTranslation": "Khi đi Nhật, tôi đã chụp ảnh.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

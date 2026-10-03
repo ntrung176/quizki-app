@@ -1,0 +1,377 @@
+{
+  "id": 149,
+  "title": "医学・看護語彙",
+  "description": "Y khoa và điều dưỡng N3 · 30 từ",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:11.805435",
+  "cards": [
+    {
+      "id": 4375,
+      "term": "診断",
+      "reading": "しんだん",
+      "romaji": "shindan",
+      "definition": "Chẩn đoán",
+      "exampleSentence": "医師が病気を診断します。",
+      "exampleTranslation": "Bác sĩ chẩn đoán bệnh.",
+      "forms": [
+        "診断します",
+        "診断して",
+        "診断した",
+        "診断しない",
+        "診断できる"
+      ],
+      "displayOrder": 0
+    },
+    {
+      "id": 4376,
+      "term": "症状",
+      "reading": "しょうじょう",
+      "romaji": "shoujou",
+      "definition": "Triệu chứng",
+      "exampleSentence": "どんな症状がありますか。",
+      "exampleTranslation": "Bạn có triệu chứng gì?",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 4377,
+      "term": "治療",
+      "reading": "ちりょう",
+      "romaji": "chiryou",
+      "definition": "Điều trị",
+      "exampleSentence": "専門家の治療が必要です。",
+      "exampleTranslation": "Cần điều trị của chuyên gia.",
+      "forms": [
+        "治療します",
+        "治療して",
+        "治療した",
+        "治療しない",
+        "治療できる"
+      ],
+      "displayOrder": 2
+    },
+    {
+      "id": 4378,
+      "term": "処方箋",
+      "reading": "しょほうせん",
+      "romaji": "shohousen",
+      "definition": "Đơn thuốc",
+      "exampleSentence": "薬局で処方箋を出します。",
+      "exampleTranslation": "Xuất đơn thuốc ở nhà thuốc.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 4379,
+      "term": "手術",
+      "reading": "しゅじゅつ",
+      "romaji": "shujutsu",
+      "definition": "Phẫu thuật",
+      "exampleSentence": "来週、手術を受けます。",
+      "exampleTranslation": "Tuần sau tôi sẽ được phẫu thuật.",
+      "forms": [
+        "手術します",
+        "手術して",
+        "手術した",
+        "手術しない",
+        "手術できる"
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": 4380,
+      "term": "入院",
+      "reading": "にゅういん",
+      "romaji": "nyuuin",
+      "definition": "Nhập viện",
+      "exampleSentence": "2週間入院しました。",
+      "exampleTranslation": "Tôi đã nhập viện 2 tuần.",
+      "forms": [
+        "入院します",
+        "入院して",
+        "入院した",
+        "入院しない",
+        "入院できる"
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": 4381,
+      "term": "退院",
+      "reading": "たいいん",
+      "romaji": "taiin",
+      "definition": "Xuất viện",
+      "exampleSentence": "明日退院する予定です。",
+      "exampleTranslation": "Dự định ngày mai xuất viện.",
+      "forms": [
+        "退院します",
+        "退院して",
+        "退院した",
+        "退院しない",
+        "退院できる"
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": 4382,
+      "term": "看護師",
+      "reading": "かんごし",
+      "romaji": "kangoshi",
+      "definition": "Y tá / điều dưỡng",
+      "exampleSentence": "看護師が患者のケアをします。",
+      "exampleTranslation": "Y tá chăm sóc bệnh nhân.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 4383,
+      "term": "患者",
+      "reading": "かんじゃ",
+      "romaji": "kanja",
+      "definition": "Bệnh nhân",
+      "exampleSentence": "患者さんが待っています。",
+      "exampleTranslation": "Bệnh nhân đang chờ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 4384,
+      "term": "血圧",
+      "reading": "けつあつ",
+      "romaji": "ketsuatsu",
+      "definition": "Huyết áp",
+      "exampleSentence": "血圧を測ってください。",
+      "exampleTranslation": "Hãy đo huyết áp.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 4385,
+      "term": "体温",
+      "reading": "たいおん",
+      "romaji": "taion",
+      "definition": "Nhiệt độ cơ thể",
+      "exampleSentence": "体温は36.5度です。",
+      "exampleTranslation": "Nhiệt độ cơ thể là 36,5 độ.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 4386,
+      "term": "脈拍",
+      "reading": "みゃくはく",
+      "romaji": "myakuhaku",
+      "definition": "Mạch / nhịp tim",
+      "exampleSentence": "脈拍を確認します。",
+      "exampleTranslation": "Tôi kiểm tra mạch.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 4387,
+      "term": "アレルギー",
+      "reading": "アレルギー",
+      "romaji": "arerugi",
+      "definition": "Dị ứng",
+      "exampleSentence": "花粉アレルギーがあります。",
+      "exampleTranslation": "Tôi bị dị ứng phấn hoa.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 4388,
+      "term": "副作用",
+      "reading": "ふくさよう",
+      "romaji": "fukusayou",
+      "definition": "Tác dụng phụ",
+      "exampleSentence": "この薬に副作用はありますか。",
+      "exampleTranslation": "Thuốc này có tác dụng phụ không?",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 4389,
+      "term": "感染症",
+      "reading": "かんせんしょう",
+      "romaji": "kansenshou",
+      "definition": "Bệnh truyền nhiễm",
+      "exampleSentence": "感染症の予防が重要です。",
+      "exampleTranslation": "Phòng ngừa bệnh truyền nhiễm là quan trọng.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 4390,
+      "term": "免疫",
+      "reading": "めんえき",
+      "romaji": "meneki",
+      "definition": "Miễn dịch",
+      "exampleSentence": "免疫力を高めましょう。",
+      "exampleTranslation": "Hãy tăng cường khả năng miễn dịch.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 4391,
+      "term": "慢性病",
+      "reading": "まんせいびょう",
+      "romaji": "manseibyou",
+      "definition": "Bệnh mãn tính",
+      "exampleSentence": "慢性病の管理が大切です。",
+      "exampleTranslation": "Quản lý bệnh mãn tính là quan trọng.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 4392,
+      "term": "リハビリ",
+      "reading": "リハビリ",
+      "romaji": "rihabiri",
+      "definition": "Phục hồi chức năng",
+      "exampleSentence": "手術後のリハビリを続けています。",
+      "exampleTranslation": "Tôi đang tiếp tục phục hồi chức năng sau phẫu thuật.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 4393,
+      "term": "献血",
+      "reading": "けんけつ",
+      "romaji": "kenketsu",
+      "definition": "Hiến máu",
+      "exampleSentence": "定期的に献血しています。",
+      "exampleTranslation": "Tôi hiến máu định kỳ.",
+      "forms": [
+        "献血します",
+        "献血して",
+        "献血した",
+        "献血しない",
+        "献血できる"
+      ],
+      "displayOrder": 18
+    },
+    {
+      "id": 4394,
+      "term": "予防接種",
+      "reading": "よぼうせっしゅ",
+      "romaji": "yobou sesshu",
+      "definition": "Tiêm phòng",
+      "exampleSentence": "インフルエンザの予防接種を受けました。",
+      "exampleTranslation": "Tôi đã tiêm phòng cúm.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 50794,
+      "term": "医療",
+      "reading": "いりょう",
+      "romaji": "iryou",
+      "definition": "y tế; chăm sóc y tế",
+      "exampleSentence": "医療の進歩によって、多くの病気が治るようになった。",
+      "exampleTranslation": "Nhờ sự tiến bộ của y học, nhiều bệnh đã có thể chữa khỏi.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 50795,
+      "term": "医師",
+      "reading": "いし",
+      "romaji": "ishi",
+      "definition": "bác sĩ",
+      "exampleSentence": "医師に相談してから、薬を飲んでください。",
+      "exampleTranslation": "Hãy hỏi ý kiến bác sĩ rồi hãy uống thuốc.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 50796,
+      "term": "診察",
+      "reading": "しんさつ",
+      "romaji": "shinsatsu",
+      "definition": "khám bệnh; thăm khám",
+      "exampleSentence": "診察を受けるために、朝早く病院へ行った。",
+      "exampleTranslation": "Tôi đã đến bệnh viện từ sáng sớm để được khám bệnh.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 50797,
+      "term": "検査",
+      "reading": "けんさ",
+      "romaji": "kensa",
+      "definition": "kiểm tra; xét nghiệm",
+      "exampleSentence": "明日の検査のために、夜から何も食べないでください。",
+      "exampleTranslation": "Để chuẩn bị cho xét nghiệm ngày mai, từ tối hãy không ăn gì.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 50798,
+      "term": "点滴",
+      "reading": "てんてき",
+      "romaji": "tenteki",
+      "definition": "truyền dịch",
+      "exampleSentence": "脱水症状があったので、病院で点滴を受けた。",
+      "exampleTranslation": "Vì bị mất nước nên tôi đã được truyền dịch tại bệnh viện.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 50799,
+      "term": "包帯",
+      "reading": "ほうたい",
+      "romaji": "houtai",
+      "definition": "băng gạc",
+      "exampleSentence": "看護師が傷に新しい包帯を巻いてくれた。",
+      "exampleTranslation": "Y tá đã băng một lớp gạc mới lên vết thương cho tôi.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 50800,
+      "term": "骨折",
+      "reading": "こっせつ",
+      "romaji": "kossetsu",
+      "definition": "gãy xương",
+      "exampleSentence": "階段から落ちて、足を骨折した。",
+      "exampleTranslation": "Tôi bị ngã cầu thang và gãy chân.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 50801,
+      "term": "薬局",
+      "reading": "やっきょく",
+      "romaji": "yakkyoku",
+      "definition": "nhà thuốc; hiệu thuốc",
+      "exampleSentence": "病院の帰りに、薬局で薬を受け取った。",
+      "exampleTranslation": "Trên đường về từ bệnh viện, tôi đã nhận thuốc ở hiệu thuốc.",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 50802,
+      "term": "回復",
+      "reading": "かいふく",
+      "romaji": "kaifuku",
+      "definition": "hồi phục",
+      "exampleSentence": "手術の後、体は少しずつ回復してきた。",
+      "exampleTranslation": "Sau ca phẫu thuật, cơ thể đã dần hồi phục.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 50803,
+      "term": "傷口",
+      "reading": "きずぐち",
+      "romaji": "kizuguchi",
+      "definition": "miệng vết thương",
+      "exampleSentence": "傷口を清潔にして、包帯を交換してください。",
+      "exampleTranslation": "Hãy làm sạch miệng vết thương và thay băng.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

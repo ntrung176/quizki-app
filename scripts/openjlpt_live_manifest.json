@@ -1,0 +1,237 @@
+{
+  "version": 1,
+  "updated": "2026-10-02T14:48:34.746Z",
+  "entries": {
+    "b:data/n2MegaExams/n2MegaExplanations.js#n2MegaExplanations": {
+      "from": "7f851c4c1d1d6b79d2ca",
+      "to": "9cc87077d6296c2c87750fca3398f45c2d53c5b7aeaeff11a4fcaec6011b5368",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "b:data/n3PowerMojigoiExams/explanations.js#n3PowerMojigoiExplanations": {
+      "from": "a400d4511def21d582ee",
+      "to": "a21af04efb638cd1fa4f91f4adcfc33c1e85c5249f5514b082947a2b02979ff6",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "b:data/n3TypeDrills/n3TypeDrillExplanations.js#n3TypeDrillExplanations": {
+      "from": "02b9cc9001d12549d532",
+      "to": "3da44d2dd46cc3aceb10241868cabfd6d5b6cc36eccb4fcacb9790f28b619908",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "b:data/n4Goukaku1Exams/explanations.js#n4Goukaku1Explanations": {
+      "from": "e0b2ec0ada8445560a9a",
+      "to": "606d021f34087a7e37bbee7db76015f77a632c1952d0f74084472ce78ca1cb6a",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "b:data/n4KoushikiExams/index.js#n4KoushikiExplanations": {
+      "from": "cbfae82fcba672940984",
+      "to": "18b34c1c981bd603c6ddfdac9f41f8dae46289015f0949698525e2219b210b42",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "b:data/n4MoPhongExams/index.js#n4MoPhongExplanations": {
+      "from": "e0072e87920e80aff3de",
+      "to": "b11026d856fcfe79ad63262b718806005a5b6253a52d1645aae0e856f7ee97a3",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "b:data/n4SuccessExams/index.js#n4SuccessExplanations": {
+      "from": "5b7c54442e511e778aef",
+      "to": "cae0a6a5880de053ace4d366faf089c2aa3965603258e80890b6694c012b596e",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "b:data/n4SuccessExams/n4success3.js#testN4Success3": {
+      "from": "dfeb382200a2a57401af",
+      "to": "3f7066c3a412e805ea0c0f853c25f52f07a32519090e536dd6927b41a76239e8",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "b:data/n4SupaExams/index.js#n4SupaExplanations": {
+      "from": "3895eff2919b7164ec43",
+      "to": "2632f5c67f49b37f6abda0731233827f2916ae0efc712e0c0112a70bc101f67e",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "b:data/n4TankiExams/index.js#n4TankiExplanations": {
+      "from": "ec245399aac945e5f858",
+      "to": "fee389bedda367cdbb1c09a245bc6934e43987886428526b11d7360c7196aa30",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "b:data/n4Tw6kaiExams/index.js#n4Tw6kaiExplanations": {
+      "from": "d393bc16ccd1cacf81ba",
+      "to": "c477fa3d16846922f31a0a92d33487a6b75657fe7bd0a486bb5d4da000f28519",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "b:data/n4TypeDrills/n4TypeDrillExplanations.js#n4TypeDrillExplanations": {
+      "from": "a9fcc5f8423051c362de",
+      "to": "7577c8ccc5a8b241977b18fa659428a7109cae7786c050d789606e8205d49f07",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "b:data/n4ZettaiExams/index.js#n4ZettaiExplanations": {
+      "from": "38151f507f4e1c037296",
+      "to": "eff43f0978c5bf40c15edc356b536598a7b835da730e6a54799d4e43f48c406d",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "c:analysisEn/scraped_n4_books__2026_mojigoi_n4__q.json": {
+      "from": "fcdd94e2a9c374d73772c19861cf0f9fe1c12973ac67d50f68f16994bd4c733b",
+      "to": "dc4517dd68113a363dc3b22e02566aabe8c167ea983ae8d9feb71925636b4f51",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "c:analysisEn/scraped_n4_books__chokuzen_n4__q.json": {
+      "from": "092870c7a06ad13d1d9b7dd4e46d953eacd90c9812464285242156f116fe1b80",
+      "to": "336ccae5028d81cc95c1315e8c10f015b95cbc0fbc49c5c5c2db1ede7aef992f",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "c:analysisEn/scraped_n4_books__goukakumoshi1_n4__q.json": {
+      "from": "05a226f9c9455dca394a260fe08f47b81b57c55a7b2aee15dc471c7cd204883c",
+      "to": "346e467e0a57702fc291040969c6741aa7b220087f5ef66086bd3a49b9dfa654",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "c:analysisEn/scraped_n4_books__goukakumoshi2_n4__q.json": {
+      "from": "a2e87de231b5f887cd6e3f3e7c73c584f4ad93faf6549f719fced5a39411c1ca",
+      "to": "a1fad7a62b9c69a35617115ba552dd59684af5047b44beff9085bf0705d21e75",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "c:analysisEn/scraped_n4_books__goukakumoshi3_n4__q.json": {
+      "from": "3a608170b32f378d53afac7021df9b4cd83dfb6890e05eee295f8fcc3dda903c",
+      "to": "703e462da0a333c3aad06b9ba923c9e45242fd2f562d6b162d0cb47fd7b9df2d",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "c:analysisEn/scraped_n4_books__pointmoji_n4__q.json": {
+      "from": "801c1fe271fa429dfd545841694f51d41d53a4a96b3c6be6721446d9e3e63978",
+      "to": "e3a48cf5cff49e74442922a0d32f93341ca753d2bf7c52311dadffa0ac703e52",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "c:analysisEn/scraped_n4_books__speedgoi_n4__q.json": {
+      "from": "1d66a5048ca91f904525f21cf084fe32664a76293a3b47ad114be0eca6c657e5",
+      "to": "75bb41d34677207f37a373cc6ec965273aafdba266f75323ed78e74c8b21242d",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "c:scraped_n2_books/analysis/korea15730_n2.json": {
+      "from": "ed6b353812542bbd402518d2d9dd089ca3c47c5410e01141e846deb3bdb6c3fb",
+      "to": "cd766df51f0f1d4553fbc0af6ef4cfd9d94d0629ac0c7fde80b716007d471be7",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "c:scraped_n3_books/analysis/1200_moji_n3.json": {
+      "from": "12458b3f6951cb71527f0c9b85cca60e49073b0162a6efe757295efc4926af29",
+      "to": "d8f865669f2a17d520376955abd95df3317041f7f3f956fb43cd3bb6d09eb82f",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "c:scraped_n3_books/analysis/15day_n3.json": {
+      "from": "522104ee39d67e333a45ade40099d1c4755387a128acb9d4e06216c2098ca6dd",
+      "to": "53319263973d725beb060b87eef5c0a53020b4b5ae1e11c9cb4b4f6eb81bb320",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "c:scraped_n3_books/analysis/700_moji_n3.json": {
+      "from": "49ab8821c520833e3e2e384ad0795b6383ca9826fea1114e696fb8a9e30d6ed5",
+      "to": "c8776a6283431b26c8a9c5a94562c26568d6c8eb12ca87fc6e7833f8c0aec596",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "c:scraped_n3_books/analysis/chokuzen_n3.json": {
+      "from": "10bb495419eebbe60092a1e22ad859a7315083b609c66d9ee8f1f5158254935f",
+      "to": "c8d995bb66124d48d623e8f7c714b969b91e54c09670bb977ec971ec0568a6b4",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "c:scraped_n3_books/analysis/toriaezu_goi_n3.json": {
+      "from": "4f61fba8978f9df35361c93b45108daaa4d792b08525bd8f5c770bf0f7d17e58",
+      "to": "0c5251157b771868957ff08a3d5d49e54baf3626c3f2a635dbe70fb702a29166",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "c:scraped_n4_books/analysis/2026_mojigoi_n4.json": {
+      "from": "82805772abdc599307384d897a15ef33633d5ffc2c7cdc965779e599a1ba3340",
+      "to": "75f889db6f4db58f70a5b7f4e2e4c9848a67be119c8322f9e2edbd9a030859ce",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "c:scraped_n4_books/analysis/chokuzen_n4.json": {
+      "from": "4dfb982fb6578d42ccbc8e70bc91bebd9ba4b4bb63f30bc31cf2474f8f3fb96e",
+      "to": "050f62ae671b0ca9bfd2bec5d22790cf8f899be847ece2c2cd82451c48af180d",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "c:scraped_n4_books/analysis/goukakumoshi1_n4.json": {
+      "from": "e2e21b4db330e1178da1121333f4087b2762e6043f623b38bd61a38fc9cd231d",
+      "to": "97660c7ac9eac014c94e9abf973bdda9b9dd04781c3595e9c37d019e617e8d7f",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "c:scraped_n4_books/analysis/goukakumoshi2_n4.json": {
+      "from": "91a9939585adf9f083834b98ac72e0a3b71ff3d9f23eb3e582caec1d6ec5142b",
+      "to": "464b4bb61a26df633ad4d3391883fea9a21e1947643a8bd3505112610c12350b",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "c:scraped_n4_books/analysis/goukakumoshi3_n4.json": {
+      "from": "2e98624e05d5124a0b17958f56d44d511e2b3647fddd073c14c8235c9342c9cd",
+      "to": "25c9adfd73f58052c6d07646ac3fbbf0231a2ad2ac5e35f905ddfbd0484063c1",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "c:scraped_n4_books/analysis/pointmoji_n4.json": {
+      "from": "eadf1b4ca15c726befcb49952f1b511fa78ea408963fd2a1f94b93944bd77085",
+      "to": "982342ea32d371f1ec280c728cc9e0fd290febc783e73dc76515d1f31a204a2f",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    },
+    "c:scraped_n4_books/analysis/speedgoi_n4.json": {
+      "from": "f8397fbef6cfa56ee5411719951d2b6e636f8a668289b36253b8e1093ab2f3e1",
+      "to": "9a29054b9996baae7da32cf5418a535075ab1e42198247c47f8950a1df7577f6",
+      "at": "2026-10-02T14:48:34.746Z",
+      "note": "sk (khung câu) dùng nhãn tiếng Nhật — kobun 用法/文の組み立て",
+      "by": "User"
+    }
+  }
+}

@@ -1,0 +1,143 @@
+{
+  "id": 456,
+  "title": "医療・健康 · 治療・薬・予防",
+  "description": "Điều trị, thuốc, phòng ngừa & phục hồi — chủ đề Y tế & sức khỏe · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.286683",
+  "cards": [
+    {
+      "id": 11628,
+      "term": "回復 (かいふく)",
+      "reading": "かいふく",
+      "romaji": null,
+      "definition": "phục hồi sức khỏe",
+      "exampleSentence": "十分な休養を取れば、体は徐々に回復するでしょう。",
+      "exampleTranslation": "Nếu nghỉ ngơi đầy đủ, cơ thể sẽ dần hồi phục.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11629,
+      "term": "治療 (ちりょう)",
+      "reading": "ちりょう",
+      "romaji": null,
+      "definition": "điều trị",
+      "exampleSentence": "医師の指示に従って治療を続ければ、症状は少しずつよくなるでしょう。",
+      "exampleTranslation": "Nếu tiếp tục điều trị theo chỉ dẫn của bác sĩ, các triệu chứng sẽ dần thuyên giảm.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11630,
+      "term": "手術 (しゅじゅつ)",
+      "reading": "しゅじゅつ",
+      "romaji": null,
+      "definition": "phẫu thuật",
+      "exampleSentence": "父は来週、目の手術を受ける予定です。",
+      "exampleTranslation": "Bố tôi dự định sẽ phẫu thuật mắt vào tuần sau.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11631,
+      "term": "処方 (しょほう)",
+      "reading": "しょほう",
+      "romaji": null,
+      "definition": "đơn thuốc, kê đơn",
+      "exampleSentence": "医師は診察後、症状に合った薬を処方した。",
+      "exampleTranslation": "Sau khi khám, bác sĩ đã kê loại thuốc phù hợp với các triệu chứng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11632,
+      "term": "ワクチン接種",
+      "reading": "ワクチン接種",
+      "romaji": null,
+      "definition": "tiêm chủng vaccine",
+      "exampleSentence": "感染症の流行を防ぐため、早めのワクチン接種が推奨されている。",
+      "exampleTranslation": "Để ngăn chặn dịch bệnh truyền nhiễm lây lan, việc tiêm vaccine sớm được khuyến khích.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11633,
+      "term": "リハビリ",
+      "reading": "リハビリ",
+      "romaji": null,
+      "definition": "phục hồi chức năng",
+      "exampleSentence": "けがをした選手は、毎日リハビリに通っている。",
+      "exampleTranslation": "Vận động viên bị chấn thương đang đi phục hồi chức năng mỗi ngày.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11634,
+      "term": "処方箋 (しょほうせん)",
+      "reading": "しょほうせん",
+      "romaji": null,
+      "definition": "đơn thuốc",
+      "exampleSentence": "薬局で処方箋を見せて、薬を受け取った。",
+      "exampleTranslation": "Tôi đưa đơn thuốc ở hiệu thuốc rồi nhận thuốc.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11635,
+      "term": "診断 (しんだん)",
+      "reading": "しんだん",
+      "romaji": null,
+      "definition": "chẩn đoán bệnh",
+      "exampleSentence": "検査の結果、医師は早期の診断が必要だと判断した。",
+      "exampleTranslation": "Dựa trên kết quả kiểm tra, bác sĩ nhận định cần chẩn đoán sớm.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11636,
+      "term": "投薬治療 (とうやくちりょう)",
+      "reading": "とうやくちりょう",
+      "romaji": null,
+      "definition": "điều trị bằng thuốc",
+      "exampleSentence": "症状が軽ければ、投薬治療だけで改善する場合もある。",
+      "exampleTranslation": "Nếu triệu chứng nhẹ, đôi khi chỉ điều trị bằng thuốc cũng có thể cải thiện.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11637,
+      "term": "副作用 (ふくさよう)",
+      "reading": "ふくさよう",
+      "romaji": null,
+      "definition": "tác dụng phụ",
+      "exampleSentence": "この薬には眠気などの副作用があるため、車の運転は控えてください。",
+      "exampleTranslation": "Vì thuốc này có tác dụng phụ như buồn ngủ nên hãy hạn chế lái xe.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11638,
+      "term": "予防 (よぼう)",
+      "reading": "よぼう",
+      "romaji": null,
+      "definition": "phòng ngừa bệnh tật",
+      "exampleSentence": "病気の予防には、毎日の手洗いと十分な睡眠が大切です。",
+      "exampleTranslation": "Để phòng ngừa bệnh tật, việc rửa tay hằng ngày và ngủ đủ giấc rất quan trọng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11639,
+      "term": "予防医学 (よぼういがく)",
+      "reading": "よぼういがく",
+      "romaji": null,
+      "definition": "y học dự phòng",
+      "exampleSentence": "予防医学の観点から、定期的な検診は非常に重要である。",
+      "exampleTranslation": "Từ góc độ y học dự phòng, việc khám sức khỏe định kỳ là vô cùng quan trọng.",
+      "forms": [],
+      "displayOrder": 11
+    }
+  ]
+}

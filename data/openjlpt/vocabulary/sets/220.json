@@ -1,0 +1,176 @@
+{
+  "id": 220,
+  "title": "Tuần 4 · Ngày 6 - 慣用句① (Thành ngữ nhóm 1)",
+  "description": "Nihongo Soumatome N3 語彙 — 慣用句① (Thành ngữ nhóm 1)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.497739",
+  "cards": [
+    {
+      "id": 5596,
+      "term": "手を貸す (てをかす)",
+      "reading": "てをかす",
+      "romaji": "te wo kasu",
+      "definition": "giúp đỡ, đưa tay giúp",
+      "exampleSentence": "困っている同僚に手を貸すことにした。",
+      "exampleTranslation": "Tôi quyết định giúp đỡ người đồng nghiệp đang gặp khó khăn.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5597,
+      "term": "目を向ける (めをむける)",
+      "reading": "めをむける",
+      "romaji": "me wo mukeru",
+      "definition": "chú ý đến, hướng sự chú ý tới",
+      "exampleSentence": "これからは、地方の高齢者にも目を向ける必要がある。",
+      "exampleTranslation": "Từ nay, cũng cần hướng sự chú ý đến những người cao tuổi ở các địa phương.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5598,
+      "term": "気を付ける (きをつける)",
+      "reading": "きをつける",
+      "romaji": "ki wo tsukeru",
+      "definition": "cẩn thận, chú ý",
+      "exampleSentence": "雨の日は、足元に気を付けるようにしてください。",
+      "exampleTranslation": "Vào những ngày mưa, hãy chú ý dưới chân.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5599,
+      "term": "気に入る (きにいる)",
+      "reading": "きにいる",
+      "romaji": "ki ni iru",
+      "definition": "thích, ưng ý",
+      "exampleSentence": "このかばんの色が気に入る人は多いと思います。",
+      "exampleTranslation": "Tôi nghĩ nhiều người sẽ thích màu của chiếc túi này.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5600,
+      "term": "気になる (きになる)",
+      "reading": "きになる",
+      "romaji": "ki ni naru",
+      "definition": "lo lắng, tò mò, bận tâm",
+      "exampleSentence": "試験の結果が気になるので、毎日メールを確認しています。",
+      "exampleTranslation": "Vì lo lắng về kết quả kỳ thi nên ngày nào tôi cũng kiểm tra email.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5601,
+      "term": "顔が広い (かおがひろい)",
+      "reading": "かおがひろい",
+      "romaji": "kao ga hiroi",
+      "definition": "có nhiều quan hệ, quen biết rộng",
+      "exampleSentence": "彼は顔が広いので、どこへ行っても知り合いに会います。",
+      "exampleTranslation": "Anh ấy quen biết rộng nên đi đâu cũng gặp người quen.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5602,
+      "term": "頭を使う (あたまをつかう)",
+      "reading": "あたまをつかう",
+      "romaji": "atama wo tsukau",
+      "definition": "dùng đầu óc, suy nghĩ",
+      "exampleSentence": "この問題を解くには、少し頭を使う必要があります。",
+      "exampleTranslation": "Để giải bài toán này, cần phải suy nghĩ một chút.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5603,
+      "term": "足を運ぶ (あしをはこぶ)",
+      "reading": "あしをはこぶ",
+      "romaji": "ashi wo hakobu",
+      "definition": "đến tận nơi, ghé thăm",
+      "exampleSentence": "この展覧会は、遠くても足を運ぶ価値があります。",
+      "exampleTranslation": "Triển lãm này đáng để đến tận nơi dù có hơi xa.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5604,
+      "term": "力を入れる (ちからをいれる)",
+      "reading": "ちからをいれる",
+      "romaji": "chikara wo ireru",
+      "definition": "dồn sức, tập trung nỗ lực",
+      "exampleSentence": "今年は社員の研修に特に力を入れる予定です。",
+      "exampleTranslation": "Năm nay, công ty dự định đặc biệt tập trung vào việc đào tạo nhân viên.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5605,
+      "term": "心がける (こころがける)",
+      "reading": "こころがける",
+      "romaji": "kokorogakeru",
+      "definition": "để tâm, chú ý, cố gắng",
+      "exampleSentence": "健康のために、毎日野菜を食べるように心がけることが大切です。",
+      "exampleTranslation": "Vì sức khỏe, việc cố gắng ăn rau mỗi ngày là rất quan trọng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5606,
+      "term": "胸を張る (むねをはる)",
+      "reading": "むねをはる",
+      "romaji": "mune wo haru",
+      "definition": "ngẩng cao đầu, tự hào",
+      "exampleSentence": "努力した結果なのだから、胸を張るべきです。",
+      "exampleTranslation": "Đó là kết quả của sự nỗ lực, vì vậy bạn nên tự hào.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5607,
+      "term": "目が覚める (めがさめる)",
+      "reading": "めがさめる",
+      "romaji": "me ga sameru",
+      "definition": "tỉnh giấc, nhận ra sự thật",
+      "exampleSentence": "大きな物音がして、夜中に目が覚めることがあります。",
+      "exampleTranslation": "Đôi khi tôi tỉnh giấc giữa đêm vì nghe thấy tiếng động lớn.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5608,
+      "term": "耳を傾ける (みみをかたむける)",
+      "reading": "みみをかたむける",
+      "romaji": "mimi wo katamukeru",
+      "definition": "lắng nghe, chú tâm nghe",
+      "exampleSentence": "先生は学生の意見に耳を傾けることを大切にしています。",
+      "exampleTranslation": "Thầy cô coi trọng việc lắng nghe ý kiến của học sinh.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5609,
+      "term": "口を出す (くちをだす)",
+      "reading": "くちをだす",
+      "romaji": "kuchi wo dasu",
+      "definition": "xen vào, góp ý, nói xen",
+      "exampleSentence": "人の仕事に勝手に口を出すのは失礼です。",
+      "exampleTranslation": "Tự tiện xen vào công việc của người khác là bất lịch sự.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5610,
+      "term": "手が離せない (てがはなせない)",
+      "reading": "てがはなせない",
+      "romaji": "te ga hanasenai",
+      "definition": "không rảnh tay, đang bận",
+      "exampleSentence": "今は料理中で手が離せないので、後で電話します。",
+      "exampleTranslation": "Bây giờ tôi đang nấu ăn nên không rảnh tay, lát nữa tôi sẽ gọi lại.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "id": 474,
+  "title": "食・料理 · 栄養・食品管理",
+  "description": "Dinh dưỡng và quản lý thực phẩm — chủ đề Ẩm thực & nấu nướng · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.797218",
+  "cards": [
+    {
+      "id": 11960,
+      "term": "賞味期限 (しょうみきげん)",
+      "reading": "しょうみきげん",
+      "romaji": null,
+      "definition": "hạn dùng tốt nhất",
+      "exampleSentence": "この牛乳は賞味期限が近いので、先に飲みましょう。",
+      "exampleTranslation": "Sữa này sắp đến hạn dùng tốt nhất, nên chúng ta hãy uống trước.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11961,
+      "term": "食費 (しょくひ)",
+      "reading": "しょくひ",
+      "romaji": null,
+      "definition": "chi phí ăn uống",
+      "exampleSentence": "今月は外食が多くて、食費が予想以上にかかった。",
+      "exampleTranslation": "Tháng này tôi ăn ngoài nhiều nên chi phí ăn uống đã tốn hơn dự kiến.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11962,
+      "term": "食欲 (しょくよく)",
+      "reading": "しょくよく",
+      "romaji": null,
+      "definition": "cảm giác thèm ăn",
+      "exampleSentence": "暑い日が続くと、食欲がなくなることがある。",
+      "exampleTranslation": "Khi những ngày nóng kéo dài, đôi khi tôi không cảm thấy thèm ăn.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11963,
+      "term": "栄養素 (えいようそ)",
+      "reading": "えいようそ",
+      "romaji": null,
+      "definition": "chất dinh dưỡng",
+      "exampleSentence": "食事から必要な栄養素をバランスよく取ることが大切だ。",
+      "exampleTranslation": "Việc bổ sung cân bằng các chất dinh dưỡng cần thiết từ bữa ăn là rất quan trọng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11964,
+      "term": "献立 (こんだて)",
+      "reading": "こんだて",
+      "romaji": null,
+      "definition": "thực đơn",
+      "exampleSentence": "毎日の献立を考えるのは、思ったより大変だ。",
+      "exampleTranslation": "Việc nghĩ thực đơn mỗi ngày vất vả hơn tôi tưởng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11965,
+      "term": "菜食 (さいしょく)",
+      "reading": "さいしょく",
+      "romaji": null,
+      "definition": "ăn chay",
+      "exampleSentence": "彼は健康のために菜食中心の生活を送っている。",
+      "exampleTranslation": "Vì sức khỏe, anh ấy đang sống chủ yếu bằng chế độ ăn chay.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11966,
+      "term": "産地 (さんち)",
+      "reading": "さんち",
+      "romaji": null,
+      "definition": "nơi sản xuất",
+      "exampleSentence": "野菜を買うときは、産地を確認するようにしている。",
+      "exampleTranslation": "Khi mua rau, tôi luôn cố gắng kiểm tra nơi sản xuất.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11967,
+      "term": "旬 (しゅん)",
+      "reading": "しゅん",
+      "romaji": null,
+      "definition": "thức ăn theo mùa",
+      "exampleSentence": "魚は旬の時期に食べると、特においしい。",
+      "exampleTranslation": "Cá đặc biệt ngon khi được ăn vào đúng mùa.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11968,
+      "term": "消費期限 (しょうひきげん)",
+      "reading": "しょうひきげん",
+      "romaji": null,
+      "definition": "hạn sử dụng",
+      "exampleSentence": "この牛乳は消費期限が今日なので、早めに飲んでください。",
+      "exampleTranslation": "Sữa này có hạn sử dụng đến hôm nay, nên hãy uống sớm nhé.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11969,
+      "term": "食物繊維 (しょくもつせんい)",
+      "reading": "しょくもつせんい",
+      "romaji": null,
+      "definition": "chất xơ",
+      "exampleSentence": "食物繊維が豊富な野菜を毎日食べるようにしている。",
+      "exampleTranslation": "Tôi cố gắng ăn rau giàu chất xơ mỗi ngày.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11970,
+      "term": "地産地消 (ちさんちしょう)",
+      "reading": "ちさんちしょう",
+      "romaji": null,
+      "definition": "tiêu dùng sản phẩm địa phương",
+      "exampleSentence": "この町では、地産地消を推進する取り組みが行われている。",
+      "exampleTranslation": "Thị trấn này đang triển khai các hoạt động thúc đẩy việc tiêu dùng sản phẩm địa phương.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11971,
+      "term": "偏食 (へんしょく)",
+      "reading": "へんしょく",
+      "romaji": null,
+      "definition": "kén ăn",
+      "exampleSentence": "子どもの偏食をなくすために、少しずつ苦手な野菜を食べさせている。",
+      "exampleTranslation": "Để giúp trẻ không còn kén ăn, tôi cho cháu ăn từng chút một những loại rau không thích.",
+      "forms": [],
+      "displayOrder": 11
+    }
+  ]
+}

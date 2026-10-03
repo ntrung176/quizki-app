@@ -1,0 +1,882 @@
+{
+  "default": {
+    "mn-008||core||KHÔNG làm thì KHÔNG XONG → PHẢI làm": {
+      "title": "KHÔNG làm thì KHÔNG XONG → PHẢI làm",
+      "sub": "〜なければなりません · Ý nghĩa cốt lõi",
+      "v2": {
+        "pattern": "〜なければなりません",
+        "patternReading": "なければなりません",
+        "coreMeaning": "Bắt buộc phải làm (nghĩa vụ)",
+        "slug": "core",
+        "isNode": true,
+        "parentBranch": "📖 Ý nghĩa cốt lõi",
+        "definition": "Node này giải thích **bản chất phủ định kép** của mẫu câu. Việc kết hợp **なければ** (nếu không làm) và **なりません** (thành không được) tạo ra ý nghĩa bắt buộc tuyệt đối: nếu bỏ qua hành động thì kết quả sẽ không thể chấp nhận được.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "薬",
+                "r": "くすり",
+                "m": "thuốc"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "飲ま",
+                "r": "のま",
+                "m": "uống"
+              },
+              {
+                "t": "なければなりません",
+                "r": "なければなりません",
+                "m": "phải"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi phải uống thuốc.",
+            "scene": "Người bệnh nhắc nhở bản thân theo lời dặn của bác sĩ."
+          }
+        ]
+      }
+    },
+    "mn-008||core||Nghĩa vụ đến từ QUY ĐỊNH / trách nhiệm": {
+      "title": "Nghĩa vụ đến từ QUY ĐỊNH / trách nhiệm",
+      "sub": "〜なければなりません · Ý nghĩa cốt lõi",
+      "v2": {
+        "pattern": "〜なければなりません",
+        "patternReading": "なければなりません",
+        "coreMeaning": "Bắt buộc phải làm (nghĩa vụ)",
+        "slug": "core",
+        "isNode": true,
+        "parentBranch": "📖 Ý nghĩa cốt lõi",
+        "definition": "Điểm này nhấn mạnh nguyên nhân bắt buộc xuất phát từ **quy định, nội quy hoặc bổn phận** bên ngoài, chứ không phải do sở thích hay mong muốn cá nhân của người nói.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "パスポート",
+                "r": "パスポート",
+                "m": "hộ chiếu"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "見せ",
+                "r": "みせ",
+                "m": "cho xem"
+              },
+              {
+                "t": "なければなりません",
+                "r": "なければなりません",
+                "m": "phải"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Bạn phải xuất trình hộ chiếu.",
+            "scene": "Nhân viên hải quan yêu cầu khách làm thủ tục nhập cảnh."
+          }
+        ]
+      }
+    },
+    "mn-008||core||Trang trọng, dùng được văn nói & viết": {
+      "title": "Trang trọng, dùng được văn nói & viết",
+      "sub": "〜なければなりません · Ý nghĩa cốt lõi",
+      "v2": {
+        "pattern": "〜なければなりません",
+        "patternReading": "なければなりません",
+        "coreMeaning": "Bắt buộc phải làm (nghĩa vụ)",
+        "slug": "core",
+        "isNode": true,
+        "parentBranch": "📖 Ý nghĩa cốt lõi",
+        "definition": "Khác với các dạng rút gọn xuề xoà, cấu trúc đầy đủ **〜なければなりません** mang thái độ **lịch sự, chuẩn mực**, phù hợp dùng trong báo cáo, văn bản chính thức hoặc khi phát biểu trước cấp trên.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "今日",
+                "r": "きょう",
+                "m": "hôm nay"
+              },
+              {
+                "t": "の"
+              },
+              {
+                "t": "会議",
+                "r": "かいぎ",
+                "m": "cuộc họp"
+              },
+              {
+                "t": "に"
+              },
+              {
+                "t": "出席し",
+                "r": "しゅっせきし",
+                "m": "tham dự"
+              },
+              {
+                "t": "なければなりません",
+                "r": "なければなりません",
+                "m": "phải"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi phải tham dự cuộc họp hôm nay.",
+            "scene": "Nhân viên báo cáo lịch trình làm việc với cấp trên."
+          }
+        ]
+      }
+    },
+    "mn-008||forms||Vない bỏ ない → なければなりません": {
+      "title": "Vない bỏ ない → なければなりません",
+      "sub": "〜なければなりません · Cấu trúc & cách chia",
+      "v2": {
+        "pattern": "〜なければなりません",
+        "patternReading": "なければなりません",
+        "coreMeaning": "Bắt buộc phải làm (nghĩa vụ)",
+        "slug": "forms",
+        "isNode": true,
+        "parentBranch": "🧩 Cấu trúc & cách chia",
+        "definition": "Đây là **quy tắc chia động từ** cơ bản: chuyển động từ sang **thể ない**, lược bỏ đuôi **ない** rồi ghép trực tiếp **なければなりません** vào sau thân từ.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "宿題",
+                "r": "しゅくだい",
+                "m": "bài tập"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "出さ",
+                "r": "ださ",
+                "m": "nộp"
+              },
+              {
+                "t": "なければなりません",
+                "r": "なければなりません",
+                "m": "phải"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi phải nộp bài tập về nhà.",
+            "scene": "Học sinh chuẩn bị bài vở trước khi đến lớp."
+          }
+        ]
+      }
+    },
+    "mn-008||forms||Quá khứ: 〜なければなりませんでした": {
+      "title": "Quá khứ: 〜なければなりませんでした",
+      "sub": "〜なければなりません · Cấu trúc & cách chia",
+      "v2": {
+        "pattern": "〜なければなりません",
+        "patternReading": "なければなりません",
+        "coreMeaning": "Bắt buộc phải làm (nghĩa vụ)",
+        "slug": "forms",
+        "isNode": true,
+        "parentBranch": "🧩 Cấu trúc & cách chia",
+        "definition": "Dạng câu này dùng để diễn tả một **nghĩa vụ hoặc trách nhiệm đã phải thực hiện trong quá khứ**. Ta thay đuôi **ん** bằng **んでした** ở cuối câu.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "昨日",
+                "r": "きのう",
+                "m": "hôm qua"
+              },
+              {
+                "t": "残業し",
+                "r": "ざんぎょうし",
+                "m": "làm thêm giờ"
+              },
+              {
+                "t": "なければなりませんでした",
+                "r": "なければなりませんでした",
+                "m": "đã phải"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Hôm qua tôi đã phải làm thêm giờ.",
+            "scene": "Kể cho đồng nghiệp nghe về công việc ngày hôm trước."
+          }
+        ]
+      }
+    },
+    "mn-008||forms||Câu hỏi: 〜なければなりませんか": {
+      "title": "Câu hỏi: 〜なければなりませんか",
+      "sub": "〜なければなりません · Cấu trúc & cách chia",
+      "v2": {
+        "pattern": "〜なければなりません",
+        "patternReading": "なければなりません",
+        "coreMeaning": "Bắt buộc phải làm (nghĩa vụ)",
+        "slug": "forms",
+        "isNode": true,
+        "parentBranch": "🧩 Cấu trúc & cách chia",
+        "definition": "Thêm trợ từ **か** ở cuối câu để **hỏi về nghĩa vụ**, xác nhận xem bản thân hoặc đối phương có bắt buộc phải thực hiện hành động đó hay không.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "靴",
+                "r": "くつ",
+                "m": "giày"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "脱が",
+                "r": "ぬが",
+                "m": "cởi"
+              },
+              {
+                "t": "なければなりません",
+                "r": "なければなりません",
+                "m": "phải"
+              },
+              {
+                "t": "か"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi có phải cởi giày ra không?",
+            "scene": "Khách hỏi chủ nhà trước khi bước vào phòng trải thảm."
+          }
+        ]
+      }
+    },
+    "mn-008||forms||Văn nói rút gọn: なきゃ / なくちゃ / ないと": {
+      "title": "Văn nói rút gọn: なきゃ / なくちゃ / ないと",
+      "sub": "〜なければなりません · Cấu trúc & cách chia",
+      "v2": {
+        "pattern": "〜なければなりません",
+        "patternReading": "なければなりません",
+        "coreMeaning": "Bắt buộc phải làm (nghĩa vụ)",
+        "slug": "forms",
+        "isNode": true,
+        "parentBranch": "🧩 Cấu trúc & cách chia",
+        "definition": "Trong giao tiếp thân mật hàng ngày, người Nhật thường **rút gọn đuôi dài** thành **なきゃ, なくちゃ hoặc ないと** để câu nói tự nhiên, nhanh gọn hơn mà vẫn giữ nguyên ý nghĩa bắt buộc.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "もう",
+                "r": "もう",
+                "m": "đã"
+              },
+              {
+                "t": "帰ら",
+                "r": "かえら",
+                "m": "về"
+              },
+              {
+                "t": "なきゃ",
+                "r": "なきゃ",
+                "m": "phải"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Mình phải về rồi.",
+            "scene": "Bạn trẻ nói với nhóm bạn khi nhìn đồng hồ thấy đã muộn."
+          }
+        ]
+      }
+    },
+    "mn-008||usage||Nội quy, luật lệ → BẮT BUỘC theo": {
+      "title": "Nội quy, luật lệ → BẮT BUỘC theo",
+      "sub": "〜なければなりません · Cách dùng & tình huống",
+      "v2": {
+        "pattern": "〜なければなりません",
+        "patternReading": "なければなりません",
+        "coreMeaning": "Bắt buộc phải làm (nghĩa vụ)",
+        "slug": "usage",
+        "isNode": true,
+        "parentBranch": "🎬 Cách dùng & tình huống",
+        "definition": "Ngữ cảnh này dùng khi thông báo hoặc nhắc nhở về **quy định trường học, luật giao thông, nội quy công ty** mà mọi cá nhân đều bắt buộc tuân thủ.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "赤信号",
+                "r": "あかしんごう",
+                "m": "đèn đỏ"
+              },
+              {
+                "t": "で"
+              },
+              {
+                "t": "止ま",
+                "r": "とま",
+                "m": "dừng lại"
+              },
+              {
+                "t": "なければなりません",
+                "r": "なければなりません",
+                "m": "phải"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Phải dừng lại khi có đèn đỏ.",
+            "scene": "Hướng dẫn luật giao thông cơ bản cho học sinh."
+          }
+        ]
+      }
+    },
+    "mn-008||usage||Trách nhiệm / bổn phận với người khác": {
+      "title": "Trách nhiệm / bổn phận với người khác",
+      "sub": "〜なければなりません · Cách dùng & tình huống",
+      "v2": {
+        "pattern": "〜なければなりません",
+        "patternReading": "なければなりません",
+        "coreMeaning": "Bắt buộc phải làm (nghĩa vụ)",
+        "slug": "usage",
+        "isNode": true,
+        "parentBranch": "🎬 Cách dùng & tình huống",
+        "definition": "Dùng khi diễn tả **trách nhiệm cá nhân hoặc bổn phận** phải hoàn thành đối với gia đình, khách hàng hoặc đồng nghiệp để giữ uy tín.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "約束",
+                "r": "やくそく",
+                "m": "lời hứa"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "守ら",
+                "r": "まもら",
+                "m": "giữ"
+              },
+              {
+                "t": "なければなりません",
+                "r": "なければなりません",
+                "m": "phải"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi phải giữ đúng lời hứa.",
+            "scene": "Người nói tự nhắc nhở về bổn phận sau khi đã nhận lời giúp bạn."
+          }
+        ]
+      }
+    },
+    "mn-008||usage||Giao tiếp lịch sự với cấp trên → dùng đủ": {
+      "title": "Giao tiếp lịch sự với cấp trên → dùng đủ",
+      "sub": "〜なければなりません · Cách dùng & tình huống",
+      "v2": {
+        "pattern": "〜なければなりません",
+        "patternReading": "なければなりません",
+        "coreMeaning": "Bắt buộc phải làm (nghĩa vụ)",
+        "slug": "usage",
+        "isNode": true,
+        "parentBranch": "🎬 Cách dùng & tình huống",
+        "definition": "Khi trao đổi với **sếp, thầy cô, khách hàng**, bắt buộc dùng **đầy đủ hình thức trang trọng** để thể hiện sự tôn trọng, tránh dùng dạng rút gọn thân mật gây thất lễ.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "明日",
+                "r": "あした",
+                "m": "ngày mai"
+              },
+              {
+                "t": "報告書",
+                "r": "ほうこくしょ",
+                "m": "bản báo cáo"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "提出し",
+                "r": "ていしゅつし",
+                "m": "nộp"
+              },
+              {
+                "t": "なければなりません",
+                "r": "なければなりません",
+                "m": "phải"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi phải nộp bản báo cáo vào ngày mai.",
+            "scene": "Nhân viên trình bày kế hoạch làm việc với cấp trên."
+          }
+        ]
+      }
+    },
+    "mn-008||usage||Bạn bè thân mật → なきゃ / なくちゃ": {
+      "title": "Bạn bè thân mật → なきゃ / なくちゃ",
+      "sub": "〜なければなりません · Cách dùng & tình huống",
+      "v2": {
+        "pattern": "〜なければなりません",
+        "patternReading": "なければなりません",
+        "coreMeaning": "Bắt buộc phải làm (nghĩa vụ)",
+        "slug": "usage",
+        "isNode": true,
+        "parentBranch": "🎬 Cách dùng & tình huống",
+        "definition": "Khi trò chuyện cùng **bạn thân, người nhỏ tuổi hơn**, dùng các hình thức **thân mật như なきゃ hay なくちゃ** để không khí buổi nói chuyện thoải mái, tự nhiên.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "明日",
+                "r": "あした",
+                "m": "ngày mai"
+              },
+              {
+                "t": "早く",
+                "r": "はやく",
+                "m": "sớm"
+              },
+              {
+                "t": "起き",
+                "r": "おき",
+                "m": "thức dậy"
+              },
+              {
+                "t": "なくちゃ",
+                "r": "なくちゃ",
+                "m": "phải"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Ngày mai mình phải dậy sớm rồi.",
+            "scene": "Hai người bạn thân trò chuyện với nhau trước khi đi ngủ."
+          }
+        ]
+      }
+    },
+    "mn-008||compare||vs てはいけません: CẤM — trái nghĩa": {
+      "title": "vs てはいけません: CẤM — trái nghĩa",
+      "sub": "〜なければなりません · Phân biệt vs mẫu dễ nhầm",
+      "v2": {
+        "pattern": "〜なければなりません",
+        "patternReading": "なければなりません",
+        "coreMeaning": "Bắt buộc phải làm (nghĩa vụ)",
+        "slug": "compare",
+        "isNode": true,
+        "parentBranch": "⚖️ Phân biệt vs mẫu dễ nhầm",
+        "definition": "Cần phân biệt hai hướng nghĩa: **なければなりません** là bắt buộc **PHẢI LÀM**, trong khi **てはいけません** mang nghĩa **CẤM LÀM** (không được phép thực hiện).",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "ここ",
+                "r": "ここ",
+                "m": "ở đây"
+              },
+              {
+                "t": "で"
+              },
+              {
+                "t": "タバコ",
+                "r": "タバコ",
+                "m": "thuốc lá"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "吸っ",
+                "r": "すっ",
+                "m": "hút"
+              },
+              {
+                "t": "てはいけません",
+                "r": "てはいけません",
+                "m": "cấm"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Cấm hút thuốc ở đây.",
+            "scene": "Biển báo cấm hút thuốc ở khu vực công cộng."
+          }
+        ]
+      }
+    },
+    "mn-008||compare||vs なくてもいいです: KHÔNG CẦN — ngược lại": {
+      "title": "vs なくてもいいです: KHÔNG CẦN — ngược lại",
+      "sub": "〜なければなりません · Phân biệt vs mẫu dễ nhầm",
+      "v2": {
+        "pattern": "〜なければなりません",
+        "patternReading": "なければなりません",
+        "coreMeaning": "Bắt buộc phải làm (nghĩa vụ)",
+        "slug": "compare",
+        "isNode": true,
+        "parentBranch": "⚖️ Phân biệt vs mẫu dễ nhầm",
+        "definition": "Sự khác biệt nằm ở tính bắt buộc: **なければなりません** đòi hỏi **bắt buộc thực hiện**, còn **なくてもいいです** cho phép **tự do chọn lựa** vì hành động không bắt buộc.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "今日",
+                "r": "きょう",
+                "m": "hôm nay"
+              },
+              {
+                "t": "は"
+              },
+              {
+                "t": "来",
+                "r": "こ",
+                "m": "đến"
+              },
+              {
+                "t": "なくてもいいです",
+                "r": "なくてもいいです",
+                "m": "không cần"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Hôm nay bạn không cần đến cũng được.",
+            "scene": "Sếp cho phép nhân viên ở nhà nghỉ ngơi khi đã xong việc."
+          }
+        ]
+      }
+    },
+    "mn-008||compare||vs たほうがいいです: KHUYÊN — nhẹ hơn": {
+      "title": "vs たほうがいいです: KHUYÊN — nhẹ hơn",
+      "sub": "〜なければなりません · Phân biệt vs mẫu dễ nhầm",
+      "v2": {
+        "pattern": "〜なければなりません",
+        "patternReading": "なければなりません",
+        "coreMeaning": "Bắt buộc phải làm (nghĩa vụ)",
+        "slug": "compare",
+        "isNode": true,
+        "parentBranch": "⚖️ Phân biệt vs mẫu dễ nhầm",
+        "definition": "So sánh về mức độ: **たほうがいいです** chỉ dừng lại ở **lời khuyên nên làm** (có lợi hơn), còn **なければなりません** là **nghĩa vụ bắt buộc**, không thể thoái thác.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "病院",
+                "r": "びょういん",
+                "m": "bệnh viện"
+              },
+              {
+                "t": "に"
+              },
+              {
+                "t": "行った",
+                "r": "いった",
+                "m": "đi"
+              },
+              {
+                "t": "ほう",
+                "r": "ほう",
+                "m": "nên"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "いいです",
+                "r": "いいです",
+                "m": "tốt"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Bạn nên đi đến bệnh viện thì tốt hơn.",
+            "scene": "Đồng nghiệp đưa ra lời khuyên thân tình khi thấy bạn bị sốt."
+          }
+        ]
+      }
+    },
+    "mn-008||pitfalls||Nhầm thể ます → ❌ 行きなければ → ✅ 行かなければ": {
+      "title": "Nhầm thể ます → ❌ 行きなければ → ✅ 行かなければ",
+      "sub": "〜なければなりません · Lỗi thường gặp",
+      "v2": {
+        "pattern": "〜なければなりません",
+        "patternReading": "なければなりません",
+        "coreMeaning": "Bắt buộc phải làm (nghĩa vụ)",
+        "slug": "pitfalls",
+        "isNode": true,
+        "parentBranch": "🚨 Lỗi thường gặp",
+        "definition": "Lỗi sai cực kỳ phổ biến của người Việt khi **lấy nhầm thân ます làm gốc** (行き...). Quy tắc đúng phải chuyển động từ về **thể ない (行かない)** rồi mới đổi thành **行かなければ**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "病院",
+                "r": "びょういん",
+                "m": "bệnh viện"
+              },
+              {
+                "t": "へ"
+              },
+              {
+                "t": "行か",
+                "r": "いか",
+                "m": "đi"
+              },
+              {
+                "t": "なければなりません",
+                "r": "なければなりません",
+                "m": "phải"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi phải đi đến bệnh viện.",
+            "scene": "Giải thích cách chia đúng cho người học tiếng Nhật."
+          }
+        ]
+      }
+    },
+    "mn-008||pitfalls||Sai dạng phủ định: ❌ 飲みなければ → ✅ 飲まなければ": {
+      "title": "Sai dạng phủ định: ❌ 飲みなければ → ✅ 飲まなければ",
+      "sub": "〜なければなりません · Lỗi thường gặp",
+      "v2": {
+        "pattern": "〜なければなりません",
+        "patternReading": "なければなりません",
+        "coreMeaning": "Bắt buộc phải làm (nghĩa vụ)",
+        "slug": "pitfalls",
+        "isNode": true,
+        "parentBranch": "🚨 Lỗi thường gặp",
+        "definition": "Lỗi sai xuất phát từ việc chia sai thể phủ định của động từ nhóm 1. Với **飲む**, thể ない đúng là **飲まない** chứ không phải 飲みない, do đó phải chia thành **飲まなければ**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "毎日",
+                "r": "まいにち",
+                "m": "mỗi ngày"
+              },
+              {
+                "t": "水",
+                "r": "みず",
+                "m": "nước"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "飲ま",
+                "r": "のま",
+                "m": "uống"
+              },
+              {
+                "t": "なければなりません",
+                "r": "なければなりません",
+                "m": "phải"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Mỗi ngày tôi phải uống nước.",
+            "scene": "Nhắc nhở thói quen uống nước đúng quy tắc chia động từ."
+          }
+        ]
+      }
+    },
+    "mn-008||pitfalls||Nhầm với không cần: ❌ 行かなくてもいい → ✅ 行かなければ": {
+      "title": "Nhầm với không cần: ❌ 行かなくてもいい → ✅ 行かなければ",
+      "sub": "〜なければなりません · Lỗi thường gặp",
+      "v2": {
+        "pattern": "〜なければなりません",
+        "patternReading": "なければなりません",
+        "coreMeaning": "Bắt buộc phải làm (nghĩa vụ)",
+        "slug": "pitfalls",
+        "isNode": true,
+        "parentBranch": "🚨 Lỗi thường gặp",
+        "definition": "Lỗi dịch ngược ý nghĩa trong giao tiếp: khi muốn nói **\"phải đi\"** thì dùng **行かなければなりません**, tránh nhầm sang **行かなくてもいいです** nghĩa là **\"không cần đi\"**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "スーパー",
+                "r": "スーパー",
+                "m": "siêu thị"
+              },
+              {
+                "t": "へ"
+              },
+              {
+                "t": "行か",
+                "r": "いか",
+                "m": "đi"
+              },
+              {
+                "t": "なければなりません",
+                "r": "なければなりません",
+                "m": "phải"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi phải đi siêu thị.",
+            "scene": "Đính chính cách chọn mẫu câu đúng với mong muốn biểu đạt."
+          }
+        ]
+      }
+    },
+    "mn-008||memory||なければ = nếu KHÔNG làm": {
+      "title": "なければ = nếu KHÔNG làm",
+      "sub": "〜なければなりません · Mẹo nhớ",
+      "v2": {
+        "pattern": "〜なければなりません",
+        "patternReading": "なければなりません",
+        "coreMeaning": "Bắt buộc phải làm (nghĩa vụ)",
+        "slug": "memory",
+        "isNode": true,
+        "parentBranch": "🎯 Mẹo nhớ",
+        "definition": "Phân tích thành phần đầu tiên: **なければ** xuất phát từ thể điều kiện của ない, mang ý nghĩa giả định **\"nếu như không thực hiện hành động\"**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "勉強",
+                "r": "べんきょう",
+                "m": "học"
+              },
+              {
+                "t": "し"
+              },
+              {
+                "t": "なければ",
+                "r": "なければ",
+                "m": "nếu không"
+              },
+              {
+                "t": "なりません",
+                "r": "なりません",
+                "m": "không xong"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Nếu không học thì không xong (phải học).",
+            "scene": "Phân tích thành phần \"なければ\" trong câu."
+          }
+        ]
+      }
+    },
+    "mn-008||memory||なりません = KHÔNG XONG / KHÔNG THÀNH": {
+      "title": "なりません = KHÔNG XONG / KHÔNG THÀNH",
+      "sub": "〜なければなりません · Mẹo nhớ",
+      "v2": {
+        "pattern": "〜なければなりません",
+        "patternReading": "なければなりません",
+        "coreMeaning": "Bắt buộc phải làm (nghĩa vụ)",
+        "slug": "memory",
+        "isNode": true,
+        "parentBranch": "🎯 Mẹo nhớ",
+        "definition": "Phân tích thành phần thứ hai: **なりません** là thể phủ định của 成る (trở thành, xong xuôi), mang ý nghĩa **\"không thành công, không chấp nhận được\"**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "宿題",
+                "r": "しゅくだい",
+                "m": "bài tập"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "し"
+              },
+              {
+                "t": "なければ",
+                "r": "なければ",
+                "m": "nếu không"
+              },
+              {
+                "t": "なりません",
+                "r": "なりません",
+                "m": "không xong"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Nếu không làm bài tập thì không xong.",
+            "scene": "Phân tích thành phần \"なりません\" trong cấu trúc."
+          }
+        ]
+      }
+    },
+    "mn-008||memory||Không làm → KHÔNG XONG → PHẢI làm": {
+      "title": "Không làm → KHÔNG XONG → PHẢI làm",
+      "sub": "〜なければなりません · Mẹo nhớ",
+      "v2": {
+        "pattern": "〜なければなりません",
+        "patternReading": "なければなりません",
+        "coreMeaning": "Bắt buộc phải làm (nghĩa vụ)",
+        "slug": "memory",
+        "isNode": true,
+        "parentBranch": "🎯 Mẹo nhớ",
+        "definition": "Nhớ theo **chuỗi logic ghép nghĩa**: \"Nếu không làm\" (なければ) + \"thì không xong\" (なりません) = **bắt buộc phải làm**. Cách nhớ này giúp phản xạ nhanh và hiểu sâu bản chất câu.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "早く",
+                "r": "はやく",
+                "m": "sớm"
+              },
+              {
+                "t": "寝",
+                "r": "ね",
+                "m": "ngủ"
+              },
+              {
+                "t": "なければ",
+                "r": "なければ",
+                "m": "nếu không"
+              },
+              {
+                "t": "なりません",
+                "r": "なりません",
+                "m": "không xong"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Không ngủ sớm thì không được (phải ngủ sớm).",
+            "scene": "Áp dụng mẹo nhẩm logic để nhớ nghĩa bắt buộc."
+          }
+        ]
+      }
+    }
+  }
+}

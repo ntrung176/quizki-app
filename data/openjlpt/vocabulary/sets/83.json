@@ -1,0 +1,453 @@
+{
+  "id": 83,
+  "title": "な形容詞",
+  "description": "Tính từ đuôi な · 30 mẫu câu",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:53.416637",
+  "cards": [
+    {
+      "id": 2463,
+      "term": "きれい",
+      "reading": "きれい",
+      "romaji": "kirei",
+      "definition": "Đẹp, sạch",
+      "exampleSentence": "部屋がきれいです。",
+      "exampleTranslation": "Phòng sạch.",
+      "forms": [
+        "きれいじゃない",
+        "きれいだった",
+        "きれいじゃなかった"
+      ],
+      "displayOrder": 0
+    },
+    {
+      "id": 2464,
+      "term": "好き",
+      "reading": "すき",
+      "romaji": "suki",
+      "definition": "Thích",
+      "exampleSentence": "猫が好きです。",
+      "exampleTranslation": "Tôi thích mèo.",
+      "forms": [
+        "好きじゃない",
+        "好きだった",
+        "好きじゃなかった"
+      ],
+      "displayOrder": 1
+    },
+    {
+      "id": 2465,
+      "term": "嫌い",
+      "reading": "きらい",
+      "romaji": "kirai",
+      "definition": "Ghét",
+      "exampleSentence": "苦手なものが嫌い。",
+      "exampleTranslation": "Ghét thứ mình không giỏi.",
+      "forms": [
+        "嫌いじゃない",
+        "嫌いだった",
+        "嫌いじゃなかった"
+      ],
+      "displayOrder": 2
+    },
+    {
+      "id": 2466,
+      "term": "上手",
+      "reading": "じょうず",
+      "romaji": "jouzu",
+      "definition": "Giỏi, khéo",
+      "exampleSentence": "日本語が上手です。",
+      "exampleTranslation": "Tiếng Nhật giỏi.",
+      "forms": [
+        "上手じゃない",
+        "上手だった",
+        "上手じゃなかった"
+      ],
+      "displayOrder": 3
+    },
+    {
+      "id": 2467,
+      "term": "下手",
+      "reading": "へた",
+      "romaji": "heta",
+      "definition": "Kém, vụng",
+      "exampleSentence": "歌が下手です。",
+      "exampleTranslation": "Hát kém.",
+      "forms": [
+        "下手じゃない",
+        "下手だった",
+        "下手じゃなかった"
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": 2468,
+      "term": "得意",
+      "reading": "とくい",
+      "romaji": "tokui",
+      "definition": "Giỏi (sở trường)",
+      "exampleSentence": "スポーツが得意です。",
+      "exampleTranslation": "Thể thao là sở trường.",
+      "forms": [
+        "得意じゃない",
+        "得意だった",
+        "得意じゃなかった"
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": 2469,
+      "term": "苦手",
+      "reading": "にがて",
+      "romaji": "nigate",
+      "definition": "Kém (điểm yếu)",
+      "exampleSentence": "数学が苦手です。",
+      "exampleTranslation": "Toán là điểm yếu.",
+      "forms": [
+        "苦手じゃない",
+        "苦手だった",
+        "苦手じゃなかった"
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": 2470,
+      "term": "元気",
+      "reading": "げんき",
+      "romaji": "genki",
+      "definition": "Khỏe mạnh, năng động",
+      "exampleSentence": "元気ですか。",
+      "exampleTranslation": "Bạn có khỏe không?",
+      "forms": [
+        "元気じゃない",
+        "元気だった",
+        "元気じゃなかった"
+      ],
+      "displayOrder": 7
+    },
+    {
+      "id": 2471,
+      "term": "大切",
+      "reading": "たいせつ",
+      "romaji": "taisetsu",
+      "definition": "Quan trọng, quý giá",
+      "exampleSentence": "家族が大切です。",
+      "exampleTranslation": "Gia đình quan trọng.",
+      "forms": [
+        "大切じゃない",
+        "大切だった",
+        "大切じゃなかった"
+      ],
+      "displayOrder": 8
+    },
+    {
+      "id": 2472,
+      "term": "大丈夫",
+      "reading": "だいじょうぶ",
+      "romaji": "daijoubu",
+      "definition": "Ổn, không sao",
+      "exampleSentence": "大丈夫ですか。",
+      "exampleTranslation": "Bạn có ổn không?",
+      "forms": [
+        "大丈夫じゃない",
+        "大丈夫だった",
+        "大丈夫じゃなかった"
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": 2473,
+      "term": "親切",
+      "reading": "しんせつ",
+      "romaji": "shinsetsu",
+      "definition": "Tốt bụng, thân thiện",
+      "exampleSentence": "先生が親切です。",
+      "exampleTranslation": "Giáo viên tốt bụng.",
+      "forms": [
+        "親切じゃない",
+        "親切だった",
+        "親切じゃなかった"
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": 2474,
+      "term": "有名",
+      "reading": "ゆうめい",
+      "romaji": "yuumei",
+      "definition": "Nổi tiếng",
+      "exampleSentence": "東京は有名な都市です。",
+      "exampleTranslation": "Tokyo là thành phố nổi tiếng.",
+      "forms": [
+        "有名じゃない",
+        "有名だった",
+        "有名じゃなかった"
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": 2475,
+      "term": "便利",
+      "reading": "べんり",
+      "romaji": "benri",
+      "definition": "Tiện lợi",
+      "exampleSentence": "このアプリは便利です。",
+      "exampleTranslation": "Ứng dụng này tiện lợi.",
+      "forms": [
+        "便利じゃない",
+        "便利だった",
+        "便利じゃなかった"
+      ],
+      "displayOrder": 12
+    },
+    {
+      "id": 2476,
+      "term": "不便",
+      "reading": "ふべん",
+      "romaji": "fuben",
+      "definition": "Bất tiện",
+      "exampleSentence": "交通が不便です。",
+      "exampleTranslation": "Giao thông bất tiện.",
+      "forms": [
+        "不便じゃない",
+        "不便だった",
+        "不便じゃなかった"
+      ],
+      "displayOrder": 13
+    },
+    {
+      "id": 2477,
+      "term": "静か",
+      "reading": "しずか",
+      "romaji": "shizuka",
+      "definition": "Yên tĩnh",
+      "exampleSentence": "図書館は静かです。",
+      "exampleTranslation": "Thư viện yên tĩnh.",
+      "forms": [
+        "静かじゃない",
+        "静かだった",
+        "静かじゃなかった"
+      ],
+      "displayOrder": 14
+    },
+    {
+      "id": 2478,
+      "term": "賑やか",
+      "reading": "にぎやか",
+      "romaji": "nigiyaka",
+      "definition": "Nhộn nhịp, ồn ào",
+      "exampleSentence": "渋谷は賑やかです。",
+      "exampleTranslation": "Shibuya nhộn nhịp.",
+      "forms": [
+        "賑やかじゃない",
+        "賑やかだった",
+        "賑やかじゃなかった"
+      ],
+      "displayOrder": 15
+    },
+    {
+      "id": 2479,
+      "term": "丁寧",
+      "reading": "ていねい",
+      "romaji": "teinei",
+      "definition": "Lịch sự, cẩn thận",
+      "exampleSentence": "丁寧に話す。",
+      "exampleTranslation": "Nói lịch sự.",
+      "forms": [
+        "丁寧じゃない",
+        "丁寧だった",
+        "丁寧じゃなかった"
+      ],
+      "displayOrder": 16
+    },
+    {
+      "id": 2480,
+      "term": "無理",
+      "reading": "むり",
+      "romaji": "muri",
+      "definition": "Không thể, quá sức",
+      "exampleSentence": "無理です。",
+      "exampleTranslation": "Không thể được.",
+      "forms": [
+        "無理じゃない",
+        "無理だった",
+        "無理じゃなかった"
+      ],
+      "displayOrder": 17
+    },
+    {
+      "id": 2481,
+      "term": "必要",
+      "reading": "ひつよう",
+      "romaji": "hitsuyou",
+      "definition": "Cần thiết",
+      "exampleSentence": "練習が必要です。",
+      "exampleTranslation": "Luyện tập là cần thiết.",
+      "forms": [
+        "必要じゃない",
+        "必要だった",
+        "必要じゃなかった"
+      ],
+      "displayOrder": 18
+    },
+    {
+      "id": 2482,
+      "term": "十分",
+      "reading": "じゅうぶん",
+      "romaji": "juubun",
+      "definition": "Đủ, đầy đủ",
+      "exampleSentence": "十分ですか。",
+      "exampleTranslation": "Đã đủ chưa?",
+      "forms": [
+        "十分じゃない",
+        "十分だった",
+        "十分じゃなかった"
+      ],
+      "displayOrder": 19
+    },
+    {
+      "id": 2483,
+      "term": "複雑",
+      "reading": "ふくざつ",
+      "romaji": "fukuzatsu",
+      "definition": "Phức tạp",
+      "exampleSentence": "問題が複雑です。",
+      "exampleTranslation": "Vấn đề phức tạp.",
+      "forms": [
+        "複雑じゃない",
+        "複雑だった",
+        "複雑じゃなかった"
+      ],
+      "displayOrder": 20
+    },
+    {
+      "id": 2484,
+      "term": "簡単",
+      "reading": "かんたん",
+      "romaji": "kantan",
+      "definition": "Đơn giản, dễ",
+      "exampleSentence": "この料理は簡単です。",
+      "exampleTranslation": "Món này dễ làm.",
+      "forms": [
+        "簡単じゃない",
+        "簡単だった",
+        "簡単じゃなかった"
+      ],
+      "displayOrder": 21
+    },
+    {
+      "id": 2485,
+      "term": "特別",
+      "reading": "とくべつ",
+      "romaji": "tokubetsu",
+      "definition": "Đặc biệt",
+      "exampleSentence": "特別な日です。",
+      "exampleTranslation": "Đây là ngày đặc biệt.",
+      "forms": [
+        "特別じゃない",
+        "特別だった",
+        "特別じゃなかった"
+      ],
+      "displayOrder": 22
+    },
+    {
+      "id": 2486,
+      "term": "普通",
+      "reading": "ふつう",
+      "romaji": "futsuu",
+      "definition": "Bình thường, thông thường",
+      "exampleSentence": "普通の生活",
+      "exampleTranslation": "Cuộc sống bình thường.",
+      "forms": [
+        "普通じゃない",
+        "普通だった",
+        "普通じゃなかった"
+      ],
+      "displayOrder": 23
+    },
+    {
+      "id": 2487,
+      "term": "自由",
+      "reading": "じゆう",
+      "romaji": "jiyuu",
+      "definition": "Tự do",
+      "exampleSentence": "自由な時間",
+      "exampleTranslation": "Thời gian tự do.",
+      "forms": [
+        "自由じゃない",
+        "自由だった",
+        "自由じゃなかった"
+      ],
+      "displayOrder": 24
+    },
+    {
+      "id": 2488,
+      "term": "安全",
+      "reading": "あんぜん",
+      "romaji": "anzen",
+      "definition": "An toàn",
+      "exampleSentence": "この道は安全です。",
+      "exampleTranslation": "Con đường này an toàn.",
+      "forms": [
+        "安全じゃない",
+        "安全だった",
+        "安全じゃなかった"
+      ],
+      "displayOrder": 25
+    },
+    {
+      "id": 2489,
+      "term": "危険",
+      "reading": "きけん",
+      "romaji": "kiken",
+      "definition": "Nguy hiểm",
+      "exampleSentence": "ここは危険です。",
+      "exampleTranslation": "Đây nguy hiểm.",
+      "forms": [
+        "危険じゃない",
+        "危険だった",
+        "危険じゃなかった"
+      ],
+      "displayOrder": 26
+    },
+    {
+      "id": 2490,
+      "term": "健康",
+      "reading": "けんこう",
+      "romaji": "kenkou",
+      "definition": "Khỏe mạnh",
+      "exampleSentence": "健康が一番大切です。",
+      "exampleTranslation": "Sức khỏe là quan trọng nhất.",
+      "forms": [
+        "健康じゃない",
+        "健康だった",
+        "健康じゃなかった"
+      ],
+      "displayOrder": 27
+    },
+    {
+      "id": 50566,
+      "term": "暇",
+      "reading": "ひま",
+      "romaji": "hima",
+      "definition": "rảnh rỗi",
+      "exampleSentence": "日曜日は暇です。",
+      "exampleTranslation": "Chủ nhật tôi rảnh.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 50567,
+      "term": "大変",
+      "reading": "たいへん",
+      "romaji": "taihen",
+      "definition": "vất vả; khó khăn",
+      "exampleSentence": "この仕事は大変です。",
+      "exampleTranslation": "Công việc này vất vả.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

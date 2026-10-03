@@ -1,0 +1,481 @@
+{
+  "id": 143,
+  "title": "謙譲語 100",
+  "description": "Khiêm nhường ngữ 30 mẫu quan trọng",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:57.2455",
+  "cards": [
+    {
+      "id": 4245,
+      "term": "参る",
+      "reading": "まいる",
+      "romaji": "mairu",
+      "definition": "Đi / đến (khiêm tốn)",
+      "exampleSentence": "ただ今、参ります。",
+      "exampleTranslation": "Tôi đến ngay.",
+      "forms": [
+        "参ります",
+        "参って",
+        "参った",
+        "参らない",
+        "参れる"
+      ],
+      "displayOrder": 0
+    },
+    {
+      "id": 4246,
+      "term": "おる",
+      "reading": "おる",
+      "romaji": "oru",
+      "definition": "Ở / có mặt (khiêm tốn)",
+      "exampleSentence": "こちらにおります。",
+      "exampleTranslation": "Tôi đang ở đây.",
+      "forms": [
+        "おります",
+        "おって",
+        "おった",
+        "おらない",
+        "おれる"
+      ],
+      "displayOrder": 1
+    },
+    {
+      "id": 4247,
+      "term": "申す",
+      "reading": "もうす",
+      "romaji": "mousu",
+      "definition": "Nói (khiêm tốn)",
+      "exampleSentence": "田中と申します。",
+      "exampleTranslation": "Tôi là Tanaka.",
+      "forms": [
+        "申します",
+        "申して",
+        "申した",
+        "申さない",
+        "申せる"
+      ],
+      "displayOrder": 2
+    },
+    {
+      "id": 4248,
+      "term": "いたす",
+      "reading": "いたす",
+      "romaji": "itasu",
+      "definition": "Làm (khiêm tốn của する)",
+      "exampleSentence": "ご説明いたします。",
+      "exampleTranslation": "Tôi sẽ giải thích.",
+      "forms": [
+        "いたします",
+        "いたして",
+        "いたした",
+        "いたさない",
+        "いたせる"
+      ],
+      "displayOrder": 3
+    },
+    {
+      "id": 4249,
+      "term": "存じる",
+      "reading": "ぞんじる",
+      "romaji": "zonjiru",
+      "definition": "Biết / nghĩ (khiêm tốn)",
+      "exampleSentence": "存じております。",
+      "exampleTranslation": "Tôi biết.",
+      "forms": [
+        "存じます",
+        "存じて",
+        "存じた",
+        "存じない",
+        "存じれる"
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": 4250,
+      "term": "いただく",
+      "reading": "いただく",
+      "romaji": "itadaku",
+      "definition": "Nhận (khiêm tốn)",
+      "exampleSentence": "ご意見をいただきました。",
+      "exampleTranslation": "Tôi đã nhận được ý kiến.",
+      "forms": [
+        "いただきます",
+        "いただいて",
+        "いただいた",
+        "いただかない",
+        "いただける"
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": 4251,
+      "term": "差し上げる",
+      "reading": "さしあげる",
+      "romaji": "sashiageru",
+      "definition": "Cho (khiêm tốn)",
+      "exampleSentence": "資料を差し上げます。",
+      "exampleTranslation": "Tôi tặng tài liệu.",
+      "forms": [
+        "差し上げます",
+        "差し上げて",
+        "差し上げた",
+        "差し上げない",
+        "差し上げられる"
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": 4252,
+      "term": "伺う",
+      "reading": "うかがう",
+      "romaji": "ukagau",
+      "definition": "Đến thăm / hỏi (khiêm tốn)",
+      "exampleSentence": "後ほど伺います。",
+      "exampleTranslation": "Sau đó tôi sẽ đến.",
+      "forms": [
+        "伺います",
+        "伺って",
+        "伺った",
+        "伺わない",
+        "伺える"
+      ],
+      "displayOrder": 7
+    },
+    {
+      "id": 4253,
+      "term": "拝見する",
+      "reading": "はいけんする",
+      "romaji": "haiken suru",
+      "definition": "Xem (khiêm tốn)",
+      "exampleSentence": "書類を拝見します。",
+      "exampleTranslation": "Tôi sẽ xem tài liệu.",
+      "forms": [
+        "拝見します",
+        "拝見して",
+        "拝見した",
+        "拝見しない",
+        "拝見できる"
+      ],
+      "displayOrder": 8
+    },
+    {
+      "id": 4254,
+      "term": "拝借する",
+      "reading": "はいしゃくする",
+      "romaji": "haishaku suru",
+      "definition": "Mượn (khiêm tốn)",
+      "exampleSentence": "一冊拝借してよろしいですか。",
+      "exampleTranslation": "Tôi có thể mượn một cuốn không?",
+      "forms": [
+        "拝借します",
+        "拝借して",
+        "拝借した",
+        "拝借しない",
+        "拝借できる"
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": 4255,
+      "term": "拝聴する",
+      "reading": "はいちょうする",
+      "romaji": "haichou suru",
+      "definition": "Lắng nghe (khiêm tốn)",
+      "exampleSentence": "ご講演を拝聴いたします。",
+      "exampleTranslation": "Tôi kính lắng nghe bài giảng của ngài.",
+      "forms": [
+        "拝聴します",
+        "拝聴して",
+        "拝聴した",
+        "拝聴しない",
+        "拝聴できる"
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": 4256,
+      "term": "頂戴する",
+      "reading": "ちょうだいする",
+      "romaji": "choudai suru",
+      "definition": "Nhận (rất khiêm tốn)",
+      "exampleSentence": "ご意見を頂戴したく存じます。",
+      "exampleTranslation": "Tôi xin kính nhận ý kiến của ngài.",
+      "forms": [
+        "頂戴します",
+        "頂戴して",
+        "頂戴した",
+        "頂戴しない",
+        "頂戴できる"
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": 4257,
+      "term": "申し上げる",
+      "reading": "もうしあげる",
+      "romaji": "moushiageru",
+      "definition": "Thưa / nói (rất khiêm tốn)",
+      "exampleSentence": "お礼申し上げます。",
+      "exampleTranslation": "Tôi xin kính cảm ơn.",
+      "forms": [
+        "申し上げます",
+        "申し上げて",
+        "申し上げた",
+        "申し上げない",
+        "申し上げられる"
+      ],
+      "displayOrder": 12
+    },
+    {
+      "id": 4258,
+      "term": "お目にかかる",
+      "reading": "おめにかかる",
+      "romaji": "ome ni kakaru",
+      "definition": "Gặp (khiêm tốn của 会う)",
+      "exampleSentence": "先生にお目にかかりたいです。",
+      "exampleTranslation": "Tôi muốn được gặp thầy.",
+      "forms": [
+        "お目にかかります",
+        "お目にかかって",
+        "お目にかかった",
+        "お目にかからない",
+        "お目にかかれる"
+      ],
+      "displayOrder": 13
+    },
+    {
+      "id": 4259,
+      "term": "存じ上げる",
+      "reading": "ぞんじあげる",
+      "romaji": "zonjia geru",
+      "definition": "Biết (rất khiêm tốn)",
+      "exampleSentence": "山田様のことは存じ上げております。",
+      "exampleTranslation": "Tôi được biết đến ngài Yamada.",
+      "forms": [
+        "存じ上げます",
+        "存じ上げて",
+        "存じ上げた",
+        "存じ上げない",
+        "存じ上げられる"
+      ],
+      "displayOrder": 14
+    },
+    {
+      "id": 4260,
+      "term": "ご〜する",
+      "reading": "ご〜する",
+      "romaji": "go suru",
+      "definition": "Tiền tố khiêm tốn với động từ",
+      "exampleSentence": "ご案内します。",
+      "exampleTranslation": "Tôi sẽ hướng dẫn.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 4261,
+      "term": "お〜する",
+      "reading": "お〜する",
+      "romaji": "o suru",
+      "definition": "Tiền tố khiêm tốn với động từ Nhật",
+      "exampleSentence": "お持ちします。",
+      "exampleTranslation": "Tôi sẽ mang.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 4262,
+      "term": "〜させていただく",
+      "reading": "〜させていただく",
+      "romaji": "sasete itadaku",
+      "definition": "Được phép làm (khiêm tốn)",
+      "exampleSentence": "確認させていただきます。",
+      "exampleTranslation": "Tôi xin phép được xác nhận.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 4263,
+      "term": "〜ていただく",
+      "reading": "〜ていただく",
+      "romaji": "te itadaku",
+      "definition": "Được ơn làm (khiêm tốn)",
+      "exampleSentence": "確認していただきました。",
+      "exampleTranslation": "Tôi đã được xác nhận.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 4264,
+      "term": "〜でございます",
+      "reading": "〜でございます",
+      "romaji": "de gozaimasu",
+      "definition": "Là... (lịch sự nhất)",
+      "exampleSentence": "田中でございます。",
+      "exampleTranslation": "Tôi là Tanaka.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 50744,
+      "term": "お伝えする",
+      "reading": "おつたえする",
+      "romaji": "otsutae suru",
+      "definition": "xin truyền đạt, báo lại",
+      "exampleSentence": "担当者に内容をお伝えします。",
+      "exampleTranslation": "Tôi sẽ truyền đạt nội dung cho người phụ trách.",
+      "forms": [
+        "お伝えします",
+        "お伝えして",
+        "お伝えしました",
+        "お伝えしません"
+      ],
+      "displayOrder": 20
+    },
+    {
+      "id": 50745,
+      "term": "お知らせする",
+      "reading": "おしらせする",
+      "romaji": "oshirase suru",
+      "definition": "xin thông báo",
+      "exampleSentence": "結果が決まりましたら、すぐにお知らせします。",
+      "exampleTranslation": "Khi có kết quả, tôi sẽ thông báo ngay.",
+      "forms": [
+        "お知らせします",
+        "お知らせして",
+        "お知らせしました",
+        "お知らせしません"
+      ],
+      "displayOrder": 21
+    },
+    {
+      "id": 50746,
+      "term": "お送りする",
+      "reading": "おおくりする",
+      "romaji": "ookuri suru",
+      "definition": "xin gửi",
+      "exampleSentence": "資料をメールでお送りします。",
+      "exampleTranslation": "Tôi sẽ gửi tài liệu qua email.",
+      "forms": [
+        "お送りします",
+        "お送りして",
+        "お送りしました",
+        "お送りしません"
+      ],
+      "displayOrder": 22
+    },
+    {
+      "id": 50747,
+      "term": "お持ちする",
+      "reading": "おもちする",
+      "romaji": "omochi suru",
+      "definition": "xin mang đến",
+      "exampleSentence": "明日、商品をお持ちします。",
+      "exampleTranslation": "Ngày mai tôi sẽ mang sản phẩm đến.",
+      "forms": [
+        "お持ちします",
+        "お持ちして",
+        "お持ちしました",
+        "お持ちしません"
+      ],
+      "displayOrder": 23
+    },
+    {
+      "id": 50748,
+      "term": "お待ちする",
+      "reading": "おまちする",
+      "romaji": "omachi suru",
+      "definition": "xin đợi",
+      "exampleSentence": "ロビーでお待ちします。",
+      "exampleTranslation": "Tôi sẽ đợi ở sảnh.",
+      "forms": [
+        "お待ちします",
+        "お待ちして",
+        "お待ちしました",
+        "お待ちしません"
+      ],
+      "displayOrder": 24
+    },
+    {
+      "id": 50749,
+      "term": "ご案内する",
+      "reading": "ごあんないする",
+      "romaji": "goannai suru",
+      "definition": "xin hướng dẫn",
+      "exampleSentence": "駅までご案内します。",
+      "exampleTranslation": "Tôi sẽ hướng dẫn quý vị đến ga.",
+      "forms": [
+        "ご案内します",
+        "ご案内して",
+        "ご案内しました",
+        "ご案内しません"
+      ],
+      "displayOrder": 25
+    },
+    {
+      "id": 50750,
+      "term": "ご説明する",
+      "reading": "ごせつめいする",
+      "romaji": "gosetsumei suru",
+      "definition": "xin giải thích",
+      "exampleSentence": "詳しくご説明します。",
+      "exampleTranslation": "Tôi sẽ giải thích chi tiết.",
+      "forms": [
+        "ご説明します",
+        "ご説明して",
+        "ご説明しました",
+        "ご説明しません"
+      ],
+      "displayOrder": 26
+    },
+    {
+      "id": 50751,
+      "term": "ご報告する",
+      "reading": "ごほうこくする",
+      "romaji": "gohoukoku suru",
+      "definition": "xin báo cáo",
+      "exampleSentence": "会議の結果をご報告します。",
+      "exampleTranslation": "Tôi xin báo cáo kết quả cuộc họp.",
+      "forms": [
+        "ご報告します",
+        "ご報告して",
+        "ご報告しました",
+        "ご報告しません"
+      ],
+      "displayOrder": 27
+    },
+    {
+      "id": 50752,
+      "term": "ご連絡する",
+      "reading": "ごれんらくする",
+      "romaji": "gorenraku suru",
+      "definition": "xin liên lạc",
+      "exampleSentence": "後ほどこちらからご連絡します。",
+      "exampleTranslation": "Lát nữa chúng tôi sẽ liên lạc lại.",
+      "forms": [
+        "ご連絡します",
+        "ご連絡して",
+        "ご連絡しました",
+        "ご連絡しません"
+      ],
+      "displayOrder": 28
+    },
+    {
+      "id": 50753,
+      "term": "ご紹介する",
+      "reading": "ごしょうかいする",
+      "romaji": "goshoukai suru",
+      "definition": "xin giới thiệu",
+      "exampleSentence": "田中さんをご紹介します。",
+      "exampleTranslation": "Tôi xin giới thiệu anh Tanaka.",
+      "forms": [
+        "ご紹介します",
+        "ご紹介して",
+        "ご紹介しました",
+        "ご紹介しません"
+      ],
+      "displayOrder": 29
+    }
+  ]
+}

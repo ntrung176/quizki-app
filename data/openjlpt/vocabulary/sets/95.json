@@ -1,0 +1,429 @@
+{
+  "id": 95,
+  "title": "性格・人間関係",
+  "description": "Tính cách và quan hệ người · 48 từ",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:53.989455",
+  "cards": [
+    {
+      "id": 2791,
+      "term": "性格",
+      "reading": "せいかく",
+      "romaji": "seikaku",
+      "definition": "Tính cách",
+      "exampleSentence": "性格が良い。",
+      "exampleTranslation": "Tính cách tốt.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 2792,
+      "term": "人間関係",
+      "reading": "にんげんかんけい",
+      "romaji": "ningen kankei",
+      "definition": "Mối quan hệ con người",
+      "exampleSentence": "人間関係が大切。",
+      "exampleTranslation": "Mối quan hệ con người quan trọng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 2793,
+      "term": "優しい",
+      "reading": "やさしい",
+      "romaji": "yasashii",
+      "definition": "Dịu dàng, tốt bụng",
+      "exampleSentence": "優しい人。",
+      "exampleTranslation": "Người dịu dàng.",
+      "forms": [
+        "優しくない",
+        "優しかった",
+        "優しくなかった"
+      ],
+      "displayOrder": 2
+    },
+    {
+      "id": 2794,
+      "term": "厳しい",
+      "reading": "きびしい",
+      "romaji": "kibishii",
+      "definition": "Nghiêm khắc",
+      "exampleSentence": "厳しい先生。",
+      "exampleTranslation": "Giáo viên nghiêm khắc.",
+      "forms": [
+        "厳しくない",
+        "厳しかった",
+        "厳しくなかった"
+      ],
+      "displayOrder": 3
+    },
+    {
+      "id": 2795,
+      "term": "明るい",
+      "reading": "あかるい",
+      "romaji": "akarui",
+      "definition": "Vui vẻ, cởi mở",
+      "exampleSentence": "明るい性格。",
+      "exampleTranslation": "Tính cách vui vẻ.",
+      "forms": [
+        "明るくない",
+        "明るかった",
+        "明るくなかった"
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": 2796,
+      "term": "暗い",
+      "reading": "くらい",
+      "romaji": "kurai",
+      "definition": "Ủ rũ, trầm tính",
+      "exampleSentence": "暗い性格。",
+      "exampleTranslation": "Tính cách trầm tính.",
+      "forms": [
+        "暗くない",
+        "暗かった",
+        "暗くなかった"
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": 2797,
+      "term": "社交的",
+      "reading": "しゃこうてき",
+      "romaji": "shakou teki",
+      "definition": "Hướng ngoại, xã giao",
+      "exampleSentence": "社交的な人。",
+      "exampleTranslation": "Người hướng ngoại.",
+      "forms": [
+        "社交的じゃない",
+        "社交的だった",
+        "社交的じゃなかった"
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": 2798,
+      "term": "内向的",
+      "reading": "ないこうてき",
+      "romaji": "naikou teki",
+      "definition": "Hướng nội",
+      "exampleSentence": "内向的な性格。",
+      "exampleTranslation": "Tính cách hướng nội.",
+      "forms": [
+        "内向的じゃない",
+        "内向的だった",
+        "内向的じゃなかった"
+      ],
+      "displayOrder": 7
+    },
+    {
+      "id": 2799,
+      "term": "積極的",
+      "reading": "せっきょくてき",
+      "romaji": "sekkyoku teki",
+      "definition": "Tích cực, chủ động",
+      "exampleSentence": "積極的に取り組む。",
+      "exampleTranslation": "Chủ động tham gia.",
+      "forms": [
+        "積極的じゃない",
+        "積極的だった",
+        "積極的じゃなかった"
+      ],
+      "displayOrder": 8
+    },
+    {
+      "id": 2800,
+      "term": "消極的",
+      "reading": "しょうきょくてき",
+      "romaji": "shoukyoku teki",
+      "definition": "Tiêu cực, thụ động",
+      "exampleSentence": "消極的な態度。",
+      "exampleTranslation": "Thái độ thụ động.",
+      "forms": [
+        "消極的じゃない",
+        "消極的だった",
+        "消極的じゃなかった"
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": 2801,
+      "term": "真面目",
+      "reading": "まじめ",
+      "romaji": "majime",
+      "definition": "Nghiêm túc, chăm chỉ",
+      "exampleSentence": "真面目な学生。",
+      "exampleTranslation": "Học sinh nghiêm túc.",
+      "forms": [
+        "真面目じゃない",
+        "真面目だった",
+        "真面目じゃなかった"
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": 2802,
+      "term": "いい加減",
+      "reading": "いいかげん",
+      "romaji": "ii kagen",
+      "definition": "Cẩu thả, vô trách nhiệm",
+      "exampleSentence": "いい加減な人。",
+      "exampleTranslation": "Người cẩu thả.",
+      "forms": [
+        "いい加減じゃない",
+        "いい加減だった",
+        "いい加減じゃなかった"
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": 2803,
+      "term": "頑固",
+      "reading": "がんこ",
+      "romaji": "ganko",
+      "definition": "Cứng đầu, bướng bỉnh",
+      "exampleSentence": "頑固な性格。",
+      "exampleTranslation": "Tính cách cứng đầu.",
+      "forms": [
+        "頑固じゃない",
+        "頑固だった",
+        "頑固じゃなかった"
+      ],
+      "displayOrder": 12
+    },
+    {
+      "id": 2804,
+      "term": "柔軟",
+      "reading": "じゅうなん",
+      "romaji": "juunan",
+      "definition": "Linh hoạt, mềm mỏng",
+      "exampleSentence": "柔軟な考え方。",
+      "exampleTranslation": "Cách suy nghĩ linh hoạt.",
+      "forms": [
+        "柔軟じゃない",
+        "柔軟だった",
+        "柔軟じゃなかった"
+      ],
+      "displayOrder": 13
+    },
+    {
+      "id": 2805,
+      "term": "思いやり",
+      "reading": "おもいやり",
+      "romaji": "omoiyari",
+      "definition": "Sự thấu cảm, quan tâm",
+      "exampleSentence": "思いやりのある人。",
+      "exampleTranslation": "Người quan tâm đến người khác.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 2806,
+      "term": "気配り",
+      "reading": "きくばり",
+      "romaji": "kikubari",
+      "definition": "Sự chu đáo, quan tâm",
+      "exampleSentence": "気配りができる人。",
+      "exampleTranslation": "Người chu đáo.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 2807,
+      "term": "信頼",
+      "reading": "しんらい",
+      "romaji": "shinrai",
+      "definition": "Tin tưởng",
+      "exampleSentence": "信頼できる人。",
+      "exampleTranslation": "Người đáng tin.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 2808,
+      "term": "誠実",
+      "reading": "せいじつ",
+      "romaji": "seijitsu",
+      "definition": "Thành thật, thành tín",
+      "exampleSentence": "誠実な態度。",
+      "exampleTranslation": "Thái độ thành thật.",
+      "forms": [
+        "誠実じゃない",
+        "誠実だった",
+        "誠実じゃなかった"
+      ],
+      "displayOrder": 17
+    },
+    {
+      "id": 2809,
+      "term": "嘘をつく",
+      "reading": "うそをつく",
+      "romaji": "uso wo tsuku",
+      "definition": "Nói dối",
+      "exampleSentence": "嘘をついた。",
+      "exampleTranslation": "Đã nói dối.",
+      "forms": [
+        "嘘をつきます",
+        "嘘をついて",
+        "嘘をついた",
+        "嘘をつかない",
+        "嘘をつける"
+      ],
+      "displayOrder": 18
+    },
+    {
+      "id": 2810,
+      "term": "批判する",
+      "reading": "ひはんする",
+      "romaji": "hihan suru",
+      "definition": "Chỉ trích, phê bình",
+      "exampleSentence": "人を批判する。",
+      "exampleTranslation": "Chỉ trích người khác.",
+      "forms": [
+        "批判します",
+        "批判して",
+        "批判した",
+        "批判しない",
+        "批判できる"
+      ],
+      "displayOrder": 19
+    },
+    {
+      "id": 2811,
+      "term": "尊重する",
+      "reading": "そんちょうする",
+      "romaji": "sonchou suru",
+      "definition": "Tôn trọng",
+      "exampleSentence": "相手を尊重する。",
+      "exampleTranslation": "Tôn trọng đối phương.",
+      "forms": [
+        "尊重します",
+        "尊重して",
+        "尊重した",
+        "尊重しない",
+        "尊重できる"
+      ],
+      "displayOrder": 20
+    },
+    {
+      "id": 2812,
+      "term": "協力する",
+      "reading": "きょうりょくする",
+      "romaji": "kyouryoku suru",
+      "definition": "Hợp tác",
+      "exampleSentence": "みんなで協力する。",
+      "exampleTranslation": "Mọi người cùng hợp tác.",
+      "forms": [
+        "協力します",
+        "協力して",
+        "協力した",
+        "協力しない",
+        "協力できる"
+      ],
+      "displayOrder": 21
+    },
+    {
+      "id": 2813,
+      "term": "葛藤",
+      "reading": "かっとう",
+      "romaji": "kattou",
+      "definition": "Mâu thuẫn nội tâm",
+      "exampleSentence": "葛藤を感じる。",
+      "exampleTranslation": "Cảm thấy mâu thuẫn.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 2814,
+      "term": "摩擦",
+      "reading": "まさつ",
+      "romaji": "masatsu",
+      "definition": "Xung đột, ma sát (trong quan hệ)",
+      "exampleSentence": "人間関係の摩擦。",
+      "exampleTranslation": "Xung đột trong quan hệ người.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 2815,
+      "term": "和解",
+      "reading": "わかい",
+      "romaji": "wakai",
+      "definition": "Hòa giải",
+      "exampleSentence": "和解する。",
+      "exampleTranslation": "Hòa giải.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 2816,
+      "term": "仲直り",
+      "reading": "なかなおり",
+      "romaji": "nakanori",
+      "definition": "Làm lành",
+      "exampleSentence": "仲直りをする。",
+      "exampleTranslation": "Làm lành với nhau.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 2817,
+      "term": "嫉妬",
+      "reading": "しっと",
+      "romaji": "shitto",
+      "definition": "Ghen tuông",
+      "exampleSentence": "嫉妬を感じる。",
+      "exampleTranslation": "Cảm thấy ghen tuông.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 2818,
+      "term": "羨む",
+      "reading": "うらやむ",
+      "romaji": "urayamu",
+      "definition": "Thèm muốn, ghen tị",
+      "exampleSentence": "成功を羨む。",
+      "exampleTranslation": "Ghen tị với thành công.",
+      "forms": [
+        "羨みます",
+        "羨んで",
+        "羨んだ",
+        "羨まない",
+        "羨める"
+      ],
+      "displayOrder": 27
+    },
+    {
+      "id": 2819,
+      "term": "仲良し",
+      "reading": "なかよし",
+      "romaji": "nakayoshi",
+      "definition": "Thân thiết, bạn tốt",
+      "exampleSentence": "仲良しの友達。",
+      "exampleTranslation": "Người bạn thân.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 2820,
+      "term": "付き合う",
+      "reading": "つきあう",
+      "romaji": "tsukiau",
+      "definition": "Hẹn hò, giao tiếp",
+      "exampleSentence": "彼と付き合っている。",
+      "exampleTranslation": "Đang hẹn hò với anh ấy.",
+      "forms": [
+        "付き合います",
+        "付き合って",
+        "付き合った",
+        "付き合わない",
+        "付き合える"
+      ],
+      "displayOrder": 29
+    }
+  ]
+}

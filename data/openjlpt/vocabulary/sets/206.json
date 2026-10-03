@@ -1,0 +1,176 @@
+{
+  "id": 206,
+  "title": "Tuần 2 · Ngày 6 - 仕事・組織 (Công việc & Tổ chức)",
+  "description": "Nihongo Soumatome N3 語彙 — 仕事・組織 (Công việc & Tổ chức)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.145923",
+  "cards": [
+    {
+      "id": 5416,
+      "term": "業務 (ぎょうむ)",
+      "reading": "ぎょうむ",
+      "romaji": "gyoumu",
+      "definition": "nghiệp vụ, công việc",
+      "exampleSentence": "今日は業務が多いので、残業するかもしれません。",
+      "exampleTranslation": "Hôm nay có nhiều công việc nên có lẽ tôi sẽ làm thêm giờ.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5417,
+      "term": "担当 (たんとう)",
+      "reading": "たんとう",
+      "romaji": "tantou",
+      "definition": "phụ trách, người phụ trách",
+      "exampleSentence": "私はこのプロジェクトを担当しています。",
+      "exampleTranslation": "Tôi đang phụ trách dự án này.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5418,
+      "term": "部門 (ぶもん)",
+      "reading": "ぶもん",
+      "romaji": "bumon",
+      "definition": "bộ phận, phòng ban",
+      "exampleSentence": "新しい商品は、開発部門と営業部門が協力して作りました。",
+      "exampleTranslation": "Sản phẩm mới được bộ phận phát triển và bộ phận kinh doanh hợp tác sản xuất.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5419,
+      "term": "会議 (かいぎ)",
+      "reading": "かいぎ",
+      "romaji": "kaigi",
+      "definition": "cuộc họp, hội nghị",
+      "exampleSentence": "来月の新しい計画について、今日の会議で話し合います。",
+      "exampleTranslation": "Hôm nay chúng ta sẽ thảo luận về kế hoạch mới của tháng sau trong cuộc họp.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5420,
+      "term": "提案 (ていあん)",
+      "reading": "ていあん",
+      "romaji": "teian",
+      "definition": "đề xuất, đề nghị",
+      "exampleSentence": "彼の提案は、会社の経費を減らすために役立ちそうです。",
+      "exampleTranslation": "Đề xuất của anh ấy có vẻ sẽ giúp giảm chi phí của công ty.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5421,
+      "term": "検討する (けんとうする)",
+      "reading": "けんとうする",
+      "romaji": "kentou suru",
+      "definition": "xem xét, nghiên cứu kỹ",
+      "exampleSentence": "会社はその提案を前向きに検討することにしました。",
+      "exampleTranslation": "Công ty đã quyết định xem xét tích cực đề xuất đó.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5422,
+      "term": "判断する (はんだんする)",
+      "reading": "はんだんする",
+      "romaji": "handan suru",
+      "definition": "phán đoán, quyết định",
+      "exampleSentence": "情報が十分に集まってから、最終的に判断するつもりです。",
+      "exampleTranslation": "Tôi định đưa ra quyết định cuối cùng sau khi thu thập đủ thông tin.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5423,
+      "term": "決定する (けっていする)",
+      "reading": "けっていする",
+      "romaji": "kettei suru",
+      "definition": "quyết định, xác định",
+      "exampleSentence": "委員会は来週、旅行の日程を決定する予定です。",
+      "exampleTranslation": "Ủy ban dự định sẽ quyết định lịch trình chuyến đi vào tuần sau.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5424,
+      "term": "実行する (じっこうする)",
+      "reading": "じっこうする",
+      "romaji": "jikkou suru",
+      "definition": "thực hiện, thực hành",
+      "exampleSentence": "計画を成功させるには、決めたことをすぐに実行することが大切です。",
+      "exampleTranslation": "Để kế hoạch thành công, điều quan trọng là phải lập tức thực hiện những gì đã quyết định.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5425,
+      "term": "管理する (かんりする)",
+      "reading": "かんりする",
+      "romaji": "kanri suru",
+      "definition": "quản lý, điều hành",
+      "exampleSentence": "部長はチーム全体の進み具合を管理する責任があります。",
+      "exampleTranslation": "Trưởng phòng có trách nhiệm quản lý tiến độ của toàn đội.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5426,
+      "term": "評価する (ひょうかする)",
+      "reading": "ひょうかする",
+      "romaji": "hyouka suru",
+      "definition": "đánh giá, nhận xét",
+      "exampleSentence": "この会社では、仕事の結果だけでなく努力も評価する方針です。",
+      "exampleTranslation": "Công ty này có chủ trương đánh giá không chỉ kết quả công việc mà cả sự nỗ lực.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5427,
+      "term": "改善する (かいぜんする)",
+      "reading": "かいぜんする",
+      "romaji": "kaizen suru",
+      "definition": "cải thiện, cải tiến",
+      "exampleSentence": "問題点を見つけたら、すぐに改善する必要があります。",
+      "exampleTranslation": "Nếu phát hiện vấn đề thì cần phải cải thiện ngay.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5428,
+      "term": "効率 (こうりつ)",
+      "reading": "こうりつ",
+      "romaji": "kouritsu",
+      "definition": "hiệu quả, năng suất",
+      "exampleSentence": "新しいシステムを使うと、仕事の効率が大きく上がります。",
+      "exampleTranslation": "Sử dụng hệ thống mới sẽ giúp hiệu suất công việc tăng lên đáng kể.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5429,
+      "term": "実績 (じっせき)",
+      "reading": "じっせき",
+      "romaji": "jisseki",
+      "definition": "thành tích, kết quả thực tế",
+      "exampleSentence": "彼はこれまでの実績が認められ、海外支店を任されました。",
+      "exampleTranslation": "Nhờ những thành tích đạt được từ trước đến nay được công nhận, anh ấy đã được giao phụ trách chi nhánh ở nước ngoài.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5430,
+      "term": "目標 (もくひょう)",
+      "reading": "もくひょう",
+      "romaji": "mokuhyou",
+      "definition": "mục tiêu, chỉ tiêu",
+      "exampleSentence": "今年は毎日漢字を十個覚えることを目標にしています。",
+      "exampleTranslation": "Năm nay tôi đặt mục tiêu mỗi ngày học thuộc mười chữ kanji.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

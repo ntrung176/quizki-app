@@ -1,0 +1,253 @@
+{
+  "id": 506,
+  "title": "生活・住まい · 家の構造・修繕・防犯",
+  "description": "Nhà cửa: cấu trúc, sửa chữa & an toàn — chủ đề Đời sống & nhà cửa · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:50.909064",
+  "cards": [
+    {
+      "id": 12606,
+      "term": "玄関 (げんかん)",
+      "reading": "げんかん",
+      "romaji": null,
+      "definition": "lối vào nhà",
+      "exampleSentence": "帰宅したら、玄関で靴を脱いでください。",
+      "exampleTranslation": "Khi về đến nhà, hãy cởi giày ở lối vào.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12607,
+      "term": "床 (ゆか)",
+      "reading": "ゆか",
+      "romaji": null,
+      "definition": "sàn nhà",
+      "exampleSentence": "床がぬれているので、滑らないように気をつけてください。",
+      "exampleTranslation": "Sàn nhà đang bị ướt, nên hãy cẩn thận để không bị trượt.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12608,
+      "term": "住宅 (じゅうたく)",
+      "reading": "じゅうたく",
+      "romaji": null,
+      "definition": "nhà ở",
+      "exampleSentence": "駅に近い住宅は便利ですが、家賃が少し高いです。",
+      "exampleTranslation": "Nhà ở gần ga thì tiện, nhưng tiền thuê hơi cao.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12609,
+      "term": "畳 (たたみ)",
+      "reading": "たたみ",
+      "romaji": null,
+      "definition": "chiếu tatami",
+      "exampleSentence": "この部屋には畳が六枚あり、窓から涼しい風が入ってくる。",
+      "exampleTranslation": "Căn phòng này có sáu tấm chiếu tatami, và gió mát thổi vào từ cửa sổ.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12610,
+      "term": "水道 (すいどう)",
+      "reading": "すいどう",
+      "romaji": null,
+      "definition": "đường nước máy",
+      "exampleSentence": "朝から水道の水が濁っているので、管理会社に連絡した。",
+      "exampleTranslation": "Từ sáng, nước máy đã bị đục nên tôi đã liên lạc với công ty quản lý.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12611,
+      "term": "騒がしい (さわがしい)",
+      "reading": "さわがしい",
+      "romaji": null,
+      "definition": "ồn ào, huyên náo",
+      "exampleSentence": "駅前は週末になると人が多くて、かなり騒がしい。",
+      "exampleTranslation": "Khu vực trước ga vào cuối tuần rất đông người và khá ồn ào.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12612,
+      "term": "天井 (てんじょう)",
+      "reading": "てんじょう",
+      "romaji": null,
+      "definition": "trần nhà",
+      "exampleSentence": "古い家なので、天井に雨漏りの跡が残っている。",
+      "exampleTranslation": "Vì là ngôi nhà cũ nên trên trần vẫn còn dấu vết dột do mưa.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12613,
+      "term": "リフォーム",
+      "reading": "リフォーム",
+      "romaji": null,
+      "definition": "cải tạo/sửa nhà",
+      "exampleSentence": "両親は来年、古い台所をリフォームする予定です。",
+      "exampleTranslation": "Bố mẹ tôi dự định cải tạo căn bếp cũ vào năm sau.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12614,
+      "term": "下水道 (げすいどう)",
+      "reading": "げすいどう",
+      "romaji": null,
+      "definition": "cống thoát nước",
+      "exampleSentence": "この地域では、下水道の整備がまだ十分に進んでいない。",
+      "exampleTranslation": "Ở khu vực này, việc xây dựng hệ thống cống thoát nước vẫn chưa được tiến hành đầy đủ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12615,
+      "term": "外装 (がいそう)",
+      "reading": "がいそう",
+      "romaji": null,
+      "definition": "ngoại thất",
+      "exampleSentence": "建物の外装を新しくすると、町全体の印象も明るくなる。",
+      "exampleTranslation": "Nếu làm mới ngoại thất của tòa nhà, ấn tượng của cả khu phố cũng sẽ trở nên sáng sủa hơn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12616,
+      "term": "間取り (まどり)",
+      "reading": "まどり",
+      "romaji": null,
+      "definition": "bố cục căn nhà",
+      "exampleSentence": "部屋を探すときは、家賃だけでなく間取りも確認したほうがいい。",
+      "exampleTranslation": "Khi tìm phòng, bạn nên kiểm tra cả bố cục căn nhà chứ không chỉ tiền thuê.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12617,
+      "term": "修繕 (しゅうぜん)",
+      "reading": "しゅうぜん",
+      "romaji": null,
+      "definition": "sửa chữa",
+      "exampleSentence": "大家さんは、入居者から連絡を受けて屋根の修繕を始めた。",
+      "exampleTranslation": "Chủ nhà nhận được thông báo từ người thuê nên đã bắt đầu sửa chữa mái nhà.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12618,
+      "term": "住宅地 (じゅうたくち)",
+      "reading": "じゅうたくち",
+      "romaji": null,
+      "definition": "khu dân cư",
+      "exampleSentence": "この住宅地では、夜遅くに大きな音を出さないよう注意されている。",
+      "exampleTranslation": "Ở khu dân cư này, mọi người được nhắc nhở không gây tiếng động lớn vào đêm muộn.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12619,
+      "term": "設備 (せつび)",
+      "reading": "せつび",
+      "romaji": null,
+      "definition": "trang thiết bị",
+      "exampleSentence": "このホテルは設備が整っていて、長期滞在にも便利だ。",
+      "exampleTranslation": "Khách sạn này có trang thiết bị đầy đủ, cũng rất thuận tiện cho việc lưu trú dài ngày.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12620,
+      "term": "内装 (ないそう)",
+      "reading": "ないそう",
+      "romaji": null,
+      "definition": "nội thất",
+      "exampleSentence": "店の内装を落ち着いた色に変えたところ、客が増えた。",
+      "exampleTranslation": "Sau khi đổi nội thất của cửa hàng sang màu dịu mắt, lượng khách đã tăng lên.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12621,
+      "term": "日当たり (ひあたり)",
+      "reading": "ひあたり",
+      "romaji": null,
+      "definition": "ánh nắng (hướng nhà)",
+      "exampleSentence": "日当たりのよい部屋は、冬でも暖かく、快適に過ごせる。",
+      "exampleTranslation": "Căn phòng có ánh nắng tốt thì ngay cả mùa đông cũng ấm áp và dễ chịu.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 12622,
+      "term": "壁紙 (かべがみ)",
+      "reading": "かべがみ",
+      "romaji": null,
+      "definition": "giấy dán tường",
+      "exampleSentence": "部屋の雰囲気を変えるため、壁紙を張り替えることにした。",
+      "exampleTranslation": "Để thay đổi không khí căn phòng, tôi đã quyết định thay giấy dán tường.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 12623,
+      "term": "防寒 (ぼうかん)",
+      "reading": "ぼうかん",
+      "romaji": null,
+      "definition": "chống rét",
+      "exampleSentence": "このコートは防寒性に優れており、厳しい冬にも適している。",
+      "exampleTranslation": "Chiếc áo khoác này có khả năng chống rét tốt, phù hợp cả với mùa đông khắc nghiệt.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 12624,
+      "term": "防虫 (ぼうちゅう)",
+      "reading": "ぼうちゅう",
+      "romaji": null,
+      "definition": "chống côn trùng (quần áo)",
+      "exampleSentence": "夏物の衣類は、防虫剤と一緒に箱へ保管しておく。",
+      "exampleTranslation": "Quần áo mùa hè được cất trong hộp cùng với thuốc chống côn trùng.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 12625,
+      "term": "防犯 (ぼうはん)",
+      "reading": "ぼうはん",
+      "romaji": null,
+      "definition": "phòng chống trộm",
+      "exampleSentence": "防犯のため、玄関に監視カメラを設置した。",
+      "exampleTranslation": "Để phòng chống trộm, tôi đã lắp camera giám sát ở lối vào.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 12626,
+      "term": "リノベーション",
+      "reading": "リノベーション",
+      "romaji": null,
+      "definition": "cải tạo toàn diện",
+      "exampleSentence": "築五十年の古い家を、現代的な住宅へリノベーションした。",
+      "exampleTranslation": "Một ngôi nhà cũ đã được cải tạo toàn diện thành nhà ở hiện đại.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 12627,
+      "term": "避難経路 (ひなんけいろ)",
+      "reading": "ひなんけいろ",
+      "romaji": null,
+      "definition": "lối thoát hiểm",
+      "exampleSentence": "利用者は、非常時に備えて避難経路を確認しておく必要がある。",
+      "exampleTranslation": "Người sử dụng cần kiểm tra lối thoát hiểm để chuẩn bị cho trường hợp khẩn cấp.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "id": 514,
+  "title": "生活・住まい · 地域区分・都市計画",
+  "description": "Địa lý hành chính & quy hoạch đô thị — chủ đề Đời sống & nhà cửa · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:51.078294",
+  "cards": [
+    {
+      "id": 12746,
+      "term": "UDI",
+      "reading": "UDI",
+      "romaji": null,
+      "definition": "thiết kế đô thị toàn diện",
+      "exampleSentence": "UDIの考え方を取り入れ、誰もが利用しやすい公共施設を設計した。",
+      "exampleTranslation": "Chúng tôi đã áp dụng tư tưởng UDI để thiết kế một cơ sở công cộng mà ai cũng dễ sử dụng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12747,
+      "term": "再開発 (さいかいはつ)",
+      "reading": "さいかいはつ",
+      "romaji": null,
+      "definition": "tái phát triển đô thị",
+      "exampleSentence": "再開発によって、駅前の市街地は大きく変わる予定だ。",
+      "exampleTranslation": "Nhờ dự án tái phát triển, khu đô thị trước nhà ga dự kiến sẽ thay đổi lớn.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12748,
+      "term": "市街地 (しがいち)",
+      "reading": "しがいち",
+      "romaji": null,
+      "definition": "khu vực đô thị/trung tâm",
+      "exampleSentence": "市街地に新しい図書館が建設され、住民の利用が増えている。",
+      "exampleTranslation": "Một thư viện mới được xây dựng trong khu đô thị, và số người dân sử dụng đang tăng lên.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12749,
+      "term": "首都 (しゅと)",
+      "reading": "しゅと",
+      "romaji": null,
+      "definition": "thủ đô",
+      "exampleSentence": "首都に人口が集中すると、交通渋滞や住宅不足が起こりやすい。",
+      "exampleTranslation": "Khi dân số tập trung ở thủ đô, ùn tắc giao thông và thiếu nhà ở dễ xảy ra.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12750,
+      "term": "周辺 (しゅうへん)",
+      "reading": "しゅうへん",
+      "romaji": null,
+      "definition": "vùng xung quanh",
+      "exampleSentence": "首都の周辺では、郊外に住んで都心へ通勤する人が多い。",
+      "exampleTranslation": "Ở vùng xung quanh thủ đô, có nhiều người sống ở ngoại ô và đi làm vào trung tâm thành phố.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12751,
+      "term": "商業地域 (しょうぎょうちいき)",
+      "reading": "しょうぎょうちいき",
+      "romaji": null,
+      "definition": "khu thương mại",
+      "exampleSentence": "商業地域では、夜遅くまで営業する店が多い。",
+      "exampleTranslation": "Ở khu thương mại có nhiều cửa hàng mở cửa đến tận khuya.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12752,
+      "term": "地区 (ちく)",
+      "reading": "ちく",
+      "romaji": null,
+      "definition": "khu vực",
+      "exampleSentence": "この地区では、古い建物を保存しながら町づくりを進めている。",
+      "exampleTranslation": "Trong khu vực này, việc xây dựng và phát triển đô thị đang được tiến hành đồng thời với bảo tồn các tòa nhà cũ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12753,
+      "term": "地帯 (ちたい)",
+      "reading": "ちたい",
+      "romaji": null,
+      "definition": "địa đới/vùng rộng",
+      "exampleSentence": "この地域は冬になると大雪が降る地帯になります。",
+      "exampleTranslation": "Khu vực này vào mùa đông sẽ trở thành vùng có tuyết rơi dày.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12754,
+      "term": "地点 (ちてん)",
+      "reading": "ちてん",
+      "romaji": null,
+      "definition": "địa điểm cụ thể",
+      "exampleSentence": "事故が起きた地点には、注意を呼びかける看板が立っている。",
+      "exampleTranslation": "Tại địa điểm xảy ra tai nạn có một tấm biển cảnh báo.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12755,
+      "term": "地方 (ちほう)",
+      "reading": "ちほう",
+      "romaji": null,
+      "definition": "địa phương/miền quê",
+      "exampleSentence": "将来は都会を離れ、地方でゆっくり暮らしたい。",
+      "exampleTranslation": "Sau này tôi muốn rời thành phố và sống thong thả ở địa phương.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12756,
+      "term": "地方移住 (ちほういじゅう)",
+      "reading": "ちほういじゅう",
+      "romaji": null,
+      "definition": "chuyển về sinh sống ở nông thôn",
+      "exampleSentence": "地方移住を考えている人向けに、自治体が相談会を開いた。",
+      "exampleTranslation": "Chính quyền địa phương đã tổ chức buổi tư vấn dành cho những người đang cân nhắc chuyển về nông thôn sinh sống.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12757,
+      "term": "地方創生 (ちほうそうせい)",
+      "reading": "ちほうそうせい",
+      "romaji": null,
+      "definition": "hồi sinh phát triển địa phương",
+      "exampleSentence": "地方創生のため、若者が働ける新しい産業を育てる必要がある。",
+      "exampleTranslation": "Để hồi sinh địa phương, cần phát triển những ngành công nghiệp mới nơi người trẻ có thể làm việc.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12758,
+      "term": "都市 (とし)",
+      "reading": "とし",
+      "romaji": null,
+      "definition": "đô thị/thành phố",
+      "exampleSentence": "都市への人口集中が進み、住宅不足が深刻な問題になっている。",
+      "exampleTranslation": "Dân số tập trung vào đô thị ngày càng tăng, khiến thiếu nhà ở trở thành vấn đề nghiêm trọng.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12759,
+      "term": "都市計画 (としけいかく)",
+      "reading": "としけいかく",
+      "romaji": null,
+      "definition": "quy hoạch đô thị",
+      "exampleSentence": "新しい駅の建設は、今後の都市計画に大きな影響を与える。",
+      "exampleTranslation": "Việc xây dựng nhà ga mới sẽ ảnh hưởng lớn đến quy hoạch đô thị trong tương lai.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12760,
+      "term": "都市部 (としぶ)",
+      "reading": "としぶ",
+      "romaji": null,
+      "definition": "khu vực đô thị",
+      "exampleSentence": "都市部では、通勤時間を短くするために鉄道を利用する人が多い。",
+      "exampleTranslation": "Ở khu vực đô thị, có nhiều người sử dụng đường sắt để rút ngắn thời gian đi làm.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12761,
+      "term": "同居 (どうきょ)",
+      "reading": "どうきょ",
+      "romaji": null,
+      "definition": "sống chung",
+      "exampleSentence": "結婚後もしばらくは、両親と同居する予定です。",
+      "exampleTranslation": "Sau khi kết hôn, tôi dự định sẽ sống chung với bố mẹ thêm một thời gian.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 12762,
+      "term": "離島 (りとう)",
+      "reading": "りとう",
+      "romaji": null,
+      "definition": "đảo xa/hải đảo",
+      "exampleSentence": "離島では、医師不足を解消するためにオンライン診療が導入された。",
+      "exampleTranslation": "Ở các đảo xa, dịch vụ khám chữa bệnh trực tuyến đã được đưa vào sử dụng để giải quyết tình trạng thiếu bác sĩ.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 12763,
+      "term": "立地 (りっち)",
+      "reading": "りっち",
+      "romaji": null,
+      "definition": "vị trí/địa điểm",
+      "exampleSentence": "駅に近く、日当たりもよい立地が、このマンションの魅力だ。",
+      "exampleTranslation": "Vị trí gần ga và có nhiều ánh nắng là điểm hấp dẫn của căn hộ này.",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

@@ -1,0 +1,359 @@
+{
+  "id": 151,
+  "title": "法律・規則語彙",
+  "description": "Từ vựng luật pháp N3 · 30 từ",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:12.042631",
+  "cards": [
+    {
+      "id": 4415,
+      "term": "法律",
+      "reading": "ほうりつ",
+      "romaji": "houritsu",
+      "definition": "Pháp luật / luật pháp",
+      "exampleSentence": "法律を守ることが大切です。",
+      "exampleTranslation": "Tuân thủ pháp luật là quan trọng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 4416,
+      "term": "条例",
+      "reading": "じょうれい",
+      "romaji": "jourei",
+      "definition": "Điều lệ / nghị quyết địa phương",
+      "exampleSentence": "市の条例に違反しました。",
+      "exampleTranslation": "Tôi vi phạm điều lệ của thành phố.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 4417,
+      "term": "規則",
+      "reading": "きそく",
+      "romaji": "kisoku",
+      "definition": "Quy tắc / quy định",
+      "exampleSentence": "会社の規則に従ってください。",
+      "exampleTranslation": "Hãy tuân theo quy tắc công ty.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 4418,
+      "term": "違反",
+      "reading": "いはん",
+      "romaji": "ihan",
+      "definition": "Vi phạm",
+      "exampleSentence": "交通違反をしました。",
+      "exampleTranslation": "Tôi đã vi phạm luật giao thông.",
+      "forms": [
+        "違反します",
+        "違反して",
+        "違反した",
+        "違反しない",
+        "違反できる"
+      ],
+      "displayOrder": 3
+    },
+    {
+      "id": 4419,
+      "term": "罰則",
+      "reading": "ばっそく",
+      "romaji": "bassoku",
+      "definition": "Hình phạt / chế tài",
+      "exampleSentence": "罰則を強化する必要があります。",
+      "exampleTranslation": "Cần tăng cường chế tài.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 4420,
+      "term": "裁判",
+      "reading": "さいばん",
+      "romaji": "saiban",
+      "definition": "Xét xử / tòa án",
+      "exampleSentence": "裁判で勝訴しました。",
+      "exampleTranslation": "Chúng tôi đã thắng kiện.",
+      "forms": [
+        "裁判します",
+        "裁判して",
+        "裁判した",
+        "裁判しない",
+        "裁判できる"
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": 4421,
+      "term": "弁護士",
+      "reading": "べんごし",
+      "romaji": "bengoshi",
+      "definition": "Luật sư",
+      "exampleSentence": "弁護士に相談します。",
+      "exampleTranslation": "Tôi tham khảo ý kiến luật sư.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 4422,
+      "term": "検察",
+      "reading": "けんさつ",
+      "romaji": "kensatsu",
+      "definition": "Công tố / kiểm sát",
+      "exampleSentence": "検察が起訴しました。",
+      "exampleTranslation": "Công tố đã khởi tố.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 4423,
+      "term": "判決",
+      "reading": "はんけつ",
+      "romaji": "hanketsu",
+      "definition": "Phán quyết / bản án",
+      "exampleSentence": "裁判所が判決を下しました。",
+      "exampleTranslation": "Tòa án đã ra phán quyết.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 4424,
+      "term": "訴訟",
+      "reading": "そしょう",
+      "romaji": "soshou",
+      "definition": "Kiện tụng / vụ kiện",
+      "exampleSentence": "損害賠償の訴訟を起こしました。",
+      "exampleTranslation": "Chúng tôi đã khởi kiện đòi bồi thường.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 4425,
+      "term": "著作権",
+      "reading": "ちょさくけん",
+      "romaji": "chosakulen",
+      "definition": "Bản quyền tác giả",
+      "exampleSentence": "著作権を侵害してはいけません。",
+      "exampleTranslation": "Không được xâm phạm bản quyền tác giả.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 4426,
+      "term": "特許",
+      "reading": "とっきょ",
+      "romaji": "tokkyo",
+      "definition": "Bằng sáng chế / patent",
+      "exampleSentence": "この発明は特許を取得しています。",
+      "exampleTranslation": "Phát minh này đã được cấp bằng sáng chế.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 4427,
+      "term": "商標",
+      "reading": "しょうひょう",
+      "romaji": "shouhyou",
+      "definition": "Thương hiệu / nhãn hiệu",
+      "exampleSentence": "商標登録をしました。",
+      "exampleTranslation": "Tôi đã đăng ký nhãn hiệu.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 4428,
+      "term": "契約書",
+      "reading": "けいやくしょ",
+      "romaji": "keiyakusho",
+      "definition": "Hợp đồng (văn bản)",
+      "exampleSentence": "契約書に署名してください。",
+      "exampleTranslation": "Hãy ký vào hợp đồng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 4429,
+      "term": "条件",
+      "reading": "じょうけん",
+      "romaji": "jouken",
+      "definition": "Điều kiện",
+      "exampleSentence": "契約の条件を確認しました。",
+      "exampleTranslation": "Tôi đã xác nhận điều kiện hợp đồng.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 4430,
+      "term": "責任",
+      "reading": "せきにん",
+      "romaji": "sekinin",
+      "definition": "Trách nhiệm",
+      "exampleSentence": "この件の責任を取ります。",
+      "exampleTranslation": "Tôi chịu trách nhiệm về vụ này.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 4431,
+      "term": "賠償",
+      "reading": "ばいしょう",
+      "romaji": "baishou",
+      "definition": "Bồi thường",
+      "exampleSentence": "損害賠償を求めます。",
+      "exampleTranslation": "Tôi yêu cầu bồi thường thiệt hại.",
+      "forms": [
+        "賠償します",
+        "賠償して",
+        "賠償した",
+        "賠償しない",
+        "賠償できる"
+      ],
+      "displayOrder": 16
+    },
+    {
+      "id": 4432,
+      "term": "合法",
+      "reading": "ごうほう",
+      "romaji": "gouhou",
+      "definition": "Hợp pháp",
+      "exampleSentence": "この行為は合法です。",
+      "exampleTranslation": "Hành vi này là hợp pháp.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 4433,
+      "term": "違法",
+      "reading": "いほう",
+      "romaji": "ihou",
+      "definition": "Bất hợp pháp / trái pháp luật",
+      "exampleSentence": "この行為は違法です。",
+      "exampleTranslation": "Hành vi này là bất hợp pháp.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 4434,
+      "term": "無効",
+      "reading": "むこう",
+      "romaji": "mukou",
+      "definition": "Vô hiệu / không có hiệu lực",
+      "exampleSentence": "この契約は無効です。",
+      "exampleTranslation": "Hợp đồng này vô hiệu.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 50814,
+      "term": "裁判所",
+      "reading": "さいばんしょ",
+      "romaji": "saibansho",
+      "definition": "tòa án",
+      "exampleSentence": "裁判所で証拠を提出しました。",
+      "exampleTranslation": "Tôi đã nộp bằng chứng tại tòa án.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 50815,
+      "term": "証拠",
+      "reading": "しょうこ",
+      "romaji": "shouko",
+      "definition": "bằng chứng",
+      "exampleSentence": "警察は重要な証拠を見つけた。",
+      "exampleTranslation": "Cảnh sát đã tìm thấy bằng chứng quan trọng.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 50816,
+      "term": "証人",
+      "reading": "しょうにん",
+      "romaji": "shounin",
+      "definition": "nhân chứng",
+      "exampleSentence": "証人が事件について話した。",
+      "exampleTranslation": "Nhân chứng đã kể về vụ việc.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 50817,
+      "term": "犯罪",
+      "reading": "はんざい",
+      "romaji": "hanzai",
+      "definition": "tội phạm; hành vi phạm tội",
+      "exampleSentence": "犯罪をなくすために、地域で見回りをしている。",
+      "exampleTranslation": "Để giảm tội phạm, khu vực đang tổ chức tuần tra.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 50818,
+      "term": "容疑者",
+      "reading": "ようぎしゃ",
+      "romaji": "yougisha",
+      "definition": "nghi phạm",
+      "exampleSentence": "警察は容疑者から話を聞いた。",
+      "exampleTranslation": "Cảnh sát đã thẩm vấn nghi phạm.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 50819,
+      "term": "逮捕",
+      "reading": "たいほ",
+      "romaji": "taiho",
+      "definition": "bắt giữ",
+      "exampleSentence": "警察は詐欺の疑いで男を逮捕した。",
+      "exampleTranslation": "Cảnh sát đã bắt người đàn ông vì bị nghi lừa đảo.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 50820,
+      "term": "原告",
+      "reading": "げんこく",
+      "romaji": "genkoku",
+      "definition": "nguyên đơn",
+      "exampleSentence": "原告は会社に損害賠償を求めた。",
+      "exampleTranslation": "Nguyên đơn yêu cầu công ty bồi thường thiệt hại.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 50821,
+      "term": "被告",
+      "reading": "ひこく",
+      "romaji": "hikoku",
+      "definition": "bị đơn; bị cáo",
+      "exampleSentence": "被告は裁判で自分の意見を述べた。",
+      "exampleTranslation": "Bị cáo đã trình bày ý kiến của mình tại phiên tòa.",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 50822,
+      "term": "有罪",
+      "reading": "ゆうざい",
+      "romaji": "yuuzai",
+      "definition": "có tội",
+      "exampleSentence": "裁判の結果、被告は有罪になった。",
+      "exampleTranslation": "Sau phiên tòa, bị cáo bị kết tội.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 50823,
+      "term": "無罪",
+      "reading": "むざい",
+      "romaji": "muzai",
+      "definition": "vô tội",
+      "exampleSentence": "証拠が不十分だったため、被告は無罪になった。",
+      "exampleTranslation": "Vì bằng chứng không đủ, bị cáo được tuyên vô tội.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

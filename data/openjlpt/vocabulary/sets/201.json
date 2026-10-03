@@ -1,0 +1,176 @@
+{
+  "id": 201,
+  "title": "Tuần 2 · Ngày 1 - 感情動詞 (Động từ cảm xúc)",
+  "description": "Nihongo Soumatome N3 語彙 — 感情動詞 (Động từ cảm xúc)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:18.966815",
+  "cards": [
+    {
+      "id": 5341,
+      "term": "悲しむ (かなしむ)",
+      "reading": "かなしむ",
+      "romaji": "kanashimu",
+      "definition": "buồn, đau lòng",
+      "exampleSentence": "人は大切な人を失うと、深く悲しむものだ。",
+      "exampleTranslation": "Khi mất đi người quan trọng, con người thường đau buồn sâu sắc.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5342,
+      "term": "喜ぶ (よろこぶ)",
+      "reading": "よろこぶ",
+      "romaji": "yorokobu",
+      "definition": "vui mừng, hân hoan",
+      "exampleSentence": "努力が認められれば、誰でもきっと喜ぶだろう。",
+      "exampleTranslation": "Nếu sự nỗ lực được công nhận thì chắc hẳn ai cũng sẽ vui mừng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5343,
+      "term": "怒る (おこる)",
+      "reading": "おこる",
+      "romaji": "okoru",
+      "definition": "tức giận, nổi giận",
+      "exampleSentence": "そんな失礼な言い方をすれば、彼は怒るよ。",
+      "exampleTranslation": "Nếu nói năng thất lễ như vậy thì anh ấy sẽ nổi giận đấy.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5344,
+      "term": "驚く (おどろく)",
+      "reading": "おどろく",
+      "romaji": "odoroku",
+      "definition": "ngạc nhiên, giật mình",
+      "exampleSentence": "突然大きな音がしたら、誰でも驚く。",
+      "exampleTranslation": "Nếu đột nhiên có tiếng động lớn thì ai cũng sẽ giật mình.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5345,
+      "term": "心配する (しんぱいする)",
+      "reading": "しんぱいする",
+      "romaji": "shinpai suru",
+      "definition": "lo lắng, lo âu",
+      "exampleSentence": "親は子どものことをいつも心配するものだ。",
+      "exampleTranslation": "Cha mẹ lúc nào cũng lo lắng cho con cái.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5346,
+      "term": "安心する (あんしんする)",
+      "reading": "あんしんする",
+      "romaji": "anshin suru",
+      "definition": "yên tâm, an lòng",
+      "exampleSentence": "医者から問題ないと言われて、ようやく安心することができた。",
+      "exampleTranslation": "Sau khi được bác sĩ nói rằng không có vấn đề gì, cuối cùng tôi cũng có thể yên tâm.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5347,
+      "term": "緊張する (きんちょうする)",
+      "reading": "きんちょうする",
+      "romaji": "kinchou suru",
+      "definition": "căng thẳng, hồi hộp",
+      "exampleSentence": "人前で話すと、今でも緊張することがあります。",
+      "exampleTranslation": "Mỗi khi nói trước đám đông, đến giờ tôi vẫn có lúc hồi hộp.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5348,
+      "term": "落ち着く (おちつく)",
+      "reading": "おちつく",
+      "romaji": "ochitsuku",
+      "definition": "bình tĩnh lại, ổn định",
+      "exampleSentence": "深呼吸をすると、少しずつ落ち着くことができます。",
+      "exampleTranslation": "Hít thở sâu sẽ giúp bạn dần bình tĩnh lại.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5349,
+      "term": "感動する (かんどうする)",
+      "reading": "かんどうする",
+      "romaji": "kandou suru",
+      "definition": "cảm động, xúc động",
+      "exampleSentence": "その映画を見るたびに、家族の大切さに感動する。",
+      "exampleTranslation": "Mỗi lần xem bộ phim đó, tôi lại xúc động trước sự quý giá của gia đình.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5350,
+      "term": "失望する (しつぼうする)",
+      "reading": "しつぼうする",
+      "romaji": "shitsubou suru",
+      "definition": "thất vọng",
+      "exampleSentence": "そんな約束を破られると、誰でも失望する。",
+      "exampleTranslation": "Nếu bị thất hứa như vậy thì bất cứ ai cũng sẽ thất vọng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5351,
+      "term": "満足する (まんぞくする)",
+      "reading": "まんぞくする",
+      "romaji": "manzoku suru",
+      "definition": "hài lòng, thỏa mãn",
+      "exampleSentence": "料理の味と丁寧なサービスに、客は満足するだろう。",
+      "exampleTranslation": "Khách hàng chắc sẽ hài lòng với hương vị món ăn và dịch vụ chu đáo.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5352,
+      "term": "退屈する (たいくつする)",
+      "reading": "たいくつする",
+      "romaji": "taikutsu suru",
+      "definition": "chán, buồn tẻ",
+      "exampleSentence": "何もすることがない休日は、子どもでも退屈する。",
+      "exampleTranslation": "Ngay cả trẻ em cũng thấy chán vào những ngày nghỉ không có việc gì làm.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5353,
+      "term": "後悔する (こうかいする)",
+      "reading": "こうかいする",
+      "romaji": "koukai suru",
+      "definition": "hối hận, hối tiếc",
+      "exampleSentence": "よく考えずに決めると、あとで後悔する。",
+      "exampleTranslation": "Nếu quyết định mà không suy nghĩ kỹ, sau này bạn sẽ hối hận.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5354,
+      "term": "恥じる (はじる)",
+      "reading": "はじる",
+      "romaji": "hajiru",
+      "definition": "xấu hổ, hổ thẹn",
+      "exampleSentence": "自分の失敗を恥じるより、次に生かすことが大切です。",
+      "exampleTranslation": "Điều quan trọng là rút kinh nghiệm cho lần sau hơn là xấu hổ vì thất bại của mình.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5355,
+      "term": "諦める (あきらめる)",
+      "reading": "あきらめる",
+      "romaji": "akirameru",
+      "definition": "bỏ cuộc, từ bỏ, chấp nhận",
+      "exampleSentence": "難しくても、最後まで諦めるべきではありません。",
+      "exampleTranslation": "Dù khó khăn, bạn không nên bỏ cuộc cho đến phút cuối.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

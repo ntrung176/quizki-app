@@ -1,0 +1,176 @@
+{
+  "id": 229,
+  "title": "Tuần 6 · Ngày 1 - 擬音語 (Từ tượng thanh)",
+  "description": "Nihongo Soumatome N3 語彙 — 擬音語 (Từ tượng thanh)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.675381",
+  "cards": [
+    {
+      "id": 5701,
+      "term": "ざーざー",
+      "reading": "ざーざー",
+      "romaji": "zaazaa",
+      "definition": "tiếng mưa to, âm thanh mưa xối xả",
+      "exampleSentence": "外では雨がざーざー降っているので、今日は出かけません。",
+      "exampleTranslation": "Ngoài trời mưa xối xả nên hôm nay tôi không ra ngoài.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5702,
+      "term": "ぴかぴか",
+      "reading": "ぴかぴか",
+      "romaji": "pikapika",
+      "definition": "sáng bóng, lấp lánh",
+      "exampleSentence": "母は毎朝、玄関の靴をぴかぴかに磨きます。",
+      "exampleTranslation": "Mẹ đánh giày ở cửa ra vào sáng bóng mỗi ngày.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5703,
+      "term": "どんどん",
+      "reading": "どんどん",
+      "romaji": "dondon",
+      "definition": "liên tục, ngày càng, dần dần",
+      "exampleSentence": "春になると、庭の花がどんどん咲き始めます。",
+      "exampleTranslation": "Khi mùa xuân đến, hoa trong vườn bắt đầu nở ngày càng nhiều.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5704,
+      "term": "がたがた",
+      "reading": "がたがた",
+      "romaji": "gatagata",
+      "definition": "lạch cạch, run rẩy, lắc lư",
+      "exampleSentence": "古い電車ががたがた揺れて、なかなか眠れませんでした。",
+      "exampleTranslation": "Chuyến tàu cũ lắc lư lạch cạch khiến tôi mãi không ngủ được.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5705,
+      "term": "ぱらぱら",
+      "reading": "ぱらぱら",
+      "romaji": "parapara",
+      "definition": "lác đác, lật nhanh trang sách",
+      "exampleSentence": "雨がぱらぱら降り始めたので、急いで帰りました。",
+      "exampleTranslation": "Vì mưa bắt đầu rơi lác đác nên tôi đã vội về nhà.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5706,
+      "term": "ざわざわ",
+      "reading": "ざわざわ",
+      "romaji": "zawazawa",
+      "definition": "xôn xao, ồn ào, náo nhiệt",
+      "exampleSentence": "教室は試験の結果を待つ学生たちでざわざわしていました。",
+      "exampleTranslation": "Lớp học xôn xao vì các sinh viên đang chờ kết quả thi.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5707,
+      "term": "がんがん",
+      "reading": "がんがん",
+      "romaji": "gangan",
+      "definition": "đau nhức mạnh, tiếng vang ầm",
+      "exampleSentence": "朝から頭がんがん痛くて、仕事に集中できない。",
+      "exampleTranslation": "Từ sáng đầu tôi đã đau nhức dữ dội nên không thể tập trung làm việc.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5708,
+      "term": "ぽたぽた",
+      "reading": "ぽたぽた",
+      "romaji": "potapota",
+      "definition": "tí tách, nhỏ giọt",
+      "exampleSentence": "雨漏りした天井から、水がぽたぽた落ちている。",
+      "exampleTranslation": "Nước đang nhỏ tí tách từ trần nhà bị dột.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5709,
+      "term": "さらさら",
+      "reading": "さらさら",
+      "romaji": "sarasara",
+      "definition": "trơn tru, chảy nhẹ nhàng",
+      "exampleSentence": "川の水がさらさら流れる音を聞きながら、歩いた。",
+      "exampleTranslation": "Tôi vừa đi bộ vừa nghe tiếng nước sông chảy róc rách.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5710,
+      "term": "ごろごろ",
+      "reading": "ごろごろ",
+      "romaji": "gorogoro",
+      "definition": "lăn lóc, ầm ầm (sấm), nằm lười",
+      "exampleSentence": "雷がごろごろ鳴り始めたので、窓を閉めた。",
+      "exampleTranslation": "Vì sấm bắt đầu vang ầm ầm nên tôi đã đóng cửa sổ.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5711,
+      "term": "ばらばら",
+      "reading": "ばらばら",
+      "romaji": "barabara",
+      "definition": "rời rạc, tản mác, không thống nhất",
+      "exampleSentence": "会議の後、参加者はばらばらに帰っていった。",
+      "exampleTranslation": "Sau cuộc họp, những người tham gia lần lượt ra về mỗi người một hướng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5712,
+      "term": "きらきら",
+      "reading": "きらきら",
+      "romaji": "kirakira",
+      "definition": "lấp lánh, sáng lấp lánh",
+      "exampleSentence": "湖の水面が朝日に照らされて、きらきら輝いている。",
+      "exampleTranslation": "Mặt hồ được ánh nắng ban mai chiếu vào, lấp lánh rực rỡ.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5713,
+      "term": "ちらちら",
+      "reading": "ちらちら",
+      "romaji": "chirachira",
+      "definition": "le lói, nhìn trộm, lác đác",
+      "exampleSentence": "電車の窓から、雪がちらちら降っているのが見えた。",
+      "exampleTranslation": "Nhìn từ cửa sổ tàu, tôi thấy tuyết đang lác đác rơi.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5714,
+      "term": "ぼたぼた",
+      "reading": "ぼたぼた",
+      "romaji": "botabota",
+      "definition": "nhỏ giọt to, nhỏ từng giọt lớn",
+      "exampleSentence": "溶けたアイスが手の上にぼたぼた落ちてきた。",
+      "exampleTranslation": "Kem tan chảy từng giọt lớn xuống tay tôi.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5715,
+      "term": "がちゃがちゃ",
+      "reading": "がちゃがちゃ",
+      "romaji": "gachagacha",
+      "definition": "leng keng, lộn xộn, ầm ĩ",
+      "exampleSentence": "かばんの中で、鍵ががちゃがちゃ鳴っている。",
+      "exampleTranslation": "Chùm chìa khóa đang kêu leng keng trong túi.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

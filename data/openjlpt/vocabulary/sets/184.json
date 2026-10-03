@@ -1,0 +1,378 @@
+{
+  "id": 184,
+  "title": "難読漢字 N2",
+  "description": "Kanji khó đọc N2 · 30 chữ thách thức",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:15.166313",
+  "cards": [
+    {
+      "id": 5051,
+      "term": "雰囲気",
+      "reading": "ふんいき",
+      "romaji": "fun-iki",
+      "definition": "Không khí / bầu không khí",
+      "exampleSentence": "このレストランの雰囲気が好きです。",
+      "exampleTranslation": "Tôi thích không khí của nhà hàng này.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5052,
+      "term": "曖昧",
+      "reading": "あいまい",
+      "romaji": "aimai",
+      "definition": "Mơ hồ / không rõ ràng",
+      "exampleSentence": "曖昧な表現を使わないでください。",
+      "exampleTranslation": "Đừng dùng cách diễn đạt mơ hồ.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5053,
+      "term": "絶妙",
+      "reading": "ぜつみょう",
+      "romaji": "zetsumyou",
+      "definition": "Tuyệt diệu / tinh tế",
+      "exampleSentence": "絶妙なバランスで仕上げました。",
+      "exampleTranslation": "Hoàn thành với sự cân bằng tuyệt diệu.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5054,
+      "term": "憂鬱",
+      "reading": "ゆううつ",
+      "romaji": "yuuutsu",
+      "definition": "Buồn bã / ưu uất",
+      "exampleSentence": "雨の日は憂鬱になります。",
+      "exampleTranslation": "Ngày mưa tôi trở nên buồn bã.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5055,
+      "term": "遮断",
+      "reading": "しゃだん",
+      "romaji": "shadan",
+      "definition": "Cắt đứt / ngăn chặn",
+      "exampleSentence": "電源を遮断しました。",
+      "exampleTranslation": "Đã cắt nguồn điện.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5056,
+      "term": "麒麟",
+      "reading": "きりん",
+      "romaji": "kirin",
+      "definition": "Hươu cao cổ / kỳ lân",
+      "exampleSentence": "麒麟は首が長い動物です。",
+      "exampleTranslation": "Hươu cao cổ là con vật có cổ dài.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5057,
+      "term": "薔薇",
+      "reading": "ばら",
+      "romaji": "bara",
+      "definition": "Hoa hồng",
+      "exampleSentence": "薔薇の花を贈りました。",
+      "exampleTranslation": "Tôi đã tặng hoa hồng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5058,
+      "term": "鳳凰",
+      "reading": "ほうおう",
+      "romaji": "houou",
+      "definition": "Phượng hoàng",
+      "exampleSentence": "鳳凰は不死の鳥です。",
+      "exampleTranslation": "Phượng hoàng là con chim bất tử.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5059,
+      "term": "蝶々",
+      "reading": "ちょうちょ",
+      "romaji": "chouchou",
+      "definition": "Con bướm",
+      "exampleSentence": "庭に美しい蝶々が飛んでいます。",
+      "exampleTranslation": "Con bướm đẹp đang bay trong vườn.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5060,
+      "term": "蜻蛉",
+      "reading": "とんぼ",
+      "romaji": "tonbo",
+      "definition": "Con chuồn chuồn",
+      "exampleSentence": "池の周りに蜻蛉が飛んでいます。",
+      "exampleTranslation": "Chuồn chuồn đang bay quanh ao.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5061,
+      "term": "蛍",
+      "reading": "ほたる",
+      "romaji": "hotaru",
+      "definition": "Con đom đóm",
+      "exampleSentence": "夏に蛍が光ります。",
+      "exampleTranslation": "Mùa hè đom đóm phát sáng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5062,
+      "term": "蝸牛",
+      "reading": "かたつむり",
+      "romaji": "katatsumuri",
+      "definition": "Con ốc sên",
+      "exampleSentence": "雨の日に蝸牛が出てきます。",
+      "exampleTranslation": "Ngày mưa ốc sên xuất hiện.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5063,
+      "term": "梟",
+      "reading": "ふくろう",
+      "romaji": "fukurou",
+      "definition": "Con cú / cú mèo",
+      "exampleSentence": "梟は夜活動します。",
+      "exampleTranslation": "Cú mèo hoạt động vào ban đêm.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5064,
+      "term": "鶯",
+      "reading": "うぐいす",
+      "romaji": "uguisu",
+      "definition": "Chim oanh",
+      "exampleSentence": "春になると鶯が鳴きます。",
+      "exampleTranslation": "Vào mùa xuân chim oanh kêu.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5065,
+      "term": "椿",
+      "reading": "つばき",
+      "romaji": "tsubaki",
+      "definition": "Hoa trà / hoa sơn trà",
+      "exampleSentence": "椿の花が咲きました。",
+      "exampleTranslation": "Hoa trà đã nở.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 5066,
+      "term": "躊躇",
+      "reading": "ちゅうちょ",
+      "romaji": "chuucho",
+      "definition": "Do dự / ngần ngại",
+      "exampleSentence": "躊躇せずに行動しなさい。",
+      "exampleTranslation": "Hãy hành động không do dự.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 5067,
+      "term": "漸次",
+      "reading": "ぜんじ",
+      "romaji": "zenji",
+      "definition": "Dần dần / từ từ (văn trang trọng)",
+      "exampleSentence": "問題が漸次解決されていきます。",
+      "exampleTranslation": "Vấn đề dần dần được giải quyết.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 5068,
+      "term": "顰蹙",
+      "reading": "ひんしゅく",
+      "romaji": "hinshuku",
+      "definition": "Sự chê bai / coi thường",
+      "exampleSentence": "公衆の顰蹙を買いました。",
+      "exampleTranslation": "Bị công chúng chê bai.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 5069,
+      "term": "嗚咽",
+      "reading": "おえつ",
+      "romaji": "oetsu",
+      "definition": "Nức nở / khóc thổn thức",
+      "exampleSentence": "嗚咽しながら話しました。",
+      "exampleTranslation": "Nói chuyện trong tiếng nức nở.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 5070,
+      "term": "吃音",
+      "reading": "きつおん",
+      "romaji": "kitsion",
+      "definition": "Nói lắp",
+      "exampleSentence": "吃音の人を支援する団体があります。",
+      "exampleTranslation": "Có tổ chức hỗ trợ người nói lắp.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 51168,
+      "term": "生憎",
+      "reading": "あいにく",
+      "romaji": "ainiku",
+      "definition": "thật không may, tiếc là",
+      "exampleSentence": "生憎、今日は予定があるので参加できません。",
+      "exampleTranslation": "Tiếc là hôm nay tôi có việc nên không thể tham gia.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 51169,
+      "term": "大袈裟",
+      "reading": "おおげさ",
+      "romaji": "oogesa",
+      "definition": "phóng đại, làm quá",
+      "exampleSentence": "彼は少しのけがを大袈裟に説明した。",
+      "exampleTranslation": "Anh ấy mô tả vết thương nhỏ một cách quá mức.",
+      "forms": [
+        "大袈裟です",
+        "大袈裟な",
+        "大袈裟ではない"
+      ],
+      "displayOrder": 21
+    },
+    {
+      "id": 51170,
+      "term": "滑稽",
+      "reading": "こっけい",
+      "romaji": "kokkei",
+      "definition": "hài hước, nực cười",
+      "exampleSentence": "その映画は内容が滑稽で、何度も笑ってしまった。",
+      "exampleTranslation": "Bộ phim đó rất hài hước khiến tôi bật cười nhiều lần.",
+      "forms": [
+        "滑稽です",
+        "滑稽な",
+        "滑稽ではない"
+      ],
+      "displayOrder": 22
+    },
+    {
+      "id": 51171,
+      "term": "脆弱",
+      "reading": "ぜいじゃく",
+      "romaji": "zeijaku",
+      "definition": "yếu ớt, dễ tổn thương",
+      "exampleSentence": "この古い橋は構造が脆弱なので、渡らないでください。",
+      "exampleTranslation": "Cây cầu cũ này có kết cấu yếu nên xin đừng đi qua.",
+      "forms": [
+        "脆弱です",
+        "脆弱な",
+        "脆弱ではない"
+      ],
+      "displayOrder": 23
+    },
+    {
+      "id": 51172,
+      "term": "余韻",
+      "reading": "よいん",
+      "romaji": "yoin",
+      "definition": "dư âm",
+      "exampleSentence": "静かな音楽を聴くと、昔の思い出の余韻が残る。",
+      "exampleTranslation": "Nghe nhạc nhẹ khiến dư âm của những kỷ niệm xưa còn lại.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 51173,
+      "term": "斡旋",
+      "reading": "あっせん",
+      "romaji": "assen",
+      "definition": "môi giới, sắp xếp",
+      "exampleSentence": "大学は学生にインターン先を斡旋している。",
+      "exampleTranslation": "Trường đại học đang sắp xếp nơi thực tập cho sinh viên.",
+      "forms": [
+        "斡旋します",
+        "斡旋して",
+        "斡旋した",
+        "斡旋しない"
+      ],
+      "displayOrder": 25
+    },
+    {
+      "id": 51174,
+      "term": "辟易",
+      "reading": "へきえき",
+      "romaji": "hekieki",
+      "definition": "phát ngán, chán ngấy",
+      "exampleSentence": "長い会議に辟易して、彼は早く帰りたがっていた。",
+      "exampleTranslation": "Phát ngán vì cuộc họp dài, anh ấy muốn về sớm.",
+      "forms": [
+        "辟易します",
+        "辟易して",
+        "辟易した",
+        "辟易しない"
+      ],
+      "displayOrder": 26
+    },
+    {
+      "id": 51175,
+      "term": "反芻",
+      "reading": "はんすう",
+      "romaji": "hansuu",
+      "definition": "nhai lại; nghiền ngẫm",
+      "exampleSentence": "牛は一度飲み込んだ草を反芻する。",
+      "exampleTranslation": "Bò nhai lại phần cỏ đã nuốt một lần.",
+      "forms": [
+        "反芻します",
+        "反芻して",
+        "反芻した",
+        "反芻しない"
+      ],
+      "displayOrder": 27
+    },
+    {
+      "id": 51176,
+      "term": "狼狽",
+      "reading": "ろうばい",
+      "romaji": "roubai",
+      "definition": "hoảng hốt, luống cuống",
+      "exampleSentence": "予想外の質問をされ、彼は人前で狼狽した。",
+      "exampleTranslation": "Bị hỏi một câu bất ngờ, anh ấy đã luống cuống trước mọi người.",
+      "forms": [
+        "狼狽します",
+        "狼狽して",
+        "狼狽した",
+        "狼狽しない"
+      ],
+      "displayOrder": 28
+    },
+    {
+      "id": 51177,
+      "term": "乖離",
+      "reading": "かいり",
+      "romaji": "kairi",
+      "definition": "sự khác biệt, phân tách",
+      "exampleSentence": "理想と現実が乖離していることに気づいた。",
+      "exampleTranslation": "Tôi nhận ra lý tưởng và thực tế đang cách xa nhau.",
+      "forms": [
+        "乖離します",
+        "乖離して",
+        "乖離した",
+        "乖離しない"
+      ],
+      "displayOrder": 29
+    }
+  ]
+}

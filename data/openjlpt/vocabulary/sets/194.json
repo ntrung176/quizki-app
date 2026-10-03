@@ -1,0 +1,176 @@
+{
+  "id": 194,
+  "title": "Tuần 1 · Ngày 1 - い形容詞① (Tính từ đuôi -い nhóm 1)",
+  "description": "Nihongo Soumatome N3 語彙 — い形容詞① (Tính từ đuôi -い nhóm 1)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:18.707544",
+  "cards": [
+    {
+      "id": 5251,
+      "term": "激しい (はげしい)",
+      "reading": "はげしい",
+      "romaji": "hageshii",
+      "definition": "dữ dội, mãnh liệt",
+      "exampleSentence": "激しい雨が降っているので、今日は早めに帰りましょう。",
+      "exampleTranslation": "Vì trời đang mưa dữ dội nên hôm nay chúng ta hãy về sớm nhé.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5252,
+      "term": "珍しい (めずらしい)",
+      "reading": "めずらしい",
+      "romaji": "mezurashii",
+      "definition": "hiếm, lạ, hiếm có",
+      "exampleSentence": "珍しい鳥が庭に来たので、写真を撮りました。",
+      "exampleTranslation": "Vì có một con chim hiếm đến khu vườn nên tôi đã chụp ảnh.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5253,
+      "term": "惜しい (おしい)",
+      "reading": "おしい",
+      "romaji": "oshii",
+      "definition": "đáng tiếc, uổng",
+      "exampleSentence": "惜しいところで試合に負けてしまって、みんな残念そうだった。",
+      "exampleTranslation": "Cả đội trông rất tiếc vì đã thua trận ngay vào thời khắc quyết định.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5254,
+      "term": "厳しい (きびしい)",
+      "reading": "きびしい",
+      "romaji": "kibishii",
+      "definition": "nghiêm khắc, khắt khe",
+      "exampleSentence": "厳しい先生ですが、学生のことをよく考えています。",
+      "exampleTranslation": "Thầy giáo tuy nghiêm khắc nhưng luôn quan tâm đến học sinh.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5255,
+      "term": "詳しい (くわしい)",
+      "reading": "くわしい",
+      "romaji": "kuwashii",
+      "definition": "chi tiết, am hiểu, rành",
+      "exampleSentence": "詳しいことは、担当者に聞いてください。",
+      "exampleTranslation": "Về những chi tiết cụ thể, hãy hỏi người phụ trách.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5256,
+      "term": "悔しい (くやしい)",
+      "reading": "くやしい",
+      "romaji": "kuyashii",
+      "definition": "ức tức, cay cú, hối tiếc",
+      "exampleSentence": "試合に負けて悔しいけれど、次は必ず勝ちたい。",
+      "exampleTranslation": "Tôi rất ấm ức vì thua trận, nhưng lần sau nhất định muốn chiến thắng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5257,
+      "term": "恥ずかしい (はずかしい)",
+      "reading": "はずかしい",
+      "romaji": "hazukashii",
+      "definition": "xấu hổ, mắc cỡ",
+      "exampleSentence": "人前で名前を間違えるのは恥ずかしいです。",
+      "exampleTranslation": "Việc gọi nhầm tên trước mặt mọi người thật xấu hổ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5258,
+      "term": "眩しい (まぶしい)",
+      "reading": "まぶしい",
+      "romaji": "mabushii",
+      "definition": "chói mắt, sáng chói",
+      "exampleSentence": "朝の太陽が眩しいので、サングラスをかけました。",
+      "exampleTranslation": "Vì ánh nắng buổi sáng chói mắt nên tôi đã đeo kính râm.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5259,
+      "term": "羨ましい (うらやましい)",
+      "reading": "うらやましい",
+      "romaji": "urayamashii",
+      "definition": "ghen tị, thèm muốn",
+      "exampleSentence": "友達が海外で働いているのが羨ましいです。",
+      "exampleTranslation": "Tôi ghen tị với việc bạn mình đang làm việc ở nước ngoài.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5260,
+      "term": "懐かしい (なつかしい)",
+      "reading": "なつかしい",
+      "romaji": "natsukashii",
+      "definition": "hoài niệm, nhớ lại",
+      "exampleSentence": "この歌を聞くと、学生時代が懐かしいです。",
+      "exampleTranslation": "Mỗi khi nghe bài hát này, tôi lại nhớ thời còn đi học.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5261,
+      "term": "鋭い (するどい)",
+      "reading": "するどい",
+      "romaji": "surudoi",
+      "definition": "sắc bén, nhạy bén",
+      "exampleSentence": "彼は鋭い質問をして、問題の核心を突きました。",
+      "exampleTranslation": "Anh ấy đặt một câu hỏi sắc bén và đi thẳng vào trọng tâm của vấn đề.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5262,
+      "term": "鈍い (にぶい)",
+      "reading": "にぶい",
+      "romaji": "nibui",
+      "definition": "chậm chạp, cùn, lờ đờ",
+      "exampleSentence": "この包丁は切れ味が鈍いので、研いでください。",
+      "exampleTranslation": "Con dao này bị cùn nên hãy mài nó đi.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5263,
+      "term": "乏しい (とぼしい)",
+      "reading": "とぼしい",
+      "romaji": "toboshii",
+      "definition": "nghèo nàn, thiếu thốn, ít ỏi",
+      "exampleSentence": "この地域は水資源が乏しいため、節水が必要だ。",
+      "exampleTranslation": "Khu vực này thiếu tài nguyên nước nên cần tiết kiệm nước.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5264,
+      "term": "ふさわしい",
+      "reading": "ふさわしい",
+      "romaji": "fusawashii",
+      "definition": "thích hợp, phù hợp",
+      "exampleSentence": "彼は責任感が強く、リーダーにふさわしい人物だ。",
+      "exampleTranslation": "Anh ấy có tinh thần trách nhiệm cao và là người phù hợp làm lãnh đạo.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5265,
+      "term": "著しい (いちじるしい)",
+      "reading": "いちじるしい",
+      "romaji": "ichijirushii",
+      "definition": "đáng kể, nổi bật, rõ rệt",
+      "exampleSentence": "この町では、近年、外国人観光客の増加が著しい。",
+      "exampleTranslation": "Ở thị trấn này, những năm gần đây, số du khách nước ngoài tăng lên rõ rệt.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

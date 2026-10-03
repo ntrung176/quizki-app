@@ -1,0 +1,143 @@
+{
+  "id": 438,
+  "title": "ビジネス・仕事 · 競争・キャリアスキル",
+  "description": "Cạnh tranh & kỹ năng sự nghiệp — chủ đề Công việc & kinh doanh · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:48.456567",
+  "cards": [
+    {
+      "id": 11275,
+      "term": "キャリア",
+      "reading": "キャリア",
+      "romaji": null,
+      "definition": "sự nghiệp/career",
+      "exampleSentence": "自分のキャリアを考えた結果、海外で働くことを決めた。",
+      "exampleTranslation": "Sau khi cân nhắc về sự nghiệp của mình, tôi đã quyết định làm việc ở nước ngoài.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11276,
+      "term": "スキル",
+      "reading": "スキル",
+      "romaji": null,
+      "definition": "kỹ năng/skill",
+      "exampleSentence": "スキルを身につけるには、実際の仕事で経験を積むことが大切だ。",
+      "exampleTranslation": "Để trau dồi kỹ năng, việc tích lũy kinh nghiệm qua công việc thực tế là rất quan trọng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11277,
+      "term": "管理する (かんりする)",
+      "reading": "かんりする",
+      "romaji": null,
+      "definition": "quản lý, điều hành",
+      "exampleSentence": "このシステムは、専門の担当者が毎日管理する。",
+      "exampleTranslation": "Hệ thống này được nhân viên chuyên trách quản lý hằng ngày.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11278,
+      "term": "採用する (さいようする)",
+      "reading": "さいようする",
+      "romaji": null,
+      "definition": "tuyển dụng, thuê người",
+      "exampleSentence": "会社は経験よりも、仕事への意欲を重視して人を採用する。",
+      "exampleTranslation": "Công ty coi trọng nhiệt huyết với công việc hơn kinh nghiệm khi tuyển dụng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11279,
+      "term": "熟練する (じゅくれんする)",
+      "reading": "じゅくれんする",
+      "romaji": null,
+      "definition": "thành thạo, lành nghề",
+      "exampleSentence": "この仕事に熟練するには、長年の経験と努力が必要だ。",
+      "exampleTranslation": "Để thành thạo công việc này, cần nhiều năm kinh nghiệm và nỗ lực.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11280,
+      "term": "引き継ぐ (ひきつぐ)",
+      "reading": "ひきつぐ",
+      "romaji": null,
+      "definition": "tiếp nhận/kế thừa nhiệm vụ",
+      "exampleSentence": "退職する先輩から、私が顧客の担当を引き継ぐことになった。",
+      "exampleTranslation": "Tôi sẽ tiếp nhận việc phụ trách khách hàng từ người đi trước sắp nghỉ việc.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11281,
+      "term": "引き受ける (ひきうける)",
+      "reading": "ひきうける",
+      "romaji": null,
+      "definition": "nhận lãnh/chấp nhận trách nhiệm",
+      "exampleSentence": "私は新しいプロジェクトの責任者を引き受けることにした。",
+      "exampleTranslation": "Tôi đã quyết định nhận trách nhiệm phụ trách dự án mới.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11282,
+      "term": "競合他社 (きょうごうたしゃ)",
+      "reading": "きょうごうたしゃ",
+      "romaji": null,
+      "definition": "đối thủ cạnh tranh",
+      "exampleSentence": "競合他社の新製品が発売され、市場での競争がさらに激しくなった。",
+      "exampleTranslation": "Sản phẩm mới của đối thủ cạnh tranh được tung ra, khiến cạnh tranh trên thị trường càng trở nên gay gắt.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11283,
+      "term": "競争 (きょうそう)",
+      "reading": "きょうそう",
+      "romaji": null,
+      "definition": "cạnh tranh",
+      "exampleSentence": "価格だけで競争すると、会社の利益が少なくなってしまう。",
+      "exampleTranslation": "Nếu chỉ cạnh tranh bằng giá cả, lợi nhuận của công ty sẽ giảm đi.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11284,
+      "term": "採用 (さいよう)",
+      "reading": "さいよう",
+      "romaji": null,
+      "definition": "tuyển dụng/nhận vào",
+      "exampleSentence": "今回の採用では、専門知識と協調性のある人を求めています。",
+      "exampleTranslation": "Trong đợt tuyển dụng lần này, chúng tôi tìm kiếm những người có kiến thức chuyên môn và tinh thần hợp tác.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11285,
+      "term": "支援する (しえんする)",
+      "reading": "しえんする",
+      "romaji": null,
+      "definition": "hỗ trợ/ủng hộ",
+      "exampleSentence": "市は、子育て中の家庭を経済的に支援する。",
+      "exampleTranslation": "Thành phố hỗ trợ tài chính cho các gia đình đang nuôi con nhỏ.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11286,
+      "term": "申し込む (もうしこむ)",
+      "reading": "もうしこむ",
+      "romaji": null,
+      "definition": "đăng ký/nộp đơn",
+      "exampleSentence": "参加したい人は、今週中にウェブサイトから申し込む。",
+      "exampleTranslation": "Những ai muốn tham gia hãy đăng ký trên trang web trong tuần này.",
+      "forms": [],
+      "displayOrder": 11
+    }
+  ]
+}

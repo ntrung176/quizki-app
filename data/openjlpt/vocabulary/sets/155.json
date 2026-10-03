@@ -1,0 +1,359 @@
+{
+  "id": 155,
+  "title": "音楽・エンタメ",
+  "description": "Âm nhạc và giải trí · 30 từ N3",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:12.539183",
+  "cards": [
+    {
+      "id": 4495,
+      "term": "演奏",
+      "reading": "えんそう",
+      "romaji": "ensou",
+      "definition": "Biểu diễn (âm nhạc)",
+      "exampleSentence": "コンサートで演奏しました。",
+      "exampleTranslation": "Tôi đã biểu diễn trong buổi hòa nhạc.",
+      "forms": [
+        "演奏します",
+        "演奏して",
+        "演奏した",
+        "演奏しない",
+        "演奏できる"
+      ],
+      "displayOrder": 0
+    },
+    {
+      "id": 4496,
+      "term": "作曲",
+      "reading": "さっきょく",
+      "romaji": "sakkyoku",
+      "definition": "Sáng tác nhạc",
+      "exampleSentence": "有名な作曲家になりたいです。",
+      "exampleTranslation": "Tôi muốn trở thành nhạc sĩ sáng tác nổi tiếng.",
+      "forms": [
+        "作曲します",
+        "作曲して",
+        "作曲した",
+        "作曲しない",
+        "作曲できる"
+      ],
+      "displayOrder": 1
+    },
+    {
+      "id": 4497,
+      "term": "歌詞",
+      "reading": "かし",
+      "romaji": "kashi",
+      "definition": "Lời bài hát",
+      "exampleSentence": "この曲の歌詞が心に響きます。",
+      "exampleTranslation": "Lời bài hát này chạm đến trái tim.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 4498,
+      "term": "メロディー",
+      "reading": "メロディー",
+      "romaji": "merodii",
+      "definition": "Giai điệu",
+      "exampleSentence": "美しいメロディーが耳に残ります。",
+      "exampleTranslation": "Giai điệu đẹp đọng lại trong tai.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 4499,
+      "term": "リズム",
+      "reading": "リズム",
+      "romaji": "rizumu",
+      "definition": "Nhịp điệu",
+      "exampleSentence": "このリズムに乗って踊ります。",
+      "exampleTranslation": "Tôi nhảy theo nhịp điệu này.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 4500,
+      "term": "アーティスト",
+      "reading": "アーティスト",
+      "romaji": "aatisuto",
+      "definition": "Nghệ sĩ",
+      "exampleSentence": "好きなアーティストのライブに行きます。",
+      "exampleTranslation": "Tôi đi xem live của nghệ sĩ yêu thích.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 4501,
+      "term": "ライブ",
+      "reading": "ライブ",
+      "romaji": "raibu",
+      "definition": "Biểu diễn trực tiếp / live",
+      "exampleSentence": "ライブで生の音楽を楽しみます。",
+      "exampleTranslation": "Tôi thưởng thức âm nhạc live trực tiếp.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 4502,
+      "term": "ドラマ",
+      "reading": "ドラマ",
+      "romaji": "dorama",
+      "definition": "Phim truyền hình / drama",
+      "exampleSentence": "日本のドラマが大好きです。",
+      "exampleTranslation": "Tôi rất thích phim truyền hình Nhật.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 4503,
+      "term": "アニメ",
+      "reading": "アニメ",
+      "romaji": "anime",
+      "definition": "Anime (hoạt hình Nhật)",
+      "exampleSentence": "アニメが世界中で人気です。",
+      "exampleTranslation": "Anime nổi tiếng trên toàn thế giới.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 4504,
+      "term": "声優",
+      "reading": "せいゆう",
+      "romaji": "seiyuu",
+      "definition": "Diễn viên lồng tiếng",
+      "exampleSentence": "有名な声優のトークイベントに参加しました。",
+      "exampleTranslation": "Tôi đã tham gia sự kiện của diễn viên lồng tiếng nổi tiếng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 4505,
+      "term": "配信",
+      "reading": "はいしん",
+      "romaji": "haishin",
+      "definition": "Phát trực tiếp / streaming",
+      "exampleSentence": "ライブ配信を見ています。",
+      "exampleTranslation": "Tôi đang xem livestream.",
+      "forms": [
+        "配信します",
+        "配信して",
+        "配信した",
+        "配信しない",
+        "配信できる"
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": 4506,
+      "term": "チャンネル",
+      "reading": "チャンネル",
+      "romaji": "channeru",
+      "definition": "Kênh (YouTube/TV)",
+      "exampleSentence": "好きなYouTubeチャンネルを登録しました。",
+      "exampleTranslation": "Tôi đã đăng ký kênh YouTube yêu thích.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 4507,
+      "term": "コンテンツ",
+      "reading": "コンテンツ",
+      "romaji": "kontentsu",
+      "definition": "Nội dung",
+      "exampleSentence": "面白いコンテンツを作りたいです。",
+      "exampleTranslation": "Tôi muốn tạo nội dung thú vị.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 4508,
+      "term": "ファン",
+      "reading": "ファン",
+      "romaji": "fan",
+      "definition": "Fan / người hâm mộ",
+      "exampleSentence": "熱狂的なファンが多いです。",
+      "exampleTranslation": "Có nhiều fan cuồng nhiệt.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 4509,
+      "term": "グッズ",
+      "reading": "グッズ",
+      "romaji": "guzzu",
+      "definition": "Đồ lưu niệm / merchandise",
+      "exampleSentence": "推しのグッズを集めています。",
+      "exampleTranslation": "Tôi đang sưu tập đồ lưu niệm của idol.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 4510,
+      "term": "映像",
+      "reading": "えいぞう",
+      "romaji": "eizou",
+      "definition": "Hình ảnh / video",
+      "exampleSentence": "美しい映像に感動しました。",
+      "exampleTranslation": "Tôi xúc động trước hình ảnh đẹp.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 4511,
+      "term": "舞台",
+      "reading": "ぶたい",
+      "romaji": "butai",
+      "definition": "Sân khấu / vở kịch",
+      "exampleSentence": "舞台俳優を目指しています。",
+      "exampleTranslation": "Tôi đang hướng tới trở thành diễn viên sân khấu.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 4512,
+      "term": "公演",
+      "reading": "こうえん",
+      "romaji": "kouen",
+      "definition": "Buổi biểu diễn / chương trình",
+      "exampleSentence": "今週末、公演があります。",
+      "exampleTranslation": "Cuối tuần này có buổi biểu diễn.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 4513,
+      "term": "エンターテイメント",
+      "reading": "エンターテイメント",
+      "romaji": "entaateimento",
+      "definition": "Giải trí",
+      "exampleSentence": "エンターテイメント業界で働きたいです。",
+      "exampleTranslation": "Tôi muốn làm việc trong ngành giải trí.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 4514,
+      "term": "著名人",
+      "reading": "ちょめいじん",
+      "romaji": "chomei jin",
+      "definition": "Người nổi tiếng / nhân vật nổi danh",
+      "exampleSentence": "著名人に会う機会がありました。",
+      "exampleTranslation": "Tôi có cơ hội gặp người nổi tiếng.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 50854,
+      "term": "楽器",
+      "reading": "がっき",
+      "romaji": "gakki",
+      "definition": "nhạc cụ",
+      "exampleSentence": "彼は子どものころからいろいろな楽器を演奏している。",
+      "exampleTranslation": "Anh ấy đã chơi nhiều loại nhạc cụ từ khi còn nhỏ.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 50855,
+      "term": "音楽家",
+      "reading": "おんがくか",
+      "romaji": "ongakuka",
+      "definition": "nhạc sĩ; người làm âm nhạc",
+      "exampleSentence": "その音楽家は海外でも高く評価されている。",
+      "exampleTranslation": "Nhạc sĩ đó cũng được đánh giá cao ở nước ngoài.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 50856,
+      "term": "俳優",
+      "reading": "はいゆう",
+      "romaji": "haiyuu",
+      "definition": "nam diễn viên",
+      "exampleSentence": "あの俳優はさまざまな役を演じてきた。",
+      "exampleTranslation": "Nam diễn viên đó đã đóng nhiều vai khác nhau.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 50857,
+      "term": "女優",
+      "reading": "じょゆう",
+      "romaji": "joyuu",
+      "definition": "nữ diễn viên",
+      "exampleSentence": "その女優は映画で難しい役に挑戦した。",
+      "exampleTranslation": "Nữ diễn viên đó đã thử sức với một vai diễn khó trong phim.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 50858,
+      "term": "主演",
+      "reading": "しゅえん",
+      "romaji": "shuen",
+      "definition": "vai chính; đóng vai chính",
+      "exampleSentence": "若い俳優がその映画で主演を務めた。",
+      "exampleTranslation": "Một nam diễn viên trẻ đã đảm nhận vai chính trong bộ phim đó.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 50859,
+      "term": "収録",
+      "reading": "しゅうろく",
+      "romaji": "shuuroku",
+      "definition": "thu âm; ghi hình",
+      "exampleSentence": "新しいアルバムには十曲が収録されている。",
+      "exampleTranslation": "Album mới có mười bài hát được thu âm.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 50860,
+      "term": "撮影",
+      "reading": "さつえい",
+      "romaji": "satsuei",
+      "definition": "quay phim; chụp ảnh",
+      "exampleSentence": "映画の撮影は来月から始まる予定だ。",
+      "exampleTranslation": "Việc quay phim dự kiến sẽ bắt đầu từ tháng sau.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 50861,
+      "term": "観客",
+      "reading": "かんきゃく",
+      "romaji": "kankyaku",
+      "definition": "khán giả",
+      "exampleSentence": "会場は大勢の観客でいっぱいになった。",
+      "exampleTranslation": "Hội trường đã chật kín khán giả.",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 50862,
+      "term": "鑑賞",
+      "reading": "かんしょう",
+      "romaji": "kanshou",
+      "definition": "thưởng thức; xem và cảm nhận",
+      "exampleSentence": "週末に友達と映画を鑑賞した。",
+      "exampleTranslation": "Cuối tuần tôi đã cùng bạn thưởng thức một bộ phim.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 50863,
+      "term": "受賞",
+      "reading": "じゅしょう",
+      "romaji": "jushou",
+      "definition": "nhận giải; đoạt giải",
+      "exampleSentence": "その作品は今年の映画賞を受賞した。",
+      "exampleTranslation": "Tác phẩm đó đã đoạt giải điện ảnh năm nay.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

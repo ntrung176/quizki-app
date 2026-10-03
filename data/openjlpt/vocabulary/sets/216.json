@@ -1,0 +1,176 @@
+{
+  "id": 216,
+  "title": "Tuần 4 · Ngày 2 - 思考・判断動詞 (Động từ tư duy & phán đoán)",
+  "description": "Nihongo Soumatome N3 語彙 — 思考・判断動詞 (Động từ tư duy & phán đoán)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.351541",
+  "cards": [
+    {
+      "id": 5536,
+      "term": "判断する (はんだんする)",
+      "reading": "はんだんする",
+      "romaji": "handan suru",
+      "definition": "phán đoán, đánh giá",
+      "exampleSentence": "十分な情報を集めてから、計画を実行するか判断する必要があります。",
+      "exampleTranslation": "Cần thu thập đủ thông tin rồi mới phán đoán xem có thực hiện kế hoạch hay không.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5537,
+      "term": "選ぶ (えらぶ)",
+      "reading": "えらぶ",
+      "romaji": "erabu",
+      "definition": "chọn lựa, lựa chọn",
+      "exampleSentence": "自分に合った仕事を選ぶために、先輩の意見を聞きました。",
+      "exampleTranslation": "Để chọn công việc phù hợp với bản thân, tôi đã hỏi ý kiến của người đi trước.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5538,
+      "term": "比べる (くらべる)",
+      "reading": "くらべる",
+      "romaji": "kuraberu",
+      "definition": "so sánh",
+      "exampleSentence": "二つの商品の値段と品質を比べると、こちらのほうが安心です。",
+      "exampleTranslation": "Nếu so sánh giá cả và chất lượng của hai sản phẩm thì sản phẩm này đáng tin cậy hơn.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5539,
+      "term": "調べる (しらべる)",
+      "reading": "しらべる",
+      "romaji": "shiraberu",
+      "definition": "điều tra, tìm hiểu, kiểm tra",
+      "exampleSentence": "旅行の前に、現地の天気を調べることにした。",
+      "exampleTranslation": "Trước chuyến đi, tôi đã quyết định tìm hiểu thời tiết ở địa phương.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5540,
+      "term": "確かめる (たしかめる)",
+      "reading": "たしかめる",
+      "romaji": "tashikameru",
+      "definition": "xác nhận, kiểm tra lại",
+      "exampleSentence": "申し込みを送る前に、名前と住所をもう一度確かめる必要があります。",
+      "exampleTranslation": "Trước khi gửi đơn đăng ký, cần kiểm tra lại tên và địa chỉ một lần nữa.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5541,
+      "term": "理解する (りかいする)",
+      "reading": "りかいする",
+      "romaji": "rikai suru",
+      "definition": "hiểu, thông hiểu",
+      "exampleSentence": "新しい制度を正しく理解するために、説明会に参加しました。",
+      "exampleTranslation": "Để hiểu đúng chế độ mới, tôi đã tham gia buổi giải thích.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5542,
+      "term": "気づく (きづく)",
+      "reading": "きづく",
+      "romaji": "kizuku",
+      "definition": "nhận ra, nhận thấy",
+      "exampleSentence": "駅に着いてから、財布を家に忘れたことに気づくことがある。",
+      "exampleTranslation": "Có khi đến ga rồi tôi mới nhận ra mình đã để quên ví ở nhà.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5543,
+      "term": "認める (みとめる)",
+      "reading": "みとめる",
+      "romaji": "mitomeru",
+      "definition": "thừa nhận, công nhận",
+      "exampleSentence": "彼は自分の間違いを素直に認めることができた。",
+      "exampleTranslation": "Anh ấy đã có thể thẳng thắn thừa nhận lỗi của mình.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5544,
+      "term": "許す (ゆるす)",
+      "reading": "ゆるす",
+      "romaji": "yurusu",
+      "definition": "tha thứ, cho phép",
+      "exampleSentence": "私は簡単には人を許すことができない。",
+      "exampleTranslation": "Tôi không thể dễ dàng tha thứ cho người khác.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5545,
+      "term": "主張する (しゅちょうする)",
+      "reading": "しゅちょうする",
+      "romaji": "shuchou suru",
+      "definition": "khẳng định, chủ trương, lập luận",
+      "exampleSentence": "専門家は、この方法が最も安全だと主張する。",
+      "exampleTranslation": "Chuyên gia khẳng định rằng phương pháp này là an toàn nhất.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5546,
+      "term": "疑う (うたがう)",
+      "reading": "うたがう",
+      "romaji": "utagau",
+      "definition": "nghi ngờ, hoài nghi",
+      "exampleSentence": "証拠がないのに、友達の言葉を疑うのはよくない。",
+      "exampleTranslation": "Không có bằng chứng mà nghi ngờ lời nói của bạn bè thì không hay.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5547,
+      "term": "信頼する (しんらいする)",
+      "reading": "しんらいする",
+      "romaji": "shinrai suru",
+      "definition": "tin tưởng, tin cậy",
+      "exampleSentence": "私は約束を守る彼を信頼する。",
+      "exampleTranslation": "Tôi tin tưởng anh ấy vì anh ấy luôn giữ lời hứa.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5548,
+      "term": "想像する (そうぞうする)",
+      "reading": "そうぞうする",
+      "romaji": "souzou suru",
+      "definition": "tưởng tượng, hình dung",
+      "exampleSentence": "遠い国で暮らす自分の姿を想像するのは楽しい。",
+      "exampleTranslation": "Thật thú vị khi tưởng tượng hình ảnh mình sống ở một đất nước xa xôi.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5549,
+      "term": "記憶する (きおくする)",
+      "reading": "きおくする",
+      "romaji": "kioku suru",
+      "definition": "ghi nhớ, lưu trong ký ức",
+      "exampleSentence": "新しい漢字は、何度も書いて記憶するようにしています。",
+      "exampleTranslation": "Tôi cố gắng ghi nhớ chữ Hán mới bằng cách viết đi viết lại nhiều lần.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5550,
+      "term": "忘れる (わすれる)",
+      "reading": "わすれる",
+      "romaji": "wasureru",
+      "definition": "quên, lãng quên",
+      "exampleSentence": "大切な約束を忘れると、相手に迷惑をかけてしまいます。",
+      "exampleTranslation": "Nếu quên một lời hứa quan trọng, bạn sẽ làm phiền người kia.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

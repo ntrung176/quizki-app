@@ -1,0 +1,165 @@
+{
+  "id": 501,
+  "title": "感情・性格 · 仕草・行動",
+  "description": "Cử chỉ & hành động — chủ đề Cảm xúc & tính cách · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:50.696196",
+  "cards": [
+    {
+      "id": 12503,
+      "term": "見つめる (みつめる)",
+      "reading": "みつめる",
+      "romaji": null,
+      "definition": "nhìn chằm chặp, nhìn chăm chú",
+      "exampleSentence": "子どもは水槽の魚を飽きずに見つめる。",
+      "exampleTranslation": "Đứa trẻ chăm chú ngắm những con cá trong bể mà không thấy chán.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12504,
+      "term": "動作 (どうさ)",
+      "reading": "どうさ",
+      "romaji": null,
+      "definition": "cử chỉ/động tác",
+      "exampleSentence": "先生はロボットの動作を一つ一つ確認した。",
+      "exampleTranslation": "Giáo viên đã kiểm tra từng động tác của robot.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12505,
+      "term": "うなずく",
+      "reading": "うなずく",
+      "romaji": null,
+      "definition": "gật đầu",
+      "exampleSentence": "相手の話を聞きながら、彼は何度もうなずく。",
+      "exampleTranslation": "Vừa nghe đối phương nói, anh ấy vừa gật đầu nhiều lần.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12506,
+      "term": "つぶやく",
+      "reading": "つぶやく",
+      "romaji": null,
+      "definition": "thầm thì/lẩm bẩm",
+      "exampleSentence": "彼が小声でつぶやく言葉には、深い悩みが隠れていた。",
+      "exampleTranslation": "Trong những lời anh ấy lẩm bẩm khe khẽ ẩn chứa một nỗi trăn trở sâu sắc.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12507,
+      "term": "行動パターン (こうどうパターン)",
+      "reading": "こうどうパターン",
+      "romaji": null,
+      "definition": "mẫu hành vi",
+      "exampleSentence": "その犯人の行動パターンを分析し、次に現れる場所を予測した。",
+      "exampleTranslation": "Họ đã phân tích mẫu hành vi của tên tội phạm và dự đoán nơi hắn sẽ xuất hiện tiếp theo.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12508,
+      "term": "仕草 (しぐさ)",
+      "reading": "しぐさ",
+      "romaji": null,
+      "definition": "điệu bộ/cử chỉ",
+      "exampleSentence": "彼女の小さな仕草から、緊張していることが伝わってきた。",
+      "exampleTranslation": "Qua những cử chỉ nhỏ của cô ấy, có thể cảm nhận được rằng cô ấy đang căng thẳng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12509,
+      "term": "指差す (ゆびさす)",
+      "reading": "ゆびさす",
+      "romaji": null,
+      "definition": "chỉ ngón tay vào",
+      "exampleSentence": "駅員が地図上の出口を指差すと、旅行者はすぐに理解した。",
+      "exampleTranslation": "Khi nhân viên nhà ga chỉ vào lối ra trên bản đồ, du khách lập tức hiểu ra.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12510,
+      "term": "手招き (てまねき)",
+      "reading": "てまねき",
+      "romaji": null,
+      "definition": "vẫy tay gọi",
+      "exampleSentence": "店員の手招きに応じて、客は店の中へ入っていった。",
+      "exampleTranslation": "Đáp lại cái vẫy tay gọi của nhân viên, vị khách đã bước vào trong cửa hàng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12511,
+      "term": "振る舞い (ふるまい)",
+      "reading": "ふるまい",
+      "romaji": null,
+      "definition": "cách ứng xử/hành xử",
+      "exampleSentence": "彼の礼儀正しい振る舞いは、周囲の人々に好印象を与えた。",
+      "exampleTranslation": "Cách ứng xử lịch sự của anh ấy đã tạo ấn tượng tốt với những người xung quanh.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12512,
+      "term": "振る舞う (ふるまう)",
+      "reading": "ふるまう",
+      "romaji": null,
+      "definition": "hành xử/ứng xử",
+      "exampleSentence": "公式の場では、立場にふさわしく振る舞うことが求められる。",
+      "exampleTranslation": "Trong những dịp chính thức, người ta được yêu cầu phải hành xử phù hợp với vị trí của mình.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12513,
+      "term": "模倣 (もほう)",
+      "reading": "もほう",
+      "romaji": null,
+      "definition": "bắt chước/mô phỏng",
+      "exampleSentence": "有名な画家の作品を模倣するだけでは、独自の表現は生まれない。",
+      "exampleTranslation": "Chỉ bắt chước tác phẩm của các họa sĩ nổi tiếng thì không thể tạo ra cách biểu đạt riêng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12514,
+      "term": "腕を組む (うでをくむ)",
+      "reading": "うでをくむ",
+      "romaji": null,
+      "definition": "khoanh tay",
+      "exampleSentence": "彼は腕を組む癖があり、考え事をするとすぐ黙り込んでしまう。",
+      "exampleTranslation": "Anh ấy có thói quen khoanh tay và cứ suy nghĩ là lại im lặng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12515,
+      "term": "口をつぐむ (くちをつぐむ)",
+      "reading": "くちをつぐむ",
+      "romaji": null,
+      "definition": "ngậm miệng/im lặng",
+      "exampleSentence": "彼は不正の事実を知りながら、最後まで口をつぐむことを選んだ。",
+      "exampleTranslation": "Biết rõ sự thật về hành vi gian lận, anh ấy vẫn chọn im lặng đến cùng.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12516,
+      "term": "所作 (しょさ)",
+      "reading": "しょさ",
+      "romaji": null,
+      "definition": "tác phong/cử chỉ",
+      "exampleSentence": "茶道では、客に対する一つ一つの所作に心遣いが表れる。",
+      "exampleTranslation": "Trong trà đạo, sự chu đáo được thể hiện qua từng cử chỉ đối với khách.",
+      "forms": [],
+      "displayOrder": 13
+    }
+  ]
+}

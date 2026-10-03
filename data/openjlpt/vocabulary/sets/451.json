@@ -1,0 +1,143 @@
+{
+  "id": 451,
+  "title": "医療・健康 · 美容・スキンケア",
+  "description": "Làm đẹp & chăm sóc da — chủ đề Y tế & sức khỏe · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.122373",
+  "cards": [
+    {
+      "id": 11532,
+      "term": "化粧 (けしょう)",
+      "reading": "けしょう",
+      "romaji": null,
+      "definition": "trang điểm",
+      "exampleSentence": "毎朝、出かける前に化粧をする。",
+      "exampleTranslation": "Mỗi sáng, tôi đều trang điểm trước khi ra ngoài.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11533,
+      "term": "スキンケア",
+      "reading": "スキンケア",
+      "romaji": null,
+      "definition": "chăm sóc da",
+      "exampleSentence": "肌の状態に合ったスキンケアを続けることが大切です。",
+      "exampleTranslation": "Điều quan trọng là duy trì việc chăm sóc da phù hợp với tình trạng da.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11534,
+      "term": "皮膚 (ひふ)",
+      "reading": "ひふ",
+      "romaji": null,
+      "definition": "da",
+      "exampleSentence": "この薬は、皮膚のかゆみを抑える効果があります。",
+      "exampleTranslation": "Loại thuốc này có tác dụng làm giảm ngứa da.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11535,
+      "term": "眉毛 (まゆげ)",
+      "reading": "まゆげ",
+      "romaji": null,
+      "definition": "lông mày",
+      "exampleSentence": "彼女は眉毛の形を整えて、顔の印象を変えた。",
+      "exampleTranslation": "Cô ấy tỉa lại dáng lông mày và thay đổi ấn tượng về khuôn mặt.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11536,
+      "term": "美容 (びよう)",
+      "reading": "びよう",
+      "romaji": null,
+      "definition": "làm đẹp",
+      "exampleSentence": "妹は美容に関心があり、毎月美容院へ通っている。",
+      "exampleTranslation": "Em gái tôi quan tâm đến việc làm đẹp và đi salon tóc mỗi tháng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11537,
+      "term": "しわ",
+      "reading": "しわ",
+      "romaji": null,
+      "definition": "nếp nhăn",
+      "exampleSentence": "年齢とともに、目の周りにしわが増えてきた。",
+      "exampleTranslation": "Theo tuổi tác, các nếp nhăn quanh mắt đã bắt đầu nhiều hơn.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11538,
+      "term": "まつげ",
+      "reading": "まつげ",
+      "romaji": null,
+      "definition": "lông mi",
+      "exampleSentence": "彼女は長いまつげがとても印象的だ。",
+      "exampleTranslation": "Cô ấy có hàng lông mi dài vô cùng ấn tượng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11539,
+      "term": "まぶた",
+      "reading": "まぶた",
+      "romaji": null,
+      "definition": "mí mắt",
+      "exampleSentence": "目にゴミが入って、まぶたが少し腫れている。",
+      "exampleTranslation": "Vì bị bụi bay vào mắt nên mí mắt hơi sưng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11540,
+      "term": "顔立ち (かおだち)",
+      "reading": "かおだち",
+      "romaji": null,
+      "definition": "đường nét khuôn mặt",
+      "exampleSentence": "彼は父親に似た顔立ちをしている。",
+      "exampleTranslation": "Anh ấy có đường nét khuôn mặt giống bố mình.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11541,
+      "term": "整形 (せいけい)",
+      "reading": "せいけい",
+      "romaji": null,
+      "definition": "phẫu thuật thẩm mỹ",
+      "exampleSentence": "整形を受ける前に、医師からリスクについて詳しく説明を受けた。",
+      "exampleTranslation": "Trước khi phẫu thuật thẩm mỹ, tôi đã được bác sĩ giải thích kỹ về những rủi ro.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11542,
+      "term": "肌荒れ (はだあれ)",
+      "reading": "はだあれ",
+      "romaji": null,
+      "definition": "da bị sần sùi/bong tróc",
+      "exampleSentence": "乾燥した空気のせいで肌荒れがひどく、化粧水を変えた。",
+      "exampleTranslation": "Vì không khí khô nên da tôi bị sần sùi nghiêm trọng, vì vậy tôi đã đổi loại nước hoa hồng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11543,
+      "term": "そばかす",
+      "reading": "そばかす",
+      "romaji": null,
+      "definition": "tàn nhang",
+      "exampleSentence": "彼女は子どもの頃からあるそばかすをチャームポイントとして気に入っている。",
+      "exampleTranslation": "Cô ấy thích những nốt tàn nhang có từ nhỏ và coi đó là nét duyên của mình.",
+      "forms": [],
+      "displayOrder": 11
+    }
+  ]
+}

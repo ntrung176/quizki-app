@@ -1,0 +1,421 @@
+{
+  "id": 86,
+  "title": "道案内",
+  "description": "Hỏi đường và chỉ đường · N5",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:53.530001",
+  "cards": [
+    {
+      "id": 2551,
+      "term": "すみません、〜はどこですか",
+      "reading": "すみません、〜はどこですか",
+      "romaji": "sumimasen doko desu ka",
+      "definition": "Xin lỗi, ... ở đâu?",
+      "exampleSentence": "すみません、駅はどこですか。",
+      "exampleTranslation": "Xin lỗi, ga ở đâu?",
+      "forms": [
+        "道を聞く基本表現",
+        "どちらですか (lịch sự hơn)",
+        "近くにありますか も使える"
+      ],
+      "displayOrder": 0
+    },
+    {
+      "id": 2552,
+      "term": "まっすぐ行ってください",
+      "reading": "まっすぐいってください",
+      "romaji": "massugu itte kudasai",
+      "definition": "Hãy đi thẳng",
+      "exampleSentence": "まっすぐ行ってください。",
+      "exampleTranslation": "Hãy đi thẳng.",
+      "forms": [
+        "方向を説明する",
+        "まっすぐ = thẳng",
+        "突き当たり = đến cuối đường"
+      ],
+      "displayOrder": 1
+    },
+    {
+      "id": 2553,
+      "term": "右に曲がってください",
+      "reading": "みぎにまがってください",
+      "romaji": "migi ni magatte kudasai",
+      "definition": "Hãy rẽ phải",
+      "exampleSentence": "交差点を右に曲がってください。",
+      "exampleTranslation": "Hãy rẽ phải ở ngã tư.",
+      "forms": [
+        "右 = bên phải",
+        "曲がる = rẽ",
+        "次の角を右に = rẽ phải ở góc tiếp theo"
+      ],
+      "displayOrder": 2
+    },
+    {
+      "id": 2554,
+      "term": "左に曲がってください",
+      "reading": "ひだりにまがってください",
+      "romaji": "hidari ni magatte kudasai",
+      "definition": "Hãy rẽ trái",
+      "exampleSentence": "コンビニの前で左に曲がってください。",
+      "exampleTranslation": "Hãy rẽ trái trước cửa hàng tiện lợi.",
+      "forms": [
+        "左 = bên trái",
+        "目印を使った説明",
+        "〜の角で左に曲がる"
+      ],
+      "displayOrder": 3
+    },
+    {
+      "id": 2555,
+      "term": "〜の前です",
+      "reading": "〜のまえです",
+      "romaji": "no mae desu",
+      "definition": "Ở trước...",
+      "exampleSentence": "銀行の前です。",
+      "exampleTranslation": "Ở trước ngân hàng.",
+      "forms": [
+        "場所の説明",
+        "前 = trước",
+        "〜のそばです = gần..."
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": 2556,
+      "term": "〜の隣です",
+      "reading": "〜のとなりです",
+      "romaji": "no tonari desu",
+      "definition": "Ở cạnh...",
+      "exampleSentence": "コンビニの隣です。",
+      "exampleTranslation": "Ở cạnh cửa hàng tiện lợi.",
+      "forms": [
+        "隣 = bên cạnh",
+        "〜の右隣 = bên phải",
+        "〜の左隣 = bên trái"
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": 2557,
+      "term": "歩いて何分ですか",
+      "reading": "あるいてなんぷんですか",
+      "romaji": "aruite nanpun desu ka",
+      "definition": "Đi bộ mất mấy phút?",
+      "exampleSentence": "駅まで歩いて何分ですか。",
+      "exampleTranslation": "Đi bộ đến ga mất mấy phút?",
+      "forms": [
+        "距離・時間を聞く",
+        "電車で何分ですか も使える",
+        "徒歩5分です = 5 phút đi bộ"
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": 2558,
+      "term": "〜を渡ってください",
+      "reading": "〜をわたってください",
+      "romaji": "wo watatte kudasai",
+      "definition": "Hãy băng qua...",
+      "exampleSentence": "橋を渡ってください。",
+      "exampleTranslation": "Hãy băng qua cầu.",
+      "forms": [
+        "渡る = băng qua",
+        "橋, 道路, 信号 など",
+        "横断歩道を渡る = đi qua vạch kẻ đường"
+      ],
+      "displayOrder": 7
+    },
+    {
+      "id": 2559,
+      "term": "地図を描いてもらえますか",
+      "reading": "ちずをかいてもらえますか",
+      "romaji": "chizu wo kaite moraemasu ka",
+      "definition": "Bạn có thể vẽ bản đồ không?",
+      "exampleSentence": "地図を描いてもらえますか。",
+      "exampleTranslation": "Bạn có thể vẽ bản đồ không?",
+      "forms": [
+        "地図を頼む",
+        "地図アプリで見せてもらう も使える",
+        "ここがどこか教えてください も使える"
+      ],
+      "displayOrder": 8
+    },
+    {
+      "id": 2560,
+      "term": "道に迷ってしまいました",
+      "reading": "みちにまよってしまいました",
+      "romaji": "michi ni mayotte shimaimashita",
+      "definition": "Tôi bị lạc đường rồi",
+      "exampleSentence": "道に迷ってしまいました。助けてください。",
+      "exampleTranslation": "Tôi bị lạc đường rồi. Vui lòng giúp tôi.",
+      "forms": [
+        "道に迷った時の表現",
+        "迷子になりました も使える",
+        "ここはどこですか = đây là đâu"
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": 2561,
+      "term": "信号を渡ってから右に行く",
+      "reading": "しんごうをわたってからみぎにいく",
+      "romaji": "shingou wo watatte kara migi ni iku",
+      "definition": "Sau khi băng qua đèn tín hiệu thì rẽ phải",
+      "exampleSentence": "信号を渡ってから右に行く。",
+      "exampleTranslation": "Sau khi băng qua đèn tín hiệu thì rẽ phải.",
+      "forms": [
+        "複数の指示を組み合わせる",
+        "〜てから (sau khi) の使い方",
+        "順序を説明する"
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": 2562,
+      "term": "もう一度言ってください",
+      "reading": "もういちどいってください",
+      "romaji": "mou ichido itte kudasai",
+      "definition": "Vui lòng nói lại một lần nữa",
+      "exampleSentence": "ゆっくりもう一度言ってください。",
+      "exampleTranslation": "Vui lòng nói lại chậm hơn một lần nữa.",
+      "forms": [
+        "繰り返しを頼む",
+        "ゆっくり = chậm thôi",
+        "聞き取れなかった時に使う"
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": 2563,
+      "term": "近くにコンビニはありますか",
+      "reading": "ちかくにこんびにはありますか",
+      "romaji": "chikaku ni konbini wa arimasu ka",
+      "definition": "Gần đây có cửa hàng tiện lợi không?",
+      "exampleSentence": "この辺に薬局はありますか。",
+      "exampleTranslation": "Khu vực này có nhà thuốc không?",
+      "forms": [
+        "近くの施設を探す",
+        "この辺に = khu vực này",
+        "近くに〜はありますか の応用"
+      ],
+      "displayOrder": 12
+    },
+    {
+      "id": 2564,
+      "term": "地下鉄の駅はどこですか",
+      "reading": "ちかてつのえきはどこですか",
+      "romaji": "chikatetsu no eki wa doko desu ka",
+      "definition": "Ga tàu điện ngầm ở đâu?",
+      "exampleSentence": "地下鉄の駅はどこですか。",
+      "exampleTranslation": "Ga tàu điện ngầm ở đâu?",
+      "forms": [
+        "交通機関を探す",
+        "バス停はどこですか も使える",
+        "タクシー乗り場 = điểm đón taxi"
+      ],
+      "displayOrder": 13
+    },
+    {
+      "id": 2565,
+      "term": "見えてきたら左です",
+      "reading": "みえてきたらひだりです",
+      "romaji": "miete kitara hidari desu",
+      "definition": "Khi nhìn thấy thì ở bên trái",
+      "exampleSentence": "大きい病院が見えてきたら左です。",
+      "exampleTranslation": "Khi nhìn thấy bệnh viện lớn thì ở bên trái.",
+      "forms": [
+        "目印を使った説明",
+        "〜が見えたら (khi thấy)",
+        "〜のところで = ở chỗ..."
+      ],
+      "displayOrder": 14
+    },
+    {
+      "id": 2566,
+      "term": "迷ったらまた聞いてください",
+      "reading": "まよったらまたきいてください",
+      "romaji": "mayottara mata kiite kudasai",
+      "definition": "Nếu bị lạc thì hãy hỏi lại",
+      "exampleSentence": "迷ったらまた聞いてください。",
+      "exampleTranslation": "Nếu bị lạc thì hãy hỏi lại.",
+      "forms": [
+        "親切な案内の締めくくり",
+        "困ったら聞いてください も使える",
+        "何かあれば聞いてください"
+      ],
+      "displayOrder": 15
+    },
+    {
+      "id": 2567,
+      "term": "少し遠いです",
+      "reading": "すこしとおいです",
+      "romaji": "sukoshi tooi desu",
+      "definition": "Hơi xa một chút",
+      "exampleSentence": "歩くと少し遠いです。",
+      "exampleTranslation": "Đi bộ hơi xa một chút.",
+      "forms": [
+        "距離を説明する",
+        "電車がいいです = nên đi tàu",
+        "タクシーのほうがいい = taxi tốt hơn"
+      ],
+      "displayOrder": 16
+    },
+    {
+      "id": 2568,
+      "term": "突き当たりを左です",
+      "reading": "つきあたりをひだりです",
+      "romaji": "tsukiatari wo hidari desu",
+      "definition": "Đến cuối đường rẽ trái",
+      "exampleSentence": "突き当たりを左に曲がってください。",
+      "exampleTranslation": "Đến cuối đường hãy rẽ trái.",
+      "forms": [
+        "突き当たり = cuối đường (không còn đường thẳng)",
+        "T字路 = ngã ba",
+        "突き当たり = 行き止まり"
+      ],
+      "displayOrder": 17
+    },
+    {
+      "id": 2569,
+      "term": "目印は〜です",
+      "reading": "めじるしは〜です",
+      "romaji": "mejirushi wa desu",
+      "definition": "Dấu hiệu nhận biết là...",
+      "exampleSentence": "目印は赤いビルです。",
+      "exampleTranslation": "Dấu hiệu nhận biết là tòa nhà màu đỏ.",
+      "forms": [
+        "目印 = mốc nhận biết",
+        "分かりやすい場所を使う",
+        "大きい看板が目印です"
+      ],
+      "displayOrder": 18
+    },
+    {
+      "id": 2570,
+      "term": "すぐ分かりますよ",
+      "reading": "すぐわかりますよ",
+      "romaji": "sugu wakarimasu yo",
+      "definition": "Bạn sẽ nhận ra ngay thôi",
+      "exampleSentence": "目立つ場所なのですぐ分かりますよ。",
+      "exampleTranslation": "Vì nổi bật nên bạn sẽ nhận ra ngay thôi.",
+      "forms": [
+        "案内の締めくくり",
+        "安心させる言葉",
+        "大丈夫ですよ も使える"
+      ],
+      "displayOrder": 19
+    },
+    {
+      "id": 50568,
+      "term": "ここから近いですか",
+      "reading": "ここからちかいですか",
+      "romaji": "koko kara chikai desu ka",
+      "definition": "Từ đây có gần không?",
+      "exampleSentence": "郵便局はここから近いですか。",
+      "exampleTranslation": "Bưu điện có gần đây không?",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 50569,
+      "term": "駅までどう行きますか",
+      "reading": "えきまでどういきますか",
+      "romaji": "eki made dou ikimasu ka",
+      "definition": "Đi đến ga bằng cách nào?",
+      "exampleSentence": "市役所までどう行きますか。",
+      "exampleTranslation": "Đi đến tòa thị chính bằng cách nào?",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 50570,
+      "term": "バス停はどこですか",
+      "reading": "バスていはどこですか",
+      "romaji": "basutei wa doko desu ka",
+      "definition": "Trạm xe buýt ở đâu?",
+      "exampleSentence": "この近くのバス停はどこですか。",
+      "exampleTranslation": "Trạm xe buýt gần đây ở đâu?",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 50571,
+      "term": "この道でいいですか",
+      "reading": "このみちでいいですか",
+      "romaji": "kono michi de ii desu ka",
+      "definition": "Đi đường này có đúng không?",
+      "exampleSentence": "学校へはこの道でいいですか。",
+      "exampleTranslation": "Đến trường đi đường này có đúng không?",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 50572,
+      "term": "角を右に曲がってください",
+      "reading": "かどをみぎにまがってください",
+      "romaji": "kado o migi ni magatte kudasai",
+      "definition": "Hãy rẽ phải ở góc đường.",
+      "exampleSentence": "次の角を右に曲がってください。",
+      "exampleTranslation": "Hãy rẽ phải ở góc đường tiếp theo.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 50573,
+      "term": "二つ目の角を左に曲がってください",
+      "reading": "ふたつめのかどをひだりにまがってください",
+      "romaji": "futatsume no kado o hidari ni magatte kudasai",
+      "definition": "Hãy rẽ trái ở góc đường thứ hai.",
+      "exampleSentence": "二つ目の角を左に曲がってください。",
+      "exampleTranslation": "Hãy rẽ trái ở góc đường thứ hai.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 50574,
+      "term": "交差点のところにあります",
+      "reading": "こうさてんのところにあります",
+      "romaji": "kousaten no tokoro ni arimasu",
+      "definition": "Ở chỗ giao lộ.",
+      "exampleSentence": "銀行は次の交差点のところにあります。",
+      "exampleTranslation": "Ngân hàng ở chỗ giao lộ tiếp theo.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 50575,
+      "term": "〜の後ろです",
+      "reading": "〜のうしろです",
+      "romaji": "~ no ushiro desu",
+      "definition": "Ở phía sau 〜.",
+      "exampleSentence": "図書館は学校の後ろです。",
+      "exampleTranslation": "Thư viện ở phía sau trường học.",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 50576,
+      "term": "〜の向かいです",
+      "reading": "〜のむかいです",
+      "romaji": "~ no mukai desu",
+      "definition": "Ở đối diện 〜.",
+      "exampleSentence": "郵便局は銀行の向かいです。",
+      "exampleTranslation": "Bưu điện ở đối diện ngân hàng.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 50577,
+      "term": "〜と〜の間です",
+      "reading": "〜と〜のあいだです",
+      "romaji": "~ to ~ no aida desu",
+      "definition": "Ở giữa 〜 và 〜.",
+      "exampleSentence": "公園は学校と駅の間です。",
+      "exampleTranslation": "Công viên ở giữa trường học và nhà ga.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

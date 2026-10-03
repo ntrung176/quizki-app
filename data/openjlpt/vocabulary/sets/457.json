@@ -1,0 +1,198 @@
+{
+  "id": 457,
+  "title": "科学・技術 · 基礎科学・物質",
+  "description": "Khoa học cơ bản và vật chất — chủ đề Khoa học & công nghệ · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.305063",
+  "cards": [
+    {
+      "id": 11640,
+      "term": "開発 (かいはつ)",
+      "reading": "かいはつ",
+      "romaji": null,
+      "definition": "phát triển, khai phát, nghiên cứu phát triển",
+      "exampleSentence": "その会社は環境に優しい新製品の開発に力を入れている。",
+      "exampleTranslation": "Công ty đó đang tập trung phát triển các sản phẩm mới thân thiện với môi trường.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11641,
+      "term": "機械 (きかい)",
+      "reading": "きかい",
+      "romaji": null,
+      "definition": "máy móc, thiết bị",
+      "exampleSentence": "工場では、多くの機械が昼夜を問わず動いている。",
+      "exampleTranslation": "Trong nhà máy, nhiều máy móc hoạt động không kể ngày đêm.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11642,
+      "term": "材料 (ざいりょう)",
+      "reading": "ざいりょう",
+      "romaji": null,
+      "definition": "nguyên liệu, vật liệu",
+      "exampleSentence": "料理を始める前に、必要な材料をすべてそろえておきましょう。",
+      "exampleTranslation": "Trước khi bắt đầu nấu ăn, hãy chuẩn bị sẵn tất cả nguyên liệu cần thiết.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11643,
+      "term": "成分 (せいぶん)",
+      "reading": "せいぶん",
+      "romaji": null,
+      "definition": "thành phần, thành tố",
+      "exampleSentence": "この飲み物には、疲労回復に役立つ成分が含まれています。",
+      "exampleTranslation": "Thức uống này có chứa những thành phần giúp phục hồi sự mệt mỏi.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11644,
+      "term": "装置 (そうち)",
+      "reading": "そうち",
+      "romaji": null,
+      "definition": "thiết bị, bộ thiết bị",
+      "exampleSentence": "この装置を使えば、室内の温度を自動で調整できます。",
+      "exampleTranslation": "Nếu sử dụng thiết bị này, bạn có thể tự động điều chỉnh nhiệt độ trong phòng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11645,
+      "term": "物質 (ぶっしつ)",
+      "reading": "ぶっしつ",
+      "romaji": null,
+      "definition": "vật chất, chất",
+      "exampleSentence": "水は温度によって、三つの状態に変化する物質です。",
+      "exampleTranslation": "Nước là một chất thay đổi thành ba trạng thái tùy theo nhiệt độ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11646,
+      "term": "遺伝子 (いでんし)",
+      "reading": "いでんし",
+      "romaji": null,
+      "definition": "gen/gene",
+      "exampleSentence": "親から受け継いだ遺伝子によって、体質が決まる場合がある。",
+      "exampleTranslation": "Có những trường hợp thể chất được quyết định bởi gen di truyền từ cha mẹ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11647,
+      "term": "化学 (かがく)",
+      "reading": "かがく",
+      "romaji": null,
+      "definition": "hoá học",
+      "exampleSentence": "大学で化学を専攻し、新しい薬の研究をしています。",
+      "exampleTranslation": "Tôi đang học chuyên ngành hóa học ở đại học và nghiên cứu các loại thuốc mới.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11648,
+      "term": "科学 (かがく)",
+      "reading": "かがく",
+      "romaji": null,
+      "definition": "khoa học",
+      "exampleSentence": "科学の進歩によって、以前は治せなかった病気も治療できるようになった。",
+      "exampleTranslation": "Nhờ sự tiến bộ của khoa học, những căn bệnh trước đây không thể chữa trị nay cũng đã có thể điều trị.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11649,
+      "term": "技術 (ぎじゅつ)",
+      "reading": "ぎじゅつ",
+      "romaji": null,
+      "definition": "kỹ thuật/công nghệ",
+      "exampleSentence": "この会社は、環境に配慮した新しい技術を開発している。",
+      "exampleTranslation": "Công ty này đang phát triển công nghệ mới thân thiện với môi trường.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11650,
+      "term": "建築 (けんちく)",
+      "reading": "けんちく",
+      "romaji": null,
+      "definition": "kiến trúc/xây dựng",
+      "exampleSentence": "この地域では、伝統的な建築を生かした町づくりが進められている。",
+      "exampleTranslation": "Ở khu vực này, việc xây dựng thành phố tận dụng kiến trúc truyền thống đang được tiến hành.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11651,
+      "term": "工学 (こうがく)",
+      "reading": "こうがく",
+      "romaji": null,
+      "definition": "kỹ thuật công nghệ",
+      "exampleSentence": "兄は大学で工学を学び、卒業後は自動車会社に就職した。",
+      "exampleTranslation": "Anh trai tôi học kỹ thuật công nghệ ở đại học, rồi sau khi tốt nghiệp đã vào làm cho một công ty ô tô.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11652,
+      "term": "生物学 (せいぶつがく)",
+      "reading": "せいぶつがく",
+      "romaji": null,
+      "definition": "sinh vật học",
+      "exampleSentence": "生物学の研究者が、海洋生物の生態を詳しく調べている。",
+      "exampleTranslation": "Một nhà nghiên cứu sinh vật học đang tìm hiểu chi tiết về hệ sinh thái của các sinh vật biển.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11653,
+      "term": "半導体 (はんどうたい)",
+      "reading": "はんどうたい",
+      "romaji": null,
+      "definition": "chất bán dẫn",
+      "exampleSentence": "半導体の不足により、多くの製品の生産が遅れている。",
+      "exampleTranslation": "Do thiếu chất bán dẫn, việc sản xuất nhiều sản phẩm đang bị chậm trễ.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 11654,
+      "term": "物理学 (ぶつりがく)",
+      "reading": "ぶつりがく",
+      "romaji": null,
+      "definition": "vật lý học",
+      "exampleSentence": "物理学の基本を理解すれば、身近な現象も説明できる。",
+      "exampleTranslation": "Nếu hiểu được những kiến thức cơ bản của vật lý học, ta cũng có thể giải thích các hiện tượng quen thuộc.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 11655,
+      "term": "断熱 (だんねつ)",
+      "reading": "だんねつ",
+      "romaji": null,
+      "definition": "cách nhiệt",
+      "exampleSentence": "この住宅は断熱がしっかりしているため、冬でも暖かい。",
+      "exampleTranslation": "Ngôi nhà này được cách nhiệt tốt nên mùa đông vẫn ấm áp.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 11656,
+      "term": "撥水 (はっすい)",
+      "reading": "はっすい",
+      "romaji": null,
+      "definition": "chống thấm nước",
+      "exampleSentence": "この上着には撥水加工が施されており、多少の雨なら問題ない。",
+      "exampleTranslation": "Chiếc áo khoác này được xử lý chống thấm nước nên mưa nhỏ cũng không thành vấn đề.",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

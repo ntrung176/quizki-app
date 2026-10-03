@@ -1,0 +1,176 @@
+{
+  "id": 234,
+  "title": "Tuần 6 · Ngày 6 - 重要語彙まとめ (Từ vựng quan trọng tổng hợp)",
+  "description": "Nihongo Soumatome N3 語彙 — 重要語彙まとめ (Từ vựng quan trọng tổng hợp)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.772477",
+  "cards": [
+    {
+      "id": 5776,
+      "term": "現在 (げんざい)",
+      "reading": "げんざい",
+      "romaji": "genzai",
+      "definition": "hiện tại, hiện nay",
+      "exampleSentence": "現在、この図書館は改修工事のため休館しています。",
+      "exampleTranslation": "Hiện tại, thư viện này đang đóng cửa để sửa chữa.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5777,
+      "term": "将来 (しょうらい)",
+      "reading": "しょうらい",
+      "romaji": "shourari",
+      "definition": "tương lai",
+      "exampleSentence": "将来は、日本で働きながら専門知識を身につけたいです。",
+      "exampleTranslation": "Trong tương lai, tôi muốn vừa làm việc vừa trau dồi kiến thức chuyên môn ở Nhật Bản.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5778,
+      "term": "過去 (かこ)",
+      "reading": "かこ",
+      "romaji": "kako",
+      "definition": "quá khứ",
+      "exampleSentence": "過去の失敗を生かして、同じ間違いを繰り返さないようにしたい。",
+      "exampleTranslation": "Tôi muốn rút kinh nghiệm từ những thất bại trong quá khứ để không lặp lại sai lầm tương tự.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5779,
+      "term": "変化 (へんか)",
+      "reading": "へんか",
+      "romaji": "henka",
+      "definition": "sự thay đổi, biến hóa",
+      "exampleSentence": "季節の変化に合わせて、服装を変える必要があります。",
+      "exampleTranslation": "Cần thay đổi trang phục cho phù hợp với sự thay đổi của mùa.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5780,
+      "term": "影響 (えいきょう)",
+      "reading": "えいきょう",
+      "romaji": "eikyou",
+      "definition": "ảnh hưởng, tác động",
+      "exampleSentence": "家庭環境は子どもの教育に大きな影響を与えます。",
+      "exampleTranslation": "Môi trường gia đình có ảnh hưởng lớn đến việc giáo dục trẻ em.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5781,
+      "term": "効果 (こうか)",
+      "reading": "こうか",
+      "romaji": "kouka",
+      "definition": "hiệu quả, kết quả tốt",
+      "exampleSentence": "この薬は、疲れを取る効果があります。",
+      "exampleTranslation": "Loại thuốc này có tác dụng làm giảm mệt mỏi.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5782,
+      "term": "原因 (げんいん)",
+      "reading": "げんいん",
+      "romaji": "genin",
+      "definition": "nguyên nhân, lý do",
+      "exampleSentence": "事故の原因を詳しく調べています。",
+      "exampleTranslation": "Chúng tôi đang điều tra kỹ nguyên nhân của vụ tai nạn.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5783,
+      "term": "目的 (もくてき)",
+      "reading": "もくてき",
+      "romaji": "mokuteki",
+      "definition": "mục đích, mục tiêu",
+      "exampleSentence": "この旅行の目的は、日本の歴史を学ぶことです。",
+      "exampleTranslation": "Mục đích của chuyến đi này là học về lịch sử Nhật Bản.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5784,
+      "term": "方法 (ほうほう)",
+      "reading": "ほうほう",
+      "romaji": "houhou",
+      "definition": "phương pháp, cách thức",
+      "exampleSentence": "もっと効率的な方法を考えましょう。",
+      "exampleTranslation": "Hãy cùng nghĩ ra một phương pháp hiệu quả hơn.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5785,
+      "term": "手段 (しゅだん)",
+      "reading": "しゅだん",
+      "romaji": "shudan",
+      "definition": "phương tiện, cách thức, biện pháp",
+      "exampleSentence": "インターネットは情報を集める便利な手段です。",
+      "exampleTranslation": "Internet là một phương tiện tiện lợi để thu thập thông tin.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5786,
+      "term": "過程 (かてい)",
+      "reading": "かてい",
+      "romaji": "katei",
+      "definition": "quá trình, tiến trình",
+      "exampleSentence": "日本語を学ぶ過程で、多くの文化について知りました。",
+      "exampleTranslation": "Trong quá trình học tiếng Nhật, tôi đã biết thêm về nhiều nền văn hóa.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5787,
+      "term": "結果 (けっか)",
+      "reading": "けっか",
+      "romaji": "kekka",
+      "definition": "kết quả, hậu quả",
+      "exampleSentence": "試験の結果は、来週発表されます。",
+      "exampleTranslation": "Kết quả kỳ thi sẽ được công bố vào tuần sau.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5788,
+      "term": "機会 (きかい)",
+      "reading": "きかい",
+      "romaji": "kikai",
+      "definition": "cơ hội, dịp",
+      "exampleSentence": "日本へ行く機会があれば、京都を訪れたいです。",
+      "exampleTranslation": "Nếu có dịp đến Nhật Bản, tôi muốn thăm Kyoto.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5789,
+      "term": "可能性 (かのうせい)",
+      "reading": "かのうせい",
+      "romaji": "kanousei",
+      "definition": "khả năng, tính có thể",
+      "exampleSentence": "大雨のため、試合が中止になる可能性があります。",
+      "exampleTranslation": "Do mưa lớn, có khả năng trận đấu sẽ bị hủy.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5790,
+      "term": "課題 (かだい)",
+      "reading": "かだい",
+      "romaji": "kadai",
+      "definition": "bài toán, vấn đề cần giải quyết, nhiệm vụ",
+      "exampleSentence": "先生は、来週までに課題を提出するように言いました。",
+      "exampleTranslation": "Giáo viên đã nói rằng phải nộp bài tập trước tuần sau.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

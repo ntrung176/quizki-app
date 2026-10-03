@@ -1,0 +1,165 @@
+{
+  "id": 435,
+  "title": "ビジネス・仕事 · 農業・畜産・漁業",
+  "description": "Nông nghiệp, chăn nuôi & thủy sản — chủ đề Công việc & kinh doanh · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:48.297628",
+  "cards": [
+    {
+      "id": 11234,
+      "term": "スマート農業 (スマートのうぎょう)",
+      "reading": "スマートのうぎょう",
+      "romaji": null,
+      "definition": "nông nghiệp thông minh",
+      "exampleSentence": "スマート農業の導入で、農家の作業負担が大幅に減った。",
+      "exampleTranslation": "Nhờ áp dụng nông nghiệp thông minh, gánh nặng công việc của nông dân đã giảm đáng kể.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11235,
+      "term": "漁獲量 (ぎょかくりょう)",
+      "reading": "ぎょかくりょう",
+      "romaji": null,
+      "definition": "sản lượng đánh bắt cá",
+      "exampleSentence": "海水温の上昇により、今年の漁獲量は例年より少なかった。",
+      "exampleTranslation": "Do nhiệt độ nước biển tăng, sản lượng đánh bắt cá năm nay ít hơn mọi năm.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11236,
+      "term": "耕作 (こうさく)",
+      "reading": "こうさく",
+      "romaji": null,
+      "definition": "canh tác/cày trồng",
+      "exampleSentence": "この地域では、後継者不足で耕作を続けられない農家が増えている。",
+      "exampleTranslation": "Ở khu vực này, số hộ nông dân không thể tiếp tục canh tác do thiếu người kế nghiệp đang tăng lên.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11237,
+      "term": "栽培 (さいばい)",
+      "reading": "さいばい",
+      "romaji": null,
+      "definition": "trồng trọt/canh tác",
+      "exampleSentence": "この農園では、農薬を使わずに野菜を栽培している。",
+      "exampleTranslation": "Trang trại này trồng rau mà không sử dụng thuốc trừ sâu.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11238,
+      "term": "施肥 (せひ)",
+      "reading": "せひ",
+      "romaji": null,
+      "definition": "bón phân",
+      "exampleSentence": "作物の成長に合わせて施肥の量と時期を調整する。",
+      "exampleTranslation": "Điều chỉnh lượng và thời điểm bón phân phù hợp với sự phát triển của cây trồng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11239,
+      "term": "収穫 (しゅうかく)",
+      "reading": "しゅうかく",
+      "romaji": null,
+      "definition": "thu hoạch mùa màng",
+      "exampleSentence": "台風が来る前に、できるだけ早く収穫を終えた。",
+      "exampleTranslation": "Trước khi bão đến, chúng tôi đã hoàn tất việc thu hoạch nhanh nhất có thể.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11240,
+      "term": "畜産 (ちくさん)",
+      "reading": "ちくさん",
+      "romaji": null,
+      "definition": "chăn nuôi",
+      "exampleSentence": "この地域では、酪農を中心とした畜産が盛んに行われている。",
+      "exampleTranslation": "Ở khu vực này, ngành chăn nuôi, chủ yếu là chăn nuôi bò sữa, rất phát triển.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11241,
+      "term": "農家 (のうか)",
+      "reading": "のうか",
+      "romaji": null,
+      "definition": "nhà nông/nông dân",
+      "exampleSentence": "この村の農家は、朝早くから季節の野菜を畑で育てている。",
+      "exampleTranslation": "Những người nông dân trong làng này trồng rau theo mùa trên đồng từ sáng sớm.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11242,
+      "term": "農業 (のうぎょう)",
+      "reading": "のうぎょう",
+      "romaji": null,
+      "definition": "nông nghiệp",
+      "exampleSentence": "日本の農業は、高齢化や後継者不足という課題に直面している。",
+      "exampleTranslation": "Nông nghiệp Nhật Bản đang phải đối mặt với các vấn đề như già hóa dân số và thiếu người kế nghiệp.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11243,
+      "term": "農地 (のうち)",
+      "reading": "のうち",
+      "romaji": null,
+      "definition": "đất nông nghiệp",
+      "exampleSentence": "都市開発のために、貴重な農地が次々と失われている。",
+      "exampleTranslation": "Vì việc phát triển đô thị, những vùng đất nông nghiệp quý giá đang lần lượt bị mất đi.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11244,
+      "term": "農薬 (のうやく)",
+      "reading": "のうやく",
+      "romaji": null,
+      "definition": "thuốc trừ sâu/nông dược",
+      "exampleSentence": "この農家では、環境への影響を考えて農薬の使用を減らしている。",
+      "exampleTranslation": "Trang trại này giảm sử dụng thuốc trừ sâu vì cân nhắc đến ảnh hưởng đối với môi trường.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11245,
+      "term": "有機農業 (ゆうきのうぎょう)",
+      "reading": "ゆうきのうぎょう",
+      "romaji": null,
+      "definition": "nông nghiệp hữu cơ",
+      "exampleSentence": "有機農業で育てた野菜は、近くの直売所で販売されている。",
+      "exampleTranslation": "Các loại rau được trồng bằng phương pháp nông nghiệp hữu cơ đang được bán tại cửa hàng trực tiếp gần đó.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11246,
+      "term": "養殖 (ようしょく)",
+      "reading": "ようしょく",
+      "romaji": null,
+      "definition": "nuôi trồng thuỷ sản",
+      "exampleSentence": "この地域では、海の環境に配慮した魚の養殖が行われている。",
+      "exampleTranslation": "Ở khu vực này, việc nuôi cá được tiến hành với sự quan tâm đến môi trường biển.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11247,
+      "term": "灌漑 (かんがい)",
+      "reading": "かんがい",
+      "romaji": null,
+      "definition": "hệ thống tưới tiêu",
+      "exampleSentence": "雨の少ない地域では、灌漑によって農作物に必要な水を供給している。",
+      "exampleTranslation": "Ở những khu vực ít mưa, nước cần thiết cho cây trồng được cung cấp nhờ hệ thống tưới tiêu.",
+      "forms": [],
+      "displayOrder": 13
+    }
+  ]
+}

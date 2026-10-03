@@ -1,0 +1,242 @@
+{
+  "id": 502,
+  "title": "感情・性格 · 態度・習慣・意欲",
+  "description": "Thái độ, thói quen & ý chí — chủ đề Cảm xúc & tính cách · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:50.744948",
+  "cards": [
+    {
+      "id": 12517,
+      "term": "習慣 (しゅうかん)",
+      "reading": "しゅうかん",
+      "romaji": null,
+      "definition": "thói quen",
+      "exampleSentence": "健康のために、毎朝歩く習慣を身につけました。",
+      "exampleTranslation": "Vì sức khỏe, tôi đã hình thành thói quen đi bộ mỗi sáng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12518,
+      "term": "無理 (むり)",
+      "reading": "むり",
+      "romaji": null,
+      "definition": "vô lý, không thể, quá sức",
+      "exampleSentence": "疲れているなら、無理な予定を入れないほうがいいですよ。",
+      "exampleTranslation": "Nếu đang mệt thì tốt hơn hết là đừng sắp xếp lịch trình quá sức.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12519,
+      "term": "迷う (まよう)",
+      "reading": "まよう",
+      "romaji": null,
+      "definition": "lưỡng lự/không biết chọn gì",
+      "exampleSentence": "どの服を買うか迷うのは、楽しい時間でもあります。",
+      "exampleTranslation": "Phân vân không biết mua bộ quần áo nào cũng là một khoảng thời gian thú vị.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12520,
+      "term": "急 (きゅう)",
+      "reading": "きゅう",
+      "romaji": null,
+      "definition": "khẩn cấp, đột ngột, gấp",
+      "exampleSentence": "急な仕事が入ったため、会議の日程を変更した。",
+      "exampleTranslation": "Vì có công việc đột xuất nên tôi đã thay đổi lịch họp.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12521,
+      "term": "決断 (けつだん)",
+      "reading": "けつだん",
+      "romaji": null,
+      "definition": "quyết định dứt khoát",
+      "exampleSentence": "長い話し合いの末、彼は海外で働く決断をした。",
+      "exampleTranslation": "Sau một thời gian dài thảo luận, anh ấy đã quyết định dứt khoát sang nước ngoài làm việc.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12522,
+      "term": "行動 (こうどう)",
+      "reading": "こうどう",
+      "romaji": null,
+      "definition": "hành động",
+      "exampleSentence": "問題に気づいたら、すぐに行動を起こすことが大切です。",
+      "exampleTranslation": "Khi nhận ra vấn đề, điều quan trọng là phải hành động ngay.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12523,
+      "term": "実行 (じっこう)",
+      "reading": "じっこう",
+      "romaji": null,
+      "definition": "thực hành/thực hiện",
+      "exampleSentence": "計画を立てるだけでなく、実行に移す勇気も必要です。",
+      "exampleTranslation": "Không chỉ lập kế hoạch, chúng ta cũng cần có dũng khí để thực hiện.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12524,
+      "term": "性格 (せいかく)",
+      "reading": "せいかく",
+      "romaji": null,
+      "definition": "tính cách",
+      "exampleSentence": "彼女は明るい性格で、初対面の人ともすぐに仲良くなれる。",
+      "exampleTranslation": "Cô ấy có tính cách vui vẻ nên có thể nhanh chóng thân thiết với cả những người mới gặp lần đầu.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12525,
+      "term": "大事 (だいじ)",
+      "reading": "だいじ",
+      "romaji": null,
+      "definition": "quan trọng, cẩn thận",
+      "exampleSentence": "大事な約束は、どんなに忙しくても忘れないようにしています。",
+      "exampleTranslation": "Dù bận đến đâu, tôi vẫn cố gắng không quên những lời hứa quan trọng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12526,
+      "term": "諦める (あきらめる)",
+      "reading": "あきらめる",
+      "romaji": null,
+      "definition": "từ bỏ/buông xuôi",
+      "exampleSentence": "失敗しても、すぐに諦めるのはまだ早い。",
+      "exampleTranslation": "Dù thất bại thì bỏ cuộc ngay vẫn còn quá sớm.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12527,
+      "term": "努力する (どりょくする)",
+      "reading": "どりょくする",
+      "romaji": null,
+      "definition": "nỗ lực, cố gắng",
+      "exampleSentence": "目標を達成するために、毎日少しずつ努力することが大切です。",
+      "exampleTranslation": "Để đạt được mục tiêu, việc nỗ lực từng chút mỗi ngày là rất quan trọng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12528,
+      "term": "投げ出す (なげだす)",
+      "reading": "なげだす",
+      "romaji": null,
+      "definition": "bỏ cuộc, ném ra, từ bỏ",
+      "exampleSentence": "一度始めた仕事を、途中で投げ出すべきではありません。",
+      "exampleTranslation": "Không nên từ bỏ công việc đã bắt đầu giữa chừng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12529,
+      "term": "癖 (くせ)",
+      "reading": "くせ",
+      "romaji": null,
+      "definition": "thói tật/thói xấu",
+      "exampleSentence": "父には、緊張すると早口になる癖があります。",
+      "exampleTranslation": "Bố tôi có thói quen nói nhanh khi căng thẳng.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12530,
+      "term": "モチベーション",
+      "reading": "モチベーション",
+      "romaji": null,
+      "definition": "động lực",
+      "exampleSentence": "仕事で新しい課題に挑戦するモチベーションを保ちたい。",
+      "exampleTranslation": "Tôi muốn duy trì động lực thử thách những nhiệm vụ mới trong công việc.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12531,
+      "term": "こだわる",
+      "reading": "こだわる",
+      "romaji": null,
+      "definition": "cầu kỳ/chú tâm vào",
+      "exampleSentence": "彼は料理の味にこだわるので、いつも新鮮な材料を選びます。",
+      "exampleTranslation": "Vì rất cầu kỳ về hương vị món ăn nên anh ấy luôn chọn nguyên liệu tươi.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12532,
+      "term": "ためらう",
+      "reading": "ためらう",
+      "romaji": null,
+      "definition": "do dự/chần chừ",
+      "exampleSentence": "失敗をためらうより、まず行動してみることが大切です。",
+      "exampleTranslation": "Thay vì do dự vì sợ thất bại, trước hết hãy thử hành động.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 12533,
+      "term": "試みる (こころみる)",
+      "reading": "こころみる",
+      "romaji": null,
+      "definition": "thử/cố gắng thử",
+      "exampleSentence": "専門家たちは、問題を解決する新しい方法を試みることにした。",
+      "exampleTranslation": "Các chuyên gia đã quyết định thử một phương pháp mới để giải quyết vấn đề.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 12534,
+      "term": "実践 (じっせん)",
+      "reading": "じっせん",
+      "romaji": null,
+      "definition": "thực tiễn/áp dụng",
+      "exampleSentence": "本で学んだ知識を実践に生かすことが、成長への第一歩です。",
+      "exampleTranslation": "Vận dụng kiến thức đã học vào thực tiễn là bước đầu tiên để trưởng thành.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 12535,
+      "term": "心がける (こころがける)",
+      "reading": "こころがける",
+      "romaji": null,
+      "definition": "để tâm/chú ý/cố gắng",
+      "exampleSentence": "健康のために、毎日バランスのよい食事を心がけることにしています。",
+      "exampleTranslation": "Vì sức khỏe, tôi luôn cố gắng ăn uống cân bằng mỗi ngày.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 12536,
+      "term": "適応 (てきおう)",
+      "reading": "てきおう",
+      "romaji": null,
+      "definition": "sự thích nghi",
+      "exampleSentence": "環境の変化に適応するには、柔軟な考え方が必要です。",
+      "exampleTranslation": "Để thích nghi với những thay đổi của môi trường, cần có cách suy nghĩ linh hoạt.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 12537,
+      "term": "動機 (どうき)",
+      "reading": "どうき",
+      "romaji": null,
+      "definition": "động cơ/nguyên nhân hành động",
+      "exampleSentence": "彼がその会社を辞めた動機を、本人に直接尋ねてみた。",
+      "exampleTranslation": "Tôi đã thử hỏi trực tiếp anh ấy về động cơ khiến anh ấy nghỉ việc ở công ty đó.",
+      "forms": [],
+      "displayOrder": 20
+    }
+  ]
+}

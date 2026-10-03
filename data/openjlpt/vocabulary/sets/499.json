@@ -1,0 +1,253 @@
+{
+  "id": 499,
+  "title": "感情・性格 · 性格（優しさ・穏やかさ）",
+  "description": "Tính cách tích cực - hiền hòa & điềm tĩnh — chủ đề Cảm xúc & tính cách · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:50.629538",
+  "cards": [
+    {
+      "id": 12459,
+      "term": "真面目 (まじめ)",
+      "reading": "まじめ",
+      "romaji": null,
+      "definition": "nghiêm túc/chăm chỉ",
+      "exampleSentence": "田中さんは真面目で、仕事を最後まできちんとする。",
+      "exampleTranslation": "Anh Tanaka là người nghiêm túc và luôn hoàn thành công việc đến cùng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12460,
+      "term": "親切 (しんせつ)",
+      "reading": "しんせつ",
+      "romaji": null,
+      "definition": "tốt bụng, thân thiện, ân cần",
+      "exampleSentence": "この町の人たちは親切で、道を尋ねると丁寧に教えてくれる。",
+      "exampleTranslation": "Người dân ở thị trấn này rất thân thiện, hễ hỏi đường là họ tận tình chỉ dẫn.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12461,
+      "term": "正直 (しょうじき)",
+      "reading": "しょうじき",
+      "romaji": null,
+      "definition": "trung thực/thẳng thắn",
+      "exampleSentence": "正直な人は、失敗しても周りから信頼される。",
+      "exampleTranslation": "Người trung thực dù thất bại vẫn được mọi người xung quanh tin tưởng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12462,
+      "term": "熱心 (ねっしん)",
+      "reading": "ねっしん",
+      "romaji": null,
+      "definition": "nhiệt tình, hăng hái",
+      "exampleSentence": "彼女は日本語の勉強に熱心で、毎日新しい言葉を覚えている。",
+      "exampleTranslation": "Cô ấy rất hăng hái học tiếng Nhật và mỗi ngày đều học từ mới.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12463,
+      "term": "鋭い (するどい)",
+      "reading": "するどい",
+      "romaji": null,
+      "definition": "sắc bén, nhạy bén",
+      "exampleSentence": "彼は鋭い質問をして、問題の本質を明らかにした。",
+      "exampleTranslation": "Anh ấy đặt một câu hỏi sắc bén và làm rõ bản chất của vấn đề.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12464,
+      "term": "穏やか (おだやか)",
+      "reading": "おだやか",
+      "romaji": null,
+      "definition": "điềm tĩnh, hiền hòa, êm dịu",
+      "exampleSentence": "春の海は穏やかで、遠くの島までよく見えた。",
+      "exampleTranslation": "Biển mùa xuân êm dịu nên có thể nhìn rõ cả hòn đảo ở xa.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12465,
+      "term": "胸を張る (むねをはる)",
+      "reading": "むねをはる",
+      "romaji": null,
+      "definition": "ngẩng cao đầu, tự hào",
+      "exampleSentence": "努力した人は、いつでも胸を張ることができる。",
+      "exampleTranslation": "Người đã nỗ lực thì lúc nào cũng có thể ngẩng cao đầu.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12466,
+      "term": "柔軟 (じゅうなん)",
+      "reading": "じゅうなん",
+      "romaji": null,
+      "definition": "linh hoạt/mềm dẻo",
+      "exampleSentence": "柔軟な考え方を持つことは、問題解決に役立つ。",
+      "exampleTranslation": "Có cách suy nghĩ linh hoạt sẽ giúp ích cho việc giải quyết vấn đề.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12467,
+      "term": "慎重 (しんちょう)",
+      "reading": "しんちょう",
+      "romaji": null,
+      "definition": "thận trọng/cẩn thận",
+      "exampleSentence": "大切な契約なので、内容を慎重に確認してください。",
+      "exampleTranslation": "Vì đây là hợp đồng quan trọng, hãy kiểm tra nội dung thật cẩn thận.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12468,
+      "term": "真剣 (しんけん)",
+      "reading": "しんけん",
+      "romaji": null,
+      "definition": "nghiêm túc, cẩn trọng",
+      "exampleSentence": "彼女は将来について真剣に考えている。",
+      "exampleTranslation": "Cô ấy đang suy nghĩ nghiêm túc về tương lai.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12469,
+      "term": "積極的 (せっきょくてき)",
+      "reading": "せっきょくてき",
+      "romaji": null,
+      "definition": "tích cực/chủ động",
+      "exampleSentence": "彼は会議で積極的に意見を述べた。",
+      "exampleTranslation": "Anh ấy đã tích cực trình bày ý kiến trong cuộc họp.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12470,
+      "term": "素直 (すなお)",
+      "reading": "すなお",
+      "romaji": null,
+      "definition": "ngoan ngoãn, thành thật, nghe lời",
+      "exampleSentence": "子どもは素直に先生の話を聞いていた。",
+      "exampleTranslation": "Đứa trẻ ngoan ngoãn lắng nghe lời thầy giáo.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12471,
+      "term": "勇気 (ゆうき)",
+      "reading": "ゆうき",
+      "romaji": null,
+      "definition": "sự dũng cảm, can đảm",
+      "exampleSentence": "新しいことに挑戦するには、勇気が必要だ。",
+      "exampleTranslation": "Để thử sức với điều mới, cần phải có lòng can đảm.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12472,
+      "term": "落ち着く (おちつく)",
+      "reading": "おちつく",
+      "romaji": null,
+      "definition": "bình tĩnh lại, ổn định",
+      "exampleSentence": "深呼吸をすると、気持ちが落ち着く。",
+      "exampleTranslation": "Hít thở sâu sẽ giúp tâm trạng bình tĩnh lại.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12473,
+      "term": "立派 (りっぱ)",
+      "reading": "りっぱ",
+      "romaji": null,
+      "definition": "xuất sắc, uy nghiêm, đàng hoàng",
+      "exampleSentence": "卒業した息子の立派な姿を見て、両親は喜んだ。",
+      "exampleTranslation": "Nhìn thấy dáng vẻ đàng hoàng của con trai đã tốt nghiệp, bố mẹ rất vui.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12474,
+      "term": "冷静 (れいせい)",
+      "reading": "れいせい",
+      "romaji": null,
+      "definition": "bình tĩnh, điềm tĩnh",
+      "exampleSentence": "緊急事態でも、冷静に行動することが大切だ。",
+      "exampleTranslation": "Ngay cả trong tình huống khẩn cấp, hành động bình tĩnh là điều quan trọng.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 12475,
+      "term": "レジリエンス",
+      "reading": "レジリエンス",
+      "romaji": null,
+      "definition": "khả năng thích ứng/độ bật",
+      "exampleSentence": "困難な状況でも前向きに進むには、レジリエンスが必要だ。",
+      "exampleTranslation": "Để tiến về phía trước một cách tích cực ngay cả trong hoàn cảnh khó khăn, cần có khả năng thích ứng.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 12476,
+      "term": "意欲 (いよく)",
+      "reading": "いよく",
+      "romaji": null,
+      "definition": "ý chí/nhiệt tình",
+      "exampleSentence": "新しい仕事を任され、彼の学ぶ意欲がさらに高まった。",
+      "exampleTranslation": "Được giao công việc mới, mong muốn học hỏi của anh ấy càng tăng cao.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 12477,
+      "term": "回復力 (かいふくりょく)",
+      "reading": "かいふくりょく",
+      "romaji": null,
+      "definition": "khả năng phục hồi",
+      "exampleSentence": "回復力が高い人は、失敗しても気持ちを切り替え、再び挑戦するのが早い。",
+      "exampleTranslation": "Người có khả năng phục hồi tốt thường nhanh chóng lấy lại tinh thần và thử thách lại sau thất bại.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 12478,
+      "term": "楽観的 (らっかんてき)",
+      "reading": "らっかんてき",
+      "romaji": null,
+      "definition": "lạc quan",
+      "exampleSentence": "楽観的な人は、困難な状況でも解決策が見つかると信じている。",
+      "exampleTranslation": "Người lạc quan tin rằng ngay cả trong hoàn cảnh khó khăn cũng sẽ tìm được cách giải quyết.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 12479,
+      "term": "寛大 (かんだい)",
+      "reading": "かんだい",
+      "romaji": null,
+      "definition": "rộng lượng/bao dung",
+      "exampleSentence": "寛大な彼は、部下の小さな失敗を責めず、次の機会を与えた。",
+      "exampleTranslation": "Anh ấy rất bao dung, không trách mắng lỗi nhỏ của cấp dưới mà còn cho họ cơ hội tiếp theo.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 12480,
+      "term": "気が利く (きがきく)",
+      "reading": "きがきく",
+      "romaji": null,
+      "definition": "tinh tế/lanh lợi/biết ý",
+      "exampleSentence": "彼女は気が利くので、会議の前に必要な資料を全員分用意してくれた。",
+      "exampleTranslation": "Cô ấy rất tinh tế nên đã chuẩn bị đủ tài liệu cần thiết cho mọi người trước cuộc họp.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

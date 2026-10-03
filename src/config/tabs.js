@@ -1,4 +1,4 @@
-import { BookOpen, Plus, List, Library, Languages, Star } from 'lucide-react';
+import { BookOpen, Plus, List, Library, Languages, Heart, Bookmark, LayoutGrid } from 'lucide-react';
 import { ROUTES } from '../router';
 
 export const VOCAB_TABS = [
@@ -11,14 +11,15 @@ export const VOCAB_TABS = [
 export const KANJI_TABS = [
     { id: 'kanji-review', label: 'Ôn tập', icon: BookOpen, route: ROUTES.KANJI_REVIEW, exact: true },
     { id: 'kanji-study', label: 'Bài học', icon: Languages, route: ROUTES.KANJI_STUDY, exact: false },
-    { id: 'kanji-saved', label: 'Đã lưu', icon: Star, route: ROUTES.KANJI_SAVED, exact: true },
+    { id: 'kanji-saved', label: 'Đã lưu', icon: Heart, route: ROUTES.KANJI_SAVED, exact: true },
     { id: 'kanji-list', label: 'Tra cứu', icon: List, route: ROUTES.KANJI_LIST, exact: false },
 ];
 
 export const GRAMMAR_TABS = [
     { id: 'grammar-review', label: 'Ôn tập', icon: BookOpen, route: ROUTES.GRAMMAR_REVIEW, exact: true },
-    { id: 'grammar-study', label: 'Bài học', icon: Languages, route: ROUTES.GRAMMAR_STUDY, exact: false },
-    { id: 'grammar-saved', label: 'Đã lưu', icon: Star, route: ROUTES.GRAMMAR_SAVED, exact: true },
+    { id: 'grammar-curriculum', label: 'Chủ đề', icon: LayoutGrid, route: ROUTES.GRAMMAR_CURRICULUM, exact: false },
+    { id: 'grammar-cheatsheets', label: 'Sổ tay chuyên đề', icon: Bookmark, route: ROUTES.GRAMMAR_CHEATSHEETS, exact: false },
+    { id: 'grammar-saved', label: 'Đã lưu', icon: Heart, route: ROUTES.GRAMMAR_SAVED, exact: true },
     { id: 'grammar-list', label: 'Tra cứu', icon: List, route: ROUTES.GRAMMAR_LIST, exact: false },
 ];
 

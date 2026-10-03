@@ -1,0 +1,176 @@
+{
+  "id": 209,
+  "title": "Tuần 3 · Ngày 2 - 天候・気象 (Thời tiết & Khí tượng)",
+  "description": "Nihongo Soumatome N3 語彙 — 天候・気象 (Thời tiết & Khí tượng)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.201546",
+  "cards": [
+    {
+      "id": 5446,
+      "term": "台風 (たいふう)",
+      "reading": "たいふう",
+      "romaji": "taifuu",
+      "definition": "bão, cơn bão nhiệt đới",
+      "exampleSentence": "台風が近づいているため、明日の試合は中止になった。",
+      "exampleTranslation": "Vì bão đang đến gần nên trận đấu ngày mai đã bị hủy.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5447,
+      "term": "地震 (じしん)",
+      "reading": "じしん",
+      "romaji": "jishin",
+      "definition": "động đất",
+      "exampleSentence": "大きな地震の後、住民は公園に避難した。",
+      "exampleTranslation": "Sau trận động đất lớn, người dân đã sơ tán đến công viên.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5448,
+      "term": "雷 (かみなり)",
+      "reading": "かみなり",
+      "romaji": "kaminari",
+      "definition": "sấm sét, tia sét",
+      "exampleSentence": "雷が鳴り始めたので、急いで窓を閉めた。",
+      "exampleTranslation": "Vì sấm sét bắt đầu nổi lên nên tôi đã nhanh chóng đóng cửa sổ.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5449,
+      "term": "洪水 (こうずい)",
+      "reading": "こうずい",
+      "romaji": "kouzui",
+      "definition": "lũ lụt",
+      "exampleSentence": "大雨で川があふれ、町が洪水に見舞われた。",
+      "exampleTranslation": "Mưa lớn khiến sông tràn bờ và thị trấn bị lũ lụt tàn phá.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5450,
+      "term": "噴火 (ふんか)",
+      "reading": "ふんか",
+      "romaji": "funka",
+      "definition": "phun trào núi lửa",
+      "exampleSentence": "火山の噴火によって、周辺の道路が通行止めになった。",
+      "exampleTranslation": "Do núi lửa phun trào, các con đường xung quanh đã bị cấm lưu thông.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5451,
+      "term": "嵐 (あらし)",
+      "reading": "あらし",
+      "romaji": "arashi",
+      "definition": "bão tố, cơn giông",
+      "exampleSentence": "嵐で木が倒れ、道路が通れなくなった。",
+      "exampleTranslation": "Cơn bão tố làm cây đổ, khiến đường không thể đi qua.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5452,
+      "term": "霧 (きり)",
+      "reading": "きり",
+      "romaji": "kiri",
+      "definition": "sương mù",
+      "exampleSentence": "山道は霧に包まれて、前がよく見えなかった。",
+      "exampleTranslation": "Con đường núi bị sương mù bao phủ nên không thể nhìn rõ phía trước.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5453,
+      "term": "霜 (しも)",
+      "reading": "しも",
+      "romaji": "shimo",
+      "definition": "sương giá, sương muối",
+      "exampleSentence": "朝、畑の野菜に霜が降りていた。",
+      "exampleTranslation": "Buổi sáng, rau trong ruộng phủ đầy sương giá.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5454,
+      "term": "霰 (あられ)",
+      "reading": "あられ",
+      "romaji": "arare",
+      "definition": "mưa đá nhỏ, hạt mưa đá",
+      "exampleSentence": "春なのに、突然霰が降ってきた。",
+      "exampleTranslation": "Dù đang là mùa xuân nhưng những hạt mưa đá nhỏ bất ngờ rơi xuống.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5455,
+      "term": "湿度 (しつど)",
+      "reading": "しつど",
+      "romaji": "shitsudo",
+      "definition": "độ ẩm",
+      "exampleSentence": "今日は湿度が高くて、洗濯物がなかなか乾きません。",
+      "exampleTranslation": "Hôm nay độ ẩm cao nên quần áo giặt mãi không khô.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5456,
+      "term": "気温 (きおん)",
+      "reading": "きおん",
+      "romaji": "kion",
+      "definition": "nhiệt độ không khí",
+      "exampleSentence": "昼になると、気温が三十度まで上がるそうです。",
+      "exampleTranslation": "Nghe nói đến trưa, nhiệt độ không khí sẽ tăng lên 30 độ.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5457,
+      "term": "気圧 (きあつ)",
+      "reading": "きあつ",
+      "romaji": "kiatsu",
+      "definition": "áp suất khí quyển",
+      "exampleSentence": "気圧が低い日は、頭が痛くなることがあります。",
+      "exampleTranslation": "Vào những ngày áp suất khí quyển thấp, đôi khi tôi bị đau đầu.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5458,
+      "term": "予報 (よほう)",
+      "reading": "よほう",
+      "romaji": "yohou",
+      "definition": "dự báo",
+      "exampleSentence": "天気予報によると、明日は一日中雨が降るそうです。",
+      "exampleTranslation": "Theo dự báo thời tiết, nghe nói ngày mai sẽ mưa cả ngày.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5459,
+      "term": "乾燥 (かんそう)",
+      "reading": "かんそう",
+      "romaji": "kansou",
+      "definition": "khô hạn, khô ráo",
+      "exampleSentence": "冬は空気の乾燥で、肌が荒れやすくなります。",
+      "exampleTranslation": "Mùa đông, da dễ bị khô ráp do không khí khô.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5460,
+      "term": "季節 (きせつ)",
+      "reading": "きせつ",
+      "romaji": "kisetsu",
+      "definition": "mùa, mùa trong năm",
+      "exampleSentence": "季節が変わるたびに、着る服も変わります。",
+      "exampleTranslation": "Mỗi khi mùa thay đổi, quần áo mặc cũng thay đổi.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

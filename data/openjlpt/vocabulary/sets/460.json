@@ -1,0 +1,209 @@
+{
+  "id": 460,
+  "title": "IT・メディア · デジタル基盤・インフラ技術",
+  "description": "Công nghệ nền tảng & hạ tầng số — chủ đề CNTT & truyền thông · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.391816",
+  "cards": [
+    {
+      "id": 11694,
+      "term": "ビッグデータ",
+      "reading": "ビッグデータ",
+      "romaji": null,
+      "definition": "dữ liệu lớn",
+      "exampleSentence": "ビッグデータを分析すれば、消費者の行動を予測できます。",
+      "exampleTranslation": "Nếu phân tích dữ liệu lớn, chúng ta có thể dự đoán hành vi của người tiêu dùng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11695,
+      "term": "クラウド",
+      "reading": "クラウド",
+      "romaji": null,
+      "definition": "điện toán đám mây",
+      "exampleSentence": "会社では、重要なデータをクラウドに保存しています。",
+      "exampleTranslation": "Công ty đang lưu trữ dữ liệu quan trọng trên hệ thống đám mây.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11696,
+      "term": "デジタルトランスフォーメーション",
+      "reading": "デジタルトランスフォーメーション",
+      "romaji": null,
+      "definition": "chuyển đổi số",
+      "exampleSentence": "デジタルトランスフォーメーションによって、業務の効率化が進みました。",
+      "exampleTranslation": "Nhờ chuyển đổi số, hiệu quả công việc đã được nâng cao.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11697,
+      "term": "システム",
+      "reading": "システム",
+      "romaji": null,
+      "definition": "hệ thống",
+      "exampleSentence": "新しいシステムを導入する前に、現場の意見を十分に聞く必要がある。",
+      "exampleTranslation": "Trước khi đưa hệ thống mới vào sử dụng, cần lắng nghe đầy đủ ý kiến của nhân viên tại hiện trường.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11698,
+      "term": "デジタル",
+      "reading": "デジタル",
+      "romaji": null,
+      "definition": "kỹ thuật số/digital",
+      "exampleSentence": "デジタル技術の発展に伴い、仕事の進め方も大きく変わった。",
+      "exampleTranslation": "Cùng với sự phát triển của công nghệ kỹ thuật số, cách thức tiến hành công việc cũng đã thay đổi đáng kể.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11699,
+      "term": "プラットフォーム",
+      "reading": "プラットフォーム",
+      "romaji": null,
+      "definition": "nền tảng/platform",
+      "exampleSentence": "このプラットフォームを利用すれば、企業同士が簡単に情報を共有できる。",
+      "exampleTranslation": "Nếu sử dụng nền tảng này, các doanh nghiệp có thể dễ dàng chia sẻ thông tin với nhau.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11700,
+      "term": "ネットワーク",
+      "reading": "ネットワーク",
+      "romaji": null,
+      "definition": "mạng lưới/network",
+      "exampleSentence": "国際的なネットワークを築くには、長期的な交流が欠かせない。",
+      "exampleTranslation": "Để xây dựng mạng lưới quốc tế, việc giao lưu lâu dài là điều không thể thiếu.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11701,
+      "term": "データ",
+      "reading": "データ",
+      "romaji": null,
+      "definition": "dữ liệu/data",
+      "exampleSentence": "集めたデータを分析した結果、若者の利用率が予想以上に高かった。",
+      "exampleTranslation": "Kết quả phân tích dữ liệu thu thập được cho thấy tỷ lệ sử dụng của giới trẻ cao hơn dự đoán.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11702,
+      "term": "プログラミング",
+      "reading": "プログラミング",
+      "romaji": null,
+      "definition": "lập trình/programming",
+      "exampleSentence": "大学では、プログラミングの基礎から実践的な開発まで学べる。",
+      "exampleTranslation": "Ở đại học, sinh viên có thể học từ những kiến thức cơ bản về lập trình đến phát triển ứng dụng thực tế.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11703,
+      "term": "アプリケーション",
+      "reading": "アプリケーション",
+      "romaji": null,
+      "definition": "ứng dụng/application",
+      "exampleSentence": "このアプリケーションは、利用者の要望を取り入れて定期的に改良されている。",
+      "exampleTranslation": "Ứng dụng này thường xuyên được cải tiến dựa trên yêu cầu của người dùng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11704,
+      "term": "インターフェース",
+      "reading": "インターフェース",
+      "romaji": null,
+      "definition": "giao diện/interface",
+      "exampleSentence": "高齢者にも使いやすいインターフェースを設計することが重要だ。",
+      "exampleTranslation": "Việc thiết kế giao diện dễ sử dụng ngay cả đối với người cao tuổi là rất quan trọng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11705,
+      "term": "5G",
+      "reading": "5G",
+      "romaji": null,
+      "definition": "mạng di động thế hệ 5G",
+      "exampleSentence": "5Gの普及によって、大容量の動画も短時間で送受信できるようになった。",
+      "exampleTranslation": "Nhờ sự phổ biến của 5G, giờ đây ngay cả video dung lượng lớn cũng có thể được gửi và nhận trong thời gian ngắn.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11706,
+      "term": "アプリ",
+      "reading": "アプリ",
+      "romaji": null,
+      "definition": "ứng dụng điện thoại",
+      "exampleSentence": "忘れ物を防ぐため、予定を知らせてくれるアプリを使っている。",
+      "exampleTranslation": "Để tránh quên đồ, tôi sử dụng ứng dụng nhắc lịch trình.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11707,
+      "term": "オンライン",
+      "reading": "オンライン",
+      "romaji": null,
+      "definition": "trực tuyến",
+      "exampleSentence": "感染症の流行をきっかけに、オンラインで会議を行う企業が増えた。",
+      "exampleTranslation": "Kể từ khi dịch bệnh truyền nhiễm bùng phát, số doanh nghiệp tổ chức họp trực tuyến đã tăng lên.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 11708,
+      "term": "クラウドストレージ",
+      "reading": "クラウドストレージ",
+      "romaji": null,
+      "definition": "lưu trữ đám mây",
+      "exampleSentence": "重要な資料はクラウドストレージに保存し、複数の端末から確認できるようにしている。",
+      "exampleTranslation": "Tôi lưu các tài liệu quan trọng trên bộ nhớ đám mây để có thể kiểm tra chúng từ nhiều thiết bị.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 11709,
+      "term": "スマートフォン",
+      "reading": "スマートフォン",
+      "romaji": null,
+      "definition": "điện thoại thông minh",
+      "exampleSentence": "スマートフォンは便利だが、使いすぎると睡眠不足になる。",
+      "exampleTranslation": "Điện thoại thông minh tiện lợi, nhưng nếu dùng quá nhiều sẽ bị thiếu ngủ.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 11710,
+      "term": "ブロードバンド",
+      "reading": "ブロードバンド",
+      "romaji": null,
+      "definition": "băng thông rộng",
+      "exampleSentence": "ブロードバンドの普及で、大容量のデータも短時間で送れるようになった。",
+      "exampleTranslation": "Nhờ sự phổ biến của băng thông rộng, giờ đây dữ liệu dung lượng lớn cũng có thể được gửi trong thời gian ngắn.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 11711,
+      "term": "人工知能 (じんこうちのう)",
+      "reading": "じんこうちのう",
+      "romaji": null,
+      "definition": "trí tuệ nhân tạo",
+      "exampleSentence": "人工知能の発達によって、私たちの生活はさらに便利になるだろう。",
+      "exampleTranslation": "Nhờ sự phát triển của trí tuệ nhân tạo, cuộc sống của chúng ta có lẽ sẽ càng tiện lợi hơn.",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

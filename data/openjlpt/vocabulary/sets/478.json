@@ -1,0 +1,231 @@
+{
+  "id": 478,
+  "title": "教育・学習 · 研究・教育活動",
+  "description": "Nghiên cứu & hoạt động giảng dạy — chủ đề Giáo dục & học tập · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.879312",
+  "cards": [
+    {
+      "id": 12024,
+      "term": "学習 (がくしゅう)",
+      "reading": "がくしゅう",
+      "romaji": null,
+      "definition": "học tập",
+      "exampleSentence": "毎日の学習時間を記録すると、自分の弱点が見えやすくなる。",
+      "exampleTranslation": "Nếu ghi lại thời gian học mỗi ngày, ta sẽ dễ nhận ra điểm yếu của mình hơn.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12025,
+      "term": "観察 (かんさつ)",
+      "reading": "かんさつ",
+      "romaji": null,
+      "definition": "quan sát",
+      "exampleSentence": "野鳥の観察を続けると、季節ごとの変化に気づく。",
+      "exampleTranslation": "Nếu tiếp tục quan sát chim hoang dã, ta sẽ nhận ra những thay đổi theo từng mùa.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12026,
+      "term": "教育 (きょういく)",
+      "reading": "きょういく",
+      "romaji": null,
+      "definition": "giáo dục",
+      "exampleSentence": "子どもの教育には、知識だけでなく考える力も必要です。",
+      "exampleTranslation": "Giáo dục trẻ em cần không chỉ kiến thức mà cả năng lực tư duy.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12027,
+      "term": "教授 (きょうじゅ)",
+      "reading": "きょうじゅ",
+      "romaji": null,
+      "definition": "giáo sư đại học",
+      "exampleSentence": "大学の教授に、卒業論文のテーマについて相談した。",
+      "exampleTranslation": "Tôi đã trao đổi với giáo sư đại học về đề tài luận văn tốt nghiệp.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12028,
+      "term": "研究 (けんきゅう)",
+      "reading": "けんきゅう",
+      "romaji": null,
+      "definition": "nghiên cứu",
+      "exampleSentence": "彼は環境問題の研究に長年取り組んでいる。",
+      "exampleTranslation": "Anh ấy đã nghiên cứu các vấn đề môi trường trong nhiều năm.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12029,
+      "term": "講義 (こうぎ)",
+      "reading": "こうぎ",
+      "romaji": null,
+      "definition": "bài giảng, buổi giảng",
+      "exampleSentence": "今日の講義では、江戸時代の文化について学んだ。",
+      "exampleTranslation": "Trong buổi giảng hôm nay, chúng tôi đã học về văn hóa thời Edo.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12030,
+      "term": "実験 (じっけん)",
+      "reading": "じっけん",
+      "romaji": null,
+      "definition": "thực nghiệm",
+      "exampleSentence": "理科の実験では、安全のために先生の指示を守りましょう。",
+      "exampleTranslation": "Trong thí nghiệm khoa học, hãy tuân theo chỉ dẫn của giáo viên để đảm bảo an toàn.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12031,
+      "term": "専門 (せんもん)",
+      "reading": "せんもん",
+      "romaji": null,
+      "definition": "chuyên môn",
+      "exampleSentence": "私の専門は国際関係ですが、経済にも関心があります。",
+      "exampleTranslation": "Chuyên môn của tôi là quan hệ quốc tế, nhưng tôi cũng quan tâm đến kinh tế.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12032,
+      "term": "調べる (しらべる)",
+      "reading": "しらべる",
+      "romaji": null,
+      "definition": "điều tra, tìm hiểu, kiểm tra",
+      "exampleSentence": "分からない言葉があったら、辞書で意味を調べる。",
+      "exampleTranslation": "Nếu có từ không hiểu, hãy tra nghĩa trong từ điển.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12033,
+      "term": "調査 (ちょうさ)",
+      "reading": "ちょうさ",
+      "romaji": null,
+      "definition": "điều tra/khảo sát",
+      "exampleSentence": "この調査では、大学生の読書習慣について詳しく調べます。",
+      "exampleTranslation": "Trong cuộc khảo sát này, chúng tôi sẽ tìm hiểu chi tiết về thói quen đọc sách của sinh viên đại học.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12034,
+      "term": "理解 (りかい)",
+      "reading": "りかい",
+      "romaji": null,
+      "definition": "sự hiểu biết",
+      "exampleSentence": "異文化への理解を深めるには、実際に交流することが大切です。",
+      "exampleTranslation": "Để nâng cao sự hiểu biết về các nền văn hóa khác, việc giao lưu thực tế là rất quan trọng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12035,
+      "term": "理解する (りかいする)",
+      "reading": "りかいする",
+      "romaji": null,
+      "definition": "hiểu, thông hiểu",
+      "exampleSentence": "新しい制度を正しく理解するために、説明会に参加しました。",
+      "exampleTranslation": "Để hiểu đúng chế độ mới, tôi đã tham gia buổi giải thích.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12036,
+      "term": "ゼミ",
+      "reading": "ゼミ",
+      "romaji": null,
+      "definition": "seminar/nhóm nghiên cứu",
+      "exampleSentence": "毎週のゼミで、各自が研究の進み具合を発表します。",
+      "exampleTranslation": "Trong seminar hằng tuần, mỗi người sẽ trình bày tiến độ nghiên cứu của mình.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12037,
+      "term": "学会 (がっかい)",
+      "reading": "がっかい",
+      "romaji": null,
+      "definition": "hội học thuật",
+      "exampleSentence": "来月の学会で、研究結果を発表する予定です。",
+      "exampleTranslation": "Tôi dự định trình bày kết quả nghiên cứu tại hội học thuật vào tháng sau.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12038,
+      "term": "教育格差 (きょういくかくさ)",
+      "reading": "きょういくかくさ",
+      "romaji": null,
+      "definition": "bất bình đẳng giáo dục",
+      "exampleSentence": "教育格差をなくすために、地域全体で子どもを支援する必要があります。",
+      "exampleTranslation": "Để xóa bỏ bất bình đẳng giáo dục, cả cộng đồng cần hỗ trợ trẻ em.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12039,
+      "term": "教育心理学 (きょういくしんりがく)",
+      "reading": "きょういくしんりがく",
+      "romaji": null,
+      "definition": "tâm lý giáo dục học",
+      "exampleSentence": "大学で教育心理学を学び、子どもの学習過程を研究しています。",
+      "exampleTranslation": "Tôi học tâm lý giáo dục học ở đại học và nghiên cứu quá trình học tập của trẻ em.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 12040,
+      "term": "教授法 (きょうじゅほう)",
+      "reading": "きょうじゅほう",
+      "romaji": null,
+      "definition": "phương pháp giảng dạy",
+      "exampleSentence": "この講座では、効果的な日本語の教授法を実践的に学びます。",
+      "exampleTranslation": "Trong khóa học này, học viên sẽ được học thực hành phương pháp giảng dạy tiếng Nhật hiệu quả.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 12041,
+      "term": "研究費 (けんきゅうひ)",
+      "reading": "けんきゅうひ",
+      "romaji": null,
+      "definition": "kinh phí nghiên cứu",
+      "exampleSentence": "研究費が不足しているため、新しい実験を始められません。",
+      "exampleTranslation": "Vì kinh phí nghiên cứu không đủ nên chúng tôi không thể bắt đầu thí nghiệm mới.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 12042,
+      "term": "指導教員 (しどうきょういん)",
+      "reading": "しどうきょういん",
+      "romaji": null,
+      "definition": "giáo viên hướng dẫn",
+      "exampleSentence": "研究計画について、指導教員に相談してから申請書を提出しました。",
+      "exampleTranslation": "Sau khi trao đổi với giáo viên hướng dẫn về kế hoạch nghiên cứu, tôi đã nộp đơn đăng ký.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 12043,
+      "term": "教諭 (きょうゆ)",
+      "reading": "きょうゆ",
+      "romaji": null,
+      "definition": "giáo viên phổ thông",
+      "exampleSentence": "彼女は高校の教諭として、長年生徒の進路指導に携わってきました。",
+      "exampleTranslation": "Cô ấy đã nhiều năm làm công tác hướng nghiệp cho học sinh với tư cách là giáo viên trung học.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

@@ -95,12 +95,31 @@ export const ENGLISH_SAMPLE_BOOK_GROUPS = [
 ];
 
 export const getGroupCategory = (group) => {
-    const name = (group.name || '').toLowerCase();
-    const subtitle = (group.subtitle || '').toLowerCase();
-    if (name.includes('mimikara') || name.includes('jlpt') || subtitle.includes('jlpt') || name.includes('tango')) {
+    const name = (group?.name || '').toLowerCase();
+    const subtitle = (group?.subtitle || '').toLowerCase();
+    if (
+        name.includes('mimikara') || 
+        name.includes('jlpt') || 
+        subtitle.includes('jlpt') || 
+        name.includes('tango') || 
+        name.includes('soumatome') || 
+        name.includes('chủ đề') || 
+        name.includes('chu de') ||
+        subtitle.includes('chủ đề') ||
+        subtitle.includes('chu de')
+    ) {
         return 'JLPT';
     }
-    if (name.includes('daichi') || name.includes('irodori') || name.includes('minna') || name.includes('sách')) {
+    if (
+        name.includes('daichi') || 
+        name.includes('irodori') || 
+        name.includes('minna') || 
+        name.includes('sách') ||
+        name.includes('sach') ||
+        name.includes('textbook') ||
+        subtitle.includes('giáo trình') ||
+        subtitle.includes('giao trinh')
+    ) {
         return 'TEXTBOOK';
     }
     return 'CUSTOM';

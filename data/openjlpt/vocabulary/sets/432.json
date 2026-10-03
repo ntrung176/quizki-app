@@ -1,0 +1,176 @@
+{
+  "id": 432,
+  "title": "ビジネス・仕事 · 産業分野",
+  "description": "Các ngành công nghiệp — chủ đề Công việc & kinh doanh · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:48.017424",
+  "cards": [
+    {
+      "id": 11171,
+      "term": "エネルギー産業 (エネルギーさんぎょう)",
+      "reading": "エネルギーさんぎょう",
+      "romaji": null,
+      "definition": "ngành công nghiệp năng lượng",
+      "exampleSentence": "エネルギー産業は、再生可能エネルギーの導入によって大きく変化しています。",
+      "exampleTranslation": "Ngành công nghiệp năng lượng đang thay đổi mạnh mẽ nhờ việc đưa năng lượng tái tạo vào sử dụng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11172,
+      "term": "化学工業 (かがくこうぎょう)",
+      "reading": "かがくこうぎょう",
+      "romaji": null,
+      "definition": "công nghiệp hoá chất",
+      "exampleSentence": "化学工業では、環境への影響を抑える新しい技術が開発されています。",
+      "exampleTranslation": "Trong ngành công nghiệp hoá chất, các công nghệ mới nhằm hạn chế ảnh hưởng đến môi trường đang được phát triển.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11173,
+      "term": "漁業 (ぎょぎょう)",
+      "reading": "ぎょぎょう",
+      "romaji": null,
+      "definition": "nghề cá/ngư nghiệp",
+      "exampleSentence": "漁業を営む人々は、海の資源を守るために漁獲量を調整しています。",
+      "exampleTranslation": "Những người làm nghề cá điều chỉnh sản lượng đánh bắt để bảo vệ tài nguyên biển.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11174,
+      "term": "軽工業 (けいこうぎょう)",
+      "reading": "けいこうぎょう",
+      "romaji": null,
+      "definition": "công nghiệp nhẹ",
+      "exampleSentence": "軽工業の発展により、地域に多くの雇用が生まれました。",
+      "exampleTranslation": "Nhờ sự phát triển của công nghiệp nhẹ, nhiều việc làm đã được tạo ra trong khu vực.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11175,
+      "term": "建設業 (けんせつぎょう)",
+      "reading": "けんせつぎょう",
+      "romaji": null,
+      "definition": "ngành xây dựng",
+      "exampleSentence": "建設業では、人手不足を補うために外国人労働者を受け入れています。",
+      "exampleTranslation": "Trong ngành xây dựng, người lao động nước ngoài được tiếp nhận để bù đắp tình trạng thiếu nhân lực.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11176,
+      "term": "工場 (こうじょう)",
+      "reading": "こうじょう",
+      "romaji": null,
+      "definition": "nhà máy/xí nghiệp",
+      "exampleSentence": "工場の安全管理を徹底するため、毎朝設備の点検を行っています。",
+      "exampleTranslation": "Để đảm bảo quản lý an toàn trong nhà máy, chúng tôi kiểm tra thiết bị mỗi sáng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11177,
+      "term": "産業 (さんぎょう)",
+      "reading": "さんぎょう",
+      "romaji": null,
+      "definition": "ngành công nghiệp",
+      "exampleSentence": "産業の発展とともに、人々の生活も便利になってきました。",
+      "exampleTranslation": "Cùng với sự phát triển của các ngành công nghiệp, cuộc sống của người dân cũng trở nên tiện lợi hơn.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11178,
+      "term": "自動車産業 (じどうしゃさんぎょう)",
+      "reading": "じどうしゃさんぎょう",
+      "romaji": null,
+      "definition": "ngành công nghiệp ô tô",
+      "exampleSentence": "自動車産業は、環境に配慮した車の開発に力を入れています。",
+      "exampleTranslation": "Ngành công nghiệp ô tô đang tập trung phát triển những loại xe thân thiện với môi trường.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11179,
+      "term": "重工業 (じゅうこうぎょう)",
+      "reading": "じゅうこうぎょう",
+      "romaji": null,
+      "definition": "công nghiệp nặng",
+      "exampleSentence": "重工業を中心とする地域では、大量の電力が必要とされています。",
+      "exampleTranslation": "Ở những khu vực tập trung công nghiệp nặng, một lượng điện lớn là cần thiết.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11180,
+      "term": "水産業 (すいさんぎょう)",
+      "reading": "すいさんぎょう",
+      "romaji": null,
+      "definition": "ngành thuỷ sản",
+      "exampleSentence": "この町では、水産業が地域経済を支える重要な役割を果たしています。",
+      "exampleTranslation": "Ở thị trấn này, ngành thuỷ sản đóng vai trò quan trọng trong việc поддерж đỡ nền kinh tế địa phương.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11181,
+      "term": "製造業 (せいぞうぎょう)",
+      "reading": "せいぞうぎょう",
+      "romaji": null,
+      "definition": "ngành sản xuất",
+      "exampleSentence": "製造業では、人手不足を補うために自動化を進める企業が増えている。",
+      "exampleTranslation": "Trong ngành sản xuất, ngày càng có nhiều doanh nghiệp thúc đẩy tự động hóa để bù đắp tình trạng thiếu nhân lực.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11182,
+      "term": "物流 (ぶつりゅう)",
+      "reading": "ぶつりゅう",
+      "romaji": null,
+      "definition": "logistics/vận chuyển hàng hóa",
+      "exampleSentence": "物流の効率化は、商品の価格と配送時間に大きな影響を与える。",
+      "exampleTranslation": "Việc nâng cao hiệu quả logistics có ảnh hưởng lớn đến giá sản phẩm và thời gian giao hàng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11183,
+      "term": "流通業 (りゅうつうぎょう)",
+      "reading": "りゅうつうぎょう",
+      "romaji": null,
+      "definition": "ngành phân phối lưu thông",
+      "exampleSentence": "流通業では、消費者のニーズを把握することが競争力につながる。",
+      "exampleTranslation": "Trong ngành phân phối, việc nắm bắt nhu cầu của người tiêu dùng sẽ tạo nên năng lực cạnh tranh.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11184,
+      "term": "林業 (りんぎょう)",
+      "reading": "りんぎょう",
+      "romaji": null,
+      "definition": "lâm nghiệp",
+      "exampleSentence": "林業を持続可能な産業にするには、森林の適切な管理が欠かせない。",
+      "exampleTranslation": "Để biến lâm nghiệp thành một ngành bền vững, việc quản lý rừng phù hợp là điều không thể thiếu.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 11185,
+      "term": "縫製 (ほうせい)",
+      "reading": "ほうせい",
+      "romaji": null,
+      "definition": "may vá/khâu",
+      "exampleSentence": "縫製の技術を継承するため、若い職人の育成に力を入れている。",
+      "exampleTranslation": "Để truyền lại kỹ thuật may, công ty đang tập trung đào tạo những thợ trẻ.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "id": 208,
+  "title": "Tuần 3 · Ngày 1 - 自然・地理 (Tự nhiên & Địa lý)",
+  "description": "Nihongo Soumatome N3 語彙 — 自然・地理 (Tự nhiên & Địa lý)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.167683",
+  "cards": [
+    {
+      "id": 5431,
+      "term": "自然 (しぜん)",
+      "reading": "しぜん",
+      "romaji": "shizen",
+      "definition": "tự nhiên, thiên nhiên",
+      "exampleSentence": "この町は自然が豊かで、週末には多くの観光客が訪れます。",
+      "exampleTranslation": "Thị trấn này có thiên nhiên phong phú, nên cuối tuần có rất nhiều du khách đến thăm.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5432,
+      "term": "地形 (ちけい)",
+      "reading": "ちけい",
+      "romaji": "chikei",
+      "definition": "địa hình",
+      "exampleSentence": "地図を見ながら、この地域の地形について説明を聞きました。",
+      "exampleTranslation": "Vừa xem bản đồ, tôi vừa nghe giải thích về địa hình của khu vực này.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5433,
+      "term": "平野 (へいや)",
+      "reading": "へいや",
+      "romaji": "heiya",
+      "definition": "đồng bằng",
+      "exampleSentence": "広い平野に田んぼが一面に広がっています。",
+      "exampleTranslation": "Những cánh đồng lúa trải rộng khắp vùng đồng bằng mênh mông.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5434,
+      "term": "砂漠 (さばく)",
+      "reading": "さばく",
+      "romaji": "sabaku",
+      "definition": "sa mạc",
+      "exampleSentence": "砂漠では昼と夜の気温差がとても大きいです。",
+      "exampleTranslation": "Ở sa mạc, chênh lệch nhiệt độ giữa ngày và đêm rất lớn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5435,
+      "term": "森林 (しんりん)",
+      "reading": "しんりん",
+      "romaji": "shinrin",
+      "definition": "rừng, rừng rậm",
+      "exampleSentence": "森林を守るために、木を必要以上に切らないことが大切です。",
+      "exampleTranslation": "Để bảo vệ rừng, điều quan trọng là không chặt cây quá mức cần thiết.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5436,
+      "term": "川 (かわ)",
+      "reading": "かわ",
+      "romaji": "kawa",
+      "definition": "sông, con sông",
+      "exampleSentence": "大雨の後、川の水がいつもより増えていました。",
+      "exampleTranslation": "Sau trận mưa lớn, nước sông đã dâng cao hơn thường lệ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5437,
+      "term": "湖 (みずうみ)",
+      "reading": "みずうみ",
+      "romaji": "mizuumi",
+      "definition": "hồ, ao hồ",
+      "exampleSentence": "山のふもとの湖は、朝日に照らされて美しく見えました。",
+      "exampleTranslation": "Hồ dưới chân núi trông thật đẹp khi được ánh nắng ban mai chiếu rọi.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5438,
+      "term": "島 (しま)",
+      "reading": "しま",
+      "romaji": "shima",
+      "definition": "đảo, hòn đảo",
+      "exampleSentence": "夏休みに、家族と小さな島を訪れました。",
+      "exampleTranslation": "Vào kỳ nghỉ hè, tôi đã cùng gia đình đến thăm một hòn đảo nhỏ.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5439,
+      "term": "海岸 (かいがん)",
+      "reading": "かいがん",
+      "romaji": "kaigan",
+      "definition": "bờ biển",
+      "exampleSentence": "夕方になると、海岸を散歩する人が増えます。",
+      "exampleTranslation": "Đến chiều tối, số người đi dạo trên bờ biển lại tăng lên.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5440,
+      "term": "山脈 (さんみゃく)",
+      "reading": "さんみゃく",
+      "romaji": "sanmyaku",
+      "definition": "dãy núi",
+      "exampleSentence": "遠くに見える山脈は、雪で白く覆われています。",
+      "exampleTranslation": "Dãy núi nhìn thấy ở phía xa được tuyết phủ trắng xóa.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5441,
+      "term": "火山 (かざん)",
+      "reading": "かざん",
+      "romaji": "kazan",
+      "definition": "núi lửa",
+      "exampleSentence": "この地域には、今も活動を続けている火山があります。",
+      "exampleTranslation": "Ở khu vực này có một ngọn núi lửa hiện vẫn đang hoạt động.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5442,
+      "term": "資源 (しげん)",
+      "reading": "しげん",
+      "romaji": "shigen",
+      "definition": "tài nguyên",
+      "exampleSentence": "限りある資源を大切に使うようにしましょう。",
+      "exampleTranslation": "Chúng ta hãy sử dụng thật tiết kiệm những tài nguyên có hạn.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5443,
+      "term": "土地 (とち)",
+      "reading": "とち",
+      "romaji": "tochi",
+      "definition": "đất đai, đất",
+      "exampleSentence": "この土地は昔から米作りに適している。",
+      "exampleTranslation": "Vùng đất này từ xưa đã thích hợp để trồng lúa.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5444,
+      "term": "領土 (りょうど)",
+      "reading": "りょうど",
+      "romaji": "ryoudo",
+      "definition": "lãnh thổ",
+      "exampleSentence": "その島の領土をめぐって、二つの国が対立している。",
+      "exampleTranslation": "Hai quốc gia đang đối lập nhau vì tranh chấp lãnh thổ của hòn đảo đó.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5445,
+      "term": "大陸 (たいりく)",
+      "reading": "たいりく",
+      "romaji": "tairiku",
+      "definition": "lục địa, châu lục",
+      "exampleSentence": "彼は大学を卒業してから、初めて大陸へ渡った。",
+      "exampleTranslation": "Sau khi tốt nghiệp đại học, anh ấy lần đầu tiên đặt chân đến lục địa.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

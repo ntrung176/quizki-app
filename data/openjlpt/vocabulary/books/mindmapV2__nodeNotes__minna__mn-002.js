@@ -1,0 +1,1226 @@
+{
+  "default": {
+    "mn-002||core||Rời xa NGƯỜI NÓI (không gian)": {
+      "title": "Rời xa NGƯỜI NÓI (không gian)",
+      "sub": "〜ていく · Ý nghĩa cốt lõi",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "core",
+        "isNode": true,
+        "parentBranch": "📖 Ý nghĩa cốt lõi",
+        "definition": "**Ý nghĩa không gian** của 〜ていく diễn tả đối tượng di chuyển rời xa vị trí của người nói (hoặc mốc quan sát). Khác với ý nghĩa thời gian, nét nghĩa này tập trung vào chuyển động vật lý của sự vật đang khuất dần hoặc đi tới nơi khác.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "飛行機",
+                "r": "ひこうき",
+                "m": "máy bay"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "飛んで",
+                "r": "とんで",
+                "m": "bay"
+              },
+              {
+                "t": "いった",
+                "m": "đi mất"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Chiếc máy bay đã bay đi mất.",
+            "scene": "Nhìn máy bay cất cánh và xa dần trên bầu trời"
+          }
+        ]
+      }
+    },
+    "mn-002||core||TIẾP DIỄN từ hiện tại → tương lai": {
+      "title": "TIẾP DIỄN từ hiện tại → tương lai",
+      "sub": "〜ていく · Ý nghĩa cốt lõi",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "core",
+        "isNode": true,
+        "parentBranch": "📖 Ý nghĩa cốt lõi",
+        "definition": "Diễn tả một hành động hoặc trạng thái **tiếp tục kéo dài từ mốc hiện tại tiến về tương lai**. Điểm này khác với di chuyển không gian vì nó tập trung vào tiến trình thời gian lâu dài về sau.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "これから",
+                "m": "từ bây giờ"
+              },
+              {
+                "t": "も"
+              },
+              {
+                "t": "夢",
+                "r": "ゆめ",
+                "m": "ước mơ"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "追って",
+                "r": "おって",
+                "m": "đuổi theo"
+              },
+              {
+                "t": "いきます",
+                "m": "tiếp tục"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tớ sẽ tiếp tục theo đuổi ước mơ từ bây giờ.",
+            "scene": "Chia sẻ mục tiêu tương lai với bạn bè"
+          }
+        ]
+      }
+    },
+    "mn-002||core||BIẾN ĐỔI trạng thái dần dần": {
+      "title": "BIẾN ĐỔI trạng thái dần dần",
+      "sub": "〜ていく · Ý nghĩa cốt lõi",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "core",
+        "isNode": true,
+        "parentBranch": "📖 Ý nghĩa cốt lõi",
+        "definition": "Diễn tả sự **thay đổi trạng thái xảy ra từ từ, tiến triển từng chút một** theo thời gian về tương lai. Khác với hành động chủ quan của con người, điểm này mô tả các xu hướng biến đổi tự nhiên hoặc kết quả của một quá trình.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "暖かく",
+                "r": "あたたかく",
+                "m": "ấm áp"
+              },
+              {
+                "t": "なって",
+                "m": "trở nên"
+              },
+              {
+                "t": "いく",
+                "m": "dần"
+              },
+              {
+                "t": "でしょう",
+                "m": "chắc là"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Thời tiết chắc là sẽ ấm dần lên.",
+            "scene": "Nhìn dự báo thời tiết chuyển mùa sang xuân"
+          }
+        ]
+      }
+    },
+    "mn-002||core||Làm gì đó RỒI ĐI LUÔN (không quay lại)": {
+      "title": "Làm gì đó RỒI ĐI LUÔN (không quay lại)",
+      "sub": "〜ていく · Ý nghĩa cốt lõi",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "core",
+        "isNode": true,
+        "parentBranch": "📖 Ý nghĩa cốt lõi",
+        "definition": "Diễn tả hành động thực hiện một việc tại điểm xuất phát rồi **rời đi luôn sang nơi khác**. Khác với 〜てくる (làm rồi quay về), cách dùng này nhấn mạnh việc rời khỏi vị trí ban đầu và không trở lại ngay.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "朝食",
+                "r": "ちょうしょく",
+                "m": "bữa sáng"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "食べて",
+                "r": "たべて",
+                "m": "ăn"
+              },
+              {
+                "t": "いきます",
+                "m": "rồi đi luôn"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi ăn sáng xong rồi đi làm luôn.",
+            "scene": "Nói với người nhà trước khi rời khỏi nhà vào buổi sáng"
+          }
+        ]
+      }
+    },
+    "mn-002||forms||Vて + いく (hiện tại)": {
+      "title": "Vて + いく (hiện tại)",
+      "sub": "〜ていく · Cấu trúc & cách chia",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "forms",
+        "isNode": true,
+        "parentBranch": "🧩 Cấu trúc & cách chia",
+        "definition": "Dạng **kết hợp cơ bản ở thể thông thường** giữa động từ thể て và いく. Dùng trong giao tiếp thân mật hoặc văn viết để diễn tả hành động, sự biến đổi hướng tới tương lai hoặc ra xa.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "鳥",
+                "r": "とり",
+                "m": "con chim"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "飛んで",
+                "r": "とんで",
+                "m": "bay"
+              },
+              {
+                "t": "いく",
+                "m": "đi xa"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Con chim bay đi kìa.",
+            "scene": "Chỉ cho bạn xem con chim đang bay xa dần"
+          }
+        ]
+      }
+    },
+    "mn-002||forms||→ ていきます (lịch sự)": {
+      "title": "→ ていきます (lịch sự)",
+      "sub": "〜ていく · Cấu trúc & cách chia",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "forms",
+        "isNode": true,
+        "parentBranch": "🧩 Cấu trúc & cách chia",
+        "definition": "Dạng **chia lịch sự (thể マス)** của 〜ていく. Dùng trong giao tiếp hàng ngày với người lớn tuổi, đồng nghiệp hoặc đối tác để thể hiện sự lịch sự khi nói về kế hoạch, hướng di chuyển hay tiến trình tương lai.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "今後",
+                "r": "こんご",
+                "m": "từ nay về sau"
+              },
+              {
+                "t": "も"
+              },
+              {
+                "t": "努力して",
+                "r": "どりょくして",
+                "m": "nỗ lực"
+              },
+              {
+                "t": "いきます",
+                "m": "tiếp tục"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi sẽ tiếp tục nỗ lực từ nay về sau.",
+            "scene": "Phát biểu nhận việc hoặc cam kết trong công việc"
+          }
+        ]
+      }
+    },
+    "mn-002||forms||Quá khứ: ていった": {
+      "title": "Quá khứ: ていった",
+      "sub": "〜ていく · Cấu trúc & cách chia",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "forms",
+        "isNode": true,
+        "parentBranch": "🧩 Cấu trúc & cách chia",
+        "definition": "Dạng **chia quá khứ thể thông thường** của 〜ていく, diễn tả một sự việc đã di chuyển rời xa hoặc một tiến trình đã kéo dài từ mốc quá khứ đó đi xa hơn trong bối cảnh kể lại câu chuyện.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "列車",
+                "r": "れっしゃ",
+                "m": "đoàn tàu"
+              },
+              {
+                "t": "は"
+              },
+              {
+                "t": "走って",
+                "r": "はしって",
+                "m": "chạy"
+              },
+              {
+                "t": "いった",
+                "m": "đi xa"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Đoàn tàu đã chạy đi mất.",
+            "scene": "Mô tả khung cảnh nhà ga khi tàu vừa rời bến"
+          }
+        ]
+      }
+    },
+    "mn-002||forms||Phủ định: ていかない": {
+      "title": "Phủ định: ていかない",
+      "sub": "〜ていく · Cấu trúc & cách chia",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "forms",
+        "isNode": true,
+        "parentBranch": "🧩 Cấu trúc & cách chia",
+        "definition": "Dạng **phủ định thể thông thường** của 〜ていく. Dùng để diễn tả ý định hoặc dự đoán rằng một sự việc **sẽ không tiếp diễn** hoặc sẽ không biến đổi theo hướng đó nữa về sau.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "もう"
+              },
+              {
+                "t": "無理",
+                "r": "むり",
+                "m": "quá sức"
+              },
+              {
+                "t": "は"
+              },
+              {
+                "t": "して",
+                "m": "làm"
+              },
+              {
+                "t": "いかない",
+                "m": "sẽ không tiếp tục"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi sẽ không tiếp tục làm việc quá sức nữa.",
+            "scene": "Tự hứa với bản thân sau khi vừa phục hồi sức khỏe"
+          }
+        ]
+      }
+    },
+    "mn-002||forms||Phủ định lịch sự: ていきません": {
+      "title": "Phủ định lịch sự: ていきません",
+      "sub": "〜ていく · Cấu trúc & cách chia",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "forms",
+        "isNode": true,
+        "parentBranch": "🧩 Cấu trúc & cách chia",
+        "definition": "Dạng **phủ định lịch sự (thể マス)** của 〜ていく. Thường dùng trong lời hứa, cam kết trang trọng rằng mình sẽ không tiếp tục thực hiện hoặc không để một trạng thái nào đó xảy ra trong tương lai.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "この"
+              },
+              {
+                "t": "慣習",
+                "r": "かんしゅう",
+                "m": "hủ tục"
+              },
+              {
+                "t": "は"
+              },
+              {
+                "t": "残して",
+                "r": "のこして",
+                "m": "giữ lại"
+              },
+              {
+                "t": "いきません",
+                "m": "sẽ không tiếp tục"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Chúng tôi sẽ không tiếp tục duy trì hủ tục này.",
+            "scene": "Đại diện tổ chức trình bày chính sách cải cách mới"
+          }
+        ]
+      }
+    },
+    "mn-002||usage||KHÔNG GIAN: vật di chuyển RỜI XA mình": {
+      "title": "KHÔNG GIAN: vật di chuyển RỜI XA mình",
+      "sub": "〜ていく · Cách dùng & tình huống",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "usage",
+        "isNode": true,
+        "parentBranch": "🎬 Cách dùng & tình huống",
+        "definition": "Nhóm ngữ cảnh chỉ **hướng di chuyển vật lý trong không gian**. Động từ thể て diễn tả phương thức di chuyển (chạy, bay, đi...) kết hợp với いく để nhấn mạnh khoảng cách so với người nói ngày càng xa.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "車",
+                "r": "くるま",
+                "m": "xe ô tô"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "走り去って",
+                "r": "はしりさって",
+                "m": "chạy mất"
+              },
+              {
+                "t": "いきました",
+                "m": "đi xa"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Chiếc ô tô đã chạy vụt đi mất.",
+            "scene": "Quan sát từ lề đường khi chiếc xe phóng đi xa"
+          }
+        ]
+      }
+    },
+    "mn-002||usage||THỜI GIAN: tiến trình TƯƠNG LAI tiếp diễn": {
+      "title": "THỜI GIAN: tiến trình TƯƠNG LAI tiếp diễn",
+      "sub": "〜ていく · Cách dùng & tình huống",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "usage",
+        "isNode": true,
+        "parentBranch": "🎬 Cách dùng & tình huống",
+        "definition": "Nhóm ngữ cảnh chỉ **thời gian**, diễn tả một hành động hay thói quen từ thời điểm hiện tại sẽ **tiếp tục duy trì và thực hiện đều đặn trong tương lai**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "毎日",
+                "r": "まいにち",
+                "m": "mỗi ngày"
+              },
+              {
+                "t": "運動して",
+                "r": "うんどうして",
+                "m": "tập thể dục"
+              },
+              {
+                "t": "いきます",
+                "m": "sẽ tiếp tục"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi sẽ tiếp tục tập thể dục mỗi ngày.",
+            "scene": "Đặt mục tiêu rèn luyện sức khỏe từ hôm nay"
+          }
+        ]
+      }
+    },
+    "mn-002||usage||TRÌNH TỰ: làm gì đó RỒI MỚI đi": {
+      "title": "TRÌNH TỰ: làm gì đó RỒI MỚI đi",
+      "sub": "〜ていく · Cách dùng & tình huống",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "usage",
+        "isNode": true,
+        "parentBranch": "🎬 Cách dùng & tình huống",
+        "definition": "Nhóm ngữ cảnh **trình tự hành động**: làm một việc tại nơi hiện tại trước, rồi mới di chuyển đến nơi khác. Rất phổ biến khi mua đồ mang đi hoặc ghé làm việc gì rồi đi tiếp.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "弁当",
+                "r": "べんとう",
+                "m": "cơm hộp"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "買って",
+                "r": "かって",
+                "m": "mua"
+              },
+              {
+                "t": "いきます",
+                "m": "mang đi"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi mua cơm hộp rồi mang đi.",
+            "scene": "Nói với nhân viên bán hàng tại cửa hàng tiện lợi"
+          }
+        ]
+      }
+    },
+    "mn-002||usage||SỰ BIẾN MẤT: dần mất đi / kết thúc": {
+      "title": "SỰ BIẾN MẤT: dần mất đi / kết thúc",
+      "sub": "〜ていく · Cách dùng & tình huống",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "usage",
+        "isNode": true,
+        "parentBranch": "🎬 Cách dùng & tình huống",
+        "definition": "Nhóm ngữ cảnh diễn tả sự **mờ nhạt, biến mất hoặc kết thúc dần dần** của âm thanh, ánh sáng, ký ức hay sự vật theo thời gian trôi đi.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "足音",
+                "r": "あしおと",
+                "m": "tiếng bước chân"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "消えて",
+                "r": "きえて",
+                "m": "biến mất"
+              },
+              {
+                "t": "いった",
+                "m": "dần"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tiếng bước chân cứ mờ dần rồi mất hẳn.",
+            "scene": "Đứng trong đêm nghe tiếng ai đó bước xa dần"
+          }
+        ]
+      }
+    },
+    "mn-002||usage||BIẾN ĐỔI: ngày càng TRỞ NÊN ~ (tương lai)": {
+      "title": "BIẾN ĐỔI: ngày càng TRỞ NÊN ~ (tương lai)",
+      "sub": "〜ていく · Cách dùng & tình huống",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "usage",
+        "isNode": true,
+        "parentBranch": "🎬 Cách dùng & tình huống",
+        "definition": "Nhóm ngữ cảnh diễn tả **xu hướng biến đổi trạng thái** của sự vật, hiện tượng ngày càng tăng/giảm hay chuyển biến về phía tương lai. Thường kết hợp với các phó từ như だんだん, どんどん.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "技術",
+                "r": "ぎじゅつ",
+                "m": "công nghệ"
+              },
+              {
+                "t": "は"
+              },
+              {
+                "t": "進歩して",
+                "r": "しんぽして",
+                "m": "tiến bộ"
+              },
+              {
+                "t": "いく",
+                "m": "ngày càng"
+              },
+              {
+                "t": "でしょう",
+                "m": "chắc là"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Công nghệ chắc chắn sẽ ngày càng phát triển.",
+            "scene": "Thảo luận về xu hướng phát triển công nghệ"
+          }
+        ]
+      }
+    },
+    "mn-002||compare||vs 〜てくる: HƯỚNG ngược lại": {
+      "title": "vs 〜てくる: HƯỚNG ngược lại",
+      "sub": "〜ていく · Phân biệt với mẫu dễ nhầm",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "compare",
+        "isNode": true,
+        "parentBranch": "⚖️ Phân biệt với mẫu dễ nhầm",
+        "definition": "So sánh về **hướng**: 〜ていく mô tả chuyển động **ra xa** hoặc tiến tới tương lai. Ngược lại, 〜てくる mô tả chuyển động **lại gần** hoặc tiến từ quá khứ đến hiện tại.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "船",
+                "r": "ふね",
+                "m": "con thuyền"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "遠ざかって",
+                "r": "とおざかって",
+                "m": "ra xa"
+              },
+              {
+                "t": "いく",
+                "m": "dần"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Con thuyền đang dần đi ra xa.",
+            "scene": "Quan sát thuyền rời bến, ngược với 船が近づいてくる (thuyền tiến lại gần)"
+          }
+        ]
+      }
+    },
+    "mn-002||compare||vs 〜てしまう: KHÔNG tiếc nuối": {
+      "title": "vs 〜てしまう: KHÔNG tiếc nuối",
+      "sub": "〜ていく · Phân biệt với mẫu dễ nhầm",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "compare",
+        "isNode": true,
+        "parentBranch": "⚖️ Phân biệt với mẫu dễ nhầm",
+        "definition": "So sánh về **sắc thái**: 〜ていく chỉ thuần túy mô tả sự **tiếp diễn hoặc di chuyển ra xa**, hoàn toàn trung tính. Trong khi 〜てしまう nhấn mạnh sự hoàn thành rốt cuộc hoặc niềm tiếc nuối, hối hận.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "本",
+                "r": "ほん",
+                "m": "sách"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "読んで",
+                "r": "よんで",
+                "m": "đọc"
+              },
+              {
+                "t": "いきます",
+                "m": "tiếp tục"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi sẽ đọc tiếp quyển sách rồi đi.",
+            "scene": "So sánh với 読んでしまった (đã đọc hết mất quyển sách rồi)"
+          }
+        ]
+      }
+    },
+    "mn-002||compare||vs 〜ています: chỉ TƯƠNG LAI": {
+      "title": "vs 〜ています: chỉ TƯƠNG LAI",
+      "sub": "〜ていく · Phân biệt với mẫu dễ nhầm",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "compare",
+        "isNode": true,
+        "parentBranch": "⚖️ Phân biệt với mẫu dễ nhầm",
+        "definition": "So sánh mốc thời gian: 〜ています diễn tả hành động **đang diễn ra ở hiện tại** hoặc trạng thái hiện tại. Còn 〜ていく diễn tả hướng đi **từ mốc này trở đi trong tương lai**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "今後",
+                "r": "こんご",
+                "m": "từ nay về sau"
+              },
+              {
+                "t": "も"
+              },
+              {
+                "t": "働いて",
+                "r": "はたらいて",
+                "m": "làm việc"
+              },
+              {
+                "t": "いきます",
+                "m": "sẽ tiếp tục"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi sẽ tiếp tục làm việc từ nay về sau.",
+            "scene": "Khác với 働いています (hiện tại tôi đang làm việc)"
+          }
+        ]
+      }
+    },
+    "mn-002||pitfalls||Nhầm HƯỚNG: ていく vs てくる": {
+      "title": "Nhầm HƯỚNG: ていく vs てくる",
+      "sub": "〜ていく · Lỗi thường gặp",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "pitfalls",
+        "isNode": true,
+        "parentBranch": "🚨 Lỗi thường gặp",
+        "definition": "Lỗi phổ biến nhất là **nhầm lẫn hướng di chuyển không gian**. Nhớ rằng 〜ていく là di chuyển **ra xa** người nói, còn 〜てくる là hướng **lại gần** người nói.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "犬",
+                "r": "いぬ",
+                "m": "con chó"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "走って",
+                "r": "はしって",
+                "m": "chạy"
+              },
+              {
+                "t": "いった",
+                "m": "đi xa"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Con chó chạy đi mất (xa tôi).",
+            "scene": "Phân biệt với 犬が走ってきた (con chó chạy lại gần tôi)"
+          }
+        ]
+      }
+    },
+    "mn-002||pitfalls||Dùng ていく cho QUÁ KHỨ → phải てくる": {
+      "title": "Dùng ていく cho QUÁ KHỨ → phải てくる",
+      "sub": "〜ていく · Lỗi thường gặp",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "pitfalls",
+        "isNode": true,
+        "parentBranch": "🚨 Lỗi thường gặp",
+        "definition": "Lỗi mốc thời gian: dùng 〜ていく để mô tả một tiến trình kéo dài **từ quá khứ tới hiện tại**. Khi sự việc diễn ra từ trước tới nay, **bắt buộc dùng 〜てくる**, không dùng 〜ていく.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "これから",
+                "m": "từ bây giờ"
+              },
+              {
+                "t": "寒く",
+                "r": "さむく",
+                "m": "lạnh"
+              },
+              {
+                "t": "なって",
+                "m": "trở nên"
+              },
+              {
+                "t": "いく",
+                "m": "dần"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Từng giờ từ đây về sau trời sẽ lạnh dần đi.",
+            "scene": "Lưu ý không dùng ていく cho sự việc kéo dài từ quá khứ đến nay"
+          }
+        ]
+      }
+    },
+    "mn-002||pitfalls||Lạm dụng ていく cho thói quen hiện tại": {
+      "title": "Lạm dụng ていく cho thói quen hiện tại",
+      "sub": "〜ていく · Lỗi thường gặp",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "pitfalls",
+        "isNode": true,
+        "parentBranch": "🚨 Lỗi thường gặp",
+        "definition": "Lỗi lạm dụng: dùng 〜ていく cho **thói quen hiện tại đơn thuần**. Thói quen lặp đi lặp lại ở hiện tại dùng 〜ています. Chỉ dùng 〜ていく khi muốn nhấn mạnh **kế hoạch duy trì từ nay về tương lai**.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "これから",
+                "m": "từ giờ"
+              },
+              {
+                "t": "は"
+              },
+              {
+                "t": "毎日",
+                "r": "まいにち",
+                "m": "mỗi ngày"
+              },
+              {
+                "t": "勉強して",
+                "r": "べんきょうして",
+                "m": "học"
+              },
+              {
+                "t": "いきます",
+                "m": "sẽ tiếp tục"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Từ giờ tôi sẽ tiếp tục học mỗi ngày.",
+            "scene": "Nhấn mạnh ý chí duy trì thói quen từ nay về sau"
+          }
+        ]
+      }
+    },
+    "mn-002||memory||行く = ĐI → mũi tên CHỈ RA XA": {
+      "title": "行く = ĐI → mũi tên CHỈ RA XA",
+      "sub": "〜ていく · Mẹo nhớ",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "memory",
+        "isNode": true,
+        "parentBranch": "🎯 Mẹo nhớ",
+        "definition": "Mẹo hình ảnh: động từ gốc **行く có nghĩa là \"đi\"**. Hãy tưởng tượng một **mũi tên hướng từ vị trí của bạn chỉ ra xa**, thể hiện sự di chuyển rời đi hoặc thời gian trôi về phía trước.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "鳥",
+                "r": "とり",
+                "m": "con chim"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "飛んで",
+                "r": "とんで",
+                "m": "bay"
+              },
+              {
+                "t": "いく",
+                "m": "đi xa"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Chim bay đi xa (mũi tên chỉ ra xa).",
+            "scene": "Ghi nhớ bằng hình ảnh mũi tên hướng ra xa"
+          }
+        ]
+      }
+    },
+    "mn-002||memory||Tương lai = 'SẼ CỨ TIẾP TỤC'": {
+      "title": "Tương lai = 'SẼ CỨ TIẾP TỤC'",
+      "sub": "〜ていく · Mẹo nhớ",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "memory",
+        "isNode": true,
+        "parentBranch": "🎯 Mẹo nhớ",
+        "definition": "Mẹo từ khóa: khi gặp 〜ていく với nghĩa thời gian, hãy dịch nhẩm trong đầu là **\"sẽ cứ tiếp tục...\"**. Cụm từ này giúp bạn nhớ ngay mốc thời gian hướng tới tương lai.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "これから",
+                "m": "từ bây giờ"
+              },
+              {
+                "t": "も"
+              },
+              {
+                "t": "頑張って",
+                "r": "がんばって",
+                "m": "cố gắng"
+              },
+              {
+                "t": "いきます",
+                "m": "sẽ cứ tiếp tục"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Từ bây giờ tôi sẽ cứ tiếp tục cố gắng.",
+            "scene": "Nhớ từ khóa 'sẽ cứ tiếp tục' cho thì tương lai"
+          }
+        ]
+      }
+    },
+    "mn-002||memory||Liên tưởng: chim BAY ĐI mất": {
+      "title": "Liên tưởng: chim BAY ĐI mất",
+      "sub": "〜ていく · Mẹo nhớ",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "memory",
+        "isNode": true,
+        "parentBranch": "🎯 Mẹo nhớ",
+        "definition": "Mẹo câu chuyện: lấy hình ảnh **\"con chim bay đi mất\" (鳥が飛んでいった)** làm câu ví dụ mẫu chuẩn trong đầu. Khi cần kiểm tra nghĩa không gian của ていく, chỉ cần nhớ lại hình ảnh này.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "鳥",
+                "r": "とり",
+                "m": "con chim"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "飛んで",
+                "r": "とんで",
+                "m": "bay"
+              },
+              {
+                "t": "いった",
+                "m": "đi mất"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Con chim đã bay đi mất.",
+            "scene": "Câu ví dụ tượng hình kinh điển để nhớ ngay ていく"
+          }
+        ]
+      }
+    },
+    "mn-002||memory||Công thức: Vて + いく → Vừa VỪA làm vừa ĐI xa": {
+      "title": "Công thức: Vて + いく → Vừa VỪA làm vừa ĐI xa",
+      "sub": "〜ていく · Mẹo nhớ",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "memory",
+        "isNode": true,
+        "parentBranch": "🎯 Mẹo nhớ",
+        "definition": "Mẹo công thức: **Vて + いく = Vừa làm V vừa \"đi\" (thực hiện hành động rồi di chuyển ra xa)**. Công thức này giúp bạn phân biệt ngay với Vて + くる (vừa làm vừa lại gần).",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "本",
+                "r": "ほん",
+                "m": "sách"
+              },
+              {
+                "t": "を"
+              },
+              {
+                "t": "買って",
+                "r": "かって",
+                "m": "mua"
+              },
+              {
+                "t": "いきます",
+                "m": "rồi đi"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi mua sách rồi đi.",
+            "scene": "Áp dụng công thức làm hành động V rồi rời đi"
+          }
+        ]
+      }
+    },
+    "mn-002||phrases||生きていく (sống tiếp)": {
+      "title": "生きていく (sống tiếp)",
+      "sub": "〜ていく · Cụm từ hay gặp",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "phrases",
+        "isNode": true,
+        "parentBranch": "💬 Cụm từ hay gặp",
+        "definition": "Cụm từ cố định **生きていく (sống tiếp, tiếp tục sống)** diễn tả việc kiên trì sống và vươn lên trong tương lai dù trải qua khó khăn hay thay đổi môi trường.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "この",
+                "m": "này"
+              },
+              {
+                "t": "街",
+                "r": "まち",
+                "m": "thành phố"
+              },
+              {
+                "t": "で"
+              },
+              {
+                "t": "生きて",
+                "r": "いきて",
+                "m": "sống"
+              },
+              {
+                "t": "いく",
+                "m": "tiếp tục"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Tôi sẽ tiếp tục sống ở thành phố này.",
+            "scene": "Thể hiện quyết tâm gắn bó lâu dài với một nơi"
+          }
+        ]
+      }
+    },
+    "mn-002||phrases||頑張っていく (cố gắng tiếp)": {
+      "title": "頑張っていく (cố gắng tiếp)",
+      "sub": "〜ていく · Cụm từ hay gặp",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "phrases",
+        "isNode": true,
+        "parentBranch": "💬 Cụm từ hay gặp",
+        "definition": "Cụm từ cố định **頑張っていく (tiếp tục cố gắng)** dùng để thể hiện quyết tâm sẽ không bỏ cuộc mà luôn nỗ lực đều đặn từ nay về sau.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "これから",
+                "m": "từ bây giờ"
+              },
+              {
+                "t": "も"
+              },
+              {
+                "t": "頑張って",
+                "r": "がんばって",
+                "m": "cố gắng"
+              },
+              {
+                "t": "いきます",
+                "m": "tiếp tục"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Từ bây giờ tôi cũng sẽ tiếp tục cố gắng.",
+            "scene": "Nói trong buổi lễ nhận chức hoặc trước kì thi"
+          }
+        ]
+      }
+    },
+    "mn-002||phrases||食べていく (mưu sinh)": {
+      "title": "食べていく (mưu sinh)",
+      "sub": "〜ていく · Cụm từ hay gặp",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "phrases",
+        "isNode": true,
+        "parentBranch": "💬 Cụm từ hay gặp",
+        "definition": "Cụm từ cố định **食べていく (mưu sinh, kiếm sống)** diễn tả việc duy trì cuộc sống, kiếm tiền nuôi bản thân và gia đình trong tương lai bằng một nghề nghiệp nào đó.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "音楽",
+                "r": "おんがく",
+                "m": "âm nhạc"
+              },
+              {
+                "t": "で"
+              },
+              {
+                "t": "食べて",
+                "r": "たべて",
+                "m": "ăn (kiếm sống)"
+              },
+              {
+                "t": "いく",
+                "m": "mưu sinh"
+              },
+              {
+                "t": "の"
+              },
+              {
+                "t": "は"
+              },
+              {
+                "t": "大変",
+                "r": "たいへん",
+                "m": "vất vả"
+              },
+              {
+                "t": "だ"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Mưu sinh bằng nghề âm nhạc rất vất vả.",
+            "scene": "Trò chuyện về định hướng nghề nghiệp nghệ thuật"
+          }
+        ]
+      }
+    },
+    "mn-002||phrases||消えていく (biến mất dần)": {
+      "title": "消えていく (biến mất dần)",
+      "sub": "〜ていく · Cụm từ hay gặp",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "phrases",
+        "isNode": true,
+        "parentBranch": "💬 Cụm từ hay gặp",
+        "definition": "Cụm từ cố định **消えていく (biến mất dần, lụi tàn dần)** diễn tả sự vật, hiện tượng hay cảm xúc tan biến từng chút một theo thời gian.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "星",
+                "r": "ほし",
+                "m": "ngôi sao"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "消えて",
+                "r": "きえて",
+                "m": "biến mất"
+              },
+              {
+                "t": "いく",
+                "m": "dần"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Các ngôi sao đang biến mất dần.",
+            "scene": "Ngắm bầu trời lúc bình minh đang sáng dần lên"
+          }
+        ]
+      }
+    },
+    "mn-002||phrases||増えていく (tăng dần)": {
+      "title": "増えていく (tăng dần)",
+      "sub": "〜ていく · Cụm từ hay gặp",
+      "v2": {
+        "pattern": "〜ていく",
+        "patternReading": "ていく",
+        "coreMeaning": "Rời xa người nói · tiếp diễn về tương lai",
+        "slug": "phrases",
+        "isNode": true,
+        "parentBranch": "💬 Cụm từ hay gặp",
+        "definition": "Cụm từ cố định **増えていく (tăng dần lên)** diễn tả số lượng, tần suất hoặc quy mô của đối tượng ngày càng nhiều hơn theo thời gian hướng tới tương lai.",
+        "examples": [
+          {
+            "tokens": [
+              {
+                "t": "体重",
+                "r": "たいじゅう",
+                "m": "cân nặng"
+              },
+              {
+                "t": "が"
+              },
+              {
+                "t": "増えて",
+                "r": "ふえて",
+                "m": "tăng"
+              },
+              {
+                "t": "いく",
+                "m": "dần"
+              },
+              {
+                "t": "。"
+              }
+            ],
+            "vi": "Cân nặng cứ tăng dần lên.",
+            "scene": "Than thở với bạn bè khi dạo này ăn nhiều"
+          }
+        ]
+      }
+    }
+  }
+}

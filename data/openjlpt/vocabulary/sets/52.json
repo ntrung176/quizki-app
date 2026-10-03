@@ -1,0 +1,357 @@
+{
+  "id": 52,
+  "title": "天気と季節",
+  "description": "Thời tiết và mùa · 64 từ cơ bản",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:51.990018",
+  "cards": [
+    {
+      "id": 1651,
+      "term": "晴れ",
+      "reading": "はれ",
+      "romaji": "hare",
+      "definition": "Nắng",
+      "exampleSentence": "明日は晴れです。",
+      "exampleTranslation": "Ngày mai trời nắng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 1652,
+      "term": "雨",
+      "reading": "あめ",
+      "romaji": "ame",
+      "definition": "Mưa",
+      "exampleSentence": "雨が降っています。",
+      "exampleTranslation": "Trời đang mưa.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 1653,
+      "term": "雪",
+      "reading": "ゆき",
+      "romaji": "yuki",
+      "definition": "Tuyết",
+      "exampleSentence": "北海道は雪が多いです。",
+      "exampleTranslation": "Hokkaido có nhiều tuyết.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 1654,
+      "term": "曇り",
+      "reading": "くもり",
+      "romaji": "kumori",
+      "definition": "Có mây",
+      "exampleSentence": "今日は曇りです。",
+      "exampleTranslation": "Hôm nay trời có mây.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 1655,
+      "term": "暑い",
+      "reading": "あつい",
+      "romaji": "atsui",
+      "definition": "Nóng",
+      "exampleSentence": "夏はとても暑いです。",
+      "exampleTranslation": "Mùa hè rất nóng.",
+      "forms": [
+        "暑くない",
+        "暑かった",
+        "暑くなかった"
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": 1656,
+      "term": "寒い",
+      "reading": "さむい",
+      "romaji": "samui",
+      "definition": "Lạnh",
+      "exampleSentence": "冬は寒いです。",
+      "exampleTranslation": "Mùa đông lạnh.",
+      "forms": [
+        "寒くない",
+        "寒かった",
+        "寒くなかった"
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": 1657,
+      "term": "台風",
+      "reading": "たいふう",
+      "romaji": "taifuu",
+      "definition": "Bão",
+      "exampleSentence": "台風が来ます。",
+      "exampleTranslation": "Bão đang đến.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 1658,
+      "term": "梅雨",
+      "reading": "つゆ",
+      "romaji": "tsuyu",
+      "definition": "Mùa mưa",
+      "exampleSentence": "梅雨は毎年六月です。",
+      "exampleTranslation": "Mùa mưa hàng năm vào tháng 6.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 1659,
+      "term": "気温",
+      "reading": "きおん",
+      "romaji": "kion",
+      "definition": "Nhiệt độ",
+      "exampleSentence": "今日の気温は30度です。",
+      "exampleTranslation": "Nhiệt độ hôm nay là 30 độ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 1660,
+      "term": "天気予報",
+      "reading": "てんきよほう",
+      "romaji": "tenki yohou",
+      "definition": "Dự báo thời tiết",
+      "exampleSentence": "天気予報を見る。",
+      "exampleTranslation": "Xem dự báo thời tiết.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 1661,
+      "term": "虹",
+      "reading": "にじ",
+      "romaji": "niji",
+      "definition": "Cầu vồng",
+      "exampleSentence": "雨の後に虹が出た。",
+      "exampleTranslation": "Sau mưa có cầu vồng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 1662,
+      "term": "風",
+      "reading": "かぜ",
+      "romaji": "kaze",
+      "definition": "Gió",
+      "exampleSentence": "強い風が吹いている。",
+      "exampleTranslation": "Gió mạnh đang thổi.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 1663,
+      "term": "春",
+      "reading": "はる",
+      "romaji": "haru",
+      "definition": "Mùa xuân",
+      "exampleSentence": "春は桜がきれいです。",
+      "exampleTranslation": "Mùa xuân hoa anh đào đẹp.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 1664,
+      "term": "夏",
+      "reading": "なつ",
+      "romaji": "natsu",
+      "definition": "Mùa hè",
+      "exampleSentence": "夏は暑いです。",
+      "exampleTranslation": "Mùa hè nóng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 1665,
+      "term": "秋",
+      "reading": "あき",
+      "romaji": "aki",
+      "definition": "Mùa thu",
+      "exampleSentence": "秋は紅葉が美しい。",
+      "exampleTranslation": "Mùa thu lá đỏ đẹp.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 1666,
+      "term": "冬",
+      "reading": "ふゆ",
+      "romaji": "fuyu",
+      "definition": "Mùa đông",
+      "exampleSentence": "冬はとても寒い。",
+      "exampleTranslation": "Mùa đông rất lạnh.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 1667,
+      "term": "雷",
+      "reading": "かみなり",
+      "romaji": "kaminari",
+      "definition": "Sấm sét",
+      "exampleSentence": "雷が鳴っています。",
+      "exampleTranslation": "Đang có sấm.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 1668,
+      "term": "嵐",
+      "reading": "あらし",
+      "romaji": "arashi",
+      "definition": "Bão tố",
+      "exampleSentence": "嵐の後は晴れた。",
+      "exampleTranslation": "Sau bão trời lại nắng.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 1669,
+      "term": "霧",
+      "reading": "きり",
+      "romaji": "kiri",
+      "definition": "Sương mù",
+      "exampleSentence": "今朝は霧が濃い。",
+      "exampleTranslation": "Sáng nay sương mù dày đặc.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 1670,
+      "term": "霜",
+      "reading": "しも",
+      "romaji": "shimo",
+      "definition": "Sương giá",
+      "exampleSentence": "草に霜が降りた。",
+      "exampleTranslation": "Sương giá đọng trên cỏ.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 1671,
+      "term": "季節",
+      "reading": "きせつ",
+      "romaji": "kisetsu",
+      "definition": "Mùa trong năm",
+      "exampleSentence": "日本は四季があります。",
+      "exampleTranslation": "Nhật Bản có bốn mùa.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 1672,
+      "term": "湿度",
+      "reading": "しつど",
+      "romaji": "shitsudo",
+      "definition": "Độ ẩm",
+      "exampleSentence": "梅雨は湿度が高い。",
+      "exampleTranslation": "Mùa mưa độ ẩm cao.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 1673,
+      "term": "晴天",
+      "reading": "せいてん",
+      "romaji": "seiten",
+      "definition": "Trời quang đãng",
+      "exampleSentence": "晴天が続いています。",
+      "exampleTranslation": "Trời quang đãng liên tục.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 1674,
+      "term": "大雨",
+      "reading": "おおあめ",
+      "romaji": "ooame",
+      "definition": "Mưa to",
+      "exampleSentence": "大雨で川が氾濫した。",
+      "exampleTranslation": "Mưa to làm sông tràn.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 1675,
+      "term": "吹雪",
+      "reading": "ふぶき",
+      "romaji": "fubuki",
+      "definition": "Bão tuyết",
+      "exampleSentence": "吹雪で外に出られない。",
+      "exampleTranslation": "Bão tuyết không thể ra ngoài.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 1676,
+      "term": "猛暑",
+      "reading": "もうしょ",
+      "romaji": "mousho",
+      "definition": "Nắng nóng gay gắt",
+      "exampleSentence": "今年の夏は猛暑だ。",
+      "exampleTranslation": "Mùa hè năm nay nắng nóng gay gắt.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 1677,
+      "term": "涼しい",
+      "reading": "すずしい",
+      "romaji": "suzushii",
+      "definition": "Mát mẻ",
+      "exampleSentence": "秋は涼しくて気持ちいい。",
+      "exampleTranslation": "Mùa thu mát mẻ dễ chịu.",
+      "forms": [
+        "涼しくない",
+        "涼しかった",
+        "涼しくなかった"
+      ],
+      "displayOrder": 26
+    },
+    {
+      "id": 1678,
+      "term": "暖かい",
+      "reading": "あたたかい",
+      "romaji": "atatakai",
+      "definition": "Ấm áp",
+      "exampleSentence": "春は暖かい。",
+      "exampleTranslation": "Mùa xuân ấm áp.",
+      "forms": [
+        "暖かくない",
+        "暖かかった",
+        "暖かくなかった"
+      ],
+      "displayOrder": 27
+    },
+    {
+      "id": 1679,
+      "term": "強風",
+      "reading": "きょうふう",
+      "romaji": "kyoufuu",
+      "definition": "Gió mạnh",
+      "exampleSentence": "強風注意報が出た。",
+      "exampleTranslation": "Cảnh báo gió mạnh đã được đưa ra.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 1680,
+      "term": "快晴",
+      "reading": "かいせい",
+      "romaji": "kaisei",
+      "definition": "Trời trong xanh",
+      "exampleSentence": "今日は快晴です。",
+      "exampleTranslation": "Hôm nay trời trong xanh.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

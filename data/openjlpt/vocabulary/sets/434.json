@@ -1,0 +1,220 @@
+{
+  "id": 434,
+  "title": "ビジネス・仕事 · ビジネスカタカナ語",
+  "description": "Từ vựng kinh doanh (ngoại lai) — chủ đề Công việc & kinh doanh · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:48.206379",
+  "cards": [
+    {
+      "id": 11215,
+      "term": "グローバル化",
+      "reading": "グローバル化",
+      "romaji": null,
+      "definition": "toàn cầu hoá",
+      "exampleSentence": "グローバル化が進むにつれ、異なる文化を理解する力が求められている。",
+      "exampleTranslation": "Cùng với quá trình toàn cầu hóa, năng lực thấu hiểu các nền văn hóa khác nhau ngày càng được yêu cầu.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11216,
+      "term": "シェア",
+      "reading": "シェア",
+      "romaji": null,
+      "definition": "thị phần/chia sẻ",
+      "exampleSentence": "この製品は国内市場で高いシェアを占めている。",
+      "exampleTranslation": "Sản phẩm này đang chiếm thị phần cao trên thị trường trong nước.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11217,
+      "term": "サプライチェーン",
+      "reading": "サプライチェーン",
+      "romaji": null,
+      "definition": "chuỗi cung ứng",
+      "exampleSentence": "原材料の調達から販売まで、サプライチェーン全体を見直す必要がある。",
+      "exampleTranslation": "Cần rà soát toàn bộ chuỗi cung ứng, từ thu mua nguyên liệu đến bán hàng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11218,
+      "term": "プロセス",
+      "reading": "プロセス",
+      "romaji": null,
+      "definition": "quá trình/quy trình",
+      "exampleSentence": "新しい製品を開発するプロセスを、社員全員に分かりやすく説明した。",
+      "exampleTranslation": "Tôi đã giải thích quy trình phát triển sản phẩm mới cho toàn thể nhân viên một cách dễ hiểu.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11219,
+      "term": "サポート",
+      "reading": "サポート",
+      "romaji": null,
+      "definition": "hỗ trợ/support",
+      "exampleSentence": "困ったときは、専門スタッフのサポートを受けることができます。",
+      "exampleTranslation": "Khi gặp khó khăn, bạn có thể nhận được sự hỗ trợ từ nhân viên chuyên môn.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11220,
+      "term": "チャレンジ",
+      "reading": "チャレンジ",
+      "romaji": null,
+      "definition": "thử thách/challenge",
+      "exampleSentence": "失敗を恐れず、新しい仕事にもチャレンジしてみたい。",
+      "exampleTranslation": "Tôi muốn thử sức với cả những công việc mới mà không sợ thất bại.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11221,
+      "term": "チャンス",
+      "reading": "チャンス",
+      "romaji": null,
+      "definition": "cơ hội",
+      "exampleSentence": "海外で働くチャンスがあれば、ぜひ挑戦したい。",
+      "exampleTranslation": "Nếu có cơ hội làm việc ở nước ngoài, tôi nhất định muốn thử sức.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11222,
+      "term": "フィードバック",
+      "reading": "フィードバック",
+      "romaji": null,
+      "definition": "phản hồi/feedback",
+      "exampleSentence": "会議の後で、参加者から率直なフィードバックをもらった。",
+      "exampleTranslation": "Sau cuộc họp, tôi đã nhận được những phản hồi thẳng thắn từ người tham dự.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11223,
+      "term": "アプローチ",
+      "reading": "アプローチ",
+      "romaji": null,
+      "definition": "cách tiếp cận/approach",
+      "exampleSentence": "問題を解決するには、別のアプローチが必要だ。",
+      "exampleTranslation": "Để giải quyết vấn đề, cần có một cách tiếp cận khác.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11224,
+      "term": "フレキシブル",
+      "reading": "フレキシブル",
+      "romaji": null,
+      "definition": "linh hoạt/flexible",
+      "exampleSentence": "会社は社員の生活に合わせて、よりフレキシブルな勤務制度を導入した。",
+      "exampleTranslation": "Công ty đã áp dụng chế độ làm việc linh hoạt hơn, phù hợp với cuộc sống của nhân viên.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11225,
+      "term": "プロフェッショナル",
+      "reading": "プロフェッショナル",
+      "romaji": null,
+      "definition": "chuyên nghiệp",
+      "exampleSentence": "彼女はどんな状況でも、プロフェッショナルな態度を崩さない。",
+      "exampleTranslation": "Dù trong hoàn cảnh nào, cô ấy cũng không đánh mất tác phong chuyên nghiệp.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11226,
+      "term": "クオリティ",
+      "reading": "クオリティ",
+      "romaji": null,
+      "definition": "chất lượng/quality",
+      "exampleSentence": "安さだけでなく、商品のクオリティにもこだわっている。",
+      "exampleTranslation": "Chúng tôi chú trọng không chỉ giá rẻ mà cả chất lượng sản phẩm.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11227,
+      "term": "マネジメント",
+      "reading": "マネジメント",
+      "romaji": null,
+      "definition": "quản lý/management",
+      "exampleSentence": "組織を成長させるには、効率的なマネジメントが欠かせない。",
+      "exampleTranslation": "Để phát triển tổ chức, việc quản lý hiệu quả là điều không thể thiếu.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11228,
+      "term": "リーダーシップ",
+      "reading": "リーダーシップ",
+      "romaji": null,
+      "definition": "khả năng lãnh đạo",
+      "exampleSentence": "彼のリーダーシップのおかげで、チームは困難を乗り越えられた。",
+      "exampleTranslation": "Nhờ khả năng lãnh đạo của anh ấy, cả nhóm đã vượt qua được khó khăn.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 11229,
+      "term": "マーケティング",
+      "reading": "マーケティング",
+      "romaji": null,
+      "definition": "tiếp thị/marketing",
+      "exampleSentence": "マーケティング調査の結果をもとに、新商品の販売戦略を立てた。",
+      "exampleTranslation": "Dựa trên kết quả nghiên cứu marketing, chúng tôi đã xây dựng chiến lược bán sản phẩm mới.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 11230,
+      "term": "ブランディング",
+      "reading": "ブランディング",
+      "romaji": null,
+      "definition": "xây dựng thương hiệu",
+      "exampleSentence": "長期的なブランディングによって、商品の信頼性が高まった。",
+      "exampleTranslation": "Nhờ xây dựng thương hiệu lâu dài, độ tin cậy của sản phẩm đã tăng lên.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 11231,
+      "term": "コラボ",
+      "reading": "コラボ",
+      "romaji": null,
+      "definition": "cộng tác/collaboration",
+      "exampleSentence": "人気歌手とのコラボで、この商品は若者の間で話題になった。",
+      "exampleTranslation": "Nhờ hợp tác với một ca sĩ nổi tiếng, sản phẩm này đã trở thành chủ đề được giới trẻ quan tâm.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 11232,
+      "term": "CSR",
+      "reading": "CSR",
+      "romaji": null,
+      "definition": "trách nhiệm xã hội doanh nghiệp",
+      "exampleSentence": "当社はCSRの一環として、地域の環境保全活動を支援している。",
+      "exampleTranslation": "Công ty chúng tôi hỗ trợ các hoạt động bảo vệ môi trường địa phương như một phần trách nhiệm xã hội doanh nghiệp.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 11233,
+      "term": "コンプライアンス",
+      "reading": "コンプライアンス",
+      "romaji": null,
+      "definition": "tuân thủ quy định pháp luật",
+      "exampleSentence": "企業はコンプライアンスを徹底し、社会からの信頼を守る必要がある。",
+      "exampleTranslation": "Doanh nghiệp cần tuân thủ nghiêm ngặt các quy định để giữ gìn niềm tin của xã hội.",
+      "forms": [],
+      "displayOrder": 18
+    }
+  ]
+}

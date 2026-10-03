@@ -1,0 +1,99 @@
+{
+  "id": 534,
+  "title": "オノマトペ・副詞 · 擬音語（音・物理現象）",
+  "description": "Từ tượng thanh âm thanh — chủ đề Từ tượng thanh & phó từ · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:51.572709",
+  "cards": [
+    {
+      "id": 13124,
+      "term": "がたがた",
+      "reading": "がたがた",
+      "romaji": null,
+      "definition": "lạch cạch, run rẩy, lắc lư",
+      "exampleSentence": "古い窓が風でがたがた揺れて、なかなか眠れませんでした。",
+      "exampleTranslation": "Cánh cửa sổ cũ rung lạch cạch vì gió khiến tôi mãi không ngủ được.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13125,
+      "term": "がちゃがちゃ",
+      "reading": "がちゃがちゃ",
+      "romaji": null,
+      "definition": "leng keng, lộn xộn, ầm ĩ",
+      "exampleSentence": "隣の部屋から、食器を洗うがちゃがちゃという音が聞こえてくる。",
+      "exampleTranslation": "Từ phòng bên cạnh vọng ra tiếng leng keng khi rửa bát đĩa.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13126,
+      "term": "がんがん",
+      "reading": "がんがん",
+      "romaji": null,
+      "definition": "đau nhức mạnh, tiếng vang ầm",
+      "exampleSentence": "仕事が終わるころには、頭ががんがんして何も考えられなかった。",
+      "exampleTranslation": "Đến lúc tan làm, đầu tôi đau nhức dữ dội đến mức không thể suy nghĩ được gì.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13127,
+      "term": "ごろごろ",
+      "reading": "ごろごろ",
+      "romaji": null,
+      "definition": "lăn lóc, ầm ầm (sấm), nằm lười",
+      "exampleSentence": "雨の日は、家でごろごろして過ごすのが好きだ。",
+      "exampleTranslation": "Tôi thích nằm lười ở nhà vào những ngày mưa.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13128,
+      "term": "ざーざー",
+      "reading": "ざーざー",
+      "romaji": null,
+      "definition": "tiếng mưa to, âm thanh mưa xối xả",
+      "exampleSentence": "外では雨がざーざー降っているので、今日は出かけないことにした。",
+      "exampleTranslation": "Vì bên ngoài mưa đang xối xả nên hôm nay tôi quyết định không ra ngoài.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13129,
+      "term": "ぱらぱら",
+      "reading": "ぱらぱら",
+      "romaji": null,
+      "definition": "lác đác, lật nhanh trang sách",
+      "exampleSentence": "窓の外では、雨がぱらぱら降り始めた。",
+      "exampleTranslation": "Bên ngoài cửa sổ, mưa bắt đầu rơi lác đác.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13130,
+      "term": "ぼたぼた",
+      "reading": "ぼたぼた",
+      "romaji": null,
+      "definition": "nhỏ giọt to, nhỏ từng giọt lớn",
+      "exampleSentence": "暑い日に歩いていると、額から汗がぼたぼた落ちてきた。",
+      "exampleTranslation": "Đi bộ vào ngày nóng, mồ hôi từ trán tôi nhỏ từng giọt lớn xuống.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13131,
+      "term": "ぽたぽた",
+      "reading": "ぽたぽた",
+      "romaji": null,
+      "definition": "tí tách, nhỏ giọt",
+      "exampleSentence": "蛇口を閉め忘れて、水がぽたぽた落ちていた。",
+      "exampleTranslation": "Tôi quên khóa vòi nước nên nước cứ nhỏ tí tách.",
+      "forms": [],
+      "displayOrder": 7
+    }
+  ]
+}

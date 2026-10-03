@@ -1,0 +1,220 @@
+{
+  "id": 486,
+  "title": "教育・学習 · 学術用語・議論の視点",
+  "description": "Từ học thuật trừu tượng & góc nhìn lập luận — chủ đề Giáo dục & học tập · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:50.18326",
+  "cards": [
+    {
+      "id": 12194,
+      "term": "一致 (いっち)",
+      "reading": "いっち",
+      "romaji": null,
+      "definition": "nhất trí/phù hợp",
+      "exampleSentence": "双方の意見が一致したため、交渉は無事にまとまりました。",
+      "exampleTranslation": "Vì ý kiến của hai bên đã thống nhất nên cuộc đàm phán đã kết thúc tốt đẹp.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12195,
+      "term": "一般的に (いっぱんてきに)",
+      "reading": "いっぱんてきに",
+      "romaji": null,
+      "definition": "nói chung",
+      "exampleSentence": "一般的に、春は新しいことを始める季節だと言われています。",
+      "exampleTranslation": "Nói chung, mùa xuân được cho là mùa để bắt đầu những điều mới.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12196,
+      "term": "一方 (いっぽう)",
+      "reading": "いっぽう",
+      "romaji": null,
+      "definition": "trong khi đó/mặt khác",
+      "exampleSentence": "都市部では人口が増えている一方、地方では減少しています。",
+      "exampleTranslation": "Trong khi dân số ở các khu đô thị đang tăng thì ở địa phương lại đang giảm.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12197,
+      "term": "概して (がいして)",
+      "reading": "がいして",
+      "romaji": null,
+      "definition": "nhìn chung/đại thể",
+      "exampleSentence": "概して、この地域の冬は晴れの日が多いです。",
+      "exampleTranslation": "Nhìn chung, mùa đông ở khu vực này có nhiều ngày nắng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12198,
+      "term": "逆に (ぎゃくに)",
+      "reading": "ぎゃくに",
+      "romaji": null,
+      "definition": "ngược lại",
+      "exampleSentence": "薬を飲んでも休まなければ、逆に症状が悪化することがあります。",
+      "exampleTranslation": "Dù uống thuốc nhưng nếu không nghỉ ngơi thì ngược lại, các triệu chứng có thể trở nên trầm trọng hơn.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12199,
+      "term": "結局 (けっきょく)",
+      "reading": "けっきょく",
+      "romaji": null,
+      "definition": "cuối cùng/xét cho cùng",
+      "exampleSentence": "何度も話し合いましたが、結局、計画は中止になりました。",
+      "exampleTranslation": "Chúng tôi đã thảo luận nhiều lần, nhưng cuối cùng kế hoạch vẫn bị hủy bỏ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12200,
+      "term": "結論 (けつろん)",
+      "reading": "けつろん",
+      "romaji": null,
+      "definition": "kết luận",
+      "exampleSentence": "十分なデータを集めてから、結論を出すべきです。",
+      "exampleTranslation": "Nên thu thập đủ dữ liệu rồi mới đưa ra kết luận.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12201,
+      "term": "言い換えれば (いいかえれば)",
+      "reading": "いいかえれば",
+      "romaji": null,
+      "definition": "nói cách khác",
+      "exampleSentence": "言い換えれば、この計画は地域の未来に投資するということだ。",
+      "exampleTranslation": "Nói cách khác, kế hoạch này chính là đầu tư vào tương lai của khu vực.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12202,
+      "term": "最終的に (さいしゅうてきに)",
+      "reading": "さいしゅうてきに",
+      "romaji": null,
+      "definition": "cuối cùng/sau cùng",
+      "exampleSentence": "最終的に、彼は自分の会社を立ち上げる決心をした。",
+      "exampleTranslation": "Cuối cùng, anh ấy đã quyết định thành lập công ty riêng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12203,
+      "term": "取得 (しゅとく)",
+      "reading": "しゅとく",
+      "romaji": null,
+      "definition": "đạt được/lấy được",
+      "exampleSentence": "資格取得のために、毎日計画的に勉強している。",
+      "exampleTranslation": "Để lấy được chứng chỉ, tôi học tập có kế hoạch mỗi ngày.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12204,
+      "term": "相当 (そうとう)",
+      "reading": "そうとう",
+      "romaji": null,
+      "definition": "đáng kể/khá nhiều",
+      "exampleSentence": "この仕事には相当な経験と忍耐力が求められる。",
+      "exampleTranslation": "Công việc này đòi hỏi kinh nghiệm và khả năng kiên nhẫn đáng kể.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12205,
+      "term": "他方 (たほう)",
+      "reading": "たほう",
+      "romaji": null,
+      "definition": "mặt khác",
+      "exampleSentence": "この案は費用が安いが、他方、安全性に問題がある。",
+      "exampleTranslation": "Phương án này có chi phí thấp, nhưng mặt khác lại có vấn đề về độ an toàn.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12206,
+      "term": "打ち消す (うちけす)",
+      "reading": "うちけす",
+      "romaji": null,
+      "definition": "phủ nhận/xoá bỏ",
+      "exampleSentence": "彼はうわさを打ち消すため、記者会見を開いた。",
+      "exampleTranslation": "Để phủ nhận tin đồn, anh ấy đã tổ chức một cuộc họp báo.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12207,
+      "term": "特に (とくに)",
+      "reading": "とくに",
+      "romaji": null,
+      "definition": "đặc biệt/nhất là",
+      "exampleSentence": "この店は魚料理が豊富で、特に焼き魚が人気だ。",
+      "exampleTranslation": "Quán này có nhiều món cá, đặc biệt món cá nướng rất được yêu thích.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12208,
+      "term": "反論 (はんろん)",
+      "reading": "はんろん",
+      "romaji": null,
+      "definition": "phản bác/phản biện",
+      "exampleSentence": "彼の意見に反論するには、具体的な証拠が必要だ。",
+      "exampleTranslation": "Để phản biện ý kiến của anh ấy, cần có bằng chứng cụ thể.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12209,
+      "term": "必ずしも (かならずしも)",
+      "reading": "かならずしも",
+      "romaji": null,
+      "definition": "không nhất thiết (kèm phủ định)",
+      "exampleSentence": "高い商品が必ずしも品質に優れているとは限らない。",
+      "exampleTranslation": "Sản phẩm đắt tiền không nhất thiết lúc nào cũng có chất lượng tốt.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 12210,
+      "term": "分野 (ぶんや)",
+      "reading": "ぶんや",
+      "romaji": null,
+      "definition": "lĩnh vực",
+      "exampleSentence": "彼女は医療分野で長年研究を続けている。",
+      "exampleTranslation": "Cô ấy đã tiếp tục nghiên cứu trong lĩnh vực y tế suốt nhiều năm.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 12211,
+      "term": "要するに (ようするに)",
+      "reading": "ようするに",
+      "romaji": null,
+      "definition": "nói tóm lại/tóm lại là",
+      "exampleSentence": "要するに、問題は時間ではなく人手不足なのだ。",
+      "exampleTranslation": "Tóm lại, vấn đề không phải là thời gian mà là thiếu nhân lực.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 12212,
+      "term": "例えば (たとえば)",
+      "reading": "たとえば",
+      "romaji": null,
+      "definition": "ví dụ như",
+      "exampleSentence": "例えば、通勤時間を減らせば、仕事の効率が上がる。",
+      "exampleTranslation": "Ví dụ, nếu giảm thời gian đi làm, hiệu suất công việc sẽ tăng lên.",
+      "forms": [],
+      "displayOrder": 18
+    }
+  ]
+}

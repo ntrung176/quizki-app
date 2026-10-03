@@ -1,0 +1,437 @@
+{
+  "id": 79,
+  "title": "ない形・否定",
+  "description": "Phủ định · ない形 30 mẫu quan trọng",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:53.252823",
+  "cards": [
+    {
+      "id": 2361,
+      "term": "食べない",
+      "reading": "たべない",
+      "romaji": "tabenai",
+      "definition": "Không ăn",
+      "exampleSentence": "今日は何も食べない。",
+      "exampleTranslation": "Hôm nay tôi không ăn gì.",
+      "forms": [
+        "る動詞: 食べる→食べない",
+        "起きる→起きない",
+        "見る→見ない"
+      ],
+      "displayOrder": 0
+    },
+    {
+      "id": 2362,
+      "term": "飲まない",
+      "reading": "のまない",
+      "romaji": "nomanai",
+      "definition": "Không uống",
+      "exampleSentence": "お酒は飲まない。",
+      "exampleTranslation": "Tôi không uống rượu.",
+      "forms": [
+        "う動詞: む→まない",
+        "読む→読まない",
+        "遊ぶ→遊ばない"
+      ],
+      "displayOrder": 1
+    },
+    {
+      "id": 2363,
+      "term": "行かない",
+      "reading": "いかない",
+      "romaji": "ikanai",
+      "definition": "Không đi",
+      "exampleSentence": "今日は学校に行かない。",
+      "exampleTranslation": "Hôm nay tôi không đi học.",
+      "forms": [
+        "う動詞: く→かない",
+        "書く→書かない",
+        "聞く→聞かない"
+      ],
+      "displayOrder": 2
+    },
+    {
+      "id": 2364,
+      "term": "しない",
+      "reading": "しない",
+      "romaji": "shinai",
+      "definition": "Không làm",
+      "exampleSentence": "宿題をしない。",
+      "exampleTranslation": "Không làm bài tập.",
+      "forms": [
+        "不規則: する→しない",
+        "勉強する→勉強しない",
+        "練習する→練習しない"
+      ],
+      "displayOrder": 3
+    },
+    {
+      "id": 2365,
+      "term": "こない",
+      "reading": "こない",
+      "romaji": "konai",
+      "definition": "Không đến",
+      "exampleSentence": "今日は来ない。",
+      "exampleTranslation": "Hôm nay không đến.",
+      "forms": [
+        "不規則: 来る→来ない",
+        "発音: くる→こない",
+        "例文: 誰も来ない。"
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": 2366,
+      "term": "話さない",
+      "reading": "はなさない",
+      "romaji": "hanasanai",
+      "definition": "Không nói",
+      "exampleSentence": "彼は話さない。",
+      "exampleTranslation": "Anh ấy không nói.",
+      "forms": [
+        "う動詞: す→さない",
+        "貸す→貸さない",
+        "返す→返さない"
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": 2367,
+      "term": "書かない",
+      "reading": "かかない",
+      "romaji": "kakanai",
+      "definition": "Không viết",
+      "exampleSentence": "手紙を書かない。",
+      "exampleTranslation": "Không viết thư.",
+      "forms": [
+        "く動詞: く→かない",
+        "歩く→歩かない",
+        "働く→働かない"
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": 2368,
+      "term": "見ない",
+      "reading": "みない",
+      "romaji": "minai",
+      "definition": "Không xem",
+      "exampleSentence": "テレビを見ない。",
+      "exampleTranslation": "Không xem TV.",
+      "forms": [
+        "る動詞: 見る→見ない",
+        "着る→着ない",
+        "借りる→借りない"
+      ],
+      "displayOrder": 7
+    },
+    {
+      "id": 2369,
+      "term": "〜ないでください",
+      "reading": "〜ないでください",
+      "romaji": "naide kudasai",
+      "definition": "Vui lòng đừng",
+      "exampleSentence": "ここで写真を撮らないでください。",
+      "exampleTranslation": "Vui lòng đừng chụp ảnh ở đây.",
+      "forms": [
+        "Yêu cầu không làm gì",
+        "= 〜てはいけません (cấm)",
+        "Dịu hơn てはいけません"
+      ],
+      "displayOrder": 8
+    },
+    {
+      "id": 2370,
+      "term": "〜なくてもいい",
+      "reading": "〜なくてもいい",
+      "romaji": "nakute mo ii",
+      "definition": "Không cần phải",
+      "exampleSentence": "来なくてもいいです。",
+      "exampleTranslation": "Không cần phải đến.",
+      "forms": [
+        "Không có nghĩa vụ phải làm",
+        "〜てもいい (được phép làm)",
+        "〜なくていい là dạng thân mật"
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": 2371,
+      "term": "〜なければならない",
+      "reading": "〜なければならない",
+      "romaji": "nakereba naranai",
+      "definition": "Phải (nghĩa vụ)",
+      "exampleSentence": "行かなければならない。",
+      "exampleTranslation": "Tôi phải đi.",
+      "forms": [
+        "Diễn đạt nghĩa vụ bắt buộc",
+        "〜なきゃ là dạng rút gọn thân mật",
+        "〜なくてはならない cũng cùng nghĩa"
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": 2372,
+      "term": "〜ないといけない",
+      "reading": "〜ないといけない",
+      "romaji": "nai to ikenai",
+      "definition": "Phải (nếu không thì không được)",
+      "exampleSentence": "早く寝ないといけない。",
+      "exampleTranslation": "Phải ngủ sớm.",
+      "forms": [
+        "Tương tự なければならない",
+        "〜ないとダメ là dạng thân mật hơn",
+        "Nhấn mạnh hậu quả nếu không làm"
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": 2373,
+      "term": "〜ないほうがいい",
+      "reading": "〜ないほうがいい",
+      "romaji": "nai hou ga ii",
+      "definition": "Không nên",
+      "exampleSentence": "たばこを吸わないほうがいい。",
+      "exampleTranslation": "Không nên hút thuốc.",
+      "forms": [
+        "Khuyên không nên làm gì",
+        "〜ほうがいい = nên làm",
+        "Đưa ra lời khuyên hoặc đề nghị"
+      ],
+      "displayOrder": 12
+    },
+    {
+      "id": 2374,
+      "term": "〜なかった",
+      "reading": "〜なかった",
+      "romaji": "nakatta",
+      "definition": "Đã không (quá khứ phủ định)",
+      "exampleSentence": "昨日は食べなかった。",
+      "exampleTranslation": "Hôm qua không ăn.",
+      "forms": [
+        "Quá khứ phủ định của thể ない",
+        "〜ませんでした là dạng lịch sự",
+        "Thường dùng trong hội thoại thân mật"
+      ],
+      "displayOrder": 13
+    },
+    {
+      "id": 2375,
+      "term": "〜ないで",
+      "reading": "〜ないで",
+      "romaji": "naide",
+      "definition": "Không làm ... mà (nối câu)",
+      "exampleSentence": "朝食を食べないで学校に行った。",
+      "exampleTranslation": "Không ăn sáng mà đến trường.",
+      "forms": [
+        "Nối câu: không làm A mà làm B",
+        "Khác 〜ないでください (yêu cầu)",
+        "Biểu đạt trạng thái không có hành động A"
+      ],
+      "displayOrder": 14
+    },
+    {
+      "id": 2376,
+      "term": "〜ずに",
+      "reading": "〜ずに",
+      "romaji": "zuni",
+      "definition": "Không làm ... mà (văn viết)",
+      "exampleSentence": "食べずに出かけた。",
+      "exampleTranslation": "Không ăn mà ra ngoài.",
+      "forms": [
+        "Tương tự 〜ないで nhưng trang trọng hơn",
+        "する → せずに (bất quy tắc)",
+        "Thường thấy trong văn viết"
+      ],
+      "displayOrder": 15
+    },
+    {
+      "id": 2377,
+      "term": "〜わけがない",
+      "reading": "〜わけがない",
+      "romaji": "wake ga nai",
+      "definition": "Không thể nào",
+      "exampleSentence": "そんなことがあるわけがない。",
+      "exampleTranslation": "Không thể có chuyện đó.",
+      "forms": [
+        "Phủ nhận mạnh, hoàn toàn không thể",
+        "= はずがない (đáng lẽ không thể)",
+        "Thể hiện sự bác bỏ dứt khoát"
+      ],
+      "displayOrder": 16
+    },
+    {
+      "id": 2378,
+      "term": "〜とは思わない",
+      "reading": "〜とはおもわない",
+      "romaji": "to wa omowanai",
+      "definition": "Không nghĩ rằng",
+      "exampleSentence": "できるとは思わない。",
+      "exampleTranslation": "Tôi không nghĩ là được.",
+      "forms": [
+        "Biểu đạt ý kiến phủ định",
+        "とは = dùng để nhấn mạnh đối tượng",
+        "Lịch sự hơn: 〜とは思いません"
+      ],
+      "displayOrder": 17
+    },
+    {
+      "id": 2379,
+      "term": "一つも〜ない",
+      "reading": "ひとつも〜ない",
+      "romaji": "hitotsu mo nai",
+      "definition": "Không cái nào cả",
+      "exampleSentence": "一つもわからない。",
+      "exampleTranslation": "Không hiểu gì cả.",
+      "forms": [
+        "Phủ định toàn bộ",
+        "= 全然〜ない",
+        "だれも = không ai, なにも = không gì"
+      ],
+      "displayOrder": 18
+    },
+    {
+      "id": 2380,
+      "term": "全然〜ない",
+      "reading": "ぜんぜん〜ない",
+      "romaji": "zenzen nai",
+      "definition": "Hoàn toàn không",
+      "exampleSentence": "全然わからない。",
+      "exampleTranslation": "Hoàn toàn không hiểu.",
+      "forms": [
+        "Phủ định tuyệt đối",
+        "Dùng với ない, できない, など",
+        "〜ない を強調する"
+      ],
+      "displayOrder": 19
+    },
+    {
+      "id": 2381,
+      "term": "めったに〜ない",
+      "reading": "めったに〜ない",
+      "romaji": "metta ni nai",
+      "definition": "Hiếm khi không",
+      "exampleSentence": "めったに怒らない。",
+      "exampleTranslation": "Hiếm khi tức giận.",
+      "forms": [
+        "Tần suất rất thấp",
+        "= まれに〜ない (ít dùng hơn)",
+        "Gần nghĩa: ほとんど〜ない"
+      ],
+      "displayOrder": 20
+    },
+    {
+      "id": 2382,
+      "term": "あまり〜ない",
+      "reading": "あまり〜ない",
+      "romaji": "amari nai",
+      "definition": "Không mấy ... / Ít",
+      "exampleSentence": "あまり好きじゃない。",
+      "exampleTranslation": "Không mấy thích.",
+      "forms": [
+        "Phủ định một phần",
+        "Biểu đạt mức độ thấp",
+        "Trang trọng hơn: それほど〜ない"
+      ],
+      "displayOrder": 21
+    },
+    {
+      "id": 2383,
+      "term": "まだ〜ない",
+      "reading": "まだ〜ない",
+      "romaji": "mada nai",
+      "definition": "Chưa (vẫn chưa)",
+      "exampleSentence": "まだ食べていない。",
+      "exampleTranslation": "Vẫn chưa ăn.",
+      "forms": [
+        "Hành động chưa xảy ra",
+        "= not yet trong tiếng Anh",
+        "Đối lập: もう (đã)"
+      ],
+      "displayOrder": 22
+    },
+    {
+      "id": 2384,
+      "term": "〜はずがない",
+      "reading": "〜はずがない",
+      "romaji": "hazu ga nai",
+      "definition": "Không thể nào (logic)",
+      "exampleSentence": "そんなに安いはずがない。",
+      "exampleTranslation": "Không thể rẻ đến thế.",
+      "forms": [
+        "Phủ nhận logic, không thể theo lý luận",
+        "〜わけがない cũng tương tự",
+        "Dựa trên logic hoặc kiến thức"
+      ],
+      "displayOrder": 23
+    },
+    {
+      "id": 50548,
+      "term": "〜ません",
+      "reading": "ません",
+      "romaji": "masen",
+      "definition": "không... (cách nói lịch sự)",
+      "exampleSentence": "毎朝、牛乳を飲みません。",
+      "exampleTranslation": "Mỗi sáng tôi không uống sữa.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 50549,
+      "term": "〜ませんでした",
+      "reading": "ませんでした",
+      "romaji": "masen deshita",
+      "definition": "đã không... (cách nói lịch sự)",
+      "exampleSentence": "昨日は学校へ行きませんでした。",
+      "exampleTranslation": "Hôm qua tôi đã không đi học.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 50550,
+      "term": "〜なくて",
+      "reading": "なくて",
+      "romaji": "nakute",
+      "definition": "không...; vì không...",
+      "exampleSentence": "朝ご飯を食べなくて、おなかがすきました。",
+      "exampleTranslation": "Vì không ăn sáng nên tôi thấy đói.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 50551,
+      "term": "〜なかったら",
+      "reading": "なかったら",
+      "romaji": "nakattara",
+      "definition": "nếu không...; nếu đã không...",
+      "exampleSentence": "雨が降らなかったら、公園でサッカーをします。",
+      "exampleTranslation": "Nếu trời không mưa, tôi sẽ đá bóng ở công viên.",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 50552,
+      "term": "〜ないと",
+      "reading": "ないと",
+      "romaji": "nai to",
+      "definition": "nếu không... thì...",
+      "exampleSentence": "急がないと、バスに乗れません。",
+      "exampleTranslation": "Nếu không nhanh lên thì sẽ không kịp lên xe buýt.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 50553,
+      "term": "〜ないとき",
+      "reading": "ないとき",
+      "romaji": "nai toki",
+      "definition": "khi không...",
+      "exampleSentence": "わからないとき、先生に聞きます。",
+      "exampleTranslation": "Khi không hiểu, tôi hỏi giáo viên.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

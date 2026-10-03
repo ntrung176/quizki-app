@@ -1,0 +1,176 @@
+{
+  "id": 217,
+  "title": "Tuần 4 · Ngày 3 - 複合動詞① (Động từ ghép nhóm 1)",
+  "description": "Nihongo Soumatome N3 語彙 — 複合動詞① (Động từ ghép nhóm 1)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.382048",
+  "cards": [
+    {
+      "id": 5551,
+      "term": "思い出す (おもいだす)",
+      "reading": "おもいだす",
+      "romaji": "omoidasu",
+      "definition": "nhớ lại, hồi tưởng",
+      "exampleSentence": "子どものころに家族と過ごした時間を、今でもよく思い出す。",
+      "exampleTranslation": "Đến bây giờ tôi vẫn thường nhớ lại khoảng thời gian sống cùng gia đình khi còn nhỏ.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5552,
+      "term": "思い込む (おもいこむ)",
+      "reading": "おもいこむ",
+      "romaji": "omoikomu",
+      "definition": "tin tưởng sai lầm, chắc chắn trong lòng",
+      "exampleSentence": "彼は自分だけが正しいと、思い込むことがある。",
+      "exampleTranslation": "Đôi khi anh ấy lầm tưởng rằng chỉ mình là đúng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5553,
+      "term": "申し込む (もうしこむ)",
+      "reading": "もうしこむ",
+      "romaji": "moushikomu",
+      "definition": "đăng ký, nộp đơn, xin",
+      "exampleSentence": "来月の日本語講座に、今日中に申し込むつもりです。",
+      "exampleTranslation": "Tôi định đăng ký khóa học tiếng Nhật tháng sau trong hôm nay.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5554,
+      "term": "取り組む (とりくむ)",
+      "reading": "とりくむ",
+      "romaji": "torikumu",
+      "definition": "nỗ lực, đương đầu, dấn thân",
+      "exampleSentence": "会社全体で環境問題に真剣に取り組む必要があります。",
+      "exampleTranslation": "Toàn công ty cần nghiêm túc nỗ lực giải quyết các vấn đề môi trường.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5555,
+      "term": "話し合う (はなしあう)",
+      "reading": "はなしあう",
+      "romaji": "hanashiau",
+      "definition": "thảo luận, bàn bạc",
+      "exampleSentence": "問題を解決するために、みんなでよく話し合うことが大切です。",
+      "exampleTranslation": "Để giải quyết vấn đề, mọi người cùng nhau thảo luận kỹ là điều quan trọng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5556,
+      "term": "取り上げる (とりあげる)",
+      "reading": "とりあげる",
+      "romaji": "toriageru",
+      "definition": "nêu lên, lấy đi, thu lại",
+      "exampleSentence": "授業では、最近のニュースを取り上げる予定です。",
+      "exampleTranslation": "Trong giờ học, chúng tôi dự định đề cập đến những tin tức gần đây.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5557,
+      "term": "取り消す (とりけす)",
+      "reading": "とりけす",
+      "romaji": "torikesu",
+      "definition": "hủy bỏ, xóa bỏ",
+      "exampleSentence": "間違えて予約した場合は、すぐに取り消すことができます。",
+      "exampleTranslation": "Nếu đặt chỗ nhầm, bạn có thể hủy ngay lập tức.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5558,
+      "term": "引き受ける (ひきうける)",
+      "reading": "ひきうける",
+      "romaji": "hikiukeru",
+      "definition": "nhận lãnh, chấp nhận, đảm nhận",
+      "exampleSentence": "部長は忙しかったが、その仕事を引き受けることにした。",
+      "exampleTranslation": "Trưởng phòng tuy bận nhưng đã quyết định nhận công việc đó.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5559,
+      "term": "受け取る (うけとる)",
+      "reading": "うけとる",
+      "romaji": "uketoru",
+      "definition": "nhận, tiếp nhận",
+      "exampleSentence": "受付で荷物を受け取るとき、身分証明書を見せてください。",
+      "exampleTranslation": "Khi nhận hành lý tại quầy tiếp tân, hãy xuất trình giấy tờ tùy thân.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5560,
+      "term": "書き直す (かきなおす)",
+      "reading": "かきなおす",
+      "romaji": "kakinaosu",
+      "definition": "viết lại",
+      "exampleSentence": "間違いが多かったので、レポートを最初から書き直すことにした。",
+      "exampleTranslation": "Vì có nhiều lỗi nên tôi đã quyết định viết lại báo cáo từ đầu.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5561,
+      "term": "読み直す (よみなおす)",
+      "reading": "よみなおす",
+      "romaji": "yominaosu",
+      "definition": "đọc lại",
+      "exampleSentence": "内容を忘れてしまったので、試験の前に教科書を読み直すことにした。",
+      "exampleTranslation": "Vì đã quên nội dung nên tôi quyết định đọc lại giáo trình trước kỳ thi.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5562,
+      "term": "繰り返す (くりかえす)",
+      "reading": "くりかえす",
+      "romaji": "kurikaesu",
+      "definition": "lặp lại, làm lại nhiều lần",
+      "exampleSentence": "同じ間違いを繰り返すと、なかなか上達できません。",
+      "exampleTranslation": "Nếu cứ lặp lại cùng một lỗi thì sẽ khó tiến bộ.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5563,
+      "term": "持ち込む (もちこむ)",
+      "reading": "もちこむ",
+      "romaji": "mochikomu",
+      "definition": "mang vào, đưa vào",
+      "exampleSentence": "飲食物を教室に持ち込む場合は、先生の許可を取ってください。",
+      "exampleTranslation": "Khi mang đồ ăn thức uống vào lớp, hãy xin phép giáo viên.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5564,
+      "term": "持ち出す (もちだす)",
+      "reading": "もちだす",
+      "romaji": "mochidasu",
+      "definition": "mang ra, đưa ra ngoài",
+      "exampleSentence": "図書館の本を無断で持ち出すことは禁止されています。",
+      "exampleTranslation": "Tự ý mang sách thư viện ra ngoài là hành vi bị cấm.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5565,
+      "term": "投げ出す (なげだす)",
+      "reading": "なげだす",
+      "romaji": "nagedasu",
+      "definition": "bỏ cuộc, ném ra, từ bỏ",
+      "exampleSentence": "途中で仕事を投げ出すのは、無責任なことです。",
+      "exampleTranslation": "Bỏ dở công việc giữa chừng là hành động vô trách nhiệm.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

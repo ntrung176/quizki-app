@@ -1,0 +1,176 @@
+{
+  "id": 231,
+  "title": "Tuần 6 · Ngày 3 - 接続詞・文接続 (Liên từ & Nối câu)",
+  "description": "Nihongo Soumatome N3 語彙 — 接続詞・文接続 (Liên từ & Nối câu)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:19.717706",
+  "cards": [
+    {
+      "id": 5731,
+      "term": "しかし",
+      "reading": "しかし",
+      "romaji": "shikashi",
+      "definition": "nhưng, tuy nhiên",
+      "exampleSentence": "計画は順調に進んでいるが、しかし油断はできない。",
+      "exampleTranslation": "Kế hoạch đang tiến triển thuận lợi, nhưng không thể chủ quan.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5732,
+      "term": "ところが",
+      "reading": "ところが",
+      "romaji": "tokoroga",
+      "definition": "thế mà, tuy nhiên (kết quả bất ngờ)",
+      "exampleSentence": "晴れると思っていたのだが、ところが朝から雨が降り続いた。",
+      "exampleTranslation": "Tôi đã nghĩ trời sẽ nắng, thế mà từ sáng mưa cứ rơi mãi.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5733,
+      "term": "それでも",
+      "reading": "それでも",
+      "romaji": "soredemo",
+      "definition": "dù vậy, mặc dù thế",
+      "exampleSentence": "難しい仕事だが、それでも最後まで頑張りたい。",
+      "exampleTranslation": "Đó là công việc khó, nhưng dù vậy tôi vẫn muốn cố gắng đến cùng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5734,
+      "term": "それなのに",
+      "reading": "それなのに",
+      "romaji": "sore na noni",
+      "definition": "thế mà, mặc dù vậy (bất mãn)",
+      "exampleSentence": "彼には約束の時間を伝えたのに、それなのにまだ来ていない。",
+      "exampleTranslation": "Tôi đã nói cho anh ấy thời gian hẹn, thế mà anh ấy vẫn chưa đến.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5735,
+      "term": "そのため",
+      "reading": "そのため",
+      "romaji": "sono tame",
+      "definition": "vì thế, do đó, vì lý do đó",
+      "exampleSentence": "大雨で電車が止まり、そのため会議に間に合わなかった。",
+      "exampleTranslation": "Tàu dừng vì mưa lớn, vì thế tôi đã không kịp cuộc họp.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5736,
+      "term": "そこで",
+      "reading": "そこで",
+      "romaji": "sokode",
+      "definition": "vì vậy, do đó, nên",
+      "exampleSentence": "問題が起きたので、そこで皆で話し合うことにした。",
+      "exampleTranslation": "Vì xảy ra vấn đề nên chúng tôi quyết định cùng nhau thảo luận.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5737,
+      "term": "つまり",
+      "reading": "つまり",
+      "romaji": "tsumari",
+      "definition": "tức là, nghĩa là, nói tóm lại",
+      "exampleSentence": "彼は来月大学を卒業する、つまりもうすぐ社会人になるということだ。",
+      "exampleTranslation": "Tháng sau anh ấy sẽ tốt nghiệp đại học, tức là sắp trở thành người đi làm.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5738,
+      "term": "すなわち",
+      "reading": "すなわち",
+      "romaji": "sunawachi",
+      "definition": "tức là, nói cách khác, đó là",
+      "exampleSentence": "今回の変更は、すなわち全員が参加しなければならないという意味です。",
+      "exampleTranslation": "Thay đổi lần này có nghĩa là tất cả mọi người đều phải tham gia.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5739,
+      "term": "しかも",
+      "reading": "しかも",
+      "romaji": "shikamo",
+      "definition": "hơn nữa, và còn, thêm vào đó",
+      "exampleSentence": "このホテルは駅に近く、しかも部屋も広い。",
+      "exampleTranslation": "Khách sạn này gần ga, hơn nữa phòng cũng rộng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5740,
+      "term": "それどころか",
+      "reading": "それどころか",
+      "romaji": "sore dokoro ka",
+      "definition": "không những thế, ngược lại còn hơn",
+      "exampleSentence": "彼は謝らなかったし、それどころか私のせいだと言った。",
+      "exampleTranslation": "Anh ấy không xin lỗi, ngược lại còn nói đó là lỗi của tôi.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5741,
+      "term": "ただし",
+      "reading": "ただし",
+      "romaji": "tadashi",
+      "definition": "tuy nhiên, nhưng mà, có điều",
+      "exampleSentence": "この図書館は誰でも利用できます（ただし、本の持ち出しは禁止されています）。",
+      "exampleTranslation": "Thư viện này ai cũng có thể sử dụng, tuy nhiên không được mang sách ra ngoài.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5742,
+      "term": "もっとも",
+      "reading": "もっとも",
+      "romaji": "mottomo",
+      "definition": "tuy nhiên, dù sao, nhưng mà",
+      "exampleSentence": "彼は優秀な学生だが、もっとも経験はまだ少ない。",
+      "exampleTranslation": "Cậu ấy là một sinh viên ưu tú, tuy nhiên kinh nghiệm vẫn còn ít.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5743,
+      "term": "むしろ",
+      "reading": "むしろ",
+      "romaji": "mushiro",
+      "definition": "đúng hơn là, thay vào đó, ngược lại",
+      "exampleSentence": "この仕事は大変ですが、むしろやりがいがあると思います。",
+      "exampleTranslation": "Công việc này khá vất vả, nhưng đúng hơn là tôi thấy nó rất đáng làm.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5744,
+      "term": "あるいは",
+      "reading": "あるいは",
+      "romaji": "aruiwa",
+      "definition": "hoặc là, hay là, có thể",
+      "exampleSentence": "明日、あるいは来週の初めに、もう一度ご連絡します。",
+      "exampleTranslation": "Ngày mai hoặc đầu tuần sau, tôi sẽ liên lạc lại với bạn.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5745,
+      "term": "なお",
+      "reading": "なお",
+      "romaji": "nao",
+      "definition": "hơn nữa, ngoài ra, thêm vào đó",
+      "exampleSentence": "なお、会場には駐車場がありませんので、ご注意ください。",
+      "exampleTranslation": "Ngoài ra, xin lưu ý rằng địa điểm tổ chức không có bãi đỗ xe.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

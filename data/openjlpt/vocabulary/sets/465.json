@@ -1,0 +1,176 @@
+{
+  "id": 465,
+  "title": "環境・自然 · 自然災害の種類",
+  "description": "Các loại thiên tai — chủ đề Môi trường & thiên nhiên · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:49.550027",
+  "cards": [
+    {
+      "id": 11795,
+      "term": "火山 (かざん)",
+      "reading": "かざん",
+      "romaji": null,
+      "definition": "núi lửa",
+      "exampleSentence": "その島には今も活動を続けている火山がある。",
+      "exampleTranslation": "Trên hòn đảo đó vẫn có một ngọn núi lửa đang tiếp tục hoạt động.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11796,
+      "term": "噴火 (ふんか)",
+      "reading": "ふんか",
+      "romaji": null,
+      "definition": "phun trào núi lửa",
+      "exampleSentence": "火山の噴火によって、周辺の道路が通行止めになった。",
+      "exampleTranslation": "Do núi lửa phun trào, các con đường xung quanh đã bị cấm lưu thông.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11797,
+      "term": "火山噴火 (かざんふんか)",
+      "reading": "かざんふんか",
+      "romaji": null,
+      "definition": "núi lửa phun trào",
+      "exampleSentence": "専門家は、過去の火山噴火の記録を詳しく調べている。",
+      "exampleTranslation": "Các chuyên gia đang nghiên cứu kỹ những ghi chép về các vụ núi lửa phun trào trong quá khứ.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11798,
+      "term": "洪水 (こうずい)",
+      "reading": "こうずい",
+      "romaji": null,
+      "definition": "lũ lụt",
+      "exampleSentence": "大雨で川が増水し、町の一部が洪水に見舞われた。",
+      "exampleTranslation": "Mưa lớn khiến nước sông dâng cao và một phần thị trấn bị lũ lụt.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11799,
+      "term": "災害 (さいがい)",
+      "reading": "さいがい",
+      "romaji": null,
+      "definition": "thiên tai",
+      "exampleSentence": "災害に備えて、家族で避難場所を確認しておいた。",
+      "exampleTranslation": "Để đề phòng thiên tai, cả gia đình đã kiểm tra trước địa điểm sơ tán.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11800,
+      "term": "自然災害 (しぜんさいがい)",
+      "reading": "しぜんさいがい",
+      "romaji": null,
+      "definition": "thiên tai thiên nhiên",
+      "exampleSentence": "日本では、地震や台風などの自然災害が多い。",
+      "exampleTranslation": "Ở Nhật Bản có nhiều thiên tai như động đất và bão.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11801,
+      "term": "雪崩 (なだれ)",
+      "reading": "なだれ",
+      "romaji": null,
+      "definition": "tuyết lở",
+      "exampleSentence": "山の上で雪崩が起き、登山者たちは急いで下山した。",
+      "exampleTranslation": "Tuyết lở xảy ra trên núi, những người leo núi đã vội vàng xuống núi.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11802,
+      "term": "台風 (たいふう)",
+      "reading": "たいふう",
+      "romaji": null,
+      "definition": "bão nhiệt đới",
+      "exampleSentence": "台風の接近に伴い、空港では多くの便が欠航した。",
+      "exampleTranslation": "Do bão nhiệt đới đến gần, nhiều chuyến bay tại sân bay đã bị hủy.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11803,
+      "term": "地滑り (じすべり)",
+      "reading": "じすべり",
+      "romaji": null,
+      "definition": "sạt lở đất",
+      "exampleSentence": "長雨の影響で地滑りが発生し、道路がふさがれた。",
+      "exampleTranslation": "Do ảnh hưởng của mưa kéo dài, sạt lở đất xảy ra khiến con đường bị tắc nghẽn.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11804,
+      "term": "地震 (じしん)",
+      "reading": "じしん",
+      "romaji": null,
+      "definition": "động đất",
+      "exampleSentence": "昨夜の地震で、棚から本が何冊も落ちた。",
+      "exampleTranslation": "Trận động đất tối qua khiến nhiều quyển sách rơi khỏi kệ.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11805,
+      "term": "津波 (つなみ)",
+      "reading": "つなみ",
+      "romaji": null,
+      "definition": "sóng thần",
+      "exampleSentence": "津波が来る前に、住民は高台へ避難した。",
+      "exampleTranslation": "Trước khi sóng thần ập đến, người dân đã sơ tán lên vùng đất cao.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11806,
+      "term": "土砂崩れ (どしゃくずれ)",
+      "reading": "どしゃくずれ",
+      "romaji": null,
+      "definition": "sạt lở đất đá",
+      "exampleSentence": "土砂崩れで道路がふさがれ、車が通れなくなった。",
+      "exampleTranslation": "Do sạt lở đất đá, con đường bị chặn khiến xe cộ không thể đi qua.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11807,
+      "term": "爆発 (ばくはつ)",
+      "reading": "ばくはつ",
+      "romaji": null,
+      "definition": "vụ nổ",
+      "exampleSentence": "工場で爆発が起き、周辺の住民が避難した。",
+      "exampleTranslation": "Một vụ nổ xảy ra tại nhà máy, khiến người dân xung quanh phải sơ tán.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11808,
+      "term": "竜巻 (たつまき)",
+      "reading": "たつまき",
+      "romaji": null,
+      "definition": "lốc xoáy",
+      "exampleSentence": "突然竜巻が発生し、屋根や車が飛ばされた。",
+      "exampleTranslation": "Đột nhiên một cơn lốc xoáy xuất hiện, cuốn bay mái nhà và ô tô.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 11809,
+      "term": "旱魃 (かんばつ)",
+      "reading": "かんばつ",
+      "romaji": null,
+      "definition": "hạn hán",
+      "exampleSentence": "長期的な旱魃で、農作物の収穫量が大幅に減少した。",
+      "exampleTranslation": "Do hạn hán kéo dài, sản lượng thu hoạch nông sản đã giảm đáng kể.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

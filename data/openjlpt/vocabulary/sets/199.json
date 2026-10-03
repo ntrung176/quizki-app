@@ -1,0 +1,176 @@
+{
+  "id": 199,
+  "title": "Tuần 1 · Ngày 6 - 副詞② (Trạng từ nhóm 2 - trạng thái/cách thức)",
+  "description": "Nihongo Soumatome N3 語彙 — 副詞② (Trạng từ nhóm 2 - trạng thái/cách thức)",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:18.92842",
+  "cards": [
+    {
+      "id": 5326,
+      "term": "ぐっすり",
+      "reading": "ぐっすり",
+      "romaji": "gussuri",
+      "definition": "ngủ say, ngủ sâu",
+      "exampleSentence": "昨夜は疲れていたので、朝までぐっすり眠りました。",
+      "exampleTranslation": "Tối qua vì mệt nên tôi đã ngủ say đến sáng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 5327,
+      "term": "すっかり",
+      "reading": "すっかり",
+      "romaji": "sukkari",
+      "definition": "hoàn toàn, hết sạch",
+      "exampleSentence": "夏休みの間に、弟はすっかり元気になりました。",
+      "exampleTranslation": "Trong kỳ nghỉ hè, em trai tôi đã hoàn toàn khỏe lại.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 5328,
+      "term": "はっきり",
+      "reading": "はっきり",
+      "romaji": "hakkiri",
+      "definition": "rõ ràng, dứt khoát",
+      "exampleSentence": "先生の説明を聞いて、理由がはっきり分かりました。",
+      "exampleTranslation": "Sau khi nghe thầy giải thích, tôi đã hiểu rõ lý do.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 5329,
+      "term": "ゆっくり",
+      "reading": "ゆっくり",
+      "romaji": "yukkuri",
+      "definition": "từ từ, chậm rãi, thong thả",
+      "exampleSentence": "休みの日は、家で音楽を聞きながらゆっくり過ごします。",
+      "exampleTranslation": "Vào ngày nghỉ, tôi thong thả ở nhà vừa nghe nhạc vừa tận hưởng thời gian.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 5330,
+      "term": "のんびり",
+      "reading": "のんびり",
+      "romaji": "nonbiri",
+      "definition": "thư thả, thoải mái, thong dong",
+      "exampleSentence": "週末は海を見ながら、家族とのんびり過ごしました。",
+      "exampleTranslation": "Cuối tuần, tôi đã thư thả tận hưởng thời gian bên gia đình trong lúc ngắm biển.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 5331,
+      "term": "ぴったり",
+      "reading": "ぴったり",
+      "romaji": "pittari",
+      "definition": "vừa khít, khớp hoàn toàn",
+      "exampleSentence": "この靴は私の足にぴったり合っています。",
+      "exampleTranslation": "Đôi giày này vừa khít với chân tôi.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 5332,
+      "term": "しっかり",
+      "reading": "しっかり",
+      "romaji": "shikkari",
+      "definition": "chắc chắn, vững chắc, đàng hoàng",
+      "exampleSentence": "朝ご飯をしっかり食べてから、学校へ行きましょう。",
+      "exampleTranslation": "Hãy ăn sáng đầy đủ rồi đi học.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 5333,
+      "term": "さっぱり",
+      "reading": "さっぱり",
+      "romaji": "sappari",
+      "definition": "sảng khoái, gọn gàng, hoàn toàn không (phủ định)",
+      "exampleSentence": "シャワーを浴びたら、汗が流れてさっぱりしました。",
+      "exampleTranslation": "Sau khi tắm, mồ hôi trôi đi khiến tôi cảm thấy sảng khoái.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 5334,
+      "term": "びっくり",
+      "reading": "びっくり",
+      "romaji": "bikkuri",
+      "definition": "giật mình, ngạc nhiên bất ngờ",
+      "exampleSentence": "駅で高校時代の友達に会って、びっくりしました。",
+      "exampleTranslation": "Tôi đã rất bất ngờ khi gặp người bạn thời trung học ở nhà ga.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 5335,
+      "term": "うっかり",
+      "reading": "うっかり",
+      "romaji": "ukkari",
+      "definition": "sơ ý, vô tình, bất cẩn",
+      "exampleSentence": "うっかり電車に傘を忘れてしまった。",
+      "exampleTranslation": "Tôi sơ ý để quên ô trên tàu điện.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 5336,
+      "term": "ようやく",
+      "reading": "ようやく",
+      "romaji": "youyaku",
+      "definition": "cuối cùng, vừa mới, mới được",
+      "exampleSentence": "ようやく長い冬が終わり、暖かい春が来た。",
+      "exampleTranslation": "Cuối cùng mùa đông dài cũng kết thúc, mùa xuân ấm áp đã đến.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 5337,
+      "term": "とうとう",
+      "reading": "とうとう",
+      "romaji": "toutou",
+      "definition": "cuối cùng, rốt cuộc",
+      "exampleSentence": "とうとう彼は夢だった店を開いた。",
+      "exampleTranslation": "Rốt cuộc anh ấy cũng mở được cửa hàng mơ ước.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 5338,
+      "term": "いつのまにか",
+      "reading": "いつのまにか",
+      "romaji": "itsu no ma ni ka",
+      "definition": "lúc nào không hay, không biết từ khi nào",
+      "exampleSentence": "いつのまにか外は暗くなっていた。",
+      "exampleTranslation": "Lúc nào không hay, bên ngoài đã trở nên tối.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 5339,
+      "term": "ふと",
+      "reading": "ふと",
+      "romaji": "futo",
+      "definition": "bỗng nhiên, thoáng qua",
+      "exampleSentence": "ふと学生時代の友人を思い出した。",
+      "exampleTranslation": "Tôi chợt nhớ đến một người bạn thời học sinh.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 5340,
+      "term": "いきなり",
+      "reading": "いきなり",
+      "romaji": "ikinari",
+      "definition": "bỗng nhiên, đột ngột, không báo trước",
+      "exampleSentence": "いきなり知らない人に名前を呼ばれて、驚いた。",
+      "exampleTranslation": "Tôi giật mình vì bất ngờ bị một người lạ gọi tên.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

@@ -1,0 +1,365 @@
+{
+  "id": 152,
+  "title": "文学・文化語彙",
+  "description": "Văn học và văn hóa N3 · 30 từ",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:12.195044",
+  "cards": [
+    {
+      "id": 4435,
+      "term": "文学",
+      "reading": "ぶんがく",
+      "romaji": "bungaku",
+      "definition": "Văn học",
+      "exampleSentence": "日本文学を研究しています。",
+      "exampleTranslation": "Tôi đang nghiên cứu văn học Nhật.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 4436,
+      "term": "俳句",
+      "reading": "はいく",
+      "romaji": "haiku",
+      "definition": "Thơ haiku",
+      "exampleSentence": "松尾芭蕉は有名な俳句の作者です。",
+      "exampleTranslation": "Matsuo Basho là tác giả haiku nổi tiếng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 4437,
+      "term": "短歌",
+      "reading": "たんか",
+      "romaji": "tanka",
+      "definition": "Thơ tanka (thể thơ Nhật)",
+      "exampleSentence": "万葉集には多くの短歌があります。",
+      "exampleTranslation": "Manyoshu có nhiều bài thơ tanka.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 4438,
+      "term": "歌舞伎",
+      "reading": "かぶき",
+      "romaji": "kabuki",
+      "definition": "Kịch kabuki",
+      "exampleSentence": "歌舞伎は日本の伝統芸能です。",
+      "exampleTranslation": "Kabuki là nghệ thuật truyền thống Nhật Bản.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 4439,
+      "term": "能楽",
+      "reading": "のうがく",
+      "romaji": "nougaku",
+      "definition": "Kịch Noh",
+      "exampleSentence": "能楽は世界遺産に登録されています。",
+      "exampleTranslation": "Kịch Noh được ghi vào di sản thế giới.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 4440,
+      "term": "茶道",
+      "reading": "さどう",
+      "romaji": "sadou",
+      "definition": "Nghệ thuật trà đạo",
+      "exampleSentence": "茶道を習っています。",
+      "exampleTranslation": "Tôi đang học trà đạo.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 4441,
+      "term": "書道",
+      "reading": "しょどう",
+      "romaji": "shodou",
+      "definition": "Thư pháp",
+      "exampleSentence": "書道の展覧会を見に行きました。",
+      "exampleTranslation": "Tôi đến xem triển lãm thư pháp.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 4442,
+      "term": "伝統",
+      "reading": "でんとう",
+      "romaji": "dentou",
+      "definition": "Truyền thống",
+      "exampleSentence": "伝統文化を守ることが大切です。",
+      "exampleTranslation": "Bảo tồn văn hóa truyền thống là quan trọng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 4443,
+      "term": "風習",
+      "reading": "ふうしゅう",
+      "romaji": "fuushuu",
+      "definition": "Phong tục tập quán",
+      "exampleSentence": "地方の風習を尊重します。",
+      "exampleTranslation": "Tôi tôn trọng phong tục tập quán địa phương.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 4444,
+      "term": "祭り",
+      "reading": "まつり",
+      "romaji": "matsuri",
+      "definition": "Lễ hội",
+      "exampleSentence": "地元の夏祭りに参加しました。",
+      "exampleTranslation": "Tôi đã tham gia lễ hội mùa hè địa phương.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 4445,
+      "term": "民話",
+      "reading": "みんわ",
+      "romaji": "minwa",
+      "definition": "Truyện dân gian",
+      "exampleSentence": "日本の民話を読んでいます。",
+      "exampleTranslation": "Tôi đang đọc truyện dân gian Nhật Bản.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 4446,
+      "term": "神話",
+      "reading": "しんわ",
+      "romaji": "shinwa",
+      "definition": "Thần thoại",
+      "exampleSentence": "日本の神話には多くの神様が登場します。",
+      "exampleTranslation": "Thần thoại Nhật Bản có nhiều vị thần xuất hiện.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 4447,
+      "term": "叙述",
+      "reading": "じょじゅつ",
+      "romaji": "jojutsu",
+      "definition": "Miêu tả / trần thuật",
+      "exampleSentence": "情景を細かく叙述しています。",
+      "exampleTranslation": "Tôi miêu tả chi tiết cảnh vật.",
+      "forms": [
+        "叙述します",
+        "叙述して",
+        "叙述した",
+        "叙述しない",
+        "叙述できる"
+      ],
+      "displayOrder": 12
+    },
+    {
+      "id": 4448,
+      "term": "比喩",
+      "reading": "ひゆ",
+      "romaji": "hiyu",
+      "definition": "Ẩn dụ / so sánh",
+      "exampleSentence": "美しい比喩が使われています。",
+      "exampleTranslation": "Ẩn dụ đẹp được sử dụng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 4449,
+      "term": "象徴",
+      "reading": "しょうちょう",
+      "romaji": "shouchou",
+      "definition": "Biểu tượng / tượng trưng",
+      "exampleSentence": "桜は日本の象徴です。",
+      "exampleTranslation": "Hoa anh đào là biểu tượng của Nhật Bản.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 4450,
+      "term": "表現",
+      "reading": "ひょうげん",
+      "romaji": "hyougen",
+      "definition": "Biểu đạt / diễn đạt",
+      "exampleSentence": "豊かな表現力が必要です。",
+      "exampleTranslation": "Cần có khả năng biểu đạt phong phú.",
+      "forms": [
+        "表現します",
+        "表現して",
+        "表現した",
+        "表現しない",
+        "表現できる"
+      ],
+      "displayOrder": 15
+    },
+    {
+      "id": 4451,
+      "term": "芸術",
+      "reading": "げいじゅつ",
+      "romaji": "geijutsu",
+      "definition": "Nghệ thuật",
+      "exampleSentence": "芸術は人の心を豊かにします。",
+      "exampleTranslation": "Nghệ thuật làm phong phú tâm hồn con người.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 4452,
+      "term": "鑑賞",
+      "reading": "かんしょう",
+      "romaji": "kanshou",
+      "definition": "Thưởng thức / cảm thụ",
+      "exampleSentence": "美術館で絵画を鑑賞しました。",
+      "exampleTranslation": "Tôi đã thưởng thức tranh ở bảo tàng.",
+      "forms": [
+        "鑑賞します",
+        "鑑賞して",
+        "鑑賞した",
+        "鑑賞しない",
+        "鑑賞できる"
+      ],
+      "displayOrder": 17
+    },
+    {
+      "id": 4453,
+      "term": "批評",
+      "reading": "ひひょう",
+      "romaji": "hihyou",
+      "definition": "Phê bình / nhận xét",
+      "exampleSentence": "この小説の批評を書きました。",
+      "exampleTranslation": "Tôi đã viết phê bình về tiểu thuyết này.",
+      "forms": [
+        "批評します",
+        "批評して",
+        "批評した",
+        "批評しない",
+        "批評できる"
+      ],
+      "displayOrder": 18
+    },
+    {
+      "id": 4454,
+      "term": "古典",
+      "reading": "こてん",
+      "romaji": "koten",
+      "definition": "Cổ điển / văn học cổ",
+      "exampleSentence": "日本の古典文学を勉強しています。",
+      "exampleTranslation": "Tôi đang học văn học cổ điển Nhật Bản.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 50824,
+      "term": "小説",
+      "reading": "しょうせつ",
+      "romaji": "shōsetsu",
+      "definition": "tiểu thuyết",
+      "exampleSentence": "この小説は若い作家によって書かれた。",
+      "exampleTranslation": "Tiểu thuyết này được một nhà văn trẻ viết.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 50825,
+      "term": "詩",
+      "reading": "し",
+      "romaji": "shi",
+      "definition": "thơ; bài thơ",
+      "exampleSentence": "彼は自然を題材にした詩を書いた。",
+      "exampleTranslation": "Anh ấy đã viết một bài thơ lấy thiên nhiên làm đề tài.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 50826,
+      "term": "作家",
+      "reading": "さっか",
+      "romaji": "sakka",
+      "definition": "nhà văn; tác giả",
+      "exampleSentence": "その作家は毎年一冊の本を発表している。",
+      "exampleTranslation": "Nhà văn đó mỗi năm đều xuất bản một cuốn sách.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 50827,
+      "term": "作品",
+      "reading": "さくひん",
+      "romaji": "sakuhin",
+      "definition": "tác phẩm",
+      "exampleSentence": "美術館で有名な画家の作品を見た。",
+      "exampleTranslation": "Tôi đã xem tác phẩm của một họa sĩ nổi tiếng tại bảo tàng mỹ thuật.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 50828,
+      "term": "主人公",
+      "reading": "しゅじんこう",
+      "romaji": "shujinkō",
+      "definition": "nhân vật chính",
+      "exampleSentence": "この物語の主人公は医者を目指している。",
+      "exampleTranslation": "Nhân vật chính của câu chuyện này đang hướng tới việc trở thành bác sĩ.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 50829,
+      "term": "登場人物",
+      "reading": "とうじょうじんぶつ",
+      "romaji": "tōjōjinbutsu",
+      "definition": "nhân vật trong tác phẩm",
+      "exampleSentence": "登場人物の気持ちがよく伝わる作品だった。",
+      "exampleTranslation": "Đó là một tác phẩm truyền tải rõ cảm xúc của các nhân vật.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 50830,
+      "term": "随筆",
+      "reading": "ずいひつ",
+      "romaji": "zuihitsu",
+      "definition": "tùy bút",
+      "exampleSentence": "授業で有名な随筆を読んだ。",
+      "exampleTranslation": "Trong giờ học, tôi đã đọc một bài tùy bút nổi tiếng.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 50831,
+      "term": "物語",
+      "reading": "ものがたり",
+      "romaji": "monogatari",
+      "definition": "câu chuyện; truyện",
+      "exampleSentence": "祖母は子どものころの物語を聞かせてくれた。",
+      "exampleTranslation": "Bà đã kể cho tôi nghe những câu chuyện thời thơ ấu.",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 50832,
+      "term": "文化財",
+      "reading": "ぶんかざい",
+      "romaji": "bunkazai",
+      "definition": "di sản văn hóa",
+      "exampleSentence": "この寺は大切な文化財として保存されている。",
+      "exampleTranslation": "Ngôi chùa này được bảo tồn như một di sản văn hóa quan trọng.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 50833,
+      "term": "国宝",
+      "reading": "こくほう",
+      "romaji": "kokuhō",
+      "definition": "báu vật quốc gia",
+      "exampleSentence": "博物館で日本の国宝を見ることができる。",
+      "exampleTranslation": "Có thể xem các báu vật quốc gia của Nhật Bản tại bảo tàng.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

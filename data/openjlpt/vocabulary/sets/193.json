@@ -1,0 +1,511 @@
+{
+  "id": 193,
+  "title": "複合動詞 N2",
+  "description": "Động từ phức hợp N2 · 30 mẫu nâng cao",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:37:16.231519",
+  "cards": [
+    {
+      "id": 5231,
+      "term": "書き上げる",
+      "reading": "かきあげる",
+      "romaji": "kaki ageru",
+      "definition": "Viết xong / hoàn thành bài viết",
+      "exampleSentence": "論文を書き上げました。",
+      "exampleTranslation": "Tôi đã viết xong luận văn.",
+      "forms": [
+        "書き上げます",
+        "書き上げて",
+        "書き上げた",
+        "書き上げない",
+        "書き上げられる"
+      ],
+      "displayOrder": 0
+    },
+    {
+      "id": 5232,
+      "term": "やり遂げる",
+      "reading": "やりとげる",
+      "romaji": "yari togeru",
+      "definition": "Hoàn thành / làm đến cùng",
+      "exampleSentence": "困難を乗り越えてやり遂げました。",
+      "exampleTranslation": "Vượt qua khó khăn và hoàn thành.",
+      "forms": [
+        "やり遂げます",
+        "やり遂げて",
+        "やり遂げた",
+        "やり遂げない",
+        "やり遂げられる"
+      ],
+      "displayOrder": 1
+    },
+    {
+      "id": 5233,
+      "term": "取り組む",
+      "reading": "とりくむ",
+      "romaji": "tori kumu",
+      "definition": "Đối phó / nỗ lực giải quyết",
+      "exampleSentence": "問題に積極的に取り組みます。",
+      "exampleTranslation": "Tích cực đối phó với vấn đề.",
+      "forms": [
+        "取り組みます",
+        "取り組んで",
+        "取り組んだ",
+        "取り組まない",
+        "取り組める"
+      ],
+      "displayOrder": 2
+    },
+    {
+      "id": 5234,
+      "term": "引き受ける",
+      "reading": "ひきうける",
+      "romaji": "hiki ukeru",
+      "definition": "Nhận / chấp nhận / đảm nhận",
+      "exampleSentence": "この仕事を引き受けました。",
+      "exampleTranslation": "Tôi đã nhận công việc này.",
+      "forms": [
+        "引き受けます",
+        "引き受けて",
+        "引き受けた",
+        "引き受けない",
+        "引き受けられる"
+      ],
+      "displayOrder": 3
+    },
+    {
+      "id": 5235,
+      "term": "申し出る",
+      "reading": "もうしでる",
+      "romaji": "moushi deru",
+      "definition": "Đề nghị / tình nguyện",
+      "exampleSentence": "手伝いを申し出ました。",
+      "exampleTranslation": "Tôi đã đề nghị giúp đỡ.",
+      "forms": [
+        "申し出ます",
+        "申し出て",
+        "申し出た",
+        "申し出ない",
+        "申し出られる"
+      ],
+      "displayOrder": 4
+    },
+    {
+      "id": 5236,
+      "term": "打ち明ける",
+      "reading": "うちあける",
+      "romaji": "uchi akeru",
+      "definition": "Nói thật / tâm sự",
+      "exampleSentence": "悩みを打ち明けました。",
+      "exampleTranslation": "Tôi đã tâm sự nỗi lo.",
+      "forms": [
+        "打ち明けます",
+        "打ち明けて",
+        "打ち明けた",
+        "打ち明けない",
+        "打ち明けられる"
+      ],
+      "displayOrder": 5
+    },
+    {
+      "id": 5237,
+      "term": "立ち向かう",
+      "reading": "たちむかう",
+      "romaji": "tachi mukau",
+      "definition": "Đương đầu / đối mặt",
+      "exampleSentence": "困難に立ち向かいます。",
+      "exampleTranslation": "Tôi đương đầu với khó khăn.",
+      "forms": [
+        "立ち向かいます",
+        "立ち向かって",
+        "立ち向かった",
+        "立ち向かわない",
+        "立ち向かえる"
+      ],
+      "displayOrder": 6
+    },
+    {
+      "id": 5238,
+      "term": "追い込む",
+      "reading": "おいこむ",
+      "romaji": "oi komu",
+      "definition": "Đẩy vào thế khó / dồn vào góc",
+      "exampleSentence": "相手を追い込みました。",
+      "exampleTranslation": "Tôi đã dồn đối thủ vào thế khó.",
+      "forms": [
+        "追い込みます",
+        "追い込んで",
+        "追い込んだ",
+        "追い込まない",
+        "追い込める"
+      ],
+      "displayOrder": 7
+    },
+    {
+      "id": 5239,
+      "term": "乗り越える",
+      "reading": "のりこえる",
+      "romaji": "nori koeru",
+      "definition": "Vượt qua / khắc phục",
+      "exampleSentence": "困難を乗り越えました。",
+      "exampleTranslation": "Tôi đã vượt qua khó khăn.",
+      "forms": [
+        "乗り越えます",
+        "乗り越えて",
+        "乗り越えた",
+        "乗り越えない",
+        "乗り越えられる"
+      ],
+      "displayOrder": 8
+    },
+    {
+      "id": 5240,
+      "term": "落ち着く",
+      "reading": "おちつく",
+      "romaji": "ochi tsuku",
+      "definition": "Bình tĩnh / ổn định",
+      "exampleSentence": "状況が落ち着きました。",
+      "exampleTranslation": "Tình hình đã ổn định.",
+      "forms": [
+        "落ち着きます",
+        "落ち着いて",
+        "落ち着いた",
+        "落ち着かない",
+        "落ち着ける"
+      ],
+      "displayOrder": 9
+    },
+    {
+      "id": 5241,
+      "term": "見直す",
+      "reading": "みなおす",
+      "romaji": "mi naosu",
+      "definition": "Xem xét lại / đánh giá lại",
+      "exampleSentence": "計画を見直します。",
+      "exampleTranslation": "Tôi xem xét lại kế hoạch.",
+      "forms": [
+        "見直します",
+        "見直して",
+        "見直した",
+        "見直さない",
+        "見直せる"
+      ],
+      "displayOrder": 10
+    },
+    {
+      "id": 5242,
+      "term": "打ち切る",
+      "reading": "うちきる",
+      "romaji": "uchi kiru",
+      "definition": "Kết thúc sớm / cắt đứt",
+      "exampleSentence": "交渉を打ち切りました。",
+      "exampleTranslation": "Đã kết thúc đàm phán.",
+      "forms": [
+        "打ち切ります",
+        "打ち切って",
+        "打ち切った",
+        "打ち切らない",
+        "打ち切れる"
+      ],
+      "displayOrder": 11
+    },
+    {
+      "id": 5243,
+      "term": "引き起こす",
+      "reading": "ひきおこす",
+      "romaji": "hiki okosu",
+      "definition": "Gây ra / kéo theo",
+      "exampleSentence": "問題を引き起こしました。",
+      "exampleTranslation": "Đã gây ra vấn đề.",
+      "forms": [
+        "引き起こします",
+        "引き起こして",
+        "引き起こした",
+        "引き起こさない",
+        "引き起こせる"
+      ],
+      "displayOrder": 12
+    },
+    {
+      "id": 5244,
+      "term": "割り込む",
+      "reading": "わりこむ",
+      "romaji": "wari komu",
+      "definition": "Chen vào / xen vào",
+      "exampleSentence": "話に割り込みました。",
+      "exampleTranslation": "Tôi đã chen vào cuộc trò chuyện.",
+      "forms": [
+        "割り込みます",
+        "割り込んで",
+        "割り込んだ",
+        "割り込まない",
+        "割り込める"
+      ],
+      "displayOrder": 13
+    },
+    {
+      "id": 5245,
+      "term": "仕上げる",
+      "reading": "しあげる",
+      "romaji": "shia geru",
+      "definition": "Hoàn thiện / hoàn thành",
+      "exampleSentence": "作品を仕上げました。",
+      "exampleTranslation": "Tôi đã hoàn thiện tác phẩm.",
+      "forms": [
+        "仕上げます",
+        "仕上げて",
+        "仕上げた",
+        "仕上げない",
+        "仕上げられる"
+      ],
+      "displayOrder": 14
+    },
+    {
+      "id": 5246,
+      "term": "持ち込む",
+      "reading": "もちこむ",
+      "romaji": "mochi komu",
+      "definition": "Mang vào / đem vào",
+      "exampleSentence": "新しいアイデアを持ち込みました。",
+      "exampleTranslation": "Tôi đã đem vào ý tưởng mới.",
+      "forms": [
+        "持ち込みます",
+        "持ち込んで",
+        "持ち込んだ",
+        "持ち込まない",
+        "持ち込める"
+      ],
+      "displayOrder": 15
+    },
+    {
+      "id": 5247,
+      "term": "呼び込む",
+      "reading": "よびこむ",
+      "romaji": "yobi komu",
+      "definition": "Mời vào / kéo vào",
+      "exampleSentence": "新しい顧客を呼び込みます。",
+      "exampleTranslation": "Tôi kéo vào khách hàng mới.",
+      "forms": [
+        "呼び込みます",
+        "呼び込んで",
+        "呼び込んだ",
+        "呼び込まない",
+        "呼び込める"
+      ],
+      "displayOrder": 16
+    },
+    {
+      "id": 5248,
+      "term": "押しつける",
+      "reading": "おしつける",
+      "romaji": "oshi tsukeru",
+      "definition": "Áp đặt / ép buộc",
+      "exampleSentence": "自分の意見を押しつけないでください。",
+      "exampleTranslation": "Đừng áp đặt ý kiến của mình.",
+      "forms": [
+        "押しつけます",
+        "押しつけて",
+        "押しつけた",
+        "押しつけない",
+        "押しつけられる"
+      ],
+      "displayOrder": 17
+    },
+    {
+      "id": 5249,
+      "term": "追い求める",
+      "reading": "おいもとめる",
+      "romaji": "oi motomeru",
+      "definition": "Theo đuổi / tìm kiếm",
+      "exampleSentence": "夢を追い求めます。",
+      "exampleTranslation": "Tôi theo đuổi ước mơ.",
+      "forms": [
+        "追い求めます",
+        "追い求めて",
+        "追い求めた",
+        "追い求めない",
+        "追い求められる"
+      ],
+      "displayOrder": 18
+    },
+    {
+      "id": 5250,
+      "term": "巻き込む",
+      "reading": "まきこむ",
+      "romaji": "maki komu",
+      "definition": "Kéo vào / cuốn vào",
+      "exampleSentence": "問題に巻き込まれました。",
+      "exampleTranslation": "Tôi bị cuốn vào vấn đề.",
+      "forms": [
+        "巻き込みます",
+        "巻き込んで",
+        "巻き込んだ",
+        "巻き込まない",
+        "巻き込める"
+      ],
+      "displayOrder": 19
+    },
+    {
+      "id": 51258,
+      "term": "受け止める",
+      "reading": "うけとめる",
+      "romaji": "uketomeru",
+      "definition": "tiếp nhận, đón nhận",
+      "exampleSentence": "彼は批判を冷静に受け止め、改善策を考えた。",
+      "exampleTranslation": "Anh ấy bình tĩnh tiếp nhận lời phê bình và nghĩ cách cải thiện.",
+      "forms": [
+        "受け止めます",
+        "受け止めて",
+        "受け止めた",
+        "受け止めない"
+      ],
+      "displayOrder": 20
+    },
+    {
+      "id": 51259,
+      "term": "取り戻す",
+      "reading": "とりもどす",
+      "romaji": "torimodosu",
+      "definition": "lấy lại, khôi phục",
+      "exampleSentence": "失った信頼を取り戻すには、時間と努力が必要だ。",
+      "exampleTranslation": "Để lấy lại niềm tin đã mất cần có thời gian và nỗ lực.",
+      "forms": [
+        "取り戻します",
+        "取り戻して",
+        "取り戻した",
+        "取り戻さない"
+      ],
+      "displayOrder": 21
+    },
+    {
+      "id": 51260,
+      "term": "言い換える",
+      "reading": "いいかえる",
+      "romaji": "iikaeru",
+      "definition": "nói lại, diễn đạt lại",
+      "exampleSentence": "この文章を、子どもにも分かる表現に言い換えてください。",
+      "exampleTranslation": "Hãy diễn đạt lại câu này bằng cách nói mà trẻ em cũng hiểu được.",
+      "forms": [
+        "言い換えます",
+        "言い換えて",
+        "言い換えた",
+        "言い換えない"
+      ],
+      "displayOrder": 22
+    },
+    {
+      "id": 51261,
+      "term": "思い込む",
+      "reading": "おもいこむ",
+      "romaji": "omoikomu",
+      "definition": "đinh ninh, nghĩ chắc chắn",
+      "exampleSentence": "彼は一人で解決できると思い込んでいた。",
+      "exampleTranslation": "Anh ấy đinh ninh rằng mình có thể tự giải quyết.",
+      "forms": [
+        "思い込みます",
+        "思い込んで",
+        "思い込んだ",
+        "思い込まない"
+      ],
+      "displayOrder": 23
+    },
+    {
+      "id": 51262,
+      "term": "見落とす",
+      "reading": "みおとす",
+      "romaji": "miotosu",
+      "definition": "bỏ sót, không nhận ra",
+      "exampleSentence": "重要な情報を見落とさないように、何度も確認した。",
+      "exampleTranslation": "Tôi đã kiểm tra nhiều lần để không bỏ sót thông tin quan trọng.",
+      "forms": [
+        "見落とします",
+        "見落として",
+        "見落とした",
+        "見落とさない"
+      ],
+      "displayOrder": 24
+    },
+    {
+      "id": 51263,
+      "term": "切り替える",
+      "reading": "きりかえる",
+      "romaji": "kirikaeru",
+      "definition": "chuyển đổi, thay đổi",
+      "exampleSentence": "失敗を引きずらず、気持ちを切り替えることが大切だ。",
+      "exampleTranslation": "Điều quan trọng là không để thất bại ám ảnh mà phải thay đổi tâm trạng.",
+      "forms": [
+        "切り替えます",
+        "切り替えて",
+        "切り替えた",
+        "切り替えない"
+      ],
+      "displayOrder": 25
+    },
+    {
+      "id": 51264,
+      "term": "立て直す",
+      "reading": "たてなおす",
+      "romaji": "tatenaosu",
+      "definition": "chấn chỉnh, khôi phục",
+      "exampleSentence": "会社は新しい方針で経営を立て直そうとしている。",
+      "exampleTranslation": "Công ty đang cố gắng chấn chỉnh hoạt động kinh doanh bằng chính sách mới.",
+      "forms": [
+        "立て直します",
+        "立て直して",
+        "立て直した",
+        "立て直さない"
+      ],
+      "displayOrder": 26
+    },
+    {
+      "id": 51265,
+      "term": "突き止める",
+      "reading": "つきとめる",
+      "romaji": "tsukitomeru",
+      "definition": "tìm ra, xác định được",
+      "exampleSentence": "専門家が事故の原因を突き止めた。",
+      "exampleTranslation": "Chuyên gia đã xác định được nguyên nhân vụ tai nạn.",
+      "forms": [
+        "突き止めます",
+        "突き止めて",
+        "突き止めた",
+        "突き止めない"
+      ],
+      "displayOrder": 27
+    },
+    {
+      "id": 51266,
+      "term": "歩み寄る",
+      "reading": "あゆみよる",
+      "romaji": "ayumiyoru",
+      "definition": "nhượng bộ, tiến tới thỏa hiệp",
+      "exampleSentence": "双方が歩み寄らなければ、合意には達しないだろう。",
+      "exampleTranslation": "Nếu hai bên không nhượng bộ thì có lẽ sẽ không đạt được thỏa thuận.",
+      "forms": [
+        "歩み寄ります",
+        "歩み寄って",
+        "歩み寄った",
+        "歩み寄らない"
+      ],
+      "displayOrder": 28
+    },
+    {
+      "id": 51267,
+      "term": "取り扱う",
+      "reading": "とりあつかう",
+      "romaji": "toriatsukau",
+      "definition": "xử lý, kinh doanh",
+      "exampleSentence": "個人情報は慎重に取り扱う必要がある。",
+      "exampleTranslation": "Cần xử lý thông tin cá nhân một cách thận trọng.",
+      "forms": [
+        "取り扱います",
+        "取り扱って",
+        "取り扱った",
+        "取り扱わない"
+      ],
+      "displayOrder": 29
+    }
+  ]
+}

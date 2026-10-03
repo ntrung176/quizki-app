@@ -1,0 +1,198 @@
+{
+  "id": 510,
+  "title": "生活・住まい · 時間・スケジュール",
+  "description": "Thời gian & lịch trình — chủ đề Đời sống & nhà cửa · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:51.010581",
+  "cards": [
+    {
+      "id": 12682,
+      "term": "期間 (きかん)",
+      "reading": "きかん",
+      "romaji": null,
+      "definition": "khoảng thời gian",
+      "exampleSentence": "この制度を利用できる期間は、申請した日から三か月です。",
+      "exampleTranslation": "Thời gian có thể sử dụng chế độ này là ba tháng kể từ ngày đăng ký.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12683,
+      "term": "期限 (きげん)",
+      "reading": "きげん",
+      "romaji": null,
+      "definition": "hạn chót",
+      "exampleSentence": "申請の期限を過ぎると、受け付けてもらえないので注意してください。",
+      "exampleTranslation": "Hãy chú ý vì nếu quá hạn đăng ký thì sẽ không được tiếp nhận.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12684,
+      "term": "期末 (きまつ)",
+      "reading": "きまつ",
+      "romaji": null,
+      "definition": "cuối kỳ",
+      "exampleSentence": "期末にはレポートの提出や試験が重なり、学生たちは忙しくなる。",
+      "exampleTranslation": "Vào cuối kỳ, việc nộp báo cáo và các kỳ thi trùng nhau nên sinh viên trở nên bận rộn.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12685,
+      "term": "元号 (げんごう)",
+      "reading": "げんごう",
+      "romaji": null,
+      "definition": "niên hiệu triều đại",
+      "exampleSentence": "その書類には、生年月日を元号で記入してください。",
+      "exampleTranslation": "Vui lòng ghi ngày tháng năm sinh theo niên hiệu trong giấy tờ đó.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12686,
+      "term": "時間 (じかん)",
+      "reading": "じかん",
+      "romaji": null,
+      "definition": "thời gian",
+      "exampleSentence": "毎日一時間ぐらい日本語を勉強する時間を作るようにしている。",
+      "exampleTranslation": "Tôi cố gắng dành khoảng một giờ mỗi ngày để học tiếng Nhật.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12687,
+      "term": "時刻 (じこく)",
+      "reading": "じこく",
+      "romaji": null,
+      "definition": "thời điểm cụ thể",
+      "exampleSentence": "電車の到着時刻は、駅の掲示板で確認できます。",
+      "exampleTranslation": "Có thể kiểm tra thời điểm tàu đến trên bảng thông báo của nhà ga.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12688,
+      "term": "時代 (じだい)",
+      "reading": "じだい",
+      "romaji": null,
+      "definition": "thời đại",
+      "exampleSentence": "この映画は、戦後の日本が大きく変わった時代を描いている。",
+      "exampleTranslation": "Bộ phim này khắc họa thời đại mà Nhật Bản đã thay đổi lớn sau chiến tranh.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12689,
+      "term": "所要時間 (しょようじかん)",
+      "reading": "しょようじかん",
+      "romaji": null,
+      "definition": "thời gian cần thiết",
+      "exampleSentence": "東京駅から会場までの所要時間は、約四十分です。",
+      "exampleTranslation": "Thời gian cần thiết từ ga Tokyo đến hội trường là khoảng bốn mươi phút.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12690,
+      "term": "締め切り (しめきり)",
+      "reading": "しめきり",
+      "romaji": null,
+      "definition": "hạn nộp bài",
+      "exampleSentence": "レポートの締め切りに間に合うよう、早めに書き始めた。",
+      "exampleTranslation": "Tôi bắt đầu viết sớm để kịp hạn nộp bài.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12691,
+      "term": "締め切り日 (しめきりび)",
+      "reading": "しめきりび",
+      "romaji": null,
+      "definition": "ngày hạn chót",
+      "exampleSentence": "締め切り日は来週の金曜日なので、忘れずに提出してください。",
+      "exampleTranslation": "Ngày hạn chót là thứ Sáu tuần sau, nên hãy nhớ nộp bài.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12692,
+      "term": "当初 (とうしょ)",
+      "reading": "とうしょ",
+      "romaji": null,
+      "definition": "ban đầu/lúc đầu",
+      "exampleSentence": "当初の計画では、工事は半年で終わる予定だった。",
+      "exampleTranslation": "Theo kế hoạch ban đầu, công trình dự kiến sẽ hoàn thành trong nửa năm.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 12693,
+      "term": "当面 (とうめん)",
+      "reading": "とうめん",
+      "romaji": null,
+      "definition": "hiện tại/trước mắt",
+      "exampleSentence": "当面はこの方法で問題の解決を目指します。",
+      "exampleTranslation": "Trước mắt, chúng ta sẽ hướng tới giải quyết vấn đề bằng phương pháp này.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 12694,
+      "term": "日付 (ひづけ)",
+      "reading": "ひづけ",
+      "romaji": null,
+      "definition": "ngày tháng",
+      "exampleSentence": "申込書には提出する日付を正確に記入してください。",
+      "exampleTranslation": "Vui lòng điền chính xác ngày tháng nộp hồ sơ vào đơn đăng ký.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 12695,
+      "term": "年度 (ねんど)",
+      "reading": "ねんど",
+      "romaji": null,
+      "definition": "năm tài chính/học",
+      "exampleSentence": "今年度の予算は昨年度より大幅に増えました。",
+      "exampleTranslation": "Ngân sách năm tài chính này đã tăng đáng kể so với năm trước.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 12696,
+      "term": "年末年始 (ねんまつねんし)",
+      "reading": "ねんまつねんし",
+      "romaji": null,
+      "definition": "cuối năm đầu năm",
+      "exampleSentence": "年末年始は実家で家族とゆっくり過ごす予定です。",
+      "exampleTranslation": "Tôi dự định sẽ thong thả đón thời gian cuối năm đầu năm cùng gia đình ở quê.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 12697,
+      "term": "予定 (よてい)",
+      "reading": "よてい",
+      "romaji": null,
+      "definition": "kế hoạch/lịch trình",
+      "exampleSentence": "来週の予定が決まったら、すぐに連絡します。",
+      "exampleTranslation": "Khi lịch trình tuần sau được quyết định, tôi sẽ liên lạc ngay.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 12698,
+      "term": "暦 (こよみ)",
+      "reading": "こよみ",
+      "romaji": null,
+      "definition": "lịch",
+      "exampleSentence": "祖父は毎朝、暦を見てその日の予定を確認します。",
+      "exampleTranslation": "Ông tôi mỗi sáng đều xem lịch để kiểm tra kế hoạch trong ngày.",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

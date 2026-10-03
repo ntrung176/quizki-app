@@ -1,0 +1,375 @@
+{
+  "id": 51,
+  "title": "春の言葉",
+  "description": "32 từ mùa xuân · sakura, hanami…",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:51.948158",
+  "cards": [
+    {
+      "id": 1619,
+      "term": "桜",
+      "reading": "さくら",
+      "romaji": "sakura",
+      "definition": "Hoa anh đào",
+      "exampleSentence": "桜が満開です。",
+      "exampleTranslation": "Hoa anh đào đang nở rộ.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 1620,
+      "term": "花見",
+      "reading": "はなみ",
+      "romaji": "hanami",
+      "definition": "Ngắm hoa anh đào",
+      "exampleSentence": "友達と花見に行きました。",
+      "exampleTranslation": "Tôi đã đi ngắm hoa với bạn.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 1621,
+      "term": "春風",
+      "reading": "はるかぜ",
+      "romaji": "harukaze",
+      "definition": "Gió xuân",
+      "exampleSentence": "春風が気持ちいいです。",
+      "exampleTranslation": "Gió xuân thật dễ chịu.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 1622,
+      "term": "暖かい",
+      "reading": "あたたかい",
+      "romaji": "atatakai",
+      "definition": "Ấm áp",
+      "exampleSentence": "今日は暖かいですね。",
+      "exampleTranslation": "Hôm nay ấm thật nhỉ.",
+      "forms": [
+        "暖かくない",
+        "暖かかった",
+        "暖かくなかった"
+      ],
+      "displayOrder": 3
+    },
+    {
+      "id": 1623,
+      "term": "新学期",
+      "reading": "しんがっき",
+      "romaji": "shingakki",
+      "definition": "Học kỳ mới",
+      "exampleSentence": "四月から新学期が始まります。",
+      "exampleTranslation": "Học kỳ mới bắt đầu từ tháng 4.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 1624,
+      "term": "出会い",
+      "reading": "であい",
+      "romaji": "deai",
+      "definition": "Cuộc gặp gỡ",
+      "exampleSentence": "春は出会いの季節です。",
+      "exampleTranslation": "Mùa xuân là mùa của những cuộc gặp gỡ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 1625,
+      "term": "梅",
+      "reading": "うめ",
+      "romaji": "ume",
+      "definition": "Hoa mận",
+      "exampleSentence": "梅の花が咲きました。",
+      "exampleTranslation": "Hoa mận đã nở.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 1626,
+      "term": "卒業",
+      "reading": "そつぎょう",
+      "romaji": "sotsugyou",
+      "definition": "Tốt nghiệp",
+      "exampleSentence": "春に大学を卒業した。",
+      "exampleTranslation": "Tôi tốt nghiệp đại học vào mùa xuân.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 1627,
+      "term": "入学",
+      "reading": "にゅうがく",
+      "romaji": "nyuugaku",
+      "definition": "Nhập học",
+      "exampleSentence": "四月に入学式があります。",
+      "exampleTranslation": "Tháng 4 có lễ nhập học.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 1628,
+      "term": "若葉",
+      "reading": "わかば",
+      "romaji": "wakaba",
+      "definition": "Lá non xanh",
+      "exampleSentence": "若葉が芽吹いてきた。",
+      "exampleTranslation": "Lá non đang đâm chồi.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 1629,
+      "term": "花粉",
+      "reading": "かふん",
+      "romaji": "kafun",
+      "definition": "Phấn hoa",
+      "exampleSentence": "花粉症がつらい。",
+      "exampleTranslation": "Dị ứng phấn hoa rất khó chịu.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 1630,
+      "term": "お弁当",
+      "reading": "おべんとう",
+      "romaji": "obentou",
+      "definition": "Hộp cơm",
+      "exampleSentence": "花見にお弁当を持っていく。",
+      "exampleTranslation": "Mang hộp cơm đi ngắm hoa.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 1631,
+      "term": "春休み",
+      "reading": "はるやすみ",
+      "romaji": "haruyasumi",
+      "definition": "Kỳ nghỉ xuân",
+      "exampleSentence": "春休みに旅行します。",
+      "exampleTranslation": "Tôi đi du lịch vào kỳ nghỉ xuân.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 1632,
+      "term": "引越し",
+      "reading": "ひっこし",
+      "romaji": "hikkoshi",
+      "definition": "Dọn nhà",
+      "exampleSentence": "春に引越しをする人が多い。",
+      "exampleTranslation": "Có nhiều người dọn nhà vào mùa xuân.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 1633,
+      "term": "菜の花",
+      "reading": "なのはな",
+      "romaji": "nanohana",
+      "definition": "Hoa cải",
+      "exampleSentence": "菜の花が黄色くきれいです。",
+      "exampleTranslation": "Hoa cải màu vàng rất đẹp.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 1634,
+      "term": "花びら",
+      "reading": "はなびら",
+      "romaji": "hanabira",
+      "definition": "Cánh hoa",
+      "exampleSentence": "桜の花びらが舞っている。",
+      "exampleTranslation": "Cánh hoa anh đào đang bay.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 1635,
+      "term": "芽",
+      "reading": "め",
+      "romaji": "me",
+      "definition": "Mầm cây",
+      "exampleSentence": "木に芽が出てきた。",
+      "exampleTranslation": "Cây đã đâm chồi.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 1636,
+      "term": "蝶",
+      "reading": "ちょう",
+      "romaji": "chou",
+      "definition": "Con bướm",
+      "exampleSentence": "蝶が花の上に止まっている。",
+      "exampleTranslation": "Con bướm đậu trên hoa.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 1637,
+      "term": "満開",
+      "reading": "まんかい",
+      "romaji": "mankai",
+      "definition": "Nở rộ hoàn toàn",
+      "exampleSentence": "桜が満開になった。",
+      "exampleTranslation": "Hoa anh đào đã nở rộ hoàn toàn.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 1638,
+      "term": "入社式",
+      "reading": "にゅうしゃしき",
+      "romaji": "nyuushashiki",
+      "definition": "Lễ gia nhập công ty",
+      "exampleSentence": "四月に入社式があります。",
+      "exampleTranslation": "Tháng 4 có lễ gia nhập công ty.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 1639,
+      "term": "桜吹雪",
+      "reading": "さくらふぶき",
+      "romaji": "sakurafubuki",
+      "definition": "Mưa hoa anh đào",
+      "exampleSentence": "桜吹雪が美しい。",
+      "exampleTranslation": "Mưa hoa anh đào thật đẹp.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 1640,
+      "term": "日向",
+      "reading": "ひなた",
+      "romaji": "hinata",
+      "definition": "Chỗ có nắng",
+      "exampleSentence": "日向で本を読む。",
+      "exampleTranslation": "Đọc sách ở chỗ có nắng.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 1641,
+      "term": "お散歩",
+      "reading": "おさんぽ",
+      "romaji": "osanpo",
+      "definition": "Đi dạo",
+      "exampleSentence": "公園をお散歩する。",
+      "exampleTranslation": "Đi dạo trong công viên.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 1642,
+      "term": "清々しい",
+      "reading": "すがすがしい",
+      "romaji": "sugasugashii",
+      "definition": "Mát mẻ sảng khoái",
+      "exampleSentence": "春の朝は清々しい。",
+      "exampleTranslation": "Buổi sáng mùa xuân thật sảng khoái.",
+      "forms": [
+        "清々しくない",
+        "清々しかった",
+        "清々しくなかった"
+      ],
+      "displayOrder": 23
+    },
+    {
+      "id": 1643,
+      "term": "陽気",
+      "reading": "ようき",
+      "romaji": "youki",
+      "definition": "Vui vẻ / Ấm áp",
+      "exampleSentence": "今日は陽気がいいです。",
+      "exampleTranslation": "Thời tiết hôm nay thật dễ chịu.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 1644,
+      "term": "山桜",
+      "reading": "やまざくら",
+      "romaji": "yamazakura",
+      "definition": "Anh đào rừng",
+      "exampleSentence": "山桜が山に咲いている。",
+      "exampleTranslation": "Anh đào rừng đang nở trên núi.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 1645,
+      "term": "ツバメ",
+      "reading": "つばめ",
+      "romaji": "tsubame",
+      "definition": "Chim én",
+      "exampleSentence": "ツバメが巣を作る。",
+      "exampleTranslation": "Chim én làm tổ.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 1646,
+      "term": "たんぽぽ",
+      "reading": "たんぽぽ",
+      "romaji": "tanpopo",
+      "definition": "Hoa bồ công anh",
+      "exampleSentence": "公園にたんぽぽが咲いている。",
+      "exampleTranslation": "Hoa bồ công anh nở trong công viên.",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 1647,
+      "term": "春分の日",
+      "reading": "しゅんぶんのひ",
+      "romaji": "shunbun no hi",
+      "definition": "Ngày xuân phân",
+      "exampleSentence": "春分の日は昼と夜が同じ長さです。",
+      "exampleTranslation": "Ngày xuân phân thì ngày và đêm dài bằng nhau.",
+      "forms": [],
+      "displayOrder": 28
+    },
+    {
+      "id": 1648,
+      "term": "種まき",
+      "reading": "たねまき",
+      "romaji": "tanemaki",
+      "definition": "Gieo hạt",
+      "exampleSentence": "春に種まきをします。",
+      "exampleTranslation": "Gieo hạt vào mùa xuân.",
+      "forms": [],
+      "displayOrder": 29
+    },
+    {
+      "id": 1649,
+      "term": "気持ちいい",
+      "reading": "きもちいい",
+      "romaji": "kimochi ii",
+      "definition": "Dễ chịu sảng khoái",
+      "exampleSentence": "春の風が気持ちいい。",
+      "exampleTranslation": "Gió xuân thật dễ chịu.",
+      "forms": [
+        "気持ちよくない",
+        "気持ちよかった",
+        "気持ちよくなかった"
+      ],
+      "displayOrder": 30
+    },
+    {
+      "id": 1650,
+      "term": "春一番",
+      "reading": "はるいちばん",
+      "romaji": "haruichiban",
+      "definition": "Gió xuân đầu tiên",
+      "exampleSentence": "春一番が吹いた。",
+      "exampleTranslation": "Gió xuân đầu tiên đã thổi.",
+      "forms": [],
+      "displayOrder": 31
+    }
+  ]
+}

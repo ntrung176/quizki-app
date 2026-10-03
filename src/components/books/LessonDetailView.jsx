@@ -71,8 +71,9 @@ const LessonDetailView = ({
     setShowPremiumModal,
     navigateTo
 }) => {
-    const [filterMissingSino, setFilterMissingSino] = useState(false);
+    const [filterMissingInfo, setFilterMissingInfo] = useState(false);
     const [isAiFillingSino, setIsAiFillingSino] = useState(false);
+    const [isAiLoadingSingle, setIsAiLoadingSingle] = useState(false);
     const [isSyncingCDN, setIsSyncingCDN] = useState(false);
     const vocab = vocabWithAudio;
 
@@ -108,34 +109,46 @@ const LessonDetailView = ({
         const word = v.word || v.front || '';
         const displayWord = word.split('（')[0].split('(')[0].trim();
         const hasKanji = /[\u4E00-\u9FAF\u3400-\u4DBF]/.test(displayWord);
-        const sino = (v.sinoVietnamese || '').trim();
+        const sino = (v.sinoVietnamese || v.sinoViet || '').trim();
         return hasKanji && !sino;
     };
 
-    const missingSinoCount = vocab.filter(isMissingSino).length;
+    const isMissingExample = (v) => {
+        if (!v) return false;
+        const ex = (v.example || v.exampleSentence || '').trim();
+        return !ex;
+    };
 
-    const handleAutoFillMissingSino = async () => {
+    const isCardIncomplete = (v) => {
+        return isMissingSino(v) || isMissingExample(v);
+    };
+
+    const incompleteCount = vocab.filter(isCardIncomplete).length;
+    const missingSinoCount = vocab.filter(isMissingSino).length;
+    const missingExampleCount = vocab.filter(isMissingExample).length;
+
+    const handleAutoFillMissingWithAi = async () => {
         if (!isAdmin || isAiFillingSino) return;
 
         const missingIndices = [];
         vocab.forEach((v, idx) => {
-            if (isMissingSino(v)) {
+            if (isCardIncomplete(v)) {
                 missingIndices.push(idx);
             }
         });
 
         if (missingIndices.length === 0) {
-            showToast('Tất cả từ vựng có chữ Hán trong bài đều đã có âm Hán Việt!', 'info');
+            showToast('Tất cả từ vựng trong bài đều đã có câu ví dụ và âm Hán Việt đầy đủ! 🎉', 'info');
             return;
         }
 
-        const confirmMsg = `Tìm thấy ${missingIndices.length} từ vựng chứa chữ Hán chưa có âm Hán Việt. Bạn có muốn dùng AI để tự động tra cứu và bổ sung không?`;
+        const confirmMsg = `Tìm thấy ${missingIndices.length} từ vựng còn thiếu câu ví dụ hoặc âm Hán Việt. Bạn có muốn dùng AI để tự động tạo và bổ sung đầy đủ không?`;
         if (!(await showConfirm(confirmMsg, { type: 'info', confirmText: 'Bắt đầu thêm bằng AI' }))) {
             return;
         }
 
         setIsAiFillingSino(true);
-        showToast(`Đang tự động bổ sung âm Hán Việt cho ${missingIndices.length} từ vựng...`, 'info', 4000);
+        showToast(`Đang tự động bổ sung câu ví dụ & Hán Việt cho ${missingIndices.length} từ vựng...`, 'info', 5000);
 
         const updatedVocab = (currentLesson?.vocab || vocab).map(v => ({ ...v }));
         let filledCount = 0;
@@ -146,43 +159,111 @@ const LessonDetailView = ({
             const word = item.word || item.front || '';
             const displayWord = word.split('（')[0].split('(')[0].trim();
 
-            let sino = getSinoVietnamese(displayWord);
-            if (!sino && onGeminiAssist) {
+            let sino = item.sinoVietnamese || item.sinoViet || getSinoVietnamese(displayWord);
+            let ex = item.example || item.exampleSentence || '';
+            let exMeaning = item.exampleMeaning || item.exampleTranslation || '';
+
+            if ((!sino || !ex) && onGeminiAssist) {
                 try {
-                    const aiRes = await onGeminiAssist(displayWord, item.pos || '', item.level || '', item.meaning || item.back || '', false);
-                    if (aiRes && aiRes.sinoVietnamese) {
-                        sino = aiRes.sinoVietnamese;
+                    const aiRes = await onGeminiAssist(
+                        displayWord, 
+                        item.pos || '', 
+                        item.level || currentBook?.name || '', 
+                        item.meaning || item.back || item.definition || '', 
+                        false
+                    );
+                    if (aiRes) {
+                        if (!sino && aiRes.sinoVietnamese) sino = aiRes.sinoVietnamese;
+                        if (!ex && aiRes.example) {
+                            ex = aiRes.example;
+                            exMeaning = aiRes.exampleMeaning || '';
+                        }
+                        if (!item.pos && aiRes.pos) item.pos = aiRes.pos;
+                        if (!item.nuance && aiRes.nuance) item.nuance = aiRes.nuance;
+                        if (!item.reading && aiRes.reading) item.reading = aiRes.reading;
                     }
                 } catch (e) {
-                    console.warn('Gemini Sino-HV lookup error:', displayWord, e);
+                    console.warn('Gemini assist lookup error:', displayWord, e);
                 }
             }
 
-            if (sino) {
-                updatedVocab[idx].sinoVietnamese = sino;
-                filledCount++;
+            let changed = false;
+            if (sino && (!item.sinoVietnamese || !item.sinoViet)) {
+                item.sinoVietnamese = sino;
+                item.sinoViet = sino;
+                changed = true;
             }
+            if (ex && (!item.example || !item.exampleSentence)) {
+                item.example = ex;
+                item.exampleSentence = ex;
+                item.exampleMeaning = exMeaning;
+                item.exampleTranslation = exMeaning;
+                changed = true;
+            }
+            if (changed) filledCount++;
         }
 
         if (filledCount > 0 && handleBatchSaveLessonVocab) {
             const success = await handleBatchSaveLessonVocab(updatedVocab);
             if (success) {
-                showToast(`Thành công! Đã tự động bổ sung âm Hán Việt cho ${filledCount} từ vựng! 🎉`, 'success');
+                showToast(`Thành công! Đã tự động bổ sung câu ví dụ & Hán Việt cho ${filledCount} từ vựng! 🎉`, 'success');
             } else {
-                showToast('Không thể lưu cập nhật Hán Việt vào cơ sở dữ liệu.', 'error');
+                showToast('Không thể lưu cập nhật vào cơ sở dữ liệu.', 'error');
             }
         } else if (filledCount === 0) {
-            showToast('Không thể tra cứu âm Hán Việt cho các từ vựng này.', 'warning');
+            showToast('Không thể tra cứu thêm thông tin cho các từ vựng này.', 'warning');
         }
 
         setIsAiFillingSino(false);
     };
 
+    const handleAiFillSingle = async () => {
+        if (!editingVocabData || !onGeminiAssist || isAiLoadingSingle) return;
+        const word = editingVocabData.word || editingVocabData.front || '';
+        const displayWord = word.split('（')[0].split('(')[0].trim();
+        if (!displayWord) return;
+
+        setIsAiLoadingSingle(true);
+        try {
+            const aiRes = await onGeminiAssist(
+                displayWord, 
+                editingVocabData.pos || '', 
+                editingVocabData.level || currentBook?.name || '', 
+                editingVocabData.meaning || editingVocabData.back || '', 
+                false
+            );
+            if (aiRes) {
+                setEditingVocabData(prev => ({
+                    ...prev,
+                    word: prev.word || aiRes.word || aiRes.front || displayWord,
+                    reading: prev.reading || aiRes.reading || '',
+                    meaning: prev.meaning || aiRes.meaning || aiRes.back || '',
+                    sinoVietnamese: prev.sinoVietnamese || aiRes.sinoVietnamese || getSinoVietnamese(displayWord) || '',
+                    sinoViet: prev.sinoViet || aiRes.sinoVietnamese || getSinoVietnamese(displayWord) || '',
+                    pos: prev.pos || aiRes.pos || '',
+                    level: prev.level || aiRes.level || '',
+                    accent: prev.accent !== undefined ? prev.accent : aiRes.accent,
+                    example: prev.example || aiRes.example || '',
+                    exampleMeaning: prev.exampleMeaning || aiRes.exampleMeaning || '',
+                    exampleSentence: prev.example || aiRes.example || '',
+                    exampleTranslation: prev.exampleMeaning || aiRes.exampleMeaning || '',
+                    synonym: prev.synonym || aiRes.synonym || '',
+                    nuance: prev.nuance || aiRes.nuance || ''
+                }));
+                showToast('AI đã tạo và điền câu ví dụ cùng các thông tin còn thiếu! 🎉', 'success');
+            }
+        } catch (e) {
+            showToast('Lỗi AI: ' + (e?.message || e), 'error');
+        } finally {
+            setIsAiLoadingSingle(false);
+        }
+    };
+
     const displayedVocab = vocab
         .map((v, i) => ({ ...v, originalIndex: i }))
         .filter(item => {
-            if (isAdmin && filterMissingSino) {
-                return isMissingSino(item);
+            if (isAdmin && filterMissingInfo) {
+                return isCardIncomplete(item);
             }
             return true;
         });
@@ -365,31 +446,31 @@ const LessonDetailView = ({
                                 )}
                                 {isAdmin && (
                                     <button
-                                        onClick={() => setFilterMissingSino(prev => !prev)}
+                                        onClick={() => setFilterMissingInfo(prev => !prev)}
                                         className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all border cursor-pointer ${
-                                            filterMissingSino
+                                            filterMissingInfo
                                                 ? 'bg-amber-500 text-white border-amber-600 shadow-md animate-pulse'
                                                 : 'bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800 hover:bg-amber-100 dark:hover:bg-amber-900/50'
                                         }`}
-                                        title="Lọc danh sách từ vựng chứa chữ Hán nhưng chưa có âm Hán Việt (Chỉ Admin nhìn thấy)"
+                                        title="Lọc danh sách từ vựng còn thiếu câu ví dụ hoặc âm Hán Việt (Chỉ Admin nhìn thấy)"
                                     >
-                                        <AlertTriangle className={`w-3.5 h-3.5 ${filterMissingSino ? 'text-white' : 'text-amber-500'}`} />
-                                        Thiếu Hán Việt ({missingSinoCount})
+                                        <AlertTriangle className={`w-3.5 h-3.5 ${filterMissingInfo ? 'text-white' : 'text-amber-500'}`} />
+                                        Thiếu thông tin ({incompleteCount})
                                     </button>
                                 )}
-                                {isAdmin && missingSinoCount > 0 && (
+                                {isAdmin && incompleteCount > 0 && (
                                     <button
-                                        onClick={handleAutoFillMissingSino}
+                                        onClick={handleAutoFillMissingWithAi}
                                         disabled={isAiFillingSino}
                                         className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all border bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white border-amber-600 shadow-md hover:shadow-lg disabled:opacity-50 cursor-pointer"
-                                        title="Dùng AI & Từ điển tự động tra cứu và điền âm Hán Việt cho tất cả từ vựng bị thiếu trong bài"
+                                        title="Dùng AI tự động tạo câu ví dụ và điền âm Hán Việt cho tất cả từ vựng bị thiếu trong bài"
                                     >
                                         {isAiFillingSino ? (
                                             <Loader2 className="w-3.5 h-3.5 animate-spin" />
                                         ) : (
                                             <Sparkles className="w-3.5 h-3.5" />
                                         )}
-                                        AI Thêm Hán Việt ({missingSinoCount})
+                                        AI Bổ sung thiếu ({incompleteCount})
                                     </button>
                                 )}
                                 {isAdmin && (
@@ -415,10 +496,10 @@ const LessonDetailView = ({
                 {displayedVocab.length === 0 ? (
                     <div className="text-center py-12 text-gray-400 bg-white dark:bg-gray-800 rounded-2xl border border-dashed border-slate-200 dark:border-slate-700">
                         <FileText className="w-12 h-12 mx-auto mb-3 opacity-30 text-amber-500" />
-                        {isAdmin && filterMissingSino ? (
+                        {isAdmin && filterMissingInfo ? (
                             <div>
-                                <p className="text-base font-bold text-emerald-600 dark:text-emerald-400">Tất cả từ vựng có chữ Hán trong bài này đã có âm Hán Việt! 🎉</p>
-                                <p className="text-xs text-gray-400 mt-1">Không còn từ vựng nào bị thiếu âm Hán Việt.</p>
+                                <p className="text-base font-bold text-emerald-600 dark:text-emerald-400">Tất cả từ vựng trong bài này đã đầy đủ câu ví dụ và âm Hán Việt! 🎉</p>
+                                <p className="text-xs text-gray-400 mt-1">Không còn từ vựng nào bị thiếu thông tin.</p>
                             </div>
                         ) : (
                             <>
@@ -445,7 +526,19 @@ const LessonDetailView = ({
                                                 <h4 className="text-sm font-bold text-gray-900 dark:text-white flex items-center gap-2">
                                                     <Edit className="w-4 h-4 text-sky-500" /> Chỉnh sửa từ #{i + 1}
                                                 </h4>
-                                                <div className="flex items-center gap-2">
+                                                <div className="flex items-center gap-2 flex-wrap">
+                                                    {onGeminiAssist && (
+                                                        <button
+                                                            type="button"
+                                                            onClick={handleAiFillSingle}
+                                                            disabled={isAiLoadingSingle}
+                                                            className="flex items-center gap-1 px-3 py-1.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white rounded-lg text-xs font-bold cursor-pointer disabled:opacity-50 shadow-xs"
+                                                            title="Dùng AI tự động điền các trường còn thiếu (Ví dụ, Hán Việt, Nghĩa, v.v.)"
+                                                        >
+                                                            {isAiLoadingSingle ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Sparkles className="w-3.5 h-3.5" />}
+                                                            AI Điền thông tin
+                                                        </button>
+                                                    )}
                                                     <button onClick={handleSaveVocabEdit} className="flex items-center gap-1 px-3 py-1.5 bg-emerald-500 hover:bg-emerald-600 text-white rounded-lg text-xs font-bold cursor-pointer"><Save className="w-3.5 h-3.5" /> Lưu</button>
                                                     <button onClick={() => { setEditingVocabIndex(null); setEditingVocabData(null); }} className="flex items-center gap-1 px-3 py-1.5 bg-gray-200 dark:bg-gray-600 hover:bg-gray-300 dark:hover:bg-gray-500 text-gray-700 dark:text-gray-200 rounded-lg text-xs font-bold cursor-pointer"><X className="w-3.5 h-3.5" /> Hủy</button>
                                                 </div>
@@ -673,12 +766,12 @@ const LessonDetailView = ({
                                                                 })()}
 
                                                                 {/* Sino Vietnamese */}
-                                                                {v.sinoVietnamese && (
-                                                                    <p className={`text-xs sm:text-sm text-amber-600 dark:text-amber-400 font-semibold mt-1 transition-all duration-300 ${blurVN ? blurClass : ''}`}>{v.sinoVietnamese}</p>
+                                                                {(v.sinoVietnamese || v.sinoViet) && (
+                                                                    <p className={`text-xs sm:text-sm text-amber-600 dark:text-amber-400 font-semibold mt-1 transition-all duration-300 ${blurVN ? blurClass : ''}`}>{v.sinoVietnamese || v.sinoViet}</p>
                                                                 )}
 
                                                                 {/* Meaning */}
-                                                                <p className={`text-sm sm:text-base text-sky-600 dark:text-sky-400 mt-1.5 font-medium transition-all duration-300 leading-snug ${blurVN ? blurClass : ''}`}>{v.meaning || v.back || ''}</p>
+                                                                <p className={`text-sm sm:text-base text-sky-600 dark:text-sky-400 mt-1.5 font-medium transition-all duration-300 leading-snug ${blurVN ? blurClass : ''}`}>{v.meaning || v.back || v.definition || ''}</p>
 
                                                                 {/* Synonym */}
                                                                 {v.synonym && (
@@ -706,17 +799,18 @@ const LessonDetailView = ({
                                             {/* Right Column: Examples & Desktop Image */}
                                             <div className="flex-1 p-3.5 sm:p-4 border-t md:border-t-0 border-gray-100 dark:border-gray-700 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 min-w-0">
                                                 <div className="flex-1 min-w-0 space-y-2 w-full">
-                                                    {v.example ? (
+                                                    {(v.example || v.exampleSentence) ? (
                                                         <div className="space-y-2">
-                                                            {v.example.split('\n').map((ex, ei) => {
+                                                            {(v.example || v.exampleSentence).split('\n').map((ex, ei) => {
                                                                 const blurJP = blurMode === 'jp' && !isRevealed;
                                                                 const blurVN = blurMode === 'vn' && !isRevealed;
                                                                 const blurClass = 'blur-[4px] opacity-40 select-none';
+                                                                const exMeaning = v.exampleMeaning || v.exampleTranslation;
                                                                 return (
                                                                     <div key={ei} className="relative group/ex pr-7">
                                                                         <p className={`text-sm sm:text-base text-gray-800 dark:text-gray-200 leading-relaxed transition-all duration-300 break-words ${blurJP ? blurClass : ''}`}><FuriganaText text={ex.trim()} /></p>
-                                                                        {v.exampleMeaning && (() => {
-                                                                            const meanings = v.exampleMeaning.split('\n');
+                                                                        {exMeaning && (() => {
+                                                                            const meanings = exMeaning.split('\n');
                                                                             return meanings[ei] ? (
                                                                                 <p className={`text-xs sm:text-sm text-gray-500 dark:text-gray-400 mt-0.5 italic transition-all duration-300 break-words ${blurVN ? blurClass : ''}`}>{meanings[ei].trim()}</p>
                                                                             ) : null;

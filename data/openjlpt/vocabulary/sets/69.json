@@ -1,0 +1,366 @@
+{
+  "id": 69,
+  "title": "方向の漢字",
+  "description": "Kanji chỉ hướng · 東西南北上下左右",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:52.715776",
+  "cards": [
+    {
+      "id": 2147,
+      "term": "東",
+      "reading": "ひがし",
+      "romaji": "higashi",
+      "definition": "Đông",
+      "exampleSentence": "東から太陽が昇る。",
+      "exampleTranslation": "Mặt trời mọc ở phía đông.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 2148,
+      "term": "西",
+      "reading": "にし",
+      "romaji": "nishi",
+      "definition": "Tây",
+      "exampleSentence": "西に太陽が沈む。",
+      "exampleTranslation": "Mặt trời lặn ở phía tây.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 2149,
+      "term": "南",
+      "reading": "みなみ",
+      "romaji": "minami",
+      "definition": "Nam",
+      "exampleSentence": "南に行く。",
+      "exampleTranslation": "Đi về phía nam.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 2150,
+      "term": "北",
+      "reading": "きた",
+      "romaji": "kita",
+      "definition": "Bắc",
+      "exampleSentence": "北は寒い。",
+      "exampleTranslation": "Phía bắc lạnh.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 2151,
+      "term": "上",
+      "reading": "うえ",
+      "romaji": "ue",
+      "definition": "Trên",
+      "exampleSentence": "棚の上",
+      "exampleTranslation": "Trên kệ.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 2152,
+      "term": "下",
+      "reading": "した",
+      "romaji": "shita",
+      "definition": "Dưới",
+      "exampleSentence": "机の下",
+      "exampleTranslation": "Dưới bàn.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 2153,
+      "term": "左",
+      "reading": "ひだり",
+      "romaji": "hidari",
+      "definition": "Trái",
+      "exampleSentence": "左に曲がる。",
+      "exampleTranslation": "Rẽ trái.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 2154,
+      "term": "右",
+      "reading": "みぎ",
+      "romaji": "migi",
+      "definition": "Phải",
+      "exampleSentence": "右に曲がる。",
+      "exampleTranslation": "Rẽ phải.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 2155,
+      "term": "前",
+      "reading": "まえ",
+      "romaji": "mae",
+      "definition": "Trước",
+      "exampleSentence": "前に進む。",
+      "exampleTranslation": "Tiến về phía trước.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 2156,
+      "term": "後",
+      "reading": "うしろ",
+      "romaji": "ushiro",
+      "definition": "Sau",
+      "exampleSentence": "後ろを見る。",
+      "exampleTranslation": "Nhìn về phía sau.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 2157,
+      "term": "中",
+      "reading": "なか",
+      "romaji": "naka",
+      "definition": "Trong, giữa",
+      "exampleSentence": "部屋の中",
+      "exampleTranslation": "Trong phòng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 2158,
+      "term": "外",
+      "reading": "そと",
+      "romaji": "soto",
+      "definition": "Ngoài",
+      "exampleSentence": "外に出る。",
+      "exampleTranslation": "Ra ngoài.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 2159,
+      "term": "横",
+      "reading": "よこ",
+      "romaji": "yoko",
+      "definition": "Bên cạnh / Nằm ngang",
+      "exampleSentence": "横に並ぶ。",
+      "exampleTranslation": "Xếp hàng ngang.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 2160,
+      "term": "間",
+      "reading": "あいだ",
+      "romaji": "aida",
+      "definition": "Giữa (hai thứ)",
+      "exampleSentence": "二人の間",
+      "exampleTranslation": "Giữa hai người.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 2161,
+      "term": "角",
+      "reading": "かど",
+      "romaji": "kado",
+      "definition": "Góc",
+      "exampleSentence": "角を曲がる。",
+      "exampleTranslation": "Rẽ ở góc đường.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 2162,
+      "term": "向こう",
+      "reading": "むこう",
+      "romaji": "mukou",
+      "definition": "Phía bên kia",
+      "exampleSentence": "川の向こう",
+      "exampleTranslation": "Phía bên kia sông.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 50462,
+      "term": "方",
+      "reading": "ほう・かた",
+      "romaji": "hō・kata",
+      "definition": "phía, hướng",
+      "exampleSentence": "駅の方へ歩きましょう。",
+      "exampleTranslation": "Hãy đi bộ về phía nhà ga.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 50463,
+      "term": "向",
+      "reading": "こう・むく・むける・むかう",
+      "romaji": "kō・muku・mukeru・mukau",
+      "definition": "hướng về, quay về phía",
+      "exampleSentence": "みんなはこちらを向いてください。",
+      "exampleTranslation": "Mọi người hãy quay mặt về phía này.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 50464,
+      "term": "近",
+      "reading": "きん・ちかい",
+      "romaji": "kin・chikai",
+      "definition": "gần",
+      "exampleSentence": "学校は駅から近いです。",
+      "exampleTranslation": "Trường học gần nhà ga.",
+      "forms": [
+        "近い",
+        "近くて",
+        "近かった",
+        "近くない"
+      ],
+      "displayOrder": 18
+    },
+    {
+      "id": 50465,
+      "term": "遠",
+      "reading": "えん・とおい",
+      "romaji": "en・tōi",
+      "definition": "xa",
+      "exampleSentence": "駅はここから遠いです。",
+      "exampleTranslation": "Nhà ga cách xa từ đây.",
+      "forms": [
+        "遠い",
+        "遠くて",
+        "遠かった",
+        "遠くない"
+      ],
+      "displayOrder": 19
+    },
+    {
+      "id": 50466,
+      "term": "高",
+      "reading": "こう・たかい",
+      "romaji": "kō・takai",
+      "definition": "cao",
+      "exampleSentence": "この山はとても高いです。",
+      "exampleTranslation": "Ngọn núi này rất cao.",
+      "forms": [
+        "高い",
+        "高くて",
+        "高かった",
+        "高くない"
+      ],
+      "displayOrder": 20
+    },
+    {
+      "id": 50467,
+      "term": "低",
+      "reading": "てい・ひくい",
+      "romaji": "tei・hikui",
+      "definition": "thấp",
+      "exampleSentence": "このいすは少し低いです。",
+      "exampleTranslation": "Cái ghế này hơi thấp.",
+      "forms": [
+        "低い",
+        "低くて",
+        "低かった",
+        "低くない"
+      ],
+      "displayOrder": 21
+    },
+    {
+      "id": 50468,
+      "term": "内",
+      "reading": "ない・うち",
+      "romaji": "nai・uchi",
+      "definition": "bên trong, phía trong",
+      "exampleSentence": "箱の内側に名前を書きました。",
+      "exampleTranslation": "Tôi đã viết tên ở mặt trong của chiếc hộp.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 50469,
+      "term": "隣",
+      "reading": "りん・となり",
+      "romaji": "rin・tonari",
+      "definition": "bên cạnh, kế bên",
+      "exampleSentence": "私の隣に友だちが座っています。",
+      "exampleTranslation": "Bạn tôi đang ngồi bên cạnh tôi.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 50470,
+      "term": "辺",
+      "reading": "へん・あたり",
+      "romaji": "hen・atari",
+      "definition": "khu vực xung quanh",
+      "exampleSentence": "この辺にコンビニがあります。",
+      "exampleTranslation": "Có cửa hàng tiện lợi quanh khu vực này.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 50471,
+      "term": "先",
+      "reading": "せん・さき",
+      "romaji": "sen・saki",
+      "definition": "phía trước, phần cuối phía trước",
+      "exampleSentence": "この道の先に駅があります。",
+      "exampleTranslation": "Có một nhà ga ở phía trước con đường này.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 50472,
+      "term": "側",
+      "reading": "そく・がわ",
+      "romaji": "soku・gawa",
+      "definition": "bên, phía",
+      "exampleSentence": "道の右側を歩いてください。",
+      "exampleTranslation": "Hãy đi bộ bên phải đường.",
+      "forms": [],
+      "displayOrder": 26
+    },
+    {
+      "id": 50473,
+      "term": "端",
+      "reading": "たん・はし",
+      "romaji": "tan・hashi",
+      "definition": "mép, đầu mút",
+      "exampleSentence": "机の端に本があります。",
+      "exampleTranslation": "Có một quyển sách ở mép bàn.",
+      "forms": [],
+      "displayOrder": 27
+    },
+    {
+      "id": 50474,
+      "term": "曲",
+      "reading": "きょく・まがる・まげる",
+      "romaji": "kyoku・magaru・mageru",
+      "definition": "rẽ, cong",
+      "exampleSentence": "次の角を左に曲がってください。",
+      "exampleTranslation": "Hãy rẽ trái ở góc tiếp theo.",
+      "forms": [
+        "曲がります",
+        "曲がって",
+        "曲がった",
+        "曲がらない"
+      ],
+      "displayOrder": 28
+    },
+    {
+      "id": 50475,
+      "term": "直",
+      "reading": "ちょく・じき・なおる・なおす",
+      "romaji": "choku・jiki・naoru・naosu",
+      "definition": "thẳng; đi thẳng",
+      "exampleSentence": "交差点を直進してください。",
+      "exampleTranslation": "Hãy đi thẳng qua ngã tư.",
+      "forms": [],
+      "displayOrder": 29
+    }
+  ]
+}

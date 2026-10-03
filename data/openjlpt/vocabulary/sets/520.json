@@ -1,0 +1,132 @@
+{
+  "id": 520,
+  "title": "文化・芸術・スポーツ · 武道・伝統芸能",
+  "description": "Võ đạo & nghệ thuật trình diễn truyền thống — chủ đề Văn hóa, nghệ thuật & thể thao · trung–cao cấp, xếp theo độ khó tăng dần",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:51.204973",
+  "cards": [
+    {
+      "id": 12872,
+      "term": "歌舞伎 (かぶき)",
+      "reading": "かぶき",
+      "romaji": null,
+      "definition": "kịch kabuki",
+      "exampleSentence": "来月、家族と一緒に歌舞伎を見に行く予定です。",
+      "exampleTranslation": "Tháng sau, tôi dự định đi xem kịch kabuki cùng gia đình.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 12873,
+      "term": "華道 (かどう)",
+      "reading": "かどう",
+      "romaji": null,
+      "definition": "nghệ thuật cắm hoa Nhật",
+      "exampleSentence": "母は長年、華道を習い続けている。",
+      "exampleTranslation": "Mẹ tôi đã học nghệ thuật cắm hoa Nhật suốt nhiều năm.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 12874,
+      "term": "空手 (からて)",
+      "reading": "からて",
+      "romaji": null,
+      "definition": "karate",
+      "exampleSentence": "弟は健康のために、毎週空手の練習に通っている。",
+      "exampleTranslation": "Em trai tôi tập karate mỗi tuần để rèn luyện sức khỏe.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 12875,
+      "term": "剣道 (けんどう)",
+      "reading": "けんどう",
+      "romaji": null,
+      "definition": "kiếm đạo/kendo",
+      "exampleSentence": "大学では剣道部に所属し、毎日厳しい練習をしていた。",
+      "exampleTranslation": "Khi học đại học, tôi thuộc câu lạc bộ kendo và luyện tập nghiêm khắc mỗi ngày.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 12876,
+      "term": "柔道 (じゅうどう)",
+      "reading": "じゅうどう",
+      "romaji": null,
+      "definition": "nhu đạo/judo",
+      "exampleSentence": "柔道を通して、相手を尊重する大切さを学んだ。",
+      "exampleTranslation": "Thông qua judo, tôi đã học được tầm quan trọng của việc tôn trọng đối thủ.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 12877,
+      "term": "書道 (しょどう)",
+      "reading": "しょどう",
+      "romaji": null,
+      "definition": "thư pháp",
+      "exampleSentence": "祖父は毎朝、静かな部屋で書道を楽しんでいる。",
+      "exampleTranslation": "Ông tôi tận hưởng việc viết thư pháp trong căn phòng yên tĩnh mỗi sáng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 12878,
+      "term": "茶道 (さどう)",
+      "reading": "さどう",
+      "romaji": null,
+      "definition": "trà đạo",
+      "exampleSentence": "京都を訪れた際、茶道の作法を体験する機会があった。",
+      "exampleTranslation": "Khi đến Kyoto, tôi đã có cơ hội trải nghiệm các phép tắc của trà đạo.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 12879,
+      "term": "伝統芸能 (でんとうげいのう)",
+      "reading": "でんとうげいのう",
+      "romaji": null,
+      "definition": "nghệ thuật truyền thống Nhật",
+      "exampleSentence": "地域の祭りでは、さまざまな伝統芸能が披露された。",
+      "exampleTranslation": "Tại lễ hội địa phương, nhiều loại hình nghệ thuật truyền thống Nhật Bản đã được trình diễn.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 12880,
+      "term": "能楽 (のうがく)",
+      "reading": "のうがく",
+      "romaji": null,
+      "definition": "kịch Nô",
+      "exampleSentence": "週末に能楽の舞台を鑑賞し、日本文化の奥深さを感じた。",
+      "exampleTranslation": "Cuối tuần, tôi thưởng thức một buổi diễn kịch Nô và cảm nhận được chiều sâu của văn hóa Nhật Bản.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 12881,
+      "term": "武道 (ぶどう)",
+      "reading": "ぶどう",
+      "romaji": null,
+      "definition": "võ thuật Nhật Bản",
+      "exampleSentence": "武道では技術だけでなく、礼儀や精神力も重視される。",
+      "exampleTranslation": "Trong võ thuật Nhật Bản, không chỉ kỹ thuật mà cả lễ nghi và ý chí cũng được coi trọng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 12882,
+      "term": "落語 (らくご)",
+      "reading": "らくご",
+      "romaji": null,
+      "definition": "hài kịch độc thoại",
+      "exampleSentence": "父は寄席で落語を聞くのを楽しみにしている。",
+      "exampleTranslation": "Bố tôi rất mong chờ được nghe hài kịch độc thoại ở rạp yose.",
+      "forms": [],
+      "displayOrder": 10
+    }
+  ]
+}

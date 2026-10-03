@@ -1,0 +1,369 @@
+{
+  "id": 62,
+  "title": "趣味・活動",
+  "description": "Sở thích và hoạt động · 40 từ",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-06-13T11:36:52.438239",
+  "cards": [
+    {
+      "id": 1965,
+      "term": "趣味",
+      "reading": "しゅみ",
+      "romaji": "shumi",
+      "definition": "Sở thích",
+      "exampleSentence": "趣味は何ですか。",
+      "exampleTranslation": "Sở thích của bạn là gì?",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 1966,
+      "term": "読書",
+      "reading": "どくしょ",
+      "romaji": "dokusho",
+      "definition": "Đọc sách",
+      "exampleSentence": "読書が好きです。",
+      "exampleTranslation": "Tôi thích đọc sách.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 1967,
+      "term": "音楽",
+      "reading": "おんがく",
+      "romaji": "ongaku",
+      "definition": "Âm nhạc",
+      "exampleSentence": "音楽を聴く。",
+      "exampleTranslation": "Nghe nhạc.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 1968,
+      "term": "映画",
+      "reading": "えいが",
+      "romaji": "eiga",
+      "definition": "Phim",
+      "exampleSentence": "映画を見に行く。",
+      "exampleTranslation": "Đi xem phim.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 1969,
+      "term": "旅行",
+      "reading": "りょこう",
+      "romaji": "ryokou",
+      "definition": "Du lịch",
+      "exampleSentence": "旅行が好きです。",
+      "exampleTranslation": "Tôi thích du lịch.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 1970,
+      "term": "料理",
+      "reading": "りょうり",
+      "romaji": "ryouri",
+      "definition": "Nấu ăn",
+      "exampleSentence": "料理が上手です。",
+      "exampleTranslation": "Nấu ăn giỏi.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 1971,
+      "term": "写真",
+      "reading": "しゃしん",
+      "romaji": "shashin",
+      "definition": "Chụp ảnh / Ảnh",
+      "exampleSentence": "写真を撮る。",
+      "exampleTranslation": "Chụp ảnh.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 1972,
+      "term": "スポーツ",
+      "reading": "すぽーつ",
+      "romaji": "supootsu",
+      "definition": "Thể thao",
+      "exampleSentence": "スポーツが好きです。",
+      "exampleTranslation": "Tôi thích thể thao.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 1973,
+      "term": "絵を描く",
+      "reading": "えをかく",
+      "romaji": "e wo kaku",
+      "definition": "Vẽ tranh",
+      "exampleSentence": "絵を描くのが好き。",
+      "exampleTranslation": "Tôi thích vẽ tranh.",
+      "forms": [
+        "描きます",
+        "描いて",
+        "描いた",
+        "描かない",
+        "描ける"
+      ],
+      "displayOrder": 8
+    },
+    {
+      "id": 1974,
+      "term": "ゲーム",
+      "reading": "げーむ",
+      "romaji": "geemu",
+      "definition": "Trò chơi điện tử",
+      "exampleSentence": "ゲームをする。",
+      "exampleTranslation": "Chơi game.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 1975,
+      "term": "歌",
+      "reading": "うた",
+      "romaji": "uta",
+      "definition": "Bài hát / Hát",
+      "exampleSentence": "カラオケで歌を歌う。",
+      "exampleTranslation": "Hát ở karaoke.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 1976,
+      "term": "ダンス",
+      "reading": "だんす",
+      "romaji": "dansu",
+      "definition": "Nhảy múa",
+      "exampleSentence": "ダンスを習う。",
+      "exampleTranslation": "Học nhảy.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 1977,
+      "term": "水泳",
+      "reading": "すいえい",
+      "romaji": "suiei",
+      "definition": "Bơi lội",
+      "exampleSentence": "水泳が得意です。",
+      "exampleTranslation": "Tôi giỏi bơi.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 1978,
+      "term": "ハイキング",
+      "reading": "はいきんぐ",
+      "romaji": "haikingu",
+      "definition": "Leo núi, đi bộ đường dài",
+      "exampleSentence": "山でハイキングする。",
+      "exampleTranslation": "Leo núi.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 1979,
+      "term": "キャンプ",
+      "reading": "きゃんぷ",
+      "romaji": "kyanpu",
+      "definition": "Cắm trại",
+      "exampleSentence": "友達とキャンプに行く。",
+      "exampleTranslation": "Đi cắm trại với bạn bè.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 1980,
+      "term": "釣り",
+      "reading": "つり",
+      "romaji": "tsuri",
+      "definition": "Câu cá",
+      "exampleSentence": "週末に釣りをする。",
+      "exampleTranslation": "Câu cá vào cuối tuần.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 1981,
+      "term": "ガーデニング",
+      "reading": "がーでにんぐ",
+      "romaji": "gaadeningu",
+      "definition": "Làm vườn",
+      "exampleSentence": "ガーデニングが楽しい。",
+      "exampleTranslation": "Làm vườn rất vui.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 1982,
+      "term": "買い物",
+      "reading": "かいもの",
+      "romaji": "kaimono",
+      "definition": "Mua sắm",
+      "exampleSentence": "買い物に行く。",
+      "exampleTranslation": "Đi mua sắm.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 1983,
+      "term": "散歩",
+      "reading": "さんぽ",
+      "romaji": "sanpo",
+      "definition": "Đi dạo",
+      "exampleSentence": "犬と散歩する。",
+      "exampleTranslation": "Đi dạo với chó.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 1984,
+      "term": "ヨガ",
+      "reading": "よが",
+      "romaji": "yoga",
+      "definition": "Yoga",
+      "exampleSentence": "毎朝ヨガをする。",
+      "exampleTranslation": "Mỗi sáng tập yoga.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 1985,
+      "term": "筋トレ",
+      "reading": "きんとれ",
+      "romaji": "kintore",
+      "definition": "Tập gym, tập cơ",
+      "exampleSentence": "毎日筋トレをする。",
+      "exampleTranslation": "Mỗi ngày tập gym.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 1986,
+      "term": "楽器",
+      "reading": "がっき",
+      "romaji": "gakki",
+      "definition": "Nhạc cụ",
+      "exampleSentence": "楽器を演奏する。",
+      "exampleTranslation": "Chơi nhạc cụ.",
+      "forms": [],
+      "displayOrder": 21
+    },
+    {
+      "id": 1987,
+      "term": "ピアノ",
+      "reading": "ぴあの",
+      "romaji": "piano",
+      "definition": "Đàn piano",
+      "exampleSentence": "ピアノを弾く。",
+      "exampleTranslation": "Chơi đàn piano.",
+      "forms": [],
+      "displayOrder": 22
+    },
+    {
+      "id": 1988,
+      "term": "ギター",
+      "reading": "ぎたー",
+      "romaji": "gitaa",
+      "definition": "Guitar",
+      "exampleSentence": "ギターを練習する。",
+      "exampleTranslation": "Tập guitar.",
+      "forms": [],
+      "displayOrder": 23
+    },
+    {
+      "id": 1989,
+      "term": "コレクション",
+      "reading": "これくしょん",
+      "romaji": "korekushon",
+      "definition": "Sưu tập",
+      "exampleSentence": "切手のコレクション",
+      "exampleTranslation": "Bộ sưu tập tem.",
+      "forms": [],
+      "displayOrder": 24
+    },
+    {
+      "id": 1990,
+      "term": "ボランティア",
+      "reading": "ぼらんてぃあ",
+      "romaji": "borantia",
+      "definition": "Tình nguyện",
+      "exampleSentence": "ボランティア活動をする。",
+      "exampleTranslation": "Tham gia hoạt động tình nguyện.",
+      "forms": [],
+      "displayOrder": 25
+    },
+    {
+      "id": 1991,
+      "term": "習う",
+      "reading": "ならう",
+      "romaji": "narau",
+      "definition": "Học (từ thầy/cô)",
+      "exampleSentence": "ピアノを習う。",
+      "exampleTranslation": "Học đàn piano.",
+      "forms": [
+        "習います",
+        "習って",
+        "習った",
+        "習わない",
+        "習える"
+      ],
+      "displayOrder": 26
+    },
+    {
+      "id": 1992,
+      "term": "楽しむ",
+      "reading": "たのしむ",
+      "romaji": "tanoshimu",
+      "definition": "Tận hưởng, thưởng thức",
+      "exampleSentence": "趣味を楽しむ。",
+      "exampleTranslation": "Tận hưởng sở thích.",
+      "forms": [
+        "楽しみます",
+        "楽しんで",
+        "楽しんだ",
+        "楽しまない",
+        "楽しめる"
+      ],
+      "displayOrder": 27
+    },
+    {
+      "id": 1993,
+      "term": "続ける",
+      "reading": "つづける",
+      "romaji": "tsuzukeru",
+      "definition": "Tiếp tục",
+      "exampleSentence": "毎日続ける。",
+      "exampleTranslation": "Tiếp tục mỗi ngày.",
+      "forms": [
+        "続けます",
+        "続けて",
+        "続けた",
+        "続けない",
+        "続けられる"
+      ],
+      "displayOrder": 28
+    },
+    {
+      "id": 1994,
+      "term": "上手",
+      "reading": "じょうず",
+      "romaji": "jouzu",
+      "definition": "Giỏi, khéo léo",
+      "exampleSentence": "ギターが上手です。",
+      "exampleTranslation": "Chơi guitar giỏi.",
+      "forms": [
+        "上手じゃない",
+        "上手だった",
+        "上手じゃなかった"
+      ],
+      "displayOrder": 29
+    }
+  ]
+}

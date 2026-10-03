@@ -1,6 +1,7 @@
 import React from 'react';
 import { BookOpen, Search, Plus, Edit, Trash2 } from 'lucide-react';
 import { getGroupCategory } from './bookConstants';
+import BookThumbnail from './BookThumbnail';
 
 const BookGroupList = ({
     t,
@@ -97,77 +98,31 @@ const BookGroupList = ({
                     return (
                         <div
                             key={group.id}
-                            className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md overflow-hidden hover:shadow-xl hover:-translate-y-1 hover:border-cyan-400 dark:hover:border-cyan-500/50 transition-all duration-300 cursor-pointer flex flex-col group"
+                            className="rounded-2xl border border-slate-700/20 dark:border-slate-700/60 shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1 hover:border-slate-400 dark:hover:border-slate-400 transition-all duration-300 cursor-pointer flex flex-col justify-between group relative"
                             onClick={() => navigateTo({ group: group.id })}
                         >
-                            {group.imageUrl ? (
-                                <div className="h-32 sm:h-44 overflow-hidden relative">
-                                    <img
-                                        src={group.imageUrl}
-                                        alt={group.name}
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                    />
-                                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex gap-1.5">
-                                        <span className={`px-2 py-0.5 sm:px-2.5 sm:py-1 text-[8px] sm:text-[9px] font-black uppercase tracking-wider rounded-lg shadow-sm ${
-                                            isJLPT ? 'bg-sky-500 text-white' : isTextbook ? 'bg-indigo-500 text-white' : 'bg-emerald-500 text-white'
-                                        }`}>
-                                            {badgeText}
-                                        </span>
-                                        {levelBadge && (
-                                            <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[8px] sm:text-[9px] font-black uppercase tracking-wider rounded-lg shadow-sm bg-slate-900/80 text-white backdrop-blur-sm">
-                                                {levelBadge}
-                                            </span>
-                                        )}
-                                    </div>
-                                </div>
-                            ) : (
-                                <div className="h-32 sm:h-44 bg-gradient-to-br from-slate-100 to-slate-200/50 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center relative">
-                                    <BookOpen className="w-8 h-8 sm:w-12 sm:h-12 text-slate-400 opacity-40" />
-                                    <div className="absolute top-3 left-3 sm:top-4 sm:left-4 flex gap-1.5">
-                                        <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 text-[8px] sm:text-[9px] font-black uppercase tracking-wider bg-slate-400 text-white rounded-lg shadow-sm">
-                                            {badgeText}
-                                        </span>
-                                    </div>
+                            <BookThumbnail 
+                                item={group}
+                                name={group.name} 
+                                subtitle={group.subtitle} 
+                                progress={progress}
+                                className="h-44 sm:h-48"
+                            />
+
+                            {isAdmin && (
+                                <div className="absolute top-2.5 right-2.5 flex items-center gap-1 z-20 opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 backdrop-blur-xs p-1 rounded-xl">
+                                    <button onClick={(e) => { e.stopPropagation(); handleStartEditGroup(group); }}
+                                        className="p-1.5 text-white/90 hover:text-white hover:bg-white/20 rounded-lg transition-colors cursor-pointer"
+                                        title="Chỉnh sửa nhóm">
+                                        <Edit className="w-3.5 h-3.5" />
+                                    </button>
+                                    <button onClick={(e) => { e.stopPropagation(); handleDeleteGroup(group.id); }}
+                                        className="p-1.5 text-red-300 hover:text-red-200 hover:bg-white/20 rounded-lg transition-colors cursor-pointer"
+                                        title="Xoá nhóm">
+                                        <Trash2 className="w-3.5 h-3.5" />
+                                    </button>
                                 </div>
                             )}
-                            <div className="p-3.5 sm:p-6 flex-1 flex flex-col justify-between space-y-3 sm:space-y-4">
-                                <div className="space-y-1">
-                                    <div className="flex items-start justify-between gap-2">
-                                        <h2 className="text-base sm:text-xl font-bold text-slate-800 dark:text-white leading-tight group-hover:text-sky-500 transition-colors">
-                                            {group.name}
-                                        </h2>
-                                        {isAdmin && (
-                                            <div className="flex items-center gap-1 shrink-0 opacity-0 group-hover:opacity-100 transition-opacity">
-                                                <button onClick={(e) => { e.stopPropagation(); handleStartEditGroup(group); }}
-                                                    className="p-1.5 text-slate-400 hover:text-sky-500 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors cursor-pointer">
-                                                    <Edit className="w-3.5 h-3.5" />
-                                                </button>
-                                                <button onClick={(e) => { e.stopPropagation(); handleDeleteGroup(group.id); }}
-                                                    className="p-1.5 text-slate-400 hover:text-red-500 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg transition-colors cursor-pointer">
-                                                    <Trash2 className="w-3.5 h-3.5" />
-                                                </button>
-                                            </div>
-                                        )}
-                                    </div>
-                                    {group.subtitle && (
-                                        <p className="text-xs sm:text-sm text-slate-400 dark:text-slate-500 font-medium line-clamp-2">
-                                            {group.subtitle}
-                                        </p>
-                                    )}
-                                </div>
-                                <div className="space-y-1.5 pt-1 sm:pt-2">
-                                    <div className="flex items-center justify-between text-[11px] sm:text-xs font-bold text-slate-600 dark:text-slate-300">
-                                        <span>{t('books.progress', 'Tiến độ')}</span>
-                                        <span className="text-sky-500 font-extrabold">{progress}%</span>
-                                    </div>
-                                    <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                                        <div
-                                            className="h-full bg-gradient-to-r from-sky-400 to-indigo-500 rounded-full transition-all duration-500"
-                                            style={{ width: `${progress}%` }}
-                                        />
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     );
                 })}
@@ -175,14 +130,14 @@ const BookGroupList = ({
                 {isAdmin && (
                     <div
                         onClick={() => { resetForm(); setShowAddGroup(true); }}
-                        className="bg-transparent dark:bg-transparent rounded-3xl border-2 border-dashed border-slate-300 dark:border-slate-700 p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:border-slate-400 dark:hover:border-slate-500 transition-all min-h-[320px] group"
+                        className="bg-transparent dark:bg-transparent rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-700 p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:border-slate-400 dark:hover:border-slate-500 transition-all h-44 sm:h-48 group"
                     >
-                        <div className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                            <Plus className="w-6 h-6 text-slate-500 dark:text-slate-400" />
+                        <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform">
+                            <Plus className="w-5 h-5 text-slate-500 dark:text-slate-400" />
                         </div>
-                        <h3 className="font-bold text-slate-700 dark:text-slate-300 text-lg mb-1">{t('books.addBookGroup', 'Thêm nhóm sách mới')}</h3>
-                        <p className="text-xs text-slate-400 dark:text-slate-500 max-w-[200px] leading-relaxed">
-                            {t('books.addBookGroupSub', 'Tạo bộ sưu tập tùy chỉnh cho mục tiêu học tập của bạn.')}
+                        <h3 className="font-bold text-slate-700 dark:text-slate-300 text-sm mb-0.5">{t('books.addBookGroup', 'Thêm nhóm sách mới')}</h3>
+                        <p className="text-[11px] text-slate-400 dark:text-slate-500 max-w-[200px] leading-relaxed">
+                            {t('books.addBookGroupSub', 'Tạo bộ sưu tập tùy chỉnh')}
                         </p>
                     </div>
                 )}
