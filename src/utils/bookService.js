@@ -10,41 +10,82 @@ let lastLoadedExportedAt = null;
 // Loading promise to coordinate concurrent requests
 let bookGroupsPromise = null;
 
+export const deepMergeBookGroups = (baseGroups, overrideGroups) => {
+    const groupMap = new Map();
+
+    // 1. Index base groups (which have all pre-compiled rich chapters and vocabulary)
+    if (Array.isArray(baseGroups)) {
+        baseGroups.forEach(g => {
+            if (g) {
+                const key = g.id || (g.name || '').trim().toLowerCase();
+                groupMap.set(key, JSON.parse(JSON.stringify(g)));
+            }
+        });
+    }
+
+    // 2. Merge overrides (Firestore / CDN)
+    if (Array.isArray(overrideGroups)) {
+        overrideGroups.forEach(oGroup => {
+            if (!oGroup) return;
+            const key = oGroup.id || (oGroup.name || '').trim().toLowerCase();
+            if (!groupMap.has(key)) {
+                groupMap.set(key, JSON.parse(JSON.stringify(oGroup)));
+            } else {
+                const existing = groupMap.get(key);
+                // Merge group-level fields
+                const { books: oBooks, ...groupMeta } = oGroup;
+                Object.assign(existing, groupMeta);
+
+                // Merge books inside this group
+                if (Array.isArray(oBooks) && oBooks.length > 0) {
+                    const bookMap = new Map();
+                    (existing.books || []).forEach(b => {
+                        const bKey = b.id || (b.name || '').trim().toLowerCase();
+                        bookMap.set(bKey, b);
+                    });
+
+                    oBooks.forEach(oBook => {
+                        if (!oBook) return;
+                        const bKey = oBook.id || (oBook.name || '').trim().toLowerCase();
+                        if (!bookMap.has(bKey)) {
+                            bookMap.set(bKey, oBook);
+                        } else {
+                            const existingBook = bookMap.get(bKey);
+                            const oLessonCount = (oBook.chapters || []).reduce((sum, c) => sum + (c.lessons || []).length, 0);
+                            const exLessonCount = (existingBook.chapters || []).reduce((sum, c) => sum + (c.lessons || []).length, 0);
+
+                            if (oLessonCount > 0) {
+                                Object.assign(existingBook, oBook);
+                            } else {
+                                // If override book has 0 lessons (e.g. empty shell in DB), keep existing rich chapters/lessons
+                                const { chapters, ...meta } = oBook;
+                                Object.assign(existingBook, meta);
+                            }
+                        }
+                    });
+
+                    existing.books = Array.from(bookMap.values()).sort((a, b) => (a.order || 0) - (b.order || 0));
+                }
+            }
+        });
+    }
+
+    return Array.from(groupMap.values()).sort((a, b) => (a.order || 0) - (b.order || 0));
+};
+
 const mergeWithLocalBundle = async (groups) => {
-    let baseList = Array.isArray(groups) ? [...groups] : [];
     try {
         const localRes = await fetch(`/data/books_data.json?t=${Date.now()}`);
         if (localRes && localRes.ok) {
             const localData = await localRes.json();
             if (Array.isArray(localData) && localData.length > 0) {
-                const existingGroupIds = new Set(baseList.map(g => g.id));
-                const existingGroupNames = new Set(baseList.map(g => (g.name || '').trim().toLowerCase()));
-
-                for (const localGroup of localData) {
-                    const normName = (localGroup.name || '').trim().toLowerCase();
-                    if (!existingGroupIds.has(localGroup.id) && !existingGroupNames.has(normName)) {
-                        baseList.push(localGroup);
-                    } else {
-                        const existingGroup = baseList.find(g => g.id === localGroup.id || (g.name || '').trim().toLowerCase() === normName);
-                        if (existingGroup && Array.isArray(localGroup.books)) {
-                            const existingBookIds = new Set((existingGroup.books || []).map(b => b.id));
-                            const existingBookNames = new Set((existingGroup.books || []).map(b => (b.name || '').trim().toLowerCase()));
-                            for (const localBook of localGroup.books) {
-                                const normBookName = (localBook.name || '').trim().toLowerCase();
-                                if (!existingBookIds.has(localBook.id) && !existingBookNames.has(normBookName)) {
-                                    existingGroup.books = existingGroup.books || [];
-                                    existingGroup.books.push(localBook);
-                                }
-                            }
-                        }
-                    }
-                }
+                return deepMergeBookGroups(localData, groups);
             }
         }
     } catch (err) {
         console.warn('Could not merge local books bundle:', err);
     }
-    return baseList;
+    return groups || [];
 };
 
 if (typeof window !== 'undefined') {

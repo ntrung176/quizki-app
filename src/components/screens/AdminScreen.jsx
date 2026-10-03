@@ -8,6 +8,7 @@ import { updateAdminConfig, AI_PROVIDER_OPTIONS, OPENROUTER_MODELS, AI_FEATURES,
 import { showConfirm } from '../../utils/toast';
 import { playAudio } from '../../utils/audio';
 import { syncKanjiAndVocabToCDN } from '../../utils/kanjiService';
+import { deepMergeBookGroups } from '../../utils/bookService';
 
 // Subcomponents
 import AdminUsersSection from '../admin/AdminUsersSection';
@@ -212,17 +213,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             return group;
         }));
         groups.sort((a, b) => (a.order || 0) - (b.order || 0));
-
-        const mergedMap = new Map();
-        baseBooks.forEach(g => mergedMap.set(g.id || g.name, g));
-        groups.forEach(g => {
-            if (mergedMap.has(g.id || g.name)) {
-                mergedMap.set(g.id || g.name, { ...mergedMap.get(g.id || g.name), ...g });
-            } else {
-                mergedMap.set(g.id || g.name, g);
-            }
-        });
-        return Array.from(mergedMap.values());
+        return deepMergeBookGroups(baseBooks, groups);
     };
 
     const fetchAllGrammarData = async () => {
