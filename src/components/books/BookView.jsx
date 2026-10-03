@@ -209,9 +209,6 @@ const BookView = ({
                                         }}
                                         className="flex items-center justify-between px-4 py-3 hover:bg-sky-50 dark:hover:bg-sky-900/10 cursor-pointer transition-colors">
                                         <div className="flex items-center gap-3">
-                                            <span className="w-7 h-7 rounded-lg bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center text-xs font-bold text-sky-600 dark:text-sky-400">
-                                                {li + 1}
-                                            </span>
                                             <span className="text-sm text-gray-800 dark:text-gray-200 flex items-center gap-2 font-medium">
                                                 {lesson.name}
                                                 {lesson.isPremium && (
