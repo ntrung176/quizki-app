@@ -81,6 +81,20 @@ const startFirestoreListener = () => {
     }
 };
 
+export const invalidateJLPTCache = () => {
+    cachedTests = null;
+    sharedPromise = null;
+    baseTestsMap.clear();
+    firestoreDocsMap.clear();
+};
+
+if (typeof window !== 'undefined') {
+    window.addEventListener('cache-config-updated', () => {
+        invalidateJLPTCache();
+        getSharedJLPTTests(true);
+    });
+}
+
 /**
  * Returns currently cached JLPT tests synchronously (0ms)
  */
@@ -96,7 +110,8 @@ export const isJLPTDataLoaded = () => {
 };
 
 /**
- * Loads JLPT tests with in-memory caching and request deduplication
+ * Loads JLPT tests with in-memory caching and request deduplication.
+ * Hierarchy: In-Memory RAM -> Firebase Storage CDN -> Local Bundled JSON -> Realtime Firestore Overlay
  */
 export const getSharedJLPTTests = async (forceRefresh = false) => {
     if (!forceRefresh && cachedTests && cachedTests.length > 0) {
@@ -108,35 +123,52 @@ export const getSharedJLPTTests = async (forceRefresh = false) => {
     }
 
     sharedPromise = (async () => {
-        // 1. Fetch static local file /data/jlpt_data.json
+        let loadedBase = false;
+        let cacheConfig = null;
         try {
-            const res = await fetch('/data/jlpt_data.json');
-            if (res && res.ok) {
-                const data = await res.json();
-                if (Array.isArray(data) && data.length > 0) {
-                    data.forEach((t) => baseTestsMap.set(t.id, t));
-                }
-            }
+            cacheConfig = await getCacheConfig();
         } catch (e) {
-            console.warn('[jlptDataService] Local jlpt_data.json load warning:', e);
+            console.warn('[jlptDataService] Cache config fetch warning:', e);
         }
 
-        // 2. Check remote cacheConfig CDN URL if available
-        try {
-            const cacheConfig = await getCacheConfig();
-            if (cacheConfig && cacheConfig.jlptUrl) {
-                const urlWithBuster = `${cacheConfig.jlptUrl}?t=${cacheConfig.exportedAt || Date.now()}`;
+        // 1. Try Firebase Storage CDN if available
+        if (cacheConfig && cacheConfig.jlptUrl) {
+            try {
+                const urlWithBuster = cacheConfig.jlptUrl.includes('?')
+                    ? `${cacheConfig.jlptUrl}&t=${cacheConfig.exportedAt || Date.now()}`
+                    : `${cacheConfig.jlptUrl}?t=${cacheConfig.exportedAt || Date.now()}`;
                 const res = await fetch(urlWithBuster);
                 if (res && res.ok) {
                     const data = await res.json();
                     if (Array.isArray(data) && data.length > 0) {
+                        baseTestsMap.clear();
                         data.forEach((t) => baseTestsMap.set(t.id, t));
+                        loadedBase = true;
                     }
                 }
+            } catch (cdnErr) {
+                console.warn('[jlptDataService] CDN jlpt_data.json load failed, trying local bundle:', cdnErr);
             }
-        } catch (e) {}
+        }
 
-        // 3. Compute combined map
+        // 2. Fallback to static local file /data/jlpt_data.json
+        if (!loadedBase) {
+            try {
+                const res = await fetch(`/data/jlpt_data.json?t=${Date.now()}`);
+                if (res && res.ok) {
+                    const data = await res.json();
+                    if (Array.isArray(data) && data.length > 0) {
+                        baseTestsMap.clear();
+                        data.forEach((t) => baseTestsMap.set(t.id, t));
+                        loadedBase = true;
+                    }
+                }
+            } catch (e) {
+                console.warn('[jlptDataService] Local jlpt_data.json load warning:', e);
+            }
+        }
+
+        // 3. Compute combined map with Firestore overlay
         const result = recomputeCombinedTests();
 
         // 4. Start Firestore real-time listener if not already started

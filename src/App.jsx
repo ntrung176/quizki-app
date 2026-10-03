@@ -20,6 +20,7 @@ import LevelUpModal from './components/ui/LevelUpModal';
 import { useAppLogic } from './hooks/useAppLogic';
 import MobileDebugConsole from './components/ui/MobileDebugConsole';
 import ScrollToTop from './components/ui/ScrollToTop';
+import { preloadCoreData } from './utils/dataPreloader';
 
 const AppContent = () => {
     const location = useLocation();
@@ -45,6 +46,13 @@ const AppContent = () => {
         canUserUseAI, hasPremium, studySets, cardFolders, parentFolders, savedFilters, tourTrigger,
         activePopup, handleDismissPopup, view
     } = appLogic;
+
+    // Trigger idle background data preloading for 0ms page navigation across core modules
+    React.useEffect(() => {
+        if (authReady) {
+            preloadCoreData();
+        }
+    }, [authReady]);
 
     return (
         <div className={`min-h-screen font-sans ${isDarkMode ? 'dark text-slate-100' : 'text-slate-900'} relative transition-colors duration-200`}>

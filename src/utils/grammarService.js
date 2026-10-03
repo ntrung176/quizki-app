@@ -59,42 +59,32 @@ if (typeof window !== 'undefined') {
     window.addEventListener('cache-config-updated', invalidateGrammarCache);
 }
 
-export const getSharedGrammarData = async () => {
-    const cacheConfig = await getCacheConfig();
+export const getSharedGrammarData = async (forceRefresh = false) => {
+    let cacheConfig = null;
+    try {
+        cacheConfig = await getCacheConfig();
+    } catch (e) {
+        console.warn('Cache config fetch error in grammarService:', e);
+    }
     const currentExport = cacheConfig?.exportedAt || 0;
-    const needsRefresh = currentExport && (!lastLoadedExportedAt || currentExport > lastLoadedExportedAt);
+    const needsRefresh = forceRefresh || (currentExport && (!lastLoadedExportedAt || currentExport > lastLoadedExportedAt));
 
-    if (needsRefresh && !grammarPromise) {
+    if (needsRefresh) {
         cachedGrammarData = null;
+        grammarPromise = null;
         clearSharedGrammarPointsListCache();
     }
 
     if (cachedGrammarData && !needsRefresh) return cachedGrammarData;
-    if (grammarPromise) return grammarPromise;
+    if (grammarPromise && !needsRefresh) return grammarPromise;
 
     grammarPromise = (async () => {
         try {
             console.log('Fetching shared grammar data...');
             let data = null;
 
-            // 1. Try local bundle files /data/grammar_data.json first (contains latest updated Vietnamese translations)
-            try {
-                const dataRes = await fetch('/data/grammar_data.json');
-                if (dataRes && dataRes.ok) {
-                    const json = await dataRes.json();
-                    const pointCount = Array.isArray(json)
-                        ? json.reduce((sum, tb) => sum + (tb.lessons || []).reduce((lSum, ls) => lSum + (ls.points?.length || ls.grammarPoints?.length || 0), 0) + (tb.grammarPoints?.length || 0), 0)
-                        : 0;
-                    if (pointCount >= 1000) {
-                        data = json;
-                    }
-                }
-            } catch (localErr) {
-                console.warn('Local bundle grammar fetch failed, trying CDN fallback:', localErr);
-            }
-
-            // 2. Try Firebase Storage CDN if local bundle was not loaded
-            if (!data && cacheConfig && cacheConfig.grammarUrl) {
+            // 1. Try Firebase Storage CDN first if available in cacheConfig
+            if (cacheConfig && cacheConfig.grammarUrl) {
                 try {
                     console.log('Using Firebase Storage CDN for Grammar cache');
                     const urlWithBuster = cacheConfig.grammarUrl.includes('?')
@@ -106,16 +96,52 @@ export const getSharedGrammarData = async () => {
                         const pointCount = Array.isArray(json)
                             ? json.reduce((sum, tb) => sum + (tb.lessons || []).reduce((lSum, ls) => lSum + (ls.points?.length || ls.grammarPoints?.length || 0), 0) + (tb.grammarPoints?.length || 0), 0)
                             : 0;
-                        if (pointCount >= 1000) {
+                        if (pointCount >= 500) {
                             data = json;
                         }
                     }
                 } catch (cdnErr) {
-                    console.warn('CDN grammar fetch failed:', cdnErr);
+                    console.warn('CDN grammar fetch failed, falling back to local bundle:', cdnErr);
                 }
             }
 
-            if (!data) throw new Error('No grammar data available from local bundle or CDN');
+            // 2. Try local bundle files /data/grammar_data.json fallback
+            if (!data) {
+                try {
+                    const dataRes = await fetch(`/data/grammar_data.json?t=${Date.now()}`);
+                    if (dataRes && dataRes.ok) {
+                        const json = await dataRes.json();
+                        const pointCount = Array.isArray(json)
+                            ? json.reduce((sum, tb) => sum + (tb.lessons || []).reduce((lSum, ls) => lSum + (ls.points?.length || ls.grammarPoints?.length || 0), 0) + (tb.grammarPoints?.length || 0), 0)
+                            : 0;
+                        if (pointCount >= 500) {
+                            data = json;
+                        }
+                    }
+                } catch (localErr) {
+                    console.warn('Local bundle grammar fetch failed:', localErr);
+                }
+            }
+
+            // 3. Fallback to live Firestore if both CDN and local bundle fail
+            if (!data) {
+                console.log('Falling back to Firestore for grammar textbooks...');
+                const textbooksSnap = await getDocs(collection(db, textbooksPath()));
+                data = await Promise.all(textbooksSnap.docs.map(async (tbDoc) => {
+                    const tb = { id: tbDoc.id, ...tbDoc.data(), lessons: [] };
+                    const lessonsSnap = await getDocs(collection(db, lessonsPath(tbDoc.id)));
+                    tb.lessons = await Promise.all(lessonsSnap.docs.map(async (lessonDoc) => {
+                        const lesson = { id: lessonDoc.id, ...lessonDoc.data(), points: [] };
+                        const pointsSnap = await getDocs(collection(db, grammarPointsPath(tbDoc.id, lessonDoc.id)));
+                        lesson.points = pointsSnap.docs.map(pDoc => ({ id: pDoc.id, ...pDoc.data() })).sort((a, b) => (a.order || 0) - (b.order || 0));
+                        return lesson;
+                    }));
+                    tb.lessons.sort((a, b) => (a.order || 0) - (b.order || 0));
+                    return tb;
+                }));
+            }
+
+            if (!data) throw new Error('No grammar data available from CDN, local bundle, or Firestore');
 
             cachedGrammarData = data;
             lastLoadedExportedAt = currentExport || null;
@@ -137,7 +163,8 @@ export const getSharedGrammarData = async () => {
             }
             return cachedGrammarData;
         } catch (e) {
-            console.log('Grammar load failed, falling back to Firestore: ' + e.message);
+            console.error('Grammar load failed:', e);
+            grammarPromise = null;
             return null;
         }
     })();

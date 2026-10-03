@@ -273,9 +273,36 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     };
 
     const fetchAllJlptTestsData = async () => {
+        let baseTests = [];
+        try {
+            const res = await fetch(`/data/jlpt_data.json?t=${Date.now()}`);
+            if (res.ok) {
+                baseTests = await res.json();
+            }
+        } catch (e) {
+            console.warn('Could not load /data/jlpt_data.json as base:', e);
+        }
+
         const testsPath = `artifacts/${appId}/jlptTests`;
         const snap = await getDocs(collection(db, testsPath));
-        return snap.docs.map(d => ({ id: d.id, ...d.data() }));
+        const firestoreTests = snap.docs.map(d => ({ id: d.id, ...d.data() }));
+
+        const mergedMap = new Map();
+        if (Array.isArray(baseTests)) {
+            baseTests.forEach(t => {
+                if (t && t.id) mergedMap.set(t.id, t);
+            });
+        }
+        firestoreTests.forEach(t => {
+            if (t && t.id) {
+                if (mergedMap.has(t.id)) {
+                    mergedMap.set(t.id, { ...mergedMap.get(t.id), ...t });
+                } else {
+                    mergedMap.set(t.id, t);
+                }
+            }
+        });
+        return Array.from(mergedMap.values());
     };
 
     const uploadCacheFile = async (fileName, data) => {
@@ -292,6 +319,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
         }
         try {
             const result = await syncKanjiAndVocabToCDN(forceFull);
+            window.dispatchEvent(new CustomEvent('cache-config-updated'));
             if (!silent) setNotification({ type: 'success', message: 'Đồng bộ Kanji & Từ vựng thành công!' });
             return result;
         } catch (error) {
@@ -317,6 +345,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             const booksUrl = await uploadCacheFile('books_data.json', booksData);
             const exportedAt = Date.now();
             await setDoc(doc(db, `artifacts/${appId}/settings/cacheConfig`), { booksUrl, exportedAt }, { merge: true });
+            window.dispatchEvent(new CustomEvent('cache-config-updated'));
             if (!silent) setNotification({ type: 'success', message: 'Đồng bộ Kho sách thành công!' });
             return { booksUrl, exportedAt };
         } catch (error) {
@@ -342,6 +371,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             const grammarUrl = await uploadCacheFile('grammar_data.json', grammarData);
             const exportedAt = Date.now();
             await setDoc(doc(db, `artifacts/${appId}/settings/cacheConfig`), { grammarUrl, exportedAt }, { merge: true });
+            window.dispatchEvent(new CustomEvent('cache-config-updated'));
             if (!silent) setNotification({ type: 'success', message: 'Đồng bộ Ngữ pháp thành công!' });
             return { grammarUrl, exportedAt };
         } catch (error) {
@@ -367,6 +397,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             const jlptUrl = await uploadCacheFile('jlpt_data.json', jlptData);
             const exportedAt = Date.now();
             await setDoc(doc(db, `artifacts/${appId}/settings/cacheConfig`), { jlptUrl, exportedAt }, { merge: true });
+            window.dispatchEvent(new CustomEvent('cache-config-updated'));
             if (!silent) setNotification({ type: 'success', message: 'Đồng bộ Đề thi JLPT thành công!' });
             return { jlptUrl, exportedAt };
         } catch (error) {

@@ -47,9 +47,15 @@ const mergeWithLocalBundle = async (groups) => {
     return baseList;
 };
 
+if (typeof window !== 'undefined') {
+    window.addEventListener('cache-config-updated', () => {
+        invalidateBookGroupsCache();
+    });
+}
+
 /**
- * Fetches all book groups with books, chapters, and lessons from Firestore.
- * Caches the results and shares the promise if concurrently requested.
+ * Fetches all book groups with books, chapters, and lessons.
+ * Hierarchy: In-Memory RAM -> Firebase Storage CDN -> Local Bundled JSON -> Firestore Live DB
  * @param {boolean} forceRefresh - If true, bypasses cache and forces a fresh query.
  */
 export const getSharedBookGroups = async (forceRefresh = false, forceLiveFirestore = false) => {
@@ -157,20 +163,11 @@ export const getSharedBookGroups = async (forceRefresh = false, forceLiveFiresto
                     }
                 }
             } catch (cdnErr) {
-                console.warn('CDN fetch for books failed, falling back to Firestore...', cdnErr);
+                console.warn('CDN fetch for books failed, falling back to local bundle / Firestore...', cdnErr);
             }
         }
 
-        // 2. Try Firestore live query as primary fallback when CDN is unavailable/fails
-        try {
-            console.log('Fetching shared book groups from Firestore live database...');
-            const fsResult = await fetchFromFirestoreFallback();
-            return mergeEditedBookGroups(fsResult);
-        } catch (fsErr) {
-            console.warn('Firestore fetch failed, falling back to local bundle file...', fsErr);
-        }
-
-        // 3. Last Resort Fallback: Local Bundle file /data/books_data.json
+        // 2. Try Local Bundle file /data/books_data.json as primary fast offline fallback
         try {
             console.log('Fetching shared book groups from local bundle (/data/books_data.json)...');
             const dataRes = await fetch(`/data/books_data.json?t=${Date.now()}`);
@@ -183,7 +180,16 @@ export const getSharedBookGroups = async (forceRefresh = false, forceLiveFiresto
                 }
             }
         } catch (localErr) {
-            console.warn('Local bundle fetch for books failed:', localErr);
+            console.warn('Local bundle fetch for books failed, falling back to Firestore...', localErr);
+        }
+
+        // 3. Last Resort Fallback: Firestore live database query
+        try {
+            console.log('Fetching shared book groups from Firestore live database fallback...');
+            const fsResult = await fetchFromFirestoreFallback();
+            return mergeEditedBookGroups(fsResult);
+        } catch (fsErr) {
+            console.warn('Firestore fallback failed:', fsErr);
         }
 
         throw new Error('All data sources for books failed');
