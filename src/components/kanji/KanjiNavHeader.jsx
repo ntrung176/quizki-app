@@ -52,14 +52,15 @@ const KanjiNavHeader = ({
             if (adminMenuRef.current && !adminMenuRef.current.contains(event.target)) {
                 setAdminMenuOpen(false);
             }
+            if (searchInputRef?.current && !searchInputRef.current.contains(event.target)) {
+                setShowSearchResults(false);
+            }
         };
-        if (adminMenuOpen) {
-            document.addEventListener('mousedown', handleClickOutside);
-        }
+        document.addEventListener('mousedown', handleClickOutside);
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [adminMenuOpen]);
+    }, [adminMenuOpen, searchInputRef, setShowSearchResults]);
 
     const handleLevelChange = (level) => {
         const isLocked = ['N3', 'N2', 'N1'].includes(level) && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('kanji_zen');
@@ -90,7 +91,7 @@ const KanjiNavHeader = ({
             {/* Search & Action Controls Row */}
             <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 items-stretch sm:items-center">
                 {/* Search Input - Expanded / Flex-1 */}
-                <div className="relative flex-1" ref={searchInputRef}>
+                <div className="relative flex-1 z-30" ref={searchInputRef}>
                     <input
                         type="text"
                         value={searchQuery}
@@ -194,8 +195,6 @@ const KanjiNavHeader = ({
                         </div>
                     )}
                 </div>
-
-                {showSearchResults && <div className="fixed inset-0 z-40" onClick={() => setShowSearchResults(false)} />}
 
                 {/* Right controls: Level/Radical Dropdown & Admin Toolbar */}
                 <div className="flex items-center gap-2 shrink-0">
