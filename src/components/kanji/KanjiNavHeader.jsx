@@ -98,17 +98,29 @@ const KanjiNavHeader = ({
                         onChange={(e) => { setSearchQuery(e.target.value); setShowSearchResults(true); }}
                         onFocus={() => setShowSearchResults(true)}
                         placeholder="Tìm kiếm Kanji, nghĩa hoặc âm Hán-Việt..."
-                        className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl sm:rounded-2xl px-4 py-2.5 sm:px-5 sm:py-3 pr-20 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-cyan-500 dark:focus:ring-cyan-400/50 focus:border-cyan-400 shadow-sm transition-all text-xs sm:text-sm font-medium"
+                        className="w-full bg-white dark:bg-slate-800 border border-slate-200/70 dark:border-slate-700 rounded-2xl px-4 py-3 pl-11 pr-20 text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 shadow-sm text-sm transition-all"
                     />
+                    <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400 pointer-events-none" />
+
                     <div className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center gap-1.5">
+                        {searchQuery && (
+                            <button
+                                type="button"
+                                onClick={() => { setSearchQuery(''); setShowSearchResults(false); }}
+                                className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors cursor-pointer"
+                                title="Xóa tìm kiếm"
+                            >
+                                <X className="w-4 h-4" />
+                            </button>
+                        )}
                         <button
+                            type="button"
                             onClick={() => setShowHandwritingPopup(!showHandwritingPopup)}
-                            className={`p-1.5 sm:p-2 rounded-xl transition-all hover:scale-105 cursor-pointer ${showHandwritingPopup ? 'bg-sky-100 dark:bg-sky-950 text-sky-600 dark:text-sky-400' : 'hover:bg-slate-100 dark:hover:bg-slate-700/50 text-gray-400'}`}
+                            className={`p-1.5 sm:p-2 rounded-xl transition-all hover:scale-105 cursor-pointer ${showHandwritingPopup ? 'bg-sky-100 dark:bg-sky-950 text-sky-600 dark:text-sky-400' : 'hover:bg-slate-100 dark:hover:bg-slate-700/50 text-slate-400'}`}
                             title="Vẽ Kanji để tìm kiếm"
                         >
                             <PenTool className="w-4 h-4" />
                         </button>
-                        <Search className="w-4 h-4 text-gray-400" />
                     </div>
 
                     {/* Search Results Dropdown */}
