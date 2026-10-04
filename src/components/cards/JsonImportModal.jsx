@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { X, Copy, Check, FileJson, Download, AlertCircle } from 'lucide-react';
 import { showToast } from '../../utils/toast';
 import { cleanJapaneseExampleSentence } from '../../utils/furiganaHelper';
+import { useTargetLanguage } from '../../contexts/TargetLanguageContext';
 
-const SAMPLE_PROMPT = `Hãy tạo cho tôi danh sách từ vựng tiếng Nhật theo định dạng mảng JSON bên dưới. Trả về ĐÚNG 1 mảng JSON thuần túy (không kèm bất kỳ lời giải thích hay ký tự thừa nào ngoài cặp dấu ngoặc vuông []).
+const SAMPLE_PROMPT_JA = `Hãy tạo cho tôi danh sách từ vựng tiếng Nhật theo định dạng mảng JSON bên dưới. Trả về ĐÚNG 1 mảng JSON thuần túy (không kèm bất kỳ lời giải thích hay ký tự thừa nào ngoài cặp dấu ngoặc vuông []).
 
 LƯU Ý ĐẶC BIỆT VỀ CÂU VÍ DỤ:
 1. Mỗi từ vựng hãy tạo từ 2 đến 3 câu ví dụ tự nhiên hoàn chỉnh thể hiện các ngữ cảnh và cấu trúc câu thông dụng (giữ nguyên từ gốc trong câu ví dụ, không che từ hay dùng dấu gạch dưới).
@@ -39,7 +40,51 @@ LƯU Ý ĐẶC BIỆT VỀ CÂU VÍ DỤ:
   }
 ]`;
 
+const SAMPLE_PROMPT_EN = `Hãy tạo cho tôi danh sách từ vựng tiếng Anh theo định dạng mảng JSON bên dưới. Trả về ĐÚNG 1 mảng JSON thuần túy (không kèm bất kỳ lời giải thích hay ký tự thừa nào ngoài cặp dấu ngoặc vuông []).
+
+LƯU Ý ĐẶC BIỆT VỀ CÂU VÍ DỤ:
+1. Mỗi từ vựng hãy tạo từ 2 đến 3 câu ví dụ tự nhiên hoàn chỉnh thể hiện các ngữ cảnh và cấu trúc câu thông dụng (giữ nguyên từ gốc trong câu ví dụ, không che từ hay dùng dấu gạch dưới).
+2. Phân dòng (\\n) và đánh số thứ tự 1., 2., 3. cho từng câu ví dụ ở trường "example".
+3. Dịch nghĩa tiếng Việt tương ứng cho từng câu ở trường "exampleMeaning", phân dòng (\\n) và đánh số 1., 2., 3. khớp hoàn toàn với các câu ở trường "example".
+
+[
+  {
+    "front": "Accomplish",
+    "reading": "/əˈkɑːm.plɪʃ/",
+    "back": "Hoàn thành, đạt được, thực hiện",
+    "pos": "Verb (Động từ)",
+    "level": "B2",
+    "example": "1. If we work together, we can accomplish anything.\\n2. She accomplished such a lot during her visit.\\n3. I don't feel I've accomplished very much today.",
+    "exampleMeaning": "1. Nếu chúng ta làm việc cùng nhau, chúng ta có thể hoàn thành bất cứ điều gì.\\n2. Cô ấy đã đạt được rất nhiều thành tựu trong chuyến thăm của mình.\\n3. Tôi cảm thấy hôm nay mình chưa làm được gì nhiều.",
+    "synonym": "Achieve, Complete, Fulfill",
+    "antonym": "Fail, Abandon",
+    "nuance": "Nhấn mạnh việc hoàn thành một mục tiêu, kế hoạch hoặc nhiệm vụ sau nhiều nỗ lực."
+  },
+  {
+    "front": "Resilient",
+    "reading": "/rɪˈzɪl.jənt/",
+    "back": "Kiên cường, có khả năng phục hồi nhanh chóng",
+    "pos": "Adjective (Tính từ)",
+    "level": "C1",
+    "example": "1. The local economy is remarkably resilient.\\n2. Children are often very resilient and adapt quickly to change.",
+    "exampleMeaning": "1. Nền kinh tế địa phương kiên cường một cách đáng kể.\\n2. Trẻ em thường rất kiên cường và thích nghi nhanh chóng với sự thay đổi.",
+    "synonym": "Tough, Robust, Adaptable",
+    "antonym": "Fragile, Vulnerable",
+    "nuance": "Dùng để miêu tả người hoặc hệ thống có thể nhanh chóng vượt qua khó khăn, bệnh tật hoặc thất bại."
+  }
+]`;
+
 const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
+    let isEnglishMode = false;
+    try {
+        const targetLang = useTargetLanguage();
+        isEnglishMode = targetLang?.isEnglishMode || (localStorage.getItem('quizki_target_language') === 'en');
+    } catch (_) {
+        isEnglishMode = localStorage.getItem('quizki_target_language') === 'en';
+    }
+
+    const currentPrompt = isEnglishMode ? SAMPLE_PROMPT_EN : SAMPLE_PROMPT_JA;
+
     const [jsonInput, setJsonInput] = useState('');
     const [copiedPrompt, setCopiedPrompt] = useState(false);
     const [errorMsg, setErrorMsg] = useState('');
@@ -47,7 +92,7 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
     if (!isOpen) return null;
 
     const handleCopyPrompt = () => {
-        navigator.clipboard.writeText(SAMPLE_PROMPT);
+        navigator.clipboard.writeText(currentPrompt);
         setCopiedPrompt(true);
         setTimeout(() => setCopiedPrompt(false), 2000);
     };
@@ -108,11 +153,11 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                 }
                 seenInBatch.add(norm);
 
-                const reading = String(item.reading || item.furigana || item.kana || item.pronunciation || item.romaji || '').trim();
+                const reading = String(item.reading || item.furigana || item.kana || item.pronunciation || item.ipa || item.romaji || '').trim();
                 const back = String(item.back || item.meaning || item.definition || item.vietnamese || item.definition_vi || '').trim();
                 const sinoVietnamese = String(item.sinoVietnamese || item.hanViet || item.sino_vietnamese || '').trim();
                 const pos = String(item.pos || item.partOfSpeech || item.type || '').trim();
-                const level = String(item.level || item.jlpt || item.jlptLevel || '').trim();
+                const level = String(item.level || item.jlpt || item.jlptLevel || item.cefr || '').trim();
 
                 let rawExample = '';
                 let rawExampleMeaning = '';
@@ -124,7 +169,7 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                         if (typeof ex === 'string') {
                             exList.push(ex.match(/^\d+\./) ? ex : `${exIdx + 1}. ${ex}`);
                         } else if (ex && typeof ex === 'object') {
-                            const sentence = ex.sentence || ex.ja || ex.japanese || ex.example || ex.text || '';
+                            const sentence = ex.sentence || ex.ja || ex.en || ex.japanese || ex.english || ex.example || ex.text || '';
                             const meaning = ex.meaning || ex.vi || ex.vietnamese || ex.exampleMeaning || ex.translation || '';
                             if (sentence) exList.push(sentence.match(/^\d+\./) ? sentence : `${exIdx + 1}. ${sentence}`);
                             if (meaning) exMeanList.push(meaning.match(/^\d+\./) ? meaning : `${exIdx + 1}. ${meaning}`);
@@ -141,9 +186,9 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                         : String(item.exampleMeaning || item.exampleTranslation || item.example_meaning || item.sentence_meaning || '').trim();
                 }
 
-                const example = cleanJapaneseExampleSentence(rawExample);
+                const example = isEnglishMode ? rawExample.trim() : cleanJapaneseExampleSentence(rawExample);
                 const exampleMeaning = rawExampleMeaning.trim();
-                const synonym = String(item.synonym || item.synonyms || '').trim();
+                const synonym = String(item.synonym || item.synonyms || item.antonym || item.antonyms || '').trim();
                 const synonymSinoVietnamese = String(item.synonymSinoVietnamese || item.synonymHanViet || item.synonym_sino_vietnamese || '').trim();
                 const nuance = String(item.nuance || item.note || item.notes || '').trim();
 
@@ -161,7 +206,7 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                     synonym: synonym,
                     synonymSinoVietnamese: synonymSinoVietnamese,
                     nuance: nuance,
-                    ipa: '',
+                    ipa: isEnglishMode ? (reading || String(item.ipa || '').trim()) : '',
                     accent: '',
                     imageBase64: null,
                     audioBase64: null
@@ -206,7 +251,9 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                                 Nhập từ vựng bằng JSON thủ công
                             </h3>
                             <p className="text-xs text-slate-500 dark:text-slate-400">
-                                Sao chép Prompt đầy đủ trường dữ liệu bên dưới để nhờ AI soạn danh sách từ vựng
+                                {isEnglishMode
+                                    ? 'Sao chép Prompt chuẩn tiếng Anh bên dưới để nhờ AI soạn danh sách từ vựng'
+                                    : 'Sao chép Prompt đầy đủ trường dữ liệu bên dưới để nhờ AI soạn danh sách từ vựng'}
                             </p>
                         </div>
                     </div>
@@ -223,7 +270,11 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2 text-slate-700 dark:text-slate-200 font-bold text-xs">
                             <FileJson className="w-4 h-4 text-blue-500" />
-                            <span>Prompt AI đầy đủ các trường từ vựng (ChatGPT / Gemini / Claude)</span>
+                            <span>
+                                {isEnglishMode
+                                    ? 'Prompt AI đầy đủ các trường từ vựng tiếng Anh (ChatGPT / Gemini / Claude)'
+                                    : 'Prompt AI đầy đủ các trường từ vựng tiếng Nhật (ChatGPT / Gemini / Claude)'}
+                            </span>
                         </div>
                         <button
                             onClick={handleCopyPrompt}
@@ -234,7 +285,7 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                         </button>
                     </div>
                     <pre className="text-[11px] font-mono leading-relaxed bg-white/90 dark:bg-slate-950/90 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 whitespace-pre-wrap max-h-56 overflow-y-auto custom-scrollbar">
-                        {SAMPLE_PROMPT}
+                        {currentPrompt}
                     </pre>
                 </div>
 
@@ -250,7 +301,11 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                             setErrorMsg('');
                         }}
                         rows={6}
-                        placeholder={`Dán chuỗi JSON từ AI vào đây, ví dụ:\n[\n  {\n    "front": "勉強",\n    "reading": "べんきょう",\n    "back": "Học tập, học hành",\n    "sinoVietnamese": "MIỄN CƯỜNG",\n    "pos": "Danh từ / Động từ nhóm 3",\n    "level": "N5",\n    "example": "1. 毎日日本語を2時間勉強しています。\\n2. 図書館で友達と一緒に勉強しました。",\n    "exampleMeaning": "1. Tôi học tiếng Nhật 2 tiếng mỗi ngày.\\n2. Tôi đã cùng bạn học bài ở thư viện.",\n    "synonym": "学習",\n    "synonymSinoVietnamese": "HỌC TẬP",\n    "nuance": "Dùng trong học tập kiến thức, thi cử."\n  }\n]`}
+                        placeholder={
+                            isEnglishMode
+                                ? `Dán chuỗi JSON từ AI vào đây, ví dụ:\n[\n  {\n    "front": "Accomplish",\n    "reading": "/əˈkɑːm.plɪʃ/",\n    "back": "Hoàn thành, đạt được",\n    "pos": "Verb (Động từ)",\n    "level": "B2",\n    "example": "1. If we work together, we can accomplish anything.\\n2. She accomplished such a lot during her visit.",\n    "exampleMeaning": "1. Nếu chúng ta làm việc cùng nhau, chúng ta có thể hoàn thành bất cứ điều gì.\\n2. Cô ấy đã đạt được rất nhiều thành tựu.",\n    "synonym": "Achieve, Complete",\n    "nuance": "Dùng cho việc hoàn thành mục tiêu sau nỗ lực."\n  }\n]`
+                                : `Dán chuỗi JSON từ AI vào đây, ví dụ:\n[\n  {\n    "front": "勉強",\n    "reading": "べんきょう",\n    "back": "Học tập, học hành",\n    "sinoVietnamese": "MIỄN CƯỜNG",\n    "pos": "Danh từ / Động từ nhóm 3",\n    "level": "N5",\n    "example": "1. 毎日日本語を2時間勉強しています。\\n2. 図書館で友達と一緒に勉強しました。",\n    "exampleMeaning": "1. Tôi học tiếng Nhật 2 tiếng mỗi ngày.\\n2. Tôi đã cùng bạn học bài ở thư viện.",\n    "synonym": "学習",\n    "synonymSinoVietnamese": "HỌC TẬP",\n    "nuance": "Dùng trong học tập kiến thức, thi cử."\n  }\n]`
+                        }
                         className="w-full p-3.5 text-xs font-mono bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-2xl focus:ring-2 focus:ring-indigo-500 outline-none text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-600 transition-all custom-scrollbar"
                     />
                     {errorMsg && (
@@ -283,3 +338,4 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
 };
 
 export default JsonImportModal;
+

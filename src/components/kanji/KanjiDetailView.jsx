@@ -252,7 +252,7 @@ const KanjiDetailView = ({
     if (!selectedKanji) return null;
 
     const content = (
-        <div className="w-full h-fit flex flex-col">
+        <div className="w-full h-full flex-1 min-h-0 flex flex-col overflow-hidden">
             {/* Top Navigation Bar */}
             <div className="flex justify-between items-center mb-3 sm:mb-4 flex-shrink-0">
                 <button 
@@ -279,12 +279,12 @@ const KanjiDetailView = ({
             </div>
 
             {/* Main 3-Column Layout */}
-            <div className="overflow-y-auto pr-1">
+            <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain pr-1 sm:pr-2 pb-6 space-y-4">
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 items-start">
                     
                     {/* COLUMN 1: Stroke Animation Canvas (No Stroke Order Guide) */}
                     <div className="lg:col-span-4 flex flex-col items-center">
-                        <div className="w-full max-w-[360px] lg:max-w-none bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl aspect-square flex items-center justify-center relative shadow-xs overflow-hidden">
+                        <div className="w-full max-w-[220px] sm:max-w-[280px] lg:max-w-none bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl aspect-square flex items-center justify-center relative shadow-xs overflow-hidden">
                             <div
                                 key={`kanji-display-${selectedKanji}`}
                                 ref={detailWriterContainerRef}
@@ -662,8 +662,8 @@ const KanjiDetailView = ({
     if (typeof document === 'undefined') return null;
 
     return createPortal(
-        <div className="fixed inset-0 bg-black/70 dark:bg-black/85 backdrop-blur-md z-[100000] flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-8 pt-[max(0.75rem,env(safe-area-inset-top))] pb-[max(0.75rem,env(safe-area-inset-bottom))] animate-fade-in overflow-y-auto">
-            <div className="w-full max-w-[96vw] lg:max-w-[1420px] h-fit max-h-[92vh] bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 flex flex-col p-4 sm:p-5 overflow-hidden my-auto">
+        <div className="fixed inset-0 bg-black/70 dark:bg-black/85 backdrop-blur-md z-[100000] flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-8 pt-[max(0.75rem,env(safe-area-inset-top))] pb-[max(0.75rem,env(safe-area-inset-bottom))] animate-fade-in overflow-hidden">
+            <div className="w-full max-w-[96vw] lg:max-w-[1420px] h-[92vh] sm:h-auto sm:max-h-[92vh] bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 flex flex-col p-3.5 sm:p-5 overflow-hidden my-auto">
                 {content}
             </div>
         </div>,

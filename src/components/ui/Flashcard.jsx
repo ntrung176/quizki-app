@@ -308,27 +308,50 @@ const Flashcard = ({
                             <span>🩸 Thẻ khó thuộc (Quên {card.lapseCount || card.srsLapseCount || 3} lần)</span>
                         </div>
                     )}
-                    {card.pos && (
-                        <span className={variant === 'review' || variant === 'emerald' ? 
-                            "inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full font-sans mb-1" : 
-                            "inline-block px-2.5 py-0.5 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 rounded-full text-xs font-semibold text-slate-500 dark:text-slate-400 font-sans mb-1"
-                        }>
-                            {getPosLabel(card.pos)}
-                        </span>
-                    )}
-                    <div className={`${scale.frontWordSize} font-bold ${wordColorClass} select-none leading-relaxed break-words overflow-wrap-anywhere max-w-full w-full text-center px-2`}>
-                        {card.back}
-                    </div>
-                    {!isEnglishCard && cardSettings.front?.hanviet && card.sinoVietnamese && (
-                        <p className={`${hanvietColorClass} ${scale.hanvietSize || 'text-[14px] md:text-base'} font-bold break-words`}>
-                            <span className={variant === 'review' || variant === 'emerald' ? "text-indigo-200 font-normal" : "text-slate-400 dark:text-slate-500 font-normal"}>Hán Việt: </span>{card.sinoVietnamese}
-                        </p>
+                    {isEnglishCard ? (
+                        <>
+                            {card.pos && (cardSettings.front?.pos !== false) && (
+                                <span className={variant === 'review' || variant === 'emerald' ? 
+                                    "inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full font-sans mb-1" : 
+                                    "inline-block px-2.5 py-0.5 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 rounded-full text-xs font-semibold text-slate-500 dark:text-slate-400 font-sans mb-1"
+                                }>
+                                    {getPosLabel(card.pos)}
+                                </span>
+                            )}
+                            <div className={`${scale.frontWordSize} font-bold ${wordColorClass} select-none leading-relaxed break-words overflow-wrap-anywhere max-w-full w-full text-center px-2`}>
+                                {card.back}
+                            </div>
+                            {formatIPA(card.ipa, card.front) && (cardSettings.front?.ipa !== false) && (
+                                <span className="text-sm sm:text-base font-mono font-medium text-indigo-500 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-3 py-0.5 rounded-full border border-indigo-200/60 dark:border-indigo-800/60">
+                                    {formatIPA(card.ipa, card.front)}
+                                </span>
+                            )}
+                        </>
+                    ) : (
+                        <>
+                            {card.pos && (
+                                <span className={variant === 'review' || variant === 'emerald' ? 
+                                    "inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full font-sans mb-1" : 
+                                    "inline-block px-2.5 py-0.5 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 rounded-full text-xs font-semibold text-slate-500 dark:text-slate-400 font-sans mb-1"
+                                }>
+                                    {getPosLabel(card.pos)}
+                                </span>
+                            )}
+                            <div className={`${scale.frontWordSize} font-bold ${wordColorClass} select-none leading-relaxed break-words overflow-wrap-anywhere max-w-full w-full text-center px-2`}>
+                                {card.back}
+                            </div>
+                            {cardSettings.front?.hanviet && card.sinoVietnamese && (
+                                <p className={`${hanvietColorClass} ${scale.hanvietSize || 'text-[14px] md:text-base'} font-bold break-words`}>
+                                    <span className={variant === 'review' || variant === 'emerald' ? "text-indigo-200 font-normal" : "text-slate-400 dark:text-slate-500 font-normal"}>Hán Việt: </span>{card.sinoVietnamese}
+                                </p>
+                            )}
+                        </>
                     )}
                 </div>
             );
         }
 
-        // Khi swapSides = false: Mặt trước là Từ vựng tiếng Nhật (Prompt)
+        // Khi swapSides = false: Mặt trước là Từ vựng tiếng Nhật / Anh (Prompt)
         return (
             <div className={`flex-1 flex flex-col items-center justify-center text-center ${scale.contentGap || 'space-y-2 sm:space-y-3'} w-full my-auto px-2 py-2 overflow-y-auto no-scrollbar`}>
                 {isLeechCard(card) && (
@@ -336,12 +359,20 @@ const Flashcard = ({
                         <span>🩸 Thẻ khó thuộc (Quên {card.lapseCount || card.srsLapseCount || 3} lần)</span>
                     </div>
                 )}
-                {cardSettings.front.word && (
+                {cardSettings.front?.word !== false && (
                     <div className={`${scale.frontWordSize} font-bold ${wordColorClass} select-none leading-relaxed break-words overflow-wrap-anywhere max-w-full w-full text-center px-2 flex flex-col items-center justify-center gap-2`}>
                         {isEnglishCard ? (
                             <>
+                                {card.pos && (cardSettings.front?.pos !== false) && (
+                                    <span className={variant === 'review' || variant === 'emerald' ? 
+                                        "inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full font-sans" : 
+                                        "inline-block px-2.5 py-0.5 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 rounded-full text-xs font-semibold text-slate-500 dark:text-slate-400 font-sans"
+                                    }>
+                                        {getPosLabel(card.pos)}
+                                    </span>
+                                )}
                                 <span>{card.front}</span>
-                                {formatIPA(card.ipa, card.front) && (
+                                {formatIPA(card.ipa, card.front) && (cardSettings.front?.ipa !== false) && (
                                     <span className="text-sm sm:text-base font-mono font-medium text-indigo-500 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-3 py-0.5 rounded-full border border-indigo-200/60 dark:border-indigo-800/60">
                                         {formatIPA(card.ipa, card.front)}
                                     </span>
@@ -352,7 +383,7 @@ const Flashcard = ({
                         )}
                     </div>
                 )}
-                {!isEnglishCard && !cardSettings.front.word && cardSettings.front.furigana && (
+                {!isEnglishCard && !cardSettings.front?.word && cardSettings.front?.furigana && (
                     <div className={`${scale.frontWordSize} font-bold ${wordColorClass} font-japanese select-none leading-relaxed break-words overflow-wrap-anywhere max-w-full w-full text-center px-2`}>
                         <FuriganaText text={card.frontWithFurigana || card.front} knownReading={card.reading} showReadingOnly={true} className="break-words whitespace-normal text-center" />
                     </div>
@@ -387,16 +418,16 @@ const Flashcard = ({
             meaningColorClass = "text-white";
         }
 
-        const showReading = isTypingMode || cardSettings.back.reading;
+        const showReading = Boolean(cardSettings.back?.reading);
         // Khi swapSides = true: Mặt trước đã hiển thị nghĩa tiếng Việt (card.back), không lặp lại ở mặt đáp án
-        const showMeaning = !cardSettings?.swapSides && (isTypingMode || cardSettings.back.meaning);
-        const showHanviet = isTypingMode || cardSettings.back.hanviet;
-        const showSynonym = isTypingMode || cardSettings.back.synonym;
-        const showExample = isTypingMode || cardSettings.back.example;
-        const showPitchAccent = isTypingMode || cardSettings.back.pitchAccent !== false;
-        const showSynonymFurigana = isTypingMode || cardSettings.back.synonymFurigana !== false;
-        const showExampleFurigana = isTypingMode || cardSettings.back.exampleFurigana !== false;
-        const showExampleMeaning = isTypingMode || cardSettings.back.exampleMeaning !== false;
+        const showMeaning = !cardSettings?.swapSides && (cardSettings.back?.meaning !== false);
+        const showHanviet = Boolean(cardSettings.back?.hanviet);
+        const showSynonym = Boolean(cardSettings.back?.synonym);
+        const showExample = Boolean(cardSettings.back?.example);
+        const showPitchAccent = cardSettings.back?.pitchAccent !== false;
+        const showSynonymFurigana = cardSettings.back?.synonymFurigana !== false;
+        const showExampleFurigana = cardSettings.back?.exampleFurigana !== false;
+        const showExampleMeaning = cardSettings.back?.exampleMeaning !== false;
 
         const renderReadingWithPitchAccent = () => {
             const text = card.frontWithFurigana || card.front || '';
@@ -531,12 +562,12 @@ const Flashcard = ({
                     {isEnglishCard ? (
                         (formatIPA(card.ipa, card.front) || card.pos) && (
                             <div className="flex items-center justify-center gap-2 flex-wrap mb-1 shrink-0">
-                                {formatIPA(card.ipa, card.front) && (isTypingMode || cardSettings.back.ipa !== false) && (
+                                {formatIPA(card.ipa, card.front) && (cardSettings.back?.ipa !== false) && (
                                     <span className="text-base sm:text-lg font-mono font-semibold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-3 py-0.5 rounded-full border border-indigo-200/60 dark:border-indigo-800/60">
                                         {formatIPA(card.ipa, card.front)}
                                     </span>
                                 )}
-                                {card.pos && (isTypingMode || cardSettings.back.pos !== false) && (
+                                {card.pos && (cardSettings.back?.pos !== false) && (
                                     <span className={variant === 'review' || variant === 'emerald' ? 
                                         "inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full font-sans" : 
                                         "inline-block px-2.5 py-0.5 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 rounded-full text-xs font-semibold text-slate-500 dark:text-slate-400 font-sans"
@@ -566,17 +597,17 @@ const Flashcard = ({
                             {card.back}
                         </div>
                     )}
-                    {((showHanviet && (card.sinoVietnamese || card.ipa)) || (showSynonym && card.synonym)) && (
+                    {((!isEnglishCard && showHanviet && card.sinoVietnamese) || (showSynonym && card.synonym)) && (
                         <div className={`flex items-baseline justify-center gap-2 sm:gap-3 ${scale.hanvietSize || 'text-[13px] md:text-[14px]'} shrink-0 font-bold mt-0.5 flex-wrap`}>
-                            {showHanviet && (card.sinoVietnamese || card.ipa) && (
+                            {!isEnglishCard && showHanviet && card.sinoVietnamese && (
                                 <span className={`inline-flex items-baseline ${variant === 'review' || variant === 'emerald' ? 'text-yellow-300' : 'text-slate-700 dark:text-slate-300'}`}>
                                     <span className={variant === 'review' || variant === 'emerald' ? "text-emerald-100 font-normal mr-1" : "text-slate-400 dark:text-slate-500 font-normal mr-1"}>
-                                        {card.ipa ? 'IPA:' : 'Hán Việt:'}
+                                        Hán Việt:
                                     </span>
-                                    {card.ipa || card.sinoVietnamese}
+                                    {card.sinoVietnamese}
                                 </span>
                             )}
-                            {showHanviet && card.sinoVietnamese && showSynonym && card.synonym && (
+                            {!isEnglishCard && showHanviet && card.sinoVietnamese && showSynonym && card.synonym && (
                                 <span className={`inline-block ${variant === 'review' || variant === 'emerald' ? 'text-white/25' : 'text-slate-200 dark:text-slate-700'}`}>|</span>
                             )}
                             {showSynonym && card.synonym && (

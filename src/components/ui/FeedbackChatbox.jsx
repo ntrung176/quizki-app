@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { db, appId } from '../../config/firebase';
+import { db, auth, appId } from '../../config/firebase';
 import { collection, addDoc, onSnapshot, serverTimestamp, setDoc, doc, updateDoc } from 'firebase/firestore'
 import { MessageSquare, X, Send, Image as ImageIcon, Loader2, CornerUpLeft, Smile } from 'lucide-react'
 
@@ -140,12 +140,17 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
     useEffect(() => {
         if (!userId || !db) return;
 
+        let safetyTimer;
         if (isOpen && messages.length === 0) {
             setLoading(true);
+            safetyTimer = setTimeout(() => {
+                setLoading(false);
+            }, 2500);
         }
         const q = collection(db, chatPath);
 
         const unsubscribe = onSnapshot(q, (snapshot) => {
+            clearTimeout(safetyTimer);
             const list = snapshot.docs.map(doc => ({
                 id: doc.id,
                 ...doc.data()
@@ -174,11 +179,15 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
             });
             setLoading(false);
         }, (error) => {
+            clearTimeout(safetyTimer);
             console.error("Error loading chat messages:", error);
             setLoading(false);
         });
 
-        return () => unsubscribe();
+        return () => {
+            clearTimeout(safetyTimer);
+            unsubscribe();
+        };
     }, [userId, isOpen]);
 
     // Keep track of unread messages and admin read status
@@ -319,7 +328,8 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
     // Send Message
     const handleSendMessage = async (e) => {
         if (e && e.preventDefault) e.preventDefault();
-        if ((!inputText.trim() && !selectedImage) || sending || !userId) return;
+        const actualSenderId = auth?.currentUser?.uid || userId;
+        if ((!inputText.trim() && !selectedImage) || sending || !actualSenderId) return;
 
         setSending(true);
         const textToSend = inputText.trim();
@@ -341,30 +351,38 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
         setSelectedImage(null);
         setReplyingTo(null);
 
-        try {
-            await addDoc(collection(db, chatPath), {
-                userId,
-                senderId: userId,
-                senderName: profile?.displayName || 'Người dùng',
-                text: textToSend,
-                imageUrl: imageToSend || null,
-                isAdmin: false,
-                isSupportChat: true,
-                createdAt: serverTimestamp(),
-                replyTo: replyToPayload
-            });
+        const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error('Send timeout')), 7000));
 
-            await setDoc(statusDocRef, {
-                isSupportChat: true,
-                userId,
-                senderName: profile?.displayName || 'Người dùng',
-                email: profile?.email || '',
-                text: textToSend,
-                isAdminReply: false,
-                hasUnreadAdmin: true,
-                hasUnreadUser: false,
-                updatedAt: serverTimestamp()
-            }, { merge: true });
+        try {
+            const sendPromise = (async () => {
+                await addDoc(collection(db, chatPath), {
+                    userId: actualSenderId,
+                    authorId: actualSenderId,
+                    senderId: actualSenderId,
+                    senderName: profile?.displayName || auth?.currentUser?.displayName || 'Người dùng',
+                    text: textToSend,
+                    imageUrl: imageToSend || null,
+                    isAdmin: false,
+                    isSupportChat: true,
+                    createdAt: serverTimestamp(),
+                    replyTo: replyToPayload
+                });
+
+                await setDoc(statusDocRef, {
+                    isSupportChat: true,
+                    userId: actualSenderId,
+                    authorId: actualSenderId,
+                    senderName: profile?.displayName || auth?.currentUser?.displayName || 'Người dùng',
+                    email: profile?.email || auth?.currentUser?.email || '',
+                    text: textToSend,
+                    isAdminReply: false,
+                    hasUnreadAdmin: true,
+                    hasUnreadUser: false,
+                    updatedAt: serverTimestamp()
+                }, { merge: true });
+            })();
+
+            await Promise.race([sendPromise, timeoutPromise]);
 
             // Trigger scroll
             messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -373,7 +391,7 @@ const FeedbackChatbox = ({ userId, profile, isAdmin }) => {
             // Restore input on failure
             setInputText(textToSend);
             setSelectedImage(imageToSend);
-            alert("Không thể gửi tin nhắn. Vui lòng thử lại.");
+            alert("Không thể gửi tin nhắn. Vui lòng kiểm tra kết nối mạng và thử lại.");
         } finally {
             setSending(false);
         }

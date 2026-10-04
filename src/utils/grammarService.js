@@ -726,8 +726,24 @@ export const deleteGrammarPointsBatch = async (items) => {
 // ============== FETCH SINGLE GRAMMAR POINT (for detail/practice) ==============
 
 export const fetchGrammarPointById = async (grammarId, textbookId, lessonId) => {
+    if (!grammarId) return null;
     const editedMap = getEditedGrammarMap();
     const localEdited = editedMap[grammarId];
+
+    // 0. Instant in-memory check from cachedSharedGrammarPointsList (0ms latency!)
+    if (cachedSharedGrammarPointsList && cachedSharedGrammarPointsList.length > 0) {
+        const memFound = cachedSharedGrammarPointsList.find(pt => pt.id === grammarId);
+        if (memFound) {
+            const merged = localEdited ? { ...memFound, ...localEdited } : memFound;
+            return {
+                ...merged,
+                textbookId: textbookId || memFound.textbookId || 'master',
+                lessonId: lessonId || memFound.lessonId || 'master',
+                textbook: memFound.textbook || { id: textbookId || 'master', title: memFound.textbookTitle || `Kho Ngữ Pháp (${memFound.level || 'N4'})`, titleVi: memFound.textbookTitle || `Kho Ngữ Pháp (${memFound.level || 'N4'})` },
+                lesson: memFound.lesson || { id: lessonId || 'master', title: memFound.lessonTitle || 'Kho Ngữ Pháp Trung Tâm', meaning: 'Kho Ngữ Pháp Gốc' }
+            };
+        }
+    }
 
     // 1. Try CDN / local bundle first (has canonical Mazii structure, connection, furigana)
     let cdnFound = null;
@@ -757,11 +773,12 @@ export const fetchGrammarPointById = async (grammarId, textbookId, lessonId) => 
         console.warn("CDN lookup for grammar point failed:", err);
     }
 
-    // 2. Try Master Bank query from Firestore & merge
+    // 2. Try Master Bank query from Firestore with fast timeout
     try {
         const masterRef = doc(db, masterGrammarPath(), grammarId);
-        const masterSnap = await getDoc(masterRef);
-        if (masterSnap.exists()) {
+        const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error('Firestore timeout')), 2500));
+        const masterSnap = await Promise.race([getDoc(masterRef), timeoutPromise]);
+        if (masterSnap && masterSnap.exists()) {
             const data = masterSnap.data();
             const baseData = cdnFound ? { ...cdnFound, ...data } : data;
             // Preserve clean connection & structureRaw from canonical data if Firestore lacks them
@@ -785,14 +802,34 @@ export const fetchGrammarPointById = async (grammarId, textbookId, lessonId) => 
             };
         }
     } catch (e) {
-        console.warn("Master bank fetch for grammar point failed:", e);
+        // Fallback silently if master bank doc not found or timeout
     }
 
     if (cdnFound) {
         return localEdited ? { ...cdnFound, ...localEdited } : cdnFound;
     }
 
-    // 3. Try in-memory SWR pointsCache
+    // 3. Try points from full shared grammar list
+    try {
+        const sharedList = await getSharedGrammarPointsList();
+        if (sharedList && sharedList.length > 0) {
+            const found = sharedList.find(pt => pt.id === grammarId);
+            if (found) {
+                const merged = localEdited ? { ...found, ...localEdited } : found;
+                return {
+                    ...merged,
+                    textbookId: textbookId || found.textbookId || 'master',
+                    lessonId: lessonId || found.lessonId || 'master',
+                    textbook: found.textbook || { id: textbookId || 'master', title: found.textbookTitle || `Kho Ngữ Pháp (${found.level || 'N4'})`, titleVi: found.textbookTitle || `Kho Ngữ Pháp (${found.level || 'N4'})` },
+                    lesson: found.lesson || { id: lessonId || 'master', title: found.lessonTitle || 'Kho Ngữ Pháp Trung Tâm', meaning: 'Kho Ngữ Pháp Gốc' }
+                };
+            }
+        }
+    } catch (e) {
+        console.warn("Shared list lookup failed:", e);
+    }
+
+    // 4. Try in-memory SWR pointsCache
     if (textbookId && lessonId) {
         const key = `${textbookId}/${lessonId}`;
         if (pointsCache[key]) {
@@ -811,53 +848,36 @@ export const fetchGrammarPointById = async (grammarId, textbookId, lessonId) => 
         }
     }
 
+    // 5. Direct Firestore lookup if textbookId & lessonId are present with fast timeout
     try {
-        // If textbookId and lessonId are provided, query directly!
         if (textbookId && lessonId) {
             const gpRef = doc(db, grammarPointsPath(textbookId, lessonId), grammarId);
-            const gpSnap = await getDoc(gpRef);
-            if (gpSnap.exists()) {
-                const tbSnap = await getDoc(doc(db, textbooksPath(), textbookId));
-                const lsSnap = await getDoc(doc(db, lessonsPath(textbookId), lessonId));
+            const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error('Firestore timeout')), 2500));
+            const gpSnap = await Promise.race([getDoc(gpRef), timeoutPromise]);
+            if (gpSnap && gpSnap.exists()) {
+                let tbData = { id: textbookId };
+                let lsData = { id: lessonId };
+                try {
+                    const tbSnap = await getDoc(doc(db, textbooksPath(), textbookId));
+                    if (tbSnap.exists()) tbData = { id: textbookId, ...tbSnap.data() };
+                    const lsSnap = await getDoc(doc(db, lessonsPath(textbookId), lessonId));
+                    if (lsSnap.exists()) lsData = { id: lessonId, ...lsSnap.data() };
+                } catch (_) {}
                 return {
                     ...gpSnap.data(),
                     id: gpSnap.id,
                     textbookId,
                     lessonId,
-                    textbook: tbSnap.exists() ? { id: textbookId, ...tbSnap.data() } : { id: textbookId },
-                    lesson: lsSnap.exists() ? { id: lessonId, ...lsSnap.data() } : { id: lessonId }
+                    textbook: tbData,
+                    lesson: lsData
                 };
             }
         }
     } catch (err) {
-        console.warn("Direct Firestore fetch failed, falling back to search:", err);
+        console.warn("Direct Firestore fetch failed:", err);
     }
 
-    // Fallback nested loop query if textbookId/lessonId are not provided or if direct query fails
-    try {
-        const textbooksSnap = await getDocs(collection(db, textbooksPath()));
-        for (const tbDoc of textbooksSnap.docs) {
-            const lessonsSnap = await getDocs(collection(db, lessonsPath(tbDoc.id)));
-            for (const lessonDoc of lessonsSnap.docs) {
-                const gpRef = doc(db, grammarPointsPath(tbDoc.id, lessonDoc.id), grammarId);
-                const gpSnap = await getDoc(gpRef);
-                if (gpSnap.exists()) {
-                    return {
-                        ...gpSnap.data(),
-                        id: gpSnap.id,
-                        textbookId: tbDoc.id,
-                        lessonId: lessonDoc.id,
-                        textbook: { id: tbDoc.id, ...tbDoc.data() },
-                        lesson: { id: lessonDoc.id, ...lessonDoc.data() },
-                    };
-                }
-            }
-        }
-        return null;
-    } catch (e) {
-        console.error('Fetch grammar point by ID error:', e);
-        return null;
-    }
+    return null;
 };
 
 // ============== BULK JSON IMPORT ==============

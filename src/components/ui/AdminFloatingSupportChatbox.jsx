@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { db, appId } from '../../config/firebase';
+import { db, auth, appId } from '../../config/firebase';
 import { collection, addDoc, onSnapshot, serverTimestamp, setDoc, doc, query, where, getDocs, updateDoc } from 'firebase/firestore';
 import { MessageSquare, X, Send, Image as ImageIcon, Loader2, ChevronLeft, CornerUpLeft, Smile } from 'lucide-react';
 
@@ -357,37 +357,47 @@ const AdminFloatingSupportChatbox = ({ currentUserId }) => {
         setSelectedImage(null);
         setReplyingTo(null);
 
+        const actualSenderId = auth?.currentUser?.uid || currentUserId || 'admin';
+        const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error('Send timeout')), 7000));
+
         try {
-            // Add comment/message to the subcollection
-            await addDoc(collection(db, `artifacts/${appId}/forum/support_chat_${selectedUserId}/comments`), {
-                userId: selectedUserId,
-                senderId: currentUserId,
-                senderName: 'Ban quản trị QuizKi',
-                text: textToSend,
-                imageUrl: imageToSend || null,
-                isAdmin: true,
-                isSupportChat: true,
-                createdAt: serverTimestamp(),
-                replyTo: replyToPayload
-            });
+            const sendPromise = (async () => {
+                // Add comment/message to the subcollection
+                await addDoc(collection(db, `artifacts/${appId}/forum/support_chat_${selectedUserId}/comments`), {
+                    userId: selectedUserId,
+                    authorId: actualSenderId,
+                    senderId: actualSenderId,
+                    senderName: auth?.currentUser?.displayName || 'Ban quản trị QuizKi',
+                    text: textToSend,
+                    imageUrl: imageToSend || null,
+                    isAdmin: true,
+                    isSupportChat: true,
+                    createdAt: serverTimestamp(),
+                    replyTo: replyToPayload
+                });
 
-            // Update status doc
-            const statusDocRef = doc(db, `artifacts/${appId}/forum`, `support_chat_${selectedUserId}`);
-            await setDoc(statusDocRef, {
-                isSupportChat: true,
-                userId: selectedUserId,
-                text: textToSend,
-                isAdminReply: true,
-                hasUnreadUser: true,
-                hasUnreadAdmin: false,
-                updatedAt: serverTimestamp()
-            }, { merge: true });
+                // Update status doc
+                const statusDocRef = doc(db, `artifacts/${appId}/forum`, `support_chat_${selectedUserId}`);
+                await setDoc(statusDocRef, {
+                    isSupportChat: true,
+                    userId: selectedUserId,
+                    authorId: selectedUserId,
+                    text: textToSend,
+                    isAdminReply: true,
+                    hasUnreadUser: true,
+                    hasUnreadAdmin: false,
+                    updatedAt: serverTimestamp()
+                }, { merge: true });
+            })();
 
+            await Promise.race([sendPromise, timeoutPromise]);
         } catch (error) {
             console.error("Error sending admin reply floating:", error);
-            setReplyText(textToSend);
-            setSelectedImage(imageToSend);
-            alert("Lỗi khi gửi phản hồi.");
+            if (error?.message !== 'Send timeout') {
+                setReplyText(textToSend);
+                setSelectedImage(imageToSend);
+                alert("Lỗi khi gửi phản hồi: " + (error?.message || ''));
+            }
         } finally {
             setSending(false);
         }

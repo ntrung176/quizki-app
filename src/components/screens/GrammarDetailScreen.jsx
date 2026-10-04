@@ -85,35 +85,62 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
     const [nuanceNodes, setNuanceNodes] = useState([]);
 
     useEffect(() => {
-        (async () => {
-            setGp(null);
-            setLoading(true);
-            const data = await fetchGrammarPointById(grammarId, tb, ls);
-            setGp(data);
-            setLoading(false);
-            if (data?.id) {
-                const uid = getAuth().currentUser?.uid;
-                if (uid) {
-                    recordRecentGrammar(uid, data.id);
-                }
+        let isMounted = true;
+        setGp(null);
+        setLoading(true);
+
+        const safetyTimer = setTimeout(() => {
+            if (isMounted) {
+                setLoading(false);
             }
+        }, 2500);
 
-            // Load deep grammar breakdown & mindmap nuances if pattern exists
-            if (data?.pattern) {
-                const deepObj = await findDeepGrammarForPattern(data.pattern);
-                if (deepObj) {
-                    setDeepSections(parseDeepSections(deepObj));
-                } else {
-                    setDeepSections(null);
+        (async () => {
+            try {
+                const data = await fetchGrammarPointById(grammarId, tb, ls);
+                if (!isMounted) return;
+                setGp(data);
+                setLoading(false);
+                clearTimeout(safetyTimer);
+
+                if (data?.id) {
+                    const uid = getAuth().currentUser?.uid;
+                    if (uid) {
+                        recordRecentGrammar(uid, data.id);
+                    }
                 }
 
-                const nuances = await findNuancesForPattern(data.pattern);
-                setNuanceNodes(nuances || []);
-            } else {
-                setDeepSections(null);
-                setNuanceNodes([]);
+                // Load deep grammar breakdown & mindmap nuances if pattern exists
+                if (data?.pattern) {
+                    const deepObj = await findDeepGrammarForPattern(data.pattern);
+                    if (!isMounted) return;
+                    if (deepObj) {
+                        setDeepSections(parseDeepSections(deepObj));
+                    } else {
+                        setDeepSections(null);
+                    }
+
+                    const nuances = await findNuancesForPattern(data.pattern);
+                    if (!isMounted) return;
+                    setNuanceNodes(nuances || []);
+                } else {
+                    if (isMounted) {
+                        setDeepSections(null);
+                        setNuanceNodes([]);
+                    }
+                }
+            } catch (err) {
+                console.error("Error loading grammar detail:", err);
+                if (isMounted) setLoading(false);
+            } finally {
+                clearTimeout(safetyTimer);
             }
         })();
+
+        return () => {
+            isMounted = false;
+            clearTimeout(safetyTimer);
+        };
     }, [grammarId, tb, ls]);
 
 
