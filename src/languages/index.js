@@ -4,3 +4,4 @@
 export * from './languageAdapter';
 export * from './en';
 export * from './ja';
+export * from './ko';

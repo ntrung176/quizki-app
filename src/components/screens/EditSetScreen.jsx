@@ -11,7 +11,7 @@ import BatchAiModal from '../cards/BatchAiModal';
 import JsonImportModal from '../cards/JsonImportModal';
 import PremiumLockedModal from '../ui/PremiumLockedModal';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
-import { getLanguageService, isEnglishCard } from '../../languages';
+import { getLanguageService, isEnglishCard, isKoreanCard } from '../../languages';
 
 const isCardModified = (card, originalCard) => {
     if (!originalCard) return true;
@@ -53,7 +53,7 @@ const EditSetScreen = ({
     parentFolders = [],
     canUserUseAI
 }) => {
-    const { isEnglishMode } = useTargetLanguage();
+    const { isEnglishMode, isKoreanMode } = useTargetLanguage();
     const folder = folderId === 'unfiled' ? { name: 'Từ vựng lẻ', description: 'Các từ vựng không thuộc học phần nào', coverImage: null } : (folders.find(f => f.id === folderId) || { name: 'Học phần', description: '', coverImage: null });
     const [title, setTitle] = useState(folder.name || '');
     const [description, setDescription] = useState(folder.description || '');
@@ -179,8 +179,9 @@ const EditSetScreen = ({
         const aiData = await onGeminiAssist(card.front, card.pos, card.level, card.back, false);
 
         if (aiData) {
-            const langService = getLanguageService(card.front || card, isEnglishMode);
+            const langService = getLanguageService(card.front || card, isEnglishMode, isKoreanMode);
             const cardIsEng = langService.code === 'en';
+            const cardIsKo = langService.code === 'ko';
 
             setCards(prev => prev.map(c => {
                 if (c.id === id) {
@@ -191,15 +192,15 @@ const EditSetScreen = ({
                         ipa: cardIsEng ? (aiData.ipa || c.ipa || '') : '',
                         sinoVietnamese: cardIsEng ? '' : (aiData.sinoVietnamese || c.sinoVietnamese),
                         synonym: aiData.synonym || c.synonym,
-                        synonymSinoVietnamese: cardIsEng ? '' : (aiData.synonymSinoVietnamese || c.synonymSinoVietnamese),
+                        synonymSinoVietnamese: (cardIsEng || cardIsKo) ? '' : (aiData.synonymSinoVietnamese || c.synonymSinoVietnamese),
                         example: aiData.example || c.example,
                         exampleMeaning: aiData.exampleMeaning || c.exampleMeaning,
                         nuance: aiData.nuance || c.nuance,
                         pos: aiData.pos || c.pos,
                         level: aiData.level || c.level,
                         reading: cardIsEng ? '' : (aiData.reading || c.reading || ''),
-                        accent: cardIsEng ? '' : (aiData.accent !== undefined ? String(aiData.accent) : (c.accent || '')),
-                        targetLanguage: cardIsEng ? 'en' : 'ja'
+                        accent: (cardIsEng || cardIsKo) ? '' : (aiData.accent !== undefined ? String(aiData.accent) : (c.accent || '')),
+                        targetLanguage: cardIsKo ? 'ko' : (cardIsEng ? 'en' : 'ja')
                     };
                 }
                 return c;
@@ -430,6 +431,7 @@ const EditSetScreen = ({
 
                         if (isModified || needsFolderUpdate) {
                             const cardIsEng = isEnglishCard(card, isEnglishMode);
+                            const cardIsKo = isKoreanCard(card, isKoreanMode);
 
                             const updates = {
                                 front: card.front, back: card.back, 
@@ -438,10 +440,10 @@ const EditSetScreen = ({
                                 example: card.example, exampleMeaning: card.exampleMeaning, 
                                 nuance: card.nuance, pos: card.pos, level: card.level, 
                                 sinoVietnamese: cardIsEng ? '' : card.sinoVietnamese, 
-                                synonymSinoVietnamese: cardIsEng ? '' : card.synonymSinoVietnamese, 
+                                synonymSinoVietnamese: (cardIsEng || cardIsKo) ? '' : card.synonymSinoVietnamese, 
                                 reading: cardIsEng ? '' : (card.reading || ''), 
-                                accent: cardIsEng ? '' : (card.accent || ''),
-                                targetLanguage: cardIsEng ? 'en' : (card.targetLanguage || 'ja'),
+                                accent: (cardIsEng || cardIsKo) ? '' : (card.accent || ''),
+                                targetLanguage: cardIsKo ? 'ko' : (cardIsEng ? 'en' : (card.targetLanguage || 'ja')),
                                 imageBase64: card.imageBase64, audioBase64: card.audioBase64
                             };
                             if (needsFolderUpdate) {

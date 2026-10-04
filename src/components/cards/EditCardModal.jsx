@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Loader2, X, Image as ImageIcon, Music, Volume2, Trash2, Check, ChevronDown, AlertTriangle, Wrench, RefreshCw, ShieldAlert } from 'lucide-react';
-import { POS_TYPES, ENGLISH_POS_TYPES, JLPT_LEVELS, getPosLabel } from '../../config/constants';
+import { POS_TYPES, ENGLISH_POS_TYPES, KOREAN_POS_TYPES, JLPT_LEVELS, getPosLabel } from '../../config/constants';
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
 import { playAudio, generateAudioSilent } from '../../utils/audio';
@@ -9,10 +9,10 @@ import { doc, getDoc, updateDoc, setDoc } from 'firebase/firestore';
 
 import PremiumLockedModal from '../ui/PremiumLockedModal';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
-import { getLanguageService, isEnglishCard } from '../../languages';
+import { getLanguageService, isEnglishCard, isKoreanCard } from '../../languages';
 
 const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], canUserUseAI }) => {
-    const { isEnglishMode } = useTargetLanguage();
+    const { isEnglishMode, isKoreanMode } = useTargetLanguage();
     const [front, setFront] = useState(card?.front || '');
     const [back, setBack] = useState(card?.back || '');
     const [ipa, setIpa] = useState(card?.ipa || '');
@@ -38,6 +38,10 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
     const [posDropdownOpen, setPosDropdownOpen] = useState(false);
     const [showLevels, setShowLevels] = useState(false);
 
+    const langService = getLanguageService({ front, targetLanguage: card?.targetLanguage }, isEnglishMode, isKoreanMode);
+    const cardIsEnglish = langService.code === 'en' || isEnglishCard({ front }, isEnglishMode);
+    const cardIsKorean = langService.code === 'ko' || isKoreanCard({ front }, isKoreanMode);
+
     const handlePreFixAudio = () => {
         if (audioFixed || card?.audioFixed) {
             showToast("Từ vựng này đã được sửa audio trước đó (Tối đa 1 lần/từ).", "warning");
@@ -45,10 +49,10 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
         }
         const trimmedReading = customHiragana.trim();
         if (!trimmedReading) {
-            showToast("Vui lòng nhập cách đọc bằng Hiragana chuẩn xác.", "warning");
+            showToast(cardIsKorean ? "Vui lòng nhập từ vựng hoặc cách đọc tiếng Hàn chuẩn." : cardIsEnglish ? "Vui lòng nhập từ tiếng Anh chuẩn." : "Vui lòng nhập cách đọc bằng Hiragana chuẩn xác.", "warning");
             return;
         }
-        if (!cardIsEnglish) {
+        if (!cardIsEnglish && !cardIsKorean) {
             const isKana = /^[\u3040-\u309F\u30A0-\u30FF\s・ー]+$/.test(trimmedReading);
             if (!isKana) {
                 showToast("Cách đọc tiếng Nhật phải nhập bằng Hiragana hoặc Katakana (VD: もくどく).", "warning");
@@ -70,7 +74,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                 if (!cardIsEnglish) {
                     setReading(trimmedReading);
                 }
-                showToast("Đã tạo audio chuẩn Pitch Accent thành công!", "success");
+                showToast("Đã tạo audio phát âm chuẩn thành công!", "success");
                 playAudio(result.base64, front, null, null, trimmedReading);
             } else {
                 throw new Error("Không thể tạo audio từ máy chủ Microsoft Azure TTS. Vui lòng thử lại.");
@@ -101,13 +105,11 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
         }
     };
 
-    const langService = getLanguageService({ front, targetLanguage: card?.targetLanguage }, isEnglishMode);
-    const cardIsEnglish = langService.code === 'en' || isEnglishCard({ front }, isEnglishMode);
-
     const handleSave = async () => {
         if (!front.trim() || !back.trim()) return;
         setIsSaving(true);
         const isEng = cardIsEnglish || isEnglishCard({ front }, isEnglishMode);
+        const isKo = cardIsKorean || isKoreanCard({ front }, isKoreanMode);
         await onSave({
             cardId: card.id,
             front: front.trim(),
@@ -117,8 +119,8 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
             sinoVietnamese: isEng ? '' : sinoVietnamese,
             synonymSinoVietnamese: isEng ? '' : synonymSinoVietnamese,
             reading: isEng ? '' : (customHiragana.trim() || reading.trim()),
-            accent: isEng ? '' : accent.trim(),
-            targetLanguage: isEng ? 'en' : 'ja',
+            accent: (isEng || isKo) ? '' : accent.trim(),
+            targetLanguage: isKo ? 'ko' : (isEng ? 'en' : 'ja'),
             imageBase64: imagePreview,
             audioBase64: customAudio || card?.audioBase64 || null,
             audioFixed: audioFixed || card?.audioFixed || false
@@ -152,9 +154,16 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
         const aiData = await onGeminiAssist(front, pos, level, back);
         if (aiData) {
             const isEng = cardIsEnglish || aiData.targetLanguage === 'en';
-            if (isEng) {
+            const isKo = cardIsKorean || aiData.targetLanguage === 'ko';
+            if (isKo) {
                 setFront(aiData.front || front);
-                setIpa(aiData.ipa || formatIPA('', aiData.front || front));
+                setReading(aiData.reading || '');
+                setSinoVietnamese(aiData.sinoVietnamese || '');
+                setIpa('');
+                setAccent('');
+            } else if (isEng) {
+                setFront(aiData.front || front);
+                setIpa(aiData.ipa || '');
                 setSinoVietnamese('');
                 setReading('');
                 setAccent('');
@@ -199,7 +208,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="space-y-4">
                             <div className="space-y-2">
-                                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">Từ vựng ({cardIsEnglish ? 'Anh' : 'Nhật'})</label>
+                                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">Từ vựng ({cardIsKorean ? 'Hàn' : cardIsEnglish ? 'Anh' : 'Nhật'})</label>
                                 <div className="flex gap-2">
                                     <input type="text" value={front} onChange={(e) => setFront(e.target.value)}
                                         className="flex-1 px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 text-gray-900 dark:text-gray-100" />
@@ -241,7 +250,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                         />
                                         
                                         <div className="absolute left-0 mt-1.5 w-56 rounded-xl bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 py-1.5 z-50 text-sm font-medium text-slate-700 dark:text-slate-200 max-h-60 overflow-y-auto">
-                                        {Object.entries(cardIsEnglish ? ENGLISH_POS_TYPES : POS_TYPES).map(([key, value]) => {
+                                        {Object.entries(cardIsKorean ? KOREAN_POS_TYPES : cardIsEnglish ? ENGLISH_POS_TYPES : POS_TYPES).map(([key, value]) => {
                                                 if (key === 'grammar') {
                                                     return (
                                                         <div key={key} className="relative group/grammar">
@@ -309,7 +318,15 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                 <input type="text" value={back} onChange={(e) => setBack(e.target.value)} className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
                             </div>
                             <div className="grid grid-cols-2 gap-2">
-                                {cardIsEnglish ? (
+                                {cardIsKorean ? (
+                                    <>
+                                        <input type="text" value={reading} onChange={(e) => setReading(e.target.value)} placeholder="Phiên âm Romaja" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
+                                        <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)} placeholder="Âm Hán Hàn" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
+                                        <div className="col-span-2">
+                                            <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="w-full px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
+                                        </div>
+                                    </>
+                                ) : cardIsEnglish ? (
                                     <>
                                         <input type="text" value={ipa} onChange={(e) => setIpa(e.target.value)} placeholder="Phiên âm (IPA)" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100 font-mono" />
                                         <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
@@ -326,7 +343,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                             </div>
                         </div>
                         <div className="space-y-4">
-                            <textarea value={example} onChange={(e) => setExample(e.target.value)} rows="2" placeholder="Ví dụ (Nhật)" className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-gray-100" />
+                            <textarea value={example} onChange={(e) => setExample(e.target.value)} rows="2" placeholder={cardIsKorean ? "Ví dụ (Hàn)" : cardIsEnglish ? "Ví dụ (Anh)" : "Ví dụ (Nhật)"} className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-gray-100" />
                             <textarea value={exampleMeaning} onChange={(e) => setExampleMeaning(e.target.value)} rows="2" placeholder="Nghĩa ví dụ" className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-gray-100" />
                             <textarea value={nuance} onChange={(e) => setNuance(e.target.value)} rows="2" placeholder="Ghi chú" className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-gray-100" />
                             <div className="bg-gray-50 dark:bg-gray-700/50 p-3 rounded-xl space-y-3">
@@ -366,7 +383,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                         <div className="flex items-center justify-between">
                                             <label className="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
                                                 <Wrench className="w-3.5 h-3.5 text-indigo-500" />
-                                                <span>{cardIsEnglish ? 'Nhập từ chuẩn tiếng Anh:' : 'Nhập cách đọc Hiragana đúng:'}</span>
+                                                <span>{cardIsKorean ? 'Nhập từ tiếng Hàn chuẩn:' : cardIsEnglish ? 'Nhập từ chuẩn tiếng Anh:' : 'Nhập cách đọc Hiragana đúng:'}</span>
                                             </label>
                                             {(audioFixed || card?.audioFixed) && (
                                                 <span className="text-[10px] font-bold px-2 py-0.5 bg-emerald-100 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 rounded-full flex items-center gap-1 border border-emerald-300 dark:border-emerald-800">

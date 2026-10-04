@@ -34,6 +34,7 @@ import { getSharedGrammarPointsList, subscribeGrammarSrs } from '../../utils/gra
 import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { isEnglishCard } from '../../utils/englishVocab';
+import { isKoreanCard } from '../../languages/ko';
 import SrsModeSelectModal from '../srs/SrsModeSelectModal';
 
 // HomeScreen Component - Cyber-AI Futuristic Edition
@@ -297,7 +298,11 @@ const HomeScreen = ({
             };
         }
 
-        const langCards = allCards.filter(card => isEnglishCard(card, isEnglishMode) === isEnglishMode);
+        const langCards = allCards.filter(card => {
+            if (isEnglishMode) return isEnglishCard(card, true);
+            if (isKoreanMode) return isKoreanCard(card, true);
+            return !isEnglishCard(card, false) && !isKoreanCard(card, false);
+        });
         const dueCards = langCards.filter(card => isVocabCardDue(card)).length;
         const newCards = langCards.filter(card => !card.srsEnabled).length;
         const masteredCards = langCards.filter(card => isVocabCardMastered(card)).length;
@@ -321,7 +326,7 @@ const HomeScreen = ({
         } catch (_) {}
 
         return result;
-    }, [allCards, calculatedStreak, cachedStreak, isEnglishMode, cachedVocabStats]);
+    }, [allCards, calculatedStreak, cachedStreak, isEnglishMode, isKoreanMode, cachedVocabStats]);
 
 const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-xl sm:text-3xl font-black text-slate-900 dark:text-white leading-none font-mono" }) => {
     if (isLoading && (value === null || value === undefined)) {
@@ -336,79 +341,8 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
     );
 };
 
-    // Quick action cards adjusted for Japanese, Korean and English modes (Bento 6-card system)
+    // Quick action cards adjusted for Japanese, Korean and English modes
     const quickActions = useMemo(() => {
-        if (isKoreanMode) {
-            return [
-                {
-                    id: 'hangul-study',
-                    title: 'Bảng Chữ Hangul',
-                    subtitle: 'Luyện 40 nguyên âm, phụ âm & ghép vần chuẩn Seoul',
-                    badge: '40 ký tự & Batchim',
-                    badgeClass: 'bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20',
-                    icon: HangulHomeIcon,
-                    iconBg: 'bg-gradient-to-br from-cyan-500 to-sky-600 shadow-cyan-500/25',
-                    glowBg: 'bg-cyan-500',
-                    route: ROUTES.HANGUL,
-                },
-                {
-                    id: 'add',
-                    title: t('home.addVocabTitle', 'Thêm Từ Vựng'),
-                    subtitle: 'Tạo học phần mới hoặc nhập nhanh danh sách từ vựng',
-                    badge: 'Kho từ tiếng Hàn',
-                    badgeClass: 'bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20',
-                    icon: FolderPlus,
-                    iconBg: 'bg-gradient-to-br from-teal-500 to-cyan-600 shadow-teal-500/25',
-                    glowBg: 'bg-teal-500',
-                    route: ROUTES.VOCAB_ADD,
-                },
-                {
-                    id: 'korean-kaiwa',
-                    title: 'Luyện Nói AI (말하기)',
-                    subtitle: 'Phản xạ giao tiếp tiếng Hàn với trợ lý giọng nói AI',
-                    badge: 'Voice AI 1-1',
-                    badgeClass: 'bg-violet-500/10 text-violet-600 dark:text-violet-400 border border-violet-500/20',
-                    icon: MessageSquare,
-                    iconBg: 'bg-gradient-to-br from-violet-500 to-purple-600 shadow-violet-500/25',
-                    glowBg: 'bg-violet-500',
-                    route: ROUTES.JLPT_KAIWA,
-                },
-                {
-                    id: 'grammar-study',
-                    title: t('home.learnGrammarTitle', 'Học Ngữ Pháp'),
-                    subtitle: 'Mẫu câu tiếng Hàn, cấu trúc ngữ pháp & hội thoại',
-                    badge: 'Sơ cấp & Trung cấp',
-                    badgeClass: 'bg-sky-500/10 text-sky-600 dark:text-sky-400 border border-sky-500/20',
-                    icon: BookOpen,
-                    iconBg: 'bg-gradient-to-br from-sky-500 to-blue-600 shadow-sky-500/25',
-                    glowBg: 'bg-sky-500',
-                    route: ROUTES.GRAMMAR_REVIEW,
-                },
-                {
-                    id: 'kdrama-video',
-                    title: 'Video K-Drama',
-                    subtitle: 'Luyện nghe nói tự nhiên qua trích đoạn video phim ảnh',
-                    badge: 'Shadowing & Sub',
-                    badgeClass: 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20',
-                    icon: Film,
-                    iconBg: 'bg-gradient-to-br from-rose-500 to-pink-600 shadow-rose-500/25',
-                    glowBg: 'bg-rose-500',
-                    route: ROUTES.VIDEO_KAIWA,
-                },
-                {
-                    id: 'topik-test',
-                    title: 'Luyện Thi TOPIK',
-                    subtitle: 'Luyện tập bộ đề & thi thử chuẩn format TOPIK I & II',
-                    badge: 'TOPIK I & II',
-                    badgeClass: 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border border-amber-500/20',
-                    icon: Trophy,
-                    iconBg: 'bg-gradient-to-br from-amber-500 to-orange-600 shadow-amber-500/25',
-                    glowBg: 'bg-amber-500',
-                    route: ROUTES.JLPT_TEST,
-                },
-            ];
-        }
-
         if (isEnglishMode) {
             return [
                 {
@@ -427,6 +361,33 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
                     title: t('home.addVocabTitle', 'Thêm Từ Vựng'),
                     subtitle: 'Tạo bộ từ vựng mới hoặc nhập nhanh danh sách từ vựng',
                     badge: 'Oxford & IELTS',
+                    badgeClass: 'bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20',
+                    icon: FolderPlus,
+                    iconBg: 'bg-gradient-to-br from-teal-500 to-cyan-600 shadow-teal-500/25',
+                    glowBg: 'bg-teal-500',
+                    route: ROUTES.VOCAB_ADD,
+                },
+            ];
+        }
+
+        if (isKoreanMode) {
+            return [
+                {
+                    id: 'vocab-review',
+                    title: 'Ôn Tập Từ Vựng',
+                    subtitle: 'Ôn luyện từ vựng tiếng Hàn theo thuật toán lặp lại ngắt quãng SRS',
+                    badge: 'Spaced Repetition',
+                    badgeClass: 'bg-rose-500/10 text-rose-600 dark:text-rose-400 border border-rose-500/20',
+                    icon: BookOpen,
+                    iconBg: 'bg-gradient-to-br from-rose-500 to-pink-600 shadow-rose-500/25',
+                    glowBg: 'bg-rose-500',
+                    route: ROUTES.VOCAB_REVIEW,
+                },
+                {
+                    id: 'add',
+                    title: t('home.addVocabTitle', 'Thêm Từ Vựng'),
+                    subtitle: 'Tạo bộ từ vựng mới hoặc nhập nhanh danh sách từ vựng',
+                    badge: 'Kho từ tiếng Hàn & TOPIK',
                     badgeClass: 'bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20',
                     icon: FolderPlus,
                     iconBg: 'bg-gradient-to-br from-teal-500 to-cyan-600 shadow-teal-500/25',

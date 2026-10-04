@@ -1,16 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Loader2, Image as ImageIcon, Check, X, Wand2, ChevronDown } from 'lucide-react'
-import { POS_TYPES, JLPT_LEVELS, getPosLabel } from '../../config/constants'
+import { POS_TYPES, ENGLISH_POS_TYPES, KOREAN_POS_TYPES, JLPT_LEVELS, getPosLabel } from '../../config/constants'
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
 import PremiumLockedModal from '../ui/PremiumLockedModal';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
-import { getLanguageService, isEnglishCard, formatIPA } from '../../languages';
+import { getLanguageService, isEnglishCard, isKoreanCard, formatIPA } from '../../languages';
 
 const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExample, allCards = [], canUserUseAI }) => {
-    const { isEnglishMode } = useTargetLanguage();
-    const langService = getLanguageService({ front: card?.front, targetLanguage: card?.targetLanguage }, isEnglishMode);
+    const { isEnglishMode, isKoreanMode } = useTargetLanguage();
+    const langService = getLanguageService({ front: card?.front, targetLanguage: card?.targetLanguage }, isEnglishMode, isKoreanMode);
     const cardIsEnglish = langService.code === 'en' || isEnglishCard({ front: card?.front }, isEnglishMode);
+    const cardIsKorean = langService.code === 'ko' || isKoreanCard({ front: card?.front }, isKoreanMode);
     // All hooks must be called before any conditional return
     const [front, setFront] = useState(card?.front || '');
     const [back, setBack] = useState(card?.back || '');
@@ -65,6 +66,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
         if (!front.trim() || !back.trim()) return;
         setIsSaving(true);
         const isEng = cardIsEnglish || isEnglishCard({ front }, isEnglishMode);
+        const isKo = cardIsKorean || isKoreanCard({ front }, isKoreanMode);
         await onSave({
             cardId: card.id,
             front: front.trim(),
@@ -74,7 +76,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
             sinoVietnamese: isEng ? '' : sinoVietnamese,
             synonymSinoVietnamese: isEng ? '' : synonymSinoVietnamese,
             reading: isEng ? '' : reading.trim(),
-            targetLanguage: isEng ? 'en' : 'ja',
+            targetLanguage: isKo ? 'ko' : (isEng ? 'en' : 'ja'),
             imageBase64: imagePreview,
             audioBase64: null
         });
@@ -100,11 +102,17 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
             showToast('Từ vựng đã có trong học phần rồi.', 'warning');
             return;
         }
-        // AI sẽ tự động phân loại cấp độ JLPT, không cần user chọn trước
         setIsAiLoading(true);
         const aiData = await onGeminiAssist(front, pos, level, back);
         if (aiData) {
-            if (cardIsEnglish || aiData.targetLanguage === 'en') {
+            const isEng = cardIsEnglish || aiData.targetLanguage === 'en';
+            const isKo = cardIsKorean || aiData.targetLanguage === 'ko';
+            if (isKo) {
+                setFront(aiData.front || front);
+                setReading(aiData.reading || '');
+                setSinoVietnamese(aiData.sinoVietnamese || '');
+                setIpa('');
+            } else if (isEng) {
                 setFront(aiData.front || front);
                 setIpa(aiData.ipa || formatIPA(card?.ipa));
                 setSinoVietnamese('');
@@ -120,7 +128,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
             }
             if (aiData.meaning) setBack(aiData.meaning);
             if (aiData.synonym) setSynonym((aiData.synonym || '').replace(/[（\(][^）\)]+[）\)]/g, '').trim());
-            if (aiData.synonymSinoVietnamese && !cardIsEnglish) setSynonymSinoVietnamese(aiData.synonymSinoVietnamese);
+            if (aiData.synonymSinoVietnamese && !isEng) setSynonymSinoVietnamese(aiData.synonymSinoVietnamese);
             if (aiData.example) setExample(aiData.example);
             if (aiData.exampleMeaning) setExampleMeaning(aiData.exampleMeaning);
             if (aiData.nuance) setNuance(aiData.nuance);
@@ -153,7 +161,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-6">
                     <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
-                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">Từ vựng (Nhật)</label>
+                        <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">Từ vựng ({cardIsKorean ? 'Hàn' : cardIsEnglish ? 'Anh' : 'Nhật'})</label>
                         <div className="flex gap-2">
                             <input
                                 type="text"
@@ -209,7 +217,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
                                         />
                                         
                                         <div className="absolute left-0 mt-1.5 w-56 rounded-xl bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 py-1.5 z-50 text-sm font-medium text-slate-700 dark:text-slate-200">
-                                            {Object.entries(POS_TYPES).map(([key, value]) => {
+                                            {Object.entries(cardIsKorean ? KOREAN_POS_TYPES : cardIsEnglish ? ENGLISH_POS_TYPES : POS_TYPES).map(([key, value]) => {
                                                 if (key === 'grammar') {
                                                     return (
                                                         <div key={key} className="relative group/grammar">
@@ -276,7 +284,15 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
                         <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">Ý nghĩa</label>
                         <input type="text" value={back} onChange={(e) => setBack(e.target.value)} className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 lg:py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-sm md:text-base text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
                         <div className="grid grid-cols-2 gap-2 md:gap-4">
-                            {isEnglishMode ? (
+                            {cardIsKorean ? (
+                                <>
+                                    <input type="text" value={reading} onChange={(e) => setReading(e.target.value)} placeholder="Phiên âm Romaja" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
+                                    <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)} placeholder="Âm Hán Hàn" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
+                                    <div className="col-span-2">
+                                        <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
+                                    </div>
+                                </>
+                            ) : cardIsEnglish ? (
                                 <>
                                     <input type="text" value={ipa} onChange={(e) => setIpa(e.target.value)} placeholder="Phiên âm (IPA)" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
                                     <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="w-full px-2 md:px-3 py-1.5 md:py-2 text-xs md:text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 dark:focus:border-indigo-500 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
@@ -295,7 +311,7 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
                 </div>
                 <div className="space-y-6">
                     <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
-                        <textarea value={example} onChange={(e) => setExample(e.target.value)} rows="2" placeholder="Ví dụ (Nhật)" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
+                        <textarea value={example} onChange={(e) => setExample(e.target.value)} rows="2" placeholder={cardIsKorean ? "Ví dụ (Hàn)" : cardIsEnglish ? "Ví dụ (Anh)" : "Ví dụ (Nhật)"} className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
                         <textarea value={exampleMeaning} onChange={(e) => setExampleMeaning(e.target.value)} rows="2" placeholder="Nghĩa ví dụ" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
                         <textarea value={nuance} onChange={(e) => setNuance(e.target.value)} rows="3" placeholder="Ghi chú" className="w-full px-2 md:px-3 lg:px-4 py-1.5 md:py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-indigo-500 dark:focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 dark:focus:ring-indigo-900/50 text-xs md:text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500" />
                         {/* Extra examples generator */}

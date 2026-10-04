@@ -27,6 +27,30 @@ export const ENGLISH_POS_TYPES = {
     other: { label: 'Khác', color: 'bg-gray-100 text-gray-700 border-gray-200' }
 };
 
+export const KOREAN_POS_TYPES = {
+    noun: { label: 'Danh từ (명사)', color: 'bg-blue-100 text-blue-700 border-blue-200' },
+    verb: { label: 'Động từ (동사)', color: 'bg-red-100 text-red-700 border-red-200' },
+    adjective: { label: 'Tính từ (형용사)', color: 'bg-yellow-100 text-yellow-700 border-yellow-200' },
+    adverb: { label: 'Phó từ (부사)', color: 'bg-sky-100 text-sky-700 border-sky-200' },
+    particle: { label: 'Trợ từ (조사)', color: 'bg-cyan-100 text-cyan-700 border-cyan-200' },
+    conjunction: { label: 'Liên từ (접속사)', color: 'bg-pink-100 text-pink-700 border-pink-200' },
+    pronoun: { label: 'Đại từ (대명사)', color: 'bg-emerald-100 text-emerald-700 border-emerald-200' },
+    numeral: { label: 'Số từ (수사)', color: 'bg-indigo-100 text-indigo-700 border-indigo-200' },
+    determiner: { label: 'Định từ (관형사)', color: 'bg-purple-100 text-purple-700 border-purple-200' },
+    interjection: { label: 'Thán từ (감탄사)', color: 'bg-amber-100 text-amber-700 border-amber-200' },
+    expression: { label: 'Cụm từ / Quán dụng ngữ (관용구)', color: 'bg-teal-100 text-teal-700 border-teal-200' },
+    other: { label: 'Khác', color: 'bg-gray-100 text-gray-700 border-gray-200' }
+};
+
+export const TOPIK_LEVELS = [
+    { value: 'TOPIK 1', label: 'TOPIK 1', color: 'bg-emerald-100 text-emerald-700 border-emerald-200' },
+    { value: 'TOPIK 2', label: 'TOPIK 2', color: 'bg-teal-100 text-teal-700 border-teal-200' },
+    { value: 'TOPIK 3', label: 'TOPIK 3', color: 'bg-blue-100 text-blue-700 border-blue-200' },
+    { value: 'TOPIK 4', label: 'TOPIK 4', color: 'bg-sky-100 text-sky-700 border-sky-200' },
+    { value: 'TOPIK 5', label: 'TOPIK 5', color: 'bg-indigo-100 text-indigo-700 border-indigo-200' },
+    { value: 'TOPIK 6', label: 'TOPIK 6', color: 'bg-rose-100 text-rose-700 border-rose-200' }
+];
+
 // Alias map: AI có thể trả về dạng khác
 const POS_ALIASES = {
     'noun': 'noun',
@@ -181,10 +205,14 @@ export const getPosLabel = (posKey) => {
         'other': 'Khác'
     };
     
+    if (KOREAN_POS_TYPES[cleanKey]) return KOREAN_POS_TYPES[cleanKey].label;
+    if (ENGLISH_POS_TYPES[cleanKey]) return ENGLISH_POS_TYPES[cleanKey].label;
     if (dict[cleanKey]) return dict[cleanKey];
     
     const normalized = normalizePosKey(posKey);
     if (POS_TYPES[normalized]) return POS_TYPES[normalized].label;
+    if (KOREAN_POS_TYPES[normalized]) return KOREAN_POS_TYPES[normalized].label;
+    if (ENGLISH_POS_TYPES[normalized]) return ENGLISH_POS_TYPES[normalized].label;
     
     const matched = Object.keys(POS_TYPES).find(k => k.toLowerCase() === cleanKey);
     if (matched) return POS_TYPES[matched].label;
@@ -194,11 +222,11 @@ export const getPosLabel = (posKey) => {
 export const getPosColor = (posKey) => {
     if (!posKey) return 'bg-gray-100 text-gray-700 border-gray-200';
     const normalized = normalizePosKey(posKey);
-    return POS_TYPES[normalized]?.color || 'bg-gray-100 text-gray-700 border-gray-200';
+    return KOREAN_POS_TYPES[normalized]?.color || ENGLISH_POS_TYPES[normalized]?.color || POS_TYPES[normalized]?.color || 'bg-gray-100 text-gray-700 border-gray-200';
 };
 
 export const getLevelColor = (levelValue) => {
-    const level = JLPT_LEVELS.find(l => l.value === levelValue);
+    const level = JLPT_LEVELS.find(l => l.value === levelValue) || TOPIK_LEVELS.find(l => l.value === levelValue);
     return level ? level.color : 'bg-gray-100 text-gray-700 border-gray-200';
 };
 

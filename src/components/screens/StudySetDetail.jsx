@@ -18,6 +18,7 @@ import EditCardModal from '../cards/EditCardModal';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { POS_TYPES, getPosLabel } from '../../config/constants';
 import { formatIPA, isEnglishCard as checkIsEnglishCard, shouldRunJapaneseFeatures } from '../../utils/englishVocab';
+import { isKoreanCard as checkIsKoreanCard } from '../../languages/ko/hangul';
 import { normalizeSRSState, isVocabCardMastered, isVocabCardLearning } from '../../utils/srs';
 
 const parseWordAndReading = (text) => {
@@ -342,7 +343,7 @@ const StudySetDetail = ({
     onNavigateToAdd, onDeleteFolder, onSaveChanges, onSaveCardAudio,
     onDeleteCards, onDeleteCard, onToggleSrs, onGeminiAssist, canUserUseAI, onUpdateCard
 }) => {
-    const { isEnglishMode } = useTargetLanguage();
+    const { isEnglishMode, isKoreanMode } = useTargetLanguage();
     const [expandedCardIds, setExpandedCardIds] = useState(new Set());
     const [isAddingKanji, setIsAddingKanji] = useState(false);
     const [editingCard, setEditingCard] = useState(null);
@@ -1442,7 +1443,8 @@ const StudySetDetail = ({
                                     <div className="space-y-3">
                                         {visibleCards.map((card, idx) => {
                                             const isExpanded = expandedCardIds.has(card.id);
-                                            const cardIsEng = checkIsEnglishCard(card, isEnglishMode);
+                                            const cardIsKo = checkIsKoreanCard(card, isKoreanMode);
+                                            const cardIsEng = !cardIsKo && checkIsEnglishCard(card, isEnglishMode);
                                             return (
                                                 <div
                                                     key={card.id ? `${card.id}-${idx}` : idx}
@@ -1453,12 +1455,23 @@ const StudySetDetail = ({
                                                         <div className="flex-1 md:w-1/2 flex flex-col justify-center md:border-r border-gray-100 dark:border-gray-700 md:pr-6">
                                                             <div className="font-bold text-lg text-gray-900 dark:text-white flex items-center gap-2 flex-wrap">
                                                                 <InlineEditCell
-                                                                    value={cardIsEng ? card.front : (card.frontWithFurigana || card.front)}
-                                                                    isJapanese={!cardIsEng}
+                                                                    value={cardIsEng || cardIsKo ? card.front : (card.frontWithFurigana || card.front)}
+                                                                    isJapanese={!cardIsEng && !cardIsKo}
                                                                     onSave={(v) => handleInlineSave(card, 'front', v)}
                                                                     className="text-lg font-bold inline-block"
                                                                 />
-                                                                {cardIsEng ? (
+                                                                {cardIsKo ? (
+                                                                    card.reading && (
+                                                                        <div className="inline-flex items-center gap-1">
+                                                                            <InlineEditCell
+                                                                                value={card.reading}
+                                                                                placeholder="[Thêm Romaja]"
+                                                                                onSave={(v) => handleInlineSave(card, 'reading', v)}
+                                                                                className="text-xs font-mono text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-2 py-0.5 rounded-md border border-indigo-200/60 dark:border-indigo-800/60 inline-block min-w-[70px]"
+                                                                            />
+                                                                        </div>
+                                                                    )
+                                                                ) : cardIsEng ? (
                                                                     <div className="inline-flex items-center gap-1">
                                                                         <InlineEditCell
                                                                             value={formatIPA(card.ipa)}
@@ -1471,7 +1484,16 @@ const StudySetDetail = ({
                                                                     renderPitchAccent(card)
                                                                 )}
                                                             </div>
-                                                            {!cardIsEng && (
+                                                            {cardIsKo ? (
+                                                                <div className="text-yellow-600 dark:text-yellow-500 text-sm mt-1 font-medium min-h-[1.5rem] flex items-center">
+                                                                    <InlineEditCell
+                                                                        value={card.sinoVietnamese || ''}
+                                                                        placeholder="[Thêm Hán Hàn]"
+                                                                        onSave={(v) => handleInlineSave(card, 'sinoVietnamese', v)}
+                                                                        className="text-sm font-medium inline-block min-w-[100px]"
+                                                                    />
+                                                                </div>
+                                                            ) : !cardIsEng ? (
                                                                 <div className="text-yellow-600 dark:text-yellow-500 text-sm mt-1 font-medium min-h-[1.5rem] flex items-center">
                                                                     <InlineEditCell
                                                                         value={card.sinoVietnamese || ''}
@@ -1480,7 +1502,7 @@ const StudySetDetail = ({
                                                                         className="text-sm font-medium inline-block min-w-[100px]"
                                                                     />
                                                                 </div>
-                                                            )}
+                                                            ) : null}
                                                         </div>
                                                         <div className="flex-1 md:w-1/2 flex items-center justify-between gap-4">
                                                             <div className="flex-1 flex flex-col justify-center text-lg text-gray-800 dark:text-gray-200">
@@ -1918,7 +1940,68 @@ const StudySetDetail = ({
                                     <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
                                 </label>
                             </div>
-                            {isEnglishMode ? (
+                            {isKoreanMode ? (
+                                <>
+                                    <div>
+                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Hàn hiển thị:</p>
+                                        <div className="space-y-2.5 pl-1 text-[13px]">
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.front.word !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
+                                                <span>Từ vựng tiếng Hàn (Hangul)</span>
+                                            </label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.front.reading !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
+                                                <span>Phiên âm Romaja</span>
+                                            </label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
+                                                <span>Âm Hán Hàn</span>
+                                            </label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.front.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
+                                                <span>Từ loại (Danh từ, Động từ...)</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
+                                        <div className="space-y-2.5 pl-1 text-[13px]">
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.back.meaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
+                                                <span>Nghĩa tiếng Việt</span>
+                                            </label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.back.reading !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
+                                                <span>Phiên âm Romaja</span>
+                                            </label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
+                                                <span>Âm Hán Hàn</span>
+                                            </label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.back.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
+                                                <span>Từ loại (Danh từ, Động từ...)</span>
+                                            </label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-550 w-4 h-4" />
+                                                <span>Từ đồng nghĩa / Trái nghĩa</span>
+                                            </label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-550 w-4 h-4" />
+                                                <span>Câu ví dụ</span>
+                                            </label>
+                                            {cardSettings.back.example && (
+                                                <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
+                                                    <label className="flex items-center gap-2 cursor-pointer">
+                                                        <input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-550 w-4 h-4" />
+                                                        <span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span>
+                                                    </label>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                </>
+                            ) : isEnglishMode ? (
                                 <>
                                     <div>
                                         <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Anh hiển thị:</p>

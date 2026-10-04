@@ -3,10 +3,11 @@
  */
 
 const JAPANESE_CHAR_REGEX = /[\u3040-\u309F\u30A0-\u30FF\u4e00-\u9faf]/;
+const KOREAN_CHAR_REGEX = /[\uAC00-\uD7AF\u1100-\u11FF\u3130-\u318F\uA960-\uA97F\uD7B0-\uD7FF]/;
 
 export const isEnglishText = (text) => {
     if (!text || typeof text !== 'string') return true;
-    return !JAPANESE_CHAR_REGEX.test(text);
+    return !JAPANESE_CHAR_REGEX.test(text) && !KOREAN_CHAR_REGEX.test(text);
 };
 
 export const isEnglishCard = (card, isEnglishMode = false) => {
@@ -14,15 +15,17 @@ export const isEnglishCard = (card, isEnglishMode = false) => {
 
     if (typeof card === 'object') {
         if (card.targetLanguage === 'en') return true;
-        if (card.targetLanguage === 'ja') return false;
+        if (card.targetLanguage === 'ja' || card.targetLanguage === 'ko') return false;
         if (card.ipa && typeof card.ipa === 'string' && card.ipa.trim() !== '') return true;
     }
 
     const text = typeof card === 'string' ? card : (card.front || card.word || '');
     if (!text || text.trim() === '') return isEnglishMode;
 
-    // If it contains Japanese characters (Kanji, Hiragana, Katakana), it's definitely Japanese
+    // If it contains Japanese characters, it's Japanese
     if (JAPANESE_CHAR_REGEX.test(text)) return false;
+    // If it contains Korean Hangul characters, it's Korean
+    if (KOREAN_CHAR_REGEX.test(text)) return false;
 
     return isEnglishMode;
 };

@@ -12,10 +12,85 @@ const MASTER_TEST_FILE = path.resolve(PUBLIC_DATA_DIR, 'jlpt_data.json');
 
 if (!fs.existsSync(JLPT_OUT_DIR)) fs.mkdirSync(JLPT_OUT_DIR, { recursive: true });
 
+function extractChoicesFromAnalysis(analysisItem) {
+    if (!analysisItem) return null;
+    const why = analysisItem.why || [];
+    if (!Array.isArray(why) || why.length < 2) return null;
+
+    const choices = [];
+    let correctLetter = null;
+
+    // 1. Check verdict for correct answer letter
+    const vMatch = (analysisItem.verdict || '').match(/\(([a-dA-D1-4])\)/);
+    if (vMatch) {
+        correctLetter = vMatch[1].toLowerCase();
+    }
+
+    const jpOnlyRegex = /^[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF\u3400-\u4DBF\u3000-\u303Fー〜～\s\.\,\-\?\!\/]+/;
+
+    for (const w of why) {
+        // match: ✗ (a) <text> or ✓ (b) <text>
+        const m = w.match(/^[✓✗\s]*\(([a-dA-D1-4])\)\s*(.*)$/);
+        if (m) {
+            const letter = m[1].toLowerCase();
+            const rest = m[2].trim();
+            let optText = '';
+
+            if (rest.includes(':') || rest.includes('：')) {
+                // If colon exists, take everything before the first colon
+                optText = rest.split(/[:：]/)[0].trim();
+            } else {
+                // Extract first quote if exists
+                const quoteMatch = rest.match(/^[「『"']([^」』"']+)["'』」]/);
+                if (quoteMatch) {
+                    optText = quoteMatch[1].trim();
+                } else {
+                    const jpMatch = rest.match(jpOnlyRegex);
+                    if (jpMatch && jpMatch[0].trim()) {
+                        optText = jpMatch[0].trim();
+                    } else {
+                        // Match first word before any Vietnamese word/accent
+                        const vnMatch = rest.match(/^([^\s\:\：àáạảãâầấậẩẫăằắặẳẵèéẹẻẽêềếệểễìíịỉĩòóọỏõôồốộổỗơờớợởỡùúụủũưừứựửữỳýỵỷỹđ]+)/i);
+                        if (vnMatch) {
+                            optText = vnMatch[1].trim();
+                        } else {
+                            optText = rest.split(/\s+/)[0].trim();
+                        }
+                    }
+                }
+            }
+
+            // Remove wrap quotes or parenthesis
+            optText = optText.replace(/^[「『"'\s(]+|[」』"'\s)]+$/g, '').trim();
+
+            const idx = letter >= 'a' && letter <= 'd' ? letter.charCodeAt(0) - 97 : parseInt(letter, 10) - 1;
+            if (idx >= 0 && idx < 4) {
+                choices[idx] = optText;
+            }
+            if (w.includes('✓') && !correctLetter) {
+                correctLetter = letter;
+            }
+        }
+    }
+
+    let correctIdx = 0;
+    if (correctLetter) {
+        correctIdx = correctLetter >= 'a' && correctLetter <= 'd' ? correctLetter.charCodeAt(0) - 97 : parseInt(correctLetter, 10) - 1;
+    }
+
+    const validChoices = choices.filter(c => c && typeof c === 'string' && c.trim().length > 0);
+    if (validChoices.length === 4) {
+        return { choices, correctIdx };
+    }
+    return null;
+}
+
 function isValidChoice(c) {
     if (!c || typeof c !== 'string') return false;
     const s = c.trim();
     if (!s) return false;
+    if (/^[1-4]$/.test(s)) return false;
+    if (/^[ABCDabcd]$/.test(s)) return false;
     if (/^Đáp án [ABCD1234]$/i.test(s)) return false;
     if (s.includes('Tác giả phản đối và phủ định')) return false;
     if (s.includes('Đoạn văn chỉ tập trung phê bình')) return false;
@@ -49,18 +124,26 @@ function resolveAndShuffleChoices(rawChoices, rawAns, seedKey) {
     const stringChoices = rawChoices.map(c => typeof c === 'object' ? (c.ansText || c.text || '') : String(c)).map(s => s.trim()).filter(Boolean);
     if (stringChoices.length < 2) return null;
 
-    const ansStr = (rawAns ?? '').toString().trim();
     let correctChoiceText = '';
 
-    const exactIdx = stringChoices.findIndex(c => c === ansStr);
-    if (exactIdx !== -1) {
-        correctChoiceText = stringChoices[exactIdx];
-    } else {
-        const num = parseInt(ansStr, 10);
-        if (!isNaN(num) && num >= 1 && num <= stringChoices.length && String(num) === ansStr) {
-            correctChoiceText = stringChoices[num - 1];
-        } else if (typeof rawAns === 'number' && rawAns >= 0 && rawAns < stringChoices.length) {
-            correctChoiceText = stringChoices[rawAns];
+    if (typeof rawAns === 'number' && rawAns >= 0 && rawAns < stringChoices.length) {
+        // Direct 0-based index
+        correctChoiceText = stringChoices[rawAns];
+    } else if (typeof rawAns === 'string') {
+        const ansStr = rawAns.trim();
+        const exactIdx = stringChoices.findIndex(c => c === ansStr);
+        if (exactIdx !== -1) {
+            correctChoiceText = stringChoices[exactIdx];
+        } else if (/^[1-4]$/.test(ansStr)) {
+            const num = parseInt(ansStr, 10);
+            if (num >= 1 && num <= stringChoices.length) {
+                correctChoiceText = stringChoices[num - 1];
+            }
+        } else if (/^[abcd]$/i.test(ansStr)) {
+            const letterIdx = ansStr.toLowerCase().charCodeAt(0) - 97;
+            if (letterIdx >= 0 && letterIdx < stringChoices.length) {
+                correctChoiceText = stringChoices[letterIdx];
+            }
         } else {
             const noSpaceAns = ansStr.replace(/\s+/g, '');
             const fuzzyIdx = stringChoices.findIndex(c => c.replace(/\s+/g, '') === noSpaceAns);
@@ -70,6 +153,8 @@ function resolveAndShuffleChoices(rawChoices, rawAns, seedKey) {
                 correctChoiceText = stringChoices[0];
             }
         }
+    } else {
+        correctChoiceText = stringChoices[0];
     }
 
     const shuffled = seededShuffle(stringChoices, seedKey);
@@ -542,6 +627,20 @@ if (fs.existsSync(scrapedDir)) {
                         rawChoices = q.choices.map(c => typeof c === 'object' ? (c.ansText || c.text || '') : String(c)).filter(Boolean);
                     }
 
+                    // Check analysis entry first
+                    const analysis = getAnalysisForQuestion(analysisQMap, cleanSlug, tIdx, qIdx);
+                    let rawAns = q.correctAnswer ?? q.answer;
+
+                    // If raw choices are empty or dummy digits/letters (e.g. 1, 2, 3, 4), extract real choices from analysis
+                    const isDummyChoices = rawChoices.length === 0 || rawChoices.every(c => /^[1-4ABCDabcd\s\.\,\-]+$/.test(c.trim()));
+                    if (isDummyChoices && analysis) {
+                        const extracted = extractChoicesFromAnalysis(analysis);
+                        if (extracted && extracted.choices.length === 4) {
+                            rawChoices = extracted.choices;
+                            rawAns = extracted.correctIdx;
+                        }
+                    }
+
                     if (rawChoices.length < 2 || !rawChoices.every(isValidChoice)) {
                         testHasInvalidQ = true;
                         break;
@@ -568,15 +667,13 @@ if (fs.existsSync(scrapedDir)) {
                     }
 
                     const qUniqueKey = `${cleanSlug}-t${tIdx + 1}-q${qIdx + 1}-${qStem.slice(0, 20)}`;
-                    const resolved = resolveAndShuffleChoices(rawChoices, q.correctAnswer ?? q.answer, qUniqueKey);
+                    const resolved = resolveAndShuffleChoices(rawChoices, rawAns, qUniqueKey);
 
                     if (!resolved) {
                         testHasInvalidQ = true;
                         break;
                     }
 
-                    // Check analysis entry
-                    const analysis = getAnalysisForQuestion(analysisQMap, cleanSlug, tIdx, qIdx);
                     let finalExplanation = '';
 
                     if (analysis) {
@@ -801,10 +898,11 @@ const allMasterTests = [];
 
 for (const [lvl, tests] of Object.entries(levelTests)) {
     const lvlPath = path.join(JLPT_OUT_DIR, `${lvl.toLowerCase()}.json`);
-    fs.writeFileSync(lvlPath, JSON.stringify(tests, null, 2), 'utf-8');
+    fs.writeFileSync(lvlPath, JSON.stringify(tests), 'utf-8');
     allMasterTests.push(...tests);
-    console.log(`✨ ${lvl}: ${tests.length} tests written to ${lvl.toLowerCase()}.json`);
+    const sizeMb = (fs.statSync(lvlPath).size / (1024 * 1024)).toFixed(2);
+    console.log(`✨ ${lvl}: ${tests.length} tests written to ${lvl.toLowerCase()}.json (${sizeMb} MB)`);
 }
 
-fs.writeFileSync(MASTER_TEST_FILE, JSON.stringify(allMasterTests), 'utf-8');
-console.log(`\n🎉 100% COMPLETE! Master jlpt_data.json created with ${allMasterTests.length} tests total!`);
+fs.writeFileSync(MASTER_TEST_FILE, JSON.stringify([]), 'utf-8');
+console.log(`\n🎉 100% COMPLETE! Master jlpt_data.json initialized, ${allMasterTests.length} tests distributed across level files!`);

@@ -27,7 +27,7 @@ const QuickAddVocabForm = ({
     canUserUseAI
 }) => {
     const navigate = useNavigate();
-    const { isEnglishMode } = useTargetLanguage();
+    const { isEnglishMode, isKoreanMode } = useTargetLanguage();
     const [showPremiumModal, setShowPremiumModal] = useState(false);
     
     // Initialize cards with all fields to match CardEditorItem structure
@@ -129,8 +129,9 @@ const QuickAddVocabForm = ({
         const aiData = await onGeminiAssist(card.front, card.pos || '', card.level || '', card.back || '', false);
 
         if (aiData) {
-            const langService = getLanguageService(card.front || card, isEnglishMode);
+            const langService = getLanguageService(card.front || card, isEnglishMode, isKoreanMode);
             const cardIsEng = langService.code === 'en';
+            const cardIsKo = langService.code === 'ko';
 
             setCards(prev => prev.map(c => {
                 if (c.id === id) {
@@ -146,10 +147,10 @@ const QuickAddVocabForm = ({
                         example: aiData.example || '',
                         exampleMeaning: aiData.exampleMeaning || '',
                         nuance: aiData.nuance || '',
-                        synonymSinoVietnamese: cardIsEng ? '' : (aiData.synonymSinoVietnamese || ''),
+                        synonymSinoVietnamese: (cardIsEng || cardIsKo) ? '' : (aiData.synonymSinoVietnamese || ''),
                         reading: cardIsEng ? '' : (aiData.reading || ''),
-                        accent: cardIsEng ? '' : (aiData.accent !== undefined ? String(aiData.accent) : ''),
-                        targetLanguage: cardIsEng ? 'en' : 'ja'
+                        accent: (cardIsEng || cardIsKo) ? '' : (aiData.accent !== undefined ? String(aiData.accent) : ''),
+                        targetLanguage: cardIsKo ? 'ko' : (cardIsEng ? 'en' : 'ja')
                     };
                 }
                 return c;
@@ -214,7 +215,7 @@ const QuickAddVocabForm = ({
                     reading: card.reading || '',
                     accent: card.accent || '',
                     ipa: card.ipa || '',
-                    targetLanguage: card.targetLanguage || (isEnglishMode ? 'en' : 'ja'),
+                    targetLanguage: card.targetLanguage || (isKoreanMode ? 'ko' : (isEnglishMode ? 'en' : 'ja')),
                     synonym: card.synonym || '',
                     example: card.example || '',
                     exampleMeaning: card.exampleMeaning || '',

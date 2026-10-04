@@ -10,7 +10,7 @@ import Flashcard from '../ui/Flashcard';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import UnifiedStudyCompleteModal from '../review/UnifiedStudyCompleteModal';
 const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard, onSaveCardAudio, onBack }) => {
-    const { isEnglishMode } = useTargetLanguage();
+    const { isEnglishMode, isKoreanMode } = useTargetLanguage();
     // Load saved progress from localStorage
     const getSavedProgress = () => {
         try {
@@ -735,7 +735,68 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                                     <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
                                 </label>
                             </div>
-                            {isEnglishMode ? (
+                            {isKoreanMode ? (
+                                <>
+                                    <div>
+                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Hàn hiển thị:</p>
+                                        <div className="space-y-2.5 pl-1 text-[13px]">
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.front.word !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <span>Từ vựng tiếng Hàn (Hangul)</span>
+                                            </label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.front.reading !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <span>Phiên âm Romaja</span>
+                                            </label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <span>Âm Hán Hàn</span>
+                                            </label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.front.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <span>Từ loại (Danh từ, Động từ...)</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
+                                        <div className="space-y-2.5 pl-1 text-[13px]">
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.back.meaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <span>Nghĩa tiếng Việt</span>
+                                            </label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.back.reading !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <span>Phiên âm Romaja</span>
+                                            </label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <span>Âm Hán Hàn</span>
+                                            </label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.back.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <span>Từ loại (Danh từ, Động từ...)</span>
+                                            </label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <span>Từ đồng nghĩa / Trái nghĩa</span>
+                                            </label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <span>Câu ví dụ</span>
+                                            </label>
+                                            {cardSettings.back.example && (
+                                                <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
+                                                    <label className="flex items-center gap-2 cursor-pointer">
+                                                        <input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                        <span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span>
+                                                    </label>
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                </>
+                            ) : isEnglishMode ? (
                                 <>
                                     <div>
                                         <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Anh hiển thị:</p>

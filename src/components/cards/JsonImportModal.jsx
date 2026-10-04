@@ -40,6 +40,42 @@ LƯU Ý ĐẶC BIỆT VỀ CÂU VÍ DỤ:
   }
 ]`;
 
+const SAMPLE_PROMPT_KO = `Hãy tạo cho tôi danh sách từ vựng tiếng Hàn theo định dạng mảng JSON bên dưới. Trả về ĐÚNG 1 mảng JSON thuần túy (không kèm bất kỳ lời giải thích hay ký tự thừa nào ngoài cặp dấu ngoặc vuông []).
+
+LƯU Ý ĐẶC BIỆT VỀ CÂU VÍ DỤ:
+1. Mỗi từ vựng hãy tạo từ 2 đến 3 câu ví dụ tiếng Hàn tự nhiên hoàn chỉnh thể hiện các ngữ cảnh và cấu trúc câu thông dụng (giữ nguyên từ gốc trong câu ví dụ, không che từ hay dùng dấu gạch dưới).
+2. Phân dòng (\\n) và đánh số thứ tự 1., 2., 3. cho từng câu ví dụ ở trường "example".
+3. Dịch nghĩa tiếng Việt tương ứng cho từng câu ở trường "exampleMeaning", phân dòng (\\n) và đánh số 1., 2., 3. khớp hoàn toàn với các câu ở trường "example".
+
+[
+  {
+    "front": "공부하다",
+    "reading": "gong-bu-ha-da",
+    "back": "Học, học tập; nghiên cứu",
+    "sinoVietnamese": "CÔNG PHU",
+    "pos": "Động từ",
+    "level": "TOPIK 1",
+    "example": "1. 저는 매일 한국어를 2시간 공부해요.\\n2. 도서관에서 친구와 같이 공부했어요.\\n3. 열심히 공부해서 시험에 합격했어요.",
+    "exampleMeaning": "1. Tôi học tiếng Hàn 2 tiếng mỗi ngày.\\n2. Tôi đã cùng bạn học bài ở thư viện.\\n3. Tôi đã học hành chăm chỉ và thi đậu.",
+    "synonym": "배우다, 학습하다",
+    "synonymSinoVietnamese": "HỌC TẬP",
+    "nuance": "Dùng cho việc học tập kiến thức, thi cử hoặc nỗ lực rèn luyện."
+  },
+  {
+    "front": "약속",
+    "reading": "yak-sok",
+    "back": "Lời hứa, hẹn ước; cuộc hẹn",
+    "sinoVietnamese": "ƯỚC THÚC",
+    "pos": "Danh từ",
+    "level": "TOPIK 1",
+    "example": "1. 내일 친구와 만날 약속이 있어요.\\n2. 한번 한 약속은 꼭 지켜야 해요.",
+    "exampleMeaning": "1. Ngày mai tôi có hẹn gặp bạn bè.\\n2. Lời hứa một khi đã đưa ra thì nhất định phải giữ.",
+    "synonym": "다짐, 계약",
+    "synonymSinoVietnamese": "ƯỚC",
+    "nuance": "Dùng cho cả cuộc hẹn gặp mặt lẫn lời hứa thực hiện điều gì."
+  }
+]`;
+
 const SAMPLE_PROMPT_EN = `Hãy tạo cho tôi danh sách từ vựng tiếng Anh theo định dạng mảng JSON bên dưới. Trả về ĐÚNG 1 mảng JSON thuần túy (không kèm bất kỳ lời giải thích hay ký tự thừa nào ngoài cặp dấu ngoặc vuông []).
 
 LƯU Ý ĐẶC BIỆT VỀ CÂU VÍ DỤ:
@@ -76,14 +112,17 @@ LƯU Ý ĐẶC BIỆT VỀ CÂU VÍ DỤ:
 
 const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
     let isEnglishMode = false;
+    let isKoreanMode = false;
     try {
         const targetLang = useTargetLanguage();
         isEnglishMode = targetLang?.isEnglishMode || (localStorage.getItem('quizki_target_language') === 'en');
+        isKoreanMode = targetLang?.isKoreanMode || (localStorage.getItem('quizki_target_language') === 'ko');
     } catch (_) {
         isEnglishMode = localStorage.getItem('quizki_target_language') === 'en';
+        isKoreanMode = localStorage.getItem('quizki_target_language') === 'ko';
     }
 
-    const currentPrompt = isEnglishMode ? SAMPLE_PROMPT_EN : SAMPLE_PROMPT_JA;
+    const currentPrompt = isKoreanMode ? SAMPLE_PROMPT_KO : (isEnglishMode ? SAMPLE_PROMPT_EN : SAMPLE_PROMPT_JA);
 
     const [jsonInput, setJsonInput] = useState('');
     const [copiedPrompt, setCopiedPrompt] = useState(false);
@@ -186,7 +225,7 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                         : String(item.exampleMeaning || item.exampleTranslation || item.example_meaning || item.sentence_meaning || '').trim();
                 }
 
-                const example = isEnglishMode ? rawExample.trim() : cleanJapaneseExampleSentence(rawExample);
+                const example = (isEnglishMode || isKoreanMode) ? rawExample.trim() : cleanJapaneseExampleSentence(rawExample);
                 const exampleMeaning = rawExampleMeaning.trim();
                 const synonym = String(item.synonym || item.synonyms || item.antonym || item.antonyms || '').trim();
                 const synonymSinoVietnamese = String(item.synonymSinoVietnamese || item.synonymHanViet || item.synonym_sino_vietnamese || '').trim();
@@ -251,7 +290,9 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                                 Nhập từ vựng bằng JSON thủ công
                             </h3>
                             <p className="text-xs text-slate-500 dark:text-slate-400">
-                                {isEnglishMode
+                                {isKoreanMode
+                                    ? 'Sao chép Prompt chuẩn tiếng Hàn bên dưới để nhờ AI soạn danh sách từ vựng'
+                                    : isEnglishMode
                                     ? 'Sao chép Prompt chuẩn tiếng Anh bên dưới để nhờ AI soạn danh sách từ vựng'
                                     : 'Sao chép Prompt đầy đủ trường dữ liệu bên dưới để nhờ AI soạn danh sách từ vựng'}
                             </p>
@@ -271,7 +312,9 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                         <div className="flex items-center gap-2 text-slate-700 dark:text-slate-200 font-bold text-xs">
                             <FileJson className="w-4 h-4 text-blue-500" />
                             <span>
-                                {isEnglishMode
+                                {isKoreanMode
+                                    ? 'Prompt AI đầy đủ các trường từ vựng tiếng Hàn (ChatGPT / Gemini / Claude)'
+                                    : isEnglishMode
                                     ? 'Prompt AI đầy đủ các trường từ vựng tiếng Anh (ChatGPT / Gemini / Claude)'
                                     : 'Prompt AI đầy đủ các trường từ vựng tiếng Nhật (ChatGPT / Gemini / Claude)'}
                             </span>
@@ -302,7 +345,9 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                         }}
                         rows={6}
                         placeholder={
-                            isEnglishMode
+                            isKoreanMode
+                                ? `Dán chuỗi JSON từ AI vào đây, ví dụ:\n[\n  {\n    "front": "공부하다",\n    "reading": "gong-bu-ha-da",\n    "back": "Học, học tập",\n    "sinoVietnamese": "CÔNG PHU",\n    "pos": "Động từ",\n    "level": "TOPIK 1",\n    "example": "1. 저는 매일 한국어를 2시간 공부해요.\\n2. 도서관에서 친구와 같이 공부했어요.",\n    "exampleMeaning": "1. Tôi học tiếng Hàn 2 tiếng mỗi ngày.\\n2. Tôi đã cùng bạn học bài ở thư viện.",\n    "synonym": "배우다",\n    "nuance": "Dùng cho việc học tập rèn luyện."\n  }\n]`
+                                : isEnglishMode
                                 ? `Dán chuỗi JSON từ AI vào đây, ví dụ:\n[\n  {\n    "front": "Accomplish",\n    "reading": "/əˈkɑːm.plɪʃ/",\n    "back": "Hoàn thành, đạt được",\n    "pos": "Verb (Động từ)",\n    "level": "B2",\n    "example": "1. If we work together, we can accomplish anything.\\n2. She accomplished such a lot during her visit.",\n    "exampleMeaning": "1. Nếu chúng ta làm việc cùng nhau, chúng ta có thể hoàn thành bất cứ điều gì.\\n2. Cô ấy đã đạt được rất nhiều thành tựu.",\n    "synonym": "Achieve, Complete",\n    "nuance": "Dùng cho việc hoàn thành mục tiêu sau nỗ lực."\n  }\n]`
                                 : `Dán chuỗi JSON từ AI vào đây, ví dụ:\n[\n  {\n    "front": "勉強",\n    "reading": "べんきょう",\n    "back": "Học tập, học hành",\n    "sinoVietnamese": "MIỄN CƯỜNG",\n    "pos": "Danh từ / Động từ nhóm 3",\n    "level": "N5",\n    "example": "1. 毎日日本語を2時間勉強しています。\\n2. 図書館で友達と一緒に勉強しました。",\n    "exampleMeaning": "1. Tôi học tiếng Nhật 2 tiếng mỗi ngày.\\n2. Tôi đã cùng bạn học bài ở thư viện.",\n    "synonym": "学習",\n    "synonymSinoVietnamese": "HỌC TẬP",\n    "nuance": "Dùng trong học tập kiến thức, thi cử."\n  }\n]`
                         }

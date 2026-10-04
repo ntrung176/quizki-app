@@ -264,7 +264,11 @@ const Sidebar = ({
     // Close notifications popover when clicking outside
     useEffect(() => {
         const handleClickOutside = (e) => {
-            if (popoverRef.current && !popoverRef.current.contains(e.target)) {
+            if (
+                popoverRef.current &&
+                !popoverRef.current.contains(e.target) &&
+                !e.target.closest('[data-notif-trigger]')
+            ) {
                 setIsNotificationsOpen(false);
             }
             if (profileRef.current && !profileRef.current.contains(e.target)) {
@@ -438,8 +442,8 @@ const Sidebar = ({
             { id: 'HOME', icon: Home, label: t('nav.home', 'Trang chủ'), route: ROUTES.HOME, group: 'Học tập' },
         ];
 
-        // 1. Chế độ Tiếng Anh: Khóa hết các menu khác, chỉ để Từ vựng và Trang chủ (+ Quản trị nếu là Admin)
-        if (isEnglishMode) {
+        // 1. Chế độ Tiếng Anh & Tiếng Hàn: Khóa hết các menu khác, chỉ để Từ vựng và Trang chủ (+ Quản trị nếu là Admin)
+        if (isEnglishMode || isKoreanMode) {
             items.push({ id: 'VOCAB_LIST', icon: BookOpen, label: 'Từ vựng', route: ROUTES.VOCAB_REVIEW, group: 'Học tập' });
             if (isAdmin) {
                 items.push({ id: 'ADMIN', icon: Shield, label: 'Quản trị', route: ROUTES.ADMIN, group: 'Cộng đồng' });
@@ -537,7 +541,7 @@ const Sidebar = ({
         const isGrammarActive = path.includes('/grammar');
         const isMoreActive = isMobileMenuOpen;
 
-        if (isEnglishMode) {
+        if (isEnglishMode || isKoreanMode) {
             return [
                 {
                     id: 'home',
@@ -623,7 +627,7 @@ const Sidebar = ({
     }, [location.pathname, isMobileMenuOpen, dueVocabCount, grammarDueCount, kanjiDueCount, unreadChatCount, isJapaneseMode, isEnglishMode, isKoreanMode, handleMobileToggle]);
 
     const studyMenuItems = useMemo(() => {
-        if (isEnglishMode) {
+        if (isEnglishMode || isKoreanMode) {
             return [];
         }
 
@@ -936,8 +940,9 @@ const Sidebar = ({
                 <div className="flex items-center space-x-2 shrink-0">
                     <div className="relative">
                         <button
+                            data-notif-trigger="true"
                             type="button"
-                            onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
+                            onClick={() => setIsNotificationsOpen(prev => !prev)}
                             className="w-9 h-9 rounded-full bg-slate-100/90 dark:bg-slate-800/90 text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-center cursor-pointer active:scale-95 transition-all hover:border-emerald-500/50"
                             title="Thông báo"
                         >
@@ -1267,7 +1272,9 @@ const Sidebar = ({
                     {!isCollapsed && (
                         <div className="relative">
                             <button
-                                onClick={() => setIsNotificationsOpen(!isNotificationsOpen)}
+                                data-notif-trigger="true"
+                                type="button"
+                                onClick={() => setIsNotificationsOpen(prev => !prev)}
                                 className="p-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-600 dark:text-slate-300 hover:border-cyan-400 transition-all relative cursor-pointer"
                                 title="Thông báo"
                             >

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Plus, Wand2, Loader2, Image as ImageIcon, Check, X, Languages, Sparkle, ChevronDown, CreditCard, Trash2, Folder, PenTool, RotateCcw, AlertTriangle, Cpu, FileJson, Camera, Wrench } from 'lucide-react';
-import { POS_TYPES, ENGLISH_POS_TYPES, JLPT_LEVELS, getPosLabel } from '../../config/constants'
+import { POS_TYPES, ENGLISH_POS_TYPES, KOREAN_POS_TYPES, JLPT_LEVELS, getPosLabel } from '../../config/constants'
 import { compressImage } from '../../utils/image';
 
 import { TopTabBar } from '../ui';
@@ -12,7 +12,7 @@ import JsonImportModal from './JsonImportModal';
 import PremiumLockedModal from '../ui/PremiumLockedModal';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
-import { getLanguageService, isEnglishCard } from '../../languages';
+import { getLanguageService, isEnglishCard, isKoreanCard } from '../../languages';
 
 const isMobileDevice = () => {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
@@ -32,8 +32,9 @@ export const CardEditorItem = ({
     frontInputRef
 }) => {
     const { t } = useLanguage();
-    const { isEnglishMode } = useTargetLanguage();
+    const { isEnglishMode, isKoreanMode } = useTargetLanguage();
     const cardIsEnglish = isEnglishCard(card, isEnglishMode);
+    const cardIsKorean = isKoreanCard(card, isKoreanMode);
     const [showAdvanced, setShowAdvanced] = useState(false);
     const [isGeneratingExample, setIsGeneratingExample] = useState(false);
     const [showHandwriting, setShowHandwriting] = useState(false);
@@ -130,7 +131,7 @@ export const CardEditorItem = ({
                 <div className="flex-1 grid grid-cols-2 sm:grid-cols-2 gap-2.5 sm:gap-6">
                     <div className="border-b border-slate-100 dark:border-slate-800 pb-1.5 sm:pb-2">
                         <p className={`text-sm sm:text-lg font-bold ${card.front ? 'text-slate-800 dark:text-slate-200' : 'text-slate-400 dark:text-slate-500 italic'} truncate`}>
-                            {card.front || (isEnglishMode ? 'Thuật ngữ (Tiếng Anh)' : 'Thuật ngữ (Tiếng Nhật)')}
+                            {card.front || (isKoreanMode ? 'Thuật ngữ (Tiếng Hàn)' : isEnglishMode ? 'Thuật ngữ (Tiếng Anh)' : 'Thuật ngữ (Tiếng Nhật)')}
                         </p>
                         <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 mt-0.5 uppercase tracking-wider">
                             {card.reading ? `${card.reading} • ` : (card.ipa ? `${card.ipa} • ` : '')}THUẬT NGỮ
@@ -164,7 +165,7 @@ export const CardEditorItem = ({
                     </div>
                     <div className="flex items-center gap-1.5 px-2.5 py-1 bg-slate-50 dark:bg-slate-900/65 rounded-lg border border-slate-100 dark:border-slate-800 text-slate-400 dark:text-slate-500 text-xs font-bold">
                         <Languages className="w-3.5 h-3.5" />
-                        <span>{isEnglishMode ? 'EN-VI' : 'JA-VI'}</span>
+                        <span>{isKoreanMode ? 'KO-VI' : isEnglishMode ? 'EN-VI' : 'JA-VI'}</span>
                     </div>
                 </div>
                 <button 
@@ -180,7 +181,7 @@ export const CardEditorItem = ({
                 {/* Thuật ngữ & Định nghĩa */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">{isEnglishMode ? 'THUẬT NGỮ (TIẾNG ANH)' : t('forms.japaneseTerm', 'THUẬT NGỮ (TIẾNG NHẬT)')} *</label>
+                        <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">{isKoreanMode ? 'THUẬT NGỮ (TIẾNG HÀN)' : isEnglishMode ? 'THUẬT NGỮ (TIẾNG ANH)' : t('forms.japaneseTerm', 'THUẬT NGỮ (TIẾNG NHẬT)')} *</label>
                         <div className="flex gap-2">
                             <input
                                 type="text"
@@ -189,11 +190,11 @@ export const CardEditorItem = ({
                                 onKeyDown={handleKeyDown}
                                 ref={frontInputRef}
                                 required
-                                placeholder={isEnglishMode ? 'Ví dụ: Intelligence' : 'Ví dụ: 食べる'}
+                                placeholder={isKoreanMode ? 'Ví dụ: 학교' : isEnglishMode ? 'Ví dụ: Intelligence' : 'Ví dụ: 食べる'}
                                 className="w-full bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 py-2.5 text-2xl font-bold text-slate-800 dark:text-white outline-none transition-colors"
                             />
                             
-                            {!isEnglishMode && (
+                            {!isEnglishMode && !isKoreanMode && (
                                 <button
                                     type="button"
                                     onClick={() => {
@@ -418,8 +419,82 @@ export const CardEditorItem = ({
                     </div>
                 </div>
 
-                {/* Cách đọc (Hiragana) / Phiên âm (IPA) & Hán Việt */}
-                {cardIsEnglish ? (
+                {/* Cách đọc / Phiên âm (IPA/Romaja) & Hán Việt / Hán Hàn & Từ loại */}
+                {cardIsKorean ? (
+                    <>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">PHIÊN ÂM (ROMAJA)</label>
+                                <input
+                                    type="text"
+                                    value={card.reading || ''}
+                                    onChange={(e) => onUpdate(card.id, 'reading', e.target.value)}
+                                    placeholder="Ví dụ: hak-gyo, an-nyeong..."
+                                    className="w-full bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 py-2 text-base font-semibold text-slate-700 dark:text-slate-200 outline-none transition-colors"
+                                />
+                            </div>
+                            <div>
+                                <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">ÂM HÁN HÀN</label>
+                                <input
+                                    type="text"
+                                    value={card.sinoVietnamese || ''}
+                                    onChange={(e) => onUpdate(card.id, 'sinoVietnamese', e.target.value)}
+                                    placeholder="Âm Hán Hàn (ví dụ: Học hiệu)..."
+                                    className="w-full bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 py-2 text-base font-semibold text-slate-700 dark:text-slate-200 outline-none transition-colors"
+                                />
+                            </div>
+                        </div>
+
+                        {/* Từ loại (Tiếng Hàn) */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">{t('forms.partOfSpeech', 'TỪ LOẠI')}</label>
+                                <div className="relative">
+                                    <button
+                                        type="button"
+                                        onClick={() => setPosDropdownOpen(!posDropdownOpen)}
+                                        className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 outline-none text-left flex justify-between items-center cursor-pointer border border-transparent hover:border-slate-200 dark:hover:border-slate-800 transition-colors"
+                                    >
+                                        <span>
+                                            {card.pos ? (
+                                                KOREAN_POS_TYPES[card.pos]?.label || getPosLabel(card.pos)
+                                            ) : (
+                                                '-- Chọn từ loại --'
+                                            )}
+                                        </span>
+                                        <ChevronDown className="w-4 h-4 text-slate-400 transition-transform duration-200" style={{ transform: posDropdownOpen ? 'rotate(180deg)' : 'none' }} />
+                                    </button>
+
+                                    {posDropdownOpen && (
+                                        <>
+                                            <div 
+                                                className="fixed inset-0 z-40" 
+                                                onClick={() => setPosDropdownOpen(false)} 
+                                            />
+                                            
+                                            <div className="absolute left-0 mt-1.5 w-56 rounded-xl bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 py-1.5 z-50 text-sm font-medium text-slate-700 dark:text-slate-200 max-h-60 overflow-y-auto">
+                                                {Object.entries(KOREAN_POS_TYPES).map(([key, value]) => (
+                                                    <button
+                                                        key={key}
+                                                        type="button"
+                                                        onClick={() => {
+                                                            onUpdate(card.id, 'pos', key);
+                                                            onUpdate(card.id, 'level', '');
+                                                            setPosDropdownOpen(false);
+                                                        }}
+                                                        className="w-full px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700/50 text-left"
+                                                    >
+                                                        {value.label}
+                                                    </button>
+                                                ))}
+                                            </div>
+                                        </>
+                                    )}
+                                </div>
+                            </div>
+                        </div>
+                    </>
+                ) : cardIsEnglish ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">PHIÊN ÂM (IPA)</label>
@@ -668,7 +743,7 @@ export const CardEditorItem = ({
                                                         updated[idx] = e.target.value;
                                                         onUpdate(card.id, 'example', updated.join('\n'));
                                                     }}
-                                                    placeholder={isEnglishMode ? 'Câu ví dụ tiếng Anh' : 'Câu ví dụ tiếng Nhật'}
+                                                    placeholder={isKoreanMode ? 'Câu ví dụ tiếng Hàn' : isEnglishMode ? 'Câu ví dụ tiếng Anh' : 'Câu ví dụ tiếng Nhật'}
                                                     className="w-full bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 py-1.5 text-sm text-slate-750 dark:text-slate-250 outline-none"
                                                 />
                                             </div>
@@ -736,7 +811,7 @@ export const CardEditorItem = ({
                                         type="text"
                                         value={card.synonym}
                                         onChange={(e) => onUpdate(card.id, 'synonym', e.target.value)}
-                                        placeholder={isEnglishMode ? 'Ví dụ: Smart, Clever' : 'Ví dụ: 食事する'}
+                                        placeholder={isKoreanMode ? 'Ví dụ: 똑똑하다' : isEnglishMode ? 'Ví dụ: Smart, Clever' : 'Ví dụ: 食事する'}
                                         className="w-full bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 py-2 text-sm text-slate-700 dark:text-slate-200 outline-none"
                                     />
                                 </div>
@@ -805,7 +880,7 @@ const AddCardForm = ({
     canUserUseAI
 }) => {
     const { t } = useLanguage();
-    const { isEnglishMode } = useTargetLanguage();
+    const { isEnglishMode, isKoreanMode } = useTargetLanguage();
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [coverImage, setCoverImage] = useState(null);
@@ -956,15 +1031,16 @@ const AddCardForm = ({
             const aiData = await onGeminiAssist(card.front, selectedPos, selectedLevel, selectedBack, false);
 
             if (aiData) {
-                const langService = getLanguageService(card.front || card, isEnglishMode);
+                const langService = getLanguageService(card.front || card, isEnglishMode, isKoreanMode);
                 const cardIsEng = langService.code === 'en';
+                const cardIsKo = langService.code === 'ko';
 
                 setCards(prev => prev.map(c => {
                     if (c.id === id) {
-                        const rawFront = cardIsEng ? (aiData.front || c.front) : (aiData.front || aiData.frontWithFurigana || c.front);
-                        const bracketMatch = !cardIsEng ? rawFront.match(/^([^（\(]+)[（\(]([^）\)]+)[）\)]/) : null;
+                        const rawFront = (cardIsEng || cardIsKo) ? (aiData.front || c.front) : (aiData.front || aiData.frontWithFurigana || c.front);
+                        const bracketMatch = (!cardIsEng && !cardIsKo) ? rawFront.match(/^([^（\(]+)[（\(]([^）\)]+)[）\)]/) : null;
                         const cleanFront = bracketMatch ? bracketMatch[1].trim() : rawFront.replace(/[（\(][^）\)]+[）\)]/g, '').trim();
-                        const cleanReading = !cardIsEng ? (aiData.reading || (bracketMatch ? bracketMatch[2].trim() : c.reading || '')) : '';
+                        const cleanReading = cardIsKo ? (aiData.reading || c.reading || '') : (!cardIsEng ? (aiData.reading || (bracketMatch ? bracketMatch[2].trim() : c.reading || '')) : '');
 
                         return {
                             ...c,
@@ -973,15 +1049,15 @@ const AddCardForm = ({
                             ipa: cardIsEng ? (aiData.ipa || c.ipa || '') : '',
                             sinoVietnamese: cardIsEng ? '' : (aiData.sinoVietnamese || ''),
                             synonym: (aiData.synonym || '').replace(/[（\(][^）\)]+[）\)]/g, '').trim(),
-                            synonymSinoVietnamese: cardIsEng ? '' : (aiData.synonymSinoVietnamese || ''),
+                            synonymSinoVietnamese: (cardIsEng || cardIsKo) ? '' : (aiData.synonymSinoVietnamese || ''),
                             example: aiData.example || '',
                             exampleMeaning: aiData.exampleMeaning || '',
                             nuance: aiData.nuance || '',
                             pos: aiData.pos || selectedPos || '',
                             level: aiData.level || selectedLevel || '',
                             reading: cleanReading,
-                            accent: cardIsEng ? '' : (aiData.accent !== undefined ? String(aiData.accent) : ''),
-                            targetLanguage: cardIsEng ? 'en' : 'ja'
+                            accent: (cardIsEng || cardIsKo) ? '' : (aiData.accent !== undefined ? String(aiData.accent) : ''),
+                            targetLanguage: cardIsKo ? 'ko' : (cardIsEng ? 'en' : 'ja')
                         };
                     }
                     return c;
@@ -1141,15 +1217,16 @@ const AddCardForm = ({
         try {
             const savePromises = validCards.map(async (card) => {
                 const cardIsEng = isEnglishCard(card, isEnglishMode);
+                const cardIsKo = isKoreanCard(card, isKoreanMode);
 
                 const success = await onSave({
                     ...card,
                     ipa: cardIsEng ? (card.ipa || '') : (card.ipa || ''),
                     sinoVietnamese: cardIsEng ? '' : (card.sinoVietnamese || ''),
-                    synonymSinoVietnamese: cardIsEng ? '' : (card.synonymSinoVietnamese || ''),
+                    synonymSinoVietnamese: (cardIsEng || cardIsKo) ? '' : (card.synonymSinoVietnamese || ''),
                     reading: cardIsEng ? '' : (card.reading || ''),
-                    accent: cardIsEng ? '' : (card.accent || ''),
-                    targetLanguage: cardIsEng ? 'en' : 'ja',
+                    accent: (cardIsEng || cardIsKo) ? '' : (card.accent || ''),
+                    targetLanguage: cardIsKo ? 'ko' : (cardIsEng ? 'en' : 'ja'),
                     action: 'continue',
                     folderId: folderId
                 });

@@ -3,6 +3,7 @@
 
 // Convert base64 to ArrayBuffer
 import { isEnglishText } from '../languages/en/ipa';
+import { isKoreanText } from '../languages/ko/hangul';
 const base64ToArrayBuffer = (base64) => {
     const binaryString = atob(base64);
     const len = binaryString.length;
@@ -112,19 +113,24 @@ const lookupSharedAudio = async (text, gender) => {
     try {
         const { db, sharedVocabPath, getDoc, doc, disabled } = _sharedAudioDeps;
         if (disabled?.current) return null;
-        const isEng = isEnglishText(text);
+        const isKor = isKoreanText(text);
+        const isEng = !isKor && isEnglishText(text);
         const key = text.trim().replace(/\s+/g, ' ');
         const encodedKey = encodeURIComponent(key);
-        const targetPath = isEng ? sharedVocabPath.replace(/shared_vocab$/, 'shared_vocab_en') : sharedVocabPath;
+        const targetPath = isKor
+            ? sharedVocabPath.replace(/shared_vocab$/, 'shared_vocab_ko')
+            : (isEng ? sharedVocabPath.replace(/shared_vocab$/, 'shared_vocab_en') : sharedVocabPath);
         const vocabRef = doc(db, targetPath, encodedKey);
         const snap = await getDoc(vocabRef);
         if (snap.exists()) {
             const data = snap.data();
-            const audioField = isEng 
-                ? (gender === 'male' ? 'audioBase64_en_male' : 'audioBase64_en_female')
-                : (gender === 'male' ? 'audioBase64_male' : 'audioBase64_female');
+            const audioField = isKor
+                ? (gender === 'male' ? 'audioBase64_ko_male' : 'audioBase64_ko_female')
+                : (isEng 
+                    ? (gender === 'male' ? 'audioBase64_en_male' : 'audioBase64_en_female')
+                    : (gender === 'male' ? 'audioBase64_male' : 'audioBase64_female'));
             if (data[audioField]) {
-                console.log(`🔊 Shared audio HIT (${isEng ? 'EN' : 'JA'} ${gender}): "${text}"`);
+                console.log(`🔊 Shared audio HIT (${isKor ? 'KO' : (isEng ? 'EN' : 'JA')} ${gender}): "${text}"`);
                 return data[audioField];
             }
         }
@@ -139,7 +145,7 @@ const lookupSharedAudio = async (text, gender) => {
 
 /**
  * Lưu audio vào shared vocab (theo giọng nam/nữ)
- * @param {string} text - Text tiếng Nhật / Tiếng Anh
+ * @param {string} text - Text tiếng Nhật / Tiếng Anh / Tiếng Hàn
  * @param {string} base64 - Audio base64
  * @param {string} gender - 'male' hoặc 'female'
  */
@@ -148,16 +154,21 @@ const saveSharedAudio = async (text, base64, gender) => {
     try {
         const { db, sharedVocabPath, setDoc, doc, disabled } = _sharedAudioDeps;
         if (disabled?.current) return;
-        const isEng = isEnglishText(text);
+        const isKor = isKoreanText(text);
+        const isEng = !isKor && isEnglishText(text);
         const key = text.trim().replace(/\s+/g, ' ');
         const encodedKey = encodeURIComponent(key);
-        const targetPath = isEng ? sharedVocabPath.replace(/shared_vocab$/, 'shared_vocab_en') : sharedVocabPath;
+        const targetPath = isKor
+            ? sharedVocabPath.replace(/shared_vocab$/, 'shared_vocab_ko')
+            : (isEng ? sharedVocabPath.replace(/shared_vocab$/, 'shared_vocab_en') : sharedVocabPath);
         const vocabRef = doc(db, targetPath, encodedKey);
-        const audioField = isEng 
-            ? (gender === 'male' ? 'audioBase64_en_male' : 'audioBase64_en_female')
-            : (gender === 'male' ? 'audioBase64_male' : 'audioBase64_female');
+        const audioField = isKor
+            ? (gender === 'male' ? 'audioBase64_ko_male' : 'audioBase64_ko_female')
+            : (isEng 
+                ? (gender === 'male' ? 'audioBase64_en_male' : 'audioBase64_en_female')
+                : (gender === 'male' ? 'audioBase64_male' : 'audioBase64_female'));
         await setDoc(vocabRef, { [audioField]: base64 }, { merge: true });
-        console.log(`💾 Saved shared audio (${isEng ? 'EN' : 'JA'} ${gender}): "${text}"`);
+        console.log(`💾 Saved shared audio (${isKor ? 'KO' : (isEng ? 'EN' : 'JA')} ${gender}): "${text}"`);
     } catch (e) {
         if (e?.code === 'permission-denied' || e?.message?.includes('permissions')) {
             if (_sharedAudioDeps?.disabled) _sharedAudioDeps.disabled.current = true;
@@ -317,8 +328,10 @@ export const azureTTS = async (text, reading = '', forceVoice = null) => {
     const textToSpeak = word || kanaReading;
     if (!textToSpeak) return null;
 
-    const isEng = isEnglishText(textToSpeak);
-    const cacheKey = `azure:${voiceId}:${isEng ? 'en' : 'ja'}:${speed}:${volume}:${word}:${kanaReading}`;
+    const isKor = isKoreanText(textToSpeak);
+    const isEng = !isKor && isEnglishText(textToSpeak);
+    const langKey = isKor ? 'ko' : (isEng ? 'en' : 'ja');
+    const cacheKey = `azure:${voiceId}:${langKey}:${speed}:${volume}:${word}:${kanaReading}`;
     if (ttsCache.has(cacheKey)) {
         return ttsCache.get(cacheKey);
     }
@@ -331,11 +344,14 @@ export const azureTTS = async (text, reading = '', forceVoice = null) => {
         en: {
             female: 'en-US-JennyNeural',
             male: 'en-US-GuyNeural'
+        },
+        ko: {
+            female: 'ko-KR-SunHiNeural',  // Giọng Nữ tiếng Hàn chuẩn Seoul
+            male: 'ko-KR-InJoonNeural'    // Giọng Nam tiếng Hàn chuẩn Seoul
         }
     };
 
-    const langKey = isEng ? 'en' : 'ja';
-    const azureVoiceName = (voiceMap[langKey] && voiceMap[langKey][voiceId]) || (isEng ? 'en-US-JennyNeural' : 'ja-JP-NanamiNeural');
+    const azureVoiceName = (voiceMap[langKey] && voiceMap[langKey][voiceId]) || (isKor ? 'ko-KR-SunHiNeural' : (isEng ? 'en-US-JennyNeural' : 'ja-JP-NanamiNeural'));
     const gender = voiceId === 'male' ? 'male' : 'female';
 
     let cachedAudio = null;
@@ -362,7 +378,7 @@ export const azureTTS = async (text, reading = '', forceVoice = null) => {
 
     try {
         let response;
-        const xmlLang = isEng ? 'en-US' : 'ja-JP';
+        const xmlLang = isKor ? 'ko-KR' : (isEng ? 'en-US' : 'ja-JP');
         const hasKanji = /[\u4E00-\u9FAF\u3400-\u4DBF\u3005]/.test(word);
 
         // SSML: Nếu có Kanji và có Kana khác nhau, chỉ dùng <sub alias="Kana">Kanji</sub> khi Kana bao hàm toàn bộ từ/cụm từ
@@ -480,15 +496,15 @@ export const extractReadingText = (text, reading = '') => {
     return word || kanaReading || String(text || '').trim();
 };
 
-const loadWebVoice = (isEng, voiceId) => {
-    const langPrefix = isEng ? 'en' : 'ja';
-    const langCode = isEng ? 'en-US' : 'ja-JP';
+const loadWebVoice = (langKey, voiceId) => {
+    const langPrefix = langKey === 'ko' ? 'ko' : (langKey === 'en' ? 'en' : 'ja');
+    const langCode = langKey === 'ko' ? 'ko-KR' : (langKey === 'en' ? 'en-US' : 'ja-JP');
     const voices = window.speechSynthesis?.getVoices() || [];
 
     let matchedVoice = voices.find(v => (v.lang === langCode || v.lang.startsWith(langPrefix)) && (
         voiceId === 'male'
-            ? (v.name.includes('Male') || v.name.includes('Guy') || v.name.includes('David') || v.name.includes('George') || v.name.includes('Keita'))
-            : (v.name.includes('Female') || v.name.includes('Jenny') || v.name.includes('Zira') || v.name.includes('Mayu') || v.name.includes('Google US English'))
+            ? (v.name.includes('Male') || v.name.includes('Guy') || v.name.includes('David') || v.name.includes('George') || v.name.includes('Keita') || v.name.includes('InJoon') || v.name.includes('Heami'))
+            : (v.name.includes('Female') || v.name.includes('Jenny') || v.name.includes('Zira') || v.name.includes('Mayu') || v.name.includes('SunHi') || v.name.includes('Google 한국의') || v.name.includes('Google US English'))
     ));
 
     if (!matchedVoice) {
@@ -532,15 +548,17 @@ const speakWithWebSpeech = (text, reading = '') => {
             if (match) cleanText = match[1];
         }
 
-        const isEng = isEnglishText(cleanText);
+        const isKor = isKoreanText(cleanText);
+        const isEng = !isKor && isEnglishText(cleanText);
+        const langKey = isKor ? 'ko' : (isEng ? 'en' : 'ja');
         const voiceId = getTTSVoice();
 
         const utterance = new SpeechSynthesisUtterance(cleanText);
-        utterance.lang = isEng ? 'en-US' : 'ja-JP';
-        utterance.rate = isEng ? 1.0 : 0.92;
+        utterance.lang = isKor ? 'ko-KR' : (isEng ? 'en-US' : 'ja-JP');
+        utterance.rate = isEng ? 1.0 : (isKor ? 0.95 : 0.92);
         utterance.pitch = 1;
 
-        const webVoice = loadWebVoice(isEng, voiceId);
+        const webVoice = loadWebVoice(langKey, voiceId);
         if (webVoice) utterance.voice = webVoice;
 
         utterance.onend = () => safeResolve();
@@ -602,9 +620,10 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null, reading =
 
         let result = null;
 
-        // 1. Thử âm thanh người bản xứ Jotoba / Wadoku trước (nếu là từ vựng tiếng Nhật)
-        const isEng = isEnglishText(text || reading);
-        if (!isEng) {
+        // 1. Thử âm thanh người bản xứ Jotoba / Wadoku trước (chỉ áp dụng cho từ vựng tiếng Nhật)
+        const isKor = isKoreanText(text || reading);
+        const isEng = !isKor && isEnglishText(text || reading);
+        if (!isEng && !isKor) {
             try {
                 result = await fetchNativeJapaneseAudio(text, reading);
             } catch (e) {
@@ -765,9 +784,10 @@ export const speakJapanese = (cardOrText, audioBase64 = null, onAudioGenerated =
 export const generateAudioSilent = async (text, reading = '', forceVoice = null) => {
     if (!text && !reading) return null;
 
-    // 1. Thử lấy âm thanh từ người Nhật bản xứ (Jotoba / Wadoku - 100% chuẩn Pitch Accent)
-    const isEng = isEnglishText(text || reading);
-    if (!isEng) {
+    // 1. Thử lấy âm thanh từ người Nhật bản xứ (Jotoba / Wadoku - chỉ tiếng Nhật)
+    const isKor = isKoreanText(text || reading);
+    const isEng = !isKor && isEnglishText(text || reading);
+    if (!isEng && !isKor) {
         try {
             const nativeResult = await fetchNativeJapaneseAudio(text, reading);
             if (nativeResult && nativeResult.base64) {
@@ -884,8 +904,9 @@ export const speakExampleSentence = (text, lang = 'ja') => {
             }
         } catch (_) {}
 
-        const isEng = isEnglishText(cleanText);
-        const targetLang = isEng ? 'en' : (lang || 'ja');
+        const isKor = isKoreanText(cleanText);
+        const isEng = !isKor && isEnglishText(cleanText);
+        const targetLang = isKor ? 'ko' : (isEng ? 'en' : (lang || 'ja'));
 
         // Detect mobile / touch environment
         const isMobile = typeof navigator !== 'undefined' && (

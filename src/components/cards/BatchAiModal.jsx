@@ -16,7 +16,7 @@ const BatchAiModal = ({
     initialTab = 'text',
     existingCards = []
 }) => {
-    const { isEnglishMode } = useTargetLanguage();
+    const { isEnglishMode, isKoreanMode } = useTargetLanguage();
     const [activeTab, setActiveTab] = useState(initialTab); // 'text' | 'image'
 
     // Text input state
@@ -173,8 +173,9 @@ const BatchAiModal = ({
             try {
                 const aiData = await onGeminiAssist(word, '', '', false);
                 if (aiData) {
-                    const langService = getLanguageService(word, isEnglishMode);
+                    const langService = getLanguageService(word, isEnglishMode, isKoreanMode);
                     const cardIsEng = langService.code === 'en';
+                    const cardIsKo = langService.code === 'ko';
 
                     generatedCards.push({
                         id: `new_${Date.now()}_${i}_${Math.random()}`,
@@ -184,15 +185,15 @@ const BatchAiModal = ({
                         ipa: cardIsEng ? (aiData.ipa || '') : '',
                         sinoVietnamese: cardIsEng ? '' : (aiData.sinoVietnamese || ''),
                         synonym: aiData.synonym || '',
-                        synonymSinoVietnamese: cardIsEng ? '' : (aiData.synonymSinoVietnamese || ''),
+                        synonymSinoVietnamese: (cardIsEng || cardIsKo) ? '' : (aiData.synonymSinoVietnamese || ''),
                         example: aiData.example || '',
                         exampleMeaning: aiData.exampleMeaning || '',
                         nuance: aiData.nuance || '',
                         pos: aiData.pos || '',
                         level: aiData.level || '',
                         reading: cardIsEng ? '' : (aiData.reading || ''),
-                        accent: cardIsEng ? '' : (aiData.accent !== undefined ? String(aiData.accent) : ''),
-                        targetLanguage: cardIsEng ? 'en' : 'ja',
+                        accent: (cardIsEng || cardIsKo) ? '' : (aiData.accent !== undefined ? String(aiData.accent) : ''),
+                        targetLanguage: cardIsKo ? 'ko' : (cardIsEng ? 'en' : 'ja'),
                         imageBase64: null,
                         audioBase64: null
                     });
@@ -285,7 +286,7 @@ const BatchAiModal = ({
                                 {activeTab === 'image' ? 'Quét từ vựng từ ảnh chụp' : 'Tạo bằng AI hàng loạt'}
                             </h3>
                             <p className="text-xs text-slate-500 dark:text-slate-400">
-                                {activeTab === 'image' ? 'Trích xuất từ vựng tiếng Nhật từ hình ảnh tài liệu' : 'Tạo nhiều thẻ từ vựng đầy đủ thông tin cùng lúc'}
+                                {activeTab === 'image' ? (isKoreanMode ? 'Trích xuất từ vựng tiếng Hàn từ hình ảnh tài liệu' : isEnglishMode ? 'Trích xuất từ vựng tiếng Anh từ hình ảnh tài liệu' : 'Trích xuất từ vựng tiếng Nhật từ hình ảnh tài liệu') : 'Tạo nhiều thẻ từ vựng đầy đủ thông tin cùng lúc'}
                             </p>
                         </div>
                     </div>
@@ -399,7 +400,7 @@ const BatchAiModal = ({
                                             rows={6}
                                             value={textInput}
                                             onChange={(e) => setTextInput(e.target.value)}
-                                            placeholder="Ví dụ:&#10;食べる&#10;図書館&#10;美味しい"
+                                            placeholder={isKoreanMode ? "Ví dụ:\n학교\n도서관\n맛있다" : isEnglishMode ? "Ví dụ:\nIntelligence\nLibrary\nDelicious" : "Ví dụ:\n食べる\n図書館\n美味しい"}
                                             className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-xl outline-none text-sm dark:text-white focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-mono leading-relaxed"
                                         />
                                     </div>
@@ -411,7 +412,7 @@ const BatchAiModal = ({
                                             Cơ chế hoạt động của AI
                                         </div>
                                         <p className="leading-relaxed">
-                                            Hệ thống sẽ tự động tra cứu từ điển và dùng AI để điền đầy đủ các thông tin cho thẻ từ vựng: phiên âm, từ loại, cấp độ JLPT, âm Hán Việt, câu ví dụ kèm dịch nghĩa,...
+                                            {isKoreanMode ? 'Hệ thống sẽ tự động tra cứu từ điển và dùng AI để điền đầy đủ các thông tin cho thẻ từ vựng: phiên âm Romaja, từ loại, cấp độ TOPIK, âm Hán Hàn, câu ví dụ kèm dịch nghĩa,...' : isEnglishMode ? 'Hệ thống sẽ tự động tra cứu từ điển và dùng AI để điền đầy đủ các thông tin cho thẻ từ vựng: phiên âm IPA, từ loại, cấp độ CEFR, câu ví dụ kèm dịch nghĩa,...' : 'Hệ thống sẽ tự động tra cứu từ điển và dùng AI để điền đầy đủ các thông tin cho thẻ từ vựng: phiên âm, từ loại, cấp độ JLPT, âm Hán Việt, câu ví dụ kèm dịch nghĩa,...'}
                                         </p>
                                     </div>
                                 </div>
