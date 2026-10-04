@@ -1,0 +1,154 @@
+{
+  "id": 866,
+  "title": "N5 Tango 3.2 - Công việc · Công việc",
+  "description": "Tango N5 — Công việc",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:47.392465",
+  "cards": [
+    {
+      "id": 20246,
+      "term": "しごと",
+      "reading": "しごと",
+      "romaji": null,
+      "definition": "Công việc",
+      "exampleSentence": "私は毎日、会社でしごとをします。",
+      "exampleTranslation": "Mỗi ngày tôi làm việc ở công ty.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20247,
+      "term": "かいしゃいん",
+      "reading": "かいしゃいん",
+      "romaji": null,
+      "definition": "Nhân viên công ty",
+      "exampleSentence": "姉は大きい会社のかいしゃいんです。",
+      "exampleTranslation": "Chị tôi là nhân viên của một công ty lớn.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20248,
+      "term": "ぎんこういん",
+      "reading": "ぎんこういん",
+      "romaji": null,
+      "definition": "Nhân viên ngân hàng",
+      "exampleSentence": "父は銀行のぎんこういんです。",
+      "exampleTranslation": "Bố tôi là nhân viên ngân hàng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20249,
+      "term": "おいしゃさん",
+      "reading": "おいしゃさん",
+      "romaji": null,
+      "definition": "Bác sỹ",
+      "exampleSentence": "病気になったので、おいしゃさんに行きました。",
+      "exampleTranslation": "Vì bị ốm nên tôi đã đi khám bác sĩ.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20250,
+      "term": "かんごしさん",
+      "reading": "かんごしさん",
+      "romaji": null,
+      "definition": "Y tá",
+      "exampleSentence": "かんごしさんが薬の飲み方を教えてくれました。",
+      "exampleTranslation": "Y tá đã hướng dẫn tôi cách uống thuốc.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20251,
+      "term": "かいごしさん",
+      "reading": "かいごしさん",
+      "romaji": null,
+      "definition": "Điều dưỡng viên",
+      "exampleSentence": "かいごしさんがおばあさんの食事を手伝います。",
+      "exampleTranslation": "Điều dưỡng viên giúp bà tôi ăn uống.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20252,
+      "term": "けいさつかん",
+      "reading": "けいさつかん",
+      "romaji": null,
+      "definition": "Cảnh sát",
+      "exampleSentence": "けいさつかんが道を教えてくれました。",
+      "exampleTranslation": "Một cảnh sát đã chỉ đường cho tôi.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20253,
+      "term": "えきいん",
+      "reading": "えきいん",
+      "romaji": null,
+      "definition": "Nhân viên nhà ga",
+      "exampleSentence": "えきいんに電車の時間を聞きました。",
+      "exampleTranslation": "Tôi đã hỏi nhân viên nhà ga giờ tàu chạy.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20254,
+      "term": "うんてんしゅ",
+      "reading": "うんてんしゅ",
+      "romaji": null,
+      "definition": "Tài xế",
+      "exampleSentence": "バスのうんてんしゅは安全に運転します。",
+      "exampleTranslation": "Tài xế xe buýt lái xe an toàn.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20255,
+      "term": "しゃちょう",
+      "reading": "しゃちょう",
+      "romaji": null,
+      "definition": "Giám đốc",
+      "exampleSentence": "しゃちょうは会議で新しい計画を話しました。",
+      "exampleTranslation": "Giám đốc đã trình bày kế hoạch mới trong cuộc họp.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20256,
+      "term": "ぶちょう",
+      "reading": "ぶちょう",
+      "romaji": null,
+      "definition": "Trưởng phòng",
+      "exampleSentence": "ぶちょうはいま会議室にいます。",
+      "exampleTranslation": "Trưởng phòng hiện đang ở phòng họp.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 20257,
+      "term": "かちょう",
+      "reading": "かちょう",
+      "romaji": null,
+      "definition": "Trưởng ban",
+      "exampleSentence": "かちょうは新しい社員を紹介します。",
+      "exampleTranslation": "Trưởng ban giới thiệu nhân viên mới.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 20258,
+      "term": "しゃいん",
+      "reading": "しゃいん",
+      "romaji": null,
+      "definition": "Nhân viên",
+      "exampleSentence": "しゃいんは毎朝七時に会社へ来ます。",
+      "exampleTranslation": "Nhân viên đến công ty lúc bảy giờ mỗi sáng.",
+      "forms": [],
+      "displayOrder": 12
+    }
+  ]
+}

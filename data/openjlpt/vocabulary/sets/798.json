@@ -1,0 +1,231 @@
+{
+  "id": 798,
+  "title": "N1 Tango 3.4 - Ở nhà · Ngày nghỉ",
+  "description": "Tango N1 — Ở nhà",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:40.689595",
+  "cards": [
+    {
+      "id": 18511,
+      "term": "くつろぐ",
+      "reading": "くつろぐ",
+      "romaji": null,
+      "definition": "Nghỉ ngơi, thư giãn",
+      "exampleSentence": "休日は音楽を聴きながら、家でゆっくりくつろぐ。",
+      "exampleTranslation": "Ngày nghỉ, tôi thư giãn ở nhà trong khi nghe nhạc.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 18512,
+      "term": "安らぐ (やすらぐ)",
+      "reading": "やすらぐ",
+      "romaji": null,
+      "definition": "Yên bình, thanh thản, thoải mái",
+      "exampleSentence": "この静かな庭に来ると、心が安らぐ。",
+      "exampleTranslation": "Mỗi khi đến khu vườn yên tĩnh này, lòng tôi lại thấy thanh thản.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 18513,
+      "term": "憩う (いこう)",
+      "reading": "いこう",
+      "romaji": null,
+      "definition": "Nghỉ ngơi và thư giãn",
+      "exampleSentence": "湖畔のベンチで憩う人々の姿が、夕暮れの風景に溶け込んでいた。",
+      "exampleTranslation": "Hình ảnh những người nghỉ ngơi trên ghế bên hồ hòa vào khung cảnh hoàng hôn.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 18514,
+      "term": "だらだら（する）",
+      "reading": "だらだら（する）",
+      "romaji": null,
+      "definition": "Lười biếng, nằm ườn, chây lười",
+      "exampleSentence": "休日に「だらだら（する）」ばかりでは、心も体も休まらない。",
+      "exampleTranslation": "Nếu ngày nghỉ chỉ nằm ườn lười biếng thì cả tinh thần lẫn cơ thể cũng không thật sự được nghỉ ngơi.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 18515,
+      "term": "横になる (よこになる)",
+      "reading": "よこになる",
+      "romaji": null,
+      "definition": "Nằm, ngả lưng",
+      "exampleSentence": "疲れたら、無理をせず少し横になるといい。",
+      "exampleTranslation": "Nếu mệt thì bạn nên nằm nghỉ một lát, đừng cố quá sức.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 18516,
+      "term": "一息入れる (ひといきいれる)",
+      "reading": "ひといきいれる",
+      "romaji": null,
+      "definition": "Nghỉ ngơi, nghỉ giải lao",
+      "exampleSentence": "長時間運転したので、サービスエリアで一息入れる。",
+      "exampleTranslation": "Vì đã lái xe trong thời gian dài nên tôi nghỉ giải lao ở trạm dừng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 18517,
+      "term": "ブレイク（する）",
+      "reading": "ブレイク（する）",
+      "romaji": null,
+      "definition": "Nghỉ giải lao, đột ngột nổi tiếng",
+      "exampleSentence": "この曲がきっかけで、彼は一気にブレイク（する）ことになった。",
+      "exampleTranslation": "Nhờ bài hát này, anh ấy đã đột ngột trở nên nổi tiếng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 18518,
+      "term": "一眠り（する） (ひとねむり（する）)",
+      "reading": "ひとねむり（する）",
+      "romaji": null,
+      "definition": "Chợp mắt, ngủ một giấc ngắn",
+      "exampleSentence": "昼食後に一眠り（する）と、午後の仕事に集中しやすい。",
+      "exampleTranslation": "Nếu chợp mắt sau bữa trưa, bạn sẽ dễ tập trung làm việc buổi chiều hơn.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 18519,
+      "term": "一段落（する） (いちだんらく（する）)",
+      "reading": "いちだんらく（する）",
+      "romaji": null,
+      "definition": "Xong một giai đoạn, tạm ổn",
+      "exampleSentence": "大きな仕事が一段落（する）まで、旅行の計画は延期した。",
+      "exampleTranslation": "Tôi đã hoãn kế hoạch du lịch cho đến khi công việc lớn tạm hoàn tất.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 18520,
+      "term": "一休み（する） (ひとやすみ（する）)",
+      "reading": "ひとやすみ（する）",
+      "romaji": null,
+      "definition": "Nghỉ ngơi một chút",
+      "exampleSentence": "長時間の作業では、適宜一休み（する）ことが能率の向上につながる。",
+      "exampleTranslation": "Khi làm việc trong thời gian dài, nghỉ ngơi hợp lý sẽ giúp nâng cao hiệu suất.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 18521,
+      "term": "紛れる (まぎれる)",
+      "reading": "まぎれる",
+      "romaji": null,
+      "definition": "Khuây khỏa / Lẫn vào",
+      "exampleSentence": "忙しく働いていると、失恋の痛みも一時は紛れるものだ。",
+      "exampleTranslation": "Khi bận rộn làm việc, nỗi đau thất tình cũng tạm thời được khuây khỏa.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 18522,
+      "term": "投げ出す (なげだす)",
+      "reading": "なげだす",
+      "romaji": null,
+      "definition": "Duỗi ra, vứt bỏ, từ bỏ",
+      "exampleSentence": "困難に直面したからといって、ここで仕事を投げ出すわけにはいかない。",
+      "exampleTranslation": "Dù gặp khó khăn cũng không thể vì thế mà từ bỏ công việc ở đây.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 18523,
+      "term": "外出（する） (がいしゅつ（する）)",
+      "reading": "がいしゅつ（する）",
+      "romaji": null,
+      "definition": "Ra ngoài",
+      "exampleSentence": "体調がすぐれない日は、必要がなければ外出（する）ことを控えている。",
+      "exampleTranslation": "Vào những ngày không được khỏe, nếu không cần thiết thì tôi hạn chế ra ngoài.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 18524,
+      "term": "帰宅（する） (きたく（する）)",
+      "reading": "きたく（する）",
+      "romaji": null,
+      "definition": "Về nhà",
+      "exampleSentence": "帰宅（する）時間が遅くなるときは、必ず家族に連絡を入れる。",
+      "exampleTranslation": "Khi về nhà muộn, tôi luôn liên lạc với gia đình.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 18525,
+      "term": "引きこもる (ひきこもる)",
+      "reading": "ひきこもる",
+      "romaji": null,
+      "definition": "Ru rú trong nhà, tự cô lập",
+      "exampleSentence": "人との関わりを避けて引きこもるだけでは、問題の解決にはならない。",
+      "exampleTranslation": "Chỉ tránh giao tiếp với mọi người và ru rú trong nhà thì không thể giải quyết vấn đề.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 18526,
+      "term": "慣らす (ならす)",
+      "reading": "ならす",
+      "romaji": null,
+      "definition": "Làm quen, tập cho quen",
+      "exampleSentence": "新しい環境に徐々に体を慣らすには、無理のない計画が必要だ。",
+      "exampleTranslation": "Để cơ thể dần làm quen với môi trường mới, cần có một kế hoạch vừa sức.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 18527,
+      "term": "日なた (ひなた)",
+      "reading": "ひなた",
+      "romaji": null,
+      "definition": "Nơi có nắng, chỗ nắng",
+      "exampleSentence": "冬の朝は、猫が暖かい日なたで気持ちよさそうに眠っている。",
+      "exampleTranslation": "Vào những buổi sáng mùa đông, mèo thường ngủ trông rất dễ chịu ở chỗ có nắng ấm.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 18528,
+      "term": "精神的な (せいしんてきな)",
+      "reading": "せいしんてきな",
+      "romaji": null,
+      "definition": "Về mặt tinh thần",
+      "exampleSentence": "長期にわたる介護は、家族に精神的な負担を強いることがある。",
+      "exampleTranslation": "Việc chăm sóc lâu dài đôi khi gây áp lực tinh thần cho gia đình.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 18529,
+      "term": "心底 (しんそこ)",
+      "reading": "しんそこ",
+      "romaji": null,
+      "definition": "Thật tâm, tận đáy lòng",
+      "exampleSentence": "彼の誠実な謝罪を聞いて、私は心底ほっとした。",
+      "exampleTranslation": "Nghe lời xin lỗi chân thành của anh ấy, tôi thực sự cảm thấy nhẹ nhõm.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 18530,
+      "term": "もっぱら",
+      "reading": "もっぱら",
+      "romaji": null,
+      "definition": "Hầu hết, chủ yếu, chuyên",
+      "exampleSentence": "退職後の彼は、もっぱら地域の子どもたちの指導に当たっている。",
+      "exampleTranslation": "Sau khi nghỉ việc, anh ấy chủ yếu hướng dẫn trẻ em trong khu vực.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

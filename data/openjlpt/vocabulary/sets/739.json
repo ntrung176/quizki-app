@@ -1,0 +1,253 @@
+{
+  "id": 739,
+  "title": "N2 Tango 3.5 - Ở nhà · Chuyển nhà",
+  "description": "Tango N2 — Ở nhà",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:34.246564",
+  "cards": [
+    {
+      "id": 16976,
+      "term": "処分（する） (しょぶん（する）)",
+      "reading": "しょぶん（する）",
+      "romaji": null,
+      "definition": "Sự bỏ đi, xử lý, giải quyết, xử phạt",
+      "exampleSentence": "先生が例文を使って、「処分（する）」の意味を説明した。",
+      "exampleTranslation": "Giáo viên đã dùng câu ví dụ để giải thích nghĩa của từ “xử lý, vứt bỏ”.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 16977,
+      "term": "不用品 (ふようひん)",
+      "reading": "ふようひん",
+      "romaji": null,
+      "definition": "Đồ dùng không cần thiết",
+      "exampleSentence": "引っ越しを機に、不用品をまとめて処分した。",
+      "exampleTranslation": "Nhân dịp chuyển nhà, tôi đã gom và vứt bỏ những đồ không cần thiết.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 16978,
+      "term": "はがす",
+      "reading": "はがす",
+      "romaji": null,
+      "definition": "Gỡ ra",
+      "exampleSentence": "壁に貼ってあった古いポスターをゆっくりはがす。",
+      "exampleTranslation": "Từ từ gỡ tấm áp phích cũ dán trên tường xuống.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 16979,
+      "term": "束 (たば)",
+      "reading": "たば",
+      "romaji": null,
+      "definition": "Bó",
+      "exampleSentence": "花を一束買って、母の誕生日にプレゼントした。",
+      "exampleTranslation": "Tôi mua một bó hoa và tặng mẹ nhân dịp sinh nhật.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 16980,
+      "term": "しばる",
+      "reading": "しばる",
+      "romaji": null,
+      "definition": "Trói, bó, buộc",
+      "exampleSentence": "古新聞をひもでしばるのは、意外に力が必要だ。",
+      "exampleTranslation": "Buộc báo cũ bằng dây cần nhiều sức hơn tôi tưởng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 16981,
+      "term": "段ボール (だんボール)",
+      "reading": "だんボール",
+      "romaji": null,
+      "definition": "Thùng các-tông, thùng giấy",
+      "exampleSentence": "引っ越しの荷物を段ボールに詰めて、部屋の隅に置いた。",
+      "exampleTranslation": "Tôi đóng đồ chuyển nhà vào thùng các-tông rồi đặt ở góc phòng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 16982,
+      "term": "ガムテープ",
+      "reading": "ガムテープ",
+      "romaji": null,
+      "definition": "Băng keo vải",
+      "exampleSentence": "壊れた箱をガムテープでしっかりと閉じました。",
+      "exampleTranslation": "Tôi đã dùng băng keo vải dán kín chiếc hộp bị hỏng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 16983,
+      "term": "押し込む (おしこむ)",
+      "reading": "おしこむ",
+      "romaji": null,
+      "definition": "Nhấn vào, ấn vào, nhét vào",
+      "exampleSentence": "狭いスーツケースに服を押し込むのは大変です。",
+      "exampleTranslation": "Nhét quần áo vào chiếc vali chật thật là khó.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 16984,
+      "term": "リスト",
+      "reading": "リスト",
+      "romaji": null,
+      "definition": "Danh sách",
+      "exampleSentence": "買い物のリストを作ってから、スーパーへ行きました。",
+      "exampleTranslation": "Tôi đã lập danh sách mua sắm rồi đi siêu thị.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 16985,
+      "term": "引っ掛かる (ひっかかる)",
+      "reading": "ひっかかる",
+      "romaji": null,
+      "definition": "Mắc phải, vướng",
+      "exampleSentence": "歩いていると、服の袖が枝に引っ掛かることがあります。",
+      "exampleTranslation": "Khi đi bộ, đôi khi tay áo bị mắc vào cành cây.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 16986,
+      "term": "持ち上げる (もちあげる)",
+      "reading": "もちあげる",
+      "romaji": null,
+      "definition": "Cầm lên, nâng lên",
+      "exampleSentence": "この箱は重すぎて、一人では持ち上げることができません。",
+      "exampleTranslation": "Cái thùng này nặng quá nên tôi không thể tự nâng lên được.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 16987,
+      "term": "担ぐ (かつぐ)",
+      "reading": "かつぐ",
+      "romaji": null,
+      "definition": "Vác, nâng",
+      "exampleSentence": "祭りの日には、若者たちが神輿を肩に担ぐ。",
+      "exampleTranslation": "Vào ngày lễ hội, những người trẻ vác kiệu thần trên vai.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 16988,
+      "term": "くたびれる",
+      "reading": "くたびれる",
+      "romaji": null,
+      "definition": "Mệt nhoài, kiệt sức, tả tơi",
+      "exampleSentence": "長時間歩いた日は、体がすっかりくたびれるものです。",
+      "exampleTranslation": "Những ngày đi bộ lâu, cơ thể thường mệt rã rời.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 16989,
+      "term": "すき間 (すきま)",
+      "reading": "すきま",
+      "romaji": null,
+      "definition": "Khoảng trống",
+      "exampleSentence": "窓のすき間から、冷たい風が入ってきます。",
+      "exampleTranslation": "Gió lạnh lùa vào từ khe cửa sổ.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 16990,
+      "term": "中身 (なかみ)",
+      "reading": "なかみ",
+      "romaji": null,
+      "definition": "Bên trong",
+      "exampleSentence": "箱の中身を確認してから、ふたを閉めてください。",
+      "exampleTranslation": "Hãy kiểm tra bên trong hộp rồi đóng nắp lại.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 16991,
+      "term": "さっさと（する）",
+      "reading": "さっさと（する）",
+      "romaji": null,
+      "definition": "Mau chóng",
+      "exampleSentence": "「さっさと（する）」は、物事を早く行うという意味です。",
+      "exampleTranslation": "「さっさと（する）」 có nghĩa là nhanh chóng làm một việc gì đó.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 16992,
+      "term": "吊るす (つるす)",
+      "reading": "つるす",
+      "romaji": null,
+      "definition": "Treo",
+      "exampleSentence": "洗ったタオルをベランダに吊るす。",
+      "exampleTranslation": "Treo những chiếc khăn đã giặt ngoài ban công.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 16993,
+      "term": "まさに",
+      "reading": "まさに",
+      "romaji": null,
+      "definition": "Đúng là, chính xác, đúng là",
+      "exampleSentence": "私が探していた本は、まさにこれです。",
+      "exampleTranslation": "Cuốn sách tôi đang tìm chính là cuốn này.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 16994,
+      "term": "居心地 (いごこち)",
+      "reading": "いごこち",
+      "romaji": null,
+      "definition": "Ở cảm thấy thoải mái, dễ chịu",
+      "exampleSentence": "このカフェは静かで、長時間いても居心地がいい。",
+      "exampleTranslation": "Quán cà phê này yên tĩnh nên dù ở lâu cũng cảm thấy rất dễ chịu.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 16995,
+      "term": "一変（する） (いっぺん（する）)",
+      "reading": "いっぺん（する）",
+      "romaji": null,
+      "definition": "Hoàn toàn thay đổi",
+      "exampleSentence": "転職をきっかけに、彼の生活は「一変（する）」と言えるほど変わった。",
+      "exampleTranslation": "Nhờ việc chuyển việc, cuộc sống của anh ấy đã thay đổi hoàn toàn.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 16996,
+      "term": "アンテナ",
+      "reading": "アンテナ",
+      "romaji": null,
+      "definition": "Ăng-ten",
+      "exampleSentence": "屋根のアンテナが古くなったので、新しいものに交換した。",
+      "exampleTranslation": "Ăng-ten trên mái nhà đã cũ nên tôi đã thay bằng cái mới.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 16997,
+      "term": "いっそ",
+      "reading": "いっそ",
+      "romaji": null,
+      "definition": "Thà vậy, thà rằng",
+      "exampleSentence": "そんなに悩むなら、いっそ本人に直接聞いてみたらどうですか。",
+      "exampleTranslation": "Nếu đã băn khoăn đến vậy thì thà hỏi trực tiếp người đó xem sao.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "id": 411,
+  "title": "N3 Unit 9.1 - 名詞C・医療と健康 (Y tế & sức khỏe)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 名詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:36.096351",
+  "cards": [
+    {
+      "id": 10830,
+      "term": "読書 (どくしょ)",
+      "reading": "どくしょ",
+      "romaji": "dokusho",
+      "definition": "đọc sách",
+      "exampleSentence": "趣味は読書だ",
+      "exampleTranslation": "Sở thích là đọc sách.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10831,
+      "term": "演奏 (えんそう)",
+      "reading": "えんそう",
+      "romaji": "ensō",
+      "definition": "biểu diễn",
+      "exampleSentence": "楽器を演奏する",
+      "exampleTranslation": "Biểu diễn nhạc cụ.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10832,
+      "term": "芸術 (げいじゅつ)",
+      "reading": "げいじゅつ",
+      "romaji": "geijutsu",
+      "definition": "nghệ thuật",
+      "exampleSentence": "美術、音楽、文学、演劇などは、みな、芸術の一種であると言える",
+      "exampleTranslation": "Mỹ thuật, âm nhạc, văn học, kịch…tất cả có thể nói là một loại hình nghệ thuật.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10833,
+      "term": "検査 (けんさ)",
+      "reading": "けんさ",
+      "romaji": "kensa",
+      "definition": "kiểm tra",
+      "exampleSentence": "胃の検査",
+      "exampleTranslation": "Kiểm tra dạ dày, sản phẩm..",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10834,
+      "term": "血液 (けつえき)",
+      "reading": "けつえき",
+      "romaji": "ketsueki",
+      "definition": "máu (dịch máu) / huyết dịch",
+      "exampleSentence": "体の中を血液が流れている",
+      "exampleTranslation": "Máu chảy trong cơ thể.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10835,
+      "term": "治療 (ちりょう)",
+      "reading": "ちりょう",
+      "romaji": "chiryō",
+      "definition": "trị liệu, chữa bệnh",
+      "exampleSentence": "病気を治療した",
+      "exampleTranslation": "Đã chữa bệnh.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10836,
+      "term": "症状 (しょうじょう)",
+      "reading": "しょうじょう",
+      "romaji": "shōjō",
+      "definition": "triệu chứng",
+      "exampleSentence": "かぜの症状は、熱、せき、鼻水などだ",
+      "exampleTranslation": "Triệu chứng khi ốm là ho, sốt, nước mũi..",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10837,
+      "term": "予防 (よぼう)",
+      "reading": "よぼう",
+      "romaji": "yobō",
+      "definition": "đề phòng",
+      "exampleSentence": "かぜの予防",
+      "exampleTranslation": "Đề phòng ốm.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10838,
+      "term": "栄養 (えいよう)",
+      "reading": "えいよう",
+      "romaji": "eiyō",
+      "definition": "dinh dưỡng",
+      "exampleSentence": "栄養のある食べ物",
+      "exampleTranslation": "Đồ ăn dinh dưỡng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10839,
+      "term": "手術 (しゅじゅつ)",
+      "reading": "しゅじゅつ",
+      "romaji": "shujutsu",
+      "definition": "phẫu thuật",
+      "exampleSentence": "胃の手術をした",
+      "exampleTranslation": "Phẫu thuật dạ dày.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10840,
+      "term": "死亡 (しぼう)",
+      "reading": "しぼう",
+      "romaji": "shibō",
+      "definition": "chết",
+      "exampleSentence": "死亡の原因を調べる",
+      "exampleTranslation": "Tìm hiểu nguyên nhân chết.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10841,
+      "term": "命 (いのち)",
+      "reading": "いのち",
+      "romaji": "inochi",
+      "definition": "sinh mạng",
+      "exampleSentence": "命は大切にしなければならない",
+      "exampleTranslation": "Đối với sinh mạng thì phải thận trọng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10842,
+      "term": "一生 (いっしょう)",
+      "reading": "いっしょう",
+      "romaji": "isshō",
+      "definition": "suốt đời",
+      "exampleSentence": "ピカソの一生を調べる",
+      "exampleTranslation": "Tìm hiểu cuộc đời của Picaso.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10843,
+      "term": "誤解 (ごかい)",
+      "reading": "ごかい",
+      "romaji": "gokai",
+      "definition": "hiểu lầm",
+      "exampleSentence": "誤解がないようにするには、よく話し合うことが大切だ",
+      "exampleTranslation": "Để cho mọi người không hiểu nhầm nên việc bàn bạc thảo luận rất quan trọng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10844,
+      "term": "後悔 (こうかい)",
+      "reading": "こうかい",
+      "romaji": "kōkai",
+      "definition": "hối hận",
+      "exampleSentence": "私は若いころに勉強しなかったことを、とても後悔している",
+      "exampleTranslation": "Tôi đã rất hối hận thi không học đến nơi đến chốn khi còn trẻ.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10845,
+      "term": "訳 (わけ)",
+      "reading": "わけ",
+      "romaji": "wake",
+      "definition": "lý do / nguyên nhân / lẽ / nghĩa",
+      "exampleSentence": "遅刻したわけを話す",
+      "exampleTranslation": "Bạn hãy nói nguyên nhân đến muộn.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

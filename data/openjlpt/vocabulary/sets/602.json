@@ -1,0 +1,165 @@
+{
+  "id": 602,
+  "title": "N2 Unit 10.2 - 形容詞B (bài 2/4)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 形容詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.556431",
+  "cards": [
+    {
+      "id": 14016,
+      "term": "正式な (せいしきな)",
+      "reading": "せいしきな",
+      "romaji": null,
+      "definition": "chính thức, trang trọng",
+      "exampleSentence": "日本のお札の正式な名称は「日本銀行券」だ。",
+      "exampleTranslation": "Tên gọi chính thức của tiền giấy Nhật là “Ngân hàng Nhật Bản phát hành”.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14017,
+      "term": "主な (おもな)",
+      "reading": "おもな",
+      "romaji": null,
+      "definition": "chính, chủ yếu",
+      "exampleSentence": "「今日の主なニュースを五つお伝えします」",
+      "exampleTranslation": "“Sau đây là 5 tin chính hôm nay.”",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14018,
+      "term": "主要な (しゅような)",
+      "reading": "しゅような",
+      "romaji": null,
+      "definition": "chủ yếu, chính",
+      "exampleSentence": "会の主要な役員が集まって今後の方針を議論した。",
+      "exampleTranslation": "Các cán bộ chủ chốt của hội tụ họp để bàn phương hướng sắp tới.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14019,
+      "term": "貴重な (きちょうな)",
+      "reading": "きちょうな",
+      "romaji": null,
+      "definition": "quý giá",
+      "exampleSentence": "留学という貴重な体験をした。",
+      "exampleTranslation": "Tôi đã có một trải nghiệm quý giá là đi du học.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14020,
+      "term": "偉大な (いだいな)",
+      "reading": "いだいな",
+      "romaji": null,
+      "definition": "vĩ đại",
+      "exampleSentence": "アインシュタインは科学の分野で偉大な功績をあげた。",
+      "exampleTranslation": "Einstein đạt thành tựu vĩ đại trong lĩnh vực khoa học.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14021,
+      "term": "偉い (えらい)",
+      "reading": "えらい",
+      "romaji": null,
+      "definition": "đáng nể, đáng ngưỡng mộ",
+      "exampleSentence": "卒業式には市長や大臣など偉い人が来ていた。",
+      "exampleTranslation": "Lễ tốt nghiệp có cả thị trưởng, bộ trưởng… những người “có chức” đến dự.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14022,
+      "term": "独特な (どくとくな)",
+      "reading": "どくとくな",
+      "romaji": null,
+      "definition": "độc nhất, đặc biệt",
+      "exampleSentence": "ブルーチーズには独特な香りがある。",
+      "exampleTranslation": "Phô mai xanh có mùi hương rất đặc trưng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14023,
+      "term": "特殊な (とくしゅな)",
+      "reading": "とくしゅな",
+      "romaji": null,
+      "definition": "đặc thù, đặc biệt",
+      "exampleSentence": "この仕事には特殊な技能が必要だ。",
+      "exampleTranslation": "Công việc này cần kỹ năng đặc thù.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14024,
+      "term": "奇妙な (きみょうな)",
+      "reading": "きみょうな",
+      "romaji": null,
+      "definition": "kỳ lạ",
+      "exampleSentence": "この魚は奇妙な形をしている。",
+      "exampleTranslation": "Con cá này có hình dạng kỳ lạ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14025,
+      "term": "妙な (みょうな)",
+      "reading": "みょうな",
+      "romaji": null,
+      "definition": "lạ, tò mò",
+      "exampleSentence": "妙なことに、初めて来たこの場所をなんだか知っているような気がする。",
+      "exampleTranslation": "Lạ thay, tôi có cảm giác như mình biết nơi này dù đây là lần đầu đến.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14026,
+      "term": "怪しい (あやしい)",
+      "reading": "あやしい",
+      "romaji": null,
+      "definition": "đáng ngờ, không bình thường",
+      "exampleSentence": "家の前を怪しい男がうろうろしている。",
+      "exampleTranslation": "Có một người đàn ông đáng ngờ đang lảng vảng trước nhà.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14027,
+      "term": "異常な (いじょうな)",
+      "reading": "いじょうな",
+      "romaji": null,
+      "definition": "dị thường, khác thường",
+      "exampleSentence": "今年の夏の暑さは異常だ。",
+      "exampleTranslation": "Cái nóng mùa hè năm nay thật bất thường.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 14028,
+      "term": "高度な (こうどな)",
+      "reading": "こうどな",
+      "romaji": null,
+      "definition": "trình độ cao, tiên tiến, cấp cao",
+      "exampleSentence": "このメーカーは高度な半導体技術で知られている。",
+      "exampleTranslation": "Nhà sản xuất này được biết đến với công nghệ bán dẫn trình độ cao.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 14029,
+      "term": "新たな (あらたな)",
+      "reading": "あらたな",
+      "romaji": null,
+      "definition": "mới",
+      "exampleSentence": "裁判で新たな証人が現れた。",
+      "exampleTranslation": "Một nhân chứng mới đã xuất hiện trong phiên tòa.",
+      "forms": [],
+      "displayOrder": 13
+    }
+  ]
+}

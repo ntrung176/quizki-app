@@ -1,0 +1,242 @@
+{
+  "id": 843,
+  "title": "N1 Tango 12.4 - Tình trạng - Hình ảnh · Hình ảnh tích cực",
+  "description": "Tango N1 — Tình trạng - Hình ảnh",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:44.215179",
+  "cards": [
+    {
+      "id": 19771,
+      "term": "ポジティブな",
+      "reading": "ポジティブな",
+      "romaji": null,
+      "definition": "Tích cực",
+      "exampleSentence": "試験に落ちても、ポジティブな考え方を忘れないようにしよう。",
+      "exampleTranslation": "Dù trượt kỳ thi, hãy cố gắng không quên cách suy nghĩ tích cực.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 19772,
+      "term": "みずみずしい",
+      "reading": "みずみずしい",
+      "romaji": null,
+      "definition": "Tươi mát, mọng nước",
+      "exampleSentence": "朝採れの桃を食べると、みずみずしい香りと甘さが口いっぱいに広がる。",
+      "exampleTranslation": "Khi ăn đào vừa hái buổi sáng, hương thơm tươi mát và vị ngọt lan tỏa khắp miệng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 19773,
+      "term": "しとやかな",
+      "reading": "しとやかな",
+      "romaji": null,
+      "definition": "Dịu dàng, nhã nhặn",
+      "exampleSentence": "彼女はしとやかな立ち居振る舞いで、会場の人々を魅了した。",
+      "exampleTranslation": "Với phong thái dịu dàng, nhã nhặn, cô ấy đã cuốn hút mọi người trong hội trường.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 19774,
+      "term": "優雅（な） (ゆうが（な）)",
+      "reading": "ゆうが（な）",
+      "romaji": null,
+      "definition": "Trang nhã, thanh nhã",
+      "exampleSentence": "彼女は「優雅（な）」という表現がぴったりの、落ち着いた身のこなしを見せた。",
+      "exampleTranslation": "Cô ấy thể hiện phong thái điềm đạm, hoàn toàn xứng đáng với cách diễn đạt “thanh nhã”.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 19775,
+      "term": "チャーミングな",
+      "reading": "チャーミングな",
+      "romaji": null,
+      "definition": "Quyến rũ, duyên dáng",
+      "exampleSentence": "彼女のチャーミングな笑顔が、初対面の人の緊張を和らげた。",
+      "exampleTranslation": "Nụ cười duyên dáng của cô ấy đã giúp những người mới gặp lần đầu bớt căng thẳng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 19776,
+      "term": "ソフトな",
+      "reading": "ソフトな",
+      "romaji": null,
+      "definition": "Nhẹ nhàng, mềm mại",
+      "exampleSentence": "彼女はソフトな色合いの服を選び、春らしい印象に仕上げた。",
+      "exampleTranslation": "Cô ấy chọn bộ quần áo có màu sắc nhẹ nhàng, tạo nên vẻ rất hợp với mùa xuân.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 19777,
+      "term": "シャープな",
+      "reading": "シャープな",
+      "romaji": null,
+      "definition": "Sắc bén, sắc sảo",
+      "exampleSentence": "彼のシャープな指摘によって、議論の核心が明確になった。",
+      "exampleTranslation": "Nhờ nhận xét sắc bén của anh ấy, trọng tâm của cuộc thảo luận đã trở nên rõ ràng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 19778,
+      "term": "明快な (めいかいな)",
+      "reading": "めいかいな",
+      "romaji": null,
+      "definition": "Rõ ràng, minh bạch",
+      "exampleSentence": "彼は問題点を明快な言葉で説明し、全員の理解を得た。",
+      "exampleTranslation": "Anh ấy giải thích vấn đề bằng những lời lẽ rõ ràng và nhận được sự đồng tình của mọi người.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 19779,
+      "term": "りりしい",
+      "reading": "りりしい",
+      "romaji": null,
+      "definition": "Oai phong, nam tính",
+      "exampleSentence": "制服姿の彼は、いつもよりりりしい印象を与えていた。",
+      "exampleTranslation": "Trong bộ đồng phục, anh ấy trông oai phong hơn thường ngày.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 19780,
+      "term": "やんわり[と]",
+      "reading": "やんわり[と]",
+      "romaji": null,
+      "definition": "Nhẹ nhàng, khéo léo",
+      "exampleSentence": "やんわりと断ることで、相手の気持ちを傷つけずに済んだ。",
+      "exampleTranslation": "Nhờ từ chối một cách khéo léo, tôi đã không làm tổn thương cảm xúc của đối phương.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 19781,
+      "term": "滑らかな (なめらかな)",
+      "reading": "なめらかな",
+      "romaji": null,
+      "definition": "Trơn tru, trôi chảy",
+      "exampleSentence": "滑らかな話し方から、彼が十分に準備してきたことが伝わった。",
+      "exampleTranslation": "Qua cách nói chuyện trôi chảy, có thể thấy anh ấy đã chuẩn bị rất kỹ.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 19782,
+      "term": "堂々[と] (どうどう[と])",
+      "reading": "どうどう[と]",
+      "romaji": null,
+      "definition": "Đường hoàng, oai vệ",
+      "exampleSentence": "彼は批判を受けても、堂々と自分の考えを述べた。",
+      "exampleTranslation": "Dù bị chỉ trích, anh ấy vẫn đường hoàng trình bày suy nghĩ của mình.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 19783,
+      "term": "健全な (けんぜんな)",
+      "reading": "けんぜんな",
+      "romaji": null,
+      "definition": "Lành mạnh",
+      "exampleSentence": "健全な社会を築くには、互いの違いを認める姿勢が欠かせない。",
+      "exampleTranslation": "Để xây dựng một xã hội lành mạnh, thái độ thừa nhận sự khác biệt của nhau là điều không thể thiếu.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 19784,
+      "term": "とびきり",
+      "reading": "とびきり",
+      "romaji": null,
+      "definition": "Hảo hạng, vượt trội",
+      "exampleSentence": "これは職人が厳選した、とびきりの素材で作られた菓子だ。",
+      "exampleTranslation": "Đây là loại bánh được làm từ những nguyên liệu hảo hạng do nghệ nhân tuyển chọn kỹ lưỡng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 19785,
+      "term": "抜群な (ばつぐんな)",
+      "reading": "ばつぐんな",
+      "romaji": null,
+      "definition": "Xuất sắc, nổi bật",
+      "exampleSentence": "彼女は抜群な記憶力を生かし、通訳として活躍している。",
+      "exampleTranslation": "Cô ấy phát huy khả năng ghi nhớ xuất sắc và đang hoạt động tích cực với tư cách phiên dịch viên.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 19786,
+      "term": "すばしっこい",
+      "reading": "すばしっこい",
+      "romaji": null,
+      "definition": "Nhanh nhẹn, lanh lẹ",
+      "exampleSentence": "すばしっこい猫は、開いた窓から一瞬で逃げてしまった。",
+      "exampleTranslation": "Con mèo nhanh nhẹn đã chạy thoát qua cửa sổ đang mở chỉ trong chớp mắt.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 19787,
+      "term": "恥じらう (はじらう)",
+      "reading": "はじらう",
+      "romaji": null,
+      "definition": "E thẹn, ngại ngùng",
+      "exampleSentence": "彼女は褒められると、恥じらうようにうつむいた。",
+      "exampleTranslation": "Khi được khen, cô ấy ngượng ngùng cúi đầu xuống.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 19788,
+      "term": "たやすい",
+      "reading": "たやすい",
+      "romaji": null,
+      "definition": "Đơn giản, dễ dàng",
+      "exampleSentence": "彼にとって、未知の分野で成果を上げるのはたやすいことではなかった。",
+      "exampleTranslation": "Đối với anh ấy, đạt được thành quả trong một lĩnh vực xa lạ không phải là chuyện dễ dàng.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 19789,
+      "term": "悠々[と] (ゆうゆう[と])",
+      "reading": "ゆうゆう[と]",
+      "romaji": null,
+      "definition": "Thong thả, ung dung",
+      "exampleSentence": "経験豊富な彼は、悠々と制限時間内に課題を終えた。",
+      "exampleTranslation": "Với kinh nghiệm phong phú, anh ấy ung dung hoàn thành bài tập trong thời hạn quy định.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 19790,
+      "term": "めきめき[と]",
+      "reading": "めきめき[と]",
+      "romaji": null,
+      "definition": "Tiến bộ nhanh chóng, vượt bậc",
+      "exampleSentence": "新人の技術は、厳しい指導のおかげでめきめきと上達している。",
+      "exampleTranslation": "Nhờ sự hướng dẫn nghiêm khắc, kỹ năng của nhân viên mới đang tiến bộ vượt bậc.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 19791,
+      "term": "至れり尽くせり (いたれりつくせり)",
+      "reading": "いたれりつくせり",
+      "romaji": null,
+      "definition": "Chu đáo tận tình",
+      "exampleSentence": "この旅館は至れり尽くせりのサービスで、宿泊客を驚かせた。",
+      "exampleTranslation": "Nhà trọ này khiến khách lưu trú bất ngờ với dịch vụ chu đáo tận tình.",
+      "forms": [],
+      "displayOrder": 20
+    }
+  ]
+}

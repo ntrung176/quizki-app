@@ -1,0 +1,77 @@
+{
+  "id": 608,
+  "title": "N2 Unit 11.4 - 名詞D (bài 4/8)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞D",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.645125",
+  "cards": [
+    {
+      "id": 14098,
+      "term": "害 (がい)",
+      "reading": "がい",
+      "romaji": null,
+      "definition": "có hại",
+      "exampleSentence": "この虫は人間に害を与えることはない。",
+      "exampleTranslation": "Loài côn trùng này không gây hại cho con người.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14099,
+      "term": "伝染 (でんせん)",
+      "reading": "でんせん",
+      "romaji": null,
+      "definition": "truyền nhiễm",
+      "exampleSentence": "この病気は動物から人に伝染する。",
+      "exampleTranslation": "Căn bệnh này lây truyền từ động vật sang người.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14100,
+      "term": "対策 (たいさく)",
+      "reading": "たいさく",
+      "romaji": null,
+      "definition": "đối sách, biện pháp đối phó",
+      "exampleSentence": "少子化を止める有効な対策を立てる必要がある。",
+      "exampleTranslation": "Cần xây dựng các biện pháp hiệu quả để ngăn chặn tình trạng ít sinh.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14101,
+      "term": "処置 (しょち)",
+      "reading": "しょち",
+      "romaji": null,
+      "definition": "xử trí, đối xử, điều trị",
+      "exampleSentence": "問題に対して適切な処置をとる。",
+      "exampleTranslation": "Áp dụng biện pháp xử lý phù hợp đối với vấn đề.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14102,
+      "term": "処分 (しょぶん)",
+      "reading": "しょぶん",
+      "romaji": null,
+      "definition": "tiêu hủy",
+      "exampleSentence": "引っ越しする時、不用品を全部処分した。",
+      "exampleTranslation": "Khi chuyển nhà, tôi đã xử lý hết đồ không cần thiết.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14103,
+      "term": "処理 (しょり)",
+      "reading": "しょり",
+      "romaji": null,
+      "definition": "xử lý, giải quyết",
+      "exampleSentence": "たまった仕事をてきぱきと処理する。",
+      "exampleTranslation": "Xử lý nhanh gọn khối lượng công việc tồn đọng.",
+      "forms": [],
+      "displayOrder": 5
+    }
+  ]
+}

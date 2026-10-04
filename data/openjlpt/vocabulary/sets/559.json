@@ -1,0 +1,187 @@
+{
+  "id": 559,
+  "title": "N2 Unit 4.2 - 名詞B (bài 2/12)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.72368",
+  "cards": [
+    {
+      "id": 13447,
+      "term": "意識 (いしき)",
+      "reading": "いしき",
+      "romaji": null,
+      "definition": "tri giác, ý thức",
+      "exampleSentence": "頭を打って意識を失った。",
+      "exampleTranslation": "Bị đánh vào đầu và mất ý thức.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13448,
+      "term": "感激 (かんげき)",
+      "reading": "かんげき",
+      "romaji": null,
+      "definition": "cảm kích, xúc động",
+      "exampleSentence": "めったに人を褒めない教授に褒められて、感激した。",
+      "exampleTranslation": "Giáo sư hiếm khi khen ai; được khen nên tôi rất xúc động.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13449,
+      "term": "同情 (どうじょう)",
+      "reading": "どうじょう",
+      "romaji": null,
+      "definition": "cảm thông, lòng thương hại, lòng trắc ẩn",
+      "exampleSentence": "苦しんでいる人々に同情する。",
+      "exampleTranslation": "Cảm thông/đồng cảm với những người đang chịu khổ.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13450,
+      "term": "同意 (どうい)",
+      "reading": "どうい",
+      "romaji": null,
+      "definition": "đồng ý",
+      "exampleSentence": "大勢の人が私の意見に同意してくれた。",
+      "exampleTranslation": "Rất nhiều người đã đồng ý với ý kiến của tôi.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13451,
+      "term": "同感 (どうかん)",
+      "reading": "どうかん",
+      "romaji": null,
+      "definition": "đồng cảm",
+      "exampleSentence": "中山さんの話に私も同感だ。",
+      "exampleTranslation": "Tôi cũng đồng cảm/đồng ý với câu chuyện của anh Nakayama.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13452,
+      "term": "対立 (たいりつ)",
+      "reading": "たいりつ",
+      "romaji": null,
+      "definition": "đối lập",
+      "exampleSentence": "国会は与党と野党の対立が激しくなった。",
+      "exampleTranslation": "Ở quốc hội, đối lập giữa đảng cầm quyền và đảng đối lập trở nên gay gắt.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13453,
+      "term": "主張 (しゅちょう)",
+      "reading": "しゅちょう",
+      "romaji": null,
+      "definition": "chủ trương",
+      "exampleSentence": "会社側に労働者の権利を主張する。",
+      "exampleTranslation": "Khẳng định/đòi hỏi quyền lợi của người lao động với phía công ty.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13454,
+      "term": "要求 (ようきゅう)",
+      "reading": "ようきゅう",
+      "romaji": null,
+      "definition": "yêu cầu",
+      "exampleSentence": "労働組合が会社に賃金の値上げを要求した。しかし会社側はその要求を受け入れそうもない。",
+      "exampleTranslation": "Công đoàn yêu cầu tăng lương, nhưng phía công ty có vẻ không chấp nhận.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13455,
+      "term": "得 (とく)",
+      "reading": "とく",
+      "romaji": null,
+      "definition": "lợi ích, lãi",
+      "exampleSentence": "株を買ったらすぐに値上がりして得をした。",
+      "exampleTranslation": "Mua cổ phiếu xong lên giá ngay nên tôi lời.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13456,
+      "term": "損 (そん)",
+      "reading": "そん",
+      "romaji": null,
+      "definition": "lỗ, tổn thất",
+      "exampleSentence": "株が下がって損をした。",
+      "exampleTranslation": "Cổ phiếu giảm nên tôi bị lỗ.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13457,
+      "term": "勝負 (しょうぶ)",
+      "reading": "しょうぶ",
+      "romaji": null,
+      "definition": "so tài, thi đấu, phân thắng bại",
+      "exampleSentence": "どちらがテストでいい点を取るか、友達と勝負をした。",
+      "exampleTranslation": "Tôi so tài với bạn xem ai được điểm kiểm tra cao hơn.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13458,
+      "term": "勢い (いきおい)",
+      "reading": "いきおい",
+      "romaji": null,
+      "definition": "sự mạnh mẽ, khí thế",
+      "exampleSentence": "選手たちはすごい勢いで私の前を走りすぎて行った。",
+      "exampleTranslation": "Các vận động viên lao vụt qua tôi với khí thế rất mạnh.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13459,
+      "term": "爆発 (ばくはつ)",
+      "reading": "ばくはつ",
+      "romaji": null,
+      "definition": "nổ",
+      "exampleSentence": "ガスタンクが爆発して大きな被害が出た。",
+      "exampleTranslation": "Nổ bình ga gây thiệt hại lớn.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13460,
+      "term": "災害 (さいがい)",
+      "reading": "さいがい",
+      "romaji": null,
+      "definition": "thảm họa (thiên nhiên)",
+      "exampleSentence": "地震や火事などの災害に会ったときのために、保険に入っておこう。",
+      "exampleTranslation": "Để phòng lúc gặp thiên tai như động đất/hỏa hoạn, nên mua bảo hiểm.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13461,
+      "term": "天候 (てんこう)",
+      "reading": "てんこう",
+      "romaji": null,
+      "definition": "thời tiết",
+      "exampleSentence": "今日の運動会は天候にも恵まれて、とてもいいものだった。",
+      "exampleTranslation": "Hôm nay thời tiết thuận lợi nên ngày hội thể thao rất tuyệt.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 13462,
+      "term": "乾燥 (かんそう)",
+      "reading": "かんそう",
+      "romaji": null,
+      "definition": "sự khô khan, khô hạn",
+      "exampleSentence": "草を乾燥させて家畜のえさにする。",
+      "exampleTranslation": "Phơi khô cỏ làm thức ăn cho gia súc.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

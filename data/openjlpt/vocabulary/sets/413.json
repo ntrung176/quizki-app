@@ -1,0 +1,187 @@
+{
+  "id": 413,
+  "title": "N3 Unit 9.3 - 名詞C・伝達と影響 (Giao tiếp & ảnh hưởng)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 名詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:36.16428",
+  "cards": [
+    {
+      "id": 10862,
+      "term": "機会 (きかい)",
+      "reading": "きかい",
+      "romaji": "kikai",
+      "definition": "cơ hội",
+      "exampleSentence": "彼女と二人で話したいのだが、なかなか機会がない",
+      "exampleTranslation": "Tôi muốn nói chuyện hai người với cô ấy nhưng mãi mà không có cơ hội.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10863,
+      "term": "距離 (きょり)",
+      "reading": "きょり",
+      "romaji": "kyori",
+      "definition": "cự li, khoảng cách",
+      "exampleSentence": "駅からの距離を測る",
+      "exampleTranslation": "Đo khoảng cách từ nhà ga.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10864,
+      "term": "提案 (ていあん)",
+      "reading": "ていあん",
+      "romaji": "teian",
+      "definition": "đề án, đề xuất",
+      "exampleSentence": "会議で提案をする",
+      "exampleTranslation": "Đề xuất dự án trong cuộc họp.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10865,
+      "term": "やり取り (やりとり)",
+      "reading": "やりとり",
+      "romaji": "yaritori",
+      "definition": "trao đổi",
+      "exampleSentence": "友だちとメールはやりとりする",
+      "exampleTranslation": "Trao đổi mail với bạn bè.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10866,
+      "term": "知識 (ちしき)",
+      "reading": "ちしき",
+      "romaji": "chishiki",
+      "definition": "tri thức / kiến thức",
+      "exampleSentence": "本を読んで知識を身につける",
+      "exampleTranslation": "Đọc sách để tích lũy kiến thức.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10867,
+      "term": "実力 (じつりょく)",
+      "reading": "じつりょく",
+      "romaji": "jitsuryoku",
+      "definition": "thực lực",
+      "exampleSentence": "試合で実力を出す",
+      "exampleTranslation": "Thể hiện thực lực trong trận đấu.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10868,
+      "term": "手段 (しゅだん)",
+      "reading": "しゅだん",
+      "romaji": "shudan",
+      "definition": "cách thức, phương pháp",
+      "exampleSentence": "問題を解決するために必要な手段をとる",
+      "exampleTranslation": "Áp dụng những biện pháp cần thiết để giải quyết vấn đề.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10869,
+      "term": "代表 (だいひょう)",
+      "reading": "だいひょう",
+      "romaji": "daihyō",
+      "definition": "đại biểu",
+      "exampleSentence": "クラスの代表として会議に参加する",
+      "exampleTranslation": "Tôi tham gia họp với tư cách là đại diện lớp.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10870,
+      "term": "影響 (えいきょう)",
+      "reading": "えいきょう",
+      "romaji": "eikyō",
+      "definition": "ảnh hưởng",
+      "exampleSentence": "両親の影響で、私も子どものころから絵をかき始めた",
+      "exampleTranslation": "Do ảnh hưởng của bố mẹ tôi cũng đã bắt đầu vẽ tranh từ khi còn nhỏ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10871,
+      "term": "効果 (こうか)",
+      "reading": "こうか",
+      "romaji": "kōka",
+      "definition": "hiệu quả",
+      "exampleSentence": "この薬を飲んだら、すぐに効果が出た",
+      "exampleTranslation": "Uống thuốc này xong, đã có hiệu quả ngay.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10872,
+      "term": "印象 (いんしょう)",
+      "reading": "いんしょう",
+      "romaji": "inshō",
+      "definition": "ấn tượng",
+      "exampleSentence": "彼女と初めて会ったとき、優しそうな人だという印象を受けた",
+      "exampleTranslation": "Lần đầu khi tôi gặp cô ấy, tôi đã có ấn tượng rằng cô ấy là người hiền lành.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10873,
+      "term": "印 (しるし)",
+      "reading": "しるし",
+      "romaji": "shirushi",
+      "definition": "dấu hiệu, biểu tượng",
+      "exampleSentence": "地図の目的地にしるしをつける",
+      "exampleTranslation": "Đánh dấu địa điểm cần đến trên bản đồ.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10874,
+      "term": "合図 (あいず)",
+      "reading": "あいず",
+      "romaji": "aizu",
+      "definition": "ra hiệu / ám hiệu / dấu hiệu (làm tín hiệu)",
+      "exampleSentence": "友だちに目で合図する",
+      "exampleTranslation": "Ra hiệu bằng mắt với bạn.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10875,
+      "term": "共通 (きょうつう)",
+      "reading": "きょうつう",
+      "romaji": "kyōtsū",
+      "definition": "điểm chung",
+      "exampleSentence": "二人の共通の趣味は音楽だ",
+      "exampleTranslation": "Điểm chung của hai người là sở thích nghe nhạc.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10876,
+      "term": "強調 (きょうちょう)",
+      "reading": "きょうちょう",
+      "romaji": "kyōchō",
+      "definition": "nhấn mạnh",
+      "exampleSentence": "大事な点を強調して説明する。",
+      "exampleTranslation": "Nhấn mạnh và giải thích điểm quan trọng.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10877,
+      "term": "省略 (しょうりゃく)",
+      "reading": "しょうりゃく",
+      "romaji": "shōryaku",
+      "definition": "giản lược, rút gọn",
+      "exampleSentence": "くわしい説明を省略して簡単に話す",
+      "exampleTranslation": "Lược bớt những chi tiết hãy nói thật đơn giản.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

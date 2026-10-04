@@ -1,0 +1,143 @@
+{
+  "id": 614,
+  "title": "N2 Unit 12.2 - 動詞C (bài 2/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.733905",
+  "cards": [
+    {
+      "id": 14163,
+      "term": "抱える (かかえる)",
+      "reading": "かかえる",
+      "romaji": null,
+      "definition": "mang, cầm",
+      "exampleSentence": "その人は腕に大きな荷物を抱えていた。",
+      "exampleTranslation": "Người đó ôm một kiện hành lý lớn trong tay.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14164,
+      "term": "担ぐ (かつぐ)",
+      "reading": "かつぐ",
+      "romaji": null,
+      "definition": "mang, vác 負う",
+      "exampleSentence": "荷物を肩に担ぐ。",
+      "exampleTranslation": "Vác hành lý lên vai.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14165,
+      "term": "剥がす (はがす)",
+      "reading": "はがす",
+      "romaji": null,
+      "definition": "bóc, lột (vỏ)",
+      "exampleSentence": "プレゼント用に買ったクッキーの値札を剥がす。",
+      "exampleTranslation": "Bóc tem/nhãn giá của hộp bánh quy mua làm quà.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14166,
+      "term": "描く (かく)",
+      "reading": "かく",
+      "romaji": null,
+      "definition": "vẽ, mô tả, hình dung",
+      "exampleSentence": "この画家はよく町の風景を描く。",
+      "exampleTranslation": "Họa sĩ này hay vẽ phong cảnh thành phố.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14167,
+      "term": "砕ける (くだける)",
+      "reading": "くだける",
+      "romaji": null,
+      "definition": "bị vỡ, vụn, suồng sã, dễ dãi",
+      "exampleSentence": "落ちたカップがこなごなに砕けた。",
+      "exampleTranslation": "Cái cốc rơi xuống và vỡ tan tành.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14168,
+      "term": "砕く (くだく)",
+      "reading": "くだく",
+      "romaji": null,
+      "definition": "đập vỡ",
+      "exampleSentence": "氷を小さく砕いてグラスに入れる。",
+      "exampleTranslation": "Đập đá nhỏ ra rồi cho vào ly.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14169,
+      "term": "塞がる (ふさがる)",
+      "reading": "ふさがる",
+      "romaji": null,
+      "definition": "bị tắc ngẽn, kín, bít, đầy",
+      "exampleSentence": "荷物で戸口がふさがっている。",
+      "exampleTranslation": "Hành lý chắn kín lối/miệng cửa.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14170,
+      "term": "塞ぐ (ふさぐ)",
+      "reading": "ふさぐ",
+      "romaji": null,
+      "definition": "bịt, lấp, làm đầy, nhắm(mắt)",
+      "exampleSentence": "道路の穴をセメントでふさぐ。",
+      "exampleTranslation": "Dùng xi măng bịt lỗ trên đường.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14171,
+      "term": "避ける (さける)",
+      "reading": "さける",
+      "romaji": null,
+      "definition": "tránh, né (tình huống, vấn đề)",
+      "exampleSentence": "水たまりを避けて歩いた。",
+      "exampleTranslation": "Tôi đi bộ tránh vũng nước.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14172,
+      "term": "避ける (よける)",
+      "reading": "よける",
+      "romaji": null,
+      "definition": "tránh, né (vật thể)",
+      "exampleSentence": "飛んでくるボールをよけようとして転んでしまった。",
+      "exampleTranslation": "Định né quả bóng bay tới thì lại bị ngã.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14173,
+      "term": "逸れる (それる)",
+      "reading": "それる",
+      "romaji": null,
+      "definition": "lệch, trượt, lảng tránh",
+      "exampleSentence": "台風の進路が北に逸れた。",
+      "exampleTranslation": "Đường đi của bão lệch lên phía bắc.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14174,
+      "term": "逸らす (そらす)",
+      "reading": "そらす",
+      "romaji": null,
+      "definition": "trốn tránh, lảng tránh",
+      "exampleSentence": "「話をそらさないでちゃんと答えてください」",
+      "exampleTranslation": "“Đừng đánh lạc hướng nữa, hãy trả lời đàng hoàng.”",
+      "forms": [],
+      "displayOrder": 11
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "id": 412,
+  "title": "N3 Unit 9.2 - 名詞C・態度と規則 (Thái độ & quy tắc)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 名詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:36.128591",
+  "cards": [
+    {
+      "id": 10846,
+      "term": "態度 (たいど)",
+      "reading": "たいど",
+      "romaji": "taido",
+      "definition": "thái độ",
+      "exampleSentence": "あの学生は、授業中の態度が悪い",
+      "exampleTranslation": "Học sinh kia có thái độ không tốt trong giờ học.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10847,
+      "term": "癖 (くせ)",
+      "reading": "くせ",
+      "romaji": "kuse",
+      "definition": "tật / thói quen",
+      "exampleSentence": "私のくせは、困ったとき頭をかくことだ",
+      "exampleTranslation": "Thói quen của tôi là mỗi khi có việc khó khăn thì tôi hay gãi đầu.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10848,
+      "term": "礼儀 (れいぎ)",
+      "reading": "れいぎ",
+      "romaji": "reigi",
+      "definition": "lễ nghĩa",
+      "exampleSentence": "目上の人への礼儀",
+      "exampleTranslation": "Lễ phép đối với người bề trên.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10849,
+      "term": "文句 (もんく)",
+      "reading": "もんく",
+      "romaji": "monku",
+      "definition": "lời phàn nàn / than phiền",
+      "exampleSentence": "給料に文句がある",
+      "exampleTranslation": "Tôi có phàn nàn về tiền lương.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10850,
+      "term": "表情 (ひょうじょう)",
+      "reading": "ひょうじょう",
+      "romaji": "hyōjō",
+      "definition": "biểu cảm, nét mặt",
+      "exampleSentence": "顔の表情",
+      "exampleTranslation": "Biểu cảm khuôn mặt.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10851,
+      "term": "表面 (ひょうめん)",
+      "reading": "ひょうめん",
+      "romaji": "hyōmen",
+      "definition": "bề mặt",
+      "exampleSentence": "水の表面",
+      "exampleTranslation": "Bề mặt nước.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10852,
+      "term": "禁煙 (きんえん)",
+      "reading": "きんえん",
+      "romaji": "kin'en",
+      "definition": "cấm hút thuốc",
+      "exampleSentence": "「この部屋は禁煙です」",
+      "exampleTranslation": "\"Phòng này cấm hút thuốc.\"",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10853,
+      "term": "禁止 (きんし)",
+      "reading": "きんし",
+      "romaji": "kinshi",
+      "definition": "cấm",
+      "exampleSentence": "美術館の中では、写真をとることは禁止されている",
+      "exampleTranslation": "Ở trong bảo tàng nghệ thuật thì bị cấm chụp ảnh.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10854,
+      "term": "完成 (かんせい)",
+      "reading": "かんせい",
+      "romaji": "kansei",
+      "definition": "hoàn thành",
+      "exampleSentence": "建物が完成した",
+      "exampleTranslation": "{Tòa nhà/ tác phẩm…} đã hoàn thành.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10855,
+      "term": "課題 (かだい)",
+      "reading": "かだい",
+      "romaji": "kadai",
+      "definition": "đề tài, bài tập, nhiệm vụ",
+      "exampleSentence": "現在の日本には、高齢化、ごみ問題など、多くの課題がある",
+      "exampleTranslation": "Nhật Bản lúc này đang gặp những vấn đề như rác, dân số già hóa..",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10856,
+      "term": "例外 (れいがい)",
+      "reading": "れいがい",
+      "romaji": "reigai",
+      "definition": "ngoại lệ",
+      "exampleSentence": "どんな規則にも例外がある",
+      "exampleTranslation": "Quy tắc nào cũng có ngoại lệ.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10857,
+      "term": "基本 (きほん)",
+      "reading": "きほん",
+      "romaji": "kihon",
+      "definition": "cơ bản",
+      "exampleSentence": "何の練習でも、基本が大切だ",
+      "exampleTranslation": "Dù có luyện tập cái gì đi nữa thì cái cơ bản rất là quan trọng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10858,
+      "term": "記録 (きろく)",
+      "reading": "きろく",
+      "romaji": "kiroku",
+      "definition": "ghi chép, kỉ lục",
+      "exampleSentence": "先週の会議の記録を読んだ",
+      "exampleTranslation": "Tôi đã đọc ghi chép của hội nghị tuần trước.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10859,
+      "term": "状態 (じょうたい)",
+      "reading": "じょうたい",
+      "romaji": "jōtai",
+      "definition": "trạng thái",
+      "exampleSentence": "あの会社は、いま経営の状態がよくない",
+      "exampleTranslation": "Công ty đó trạng thái kinh doanh không tốt lắm.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10860,
+      "term": "出来事 (できごと)",
+      "reading": "できごと",
+      "romaji": "dekigoto",
+      "definition": "sự kiện",
+      "exampleSentence": "大きなできごと",
+      "exampleTranslation": "Sự kiện lớn.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10861,
+      "term": "場面 (ばめん)",
+      "reading": "ばめん",
+      "romaji": "bamen",
+      "definition": "tình huống, hiện trường, cảnh (phim)",
+      "exampleSentence": "目の前でトラックとバスが衝突した。その場面が夢に出てきた",
+      "exampleTranslation": "Xe tải và xe bus đã va chạm trước mắt tôi. Cảnh đó đã xuất hiện trong giấc mơ.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

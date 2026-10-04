@@ -1,0 +1,143 @@
+{
+  "id": 853,
+  "title": "N1 Tango 14.4 - Các cách diễn đạt dễ bị sai ② · Từ nhiều nghĩa",
+  "description": "Tango N1 — Các cách diễn đạt dễ bị sai ②",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:44.746254",
+  "cards": [
+    {
+      "id": 19985,
+      "term": "明るい (あかるい)",
+      "reading": "あかるい",
+      "romaji": null,
+      "definition": "①sáng ②sáng sủa ③sành sỏi",
+      "exampleSentence": "彼はコンピューターに明るいので、社内で頼りにされている。",
+      "exampleTranslation": "Vì am hiểu máy tính nên anh ấy được mọi người trong công ty tin cậy.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 19986,
+      "term": "甘い (あまい)",
+      "reading": "あまい",
+      "romaji": null,
+      "definition": "①ngọt ②chiều ③ngây thơ",
+      "exampleSentence": "彼は自分に甘いので、つい無駄遣いを許してしまう。",
+      "exampleTranslation": "Vì quá dễ dãi với bản thân nên anh ấy thường tự cho phép mình tiêu tiền hoang phí.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 19987,
+      "term": "かたい",
+      "reading": "かたい",
+      "romaji": null,
+      "definition": "①cứng ②kiên định ③cứng nhắc",
+      "exampleSentence": "彼は頭がかたいが、約束は必ず守る。",
+      "exampleTranslation": "Anh ấy khá cứng nhắc, nhưng luôn giữ lời hứa.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 19988,
+      "term": "まずい",
+      "reading": "まずい",
+      "romaji": null,
+      "definition": "①không ngon ②tệ ③chết rồi",
+      "exampleSentence": "このままでは計画がまずい方向に進んでしまう。",
+      "exampleTranslation": "Cứ thế này thì kế hoạch sẽ đi theo hướng tệ mất.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 19989,
+      "term": "強い (つよい)",
+      "reading": "つよい",
+      "romaji": null,
+      "definition": "①giỏi về ②mạnh mẽ ③chịu được",
+      "exampleSentence": "彼女は英語に強いので、海外との交渉を任されている。",
+      "exampleTranslation": "Vì giỏi tiếng Anh nên cô ấy được giao phụ trách đàm phán với nước ngoài.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 19990,
+      "term": "重い (おもい)",
+      "reading": "おもい",
+      "romaji": null,
+      "definition": "①nặng ②nặng nề ③ít nói ④nghiêm trọng",
+      "exampleSentence": "彼は口が重いので、何を考えているのか分からない。",
+      "exampleTranslation": "Vì anh ấy ít nói nên không biết anh ấy đang nghĩ gì.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 19991,
+      "term": "波 (なみ)",
+      "reading": "なみ",
+      "romaji": null,
+      "definition": "①sóng ②dao động ③làn sóng",
+      "exampleSentence": "景気の波に左右されない経営を目指している。",
+      "exampleTranslation": "Chúng tôi hướng tới việc kinh doanh không bị dao động theo những biến động của nền kinh tế.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 19992,
+      "term": "根 (ね)",
+      "reading": "ね",
+      "romaji": null,
+      "definition": "①rễ ②gốc rễ ③bản chất",
+      "exampleSentence": "問題の根を断たなければ、同じ失敗を繰り返すだろう。",
+      "exampleTranslation": "Nếu không giải quyết tận gốc vấn đề thì có lẽ sẽ lặp lại cùng một thất bại.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 19993,
+      "term": "筋 (すじ)",
+      "reading": "すじ",
+      "romaji": null,
+      "definition": "①gân ②mạch, lý lẽ ③tố chất",
+      "exampleSentence": "彼の説明は筋が通っていて、誰にも反論できなかった。",
+      "exampleTranslation": "Lời giải thích của anh ấy rất hợp lý nên không ai có thể phản bác.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 19994,
+      "term": "ポイント",
+      "reading": "ポイント",
+      "romaji": null,
+      "definition": "①điểm mấu chốt ②điểm ③địa điểm ④điểm tích lũy",
+      "exampleSentence": "この問題を解決するポイントは、関係者の協力を得ることだ。",
+      "exampleTranslation": "Điểm mấu chốt để giải quyết vấn đề này là nhận được sự hợp tác của những người liên quan.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 19995,
+      "term": "道 (みち)",
+      "reading": "みち",
+      "romaji": null,
+      "definition": "①con đường ②con đường ③đạo lý ④lĩnh vực",
+      "exampleSentence": "どんなに険しい道でも、努力すれば必ず前に進める。",
+      "exampleTranslation": "Dù con đường có gian nan đến đâu, nếu nỗ lực thì nhất định vẫn có thể tiến về phía trước.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 19996,
+      "term": "さっぱり（する）",
+      "reading": "さっぱり（する）",
+      "romaji": null,
+      "definition": "①sảng khoái ②nhẹ nhàng ③cởi mở",
+      "exampleSentence": "暑い日にシャワーを浴びると、「さっぱり（する）」という気分になる。",
+      "exampleTranslation": "Vào ngày nóng, tắm vòi sen khiến người ta cảm thấy sảng khoái.",
+      "forms": [],
+      "displayOrder": 11
+    }
+  ]
+}

@@ -1,0 +1,198 @@
+{
+  "id": 399,
+  "title": "N3 Unit 5.2 - 動詞B・増減と交換 (Tăng giảm & trao đổi)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 動詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.743662",
+  "cards": [
+    {
+      "id": 10622,
+      "term": "分ける (わける)",
+      "reading": "わける",
+      "romaji": "wakeru",
+      "definition": "chia, phân chia, tách, phân loại; nhường/để phần cho",
+      "exampleSentence": "財産を３人の子どもに分ける",
+      "exampleTranslation": "Phân chia tài sản cho ba người con.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10623,
+      "term": "足す (たす)",
+      "reading": "たす",
+      "romaji": "tasu",
+      "definition": "thêm vào, cộng thêm",
+      "exampleSentence": "味が薄かったので塩を足した",
+      "exampleTranslation": "Món ăn này hơi nhạt nên cho thêm muối vào.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10624,
+      "term": "引く (ひく)",
+      "reading": "ひく",
+      "romaji": "hiku",
+      "definition": "trừ, bớt, kéo, dẫn, rút, tra (từ điển)",
+      "exampleSentence": "「このドアは押すのではなく、引いて開けるんです」",
+      "exampleTranslation": "Mở cửa này không phải đẩy vào mà kéo ra.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10625,
+      "term": "増える (ふえる)",
+      "reading": "ふえる",
+      "romaji": "fueru",
+      "definition": "tăng lên, gia tăng",
+      "exampleSentence": "貯金が増える",
+      "exampleTranslation": "{Tiền tiết kiệm/ cân nặng/ số dân…} tăng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10626,
+      "term": "増やす (ふやす)",
+      "reading": "ふやす",
+      "romaji": "fuyasu",
+      "definition": "làm tăng lên",
+      "exampleSentence": "貯金を増やす",
+      "exampleTranslation": "Tăng {tiền tiết kiệm/ cân nặng / dân số…}.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10627,
+      "term": "減る (へる)",
+      "reading": "へる",
+      "romaji": "heru",
+      "definition": "giảm xuống",
+      "exampleSentence": "貯金が減る",
+      "exampleTranslation": "Giảm {tiền tiết kiệm/ cân nặng/ dân số…}.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10628,
+      "term": "減らす (へらす)",
+      "reading": "へらす",
+      "romaji": "herasu",
+      "definition": "cắt giảm",
+      "exampleSentence": "貯金を減らす",
+      "exampleTranslation": "Làm giảm {tiền tiêt kiệm/ cân nặng/ dân số…}.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10629,
+      "term": "変わる (かわる)",
+      "reading": "かわる",
+      "romaji": "kawaru",
+      "definition": "thay đổi, biến đổi",
+      "exampleSentence": "季節が変わる",
+      "exampleTranslation": "{Thời tiết/ thời đại/ địa điểm/ luật pháp/ tính cách…} thay đổi.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10630,
+      "term": "変える (かえる)",
+      "reading": "かえる",
+      "romaji": "kaeru",
+      "definition": "đổi",
+      "exampleSentence": "髪型を変える",
+      "exampleTranslation": "Thay đổi {kiểu tóc/ thời gian/ địa điểm/ luật pháp…}.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10631,
+      "term": "替わる/代わる/換わる (かわる/かわる/かわる)",
+      "reading": "かわる/かわる/かわる",
+      "romaji": "kawaru",
+      "definition": "thay đổi, thay thế",
+      "exampleSentence": "４月に店長がかわった",
+      "exampleTranslation": "Thay quản lí mới vào tháng 4.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10632,
+      "term": "替える/代える/換える (かえる/かえる/かえる)",
+      "reading": "かえる/かえる/かえる",
+      "romaji": "kaeru",
+      "definition": "thay đổi, thế chỗ",
+      "exampleSentence": "千円札を百円玉にかえてもらった",
+      "exampleTranslation": "Tôi đã nhờ đổi tờ một nghìn yên sang các đồng xu 100 yên.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10633,
+      "term": "返る (かえる)",
+      "reading": "かえる",
+      "romaji": "kaeru",
+      "definition": "trả về",
+      "exampleSentence": "友だちに貸したお金が返ってきた",
+      "exampleTranslation": "Tiền cho bạn vay đã được trả lại.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10634,
+      "term": "返す (かえす)",
+      "reading": "かえす",
+      "romaji": "kaesu",
+      "definition": "trả lại",
+      "exampleSentence": "この本は２週間以内に図書館に返さなければならない",
+      "exampleTranslation": "Trong vòng hai tuần phải trả lại sách cho thư viện.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10635,
+      "term": "譲る (ゆずる)",
+      "reading": "ゆずる",
+      "romaji": "yuzuru",
+      "definition": "bàn giao, chuyển nhượng",
+      "exampleSentence": "電車の中で、お年よりに席をゆずった",
+      "exampleTranslation": "Trong xe điện tôi đã nhường ghế cho cụ già.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10636,
+      "term": "助かる (たすかる)",
+      "reading": "たすかる",
+      "romaji": "tasukaru",
+      "definition": "được cứu giúp, đỡ quá, may quá",
+      "exampleSentence": "飛行機が落ちたが、３人が助かった",
+      "exampleTranslation": "Máy bay rơi, có ba người sống sót.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10637,
+      "term": "助ける (たすける)",
+      "reading": "たすける",
+      "romaji": "tasukeru",
+      "definition": "cứu, giúp",
+      "exampleSentence": "川に落ちた子どもを助けた",
+      "exampleTranslation": "Cứu đứa trẻ bị rơi xuống sông.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 10638,
+      "term": "いじめる",
+      "reading": "いじめる",
+      "romaji": "ijimeru",
+      "definition": "bắt nạt, chọc ghẹo",
+      "exampleSentence": "弟をいじめる",
+      "exampleTranslation": "Bắt nạt em, bắt nạt con mèo….",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

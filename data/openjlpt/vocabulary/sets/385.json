@@ -1,0 +1,176 @@
+{
+  "id": 385,
+  "title": "N3 Unit 2.6 - 動詞A・温度と変化 (Nhiệt độ & biến đổi)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 動詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.227117",
+  "cards": [
+    {
+      "id": 10393,
+      "term": "腐る (くさる)",
+      "reading": "くさる",
+      "romaji": "kusaru",
+      "definition": "thiu, thối, hỏng",
+      "exampleSentence": "腐ったものを食べて、おなかを壊してしまった",
+      "exampleTranslation": "Ăn phải đồ thiu nên bị đau bụng mất rồi.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10394,
+      "term": "むける",
+      "reading": "むける",
+      "romaji": "mukeru",
+      "definition": "bong tróc, lột ra",
+      "exampleSentence": "海で日焼けをして、背中の皮がむけた",
+      "exampleTranslation": "Da ở lưng bị bong tróc do bị cháy nắng ở biển.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10395,
+      "term": "むく",
+      "reading": "むく",
+      "romaji": "muku",
+      "definition": "bóc, lột",
+      "exampleSentence": "果物の皮をむく",
+      "exampleTranslation": "Bóc vỏ trái cây.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10396,
+      "term": "滑る (すべる)",
+      "reading": "すべる",
+      "romaji": "suberu",
+      "definition": "trượt",
+      "exampleSentence": "新しいスケート場はきれいで、楽しくすべることができた",
+      "exampleTranslation": "Sân trượt băng mới thật sạch đẹp, có thể trượt băng vui vẻ.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10397,
+      "term": "積もる (つもる)",
+      "reading": "つもる",
+      "romaji": "tsumoru",
+      "definition": "(tuyết) phủ dày, chất đống; tích tụ",
+      "exampleSentence": "きのう降った雪が積もっている",
+      "exampleTranslation": "Tuyết rơi vào hôm qua tích lại nhiều.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10398,
+      "term": "積む (つむ)",
+      "reading": "つむ",
+      "romaji": "tsumu",
+      "definition": "chất lên, tích lũy",
+      "exampleSentence": "机の上に本がたくさん積んである",
+      "exampleTranslation": "Có rất nhiều sách chồng chất lên nhau trên bàn làm việc.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10399,
+      "term": "空く (あく)",
+      "reading": "あく",
+      "romaji": "aku",
+      "definition": "trống (ghế/giờ), rảnh; thủng (lỗ)",
+      "exampleSentence": "くつしたに穴が空いてしまった",
+      "exampleTranslation": "Có lỗ hổng ở tất.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10400,
+      "term": "空ける (あける)",
+      "reading": "あける",
+      "romaji": "akeru",
+      "definition": "làm trống; chừa ra; để trống (ghế/giờ); dọn trống",
+      "exampleSentence": "かべに穴を空ける",
+      "exampleTranslation": "Khoan lỗ trên tường.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10401,
+      "term": "下がる (さがる)",
+      "reading": "さがる",
+      "romaji": "sagaru",
+      "definition": "đi xuống, lùi lại",
+      "exampleSentence": "熱が下がる",
+      "exampleTranslation": "Hạ sốt / nhiệt độ giảm / giá giảm / thành tích đi xuống…",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10402,
+      "term": "下げる (さげる)",
+      "reading": "さげる",
+      "romaji": "sageru",
+      "definition": "hạ bớt, giảm đi, thu dọn",
+      "exampleSentence": "熱を下げる",
+      "exampleTranslation": "Hạ sốt / hạ nhiệt độ / hạ giá / hạ thành tích…",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10403,
+      "term": "冷える (ひえる)",
+      "reading": "ひえる",
+      "romaji": "hieru",
+      "definition": "được làm lạnh, giá lạnh",
+      "exampleSentence": "寒いところに長くいたので、手足が冷えてしまった",
+      "exampleTranslation": "Ở chỗ lạnh lâu nên chân tay lạnh ngắt luôn rồi.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10404,
+      "term": "冷やす (ひやす)",
+      "reading": "ひやす",
+      "romaji": "hiyasu",
+      "definition": "làm lạnh, hạ nhiệt",
+      "exampleSentence": "この果物は冷やして食べたほうがおいしい",
+      "exampleTranslation": "Trái cây này thì làm lạnh ăn sẽ ngon hơn.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10405,
+      "term": "冷める (さめる)",
+      "reading": "さめる",
+      "romaji": "sameru",
+      "definition": "nguội",
+      "exampleSentence": "この料理は冷めるとおいしくない",
+      "exampleTranslation": "Món ăn này mà nguội đi sẽ không ngon.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10406,
+      "term": "冷ます (さます)",
+      "reading": "さます",
+      "romaji": "samasu",
+      "definition": "làm nguội",
+      "exampleSentence": "お風呂のお湯が熱くなりすぎた。少し冷ましてから入ろう。",
+      "exampleTranslation": "Nước bồn tắm nóng quá rồi. Hãy để nguội bớt một chút rồi hẵng vào tắm.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10407,
+      "term": "燃える (もえる)",
+      "reading": "もえる",
+      "romaji": "moeru",
+      "definition": "cháy",
+      "exampleSentence": "火が燃える",
+      "exampleTranslation": "{ Lửa / giấy ...} cháy.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

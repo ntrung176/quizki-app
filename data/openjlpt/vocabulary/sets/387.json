@@ -1,0 +1,176 @@
+{
+  "id": 387,
+  "title": "N3 Unit 2.8 - 動詞A・状態と出来事 (Trạng thái & sự việc)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 動詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.349082",
+  "cards": [
+    {
+      "id": 10423,
+      "term": "手伝い (てつだい)",
+      "reading": "てつだい",
+      "romaji": "tetsudai",
+      "definition": "giúp đỡ",
+      "exampleSentence": "引っ越しの手伝いをする",
+      "exampleTranslation": "Giúp chuyển nhà.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10424,
+      "term": "働き (はたらき)",
+      "reading": "はたらき",
+      "romaji": "hataraki",
+      "definition": "chức năng, hoạt động",
+      "exampleSentence": "血液の働きの一つは、体に栄養を運ぶことだ",
+      "exampleTranslation": "Một trong những chức năng của máu là vận chuyển dinh dưỡng cho cơ thể.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10425,
+      "term": "決まり (きまり)",
+      "reading": "きまり",
+      "romaji": "kimari",
+      "definition": "quy định",
+      "exampleSentence": "学校で新しい決まりが作られた",
+      "exampleTranslation": "Quy định mới được thiết lập ở trường học.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10426,
+      "term": "騒ぎ (さわぎ)",
+      "reading": "さわぎ",
+      "romaji": "sawagi",
+      "definition": "ầm ĩ, ồn ào",
+      "exampleSentence": "きのう、駅前で騒ぎがあった",
+      "exampleTranslation": "Hôm qua, trước nhà ga đã có một cuộc náo loạn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10427,
+      "term": "知らせ (しらせ)",
+      "reading": "しらせ",
+      "romaji": "shirase",
+      "definition": "thông báo",
+      "exampleSentence": "父が入院したという知らせがあった",
+      "exampleTranslation": "Có thông báo rằng bố tôi đã nhập viện.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10428,
+      "term": "頼み (たのみ)",
+      "reading": "たのみ",
+      "romaji": "tanomi",
+      "definition": "nhờ vả, yêu cầu",
+      "exampleSentence": "「あなたに頼みがあるんです」",
+      "exampleTranslation": "\"Tôi có một việc muốn nhờ anh.\"",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10429,
+      "term": "疲れ (つかれ)",
+      "reading": "つかれ",
+      "romaji": "tsukare",
+      "definition": "mệt mỏi",
+      "exampleSentence": "仕事で疲れがたまっている",
+      "exampleTranslation": "Mệt mỏi chất chồng bởi công việc.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10430,
+      "term": "違い (ちがい)",
+      "reading": "ちがい",
+      "romaji": "chigai",
+      "definition": "khác nhau",
+      "exampleSentence": "この二つの違いがわからない",
+      "exampleTranslation": "Tôi không biết sự khác biệt giữa hai cái này.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10431,
+      "term": "始め (はじめ)",
+      "reading": "はじめ",
+      "romaji": "hajime",
+      "definition": "bắt đầu",
+      "exampleSentence": "本を始めから終わりまで全部読んだ",
+      "exampleTranslation": "Tôi đọc tất cả cuốn sách từ đầu đến cuối.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10432,
+      "term": "続き (つづき)",
+      "reading": "つづき",
+      "romaji": "tsuzuki",
+      "definition": "tiếp tục",
+      "exampleSentence": "早く本の続きが読みたい",
+      "exampleTranslation": "Tôi muốn sớm đọc đoạn tiếp theo của quyển sách.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10433,
+      "term": "暮れ (くれ)",
+      "reading": "くれ",
+      "romaji": "kure",
+      "definition": "chiều tà, cuối (năm, thu...)",
+      "exampleSentence": "年の暮れは忙しい",
+      "exampleTranslation": "Cuối năm thì bận rộn.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10434,
+      "term": "行き (いき)",
+      "reading": "いき",
+      "romaji": "iki",
+      "definition": "đi",
+      "exampleSentence": null,
+      "exampleTranslation": null,
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10435,
+      "term": "帰り (かえり)",
+      "reading": "かえり",
+      "romaji": "kaeri",
+      "definition": "về",
+      "exampleSentence": "旅行は、行きは新幹線、帰りは飛行機だった",
+      "exampleTranslation": "Chuyến lữ hành thì chiều đi đi bằng tàu Shinkansen, chiều về đi bằng máy bay.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10436,
+      "term": "急ぎ (いそぎ)",
+      "reading": "いそぎ",
+      "romaji": "isogi",
+      "definition": "khẩn cấp, gấp gáp",
+      "exampleSentence": "急ぎの仕事が入った",
+      "exampleTranslation": "Tôi có việc gấp.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10437,
+      "term": "遅れ (おくれ)",
+      "reading": "おくれ",
+      "romaji": "okure",
+      "definition": "chậm trễ, muộn",
+      "exampleSentence": "電車に3分の遅れが出た",
+      "exampleTranslation": "Tàu điện đã muộn 3 phút.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

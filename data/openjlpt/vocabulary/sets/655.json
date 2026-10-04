@@ -1,0 +1,253 @@
+{
+  "id": 655,
+  "title": "N3 Tango 6.2 - Công việc · Công ty",
+  "description": "Tango N3 — Công việc",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:19.656788",
+  "cards": [
+    {
+      "id": 14982,
+      "term": "受付 (うけつけ)",
+      "reading": "うけつけ",
+      "romaji": null,
+      "definition": "Quầy lễ tân",
+      "exampleSentence": "受付で名前を伝えて、担当者を呼んでもらいました。",
+      "exampleTranslation": "Tôi báo tên ở quầy lễ tân và nhờ gọi người phụ trách.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14983,
+      "term": "ミーティング（する）",
+      "reading": "ミーティング（する）",
+      "romaji": null,
+      "definition": "Cuộc họp",
+      "exampleSentence": "午後の「ミーティング（する）」で、新しい計画について話します。",
+      "exampleTranslation": "Trong cuộc họp buổi chiều, chúng tôi sẽ trao đổi về kế hoạch mới.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14984,
+      "term": "話し合う (はなしあう)",
+      "reading": "はなしあう",
+      "romaji": null,
+      "definition": "Nói chuyện với nhau, bàn",
+      "exampleSentence": "問題を解決するために、みんなでよく話し合うことにしました。",
+      "exampleTranslation": "Để giải quyết vấn đề, chúng tôi đã quyết định cùng nhau thảo luận kỹ.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14985,
+      "term": "調整（する） (ちょうせい（する）)",
+      "reading": "ちょうせい（する）",
+      "romaji": null,
+      "definition": "Sự điều phối, dàn xếp, sắp xếp",
+      "exampleSentence": "担当者は、会議の日程を「調整（する）」必要があります。",
+      "exampleTranslation": "Người phụ trách cần sắp xếp lịch họp.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14986,
+      "term": "能力 (のうりょく)",
+      "reading": "のうりょく",
+      "romaji": null,
+      "definition": "Năng lực",
+      "exampleSentence": "この仕事には、専門的な能力が必要です。",
+      "exampleTranslation": "Công việc này cần có năng lực chuyên môn.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14987,
+      "term": "役割 (やくわり)",
+      "reading": "やくわり",
+      "romaji": null,
+      "definition": "Vai trò",
+      "exampleSentence": "チームの中で、一人ひとりが大切な役割を持っています。",
+      "exampleTranslation": "Trong nhóm, mỗi người đều có một vai trò quan trọng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14988,
+      "term": "もうかる",
+      "reading": "もうかる",
+      "romaji": null,
+      "definition": "Lời lãi, có lời",
+      "exampleSentence": "この店は駅の近くなので、よくもうかるそうです。",
+      "exampleTranslation": "Nghe nói cửa hàng này thường có lãi vì ở gần ga.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14989,
+      "term": "通勤（する） (つうきん（する）)",
+      "reading": "つうきん（する）",
+      "romaji": null,
+      "definition": "Sự đi làm (chỉ việc đi và về)",
+      "exampleSentence": "「通勤（する）」とは、家から会社へ毎日通うことです。",
+      "exampleTranslation": "“Đi làm” có nghĩa là hằng ngày đi từ nhà đến công ty.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14990,
+      "term": "早退（する） (そうたい（する）)",
+      "reading": "そうたい（する）",
+      "romaji": null,
+      "definition": "Sự về sớm",
+      "exampleSentence": "「早退（する）」とは、予定より早く帰ることです。",
+      "exampleTranslation": "“Về sớm” có nghĩa là trở về sớm hơn dự định.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14991,
+      "term": "無断 (むだん)",
+      "reading": "むだん",
+      "romaji": null,
+      "definition": "Không xin phép",
+      "exampleSentence": "無断で会社を休むと、上司に注意されます。",
+      "exampleTranslation": "Nếu tự ý nghỉ làm không xin phép, bạn sẽ bị cấp trên nhắc nhở.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14992,
+      "term": "社会人 (しゃかいじん)",
+      "reading": "しゃかいじん",
+      "romaji": null,
+      "definition": "Người đi làm",
+      "exampleSentence": "社会人になってから、時間を守る大切さを学びました。",
+      "exampleTranslation": "Sau khi trở thành người đi làm, tôi đã học được tầm quan trọng của việc đúng giờ.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14993,
+      "term": "一人ひとり (ひとりひとり)",
+      "reading": "ひとりひとり",
+      "romaji": null,
+      "definition": "Từng người từng người",
+      "exampleSentence": "先生は学生一人ひとりの意見を大切にしています。",
+      "exampleTranslation": "Giáo viên coi trọng ý kiến của từng học sinh.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 14994,
+      "term": "印鑑 (いんかん)",
+      "reading": "いんかん",
+      "romaji": null,
+      "definition": "Con dấu",
+      "exampleSentence": "契約書を確認してから、印鑑を押してください。",
+      "exampleTranslation": "Hãy kiểm tra hợp đồng rồi đóng dấu.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 14995,
+      "term": "インタビュー（する）",
+      "reading": "インタビュー（する）",
+      "romaji": null,
+      "definition": "Sự phỏng vấn",
+      "exampleSentence": "「インタビュー（する）」とは、相手に質問して話を聞くことです。",
+      "exampleTranslation": "“Phỏng vấn” có nghĩa là đặt câu hỏi và lắng nghe người đối diện nói.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 14996,
+      "term": "アンケート",
+      "reading": "アンケート",
+      "romaji": null,
+      "definition": "Cuộc điều tra, khảo sát, thăm dò",
+      "exampleSentence": "授業の最後に、学生へアンケートを行いました。",
+      "exampleTranslation": "Cuối buổi học, chúng tôi đã tiến hành khảo sát học sinh.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 14997,
+      "term": "回答（する） (かいとう（する）)",
+      "reading": "かいとう（する）",
+      "romaji": null,
+      "definition": "Sự trả lời, hồi đáp",
+      "exampleSentence": "「回答（する）」とは、質問や依頼に返事をすることです。",
+      "exampleTranslation": "“Trả lời” có nghĩa là hồi đáp câu hỏi hoặc yêu cầu.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 14998,
+      "term": "ノック（する）",
+      "reading": "ノック（する）",
+      "romaji": null,
+      "definition": "Gõ cửa",
+      "exampleSentence": "「ノック（する）」とは、部屋に入る前にドアを軽くたたくことです。",
+      "exampleTranslation": "“ノック（する）” có nghĩa là gõ nhẹ cửa trước khi vào phòng.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 14999,
+      "term": "月末 (げつまつ)",
+      "reading": "げつまつ",
+      "romaji": null,
+      "definition": "Cuối tháng",
+      "exampleSentence": "月末になると、仕事が急に忙しくなります。",
+      "exampleTranslation": "Cứ đến cuối tháng là công việc lại trở nên bận rộn.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 15000,
+      "term": "確かめる (たしかめる)",
+      "reading": "たしかめる",
+      "romaji": null,
+      "definition": "Kiểm tra lại, xác nhận",
+      "exampleSentence": "出かける前に、窓が閉まっているか確かめる。",
+      "exampleTranslation": "Trước khi ra ngoài, tôi kiểm tra xem cửa sổ đã đóng chưa.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 15001,
+      "term": "確かに (たしかに)",
+      "reading": "たしかに",
+      "romaji": null,
+      "definition": "Chắc là, đúng là",
+      "exampleSentence": "確かに、彼の説明はとても分かりやすかったです。",
+      "exampleTranslation": "Đúng là lời giải thích của anh ấy rất dễ hiểu.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 15002,
+      "term": "とっくに",
+      "reading": "とっくに",
+      "romaji": null,
+      "definition": "Đã, từ lâu rồi",
+      "exampleSentence": "彼はとっくに家へ帰ってしまいました。",
+      "exampleTranslation": "Anh ấy đã về nhà từ lâu rồi.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 15003,
+      "term": "失業（する） (しつぎょう（する）)",
+      "reading": "しつぎょう（する）",
+      "romaji": null,
+      "definition": "Sự thất nghiệp",
+      "exampleSentence": "「失業（する）」とは、仕事を失うことです。",
+      "exampleTranslation": "“Thất nghiệp” có nghĩa là mất việc.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

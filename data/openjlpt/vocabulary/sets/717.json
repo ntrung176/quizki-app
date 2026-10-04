@@ -1,0 +1,187 @@
+{
+  "id": 717,
+  "title": "N4 Tango 6.4 - Sức khỏe và trạng thái · Trạng thái, tình trạng ①",
+  "description": "Tango N4 — Sức khỏe và trạng thái",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:31.832873",
+  "cards": [
+    {
+      "id": 16454,
+      "term": "ようす",
+      "reading": "ようす",
+      "romaji": null,
+      "definition": "Tình trạng, trạng thái",
+      "exampleSentence": "病気の父のようすを見に、病院へ行きました。",
+      "exampleTranslation": "Tôi đã đến bệnh viện để xem tình trạng của bố bị bệnh.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 16455,
+      "term": "形 (かたち)",
+      "reading": "かたち",
+      "romaji": null,
+      "definition": "Hình thức, hình dạng",
+      "exampleSentence": "このケーキは星の形をしています。",
+      "exampleTranslation": "Chiếc bánh này có hình ngôi sao.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 16456,
+      "term": "倍 (ばい)",
+      "reading": "ばい",
+      "romaji": null,
+      "definition": "Gấp (hai)",
+      "exampleSentence": "この箱は前の箱の二倍の大きさです。",
+      "exampleTranslation": "Cái hộp này lớn gấp đôi cái hộp trước.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 16457,
+      "term": "以上 (いじょう)",
+      "reading": "いじょう",
+      "romaji": null,
+      "definition": "Trở lên",
+      "exampleSentence": "この仕事は三時間以上かかるかもしれません。",
+      "exampleTranslation": "Công việc này có thể mất từ ba tiếng trở lên.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 16458,
+      "term": "以下 (いか)",
+      "reading": "いか",
+      "romaji": null,
+      "definition": "Trở xuống, dưới ~",
+      "exampleSentence": "この映画は十二歳以下の子どもは入場できません。",
+      "exampleTranslation": "Trẻ em từ 12 tuổi trở xuống không được vào xem bộ phim này.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 16459,
+      "term": "以内 (いない)",
+      "reading": "いない",
+      "romaji": null,
+      "definition": "Trong vòng",
+      "exampleSentence": "レポートは一週間以内に出してください。",
+      "exampleTranslation": "Hãy nộp báo cáo trong vòng một tuần.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 16460,
+      "term": "以外 (いがい)",
+      "reading": "いがい",
+      "romaji": null,
+      "definition": "Ngoài (~) ra, ngoại trừ",
+      "exampleSentence": "日曜日以外は、毎日この店で働いています。",
+      "exampleTranslation": "Ngoài Chủ nhật ra, ngày nào tôi cũng làm việc ở cửa hàng này.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 16461,
+      "term": "両方 (りょうほう)",
+      "reading": "りょうほう",
+      "romaji": null,
+      "definition": "Cả hai",
+      "exampleSentence": "この二つのかばんは、両方とも私のものです。",
+      "exampleTranslation": "Cả hai chiếc cặp này đều là của tôi.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 16462,
+      "term": "ひま（な）",
+      "reading": "ひま（な）",
+      "romaji": null,
+      "definition": "Giờ rảnh (rảnh rỗi)",
+      "exampleSentence": "今日はひま（な）時間があるので、図書館で本を読みます。",
+      "exampleTranslation": "Hôm nay tôi có thời gian rảnh nên sẽ đọc sách ở thư viện.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 16463,
+      "term": "ふつう（な）",
+      "reading": "ふつう（な）",
+      "romaji": null,
+      "definition": "Sự bình thường (bình thường)",
+      "exampleSentence": "この店の料理はふつう（な）味ですが、値段が安いです。",
+      "exampleTranslation": "Món ăn của quán này có vị bình thường, nhưng giá rẻ.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 16464,
+      "term": "自由（な） (じゆう（な）)",
+      "reading": "じゆう（な）",
+      "romaji": null,
+      "definition": "Sự tự do (tự do)",
+      "exampleSentence": "大学を卒業したら、もっと自由（な）生活をしたいです。",
+      "exampleTranslation": "Sau khi tốt nghiệp đại học, tôi muốn sống tự do hơn.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 16465,
+      "term": "ていねいな",
+      "reading": "ていねいな",
+      "romaji": null,
+      "definition": "Cẩn thận, lịch sự",
+      "exampleSentence": "先生はいつもていねいな言葉で説明してくれます。",
+      "exampleTranslation": "Thầy cô luôn giải thích bằng những lời lẽ lịch sự.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 16466,
+      "term": "大きな (おおきな)",
+      "reading": "おおきな",
+      "romaji": null,
+      "definition": "To Lớn",
+      "exampleSentence": "駅の前に大きなスーパーができました。",
+      "exampleTranslation": "Một siêu thị lớn đã được xây trước nhà ga.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 16467,
+      "term": "小さな (ちいさな)",
+      "reading": "ちいさな",
+      "romaji": null,
+      "definition": "Nhỏ",
+      "exampleSentence": "小さなかばんに必要な物を入れました。",
+      "exampleTranslation": "Tôi đã cho những đồ cần thiết vào chiếc túi nhỏ.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 16468,
+      "term": "へんな",
+      "reading": "へんな",
+      "romaji": null,
+      "definition": "Kỳ quặc, kỳ lạ",
+      "exampleSentence": "昨日、道でへんな人を見かけました。",
+      "exampleTranslation": "Hôm qua, tôi bắt gặp một người kỳ lạ trên đường.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 16469,
+      "term": "じゅうぶんな",
+      "reading": "じゅうぶんな",
+      "romaji": null,
+      "definition": "Đầy đủ, tốt",
+      "exampleSentence": "この部屋は三人で使っても、じゅうぶんな広さがあります。",
+      "exampleTranslation": "Căn phòng này đủ rộng ngay cả khi ba người cùng sử dụng.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

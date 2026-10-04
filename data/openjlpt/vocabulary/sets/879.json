@@ -1,0 +1,176 @@
+{
+  "id": 879,
+  "title": "N5 Tango 5.5 - Cơm hôm nay · Như thế nào?",
+  "description": "Tango N5 — Cơm hôm nay",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:48.107443",
+  "cards": [
+    {
+      "id": 20524,
+      "term": "どう",
+      "reading": "どう",
+      "romaji": null,
+      "definition": "Thế nào",
+      "exampleSentence": "この料理はどうですか。",
+      "exampleTranslation": "Món ăn này thế nào?",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20525,
+      "term": "あまい",
+      "reading": "あまい",
+      "romaji": null,
+      "definition": "Ngọt",
+      "exampleSentence": "このケーキはとてもあまいです。",
+      "exampleTranslation": "Cái bánh này rất ngọt.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20526,
+      "term": "からい",
+      "reading": "からい",
+      "romaji": null,
+      "definition": "Cay",
+      "exampleSentence": "このカレーは少しからいです。",
+      "exampleTranslation": "Món cà ri này hơi cay.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20527,
+      "term": "おいしい",
+      "reading": "おいしい",
+      "romaji": null,
+      "definition": "Ngon",
+      "exampleSentence": "母の料理はいつもおいしいです。",
+      "exampleTranslation": "Món ăn mẹ nấu lúc nào cũng ngon.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20528,
+      "term": "ぜんぶ",
+      "reading": "ぜんぶ",
+      "romaji": null,
+      "definition": "Toàn bộ, hết toàn bộ",
+      "exampleSentence": "りんごをぜんぶ食べました。",
+      "exampleTranslation": "Tôi đã ăn hết toàn bộ số táo.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20529,
+      "term": "じぶんで",
+      "reading": "じぶんで",
+      "romaji": null,
+      "definition": "Tự mình",
+      "exampleSentence": "宿題はじぶんでします。",
+      "exampleTranslation": "Tôi tự làm bài tập.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20530,
+      "term": "おなかがすく",
+      "reading": "おなかがすく",
+      "romaji": null,
+      "definition": "Đói bụng",
+      "exampleSentence": "朝ごはんを食べないと、おなかがすく。",
+      "exampleTranslation": "Nếu không ăn sáng thì sẽ đói bụng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20531,
+      "term": "のどがかわく",
+      "reading": "のどがかわく",
+      "romaji": null,
+      "definition": "Khát nước",
+      "exampleSentence": "暑い日に外を歩くと、のどがかわく。",
+      "exampleTranslation": "Đi bộ bên ngoài vào ngày nóng sẽ thấy khát nước.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20532,
+      "term": "いっぱいな",
+      "reading": "いっぱいな",
+      "romaji": null,
+      "definition": "Nhiều, no",
+      "exampleSentence": "おなかがいっぱいなときは、何も食べません。",
+      "exampleTranslation": "Khi bụng no thì tôi không ăn gì cả.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20533,
+      "term": "いかがですか",
+      "reading": "いかがですか",
+      "romaji": null,
+      "definition": "Thế nào, mời ai ăn / uống (cách nói lịch sự)",
+      "exampleSentence": "コーヒーをもう一杯、いかがですか。",
+      "exampleTranslation": "Mời bạn thêm một tách cà phê nữa nhé?",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20534,
+      "term": "もういっぱい",
+      "reading": "もういっぱい",
+      "romaji": null,
+      "definition": "Thêm một (ly, chén)",
+      "exampleSentence": "お茶をもういっぱいお願いします。",
+      "exampleTranslation": "Vui lòng cho tôi thêm một chén trà nữa.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 20535,
+      "term": "けっこうです",
+      "reading": "けっこうです",
+      "romaji": null,
+      "definition": "Đủ, được",
+      "exampleSentence": "いいえ、もうけっこうです。",
+      "exampleTranslation": "Không, tôi đủ rồi.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 20536,
+      "term": "かんぱい",
+      "reading": "かんぱい",
+      "romaji": null,
+      "definition": "Cạn ly",
+      "exampleSentence": "誕生日を祝って、みんなでかんぱいしました。",
+      "exampleTranslation": "Mọi người cùng cạn ly để chúc mừng sinh nhật.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 20537,
+      "term": "いただきます。",
+      "reading": "いただきます。",
+      "romaji": null,
+      "definition": "Tôi xin phép ăn./ Mời dùng. (Nói trước khi ăn, uống)",
+      "exampleSentence": "家族と一緒に、笑顔で「いただきます。」と言いました。",
+      "exampleTranslation": "Tôi cùng gia đình mỉm cười nói: “Mời mọi người dùng bữa.”",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 20538,
+      "term": "ごちそうさまでした。",
+      "reading": "ごちそうさまでした。",
+      "romaji": null,
+      "definition": "Cảm ơn đã cho bữa ăn ngon. (Nói sau khi ăn, uống)",
+      "exampleSentence": "食事の後で、みんなで「ごちそうさまでした。」と言いました。",
+      "exampleTranslation": "Sau bữa ăn, mọi người cùng nói: “Cảm ơn vì bữa ăn ngon.”",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

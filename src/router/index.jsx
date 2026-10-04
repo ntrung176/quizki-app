@@ -54,6 +54,7 @@ export const ROUTES = {
     GRAMMAR_LIST: '/grammar/list',
     GRAMMAR_CHEATSHEETS: '/grammar/cheatsheets',
     GRAMMAR_CHEATSHEET_DETAIL: '/grammar/cheatsheets/:sheetId',
+    GRAMMAR_NUANCES: '/grammar/nuances',
     GRAMMAR_TEXTBOOK: '/grammar/textbook/:textbookId',
     GRAMMAR_LESSON: '/grammar/textbook/:textbookId/lesson/:lessonId',
     GRAMMAR_DETAIL: '/grammar/detail/:grammarId',

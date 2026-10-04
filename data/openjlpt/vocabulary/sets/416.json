@@ -1,0 +1,187 @@
+{
+  "id": 416,
+  "title": "N3 Unit 10.1 - 動詞C・移動と通過 (Di chuyển & vượt qua)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 動詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:36.219856",
+  "cards": [
+    {
+      "id": 10910,
+      "term": "上る (のぼる)",
+      "reading": "のぼる",
+      "romaji": "noboru",
+      "definition": "leo lên, lên đến, lên tới",
+      "exampleSentence": "階段を上る",
+      "exampleTranslation": "Leo {cầu thang/ dốc} ngược dòng sông….",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10911,
+      "term": "下る (くだる)",
+      "reading": "くだる",
+      "romaji": "kudaru",
+      "definition": "xuống",
+      "exampleSentence": "坂を下る",
+      "exampleTranslation": "Xuống {dốc/ sông/ núi…}.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10912,
+      "term": "進む (すすむ)",
+      "reading": "すすむ",
+      "romaji": "susumu",
+      "definition": "tiến lên, tiến cấp, tiến triển",
+      "exampleSentence": "出口に向かって進む",
+      "exampleTranslation": "Tiến lên hướng về lối ra.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10913,
+      "term": "進める (すすめる)",
+      "reading": "すすめる",
+      "romaji": "susumeru",
+      "definition": "tiến hành/đẩy tới/cho tiến lên/đề xuất",
+      "exampleSentence": "「もう少し車を前に進めてください」",
+      "exampleTranslation": "Hãy tiến xe ô tô lên một chút nữa.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10914,
+      "term": "通る (とおる)",
+      "reading": "とおる",
+      "romaji": "tōru",
+      "definition": "thông qua, đi qua",
+      "exampleSentence": "この道は車がたくさん通る",
+      "exampleTranslation": "Con đường này nhiều xe ô tô qua lại.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10915,
+      "term": "通す (とおす)",
+      "reading": "とおす",
+      "romaji": "tōsu",
+      "definition": "cho đi qua",
+      "exampleSentence": "カーテンを通して光が部屋の中に入ってくる",
+      "exampleTranslation": "Ánh sáng xuyên qua rèm cửa vào trong phòng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10916,
+      "term": "超える/越える (こえる)",
+      "reading": "こえる",
+      "romaji": "koeru",
+      "definition": "vượt qua",
+      "exampleSentence": "この山を越えると隣の県だ",
+      "exampleTranslation": "Vượt qua {con sông/ núi…} này là đến tỉnh bên cạnh.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10917,
+      "term": "過ぎる (すぎる)",
+      "reading": "すぎる",
+      "romaji": "sugiru",
+      "definition": "quá, đi qua, quá (thời gian)",
+      "exampleSentence": "列車は広島駅を過ぎた",
+      "exampleTranslation": "Tàu đã đi qua Hiroshima.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10918,
+      "term": "過ごす (すごす)",
+      "reading": "すごす",
+      "romaji": "sugosu",
+      "definition": "trải qua, dành (thời gian)",
+      "exampleSentence": "大学時代を東京で過ごした",
+      "exampleTranslation": "Tôi đã trải qua thời sinh viên ở Tokyo.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10919,
+      "term": "移る (うつる)",
+      "reading": "うつる",
+      "romaji": "utsuru",
+      "definition": "chuyển, lây",
+      "exampleSentence": "黒板の字が見えにくかったので、前の席に移った",
+      "exampleTranslation": "Vì khó nhìn chữ trên bảng nên đã chuyển chỗ lên trên.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10920,
+      "term": "移す (うつす)",
+      "reading": "うつす",
+      "romaji": "utsusu",
+      "definition": "làm di chuyển, làm lây nhiễm",
+      "exampleSentence": "本社は大阪から東京に移した",
+      "exampleTranslation": "Chuyển trụ sở từ Osaka về Tokyo.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10921,
+      "term": "連れる (つれる)",
+      "reading": "つれる",
+      "romaji": "tsureru",
+      "definition": "dẫn đi",
+      "exampleSentence": "子どもを動物園へ連れて行った",
+      "exampleTranslation": "Dẫn con đi chơi sở thú.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10922,
+      "term": "寄る (よる)",
+      "reading": "よる",
+      "romaji": "yoru",
+      "definition": "ghé (vào), lại gần, nghiêng/lệch về",
+      "exampleSentence": "窓のそばに寄って外を見た",
+      "exampleTranslation": "Ghé sát vào cửa sổ nhìn ra bên ngoài.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10923,
+      "term": "寄せる (よせる)",
+      "reading": "よせる",
+      "romaji": "yoseru",
+      "definition": "kéo lại gần/ghé lại/cho sát vào; dồn/góp",
+      "exampleSentence": "地震のときは、車を道の左側に寄せて止めなければならない",
+      "exampleTranslation": "Khi có động đất oto phải tạt vào bên trái đường rồi dừng lại.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10924,
+      "term": "与える (あたえる)",
+      "reading": "あたえる",
+      "romaji": "ataeru",
+      "definition": "cho, đem lại, gây ra",
+      "exampleSentence": "成績のよい学生に奨学金を与える",
+      "exampleTranslation": "Tặng học bổng cho học sinh có thành tích tốt.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10925,
+      "term": "得る (える)",
+      "reading": "える",
+      "romaji": "eru",
+      "definition": "đạt được",
+      "exampleSentence": "収入を得る",
+      "exampleTranslation": "Có {thu nhập/ thông tin/ kiến thức…}.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

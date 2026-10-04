@@ -1,0 +1,154 @@
+{
+  "id": 600,
+  "title": "N2 Unit 9.4 - カタカナB (bài 4/4)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — カタカナB",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.528912",
+  "cards": [
+    {
+      "id": 13991,
+      "term": "カット",
+      "reading": "カット",
+      "romaji": null,
+      "definition": "cắt, chia",
+      "exampleSentence": "ケーキを8つにカットした。",
+      "exampleTranslation": "Cắt bánh ra 8 phần.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13992,
+      "term": "カバー",
+      "reading": "カバー",
+      "romaji": null,
+      "definition": "bìa, trang bìa, lá chắn",
+      "exampleSentence": "ソファ―をカバーで覆う。",
+      "exampleTranslation": "Phủ sofa bằng tấm bọc.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13993,
+      "term": "リハビリ",
+      "reading": "リハビリ",
+      "romaji": null,
+      "definition": "điều trị phục hồi",
+      "exampleSentence": "骨折で入院し、退院後もしばらくリハビリのため病院に通った。",
+      "exampleTranslation": "Bị gãy xương phải nhập viện; sau khi xuất viện vẫn phải đi bệnh viện một thời gian để phục hồi chức năng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13994,
+      "term": "プレッシャー",
+      "reading": "プレッシャー",
+      "romaji": null,
+      "definition": "áp lực",
+      "exampleSentence": "この仕事は、新入社員にはプレッシャーが大きい。",
+      "exampleTranslation": "Công việc này tạo áp lực lớn với nhân viên mới.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13995,
+      "term": "カウンセリング",
+      "reading": "カウンセリング",
+      "romaji": null,
+      "definition": "tư vấn, tham vấn tâm lý",
+      "exampleSentence": "学校で子供たち｛を/に｝カウンセリングする仕事をしている。",
+      "exampleTranslation": "Tôi làm công việc tư vấn cho trẻ em ở trường.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13996,
+      "term": "キャラクター",
+      "reading": "キャラクター",
+      "romaji": null,
+      "definition": "nhân cách, nhân vật, tính cách",
+      "exampleSentence": "彼はちょっと変わったキャラクターの持ち主だ。",
+      "exampleTranslation": "Anh ấy là người có cá tính hơi khác lạ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13997,
+      "term": "ユニークな",
+      "reading": "ユニークな",
+      "romaji": null,
+      "definition": "độc nhất, đôc đáo",
+      "exampleSentence": "彼女はユニークな性格だ。",
+      "exampleTranslation": "Cô ấy có tính cách độc đáo.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13998,
+      "term": "ルーズな",
+      "reading": "ルーズな",
+      "romaji": null,
+      "definition": "lỏng lẻo",
+      "exampleSentence": "あの人は時間にルーズだ。",
+      "exampleTranslation": "Người đó rất “lỏng lẻo” về thời gian.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13999,
+      "term": "ロマンチックな",
+      "reading": "ロマンチックな",
+      "romaji": null,
+      "definition": "lãng mạn",
+      "exampleSentence": "デートするならロマンティックな場所はいい。",
+      "exampleTranslation": "Nếu hẹn hò thì nơi lãng mạn cũng tốt.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14000,
+      "term": "センス",
+      "reading": "センス",
+      "romaji": null,
+      "definition": "giác quan, cảm nhận",
+      "exampleSentence": "彼女はいつもセンスのいい服を着ている。",
+      "exampleTranslation": "Cô ấy lúc nào cũng mặc đồ có gu.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14001,
+      "term": "エコロジー",
+      "reading": "エコロジー",
+      "romaji": null,
+      "definition": "sinh thái",
+      "exampleSentence": "最近は、どの国でもエコロジーの考え方が当たり前になった。",
+      "exampleTranslation": "Gần đây, ở nước nào tư duy sinh thái (ecology) cũng trở thành điều hiển nhiên.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14002,
+      "term": "ダム",
+      "reading": "ダム",
+      "romaji": null,
+      "definition": "đập nước, đê",
+      "exampleSentence": "山奥にダムが建設された。",
+      "exampleTranslation": "Một con đập được xây sâu trong núi.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 14003,
+      "term": "コンクリート",
+      "reading": "コンクリート",
+      "romaji": null,
+      "definition": "bê tông",
+      "exampleSentence": "この壁はコンクリートでできている。",
+      "exampleTranslation": "Bức tường này làm bằng bê tông.",
+      "forms": [],
+      "displayOrder": 12
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+{
+  "id": 687,
+  "title": "N3 Tango 12.4 - Hãy truyền đạt ấn tượng của mình · Xã hội của chúng ta",
+  "description": "Tango N3 — Hãy truyền đạt ấn tượng của mình",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:26.722183",
+  "cards": [
+    {
+      "id": 15673,
+      "term": "現代 (げんだい)",
+      "reading": "げんだい",
+      "romaji": null,
+      "definition": "Hiện đại",
+      "exampleSentence": "現代の社会では、インターネットが生活に欠かせません。",
+      "exampleTranslation": "Trong xã hội hiện đại, internet là thứ không thể thiếu trong cuộc sống.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 15674,
+      "term": "現実 (げんじつ)",
+      "reading": "げんじつ",
+      "romaji": null,
+      "definition": "Hiện thực",
+      "exampleSentence": "現実は、理想どおりにはいかないものです。",
+      "exampleTranslation": "Hiện thực thường không diễn ra đúng như lý tưởng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 15675,
+      "term": "理想 (りそう)",
+      "reading": "りそう",
+      "romaji": null,
+      "definition": "Lý tưởng",
+      "exampleSentence": "彼は理想の仕事を求めて、何度も転職しました。",
+      "exampleTranslation": "Anh ấy đã nhiều lần chuyển việc để tìm công việc lý tưởng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 15676,
+      "term": "偉大な (いだいな)",
+      "reading": "いだいな",
+      "romaji": null,
+      "definition": "Vĩ đại",
+      "exampleSentence": "彼は日本の歴史に残る偉大な科学者です。",
+      "exampleTranslation": "Ông ấy là một nhà khoa học vĩ đại còn được ghi danh trong lịch sử Nhật Bản.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 15677,
+      "term": "当然（な） (とうぜん（な）)",
+      "reading": "とうぜん（な）",
+      "romaji": null,
+      "definition": "Đương nhiên",
+      "exampleSentence": "この結果は、努力した彼にとって当然（な）ことでした。",
+      "exampleTranslation": "Kết quả này là điều đương nhiên đối với anh ấy, người đã nỗ lực.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 15678,
+      "term": "当たり前（な） (あたりまえ（な）)",
+      "reading": "あたりまえ（な）",
+      "romaji": null,
+      "definition": "Sự đương nhiên (đương nhiên)",
+      "exampleSentence": "毎日勉強するのは、合格を目指す人には当たり前（な）ことです。",
+      "exampleTranslation": "Đối với người muốn thi đỗ, việc học mỗi ngày là điều đương nhiên.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 15679,
+      "term": "[お]金持ち ([お]かねもち)",
+      "reading": "[お]かねもち",
+      "romaji": null,
+      "definition": "Người giàu, giàu",
+      "exampleSentence": "お金持ちの友人は、いつも困っている人を助けます。",
+      "exampleTranslation": "Người bạn giàu có của tôi luôn giúp đỡ những người gặp khó khăn.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 15680,
+      "term": "貧しい (まずしい)",
+      "reading": "まずしい",
+      "romaji": null,
+      "definition": "Nghèo",
+      "exampleSentence": "貧しい家庭で育ちましたが、毎日楽しく過ごしていました。",
+      "exampleTranslation": "Dù lớn lên trong một gia đình nghèo, tôi vẫn sống vui vẻ mỗi ngày.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 15681,
+      "term": "貧乏（な/する） (びんぼう（な/する）)",
+      "reading": "びんぼう（な/する）",
+      "romaji": null,
+      "definition": "Sự nghèo khổ (nghèo)",
+      "exampleSentence": "「貧乏（な/する）」という言葉どおり、彼は貧乏な生活を送っていました。",
+      "exampleTranslation": "Đúng như nghĩa của từ 「貧乏（な/する）」, anh ấy đã sống một cuộc sống nghèo khó.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 15682,
+      "term": "発展（する） (はってん（する）)",
+      "reading": "はってん（する）",
+      "romaji": null,
+      "definition": "Sự phát triển",
+      "exampleSentence": "先生は、「発展（する）」という言葉を、国や町が大きくなることだと説明しました。",
+      "exampleTranslation": "Giáo viên giải thích rằng từ “phát triển” chỉ việc một đất nước hoặc thành phố trở nên lớn mạnh hơn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 15683,
+      "term": "進歩（する） (しんぽ（する）)",
+      "reading": "しんぽ（する）",
+      "romaji": null,
+      "definition": "Sự tiến bộ",
+      "exampleSentence": "「進歩（する）」とは、技術や人の能力が少しずつ高くなることです。",
+      "exampleTranslation": "“Tiến bộ” có nghĩa là kỹ thuật hoặc năng lực của con người dần dần nâng cao.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 15684,
+      "term": "強力な (きょうりょくな)",
+      "reading": "きょうりょくな",
+      "romaji": null,
+      "definition": "Mạnh mẽ",
+      "exampleSentence": "強力な台風が近づいているので、外出しないでください。",
+      "exampleTranslation": "Vì một cơn bão mạnh đang tiến đến, xin đừng ra ngoài.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 15685,
+      "term": "パワー",
+      "reading": "パワー",
+      "romaji": null,
+      "definition": "Sức mạnh, năng lượng",
+      "exampleSentence": "この小さな掃除機は、見た目よりパワーがあります。",
+      "exampleTranslation": "Chiếc máy hút bụi nhỏ này có công suất lớn hơn vẻ ngoài của nó.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 15686,
+      "term": "あふれる",
+      "reading": "あふれる",
+      "romaji": null,
+      "definition": "Dâng đầy, đầy",
+      "exampleSentence": "春になると、公園は桜を見に来た人であふれる。",
+      "exampleTranslation": "Khi mùa xuân đến, công viên ngập tràn những người đến ngắm hoa anh đào.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 15687,
+      "term": "くずれる",
+      "reading": "くずれる",
+      "romaji": null,
+      "definition": "Lở, hư hại, bị phá vỡ",
+      "exampleSentence": "大雨が続くと、山の斜面がくずれる危険があります。",
+      "exampleTranslation": "Nếu mưa lớn kéo dài, sườn núi có nguy cơ bị sạt lở.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 15688,
+      "term": "経つ (たつ)",
+      "reading": "たつ",
+      "romaji": null,
+      "definition": "Trôi qua",
+      "exampleSentence": "日本に来てから、もう三年が経つ。",
+      "exampleTranslation": "Đã ba năm trôi qua kể từ khi tôi đến Nhật.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 15689,
+      "term": "前後 (ぜんご)",
+      "reading": "ぜんご",
+      "romaji": null,
+      "definition": "Trước sau, khoảng chừng (trên dưới)",
+      "exampleSentence": "試験の前後は、体調を崩さないようにゆっくり休みましょう。",
+      "exampleTranslation": "Trước và sau kỳ thi, hãy nghỉ ngơi đầy đủ để không bị ảnh hưởng sức khỏe.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 15690,
+      "term": "盛んな (さかんな)",
+      "reading": "さかんな",
+      "romaji": null,
+      "definition": "Rầm rộ, thịnh vượng, phát triển",
+      "exampleSentence": "この地域は、昔から農業が盛んなことで知られています。",
+      "exampleTranslation": "Khu vực này từ xưa đã nổi tiếng với nền nông nghiệp phát triển.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 15691,
+      "term": "産業 (さんぎょう)",
+      "reading": "さんぎょう",
+      "romaji": null,
+      "definition": "Ngành, ngành sản xuất",
+      "exampleSentence": "この地域では、農業が主な産業になっています。",
+      "exampleTranslation": "Nông nghiệp là ngành sản xuất chính ở khu vực này.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 15692,
+      "term": "工業 (こうぎょう)",
+      "reading": "こうぎょう",
+      "romaji": null,
+      "definition": "Công nghiệp",
+      "exampleSentence": "この町は工業が盛んで、多くの工場があります。",
+      "exampleTranslation": "Thị trấn này phát triển ngành công nghiệp và có nhiều nhà máy.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 15693,
+      "term": "商業 (しょうぎょう)",
+      "reading": "しょうぎょう",
+      "romaji": null,
+      "definition": "Thương nghiệp, thương mại",
+      "exampleSentence": "駅の周りは商業が盛んで、休日には多くの人が集まります。",
+      "exampleTranslation": "Khu vực xung quanh nhà ga rất phát triển về thương mại, nên ngày nghỉ có nhiều người tập trung.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 15694,
+      "term": "農業 (のうぎょう)",
+      "reading": "のうぎょう",
+      "romaji": null,
+      "definition": "Nông nghiệp",
+      "exampleSentence": "農業は私たちの生活を支える大切な産業です。",
+      "exampleTranslation": "Nông nghiệp là ngành công nghiệp quan trọng hỗ trợ cuộc sống của chúng ta.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

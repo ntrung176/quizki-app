@@ -1,0 +1,187 @@
+{
+  "id": 686,
+  "title": "N3 Tango 12.3 - Hãy truyền đạt ấn tượng của mình · Ấn tượng về vật",
+  "description": "Tango N3 — Hãy truyền đạt ấn tượng của mình",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:26.648913",
+  "cards": [
+    {
+      "id": 15657,
+      "term": "表面 (ひょうめん)",
+      "reading": "ひょうめん",
+      "romaji": null,
+      "definition": "Bề mặt, bề ngoài",
+      "exampleSentence": "表面に傷がないか、出荷前に一つずつ確認します。",
+      "exampleTranslation": "Trước khi xuất hàng, chúng tôi kiểm tra từng món xem bề mặt có bị trầy xước hay không.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 15658,
+      "term": "立派な (りっぱな)",
+      "reading": "りっぱな",
+      "romaji": null,
+      "definition": "Hoành tráng, xuất sắc",
+      "exampleSentence": "駅の前に、立派な市役所が建っています。",
+      "exampleTranslation": "Trước nhà ga có một tòa thị chính rất khang trang.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 15659,
+      "term": "目立つ (めだつ)",
+      "reading": "めだつ",
+      "romaji": null,
+      "definition": "Nổi bật",
+      "exampleSentence": "赤い帽子をかぶると、人ごみの中でも目立つので、すぐ見つかります。",
+      "exampleTranslation": "Đội mũ đỏ thì sẽ nổi bật giữa đám đông nên dễ được tìm thấy.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 15660,
+      "term": "きらきら（する）",
+      "reading": "きらきら（する）",
+      "romaji": null,
+      "definition": "Lấp lánh",
+      "exampleSentence": "夕日に照らされた水面が「きらきら（する）」ように輝いています。",
+      "exampleTranslation": "Mặt nước được ánh nắng chiều chiếu vào, lấp lánh rực rỡ.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 15661,
+      "term": "ぴかぴか[と]",
+      "reading": "ぴかぴか[と]",
+      "romaji": null,
+      "definition": "Nhấp nháy",
+      "exampleSentence": "遠くの灯台が、夜の海でぴかぴかと光っています。",
+      "exampleTranslation": "Ngọn hải đăng ở xa đang chớp sáng trên biển đêm.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 15662,
+      "term": "異なる (ことなる)",
+      "reading": "ことなる",
+      "romaji": null,
+      "definition": "Khác",
+      "exampleSentence": "国によって文化や習慣が異なるため、考え方もさまざまです。",
+      "exampleTranslation": "Vì văn hóa và phong tục khác nhau tùy quốc gia nên cách suy nghĩ cũng đa dạng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 15663,
+      "term": "ぼんやり[と] （する）",
+      "reading": "ぼんやり[と] （する）",
+      "romaji": null,
+      "definition": "Mờ mờ",
+      "exampleSentence": "寝不足の日は、頭が「ぼんやり （する）」と感じることがあります。",
+      "exampleTranslation": "Những ngày thiếu ngủ, đôi khi tôi cảm thấy đầu óc mơ màng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 15664,
+      "term": "大型 (おおがた)",
+      "reading": "おおがた",
+      "romaji": null,
+      "definition": "Lớn",
+      "exampleSentence": "大型の台風が近づいているので、今日は早く帰りましょう。",
+      "exampleTranslation": "Vì một cơn bão lớn đang đến gần nên hôm nay hãy về sớm.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 15665,
+      "term": "多め（な） (おおめ（な）)",
+      "reading": "おおめ（な）",
+      "romaji": null,
+      "definition": "Hơi nhiều (một chút)",
+      "exampleSentence": "ご飯は多めでお願いします。",
+      "exampleTranslation": "Vui lòng cho tôi phần cơm hơi nhiều một chút.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 15666,
+      "term": "大きめ（な） (おおきめ（な）)",
+      "reading": "おおきめ（な）",
+      "romaji": null,
+      "definition": "Hơi to, hơi lớn (một chút)",
+      "exampleSentence": "荷物が多いので、大きめのかばんを選びました。",
+      "exampleTranslation": "Vì có nhiều hành lý nên tôi đã chọn một chiếc túi hơi lớn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 15667,
+      "term": "太め（な） (ふとめ（な）)",
+      "reading": "ふとめ（な）",
+      "romaji": null,
+      "definition": "Hơi to mập, hơi rộng (một chút)",
+      "exampleSentence": "動きやすいように、「太め（な）」ズボンを選びました。",
+      "exampleTranslation": "Tôi chọn chiếc quần hơi rộng để dễ vận động.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 15668,
+      "term": "完ぺき（な） (かんぺき（な）)",
+      "reading": "かんぺき（な）",
+      "romaji": null,
+      "definition": "Hoàn hảo, không thể chê vào đâu được",
+      "exampleSentence": "「完ぺき（な）」計画でも、実際には問題が起こることがあります。",
+      "exampleTranslation": "Ngay cả một kế hoạch hoàn hảo đôi khi cũng có thể phát sinh vấn đề trên thực tế.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 15669,
+      "term": "たっぷり[と]（する）",
+      "reading": "たっぷり[と]（する）",
+      "romaji": null,
+      "definition": "Đầy",
+      "exampleSentence": "スープには野菜を「たっぷり（する）」と入れると、体が温まります。",
+      "exampleTranslation": "Nếu cho thật nhiều rau vào súp thì cơ thể sẽ ấm lên.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 15670,
+      "term": "多少 (たしょう)",
+      "reading": "たしょう",
+      "romaji": null,
+      "definition": "Ít nhiều",
+      "exampleSentence": "多少の違いはありますが、結果はほとんど同じです。",
+      "exampleTranslation": "Có ít nhiều khác biệt, nhưng kết quả gần như giống nhau.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 15671,
+      "term": "それほど",
+      "reading": "それほど",
+      "romaji": null,
+      "definition": "Đến mức đó",
+      "exampleSentence": "この問題は、それほど難しくありません。",
+      "exampleTranslation": "Vấn đề này không khó đến mức đó.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 15672,
+      "term": "縮む (ちぢむ)",
+      "reading": "ちぢむ",
+      "romaji": null,
+      "definition": "Bị co rút",
+      "exampleSentence": "セーターを熱いお湯で洗うと、縮むことがあります。",
+      "exampleTranslation": "Nếu giặt áo len bằng nước nóng, đôi khi áo sẽ bị co lại.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

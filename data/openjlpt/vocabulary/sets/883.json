@@ -1,0 +1,231 @@
+{
+  "id": 883,
+  "title": "N5 Tango 6.4 - Sở thích · Thời tiết",
+  "description": "Tango N5 — Sở thích",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:48.550473",
+  "cards": [
+    {
+      "id": 20608,
+      "term": "てんき",
+      "reading": "てんき",
+      "romaji": null,
+      "definition": "Thời tiết",
+      "exampleSentence": "今日はてんきがいいです。",
+      "exampleTranslation": "Hôm nay thời tiết đẹp.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20609,
+      "term": "いい",
+      "reading": "いい",
+      "romaji": null,
+      "definition": "Đẹp, tốt",
+      "exampleSentence": "今日はてんきがいいです。",
+      "exampleTranslation": "Hôm nay thời tiết đẹp.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20610,
+      "term": "わるい",
+      "reading": "わるい",
+      "romaji": null,
+      "definition": "Xấu",
+      "exampleSentence": "雨の日は、気分がわるいです。",
+      "exampleTranslation": "Những ngày mưa, tâm trạng tôi không tốt.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20611,
+      "term": "いい[お]てんきですね",
+      "reading": "いい[お]てんきですね",
+      "romaji": null,
+      "definition": "Trời (thời tiết) đẹp nhỉ",
+      "exampleSentence": "いいてんきですね、おさんぽに行きませんか。",
+      "exampleTranslation": "Thời tiết đẹp nhỉ, chúng ta đi dạo nhé?",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20612,
+      "term": "雨 (あめ)",
+      "reading": "あめ",
+      "romaji": null,
+      "definition": "Mưa",
+      "exampleSentence": "朝から雨が降っています。",
+      "exampleTranslation": "Từ sáng trời đã mưa.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20613,
+      "term": "ゆき",
+      "reading": "ゆき",
+      "romaji": null,
+      "definition": "Tuyết",
+      "exampleSentence": "冬になると、北海道でゆきがたくさん降ります。",
+      "exampleTranslation": "Khi mùa đông đến, ở Hokkaido tuyết rơi rất nhiều.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20614,
+      "term": "ふる",
+      "reading": "ふる",
+      "romaji": null,
+      "definition": "Rơi",
+      "exampleSentence": "冬になると、山に雪がふる日が増えます。",
+      "exampleTranslation": "Khi mùa đông đến, số ngày tuyết rơi trên núi tăng lên.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20615,
+      "term": "あつい",
+      "reading": "あつい",
+      "romaji": null,
+      "definition": "Nóng",
+      "exampleSentence": "今日はとてもあついので、水をたくさん飲みます。",
+      "exampleTranslation": "Hôm nay rất nóng nên tôi uống nhiều nước.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20616,
+      "term": "すずしい",
+      "reading": "すずしい",
+      "romaji": null,
+      "definition": "Mát",
+      "exampleSentence": "今日は風があって、すずしいです。",
+      "exampleTranslation": "Hôm nay có gió nên trời mát.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20617,
+      "term": "さむい",
+      "reading": "さむい",
+      "romaji": null,
+      "definition": "Lạnh",
+      "exampleSentence": "冬の北海道はとてもさむいです。",
+      "exampleTranslation": "Mùa đông ở Hokkaido rất lạnh.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20618,
+      "term": "あたたかい",
+      "reading": "あたたかい",
+      "romaji": null,
+      "definition": "Ấm",
+      "exampleSentence": "春になると、あたたかい風が吹きます。",
+      "exampleTranslation": "Khi mùa xuân đến, những cơn gió ấm sẽ thổi.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 20619,
+      "term": "多い (おおい)",
+      "reading": "おおい",
+      "romaji": null,
+      "definition": "Nhiều",
+      "exampleSentence": "この町は外国人の観光客が多いです。",
+      "exampleTranslation": "Thị trấn này có nhiều du khách nước ngoài.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 20620,
+      "term": "少ない (すくない)",
+      "reading": "すくない",
+      "romaji": null,
+      "definition": "Ít",
+      "exampleSentence": "この店はお客さんが少ないです。",
+      "exampleTranslation": "Cửa hàng này có ít khách.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 20621,
+      "term": "おもう",
+      "reading": "おもう",
+      "romaji": null,
+      "definition": "Nghĩ",
+      "exampleSentence": "私は明日、雨が降るとおもう。",
+      "exampleTranslation": "Tôi nghĩ ngày mai trời sẽ mưa.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 20622,
+      "term": "たぶん",
+      "reading": "たぶん",
+      "romaji": null,
+      "definition": "Có lẽ",
+      "exampleSentence": "たぶん、田中さんはもう家に帰りました。",
+      "exampleTranslation": "Có lẽ anh Tanaka đã về nhà rồi.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 20623,
+      "term": "きっと",
+      "reading": "きっと",
+      "romaji": null,
+      "definition": "Chắc, chắc chắn",
+      "exampleSentence": "明日はきっと晴れると思います。",
+      "exampleTranslation": "Tôi nghĩ ngày mai chắc chắn trời sẽ nắng.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 20624,
+      "term": "かさ",
+      "reading": "かさ",
+      "romaji": null,
+      "definition": "Dù, ô",
+      "exampleSentence": "雨が降っているので、かさを持って出かけます。",
+      "exampleTranslation": "Vì trời đang mưa nên tôi mang ô ra ngoài.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 20625,
+      "term": "もってくる",
+      "reading": "もってくる",
+      "romaji": null,
+      "definition": "Đem (mang) đến",
+      "exampleSentence": "明日、学校へ本をもってくるのを忘れないでください。",
+      "exampleTranslation": "Ngày mai, đừng quên mang sách đến trường.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 20626,
+      "term": "もっていく",
+      "reading": "もっていく",
+      "romaji": null,
+      "definition": "Đem (mang) đi",
+      "exampleSentence": "旅行に必要なものをもっていくつもりです。",
+      "exampleTranslation": "Tôi định mang theo những thứ cần thiết cho chuyến du lịch.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 20627,
+      "term": "ばんぐみ",
+      "reading": "ばんぐみ",
+      "romaji": null,
+      "definition": "Chương trình",
+      "exampleSentence": "毎週日曜日に好きなばんぐみを見ます。",
+      "exampleTranslation": "Mỗi Chủ nhật tôi xem chương trình mình yêu thích.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

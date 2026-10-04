@@ -1,0 +1,132 @@
+{
+  "id": 555,
+  "title": "N2 Unit 3.3 - 形容詞A (bài 3/5)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 形容詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.656844",
+  "cards": [
+    {
+      "id": 13408,
+      "term": "何気ない (なにげない)",
+      "reading": "なにげない",
+      "romaji": null,
+      "definition": "không cố ý, ngẫu nhiên, tình cờ",
+      "exampleSentence": "何気ない一言が、相手を傷つけることもある。",
+      "exampleTranslation": "Một câu nói vô tình cũng có thể làm người khác tổn thương.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13409,
+      "term": "とんでもない",
+      "reading": "とんでもない",
+      "romaji": null,
+      "definition": "không thể tin được、không ngờ",
+      "exampleSentence": "「このリンゴは3000円！とんでもない値段だ」",
+      "exampleTranslation": "“Quả táo này 3.000 yên á!? Giá gì mà vô lý thế!”",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13410,
+      "term": "下らない (くだらない)",
+      "reading": "くだらない",
+      "romaji": null,
+      "definition": "vô giá trị, vô nghĩa",
+      "exampleSentence": "「くだらないことばかり言ってないで、早く仕事をしろ」",
+      "exampleTranslation": "Đừng nói nhảm nữa, mau làm việc đi.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13411,
+      "term": "馬鹿馬鹿しい (ばかばかしい)",
+      "reading": "ばかばかしい",
+      "romaji": null,
+      "definition": "buồn cười, ngu ngốc、lố bịch",
+      "exampleSentence": "この番組はばかばかしいが、面白いのでつい見てしまう。",
+      "exampleTranslation": "Chương trình này ngớ ngẩn nhưng thú vị nên lỡ xem luôn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13412,
+      "term": "出鱈目な (でたらめな)",
+      "reading": "でたらめな",
+      "romaji": null,
+      "definition": "bừa, linh tinh",
+      "exampleSentence": "テストで答えをでたらめに書いたら、偶然合っていた。",
+      "exampleTranslation": "Tôi viết bừa đáp án bài kiểm tra, ai ngờ lại đúng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13413,
+      "term": "だらしない",
+      "reading": "だらしない",
+      "romaji": null,
+      "definition": "lôi thôi, luộm thuộm",
+      "exampleSentence": "「暑いからと言って、そんなだらしない恰好をするな」",
+      "exampleTranslation": "Dù nóng cũng đừng ăn mặc lôi thôi như thế.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13414,
+      "term": "図々しい (ずうずうしい)",
+      "reading": "ずうずうしい",
+      "romaji": null,
+      "definition": "vô liêm sỉ, trơ trẽn",
+      "exampleSentence": "レジの列にずうずうしく割り込む人がいる。",
+      "exampleTranslation": "Ở quầy tính tiền có người trơ tráo chen ngang.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13415,
+      "term": "狡い (ずるい)",
+      "reading": "ずるい",
+      "romaji": null,
+      "definition": "không trung thực, láu cá",
+      "exampleSentence": "うちの上司はずるくて、いつも部下の成果を自分の物にしてしまう。",
+      "exampleTranslation": "Sếp tôi gian xảo, lúc nào cũng biến thành quả của cấp dưới thành công của mình.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13416,
+      "term": "憎らしい (にくらしい)",
+      "reading": "にくらしい",
+      "romaji": null,
+      "definition": "đáng ghét, ghê tởm",
+      "exampleSentence": "わが子はかわいいが、反抗的な態度をとると憎らしいときもある。",
+      "exampleTranslation": "Con mình dễ thương nhưng lúc nó bướng bỉnh thì cũng có khi đáng ghét.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13417,
+      "term": "憎い (にくい)",
+      "reading": "にくい",
+      "romaji": null,
+      "definition": "căm thù, căm ghét ghét",
+      "exampleSentence": "父を殺した犯人が憎い。",
+      "exampleTranslation": "Tôi căm thù kẻ đã giết bố.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13418,
+      "term": "険しい (けわしい)",
+      "reading": "けわしい",
+      "romaji": null,
+      "definition": "dốc (dựng đứng), nghiêm khắc",
+      "exampleSentence": "険しい山道を登る。",
+      "exampleTranslation": "Leo con đường núi dốc/khó.",
+      "forms": [],
+      "displayOrder": 10
+    }
+  ]
+}

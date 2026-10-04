@@ -1,0 +1,187 @@
+{
+  "id": 607,
+  "title": "N2 Unit 11.3 - 名詞D (bài 3/8)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞D",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.628376",
+  "cards": [
+    {
+      "id": 14082,
+      "term": "文明 (ぶんめい)",
+      "reading": "ぶんめい",
+      "romaji": null,
+      "definition": "văn minh",
+      "exampleSentence": "日本は1868年に明治維新が行われて以来、西洋文明が流行してきた。",
+      "exampleTranslation": "Sau Minh Trị Duy Tân, văn minh phương Tây lan rộng ở Nhật.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14083,
+      "term": "普及 (ふきゅう)",
+      "reading": "ふきゅう",
+      "romaji": null,
+      "definition": "phổ cập, phổ biến",
+      "exampleSentence": "携帯電話の普及は著しい。",
+      "exampleTranslation": "Sự phổ biến của điện thoại di động là rất đáng kể.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14084,
+      "term": "制限 (せいげん)",
+      "reading": "せいげん",
+      "romaji": null,
+      "definition": "hạn chế, giới hạn",
+      "exampleSentence": "「食べ放題」は時間に制限がある。",
+      "exampleTranslation": "“Ăn thỏa thích” nhưng có giới hạn thời gian.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14085,
+      "term": "限度 (げんど)",
+      "reading": "げんど",
+      "romaji": null,
+      "definition": "hạn chế, hạn độ",
+      "exampleSentence": "「ダイエットもいいけれども、限度を考えなさい。このままでは体を壊しますよ」",
+      "exampleTranslation": "Ăn kiêng thì tốt nhưng phải biết chừng mực, nếu không sẽ hại sức khỏe.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14086,
+      "term": "限界 (げんかい)",
+      "reading": "げんかい",
+      "romaji": null,
+      "definition": "giới hạn",
+      "exampleSentence": "疲労が限界に達した。",
+      "exampleTranslation": "Sự mệt mỏi đã chạm tới giới hạn.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14087,
+      "term": "検討 (けんとう)",
+      "reading": "けんとう",
+      "romaji": null,
+      "definition": "xem xét, nghiên cứu",
+      "exampleSentence": "災害対策について検討を重ねた。",
+      "exampleTranslation": "Đã cân nhắc kỹ lưỡng các biện pháp đối phó thiên tai.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14088,
+      "term": "選択 (せんたく)",
+      "reading": "せんたく",
+      "romaji": null,
+      "definition": "lựa chọn",
+      "exampleSentence": "学校では、授業を自由に選択することができる。",
+      "exampleTranslation": "Ở trường đại học, có thể tự do lựa chọn môn học.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14089,
+      "term": "考慮 (こうりょ)",
+      "reading": "こうりょ",
+      "romaji": null,
+      "definition": "xem xét",
+      "exampleSentence": "スピーチをする時は、聞き手のことも考慮に入れなければならない。",
+      "exampleTranslation": "Khi phát biểu cần cân nhắc cả người nghe.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14090,
+      "term": "重視 (じゅうし)",
+      "reading": "じゅうし",
+      "romaji": null,
+      "definition": "chú trọng, xem trọng",
+      "exampleSentence": "この仕事は経験が重視される。",
+      "exampleTranslation": "Công việc này coi trọng kinh nghiệm.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14091,
+      "term": "見当 (けんとう)",
+      "reading": "けんとう",
+      "romaji": null,
+      "definition": "đoán, ước tính",
+      "exampleSentence": "この問題はどうやって解いたらいいのか、見当も付かない。",
+      "exampleTranslation": "Không có manh mối nào để giải quyết vấn đề này.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14092,
+      "term": "訂正 (ていせい)",
+      "reading": "ていせい",
+      "romaji": null,
+      "definition": "đính chính",
+      "exampleSentence": "間違いを訂正する。",
+      "exampleTranslation": "Sửa lại lỗi sai.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14093,
+      "term": "修正 (しゅうせい)",
+      "reading": "しゅうせい",
+      "romaji": null,
+      "definition": "chỉnh lý, chỉnh sửa, sửa đổi",
+      "exampleSentence": "｛文章/デザイン/計画…｝を修正する。",
+      "exampleTranslation": "Sửa {bài viết / thiết kế / kế hoạch…}.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 14094,
+      "term": "反抗 (はんこう)",
+      "reading": "はんこう",
+      "romaji": null,
+      "definition": "phản kháng, chống đối",
+      "exampleSentence": "学生は大学当局に反抗して団体交渉を行った。",
+      "exampleTranslation": "Sinh viên phản đối nhà trường và tiến hành thương lượng tập thể.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 14095,
+      "term": "抵抗 (ていこう)",
+      "reading": "ていこう",
+      "romaji": null,
+      "definition": "chống đối, kháng cự",
+      "exampleSentence": "彼は政府に抵抗して逮捕された。",
+      "exampleTranslation": "Anh ta chống lại chính phủ và bị bắt.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 14096,
+      "term": "災難 (さいなん)",
+      "reading": "さいなん",
+      "romaji": null,
+      "definition": "tai họa, tai ương",
+      "exampleSentence": "洪水、山火事、農作物の不作と、村に災難が続いた。",
+      "exampleTranslation": "Lũ lụt, cháy rừng, mất mùa liên tiếp giáng xuống ngôi làng.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 14097,
+      "term": "汚染 (おせん)",
+      "reading": "おせん",
+      "romaji": null,
+      "definition": "ô nhiễm",
+      "exampleSentence": "工場排水で地下水が汚染された。",
+      "exampleTranslation": "Nước ngầm bị ô nhiễm do nước thải nhà máy.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

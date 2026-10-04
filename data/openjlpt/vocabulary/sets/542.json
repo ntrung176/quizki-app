@@ -1,0 +1,209 @@
+{
+  "id": 542,
+  "title": "N2 Unit 1.5 - 名詞A (bài 5/6)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.453631",
+  "cards": [
+    {
+      "id": 13233,
+      "term": "駐車 (ちゅうしゃ)",
+      "reading": "ちゅうしゃ",
+      "romaji": null,
+      "definition": "đỗ xe",
+      "exampleSentence": "日曜日の都心は駐車するところがない。",
+      "exampleTranslation": "Chủ nhật ở trung tâm thành phố rất khó tìm chỗ đỗ xe.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13234,
+      "term": "違反 (いはん)",
+      "reading": "いはん",
+      "romaji": null,
+      "definition": "vi phạm",
+      "exampleSentence": "｛規則/法律…｝に違反する。",
+      "exampleTranslation": "Vi phạm {quy định/pháp luật…}.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13235,
+      "term": "平日 (へいじつ)",
+      "reading": "へいじつ",
+      "romaji": null,
+      "definition": "ngày thường",
+      "exampleSentence": "あの店は、平日は9時まで営業している。",
+      "exampleTranslation": "Cửa hàng đó mở cửa đến 9 giờ vào ngày thường.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13236,
+      "term": "日付 (ひづけ)",
+      "reading": "ひづけ",
+      "romaji": null,
+      "definition": "ngày tháng",
+      "exampleSentence": "日付を書く。",
+      "exampleTranslation": "Ghi ngày tháng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13237,
+      "term": "日中 (にっちゅう)",
+      "reading": "にっちゅう",
+      "romaji": null,
+      "definition": "ban ngày",
+      "exampleSentence": "昨晩は冷え込むが、日中は穏やかな天気が続いている。",
+      "exampleTranslation": "Ban đêm trời lạnh nhưng ban ngày thời tiết ôn hòa.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13238,
+      "term": "日程 (にってい)",
+      "reading": "にってい",
+      "romaji": null,
+      "definition": "lịch trình, kế hoạch",
+      "exampleSentence": "急な用事で、旅行の日程を変えた。",
+      "exampleTranslation": "Vì việc gấp nên đã thay đổi lịch trình chuyến đi.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13239,
+      "term": "日帰り (ひがえり)",
+      "reading": "ひがえり",
+      "romaji": null,
+      "definition": "đi về trong ngày",
+      "exampleSentence": "日光は東京から日帰りで行けます。",
+      "exampleTranslation": "Từ Tokyo có thể đi Nikko về trong ngày.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13240,
+      "term": "順序 (じゅんじょ)",
+      "reading": "じゅんじょ",
+      "romaji": null,
+      "definition": "thứ tự",
+      "exampleSentence": "子供たちが教室に順序よく並んで入っていく。",
+      "exampleTranslation": "Bọn trẻ xếp hàng ngay ngắn và lần lượt vào lớp.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13241,
+      "term": "時期 (じき)",
+      "reading": "じき",
+      "romaji": null,
+      "definition": "thời kì",
+      "exampleSentence": "3月から4月は、うちの会社にとって忙しい時期だ。",
+      "exampleTranslation": "Từ tháng 3 đến tháng 4 là thời kỳ bận rộn của công ty tôi.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13242,
+      "term": "現在 (げんざい)",
+      "reading": "げんざい",
+      "romaji": null,
+      "definition": "hiện tại",
+      "exampleSentence": "駅前は昔は畑だったが、現在は大きなショッピングセンターになっている。",
+      "exampleTranslation": "Trước ga ngày xưa là ruộng, nay đã trở thành trung tâm mua sắm lớn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13243,
+      "term": "臨時 (りんじ)",
+      "reading": "りんじ",
+      "romaji": null,
+      "definition": "tạm thời",
+      "exampleSentence": "急病人が出たため、列車は臨時にこの駅に停車した。",
+      "exampleTranslation": "Vì có người bị bệnh đột xuất, tàu đã dừng tạm thời ở ga này.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13244,
+      "term": "費用 (ひよう)",
+      "reading": "ひよう",
+      "romaji": null,
+      "definition": "chi phí",
+      "exampleSentence": "旅行の費用をためる。",
+      "exampleTranslation": "Dành dụm tiền cho chi phí du lịch.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13245,
+      "term": "定価 (ていか)",
+      "reading": "ていか",
+      "romaji": null,
+      "definition": "giá cố định",
+      "exampleSentence": "本はどこでも定価で売られている。",
+      "exampleTranslation": "Sách ở đâu cũng bán đúng giá niêm yết.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13246,
+      "term": "割引 (わりびき)",
+      "reading": "わりびき",
+      "romaji": null,
+      "definition": "giảm giá",
+      "exampleSentence": "「まとめて買うから、少し割引してください」",
+      "exampleTranslation": "“Tôi mua nhiều nên giảm cho tôi một chút được không?”",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13247,
+      "term": "おまけ",
+      "reading": "おまけ",
+      "romaji": null,
+      "definition": "quà khuyến mại",
+      "exampleSentence": "4個550円のリンゴを、おまけしてもらって500円で買った。",
+      "exampleTranslation": "Táo 4 quả 550 yên, họ bớt cho nên tôi mua 500 yên.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 13248,
+      "term": "無料 (むりょう)",
+      "reading": "むりょう",
+      "romaji": null,
+      "definition": "miễn phí",
+      "exampleSentence": "「ただいま、無料で試供品をさし上げておりましょう」",
+      "exampleTranslation": "“Hiện chúng tôi đang phát/tặng miễn phí hàng mẫu.”",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 13249,
+      "term": "現金 (げんきん)",
+      "reading": "げんきん",
+      "romaji": null,
+      "definition": "tiền mặt",
+      "exampleSentence": "彼は新車を買って、何と現金で支払ったそうだ。",
+      "exampleTranslation": "Nghe nói anh ấy mua xe mới và trả bằng tiền mặt.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 13250,
+      "term": "合計 (ごうけい)",
+      "reading": "ごうけい",
+      "romaji": null,
+      "definition": "tổng cộng",
+      "exampleSentence": "東京23区の面積を合計すると、2,187km2 になる。",
+      "exampleTranslation": "Tổng diện tích 23 quận của Tokyo là 2.187 km².",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "id": 580,
+  "title": "N2 Unit 7.1 - 名詞C (bài 1/8)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.239807",
+  "cards": [
+    {
+      "id": 13744,
+      "term": "食料・食糧 (しょくりょう・しょくりょう)",
+      "reading": "しょくりょう・しょくりょう",
+      "romaji": null,
+      "definition": "đồ ăn, thực phẩm",
+      "exampleSentence": "日本は食料の自給率が低いと言われる。",
+      "exampleTranslation": "Nhật bị nói là có tỷ lệ tự cung lương thực thấp.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13745,
+      "term": "粒 (つぶ)",
+      "reading": "つぶ",
+      "romaji": null,
+      "definition": "hạt, viên",
+      "exampleSentence": "ぶどうを一粒食べる。",
+      "exampleTranslation": "Ăn một quả nho.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13746,
+      "term": "屑 (くず)",
+      "reading": "くず",
+      "romaji": null,
+      "definition": "vụn, rác, phần thừa",
+      "exampleSentence": "野菜のくずを捨てる。",
+      "exampleTranslation": "Vứt vụn rau.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13747,
+      "term": "栽培 (さいばい)",
+      "reading": "さいばい",
+      "romaji": null,
+      "definition": "nuôi trồng",
+      "exampleSentence": "この畑では小麦を栽培している。",
+      "exampleTranslation": "Ở cánh đồng này trồng lúa mì.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13748,
+      "term": "収穫 (しゅうかく)",
+      "reading": "しゅうかく",
+      "romaji": null,
+      "definition": "thu hoạch",
+      "exampleSentence": "今年は米が昨年の1.5倍の収穫を上げた。",
+      "exampleTranslation": "Năm nay thu hoạch lúa gạo gấp 1,5 lần năm ngoái.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13749,
+      "term": "産地 (さんち)",
+      "reading": "さんち",
+      "romaji": null,
+      "definition": "nơi sản xuất",
+      "exampleSentence": "青森県は、リンゴの産地として有名だ。",
+      "exampleTranslation": "Aomori nổi tiếng là vùng trồng táo.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13750,
+      "term": "土地 (とち)",
+      "reading": "とち",
+      "romaji": null,
+      "definition": "đất đai",
+      "exampleSentence": "土地を買って家を建てる。",
+      "exampleTranslation": "Mua đất rồi xây nhà.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13751,
+      "term": "倉庫 (そうこ)",
+      "reading": "そうこ",
+      "romaji": null,
+      "definition": "kho",
+      "exampleSentence": "港には多くの倉庫が並んでいる。",
+      "exampleTranslation": "Ở cảng có nhiều kho xếp hàng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13752,
+      "term": "所有 (しょゆう)",
+      "reading": "しょゆう",
+      "romaji": null,
+      "definition": "sở hữu",
+      "exampleSentence": "山本家は広い畑を所有している。",
+      "exampleTranslation": "Nhà Yamamoto sở hữu cánh đồng rộng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13753,
+      "term": "収集 (しゅうしゅう)",
+      "reading": "しゅうしゅう",
+      "romaji": null,
+      "definition": "thu thập",
+      "exampleSentence": "ゴミは可燃・不燃に分別して収集する地域が多い。",
+      "exampleTranslation": "Nhiều nơi phân loại rác cháy được/không cháy được rồi thu gom.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13754,
+      "term": "滞在 (たいざい)",
+      "reading": "たいざい",
+      "romaji": null,
+      "definition": "ở, sự tạm trú",
+      "exampleSentence": "今回の海外出張は、約1か月の滞在になる予定だ。",
+      "exampleTranslation": "Chuyến công tác nước ngoài này dự kiến ở lại khoảng 1 tháng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13755,
+      "term": "便 (べん)",
+      "reading": "べん",
+      "romaji": null,
+      "definition": "sự thuận tiện",
+      "exampleSentence": "ここは交通の便がいい。",
+      "exampleTranslation": "Ở đây giao thông thuận tiện.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13756,
+      "term": "便 (びん)",
+      "reading": "びん",
+      "romaji": null,
+      "definition": "thư từ, kiện hàng",
+      "exampleSentence": "「朝一番の便で書類を送ったから、明日の午前中に着くと思います」",
+      "exampleTranslation": "Tôi gửi giấy tờ bằng chuyến sớm nhất sáng nay nên chắc mai sáng tới.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13757,
+      "term": "設備 (せつび)",
+      "reading": "せつび",
+      "romaji": null,
+      "definition": "thiết bị",
+      "exampleSentence": "うちの大学はスポーツ設備が充実している。",
+      "exampleTranslation": "ĐH của tôi có cơ sở vật chất thể thao đầy đủ.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13758,
+      "term": "設計 (せっけい)",
+      "reading": "せっけい",
+      "romaji": null,
+      "definition": "sự thiết kế",
+      "exampleSentence": "このロボットは、設計から制作まですべて大学生たちが行った。",
+      "exampleTranslation": "Robot này từ thiết kế đến chế tạo đều do sinh viên thực hiện.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 13759,
+      "term": "制作・製作 (せいさく・せいさく)",
+      "reading": "せいさく・せいさく",
+      "romaji": null,
+      "definition": "chế tác",
+      "exampleSentence": "｛絵/彫刻/番組/映画…｝を制作する",
+      "exampleTranslation": "Sản xuất (tác phẩm: tranh/điêu khắc/chương trình/phim...).",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 13760,
+      "term": "製造 (せいぞう)",
+      "reading": "せいぞう",
+      "romaji": null,
+      "definition": "chế tạo, sản xuất",
+      "exampleSentence": "この会社は車を製造している。",
+      "exampleTranslation": "Công ty này sản xuất ô tô.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 13761,
+      "term": "建築 (けんちく)",
+      "reading": "けんちく",
+      "romaji": null,
+      "definition": "kiến trúc, sự xây dựng",
+      "exampleSentence": "｛橋/家…｝を建築する。",
+      "exampleTranslation": "Xây dựng (cầu/nhà...).",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

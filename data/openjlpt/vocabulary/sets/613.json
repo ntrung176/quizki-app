@@ -1,0 +1,110 @@
+{
+  "id": 613,
+  "title": "N2 Unit 12.1 - 動詞C (bài 1/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.72419",
+  "cards": [
+    {
+      "id": 14154,
+      "term": "編む (あむ)",
+      "reading": "あむ",
+      "romaji": null,
+      "definition": "đan",
+      "exampleSentence": "｛毛糸でセーターを/竹でかごを｝編む。",
+      "exampleTranslation": "Đan áo len bằng sợi len / đan giỏ bằng tre.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14155,
+      "term": "縫う (ぬう)",
+      "reading": "ぬう",
+      "romaji": null,
+      "definition": "may, khâu lại",
+      "exampleSentence": "雑巾を縫う。",
+      "exampleTranslation": "May/khâu giẻ lau.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14156,
+      "term": "指す (さす)",
+      "reading": "さす",
+      "romaji": null,
+      "definition": "chỉ ra, hướng tới",
+      "exampleSentence": "時計の針が12時を指している。",
+      "exampleTranslation": "Kim đồng hồ đang chỉ 12 giờ.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14157,
+      "term": "示す (しめす)",
+      "reading": "しめす",
+      "romaji": null,
+      "definition": "chỉ ra, cho xem, thể hiện",
+      "exampleSentence": "このビルに入るには身分証を示さなければならない。",
+      "exampleTranslation": "Muốn vào tòa nhà này phải xuất trình giấy tờ tùy thân.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14158,
+      "term": "注ぐ (そそぐ)",
+      "reading": "そそぐ",
+      "romaji": null,
+      "definition": "chảy vào, đổ vào",
+      "exampleSentence": "この川は太平洋に注いでいる。",
+      "exampleTranslation": "Con sông này đổ ra Thái Bình Dương.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14159,
+      "term": "濯ぐ (すすぐ)",
+      "reading": "すすぐ",
+      "romaji": null,
+      "definition": "súc, giũ, rửa",
+      "exampleSentence": "洗剤で洗った洗濯物を水ですすぐ。",
+      "exampleTranslation": "Đồ giặt đã giặt với bột giặt thì xả lại bằng nước.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14160,
+      "term": "触る (さわる)",
+      "reading": "さわる",
+      "romaji": null,
+      "definition": "chạm, sờ",
+      "exampleSentence": "切れた電線に触ると危ない。",
+      "exampleTranslation": "Chạm vào dây điện bị đứt thì nguy hiểm.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14161,
+      "term": "触れる (ふれる)",
+      "reading": "ふれる",
+      "romaji": null,
+      "definition": "chạm, sờ ・",
+      "exampleSentence": "「展示品にお手を触れないでください」",
+      "exampleTranslation": "Xin đừng chạm tay vào hiện vật trưng bày.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14162,
+      "term": "抱く (だく)",
+      "reading": "だく",
+      "romaji": null,
+      "definition": "ôm, mang",
+      "exampleSentence": "私は大きな夢を抱いて留学した。",
+      "exampleTranslation": "Tôi ôm ấp một giấc mơ lớn và đi du học.",
+      "forms": [],
+      "displayOrder": 8
+    }
+  ]
+}

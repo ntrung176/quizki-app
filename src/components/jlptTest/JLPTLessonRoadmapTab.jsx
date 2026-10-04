@@ -2,9 +2,9 @@ import React, { useState, useMemo } from 'react';
 import { 
     CheckCircle2, Clock, Play, RotateCcw, Lock, Unlock, 
     BookOpen, Languages, FileText, Award, ChevronDown, ChevronUp,
-    Sparkles, Search, Filter, Printer, Star, Eye, EyeOff
+    Search, Filter, Printer, Eye, EyeOff, Layers, Check
 } from 'lucide-react';
-import { LEVEL_GRADIENTS } from './jlptConstants';
+import { LEVEL_GRADIENTS, getTestQuestionCount } from './jlptConstants';
 import JLPTStrategyModal from './JLPTStrategyModal';
 
 const SKILL_ICONS = {
@@ -25,8 +25,8 @@ const ICON_COLOR_STYLES = {
 
 const JLPTLessonRoadmapTab = ({
     tests,
-    completedTests,
-    savedProgresses,
+    completedTests = {},
+    savedProgresses = {},
     selectedLevel,
     searchQuery,
     statusFilter,
@@ -41,7 +41,9 @@ const JLPTLessonRoadmapTab = ({
 }) => {
     const [expandedLessons, setExpandedLessons] = useState({});
     const [allExpanded, setAllExpanded] = useState(false);
-    const [displayLimit, setDisplayLimit] = useState(30);
+    const [selectedStageKey, setSelectedStageKey] = useState('all');
+    const [collapsedStages, setCollapsedStages] = useState({});
+    const [allStagesCollapsed, setAllStagesCollapsed] = useState(false);
     const [activeStrategyModal, setActiveStrategyModal] = useState(null);
 
     const toggleExpand = (lessonKey) => {
@@ -51,10 +53,23 @@ const JLPTLessonRoadmapTab = ({
         }));
     };
 
-    const toggleAll = () => {
+    const toggleAllLessons = () => {
         const nextState = !allExpanded;
         setAllExpanded(nextState);
         setExpandedLessons({});
+    };
+
+    const toggleStage = (stageKey) => {
+        setCollapsedStages(prev => ({
+            ...prev,
+            [stageKey]: !(prev[stageKey] ?? allStagesCollapsed)
+        }));
+    };
+
+    const toggleAllStages = () => {
+        const nextState = !allStagesCollapsed;
+        setAllStagesCollapsed(nextState);
+        setCollapsedStages({});
     };
 
     const getTestStatus = (test) => {
@@ -141,7 +156,7 @@ const JLPTLessonRoadmapTab = ({
         return lessons.filter(lesson => {
             if (selectedLevel !== 'all' && lesson.level !== selectedLevel) return false;
 
-            if (searchQuery.trim()) {
+            if (searchQuery && searchQuery.trim()) {
                 const query = searchQuery.toLowerCase().trim();
                 const matchBai = `bài ${lesson.bai}`.includes(query) || `#${lesson.bai}`.includes(query) || `${lesson.bai}` === query;
                 const matchLvl = lesson.level.toLowerCase().includes(query);
@@ -162,16 +177,58 @@ const JLPTLessonRoadmapTab = ({
         });
     }, [lessons, selectedLevel, searchQuery, statusFilter, completedTests, savedProgresses]);
 
-    const visibleLessons = useMemo(() => {
-        return filteredLessons.slice(0, displayLimit);
-    }, [filteredLessons, displayLimit]);
+    // Group lessons into stages (10 lessons each)
+    const stageGroups = useMemo(() => {
+        const groups = [];
+        const groupMap = new Map();
+
+        filteredLessons.forEach(lesson => {
+            let start = 1;
+            let end = 10;
+            if (lesson.bai > 0) {
+                start = Math.floor((lesson.bai - 1) / 10) * 10 + 1;
+                end = start + 9;
+            }
+
+            const stageKey = `${lesson.level}-${start}-${end}`;
+            if (!groupMap.has(stageKey)) {
+                const grpObj = {
+                    key: stageKey,
+                    level: lesson.level,
+                    start,
+                    end,
+                    title: `Chặng bài ${start} – ${end} (${lesson.level})`,
+                    shortTitle: `Bài ${start} – ${end}`,
+                    lessons: [],
+                    completedLessonsCount: 0
+                };
+                groupMap.set(stageKey, grpObj);
+                groups.push(grpObj);
+            }
+
+            const currentStage = groupMap.get(stageKey);
+            currentStage.lessons.push(lesson);
+
+            const testsInLesson = [lesson.fullTest, lesson.vocabTest, lesson.grammarTest, lesson.readingTest].filter(Boolean);
+            if (testsInLesson.length > 0 && testsInLesson.every(t => getTestStatus(t) === 'completed')) {
+                currentStage.completedLessonsCount++;
+            }
+        });
+
+        return groups;
+    }, [filteredLessons, completedTests]);
+
+    const activeStages = useMemo(() => {
+        if (selectedStageKey === 'all') return stageGroups;
+        return stageGroups.filter(s => s.key === selectedStageKey);
+    }, [stageGroups, selectedStageKey]);
 
     const renderSkillRow = (test, skillLabel, skillKey, iconColor) => {
         if (!test) return null;
         const Icon = SKILL_ICONS[skillKey] || FileText;
         const status = getTestStatus(test);
         const score = getTestScore(test);
-        const totalQ = (test.sections || []).reduce((s, sec) => s + (sec.questions?.length || 0), 0);
+        const totalQ = getTestQuestionCount(test);
         const isLocked = test.isPremium && !hasPremiumAccess;
         const colorClass = ICON_COLOR_STYLES[iconColor] || ICON_COLOR_STYLES.blue;
 
@@ -239,7 +296,7 @@ const JLPTLessonRoadmapTab = ({
                                     reviewTest(test);
                                 }
                             }}
-                            className="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/60 rounded-xl text-xs font-bold transition flex items-center gap-1 cursor-pointer"
+                            className="px-3.5 py-1.5 bg-emerald-50 dark:bg-emerald-950/40 hover:bg-emerald-100 text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/60 rounded-xl text-xs font-bold transition flex items-center gap-1 cursor-pointer active:scale-95"
                         >
                             <RotateCcw className="w-3 h-3" />
                             <span>Xem lại</span>
@@ -254,16 +311,14 @@ const JLPTLessonRoadmapTab = ({
                                     startTest(test);
                                 }
                             }}
-                            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1 cursor-pointer shadow-xs ${
+                            className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition flex items-center gap-1.5 cursor-pointer shadow-[0_3px_10px_rgba(244,148,188,0.35)] active:scale-95 ${
                                 isLocked
                                     ? 'bg-amber-500 hover:bg-amber-600 text-white'
-                                    : status === 'in_progress'
-                                    ? 'bg-sky-600 hover:bg-sky-700 text-white'
-                                    : 'bg-indigo-600 hover:bg-indigo-700 text-white'
+                                    : 'bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950'
                             }`}
                         >
-                            <Play className="w-3 h-3 fill-current" />
-                            <span>{status === 'in_progress' ? 'Tiếp tục' : 'Bắt đầu'}</span>
+                            <Play className="w-3.5 h-3.5 fill-slate-950 text-slate-950" />
+                            <span>{status === 'in_progress' ? 'Làm tiếp' : 'Bắt đầu'}</span>
                         </button>
                     )}
                 </div>
@@ -272,117 +327,192 @@ const JLPTLessonRoadmapTab = ({
     };
 
     return (
-        <div className="space-y-4">
-            <div className="flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500 dark:text-slate-400 font-semibold px-1">
-                <span>Hiển thị <strong>{filteredLessons.length}</strong> bài học ({selectedLevel !== 'all' ? selectedLevel : 'Tất cả các cấp độ'})</span>
-                
-                <button
-                    onClick={toggleAll}
-                    className="px-3 py-1 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs transition flex items-center gap-1.5 cursor-pointer"
-                >
-                    {allExpanded ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
-                    <span>{allExpanded ? 'Thu gọn tất cả' : 'Mở rộng tất cả'}</span>
-                </button>
-            </div>
+        <div className="space-y-6">
+            {/* Quick Stage Filter Bar */}
+            {stageGroups.length > 1 && (
+                <div className="bg-white dark:bg-slate-900 p-3 sm:p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-2.5">
+                    <div className="flex items-center justify-between gap-2">
+                        <div className="flex items-center gap-2">
+                            <Layers className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                            <span className="text-xs font-black uppercase text-slate-700 dark:text-slate-300 tracking-wider">
+                                Chọn nhanh chặng bài ({stageGroups.length} chặng)
+                            </span>
+                        </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {visibleLessons.map(lesson => {
-                    const testsInLesson = [lesson.vocabTest, lesson.grammarTest, lesson.readingTest, lesson.fullTest].filter(Boolean);
-                    const completedCount = testsInLesson.filter(t => getTestStatus(t) === 'completed').length;
-                    const totalCount = testsInLesson.length;
-                    const isAllDone = completedCount === totalCount && totalCount > 0;
-                    const isExpanded = expandedLessons[lesson.key] ?? (allExpanded || true);
-                    const lvlGradient = LEVEL_GRADIENTS[lesson.level] || 'from-indigo-500 to-sky-600';
+                        <div className="flex items-center gap-3 text-xs font-bold text-indigo-600 dark:text-indigo-400">
+                            <button
+                                type="button"
+                                onClick={toggleAllLessons}
+                                className="hover:underline cursor-pointer"
+                            >
+                                {allExpanded ? 'Thu gọn bài' : 'Mở rộng bài'}
+                            </button>
+                            <span>•</span>
+                            <button
+                                type="button"
+                                onClick={toggleAllStages}
+                                className="hover:underline cursor-pointer"
+                            >
+                                {allStagesCollapsed ? 'Mở chặng' : 'Thu gọn chặng'}
+                            </button>
+                        </div>
+                    </div>
 
-                    return (
-                        <div
-                            key={lesson.key}
-                            className={`bg-white dark:bg-slate-900 rounded-3xl border transition-all duration-200 overflow-hidden shadow-xs hover:shadow-md ${
-                                isAllDone 
-                                    ? 'border-emerald-200/80 dark:border-emerald-800/40 bg-gradient-to-b from-emerald-50/20 to-transparent' 
-                                    : 'border-slate-200/80 dark:border-slate-800'
+                    <div className="flex items-center gap-1.5 overflow-x-auto pb-1 custom-scrollbar">
+                        <button
+                            type="button"
+                            onClick={() => setSelectedStageKey('all')}
+                            className={`px-3 py-1.5 rounded-xl text-xs font-bold shrink-0 transition cursor-pointer ${
+                                selectedStageKey === 'all'
+                                    ? 'bg-indigo-600 text-white shadow-xs'
+                                    : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
                             }`}
                         >
-                            {/* Card Header */}
+                            Tất cả ({filteredLessons.length} bài)
+                        </button>
+
+                        {stageGroups.map(grp => {
+                            const isGrpSelected = selectedStageKey === grp.key;
+                            return (
+                                <button
+                                    key={grp.key}
+                                    type="button"
+                                    onClick={() => setSelectedStageKey(grp.key)}
+                                    className={`px-3 py-1.5 rounded-xl text-xs font-bold shrink-0 transition flex items-center gap-1.5 cursor-pointer ${
+                                        isGrpSelected
+                                            ? 'bg-indigo-600 text-white shadow-xs'
+                                            : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
+                                    }`}
+                                >
+                                    <span>{grp.shortTitle}</span>
+                                    <span className={`text-[10px] font-mono px-1.5 py-0.2 rounded-md ${
+                                        isGrpSelected ? 'bg-white/20 text-white' : 'bg-black/5 dark:bg-white/10'
+                                    }`}>
+                                        {grp.lessons.length}
+                                    </span>
+                                </button>
+                            );
+                        })}
+                    </div>
+                </div>
+            )}
+
+            {/* Stages & Lessons List */}
+            <div className="space-y-6">
+                {activeStages.map(stage => {
+                    const isStageCollapsed = collapsedStages[stage.key] ?? allStagesCollapsed;
+                    const percent = stage.lessons.length > 0 ? Math.round((stage.completedLessonsCount / stage.lessons.length) * 100) : 0;
+                    const lvlGradient = LEVEL_GRADIENTS[stage.level] || 'from-indigo-500 to-sky-600';
+
+                    return (
+                        <div 
+                            key={stage.key}
+                            className="bg-slate-50/70 dark:bg-slate-900/40 border border-slate-200/80 dark:border-slate-800/80 rounded-3xl p-4 sm:p-5 shadow-xs space-y-4"
+                        >
+                            {/* Stage Header */}
                             <div 
-                                onClick={() => toggleExpand(lesson.key)}
-                                className="p-4 sm:p-5 flex items-start justify-between gap-3 cursor-pointer select-none"
+                                onClick={() => toggleStage(stage.key)}
+                                className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 cursor-pointer select-none pb-2 border-b border-slate-200/60 dark:border-slate-800"
                             >
-                                <div className="flex items-start gap-3.5 min-w-0 flex-1">
-                                    <div className={`w-11 h-11 rounded-2xl bg-gradient-to-br ${lvlGradient} text-white flex flex-col items-center justify-center font-black shadow-xs shrink-0 mt-0.5`}>
-                                        <span className="text-[10px] font-bold opacity-90">{lesson.level}</span>
-                                        <span className="text-xs leading-none">#{lesson.bai}</span>
+                                <div className="flex items-center gap-3">
+                                    <div className={`px-2.5 py-1 rounded-xl bg-gradient-to-r ${lvlGradient} text-white font-black text-xs shadow-2xs`}>
+                                        {stage.level}
                                     </div>
-                                    <div className="min-w-0 flex-1">
-                                        <div className="flex items-center gap-2">
-                                            <h3 className="text-sm sm:text-base font-black text-slate-900 dark:text-white leading-snug">
-                                                {lesson.level} - Bài #{lesson.bai}
-                                            </h3>
-                                            {isAllDone && (
-                                                <span className="px-2 py-0.5 bg-emerald-100 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400 rounded-full text-[10px] font-extrabold uppercase">
-                                                    ✓ Hoàn thành
-                                                </span>
-                                            )}
-                                        </div>
-                                        {lesson.description && (
-                                            <p className="text-xs text-slate-500 dark:text-slate-400 font-medium mt-1 line-clamp-1">
-                                                {lesson.description}
-                                            </p>
-                                        )}
-                                        <div className="flex items-center gap-2 mt-2">
-                                            <div className="w-24 bg-slate-100 dark:bg-slate-800 rounded-full h-1.5 overflow-hidden">
-                                                <div 
-                                                    className="bg-emerald-500 h-1.5 rounded-full transition-all duration-300"
-                                                    style={{ width: `${(completedCount / Math.max(1, totalCount)) * 100}%` }}
-                                                />
-                                            </div>
-                                            <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500">
-                                                {completedCount}/{totalCount} phần
-                                            </span>
-                                        </div>
+                                    <div>
+                                        <h3 className="text-sm sm:text-base font-black text-slate-900 dark:text-white">
+                                            {stage.title}
+                                        </h3>
+                                        <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                                            {stage.lessons.length} bài học toàn diện (Từ vựng, Ngữ pháp, Đọc hiểu, Đề thi)
+                                        </p>
                                     </div>
                                 </div>
 
-                                <button 
-                                    className="p-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 hover:bg-slate-200 transition shrink-0"
-                                    aria-label="Toggle Expand"
-                                >
-                                    {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                                </button>
+                                <div className="flex items-center gap-3 self-end sm:self-auto">
+                                    <span className="text-xs font-bold font-mono text-slate-600 dark:text-slate-300">
+                                        Đã hoàn thành: {stage.completedLessonsCount}/{stage.lessons.length} ({percent}%)
+                                    </span>
+                                    <div className="p-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-400">
+                                        {isStageCollapsed ? <ChevronDown className="w-4 h-4" /> : <ChevronUp className="w-4 h-4" />}
+                                    </div>
+                                </div>
                             </div>
 
-                            {/* Card Expanded Items (4 Skill Rows) */}
-                            {isExpanded && (
-                                <div className="px-4 pb-4 sm:px-5 sm:pb-5 space-y-2 border-t border-slate-100 dark:border-slate-800/80 pt-3">
-                                    {lesson.strategy && (lesson.strategy.intro || (lesson.strategy.tips && lesson.strategy.tips.length > 0)) && (
-                                        <div className="mb-2.5 p-2.5 rounded-xl bg-indigo-50/70 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/40 flex items-center justify-between gap-3">
-                                            <div className="flex items-center gap-2 min-w-0">
-                                                <BookOpen className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0" />
-                                                <span className="text-xs font-bold text-indigo-900 dark:text-indigo-200 truncate">
-                                                    Đề cương ôn tập & Chiến lược bài #{lesson.bai}
-                                                </span>
-                                            </div>
-                                            <button
-                                                type="button"
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    setActiveStrategyModal({
-                                                        strategy: lesson.strategy,
-                                                        bai: lesson.bai,
-                                                        level: lesson.level,
-                                                        title: `${lesson.level} - Bài #${lesson.bai}: Đề cương & Chiến lược`
-                                                    });
-                                                }}
-                                                className="px-3 py-1 bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold rounded-lg transition shadow-xs cursor-pointer shrink-0"
+                            {/* Lessons List within Stage */}
+                            {!isStageCollapsed && (
+                                <div className="space-y-3.5 pt-1 animate-fade-in">
+                                    {stage.lessons.map(lesson => {
+                                        const isExpanded = expandedLessons[lesson.key] ?? allExpanded;
+                                        const testsInLesson = [lesson.fullTest, lesson.vocabTest, lesson.grammarTest, lesson.readingTest].filter(Boolean);
+                                        const completedCount = testsInLesson.filter(t => getTestStatus(t) === 'completed').length;
+                                        const totalTestsInLesson = testsInLesson.length;
+                                        const isLessonFullyCompleted = totalTestsInLesson > 0 && completedCount === totalTestsInLesson;
+
+                                        return (
+                                            <div 
+                                                key={lesson.key}
+                                                className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-2xs hover:border-indigo-300 dark:hover:border-indigo-700 transition"
                                             >
-                                                Xem đề cương
-                                            </button>
-                                        </div>
-                                    )}
-                                    {renderSkillRow(lesson.vocabTest, 'Từ vựng & Chữ Hán', 'vocab', 'blue')}
-                                    {renderSkillRow(lesson.grammarTest, 'Ngữ pháp & Câu Sao ★', 'grammar', 'sky')}
-                                    {renderSkillRow(lesson.readingTest, 'Đọc hiểu Yomimono', 'reading', 'emerald')}
-                                    {renderSkillRow(lesson.fullTest, 'Đề Luyện Tổng Hợp', 'full', 'indigo')}
+                                                {/* Lesson Header */}
+                                                <div 
+                                                    onClick={() => toggleExpand(lesson.key)}
+                                                    className="p-3.5 sm:p-4 flex items-center justify-between gap-3 cursor-pointer select-none hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition"
+                                                >
+                                                    <div className="flex items-center gap-3 min-w-0 flex-1">
+                                                        <span className="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 font-mono font-extrabold text-sm flex items-center justify-center shrink-0 border border-indigo-100 dark:border-indigo-900">
+                                                            {lesson.bai}
+                                                        </span>
+
+                                                        <div className="min-w-0 flex-1">
+                                                            <div className="flex items-center gap-2">
+                                                                <h4 className="text-xs sm:text-sm font-extrabold text-slate-800 dark:text-white truncate">
+                                                                    Bài {lesson.bai}: {lesson.readingTest?.title?.replace(/.*Bài \d+:\s*/, '') || lesson.fullTest?.title || 'Ôn tập'}
+                                                                </h4>
+                                                                {isLessonFullyCompleted && (
+                                                                    <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400 shrink-0">
+                                                                        ✓ Hoàn thành
+                                                                    </span>
+                                                                )}
+                                                            </div>
+                                                            <div className="flex items-center gap-2 text-[11px] text-slate-400 dark:text-slate-500 font-medium mt-0.5">
+                                                                <span>{totalTestsInLesson} phần luyện tập</span>
+                                                                <span>•</span>
+                                                                <span>Đã xong: {completedCount}/{totalTestsInLesson}</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div className="flex items-center gap-2 shrink-0">
+                                                        {lesson.strategy && (
+                                                            <button
+                                                                type="button"
+                                                                onClick={(e) => {
+                                                                    e.stopPropagation();
+                                                                    setActiveStrategyModal(lesson);
+                                                                }}
+                                                                className="px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-50 hover:bg-indigo-100 text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-400 transition cursor-pointer"
+                                                            >
+                                                                Chiến lược
+                                                            </button>
+                                                        )}
+                                                        <div className="p-1 text-slate-400">
+                                                            {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                {/* Expanded Skills */}
+                                                {isExpanded && (
+                                                    <div className="p-3.5 sm:p-4 bg-slate-50/50 dark:bg-slate-950/40 border-t border-slate-100 dark:border-slate-800 space-y-2 animate-fade-in">
+                                                        {renderSkillRow(lesson.vocabTest, 'Từ vựng & Chữ Hán', 'vocab', 'blue')}
+                                                        {renderSkillRow(lesson.grammarTest, 'Ngữ pháp chuyên sâu', 'grammar', 'sky')}
+                                                        {renderSkillRow(lesson.readingTest, 'Đọc hiểu & Phân tích câu', 'reading', 'emerald')}
+                                                        {renderSkillRow(lesson.fullTest, 'Đề thi tổng hợp đầy đủ', 'full', 'indigo')}
+                                                    </div>
+                                                )}
+                                            </div>
+                                        );
+                                    })}
                                 </div>
                             )}
                         </div>
@@ -390,27 +520,13 @@ const JLPTLessonRoadmapTab = ({
                 })}
             </div>
 
-            {/* Load More Button if filtered list > displayLimit */}
-            {filteredLessons.length > displayLimit && (
-                <div className="text-center pt-4">
-                    <button
-                        onClick={() => setDisplayLimit(prev => prev + 30)}
-                        className="px-6 py-2.5 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-indigo-600 dark:text-indigo-400 font-black text-xs rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xs transition-all cursor-pointer"
-                    >
-                        Hiển thị thêm bài học (+30 bài) • Còn {filteredLessons.length - displayLimit} bài
-                    </button>
-                </div>
-            )}
-
-            {/* JLPT Strategy & Syllabus Modal */}
+            {/* Strategy Modal */}
             {activeStrategyModal && (
                 <JLPTStrategyModal
                     isOpen={!!activeStrategyModal}
                     onClose={() => setActiveStrategyModal(null)}
                     strategy={activeStrategyModal.strategy}
-                    bai={activeStrategyModal.bai}
-                    level={activeStrategyModal.level}
-                    title={activeStrategyModal.title}
+                    lessonTitle={`Bài ${activeStrategyModal.bai}: Chiến lược đọc & làm bài`}
                 />
             )}
         </div>

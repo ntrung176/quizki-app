@@ -1,0 +1,132 @@
+{
+  "id": 587,
+  "title": "N2 Unit 7.8 - 名詞C (bài 8/8)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.34029",
+  "cards": [
+    {
+      "id": 13833,
+      "term": "改善 (かいぜん)",
+      "reading": "かいぜん",
+      "romaji": null,
+      "definition": "cải thiện, cải cách",
+      "exampleSentence": "組合は待遇の改善を求めてストを行った。",
+      "exampleTranslation": "Công đoàn đình công đòi cải thiện đãi ngộ.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13834,
+      "term": "改良 (かいりょう)",
+      "reading": "かいりょう",
+      "romaji": null,
+      "definition": "sự cải thiện; sự cải tiến",
+      "exampleSentence": "その製品は改良を重ねることで、一層使いやすくなった。",
+      "exampleTranslation": "Sản phẩm này sau nhiều lần cải tiến nên dễ dùng hơn hẳn.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13835,
+      "term": "改革 (かいかく)",
+      "reading": "かいかく",
+      "romaji": null,
+      "definition": "cải cách",
+      "exampleSentence": "古い制度を改革しなければ、この国の発展は望めない。",
+      "exampleTranslation": "Nếu không cải cách chế độ cũ thì khó mong đất nước phát triển.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13836,
+      "term": "改正 (かいせい)",
+      "reading": "かいせい",
+      "romaji": null,
+      "definition": "sự cải chính; sự sửa chữa; sự thay đổi; sự chỉnh sửa",
+      "exampleSentence": "4月から新幹線のダイヤが改正されるそうだ。",
+      "exampleTranslation": "Nghe nói từ tháng 4 sẽ đổi lịch chạy Shinkansen.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13837,
+      "term": "改定 (かいてい)",
+      "reading": "かいてい",
+      "romaji": null,
+      "definition": "hiệu chỉnh",
+      "exampleSentence": "来年から消費税率が改定されることになった。",
+      "exampleTranslation": "Từ năm sau thuế tiêu dùng sẽ được điều chỉnh.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13838,
+      "term": "改修 (かいしゅう)",
+      "reading": "かいしゅう",
+      "romaji": null,
+      "definition": "sự sửa chữa; sự cải tiến; sửa chữa; cải tiến; nâng cấp",
+      "exampleSentence": "アパートが古くなったので、大規模な改修が行われることになった。",
+      "exampleTranslation": "Vì chung cư đã cũ nên sẽ tiến hành sửa chữa quy mô lớn.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13839,
+      "term": "一致 (いっち)",
+      "reading": "いっち",
+      "romaji": null,
+      "definition": "sự nhất trí; sự giống nhau; sự thống nhất",
+      "exampleSentence": "二人の意見が一致した。",
+      "exampleTranslation": "Hai người thống nhất ý kiến.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13840,
+      "term": "一方 (いっぽう)",
+      "reading": "いっぽう",
+      "romaji": null,
+      "definition": "đơn phương; một chiều, mặt khác",
+      "exampleSentence": "飛行機の中で乗客が一方に片寄ると危ない。",
+      "exampleTranslation": "Trên máy bay, hành khách dồn về một phía thì nguy hiểm.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13841,
+      "term": "一定 (いってい)",
+      "reading": "いってい",
+      "romaji": null,
+      "definition": "nhất định",
+      "exampleSentence": "倉庫の中は一定の温度に保たれている。",
+      "exampleTranslation": "Trong kho duy trì ở mức nhiệt độ nhất định.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13842,
+      "term": "一人前 (いちにんまえ)",
+      "reading": "いちにんまえ",
+      "romaji": null,
+      "definition": "người lớn; người trưởng thành",
+      "exampleSentence": "経済的に親から独立しなければ、一人前とは言えないだろう。",
+      "exampleTranslation": "Nếu không tự lập kinh tế khỏi bố mẹ thì chưa thể gọi là “ra dáng người lớn”.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13843,
+      "term": "一流 (いちりゅう)",
+      "reading": "いちりゅう",
+      "romaji": null,
+      "definition": "bậc nhất, hạng nhất; hàng đầu; cao cấp",
+      "exampleSentence": "彼はまだ若いが、コックとしての腕は一流だ。",
+      "exampleTranslation": "Anh ấy còn trẻ nhưng tay nghề đầu bếp thì hạng nhất.",
+      "forms": [],
+      "displayOrder": 10
+    }
+  ]
+}

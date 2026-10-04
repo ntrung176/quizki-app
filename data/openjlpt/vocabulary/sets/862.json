@@ -1,0 +1,220 @@
+{
+  "id": 862,
+  "title": "N5 Tango 2.3 - Học tập · Thứ (trong tuần)",
+  "description": "Tango N5 — Học tập",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:47.139992",
+  "cards": [
+    {
+      "id": 20158,
+      "term": "日曜日 (にちようび)",
+      "reading": "にちようび",
+      "romaji": null,
+      "definition": "Chủ nhật",
+      "exampleSentence": "日曜日は家でゆっくり本を読みます。",
+      "exampleTranslation": "Chủ nhật tôi thong thả đọc sách ở nhà.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20159,
+      "term": "月よう日 (げつようび)",
+      "reading": "げつようび",
+      "romaji": null,
+      "definition": "Thứ Hai",
+      "exampleSentence": "月よう日は朝八時から学校があります。",
+      "exampleTranslation": "Thứ Hai tôi có giờ học từ tám giờ sáng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20160,
+      "term": "火よう日 (かようび)",
+      "reading": "かようび",
+      "romaji": null,
+      "definition": "Thứ Ba",
+      "exampleSentence": "火よう日は学校へ行きます。",
+      "exampleTranslation": "Thứ Ba, tôi đi học.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20161,
+      "term": "水よう日 (すいようび)",
+      "reading": "すいようび",
+      "romaji": null,
+      "definition": "Thứ Tư",
+      "exampleSentence": "水よう日は友だちとテニスをします。",
+      "exampleTranslation": "Thứ Tư, tôi chơi quần vợt với bạn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20162,
+      "term": "木よう日 (もくようび)",
+      "reading": "もくようび",
+      "romaji": null,
+      "definition": "Thứ Năm",
+      "exampleSentence": "木よう日は日本語を勉強します。",
+      "exampleTranslation": "Thứ Năm, tôi học tiếng Nhật.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20163,
+      "term": "金よう日 (きんようび)",
+      "reading": "きんようび",
+      "romaji": null,
+      "definition": "Thứ Sáu",
+      "exampleSentence": "金よう日は映画を見に行きます。",
+      "exampleTranslation": "Thứ Sáu, tôi đi xem phim.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20164,
+      "term": "土よう日 (どようび)",
+      "reading": "どようび",
+      "romaji": null,
+      "definition": "Thứ Bảy",
+      "exampleSentence": "土よう日は家族と買い物に行きます。",
+      "exampleTranslation": "Thứ Bảy, tôi đi mua sắm cùng gia đình.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20165,
+      "term": "何よう日 (なんようび)",
+      "reading": "なんようび",
+      "romaji": null,
+      "definition": "Thứ mấy?",
+      "exampleSentence": "今日は何よう日ですか。",
+      "exampleTranslation": "Hôm nay là thứ mấy?",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20166,
+      "term": "きょう",
+      "reading": "きょう",
+      "romaji": null,
+      "definition": "Hôm nay",
+      "exampleSentence": "きょうはいい天気です。",
+      "exampleTranslation": "Hôm nay thời tiết đẹp.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20167,
+      "term": "あした",
+      "reading": "あした",
+      "romaji": null,
+      "definition": "Ngày mai",
+      "exampleSentence": "あしたは学校が休みです。",
+      "exampleTranslation": "Ngày mai trường được nghỉ.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20168,
+      "term": "きのう",
+      "reading": "きのう",
+      "romaji": null,
+      "definition": "Ngày hôm qua",
+      "exampleSentence": "きのう、図書館で本を読みました。",
+      "exampleTranslation": "Hôm qua, tôi đã đọc sách ở thư viện.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 20169,
+      "term": "まいにち",
+      "reading": "まいにち",
+      "romaji": null,
+      "definition": "Hàng ngày,mỗi ngày",
+      "exampleSentence": "まいにち六時に起きます。",
+      "exampleTranslation": "Mỗi ngày tôi thức dậy lúc sáu giờ.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 20170,
+      "term": "〜しゅうかん",
+      "reading": "〜しゅうかん",
+      "romaji": null,
+      "definition": "〜 tuần",
+      "exampleSentence": "「〜しゅうかん」は、期間を表す言葉です。",
+      "exampleTranslation": "「〜しゅうかん」 là từ dùng để biểu thị khoảng thời gian theo tuần.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 20171,
+      "term": "〜か月 (～かげつ)",
+      "reading": "～かげつ",
+      "romaji": null,
+      "definition": "Tháng",
+      "exampleSentence": "「〜か月」は、月の数を表す言葉です。",
+      "exampleTranslation": "「〜か月」 là từ dùng để biểu thị số tháng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 20172,
+      "term": "〜年 (～ねん)",
+      "reading": "～ねん",
+      "romaji": null,
+      "definition": "Năm",
+      "exampleSentence": "日本に住んで〜年になります。",
+      "exampleTranslation": "Tôi đã sống ở Nhật được … năm.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 20173,
+      "term": "〜かい",
+      "reading": "〜かい",
+      "romaji": null,
+      "definition": "Lần",
+      "exampleSentence": "この薬は一日に〜かい飲んでください。",
+      "exampleTranslation": "Hãy uống thuốc này … lần một ngày.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 20174,
+      "term": "何回 (なんかい)",
+      "reading": "なんかい",
+      "romaji": null,
+      "definition": "Mấy lần",
+      "exampleSentence": "日本へ何回行きましたか。",
+      "exampleTranslation": "Bạn đã đến Nhật Bản mấy lần?",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 20175,
+      "term": "アルバイト<する>",
+      "reading": "アルバイト<する>",
+      "romaji": null,
+      "definition": "Việc làm thêm",
+      "exampleSentence": "「アルバイト<する>」という仕事を大学の近くでしています。",
+      "exampleTranslation": "Tôi đang làm công việc bán thời gian gần trường đại học.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 20176,
+      "term": "する",
+      "reading": "する",
+      "romaji": null,
+      "definition": "Làm",
+      "exampleSentence": "毎朝、部屋の掃除をする。",
+      "exampleTranslation": "Mỗi sáng, tôi dọn dẹp phòng.",
+      "forms": [],
+      "displayOrder": 18
+    }
+  ]
+}

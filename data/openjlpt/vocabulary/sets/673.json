@@ -1,0 +1,209 @@
+{
+  "id": 673,
+  "title": "N3 Tango 9.5 - Tự nhiên và cuộc sống · Một năm của Nhật Bản",
+  "description": "Tango N3 — Tự nhiên và cuộc sống",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:24.074852",
+  "cards": [
+    {
+      "id": 15381,
+      "term": "祝日 (しゅくじつ)",
+      "reading": "しゅくじつ",
+      "romaji": null,
+      "definition": "Ngày nghỉ lễ",
+      "exampleSentence": "祝日は家族と一緒にゆっくり過ごします。",
+      "exampleTranslation": "Vào ngày nghỉ lễ, tôi thong thả dành thời gian bên gia đình.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 15382,
+      "term": "年末年始 (ねんまつねんし)",
+      "reading": "ねんまつねんし",
+      "romaji": null,
+      "definition": "Đầu năm cuối năm",
+      "exampleSentence": "年末年始は実家で家族とゆっくり過ごしました。",
+      "exampleTranslation": "Dịp cuối năm đầu năm, tôi đã thong thả ở nhà bố mẹ cùng gia đình.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 15383,
+      "term": "元日 (がんじつ)",
+      "reading": "がんじつ",
+      "romaji": null,
+      "definition": "Ngày mùng một tết",
+      "exampleSentence": "元日は家族で近くの神社へ初詣に行きました。",
+      "exampleTranslation": "Ngày mùng một Tết, tôi cùng gia đình đi lễ đầu năm ở ngôi đền gần nhà.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 15384,
+      "term": "迎える (むかえる)",
+      "reading": "むかえる",
+      "romaji": null,
+      "definition": "Đón",
+      "exampleSentence": "家族みんなで新しい年を迎える準備をしています。",
+      "exampleTranslation": "Cả gia đình đang chuẩn bị đón năm mới.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 15385,
+      "term": "年賀状 (ねんがじょう)",
+      "reading": "ねんがじょう",
+      "romaji": null,
+      "definition": "Thiếp chúc mừng năm mới",
+      "exampleSentence": "友達からきれいな年賀状が届きました。",
+      "exampleTranslation": "Tôi đã nhận được một tấm thiệp chúc mừng năm mới rất đẹp từ bạn.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 15386,
+      "term": "お年玉 (おとしだま)",
+      "reading": "おとしだま",
+      "romaji": null,
+      "definition": "Tiền mừng tuổi",
+      "exampleSentence": "子どもたちは親戚からお年玉をもらって喜んでいます。",
+      "exampleTranslation": "Bọn trẻ vui mừng vì nhận được tiền mừng tuổi từ họ hàng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 15387,
+      "term": "成人の日 (せいじんのひ)",
+      "reading": "せいじんのひ",
+      "romaji": null,
+      "definition": "Ngày lễ trưởng thành",
+      "exampleSentence": "成人の日に姉は振り袖を着て写真を撮りました。",
+      "exampleTranslation": "Vào Ngày lễ trưởng thành, chị tôi đã mặc kimono tay dài và chụp ảnh.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 15388,
+      "term": "ひな祭り (ひなまつり)",
+      "reading": "ひなまつり",
+      "romaji": null,
+      "definition": "Ngày lễ búp bê Hina",
+      "exampleSentence": "ひな祭りには家にひな人形を飾ります。",
+      "exampleTranslation": "Vào lễ hội búp bê Hina, người ta trang trí búp bê Hina trong nhà.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 15389,
+      "term": "ゴールデンウィーク",
+      "reading": "ゴールデンウィーク",
+      "romaji": null,
+      "definition": "Tuần lễ vàng",
+      "exampleSentence": "ゴールデンウィークに家族で京都へ旅行しました。",
+      "exampleTranslation": "Trong Tuần lễ vàng, tôi đã đi du lịch Kyoto cùng gia đình.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 15390,
+      "term": "子どもの日 (こどものひ)",
+      "reading": "こどものひ",
+      "romaji": null,
+      "definition": "Ngày trẻ em",
+      "exampleSentence": "子どもの日に子どもたちと公園で遊びました。",
+      "exampleTranslation": "Vào Ngày trẻ em, tôi đã chơi ở công viên cùng các em nhỏ.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 15391,
+      "term": "母の日 (ははのひ)",
+      "reading": "ははのひ",
+      "romaji": null,
+      "definition": "Ngày của Mẹ",
+      "exampleSentence": "母の日に母へ花と手紙をプレゼントしました。",
+      "exampleTranslation": "Vào Ngày của Mẹ, tôi đã tặng mẹ hoa và một lá thư.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 15392,
+      "term": "父の日 (ちちのひ)",
+      "reading": "ちちのひ",
+      "romaji": null,
+      "definition": "Ngày của Bố",
+      "exampleSentence": "父の日に父の好きな料理を作りました。",
+      "exampleTranslation": "Vào Ngày của Bố, tôi đã nấu món ăn mà bố yêu thích.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 15393,
+      "term": "海の日 (うみのひ)",
+      "reading": "うみのひ",
+      "romaji": null,
+      "definition": "Ngày của Biển",
+      "exampleSentence": "海の日に友達と海へ泳ぎに行く予定です。",
+      "exampleTranslation": "Vào Ngày của Biển, tôi dự định đi biển bơi cùng bạn.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 15394,
+      "term": "敬老の日 (けいろうのひ)",
+      "reading": "けいろうのひ",
+      "romaji": null,
+      "definition": "Ngày Kính lão",
+      "exampleSentence": "敬老の日には、祖父母にきれいな花を贈ります。",
+      "exampleTranslation": "Vào Ngày Kính lão, tôi tặng hoa đẹp cho ông bà.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 15395,
+      "term": "体育の日 (たいいくのひ)",
+      "reading": "たいいくのひ",
+      "romaji": null,
+      "definition": "Ngày Thể dục thể thao",
+      "exampleSentence": "体育の日には、家族で近くの公園へ行きました。",
+      "exampleTranslation": "Vào Ngày Thể dục thể thao, gia đình tôi đã đến công viên gần nhà.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 15396,
+      "term": "もともと",
+      "reading": "もともと",
+      "romaji": null,
+      "definition": "Vốn dĩ",
+      "exampleSentence": "この店はもともと小さな食堂でした。",
+      "exampleTranslation": "Cửa hàng này vốn dĩ là một quán ăn nhỏ.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 15397,
+      "term": "七五三 (しちごさん)",
+      "reading": "しちごさん",
+      "romaji": null,
+      "definition": "Ngày lễ Shichi-go-san",
+      "exampleSentence": "七五三の日に、娘にきれいな着物を着せました。",
+      "exampleTranslation": "Vào ngày lễ Shichi-go-san, tôi đã cho con gái mặc bộ kimono đẹp.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 15398,
+      "term": "大みそか (おおみそか)",
+      "reading": "おおみそか",
+      "romaji": null,
+      "definition": "Đêm giao thừa",
+      "exampleSentence": "大みそかの夜は、家族みんなでそばを食べます。",
+      "exampleTranslation": "Tối giao thừa, cả gia đình cùng ăn mì soba.",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "id": 690,
+  "title": "N4 Tango 1.2 - Mỗi ngày của chúng tôi · Gia đình",
+  "description": "Tango N4 — Mỗi ngày của chúng tôi",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:27.311952",
+  "cards": [
+    {
+      "id": 15754,
+      "term": "夫 (おっと)",
+      "reading": "おっと",
+      "romaji": null,
+      "definition": "Người chồng, chồng tôi",
+      "exampleSentence": "私の夫は毎朝六時に起きて、朝ご飯を作ります。",
+      "exampleTranslation": "Chồng tôi thức dậy lúc sáu giờ mỗi sáng và làm bữa sáng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 15755,
+      "term": "つま",
+      "reading": "つま",
+      "romaji": null,
+      "definition": "Người vợ, vợ tôi",
+      "exampleSentence": "私のつまは料理が上手です。",
+      "exampleTranslation": "Vợ tôi nấu ăn rất giỏi.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 15756,
+      "term": "両親 (りょうしん)",
+      "reading": "りょうしん",
+      "romaji": null,
+      "definition": "Cha mẹ",
+      "exampleSentence": "私は毎週日曜日に両親へ電話をかけます。",
+      "exampleTranslation": "Tôi gọi điện cho bố mẹ vào mỗi Chủ nhật.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 15757,
+      "term": "むすこ",
+      "reading": "むすこ",
+      "romaji": null,
+      "definition": "Con trai",
+      "exampleSentence": "私のむすこは今年、小学校に入学しました。",
+      "exampleTranslation": "Con trai tôi năm nay đã vào học tiểu học.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 15758,
+      "term": "むすめ",
+      "reading": "むすめ",
+      "romaji": null,
+      "definition": "Con gái",
+      "exampleSentence": "むすめは毎晩寝る前に本を読んでいます。",
+      "exampleTranslation": "Con gái tôi đọc sách trước khi đi ngủ mỗi tối.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 15759,
+      "term": "お子さん (おこさん)",
+      "reading": "おこさん",
+      "romaji": null,
+      "definition": "Con (kính ngữ)",
+      "exampleSentence": "田中さんのお子さんは何歳ですか。",
+      "exampleTranslation": "Con của anh chị Tanaka bao nhiêu tuổi rồi?",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 15760,
+      "term": "祖父 (そふ)",
+      "reading": "そふ",
+      "romaji": null,
+      "definition": "Ông tôi",
+      "exampleSentence": "私の祖父は毎朝公園を散歩します。",
+      "exampleTranslation": "Ông tôi đi dạo trong công viên mỗi sáng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 15761,
+      "term": "祖母 (そぼ)",
+      "reading": "そぼ",
+      "romaji": null,
+      "definition": "Bà tôi",
+      "exampleSentence": "祖母は手紙を書くのが好きです。",
+      "exampleTranslation": "Bà tôi thích viết thư.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 15762,
+      "term": "まご",
+      "reading": "まご",
+      "romaji": null,
+      "definition": "Cháu",
+      "exampleSentence": "週末にまごが遊びに来るので、部屋を掃除しました。",
+      "exampleTranslation": "Vì cuối tuần cháu sẽ đến chơi nên tôi đã dọn phòng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 15763,
+      "term": "おじ",
+      "reading": "おじ",
+      "romaji": null,
+      "definition": "Bác tôi, chú tôi, cậu tôi",
+      "exampleSentence": "夏休みにおじの家へ遊びに行きました。",
+      "exampleTranslation": "Kỳ nghỉ hè, tôi đã đến nhà bác để chơi.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 15764,
+      "term": "おば",
+      "reading": "おば",
+      "romaji": null,
+      "definition": "Bác tôi, cô tôi, dì tôi",
+      "exampleSentence": "私のおばは大阪に住んでいます。",
+      "exampleTranslation": "Cô của tôi đang sống ở Osaka.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 15765,
+      "term": "親せき (しんせき)",
+      "reading": "しんせき",
+      "romaji": null,
+      "definition": "Bà con, họ hàng",
+      "exampleSentence": "お正月には親せきが集まって、みんなで食事をします。",
+      "exampleTranslation": "Vào dịp năm mới, họ hàng tụ tập và cùng nhau dùng bữa.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 15766,
+      "term": "ペット",
+      "reading": "ペット",
+      "romaji": null,
+      "definition": "Thú cưng, vật nuôi",
+      "exampleSentence": "うちでは、子どもたちが小さいペットを大切に世話しています。",
+      "exampleTranslation": "Ở nhà tôi, bọn trẻ chăm sóc thú cưng nhỏ rất cẩn thận.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 15767,
+      "term": "似る (にる)",
+      "reading": "にる",
+      "romaji": null,
+      "definition": "Giống nhau, tương tự nhau",
+      "exampleSentence": "成長すると、子どもは親に似るものです。",
+      "exampleTranslation": "Khi trưởng thành, con cái thường giống bố mẹ.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 15768,
+      "term": "（心配を）かける (（しんぱいを）かける)",
+      "reading": "（しんぱいを）かける",
+      "romaji": null,
+      "definition": "Làm cho (lo lắng), gây (lo lắng)",
+      "exampleSentence": "家族に（心配を）かけるようなことは、もうしません。",
+      "exampleTranslation": "Tôi sẽ không làm những chuyện khiến gia đình phải lo lắng nữa.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 15769,
+      "term": "しかる",
+      "reading": "しかる",
+      "romaji": null,
+      "definition": "La, mắng, rầy",
+      "exampleSentence": "先生は、悪いことをした子どもをしかることがあります。",
+      "exampleTranslation": "Giáo viên đôi khi mắng những đứa trẻ đã làm điều xấu.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 15770,
+      "term": "ほめる",
+      "reading": "ほめる",
+      "romaji": null,
+      "definition": "Khen, khen ngợi",
+      "exampleSentence": "母は、手伝ってくれた私をいつもほめる。",
+      "exampleTranslation": "Mẹ lúc nào cũng khen tôi vì đã giúp đỡ mẹ.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 15771,
+      "term": "飼う (かう)",
+      "reading": "かう",
+      "romaji": null,
+      "definition": "Nuôi (thú)",
+      "exampleSentence": "将来、庭で犬を飼うのが夢です。",
+      "exampleTranslation": "Ước mơ của tôi là sau này nuôi một chú chó trong vườn.",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

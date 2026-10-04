@@ -1,0 +1,253 @@
+{
+  "id": 870,
+  "title": "N5 Tango 4.1 - Bạn bè · Người như thế nào?",
+  "description": "Tango N5 — Bạn bè",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:47.581528",
+  "cards": [
+    {
+      "id": 20306,
+      "term": "友だち (ともだち)",
+      "reading": "ともだち",
+      "romaji": null,
+      "definition": "Bạn bè",
+      "exampleSentence": "休みの日に友だちと映画を見ました。",
+      "exampleTranslation": "Vào ngày nghỉ, tôi đã xem phim cùng bạn.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20307,
+      "term": "どんな",
+      "reading": "どんな",
+      "romaji": null,
+      "definition": "Như thế nào",
+      "exampleSentence": "どんな音楽が好きですか。",
+      "exampleTranslation": "Bạn thích loại nhạc như thế nào?",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20308,
+      "term": "人 (ひと)",
+      "reading": "ひと",
+      "romaji": null,
+      "definition": "Người",
+      "exampleSentence": "あの人は学校の先生です。",
+      "exampleTranslation": "Người kia là giáo viên của trường.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20309,
+      "term": "しんせつな",
+      "reading": "しんせつな",
+      "romaji": null,
+      "definition": "Tử tế",
+      "exampleSentence": "田中さんはとてもしんせつな人です。",
+      "exampleTranslation": "Anh Tanaka là một người rất tử tế.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20310,
+      "term": "みんな",
+      "reading": "みんな",
+      "romaji": null,
+      "definition": "Mọi người",
+      "exampleSentence": "みんなで公園へ遊びに行きましょう。",
+      "exampleTranslation": "Chúng ta cùng mọi người đi công viên chơi nhé.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20311,
+      "term": "元気な (げんきな)",
+      "reading": "げんきな",
+      "romaji": null,
+      "definition": "Khoẻ mạnh",
+      "exampleSentence": "毎朝、元気な子どもたちが学校へ行きます。",
+      "exampleTranslation": "Mỗi sáng, những đứa trẻ khỏe mạnh đi đến trường.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20312,
+      "term": "きれいな",
+      "reading": "きれいな",
+      "romaji": null,
+      "definition": "Đẹp, sạch",
+      "exampleSentence": "この部屋は明るくてきれいなです。",
+      "exampleTranslation": "Căn phòng này sáng sủa và sạch đẹp.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20313,
+      "term": "ハンサムな",
+      "reading": "ハンサムな",
+      "romaji": null,
+      "definition": "Đẹp trai",
+      "exampleSentence": "あのハンサムな人はだれですか。",
+      "exampleTranslation": "Người đẹp trai kia là ai vậy?",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20314,
+      "term": "かわいい",
+      "reading": "かわいい",
+      "romaji": null,
+      "definition": "Dễ thương",
+      "exampleSentence": "妹はかわいい犬を飼っています。",
+      "exampleTranslation": "Em gái tôi đang nuôi một chú chó dễ thương.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20315,
+      "term": "かっこいい",
+      "reading": "かっこいい",
+      "romaji": null,
+      "definition": "Đẹp trai, phong độ",
+      "exampleSentence": "兄はかっこいい車に乗っています。",
+      "exampleTranslation": "Anh trai tôi đang lái một chiếc xe rất phong độ.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20316,
+      "term": "あたまがいい",
+      "reading": "あたまがいい",
+      "romaji": null,
+      "definition": "Thông minh",
+      "exampleSentence": "田中さんはあたまがいいので、勉強がよくできます。",
+      "exampleTranslation": "Vì bạn Tanaka thông minh nên học rất giỏi.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 20317,
+      "term": "やさしい",
+      "reading": "やさしい",
+      "romaji": null,
+      "definition": "Tử tế, hiền lành",
+      "exampleSentence": "母はとてもやさしい人です。",
+      "exampleTranslation": "Mẹ là một người rất hiền.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 20318,
+      "term": "ユーモア",
+      "reading": "ユーモア",
+      "romaji": null,
+      "definition": "Hài hước, hóm hỉnh",
+      "exampleSentence": "先生はユーモアがあって、話がおもしろいです。",
+      "exampleTranslation": "Thầy giáo hóm hỉnh nên những câu chuyện của thầy rất thú vị.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 20319,
+      "term": "せ",
+      "reading": "せ",
+      "romaji": null,
+      "definition": "Chiều cao, lưng",
+      "exampleSentence": "私の兄はせが高いです。",
+      "exampleTranslation": "Anh trai tôi cao.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 20320,
+      "term": "高い (たかい)",
+      "reading": "たかい",
+      "romaji": null,
+      "definition": "Cao",
+      "exampleSentence": "富士山はとても高い山です。",
+      "exampleTranslation": "Núi Phú Sĩ là một ngọn núi rất cao.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 20321,
+      "term": "ひくい",
+      "reading": "ひくい",
+      "romaji": null,
+      "definition": "Thấp",
+      "exampleSentence": "このいすはひくいですが、子どもにはちょうどいいです。",
+      "exampleTranslation": "Cái ghế này thấp nhưng vừa với trẻ em.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 20322,
+      "term": "目 (め)",
+      "reading": "め",
+      "romaji": null,
+      "definition": "Mắt",
+      "exampleSentence": "目が大きい女の子がいます。",
+      "exampleTranslation": "Có một cô bé có đôi mắt to.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 20323,
+      "term": "大きい (おおきい)",
+      "reading": "おおきい",
+      "romaji": null,
+      "definition": "To, lớn",
+      "exampleSentence": "このかばんは大きいので、たくさん入ります。",
+      "exampleTranslation": "Chiếc cặp này to nên đựng được nhiều đồ.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 20324,
+      "term": "小さい (ちいさい)",
+      "reading": "ちいさい",
+      "romaji": null,
+      "definition": "Nhỏ",
+      "exampleSentence": "私の部屋は小さいですが、きれいです。",
+      "exampleTranslation": "Phòng của tôi nhỏ nhưng sạch sẽ.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 20325,
+      "term": "かみ",
+      "reading": "かみ",
+      "romaji": null,
+      "definition": "Tóc",
+      "exampleSentence": "妹はかみが長くて、とてもきれいです。",
+      "exampleTranslation": "Tóc của em gái tôi dài và rất đẹp.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 20326,
+      "term": "長い (ながい)",
+      "reading": "ながい",
+      "romaji": null,
+      "definition": "Dài",
+      "exampleSentence": "妹のかみはとても長いです。",
+      "exampleTranslation": "Tóc của em gái tôi rất dài.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 20327,
+      "term": "みじかい",
+      "reading": "みじかい",
+      "romaji": null,
+      "definition": "Ngắn",
+      "exampleSentence": "このえんぴつはみじかいですが、まだ使えます。",
+      "exampleTranslation": "Cây bút chì này ngắn nhưng vẫn còn dùng được.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

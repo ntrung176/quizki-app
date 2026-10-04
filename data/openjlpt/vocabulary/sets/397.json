@@ -1,0 +1,187 @@
+{
+  "id": 397,
+  "title": "N3 Unit 4.6 - 名詞B・特徴と文化 (Đặc trưng & văn hóa)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 名詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.672352",
+  "cards": [
+    {
+      "id": 10589,
+      "term": "範囲 (はんい)",
+      "reading": "はんい",
+      "romaji": "han'i",
+      "definition": "phạm vi",
+      "exampleSentence": "試験の範囲",
+      "exampleTranslation": "Phạm vi bài thi.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10590,
+      "term": "内容 (ないよう)",
+      "reading": "ないよう",
+      "romaji": "naiyō",
+      "definition": "nội dung",
+      "exampleSentence": "話の内容",
+      "exampleTranslation": "Nội dung {cuộc nói chuyện / bài giảng/ sách/ bảng tin…}.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10591,
+      "term": "中身 (なかみ)",
+      "reading": "なかみ",
+      "romaji": "nakami",
+      "definition": "bên trong, nội dung",
+      "exampleSentence": "箱を開けて中身を見る",
+      "exampleTranslation": "Mở hộp xem bên trong.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10592,
+      "term": "特徴 (とくちょう)",
+      "reading": "とくちょう",
+      "romaji": "tokuchō",
+      "definition": "đặc trưng, đặc tính",
+      "exampleSentence": "商品の特徴を確かめる",
+      "exampleTranslation": "Kiểm định lại những đặc tính của sản phẩm.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10593,
+      "term": "普通 (ふつう)",
+      "reading": "ふつう",
+      "romaji": "futsū",
+      "definition": "bình thường, thông thường",
+      "exampleSentence": "パスポートの申請には１週間ぐらいかかるのが普通だ。",
+      "exampleTranslation": "Việc xin cấp hộ chiếu thông thường mất khoảng một tuần.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10594,
+      "term": "当たり前 (あたりまえ)",
+      "reading": "あたりまえ",
+      "romaji": "atarimae",
+      "definition": "tất nhiên",
+      "exampleSentence": "そんなひどいことをされたら、怒るのがあたりまえだ",
+      "exampleTranslation": "Nếu bị chơi xấu như thế thì nổi giận là chuyện đương nhiên.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10595,
+      "term": "偽 (にせ)",
+      "reading": "にせ",
+      "romaji": "nise",
+      "definition": "giả",
+      "exampleSentence": "にせ（の）銀行員にだまされてお金を取られた",
+      "exampleTranslation": "Bị nhân viên ngân hàng giả mạo lừa lấy hết tiền.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10596,
+      "term": "別 (べつ)",
+      "reading": "べつ",
+      "romaji": "betsu",
+      "definition": "khác nhau, riêng biệt",
+      "exampleSentence": "「米」は「ごはん」とは別（の）ものだ",
+      "exampleTranslation": "Gạo khác với cơm.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10597,
+      "term": "国籍 (こくせき)",
+      "reading": "こくせき",
+      "romaji": "kokuseki",
+      "definition": "quốc tịch",
+      "exampleSentence": "私はずっとアメリカで暮らしているが、国籍は日本だ",
+      "exampleTranslation": "Tôi cư trú ở Mỹ nhưng quốc tịch Nhật.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10598,
+      "term": "東洋 (とうよう)",
+      "reading": "とうよう",
+      "romaji": "tōyō",
+      "definition": "phương Đông",
+      "exampleSentence": "東洋の文化と西洋の文化を比べる",
+      "exampleTranslation": "So sánh văn hóa phương Đông và phương Tây.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10599,
+      "term": "西洋 (せいよう)",
+      "reading": "せいよう",
+      "romaji": "seiyō",
+      "definition": "phương Tây",
+      "exampleSentence": "東洋の文化と西洋の文化を比べる",
+      "exampleTranslation": "So sánh văn hóa phương Đông và văn hóa phương Tây.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10600,
+      "term": "国際 (こくさい)",
+      "reading": "こくさい",
+      "romaji": "kokusai",
+      "definition": "quốc tế",
+      "exampleSentence": "日本企業の海外支社でのトラブルが国際問題に発展した",
+      "exampleTranslation": "Vấn đề ở chi nhánh nước ngoài của xí nghiệp Nhật Bản đã phát triển thành vấn đề quốc tế.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10601,
+      "term": "自然 (しぜん)",
+      "reading": "しぜん",
+      "romaji": "shizen",
+      "definition": "tự nhiên",
+      "exampleSentence": "山や海へ行って、自然の中で過ごす",
+      "exampleTranslation": "Đi núi đi biển để hòa mình trong thiên nhiên.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10602,
+      "term": "景色 (けしき)",
+      "reading": "けしき",
+      "romaji": "keshiki",
+      "definition": "phong cảnh, cảnh sắc",
+      "exampleSentence": "初めて日本の山に行った。すばらしい景色だった",
+      "exampleTranslation": "Lần đầu tiên đi chơi núi của Nhật Bản, phong cảnh đẹp tuyệt vời.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10603,
+      "term": "宗教 (しゅうきょう)",
+      "reading": "しゅうきょう",
+      "romaji": "shūkyō",
+      "definition": "tôn giáo",
+      "exampleSentence": "世界にはいろいろな宗教がある",
+      "exampleTranslation": "Trên thế giới có rất nhiều tôn giáo.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10604,
+      "term": "愛 (あい)",
+      "reading": "あい",
+      "romaji": "ai",
+      "definition": "tình yêu",
+      "exampleSentence": "私は家族を愛している",
+      "exampleTranslation": "Tôi yêu {gia đình/ tự nhiên/ đất nước…}.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

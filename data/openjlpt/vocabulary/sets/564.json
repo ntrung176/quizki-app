@@ -1,0 +1,187 @@
+{
+  "id": 564,
+  "title": "N2 Unit 4.7 - 名詞B (bài 7/12)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.865514",
+  "cards": [
+    {
+      "id": 13518,
+      "term": "実施 (じっし)",
+      "reading": "じっし",
+      "romaji": null,
+      "definition": "thực thi",
+      "exampleSentence": "大会は予定通り実施された。",
+      "exampleTranslation": "Đại hội/sự kiện đã được tổ chức đúng như kế hoạch.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13519,
+      "term": "許可 (きょか)",
+      "reading": "きょか",
+      "romaji": null,
+      "definition": "sự cho phép",
+      "exampleSentence": "路上での撮影には警察の許可が必要だ。",
+      "exampleTranslation": "Chụp/quay trên đường cần có sự cho phép của cảnh sát.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13520,
+      "term": "全体 (ぜんたい)",
+      "reading": "ぜんたい",
+      "romaji": null,
+      "definition": "toàn thể",
+      "exampleSentence": "この会社の従業員は、全体で500人ぐらいだ。",
+      "exampleTranslation": "Tổng số nhân viên công ty này khoảng 500 người.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13521,
+      "term": "部分 (ぶぶん)",
+      "reading": "ぶぶん",
+      "romaji": null,
+      "definition": "bộ phận",
+      "exampleSentence": "レポートの最後の部分は書き直すつもりだ。",
+      "exampleTranslation": "Tôi định viết lại phần cuối của bài báo cáo.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13522,
+      "term": "統一 (とういつ)",
+      "reading": "とういつ",
+      "romaji": null,
+      "definition": "thống nhất",
+      "exampleSentence": "EU は通貨をユーロに統一した。",
+      "exampleTranslation": "EU đã thống nhất dùng đồng tiền chung là euro.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13523,
+      "term": "拡大 (かくだい)",
+      "reading": "かくだい",
+      "romaji": null,
+      "definition": "zoom to lên, mở rộng",
+      "exampleSentence": "地図が小さくて見づらいので、拡大コピーを取った。",
+      "exampleTranslation": "Bản đồ nhỏ khó nhìn nên tôi photo phóng to.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13524,
+      "term": "縮小 (しゅくしょう)",
+      "reading": "しゅくしょう",
+      "romaji": null,
+      "definition": "zoom nhỏ, co nhỏ, nén lại",
+      "exampleSentence": "B4をA4に縮小してコピーした。",
+      "exampleTranslation": "Tôi copy thu nhỏ từ B4 xuống A4.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13525,
+      "term": "集合 (しゅうごう)",
+      "reading": "しゅうごう",
+      "romaji": null,
+      "definition": "tập hợp",
+      "exampleSentence": "「面接を受ける人は、予定時間の30分前に会場に集合してください」",
+      "exampleTranslation": "Ai tham gia phỏng vấn vui lòng tập trung trước giờ hẹn 30 phút.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13526,
+      "term": "方向 (ほうこう)",
+      "reading": "ほうこう",
+      "romaji": null,
+      "definition": "phương hướng",
+      "exampleSentence": "川は北東から南西の方向に流れている。",
+      "exampleTranslation": "Con sông chảy theo hướng đông bắc xuống tây nam.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13527,
+      "term": "間隔 (かんかく)",
+      "reading": "かんかく",
+      "romaji": null,
+      "definition": "khoảng cách, khoảng giữa",
+      "exampleSentence": "50センチの間隔をあけて机を並べた。",
+      "exampleTranslation": "Tôi xếp bàn cách nhau 50cm.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13528,
+      "term": "脇 (わき)",
+      "reading": "わき",
+      "romaji": null,
+      "definition": "nách",
+      "exampleSentence": "体温計をわきの下に挟んで熱を測る。",
+      "exampleTranslation": "Kẹp nhiệt kế vào nách để đo nhiệt độ.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13529,
+      "term": "通過 (つうか)",
+      "reading": "つうか",
+      "romaji": null,
+      "definition": "thông qua",
+      "exampleSentence": "国境を車で通過する。",
+      "exampleTranslation": "Đi qua biên giới bằng ô tô.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13530,
+      "term": "移動 (いどう)",
+      "reading": "いどう",
+      "romaji": null,
+      "definition": "di chuyển",
+      "exampleSentence": "今度の旅行では、移動はすべてバスだ。",
+      "exampleTranslation": "Chuyến du lịch này di chuyển toàn bộ bằng xe buýt.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13531,
+      "term": "停止 (ていし)",
+      "reading": "ていし",
+      "romaji": null,
+      "definition": "dừng lại, tạm dừng",
+      "exampleSentence": "そのスーパーは停電のため、営業を停止した。",
+      "exampleTranslation": "Mất điện nên siêu thị tạm dừng hoạt động.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13532,
+      "term": "低下 (ていか)",
+      "reading": "ていか",
+      "romaji": null,
+      "definition": "sự giảm; sự suy giảm",
+      "exampleSentence": "高く昇れば昇るほど、気温が低下する。",
+      "exampleTranslation": "Càng lên cao, nhiệt độ càng giảm.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 13533,
+      "term": "超過 (ちょうか)",
+      "reading": "ちょうか",
+      "romaji": null,
+      "definition": "vượt quá",
+      "exampleSentence": "彼女の荷物は規定の重量を10キロも超過していた。",
+      "exampleTranslation": "Hành lý của cô ấy vượt quá quy định tới 10kg.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

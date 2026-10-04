@@ -1,0 +1,187 @@
+{
+  "id": 846,
+  "title": "N1 Tango 13.2 - Các cách diễn đạt dễ bị sai ① · Trạng từ ②",
+  "description": "Tango N1 — Các cách diễn đạt dễ bị sai ①",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:44.366571",
+  "cards": [
+    {
+      "id": 19834,
+      "term": "ふらりと",
+      "reading": "ふらりと",
+      "romaji": null,
+      "definition": "Bất chợt, không mục đích",
+      "exampleSentence": "休日の午後、彼はふらりと近所の喫茶店に入った。",
+      "exampleTranslation": "Vào một buổi chiều ngày nghỉ, anh ấy bất chợt bước vào một quán cà phê gần nhà.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 19835,
+      "term": "じっとり[と]（する）",
+      "reading": "じっとり[と]（する）",
+      "romaji": null,
+      "definition": "Ẩm ướt, nhớp nháp",
+      "exampleSentence": "梅雨の朝は、肌がじっとり（する）と汗ばんで気持ちが悪い。",
+      "exampleTranslation": "Buổi sáng trong mùa mưa, da nhớp nháp mồ hôi khiến người ta khó chịu.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 19836,
+      "term": "ずばり[と]",
+      "reading": "ずばり[と]",
+      "romaji": null,
+      "definition": "Thẳng thắn, dứt khoát",
+      "exampleSentence": "彼は問題の原因をずばりと指摘した。",
+      "exampleTranslation": "Anh ấy thẳng thắn chỉ ra nguyên nhân của vấn đề.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 19837,
+      "term": "まさしく",
+      "reading": "まさしく",
+      "romaji": null,
+      "definition": "Chính xác là, đích thị",
+      "exampleSentence": "その堂々とした態度は、まさしく指導者の風格だった。",
+      "exampleTranslation": "Thái độ đĩnh đạc đó đúng là phong thái của một nhà lãnh đạo.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 19838,
+      "term": "ありありと",
+      "reading": "ありありと",
+      "romaji": null,
+      "definition": "Hiển hiện, rõ mồn một",
+      "exampleSentence": "当時の出来事が、今でも目の前にありありと浮かぶ。",
+      "exampleTranslation": "Cho đến bây giờ, những chuyện xảy ra khi ấy vẫn hiện lên rõ mồn một trước mắt tôi.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 19839,
+      "term": "しばし",
+      "reading": "しばし",
+      "romaji": null,
+      "definition": "Chốc lát, một lúc",
+      "exampleSentence": "彼はしばし窓の外を眺めてから、静かに席を立った。",
+      "exampleTranslation": "Anh ấy ngắm nhìn bên ngoài cửa sổ một lúc rồi lặng lẽ đứng dậy rời chỗ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 19840,
+      "term": "まんまと",
+      "reading": "まんまと",
+      "romaji": null,
+      "definition": "Dễ dàng (bị lừa), trót lọt",
+      "exampleSentence": "詐欺師の巧妙な話術に乗せられ、彼はまんまと大金をだまし取られた。",
+      "exampleTranslation": "Bị cuốn theo tài ăn nói khéo léo của kẻ lừa đảo, anh ta đã dễ dàng bị moi mất một khoản tiền lớn.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 19841,
+      "term": "まるっきり",
+      "reading": "まるっきり",
+      "romaji": null,
+      "definition": "Hoàn toàn",
+      "exampleSentence": "彼の説明はまるっきり要領を得ず、誰も内容を理解できなかった。",
+      "exampleTranslation": "Lời giải thích của anh ta hoàn toàn không rõ ràng nên chẳng ai hiểu được nội dung.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 19842,
+      "term": "てんで[〜ない]",
+      "reading": "てんで[〜ない]",
+      "romaji": null,
+      "definition": "Hoàn toàn (không)",
+      "exampleSentence": "彼には謝る気などてんでない。",
+      "exampleTranslation": "Anh ta hoàn toàn không có ý định xin lỗi.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 19843,
+      "term": "とうてい[〜ない]",
+      "reading": "とうてい[〜ない]",
+      "romaji": null,
+      "definition": "Tuyệt đối (không thể)",
+      "exampleSentence": "この複雑な問題は、専門家でもとうてい一日では解決できない。",
+      "exampleTranslation": "Ngay cả chuyên gia cũng tuyệt đối không thể giải quyết vấn đề phức tạp này trong một ngày.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 19844,
+      "term": "第一 (だいいち)",
+      "reading": "だいいち",
+      "romaji": null,
+      "definition": "Trước hết, ngay từ đầu",
+      "exampleSentence": "第一、事実関係を確認しなければ、結論を出すことはできない。",
+      "exampleTranslation": "Trước hết, nếu không xác nhận tình tiết sự việc thì không thể đưa ra kết luận.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 19845,
+      "term": "まして",
+      "reading": "まして",
+      "romaji": null,
+      "definition": "Huống chi, huống hồ",
+      "exampleSentence": "初心者には難しい課題で、まして経験のない私には手に負えない。",
+      "exampleTranslation": "Đây là một nhiệm vụ khó đối với người mới bắt đầu, huống chi tôi lại không có kinh nghiệm thì càng không thể đảm đương.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 19846,
+      "term": "努めて (つとめて)",
+      "reading": "つとめて",
+      "romaji": null,
+      "definition": "Cố gắng, gắng sức",
+      "exampleSentence": "健康を維持するため、努めて規則正しい生活を送るようにしている。",
+      "exampleTranslation": "Để duy trì sức khỏe, tôi cố gắng sống điều độ.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 19847,
+      "term": "ふんだんに",
+      "reading": "ふんだんに",
+      "romaji": null,
+      "definition": "Dồi dào, phong phú",
+      "exampleSentence": "この地域では新鮮な魚介類がふんだんに手に入る。",
+      "exampleTranslation": "Ở khu vực này có thể dễ dàng mua được rất nhiều hải sản tươi sống.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 19848,
+      "term": "誠に (まことに)",
+      "reading": "まことに",
+      "romaji": null,
+      "definition": "Chân thành, vô cùng",
+      "exampleSentence": "このたびはご迷惑をおかけし、誠に申し訳ございません。",
+      "exampleTranslation": "Lần này đã gây phiền toái cho quý vị, tôi thành thật xin lỗi.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 19849,
+      "term": "切に (せつに)",
+      "reading": "せつに",
+      "romaji": null,
+      "definition": "Tha thiết, khẩn thiết",
+      "exampleSentence": "被災地の一日も早い復興を切に願っております。",
+      "exampleTranslation": "Chúng tôi tha thiết mong vùng bị thiên tai sớm được khôi phục.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

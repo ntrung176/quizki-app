@@ -1,0 +1,176 @@
+{
+  "id": 374,
+  "title": "N3 Unit 1.3 - 名詞A・参加と成否 (Tham gia & thành bại)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 名詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:34.729252",
+  "cards": [
+    {
+      "id": 10225,
+      "term": "面接 (めんせつ)",
+      "reading": "めんせつ",
+      "romaji": "mensetsu",
+      "definition": "phỏng vấn",
+      "exampleSentence": "きょう、会社の人との面接がある",
+      "exampleTranslation": "Hôm nay có buổi phỏng vấn với người trong công ty.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10226,
+      "term": "休憩 (きゅうけい)",
+      "reading": "きゅうけい",
+      "romaji": "kyūkei",
+      "definition": "nghỉ giải lao",
+      "exampleSentence": "「ではここで、１０分間の休憩です」",
+      "exampleTranslation": "\"Thế thì, nghỉ giải lao 10 phút từ bây giờ.\"",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10227,
+      "term": "観光 (かんこう)",
+      "reading": "かんこう",
+      "romaji": "kankō",
+      "definition": "tham quan, du lịch",
+      "exampleSentence": "「来日の目的は観光です」",
+      "exampleTranslation": "Mục đích đến Nhật Bản là du lịch.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10228,
+      "term": "帰国 (きこく)",
+      "reading": "きこく",
+      "romaji": "kikoku",
+      "definition": "về nước",
+      "exampleSentence": "今度の正月には帰国するつもりだ",
+      "exampleTranslation": "Dịp tết lần này tôi dự định sẽ về nước.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10229,
+      "term": "帰省 (きせい)",
+      "reading": "きせい",
+      "romaji": "kisei",
+      "definition": "về quê",
+      "exampleSentence": "お盆にはふるさとに帰省する日本人が多い",
+      "exampleTranslation": "Vào dịp lễ Obon rất nhiều người Nhật về quê nhà.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10230,
+      "term": "帰宅 (きたく)",
+      "reading": "きたく",
+      "romaji": "kitaku",
+      "definition": "về nhà",
+      "exampleSentence": "毎日忙しくて帰宅が遅い",
+      "exampleTranslation": "Hàng ngày tôi bận cho nên về nhà muộn.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10231,
+      "term": "参加 (さんか)",
+      "reading": "さんか",
+      "romaji": "sanka",
+      "definition": "tham gia",
+      "exampleSentence": "ボランティア活動に参加する",
+      "exampleTranslation": "Tham gia các hoạt động tình nguyện.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10232,
+      "term": "出席 (しゅっせき)",
+      "reading": "しゅっせき",
+      "romaji": "shusseki",
+      "definition": "tham gia, có mặt",
+      "exampleSentence": "ミーティングに出席する",
+      "exampleTranslation": "Tham dự cuộc họp.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10233,
+      "term": "欠席 (けっせき)",
+      "reading": "けっせき",
+      "romaji": "kesseki",
+      "definition": "vắng mặt",
+      "exampleSentence": "授業を欠席する",
+      "exampleTranslation": "Vắng mặt buổi học.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10234,
+      "term": "遅刻 (ちこく)",
+      "reading": "ちこく",
+      "romaji": "chikoku",
+      "definition": "đến muộn",
+      "exampleSentence": "寝坊して授業に遅刻する",
+      "exampleTranslation": "Vì ngủ quên nên đến lớp trễ.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10235,
+      "term": "化粧 (けしょう)",
+      "reading": "けしょう",
+      "romaji": "keshō",
+      "definition": "trang điểm",
+      "exampleSentence": "「あなたは毎日、お化粧に何分ぐらいかけていますか」",
+      "exampleTranslation": "\"Bạn mất bao nhiêu phút để trang điểm mỗi ngày?\"",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10236,
+      "term": "計算 (けいさん)",
+      "reading": "けいさん",
+      "romaji": "keisan",
+      "definition": "tính toán",
+      "exampleSentence": "私は計算が苦手だ",
+      "exampleTranslation": "Tôi không giỏi tính toán.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10237,
+      "term": "計画 (けいかく)",
+      "reading": "けいかく",
+      "romaji": "keikaku",
+      "definition": "kế hoạch",
+      "exampleSentence": "来年の計画を立てる",
+      "exampleTranslation": "Lập kế hoạch cho năm tới.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10238,
+      "term": "成功 (せいこう)",
+      "reading": "せいこう",
+      "romaji": "seikō",
+      "definition": "thành công",
+      "exampleSentence": "実験に成功する",
+      "exampleTranslation": "Thí nghiệm thành công.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10239,
+      "term": "失敗 (しっぱい)",
+      "reading": "しっぱい",
+      "romaji": "shippai",
+      "definition": "thất bại",
+      "exampleSentence": "実験の失敗で、計画は中止になった",
+      "exampleTranslation": "Vì thí nghiệm thất bại nên kế hoạch phải dừng lại.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

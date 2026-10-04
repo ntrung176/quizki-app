@@ -1,0 +1,66 @@
+{
+  "id": 569,
+  "title": "N2 Unit 4.12 - 名詞B (bài 12/12)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.060324",
+  "cards": [
+    {
+      "id": 13619,
+      "term": "かけ直す (かけなおす)",
+      "reading": "かけなおす",
+      "romaji": null,
+      "definition": "gọi lại",
+      "exampleSentence": "（電話をかけたが、相手がいなかったとき）「またあとで掛け直します」",
+      "exampleTranslation": "Tôi sẽ gọi lại sau.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13620,
+      "term": "出直す (でなおす)",
+      "reading": "でなおす",
+      "romaji": null,
+      "definition": "đến lần nữa, chỉnh sửa, sắp xếp",
+      "exampleSentence": "「改めて出直してまいります」",
+      "exampleTranslation": "Tôi sẽ quay lại vào dịp khác / Tôi sẽ đến lại lần nữa.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13621,
+      "term": "持ち直す (もちなおす)",
+      "reading": "もちなおす",
+      "romaji": null,
+      "definition": "cầm lại",
+      "exampleSentence": "落としそうになった荷物を持ち直す。",
+      "exampleTranslation": "Tôi giữ lại kiện đồ sắp rơi.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13622,
+      "term": "考え直す (かんがえなおす)",
+      "reading": "かんがえなおす",
+      "romaji": null,
+      "definition": "nghĩ lại",
+      "exampleSentence": "仕事を辞めるつもりだったが、考え直した方がいいと言われた。",
+      "exampleTranslation": "Tôi định nghỉ việc nhưng người ta bảo nên suy nghĩ lại.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13623,
+      "term": "思い直す (おもいなおす)",
+      "reading": "おもいなおす",
+      "romaji": null,
+      "definition": "nghĩ lại",
+      "exampleSentence": "就職するつもりだったが思い直して進学することにした。",
+      "exampleTranslation": "Tôi định đi làm nhưng nghĩ lại và quyết định học lên.",
+      "forms": [],
+      "displayOrder": 4
+    }
+  ]
+}

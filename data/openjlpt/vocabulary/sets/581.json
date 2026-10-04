@@ -1,0 +1,176 @@
+{
+  "id": 581,
+  "title": "N2 Unit 7.2 - 名詞C (bài 2/8)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.260747",
+  "cards": [
+    {
+      "id": 13762,
+      "term": "人工 (じんこう)",
+      "reading": "じんこう",
+      "romaji": null,
+      "definition": "nhân tạo",
+      "exampleSentence": "このスキー場では人工の雪を降らせている。",
+      "exampleTranslation": "Ở bãi trượt tuyết này người ta tạo tuyết nhân tạo.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13763,
+      "term": "圧力 (あつりょく)",
+      "reading": "あつりょく",
+      "romaji": null,
+      "definition": "áp lực",
+      "exampleSentence": "空気に圧力を加えて圧縮する。",
+      "exampleTranslation": "Nén không khí bằng cách tăng áp lực.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13764,
+      "term": "刺激 (しげき)",
+      "reading": "しげき",
+      "romaji": null,
+      "definition": "kích thích, khiêu khích",
+      "exampleSentence": "筋肉に電気で刺激を与えると、ぴくりと動く。",
+      "exampleTranslation": "Khi kích thích cơ bắp bằng điện, cơ sẽ giật nhẹ.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13765,
+      "term": "摩擦 (まさつ)",
+      "reading": "まさつ",
+      "romaji": null,
+      "definition": "ma sát",
+      "exampleSentence": "木の枝の摩擦の熱で森林火災が起こった。",
+      "exampleTranslation": "Do nhiệt ma sát giữa các cành cây mà xảy ra cháy rừng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13766,
+      "term": "立場 (たちば)",
+      "reading": "たちば",
+      "romaji": null,
+      "definition": "lập trường",
+      "exampleSentence": "自分の意見を主張するだけではなく、相手の立場に立って考えてみることも大切だ。",
+      "exampleTranslation": "Không chỉ khăng khăng ý kiến mình, mà cũng cần đứng trên lập trường người khác để suy nghĩ.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13767,
+      "term": "役割 (やくわり)",
+      "reading": "やくわり",
+      "romaji": null,
+      "definition": "vai trò",
+      "exampleSentence": "仕事の役割を決める。",
+      "exampleTranslation": "Quyết định vai trò/phân công công việc.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13768,
+      "term": "分担 (ぶんたん)",
+      "reading": "ぶんたん",
+      "romaji": null,
+      "definition": "chia sẻ",
+      "exampleSentence": "同僚と分担して仕事を進めている。",
+      "exampleTranslation": "Tôi chia việc với đồng nghiệp rồi tiến hành.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13769,
+      "term": "担当 (たんとう)",
+      "reading": "たんとう",
+      "romaji": null,
+      "definition": "chịu trách nhiệm, đảm đương",
+      "exampleSentence": "会社で営業を担当している。",
+      "exampleTranslation": "Ở công ty tôi phụ trách mảng kinh doanh.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13770,
+      "term": "交代・交替 (こうたい・こうたい)",
+      "reading": "こうたい・こうたい",
+      "romaji": null,
+      "definition": "thay phiên, thay đổi",
+      "exampleSentence": "首相が交代した。",
+      "exampleTranslation": "Thủ tướng/ghế thủ tướng đã được thay (thay đổi).",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13771,
+      "term": "代理 (だいり)",
+      "reading": "だいり",
+      "romaji": null,
+      "definition": "đại diện, đại lí",
+      "exampleSentence": "父の代理で親戚の結婚式に出席した。",
+      "exampleTranslation": "Tôi dự đám cưới họ hàng thay mặt bố.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13772,
+      "term": "審判 (しんぱん)",
+      "reading": "しんぱん",
+      "romaji": null,
+      "definition": "thẩm phán, trọng tài",
+      "exampleSentence": "審判が笛を吹いて、試合が始まった。",
+      "exampleTranslation": "Trọng tài thổi còi và trận đấu bắt đầu.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13773,
+      "term": "監督 (かんとく)",
+      "reading": "かんとく",
+      "romaji": null,
+      "definition": "huấn luyện viên, đạo diễn, quản đốc, quản lý",
+      "exampleSentence": "スポーツ大会の監督を務める。",
+      "exampleTranslation": "Tôi đảm nhiệm vai trò huấn luyện viên/giám sát cho giải thể thao.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13774,
+      "term": "予測 (よそく)",
+      "reading": "よそく",
+      "romaji": null,
+      "definition": "dự đoán",
+      "exampleSentence": "データに基づいて結果を予測する。",
+      "exampleTranslation": "Dựa trên dữ liệu để dự đoán kết quả.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13775,
+      "term": "予期 (よき)",
+      "reading": "よき",
+      "romaji": null,
+      "definition": "kì vọng, mong đợi, dự đoán",
+      "exampleSentence": "今回の実験では、予期に反し、いいデータが得られなかった。",
+      "exampleTranslation": "Trong thí nghiệm lần này, trái với dự liệu, không thu được dữ liệu tốt.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13776,
+      "term": "判断 (はんだん)",
+      "reading": "はんだん",
+      "romaji": null,
+      "definition": "phán đoán, nhận định",
+      "exampleSentence": "外見や肩書で人を判断するのはよくない。",
+      "exampleTranslation": "Đánh giá người khác qua vẻ ngoài hay chức danh là không tốt.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

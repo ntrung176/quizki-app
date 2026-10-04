@@ -1,0 +1,231 @@
+{
+  "id": 897,
+  "title": "N5 Tango 9.3 - Sống · Chuyển nhà",
+  "description": "Tango N5 — Sống",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:49.603576",
+  "cards": [
+    {
+      "id": 20888,
+      "term": "ひっこし",
+      "reading": "ひっこし",
+      "romaji": null,
+      "definition": "Chuyển nhà, chuyển chỗ ở",
+      "exampleSentence": "来月、大阪へひっこしをします。",
+      "exampleTranslation": "Tháng sau tôi sẽ chuyển nhà đến Osaka.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20889,
+      "term": "てんきん<する>",
+      "reading": "てんきん<する>",
+      "romaji": null,
+      "definition": "Chuyển sở làm",
+      "exampleSentence": "会社員は、仕事の都合で「てんきん<する>」ことがあります。",
+      "exampleTranslation": "Nhân viên công ty đôi khi phải chuyển nơi làm việc vì công việc.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20890,
+      "term": "やちん",
+      "reading": "やちん",
+      "romaji": null,
+      "definition": "Tiền nhà",
+      "exampleSentence": "毎月、大家さんにやちんを払います。",
+      "exampleTranslation": "Hằng tháng, tôi trả tiền nhà cho chủ nhà.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20891,
+      "term": "ところ",
+      "reading": "ところ",
+      "romaji": null,
+      "definition": "Nơi, chỗ",
+      "exampleSentence": "ここは静かで、住みやすいところです。",
+      "exampleTranslation": "Nơi này yên tĩnh và dễ sống.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20892,
+      "term": "いなか",
+      "reading": "いなか",
+      "romaji": null,
+      "definition": "Quê, vùng quê",
+      "exampleSentence": "わたしのいなかは山の近くにあります。",
+      "exampleTranslation": "Quê tôi nằm gần núi.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20893,
+      "term": "しずかな",
+      "reading": "しずかな",
+      "romaji": null,
+      "definition": "Yên tĩnh",
+      "exampleSentence": "ここはしずかな町です。",
+      "exampleTranslation": "Đây là một thị trấn yên tĩnh.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20894,
+      "term": "にぎやかな",
+      "reading": "にぎやかな",
+      "romaji": null,
+      "definition": "Nhộn nhịp",
+      "exampleSentence": "駅の前はいつもにぎやかな場所です。",
+      "exampleTranslation": "Phía trước nhà ga lúc nào cũng là nơi nhộn nhịp.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20895,
+      "term": "べんりな",
+      "reading": "べんりな",
+      "romaji": null,
+      "definition": "Tiện lợi",
+      "exampleSentence": "この駅は電車が多くて、べんりな駅です。",
+      "exampleTranslation": "Nhà ga này có nhiều tàu nên rất tiện lợi.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20896,
+      "term": "ふべんな",
+      "reading": "ふべんな",
+      "romaji": null,
+      "definition": "Bất tiện",
+      "exampleSentence": "この町はバスが少なくて、ふべんな町です。",
+      "exampleTranslation": "Thị trấn này ít xe buýt nên rất bất tiện.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20897,
+      "term": "こうつう",
+      "reading": "こうつう",
+      "romaji": null,
+      "definition": "Giao thông",
+      "exampleSentence": "この町はこうつうが便利です。",
+      "exampleTranslation": "Giao thông ở thị trấn này rất thuận tiện.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20898,
+      "term": "にわ",
+      "reading": "にわ",
+      "romaji": null,
+      "definition": "Vườn",
+      "exampleSentence": "母は毎朝にわの花に水をやります。",
+      "exampleTranslation": "Mẹ tôi tưới hoa trong vườn mỗi sáng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 20899,
+      "term": "木 (き)",
+      "reading": "き",
+      "romaji": null,
+      "definition": "Cây",
+      "exampleSentence": "公園に大きい木があります。",
+      "exampleTranslation": "Trong công viên có một cái cây lớn.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 20900,
+      "term": "みどり",
+      "reading": "みどり",
+      "romaji": null,
+      "definition": "Màu xanh, cây xanh, mảng xanh",
+      "exampleSentence": "春になると、町のみどりがきれいです。",
+      "exampleTranslation": "Khi mùa xuân đến, cây xanh trong thành phố rất đẹp.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 20901,
+      "term": "わかい",
+      "reading": "わかい",
+      "romaji": null,
+      "definition": "Trẻ",
+      "exampleSentence": "あのわかい先生は学生に人気があります。",
+      "exampleTranslation": "Thầy giáo trẻ kia được học sinh yêu mến.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 20902,
+      "term": "年をとる (としをとる)",
+      "reading": "としをとる",
+      "romaji": null,
+      "definition": "Già",
+      "exampleSentence": "人はみんな年をとるので、毎日を大切にしましょう。",
+      "exampleTranslation": "Vì ai rồi cũng sẽ già đi, hãy trân trọng mỗi ngày.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 20903,
+      "term": "しやくしょ",
+      "reading": "しやくしょ",
+      "romaji": null,
+      "definition": "Văn phòng ủy ban thành phố",
+      "exampleSentence": "住所が変わったので、しやくしょへ行きました。",
+      "exampleTranslation": "Vì địa chỉ thay đổi nên tôi đã đến văn phòng ủy ban thành phố.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 20904,
+      "term": "ひろい",
+      "reading": "ひろい",
+      "romaji": null,
+      "definition": "Rộng",
+      "exampleSentence": "この町には、ひろい公園があります。",
+      "exampleTranslation": "Ở thị trấn này có một công viên rộng.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 20905,
+      "term": "せまい",
+      "reading": "せまい",
+      "romaji": null,
+      "definition": "Chật, hẹp",
+      "exampleSentence": "私の部屋はせまいですが、きれいです。",
+      "exampleTranslation": "Phòng của tôi tuy hẹp nhưng sạch sẽ.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 20906,
+      "term": "新しい (あたらしい)",
+      "reading": "あたらしい",
+      "romaji": null,
+      "definition": "Mới",
+      "exampleSentence": "新しいくつを買いました。",
+      "exampleTranslation": "Tôi đã mua đôi giày mới.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 20907,
+      "term": "古い (ふるい)",
+      "reading": "ふるい",
+      "romaji": null,
+      "definition": "Cũ, cổ",
+      "exampleSentence": "この時計は古いですが、まだ使えます。",
+      "exampleTranslation": "Chiếc đồng hồ này cũ nhưng vẫn còn dùng được.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "id": 888,
+  "title": "N5 Tango 7.4 - Mua sắm · Gửi",
+  "description": "Tango N5 — Mua sắm",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:49.012709",
+  "cards": [
+    {
+      "id": 20712,
+      "term": "ゆうびんきょく",
+      "reading": "ゆうびんきょく",
+      "romaji": null,
+      "definition": "Bưu điện",
+      "exampleSentence": "近くのゆうびんきょくで荷物を出しました。",
+      "exampleTranslation": "Tôi đã gửi bưu kiện ở bưu điện gần nhà.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20713,
+      "term": "ポスト",
+      "reading": "ポスト",
+      "romaji": null,
+      "definition": "Thùng thư",
+      "exampleSentence": "駅の前のポストに手紙を入れました。",
+      "exampleTranslation": "Tôi đã bỏ thư vào thùng thư trước nhà ga.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20714,
+      "term": "てがみ",
+      "reading": "てがみ",
+      "romaji": null,
+      "definition": "Thư",
+      "exampleSentence": "友達にてがみを書きました。",
+      "exampleTranslation": "Tôi đã viết thư cho bạn.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20715,
+      "term": "はがき",
+      "reading": "はがき",
+      "romaji": null,
+      "definition": "Thiệp, bưu thiếp",
+      "exampleSentence": "旅行先から家族にはがきを送りました。",
+      "exampleTranslation": "Tôi đã gửi bưu thiếp cho gia đình từ nơi du lịch.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20716,
+      "term": "ねんがじょう",
+      "reading": "ねんがじょう",
+      "romaji": null,
+      "definition": "Thiệp chúc mừng năm mới",
+      "exampleSentence": "お正月に友達からねんがじょうが届きました。",
+      "exampleTranslation": "Tôi đã nhận được thiệp chúc mừng năm mới từ bạn vào dịp Tết.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20717,
+      "term": "出す (だす)",
+      "reading": "だす",
+      "romaji": null,
+      "definition": "Gửi (thư)",
+      "exampleSentence": "明日の朝、ゆうびんきょくから手紙を出す。",
+      "exampleTranslation": "Sáng mai, tôi sẽ gửi thư từ bưu điện.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20718,
+      "term": "メール",
+      "reading": "メール",
+      "romaji": null,
+      "definition": "E-mail",
+      "exampleSentence": "毎晩、友達にメールを送ります。",
+      "exampleTranslation": "Mỗi tối, tôi gửi email cho bạn.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20719,
+      "term": "おくる",
+      "reading": "おくる",
+      "romaji": null,
+      "definition": "Gửi",
+      "exampleSentence": "母に荷物をおくる予定です。",
+      "exampleTranslation": "Tôi dự định gửi hành lý cho mẹ.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20720,
+      "term": "きって",
+      "reading": "きって",
+      "romaji": null,
+      "definition": "Tem",
+      "exampleSentence": "手紙にきってを一枚貼りました。",
+      "exampleTranslation": "Tôi đã dán một con tem lên thư.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20721,
+      "term": "あつめる",
+      "reading": "あつめる",
+      "romaji": null,
+      "definition": "Sưu tầm",
+      "exampleSentence": "妹はかわいい切手をあつめるのが好きです。",
+      "exampleTranslation": "Em gái tôi thích sưu tầm những con tem dễ thương.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20722,
+      "term": "ふうとう",
+      "reading": "ふうとう",
+      "romaji": null,
+      "definition": "Bì thư",
+      "exampleSentence": "てがみをふうとうに入れて、ポストへ持って行きます。",
+      "exampleTranslation": "Tôi cho thư vào bì thư rồi mang đến thùng thư.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 20723,
+      "term": "がいこく",
+      "reading": "がいこく",
+      "romaji": null,
+      "definition": "Nước ngoài",
+      "exampleSentence": "兄はがいこくで働いています。",
+      "exampleTranslation": "Anh trai tôi đang làm việc ở nước ngoài.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 20724,
+      "term": "エアメール",
+      "reading": "エアメール",
+      "romaji": null,
+      "definition": "Đường hàng không",
+      "exampleSentence": "エアメールを友達に送りました。",
+      "exampleTranslation": "Tôi đã gửi thư đường hàng không cho bạn.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 20725,
+      "term": "こうくうびん",
+      "reading": "こうくうびん",
+      "romaji": null,
+      "definition": "Đường hàng không",
+      "exampleSentence": "こうくうびんで手紙を送りました。",
+      "exampleTranslation": "Tôi đã gửi thư bằng đường hàng không.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 20726,
+      "term": "ふなびん",
+      "reading": "ふなびん",
+      "romaji": null,
+      "definition": "Đường biển",
+      "exampleSentence": "ふなびんで荷物を送りました。",
+      "exampleTranslation": "Tôi đã gửi kiện hàng bằng đường biển.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 20727,
+      "term": "にもつ",
+      "reading": "にもつ",
+      "romaji": null,
+      "definition": "Hành lý, kiện hàng, gói đồ",
+      "exampleSentence": "このにもつはとても大きいです。",
+      "exampleTranslation": "Kiện hàng này rất lớn.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 20728,
+      "term": "おもい",
+      "reading": "おもい",
+      "romaji": null,
+      "definition": "Nặng",
+      "exampleSentence": "このかばんはおもいです。",
+      "exampleTranslation": "Cái cặp này nặng.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 20729,
+      "term": "かるい",
+      "reading": "かるい",
+      "romaji": null,
+      "definition": "Nhẹ",
+      "exampleSentence": "この箱はかるいです。",
+      "exampleTranslation": "Cái hộp này nhẹ.",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

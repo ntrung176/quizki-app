@@ -1,0 +1,242 @@
+{
+  "id": 782,
+  "title": "N2 Tango 12.3 - Cách nói dễ nhầm lẫn · Thành ngữ ③ Cơ thể",
+  "description": "Tango N2 — Cách nói dễ nhầm lẫn",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:38.679254",
+  "cards": [
+    {
+      "id": 18097,
+      "term": "手がふさがる (てがふさがる)",
+      "reading": "てがふさがる",
+      "romaji": null,
+      "definition": "Bận rộn",
+      "exampleSentence": "荷物を両手に持っていると、手がふさがるのでドアを開けにくい。",
+      "exampleTranslation": "Khi xách hành lý bằng cả hai tay thì tay bị bận nên khó mở cửa.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 18098,
+      "term": "手が空く (てがあく)",
+      "reading": "てがあく",
+      "romaji": null,
+      "definition": "Rảnh tay",
+      "exampleSentence": "午後三時には手が空くので、その後なら相談に乗れます。",
+      "exampleTranslation": "Vì đến ba giờ chiều tôi sẽ rảnh tay nên sau đó có thể tư vấn cho bạn.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 18099,
+      "term": "手がかかる (てがかかる)",
+      "reading": "てがかかる",
+      "romaji": null,
+      "definition": "Khó, tốn công",
+      "exampleSentence": "この子はまだ小さくて手がかかるが、毎日少しずつ成長している。",
+      "exampleTranslation": "Đứa trẻ này vẫn còn nhỏ nên khá tốn công chăm sóc, nhưng mỗi ngày đều lớn lên từng chút một.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 18100,
+      "term": "手が離せない (てがはなせない)",
+      "reading": "てがはなせない",
+      "romaji": null,
+      "definition": "Đang dở tay, không thể rời",
+      "exampleSentence": "今は料理中で手が離せないので、後でこちらから電話します。",
+      "exampleTranslation": "Bây giờ tôi đang nấu ăn dở tay nên lát nữa tôi sẽ gọi lại.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 18101,
+      "term": "手に入れる (てにいれる)",
+      "reading": "てにいれる",
+      "romaji": null,
+      "definition": "Đạt được, có được",
+      "exampleSentence": "長い間探していた限定版の本を、ようやく手に入れることができた。",
+      "exampleTranslation": "Cuối cùng tôi cũng đã có được cuốn sách phiên bản giới hạn mà mình tìm kiếm bấy lâu.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 18102,
+      "term": "手にする (てにする)",
+      "reading": "てにする",
+      "romaji": null,
+      "definition": "Cầm lên, giành lên, đạt được",
+      "exampleSentence": "何年もの努力の末、彼はついに世界大会の優勝カップを手にすることができた。",
+      "exampleTranslation": "Sau nhiều năm nỗ lực, cuối cùng anh ấy đã giành được chiếc cúp vô địch thế giới.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 18103,
+      "term": "手につかない (てにつかない)",
+      "reading": "てにつかない",
+      "romaji": null,
+      "definition": "Không hứng thú, không tập trung",
+      "exampleSentence": "試験の結果が気になって、勉強がまったく手につかない。",
+      "exampleTranslation": "Vì lo lắng về kết quả thi nên tôi hoàn toàn không thể tập trung học.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 18104,
+      "term": "手をつける (てをつける)",
+      "reading": "てをつける",
+      "romaji": null,
+      "definition": "Đụng tay đến",
+      "exampleSentence": "帰宅したら、すぐに明日の発表の準備に手をつけるつもりだ。",
+      "exampleTranslation": "Sau khi về nhà, tôi định bắt tay ngay vào việc chuẩn bị cho bài thuyết trình ngày mai.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 18105,
+      "term": "手を貸す (てをかす)",
+      "reading": "てをかす",
+      "romaji": null,
+      "definition": "Cho mượn đỡ một tay, giúp đỡ",
+      "exampleSentence": "困っている人がいれば、私は迷わず手を貸すことにしている。",
+      "exampleTranslation": "Nếu có người gặp khó khăn, tôi luôn giúp đỡ họ mà không do dự.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 18106,
+      "term": "手を休める (てをやすめる)",
+      "reading": "てをやすめる",
+      "romaji": null,
+      "definition": "Nghỉ tay",
+      "exampleSentence": "長時間働いたので、昼食の後はしばらく手を休めることにした。",
+      "exampleTranslation": "Vì đã làm việc trong thời gian dài nên sau bữa trưa tôi quyết định nghỉ tay một lúc.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 18107,
+      "term": "手を抜く (てをぬく)",
+      "reading": "てをぬく",
+      "romaji": null,
+      "definition": "Chiếu lệ, qua loa, nơi tay",
+      "exampleSentence": "どんなに忙しくても、仕事で手を抜くわけにはいかない。",
+      "exampleTranslation": "Dù bận rộn đến đâu cũng không thể làm việc qua loa.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 18108,
+      "term": "腕がいい (うでがいい)",
+      "reading": "うでがいい",
+      "romaji": null,
+      "definition": "Có tay nghề, giỏi",
+      "exampleSentence": "この病院の先生は腕がいいと評判なので、遠方からも患者が訪れる。",
+      "exampleTranslation": "Bác sĩ ở bệnh viện này nổi tiếng là giỏi nên bệnh nhân từ xa cũng tìm đến.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 18109,
+      "term": "腕を磨く (うでをみがく)",
+      "reading": "うでをみがく",
+      "romaji": null,
+      "definition": "Luyện tay nghề, nâng cao kỹ năng",
+      "exampleSentence": "将来プロの料理人になるため、毎日料理を作って腕を磨くつもりだ。",
+      "exampleTranslation": "Để sau này trở thành đầu bếp chuyên nghiệp, tôi định nấu ăn mỗi ngày để nâng cao tay nghề.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 18110,
+      "term": "腕が上がる (うでがあがる)",
+      "reading": "うでがあがる",
+      "romaji": null,
+      "definition": "Tay nghề, trình độ tăng cao",
+      "exampleSentence": "毎日練習を続けたおかげで、料理の腕が上がるようになった。",
+      "exampleTranslation": "Nhờ tiếp tục luyện tập mỗi ngày, tay nghề nấu ăn của tôi đã nâng cao.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 18111,
+      "term": "肩を落とす (かたをおとす)",
+      "reading": "かたをおとす",
+      "romaji": null,
+      "definition": "Buông xuôi hai vai, thất vọng",
+      "exampleSentence": "試合に負けた彼は、肩を落とすようにして帰っていった。",
+      "exampleTranslation": "Thua trận, anh ấy rũ vai thất vọng rồi ra về.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 18112,
+      "term": "腹が立つ (はらがたつ)",
+      "reading": "はらがたつ",
+      "romaji": null,
+      "definition": "Tức giận, bụng tức anh ách",
+      "exampleSentence": "何度説明しても約束を守らない彼には、本当に腹が立つ。",
+      "exampleTranslation": "Tôi thực sự tức giận với anh ta vì dù giải thích bao lần, anh ta vẫn không giữ lời hứa.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 18113,
+      "term": "腹を抱える (はらをかかえる)",
+      "reading": "はらをかかえる",
+      "romaji": null,
+      "definition": "Ôm bụng mà cười",
+      "exampleSentence": "彼の冗談があまりにも面白くて、みんな腹を抱えるほど笑った。",
+      "exampleTranslation": "Chuyện đùa của anh ấy buồn cười đến mức mọi người cười ôm bụng.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 18114,
+      "term": "足が出る (あしがでる)",
+      "reading": "あしがでる",
+      "romaji": null,
+      "definition": "Vượt quá ngân sách, thâm hụt (chi tiêu)",
+      "exampleSentence": "旅行費が予算を超えて、三万円も足が出ることになった。",
+      "exampleTranslation": "Chi phí chuyến đi vượt ngân sách đến tận 30.000 yên.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 18115,
+      "term": "足を伸ばす (あしをのばす)",
+      "reading": "あしをのばす",
+      "romaji": null,
+      "definition": "Đi thêm một chút",
+      "exampleSentence": "京都まで来たついでに、少し足を伸ばすことにした。",
+      "exampleTranslation": "Nhân dịp đã đến Kyoto, tôi quyết định đi xa thêm một chút.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 18116,
+      "term": "足を運ぶ (あしをはこぶ)",
+      "reading": "あしをはこぶ",
+      "romaji": null,
+      "definition": "Đến, quá bộ",
+      "exampleSentence": "わざわざ会場まで足を運ぶ価値のある展示だ。",
+      "exampleTranslation": "Đây là một cuộc triển lãm đáng để cất công đến tận nơi xem.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 18117,
+      "term": "足を引っ張る (あしをひっぱる)",
+      "reading": "あしをひっぱる",
+      "romaji": null,
+      "definition": "Gây cản trở, ngáng chân",
+      "exampleSentence": "彼はチームの足を引っ張るまいと、人一倍努力している。",
+      "exampleTranslation": "Anh ấy đang nỗ lực hơn người khác để không trở thành gánh nặng cho đội.",
+      "forms": [],
+      "displayOrder": 20
+    }
+  ]
+}

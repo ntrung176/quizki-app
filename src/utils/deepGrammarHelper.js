@@ -2,6 +2,8 @@
 
 let cachedDeepData = null;
 let deepDataPromise = null;
+let cachedNuances = null;
+let nuancesPromise = null;
 
 export const loadDeepGrammarData = async () => {
     if (cachedDeepData) return cachedDeepData;
@@ -19,6 +21,42 @@ export const loadDeepGrammarData = async () => {
     }
     return deepDataPromise;
 };
+
+export const loadGrammarNuancesData = async () => {
+    if (cachedNuances) return cachedNuances;
+    if (!nuancesPromise) {
+        nuancesPromise = fetch('/data/grammar_nuances.json')
+            .then(res => res.ok ? res.json() : {})
+            .then(data => {
+                cachedNuances = data;
+                return data;
+            })
+            .catch(err => {
+                console.warn('Failed to load grammar nuances:', err);
+                return {};
+            });
+    }
+    return nuancesPromise;
+};
+
+export const findNuancesForPattern = async (rawPattern) => {
+    if (!rawPattern) return [];
+    const data = await loadGrammarNuancesData();
+    if (!data) return [];
+
+    const cleanP = cleanPatternString(rawPattern);
+    if (data[cleanP]) return data[cleanP];
+    if (data[rawPattern]) return data[rawPattern];
+
+    for (const [k, v] of Object.entries(data)) {
+        const cleanK = cleanPatternString(k);
+        if (cleanK && (cleanP === cleanK || cleanP.includes(cleanK) || cleanK.includes(cleanP))) {
+            return v;
+        }
+    }
+    return [];
+};
+
 
 // Normalize pattern helper
 export const cleanPatternString = (p) => {

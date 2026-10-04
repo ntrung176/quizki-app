@@ -1,0 +1,231 @@
+{
+  "id": 407,
+  "title": "N3 Unit 7.2 - 形容詞B・評価と程度 (Đánh giá & mức độ)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 形容詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.946756",
+  "cards": [
+    {
+      "id": 10765,
+      "term": "確かな (たしかな)",
+      "reading": "たしかな",
+      "romaji": "tashikana",
+      "definition": "chắc chắn, đáng tin, xác thực",
+      "exampleSentence": "新聞は確かな事実だけを伝えなければならない",
+      "exampleTranslation": "Báo chí nên đưa những tin đúng sự thật.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10766,
+      "term": "重要な (じゅうような)",
+      "reading": "じゅうような",
+      "romaji": "jūyōna",
+      "definition": "trọng yếu, quan trọng",
+      "exampleSentence": "きょうは午後から重要な会議がある",
+      "exampleTranslation": "Hôm nay, từ chiều sẽ có cuộc họp quan trọng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10767,
+      "term": "必要な (ひつような)",
+      "reading": "ひつような",
+      "romaji": "hitsuyōna",
+      "definition": "cần thiết",
+      "exampleSentence": "子どもに必要なのは、親の温かい愛情だ",
+      "exampleTranslation": "Việc cần thiết đối với con cái là tình cảm ấm áp từ bố mẹ.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10768,
+      "term": "もったいない",
+      "reading": "もったいない",
+      "romaji": "mottainai",
+      "definition": "lãng phí",
+      "exampleSentence": "流行遅れでもまだ着られる服を捨てるのはもったいない",
+      "exampleTranslation": "Dù có lỗi mốt mà vứt bỏ quần áo vẫn có thể mặc được thì thật lãng phí.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10769,
+      "term": "すごい",
+      "reading": "すごい",
+      "romaji": "sugoi",
+      "definition": "kinh khủng, giỏi, tuyệt vời",
+      "exampleSentence": "きのうの台風はすごかった",
+      "exampleTranslation": "Cơn bão hôm qua thật là kinh khủng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10770,
+      "term": "ひどい",
+      "reading": "ひどい",
+      "romaji": "hidoi",
+      "definition": "tồi tệ, khủng khiếp",
+      "exampleSentence": "一人をおおぜいでいじめるとはひどい",
+      "exampleTranslation": "Nhiều người bắt nạt một người thì thật là tồi tệ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10771,
+      "term": "激しい (はげしい)",
+      "reading": "はげしい",
+      "romaji": "hageshii",
+      "definition": "dữ dội, mãnh liệt, gay gắt",
+      "exampleSentence": "雨が激しい",
+      "exampleTranslation": "{Mưa, gió, đánh nhau, cơn đau…} mãnh liệt.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10772,
+      "term": "そっくりな",
+      "reading": "そっくりな",
+      "romaji": "sokkurina",
+      "definition": "giống y đúc",
+      "exampleSentence": "兄は父に顔も声もそっくりだ",
+      "exampleTranslation": "Anh với bố có giọng với mặt rất giống nhau.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10773,
+      "term": "急な (きゅうな)",
+      "reading": "きゅうな",
+      "romaji": "kyūna",
+      "definition": "gấp, nhanh, đột nhiên",
+      "exampleSentence": "急に歯が痛みだした",
+      "exampleTranslation": "Tự nhiên bị đau răng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10774,
+      "term": "適当な (てきとうな)",
+      "reading": "てきとうな",
+      "romaji": "tekitōna",
+      "definition": "thích hợp/vừa phải; qua loa, đại khái, làm cho có",
+      "exampleSentence": "家庭教師を探しているが、適当な人がなかなかいない",
+      "exampleTranslation": "Đang tìm giáo viên dạy tại nhà nhưng mà mãi chưa có người thích hợp.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10775,
+      "term": "特別な (とくべつな)",
+      "reading": "とくべつな",
+      "romaji": "tokubetsuna",
+      "definition": "đặc biệt, riêng biệt",
+      "exampleSentence": "彼女には音楽家としての特別な才能がある",
+      "exampleTranslation": "Cô ấy có một tài năng đặc biệt của một nhạc gia.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10776,
+      "term": "完全な (かんぜんな)",
+      "reading": "かんぜんな",
+      "romaji": "kanzenna",
+      "definition": "hoàn toàn, tất cả",
+      "exampleSentence": "土の中から古代の器が完全な形で出てきた",
+      "exampleTranslation": "Một cái bát cổ tròn nguyên vẹn hình dáng lấy lên từ trong lòng đất.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10777,
+      "term": "盛んな (さかんな)",
+      "reading": "さかんな",
+      "romaji": "sakanna",
+      "definition": "sôi nổi, thịnh hành, phát triển mạnh",
+      "exampleSentence": "私のふるさとは農業が盛んだ",
+      "exampleTranslation": "Quê tôi nông nghiệp phát triển.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10778,
+      "term": "様々な (さまざまな)",
+      "reading": "さまざまな",
+      "romaji": "samazamana",
+      "definition": "nhiều loại, đa dạng",
+      "exampleSentence": "インターネットからさまざまな情報が得られる",
+      "exampleTranslation": "Có thể tiếp cận được thông tin đa dạng từ Internet.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10779,
+      "term": "可能な (かのうな)",
+      "reading": "かのうな",
+      "romaji": "kanōna",
+      "definition": "khả thi, có thể",
+      "exampleSentence": "科学が進歩して、今まで不可能だったことも可能になった",
+      "exampleTranslation": "Khoa học tiến bộ, những điều không thể từ trước đến giờ cũng đã trở thành có thể.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10780,
+      "term": "不可能な (ふかのうな)",
+      "reading": "ふかのうな",
+      "romaji": "fukanōna",
+      "definition": "không thể",
+      "exampleSentence": "不可能な計画ならはじめから立てないほうがいい",
+      "exampleTranslation": "Những kế hoạch không khả thi thì ngay từ đầu không nên vạch ra.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 10781,
+      "term": "基本的な (きほんてきな)",
+      "reading": "きほんてきな",
+      "romaji": "kihontekina",
+      "definition": "cơ bản",
+      "exampleSentence": "パソコンの基本的な使い方はマニュアルに書いてある",
+      "exampleTranslation": "Cách sử dụng máy tính cơ bản được viết trong sách hướng dẫn.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 10782,
+      "term": "国際的な (こくさいてきな)",
+      "reading": "こくさいてきな",
+      "romaji": "kokusaitekina",
+      "definition": "tính quốc tế",
+      "exampleSentence": "東京で国際的なアニメフェスティバルが開かれた",
+      "exampleTranslation": "Ở Tokyo tổ chức một liên hoan Anime Quốc tế.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 10783,
+      "term": "ばらばらな",
+      "reading": "ばらばらな",
+      "romaji": "barabarana",
+      "definition": "chia rẻ, phân tán",
+      "exampleSentence": "みんなの意見がばらばらで、なかなか結論が出ない。",
+      "exampleTranslation": "Ý kiến của mọi người phân tán, mãi mà không đưa ra được kết luận.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 10784,
+      "term": "ぼろぼろな",
+      "reading": "ぼろぼろな",
+      "romaji": "boroborona",
+      "definition": "rách nát, tồi tàn, te tua",
+      "exampleSentence": "ぼろぼろな服",
+      "exampleTranslation": "Quần áo rách nát.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

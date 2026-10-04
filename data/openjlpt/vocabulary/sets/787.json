@@ -1,0 +1,253 @@
+{
+  "id": 787,
+  "title": "N1 Tango 1.3 - Mối quan hệ giữa người với người · Người quen",
+  "description": "Tango N1 — Mối quan hệ giữa người với người",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:39.736096",
+  "cards": [
+    {
+      "id": 18221,
+      "term": "縁 (えん)",
+      "reading": "えん",
+      "romaji": null,
+      "definition": "Định mệnh, duyên, giao tình, mối quan hệ",
+      "exampleSentence": "旅先で偶然出会った人との縁が、後の人生を大きく変えることもある。",
+      "exampleTranslation": "Mối duyên với người tình cờ gặp trong chuyến đi đôi khi cũng có thể thay đổi lớn cuộc đời sau này.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 18222,
+      "term": "一見（する） (いっけん（する）)",
+      "reading": "いっけん（する）",
+      "romaji": null,
+      "definition": "Thoáng qua, nhìn qua, mới nhìn",
+      "exampleSentence": "「一見（する）」だけでは分からない魅力が、この作品には隠されている。",
+      "exampleTranslation": "Tác phẩm này ẩn chứa những nét cuốn hút mà chỉ nhìn qua thì không thể nhận ra.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 18223,
+      "term": "恐縮（する） (きょうしゅく（する）)",
+      "reading": "きょうしゅく（する）",
+      "romaji": null,
+      "definition": "Không dám, xin bỏ qua cho / Cảm ơn vì..., áy náy",
+      "exampleSentence": "「恐縮（する）」は、感謝や申し訳なさを丁寧に伝える表現です。",
+      "exampleTranslation": "「恐縮する」 là cách nói lịch sự để bày tỏ lòng biết ơn hoặc sự áy náy.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 18224,
+      "term": "思いやり (おもいやり)",
+      "reading": "おもいやり",
+      "romaji": null,
+      "definition": "Quan tâm, để ý, sự thông cảm, cảm thông",
+      "exampleSentence": "思いやりのある言葉は、失敗して落ち込んでいる人の心を支える。",
+      "exampleTranslation": "Những lời nói đầy cảm thông có thể nâng đỡ tinh thần người đang buồn bã vì thất bại.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 18225,
+      "term": "気配り（する） (きくばり（する）)",
+      "reading": "きくばり（する）",
+      "romaji": null,
+      "definition": "Ân cần, chu đáo, quan tâm, biết để ý",
+      "exampleSentence": "「気配り（する）」という言葉は、相手の立場を考えて行動することを表す。",
+      "exampleTranslation": "Từ 「気配り（する）」 diễn tả việc suy nghĩ cho hoàn cảnh của đối phương và hành động chu đáo.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 18226,
+      "term": "打ち解ける (うちとける)",
+      "reading": "うちとける",
+      "romaji": null,
+      "definition": "Mở lòng, cởi mở thân quen (gỡ bỏ sự cảnh giác ngại ngùng, trở nên thân thiết)",
+      "exampleSentence": "何度か話すうちに、初対面の二人も自然に打ち解けるものだ。",
+      "exampleTranslation": "Sau vài lần trò chuyện, hai người mới gặp lần đầu cũng sẽ tự nhiên trở nên cởi mở với nhau.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 18227,
+      "term": "好意 (こうい)",
+      "reading": "こうい",
+      "romaji": null,
+      "definition": "Thiện ý, cảm tình, hảo ý",
+      "exampleSentence": "彼女は店員の親切な対応に好意を抱き、その店に通うようになった。",
+      "exampleTranslation": "Cô ấy có cảm tình với cách phục vụ tử tế của nhân viên nên bắt đầu thường xuyên đến cửa hàng đó.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 18228,
+      "term": "色気 (いろけ)",
+      "reading": "いろけ",
+      "romaji": null,
+      "definition": "Sức hút, sức lôi cuốn, sức hấp dẫn, mê hoặc",
+      "exampleSentence": "彼は色気のある声で語りかけ、聞く人を自然に引きつけた。",
+      "exampleTranslation": "Anh ấy nói bằng một giọng đầy sức hút, tự nhiên cuốn người nghe vào.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 18229,
+      "term": "見栄 (みえ)",
+      "reading": "みえ",
+      "romaji": null,
+      "definition": "Sĩ diện, khoe khoang, thể hiện ra",
+      "exampleSentence": "彼は見栄を張って、買えそうにない高級車を予約してしまった。",
+      "exampleTranslation": "Vì sĩ diện, anh ấy đã đặt mua một chiếc xe sang mà có vẻ mình không đủ khả năng chi trả.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 18230,
+      "term": "見栄っ張り (みえっぱり)",
+      "reading": "みえっぱり",
+      "romaji": null,
+      "definition": "Phô trương, khoe khoang, hay thể hiện, sĩ diện",
+      "exampleSentence": "彼は見栄っ張りで、いつも人前では成功しているように振る舞う。",
+      "exampleTranslation": "Anh ta là người hay phô trương, lúc nào cũng tỏ ra thành đạt trước mặt mọi người.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 18231,
+      "term": "人違い (ひとちがい)",
+      "reading": "ひとちがい",
+      "romaji": null,
+      "definition": "Nhầm người",
+      "exampleSentence": "人違いです、失礼しました。",
+      "exampleTranslation": "Xin lỗi, tôi đã nhận nhầm người.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 18232,
+      "term": "勘違い（する） (かんちがい（する）)",
+      "reading": "かんちがい（する）",
+      "romaji": null,
+      "definition": "Phán đoán sai lầm, nhận lầm, hiểu nhầm",
+      "exampleSentence": "「勘違い（する）」と「誤解する」は、似ているようで使い方が少し違う。",
+      "exampleTranslation": "“勘違い（する）” và “誤解する” trông có vẻ giống nhau nhưng cách dùng hơi khác.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 18233,
+      "term": "根も葉もない (ねもはもない)",
+      "reading": "ねもはもない",
+      "romaji": null,
+      "definition": "Vô căn cứ, không có cơ sở",
+      "exampleSentence": "そのうわさは根も葉もない話なので、決して信じないでください。",
+      "exampleTranslation": "Tin đồn đó hoàn toàn vô căn cứ, nên xin đừng tin.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 18234,
+      "term": "初耳 (はつみみ)",
+      "reading": "はつみみ",
+      "romaji": null,
+      "definition": "Lần đầu nghe thấy, mới nghe lần đầu",
+      "exampleSentence": "その計画については、私には初耳です。",
+      "exampleTranslation": "Về kế hoạch đó thì đây là lần đầu tôi nghe nói.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 18235,
+      "term": "惑わす (まどわす)",
+      "reading": "まどわす",
+      "romaji": null,
+      "definition": "Làm mê hoặc, làm mờ mắt, làm bối rối, mê muội",
+      "exampleSentence": "派手な広告は、消費者の判断を惑わすことがある。",
+      "exampleTranslation": "Những quảng cáo hào nhoáng đôi khi có thể làm người tiêu dùng phán đoán sai.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 18236,
+      "term": "早口 (はやくち)",
+      "reading": "はやくち",
+      "romaji": null,
+      "definition": "Nói nhanh, nói liến thoắng",
+      "exampleSentence": "彼は早口なので、重要な説明は聞き取りにくい。",
+      "exampleTranslation": "Vì anh ấy nói nhanh nên những phần giải thích quan trọng khá khó nghe rõ.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 18237,
+      "term": "生やす (はやす)",
+      "reading": "はやす",
+      "romaji": null,
+      "definition": "Để (râu), nuôi (râu), để mọc (cỏ, mốc...)",
+      "exampleSentence": "彼は大人になった記念に、ひげを生やすことにした。",
+      "exampleTranslation": "Nhân dịp trưởng thành, anh ấy quyết định nuôi râu.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 18238,
+      "term": "いじる",
+      "reading": "いじる",
+      "romaji": null,
+      "definition": "Mân mê, nghịch, sờ mó, chỉnh sửa",
+      "exampleSentence": "授業中にスマートフォンをいじるのは失礼です。",
+      "exampleTranslation": "Nghịch điện thoại trong giờ học là bất lịch sự.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 18239,
+      "term": "揺する (ゆする)",
+      "reading": "ゆする",
+      "romaji": null,
+      "definition": "Rung, lắc, đu đưa, lay động",
+      "exampleSentence": "子どもが木の枝を揺すると、鳥が驚いて飛び去った。",
+      "exampleTranslation": "Khi đứa trẻ lay cành cây, con chim giật mình bay đi.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 18240,
+      "term": "心得る (こころえる)",
+      "reading": "こころえる",
+      "romaji": null,
+      "definition": "Am tường, hiểu biết, thông thạo",
+      "exampleSentence": "彼は日本の伝統文化をよく心得る専門家として知られている。",
+      "exampleTranslation": "Ông ấy được biết đến là một chuyên gia am hiểu sâu sắc văn hóa truyền thống Nhật Bản.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 18241,
+      "term": "欠く (かく)",
+      "reading": "かく",
+      "romaji": null,
+      "definition": "Thiếu, thiếu sót",
+      "exampleSentence": "安全への配慮を欠く計画は、実施すべきではない。",
+      "exampleTranslation": "Không nên thực hiện những kế hoạch thiếu sự quan tâm đến an toàn.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 18242,
+      "term": "おもむろに",
+      "reading": "おもむろに",
+      "romaji": null,
+      "definition": "Chầm chậm, từ từ, nhẹ nhàng, thong thả",
+      "exampleSentence": "彼は質問に答える前に、おもむろに資料を開いた。",
+      "exampleTranslation": "Trước khi trả lời câu hỏi, anh ấy thong thả mở tài liệu.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

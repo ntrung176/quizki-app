@@ -1,0 +1,154 @@
+{
+  "id": 619,
+  "title": "N2 Unit 12.7 - 動詞C (bài 7/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.801829",
+  "cards": [
+    {
+      "id": 14217,
+      "term": "頂戴する (ちょうだいする)",
+      "reading": "ちょうだいする",
+      "romaji": null,
+      "definition": "nhận, đồng ý, hài lòng",
+      "exampleSentence": "「これ、お土産です」「ありがとうございます」「頂戴します」",
+      "exampleTranslation": "“Đây là quà.” “Cảm ơn.” “Mình xin nhận ạ.”",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14218,
+      "term": "学ぶ (まなぶ)",
+      "reading": "まなぶ",
+      "romaji": null,
+      "definition": "học",
+      "exampleSentence": "大学で経済学を学ぶ。",
+      "exampleTranslation": "Học kinh tế học ở đại học.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14219,
+      "term": "練る (ねる)",
+      "reading": "ねる",
+      "romaji": null,
+      "definition": "nhào trộn, trau chuốt",
+      "exampleSentence": "パンの生地を練る。",
+      "exampleTranslation": "Nhào bột làm bánh.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14220,
+      "term": "負う (おう)",
+      "reading": "おう",
+      "romaji": null,
+      "definition": "mang, vác",
+      "exampleSentence": "背に荷物を負う。",
+      "exampleTranslation": "Vác hành lý trên lưng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14221,
+      "term": "果たす (はたす)",
+      "reading": "はたす",
+      "romaji": null,
+      "definition": "hoàn thành",
+      "exampleSentence": "子供が成人して、ようやく親の責任を果たした。",
+      "exampleTranslation": "Con cái trưởng thành, cuối cùng cha mẹ cũng hoàn thành trách nhiệm.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14222,
+      "term": "引き受ける (ひきうける)",
+      "reading": "ひきうける",
+      "romaji": null,
+      "definition": "nhận, đảm trách",
+      "exampleSentence": "仕事を引き受けた以上、最後まで責任を持ってやるべきだ。",
+      "exampleTranslation": "Đã nhận việc thì phải có trách nhiệm làm đến cùng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14223,
+      "term": "増す (ます)",
+      "reading": "ます",
+      "romaji": null,
+      "definition": "tăng lên, lớn hơn",
+      "exampleSentence": "現地に行ってさらに興味が増した。",
+      "exampleTranslation": "Đến tận nơi rồi càng thấy hứng thú hơn.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14224,
+      "term": "欠ける (かける)",
+      "reading": "かける",
+      "romaji": null,
+      "definition": "bỏ lỡ, thiếu sót",
+      "exampleSentence": "茶碗の縁が欠けてしまった。",
+      "exampleTranslation": "Miệng (vành) bát bị mẻ.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14225,
+      "term": "欠かす (かかす)",
+      "reading": "かかす",
+      "romaji": null,
+      "definition": "thiếu, lỡ",
+      "exampleSentence": "骨の成長にカルシウムは欠かせない。",
+      "exampleTranslation": "Canxi là thứ không thể thiếu cho sự phát triển của xương.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14226,
+      "term": "澄む (すむ)",
+      "reading": "すむ",
+      "romaji": null,
+      "definition": "trở nên rõ ràng, trong",
+      "exampleSentence": "山の空気は澄んでいる。",
+      "exampleTranslation": "Không khí trên núi trong veo, trong lành.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14227,
+      "term": "濁る (にごる)",
+      "reading": "にごる",
+      "romaji": null,
+      "definition": "dính bùn, đục",
+      "exampleSentence": "台風で濁った川の水が激しく流れている。",
+      "exampleTranslation": "Do bão, nước sông đục ngầu chảy xiết.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14228,
+      "term": "濁す (にごす)",
+      "reading": "にごす",
+      "romaji": null,
+      "definition": "làm đục, nói năng mơ hồ",
+      "exampleSentence": "記者に鋭い質問をされた政治家は言葉を濁した。",
+      "exampleTranslation": "Bị phóng viên đặt câu hỏi hóc búa, chính trị gia đã nói quanh co lảng tránh.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 14229,
+      "term": "生じる (しょうじる)",
+      "reading": "しょうじる",
+      "romaji": null,
+      "definition": "phát sinh",
+      "exampleSentence": "計画の途中で問題が生じた。",
+      "exampleTranslation": "Giữa chừng kế hoạch phát sinh vấn đề.",
+      "forms": [],
+      "displayOrder": 12
+    }
+  ]
+}

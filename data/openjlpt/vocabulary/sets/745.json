@@ -1,0 +1,253 @@
+{
+  "id": 745,
+  "title": "N2 Tango 5.1 - Tại trường học · Trường học",
+  "description": "Tango N2 — Tại trường học",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:34.65655",
+  "cards": [
+    {
+      "id": 17115,
+      "term": "教わる (おそわる)",
+      "reading": "おそわる",
+      "romaji": null,
+      "definition": "Được dạy, học",
+      "exampleSentence": "日本語を上達させるには、よい先生から教わることが大切だ。",
+      "exampleTranslation": "Để nâng cao tiếng Nhật, việc được học từ một giáo viên giỏi là rất quan trọng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 17116,
+      "term": "願書 (がんしょ)",
+      "reading": "がんしょ",
+      "romaji": null,
+      "definition": "Đơn, đơn xin",
+      "exampleSentence": "願書は締め切りまでに、必要な書類と一緒に提出してください。",
+      "exampleTranslation": "Hãy nộp đơn cùng với các giấy tờ cần thiết trước hạn chót.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 17117,
+      "term": "推薦（する） (すいせん（する）)",
+      "reading": "すいせん（する）",
+      "romaji": null,
+      "definition": "Sự tiến cử, giới thiệu",
+      "exampleSentence": "「推薦（する）」という言葉は、人を他の人に勧めるという意味です。",
+      "exampleTranslation": "Từ “tiến cử” có nghĩa là giới thiệu một người với người khác.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 17118,
+      "term": "狙う (ねらう)",
+      "reading": "ねらう",
+      "romaji": null,
+      "definition": "Nhắm đến, hướng đến",
+      "exampleSentence": "今年の大会で優勝を狙う選手たちは、毎日厳しい練習を続けている。",
+      "exampleTranslation": "Những vận động viên nhắm đến chức vô địch trong giải đấu năm nay vẫn luyện tập nghiêm khắc mỗi ngày.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 17119,
+      "term": "意志 (いし)",
+      "reading": "いし",
+      "romaji": null,
+      "definition": "Ý chí",
+      "exampleSentence": "困難な状況でも目標を実現しようとする意志が必要だ。",
+      "exampleTranslation": "Ngay cả trong hoàn cảnh khó khăn, cũng cần có ý chí thực hiện mục tiêu.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 17120,
+      "term": "開始（する） (かいし（する）)",
+      "reading": "かいし（する）",
+      "romaji": null,
+      "definition": "Sự bắt đầu",
+      "exampleSentence": "「開始（する）」は、会議や式などを始めることを表す言葉です。",
+      "exampleTranslation": "“Bắt đầu” là từ chỉ việc khởi đầu các sự kiện như cuộc họp hoặc buổi lễ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 17121,
+      "term": "通常 (つうじょう)",
+      "reading": "つうじょう",
+      "romaji": null,
+      "definition": "Sự thông thường",
+      "exampleSentence": "通常は朝九時に始まりますが、明日は一時間遅れます。",
+      "exampleTranslation": "Thông thường chương trình bắt đầu lúc chín giờ sáng, nhưng ngày mai sẽ muộn một tiếng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 17122,
+      "term": "担任（する） (たんにん（する）)",
+      "reading": "たんにん（する）",
+      "romaji": null,
+      "definition": "Giáo viên chủ nhiệm",
+      "exampleSentence": "「担任（する）」とは、学校で特定のクラスを受け持つことです。",
+      "exampleTranslation": "“Làm giáo viên chủ nhiệm” có nghĩa là phụ trách một lớp cụ thể ở trường.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 17123,
+      "term": "受け持つ (うけもつ)",
+      "reading": "うけもつ",
+      "romaji": null,
+      "definition": "Đảm nhiệm, tiếp nhận",
+      "exampleSentence": "今年は私が二年生のクラスを受け持つことになった。",
+      "exampleTranslation": "Năm nay, tôi được phân công phụ trách lớp học sinh năm hai.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 17124,
+      "term": "委員 (いいん)",
+      "reading": "いいん",
+      "romaji": null,
+      "definition": "Ủy viên, cán sự",
+      "exampleSentence": "彼はクラス委員として、みんなの意見を先生に伝えている。",
+      "exampleTranslation": "Với tư cách là cán sự lớp, cậu ấy truyền đạt ý kiến của mọi người cho giáo viên.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 17125,
+      "term": "なじむ",
+      "reading": "なじむ",
+      "romaji": null,
+      "definition": "Quen, quen thuộc",
+      "exampleSentence": "新しい職場にも少しずつなじむことができた。",
+      "exampleTranslation": "Tôi đã dần dần làm quen được với nơi làm việc mới.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 17126,
+      "term": "充実（する） (じゅうじつ（する）)",
+      "reading": "じゅうじつ（する）",
+      "romaji": null,
+      "definition": "Sự đầy đủ, ý nghĩa, trọn vẹn",
+      "exampleSentence": "趣味の時間を増やすと、毎日の生活が「充実（する）」と感じられます。",
+      "exampleTranslation": "Khi tăng thời gian dành cho sở thích, tôi cảm thấy cuộc sống hằng ngày trở nên trọn vẹn hơn.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 17127,
+      "term": "高等（な） (こうとう（な）)",
+      "reading": "こうとう（な）",
+      "romaji": null,
+      "definition": "Cấp cao, trình độ cao",
+      "exampleSentence": "「高等（な）」という言葉は、普通より程度が高いことを表します。",
+      "exampleTranslation": "Từ “高等（な）” biểu thị mức độ cao hơn bình thường.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 17128,
+      "term": "ステップ",
+      "reading": "ステップ",
+      "romaji": null,
+      "definition": "Bước tiến, bậc tiến lên",
+      "exampleSentence": "新しい仕事を始めるには、まず小さなステップを踏むことが大切です。",
+      "exampleTranslation": "Để bắt đầu một công việc mới, trước hết việc từng bước tiến lên là rất quan trọng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 17129,
+      "term": "過程 (かてい)",
+      "reading": "かてい",
+      "romaji": null,
+      "definition": "Quá trình",
+      "exampleSentence": "準備から完成までの過程を、写真で記録しました。",
+      "exampleTranslation": "Tôi đã ghi lại bằng ảnh quá trình từ lúc chuẩn bị đến khi hoàn thành.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 17130,
+      "term": "取り上げる (とりあげる)",
+      "reading": "とりあげる",
+      "romaji": null,
+      "definition": "Đưa vào, lấy đi, tịch thu",
+      "exampleSentence": "先生は授業で、最近の環境問題を大きく取り上げる予定です。",
+      "exampleTranslation": "Giáo viên dự định sẽ đề cập sâu đến vấn đề môi trường gần đây trong giờ học.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 17131,
+      "term": "欠ける (かける)",
+      "reading": "かける",
+      "romaji": null,
+      "definition": "Thiếu, mất, khuyết, rụng",
+      "exampleSentence": "この計画は安全性に欠けるため、実施は見送られました。",
+      "exampleTranslation": "Vì kế hoạch này thiếu tính an toàn nên việc thực hiện đã bị hoãn lại.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 17132,
+      "term": "優秀な (ゆうしゅうな)",
+      "reading": "ゆうしゅうな",
+      "romaji": null,
+      "definition": "Ưu tú, xuất sắc",
+      "exampleSentence": "彼は優秀な研究者として、国際的にも高く評価されています。",
+      "exampleTranslation": "Với tư cách là một nhà nghiên cứu xuất sắc, anh ấy cũng được đánh giá cao trên trường quốc tế.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 17133,
+      "term": "修了（する） (しゅうりょう（する）)",
+      "reading": "しゅうりょう（する）",
+      "romaji": null,
+      "definition": "Sự kết thúc, hoàn thành (việc học nói chung)",
+      "exampleSentence": "「修了（する）」とは、決められた課程を最後まで終えることです。",
+      "exampleTranslation": "“修了（する）” có nghĩa là hoàn thành toàn bộ khóa học đã được quy định.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 17134,
+      "term": "ふさわしい",
+      "reading": "ふさわしい",
+      "romaji": null,
+      "definition": "Phù hợp",
+      "exampleSentence": "この服装は、式典に出席するのにふさわしいです。",
+      "exampleTranslation": "Trang phục này phù hợp để tham dự buổi lễ.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 17135,
+      "term": "認識（する） (にんしき（する）)",
+      "reading": "にんしき（する）",
+      "romaji": null,
+      "definition": "Nhận thức, ý thức",
+      "exampleSentence": "課題を正しく「認識（する）」ことが、問題解決への第一歩です。",
+      "exampleTranslation": "Nhận thức đúng vấn đề là bước đầu tiên để giải quyết vấn đề.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 17136,
+      "term": "語学学校 (ごがくがっこう)",
+      "reading": "ごがくがっこう",
+      "romaji": null,
+      "definition": "Trường học tiếng (ngoại ngữ)",
+      "exampleSentence": "卒業後、語学学校で英語を学び直すことにしました。",
+      "exampleTranslation": "Sau khi tốt nghiệp, tôi quyết định học lại tiếng Anh ở trường ngoại ngữ.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "id": 616,
+  "title": "N2 Unit 12.4 - 動詞C (bài 4/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.762186",
+  "cards": [
+    {
+      "id": 14188,
+      "term": "誓う (ちかう)",
+      "reading": "ちかう",
+      "romaji": null,
+      "definition": "thề, hứa",
+      "exampleSentence": "将来は必ず医者になって病気の人を救おうと心に誓った。",
+      "exampleTranslation": "Tôi tự thề trong lòng rằng tương lai nhất định sẽ trở thành bác sĩ để cứu người bệnh.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14189,
+      "term": "支える (ささえる)",
+      "reading": "ささえる",
+      "romaji": null,
+      "definition": "chống đỡ, nâng đỡ, hỗ trợ",
+      "exampleSentence": "つえで体を支えて歩く。",
+      "exampleTranslation": "Chống gậy để đỡ người mà đi.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14190,
+      "term": "費やす (ついやす)",
+      "reading": "ついやす",
+      "romaji": null,
+      "definition": "tiêu, tiêu hao, dùng",
+      "exampleSentence": "週末の時間のほとんどを趣味に費やしている。",
+      "exampleTranslation": "Tôi dành phần lớn thời gian cuối tuần cho sở thích.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14191,
+      "term": "用いる (もちいる)",
+      "reading": "もちいる",
+      "romaji": null,
+      "definition": "thuê, dùng, sử dụng",
+      "exampleSentence": "携帯電話は今や広く用いられている。",
+      "exampleTranslation": "Điện thoại di động nay được dùng rộng rãi.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14192,
+      "term": "改まる (あらたまる)",
+      "reading": "あらたまる",
+      "romaji": null,
+      "definition": "sửa, đổi, cải tiến",
+      "exampleSentence": "あの学生は何度注意しても態度が改まらない。",
+      "exampleTranslation": "Cậu học sinh đó nhắc bao nhiêu lần cũng không sửa đổi thái độ.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14193,
+      "term": "改める (あらためる)",
+      "reading": "あらためる",
+      "romaji": null,
+      "definition": "sửa đổi, cải thiện, thay đổi",
+      "exampleSentence": "「その遅刻癖を改めないと、信用を無くしますよ」",
+      "exampleTranslation": "“Nếu không sửa cái tật đi trễ đó thì anh sẽ mất uy tín đấy.”",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14194,
+      "term": "収まる・納まる・治まる (おさまる・おさまる・おさまる)",
+      "reading": "おさまる・おさまる・おさまる",
+      "romaji": null,
+      "definition": "thu, nạp, yên bình",
+      "exampleSentence": "本が増えて、本棚に収まらなくなった。",
+      "exampleTranslation": "Sách nhiều lên, không còn vừa kệ sách nữa.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14195,
+      "term": "収める・納める・治める (おさめる・おさめる・おさめる)",
+      "reading": "おさめる・おさめる・おさめる",
+      "romaji": null,
+      "definition": "giao nộp, tàng trữ",
+      "exampleSentence": "貴重品を金庫に収めた。",
+      "exampleTranslation": "Cất đồ quý vào két sắt.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14196,
+      "term": "沿う・添う (そう・そう)",
+      "reading": "そう・そう",
+      "romaji": null,
+      "definition": "dọc theo, men theo",
+      "exampleSentence": "駅を出て線路に沿って歩いた。",
+      "exampleTranslation": "Ra khỏi ga rồi đi bộ dọc theo đường ray.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14197,
+      "term": "添える (そえる)",
+      "reading": "そえる",
+      "romaji": null,
+      "definition": "gắn với",
+      "exampleSentence": "花束にカードを添えて送る。",
+      "exampleTranslation": "Gửi kèm một tấm thiệp cùng bó hoa.",
+      "forms": [],
+      "displayOrder": 9
+    }
+  ]
+}

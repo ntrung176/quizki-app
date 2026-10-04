@@ -1,0 +1,231 @@
+{
+  "id": 779,
+  "title": "N2 Tango 11.5 - Trạng thái - Hình ảnh · Hình ảnh tiêu cực",
+  "description": "Tango N2 — Trạng thái - Hình ảnh",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:38.424734",
+  "cards": [
+    {
+      "id": 18028,
+      "term": "憎らしい (にくらしい)",
+      "reading": "にくらしい",
+      "romaji": null,
+      "definition": "Đáng ghét, ghê tởm",
+      "exampleSentence": "あの選手は憎らしいほど勝負強く、最後には必ず逆転する。",
+      "exampleTranslation": "Cầu thủ đó giỏi đến mức khiến người ta phát ghét, và cuối cùng luôn lội ngược dòng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 18029,
+      "term": "強引な (ごういんな)",
+      "reading": "ごういんな",
+      "romaji": null,
+      "definition": "Ép buộc",
+      "exampleSentence": "彼の強引な誘いを断れず、週末の旅行に参加することになった。",
+      "exampleTranslation": "Tôi không thể từ chối lời rủ rê ép buộc của anh ấy nên đành tham gia chuyến du lịch cuối tuần.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 18030,
+      "term": "うっとうしい",
+      "reading": "うっとうしい",
+      "romaji": null,
+      "definition": "U ám, buồn rầu, ủ dột, nhặng xị, ồn ào",
+      "exampleSentence": "梅雨の時期は、雨の日が続いてうっとうしい。",
+      "exampleTranslation": "Vào mùa mưa, những ngày mưa kéo dài thật u ám và khó chịu.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 18031,
+      "term": "やっかい（な）",
+      "reading": "やっかい（な）",
+      "romaji": null,
+      "definition": "Sự phiền phức, rắc rối",
+      "exampleSentence": "「やっかい（な）」という言葉どおり、その手続きは非常にやっかいだ。",
+      "exampleTranslation": "Đúng như từ “rắc rối”, thủ tục đó thực sự rất phiền phức.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 18032,
+      "term": "とんでもない",
+      "reading": "とんでもない",
+      "romaji": null,
+      "definition": "Quá đáng không thể nào, không dám đâu",
+      "exampleSentence": "そんな高い料金を請求するなんて、とんでもない話だ。",
+      "exampleTranslation": "Đòi mức phí cao như vậy thật quá đáng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 18033,
+      "term": "安易な (あんいな)",
+      "reading": "あんいな",
+      "romaji": null,
+      "definition": "Dễ dàng, đơn giản",
+      "exampleSentence": "安易な判断で計画を変更すると、後で大きな問題になる。",
+      "exampleTranslation": "Nếu thay đổi kế hoạch bằng một quyết định quá đơn giản, sau này sẽ phát sinh vấn đề lớn.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 18034,
+      "term": "無難な (ぶなんな)",
+      "reading": "ぶなんな",
+      "romaji": null,
+      "definition": "An toàn, vừa phải, chấp nhận được",
+      "exampleSentence": "初対面の人には、無難な話題から始めるのがよい。",
+      "exampleTranslation": "Với người mới gặp lần đầu, nên bắt đầu bằng những chủ đề an toàn.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 18035,
+      "term": "平凡な (へいぼんな)",
+      "reading": "へいぼんな",
+      "romaji": null,
+      "definition": "Bình thường, bình lặng",
+      "exampleSentence": "平凡な毎日でも、家族と過ごせば幸せに感じる。",
+      "exampleTranslation": "Dù mỗi ngày bình thường, tôi vẫn cảm thấy hạnh phúc khi ở bên gia đình.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 18036,
+      "term": "みっともない",
+      "reading": "みっともない",
+      "romaji": null,
+      "definition": "Thiếu lịch sự, không đứng đắn, hổ thẹn",
+      "exampleSentence": "人前で大声でけんかするのは、みっともない。",
+      "exampleTranslation": "Cãi nhau to tiếng trước mặt mọi người thật chẳng lịch sự chút nào.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 18037,
+      "term": "見苦しい (みぐるしい)",
+      "reading": "みぐるしい",
+      "romaji": null,
+      "definition": "Xấu, khó coi",
+      "exampleSentence": "負けた理由を他人のせいにするのは見苦しい。",
+      "exampleTranslation": "Đổ lỗi cho người khác về lý do thất bại thật khó coi.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 18038,
+      "term": "みにくい",
+      "reading": "みにくい",
+      "romaji": null,
+      "definition": "Xấu xí, khó coi",
+      "exampleSentence": "彼の描いた怪物は、子どもが怖がるほどみにくい。",
+      "exampleTranslation": "Con quái vật anh ấy vẽ xấu xí đến mức trẻ con phải sợ.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 18039,
+      "term": "ぼろぼろな",
+      "reading": "ぼろぼろな",
+      "romaji": null,
+      "definition": "Rách nát, tả tơi",
+      "exampleSentence": "長年使ったそのかばんは、表面がぼろぼろな状態になっている。",
+      "exampleTranslation": "Chiếc cặp đã dùng nhiều năm đó trở nên rách nát cả bề mặt.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 18040,
+      "term": "あわれな",
+      "reading": "あわれな",
+      "romaji": null,
+      "definition": "Đáng thương",
+      "exampleSentence": "雨の中で震えているあわれな子猫を、家に連れて帰った。",
+      "exampleTranslation": "Tôi đã đưa chú mèo con đáng thương đang run rẩy dưới mưa về nhà.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 18041,
+      "term": "乏しい (とぼしい)",
+      "reading": "とぼしい",
+      "romaji": null,
+      "definition": "Thiếu thốn, hạn hẹp, keo kiệt, bần cùng",
+      "exampleSentence": "この地域は水が乏しいため、いつも節水が必要だ。",
+      "exampleTranslation": "Khu vực này thiếu nước nên lúc nào cũng cần tiết kiệm nước.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 18042,
+      "term": "中途半端（な） (ちゅうとはんぱ（な）)",
+      "reading": "ちゅうとはんぱ（な）",
+      "romaji": null,
+      "definition": "Nửa chừng, nửa vời",
+      "exampleSentence": "仕事を中途半端な状態のまま終わらせてはいけない。",
+      "exampleTranslation": "Không được để công việc kết thúc trong trạng thái dở dang.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 18043,
+      "term": "まごまご（する）",
+      "reading": "まごまご（する）",
+      "romaji": null,
+      "definition": "Lúng túng, hoang mang, loay hoay",
+      "exampleSentence": "初めての駅で、彼は案内板を見ても「まごまご（する）」状態から抜け出せなかった。",
+      "exampleTranslation": "Ở nhà ga lần đầu đến, dù nhìn bảng hướng dẫn nhưng anh ấy vẫn cứ lúng túng.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 18044,
+      "term": "矛盾（する） (むじゅん（する）)",
+      "reading": "むじゅん（する）",
+      "romaji": null,
+      "definition": "Mâu thuẫn, trái ngược",
+      "exampleSentence": "彼の説明は前の発言と矛盾する内容だったため、誰も納得しなかった。",
+      "exampleTranslation": "Vì lời giải thích của anh ấy có nội dung mâu thuẫn với phát biểu trước đó nên không ai thấy thuyết phục.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 18045,
+      "term": "にやにや（する）",
+      "reading": "にやにや（する）",
+      "romaji": null,
+      "definition": "Cười giả tạo, màu mè",
+      "exampleSentence": "彼は人の失敗を聞いて、「にやにや（する）」ような笑い方をした。",
+      "exampleTranslation": "Nghe chuyện người khác thất bại, anh ta cười nhếch mép đầy giả tạo.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 18046,
+      "term": "でこぼこ（な/する）",
+      "reading": "でこぼこ（な/する）",
+      "romaji": null,
+      "definition": "Lồi lõm, gập ghềnh",
+      "exampleSentence": "工事中の道は「でこぼこ（な/する）」状態で、車が大きく揺れた。",
+      "exampleTranslation": "Con đường đang thi công gập ghềnh khiến xe lắc mạnh.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 18047,
+      "term": "それなり",
+      "reading": "それなり",
+      "romaji": null,
+      "definition": "Trong chừng mực nào đó",
+      "exampleSentence": "十分な準備はできなかったが、それなりに満足できる結果になった。",
+      "exampleTranslation": "Dù không thể chuẩn bị đầy đủ, kết quả vẫn khá đáng hài lòng.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

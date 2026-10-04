@@ -1,0 +1,44 @@
+{
+  "id": 561,
+  "title": "N2 Unit 4.4 - 名詞B (bài 4/12)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.770524",
+  "cards": [
+    {
+      "id": 13481,
+      "term": "外 (ほか)",
+      "reading": "ほか",
+      "romaji": null,
+      "definition": "ngoài ra, khác, bên ngoài",
+      "exampleSentence": "「私には分かりませんので、ほかの人に聞いてください」",
+      "exampleTranslation": "Tôi không biết, hãy hỏi người khác nhé.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13482,
+      "term": "境 (さかい)",
+      "reading": "さかい",
+      "romaji": null,
+      "definition": "biên giới, ngăn cách",
+      "exampleSentence": "隣の家の境には塀がある。",
+      "exampleTranslation": "Ranh giới giữa nhà tôi và nhà bên cạnh có hàng rào.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13483,
+      "term": "半ば (なかば)",
+      "reading": "なかば",
+      "romaji": null,
+      "definition": "một nửa, ở giữa",
+      "exampleSentence": "彼女の話の半ばは嘘だ。",
+      "exampleTranslation": "Câu chuyện của cô ấy có một nửa là nói dối.",
+      "forms": [],
+      "displayOrder": 2
+    }
+  ]
+}

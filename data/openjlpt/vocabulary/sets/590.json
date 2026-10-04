@@ -1,0 +1,154 @@
+{
+  "id": 590,
+  "title": "N2 Unit 8.3 - 動詞B (bài 3/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.386566",
+  "cards": [
+    {
+      "id": 13867,
+      "term": "区切る (くぎる)",
+      "reading": "くぎる",
+      "romaji": null,
+      "definition": "chia, phân chia",
+      "exampleSentence": "一つ一つ言葉を区切って話す。",
+      "exampleTranslation": "Nói rõ ràng, ngắt từng từ một.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13868,
+      "term": "組む (くむ)",
+      "reading": "くむ",
+      "romaji": null,
+      "definition": "hiệp lực, tham gia, đoàn kết, bắt chéo",
+      "exampleSentence": "｛足/腕/肩…｝を組む。",
+      "exampleTranslation": "Khoanh tay; bắt chéo (tay/chân/vai…).",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13869,
+      "term": "組み立てる (くみたてる)",
+      "reading": "くみたてる",
+      "romaji": null,
+      "definition": "lắp ráp",
+      "exampleSentence": "部品を組み立てて機械を作った。",
+      "exampleTranslation": "Lắp các bộ phận để làm thành máy móc.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13870,
+      "term": "加わる (くわわる)",
+      "reading": "くわわる",
+      "romaji": null,
+      "definition": "thêm vào, tăng lên",
+      "exampleSentence": "新しい選手がチームに加わった。",
+      "exampleTranslation": "Một tuyển thủ mới gia nhập đội.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13871,
+      "term": "加える (くわえる)",
+      "reading": "くわえる",
+      "romaji": null,
+      "definition": "tham gia, cộng vào, tăng thêm",
+      "exampleSentence": "3に8を加えると11になる。",
+      "exampleTranslation": "Cộng 8 vào 3 thì thành 11.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13872,
+      "term": "仕上がる (しあがる)",
+      "reading": "しあがる",
+      "romaji": null,
+      "definition": "được hoàn thành, kết thúc",
+      "exampleSentence": "恋人にあげるマフラーがやっと仕上がった。",
+      "exampleTranslation": "Cuối cùng cũng đan xong chiếc khăn tặng người yêu.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13873,
+      "term": "仕上げる (しあげる)",
+      "reading": "しあげる",
+      "romaji": null,
+      "definition": "hoàn thành, kết thúc",
+      "exampleSentence": "「この仕事は月末までに仕上げてください」",
+      "exampleTranslation": "Hãy hoàn thành công việc này trước cuối tháng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13874,
+      "term": "通りかかる (とおりかかる)",
+      "reading": "とおりかかる",
+      "romaji": null,
+      "definition": "ngang qua, đi qua (1 cách tình cờ)",
+      "exampleSentence": "ラーメン屋の前を通りかかると、大勢の人が行列していた。",
+      "exampleTranslation": "Đi ngang qua quán ramen thì thấy rất đông người đang xếp hàng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13875,
+      "term": "飛び回る (とびまわる)",
+      "reading": "とびまわる",
+      "romaji": null,
+      "definition": "bay vòng quanh",
+      "exampleSentence": "ミツバチがぶんぶん飛び回っている。",
+      "exampleTranslation": "Ong bay vo ve khắp nơi.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13876,
+      "term": "巡る (めぐる)",
+      "reading": "めぐる",
+      "romaji": null,
+      "definition": "quay quanh",
+      "exampleSentence": "地球は太陽の周りを巡っている。",
+      "exampleTranslation": "Trái Đất quay quanh Mặt Trời.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13877,
+      "term": "補う (おぎなう)",
+      "reading": "おぎなう",
+      "romaji": null,
+      "definition": "đền bù; bù; bổ sung",
+      "exampleSentence": "栄養不足を補うために、薬を飲んでいる。",
+      "exampleTranslation": "Tôi uống thuốc để bù đắp thiếu dinh dưỡng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13878,
+      "term": "防ぐ (ふせぐ)",
+      "reading": "ふせぐ",
+      "romaji": null,
+      "definition": "phòng, chống",
+      "exampleSentence": "泥棒を防ぐために、鍵を二つ付けた。",
+      "exampleTranslation": "Để phòng trộm, tôi gắn thêm hai ổ khóa.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13879,
+      "term": "救う (すくう)",
+      "reading": "すくう",
+      "romaji": null,
+      "definition": "cứu, giúp",
+      "exampleSentence": "ペニシリンの発見は、多くの人々の命を救った。",
+      "exampleTranslation": "Việc phát hiện penicillin đã cứu sống rất nhiều người.",
+      "forms": [],
+      "displayOrder": 12
+    }
+  ]
+}

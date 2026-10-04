@@ -1,10 +1,11 @@
 import React, { useState, useMemo } from 'react';
 import { 
     AlertCircle, CheckCircle2, RotateCcw, Play, Trash2, 
-    BookOpen, Search, Filter, Sparkles, Check, ArrowRight, 
+    BookOpen, Search, Filter, Check, ArrowRight, 
     Layers, Plus, Trophy
 } from 'lucide-react';
 import { LEVEL_GRADIENTS } from './jlptConstants';
+import QuestionExplanationCard from './QuestionExplanationCard';
 
 const JLPTWrongQuestionsTab = ({
     wrongQuestions = {},
@@ -73,9 +74,9 @@ const JLPTWrongQuestionsTab = ({
                             <button
                                 onClick={() => onStartPracticeWrong(filteredList)}
                                 disabled={filteredList.length === 0}
-                                className="px-4 py-2.5 bg-rose-600 hover:bg-rose-500 disabled:opacity-40 text-white rounded-2xl text-xs font-black transition flex items-center gap-2 shadow-md shadow-rose-600/20 cursor-pointer active:scale-95"
+                                className="px-5 py-2.5 bg-[#f494bc] hover:bg-[#f6a0c5] disabled:opacity-40 text-slate-950 rounded-2xl text-xs font-black transition flex items-center gap-2 shadow-[0_4px_14px_rgba(244,148,188,0.4)] cursor-pointer active:scale-95"
                             >
-                                <Play className="w-4 h-4 fill-current" />
+                                <Play className="w-4 h-4 fill-slate-950 text-slate-950" />
                                 <span>Luyện lại câu sai ({filteredList.length})</span>
                             </button>
                         )}
@@ -176,7 +177,7 @@ const JLPTWrongQuestionsTab = ({
                                         {item.options.map((opt, oi) => {
                                             const isCorrect = oi === item.correctAnswer;
                                             const isUserChoice = oi === item.userAnswer;
-                                            const letter = String.fromCharCode(97 + oi);
+                                            const letter = String.fromCharCode(65 + oi);
 
                                             return (
                                                 <div
@@ -190,7 +191,7 @@ const JLPTWrongQuestionsTab = ({
                                                     }`}
                                                 >
                                                     <div className="flex items-center gap-2">
-                                                        <span className="font-bold opacity-70">({letter})</span>
+                                                        <span className="font-bold opacity-70">[{letter}]</span>
                                                         <span dangerouslySetInnerHTML={{ __html: opt }} />
                                                     </div>
                                                     {isCorrect && <Check className="w-4 h-4 text-emerald-600 shrink-0" />}
@@ -200,16 +201,13 @@ const JLPTWrongQuestionsTab = ({
                                     </div>
                                 )}
 
-                                {/* Detailed Explanation */}
-                                {item.explanation && (
-                                    <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-700/60 text-xs text-slate-700 dark:text-slate-300 space-y-1 whitespace-pre-line leading-relaxed">
-                                        <div className="font-bold text-indigo-600 dark:text-indigo-400 flex items-center gap-1">
-                                            <Sparkles className="w-3.5 h-3.5" />
-                                            <span>Giải thích chi tiết:</span>
-                                        </div>
-                                        <div>{item.explanation}</div>
-                                    </div>
-                                )}
+                                {/* Detailed Explanation Card */}
+                                <QuestionExplanationCard 
+                                    question={item}
+                                    options={item.options || []}
+                                    correctAnswer={item.correctAnswer}
+                                    userAnswer={item.userAnswer}
+                                />
                             </div>
                         );
                     })}

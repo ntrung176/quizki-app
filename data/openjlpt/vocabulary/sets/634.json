@@ -1,0 +1,209 @@
+{
+  "id": 634,
+  "title": "N3 Tango 2.1 - Cuộc sống hàng ngày ① · Cách nói về thời gian",
+  "description": "Tango N3 — Cuộc sống hàng ngày ①",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:12.282016",
+  "cards": [
+    {
+      "id": 14442,
+      "term": "本日 (ほんじつ)",
+      "reading": "ほんじつ",
+      "romaji": null,
+      "definition": "Hôm nay",
+      "exampleSentence": "本日はご来店いただき、ありがとうございます。",
+      "exampleTranslation": "Xin cảm ơn quý khách đã ghé cửa hàng hôm nay.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14443,
+      "term": "明日 (あす)",
+      "reading": "あす",
+      "romaji": null,
+      "definition": "Ngày mai",
+      "exampleSentence": "明日は朝早く出発するので、今夜は早く寝ます。",
+      "exampleTranslation": "Vì ngày mai phải xuất phát từ sáng sớm nên tối nay tôi sẽ đi ngủ sớm.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14444,
+      "term": "前日 (ぜんじつ)",
+      "reading": "ぜんじつ",
+      "romaji": null,
+      "definition": "Ngày hôm trước",
+      "exampleSentence": "試験の前日は、早く寝て体調を整えましょう。",
+      "exampleTranslation": "Vào ngày trước kỳ thi, hãy ngủ sớm để giữ thể trạng tốt.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14445,
+      "term": "翌日 (よくじつ)",
+      "reading": "よくじつ",
+      "romaji": null,
+      "definition": "Ngày hôm sau",
+      "exampleSentence": "旅行の翌日は、家でゆっくり休みました。",
+      "exampleTranslation": "Ngày hôm sau chuyến du lịch, tôi đã nghỉ ngơi thật thoải mái ở nhà.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14446,
+      "term": "しあさって",
+      "reading": "しあさって",
+      "romaji": null,
+      "definition": "Ngày kia",
+      "exampleSentence": "しあさってに東京へ出張する予定です。",
+      "exampleTranslation": "Tôi dự định đi công tác Tokyo vào ba ngày nữa.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14447,
+      "term": "先おととい (さきおととい)",
+      "reading": "さきおととい",
+      "romaji": null,
+      "definition": "Hôm kìa",
+      "exampleSentence": "先おとといは家族と近くの公園へ出かけました。",
+      "exampleTranslation": "Hôm kìa tôi đã đi công viên gần nhà cùng gia đình.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14448,
+      "term": "昨日 (さくじつ)",
+      "reading": "さくじつ",
+      "romaji": null,
+      "definition": "Hôm qua",
+      "exampleSentence": "昨日は仕事が忙しくて、帰宅したのは夜十時でした。",
+      "exampleTranslation": "Hôm qua công việc bận rộn nên tôi về đến nhà lúc mười giờ tối.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14449,
+      "term": "昨年 (さくねん)",
+      "reading": "さくねん",
+      "romaji": null,
+      "definition": "Năm ngoái",
+      "exampleSentence": "昨年、日本へ来て初めて桜を見ました。",
+      "exampleTranslation": "Năm ngoái, tôi lần đầu tiên được ngắm hoa anh đào sau khi đến Nhật.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14450,
+      "term": "先日 (せんじつ)",
+      "reading": "せんじつ",
+      "romaji": null,
+      "definition": "Hôm nọ, hôm trước",
+      "exampleSentence": "先日、駅で高校時代の友人に偶然会いました。",
+      "exampleTranslation": "Hôm nọ, tôi tình cờ gặp một người bạn thời trung học ở ga.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14451,
+      "term": "再来週 (さらいしゅう)",
+      "reading": "さらいしゅう",
+      "romaji": null,
+      "definition": "Tuần tới nữa",
+      "exampleSentence": "再来週の月曜日に健康診断を受ける予定です。",
+      "exampleTranslation": "Tôi dự định khám sức khỏe vào thứ Hai của tuần tới nữa.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14452,
+      "term": "先々週 (せんせんしゅう)",
+      "reading": "せんせんしゅう",
+      "romaji": null,
+      "definition": "Tuần trước nữa",
+      "exampleSentence": "先々週から新しいアルバイトを始めました。",
+      "exampleTranslation": "Tôi đã bắt đầu công việc làm thêm mới từ tuần trước nữa.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14453,
+      "term": "上旬 (じょうじゅん)",
+      "reading": "じょうじゅん",
+      "romaji": null,
+      "definition": "Thượng tuần, đầu tháng",
+      "exampleSentence": "会議は六月上旬に開かれる予定です。",
+      "exampleTranslation": "Cuộc họp dự kiến sẽ được tổ chức vào đầu tháng Sáu.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 14454,
+      "term": "中旬 (ちゅうじゅん)",
+      "reading": "ちゅうじゅん",
+      "romaji": null,
+      "definition": "Trung tuần, giữa tháng",
+      "exampleSentence": "中旬に出張がありますので、予定を空けておいてください。",
+      "exampleTranslation": "Vì giữa tháng có chuyến công tác, hãy để trống lịch nhé.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 14455,
+      "term": "下旬 (げじゅん)",
+      "reading": "げじゅん",
+      "romaji": null,
+      "definition": "Hạ tuần, cuối tháng",
+      "exampleSentence": "申込書は今月下旬までに提出してください。",
+      "exampleTranslation": "Vui lòng nộp đơn đăng ký trước cuối tháng này.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 14456,
+      "term": "深夜 (しんや)",
+      "reading": "しんや",
+      "romaji": null,
+      "definition": "Đêm khuya",
+      "exampleSentence": "深夜に大きな音を立てるのは近所の人に迷惑です。",
+      "exampleTranslation": "Gây tiếng động lớn vào đêm khuya sẽ làm phiền hàng xóm.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 14457,
+      "term": "未来 (みらい)",
+      "reading": "みらい",
+      "romaji": null,
+      "definition": "Tương lai",
+      "exampleSentence": "科学の進歩によって、未来の生活は大きく変わるでしょう。",
+      "exampleTranslation": "Nhờ sự tiến bộ của khoa học, cuộc sống trong tương lai có lẽ sẽ thay đổi đáng kể.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 14458,
+      "term": "数日 (すうじつ)",
+      "reading": "すうじつ",
+      "romaji": null,
+      "definition": "Một số ngày, một vài ngày",
+      "exampleSentence": "旅行から帰るまで、数日かかる予定です。",
+      "exampleTranslation": "Dự kiến sẽ mất vài ngày nữa mới về đến sau chuyến du lịch.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 14459,
+      "term": "以降 (いこう)",
+      "reading": "いこう",
+      "romaji": null,
+      "definition": "Từ sau",
+      "exampleSentence": "来週以降は、毎週水曜日に会議を行います。",
+      "exampleTranslation": "Từ tuần sau trở đi, chúng tôi sẽ họp vào thứ Tư hằng tuần.",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

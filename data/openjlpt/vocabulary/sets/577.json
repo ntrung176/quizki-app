@@ -1,0 +1,198 @@
+{
+  "id": 577,
+  "title": "N2 Unit 6.3 - 副詞＋接続詞 (bài 3/5)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 副詞＋接続詞",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.193077",
+  "cards": [
+    {
+      "id": 13703,
+      "term": "既に (すでに)",
+      "reading": "すでに",
+      "romaji": null,
+      "definition": "đã; đã rồi",
+      "exampleSentence": "私が駅に着いたとき、終電はすでに出た後だった。",
+      "exampleTranslation": "Tôi đến ga thì tàu cuối đã đi mất rồi.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13704,
+      "term": "事前に (じぜんに)",
+      "reading": "じぜんに",
+      "romaji": null,
+      "definition": "trước",
+      "exampleSentence": "インタビューの相手に、事前に質問を伝えておいた。",
+      "exampleTranslation": "Tôi đã báo trước câu hỏi cho người được phỏng vấn.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13705,
+      "term": "当日 (とうじつ)",
+      "reading": "とうじつ",
+      "romaji": null,
+      "definition": "ngày đó",
+      "exampleSentence": "入学式当日、熱を出してしまった。",
+      "exampleTranslation": "Vào đúng hôm nhập học, tôi không may bị sốt.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13706,
+      "term": "当時 (とうじ)",
+      "reading": "とうじ",
+      "romaji": null,
+      "definition": "thời đó",
+      "exampleSentence": "私は京都出身だが、当時住んでいた家はもうない。",
+      "exampleTranslation": "Tôi quê Kyoto, nhưng ngôi nhà hồi đó sống giờ không còn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13707,
+      "term": "一時 (いちじ)",
+      "reading": "いちじ",
+      "romaji": null,
+      "definition": "nhất thời, có lúc",
+      "exampleSentence": "子供のころ、一時アメリカに住んでいたことがある。",
+      "exampleTranslation": "Hồi nhỏ, tôi từng sống ở Mỹ một thời gian.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13708,
+      "term": "至急 (しきゅう)",
+      "reading": "しきゅう",
+      "romaji": null,
+      "definition": "khẩn cấp",
+      "exampleSentence": "この患者は至急病院へ運ぶ必要がある。",
+      "exampleTranslation": "Bệnh nhân này cần chuyển gấp đến bệnh viện.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13709,
+      "term": "直ちに (ただちに)",
+      "reading": "ただちに",
+      "romaji": null,
+      "definition": "trực tiếp, ngay lập tức, tức thì",
+      "exampleSentence": "事故の情報は直ちに社長に伝えられた。",
+      "exampleTranslation": "Thông tin vụ tai nạn lập tức được báo cho giám đốc.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13710,
+      "term": "早速 (さっそく)",
+      "reading": "さっそく",
+      "romaji": null,
+      "definition": "nhanh chóng",
+      "exampleSentence": "新しいレストランができたので、さっそく行ってみた。",
+      "exampleTranslation": "Có nhà hàng mới mở nên tôi đi ngay thử.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13711,
+      "term": "行き成り (いきなり)",
+      "reading": "いきなり",
+      "romaji": null,
+      "definition": "bất ngờ, tình lình, đột ngột",
+      "exampleSentence": "ノックもせずにいきなり部屋に入るのは失礼だ。",
+      "exampleTranslation": "Không gõ cửa mà xộc vào phòng là thất lễ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13712,
+      "term": "常に (つねに)",
+      "reading": "つねに",
+      "romaji": null,
+      "definition": "thường xuyên",
+      "exampleSentence": "鈴木さんは常に努力を怠らない、素晴らしい学生だ。",
+      "exampleTranslation": "Suzuki luôn không lơ là nỗ lực—một học sinh tuyệt vời.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13713,
+      "term": "絶えず (たえず)",
+      "reading": "たえず",
+      "romaji": null,
+      "definition": "liên tục",
+      "exampleSentence": "妹は体が弱くて、絶えず風邪を引いている。",
+      "exampleTranslation": "Em gái tôi yếu nên liên tục bị cảm.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13714,
+      "term": "屡々 (しばしば)",
+      "reading": "しばしば",
+      "romaji": null,
+      "definition": "rất thường xuyên",
+      "exampleSentence": "年のせいか、しばしば物忘れをするようになった。",
+      "exampleTranslation": "Có lẽ vì tuổi tác nên tôi hay quên.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13715,
+      "term": "度々 (たびたび)",
+      "reading": "たびたび",
+      "romaji": null,
+      "definition": "hay, nhiều lần, thường xuyên",
+      "exampleSentence": "田中さんとは仕事以外でもたびたび会うようになった。",
+      "exampleTranslation": "Tôi hay gặp Tanaka cả ngoài công việc.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13716,
+      "term": "しょっちゅう",
+      "reading": "しょっちゅう",
+      "romaji": null,
+      "definition": "luôn luôn, thường xuyên",
+      "exampleSentence": "この道路のバスはしょっちゅう遅れるから困る。",
+      "exampleTranslation": "Xe buýt tuyến này hay trễ nên phiền.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13717,
+      "term": "偶に (たまに)",
+      "reading": "たまに",
+      "romaji": null,
+      "definition": "thỉnh thoảng",
+      "exampleSentence": "最近運動不足なので、たまにたくさん歩くと疲れる。",
+      "exampleTranslation": "Gần đây ít vận động nên thỉnh thoảng đi nhiều là mệt.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 13718,
+      "term": "滅多に (めったに)",
+      "reading": "めったに",
+      "romaji": null,
+      "definition": "hiếm khi",
+      "exampleSentence": "この辺りでは、雪はめったに降らない。",
+      "exampleTranslation": "Vùng này tuyết hiếm khi rơi.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 13719,
+      "term": "にこにこ・にっこり",
+      "reading": "にこにこ・にっこり",
+      "romaji": null,
+      "definition": "mỉm cười, cười mỉm",
+      "exampleSentence": "あの人はいつも愛想よく、にこにこしている。",
+      "exampleTranslation": "Người đó lúc nào cũng niềm nở, cười tươi.",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

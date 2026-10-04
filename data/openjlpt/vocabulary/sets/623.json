@@ -1,0 +1,176 @@
+{
+  "id": 623,
+  "title": "N2 Unit 13.2 - 副詞＋連体詞 (bài 2/5)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 副詞＋連体詞",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.863854",
+  "cards": [
+    {
+      "id": 14267,
+      "term": "生憎 (あいにく)",
+      "reading": "あいにく",
+      "romaji": null,
+      "definition": "đáng tiếc",
+      "exampleSentence": "古い友人に電話をかけたが、あいにく彼女は留守だった。",
+      "exampleTranslation": "Gọi cho bạn cũ nhưng tiếc là cô ấy đi vắng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14268,
+      "term": "案の定 (あんのじょう)",
+      "reading": "あんのじょう",
+      "romaji": null,
+      "definition": "quả nhiên, đúng như dự đoán",
+      "exampleSentence": "怪しいと思っていたが、案の定、彼は犯人だった。",
+      "exampleTranslation": "Tôi đã nghi rồi, quả nhiên anh ta là thủ phạm.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14269,
+      "term": "いよいよ",
+      "reading": "いよいよ",
+      "romaji": null,
+      "definition": "cuối cùng, đã đến lúc, càng ngày càng",
+      "exampleSentence": "あしたはいよいよ決勝戦だ。",
+      "exampleTranslation": "Ngày mai cuối cùng cũng đến trận chung kết.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14270,
+      "term": "流石 (さすが)",
+      "reading": "さすが",
+      "romaji": null,
+      "definition": "quả là, như dự đoán, thật đúng là",
+      "exampleSentence": "有名ブランド品だけあって、さすがに高い。",
+      "exampleTranslation": "Đúng là hàng hiệu nên đắt thật.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14271,
+      "term": "兎に角 (とにかく)",
+      "reading": "とにかく",
+      "romaji": null,
+      "definition": "dù sao, cách này hay cách khác",
+      "exampleSentence": "できるかどうかわからないが、とにかくやってみよう。",
+      "exampleTranslation": "Không biết làm được không, nhưng thôi cứ thử đã.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14272,
+      "term": "兎も角 (ともかく)",
+      "reading": "ともかく",
+      "romaji": null,
+      "definition": "dù sao, cách này hay cách khác",
+      "exampleSentence": "引き受けてくれるかどうかわからないが、ともかく頼んでみるつもりだ。",
+      "exampleTranslation": "Không biết họ có nhận không nhưng dù sao tôi cũng sẽ nhờ thử.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14273,
+      "term": "せめて",
+      "reading": "せめて",
+      "romaji": null,
+      "definition": "ít nhất, tối thiểu là",
+      "exampleSentence": "せめて日曜日くらいはゆっくり休みたい。",
+      "exampleTranslation": "Ít nhất thì cũng muốn chủ nhật được nghỉ ngơi thong thả.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14274,
+      "term": "せいぜい",
+      "reading": "せいぜい",
+      "romaji": null,
+      "definition": "tối đa, nhiều nhất có thể",
+      "exampleSentence": "うちから駅までは、歩いてもせいぜい10分ぐらいです。",
+      "exampleTranslation": "Từ nhà đến ga, đi bộ nhiều lắm cũng chỉ khoảng 10 phút.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14275,
+      "term": "どうせ",
+      "reading": "どうせ",
+      "romaji": null,
+      "definition": "dù cho, đằng nào thì",
+      "exampleSentence": "どうせ不合格に決まっているが、やっぱり受けたい。",
+      "exampleTranslation": "Đằng nào cũng trượt, nhưng tôi vẫn muốn thi.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14276,
+      "term": "ぎっしり",
+      "reading": "ぎっしり",
+      "romaji": null,
+      "definition": "lèn chặt, đầy chặt, kín lịch",
+      "exampleSentence": "本棚には本がぎっしり並んでいる。",
+      "exampleTranslation": "Sách xếp chật kín trên kệ.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14277,
+      "term": "ずらりと",
+      "reading": "ずらりと",
+      "romaji": null,
+      "definition": "trong một dãy",
+      "exampleSentence": "息子の本棚にはずらりと漫画が並んでいる。",
+      "exampleTranslation": "Truyện tranh xếp dài kín kệ sách của con trai tôi.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14278,
+      "term": "あっさり",
+      "reading": "あっさり",
+      "romaji": null,
+      "definition": "đơn giản, nhẹ nhàng",
+      "exampleSentence": "今日は食欲がないので、あっさりしたものが食べたい。",
+      "exampleTranslation": "Hôm nay không có khẩu vị, muốn ăn món thanh nhẹ.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 14279,
+      "term": "しんと・しいんと",
+      "reading": "しんと・しいんと",
+      "romaji": null,
+      "definition": "yên lặng, lặng lẽ",
+      "exampleSentence": "先生が大声で怒ると、子供たちはしいんとなった。",
+      "exampleTranslation": "Thầy vừa quát lớn, bọn trẻ lập tức im phăng phắc.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 14280,
+      "term": "ちゃんと",
+      "reading": "ちゃんと",
+      "romaji": null,
+      "definition": "nghiêm túc, cẩn thận, tuyệt đối",
+      "exampleSentence": "「面接にはちゃんとした服を着ていくこと」",
+      "exampleTranslation": "Đi phỏng vấn thì phải mặc đồ đàng hoàng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 14281,
+      "term": "続々 (ぞくぞく)",
+      "reading": "ぞくぞく",
+      "romaji": null,
+      "definition": "liên tục, cái này sau cái kia",
+      "exampleSentence": "客が続々と詰めかけ、会場はすぐに満員になった。",
+      "exampleTranslation": "Khách ùn ùn kéo đến, địa điểm lập tức kín chỗ.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

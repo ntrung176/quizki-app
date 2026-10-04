@@ -88,6 +88,7 @@ const BookScreen = lazyWithRetry(() => import('./screens/BookScreen'));
 const KanjiScreen = lazyWithRetry(() => import('./screens/KanjiScreen'));
 const GrammarPointsScreen = lazyWithRetry(() => import('./screens/GrammarPointsScreen'));
 const GrammarDetailScreen = lazyWithRetry(() => import('./screens/GrammarDetailScreen'));
+const GrammarNuancesScreen = lazyWithRetry(() => import('./screens/GrammarNuancesScreen'));
 const GrammarCheatSheetsScreen = lazyWithRetry(() => import('./screens/GrammarCheatSheetsScreen'));
 const GrammarCheatSheetDetailScreen = lazyWithRetry(() => import('./screens/GrammarCheatSheetDetailScreen'));
 const GrammarCurriculumScreen = lazyWithRetry(() => import('./screens/GrammarCurriculumScreen'));
@@ -1321,6 +1322,16 @@ const AppRoutes = ({
                         <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
                             <GrammarProtectedRoute isAdmin={isAdmin}>
                                 <GrammarCheatSheetsScreen />
+                            </GrammarProtectedRoute>
+                        </ProtectedRoute>
+                    }
+                />
+                <Route
+                    path={ROUTES.GRAMMAR_NUANCES}
+                    element={
+                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
+                            <GrammarProtectedRoute isAdmin={isAdmin}>
+                                <GrammarNuancesScreen />
                             </GrammarProtectedRoute>
                         </ProtectedRoute>
                     }

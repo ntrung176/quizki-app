@@ -1,0 +1,198 @@
+{
+  "id": 392,
+  "title": "N3 Unit 4.1 - 名詞B・礼儀と交流 (Lễ nghi & giao tiếp)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 名詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.515329",
+  "cards": [
+    {
+      "id": 10505,
+      "term": "世話 (せわ)",
+      "reading": "せわ",
+      "romaji": "sewa",
+      "definition": "chăm sóc, hỗ trợ",
+      "exampleSentence": "うちではペットの世話は私の仕事だ",
+      "exampleTranslation": "Ở nhà việc chăm sóc thú nuôi là công việc của tôi.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10506,
+      "term": "家庭 (かてい)",
+      "reading": "かてい",
+      "romaji": "katei",
+      "definition": "gia đình",
+      "exampleSentence": "NARUTO課長は仕事ではきびしいが、家庭ではやさしいお父さんだそうだ",
+      "exampleTranslation": "Trưởng phòng Naruto khi làm việc thì nghiêm khắc, nhưng nghe nói ở nhà lại là một người cha hiền từ.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10507,
+      "term": "協力 (きょうりょく)",
+      "reading": "きょうりょく",
+      "romaji": "kyōryoku",
+      "definition": "hợp tác, hiệp lực",
+      "exampleSentence": "家族で協力して祖母の介護をした",
+      "exampleTranslation": "Gia đình cùng đồng lòng chăm sóc bà.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10508,
+      "term": "感謝 (かんしゃ)",
+      "reading": "かんしゃ",
+      "romaji": "kansha",
+      "definition": "biết ơn, cảm tạ",
+      "exampleSentence": "アドバイスしてくれた先輩に、とても感謝している",
+      "exampleTranslation": "Tôi rất biết ơn tiền bối đã cho tôi lời khuyên.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10509,
+      "term": "（お）礼 (（お）れい)",
+      "reading": "（お）れい",
+      "romaji": "(o)rei",
+      "definition": "biết ơn",
+      "exampleSentence": "お世話になった方にお礼をした",
+      "exampleTranslation": "Tôi đã tạ ơn người đã giúp đỡ tôi.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10510,
+      "term": "（お）詫び (（お）わび)",
+      "reading": "（お）わび",
+      "romaji": "(o)wabi",
+      "definition": "lời xin lỗi, tạ lỗi",
+      "exampleSentence": "迷惑をかけた人におわびをした",
+      "exampleTranslation": "Tôi đã xin lỗi người mà tôi gây rắc rối.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10511,
+      "term": "（お）じぎ",
+      "reading": "（お）じぎ",
+      "romaji": "(o)jigi",
+      "definition": "sự cúi chào",
+      "exampleSentence": "「お客様にはていねいにおじぎをしましょう」",
+      "exampleTranslation": "\"Hãy lễ phép cúi chào khách hàng.\"",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10512,
+      "term": "握手 (あくしゅ)",
+      "reading": "あくしゅ",
+      "romaji": "akushu",
+      "definition": "bắt tay",
+      "exampleSentence": "コンサートで歌手と握手した",
+      "exampleTranslation": "Tôi đã bắt tay với ca sĩ ở buổi hòa nhạc.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10513,
+      "term": "意地悪 (いじわる)",
+      "reading": "いじわる",
+      "romaji": "ijiwaru",
+      "definition": "xấu tính, hay bắt nạt/chơi xấu",
+      "exampleSentence": "好きな子にはつい意地悪してしまう",
+      "exampleTranslation": "Với người mình thích thì tôi lại lỡ trêu chọc mất rồi.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10514,
+      "term": "いたずら",
+      "reading": "いたずら",
+      "romaji": "itazura",
+      "definition": "ngịch ngợm, giễu cợt",
+      "exampleSentence": "いたずらをして、先生に怒られた",
+      "exampleTranslation": "Tôi nghịch ngợm và bị thầy mắng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10515,
+      "term": "節約 (せつやく)",
+      "reading": "せつやく",
+      "romaji": "setsuyaku",
+      "definition": "sự tiết kiệm",
+      "exampleSentence": "生活費の節約",
+      "exampleTranslation": "Tiết kiệm phí sinh hoạt.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10516,
+      "term": "経営 (けいえい)",
+      "reading": "けいえい",
+      "romaji": "keiei",
+      "definition": "quản lý, điều hành (kinh doanh)",
+      "exampleSentence": "父はスーパーを経営している",
+      "exampleTranslation": "Bố tôi đang quản lí một siêu thị.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10517,
+      "term": "反省 (はんせい)",
+      "reading": "はんせい",
+      "romaji": "hansei",
+      "definition": "kiểm điểm, xem xét lại",
+      "exampleSentence": "1日の反省を日記に書く",
+      "exampleTranslation": "Tôi viết nhật ký xem xét lại những việc đã làm trong một ngày.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10518,
+      "term": "実行 (じっこう)",
+      "reading": "じっこう",
+      "romaji": "jikkō",
+      "definition": "thực hành, thực hiện",
+      "exampleSentence": "この計画は実行が難しい",
+      "exampleTranslation": "Kế hoạch này thực hiện rất khó.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10519,
+      "term": "進歩 (しんぽ)",
+      "reading": "しんぽ",
+      "romaji": "shinpo",
+      "definition": "tiến bộ, tiến triển",
+      "exampleSentence": "英語を勉強しているが、進歩がない",
+      "exampleTranslation": "Tôi đang học tiếng Anh nhưng không tiến bộ mấy.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10520,
+      "term": "変化 (へんか)",
+      "reading": "へんか",
+      "romaji": "henka",
+      "definition": "thay đổi, biến đổi",
+      "exampleSentence": "大きな変化",
+      "exampleTranslation": "Sự thay đổi lớn.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 10521,
+      "term": "発達 (はったつ)",
+      "reading": "はったつ",
+      "romaji": "hattatsu",
+      "definition": "phát triển, tiến bộ",
+      "exampleSentence": "体や心が発達する",
+      "exampleTranslation": "Cơ thể, tâm hồn phát triển.",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

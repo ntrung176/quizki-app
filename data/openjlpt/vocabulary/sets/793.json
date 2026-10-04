@@ -1,0 +1,253 @@
+{
+  "id": 793,
+  "title": "N1 Tango 2.4 - Cuộc sống · Nhật trình",
+  "description": "Tango N1 — Cuộc sống",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:40.338288",
+  "cards": [
+    {
+      "id": 18391,
+      "term": "心掛ける (こころがける)",
+      "reading": "こころがける",
+      "romaji": null,
+      "definition": "Lưu tâm, ghi nhớ trong đầu",
+      "exampleSentence": "健康を保つため、毎日十分な睡眠を取ることを心掛ける。",
+      "exampleTranslation": "Để duy trì sức khỏe, tôi luôn lưu tâm đến việc ngủ đủ giấc mỗi ngày.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 18392,
+      "term": "めくる",
+      "reading": "めくる",
+      "romaji": null,
+      "definition": "Bóc, lật lên",
+      "exampleSentence": "古いアルバムのページを一枚ずつめくると、懐かしい思い出がよみがえった。",
+      "exampleTranslation": "Khi lật từng trang album cũ, những kỷ niệm thân thương lại ùa về.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 18393,
+      "term": "目覚める (めざめる)",
+      "reading": "めざめる",
+      "romaji": null,
+      "definition": "Thức dậy / Thức tỉnh, giác ngộ",
+      "exampleSentence": "春の訪れとともに、庭の花々が一斉に目覚める。",
+      "exampleTranslation": "Cùng với mùa xuân đến, những bông hoa trong vườn đồng loạt thức tỉnh.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 18394,
+      "term": "ストレッチ",
+      "reading": "ストレッチ",
+      "romaji": null,
+      "definition": "Vận động thư giãn",
+      "exampleSentence": "仕事の合間にストレッチをすると、肩の凝りが和らぐ。",
+      "exampleTranslation": "Nếu vận động thư giãn giữa giờ làm việc, tình trạng mỏi vai sẽ dịu đi.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 18395,
+      "term": "剝ぐ (はぐ)",
+      "reading": "はぐ",
+      "romaji": null,
+      "definition": "Gạt ra, lột, bóc",
+      "exampleSentence": "包丁で魚の皮を剝ぐときは、手を傷つけないように注意してください。",
+      "exampleTranslation": "Khi dùng dao lột da cá, hãy cẩn thận để không làm bị thương tay.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 18396,
+      "term": "愛犬 (あいけん)",
+      "reading": "あいけん",
+      "romaji": null,
+      "definition": "Chó cưng",
+      "exampleSentence": "愛犬と公園を散歩する時間が、私にとって一番の楽しみだ。",
+      "exampleTranslation": "Thời gian dắt chú chó cưng đi dạo trong công viên là niềm vui lớn nhất của tôi.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 18397,
+      "term": "しっぽ",
+      "reading": "しっぽ",
+      "romaji": null,
+      "definition": "Đuôi",
+      "exampleSentence": "犬はうれしそうにしっぽを振りながら、飼い主に駆け寄った。",
+      "exampleTranslation": "Con chó vừa vẫy đuôi vui vẻ vừa chạy về phía chủ nhân.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 18398,
+      "term": "長続き（する） (ながつづき（する）)",
+      "reading": "ながつづき（する）",
+      "romaji": null,
+      "definition": "Kéo dài",
+      "exampleSentence": "「長続き（する）」ためには、最初から無理な目標を立てないことが大切だ。",
+      "exampleTranslation": "Để có thể duy trì lâu dài, điều quan trọng là không đặt ra mục tiêu quá sức ngay từ đầu.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 18399,
+      "term": "三日坊主 (みっかぼうず)",
+      "reading": "みっかぼうず",
+      "romaji": null,
+      "definition": "Cả thèm chóng chán, không lâu bền",
+      "exampleSentence": "何事も三日坊主で終わらせず、少しずつでも続けることが大切だ。",
+      "exampleTranslation": "Điều quan trọng là không bỏ dở mọi việc sau vài ngày mà hãy tiếp tục, dù chỉ từng chút một.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 18400,
+      "term": "持続（する） (じぞく（する）)",
+      "reading": "じぞく（する）",
+      "romaji": null,
+      "definition": "Tiếp tục, duy trì",
+      "exampleSentence": "「持続（する）」という表現は、活動や効果が長く続くことを示す。",
+      "exampleTranslation": "Cụm từ “持続（する）” chỉ việc một hoạt động hoặc hiệu quả kéo dài.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 18401,
+      "term": "当番 (とうばん)",
+      "reading": "とうばん",
+      "romaji": null,
+      "definition": "Phiên trực, nhiệm vụ, lượt (làm việc)",
+      "exampleSentence": "今週の掃除当番になったので、毎朝教室の窓を開けている。",
+      "exampleTranslation": "Vì tuần này đến lượt trực nhật, nên sáng nào tôi cũng mở cửa sổ lớp học.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 18402,
+      "term": "拝む (おがむ)",
+      "reading": "おがむ",
+      "romaji": null,
+      "definition": "Khấn vái, chắp tay cầu mong",
+      "exampleSentence": "合格を祈って神社で拝むと、気持ちが少し落ち着いた。",
+      "exampleTranslation": "Sau khi khấn vái ở đền để cầu thi đỗ, tôi cảm thấy bình tĩnh hơn một chút.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 18403,
+      "term": "ゴールデンタイム",
+      "reading": "ゴールデンタイム",
+      "romaji": null,
+      "definition": "Khung giờ vàng",
+      "exampleSentence": "ゴールデンタイムの番組は視聴率が高く、企業の広告も集中する。",
+      "exampleTranslation": "Các chương trình vào khung giờ vàng có tỷ suất người xem cao, nên quảng cáo của doanh nghiệp cũng tập trung vào thời điểm này.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 18404,
+      "term": "怠る (おこたる)",
+      "reading": "おこたる",
+      "romaji": null,
+      "definition": "Sao nhãng, cẩu thả, bỏ bê",
+      "exampleSentence": "安全確認を怠ると、小さなミスが重大な事故につながりかねない。",
+      "exampleTranslation": "Nếu sao nhãng việc kiểm tra an toàn, một lỗi nhỏ cũng có thể dẫn đến tai nạn nghiêm trọng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 18405,
+      "term": "浸かる (つかる)",
+      "reading": "つかる",
+      "romaji": null,
+      "definition": "Ngâm, ngập",
+      "exampleSentence": "休日は温泉にゆっくり浸かると、心身の疲れがよく取れる。",
+      "exampleTranslation": "Vào ngày nghỉ, ngâm mình thư thả trong suối nước nóng giúp xua tan mệt mỏi cả về thể chất lẫn tinh thần.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 18406,
+      "term": "逆立ち（する） (さかだち（する）)",
+      "reading": "さかだち（する）",
+      "romaji": null,
+      "definition": "Trồng cây chuối, giơ chân lên trời",
+      "exampleSentence": "「逆立ち（する）」の練習を毎日続けた結果、壁なしでも十秒間できるようになった。",
+      "exampleTranslation": "Nhờ luyện trồng cây chuối mỗi ngày, tôi đã có thể thực hiện trong mười giây mà không cần dựa tường.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 18407,
+      "term": "乱れる (みだれる)",
+      "reading": "みだれる",
+      "romaji": null,
+      "definition": "Rối, xáo trộn, mất trật tự",
+      "exampleSentence": "大雨の影響で交通機関の運行が乱れると、通勤客の不満が一気に高まる。",
+      "exampleTranslation": "Khi việc vận hành các phương tiện giao thông bị xáo trộn do mưa lớn, sự bất mãn của người đi làm tăng cao nhanh chóng.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 18408,
+      "term": "ブログ",
+      "reading": "ブログ",
+      "romaji": null,
+      "definition": "Blog",
+      "exampleSentence": "彼は旅行先で撮った写真や現地の印象をブログに詳しくまとめている。",
+      "exampleTranslation": "Anh ấy đăng trên blog những bức ảnh chụp trong chuyến đi cùng cảm nhận chi tiết về địa phương.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 18409,
+      "term": "投稿（する） (とうこう（する）)",
+      "reading": "とうこう（する）",
+      "romaji": null,
+      "definition": "Đăng bài, gửi bài",
+      "exampleSentence": "「投稿（する）」ボタンを押す前に、記事の内容をもう一度確認してください。",
+      "exampleTranslation": "Trước khi nhấn nút đăng bài, hãy kiểm tra lại nội dung bài viết một lần nữa.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 18410,
+      "term": "取り立てる (とりたてる)",
+      "reading": "とりたてる",
+      "romaji": null,
+      "definition": "Thu, đòi (nợ); đặc biệt chú ý, đề cập",
+      "exampleSentence": "貸した金を取り立てるのは気が重いが、約束を守ってもらわなければならない。",
+      "exampleTranslation": "Đòi lại số tiền đã cho vay thật khó xử, nhưng tôi phải yêu cầu họ giữ đúng lời hứa.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 18411,
+      "term": "身の回り (みのまわり)",
+      "reading": "みのまわり",
+      "romaji": null,
+      "definition": "Đồ dùng cá nhân, những việc xung quanh bản thân",
+      "exampleSentence": "引っ越しを機に身の回りの品を整理し、不要な物を処分した。",
+      "exampleTranslation": "Nhân dịp chuyển nhà, tôi đã sắp xếp lại đồ dùng cá nhân và vứt bỏ những thứ không cần thiết.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 18412,
+      "term": "実践（する） (じっせん（する）)",
+      "reading": "じっせん（する）",
+      "romaji": null,
+      "definition": "Thực tiễn, thực hành",
+      "exampleSentence": "理論を学ぶだけでなく、実践（する）ことによって初めて身につく技術もある。",
+      "exampleTranslation": "Có những kỹ năng chỉ thực sự thành thạo khi được thực hành, chứ không chỉ học lý thuyết.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

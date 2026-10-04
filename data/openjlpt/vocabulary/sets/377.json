@@ -1,0 +1,176 @@
+{
+  "id": 377,
+  "title": "N3 Unit 1.6 - 名詞A・生活と時事 (Đời sống & thời sự)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 名詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:34.888768",
+  "cards": [
+    {
+      "id": 10270,
+      "term": "湿気 (しっけ)",
+      "reading": "しっけ",
+      "romaji": "shikke",
+      "definition": "hơi ẩm, sự ẩm ướt",
+      "exampleSentence": "日本の夏は湿気が多い",
+      "exampleTranslation": "Mùa hè ở Nhật Bản rất ẩm ướt.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10271,
+      "term": "梅雨 (つゆ)",
+      "reading": "つゆ",
+      "romaji": "tsuyu",
+      "definition": "mùa mưa",
+      "exampleSentence": "６月から７月は梅雨の時期だ",
+      "exampleTranslation": "Từ tháng 6 đến tháng 7 là mùa mưa.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10272,
+      "term": "かび",
+      "reading": "かび",
+      "romaji": "kabi",
+      "definition": "nấm mốc",
+      "exampleSentence": "梅雨の時期はかびがはえやすい",
+      "exampleTranslation": "Mùa mưa nấm mốc dễ phát triển.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10273,
+      "term": "暖房 (だんぼう)",
+      "reading": "だんぼう",
+      "romaji": "danbō",
+      "definition": "điều hòa chế độ làm ấm, máy sưởi ấm",
+      "exampleSentence": "寒いので暖房をつける",
+      "exampleTranslation": "Bởi vì trời lạnh nên bật máy sưởi ấm.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10274,
+      "term": "皮 (かわ)",
+      "reading": "かわ",
+      "romaji": "kawa",
+      "definition": "da, vỏ",
+      "exampleSentence": "くだものの皮",
+      "exampleTranslation": "Vỏ, da {Trái cây / rau củ / động vật ...}.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10275,
+      "term": "缶 (かん)",
+      "reading": "かん",
+      "romaji": "kan",
+      "definition": "lon",
+      "exampleSentence": "おかしをカンに入れて保存する",
+      "exampleTranslation": "Bảo quản kẹo bằng cách bỏ vào trong hộp kim loại.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10276,
+      "term": "画面 (がめん)",
+      "reading": "がめん",
+      "romaji": "gamen",
+      "definition": "màn hình, màn ảnh",
+      "exampleSentence": "パソコンの画面をずっと見ていると、目が疲れる",
+      "exampleTranslation": "Cứ nhìn suốt vào màn hình máy tính thì sẽ mỏi mắt.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10277,
+      "term": "番組 (ばんぐみ)",
+      "reading": "ばんぐみ",
+      "romaji": "bangumi",
+      "definition": "chương trình (TV/radio)",
+      "exampleSentence": "テレビの番組を見る",
+      "exampleTranslation": "Xem chương trình Tivi.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10278,
+      "term": "記事 (きじ)",
+      "reading": "きじ",
+      "romaji": "kiji",
+      "definition": "bài viết, phóng sự",
+      "exampleSentence": "この記事によると、日本に住む外国人が増えているそうだ。",
+      "exampleTranslation": "Theo bài báo này, nghe nói số người nước ngoài sinh sống tại Nhật Bản đang tăng lên.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10279,
+      "term": "近所 (きんじょ)",
+      "reading": "きんじょ",
+      "romaji": "kinjo",
+      "definition": "hàng xóm, vùng lân cận",
+      "exampleSentence": "近所の人とは仲良くしたほうがいい。",
+      "exampleTranslation": "Nên giữ mối quan hệ hòa thuận với hàng xóm láng giềng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10280,
+      "term": "警察 (けいさつ)",
+      "reading": "けいさつ",
+      "romaji": "keisatsu",
+      "definition": "cảnh sát, ngành cảnh sát",
+      "exampleSentence": "自転車を盗まれたので、警察に届けた",
+      "exampleTranslation": "Vì bị lấy mất xe đạp nên tôi đến trình bày cảnh sát.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10281,
+      "term": "犯人 (はんにん)",
+      "reading": "はんにん",
+      "romaji": "hannin",
+      "definition": "tội phạm, thủ phạm",
+      "exampleSentence": "事件の犯人",
+      "exampleTranslation": "Thủ phạm của vụ việc.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10282,
+      "term": "小銭 (こぜに)",
+      "reading": "こぜに",
+      "romaji": "kozeni",
+      "definition": "tiền lẻ, đồng lẻ",
+      "exampleSentence": "バスに乗ってから小銭がないことに気がつき、とても困った",
+      "exampleTranslation": "Sau khi lên xe bus tôi mới nhận ra là mình không có tiền lẻ, thật sự éo le.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10283,
+      "term": "ごちそう",
+      "reading": "ごちそう",
+      "romaji": "gochisō",
+      "definition": "chiêu đãi, khao",
+      "exampleSentence": "家族みんなでごちそうを食べて、祖父の誕生日を祝った",
+      "exampleTranslation": "Mọi người trong gia đình cùng ăn tiệc và chúc mừng ngày sinh của ông.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10284,
+      "term": "作者 (さくしゃ)",
+      "reading": "さくしゃ",
+      "romaji": "sakusha",
+      "definition": "tác giả",
+      "exampleSentence": "小説の作者",
+      "exampleTranslation": "Tác giả của tiểu thuyết",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

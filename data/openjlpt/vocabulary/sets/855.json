@@ -1,0 +1,154 @@
+{
+  "id": 855,
+  "title": "N5 Tango 1.1 - Tự giới thiệu · Là",
+  "description": "Tango N5 — Tự giới thiệu",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:46.411369",
+  "cards": [
+    {
+      "id": 20012,
+      "term": "わたし",
+      "reading": "わたし",
+      "romaji": null,
+      "definition": "Tôi",
+      "exampleSentence": "わたしは毎朝七時に起きます。",
+      "exampleTranslation": "Tôi thức dậy lúc bảy giờ mỗi sáng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20013,
+      "term": "です",
+      "reading": "です",
+      "romaji": null,
+      "definition": "Là",
+      "exampleSentence": "これはわたしの新しい辞書です。",
+      "exampleTranslation": "Đây là cuốn từ điển mới của tôi.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20014,
+      "term": "さん",
+      "reading": "さん",
+      "romaji": null,
+      "definition": "Ông/bà/anh/chị",
+      "exampleSentence": "田中さんは日本語の先生です。",
+      "exampleTranslation": "Anh Tanaka là giáo viên tiếng Nhật.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20015,
+      "term": "ちゃん",
+      "reading": "ちゃん",
+      "romaji": null,
+      "definition": "Bé",
+      "exampleSentence": "ゆきちゃんは毎日元気に学校へ行きます。",
+      "exampleTranslation": "Bé Yuki ngày nào cũng vui vẻ đi học.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20016,
+      "term": "あなた",
+      "reading": "あなた",
+      "romaji": null,
+      "definition": "Ông/bà/anh/chị/bạn (ngôi thứ hai số ít)",
+      "exampleSentence": "あなたは毎朝何時に起きますか。",
+      "exampleTranslation": "Bạn thức dậy lúc mấy giờ mỗi sáng?",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20017,
+      "term": "かれ",
+      "reading": "かれ",
+      "romaji": null,
+      "definition": "Anh ấy (ngôi thứ ba số ít), bạn trai",
+      "exampleSentence": "かれは毎日電車で学校へ行きます。",
+      "exampleTranslation": "Anh ấy đi tàu điện đến trường mỗi ngày.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20018,
+      "term": "かのじょ",
+      "reading": "かのじょ",
+      "romaji": null,
+      "definition": "Cô ấy, chị ấy (ngôi thứ ba số ít), bạn gái",
+      "exampleSentence": "かのじょは私のクラスメートです。",
+      "exampleTranslation": "Cô ấy là bạn cùng lớp của tôi.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20019,
+      "term": "「お」なまえ",
+      "reading": "「お」なまえ",
+      "romaji": null,
+      "definition": "Tên (của bạn)",
+      "exampleSentence": "受付で、「お」なまえを教えてください。",
+      "exampleTranslation": "Vui lòng cho tôi biết tên của bạn tại quầy tiếp tân.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20020,
+      "term": "はい",
+      "reading": "はい",
+      "romaji": null,
+      "definition": "Vâng, dạ",
+      "exampleSentence": "先生に名前を呼ばれたら、「はい」と返事をします。",
+      "exampleTranslation": "Khi được giáo viên gọi tên, tôi sẽ đáp: “Dạ”.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20021,
+      "term": "ええ",
+      "reading": "ええ",
+      "romaji": null,
+      "definition": "Vâng, dạ",
+      "exampleSentence": "ええ、明日は学校へ行きます。",
+      "exampleTranslation": "Vâng, ngày mai tôi sẽ đi học.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20022,
+      "term": "いいえ",
+      "reading": "いいえ",
+      "romaji": null,
+      "definition": "Không",
+      "exampleSentence": "いいえ、今日は仕事がありません。",
+      "exampleTranslation": "Không, hôm nay tôi không có việc.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 20023,
+      "term": "そうです",
+      "reading": "そうです",
+      "romaji": null,
+      "definition": "Đúng vậy.",
+      "exampleSentence": "先生に「これは田中さんの本ですか」と聞かれて、「そうです」と答えました。",
+      "exampleTranslation": "Khi giáo viên hỏi có phải là sách của bạn Tanaka không, tôi đã trả lời: “Đúng vậy”.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 20024,
+      "term": "ちがいます。",
+      "reading": "ちがいます。",
+      "romaji": null,
+      "definition": "Không phải.",
+      "exampleSentence": "「これはあなたのかばんですか」と聞かれて、「いいえ、ちがいます。」と答えました。",
+      "exampleTranslation": "Khi được hỏi đây có phải là cặp của bạn không, tôi đã trả lời: “Không phải”.",
+      "forms": [],
+      "displayOrder": 12
+    }
+  ]
+}

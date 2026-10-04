@@ -1,0 +1,143 @@
+{
+  "id": 553,
+  "title": "N2 Unit 3.1 - 形容詞A (bài 1/5)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 形容詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.619112",
+  "cards": [
+    {
+      "id": 13384,
+      "term": "有難い (ありがたい)",
+      "reading": "ありがたい",
+      "romaji": null,
+      "definition": "biết ơn, cảm ơn",
+      "exampleSentence": "「病気の私の元へ来てくれたあなたの気持ちがありがたい」",
+      "exampleTranslation": "Tôi rất biết ơn vì bạn đã đến thăm tôi lúc tôi ốm.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13385,
+      "term": "申し訳ない (もうしわけない)",
+      "reading": "もうしわけない",
+      "romaji": null,
+      "definition": "xin lỗi",
+      "exampleSentence": "「ご迷惑をおかけして、申し訳ありませんでした」",
+      "exampleTranslation": "“Thành thật xin lỗi vì đã gây phiền phức.”",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13386,
+      "term": "目出度い (めでたい)",
+      "reading": "めでたい",
+      "romaji": null,
+      "definition": "vui, hạnh phúc, tốt lành (thuận lợi)",
+      "exampleSentence": "子供たちの大学の合格や結婚など、今年はめでたいことが多かった。",
+      "exampleTranslation": "Năm nay có nhiều chuyện đáng mừng như con đỗ đại học, kết hôn…",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13387,
+      "term": "幸いな (さいわいな)",
+      "reading": "さいわいな",
+      "romaji": null,
+      "definition": "hạnh phúc, may mắn",
+      "exampleSentence": "いい友人に恵まれて幸いだ。",
+      "exampleTranslation": "Được bạn tốt là điều may mắn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13388,
+      "term": "恋しい (こいしい)",
+      "reading": "こいしい",
+      "romaji": null,
+      "definition": "nhớ, nhớ nhung",
+      "exampleSentence": "｛国の両親/恋人/ふるさと…｝が恋しい。",
+      "exampleTranslation": "Nhớ (cha mẹ ở quê/người yêu/quê hương…).",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13389,
+      "term": "懐かしい (なつかしい)",
+      "reading": "なつかしい",
+      "romaji": null,
+      "definition": "nhớ tiếc, hồi nhớ",
+      "exampleSentence": "子供のころが懐かしい。",
+      "exampleTranslation": "Nhớ thời thơ ấu.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13390,
+      "term": "幼い (おさない)",
+      "reading": "おさない",
+      "romaji": null,
+      "definition": "non nớt, bé",
+      "exampleSentence": "幼い子供が遊んでいる。",
+      "exampleTranslation": "Trẻ nhỏ đang chơi.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13391,
+      "term": "心細い (こころぼそい)",
+      "reading": "こころぼそい",
+      "romaji": null,
+      "definition": "cô đơn",
+      "exampleSentence": "初めて来日した時は、 言葉もわからず知り合いもなく、とても心細かった。",
+      "exampleTranslation": "Lúc mới sang Nhật, không biết tiếng, cũng chẳng quen ai nên rất bơ vơ.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13392,
+      "term": "可哀想な (かわいそうな)",
+      "reading": "かわいそうな",
+      "romaji": null,
+      "definition": "tội nghiệp",
+      "exampleSentence": "子供を叱ったが、泣いているのを見てかわいそうになった。",
+      "exampleTranslation": "Mắng con nhưng thấy nó khóc lại thấy tội nghiệp.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13393,
+      "term": "気の毒な (きのどくな)",
+      "reading": "きのどくな",
+      "romaji": null,
+      "definition": "đáng tiếc, đáng thương",
+      "exampleSentence": "「彼女、先日お父さんを事故で亡くされたそうだよ」「お気の毒に…」",
+      "exampleTranslation": "“Nghe nói bố cô ấy mất vì tai nạn hôm trước.” “Thật đáng thương…”",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13394,
+      "term": "貧しい (まずしい)",
+      "reading": "まずしい",
+      "romaji": null,
+      "definition": "nghèo",
+      "exampleSentence": "私は貧しい家に育った。",
+      "exampleTranslation": "Tôi lớn lên trong một gia đình nghèo.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13395,
+      "term": "惜しい (おしい)",
+      "reading": "おしい",
+      "romaji": null,
+      "definition": "đáng tiếc",
+      "exampleSentence": "後 一つ問題ができていれば合格だったのに。惜しかった。",
+      "exampleTranslation": "Chỉ thêm một câu nữa là đậu rồi… tiếc quá.",
+      "forms": [],
+      "displayOrder": 11
+    }
+  ]
+}

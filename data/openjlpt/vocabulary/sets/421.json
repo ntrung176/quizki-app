@@ -1,0 +1,198 @@
+{
+  "id": 421,
+  "title": "N3 Unit 11.1 - カタカナB・人と社会 (Con người & xã hội)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — カタカナB",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:36.320876",
+  "cards": [
+    {
+      "id": 10990,
+      "term": "パートナー",
+      "reading": "パートナー",
+      "romaji": "pātonā",
+      "definition": "đối tác (partner)",
+      "exampleSentence": "あの人は仕事のいいパートナーだ",
+      "exampleTranslation": "Người đó là đối tác tốt trong công việc.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10991,
+      "term": "リーダー",
+      "reading": "リーダー",
+      "romaji": "rīdā",
+      "definition": "lãnh đạo (leader)",
+      "exampleSentence": "グループのリーダーを決める",
+      "exampleTranslation": "Quyết định người đứng đầu của nhóm.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10992,
+      "term": "ボランテイア (ボランティア)",
+      "reading": "ボランティア",
+      "romaji": "borantia",
+      "definition": "tình nguyện, tình nguyện viên (volunteer)",
+      "exampleSentence": "老人ホームでボランティアをしている",
+      "exampleTranslation": "Làm tình nguyện ở viện dưỡng lão.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10993,
+      "term": "コミュニケーション",
+      "reading": "コミュニケーション",
+      "romaji": "komyunikēshon",
+      "definition": "giao tiếp (communication)",
+      "exampleSentence": "同僚とはじゅうぶんコミュニケーションをとったほうがよい",
+      "exampleTranslation": "Nên giao tiếp thường xuyên với đồng nghiệp thì tốt hơn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10994,
+      "term": "ユーモア",
+      "reading": "ユーモア",
+      "romaji": "yūmoa",
+      "definition": "hài hước (humor)",
+      "exampleSentence": "ユーモアがある彼はクラスの人気者だ",
+      "exampleTranslation": "Anh ấy có sự hài hước và được yêu quý trong lớp.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10995,
+      "term": "ショック",
+      "reading": "ショック",
+      "romaji": "shokku",
+      "definition": "bất ngờ, sốc (shock)",
+      "exampleSentence": "彼女にほかの恋人がいて、ショックだった",
+      "exampleTranslation": "Tôi bị sốc vì cô ấy có người yêu khác.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10996,
+      "term": "ストレス",
+      "reading": "ストレス",
+      "romaji": "sutoresu",
+      "definition": "căng thẳng (stress)",
+      "exampleSentence": "ストレスがたまったときは、カラオケに行く",
+      "exampleTranslation": "Khi căng thẳng nhiều tôi đi hát karaoke.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10997,
+      "term": "バランス",
+      "reading": "バランス",
+      "romaji": "baransu",
+      "definition": "cân bằng (balance)",
+      "exampleSentence": "栄養のバランスがいい食事をする",
+      "exampleTranslation": "Ăn những bữa ăn cân bằng về dinh dưỡng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10998,
+      "term": "レベル",
+      "reading": "レベル",
+      "romaji": "reberu",
+      "definition": "trình độ, cấp độ (level)",
+      "exampleSentence": "マリアさんは日本語のレベルが高い",
+      "exampleTranslation": "Maria có trình độ tiếng Nhật cao.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10999,
+      "term": "アップ",
+      "reading": "アップ",
+      "romaji": "appu",
+      "definition": "tăng lên, đến gần (cận cảnh)",
+      "exampleSentence": "時給がアップした",
+      "exampleTranslation": "Tăng lương giờ.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11000,
+      "term": "ダウン",
+      "reading": "ダウン",
+      "romaji": "daun",
+      "definition": "hạ xuống, giảm sút, bị hạ (down)",
+      "exampleSentence": "給料ダウンで生活が苦しい",
+      "exampleTranslation": "Vì giảm lương nên cuộc sống khó khăn.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11001,
+      "term": "プラス",
+      "reading": "プラス",
+      "romaji": "purasu",
+      "definition": "cộng, dư, tác động tích cực (addition, surplus, positive impact)",
+      "exampleSentence": "まじめに働いていたら、時給が20円プラスされた",
+      "exampleTranslation": "Vì làm việc chăm chỉ nên lương giờ đã được tăng thêm 20 yên.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11002,
+      "term": "マイナス",
+      "reading": "マイナス",
+      "romaji": "mainasu",
+      "definition": "trừ, âm, lỗ, tác động tiêu cực (subtration, deficit, negative impact)",
+      "exampleSentence": "今月の給料は1万円のマイナスだった",
+      "exampleTranslation": "Lương tháng này đã bị trừ một man.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11003,
+      "term": "イメージ",
+      "reading": "イメージ",
+      "romaji": "imēji",
+      "definition": "hình ảnh (image)",
+      "exampleSentence": "私はこの曲から広い海をイメージした",
+      "exampleTranslation": "Tôi đã hình dung thấy hình ảnh biển rộng từ bài hát này.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 11004,
+      "term": "コンテスト",
+      "reading": "コンテスト",
+      "romaji": "kontesuto",
+      "definition": "cuộc thi (contest)",
+      "exampleSentence": "スピーチのコンテストで優勝した",
+      "exampleTranslation": "Tôi đã chiến thắng trong cuộc thi diễn thuyết.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 11005,
+      "term": "マスコミ",
+      "reading": "マスコミ",
+      "romaji": "masukomi",
+      "definition": "các phương tiện truyền thông, thông tin đại chúng",
+      "exampleSentence": "このニュースはマスコミに注目されている",
+      "exampleTranslation": "Tin tức này đang được phương tiện truyền thông chú ý.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 11006,
+      "term": "プライバシー",
+      "reading": "プライバシー",
+      "romaji": "puraibashī",
+      "definition": "riêng tư, cá nhân (privacy)",
+      "exampleSentence": "現代社会では個人のプライバシーが守られないことが多い",
+      "exampleTranslation": "Trong xã hội hiện đại, có nhiều khi không thể bảo vệ được quyền riêng tư cá nhân.",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

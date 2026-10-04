@@ -1,0 +1,209 @@
+{
+  "id": 684,
+  "title": "N3 Tango 12.1 - Hãy truyền đạt ấn tượng của mình · Thiết kế",
+  "description": "Tango N3 — Hãy truyền đạt ấn tượng của mình",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:26.443533",
+  "cards": [
+    {
+      "id": 15614,
+      "term": "模様 (もよう)",
+      "reading": "もよう",
+      "romaji": null,
+      "definition": "Hoa văn, họa tiết",
+      "exampleSentence": "この着物は、青い花の模様が美しくて人気があります。",
+      "exampleTranslation": "Bộ kimono này được yêu thích vì có họa tiết hoa màu xanh rất đẹp.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 15615,
+      "term": "特徴 (とくちょう)",
+      "reading": "とくちょう",
+      "romaji": null,
+      "definition": "Đặc điểm, đặc trưng",
+      "exampleSentence": "この町の特徴は、古い建物が多いことです。",
+      "exampleTranslation": "Đặc điểm của thành phố này là có nhiều tòa nhà cổ.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 15616,
+      "term": "特色 (とくしょく)",
+      "reading": "とくしょく",
+      "romaji": null,
+      "definition": "Điểm đặc sắc",
+      "exampleSentence": "この学校の特色は、外国人の学生が多いことです。",
+      "exampleTranslation": "Điểm đặc sắc của ngôi trường này là có nhiều học sinh nước ngoài.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 15617,
+      "term": "柄 (がら)",
+      "reading": "がら",
+      "romaji": null,
+      "definition": "Hoa văn, họa tiết",
+      "exampleSentence": "このシャツは柄が派手なので、仕事には着ていけません。",
+      "exampleTranslation": "Chiếc áo này có họa tiết sặc sỡ nên không thể mặc đi làm.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 15618,
+      "term": "花柄 (はながら)",
+      "reading": "はながら",
+      "romaji": null,
+      "definition": "Họa tiết hoa",
+      "exampleSentence": "母は春になると花柄のワンピースを着ます。",
+      "exampleTranslation": "Cứ đến mùa xuân, mẹ tôi lại mặc váy liền có họa tiết hoa.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 15619,
+      "term": "水玉 (みずたま)",
+      "reading": "みずたま",
+      "romaji": null,
+      "definition": "Chấm bi",
+      "exampleSentence": "妹は水玉のスカートをとても気に入っています。",
+      "exampleTranslation": "Em gái tôi rất thích chiếc váy chấm bi.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 15620,
+      "term": "しま",
+      "reading": "しま",
+      "romaji": null,
+      "definition": "Kẻ sọc",
+      "exampleSentence": "夏は白と青のしま模様のシャツをよく着ます。",
+      "exampleTranslation": "Vào mùa hè, tôi thường mặc áo sơ mi sọc trắng xanh.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 15621,
+      "term": "たて",
+      "reading": "たて",
+      "romaji": null,
+      "definition": "Chiều dọc",
+      "exampleSentence": "この箱はたてに長く、狭い場所にも置けます。",
+      "exampleTranslation": "Chiếc hộp này dài theo chiều dọc nên có thể đặt ở cả nơi chật hẹp.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 15622,
+      "term": "横 (よこ)",
+      "reading": "よこ",
+      "romaji": null,
+      "definition": "Chiều ngang",
+      "exampleSentence": "この机は横が広く、二人で使っても余裕があります。",
+      "exampleTranslation": "Chiều ngang của chiếc bàn này rộng nên hai người dùng vẫn thoải mái.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 15623,
+      "term": "ななめ（な）",
+      "reading": "ななめ（な）",
+      "romaji": null,
+      "definition": "Đường chéo, góc chéo chéo, ngang",
+      "exampleSentence": "写真をななめ（な）に傾けると、景色が違って見えます。",
+      "exampleTranslation": "Khi nghiêng bức ảnh theo góc chéo, cảnh vật trông khác đi.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 15624,
+      "term": "幅 (はば)",
+      "reading": "はば",
+      "romaji": null,
+      "definition": "Bề ngang",
+      "exampleSentence": "この道路は幅が狭いので、車は一台ずつ通ってください。",
+      "exampleTranslation": "Con đường này hẹp, nên xe hãy đi qua từng chiếc một.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 15625,
+      "term": "ストライプ",
+      "reading": "ストライプ",
+      "romaji": null,
+      "definition": "Kẻ sọc",
+      "exampleSentence": "弟は青と白のストライプのシャツを着ています。",
+      "exampleTranslation": "Em trai tôi đang mặc chiếc áo sơ mi kẻ sọc xanh trắng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 15626,
+      "term": "無地 (むじ)",
+      "reading": "むじ",
+      "romaji": null,
+      "definition": "Trơn, không có họa tiết",
+      "exampleSentence": "父は柄のない無地のネクタイを好んで使います。",
+      "exampleTranslation": "Bố tôi thích dùng cà vạt trơn, không có họa tiết.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 15627,
+      "term": "シンプルな",
+      "reading": "シンプルな",
+      "romaji": null,
+      "definition": "Đơn giản, giản dị",
+      "exampleSentence": "彼女はシンプルな服装で、いつも清潔感があります。",
+      "exampleTranslation": "Cô ấy ăn mặc đơn giản và lúc nào cũng tạo cảm giác sạch sẽ.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 15628,
+      "term": "真っ赤な (まっかな)",
+      "reading": "まっかな",
+      "romaji": null,
+      "definition": "Đỏ rực",
+      "exampleSentence": "駅前に真っ赤な傘を持った人が立っています。",
+      "exampleTranslation": "Có một người đang đứng trước ga với chiếc ô đỏ rực.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 15629,
+      "term": "ばらばらな",
+      "reading": "ばらばらな",
+      "romaji": null,
+      "definition": "Lung tung, rời rạc",
+      "exampleSentence": "会議では、ばらばらな意見を一つにまとめる必要があります。",
+      "exampleTranslation": "Trong cuộc họp, cần tổng hợp những ý kiến rời rạc thành một.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 15630,
+      "term": "すっきり[と]（する）",
+      "reading": "すっきり[と]（する）",
+      "romaji": null,
+      "definition": "Sự thanh thoát, gọn gàng",
+      "exampleSentence": "部屋をすっきり（する）と片づけると、気持ちも軽くなります。",
+      "exampleTranslation": "Khi dọn phòng gọn gàng, tâm trạng cũng trở nên nhẹ nhõm hơn.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 15631,
+      "term": "素敵な (すてきな)",
+      "reading": "すてきな",
+      "romaji": null,
+      "definition": "Tuyệt, đẹp",
+      "exampleSentence": "旅行先で素敵な景色を見て、思わず写真を撮りました。",
+      "exampleTranslation": "Trong chuyến đi, tôi thấy phong cảnh tuyệt đẹp nên đã bất giác chụp ảnh.",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

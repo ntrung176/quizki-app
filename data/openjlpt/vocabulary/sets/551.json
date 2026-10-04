@@ -1,0 +1,143 @@
+{
+  "id": 551,
+  "title": "N2 Unit 2.8 - 動詞A (bài 8/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.596751",
+  "cards": [
+    {
+      "id": 13365,
+      "term": "逃がす (にがす)",
+      "reading": "にがす",
+      "romaji": null,
+      "definition": "thả ra",
+      "exampleSentence": "魚を釣ったが、小さいので逃がしてやった。",
+      "exampleTranslation": "Cá câu được còn nhỏ nên tôi thả đi.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13366,
+      "term": "戻る (もどる)",
+      "reading": "もどる",
+      "romaji": null,
+      "definition": "quay lại",
+      "exampleSentence": "忘れ物をしたのに気づいて、家に戻った。",
+      "exampleTranslation": "Nhận ra mình để quên đồ nên quay về nhà.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13367,
+      "term": "戻す (もどす)",
+      "reading": "もどす",
+      "romaji": null,
+      "definition": "để trả lại, quay lại",
+      "exampleSentence": "「物は元にあった場所に戻しなさい」",
+      "exampleTranslation": "“Hãy đặt đồ vật về đúng chỗ cũ.”",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13368,
+      "term": "嵌まる (はまる)",
+      "reading": "はまる",
+      "romaji": null,
+      "definition": "khớp, bị kẹt",
+      "exampleSentence": "彼の薬指には指輪がはまっていた。",
+      "exampleTranslation": "Trên ngón áp út của anh ấy nhẫn đang vừa khít.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13369,
+      "term": "嵌める (はめる)",
+      "reading": "はめる",
+      "romaji": null,
+      "definition": "cài (khuy/cúc), đeo (nhẫn/găng tay), lắp vào, gài bẫy",
+      "exampleSentence": "寒いので、上着のボタンを全部はめた。",
+      "exampleTranslation": "Vì lạnh nên tôi cài hết các nút áo khoác.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13370,
+      "term": "扱う (あつかう)",
+      "reading": "あつかう",
+      "romaji": null,
+      "definition": "đối xử, xử lý",
+      "exampleSentence": "「壊れやすい物ですから、丁寧に扱ってください」",
+      "exampleTranslation": "“Vì là đồ dễ vỡ nên xin hãy xử lý nhẹ tay.”",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13371,
+      "term": "関わる (かかわる)",
+      "reading": "かかわる",
+      "romaji": null,
+      "definition": "liên quan",
+      "exampleSentence": "将来は子供の教育にかかわる仕事がしたい。",
+      "exampleTranslation": "Tương lai tôi muốn làm công việc liên quan đến giáo dục trẻ em.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13372,
+      "term": "目指す (めざす)",
+      "reading": "めざす",
+      "romaji": null,
+      "definition": "nhắm vào、hướng đến",
+      "exampleSentence": "選手たちはゴールを目指して走り出した。",
+      "exampleTranslation": "Các vận động viên bắt đầu chạy, hướng tới vạch đích.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13373,
+      "term": "立つ・発つ (たつ・たつ)",
+      "reading": "たつ・たつ",
+      "romaji": null,
+      "definition": "khởi hành, rời khỏi",
+      "exampleSentence": "8月末に海外赴任でヨーロッパへ立つ予定だ。",
+      "exampleTranslation": "Dự định cuối tháng 8 sẽ sang châu Âu nhận nhiệm vụ công tác.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13374,
+      "term": "迎える (むかえる)",
+      "reading": "むかえる",
+      "romaji": null,
+      "definition": "đón",
+      "exampleSentence": "あの店はいつも客を笑顔で迎える。",
+      "exampleTranslation": "Cửa hàng đó lúc nào cũng đón khách bằng nụ cười.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13375,
+      "term": "持てる (もてる)",
+      "reading": "もてる",
+      "romaji": null,
+      "definition": "phổ biến, được yêu thích",
+      "exampleSentence": "「持てる力を十分に発揮してください」",
+      "exampleTranslation": "Hãy phát huy hết khả năng mà bạn có.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13376,
+      "term": "例える (たとえる)",
+      "reading": "たとえる",
+      "romaji": null,
+      "definition": "ví như, so với",
+      "exampleSentence": "人生はよく旅にたとえられる。",
+      "exampleTranslation": "Cuộc đời thường được ví như một chuyến hành trình.",
+      "forms": [],
+      "displayOrder": 11
+    }
+  ]
+}

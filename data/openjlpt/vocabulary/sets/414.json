@@ -1,0 +1,187 @@
+{
+  "id": 414,
+  "title": "N3 Unit 9.4 - 名詞C・手続きと資源 (Thủ tục & tài nguyên)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 名詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:36.182284",
+  "cards": [
+    {
+      "id": 10878,
+      "term": "挑戦 (ちょうせん)",
+      "reading": "ちょうせん",
+      "romaji": "chōsen",
+      "definition": "thử thách",
+      "exampleSentence": "むずかしい課題に挑戦する",
+      "exampleTranslation": "Thử thách {vấn đề khó/ nhà vô địch…}.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10879,
+      "term": "やる気 (やるき)",
+      "reading": "やるき",
+      "romaji": "yaruki",
+      "definition": "có hứng thú, động lực",
+      "exampleSentence": "やる気のある人",
+      "exampleTranslation": "Người có động lực.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10880,
+      "term": "勇気 (ゆうき)",
+      "reading": "ゆうき",
+      "romaji": "yūki",
+      "definition": "dũng khí, dũng cảm",
+      "exampleSentence": "困難に立ち向かう勇気",
+      "exampleTranslation": "Dũng cảm đối đầu với khó khăn.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10881,
+      "term": "資格 (しかく)",
+      "reading": "しかく",
+      "romaji": "shikaku",
+      "definition": "tư cách, bằng cấp, xứng đáng",
+      "exampleSentence": "弁護士の資格を取る",
+      "exampleTranslation": "Lấy bằng luật sư.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10882,
+      "term": "申請 (しんせい)",
+      "reading": "しんせい",
+      "romaji": "shinsei",
+      "definition": "nộp đơn xin / đăng ký / xin cấp",
+      "exampleSentence": "パスポートの申請",
+      "exampleTranslation": "Thủ tục/nộp đơn xin hộ chiếu.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10883,
+      "term": "本人 (ほんにん)",
+      "reading": "ほんにん",
+      "romaji": "honnin",
+      "definition": "chính chủ",
+      "exampleSentence": "通帳は貯金をする本人が作らなければならない",
+      "exampleTranslation": null,
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10884,
+      "term": "契約 (けいやく)",
+      "reading": "けいやく",
+      "romaji": "keiyaku",
+      "definition": "hợp đồng",
+      "exampleSentence": "アパートを２年間借りる契約をした",
+      "exampleTranslation": "Đã làm hợp đồng thuê nhà hai năm.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10885,
+      "term": "証明 (しょうめい)",
+      "reading": "しょうめい",
+      "romaji": "shōmei",
+      "definition": "chứng minh",
+      "exampleSentence": "銀行口座を開くときには、身分を証明するものが必要だ",
+      "exampleTranslation": "Khi mở tài khoản ngân hàng thì cần có vật để chứng minh danh tính.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10886,
+      "term": "変更 (へんこう)",
+      "reading": "へんこう",
+      "romaji": "henkō",
+      "definition": "thay đổi",
+      "exampleSentence": "予定の変更を行う",
+      "exampleTranslation": "Tiến hành thay đổi {dự định/ kế hoạch / lộ trình…}.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10887,
+      "term": "保存 (ほぞん)",
+      "reading": "ほぞん",
+      "romaji": "hozon",
+      "definition": "lưu, bảo quản",
+      "exampleSentence": "食料の保存",
+      "exampleTranslation": "Bảo quản thực phẩm.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10888,
+      "term": "保護 (ほご)",
+      "reading": "ほご",
+      "romaji": "hogo",
+      "definition": "bảo hộ, trông nom",
+      "exampleSentence": "自然を保護する",
+      "exampleTranslation": "Bảo tồn thiên nhiên.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10889,
+      "term": "環境 (かんきょう)",
+      "reading": "かんきょう",
+      "romaji": "kankyō",
+      "definition": "môi trường",
+      "exampleSentence": "都心より、環境のいい郊外に住みたい",
+      "exampleTranslation": "Tôi muốn sống ngoại ô có môi trường trong lành hơn là trung tâm thành phố.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10890,
+      "term": "資源 (しげん)",
+      "reading": "しげん",
+      "romaji": "shigen",
+      "definition": "tài nguyên",
+      "exampleSentence": "資源を有効に利用する",
+      "exampleTranslation": "Sử dụng hiệu quả nguồn tài nguyên.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10891,
+      "term": "不足 (ふそく)",
+      "reading": "ふそく",
+      "romaji": "fusoku",
+      "definition": "thiếu, không đầy đủ",
+      "exampleSentence": "野菜が不足した食事",
+      "exampleTranslation": "Bữa ăn thiếu rau.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10892,
+      "term": "平均 (へいきん)",
+      "reading": "へいきん",
+      "romaji": "heikin",
+      "definition": "bình quân, đồng đều, trung bình",
+      "exampleSentence": "テストの点を平均する",
+      "exampleTranslation": "Tính bình quân điểm kiểm tra.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10893,
+      "term": "割合 (わりあい)",
+      "reading": "わりあい",
+      "romaji": "wariai",
+      "definition": "tỷ lệ / phần trăm / mức độ",
+      "exampleSentence": "デパートの客は女性の割合が高い",
+      "exampleTranslation": "Khách hàng của cửa hàng bách hóa này tỉ lệ nữ giới cao.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+{
+  "id": 676,
+  "title": "N3 Tango 10.3 - Hãy học trên bản tin thời sự! · Hãy chú ý!",
+  "description": "Tango N3 — Hãy học trên bản tin thời sự!",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:25.412785",
+  "cards": [
+    {
+      "id": 15444,
+      "term": "（事故に）あう (（じこに）あう)",
+      "reading": "（じこに）あう",
+      "romaji": null,
+      "definition": "Gặp (tai nạn)",
+      "exampleSentence": "「（事故に）あう」ときは、まず安全な場所へ移動してください。",
+      "exampleTranslation": "Khi gặp tai nạn, trước hết hãy di chuyển đến nơi an toàn.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 15445,
+      "term": "発生（する） (はっせい（する）)",
+      "reading": "はっせい（する）",
+      "romaji": null,
+      "definition": "Sự phát sinh, xảy ra",
+      "exampleSentence": "「発生（する）」は、事故や問題などが起こるときに使う言葉です。",
+      "exampleTranslation": "「発生（する）」 là từ dùng khi tai nạn hoặc vấn đề xảy ra.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 15446,
+      "term": "命 (いのち)",
+      "reading": "いのち",
+      "romaji": null,
+      "definition": "Sinh mạng",
+      "exampleSentence": "災害の現場では、一人でも多くの命を救うことが大切だ。",
+      "exampleTranslation": "Tại hiện trường thiên tai, việc cứu được càng nhiều sinh mạng càng tốt là điều quan trọng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 15447,
+      "term": "救う (すくう)",
+      "reading": "すくう",
+      "romaji": null,
+      "definition": "Cứu",
+      "exampleSentence": "消防士は火事から子どもを救うため、危険な建物に入った。",
+      "exampleTranslation": "Người lính cứu hỏa đã vào tòa nhà nguy hiểm để cứu một đứa trẻ khỏi đám cháy.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 15448,
+      "term": "そうぞうしい",
+      "reading": "そうぞうしい",
+      "romaji": null,
+      "definition": "Ồn ào",
+      "exampleSentence": "工事の音がそうぞうしいので、窓を閉めて勉強した。",
+      "exampleTranslation": "Vì tiếng công trường quá ồn nên tôi đóng cửa sổ lại để học.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 15449,
+      "term": "さわぐ",
+      "reading": "さわぐ",
+      "romaji": null,
+      "definition": "Làm ầm ĩ, kêu ầm ĩ",
+      "exampleSentence": "授業中にさわぐ学生を、先生が静かに注意した。",
+      "exampleTranslation": "Giáo viên nhẹ nhàng nhắc nhở một học sinh làm ầm ĩ trong giờ học.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 15450,
+      "term": "現場 (げんば)",
+      "reading": "げんば",
+      "romaji": null,
+      "definition": "Hiện trường, chỗ đó",
+      "exampleSentence": "警察は事故の現場に到着し、周りの人に話を聞いた。",
+      "exampleTranslation": "Cảnh sát đến hiện trường vụ tai nạn và hỏi chuyện những người xung quanh.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 15451,
+      "term": "混乱（する） (こんらん（する）)",
+      "reading": "こんらん（する）",
+      "romaji": null,
+      "definition": "Sự hỗn loạn, náo loạn",
+      "exampleSentence": "「混乱（する）」は、状況が整理できなくなるときに使います。",
+      "exampleTranslation": "「混乱（する）」 được dùng khi tình hình trở nên rối loạn, không thể sắp xếp được.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 15452,
+      "term": "パニック",
+      "reading": "パニック",
+      "romaji": null,
+      "definition": "Hoảng loạn",
+      "exampleSentence": "大きな音に驚いて、乗客の一部がパニックになった。",
+      "exampleTranslation": "Bị giật mình bởi tiếng động lớn, một số hành khách đã hoảng loạn.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 15453,
+      "term": "無事（な） (ぶじ（な）)",
+      "reading": "ぶじ（な）",
+      "romaji": null,
+      "definition": "Sự an toàn, bình an vô sự (an toàn, bình an)",
+      "exampleSentence": "家族が無事（な）ことを知って、ようやく安心した。",
+      "exampleTranslation": "Biết gia đình vẫn bình an vô sự, cuối cùng tôi cũng yên tâm.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 15454,
+      "term": "防ぐ (ふせぐ)",
+      "reading": "ふせぐ",
+      "romaji": null,
+      "definition": "Phòng, đề phòng",
+      "exampleSentence": "事故を防ぐために、ヘルメットを必ずかぶってください。",
+      "exampleTranslation": "Để phòng tránh tai nạn, hãy nhất định đội mũ bảo hiểm.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 15455,
+      "term": "再び (ふたたび)",
+      "reading": "ふたたび",
+      "romaji": null,
+      "definition": "Lại, một lần nữa lại",
+      "exampleSentence": "卒業してから十年後、彼は再び母校を訪れた。",
+      "exampleTranslation": "Mười năm sau khi tốt nghiệp, anh ấy lại đến thăm trường cũ.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 15456,
+      "term": "わざと",
+      "reading": "わざと",
+      "romaji": null,
+      "definition": "Cố tình",
+      "exampleSentence": "彼はわざと私の話を聞かないふりをした。",
+      "exampleTranslation": "Anh ấy cố tình giả vờ không nghe lời tôi nói.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 15457,
+      "term": "被害者 (ひがいしゃ)",
+      "reading": "ひがいしゃ",
+      "romaji": null,
+      "definition": "Người bị nạn, nạn nhân",
+      "exampleSentence": "被害者は警察に事件の様子を詳しく説明した。",
+      "exampleTranslation": "Nạn nhân đã giải thích chi tiết diễn biến vụ việc với cảnh sát.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 15458,
+      "term": "[お]互いに ([お]たがいに)",
+      "reading": "[お]たがいに",
+      "romaji": null,
+      "definition": "Nhau, cùng nhau",
+      "exampleSentence": "私たちはお互いに助け合いながら、困難を乗り越えた。",
+      "exampleTranslation": "Chúng tôi giúp đỡ lẫn nhau và cùng vượt qua khó khăn.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 15459,
+      "term": "疑問 (ぎもん)",
+      "reading": "ぎもん",
+      "romaji": null,
+      "definition": "Nghi vấn",
+      "exampleSentence": "その説明を聞いて、私は新たな疑問を持った。",
+      "exampleTranslation": "Nghe lời giải thích đó, tôi nảy sinh một nghi vấn mới.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 15460,
+      "term": "飛び込む (とびこむ)",
+      "reading": "とびこむ",
+      "romaji": null,
+      "definition": "Nhảy xuống, nhảy vào",
+      "exampleSentence": "海に飛び込む前に、準備運動をしましょう。",
+      "exampleTranslation": "Trước khi nhảy xuống biển, hãy khởi động nhé.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 15461,
+      "term": "おぼれる",
+      "reading": "おぼれる",
+      "romaji": null,
+      "definition": "Đuối nước",
+      "exampleSentence": "深い川では、子どもがおぼれる危険があります。",
+      "exampleTranslation": "Ở những con sông sâu, trẻ em có nguy cơ bị đuối nước.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 15462,
+      "term": "飛び出す (とびだす)",
+      "reading": "とびだす",
+      "romaji": null,
+      "definition": "Phi ra, lao ra",
+      "exampleSentence": "子どもが道路へ飛び出すと危険です。",
+      "exampleTranslation": "Trẻ con lao ra đường thì rất nguy hiểm.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 15463,
+      "term": "行方不明 (ゆくえふめい)",
+      "reading": "ゆくえふめい",
+      "romaji": null,
+      "definition": "Mất tích",
+      "exampleSentence": "昨日から、弟が行方不明になっています。",
+      "exampleTranslation": "Em trai tôi đã mất tích từ hôm qua.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 15464,
+      "term": "亡くなる (なくなる)",
+      "reading": "なくなる",
+      "romaji": null,
+      "definition": "Mất, chết",
+      "exampleSentence": "祖父が亡くなる前に、家族みんなで会いに行きました。",
+      "exampleTranslation": "Trước khi ông qua đời, cả gia đình đã đến thăm ông.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 15465,
+      "term": "偶然 (ぐうぜん)",
+      "reading": "ぐうぜん",
+      "romaji": null,
+      "definition": "Ngẫu nhiên, tình cờ",
+      "exampleSentence": "駅で高校時代の友人に偶然会った。",
+      "exampleTranslation": "Tôi tình cờ gặp một người bạn thời trung học ở nhà ga.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

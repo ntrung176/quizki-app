@@ -1,0 +1,110 @@
+{
+  "id": 626,
+  "title": "N2 Unit 13.5 - 副詞＋連体詞 (bài 5/5)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 副詞＋連体詞",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.924452",
+  "cards": [
+    {
+      "id": 14315,
+      "term": "偶々 (たまたま)",
+      "reading": "たまたま",
+      "romaji": null,
+      "definition": "thỉnh thoảng, hiếm, đôi khi",
+      "exampleSentence": "たまたま入った喫茶店で、友達に会った。",
+      "exampleTranslation": "Quán cà phê tôi tình cờ vào lại gặp đúng bạn.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14316,
+      "term": "実際 (じっさい)",
+      "reading": "じっさい",
+      "romaji": null,
+      "definition": "thực tế, thực sự",
+      "exampleSentence": "簡単そうに見えても、実際にやってみるとうまくできないことが多い。",
+      "exampleTranslation": "Nhìn thì có vẻ dễ nhưng làm thật thì thường không suôn sẻ.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14317,
+      "term": "同様 (どうよう)",
+      "reading": "どうよう",
+      "romaji": null,
+      "definition": "giống như",
+      "exampleSentence": "リサイクルショップには新品同様の物もある。",
+      "exampleTranslation": "Ở tiệm đồ secondhand cũng có đồ như mới.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14318,
+      "term": "元々 (もともと)",
+      "reading": "もともと",
+      "romaji": null,
+      "definition": "ban đầu, vốn dĩ",
+      "exampleSentence": "元々体が弱かったのだが、最近一層疲れやすかった。",
+      "exampleTranslation": "Vốn thể trạng đã yếu, gần đây lại càng dễ mệt hơn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14319,
+      "term": "本来 (ほんらい)",
+      "reading": "ほんらい",
+      "romaji": null,
+      "definition": "từ đầu, nguyên bản",
+      "exampleSentence": "このビルは本来昨年完成の予定だったが、資金不足でまだ完成していない。",
+      "exampleTranslation": "Tòa nhà này vốn dự định hoàn thành năm ngoái, nhưng thiếu vốn nên vẫn chưa xong.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14320,
+      "term": "ある",
+      "reading": "ある",
+      "romaji": null,
+      "definition": "có, một số",
+      "exampleSentence": "ある人から、近々人事異動があると聞いた。",
+      "exampleTranslation": "Tôi nghe nói sắp tới sẽ có điều động nhân sự.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14321,
+      "term": "有らゆる (あらゆる)",
+      "reading": "あらゆる",
+      "romaji": null,
+      "definition": "tất cả",
+      "exampleSentence": "あの博物館にはあらゆる種類の昆虫が集められている。",
+      "exampleTranslation": "Ở bảo tàng đó có đủ loại côn trùng được sưu tầm.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14322,
+      "term": "大した (たいした)",
+      "reading": "たいした",
+      "romaji": null,
+      "definition": "quan trọng, to lớn",
+      "exampleSentence": "「けがの具合はどうですか」「大したことはありません」",
+      "exampleTranslation": "“Vết thương sao rồi?” “Không sao, không nghiêm trọng.”",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14323,
+      "term": "所謂 (いわゆる)",
+      "reading": "いわゆる",
+      "romaji": null,
+      "definition": "cái được gọi là",
+      "exampleSentence": "私はいわゆる受験戦争とは無縁の高校時代を過ごした。",
+      "exampleTranslation": "Tôi đã trải qua thời cấp 3 hoàn toàn không dính dáng đến cái gọi là “cuộc chiến thi cử”.",
+      "forms": [],
+      "displayOrder": 8
+    }
+  ]
+}

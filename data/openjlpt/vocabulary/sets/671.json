@@ -1,0 +1,198 @@
+{
+  "id": 671,
+  "title": "N3 Tango 9.3 - Tự nhiên và cuộc sống · Ngày nóng và ngày lạnh",
+  "description": "Tango N3 — Tự nhiên và cuộc sống",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:23.227439",
+  "cards": [
+    {
+      "id": 15348,
+      "term": "蒸し暑い (むしあつい)",
+      "reading": "むしあつい",
+      "romaji": null,
+      "definition": "Nóng ẩm, oi bức",
+      "exampleSentence": "今日は蒸し暑いので、窓を開けてください。",
+      "exampleTranslation": "Hôm nay oi bức nên hãy mở cửa sổ nhé.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 15349,
+      "term": "温度計 (おんどけい)",
+      "reading": "おんどけい",
+      "romaji": null,
+      "definition": "Nhiệt kế",
+      "exampleSentence": "温度計で部屋の温度を測りました。",
+      "exampleTranslation": "Tôi đã đo nhiệt độ phòng bằng nhiệt kế.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 15350,
+      "term": "プラス",
+      "reading": "プラス",
+      "romaji": null,
+      "definition": "Dương, tăng",
+      "exampleSentence": "今月の売り上げは、先月よりプラスになりました。",
+      "exampleTranslation": "Doanh thu tháng này đã tăng so với tháng trước.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 15351,
+      "term": "マイナス",
+      "reading": "マイナス",
+      "romaji": null,
+      "definition": "Âm, giảm",
+      "exampleSentence": "雨が続くと、野菜の収穫にマイナスの影響が出る。",
+      "exampleTranslation": "Nếu mưa kéo dài, việc thu hoạch rau sẽ bị ảnh hưởng tiêu cực.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 15352,
+      "term": "凍る (こおる)",
+      "reading": "こおる",
+      "romaji": null,
+      "definition": "Đóng băng",
+      "exampleSentence": "気温が零下になると、道路の水が凍ることがあります。",
+      "exampleTranslation": "Khi nhiệt độ xuống dưới không độ, nước trên đường có thể đóng băng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 15353,
+      "term": "氷 (こおり)",
+      "reading": "こおり",
+      "romaji": null,
+      "definition": "Băng, đá",
+      "exampleSentence": "暑い日は、氷を入れた水を飲むと気持ちがいい。",
+      "exampleTranslation": "Vào những ngày nóng, uống nước có cho thêm đá thật dễ chịu.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 15354,
+      "term": "冷える (ひえる)",
+      "reading": "ひえる",
+      "romaji": null,
+      "definition": "Lạnh, cóng",
+      "exampleSentence": "夜になると、山の上は急に冷える。",
+      "exampleTranslation": "Khi về đêm, trên núi trở lạnh nhanh chóng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 15355,
+      "term": "けっこう",
+      "reading": "けっこう",
+      "romaji": null,
+      "definition": "Khá",
+      "exampleSentence": "このかばんはけっこう丈夫なので、長く使えそうです。",
+      "exampleTranslation": "Chiếc cặp này khá bền nên có vẻ sẽ dùng được lâu.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 15356,
+      "term": "非常な (ひじょうな)",
+      "reading": "ひじょうな",
+      "romaji": null,
+      "definition": "Rất",
+      "exampleSentence": "彼は非常な努力を重ねて、試験に合格した。",
+      "exampleTranslation": "Anh ấy đã không ngừng nỗ lực rất nhiều và đỗ kỳ thi.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 15357,
+      "term": "夏日 (なつび)",
+      "reading": "なつび",
+      "romaji": null,
+      "definition": "Ngày hè nhiệt độ trên 25 độ",
+      "exampleSentence": "今日は夏日になり、昼間は半袖でも過ごせそうです。",
+      "exampleTranslation": "Hôm nay là một ngày hè, ban ngày mặc áo ngắn tay cũng có vẻ ổn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 15358,
+      "term": "真夏日 (まなつび)",
+      "reading": "まなつび",
+      "romaji": null,
+      "definition": "Ngày hè nóng trên 30 độ",
+      "exampleSentence": "今日は真夏日なので、水分をこまめに取ってください。",
+      "exampleTranslation": "Hôm nay là ngày hè nóng trên 30 độ, nên hãy thường xuyên uống nước.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 15359,
+      "term": "猛暑日 (もうしょび)",
+      "reading": "もうしょび",
+      "romaji": null,
+      "definition": "Ngày hè cực nóng trên 35 độ",
+      "exampleSentence": "今年初めての猛暑日となり、外での運動は控えました。",
+      "exampleTranslation": "Đây là ngày hè cực nóng đầu tiên trong năm nên tôi đã hạn chế tập thể dục ngoài trời.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 15360,
+      "term": "冬日 (ふゆび)",
+      "reading": "ふゆび",
+      "romaji": null,
+      "definition": "Ngày đông nhiệt độ thấp nhất dưới âm",
+      "exampleSentence": "今朝は冬日だったので、窓に霜が降りていました。",
+      "exampleTranslation": "Sáng nay nhiệt độ xuống dưới 0 độ nên cửa sổ đã phủ đầy sương giá.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 15361,
+      "term": "真冬日 (まふゆび)",
+      "reading": "まふゆび",
+      "romaji": null,
+      "definition": "Ngày đông hàn nhiệt độ cao nhất dưới âm",
+      "exampleSentence": "北海道では昨日、真冬日となり、一日中気温が氷点下でした。",
+      "exampleTranslation": "Hôm qua ở Hokkaido là một ngày đông lạnh giá, nhiệt độ cả ngày đều dưới 0 độ.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 15362,
+      "term": "暖冬 (だんとう)",
+      "reading": "だんとう",
+      "romaji": null,
+      "definition": "Mùa đông ấm",
+      "exampleSentence": "今年は暖冬で、スキー場の雪が少ないそうです。",
+      "exampleTranslation": "Nghe nói năm nay là mùa đông ấm nên tuyết ở các khu trượt tuyết rất ít.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 15363,
+      "term": "冷夏 (れいか)",
+      "reading": "れいか",
+      "romaji": null,
+      "definition": "Mùa hè mát",
+      "exampleSentence": "去年は冷夏だったため、夏野菜があまり育ちませんでした。",
+      "exampleTranslation": "Vì năm ngoái mùa hè mát mẻ nên rau củ mùa hè không phát triển tốt.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 15364,
+      "term": "せっかく",
+      "reading": "せっかく",
+      "romaji": null,
+      "definition": "Chẳng mấy khi, được",
+      "exampleSentence": "せっかく京都まで来たので、今日はゆっくり寺を見て回りましょう。",
+      "exampleTranslation": "Đã có dịp đến tận Kyoto rồi nên hôm nay chúng ta hãy thong thả tham quan các ngôi chùa.",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

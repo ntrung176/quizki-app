@@ -1,0 +1,121 @@
+{
+  "id": 572,
+  "title": "N2 Unit 5.3 - カタカナA (bài 3/5)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — カタカナA",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.112216",
+  "cards": [
+    {
+      "id": 13648,
+      "term": "カーブ",
+      "reading": "カーブ",
+      "romaji": null,
+      "definition": "khúc cua, cong",
+      "exampleSentence": "道が大きくカーブしている。",
+      "exampleTranslation": "Con đường uốn một khúc cua lớn.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13649,
+      "term": "コース",
+      "reading": "コース",
+      "romaji": null,
+      "definition": "khóa học, sân đua, đường đua",
+      "exampleSentence": "この道は市民マラソンのコースになっている。",
+      "exampleTranslation": "Con đường này là lộ trình của giải marathon thành phố.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13650,
+      "term": "レース",
+      "reading": "レース",
+      "romaji": null,
+      "definition": "cuộc đua",
+      "exampleSentence": "競輪場へレースを見に行った。",
+      "exampleTranslation": "Tôi đến trường đua xe đạp để xem đua.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13651,
+      "term": "リード",
+      "reading": "リード",
+      "romaji": null,
+      "definition": "dẫn đầu, dẫn dắt, dẫn trước",
+      "exampleSentence": "A国は経済で世界をリードしている。",
+      "exampleTranslation": "Nước A dẫn đầu thế giới về kinh tế.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13652,
+      "term": "トップ",
+      "reading": "トップ",
+      "romaji": null,
+      "definition": "đầu bảng",
+      "exampleSentence": "100メートル走でトップでゴールインした。",
+      "exampleTranslation": "Anh ấy về đích dẫn đầu ở cự ly 100m.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13653,
+      "term": "ゴール",
+      "reading": "ゴール",
+      "romaji": null,
+      "definition": "đạt được, đích đến, mục tiêu, khung thành",
+      "exampleSentence": "山本選手は、100メートル背泳ぎで世界新記録でゴールした。",
+      "exampleTranslation": "VĐV Yamamoto về đích ở 100m bơi ngửa với kỷ lục thế giới mới.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13654,
+      "term": "パス",
+      "reading": "パス",
+      "romaji": null,
+      "definition": "vượt qua",
+      "exampleSentence": "テストにパスする。",
+      "exampleTranslation": "Đậu bài kiểm tra.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13655,
+      "term": "ベスト",
+      "reading": "ベスト",
+      "romaji": null,
+      "definition": "tốt nhất",
+      "exampleSentence": "この方法はベストではないが、かなり効果がある。",
+      "exampleTranslation": "Cách này không phải tối ưu nhất, nhưng khá hiệu quả.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13656,
+      "term": "レギュラー",
+      "reading": "レギュラー",
+      "romaji": null,
+      "definition": "thông thường; bình thường; phổ biến",
+      "exampleSentence": "チームのレギュラーになれるように頑張っている。",
+      "exampleTranslation": "Tôi đang cố gắng để trở thành thành viên chính thức (đá chính) của đội.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13657,
+      "term": "コーチ",
+      "reading": "コーチ",
+      "romaji": null,
+      "definition": "huấn luyện viên",
+      "exampleSentence": "ここの柔道部のコーチは厳しいことで有名だ。",
+      "exampleTranslation": "HLV của CLB Judo này nổi tiếng nghiêm khắc.",
+      "forms": [],
+      "displayOrder": 9
+    }
+  ]
+}

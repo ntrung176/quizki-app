@@ -1,0 +1,209 @@
+{
+  "id": 841,
+  "title": "N1 Tango 12.2 - Tình trạng - Hình ảnh · Tâm trạng tốt",
+  "description": "Tango N1 — Tình trạng - Hình ảnh",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:44.069199",
+  "cards": [
+    {
+      "id": 19733,
+      "term": "爽快な (そうかいな)",
+      "reading": "そうかいな",
+      "romaji": null,
+      "definition": "Sảng khoái",
+      "exampleSentence": "仕事の後に海辺を走ると、爽快な気分になる。",
+      "exampleTranslation": "Sau giờ làm, chạy bộ bên bờ biển khiến tôi cảm thấy thật sảng khoái.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 19734,
+      "term": "軽快な (けいかいな)",
+      "reading": "けいかいな",
+      "romaji": null,
+      "definition": "Nhẹ nhàng, nhanh nhẹn",
+      "exampleSentence": "彼は軽快なステップで舞台を駆け回り、観客を魅了した。",
+      "exampleTranslation": "Anh ấy di chuyển khắp sân khấu với những bước chân nhanh nhẹn và cuốn hút khán giả.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 19735,
+      "term": "和やかな (なごやかな)",
+      "reading": "なごやかな",
+      "romaji": null,
+      "definition": "Hòa nhã, ấm cúng",
+      "exampleSentence": "会議は冗談も交じる和やかな雰囲気の中で進んだ。",
+      "exampleTranslation": "Cuộc họp diễn ra trong bầu không khí hòa nhã, xen lẫn cả những câu nói đùa.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 19736,
+      "term": "和気あいあいと (わきあいあいと)",
+      "reading": "わきあいあいと",
+      "romaji": null,
+      "definition": "Vui vẻ, hòa thuận",
+      "exampleSentence": "社員たちは昼休みに和気あいあいと談笑していた。",
+      "exampleTranslation": "Các nhân viên vui vẻ trò chuyện với nhau trong giờ nghỉ trưa.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 19737,
+      "term": "喜ばしい (よろこばしい)",
+      "reading": "よろこばしい",
+      "romaji": null,
+      "definition": "Vui mừng, đáng mừng",
+      "exampleSentence": "長年の努力が実を結んだことは、実に喜ばしい知らせだ。",
+      "exampleTranslation": "Việc những nỗ lực suốt nhiều năm đã đem lại thành quả quả là một tin đáng mừng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 19738,
+      "term": "華々しい (はなばなしい)",
+      "reading": "はなばなしい",
+      "romaji": null,
+      "definition": "Rực rỡ, huy hoàng",
+      "exampleSentence": "彼女は華々しいデビューを飾った後も、地道な努力を続けている。",
+      "exampleTranslation": "Sau màn ra mắt rực rỡ, cô ấy vẫn tiếp tục nỗ lực bền bỉ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 19739,
+      "term": "いそいそと",
+      "reading": "いそいそと",
+      "romaji": null,
+      "definition": "Háo hức, hăm hở",
+      "exampleSentence": "母は孫の訪問を楽しみに、いそいそと料理を始めた。",
+      "exampleTranslation": "Mẹ háo hức chờ các cháu đến nên đã hăm hở bắt tay vào nấu ăn.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 19740,
+      "term": "うきうき（する）",
+      "reading": "うきうき（する）",
+      "romaji": null,
+      "definition": "Phấn khởi, háo hức",
+      "exampleSentence": "旅行の前は、誰でも「うきうき（する）」気分になるものだ。",
+      "exampleTranslation": "Trước một chuyến du lịch, ai cũng thường cảm thấy phấn khởi, háo hức.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 19741,
+      "term": "ときめく",
+      "reading": "ときめく",
+      "romaji": null,
+      "definition": "Rung động, xao xuyến",
+      "exampleSentence": "憧れの俳優を目の前にして、胸がときめくのを感じた。",
+      "exampleTranslation": "Đứng trước nam diễn viên mà mình ngưỡng mộ, tôi cảm nhận được trái tim rung động.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 19742,
+      "term": "意気揚々[と] (いきようよう[と])",
+      "reading": "いきようよう[と]",
+      "romaji": null,
+      "definition": "Hân hoan, phấn khởi",
+      "exampleSentence": "彼は意気揚々と会場を後にした。",
+      "exampleTranslation": "Anh ấy hân hoan rời khỏi hội trường.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 19743,
+      "term": "得意満面（な） (とくいまんめん（な）)",
+      "reading": "とくいまんめん（な）",
+      "romaji": null,
+      "definition": "Đắc ý, mặt mày hớn hở",
+      "exampleSentence": "試合に勝った彼は、「得意満面（な）」という言葉がぴったりの表情をしていた。",
+      "exampleTranslation": "Sau khi thắng trận, vẻ mặt đắc ý của anh ấy đúng là rất hợp với từ “đắc ý, hớn hở”.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 19744,
+      "term": "心が躍る (こころがおどる)",
+      "reading": "こころがおどる",
+      "romaji": null,
+      "definition": "Hưng phấn, rộn ràng",
+      "exampleSentence": "春の新作発表を前に、彼の心が躍る様子が伝わってきた。",
+      "exampleTranslation": "Trước buổi công bố sản phẩm mới mùa xuân, có thể cảm nhận được sự phấn khích của anh ấy.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 19745,
+      "term": "待ち遠しい (まちどおしい)",
+      "reading": "まちどおしい",
+      "romaji": null,
+      "definition": "Mong ngóng, mong đợi",
+      "exampleSentence": "来月の再会が待ち遠しい。",
+      "exampleTranslation": "Tôi mong ngóng đến ngày gặp lại vào tháng sau.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 19746,
+      "term": "せいせいする",
+      "reading": "せいせいする",
+      "romaji": null,
+      "definition": "Nhẹ nhõm, thanh thản",
+      "exampleSentence": "仕事の締め切りを終え、ようやくせいせいする気分になった。",
+      "exampleTranslation": "Kết thúc hạn chót công việc, cuối cùng tôi cũng cảm thấy nhẹ nhõm.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 19747,
+      "term": "さばさば（する）",
+      "reading": "さばさば（する）",
+      "romaji": null,
+      "definition": "Nhẹ nhõm, thoải mái",
+      "exampleSentence": "悩みをすべて話し終えると、「さばさば（する）」という気分になった。",
+      "exampleTranslation": "Sau khi kể hết mọi nỗi phiền muộn, tôi cảm thấy lòng nhẹ nhõm hẳn.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 19748,
+      "term": "乗り気（な） (のりき（な）)",
+      "reading": "のりき（な）",
+      "romaji": null,
+      "definition": "Hào hứng, hứng thú",
+      "exampleSentence": "「乗り気（な）」という表現がぴったりなほど、彼は新企画に積極的だった。",
+      "exampleTranslation": "Anh ấy tích cực với dự án mới đến mức hoàn toàn xứng đáng với cách nói “hào hứng tham gia”.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 19749,
+      "term": "テンション",
+      "reading": "テンション",
+      "romaji": null,
+      "definition": "Tâm trạng, tinh thần",
+      "exampleSentence": "発表会を控え、みんなのテンションが一気に高まった。",
+      "exampleTranslation": "Trước buổi thuyết trình, tinh thần của mọi người lập tức phấn chấn hẳn lên.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 19750,
+      "term": "喜怒哀楽 (きどあいらく)",
+      "reading": "きどあいらく",
+      "romaji": null,
+      "definition": "Hỉ nộ ái lạc, mọi cung bậc cảm xúc",
+      "exampleSentence": "その小説は登場人物の喜怒哀楽を細やかに描いている。",
+      "exampleTranslation": "Cuốn tiểu thuyết đó khắc họa tinh tế mọi cung bậc cảm xúc của các nhân vật.",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

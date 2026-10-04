@@ -1,0 +1,99 @@
+{
+  "id": 585,
+  "title": "N2 Unit 7.6 - 名詞C (bài 6/8)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.313767",
+  "cards": [
+    {
+      "id": 13811,
+      "term": "事情 (じじょう)",
+      "reading": "じじょう",
+      "romaji": null,
+      "definition": "tình hình, sự tình, nguyên cớ",
+      "exampleSentence": "「この度、事情により退社することになりました」",
+      "exampleTranslation": "&quot;Vì lý do này, tôi buộc phải nghỉ việc.&quot;",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13812,
+      "term": "事態 (じたい)",
+      "reading": "じたい",
+      "romaji": null,
+      "definition": "tình hình, tình trạng",
+      "exampleSentence": "預金している銀行が倒産するという、大変な事態になった。",
+      "exampleTranslation": "Ngân hàng tôi gửi tiền phá sản—tình hình trở nên rất nghiêm trọng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13813,
+      "term": "障害 (しょうがい)",
+      "reading": "しょうがい",
+      "romaji": null,
+      "definition": "cản trở, khó khăn",
+      "exampleSentence": "彼は目が見えないという障害を乗り越えてピアニストになった。",
+      "exampleTranslation": "Anh ấy vượt qua khuyết tật không nhìn thấy để trở thành nghệ sĩ piano.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13814,
+      "term": "福祉 (ふくし)",
+      "reading": "ふくし",
+      "romaji": null,
+      "definition": "phúc lợi",
+      "exampleSentence": "大学で福祉について勉強した。",
+      "exampleTranslation": "Tôi học về phúc lợi ở đại học.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13815,
+      "term": "社会 (しゃかい)",
+      "reading": "しゃかい",
+      "romaji": null,
+      "definition": "xã hội",
+      "exampleSentence": "定年退職後は社会の役に立つことをしたい。",
+      "exampleTranslation": "Sau khi nghỉ hưu, tôi muốn làm việc có ích cho xã hội.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13816,
+      "term": "都会 (とかい)",
+      "reading": "とかい",
+      "romaji": null,
+      "definition": "thành phố, thành thị",
+      "exampleSentence": "田舎の高校生だった私は、都会にあこがれていた。",
+      "exampleTranslation": "Từng là học sinh quê, tôi khao khát thành phố.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13817,
+      "term": "世論 (せろん)",
+      "reading": "せろん",
+      "romaji": null,
+      "definition": "dư luận, ý kiến công chúng",
+      "exampleSentence": "現代の政治家は世論を無視することはできない。",
+      "exampleTranslation": "Chính trị gia hiện đại không thể phớt lờ dư luận.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13818,
+      "term": "民族 (みんぞく)",
+      "reading": "みんぞく",
+      "romaji": null,
+      "definition": "dân tộc",
+      "exampleSentence": "世界にはさまざまな民族が存在する。",
+      "exampleTranslation": "Trên thế giới có rất nhiều dân tộc.",
+      "forms": [],
+      "displayOrder": 7
+    }
+  ]
+}

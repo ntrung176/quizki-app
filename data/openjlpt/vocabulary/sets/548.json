@@ -1,0 +1,132 @@
+{
+  "id": 548,
+  "title": "N2 Unit 2.5 - 動詞A (bài 5/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.553864",
+  "cards": [
+    {
+      "id": 13324,
+      "term": "くっ付く (くっつく)",
+      "reading": "くっつく",
+      "romaji": null,
+      "definition": "quấn quýt, dính vào nhau",
+      "exampleSentence": "磁石と磁石がくっついて離れない。",
+      "exampleTranslation": "Nam châm dính vào nhau, không tách ra được.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13325,
+      "term": "くっ付ける (くっつける)",
+      "reading": "くっつける",
+      "romaji": null,
+      "definition": "gắn vào",
+      "exampleSentence": "机と机をくっつけて並べた。",
+      "exampleTranslation": "Tôi ghép hai cái bàn sát vào nhau rồi xếp thành hàng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13326,
+      "term": "固まる (かたまる)",
+      "reading": "かたまる",
+      "romaji": null,
+      "definition": "cứng lại",
+      "exampleSentence": "液体にゼラチンを入れると固まってゼリーになる。",
+      "exampleTranslation": "Cho gelatin vào chất lỏng thì đông lại thành thạch.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13327,
+      "term": "固める (かためる)",
+      "reading": "かためる",
+      "romaji": null,
+      "definition": "làm cứng",
+      "exampleSentence": "ジュースを固めてゼリーを作った。",
+      "exampleTranslation": "Tôi làm đông nước ép để làm thạch.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13328,
+      "term": "縮む (ちぢむ)",
+      "reading": "ちぢむ",
+      "romaji": null,
+      "definition": "ngắn lại, co lại",
+      "exampleSentence": "洗濯したらセーターは縮んでしまった。",
+      "exampleTranslation": "Giặt xong thì cái áo len bị co lại.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13329,
+      "term": "縮まる (ちぢまる)",
+      "reading": "ちぢまる",
+      "romaji": null,
+      "definition": "được làm ngắn",
+      "exampleSentence": "マラソンの世界記録はだんだん縮まっている。",
+      "exampleTranslation": "Kỷ lục marathon thế giới đang dần được rút ngắn.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13330,
+      "term": "縮める (ちぢめる)",
+      "reading": "ちぢめる",
+      "romaji": null,
+      "definition": "làm ngắn",
+      "exampleSentence": "ズボンが長すぎたので少し丈を縮めた。",
+      "exampleTranslation": "Quần dài quá nên tôi rút ngắn ống một chút.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13331,
+      "term": "沈む (しずむ)",
+      "reading": "しずむ",
+      "romaji": null,
+      "definition": "chìm, lặn",
+      "exampleSentence": "台風で船が海に沈んだ。",
+      "exampleTranslation": "Vì bão nên thuyền bị chìm ngoài biển.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13332,
+      "term": "沈める (しずめる)",
+      "reading": "しずめる",
+      "romaji": null,
+      "definition": "làm chìm, nhấn chìm, dìm",
+      "exampleSentence": "台風が船を海に沈めてしまった。",
+      "exampleTranslation": "Bão làm chìm con thuyền ngoài biển.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13333,
+      "term": "下がる (さがる)",
+      "reading": "さがる",
+      "romaji": null,
+      "definition": "rơi, rủ xuống",
+      "exampleSentence": "電灯からひもが下がっている。",
+      "exampleTranslation": "Từ bóng đèn thả xuống một sợi dây.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13334,
+      "term": "下げる (さげる)",
+      "reading": "さげる",
+      "romaji": null,
+      "definition": "giảm bớt, hạ",
+      "exampleSentence": "日差しが強いので、ブラインドを下げた。",
+      "exampleTranslation": "Nắng gắt nên tôi hạ rèm (mành) xuống.",
+      "forms": [],
+      "displayOrder": 10
+    }
+  ]
+}

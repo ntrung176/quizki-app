@@ -1,0 +1,231 @@
+{
+  "id": 566,
+  "title": "N2 Unit 4.9 - 名詞B (bài 9/12)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.968344",
+  "cards": [
+    {
+      "id": 13555,
+      "term": "書き上げる (かきあげる)",
+      "reading": "かきあげる",
+      "romaji": null,
+      "definition": "viết xong",
+      "exampleSentence": "レポートを書き上げた。",
+      "exampleTranslation": "Tôi đã viết xong báo cáo.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13556,
+      "term": "育て上げる (そだてあげる)",
+      "reading": "そだてあげる",
+      "romaji": null,
+      "definition": "nuôi nấng",
+      "exampleSentence": "子供を育て上げる。",
+      "exampleTranslation": "Nuôi dạy con cái đến nơi đến chốn.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13557,
+      "term": "読み上げる (よみあげる)",
+      "reading": "よみあげる",
+      "romaji": null,
+      "definition": "đọc to",
+      "exampleSentence": "卒業生の名前を読み上げる。",
+      "exampleTranslation": "Đọc to tên các học sinh tốt nghiệp.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13558,
+      "term": "数え上げる (かぞえあげる)",
+      "reading": "かぞえあげる",
+      "romaji": null,
+      "definition": "đếm ra",
+      "exampleSentence": "欠点を数え上げる。",
+      "exampleTranslation": "Kể ra hàng loạt khuyết điểm.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13559,
+      "term": "投げ出す (なげだす)",
+      "reading": "なげだす",
+      "romaji": null,
+      "definition": "buông, ném đi, từ bỏ",
+      "exampleSentence": "足を投げ出して座る。",
+      "exampleTranslation": "Duỗi thẳng chân ra rồi ngồi (ngồi thoải mái).",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13560,
+      "term": "持ち出す (もちだす)",
+      "reading": "もちだす",
+      "romaji": null,
+      "definition": "cầm đi",
+      "exampleSentence": "この本は図書館から持ち出さないでください。",
+      "exampleTranslation": "Đừng mang cuốn sách này ra khỏi thư viện.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13561,
+      "term": "追い出す (おいだす)",
+      "reading": "おいだす",
+      "romaji": null,
+      "definition": "đuổi đi, xua đi",
+      "exampleSentence": "入ってきた虫を追い出す。",
+      "exampleTranslation": "Đuổi con côn trùng vừa bay vào ra ngoài.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13562,
+      "term": "放り出す (ほうりだす)",
+      "reading": "ほうりだす",
+      "romaji": null,
+      "definition": "ném sang bên",
+      "exampleSentence": "子供は学校から帰ってくると、かばんを放り出して遊びに行った。",
+      "exampleTranslation": "Con vừa về tới nhà đã quăng cặp sang một bên rồi chạy đi chơi.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13563,
+      "term": "貸し出す (かしだす)",
+      "reading": "かしだす",
+      "romaji": null,
+      "definition": "cho mượn",
+      "exampleSentence": "「この図書館では雑誌も貸し出していますか」",
+      "exampleTranslation": "Ở thư viện này có cho mượn cả tạp chí không ạ?",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13564,
+      "term": "聞き出す (ききだす)",
+      "reading": "ききだす",
+      "romaji": null,
+      "definition": "moi ra, hỏi ra (thông tin), khai thác (thông tin)",
+      "exampleSentence": "相手から情報を聞き出す。",
+      "exampleTranslation": "Moi/khai thác thông tin từ đối phương.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13565,
+      "term": "連れ出す (つれだす)",
+      "reading": "つれだす",
+      "romaji": null,
+      "definition": "dẫn đi",
+      "exampleSentence": "嫌がる娘をむりやり連れ出して病院に行った。",
+      "exampleTranslation": "Cưỡng ép con bé không muốn đi, kéo ra rồi đưa đến bệnh viện.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13566,
+      "term": "引っ張り出す (ひっぱりだす)",
+      "reading": "ひっぱりだす",
+      "romaji": null,
+      "definition": "lôi ra",
+      "exampleSentence": "押し入れの奥から古いアルバムを引っ張り出した。",
+      "exampleTranslation": "Tôi lôi một album cũ từ sâu trong tủ ra.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13567,
+      "term": "逃げ出す (にげだす)",
+      "reading": "にげだす",
+      "romaji": null,
+      "definition": "chạy trốn",
+      "exampleSentence": "燃えている家の中から逃げ出す。",
+      "exampleTranslation": "Chạy trốn khỏi căn nhà đang cháy.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13568,
+      "term": "飛び出す (とびだす)",
+      "reading": "とびだす",
+      "romaji": null,
+      "definition": "nhảy ra, bay ra",
+      "exampleSentence": "箱を開けるとカエルが飛び出した。",
+      "exampleTranslation": "Vừa mở hộp ra thì con ếch nhảy vọt ra.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13569,
+      "term": "見つけ出す (みつけだす)",
+      "reading": "みつけだす",
+      "romaji": null,
+      "definition": "tìm ra, tìm thấy",
+      "exampleSentence": "図書館の本棚から、探していた本を見つけ出した。",
+      "exampleTranslation": "Tôi đã tìm thấy cuốn sách đang tìm trên kệ thư viện.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 13570,
+      "term": "探し出す (さがしだす)",
+      "reading": "さがしだす",
+      "romaji": null,
+      "definition": "tìm thấy, phát hiện",
+      "exampleSentence": "行方不明になっていたペットを探し出した。",
+      "exampleTranslation": "Đã tìm ra con thú cưng bị mất tích.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 13571,
+      "term": "書き出す (かきだす)",
+      "reading": "かきだす",
+      "romaji": null,
+      "definition": "viết ra",
+      "exampleSentence": "今日の予定をノートに書きだした。",
+      "exampleTranslation": "Tôi ghi ra kế hoạch hôm nay vào sổ.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 13572,
+      "term": "飛び込む (とびこむ)",
+      "reading": "とびこむ",
+      "romaji": null,
+      "definition": "nhảy vào (hồ bơi)",
+      "exampleSentence": "プールに飛び込む。",
+      "exampleTranslation": "Nhảy xuống hồ bơi.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 13573,
+      "term": "駆け込む (かけこむ)",
+      "reading": "かけこむ",
+      "romaji": null,
+      "definition": "lao về (lớp học)",
+      "exampleSentence": "大急ぎで教室に駆け込んだ。",
+      "exampleTranslation": "Tôi vội vàng chạy ào vào lớp.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 13574,
+      "term": "割り込む (わりこむ)",
+      "reading": "わりこむ",
+      "romaji": null,
+      "definition": "cắt (thành hàng)",
+      "exampleSentence": "列に割り込む。",
+      "exampleTranslation": "Chen ngang/cắt hàng.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

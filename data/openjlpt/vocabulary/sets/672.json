@@ -1,0 +1,187 @@
+{
+  "id": 672,
+  "title": "N3 Tango 9.4 - Tự nhiên và cuộc sống · Thay đổi như thế nào?",
+  "description": "Tango N3 — Tự nhiên và cuộc sống",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:23.736088",
+  "cards": [
+    {
+      "id": 15365,
+      "term": "状態 (じょうたい)",
+      "reading": "じょうたい",
+      "romaji": null,
+      "definition": "Trạng thái, tình trạng",
+      "exampleSentence": "修理の前に、機械がどんな状態か確認してください。",
+      "exampleTranslation": "Trước khi sửa, hãy kiểm tra tình trạng của máy.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 15366,
+      "term": "変化（する） (へんか（する）)",
+      "reading": "へんか（する）",
+      "romaji": null,
+      "definition": "Sự thay đổi",
+      "exampleSentence": "「変化（する）」は、季節や気温などが変わることを表す言葉です。",
+      "exampleTranslation": "「変化（する）」 là từ chỉ sự thay đổi của mùa, nhiệt độ và những thứ tương tự.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 15367,
+      "term": "一定（する） (いってい（する）)",
+      "reading": "いってい（する）",
+      "romaji": null,
+      "definition": "Sự ổn định",
+      "exampleSentence": "「一定（する）」は、変わらない状態が続くことを表す言葉です。",
+      "exampleTranslation": "「一定（する）」 là từ chỉ trạng thái không thay đổi tiếp diễn.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 15368,
+      "term": "観察（する） (かんさつ（する）)",
+      "reading": "かんさつ（する）",
+      "romaji": null,
+      "definition": "Sự quan sát",
+      "exampleSentence": "「観察（する）」は、よく見て詳しく調べることを表します。",
+      "exampleTranslation": "「観察（する）」 có nghĩa là quan sát kỹ và tìm hiểu chi tiết.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 15369,
+      "term": "次第に (しだいに)",
+      "reading": "しだいに",
+      "romaji": null,
+      "definition": "Dần dần",
+      "exampleSentence": "次第に空が明るくなり、雨もやみました。",
+      "exampleTranslation": "Bầu trời dần dần sáng lên và mưa cũng tạnh.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 15370,
+      "term": "じょじょに",
+      "reading": "じょじょに",
+      "romaji": null,
+      "definition": "Dần dần, từ từ",
+      "exampleSentence": "練習を続けると、じょじょに日本語が上手になります。",
+      "exampleTranslation": "Nếu tiếp tục luyện tập, tiếng Nhật sẽ dần dần giỏi hơn.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 15371,
+      "term": "だんだん[と]",
+      "reading": "だんだん[と]",
+      "romaji": null,
+      "definition": "Dần dần",
+      "exampleSentence": "だんだんと寒くなってきたので、コートを出しました。",
+      "exampleTranslation": "Trời dần trở lạnh nên tôi đã lấy áo khoác ra.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 15372,
+      "term": "ますます",
+      "reading": "ますます",
+      "romaji": null,
+      "definition": "Càng ngày càng, càng hơn",
+      "exampleSentence": "日本語を勉強するほど、ますます興味がわいてきます。",
+      "exampleTranslation": "Càng học tiếng Nhật, tôi càng cảm thấy hứng thú hơn.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 15373,
+      "term": "すっかり",
+      "reading": "すっかり",
+      "romaji": null,
+      "definition": "Hẳn, thực sự, hoàn toàn",
+      "exampleSentence": "旅行から帰ると、疲れですっかり眠ってしまいました。",
+      "exampleTranslation": "Sau khi đi du lịch về, vì mệt nên tôi đã ngủ say hoàn toàn.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 15374,
+      "term": "一気に (いっきに)",
+      "reading": "いっきに",
+      "romaji": null,
+      "definition": "Bỗng, một lèo",
+      "exampleSentence": "彼はグラスの水を一気に飲み干しました。",
+      "exampleTranslation": "Anh ấy đã uống cạn cốc nước một hơi.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 15375,
+      "term": "一度に (いちどに)",
+      "reading": "いちどに",
+      "romaji": null,
+      "definition": "Cùng một lúc, đồng loạt",
+      "exampleSentence": "この薬は一度に二錠以上飲まないでください。",
+      "exampleTranslation": "Không được uống từ hai viên thuốc trở lên cùng một lúc.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 15376,
+      "term": "いっぺんに",
+      "reading": "いっぺんに",
+      "romaji": null,
+      "definition": "Cùng một lúc, đồng loạt",
+      "exampleSentence": "仕事をいっぺんに片づけようとすると、かえって疲れます。",
+      "exampleTranslation": "Nếu cố giải quyết hết công việc cùng một lúc thì ngược lại sẽ càng mệt.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 15377,
+      "term": "いつの間にか (いつのまにか)",
+      "reading": "いつのまにか",
+      "romaji": null,
+      "definition": "Lúc nào không hay",
+      "exampleSentence": "話しているうちに、いつの間にか夜になっていました。",
+      "exampleTranslation": "Trong lúc nói chuyện, chẳng biết từ lúc nào trời đã tối.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 15378,
+      "term": "温暖化 (おんだんか)",
+      "reading": "おんだんか",
+      "romaji": null,
+      "definition": "Hiện tượng trái đất ấm dần",
+      "exampleSentence": "温暖化を防ぐために、電気の使用量を減らしましょう。",
+      "exampleTranslation": "Để ngăn hiện tượng trái đất ấm dần lên, hãy giảm lượng điện sử dụng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 15379,
+      "term": "えいきょう（する）",
+      "reading": "えいきょう（する）",
+      "romaji": null,
+      "definition": "Sự ảnh hưởng",
+      "exampleSentence": "「えいきょう（する）」という言葉の使い方を先生に教えてもらいました。",
+      "exampleTranslation": "Tôi đã được giáo viên dạy cách sử dụng từ “えいきょう（する）”.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 15380,
+      "term": "変な (へんな)",
+      "reading": "へんな",
+      "romaji": null,
+      "definition": "Lạ, bất thường",
+      "exampleSentence": "道で変な音が聞こえたので、少し怖くなりました。",
+      "exampleTranslation": "Vì nghe thấy âm thanh lạ trên đường nên tôi hơi sợ.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

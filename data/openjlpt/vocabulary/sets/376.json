@@ -1,0 +1,176 @@
+{
+  "id": 376,
+  "title": "N3 Unit 1.5 - 名詞A・感情と自然 (Cảm xúc & thiên nhiên)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 名詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:34.835183",
+  "cards": [
+    {
+      "id": 10255,
+      "term": "約束 (やくそく)",
+      "reading": "やくそく",
+      "romaji": "yakusoku",
+      "definition": "hứa, hứa hẹn",
+      "exampleSentence": "彼と結婚の約束をした",
+      "exampleTranslation": "Tôi đã hẹn ước kết hôn cùng anh ấy.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10256,
+      "term": "おしゃべり",
+      "reading": "おしゃべり",
+      "romaji": "oshaberi",
+      "definition": "nói chuyện, tán gẫu",
+      "exampleSentence": "授業中に隣の人とおしゃべりしていて、先生に怒られた",
+      "exampleTranslation": "Vì tôi nói chuyện suốt với bạn bên cạnh trong giờ học nên làm giáo viên giận.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10257,
+      "term": "遠慮 (えんりょ)",
+      "reading": "えんりょ",
+      "romaji": "enryo",
+      "definition": "khách khí, ngại ngần",
+      "exampleSentence": "「遠慮しないで食べてください」",
+      "exampleTranslation": "\"Ăn đi, đừng khách khí.\"",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10258,
+      "term": "我慢 (がまん)",
+      "reading": "がまん",
+      "romaji": "gaman",
+      "definition": "chịu đựng, nhẫn nại",
+      "exampleSentence": "痛くてもがまんする",
+      "exampleTranslation": "Dù đau nhưng vẫn chịu đựng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10259,
+      "term": "迷惑 (めいわく)",
+      "reading": "めいわく",
+      "romaji": "meiwaku",
+      "definition": "làm phiền, quấy rầy",
+      "exampleSentence": "人に迷惑をかけてはいけない",
+      "exampleTranslation": "Không được làm phiền người khác.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10260,
+      "term": "希望 (きぼう)",
+      "reading": "きぼう",
+      "romaji": "kibō",
+      "definition": "hy vọng, kỳ vọng, khao khát",
+      "exampleSentence": "最後まで希望を捨ててはいけない",
+      "exampleTranslation": "Không được từ bỏ hy vọng khi chưa kết thúc.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10261,
+      "term": "夢 (ゆめ)",
+      "reading": "ゆめ",
+      "romaji": "yume",
+      "definition": "giấc mơ",
+      "exampleSentence": "きのう、こわい夢を見た",
+      "exampleTranslation": "Hôm qua, tôi đã gặp ác mộng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10262,
+      "term": "賛成 (さんせい)",
+      "reading": "さんせい",
+      "romaji": "sansei",
+      "definition": "tán thành, đồng ý",
+      "exampleSentence": "「賛成の人は手を挙げてください」",
+      "exampleTranslation": "\"Ai tán thành thì giơ tay!\"",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10263,
+      "term": "反対 (はんたい)",
+      "reading": "はんたい",
+      "romaji": "hantai",
+      "definition": "đối ngược, phản đối",
+      "exampleSentence": "プラスの反対はマイナスだ",
+      "exampleTranslation": "Ngược lại với cộng là trừ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10264,
+      "term": "想像 (そうぞう)",
+      "reading": "そうぞう",
+      "romaji": "sōzō",
+      "definition": "tưởng tượng",
+      "exampleSentence": "想像と現実は違う",
+      "exampleTranslation": "Tưởng tượng và thực tế khác nhau.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10265,
+      "term": "努力 (どりょく)",
+      "reading": "どりょく",
+      "romaji": "doryoku",
+      "definition": "nỗ lực, sự cố gắng",
+      "exampleSentence": "一生懸命、努力をする",
+      "exampleTranslation": "Cố gắng hết sức.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10266,
+      "term": "太陽 (たいよう)",
+      "reading": "たいよう",
+      "romaji": "taiyō",
+      "definition": "mặt trời, ánh mặt trời",
+      "exampleSentence": "太陽が昇って、暖かくなった",
+      "exampleTranslation": "Mặt trời lên, thời tiết trở nên ấm áp.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10267,
+      "term": "地球 (ちきゅう)",
+      "reading": "ちきゅう",
+      "romaji": "chikyū",
+      "definition": "trái đất, địa cầu",
+      "exampleSentence": "地球の環境が悪化している",
+      "exampleTranslation": "Môi trường của trái đất ngày càng xấu đi.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10268,
+      "term": "温度 (おんど)",
+      "reading": "おんど",
+      "romaji": "ondo",
+      "definition": "nhiệt độ",
+      "exampleSentence": "温度を測る",
+      "exampleTranslation": "Đo nhiệt độ.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10269,
+      "term": "湿度 (しつど)",
+      "reading": "しつど",
+      "romaji": "shitsudo",
+      "definition": "độ ẩm",
+      "exampleSentence": "今年の夏は特に湿度が高い",
+      "exampleTranslation": "Hè năm nay độ ẩm cao một cách bất thường.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "id": 556,
+  "title": "N2 Unit 3.4 - 形容詞A (bài 4/5)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 形容詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.675293",
+  "cards": [
+    {
+      "id": 13419,
+      "term": "辛い (つらい)",
+      "reading": "つらい",
+      "romaji": null,
+      "definition": "đau đớn",
+      "exampleSentence": "子供はつらい経験を乗り越えて成長する。",
+      "exampleTranslation": "Trẻ con sẽ trưởng thành khi vượt qua những trải nghiệm khó khăn.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13420,
+      "term": "きつい",
+      "reading": "きつい",
+      "romaji": null,
+      "definition": "chặt chẽ; chật chội; hà khắc",
+      "exampleSentence": "太ってしまってズボンがきつくなった。",
+      "exampleTranslation": "Mập lên nên quần bị chật.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13421,
+      "term": "緩い (ゆるい)",
+      "reading": "ゆるい",
+      "romaji": null,
+      "definition": "lỏng, chậm",
+      "exampleSentence": "やせてスカートが緩くなった。",
+      "exampleTranslation": "Gầy đi nên váy bị lỏng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13422,
+      "term": "鈍い (にぶい)",
+      "reading": "にぶい",
+      "romaji": null,
+      "definition": "cùn, đần độn, kém",
+      "exampleSentence": "このナイフは切れ味が鈍い。",
+      "exampleTranslation": "Con dao này lưỡi bị cùn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13423,
+      "term": "鋭い (するどい)",
+      "reading": "するどい",
+      "romaji": null,
+      "definition": "sắc, sắc sảo",
+      "exampleSentence": "熊は鋭い爪を持っている。",
+      "exampleTranslation": "Gấu có móng vuốt sắc.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13424,
+      "term": "荒い・粗い (あらい・あらい)",
+      "reading": "あらい・あらい",
+      "romaji": null,
+      "definition": "cục cằn, bạo lực, khốc liệt",
+      "exampleSentence": "彼は気性が荒い。",
+      "exampleTranslation": "Anh ấy tính khí thô bạo/dữ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13425,
+      "term": "強引な (ごういんな)",
+      "reading": "ごういんな",
+      "romaji": null,
+      "definition": "cưỡng bức, bắt buộc",
+      "exampleSentence": "与党は国会で強引に法案を通した。",
+      "exampleTranslation": "Đảng cầm quyền đã cưỡng ép thông qua dự luật ở Quốc hội.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13426,
+      "term": "勝手な (かってな)",
+      "reading": "かってな",
+      "romaji": null,
+      "definition": "độc đoán, tự tiện; tự ý",
+      "exampleSentence": "勝手な言動はほかの人の迷惑になる。",
+      "exampleTranslation": "Lời nói và việc làm tùy tiện sẽ gây phiền cho người khác.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13427,
+      "term": "強気な (つよきな)",
+      "reading": "つよきな",
+      "romaji": null,
+      "definition": "mạnh mẽ, kiên định, tự tin, cứng rắn",
+      "exampleSentence": "彼女は強気な性格で、時々周りと衝突する。",
+      "exampleTranslation": "Cô ấy tính mạnh mẽ nên thỉnh thoảng xung đột với người xung quanh.",
+      "forms": [],
+      "displayOrder": 8
+    }
+  ]
+}

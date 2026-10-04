@@ -1,0 +1,187 @@
+{
+  "id": 381,
+  "title": "N3 Unit 2.2 - 動詞A・決定・手続き (Quyết định & thủ tục)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 動詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.0574",
+  "cards": [
+    {
+      "id": 10331,
+      "term": "乾く (かわく)",
+      "reading": "かわく",
+      "romaji": "kawaku",
+      "definition": "khô",
+      "exampleSentence": "風が強かったので、外に干した洗たく物はすぐに乾いた",
+      "exampleTranslation": "Gió mạnh nên đồ phơi ở ngoài nhanh khô.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10332,
+      "term": "乾かす (かわかす)",
+      "reading": "かわかす",
+      "romaji": "kawakasu",
+      "definition": "làm khô",
+      "exampleSentence": "ドライヤーでぬれた髪を乾かした",
+      "exampleTranslation": "Tôi sấy khô tóc ướt bằng máy sấy.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10333,
+      "term": "畳む (たたむ)",
+      "reading": "たたむ",
+      "romaji": "tatamu",
+      "definition": "gấp, gập",
+      "exampleSentence": "洗たく物をたたむ",
+      "exampleTranslation": "Gấp đồ đã giặt.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10334,
+      "term": "誘う (さそう)",
+      "reading": "さそう",
+      "romaji": "sasou",
+      "definition": "rủ, mời",
+      "exampleSentence": "友だちを誘って映画を見に行った",
+      "exampleTranslation": "Tôi đã rủ bạn đi xem phim.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10335,
+      "term": "おごる",
+      "reading": "おごる",
+      "romaji": "ogoru",
+      "definition": "khao, chiêu đãi",
+      "exampleSentence": "きのうは後輩に焼き肉をおごった",
+      "exampleTranslation": "Hôm qua tôi đã khao đàn em một bữa thịt nướng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10336,
+      "term": "預かる (あずかる)",
+      "reading": "あずかる",
+      "romaji": "azukaru",
+      "definition": "trong nom, chăm sóc",
+      "exampleSentence": "旅行に行く友だちから犬を預かることになった",
+      "exampleTranslation": "Tôi sẽ chăm sóc cho chú chó từ người bạn đi du lịch.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10337,
+      "term": "預ける (あずける)",
+      "reading": "あずける",
+      "romaji": "azukeru",
+      "definition": "gửi tiền, giao phó",
+      "exampleSentence": "銀行にお金を預けると、利子がつく",
+      "exampleTranslation": "Gởi tiền vào ngân hàng sẽ sinh lãi.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10338,
+      "term": "決まる (きまる)",
+      "reading": "きまる",
+      "romaji": "kimaru",
+      "definition": "được quyết định, (thời gian, địa điểm…) nhất định",
+      "exampleSentence": "帰国の日が決まった",
+      "exampleTranslation": "Ngày về nước đã được quyết định.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10339,
+      "term": "決める (きめる)",
+      "reading": "きめる",
+      "romaji": "kimeru",
+      "definition": "quyết định",
+      "exampleSentence": "「進学か就職か、早く決めたほうがいいですよ」",
+      "exampleTranslation": "\"Nên quyết định sớm học lên hay đi làm.\"",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10340,
+      "term": "写る (うつる)",
+      "reading": "うつる",
+      "romaji": "utsuru",
+      "definition": "được chiếu, được chụp",
+      "exampleSentence": "このカメラは暗いところでもよく写る",
+      "exampleTranslation": "Chiếc máy ảnh này chụp tốt cả những nơi tối.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10341,
+      "term": "写す (うつす)",
+      "reading": "うつす",
+      "romaji": "utsusu",
+      "definition": "chụp, sao chép",
+      "exampleSentence": "写真を写す",
+      "exampleTranslation": "Chụp ảnh.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10342,
+      "term": "思い出す (おもいだす)",
+      "reading": "おもいだす",
+      "romaji": "omoidasu",
+      "definition": "hồi tưởng, nhớ lại",
+      "exampleSentence": "毎年春になると、高校の入学式を思い出します",
+      "exampleTranslation": "Mỗi năm khi mùa xuân đến, tôi lại hồi tưởng về buổi lễ nhập học THPT.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10343,
+      "term": "教わる (おそわる)",
+      "reading": "おそわる",
+      "romaji": "osowaru",
+      "definition": "được dạy",
+      "exampleSentence": "この料理の作り方は母から教わりました",
+      "exampleTranslation": "Tôi được mẹ dạy cách làm món ăn này.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10344,
+      "term": "申し込む (もうしこむ)",
+      "reading": "もうしこむ",
+      "romaji": "mōshikomu",
+      "definition": "đăng ký",
+      "exampleSentence": "パーティーに参加を申し込む",
+      "exampleTranslation": "Đăng kí tham gia bữa tiệc.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10345,
+      "term": "断る (ことわる)",
+      "reading": "ことわる",
+      "romaji": "kotowaru",
+      "definition": "từ chối",
+      "exampleSentence": "頼まれた仕事を断った",
+      "exampleTranslation": "Tôi đã từ chối công việc được nhờ vả.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10346,
+      "term": "見つかる (みつかる)",
+      "reading": "みつかる",
+      "romaji": "mitsukaru",
+      "definition": "được tìm thấy; bị phát hiện",
+      "exampleSentence": "なくなったと思っていた指輪が、ソファーの下で見つかった",
+      "exampleTranslation": "Đã tìm thấy chiếc nhẫn cứ ngỡ đã mất ở dưới ghế Sofa.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+{
+  "id": 744,
+  "title": "N2 Tango 4.5 - Phố xá · Các ngành công nghiệp",
+  "description": "Tango N2 — Phố xá",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:34.590011",
+  "cards": [
+    {
+      "id": 17093,
+      "term": "生産（する） (せいさん（する）)",
+      "reading": "せいさん（する）",
+      "romaji": null,
+      "definition": "Sự sản xuất",
+      "exampleSentence": "この工場は、海外向けの部品を生産（する）会社です。",
+      "exampleTranslation": "Nhà máy này là công ty sản xuất linh kiện dành cho thị trường nước ngoài.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 17094,
+      "term": "供給（する） (きょうきゅう（する）)",
+      "reading": "きょうきゅう（する）",
+      "romaji": null,
+      "definition": "Sự cung cấp",
+      "exampleSentence": "この会社は、地域の病院に医療用品を供給（する）役割を担っています。",
+      "exampleTranslation": "Công ty này đảm nhận vai trò cung cấp vật tư y tế cho các bệnh viện trong khu vực.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 17095,
+      "term": "栽培（する） (さいばい（する）)",
+      "reading": "さいばい（する）",
+      "romaji": null,
+      "definition": "Sự trồng trọt",
+      "exampleSentence": "この地域では、農家が栽培（する）野菜を地元の店で販売しています。",
+      "exampleTranslation": "Ở khu vực này, nông dân bán rau do mình trồng tại các cửa hàng địa phương.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 17096,
+      "term": "農家 (のうか)",
+      "reading": "のうか",
+      "romaji": null,
+      "definition": "Nông dân",
+      "exampleSentence": "その農家は、環境に配慮した方法で米を作っています。",
+      "exampleTranslation": "Người nông dân đó trồng lúa bằng phương pháp thân thiện với môi trường.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 17097,
+      "term": "作物 (さくもつ)",
+      "reading": "さくもつ",
+      "romaji": null,
+      "definition": "Hoa màu, cây trồng",
+      "exampleSentence": "台風の影響で、今年は作物の収穫量が少なくなりました。",
+      "exampleTranslation": "Do ảnh hưởng của bão, sản lượng thu hoạch cây trồng năm nay đã giảm.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 17098,
+      "term": "漁業 (ぎょぎょう)",
+      "reading": "ぎょぎょう",
+      "romaji": null,
+      "definition": "Ngư nghiệp, nghề chài lưới",
+      "exampleSentence": "この町では、昔から漁業が人々の生活を支えてきました。",
+      "exampleTranslation": "Ở thị trấn này, nghề đánh bắt cá đã hỗ trợ cuộc sống của người dân từ xưa.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 17099,
+      "term": "栄える (さかえる)",
+      "reading": "さかえる",
+      "romaji": null,
+      "definition": "Phồn vinh, hưng thịnh",
+      "exampleSentence": "この港町は、昔から貿易の拠点として栄えることができました。",
+      "exampleTranslation": "Thị trấn cảng này đã có thể phát triển thịnh vượng từ xưa với tư cách là trung tâm thương mại.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 17100,
+      "term": "普及<する> (ふきゅう<する>)",
+      "reading": "ふきゅう<する>",
+      "romaji": null,
+      "definition": "Sự phổ cập, phổ biến",
+      "exampleSentence": "このサービスは、今後さらに多くの国で普及<する>ことが期待されています。",
+      "exampleTranslation": "Dịch vụ này được kỳ vọng sẽ phổ biến hơn nữa ở nhiều quốc gia trong thời gian tới.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 17101,
+      "term": "急増（する） (きゅうぞう（する）)",
+      "reading": "きゅうぞう（する）",
+      "romaji": null,
+      "definition": "Sự tăng nhanh, tăng đột ngột",
+      "exampleSentence": "高齢者の利用者が急増（する）につれて、駅の設備も改善されました。",
+      "exampleTranslation": "Cùng với số người cao tuổi sử dụng tăng nhanh, các thiết bị trong nhà ga cũng đã được cải thiện.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 17102,
+      "term": "情緒 (じょうちょ)",
+      "reading": "じょうちょ",
+      "romaji": null,
+      "definition": "Trữ tình, cảm xúc",
+      "exampleSentence": "この町の古い街並みには、豊かな情緒が感じられる。",
+      "exampleTranslation": "Cảnh phố cổ của thị trấn này gợi lên một vẻ trữ tình sâu sắc.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 17103,
+      "term": "向上（する） (こうじょう（する）)",
+      "reading": "こうじょう（する）",
+      "romaji": null,
+      "definition": "Sự tăng cường, nâng cao",
+      "exampleSentence": "社員の能力を高めることを、日本語では「向上（する）」と表現する。",
+      "exampleTranslation": "Trong tiếng Nhật, việc nâng cao năng lực nhân viên được diễn đạt bằng từ “向上（する）”.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 17104,
+      "term": "構成（する） (こうせい（する）)",
+      "reading": "こうせい（する）",
+      "romaji": null,
+      "definition": "Sự hình thành, tạo thành",
+      "exampleSentence": "文章をいくつかの部分に分けて作ることを、「構成（する）」という。",
+      "exampleTranslation": "Việc chia một bài viết thành nhiều phần để tạo thành một chỉnh thể được gọi là “構成（する）”.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 17105,
+      "term": "重視（する） (じゅうし（する）)",
+      "reading": "じゅうし（する）",
+      "romaji": null,
+      "definition": "Sự xem trọng",
+      "exampleSentence": "利益だけでなく、社員の満足度も大切にすることを、「重視（する）」という。",
+      "exampleTranslation": "Việc coi trọng sự hài lòng của nhân viên bên cạnh lợi nhuận được gọi là “重視（する）”.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 17106,
+      "term": "提案（する） (ていあん（する）)",
+      "reading": "ていあん（する）",
+      "romaji": null,
+      "definition": "Đề án",
+      "exampleSentence": "会議で新しい販売方法を示すことを、「提案（する）」という。",
+      "exampleTranslation": "Việc đưa ra phương thức bán hàng mới trong cuộc họp được gọi là “提案（する）”.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 17107,
+      "term": "検討（する） (けんとう（する）)",
+      "reading": "けんとう（する）",
+      "romaji": null,
+      "definition": "Sự cân nhắc, nghiên cứu, bàn thảo",
+      "exampleSentence": "計画についてよく考え、話し合うことを、「検討（する）」という。",
+      "exampleTranslation": "Việc suy nghĩ kỹ và thảo luận về một kế hoạch được gọi là “検討（する）”.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 17108,
+      "term": "不可欠な (ふかけつな)",
+      "reading": "ふかけつな",
+      "romaji": null,
+      "definition": "Không thể thiếu",
+      "exampleSentence": "十分な睡眠は、健康を保つために不可欠な要素だ。",
+      "exampleTranslation": "Ngủ đủ giấc là yếu tố không thể thiếu để duy trì sức khỏe.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 17109,
+      "term": "妨げる (さまたげる)",
+      "reading": "さまたげる",
+      "romaji": null,
+      "definition": "Gây trở ngại, ảnh hưởng",
+      "exampleSentence": "深夜の騒音は、近所の人々の睡眠を妨げる。",
+      "exampleTranslation": "Tiếng ồn lúc đêm khuya gây cản trở giấc ngủ của những người xung quanh.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 17110,
+      "term": "生える (はえる)",
+      "reading": "はえる",
+      "romaji": null,
+      "definition": "Mọc",
+      "exampleSentence": "春になると、庭の隅に新しい草が生える。",
+      "exampleTranslation": "Khi mùa xuân đến, cỏ non bắt đầu mọc ở góc vườn.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 17111,
+      "term": "著しい (いちじるしい)",
+      "reading": "いちじるしい",
+      "romaji": null,
+      "definition": "Đáng kể",
+      "exampleSentence": "この地域では、ここ数年で人口の減少が著しい。",
+      "exampleTranslation": "Ở khu vực này, dân số đã giảm đáng kể trong vài năm qua.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 17112,
+      "term": "参考 (さんこう)",
+      "reading": "さんこう",
+      "romaji": null,
+      "definition": "Tham khảo / Sự tham khảo",
+      "exampleSentence": "先輩の意見を参考にして、発表資料を作った。",
+      "exampleTranslation": "Tôi đã tham khảo ý kiến của anh chị khóa trên để làm tài liệu thuyết trình.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 17113,
+      "term": "リスク",
+      "reading": "リスク",
+      "romaji": null,
+      "definition": "Rủi ro",
+      "exampleSentence": "新しい事業を始める前に、考えられるリスクを整理しておくべきだ。",
+      "exampleTranslation": "Trước khi bắt đầu dự án mới, nên chuẩn bị và xem xét các rủi ro có thể xảy ra.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 17114,
+      "term": "現地 (げんち)",
+      "reading": "げんち",
+      "romaji": null,
+      "definition": "(Nước, địa phương) sở tại, địa bàn",
+      "exampleSentence": "現地の人に聞いて、地元で評判の店を教えてもらった。",
+      "exampleTranslation": "Tôi hỏi người dân địa phương và được họ chỉ cho một nhà hàng nổi tiếng trong vùng.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

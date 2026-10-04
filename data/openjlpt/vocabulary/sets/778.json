@@ -1,0 +1,220 @@
+{
+  "id": 778,
+  "title": "N2 Tango 11.4 - Trạng thái - Hình ảnh · Hình ảnh tích cực",
+  "description": "Tango N2 — Trạng thái - Hình ảnh",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:38.37597",
+  "cards": [
+    {
+      "id": 18009,
+      "term": "はきはき（する）",
+      "reading": "はきはき（する）",
+      "romaji": null,
+      "definition": "Quả quyết, sinh động, rõ ràng",
+      "exampleSentence": "面接では、「はきはき（する）」という話し方を意識すると、印象がよくなります。",
+      "exampleTranslation": "Trong buổi phỏng vấn, nếu chú ý nói chuyện rõ ràng, dứt khoát thì sẽ tạo ấn tượng tốt.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 18010,
+      "term": "清潔な (せいけつな)",
+      "reading": "せいけつな",
+      "romaji": null,
+      "definition": "Sạch sẽ",
+      "exampleSentence": "清潔な服装で面接に臨みましょう。",
+      "exampleTranslation": "Hãy tham dự buổi phỏng vấn với trang phục sạch sẽ.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 18011,
+      "term": "客観的な (きゃっかんてきな)",
+      "reading": "きゃっかんてきな",
+      "romaji": null,
+      "definition": "Mang tính khách quan",
+      "exampleSentence": "客観的な資料に基づいて、結論を出す必要があります。",
+      "exampleTranslation": "Cần đưa ra kết luận dựa trên những tài liệu khách quan.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 18012,
+      "term": "冷静な (れいせいな)",
+      "reading": "れいせいな",
+      "romaji": null,
+      "definition": "Điềm tĩnh, bình tĩnh",
+      "exampleSentence": "問題が起きたときこそ、冷静な判断が求められます。",
+      "exampleTranslation": "Chính khi xảy ra vấn đề, người ta càng cần đưa ra phán đoán bình tĩnh.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 18013,
+      "term": "もっともな",
+      "reading": "もっともな",
+      "romaji": null,
+      "definition": "Đương nhiên, đúng đắn, có lý",
+      "exampleSentence": "彼女の説明はもっともなものだったので、誰も反対しませんでした。",
+      "exampleTranslation": "Vì lời giải thích của cô ấy rất hợp lý nên không ai phản đối.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 18014,
+      "term": "謙そん（する） (けんそん（する）)",
+      "reading": "けんそん（する）",
+      "romaji": null,
+      "definition": "Sự khiêm tốn, khiêm nhường",
+      "exampleSentence": "「謙そん（する）」という態度を保てる人は、周囲から長く信頼される。",
+      "exampleTranslation": "Người có thể giữ thái độ khiêm tốn sẽ luôn được mọi người xung quanh tin tưởng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 18015,
+      "term": "若々しい (わかわかしい)",
+      "reading": "わかわかしい",
+      "romaji": null,
+      "definition": "Trẻ trung, đầy sức sống",
+      "exampleSentence": "母は年齢を感じさせない若々しい服装で、友人たちを驚かせた。",
+      "exampleTranslation": "Mẹ khiến bạn bè ngạc nhiên với cách ăn mặc trẻ trung, không ai đoán được tuổi.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 18016,
+      "term": "ユニークな",
+      "reading": "ユニークな",
+      "romaji": null,
+      "definition": "Duy nhất, độc đáo",
+      "exampleSentence": "彼はユニークな発想で、誰も思いつかなかった商品を開発した。",
+      "exampleTranslation": "Anh ấy đã phát triển một sản phẩm mà không ai nghĩ ra nhờ ý tưởng độc đáo.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 18017,
+      "term": "唯一 (ゆいいつ)",
+      "reading": "ゆいいつ",
+      "romaji": null,
+      "definition": "Sự duy nhất",
+      "exampleSentence": "この古い手紙は、祖父から受け継いだ唯一の記録だ。",
+      "exampleTranslation": "Bức thư cũ này là kỷ vật duy nhất tôi được thừa hưởng từ ông.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 18018,
+      "term": "洗練（する） (せんれん（する）)",
+      "reading": "せんれん（する）",
+      "romaji": null,
+      "definition": "Vẻ lịch sự, tinh tế",
+      "exampleSentence": "彼の服装は、「洗練（する）」という言葉がよく似合うほど、無駄がない。",
+      "exampleTranslation": "Trang phục của anh ấy tối giản đến mức rất hợp với từ thanh lịch, tinh tế.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 18019,
+      "term": "品 (ひん)",
+      "reading": "ひん",
+      "romaji": null,
+      "definition": "Phẩm chất, phẩm giá",
+      "exampleSentence": "彼女の話し方には、落ち着いた品が感じられる。",
+      "exampleTranslation": "Cách nói chuyện của cô ấy toát lên vẻ điềm đạm và phẩm giá.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 18020,
+      "term": "広々「と」（する） (ひろびろ「と」（する）)",
+      "reading": "ひろびろ「と」（する）",
+      "romaji": null,
+      "definition": "Rộng lớn, rộng rãi",
+      "exampleSentence": "新しい校舎は、「広々「と」（する）」という表現がぴったりの明るい空間だ。",
+      "exampleTranslation": "Tòa nhà trường mới là một không gian sáng sủa, rất hợp với cách nói rộng rãi, thoáng đãng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 18021,
+      "term": "ふわふわ（な/する）",
+      "reading": "ふわふわ（な/する）",
+      "romaji": null,
+      "definition": "Mềm mại, êm ái",
+      "exampleSentence": "焼きたてのパンは、「ふわふわ（な/する）」という表現がぴったりの柔らかさだ。",
+      "exampleTranslation": "Bánh mì vừa nướng có độ mềm xốp đúng với cách nói mềm mại, êm dịu.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 18022,
+      "term": "断然 (だんぜん)",
+      "reading": "だんぜん",
+      "romaji": null,
+      "definition": "Rõ ràng, hoàn toàn",
+      "exampleSentence": "品質を比べると、こちらの製品のほうが断然優れている。",
+      "exampleTranslation": "So sánh về chất lượng thì sản phẩm này rõ ràng vượt trội hơn.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 18023,
+      "term": "結構な (けっこうな)",
+      "reading": "けっこうな",
+      "romaji": null,
+      "definition": "Tốt, đủ, được",
+      "exampleSentence": "結構なお申し出ですが、今回は遠慮いたします。",
+      "exampleTranslation": "Đề nghị của anh rất tốt, nhưng lần này tôi xin phép từ chối.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 18024,
+      "term": "見事な (みごとな)",
+      "reading": "みごとな",
+      "romaji": null,
+      "definition": "Đẹp, tuyệt vời",
+      "exampleSentence": "彼は見事な演奏を披露し、会場を感動させた。",
+      "exampleTranslation": "Anh ấy trình diễn một tiết mục tuyệt vời khiến cả khán phòng xúc động.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 18025,
+      "term": "貴重な (きちょうな)",
+      "reading": "きちょうな",
+      "romaji": null,
+      "definition": "Quý giá, quý trọng",
+      "exampleSentence": "留学中に得た経験は、私にとって貴重な財産になった。",
+      "exampleTranslation": "Những kinh nghiệm có được trong thời gian du học đã trở thành tài sản quý giá đối với tôi.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 18026,
+      "term": "質素（な） (しっそ（な）)",
+      "reading": "しっそ（な）",
+      "romaji": null,
+      "definition": "Sự giản dị, giản dị",
+      "exampleSentence": "「質素（な）」という言葉どおり、彼は質素な暮らしを続けている。",
+      "exampleTranslation": "Đúng như từ “giản dị”, anh ấy vẫn duy trì một cuộc sống giản dị.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 18027,
+      "term": "同様な (どうような)",
+      "reading": "どうような",
+      "romaji": null,
+      "definition": "Tương tự",
+      "exampleSentence": "彼も同様な意見を持っているが、理由は少し違う。",
+      "exampleTranslation": "Anh ấy cũng có ý kiến tương tự, nhưng lý do thì hơi khác.",
+      "forms": [],
+      "displayOrder": 18
+    }
+  ]
+}

@@ -1,0 +1,121 @@
+{
+  "id": 896,
+  "title": "N5 Tango 9.2 - Sống · Tầng 2 chung cư",
+  "description": "Tango N5 — Sống",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:49.577372",
+  "cards": [
+    {
+      "id": 20878,
+      "term": "たてもの",
+      "reading": "たてもの",
+      "romaji": null,
+      "definition": "Tòa nhà (chỉ các công trình kiến trúc nói chung)",
+      "exampleSentence": "駅の近くに、大きなたてものが建っています。",
+      "exampleTranslation": "Có một tòa nhà lớn nằm gần nhà ga.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20879,
+      "term": "アパート",
+      "reading": "アパート",
+      "romaji": null,
+      "definition": "Chung cư",
+      "exampleSentence": "姉は駅の近くのアパートに住んでいます。",
+      "exampleTranslation": "Chị gái tôi sống trong một căn hộ gần nhà ga.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20880,
+      "term": "りょう",
+      "reading": "りょう",
+      "romaji": null,
+      "definition": "Ký túc xá",
+      "exampleSentence": "大学のりょうには、学生がたくさん住んでいます。",
+      "exampleTranslation": "Có rất nhiều sinh viên sống trong ký túc xá của trường đại học.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20881,
+      "term": "ビル",
+      "reading": "ビル",
+      "romaji": null,
+      "definition": "Tòa nhà",
+      "exampleSentence": "駅の前に新しいビルが建ちました。",
+      "exampleTranslation": "Một tòa nhà mới đã được xây trước nhà ga.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20882,
+      "term": "かいだん",
+      "reading": "かいだん",
+      "romaji": null,
+      "definition": "Cầu thang",
+      "exampleSentence": "エレベーターがないので、かいだんを使いましょう。",
+      "exampleTranslation": "Vì không có thang máy nên hãy dùng cầu thang.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20883,
+      "term": "エスカレーター",
+      "reading": "エスカレーター",
+      "romaji": null,
+      "definition": "Thang cuốn",
+      "exampleSentence": "荷物が重いので、エスカレーターに乗りましょう。",
+      "exampleTranslation": "Vì hành lý nặng nên hãy đi thang cuốn.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20884,
+      "term": "エレベーター",
+      "reading": "エレベーター",
+      "romaji": null,
+      "definition": "Thang máy",
+      "exampleSentence": "エレベーターで十階まで行きます。",
+      "exampleTranslation": "Tôi đi thang máy lên tầng mười.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20885,
+      "term": "何階 (なんかい／なんがい)",
+      "reading": "なんかい／なんがい",
+      "romaji": null,
+      "definition": "Tầng mấy",
+      "exampleSentence": "すみません、田中さんの部屋は何階ですか。",
+      "exampleTranslation": "Xin lỗi, phòng của anh Tanaka ở tầng mấy vậy ạ?",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20886,
+      "term": "〜かい/がい",
+      "reading": "〜かい/がい",
+      "romaji": null,
+      "definition": "Tầng",
+      "exampleSentence": "「〜かい/がい」は、建物の階数を表します。",
+      "exampleTranslation": "「〜かい/がい」 biểu thị số tầng của một tòa nhà.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20887,
+      "term": "ちか",
+      "reading": "ちか",
+      "romaji": null,
+      "definition": "Tầng hầm",
+      "exampleSentence": "スーパーはビルのちかにあります。",
+      "exampleTranslation": "Siêu thị nằm ở tầng hầm của tòa nhà.",
+      "forms": [],
+      "displayOrder": 9
+    }
+  ]
+}

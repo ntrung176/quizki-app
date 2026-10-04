@@ -1,0 +1,198 @@
+{
+  "id": 852,
+  "title": "N1 Tango 14.3 - Các cách diễn đạt dễ bị sai ② · Thành ngữ: Bộ phận khác",
+  "description": "Tango N1 — Các cách diễn đạt dễ bị sai ②",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:44.704228",
+  "cards": [
+    {
+      "id": 19968,
+      "term": "息が切れる (いきがきれる)",
+      "reading": "いきがきれる",
+      "romaji": null,
+      "definition": "Mệt đứt hơi",
+      "exampleSentence": "坂道を走り続けると、さすがに息が切れる。",
+      "exampleTranslation": "Cứ chạy mãi trên con dốc thì đến mức nào đó cũng sẽ mệt đứt hơi.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 19969,
+      "term": "息が詰まる (いきがつまる)",
+      "reading": "いきがつまる",
+      "romaji": null,
+      "definition": "Nghẹt thở, bức bối",
+      "exampleSentence": "緊張した雰囲気の会議では、発言するだけで息が詰まる。",
+      "exampleTranslation": "Trong cuộc họp có bầu không khí căng thẳng, chỉ cần phát biểu thôi cũng thấy nghẹt thở.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 19970,
+      "term": "息が長い (いきがながい)",
+      "reading": "いきがながい",
+      "romaji": null,
+      "definition": "Bền bỉ, lâu dài",
+      "exampleSentence": "この作家の人気は息が長いことで知られている。",
+      "exampleTranslation": "Nhà văn này được biết đến với sức hút bền bỉ.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 19971,
+      "term": "息を抜く (いきをぬく)",
+      "reading": "いきをぬく",
+      "romaji": null,
+      "definition": "Nghỉ ngơi, xả hơi",
+      "exampleSentence": "長時間の交渉に備え、昼休みには意識して息を抜くことにした。",
+      "exampleTranslation": "Để chuẩn bị cho cuộc đàm phán kéo dài, tôi quyết định chủ động thư giãn vào giờ nghỉ trưa.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 19972,
+      "term": "息をつく (いきをつく)",
+      "reading": "いきをつく",
+      "romaji": null,
+      "definition": "Thở phào, nghỉ lấy hơi",
+      "exampleSentence": "長い会議が終わり、ようやく息をつくことができた。",
+      "exampleTranslation": "Cuộc họp dài cuối cùng cũng kết thúc, tôi mới có thể thở phào.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 19973,
+      "term": "息をのむ (いきをのむ)",
+      "reading": "いきをのむ",
+      "romaji": null,
+      "definition": "Nín thở",
+      "exampleSentence": "息をのむほど美しい景色が、目の前に広がっていた。",
+      "exampleTranslation": "Một khung cảnh đẹp đến nghẹt thở trải rộng ngay trước mắt.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 19974,
+      "term": "気が気でない (きがきでない)",
+      "reading": "きがきでない",
+      "romaji": null,
+      "definition": "Bồn chồn, bứt rứt",
+      "exampleSentence": "息子の帰りが遅く、母は気が気でない様子だった。",
+      "exampleTranslation": "Con trai về muộn khiến người mẹ bồn chồn không yên.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 19975,
+      "term": "気が済む (きがすむ)",
+      "reading": "きがすむ",
+      "romaji": null,
+      "definition": "Thấy hài lòng, thấy nhẹ nhõm",
+      "exampleSentence": "本人が謝れば、それで気が済む。",
+      "exampleTranslation": "Chỉ cần chính người đó xin lỗi thì tôi sẽ thấy nhẹ nhõm.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 19976,
+      "term": "馬が合う (うまがあう)",
+      "reading": "うまがあう",
+      "romaji": null,
+      "definition": "Hợp nhau, tâm đầu ý hợp",
+      "exampleSentence": "初対面なのに、彼とは不思議なほど馬が合う。",
+      "exampleTranslation": "Dù mới gặp lần đầu nhưng tôi và anh ấy lại hợp nhau đến lạ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 19977,
+      "term": "うなぎ登り (うなぎのぼり)",
+      "reading": "うなぎのぼり",
+      "romaji": null,
+      "definition": "Tăng vọt, tăng vùn vụt",
+      "exampleSentence": "新商品の売り上げは発売以来、うなぎ登りに伸びている。",
+      "exampleTranslation": "Doanh số của sản phẩm mới đã tăng vùn vụt kể từ khi ra mắt.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 19978,
+      "term": "猫に小判 (ねこにこばん)",
+      "reading": "ねこにこばん",
+      "romaji": null,
+      "definition": "Đàn gảy tai trâu",
+      "exampleSentence": "彼に高価な絵を贈っても、まさに猫に小判だ。",
+      "exampleTranslation": "Tặng anh ấy bức tranh đắt tiền cũng chẳng khác nào đàn gảy tai trâu.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 19979,
+      "term": "猫をかぶる (ねこをかぶる)",
+      "reading": "ねこをかぶる",
+      "romaji": null,
+      "definition": "Giả nai, giả vờ ngoan ngoãn",
+      "exampleSentence": "彼女は初対面の人の前では、いつも猫をかぶる。",
+      "exampleTranslation": "Trước người mới gặp, cô ấy lúc nào cũng giả vờ ngoan ngoãn.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 19980,
+      "term": "猫の手も借りたい (ねこのてもかりたい)",
+      "reading": "ねこのてもかりたい",
+      "romaji": null,
+      "definition": "Bận túi bụi, bận không kịp thở",
+      "exampleSentence": "年末は猫の手も借りたいほど仕事が忙しい。",
+      "exampleTranslation": "Cuối năm công việc bận đến mức không kịp thở.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 19981,
+      "term": "猿も木から落ちる (さるもきからおちる)",
+      "reading": "さるもきからおちる",
+      "romaji": null,
+      "definition": "Nhân vô thập toàn",
+      "exampleSentence": "どんな名人でも失敗するのは、猿も木から落ちるということだ。",
+      "exampleTranslation": "Ngay cả người tài giỏi cũng có lúc mắc sai lầm.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 19982,
+      "term": "犬猿の仲 (けんえんのなか)",
+      "reading": "けんえんのなか",
+      "romaji": null,
+      "definition": "Ghét nhau như chó với mèo",
+      "exampleSentence": "あの二人は昔から犬猿の仲で、同じ席に座ろうとしない。",
+      "exampleTranslation": "Hai người đó ghét nhau như chó với mèo từ lâu nên chẳng bao giờ chịu ngồi cùng bàn.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 19983,
+      "term": "一長一短 (いっちょういったん)",
+      "reading": "いっちょういったん",
+      "romaji": null,
+      "definition": "Có ưu có khuyết, nhất trường nhất đoản",
+      "exampleSentence": "この二つの案には一長一短があり、簡単には決められない。",
+      "exampleTranslation": "Hai phương án này đều có ưu và khuyết điểm nên không thể quyết định dễ dàng.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 19984,
+      "term": "一石二鳥 (いっせきにちょう)",
+      "reading": "いっせきにちょう",
+      "romaji": null,
+      "definition": "Một công đôi việc",
+      "exampleSentence": "自転車で通勤すれば、運動にもなって一石二鳥だ。",
+      "exampleTranslation": "Nếu đi làm bằng xe đạp thì vừa vận động được, quả là một công đôi việc.",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "id": 845,
+  "title": "N1 Tango 13.1 - Các cách diễn đạt dễ bị sai ① · Trạng từ ①",
+  "description": "Tango N1 — Các cách diễn đạt dễ bị sai ①",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:44.330885",
+  "cards": [
+    {
+      "id": 19818,
+      "term": "くすくす",
+      "reading": "くすくす",
+      "romaji": null,
+      "definition": "Khúc khích",
+      "exampleSentence": "教室の後ろで、女子生徒たちがくすくす笑っている。",
+      "exampleTranslation": "Các nữ sinh đang khúc khích cười ở cuối lớp.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 19819,
+      "term": "げらげら",
+      "reading": "げらげら",
+      "romaji": null,
+      "definition": "Cười ha hả",
+      "exampleSentence": "彼は緊張した場面でも、まるで他人事のようにげらげら笑っていた。",
+      "exampleTranslation": "Ngay cả trong tình huống căng thẳng, anh ấy vẫn cười ha hả như thể đó là chuyện của người khác.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 19820,
+      "term": "そこそこ",
+      "reading": "そこそこ",
+      "romaji": null,
+      "definition": "Vội vã; tạm tạm, tàm tạm",
+      "exampleSentence": "彼の日本語はまだ完璧ではないが、そこそこ通じる。",
+      "exampleTranslation": "Tiếng Nhật của anh ấy chưa hoàn hảo nhưng vẫn tạm đủ để người khác hiểu.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 19821,
+      "term": "ぺこぺこ（する）",
+      "reading": "ぺこぺこ（する）",
+      "romaji": null,
+      "definition": "Cúi chào liên tục, khúm núm; đói bụng",
+      "exampleSentence": "「ぺこぺこ（する）」ばかりの態度では、周囲から信頼されない。",
+      "exampleTranslation": "Cứ giữ thái độ khúm núm mãi thì sẽ không được những người xung quanh tin tưởng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 19822,
+      "term": "ひしひし[と]",
+      "reading": "ひしひし[と]",
+      "romaji": null,
+      "definition": "Thấm thía, sâu sắc",
+      "exampleSentence": "故郷を離れて初めて、家族のありがたさをひしひしと感じた。",
+      "exampleTranslation": "Chỉ sau khi rời quê hương, tôi mới cảm nhận sâu sắc sự quý giá của gia đình.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 19823,
+      "term": "ばらばら[と]",
+      "reading": "ばらばら[と]",
+      "romaji": null,
+      "definition": "Rời rạc, tán loạn; lộp bộp",
+      "exampleSentence": "強い風で、木の葉がばらばらと道路に落ちてきた。",
+      "exampleTranslation": "Do gió mạnh, lá cây rơi lả tả xuống đường.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 19824,
+      "term": "ぱらぱら[と]",
+      "reading": "ぱらぱら[と]",
+      "romaji": null,
+      "definition": "Rải rác / lướt qua",
+      "exampleSentence": "暇な時間に、雑誌をぱらぱらとめくって読んだ。",
+      "exampleTranslation": "Lúc rảnh, tôi lướt qua vài trang tạp chí.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 19825,
+      "term": "ぞろぞろ[と]",
+      "reading": "ぞろぞろ[と]",
+      "romaji": null,
+      "definition": "Nối đuôi nhau",
+      "exampleSentence": "祭りが終わると、観客がぞろぞろと駅へ向かった。",
+      "exampleTranslation": "Lễ hội kết thúc, khán giả nối đuôi nhau đi về phía nhà ga.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 19826,
+      "term": "ぼちぼち",
+      "reading": "ぼちぼち",
+      "romaji": null,
+      "definition": "Từ từ, sắp sửa",
+      "exampleSentence": "仕事もぼちぼち片づいてきたので、そろそろ帰ろう。",
+      "exampleTranslation": "Công việc cũng dần giải quyết xong rồi, chúng ta sắp về thôi.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 19827,
+      "term": "ずるずる[と]",
+      "reading": "ずるずる[と]",
+      "romaji": null,
+      "definition": "Kéo dài lê thê / soàn soạt",
+      "exampleSentence": "決断を先延ばしにしているうちに、計画はずるずると遅れていった。",
+      "exampleTranslation": "Trong lúc cứ trì hoãn quyết định, kế hoạch đã chậm trễ kéo dài.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 19828,
+      "term": "ちくちく[と]（する）",
+      "reading": "ちくちく[と]（する）",
+      "romaji": null,
+      "definition": "Châm chích, nhói",
+      "exampleSentence": "このセーターを着ると、首がちくちく（する）と感じる。",
+      "exampleTranslation": "Mặc chiếc áo len này vào, tôi cảm thấy cổ bị châm chích.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 19829,
+      "term": "のこのこ",
+      "reading": "のこのこ",
+      "romaji": null,
+      "definition": "Thản nhiên, vô tư (xuất hiện một cách trơ trẽn)",
+      "exampleSentence": "彼は皆に迷惑をかけたのに、のこのこ戻ってきた。",
+      "exampleTranslation": "Dù đã gây phiền cho mọi người, anh ta vẫn trơ trẽn quay lại.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 19830,
+      "term": "くらくら[と] （する）",
+      "reading": "くらくら[と] （する）",
+      "romaji": null,
+      "definition": "Hoa mắt, chóng mặt",
+      "exampleSentence": "暑い日に長時間歩いて、頭がくらくら （する）と感じた。",
+      "exampleTranslation": "Sau khi đi bộ lâu dưới trời nóng, tôi cảm thấy chóng mặt.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 19831,
+      "term": "ちょくちょく",
+      "reading": "ちょくちょく",
+      "romaji": null,
+      "definition": "Thường xuyên",
+      "exampleSentence": "彼は出張で忙しいのに、実家へちょくちょく電話をかけている。",
+      "exampleTranslation": "Dù bận đi công tác, anh ấy vẫn thường xuyên gọi điện về nhà.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 19832,
+      "term": "ふわふわ[と]（する）",
+      "reading": "ふわふわ[と]（する）",
+      "romaji": null,
+      "definition": "Bồng bềnh, mềm mại",
+      "exampleSentence": "この枕はふわふわ（する）感じで、よく眠れる。",
+      "exampleTranslation": "Chiếc gối này có cảm giác mềm mại nên tôi ngủ rất ngon.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 19833,
+      "term": "ちらほら[と] （する）",
+      "reading": "ちらほら[と] （する）",
+      "romaji": null,
+      "definition": "Lác đác, thưa thớt",
+      "exampleSentence": "春になると、街のあちこちで桜がちらほら （する）と咲き始める。",
+      "exampleTranslation": "Đến mùa xuân, hoa anh đào bắt đầu nở lác đác khắp nơi trong thành phố.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

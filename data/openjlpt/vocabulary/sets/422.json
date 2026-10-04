@@ -1,0 +1,198 @@
+{
+  "id": 422,
+  "title": "N3 Unit 11.2 - カタカナB・仕事と流行 (Công việc & xu hướng)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — カタカナB",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:36.337308",
+  "cards": [
+    {
+      "id": 11007,
+      "term": "オフィス",
+      "reading": "オフィス",
+      "romaji": "ofisu",
+      "definition": "văn phòng (office)",
+      "exampleSentence": null,
+      "exampleTranslation": null,
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11008,
+      "term": "ルール",
+      "reading": "ルール",
+      "romaji": "rūru",
+      "definition": "luật lệ (rule)",
+      "exampleSentence": "サッカーのルールを覚える",
+      "exampleTranslation": "Nhớ luật của bóng đá.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11009,
+      "term": "マナー",
+      "reading": "マナー",
+      "romaji": "manā",
+      "definition": "kiểu, tác phong, cách ứng xử (manners)",
+      "exampleSentence": "フランス料理のマナーは難しい",
+      "exampleTranslation": "Cách thức dùng món ăn Pháp là khó.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11010,
+      "term": "ミス",
+      "reading": "ミス",
+      "romaji": "misu",
+      "definition": "lỗi (mistake)",
+      "exampleSentence": "試合でミスをして、負けてしまった",
+      "exampleTranslation": "Vì mắc lỗi trong trận đấu nên đã thua.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11011,
+      "term": "スケジュール",
+      "reading": "スケジュール",
+      "romaji": "sukejūru",
+      "definition": "lịch trình, lịch biểu (schedule)",
+      "exampleSentence": "今週のスケジュールを確認する",
+      "exampleTranslation": "Xác nhận lại lịch của tuần này.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11012,
+      "term": "タイトル",
+      "reading": "タイトル",
+      "romaji": "taitoru",
+      "definition": "tiêu đề (title)",
+      "exampleSentence": "タイトルをよく見てから文章を読む",
+      "exampleTranslation": "Sau khi đọc kĩ tiêu đề xong thì đọc đoạn văn.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11013,
+      "term": "テーマ",
+      "reading": "テーマ",
+      "romaji": "tēma",
+      "definition": "chủ đề (topic)",
+      "exampleSentence": "この映画のテーマは「愛」だ",
+      "exampleTranslation": "Chủ đề của bộ phim là tình yêu.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11014,
+      "term": "ストーリー",
+      "reading": "ストーリー",
+      "romaji": "sutōrī",
+      "definition": "câu chuyện (story)",
+      "exampleSentence": "「あの映画のストーリーを教えてください」",
+      "exampleTranslation": "\"Hãy kể câu chuyện của bộ phim đó cho tôi.\"",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11015,
+      "term": "ヒット",
+      "reading": "ヒット",
+      "romaji": "hitto",
+      "definition": "nổi tiếng, đỉnh cao (hit)",
+      "exampleSentence": "あの歌手の新曲はヒットしている",
+      "exampleTranslation": "Ca khúc mới của ca sĩ đó đang rất nổi tiếng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11016,
+      "term": "ブランド",
+      "reading": "ブランド",
+      "romaji": "burando",
+      "definition": "thương hiệu (brand)",
+      "exampleSentence": "海外でブランドのバッグを買った",
+      "exampleTranslation": "Tôi đã mua một chiếc túi hàng hiệu ở nước ngoài.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11017,
+      "term": "レンタル",
+      "reading": "レンタル",
+      "romaji": "rentaru",
+      "definition": "thuê (rental)",
+      "exampleSentence": "このスーツケースはレンタルだ",
+      "exampleTranslation": "Cái vali này là thuê.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11018,
+      "term": "リサイクル",
+      "reading": "リサイクル",
+      "romaji": "risaikuru",
+      "definition": "tái chế (recycling)",
+      "exampleSentence": "古くなった服をリサイクルに出した。",
+      "exampleTranslation": "Tôi đã đem những bộ quần áo đã cũ đi tái chế.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11019,
+      "term": "ラベル",
+      "reading": "ラベル",
+      "romaji": "raberu",
+      "definition": "nhãn dán (label)",
+      "exampleSentence": "ビンのラベルをはがして、リサイクルに出す",
+      "exampleTranslation": "Bóc cái nhãn dán của cái bình ra rồi đưa đi tái chế.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11020,
+      "term": "タイプ",
+      "reading": "タイプ",
+      "romaji": "taipu",
+      "definition": "kiểu, mẫu (type)",
+      "exampleSentence": "このクラスにはいろいろなタイプの学生がいる",
+      "exampleTranslation": "Trong lớp học này có nhiều kiểu học sinh.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 11021,
+      "term": "スタイル",
+      "reading": "スタイル",
+      "romaji": "sutairu",
+      "definition": "dáng, phong cách (style)",
+      "exampleSentence": "彼女はスタイルを気にしてダイエットしている",
+      "exampleTranslation": "Cô ấy chú ý đến dáng và đang ăn kiêng.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 11022,
+      "term": "セット",
+      "reading": "セット",
+      "romaji": "setto",
+      "definition": "bộ, đặt (đồng hồ) (set)",
+      "exampleSentence": "テーブルといすをセットで買う",
+      "exampleTranslation": "Mua một bộ bàn và ghế.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 11023,
+      "term": "ウイルス",
+      "reading": "ウイルス",
+      "romaji": "uirusu",
+      "definition": "virus",
+      "exampleSentence": "この病気はウイルスによって起こる",
+      "exampleTranslation": "Bệnh này do virut gây ra.",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

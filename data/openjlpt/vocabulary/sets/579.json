@@ -1,0 +1,99 @@
+{
+  "id": 579,
+  "title": "N2 Unit 6.5 - 副詞＋接続詞 (bài 5/5)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 副詞＋接続詞",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.230009",
+  "cards": [
+    {
+      "id": 13736,
+      "term": "要するに (ようするに)",
+      "reading": "ようするに",
+      "romaji": null,
+      "definition": "tóm lại, chủ yếu, căn bản là",
+      "exampleSentence": "不合格になったということは、要するに実力がなかったのだ。",
+      "exampleTranslation": "Trượt tức là nói cách khác: không đủ thực lực.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13737,
+      "term": "即ち (すなわち)",
+      "reading": "すなわち",
+      "romaji": null,
+      "definition": "có nghĩa là, đó là",
+      "exampleSentence": "一郎君は妻の兄の子ども、すなわち、おいにあたる。",
+      "exampleTranslation": "Ichiro là con của anh trai vợ tôi, tức là cháu trai tôi.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13738,
+      "term": "或は (あるいは)",
+      "reading": "あるいは",
+      "romaji": null,
+      "definition": "hoặc, có lẽ",
+      "exampleSentence": "この書類にはサイン、あるいは印鑑が必要だ。",
+      "exampleTranslation": "Giấy tờ này cần chữ ký hoặc con dấu.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13739,
+      "term": "さて",
+      "reading": "さて",
+      "romaji": null,
+      "definition": "và bây giờ; và sau đây .vậy",
+      "exampleSentence": "「これで文法の説明を終わります。さて、次は聴解です。」",
+      "exampleTranslation": "Kết thúc phần ngữ pháp. Nào, tiếp theo là nghe.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13740,
+      "term": "では",
+      "reading": "では",
+      "romaji": null,
+      "definition": "thế thì, trong trường hợp đó",
+      "exampleSentence": "「皆さん、お集まりですね。では出発しましょう！」",
+      "exampleTranslation": "Mọi người tập hợp đủ rồi nhỉ. Vậy xuất phát thôi!",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13741,
+      "term": "所で (ところで)",
+      "reading": "ところで",
+      "romaji": null,
+      "definition": "thế còn, nhân tiện",
+      "exampleSentence": "「今日はお疲れ様でした。ところで、今晩の予定は？」「いえ、別に…」「それでは、ご一緒に食事でもいかがですか」",
+      "exampleTranslation": "&quot;Hôm nay vất vả rồi. Tối nay có hẹn gì không?&quot; &quot;Không…&quot; &quot;Vậy cùng đi ăn nhé?&quot;",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13742,
+      "term": "そう言えば (そういえば)",
+      "reading": "そういえば",
+      "romaji": null,
+      "definition": "nghĩ kỹ thì, nói mới nhớ",
+      "exampleSentence": "「同窓会の場所、予約しました」「ありがとう、そういえば、山口先生が本を出されたそうですよ。知ってました？」",
+      "exampleTranslation": "&quot;Đặt chỗ họp lớp rồi.&quot; &quot;Cảm ơn. À mà nghe nói thầy Yamaguchi ra sách, biết chưa?&quot;",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13743,
+      "term": "唯 (ただ)",
+      "reading": "ただ",
+      "romaji": null,
+      "definition": "ngoại trừ, nhưng",
+      "exampleSentence": "あのレストランは味もいいし、値段も安い。ただ、場所はちょっと不便だ。",
+      "exampleTranslation": "Nhà hàng đó món ăn ngon mà giá lại rẻ. Có điều vị trí hơi bất tiện.",
+      "forms": [],
+      "displayOrder": 7
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+{
+  "id": 850,
+  "title": "N1 Tango 14.1 - Các cách diễn đạt dễ bị sai ② · Thành ngữ: Khuôn mặt",
+  "description": "Tango N1 — Các cách diễn đạt dễ bị sai ②",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:44.59402",
+  "cards": [
+    {
+      "id": 19924,
+      "term": "顔から火が出る (かおからひがでる)",
+      "reading": "かおからひがでる",
+      "romaji": null,
+      "definition": "Xấu hổ đến đỏ bừng mặt",
+      "exampleSentence": "人前で大失敗をして、顔から火が出るほど恥ずかしかった。",
+      "exampleTranslation": "Tôi đã xấu hổ đến đỏ bừng mặt vì mắc sai lầm lớn trước mọi người.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 19925,
+      "term": "顔を立てる (かおをたてる)",
+      "reading": "かおをたてる",
+      "romaji": null,
+      "definition": "Giữ thể diện, nể mặt",
+      "exampleSentence": "部長の顔を立てるため、今回は私が発表を担当します。",
+      "exampleTranslation": "Để giữ thể diện cho trưởng phòng, lần này tôi sẽ phụ trách thuyết trình.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 19926,
+      "term": "目が届く (めがとどく)",
+      "reading": "めがとどく",
+      "romaji": null,
+      "definition": "Để mắt tới, theo dõi",
+      "exampleSentence": "子どもたち全員に目が届くよう、先生は教室の中央に立った。",
+      "exampleTranslation": "Để có thể để mắt đến tất cả bọn trẻ, giáo viên đứng giữa lớp.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 19927,
+      "term": "目が高い (めがたかい)",
+      "reading": "めがたかい",
+      "romaji": null,
+      "definition": "Có mắt nhìn, tinh tường",
+      "exampleSentence": "あの画商は目が高いので、無名の作家にも早くから注目していた。",
+      "exampleTranslation": "Nhà buôn tranh đó rất tinh tường nên đã sớm chú ý đến cả những họa sĩ vô danh.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 19928,
+      "term": "目が肥える (めがこえる)",
+      "reading": "めがこえる",
+      "romaji": null,
+      "definition": "Sành sỏi, tinh mắt",
+      "exampleSentence": "目が肥えるには、本物の作品を数多く見ることが大切だ。",
+      "exampleTranslation": "Để trở nên sành sỏi, điều quan trọng là phải xem nhiều tác phẩm chính gốc.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 19929,
+      "term": "目を盗む (めをぬすむ)",
+      "reading": "めをぬすむ",
+      "romaji": null,
+      "definition": "Lén lút, trốn ai đó để làm gì",
+      "exampleSentence": "彼は人の目を盗む術を知っている。",
+      "exampleTranslation": "Anh ta biết cách lén lút qua mắt người khác.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 19930,
+      "term": "目を引く (めをひく)",
+      "reading": "めをひく",
+      "romaji": null,
+      "definition": "Thu hút, bắt mắt",
+      "exampleSentence": "駅前の赤い看板は、遠くからでも目を引く。",
+      "exampleTranslation": "Tấm biển đỏ trước nhà ga rất bắt mắt, dù nhìn từ xa.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 19931,
+      "term": "目を丸くする (めをまるくする)",
+      "reading": "めをまるくする",
+      "romaji": null,
+      "definition": "Trợn tròn mắt ngạc nhiên",
+      "exampleSentence": "彼女はその知らせを聞いて、目を丸くするほど驚いた。",
+      "exampleTranslation": "Cô ấy kinh ngạc đến mức trợn tròn mắt khi nghe tin đó.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 19932,
+      "term": "目をつぶる (めをつぶる)",
+      "reading": "めをつぶる",
+      "romaji": null,
+      "definition": "Nhắm mắt làm ngơ, bỏ qua",
+      "exampleSentence": "今回の小さな失敗には目をつぶるが、次は許さない。",
+      "exampleTranslation": "Lần này tôi sẽ bỏ qua sai lầm nhỏ đó, nhưng lần sau thì không.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 19933,
+      "term": "鼻が高い (はながたかい)",
+      "reading": "はながたかい",
+      "romaji": null,
+      "definition": "Tự hào, hãnh diện",
+      "exampleSentence": "息子が国際大会で優勝し、両親は鼻が高い。",
+      "exampleTranslation": "Con trai giành chức vô địch giải quốc tế khiến bố mẹ vô cùng tự hào.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 19934,
+      "term": "鼻にかける (はなにかける)",
+      "reading": "はなにかける",
+      "romaji": null,
+      "definition": "Khoe khoang, kiêu ngạo",
+      "exampleSentence": "彼は有名大学を出たことを鼻にかけるので、周囲から敬遠されている。",
+      "exampleTranslation": "Vì thường khoe khoang chuyện tốt nghiệp đại học danh tiếng, anh ta bị mọi người xa lánh.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 19935,
+      "term": "鼻につく (はなにつく)",
+      "reading": "はなにつく",
+      "romaji": null,
+      "definition": "Khó chịu, chướng tai gai mắt",
+      "exampleSentence": "彼女の自慢話は、聞いているうちに鼻につく。",
+      "exampleTranslation": "Những câu chuyện khoe khoang của cô ấy càng nghe càng thấy khó chịu.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 19936,
+      "term": "目と鼻の先 (めとはなのさき)",
+      "reading": "めとはなのさき",
+      "romaji": null,
+      "definition": "Gần xịt, ngay trước mắt",
+      "exampleSentence": "駅は会社から目と鼻の先にあり、昼休みにも歩いて行ける。",
+      "exampleTranslation": "Nhà ga ở ngay gần công ty, đến giờ nghỉ trưa cũng có thể đi bộ tới.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 19937,
+      "term": "耳につく (みみにつく)",
+      "reading": "みみにつく",
+      "romaji": null,
+      "definition": "Văng vẳng bên tai, nghe mãi thành nhớ",
+      "exampleSentence": "隣の部屋の機械音が、最近ずっと耳につく。",
+      "exampleTranslation": "Gần đây, tiếng máy từ phòng bên cứ văng vẳng bên tai mãi.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 19938,
+      "term": "耳に挟む (みみにはさむ)",
+      "reading": "みみにはさむ",
+      "romaji": null,
+      "definition": "Vô tình nghe được, thoáng nghe",
+      "exampleSentence": "部長が来月辞任するという噂を、私は偶然耳に挟むことになった。",
+      "exampleTranslation": "Tôi tình cờ nghe được tin đồn rằng trưởng phòng sẽ từ chức vào tháng sau.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 19939,
+      "term": "耳にたこができる (みみにたこができる)",
+      "reading": "みみにたこができる",
+      "romaji": null,
+      "definition": "Nghe đến chai lỗ tai, nghe mãi phát chán",
+      "exampleSentence": "その注意は何度も聞かされ、もう耳にたこができるほどだ。",
+      "exampleTranslation": "Lời nhắc nhở đó cứ bị nói đi nói lại đến mức tôi phát chán.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 19940,
+      "term": "耳を澄ます (みみをすます)",
+      "reading": "みみをすます",
+      "romaji": null,
+      "definition": "Lắng tai nghe",
+      "exampleSentence": "物音一つ聞き逃さないよう、皆で耳を澄ます。",
+      "exampleTranslation": "Mọi người cùng lắng tai để không bỏ sót bất kỳ âm thanh nào.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 19941,
+      "term": "耳を貸す (みみをかす)",
+      "reading": "みみをかす",
+      "romaji": null,
+      "definition": "Lắng nghe, nghe theo",
+      "exampleSentence": "困っている友人の話に、今日はゆっくり耳を貸すことにした。",
+      "exampleTranslation": "Hôm nay, tôi quyết định dành thời gian lắng nghe người bạn đang gặp khó khăn.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 19942,
+      "term": "耳をふさぐ (みみをふさぐ)",
+      "reading": "みみをふさぐ",
+      "romaji": null,
+      "definition": "Bịt tai, không muốn nghe",
+      "exampleSentence": "彼は批判の声を聞きたくなくて、両手で耳をふさぐ。",
+      "exampleTranslation": "Vì không muốn nghe những lời chỉ trích, anh ấy bịt tai bằng cả hai tay.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 19943,
+      "term": "口数が少ない (くちかずがすくない)",
+      "reading": "くちかずがすくない",
+      "romaji": null,
+      "definition": "Ít nói, lầm lì",
+      "exampleSentence": "彼は口数が少ないが、話す内容にはいつも重みがある。",
+      "exampleTranslation": "Anh ấy ít nói, nhưng những điều anh ấy nói luôn có sức nặng.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 19944,
+      "term": "口から先に生まれたよう (くちからさきにうまれたよう)",
+      "reading": "くちからさきにうまれたよう",
+      "romaji": null,
+      "definition": "Nói như khướu, miệng sinh ra trước",
+      "exampleSentence": "彼女は口から先に生まれたようで、会議でも一人で話し続ける。",
+      "exampleTranslation": "Cô ấy nói nhiều như thể miệng sinh ra trước, ngay trong cuộc họp cũng cứ nói mãi.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 19945,
+      "term": "口を挟む (くちをはさむ)",
+      "reading": "くちをはさむ",
+      "romaji": null,
+      "definition": "Xen vào, ngắt lời",
+      "exampleSentence": "二人が真剣に話しているところへ、彼は口を挟む。",
+      "exampleTranslation": "Đúng lúc hai người đang nói chuyện nghiêm túc thì anh ta xen vào.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

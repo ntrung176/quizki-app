@@ -1,0 +1,176 @@
+{
+  "id": 375,
+  "title": "N3 Unit 1.4 - 名詞A・生活と趣味 (Sinh hoạt & sở thích)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 名詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:34.781213",
+  "cards": [
+    {
+      "id": 10240,
+      "term": "準備 (じゅんび)",
+      "reading": "じゅんび",
+      "romaji": "junbi",
+      "definition": "chuẩn bị",
+      "exampleSentence": "引っ越しの準備が終わった",
+      "exampleTranslation": "Việc chuẩn bị chuyển nhà đã xong.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10241,
+      "term": "整理 (せいり)",
+      "reading": "せいり",
+      "romaji": "seiri",
+      "definition": "sắp xếp, vứt bỏ",
+      "exampleSentence": "資料の整理",
+      "exampleTranslation": "Sắp xếp tài liệu.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10242,
+      "term": "注文 (ちゅうもん)",
+      "reading": "ちゅうもん",
+      "romaji": "chūmon",
+      "definition": "đặt hàng, gọi đồ, yêu cầu",
+      "exampleSentence": "注文の品が届く",
+      "exampleTranslation": "Sản phẩm đặt hàng sẽ được gửi đến.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10243,
+      "term": "貯金 (ちょきん)",
+      "reading": "ちょきん",
+      "romaji": "chokin",
+      "definition": "tiền tiết kiệm, gửi tiết kiệm",
+      "exampleSentence": "貯金が増える",
+      "exampleTranslation": "Tiền tiết kiệm gia tăng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10244,
+      "term": "徹夜 (てつや)",
+      "reading": "てつや",
+      "romaji": "tetsuya",
+      "definition": "thức suốt đêm, thức trắng đêm",
+      "exampleSentence": "徹夜が続く",
+      "exampleTranslation": "Liên tục thức trắng đêm.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10245,
+      "term": "引っ越し (ひっこし)",
+      "reading": "ひっこし",
+      "romaji": "hikkoshi",
+      "definition": "chuyển nhà",
+      "exampleSentence": "引っ越しを手伝う",
+      "exampleTranslation": "Giúp đỡ chuyển nhà.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10246,
+      "term": "身長 (しんちょう)",
+      "reading": "しんちょう",
+      "romaji": "shinchō",
+      "definition": "chiều cao cơ thể",
+      "exampleSentence": "身長を測る",
+      "exampleTranslation": "Đo chiều cao cơ thể.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10247,
+      "term": "体重 (たいじゅう)",
+      "reading": "たいじゅう",
+      "romaji": "taijū",
+      "definition": "cân nặng, trọng lượng",
+      "exampleSentence": "体重を測る",
+      "exampleTranslation": "Đo cân nặng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10248,
+      "term": "けが",
+      "reading": "けが",
+      "romaji": "kega",
+      "definition": "vết thương",
+      "exampleSentence": "小さなけが",
+      "exampleTranslation": "Vết thương nhỏ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10249,
+      "term": "会 (かい)",
+      "reading": "かい",
+      "romaji": "kai",
+      "definition": "buổi họp / buổi gặp / hội / tiệc",
+      "exampleSentence": "忘年会を開く",
+      "exampleTranslation": "Mở tiệc tất niên.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10250,
+      "term": "趣味 (しゅみ)",
+      "reading": "しゅみ",
+      "romaji": "shumi",
+      "definition": "sở thích",
+      "exampleSentence": "趣味は読書です",
+      "exampleTranslation": "Sở thích của tôi là đọc sách.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10251,
+      "term": "興味 (きょうみ)",
+      "reading": "きょうみ",
+      "romaji": "kyōmi",
+      "definition": "hứng thú",
+      "exampleSentence": "私は歴史に興味がある",
+      "exampleTranslation": "Tôi có hứng thú với lịch sử.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10252,
+      "term": "思い出 (おもいで)",
+      "reading": "おもいで",
+      "romaji": "omoide",
+      "definition": "kỷ niệm",
+      "exampleSentence": "子どものころの思い出",
+      "exampleTranslation": "Kỷ niệm thời thơ ấu.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10253,
+      "term": "冗談 (じょうだん)",
+      "reading": "じょうだん",
+      "romaji": "jōdan",
+      "definition": "nói đùa",
+      "exampleSentence": "冗談を言ったら、みんなが本気にした",
+      "exampleTranslation": "Tôi nói đùa mà mọi người xem là thật.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10254,
+      "term": "目的 (もくてき)",
+      "reading": "もくてき",
+      "romaji": "mokuteki",
+      "definition": "mục đích",
+      "exampleSentence": "日本に来た目的は大学への入学だ",
+      "exampleTranslation": "Mục đích tôi đến Nhật Bản là vào đại học.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

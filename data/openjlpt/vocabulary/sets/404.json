@@ -1,0 +1,231 @@
+{
+  "id": 404,
+  "title": "N3 Unit 6.1 - カタカナA・生活雑貨 (Đồ dùng & vật liệu đời sống)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — カタカナA",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.881347",
+  "cards": [
+    {
+      "id": 10705,
+      "term": "クラスメート",
+      "reading": "クラスメート",
+      "romaji": "kurasumēto",
+      "definition": "bạn cùng lớp (classmate)",
+      "exampleSentence": "クラスメートと仲よくする",
+      "exampleTranslation": "Quan hệ tốt với bạn trong lớp.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10706,
+      "term": "グループ",
+      "reading": "グループ",
+      "romaji": "gurūpu",
+      "definition": "nhóm (group)",
+      "exampleSentence": "３人のグループで旅行をする",
+      "exampleTranslation": "Du lịch nhóm 3 người.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10707,
+      "term": "チーム",
+      "reading": "チーム",
+      "romaji": "chīmu",
+      "definition": "đội, nhóm (team)",
+      "exampleSentence": "私たちのチームが勝った",
+      "exampleTranslation": "Đội chúng ta đã thắng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10708,
+      "term": "プロフェッショナル（プロ）",
+      "reading": "プロフェッショナル（プロ）",
+      "romaji": "purofesshonaru (puro)",
+      "definition": "chuyên nghiệp, nhà nghề (professional)",
+      "exampleSentence": "プロのサッカー選手になりたい",
+      "exampleTranslation": "Tôi muốn trở thành một cầu thủ bóng đá chuyên nghiêp.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10709,
+      "term": "アマチュア（アマ）",
+      "reading": "アマチュア（アマ）",
+      "romaji": "amachua (ama)",
+      "definition": "không chuyên, nghiệp dư (amateur)",
+      "exampleSentence": "この絵はアマチュアの作品とは思えないほどすばらしい",
+      "exampleTranslation": "Bức tranh tuyệt đến mức tôi không thể nghĩ đó là một tác phẩm nghiệp dư.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10710,
+      "term": "トレーニング",
+      "reading": "トレーニング",
+      "romaji": "torēningu",
+      "definition": "đào tạo, huấn luyện (training)",
+      "exampleSentence": "勝つためには毎日のトレーニングが必要だ",
+      "exampleTranslation": "Để chiến thắng cần tập luyện mỗi ngày.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10711,
+      "term": "マッサージ",
+      "reading": "マッサージ",
+      "romaji": "massāji",
+      "definition": "xoa bóp, mát-xa (massage)",
+      "exampleSentence": "頭をマッサージしてもらうと気持ちがいい",
+      "exampleTranslation": "Cảm giác thật tuyệt khi được mát xa đầu.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10712,
+      "term": "アドバイス",
+      "reading": "アドバイス",
+      "romaji": "adobaisu",
+      "definition": "lời khuyên (advice)",
+      "exampleSentence": "後輩に仕事のやり方についてアドバイスをする",
+      "exampleTranslation": "Tôi khuyên đàn em về cách làm việc.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10713,
+      "term": "アイデア",
+      "reading": "アイデア",
+      "romaji": "aidea",
+      "definition": "ý tưởng (idea)",
+      "exampleSentence": "いいアイデアが浮かんだ",
+      "exampleTranslation": "Đã nảy ra ý tưởng hay.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10714,
+      "term": "トップ",
+      "reading": "トップ",
+      "romaji": "toppu",
+      "definition": "đầu, đỉnh, đầu tiên (top)",
+      "exampleSentence": "彼はクラスでトップの成績だ",
+      "exampleTranslation": "Anh ấy có thành tích đứng đầu.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10715,
+      "term": "スピード",
+      "reading": "スピード",
+      "romaji": "supīdo",
+      "definition": "tốc độ (speed)",
+      "exampleSentence": "「運転手さん、もう少しスピードを上げてください」",
+      "exampleTranslation": "\"Bác tài ơi, chạy nhanh hơn một chút giúp với.\"",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10716,
+      "term": "ラッシュ",
+      "reading": "ラッシュ",
+      "romaji": "rasshu",
+      "definition": "cao điểm, giờ cao điểm (rush)",
+      "exampleSentence": "年末年始は、帰省ラッシュでチケットがとりにくい",
+      "exampleTranslation": "Đầu năm cuối năm là thời gian cao điểm khó mua vé.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10717,
+      "term": "バイク",
+      "reading": "バイク",
+      "romaji": "baiku",
+      "definition": "xe mô tô (motobike)",
+      "exampleSentence": null,
+      "exampleTranslation": null,
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10718,
+      "term": "ヘルメット",
+      "reading": "ヘルメット",
+      "romaji": "herumetto",
+      "definition": "mũ bảo hiểm (helmet)",
+      "exampleSentence": "バイクに乗るときは、ヘルメットをかぶる",
+      "exampleTranslation": "Khi đi xe máy thì đội mũ bảo hiểm.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10719,
+      "term": "コンタクトレンズ",
+      "reading": "コンタクトレンズ",
+      "romaji": "kontakutorenzu",
+      "definition": "kính áp tròng (contact lens)",
+      "exampleSentence": null,
+      "exampleTranslation": null,
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10720,
+      "term": "ガラス",
+      "reading": "ガラス",
+      "romaji": "garasu",
+      "definition": "kính (glass)",
+      "exampleSentence": "ボールをぶつけて窓ガラスを割ってしまった",
+      "exampleTranslation": "Đánh bóng làm bể kính của sổ.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 10721,
+      "term": "プラスチック",
+      "reading": "プラスチック",
+      "romaji": "purasuchikku",
+      "definition": "nhựa (plastic)",
+      "exampleSentence": "「プラスチック製品は生ごみの中にいれないでください」",
+      "exampleTranslation": "Đồ nhựa không được cho vào rác phân hủy.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 10722,
+      "term": "ベランダ",
+      "reading": "ベランダ",
+      "romaji": "beranda",
+      "definition": "ban công (balcony)",
+      "exampleSentence": "ベランダに洗たく物を干す",
+      "exampleTranslation": "Phơi đồ giặt ở ban công.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 10723,
+      "term": "ペット",
+      "reading": "ペット",
+      "romaji": "petto",
+      "definition": "vật nuôi, thú cưng (pet)",
+      "exampleSentence": "アパートなので、ペットが飼えない",
+      "exampleTranslation": "Viì là chung cư nên không được nuôi động vật.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 10724,
+      "term": "ベンチ",
+      "reading": "ベンチ",
+      "romaji": "benchi",
+      "definition": "băng ghế dài (bench)",
+      "exampleSentence": "公園のベンチで休む",
+      "exampleTranslation": "Nghỉ ngơi trên ghế dài của công viên.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

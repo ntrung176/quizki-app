@@ -1,0 +1,154 @@
+{
+  "id": 869,
+  "title": "N5 Tango 3.5 - Công việc · Thời gian",
+  "description": "Tango N5 — Công việc",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:47.545244",
+  "cards": [
+    {
+      "id": 20293,
+      "term": "何時 (なんじ)",
+      "reading": "なんじ",
+      "romaji": null,
+      "definition": "Mấy giờ",
+      "exampleSentence": "今、何時ですか。",
+      "exampleTranslation": "Bây giờ là mấy giờ?",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20294,
+      "term": "何分 (なんぷん)",
+      "reading": "なんぷん",
+      "romaji": null,
+      "definition": "Mấy phút",
+      "exampleSentence": "駅まで何分かかりますか。",
+      "exampleTranslation": "Từ đây đến ga mất bao nhiêu phút?",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20295,
+      "term": "〜時 (じ)",
+      "reading": "じ",
+      "romaji": null,
+      "definition": "~ giờ",
+      "exampleSentence": "「〜時」は、時刻を言うときに使います。",
+      "exampleTranslation": "“~ giờ” được dùng khi nói thời điểm.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20296,
+      "term": "〜分 (ぷん)",
+      "reading": "ぷん",
+      "romaji": null,
+      "definition": "~ phút",
+      "exampleSentence": "「〜分」は、時間を数えるときに使います。",
+      "exampleTranslation": "“~ phút” được dùng khi đếm thời gian.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20297,
+      "term": "〜ごろ",
+      "reading": "〜ごろ",
+      "romaji": null,
+      "definition": "Khoảng ~ (chỉ thời điểm)",
+      "exampleSentence": "「〜ごろ」は、おおよその時刻を表します。",
+      "exampleTranslation": "“Khoảng ~” biểu thị thời điểm tương đối.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20298,
+      "term": "ごぜん",
+      "reading": "ごぜん",
+      "romaji": null,
+      "definition": "Buổi sáng (tính đến 12 giờ trưa)",
+      "exampleSentence": "ごぜん八時に学校へ行きます。",
+      "exampleTranslation": "Tôi đi học lúc 8 giờ sáng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20299,
+      "term": "ごご",
+      "reading": "ごご",
+      "romaji": null,
+      "definition": "Buổi chiều tối (tính từ 12 giờ trưa)",
+      "exampleSentence": "ごご三時に友達と会います。",
+      "exampleTranslation": "Tôi gặp bạn lúc 3 giờ chiều.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20300,
+      "term": "いま",
+      "reading": "いま",
+      "romaji": null,
+      "definition": "Bây giờ",
+      "exampleSentence": "いま、何をしていますか。",
+      "exampleTranslation": "Bây giờ bạn đang làm gì?",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20301,
+      "term": "〜ぐらい",
+      "reading": "〜ぐらい",
+      "romaji": null,
+      "definition": "Khoảng ~ (chỉ khoảng thời gian)",
+      "exampleSentence": "「〜ぐらい」は、時間のおおよその長さを表します。",
+      "exampleTranslation": "“Khoảng ~” biểu thị độ dài thời gian tương đối.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20302,
+      "term": "〜時間 (じかん)",
+      "reading": "じかん",
+      "romaji": null,
+      "definition": "~ Tiếng (đồng hồ)",
+      "exampleSentence": "「〜時間」は、かかった時間を表します。",
+      "exampleTranslation": "“~ tiếng” biểu thị khoảng thời gian đã mất.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20303,
+      "term": "何時間 (なんじかん)",
+      "reading": "なんじかん",
+      "romaji": null,
+      "definition": "Bao nhiêu (mấy) tiếng (đồng hồ)",
+      "exampleSentence": "何時間日本語を勉強しましたか。",
+      "exampleTranslation": "Bạn đã học tiếng Nhật trong mấy tiếng?",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 20304,
+      "term": "〜から",
+      "reading": "〜から",
+      "romaji": null,
+      "definition": "Từ ~",
+      "exampleSentence": "「〜から」は、出発する場所を表す助詞です。",
+      "exampleTranslation": "「〜から」 là trợ từ chỉ địa điểm xuất phát.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 20305,
+      "term": "〜まで",
+      "reading": "〜まで",
+      "romaji": null,
+      "definition": "Đến ~",
+      "exampleSentence": "「〜まで」は、終わる場所や時間を表す助詞です。",
+      "exampleTranslation": "「〜まで」 là trợ từ chỉ địa điểm hoặc thời điểm kết thúc.",
+      "forms": [],
+      "displayOrder": 12
+    }
+  ]
+}

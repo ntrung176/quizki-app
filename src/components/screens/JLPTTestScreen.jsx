@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { PremiumLockedModal } from '../ui';
-import { doc, updateDoc } from 'firebase/firestore';
+import { doc, updateDoc, setDoc } from 'firebase/firestore';
 import { db, appId } from '../../config/firebase';
 import { playCompletionFanfare } from '../../utils/soundEffects';
 
@@ -83,6 +83,26 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
     const [isPrintTriggered, setIsPrintTriggered] = useState(false);
     const [includeAnswers, setIncludeAnswers] = useState(true);
     const [includeAnswerSheet, setIncludeAnswerSheet] = useState(true);
+
+    // Dashboard state persistence across taking tests & returning
+    const [activeMainTab, setActiveMainTabState] = useState(() => {
+        return sessionStorage.getItem('quizki_jlpt_main_tab') || 'books';
+    });
+    const [selectedLevel, setSelectedLevelState] = useState(() => {
+        return sessionStorage.getItem('quizki_jlpt_selected_level') || targetLevel || 'N5';
+    });
+    const [searchQuery, setSearchQuery] = useState('');
+    const [statusFilter, setStatusFilter] = useState('all');
+
+    const setActiveMainTab = (tab) => {
+        setActiveMainTabState(tab);
+        try { sessionStorage.setItem('quizki_jlpt_main_tab', tab); } catch (e) {}
+    };
+
+    const setSelectedLevel = (lvl) => {
+        setSelectedLevelState(lvl);
+        try { sessionStorage.setItem('quizki_jlpt_selected_level', lvl); } catch (e) {}
+    };
 
     // Settings for furigana and timer
     const [showFurigana, setShowFurigana] = useState(() => localStorage.getItem('quizki_jlpt_show_furigana') !== 'false');
@@ -576,7 +596,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             const updatedSections = JSON.parse(JSON.stringify(activeTest.sections));
             updatedSections[sectionIdx].questions[questionIdx] = updatedQuestion;
             const testRef = doc(db, `artifacts/${appId}/jlptTests`, activeTest.id);
-            await updateDoc(testRef, { sections: updatedSections });
+            await setDoc(testRef, { 
+                ...activeTest,
+                sections: updatedSections,
+                updatedAt: Date.now()
+            }, { merge: true });
 
             updateSingleJLPTTestInCache(activeTest.id, { sections: updatedSections });
             setActiveTest(prev => ({ ...prev, sections: updatedSections }));
@@ -597,7 +621,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         try {
             const testRef = doc(db, `artifacts/${appId}/jlptTests`, test.id);
             const nextVal = !test.isPremium;
-            await setDoc(testRef, { isPremium: nextVal }, { merge: true });
+            await setDoc(testRef, { ...test, isPremium: nextVal, updatedAt: Date.now() }, { merge: true });
             updateSingleJLPTTestInCache(test.id, { isPremium: nextVal });
             setNotification(`Đã chuyển đề thi sang: ${nextVal ? 'Premium' : 'Miễn phí'}`);
             setTests(prevTests => prevTests.map(t => t.id === test.id ? { ...t, isPremium: nextVal } : t));
@@ -610,7 +634,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         try {
             const testRef = doc(db, `artifacts/${appId}/jlptTests`, test.id);
             const nextVal = !test.isFixed;
-            await updateDoc(testRef, { isFixed: nextVal });
+            await setDoc(testRef, { ...test, isFixed: nextVal, updatedAt: Date.now() }, { merge: true });
             updateSingleJLPTTestInCache(test.id, { isFixed: nextVal });
             setNotification(`Đã đánh dấu đề thi: ${nextVal ? 'Đã sửa' : 'Chưa sửa'}`);
             setTests(prevTests => prevTests.map(t => t.id === test.id ? { ...t, isFixed: nextVal } : t));
@@ -1038,6 +1062,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                 savedProgresses={savedProgresses}
                 targetLevel={targetLevel}
                 handleUpdateTargetLevel={handleUpdateTargetLevel}
+                activeMainTab={activeMainTab}
+                setActiveMainTab={setActiveMainTab}
+                selectedLevel={selectedLevel}
+                setSelectedLevel={setSelectedLevel}
+                searchQuery={searchQuery}
+                setSearchQuery={setSearchQuery}
+                statusFilter={statusFilter}
+                setStatusFilter={setStatusFilter}
                 roadmapProgress={roadmapProgress}
                 toggleRoadmapDay={toggleRoadmapDay}
                 allCards={allCards}

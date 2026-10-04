@@ -1,0 +1,176 @@
+{
+  "id": 378,
+  "title": "N3 Unit 1.7 - 名詞A・場所と物品 (Địa điểm & vật dụng)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 名詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:34.925712",
+  "cards": [
+    {
+      "id": 10285,
+      "term": "作品 (さくひん)",
+      "reading": "さくひん",
+      "romaji": "sakuhin",
+      "definition": "tác phẩm",
+      "exampleSentence": "学生の作品をロビーに展示する",
+      "exampleTranslation": "Trưng bày tác phẩm của sinh viên ở sảnh.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10286,
+      "term": "制服 (せいふく)",
+      "reading": "せいふく",
+      "romaji": "seifuku",
+      "definition": "đồng phục",
+      "exampleSentence": "日本の中学校には制服のある学校が多い",
+      "exampleTranslation": "Nhiều trường trung học ở Nhật Bản có đồng phục.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10287,
+      "term": "洗剤 (せんざい)",
+      "reading": "せんざい",
+      "romaji": "senzai",
+      "definition": "chất tẩy rửa",
+      "exampleSentence": "洗剤で食器を洗う",
+      "exampleTranslation": "Rửa chén bát bằng nước rửa chén.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10288,
+      "term": "底 (そこ)",
+      "reading": "そこ",
+      "romaji": "soko",
+      "definition": "đế, đáy",
+      "exampleSentence": "くつの底に穴があく",
+      "exampleTranslation": "Thủng lỗ ở đế giày.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10289,
+      "term": "地下 (ちか)",
+      "reading": "ちか",
+      "romaji": "chika",
+      "definition": "ngầm, dưới mặt đất",
+      "exampleSentence": "大都市は地下の開発が進んでいる",
+      "exampleTranslation": "Đô thị lớn đang phát triển tầng hầm dưới mặt đất.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10290,
+      "term": "寺 (てら)",
+      "reading": "てら",
+      "romaji": "tera",
+      "definition": "chùa",
+      "exampleSentence": "寺にまいる",
+      "exampleTranslation": "Đi lễ chùa.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10291,
+      "term": "道路 (どうろ)",
+      "reading": "どうろ",
+      "romaji": "dōro",
+      "definition": "đường, đường sá, con đường",
+      "exampleSentence": "道路が込む",
+      "exampleTranslation": "Đường bị kẹt xe.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10292,
+      "term": "坂 (さか)",
+      "reading": "さか",
+      "romaji": "saka",
+      "definition": "dốc",
+      "exampleSentence": "坂を上る",
+      "exampleTranslation": "Leo dốc.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10293,
+      "term": "煙 (けむり)",
+      "reading": "けむり",
+      "romaji": "kemuri",
+      "definition": "khói",
+      "exampleSentence": "「火事のときは、煙に注意して逃げてください」",
+      "exampleTranslation": "\"Khi có hỏa hoạn, hãy chú ý khói và thoát ra ngoài.\"",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10294,
+      "term": "灰 (はい)",
+      "reading": "はい",
+      "romaji": "hai",
+      "definition": "tro, tàn",
+      "exampleSentence": "たばこの灰",
+      "exampleTranslation": "Tàn thuốc lá.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10295,
+      "term": "判 (はん)",
+      "reading": "はん",
+      "romaji": "han",
+      "definition": "con dấu",
+      "exampleSentence": "書類に判を押す",
+      "exampleTranslation": "Đóng dấu vào tài liệu.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10296,
+      "term": "名刺 (めいし)",
+      "reading": "めいし",
+      "romaji": "meishi",
+      "definition": "danh thiếp",
+      "exampleSentence": "名刺を交換する",
+      "exampleTranslation": "Trao đổi danh thiếp.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10297,
+      "term": "免許 (めんきょ)",
+      "reading": "めんきょ",
+      "romaji": "menkyo",
+      "definition": "giấy phép, sự cho phép",
+      "exampleSentence": "レストランを開くには、調理師の免許が必要だ",
+      "exampleTranslation": "Để mở nhà hàng cần có chứng chỉ hành nghề đầu bếp.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10298,
+      "term": "多く (おおく)",
+      "reading": "おおく",
+      "romaji": "ōku",
+      "definition": "nhiều",
+      "exampleSentence": "オリンピックには多くの国が参加した",
+      "exampleTranslation": "Nhiều quốc gia đã tham gia Thế vận hội.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10299,
+      "term": "前半 (ぜんはん)",
+      "reading": "ぜんはん",
+      "romaji": "zenhan",
+      "definition": "nửa đầu",
+      "exampleSentence": "映画の前半はたいくつだったが、後半はおもしろかった",
+      "exampleTranslation": "Phần đầu phim chán lắm nhưng phần sau thì thú vị.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

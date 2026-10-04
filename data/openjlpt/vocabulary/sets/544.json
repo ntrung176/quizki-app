@@ -1,0 +1,187 @@
+{
+  "id": 544,
+  "title": "N2 Unit 2.1 - 動詞A (bài 1/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.487691",
+  "cards": [
+    {
+      "id": 13264,
+      "term": "好む (このむ)",
+      "reading": "このむ",
+      "romaji": null,
+      "definition": "thích",
+      "exampleSentence": "一般にお年寄りはあっさりした味を好む。",
+      "exampleTranslation": "Nói chung người lớn tuổi thích vị thanh/nhẹ.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13265,
+      "term": "嫌う (きらう)",
+      "reading": "きらう",
+      "romaji": null,
+      "definition": "ghét",
+      "exampleSentence": "彼女は彼を嫌っているようだ。",
+      "exampleTranslation": "Có vẻ cô ấy ghét anh ta.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13266,
+      "term": "願う (ねがう)",
+      "reading": "ねがう",
+      "romaji": null,
+      "definition": "ước, yêu cầu",
+      "exampleSentence": "世界平和を願う。",
+      "exampleTranslation": "Cầu mong thế giới hòa bình.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13267,
+      "term": "甘える (あまえる)",
+      "reading": "あまえる",
+      "romaji": null,
+      "definition": "ỷ lại; làm nũng",
+      "exampleSentence": "子供が母親に甘える。",
+      "exampleTranslation": "Đứa trẻ làm nũng/ỷ lại vào mẹ.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13268,
+      "term": "可愛がる (かわいがる)",
+      "reading": "かわいがる",
+      "romaji": null,
+      "definition": "yêu mến, yêu thương",
+      "exampleSentence": "息子は妹をとてもかわいがっている。",
+      "exampleTranslation": "Con trai tôi rất cưng chiều em gái.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13269,
+      "term": "気付く (きづく)",
+      "reading": "きづく",
+      "romaji": null,
+      "definition": "nhận ra",
+      "exampleSentence": "犯人は刑事に気づいて逃げてしまった。",
+      "exampleTranslation": "Tên phạm nhân phát hiện ra cảnh sát nên bỏ chạy.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13270,
+      "term": "疑う (うたがう)",
+      "reading": "うたがう",
+      "romaji": null,
+      "definition": "nghi ngờ",
+      "exampleSentence": "警察は私を犯人ではないかと疑っているらしい。",
+      "exampleTranslation": "Có vẻ cảnh sát đang nghi tôi là thủ phạm.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13271,
+      "term": "苦しむ (くるしむ)",
+      "reading": "くるしむ",
+      "romaji": null,
+      "definition": "khổ, chịu đựng",
+      "exampleSentence": "学校でいじめられて苦しんでいる子どもが大勢いる。",
+      "exampleTranslation": "Có rất nhiều trẻ em khổ sở vì bị bắt nạt ở trường.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13272,
+      "term": "悲しむ (かなしむ)",
+      "reading": "かなしむ",
+      "romaji": null,
+      "definition": "buồn",
+      "exampleSentence": "娘はペットの死を悲しんで、一日中泣いていた。",
+      "exampleTranslation": "Con gái tôi buồn vì thú cưng chết nên khóc suốt cả ngày.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13273,
+      "term": "がっかりする",
+      "reading": "がっかりする",
+      "romaji": null,
+      "definition": "thất vọng",
+      "exampleSentence": "試験に落ちて、がっかりした。",
+      "exampleTranslation": "Trượt kỳ thi nên tôi thất vọng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13274,
+      "term": "励ます (はげます)",
+      "reading": "はげます",
+      "romaji": null,
+      "definition": "động viên",
+      "exampleSentence": "試験に失敗した友人を励ました。",
+      "exampleTranslation": "Tôi đã động viên người bạn thi trượt.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13275,
+      "term": "頷く (うなずく)",
+      "reading": "うなずく",
+      "romaji": null,
+      "definition": "gật đầu",
+      "exampleSentence": "祖父は何も言わずにうなずいた。",
+      "exampleTranslation": "Ông tôi không nói gì, chỉ gật đầu.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13276,
+      "term": "張り切る (はりきる)",
+      "reading": "はりきる",
+      "romaji": null,
+      "definition": "hăm hở, hăng hái",
+      "exampleSentence": "入社第一日目、娘は張り切って出勤した。",
+      "exampleTranslation": "Ngày đầu đi làm, con bé hào hứng/phấn khởi đi làm.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13277,
+      "term": "威張る (いばる)",
+      "reading": "いばる",
+      "romaji": null,
+      "definition": "kiêu ngạo",
+      "exampleSentence": "自分ができるからと言って、すぐに威張る人は嫌われる。",
+      "exampleTranslation": "Chỉ vì mình làm được mà đã vênh váo thì sẽ bị người ta ghét.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13278,
+      "term": "怒鳴る (どなる)",
+      "reading": "どなる",
+      "romaji": null,
+      "definition": "hét lên",
+      "exampleSentence": "「そんなに大声で怒鳴らなくても聞こえますよ」",
+      "exampleTranslation": "Không cần hét to thế, tôi vẫn nghe được mà.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 13279,
+      "term": "暴れる (あばれる)",
+      "reading": "あばれる",
+      "romaji": null,
+      "definition": "quậy phá; làm loạn; hung hăng",
+      "exampleSentence": "弟は気が短く、子供のころはすぐに暴れて、よく物を壊したものだ。",
+      "exampleTranslation": "Em trai tôi nóng tính; hồi nhỏ hay nổi điên rồi đập phá đồ.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

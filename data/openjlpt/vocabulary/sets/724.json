@@ -1,0 +1,110 @@
+{
+  "id": 724,
+  "title": "N4 Tango 7.6 - Khi nào? Tại đâu? · Hãy ghi nhớ cả từ nối!",
+  "description": "Tango N4 — Khi nào? Tại đâu?",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:32.482537",
+  "cards": [
+    {
+      "id": 16605,
+      "term": "だから",
+      "reading": "だから",
+      "romaji": null,
+      "definition": "Vì vậy",
+      "exampleSentence": "今日は日曜日だから、学校は休みです。",
+      "exampleTranslation": "Hôm nay là Chủ nhật nên trường được nghỉ.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 16606,
+      "term": "それで",
+      "reading": "それで",
+      "romaji": null,
+      "definition": "Vì vậy",
+      "exampleSentence": "電車が遅れ、それで会社に遅刻しました。",
+      "exampleTranslation": "Tàu điện bị trễ, vì vậy tôi đã đi làm muộn.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 16607,
+      "term": "または",
+      "reading": "または",
+      "romaji": null,
+      "definition": "Hoặc là, hay",
+      "exampleSentence": "申込書は郵送、または窓口に提出してください。",
+      "exampleTranslation": "Vui lòng gửi phiếu đăng ký qua bưu điện hoặc nộp tại quầy.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 16608,
+      "term": "それに",
+      "reading": "それに",
+      "romaji": null,
+      "definition": "Ngoài ra, đã vậy",
+      "exampleSentence": "この店は料理がおいしく、それに店員も親切です。",
+      "exampleTranslation": "Quán này nấu ăn ngon, ngoài ra nhân viên cũng thân thiện.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 16609,
+      "term": "そのうえ",
+      "reading": "そのうえ",
+      "romaji": null,
+      "definition": "Ngoài ra, còn nữa, lại còn",
+      "exampleSentence": "彼は頭がよく、そのうえスポーツも上手です。",
+      "exampleTranslation": "Anh ấy thông minh, hơn nữa còn giỏi thể thao.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 16610,
+      "term": "すると",
+      "reading": "すると",
+      "romaji": null,
+      "definition": "Thế là, thế rồi",
+      "exampleSentence": "窓を開けました、すると涼しい風が入ってきました。",
+      "exampleTranslation": "Tôi mở cửa sổ, thế là một làn gió mát thổi vào.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 16611,
+      "term": "けれども",
+      "reading": "けれども",
+      "romaji": null,
+      "definition": "Nhưng, tuy nhiên",
+      "exampleSentence": "行きたいけれども、今日は時間がありません。",
+      "exampleTranslation": "Tôi muốn đi, nhưng hôm nay không có thời gian.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 16612,
+      "term": "それなら",
+      "reading": "それなら",
+      "romaji": null,
+      "definition": "Nếu vậy, vậy thì",
+      "exampleSentence": "それなら、駅までいっしょに行きましょう。",
+      "exampleTranslation": "Nếu vậy thì chúng ta cùng đi đến ga nhé.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 16613,
+      "term": "ところで",
+      "reading": "ところで",
+      "romaji": null,
+      "definition": "Nhưng này, à này, mà này",
+      "exampleSentence": "ところで、明日の会議は何時からですか。",
+      "exampleTranslation": "À này, cuộc họp ngày mai bắt đầu từ mấy giờ vậy?",
+      "forms": [],
+      "displayOrder": 8
+    }
+  ]
+}

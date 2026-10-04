@@ -1,0 +1,253 @@
+{
+  "id": 767,
+  "title": "N2 Tango 9.3 - Vì sức khỏe · Triệu chứng bệnh",
+  "description": "Tango N2 — Vì sức khỏe",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:37.329319",
+  "cards": [
+    {
+      "id": 17705,
+      "term": "具体的な (ぐたいてきな)",
+      "reading": "ぐたいてきな",
+      "romaji": null,
+      "definition": "Một cách cụ thể, chi tiết",
+      "exampleSentence": "発表では、具体的な数字を示して説明してください。",
+      "exampleTranslation": "Trong phần thuyết trình, hãy đưa ra những con số cụ thể để giải thích.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 17706,
+      "term": "程度 (ていど)",
+      "reading": "ていど",
+      "romaji": null,
+      "definition": "Mức độ",
+      "exampleSentence": "日常会話なら、この程度の敬語で十分でしょう。",
+      "exampleTranslation": "Nếu chỉ là hội thoại hằng ngày thì mức độ kính ngữ này là đủ rồi.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 17707,
+      "term": "ぼうっと（する）",
+      "reading": "ぼうっと（する）",
+      "romaji": null,
+      "definition": "Thẫn thờ, lờ mờ",
+      "exampleSentence": "疲れていると、授業中にぼうっと（する）ことがあります。",
+      "exampleTranslation": "Khi mệt, đôi khi tôi thẫn thờ trong giờ học.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 17708,
+      "term": "ふらふら＜な /する＞",
+      "reading": "ふらふら＜な /する＞",
+      "romaji": null,
+      "definition": "Hoa mắt, choáng váng",
+      "exampleSentence": "急に立ち上がると、足元がふらふら＜な /する＞ことがあります。",
+      "exampleTranslation": "Khi đứng dậy đột ngột, đôi khi chân tôi bị choáng váng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 17709,
+      "term": "意識 (いしき)",
+      "reading": "いしき",
+      "romaji": null,
+      "definition": "Ý thức, sự nhận biết",
+      "exampleSentence": "事故の後も意識があり、自分で救急車を呼びました。",
+      "exampleTranslation": "Sau tai nạn, tôi vẫn còn ý thức và tự gọi xe cấp cứu.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 17710,
+      "term": "しゃがむ",
+      "reading": "しゃがむ",
+      "romaji": null,
+      "definition": "Khuỵu xuống, cúi xuống",
+      "exampleSentence": "危険な場所では、急にしゃがむと危ないですよ。",
+      "exampleTranslation": "Ở nơi nguy hiểm, đột ngột ngồi xổm xuống thì sẽ rất nguy hiểm đấy.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 17711,
+      "term": "視野 (しや)",
+      "reading": "しや",
+      "romaji": null,
+      "definition": "Tầm nhìn, tầm mắt",
+      "exampleSentence": "暗い場所では視野が狭くなるので、足元に注意してください。",
+      "exampleTranslation": "Ở nơi tối, tầm nhìn bị thu hẹp nên hãy chú ý dưới chân.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 17712,
+      "term": "呼吸（する） (こきゅう（する）)",
+      "reading": "こきゅう（する）",
+      "romaji": null,
+      "definition": "Hô hấp, hít thở",
+      "exampleSentence": "水中で呼吸（する）ためには、特別な器具が必要です。",
+      "exampleTranslation": "Để hô hấp dưới nước, cần có thiết bị đặc biệt.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 17713,
+      "term": "詰まる (つまる)",
+      "reading": "つまる",
+      "romaji": null,
+      "definition": "Nghẹt, đầy ắp",
+      "exampleSentence": "排水口が詰まると、水が流れなくなってしまいます。",
+      "exampleTranslation": "Nếu lỗ thoát nước bị tắc, nước sẽ không chảy được.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 17714,
+      "term": "耐える (たえる)",
+      "reading": "たえる",
+      "romaji": null,
+      "definition": "Chịu đựng",
+      "exampleSentence": "厳しい暑さに耐えるため、毎日こまめに水分を取りました。",
+      "exampleTranslation": "Để chịu đựng cái nóng khắc nghiệt, tôi đã thường xuyên bổ sung nước mỗi ngày.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 17715,
+      "term": "便秘（する） (べんぴ（する）)",
+      "reading": "べんぴ（する）",
+      "romaji": null,
+      "definition": "Bón",
+      "exampleSentence": "「便秘（する）」という言葉は、便が出にくい状態を表します。",
+      "exampleTranslation": "Từ 「便秘（する）」 chỉ trạng thái khó đi đại tiện.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 17716,
+      "term": "～気味 (～ぎみ)",
+      "reading": "～ぎみ",
+      "romaji": null,
+      "definition": "Cảm giác, hơi có vẻ",
+      "exampleSentence": "「～気味」は、体調や気分が少し悪いときにも使われます。",
+      "exampleTranslation": "「～気味」 cũng được dùng khi thể trạng hoặc tâm trạng hơi không tốt.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 17717,
+      "term": "寒気 (さむけ)",
+      "reading": "さむけ",
+      "romaji": null,
+      "definition": "Sự ớn lạnh, cơn ớn lạnh",
+      "exampleSentence": "急に寒気がして、熱を測ると三十八度ありました。",
+      "exampleTranslation": "Tôi đột nhiên thấy ớn lạnh, đo nhiệt độ thì thấy 38 độ.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 17718,
+      "term": "ねじる",
+      "reading": "ねじる",
+      "romaji": null,
+      "definition": "Trặc, xoay, vặn",
+      "exampleSentence": "急に振り向いて腰をねじると、鋭い痛みが走りました。",
+      "exampleTranslation": "Khi đột ngột xoay người và vặn lưng, tôi cảm thấy một cơn đau buốt.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 17719,
+      "term": "しっしん",
+      "reading": "しっしん",
+      "romaji": null,
+      "definition": "Phát ban, nổi mẩn",
+      "exampleSentence": "新しい化粧品を使ったら、顔にしっしんが出てしまいました。",
+      "exampleTranslation": "Sau khi dùng mỹ phẩm mới, mặt tôi bị nổi mẩn.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 17720,
+      "term": "はれる",
+      "reading": "はれる",
+      "romaji": null,
+      "definition": "Sưng",
+      "exampleSentence": "虫に刺された場所は、数時間後にはれることがあります。",
+      "exampleTranslation": "Chỗ bị côn trùng đốt đôi khi có thể sưng lên vài giờ sau.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 17721,
+      "term": "しきりに",
+      "reading": "しきりに",
+      "romaji": null,
+      "definition": "Không ngừng, liên tục",
+      "exampleSentence": "彼はしきりに時計を見ながら、誰かを待っていました。",
+      "exampleTranslation": "Anh ấy liên tục nhìn đồng hồ trong khi chờ ai đó.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 17722,
+      "term": "異常（な） (いじょう（な）)",
+      "reading": "いじょう（な）",
+      "romaji": null,
+      "definition": "Sự bất thường, bất thường",
+      "exampleSentence": "「異常（な）」という語は、通常とは違う状態を表します。",
+      "exampleTranslation": "Từ 「異常（な）」 chỉ trạng thái khác với bình thường.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 17723,
+      "term": "伴う (ともなう)",
+      "reading": "ともなう",
+      "romaji": null,
+      "definition": "Phát sinh, kèm theo, có",
+      "exampleSentence": "大きな計画には、責任とリスクが伴うものです。",
+      "exampleTranslation": "Những kế hoạch lớn thường đi kèm với trách nhiệm và rủi ro.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 17724,
+      "term": "単なる (たんなる)",
+      "reading": "たんなる",
+      "romaji": null,
+      "definition": "Đơn thuần",
+      "exampleSentence": "彼の謝罪は単なる形式ではなく、心からのものでした。",
+      "exampleTranslation": "Lời xin lỗi của anh ấy không chỉ là hình thức mà xuất phát từ tận đáy lòng.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 17725,
+      "term": "伝染（する） (でんせん（する）)",
+      "reading": "でんせん（する）",
+      "romaji": null,
+      "definition": "Sự truyền nhiễm",
+      "exampleSentence": "「伝染（する）」という言葉は、病気が人から人へ広がることを表します。",
+      "exampleTranslation": "Từ 「伝染（する）」 chỉ việc bệnh truyền từ người này sang người khác.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 17726,
+      "term": "反応（する） (はんのう（する）)",
+      "reading": "はんのう（する）",
+      "romaji": null,
+      "definition": "Phản ứng",
+      "exampleSentence": "新しい薬に対して、患者がどのように反応（する）かを調べた。",
+      "exampleTranslation": "Chúng tôi đã kiểm tra xem bệnh nhân phản ứng thế nào với loại thuốc mới.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

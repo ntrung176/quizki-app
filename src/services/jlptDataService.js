@@ -81,11 +81,54 @@ const startFirestoreListener = () => {
     }
 };
 
+const loadedLevels = new Set();
+const levelLoadingPromises = new Map();
+
+/**
+ * Lazily loads test bank for a specific level (n1, n2, n3, n4, n5)
+ */
+export const loadJLPTLevelData = async (level) => {
+    if (!level) return;
+    const lvlKey = level.toLowerCase().trim();
+    if (lvlKey === 'all') {
+        const levels = ['n1', 'n2', 'n3', 'n4', 'n5'];
+        await Promise.all(levels.map(l => loadJLPTLevelData(l)));
+        return;
+    }
+    if (loadedLevels.has(lvlKey)) return;
+    if (levelLoadingPromises.has(lvlKey)) return levelLoadingPromises.get(lvlKey);
+
+    const promise = (async () => {
+        try {
+            const res = await fetch(`/data/jlpt/${lvlKey}.json?t=${Date.now()}`);
+            if (res && res.ok) {
+                const list = await res.json();
+                if (Array.isArray(list) && list.length > 0) {
+                    list.forEach(t => {
+                        if (t && t.id) baseTestsMap.set(t.id, t);
+                    });
+                    loadedLevels.add(lvlKey);
+                    recomputeCombinedTests();
+                }
+            }
+        } catch (err) {
+            console.warn(`[jlptDataService] Failed to load level ${lvlKey}:`, err);
+        } finally {
+            levelLoadingPromises.delete(lvlKey);
+        }
+    })();
+
+    levelLoadingPromises.set(lvlKey, promise);
+    return promise;
+};
+
 export const invalidateJLPTCache = () => {
     cachedTests = null;
     sharedPromise = null;
     baseTestsMap.clear();
     firestoreDocsMap.clear();
+    loadedLevels.clear();
+    levelLoadingPromises.clear();
 };
 
 if (typeof window !== 'undefined') {
@@ -130,7 +173,7 @@ export const getSharedJLPTTests = async (forceRefresh = false) => {
             console.warn('[jlptDataService] Cache config fetch warning:', e);
         }
 
-        // 1. ALWAYS load comprehensive static base file /data/jlpt_data.json (591 roadmap & skill tests)
+        // 1. ALWAYS load fresh static base file /data/jlpt_data.json
         try {
             const res = await fetch(`/data/jlpt_data.json?t=${Date.now()}`);
             if (res && res.ok) {
@@ -145,30 +188,10 @@ export const getSharedJLPTTests = async (forceRefresh = false) => {
             console.warn('[jlptDataService] Local jlpt_data.json load warning:', e);
         }
 
-        // 2. Overlay Firebase Storage CDN if available (for newly synced or custom tests)
-        if (cacheConfig && cacheConfig.jlptUrl) {
-            try {
-                const urlWithBuster = cacheConfig.jlptUrl.includes('?')
-                    ? `${cacheConfig.jlptUrl}&t=${cacheConfig.exportedAt || Date.now()}`
-                    : `${cacheConfig.jlptUrl}?t=${cacheConfig.exportedAt || Date.now()}`;
-                const res = await fetch(urlWithBuster);
-                if (res && res.ok) {
-                    const data = await res.json();
-                    if (Array.isArray(data) && data.length > 0) {
-                        data.forEach((t) => {
-                            if (t && t.id) baseTestsMap.set(t.id, t);
-                        });
-                    }
-                }
-            } catch (cdnErr) {
-                console.warn('[jlptDataService] CDN jlpt_data.json load warning:', cdnErr);
-            }
-        }
-
-        // 3. Compute combined map with Firestore overlay
+        // 2. Compute combined map with Firestore overlay
         const result = recomputeCombinedTests();
 
-        // 4. Start Firestore real-time listener if not already started
+        // 3. Start Firestore real-time listener if not already started
         startFirestoreListener();
 
         return result;
@@ -231,3 +254,4 @@ export const removeSingleJLPTTestFromCache = (testId) => {
     firestoreDocsMap.delete(testId);
     recomputeCombinedTests();
 };
+

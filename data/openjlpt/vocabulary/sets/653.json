@@ -1,0 +1,242 @@
+{
+  "id": 653,
+  "title": "N3 Tango 5.5 - Học nào · Hãy cố gắng hơn nữa!",
+  "description": "Tango N3 — Học nào",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:19.136697",
+  "cards": [
+    {
+      "id": 14933,
+      "term": "知識 (ちしき)",
+      "reading": "ちしき",
+      "romaji": null,
+      "definition": "Kiến thức",
+      "exampleSentence": "日本の歴史について、もっと知識を増やしたいです。",
+      "exampleTranslation": "Tôi muốn bổ sung thêm kiến thức về lịch sử Nhật Bản.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14934,
+      "term": "理解（する） (りかい（する）)",
+      "reading": "りかい（する）",
+      "romaji": null,
+      "definition": "Sự lý giải, hiểu",
+      "exampleSentence": "先生は「理解（する）」という言葉の使い方を説明しました。",
+      "exampleTranslation": "Giáo viên đã giải thích cách sử dụng từ “hiểu”.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14935,
+      "term": "目指す (めざす)",
+      "reading": "めざす",
+      "romaji": null,
+      "definition": "Nhắm tới, lấy mục tiêu",
+      "exampleSentence": "姉は将来、通訳を目指すために毎日勉強しています。",
+      "exampleTranslation": "Chị tôi học mỗi ngày để hướng tới mục tiêu trở thành phiên dịch viên.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14936,
+      "term": "試す (ためす)",
+      "reading": "ためす",
+      "romaji": null,
+      "definition": "Thử",
+      "exampleSentence": "新しい勉強方法を試す前に、先生に相談しました。",
+      "exampleTranslation": "Trước khi thử phương pháp học mới, tôi đã hỏi ý kiến giáo viên.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14937,
+      "term": "自信 (じしん)",
+      "reading": "じしん",
+      "romaji": null,
+      "definition": "Tự tin",
+      "exampleSentence": "毎日練習したので、試合に勝つ自信があります。",
+      "exampleTranslation": "Vì đã luyện tập mỗi ngày nên tôi tự tin sẽ thắng trận.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14938,
+      "term": "やる気 (やるき)",
+      "reading": "やるき",
+      "romaji": null,
+      "definition": "Hứng làm",
+      "exampleSentence": "試験に合格するために、毎日やる気を持って勉強しています。",
+      "exampleTranslation": "Để đỗ kỳ thi, tôi học tập mỗi ngày với tinh thần hứng khởi.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14939,
+      "term": "くやしい",
+      "reading": "くやしい",
+      "romaji": null,
+      "definition": "Cay cú, ấm ức, tiếc",
+      "exampleSentence": "試合に負けて、くやしい気持ちでいっぱいです。",
+      "exampleTranslation": "Thua trận khiến tôi vô cùng ấm ức.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14940,
+      "term": "レベル",
+      "reading": "レベル",
+      "romaji": null,
+      "definition": "Trình độ",
+      "exampleSentence": "このクラスは学生のレベルに合わせて授業をしています。",
+      "exampleTranslation": "Lớp học này giảng dạy phù hợp với trình độ của học sinh.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14941,
+      "term": "利口（な） (りこう（な）)",
+      "reading": "りこう（な）",
+      "romaji": null,
+      "definition": "Khôn ngoan, lanh lợi",
+      "exampleSentence": "彼は利口（な）子どもなので、何でもすぐに理解します。",
+      "exampleTranslation": "Vì là một đứa trẻ lanh lợi nên cậu ấy hiểu mọi thứ rất nhanh.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14942,
+      "term": "さっそく",
+      "reading": "さっそく",
+      "romaji": null,
+      "definition": "Ngay, luôn",
+      "exampleSentence": "授業が終わったら、さっそく宿題を始めましょう。",
+      "exampleTranslation": "Sau khi tan học, chúng ta hãy bắt tay làm bài tập ngay.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14943,
+      "term": "ざっと",
+      "reading": "ざっと",
+      "romaji": null,
+      "definition": "Qua, lướt qua",
+      "exampleSentence": "会議の資料をざっと読んでから、意見を言いました。",
+      "exampleTranslation": "Sau khi đọc lướt tài liệu cuộc họp, tôi đã đưa ra ý kiến.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14944,
+      "term": "しっかり[と] （する）",
+      "reading": "しっかり[と] （する）",
+      "romaji": null,
+      "definition": "Nghiêm chỉnh, cẩn thận",
+      "exampleSentence": "健康のために、毎日しっかり （する）ことが大切です。",
+      "exampleTranslation": "Để giữ gìn sức khỏe, việc chăm sóc bản thân cẩn thận mỗi ngày là rất quan trọng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 14945,
+      "term": "じっくり[と]",
+      "reading": "じっくり[と]",
+      "romaji": null,
+      "definition": "Thong thả",
+      "exampleSentence": "大切なことなので、じっくりと考えてから答えてください。",
+      "exampleTranslation": "Vì đây là việc quan trọng, hãy suy nghĩ thật kỹ rồi trả lời.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 14946,
+      "term": "相当（な） (そうとう（な）)",
+      "reading": "そうとう（な）",
+      "romaji": null,
+      "definition": "Tương đối",
+      "exampleSentence": "この仕事には相当（な）経験が必要だと思います。",
+      "exampleTranslation": "Tôi nghĩ công việc này đòi hỏi kinh nghiệm tương đối nhiều.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 14947,
+      "term": "まあまあ（な）",
+      "reading": "まあまあ（な）",
+      "romaji": null,
+      "definition": "Cũng được, tạm được",
+      "exampleSentence": "今日のテストの出来は、まあまあ（な）感じでした。",
+      "exampleTranslation": "Bài kiểm tra hôm nay làm cũng tạm được.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 14948,
+      "term": "努力（する） (どりょく（する）)",
+      "reading": "どりょく（する）",
+      "romaji": null,
+      "definition": "Sự nỗ lực, cố gắng",
+      "exampleSentence": "目標を達成するには、毎日の努力（する）が必要です。",
+      "exampleTranslation": "Để đạt được mục tiêu, cần phải nỗ lực mỗi ngày.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 14949,
+      "term": "なまける",
+      "reading": "なまける",
+      "romaji": null,
+      "definition": "Lười",
+      "exampleSentence": "なまけると、いつまでたっても上手になりません。",
+      "exampleTranslation": "Nếu lười biếng thì mãi mãi cũng không tiến bộ được.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 14950,
+      "term": "得意な (とくいな)",
+      "reading": "とくいな",
+      "romaji": null,
+      "definition": "Giỏi, tốt",
+      "exampleSentence": "私は数学が得意な学生です。",
+      "exampleTranslation": "Tôi là một học sinh giỏi môn toán.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 14951,
+      "term": "苦手な (にがてな)",
+      "reading": "にがてな",
+      "romaji": null,
+      "definition": "Yếu",
+      "exampleSentence": "彼は人前で話すのが苦手なタイプです。",
+      "exampleTranslation": "Anh ấy thuộc kiểu người không giỏi nói trước đám đông.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 14952,
+      "term": "マスター（する）",
+      "reading": "マスター（する）",
+      "romaji": null,
+      "definition": "Sự thành thạo",
+      "exampleSentence": "外国語を学ぶとき、「マスター（する）」という言葉をよく使います。",
+      "exampleTranslation": "Khi học ngoại ngữ, người ta thường dùng từ “thành thạo”.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 14953,
+      "term": "問い合わせる (といあわせる)",
+      "reading": "といあわせる",
+      "romaji": null,
+      "definition": "Hỏi, thắc mắc",
+      "exampleSentence": "分からない点があれば、受付に問い合わせることができます。",
+      "exampleTranslation": "Nếu có điểm nào không hiểu, bạn có thể hỏi quầy tiếp tân.",
+      "forms": [],
+      "displayOrder": 20
+    }
+  ]
+}

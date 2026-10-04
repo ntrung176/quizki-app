@@ -1,0 +1,176 @@
+{
+  "id": 372,
+  "title": "N3 Unit 1.1 - 名詞A・人と年齢 (Người & tuổi tác)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 名詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:34.538713",
+  "cards": [
+    {
+      "id": 10195,
+      "term": "男性 (だんせい)",
+      "reading": "だんせい",
+      "romaji": "dansei",
+      "definition": "nam giới, đàn ông, giới tính nam",
+      "exampleSentence": "理想の男性と結婚する",
+      "exampleTranslation": "Kết hôn với người đàn ông lý tưởng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10196,
+      "term": "女性 (じょせい)",
+      "reading": "じょせい",
+      "romaji": "josei",
+      "definition": "nữ giới, phụ nữ, giới tính nữ",
+      "exampleSentence": "「あの女性はだれですか」",
+      "exampleTranslation": "Người phụ nữ kia là ai vậy?",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10197,
+      "term": "高齢 (こうれい)",
+      "reading": "こうれい",
+      "romaji": "kōrei",
+      "definition": "tuổi cao",
+      "exampleSentence": "祖母は高齢だが、まだとても元気だ",
+      "exampleTranslation": "Bà tôi tuy tuổi đã cao nhưng rất khỏe mạnh.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10198,
+      "term": "年上 (としうえ)",
+      "reading": "としうえ",
+      "romaji": "toshiue",
+      "definition": "lớn tuổi hơn, hơn tuổi",
+      "exampleSentence": "年上の友だち",
+      "exampleTranslation": "Bạn hơn tuổi.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10199,
+      "term": "目上 (めうえ)",
+      "reading": "めうえ",
+      "romaji": "meue",
+      "definition": "cấp trên, bề trên",
+      "exampleSentence": "目上の人には敬語で話したほうがいい",
+      "exampleTranslation": "Đối với người bề trên nên nói chuyện bằng kính ngữ.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10200,
+      "term": "先輩 (せんぱい)",
+      "reading": "せんぱい",
+      "romaji": "senpai",
+      "definition": "người đi trước",
+      "exampleSentence": "田中さんと私は同じ年だが、職場では彼のほうが先輩だ",
+      "exampleTranslation": "Tanaka và tôi cùng tuổi nhưng ở công ty cậu ấy là tiền bối.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10201,
+      "term": "後輩 (こうはい)",
+      "reading": "こうはい",
+      "romaji": "kōhai",
+      "definition": "người đi sau",
+      "exampleSentence": "後輩に日本語を教えました。",
+      "exampleTranslation": "Tôi đã dạy tiếng Nhật cho đàn em.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10202,
+      "term": "上司 (じょうし)",
+      "reading": "じょうし",
+      "romaji": "jōshi",
+      "definition": "cấp trên",
+      "exampleSentence": "上司に相談してから決定する",
+      "exampleTranslation": "Tôi sẽ trao đổi với cấp trên rồi mới quyết định.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10203,
+      "term": "相手 (あいて)",
+      "reading": "あいて",
+      "romaji": "aite",
+      "definition": "đối phương",
+      "exampleSentence": "相手の目を見て話す",
+      "exampleTranslation": "Nhìn vào mắt người đối diện mà nói chuyện.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10204,
+      "term": "知り合い (しりあい)",
+      "reading": "しりあい",
+      "romaji": "shiriai",
+      "definition": "người quen",
+      "exampleSentence": "知り合いに息子の就職を頼む",
+      "exampleTranslation": "Nhờ người quen xin việc cho đứa con trai.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10205,
+      "term": "友人 (ゆうじん)",
+      "reading": "ゆうじん",
+      "romaji": "yūjin",
+      "definition": "bạn, người bạn",
+      "exampleSentence": "「田中さんを知っていますか」...「ええ、学生時代の友人です」",
+      "exampleTranslation": "\"Bạn có biết anh Tanaka không?\" \"Có, là bạn thời học sinh của tôi.\"",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10206,
+      "term": "仲 (なか)",
+      "reading": "なか",
+      "romaji": "naka",
+      "definition": "quan hệ, mối quan hệ",
+      "exampleSentence": "私は山本さんと仲がいい",
+      "exampleTranslation": "Tôi thân với anh Yamamoto.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10207,
+      "term": "生年月日 (せいねんがっぴ)",
+      "reading": "せいねんがっぴ",
+      "romaji": "seinengappi",
+      "definition": "ngày tháng năm sinh",
+      "exampleSentence": "書類に生年月日を記入する",
+      "exampleTranslation": "Điền ngày tháng năm sinh vào tài liệu.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10208,
+      "term": "誕生 (たんじょう)",
+      "reading": "たんじょう",
+      "romaji": "tanjō",
+      "definition": "ra đời",
+      "exampleSentence": "新しい命の誕生を祝う",
+      "exampleTranslation": "Cầu chúc sự ra đời của sinh mệnh mới.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10209,
+      "term": "年 (とし)",
+      "reading": "とし",
+      "romaji": "toshi",
+      "definition": "năm, tuổi",
+      "exampleSentence": "年の初めに１年の計画を立てる",
+      "exampleTranslation": "Lập kế hoạch cho một năm vào đầu năm mới.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

@@ -22,7 +22,8 @@ import CultureNoteCard from '../grammar/CultureNoteCard';
 import RealDialogueCard from '../grammar/RealDialogueCard';
 import InteractiveDrillCard from '../grammar/InteractiveDrillCard';
 import QuickSummaryTable from '../grammar/QuickSummaryTable';
-import { findDeepGrammarForPattern, parseDeepSections } from '../../utils/deepGrammarHelper';
+import GrammarNuanceMindmapCard from '../grammar/GrammarNuanceMindmapCard';
+import { findDeepGrammarForPattern, parseDeepSections, findNuancesForPattern } from '../../utils/deepGrammarHelper';
 import { aiStandardizeGrammarStructure } from '../../services/ai/grammarAiService';
 
 // Fallback illustration data for ~あげく
@@ -81,6 +82,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
     const [saving, setSaving] = useState(false);
     const [isStandardizing, setIsStandardizing] = useState(false);
     const [deepSections, setDeepSections] = useState(null);
+    const [nuanceNodes, setNuanceNodes] = useState([]);
 
     useEffect(() => {
         (async () => {
@@ -96,7 +98,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                 }
             }
 
-            // Load deep grammar breakdown if pattern exists
+            // Load deep grammar breakdown & mindmap nuances if pattern exists
             if (data?.pattern) {
                 const deepObj = await findDeepGrammarForPattern(data.pattern);
                 if (deepObj) {
@@ -104,11 +106,16 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                 } else {
                     setDeepSections(null);
                 }
+
+                const nuances = await findNuancesForPattern(data.pattern);
+                setNuanceNodes(nuances || []);
             } else {
                 setDeepSections(null);
+                setNuanceNodes([]);
             }
         })();
     }, [grammarId, tb, ls]);
+
 
     // Fetch sibling points to calculate indexes and next/prev
     useEffect(() => {
@@ -847,10 +854,17 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                             </div>
                         )}
 
-                        {/* 5. KHỐI GIẢNG DẠY CHUYÊN SÂU (Deep Pedagogical Blocks) */}
+                        {/* 5. BẢN ĐỒ TƯ DUY & SẮC THÁI NUANCE */}
+                        {nuanceNodes && nuanceNodes.length > 0 && (
+                            <div className="pt-2">
+                                <GrammarNuanceMindmapCard nuances={nuanceNodes} pattern={gp.pattern} />
+                            </div>
+                        )}
+
+                        {/* 6. KHỐI GIẢNG DẠY CHUYÊN SÂU (Deep Pedagogical Blocks) */}
                         {deepSections && (
                             <div className="pt-4 space-y-6 border-t border-slate-100 dark:border-slate-800/80">
-                                {/* 5.1 Công thức tâm lý & Ý nghĩa chuyên sâu */}
+                                {/* 6.1 Công thức tâm lý & Ý nghĩa chuyên sâu */}
                                 <MentalModelCard
                                     mentalModel={deepSections.mentalModel}
                                     meaning={deepSections.explanation?.slice(0, 140)}
@@ -858,6 +872,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                     formality={deepSections.formality}
                                     explanation={deepSections.explanation}
                                 />
+
 
                                 {/* 5.2 Phân biệt sắc thái với mẫu câu tương tự */}
                                 {deepSections.nuanceComparisons?.length > 0 && (

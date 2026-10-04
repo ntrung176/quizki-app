@@ -53,7 +53,8 @@ const TopTabBar = ({ tabs, theme }) => {
         }
         if (tab.id === 'vocab-list') return t('tabs.library', 'Thư viện');
         if (tab.id === 'vocab-add') return t('tabs.addSet', 'Thêm học phần');
-        if (tab.id === 'vocab-books' || tab.id === 'kanji-study' || tab.id === 'grammar-study') {
+        if (tab.id === 'vocab-books') return t('tabs.curriculum', 'Giáo trình');
+        if (tab.id === 'kanji-study' || tab.id === 'grammar-study') {
             return t('tabs.lessons', 'Bài học');
         }
         if (tab.id === 'kanji-saved' || tab.id === 'grammar-saved') return t('tabs.saved', 'Đã lưu');

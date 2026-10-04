@@ -1,9 +1,9 @@
 import React, { useMemo, useState } from 'react';
 import { 
     Award, Lock, Unlock, Clock, FileCheck, Play, RotateCcw, 
-    Printer, ShieldCheck, Zap, Sparkles 
+    Printer, ShieldCheck, Zap 
 } from 'lucide-react';
-import { LEVEL_GRADIENTS } from './jlptConstants';
+import { LEVEL_GRADIENTS, getTestQuestionCount } from './jlptConstants';
 
 const JLPTMockExamsTab = ({
     tests,
@@ -82,8 +82,8 @@ const JLPTMockExamsTab = ({
                 return numA - numB;
             }
             if (sortBy === 'questions') {
-                const countA = (a.sections || []).reduce((s, sec) => s + (sec.questions?.length || 0), 0);
-                const countB = (b.sections || []).reduce((s, sec) => s + (sec.questions?.length || 0), 0);
+                const countA = getTestQuestionCount(a);
+                const countB = getTestQuestionCount(b);
                 return countB - countA;
             }
             if (sortBy === 'time') {
@@ -133,7 +133,7 @@ const JLPTMockExamsTab = ({
                 {visibleTests.map(test => {
                     const status = getTestStatus(test);
                     const score = getTestScore(test);
-                    const totalQ = (test.sections || []).reduce((s, sec) => s + (sec.questions?.length || 0), 0);
+                    const totalQ = getTestQuestionCount(test);
                     const isLocked = test.isPremium && !hasPremiumAccess;
                     const lvlGradient = LEVEL_GRADIENTS[test.level] || 'from-indigo-500 to-sky-600';
 
@@ -225,7 +225,7 @@ const JLPTMockExamsTab = ({
                                                 reviewTest(test);
                                             }
                                         }}
-                                        className="px-4 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
+                                        className="px-4 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer active:scale-95"
                                     >
                                         <RotateCcw className="w-3.5 h-3.5" />
                                         <span>Xem lại kết quả</span>
@@ -240,15 +240,13 @@ const JLPTMockExamsTab = ({
                                                 startTest(test);
                                             }
                                         }}
-                                        className={`px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 cursor-pointer shadow-xs ${
+                                        className={`px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 cursor-pointer shadow-[0_3px_10px_rgba(244,148,188,0.35)] active:scale-95 ${
                                             isLocked
                                                 ? 'bg-amber-500 hover:bg-amber-600 text-white'
-                                                : status === 'in_progress'
-                                                ? 'bg-sky-600 hover:bg-sky-700 text-white'
-                                                : 'bg-gradient-to-r from-indigo-600 to-sky-600 hover:from-indigo-500 hover:to-sky-500 text-white shadow-indigo-500/20'
+                                                : 'bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950'
                                         }`}
                                     >
-                                        <Play className="w-3.5 h-3.5 fill-current" />
+                                        <Play className="w-3.5 h-3.5 fill-slate-950 text-slate-950" />
                                         <span>{status === 'in_progress' ? 'Làm tiếp' : 'Vào phòng thi'}</span>
                                     </button>
                                 )}

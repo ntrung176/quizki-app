@@ -1,0 +1,242 @@
+{
+  "id": 565,
+  "title": "N2 Unit 4.8 - 名詞B (bài 8/12)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.893433",
+  "cards": [
+    {
+      "id": 13534,
+      "term": "立ち上がる (たちあがる)",
+      "reading": "たちあがる",
+      "romaji": null,
+      "definition": "đứng dậy",
+      "exampleSentence": "椅子から立ち上がる。",
+      "exampleTranslation": "Đứng dậy khỏi ghế.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13535,
+      "term": "飛び上がる (とびあがる)",
+      "reading": "とびあがる",
+      "romaji": null,
+      "definition": "nhảy lên",
+      "exampleSentence": "飛び上がって喜ぶ。",
+      "exampleTranslation": "Nhảy cẫng lên vì vui mừng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13536,
+      "term": "浮かび上がる (うかびあがる)",
+      "reading": "うかびあがる",
+      "romaji": null,
+      "definition": "nổi lên",
+      "exampleSentence": "水面に浮かび上がる。",
+      "exampleTranslation": "Nổi lên trên mặt nước.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13537,
+      "term": "舞い上がる (まいあがる)",
+      "reading": "まいあがる",
+      "romaji": null,
+      "definition": "khuấy lên, hưng phấn",
+      "exampleSentence": "風で砂埃が舞い上がる。",
+      "exampleTranslation": "Bụi cát bay tung lên vì gió.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13538,
+      "term": "燃え上がる (もえあがる)",
+      "reading": "もえあがる",
+      "romaji": null,
+      "definition": "bùng cháy, bốc cháy",
+      "exampleSentence": "｛火/闘志/恋心…｝が燃え上がる。",
+      "exampleTranslation": "(Lửa/ý chí chiến đấu/tình yêu…) bùng lên.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13539,
+      "term": "盛り上がる (もりあがる)",
+      "reading": "もりあがる",
+      "romaji": null,
+      "definition": "nhô lên, nổi lên; sôi nổi, hào hứng",
+      "exampleSentence": "筋肉が盛り上がっている。",
+      "exampleTranslation": "Cơ bắp nổi cuồn cuộn / săn chắc.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13540,
+      "term": "沸き上がる (わきあがる)",
+      "reading": "わきあがる",
+      "romaji": null,
+      "definition": "sôi lên, sủi bọt lên",
+      "exampleSentence": "歓声が沸き上がる。",
+      "exampleTranslation": "Tiếng hoan hô bùng lên.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13541,
+      "term": "晴れ上がる (はれあがる)",
+      "reading": "はれあがる",
+      "romaji": null,
+      "definition": "sạch, trong",
+      "exampleSentence": "晴れ上がった秋空が広がっている。",
+      "exampleTranslation": "Bầu trời mùa thu quang đãng trải rộng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13542,
+      "term": "震え上がる (ふるえあがる)",
+      "reading": "ふるえあがる",
+      "romaji": null,
+      "definition": "run rẩy",
+      "exampleSentence": "｛寒さ/恐怖…｝に震え上がる。",
+      "exampleTranslation": "Run lên vì lạnh/sợ hãi…",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13543,
+      "term": "縮み上がる (ちぢみあがる)",
+      "reading": "ちぢみあがる",
+      "romaji": null,
+      "definition": "sun lại (vì lạnh)",
+      "exampleSentence": "｛寒さ/恐怖…｝に縮み上がる。",
+      "exampleTranslation": "Co rúm lại vì lạnh/sợ hãi…",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13544,
+      "term": "干上がる (ひあがる)",
+      "reading": "ひあがる",
+      "romaji": null,
+      "definition": "để khô, bị khô, cạn",
+      "exampleSentence": "｛池/湖/川…｝が干上がる。",
+      "exampleTranslation": "Ao/hồ/sông… cạn khô.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13545,
+      "term": "出来上がる (できあがる)",
+      "reading": "できあがる",
+      "romaji": null,
+      "definition": "hoàn thành",
+      "exampleSentence": "料理が出来上がった。",
+      "exampleTranslation": "Món ăn đã làm xong rồi.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13546,
+      "term": "持ち上げる (もちあげる)",
+      "reading": "もちあげる",
+      "romaji": null,
+      "definition": "nâng lên",
+      "exampleSentence": "荷物を持ち上げる。",
+      "exampleTranslation": "Nhấc hành lý lên.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13547,
+      "term": "見上げる (みあげる)",
+      "reading": "みあげる",
+      "romaji": null,
+      "definition": "nhìn lên",
+      "exampleSentence": "空を見上げる。",
+      "exampleTranslation": "Ngước nhìn bầu trời.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13548,
+      "term": "積み上げる (つみあげる)",
+      "reading": "つみあげる",
+      "romaji": null,
+      "definition": "chất lên",
+      "exampleSentence": "資料を積み上げる。",
+      "exampleTranslation": "Chồng/xếp tài liệu lên thành đống.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 13549,
+      "term": "打ち上げる (うちあげる)",
+      "reading": "うちあげる",
+      "romaji": null,
+      "definition": "phát, bắn",
+      "exampleSentence": "｛ロケット/花火…｝を打ち上げる。",
+      "exampleTranslation": "Phóng tên lửa / bắn pháo hoa.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 13550,
+      "term": "立ち上げる (たちあげる)",
+      "reading": "たちあげる",
+      "romaji": null,
+      "definition": "khởi động",
+      "exampleSentence": "コンピューターを立ち上げる。",
+      "exampleTranslation": "Khởi động máy tính.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 13551,
+      "term": "切り上げる (きりあげる)",
+      "reading": "きりあげる",
+      "romaji": null,
+      "definition": "kết thúc",
+      "exampleSentence": "今日は仕事を5時で切り上げよう。",
+      "exampleTranslation": "Hôm nay làm đến 5 giờ rồi nghỉ thôi.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 13552,
+      "term": "繰り上げる (くりあげる)",
+      "reading": "くりあげる",
+      "romaji": null,
+      "definition": "sớm hơn",
+      "exampleSentence": "｛時間/予定/順位…｝を繰り上げる。",
+      "exampleTranslation": "Đẩy sớm (giờ/lịch/thứ hạng)…",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 13553,
+      "term": "磨き上げる (みがきあげる)",
+      "reading": "みがきあげる",
+      "romaji": null,
+      "definition": "làm bóng",
+      "exampleSentence": "磨き上げた靴。",
+      "exampleTranslation": "Đôi giày đã được đánh bóng kỹ.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 13554,
+      "term": "鍛え上げる (きたえあげる)",
+      "reading": "きたえあげる",
+      "romaji": null,
+      "definition": "rèn luyện",
+      "exampleSentence": "選手たちを鍛え上げる。",
+      "exampleTranslation": "Rèn luyện các vận động viên.",
+      "forms": [],
+      "displayOrder": 20
+    }
+  ]
+}

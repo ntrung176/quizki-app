@@ -1,0 +1,132 @@
+{
+  "id": 588,
+  "title": "N2 Unit 8.1 - 動詞B (bài 1/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.353017",
+  "cards": [
+    {
+      "id": 13844,
+      "term": "映る (うつる)",
+      "reading": "うつる",
+      "romaji": null,
+      "definition": "bị phản chiếu, được chiếu",
+      "exampleSentence": "鏡には左右が逆に映る。",
+      "exampleTranslation": "Gương phản chiếu trái phải bị đảo ngược.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13845,
+      "term": "映す (うつす)",
+      "reading": "うつす",
+      "romaji": null,
+      "definition": "chiếu, phản chiếu",
+      "exampleSentence": "全身を映せる鏡が欲しい。",
+      "exampleTranslation": "Tôi muốn một chiếc gương soi được toàn thân.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13846,
+      "term": "漬かる (つかる)",
+      "reading": "つかる",
+      "romaji": null,
+      "definition": "ngập",
+      "exampleSentence": "大雨で家の床まで水につかった。",
+      "exampleTranslation": "Mưa lớn làm nước ngập tới cả sàn nhà.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13847,
+      "term": "漬ける (つける)",
+      "reading": "つける",
+      "romaji": null,
+      "definition": "ngâm, ướp, muối",
+      "exampleSentence": "汚れが落ちにくいときは、洗剤の液にしばらく付けておくとよい。",
+      "exampleTranslation": "Nếu vết bẩn khó giặt, hãy ngâm một lúc trong dung dịch nước giặt.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13848,
+      "term": "浮かぶ (うかぶ)",
+      "reading": "うかぶ",
+      "romaji": null,
+      "definition": "nổi lên",
+      "exampleSentence": "池にボートが浮かんでいる。",
+      "exampleTranslation": "Một chiếc thuyền đang nổi trên mặt ao.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13849,
+      "term": "浮かべる (うかべる)",
+      "reading": "うかべる",
+      "romaji": null,
+      "definition": "cho nổi, thả trôi",
+      "exampleSentence": "池におもちゃのボートを浮かべて遊んだ。",
+      "exampleTranslation": "Thả thuyền đồ chơi nổi trên ao để chơi.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13850,
+      "term": "浮く (うく)",
+      "reading": "うく",
+      "romaji": null,
+      "definition": "nổi, lơ lửng",
+      "exampleSentence": "一円玉は水に浮く。",
+      "exampleTranslation": "Đồng 1 yên nổi trên nước.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13851,
+      "term": "潜る (もぐる)",
+      "reading": "もぐる",
+      "romaji": null,
+      "definition": "lặn, chìm xuống",
+      "exampleSentence": "日本の「海女」は長時間海に潜って貝や魚を取ることができる。",
+      "exampleTranslation": "“Ama” (nữ thợ lặn) ở Nhật có thể lặn lâu để bắt sò và cá.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13852,
+      "term": "跳ねる (はねる)",
+      "reading": "はねる",
+      "romaji": null,
+      "definition": "nhảy, bắn, tóe",
+      "exampleSentence": "カエルは地面から大きく跳ねて、草の中へ消えた。",
+      "exampleTranslation": "Con ếch nhảy mạnh rồi biến mất vào bụi cỏ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13853,
+      "term": "背負う (せおう)",
+      "reading": "せおう",
+      "romaji": null,
+      "definition": "mang vác, chịu đựng",
+      "exampleSentence": "背中にリュックを背負う。",
+      "exampleTranslation": "Đeo ba lô trên lưng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13854,
+      "term": "追う (おう)",
+      "reading": "おう",
+      "romaji": null,
+      "definition": "đuổi, đuổi theo, theo sau",
+      "exampleSentence": "子供は走って母親の後を追った。",
+      "exampleTranslation": "Đứa trẻ chạy theo sau mẹ.",
+      "forms": [],
+      "displayOrder": 10
+    }
+  ]
+}

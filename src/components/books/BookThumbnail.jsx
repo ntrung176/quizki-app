@@ -150,6 +150,51 @@ export const getBookCoverMeta = ({
             bottomBg: 'bg-emerald-600 dark:bg-emerald-700',
             bottomText: 'text-white'
         };
+    } else if (nameLower.includes('tango') || groupLower.includes('tango')) {
+        // Tango Series: Level-specific or Modern Teal Cyan
+        if (nameLower.includes('n5')) {
+            theme = {
+                topBg: 'bg-emerald-50 dark:bg-emerald-950/50',
+                topText: 'text-emerald-950 dark:text-emerald-100',
+                bottomBg: 'bg-emerald-600 dark:bg-emerald-700',
+                bottomText: 'text-white'
+            };
+        } else if (nameLower.includes('n4')) {
+            theme = {
+                topBg: 'bg-sky-50 dark:bg-sky-950/50',
+                topText: 'text-sky-950 dark:text-sky-100',
+                bottomBg: 'bg-sky-600 dark:bg-sky-700',
+                bottomText: 'text-white'
+            };
+        } else if (nameLower.includes('n3')) {
+            theme = {
+                topBg: 'bg-purple-50 dark:bg-purple-950/50',
+                topText: 'text-purple-950 dark:text-purple-100',
+                bottomBg: 'bg-purple-600 dark:bg-purple-700',
+                bottomText: 'text-white'
+            };
+        } else if (nameLower.includes('n2')) {
+            theme = {
+                topBg: 'bg-amber-50 dark:bg-amber-950/50',
+                topText: 'text-amber-950 dark:text-amber-100',
+                bottomBg: 'bg-amber-600 dark:bg-amber-700',
+                bottomText: 'text-white'
+            };
+        } else if (nameLower.includes('n1')) {
+            theme = {
+                topBg: 'bg-rose-50 dark:bg-rose-950/50',
+                topText: 'text-rose-950 dark:text-rose-100',
+                bottomBg: 'bg-rose-600 dark:bg-rose-700',
+                bottomText: 'text-white'
+            };
+        } else {
+            theme = {
+                topBg: 'bg-teal-50 dark:bg-teal-950/50',
+                topText: 'text-teal-950 dark:text-teal-100',
+                bottomBg: 'bg-teal-600 dark:bg-teal-700',
+                bottomText: 'text-white'
+            };
+        }
     } else if (nameLower.includes('oxford') || groupLower.includes('oxford')) {
         // Oxford: Classic Royal Blue & Ice
         theme = {
@@ -229,6 +274,8 @@ export const getBookCoverMeta = ({
                 topSub = `Mimi Kara Oboeru · ${rawName}`;
             } else if (groupLower.includes('irodori')) {
                 topSub = `Irodori · ${rawName}`;
+            } else if (groupLower.includes('tango')) {
+                topSub = `Tango · ${rawName}`;
             } else {
                 topSub = `${groupName}${rawSub ? ` · ${rawSub}` : ''}`;
             }
@@ -242,6 +289,8 @@ export const getBookCoverMeta = ({
                 topSub = 'Giáo trình sơ cấp N5 và N4';
             } else if (nameLower.includes('mimikara')) {
                 topSub = 'Sách từ vựng JLPT N3, N2, N1';
+            } else if (nameLower.includes('tango')) {
+                topSub = 'Trọn bộ từ vựng JLPT N5 đến N1';
             } else if (nameLower.includes('irodori')) {
                 topSub = 'Sách hội thoại tiếng Nhật A1 và A2';
             } else if (nameLower.includes('chủ đề')) {
@@ -267,6 +316,13 @@ export const getBookCoverMeta = ({
             mainTitle = 'DAICHI';
         } else if (nameLower.includes('irodori')) {
             mainTitle = 'IRODORI';
+        } else if (nameLower.includes('tango')) {
+            if (nameLower.includes('n5')) mainTitle = 'TANGO N5';
+            else if (nameLower.includes('n4')) mainTitle = 'TANGO N4';
+            else if (nameLower.includes('n3')) mainTitle = 'TANGO N3';
+            else if (nameLower.includes('n2')) mainTitle = 'TANGO N2';
+            else if (nameLower.includes('n1')) mainTitle = 'TANGO N1';
+            else mainTitle = 'TANGO';
         } else if (nameLower.includes('oxford')) {
             mainTitle = 'OXFORD';
         } else if (nameLower.includes('ielts')) {
@@ -341,6 +397,8 @@ export const getBookCoverMeta = ({
                 bottomTitle = '2 tập · 42 bài học';
             } else if (nameLower.includes('mimikara')) {
                 bottomTitle = '3 tập · N3 - N1';
+            } else if (nameLower.includes('tango')) {
+                bottomTitle = '5 tập · 276 bài học';
             } else if (nameLower.includes('irodori')) {
                 bottomTitle = '1 tập · 21 bài học';
             } else if (nameLower.includes('oxford')) {
@@ -362,6 +420,8 @@ export const getBookCoverMeta = ({
                 bottomSub = `Sách từ vựng N5 và N4${progressSuffix}`;
             } else if (nameLower.includes('mimikara')) {
                 bottomSub = `Luyện thi JLPT chuyên sâu${progressSuffix}`;
+            } else if (nameLower.includes('tango')) {
+                bottomSub = `6.700+ từ vựng N5 ~ N1${progressSuffix}`;
             } else if (nameLower.includes('irodori')) {
                 bottomSub = `Từ vựng & Mẫu câu thực tế${progressSuffix}`;
             } else {

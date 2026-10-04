@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
     Award, BookOpen, Clock, Calendar, CheckCircle2, 
-    FileText, Headphones, Languages, Search, Sparkles, 
-    TrendingUp, Zap, MapPin, Layers, Trophy, X, AlertCircle
+    FileText, Headphones, Languages, Search, 
+    TrendingUp, Target, Compass, Layers, Trophy, X, AlertCircle,
+    Repeat
 } from 'lucide-react';
 import { ROUTES } from '../../router';
+import { loadJLPTLevelData } from '../../services/jlptDataService';
+import JLPTBooksCollectionTab from './JLPTBooksCollectionTab';
 import JLPTLessonRoadmapTab from './JLPTLessonRoadmapTab';
 import JLPTSkillArenaTab from './JLPTSkillArenaTab';
 import JLPTMockExamsTab from './JLPTMockExamsTab';
@@ -13,9 +16,10 @@ import JLPTDrillsTab from './JLPTDrillsTab';
 import JLPTWrongQuestionsTab from './JLPTWrongQuestionsTab';
 
 const MAIN_TABS = [
-    { id: 'roadmap', label: 'Lộ Trình Theo Bài', icon: MapPin, desc: 'Bài học 1 ➔ 148 trọn gói 4 kỹ năng' },
-    { id: 'skills', label: 'Luyện Kỹ Năng', icon: Zap, desc: 'Chữ Hán • Ngữ pháp • Đọc hiểu' },
-    { id: 'drills', label: 'Ôn Tập Phản Xạ', icon: Sparkles, desc: '61 bài drills phản xạ ngữ pháp' },
+    { id: 'books', label: '104 Sách Luyện Thi', icon: BookOpen, desc: 'Tuyển tập 104 bộ sách & 5.818 đề thi Master Series' },
+    { id: 'roadmap', label: 'Lộ Trình Theo Bài', icon: Compass, desc: 'Bài học 1 ➔ 148 trọn gói 4 kỹ năng' },
+    { id: 'skills', label: 'Luyện Kỹ Năng', icon: Target, desc: 'Chữ Hán • Ngữ pháp • Đọc hiểu' },
+    { id: 'drills', label: 'Ôn Tập Phản Xạ', icon: Repeat, desc: '61 bài drills phản xạ ngữ pháp' },
     { id: 'wrong', label: 'Sổ Tay Câu Sai', icon: AlertCircle, desc: 'Ôn luyện lại các câu làm sai' },
     { id: 'mock', label: 'Phòng Thi Tổng Hợp', icon: Trophy, desc: 'Đề thi mô phỏng JLPT tính giờ' },
 ];
@@ -26,6 +30,14 @@ const JLPTTestDashboard = ({
     savedProgresses = {},
     targetLevel = 'N2',
     handleUpdateTargetLevel,
+    activeMainTab: externalActiveMainTab,
+    setActiveMainTab: externalSetActiveMainTab,
+    selectedLevel: externalSelectedLevel,
+    setSelectedLevel: externalSetSelectedLevel,
+    searchQuery: externalSearchQuery,
+    setSearchQuery: externalSetSearchQuery,
+    statusFilter: externalStatusFilter,
+    setStatusFilter: externalSetStatusFilter,
     roadmapProgress = {},
     toggleRoadmapDay,
     allCards = [],
@@ -45,10 +57,35 @@ const JLPTTestDashboard = ({
     onStartPracticeWrong,
     onAddFlashcard
 }) => {
-    const [activeMainTab, setActiveMainTab] = useState('roadmap');
-    const [selectedLevel, setSelectedLevel] = useState(targetLevel || 'N5');
-    const [searchQuery, setSearchQuery] = useState('');
-    const [statusFilter, setStatusFilter] = useState('all');
+    const [internalActiveMainTab, setInternalActiveMainTab] = useState('books');
+    const [internalSelectedLevel, setInternalSelectedLevel] = useState(targetLevel || 'N5');
+    const [internalSearchQuery, setInternalSearchQuery] = useState('');
+    const [internalStatusFilter, setInternalStatusFilter] = useState('all');
+
+    const activeMainTab = externalActiveMainTab !== undefined ? externalActiveMainTab : internalActiveMainTab;
+    const setActiveMainTab = externalSetActiveMainTab || setInternalActiveMainTab;
+
+    const selectedLevel = externalSelectedLevel !== undefined ? externalSelectedLevel : internalSelectedLevel;
+    const setSelectedLevel = externalSetSelectedLevel || setInternalSelectedLevel;
+
+    const searchQuery = externalSearchQuery !== undefined ? externalSearchQuery : internalSearchQuery;
+    const setSearchQuery = externalSetSearchQuery || setInternalSearchQuery;
+
+    const statusFilter = externalStatusFilter !== undefined ? externalStatusFilter : internalStatusFilter;
+    const setStatusFilter = externalStatusFilter || setInternalStatusFilter;
+
+    React.useEffect(() => {
+        // Load all level data so all 104 books populate immediately
+        loadJLPTLevelData('all');
+    }, []);
+
+    React.useEffect(() => {
+        if (selectedLevel) {
+            loadJLPTLevelData(selectedLevel);
+        }
+    }, [selectedLevel]);
+
+
 
     // JLPT Countdown calculation
     const jlptCountdown = (() => {
@@ -127,7 +164,7 @@ const JLPTTestDashboard = ({
                                     onClick={() => setSelectedLevel(lvl.key)}
                                     className={`px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-extrabold rounded-xl transition-all cursor-pointer ${
                                         selectedLevel === lvl.key
-                                            ? 'bg-white dark:bg-slate-900 text-indigo-600 dark:text-indigo-400 shadow-xs'
+                                            ? 'bg-white dark:bg-slate-900 text-[#db2777] dark:text-[#f494bc] shadow-xs'
                                             : 'text-slate-500 hover:text-slate-800 dark:text-slate-400'
                                     }`}
                                 >
@@ -144,7 +181,7 @@ const JLPTTestDashboard = ({
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 placeholder="Tìm kiếm bài học, đề thi..."
-                                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 rounded-2xl pl-9 pr-8 py-2 text-xs font-medium text-slate-800 dark:text-slate-200 focus:outline-none focus:border-indigo-500"
+                                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 rounded-2xl pl-9 pr-8 py-2 text-xs font-medium text-slate-800 dark:text-slate-200 focus:outline-none focus:border-[#f494bc]"
                             />
                             {searchQuery && (
                                 <button 
@@ -210,7 +247,7 @@ const JLPTTestDashboard = ({
                     </div>
                 </div>
 
-                {/* 3. Main Navigation Switcher (5 Pillars) */}
+                {/* 3. Main Navigation Switcher (6 Pillars) */}
                 <div className="flex items-center gap-1.5 sm:gap-2 p-1.5 bg-slate-200/70 dark:bg-slate-900 rounded-3xl border border-slate-200/60 dark:border-slate-800 shadow-2xs overflow-x-auto no-scrollbar">
                     {MAIN_TABS.map(tab => {
                         const Icon = tab.icon;
@@ -223,14 +260,14 @@ const JLPTTestDashboard = ({
                                 onClick={() => setActiveMainTab(tab.id)}
                                 className={`flex-1 py-3 px-2 sm:px-4 rounded-2xl text-center transition-all duration-200 cursor-pointer flex items-center justify-center gap-1.5 sm:gap-2 shrink-0 ${
                                     isSelected
-                                        ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-sm font-black text-xs sm:text-sm'
-                                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 font-bold text-xs sm:text-sm'
+                                        ? 'bg-white dark:bg-slate-800 text-slate-950 dark:text-white shadow-sm font-black text-xs sm:text-sm border border-slate-200/80 dark:border-slate-700'
+                                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 font-bold text-xs sm:text-sm'
                                 }`}
                             >
-                                <Icon className={`w-4 h-4 shrink-0 ${isSelected ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-400'}`} />
+                                <Icon className={`w-4 h-4 shrink-0 ${isSelected ? 'text-[#db2777] dark:text-[#f494bc]' : 'text-slate-400'}`} />
                                 <span className="whitespace-nowrap">{tab.label}</span>
                                 {wrongCount > 0 && (
-                                    <span className="px-1.5 py-0.2 rounded-full text-[10px] font-black bg-rose-500 text-white shrink-0">
+                                    <span className="px-1.5 py-0.2 rounded-full text-[10px] font-black bg-[#f494bc] text-slate-950 shrink-0">
                                         {wrongCount}
                                     </span>
                                 )}
@@ -240,6 +277,24 @@ const JLPTTestDashboard = ({
                 </div>
 
                 {/* 4. Active Tab Content Rendering */}
+                {activeMainTab === 'books' && (
+                    <JLPTBooksCollectionTab
+                        tests={tests}
+                        completedTests={completedTests}
+                        savedProgresses={savedProgresses}
+                        selectedLevel={selectedLevel}
+                        searchQuery={searchQuery}
+                        canEdit={canEdit}
+                        hasPremiumAccess={hasPremiumAccess}
+                        startTest={startTest}
+                        reviewTest={reviewTest}
+                        handleStartPrint={handleStartPrint}
+                        handleToggleTestPremium={handleToggleTestPremium}
+                        setShowPremiumModal={setShowPremiumModal}
+                        setLockedPkgName={setLockedPkgName}
+                    />
+                )}
+
                 {activeMainTab === 'roadmap' && (
                     <JLPTLessonRoadmapTab
                         tests={tests}

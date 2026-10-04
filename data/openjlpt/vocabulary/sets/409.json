@@ -1,0 +1,176 @@
+{
+  "id": 409,
+  "title": "N3 Unit 8.2 - 副詞A・時間の経過 (Thời gian & diễn biến)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 副詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:36.007163",
+  "cards": [
+    {
+      "id": 10800,
+      "term": "前もって (まえもって)",
+      "reading": "まえもって",
+      "romaji": "maemotte",
+      "definition": "trước",
+      "exampleSentence": "「もし欠席する場合は、前もってご連絡します」",
+      "exampleTranslation": "\"Trong trường hợp vắng mặt thì tôi sẽ báo trước.\"",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10801,
+      "term": "すぐ（に）",
+      "reading": "すぐ（に）",
+      "romaji": "sugu (ni)",
+      "definition": "ngay lập tức, sát gần",
+      "exampleSentence": "チャイムを鳴らすと、すぐにドアが開いた",
+      "exampleTranslation": "Chuông cửa vừa reo thì ngay lập tức cửa mở.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10802,
+      "term": "もうすぐ",
+      "reading": "もうすぐ",
+      "romaji": "mōsugu",
+      "definition": "sắp, sắp tới",
+      "exampleSentence": "日本へ来て、もうすぐ3年になる",
+      "exampleTranslation": "Tôi đến Nhật sắp được 3 năm rồi.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10803,
+      "term": "突然 (とつぜん)",
+      "reading": "とつぜん",
+      "romaji": "totsuzen",
+      "definition": "đột nhiên",
+      "exampleSentence": "子どもが突然飛び出して来たので、急ブレーキをかけた",
+      "exampleTranslation": "Vì đứa trẻ đột nhiên lao ra nên tôi đã phanh gấp.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10804,
+      "term": "あっと言う間（に） (あっというま（に）)",
+      "reading": "あっというま（に）",
+      "romaji": "atto iu ma (ni)",
+      "definition": "loáng cái, trong chớp mắt",
+      "exampleSentence": "子どもの成長は早い。あっという間に、もう小学生だ",
+      "exampleTranslation": "Con tôi lớn nhanh quá, loáng cái đã thành học sinh tiểu học.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10805,
+      "term": "いつの間にか (いつのまにか)",
+      "reading": "いつのまにか",
+      "romaji": "itsu no ma ni ka",
+      "definition": "từ lúc nào không biết",
+      "exampleSentence": "いつの間にか、外は暗くなっていた",
+      "exampleTranslation": "Trời tối từ lúc nào không biết.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10806,
+      "term": "しばらく",
+      "reading": "しばらく",
+      "romaji": "shibaraku",
+      "definition": "chốc lát, đã lâu không gặp",
+      "exampleSentence": "「ただ今窓口が込んでいますので、もうしばらくお待ちください」",
+      "exampleTranslation": "\"Hiện tại thì cửa hàng đang đông, xin hãy đợi thêm chút nữa.\"",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10807,
+      "term": "ずっと",
+      "reading": "ずっと",
+      "romaji": "zutto",
+      "definition": "hơn hẳn, rất, suốt",
+      "exampleSentence": "バスよりも地下鉄で行くほうがずっと速い",
+      "exampleTranslation": "So với xe buýt thì rõ ràng đi tàu điện ngầm sẽ nhanh hơn nhiều.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10808,
+      "term": "相変わらず (あいかわらず)",
+      "reading": "あいかわらず",
+      "romaji": "aikawarazu",
+      "definition": "như mọi khi, không thay đổi",
+      "exampleSentence": "あの女優は、年を取って今もあいかわらずきれいだ",
+      "exampleTranslation": "Nữ diễn viên ấy dù cho có tuổi thì vẫn đẹp như thường.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10809,
+      "term": "次々に (つぎつぎに)",
+      "reading": "つぎつぎに",
+      "romaji": "tsugitsugi ni",
+      "definition": "tiếp theo, lần lượt",
+      "exampleSentence": "新しいタイプのインスタント食品が次々に発売されている",
+      "exampleTranslation": "Những loại mì tôm mới đang được lần lượt bán ra.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10810,
+      "term": "どんどん",
+      "reading": "どんどん",
+      "romaji": "dondon",
+      "definition": "nhanh chóng, dồn dập, rầm rầm",
+      "exampleSentence": "きょうは体調もよく、仕事がどんどん進んだ",
+      "exampleTranslation": "Hôm nay sức khỏe tốt nên công việc tiến triển rất nhanh chóng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10811,
+      "term": "ますます",
+      "reading": "ますます",
+      "romaji": "masumasu",
+      "definition": "càng ngày càng",
+      "exampleSentence": "朝から降っていた雨は、午後になるとますます強くなった",
+      "exampleTranslation": "Cơn mua buổi sáng càng về chiều càng nặng hạt.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10812,
+      "term": "やっと",
+      "reading": "やっと",
+      "romaji": "yatto",
+      "definition": "cuối cùng",
+      "exampleSentence": "30分も待って、やっとバスが来た",
+      "exampleTranslation": "Đợi 30 phút và cuối cùng xe bus cũng tới.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10813,
+      "term": "とうとう",
+      "reading": "とうとう",
+      "romaji": "tōtō",
+      "definition": "cuối cùng thì (khẳng định), cuối cùng thì (phủ định)",
+      "exampleSentence": "長い間使っていた洗たく機がとうとう壊れてしまった",
+      "exampleTranslation": "Sau một thời gian dài sử dụng thì cuối cùng cái máy giặt cũng hỏng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10814,
+      "term": "ついに",
+      "reading": "ついに",
+      "romaji": "tsui ni",
+      "definition": "cuối cùng, sau tất cả (2 cách dùng đi cùng với khẳng định và phủ định)",
+      "exampleSentence": "若いころの夢をついに実現することができた",
+      "exampleTranslation": "Cuối cùng tôi đã có thể thực hiện được giấc mơ thời trẻ của mình.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

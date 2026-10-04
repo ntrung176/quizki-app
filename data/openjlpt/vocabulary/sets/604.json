@@ -1,0 +1,121 @@
+{
+  "id": 604,
+  "title": "N2 Unit 10.4 - 形容詞B (bài 4/4)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 形容詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.587387",
+  "cards": [
+    {
+      "id": 14044,
+      "term": "活発な (かっぱつな)",
+      "reading": "かっぱつな",
+      "romaji": null,
+      "definition": "hoạt bát, năng động",
+      "exampleSentence": "うちの娘はとても活発だ。",
+      "exampleTranslation": "Con gái tôi rất hoạt bát.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14045,
+      "term": "的確な (てきかくな)",
+      "reading": "てきかくな",
+      "romaji": null,
+      "definition": "rõ ràng, chính xác",
+      "exampleSentence": "上司は部下に的確な指示を与えることが大切だ。",
+      "exampleTranslation": "Cấp trên cần đưa ra chỉ thị chính xác cho cấp dưới.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14046,
+      "term": "確実な (かくじつな)",
+      "reading": "かくじつな",
+      "romaji": null,
+      "definition": "chinh xác",
+      "exampleSentence": "将来について確実なことは分からない。",
+      "exampleTranslation": "Không thể biết chắc chắn điều gì về tương lai.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14047,
+      "term": "明らかな (あきらかな)",
+      "reading": "あきらかな",
+      "romaji": null,
+      "definition": "rõ ràng, sáng tỏ",
+      "exampleSentence": "事故の原因は明らかではない。",
+      "exampleTranslation": "Nguyên nhân của vụ tai nạn chưa rõ ràng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14048,
+      "term": "曖昧な (あいまいな)",
+      "reading": "あいまいな",
+      "romaji": null,
+      "definition": "mơ hồ, không rõ ràng",
+      "exampleSentence": "社長は辞任についてあいまいな態度を取った。",
+      "exampleTranslation": "Giám đốc đã có thái độ mập mờ về việc từ chức.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14049,
+      "term": "具体的な (ぐたいてきな)",
+      "reading": "ぐたいてきな",
+      "romaji": null,
+      "definition": "cụ thể, rõ ràng",
+      "exampleSentence": "「分かりにくいので、もっと具体的に説明してください」",
+      "exampleTranslation": "“Khó hiểu quá, hãy giải thích cụ thể hơn.”",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14050,
+      "term": "抽象的な (ちゅうしょうてきな)",
+      "reading": "ちゅうしょうてきな",
+      "romaji": null,
+      "definition": "tính trừu tượng",
+      "exampleSentence": "名詞は形のない抽象的な物事も表す。",
+      "exampleTranslation": "Danh từ cũng biểu thị những sự vật trừu tượng không có hình dạng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14051,
+      "term": "等しい (ひとしい)",
+      "reading": "ひとしい",
+      "romaji": null,
+      "definition": "bằng nhau, giống nhau",
+      "exampleSentence": "この二本の直線は長さが等しい。",
+      "exampleTranslation": "Hai đường thẳng này có độ dài bằng nhau.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14052,
+      "term": "平等な (びょうどうな)",
+      "reading": "びょうどうな",
+      "romaji": null,
+      "definition": "bình đẳng",
+      "exampleSentence": "法の下では誰でも平等だ。",
+      "exampleTranslation": "Trước pháp luật, mọi người đều bình đẳng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14053,
+      "term": "公平な (こうへいな)",
+      "reading": "こうへいな",
+      "romaji": null,
+      "definition": "công bằng",
+      "exampleSentence": "教師が学生によって態度を変えるのは公平ではない。",
+      "exampleTranslation": "Giáo viên thay đổi thái độ tùy theo học sinh là không công bằng.",
+      "forms": [],
+      "displayOrder": 9
+    }
+  ]
+}

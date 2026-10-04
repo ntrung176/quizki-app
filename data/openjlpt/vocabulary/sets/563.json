@@ -1,0 +1,220 @@
+{
+  "id": 563,
+  "title": "N2 Unit 4.6 - 名詞B (bài 6/12)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.813339",
+  "cards": [
+    {
+      "id": 13499,
+      "term": "映像 (えいぞう)",
+      "reading": "えいぞう",
+      "romaji": null,
+      "definition": "hình ảnh",
+      "exampleSentence": "この辺りは電波の状態が悪く、テレビの映像が良く乱れる。",
+      "exampleTranslation": "Khu này sóng yếu nên hình ảnh TV hay bị nhiễu.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13500,
+      "term": "撮影 (さつえい)",
+      "reading": "さつえい",
+      "romaji": null,
+      "definition": "chụp ảnh",
+      "exampleSentence": "プロのカメラマンに顔写真を撮影してもらった。",
+      "exampleTranslation": "Tôi nhờ nhiếp ảnh gia chuyên nghiệp chụp ảnh chân dung.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13501,
+      "term": "背景 (はいけい)",
+      "reading": "はいけい",
+      "romaji": null,
+      "definition": "bối cảnh",
+      "exampleSentence": "これは家族の写真で、背景はうちの庭だ。",
+      "exampleTranslation": "Đây là ảnh gia đình, nền là vườn nhà tôi.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13502,
+      "term": "独立 (どくりつ)",
+      "reading": "どくりつ",
+      "romaji": null,
+      "definition": "độc lập",
+      "exampleSentence": "アメリカはイギリスから独立した。",
+      "exampleTranslation": "Mỹ giành độc lập từ Anh.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13503,
+      "term": "候補 (こうほ)",
+      "reading": "こうほ",
+      "romaji": null,
+      "definition": "ứng cử, ứng cử viên",
+      "exampleSentence": "今度の市長選挙は、5人の候補で争われることになった。",
+      "exampleTranslation": "Bầu cử thị trưởng lần này sẽ có 5 ứng viên cạnh tranh.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13504,
+      "term": "支持 (しじ)",
+      "reading": "しじ",
+      "romaji": null,
+      "definition": "hỗ trợ, sự ủng hộ",
+      "exampleSentence": "私は首相を支持している。",
+      "exampleTranslation": "Tôi ủng hộ thủ tướng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13505,
+      "term": "投票 (とうひょう)",
+      "reading": "とうひょう",
+      "romaji": null,
+      "definition": "sự bỏ phiếu",
+      "exampleSentence": "選挙でA候補に投票した。",
+      "exampleTranslation": "Trong cuộc bầu cử, tôi đã bỏ phiếu cho ứng viên A.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13506,
+      "term": "当選 (とうせん)",
+      "reading": "とうせん",
+      "romaji": null,
+      "definition": "trúng cử, trúng giải",
+      "exampleSentence": "先日の選挙で、知り合いが市長に当選した。",
+      "exampleTranslation": "Trong cuộc bầu cử hôm trước, người quen của tôi đã đắc cử thị trưởng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13507,
+      "term": "抽選 (ちゅうせん)",
+      "reading": "ちゅうせん",
+      "romaji": null,
+      "definition": "rút thăm",
+      "exampleSentence": "抽選に当たってテレビをもらった。",
+      "exampleTranslation": "Bốc thăm trúng và nhận được TV.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13508,
+      "term": "配布 (はいふ)",
+      "reading": "はいふ",
+      "romaji": null,
+      "definition": "phân phát",
+      "exampleSentence": "駅前で通行人にチラシを配布する。",
+      "exampleTranslation": "Phát tờ rơi cho người qua đường trước nhà ga.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13509,
+      "term": "失格 (しっかく)",
+      "reading": "しっかく",
+      "romaji": null,
+      "definition": "mất tư cách, mất quyền",
+      "exampleSentence": "試合で反則をすると失格になった。",
+      "exampleTranslation": "Phạm lỗi trong trận đấu nên bị loại.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13510,
+      "term": "余暇 (よか)",
+      "reading": "よか",
+      "romaji": null,
+      "definition": "thời gian rỗi",
+      "exampleSentence": "余暇を利用して、ボランティアをしている。",
+      "exampleTranslation": "Tận dụng thời gian rảnh để làm tình nguyện.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13511,
+      "term": "行事 (ぎょうじ)",
+      "reading": "ぎょうじ",
+      "romaji": null,
+      "definition": "sự kiện (các ngày lễ trong năm)",
+      "exampleSentence": "正月の行事は地方によってさまざまだ。",
+      "exampleTranslation": "Các hoạt động/sự kiện dịp Tết (Năm mới) khác nhau tùy từng địa phương.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13512,
+      "term": "理想 (りそう)",
+      "reading": "りそう",
+      "romaji": null,
+      "definition": "lý tưởng",
+      "exampleSentence": "若者には高い理想を持ってもらいたい。",
+      "exampleTranslation": "Tôi muốn giới trẻ ôm ấp những hoài bão lớn.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13513,
+      "term": "現実 (げんじつ)",
+      "reading": "げんじつ",
+      "romaji": null,
+      "definition": "hiện thực, thực tế",
+      "exampleSentence": "理想と現実が違う。",
+      "exampleTranslation": "Lý tưởng và hiện thực rất khác nhau.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 13514,
+      "term": "体験 (たいけん)",
+      "reading": "たいけん",
+      "romaji": null,
+      "definition": "trải nghiệm",
+      "exampleSentence": "日本では、戦争を体験したことのない世代が増えている。",
+      "exampleTranslation": "Ở Nhật, thế hệ chưa từng trải qua chiến tranh đang tăng lên.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 13515,
+      "term": "空想 (くうそう)",
+      "reading": "くうそう",
+      "romaji": null,
+      "definition": "không thực tế, mơ mộng, không tưởng",
+      "exampleSentence": "弟は空想ばかりして、現実を見ようとしない。",
+      "exampleTranslation": "Em trai tôi chỉ mơ mộng viển vông, không chịu nhìn vào thực tế.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 13516,
+      "term": "実物 (じつぶつ)",
+      "reading": "じつぶつ",
+      "romaji": null,
+      "definition": "thực chất, nguyên bản",
+      "exampleSentence": "このダイヤモンドは、写真で見ると大きく見えるが、実物はずっと小さい。",
+      "exampleTranslation": "Kim cương này nhìn ảnh thì to nhưng ngoài đời thì nhỏ hơn nhiều.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 13517,
+      "term": "実現 (じつげん)",
+      "reading": "じつげん",
+      "romaji": null,
+      "definition": "thực hiện; hiện thực hoá",
+      "exampleSentence": "長年の夢｛を/が｝実現した。",
+      "exampleTranslation": "Đã biến giấc mơ bao năm thành hiện thực.",
+      "forms": [],
+      "displayOrder": 18
+    }
+  ]
+}

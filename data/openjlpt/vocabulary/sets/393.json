@@ -1,0 +1,198 @@
+{
+  "id": 393,
+  "title": "N3 Unit 4.2 - 名詞B・情報と流行 (Thông tin & xu hướng)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 名詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.545582",
+  "cards": [
+    {
+      "id": 10522,
+      "term": "体力 (たいりょく)",
+      "reading": "たいりょく",
+      "romaji": "tairyoku",
+      "definition": "thể lực",
+      "exampleSentence": "若者の体力が低下している",
+      "exampleTranslation": "Thể lực của giới trẻ đang giảm đi.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10523,
+      "term": "出場 (しゅつじょう)",
+      "reading": "しゅつじょう",
+      "romaji": "shutsujō",
+      "definition": "ra sân / tham dự (thi đấu, biểu diễn)",
+      "exampleSentence": "オリンピックへの出場が決まった",
+      "exampleTranslation": "Việc tham dự Olympic đã được quyết định.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10524,
+      "term": "活躍 (かつやく)",
+      "reading": "かつやく",
+      "romaji": "katsuyaku",
+      "definition": "hoạt động nổi bật, phát huy, tỏa sáng",
+      "exampleSentence": "NARUTO選手の活躍を期待する",
+      "exampleTranslation": "Tôi kỳ vọng vào sự tỏa sáng của tuyển thủ Naruto.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10525,
+      "term": "競争 (きょうそう)",
+      "reading": "きょうそう",
+      "romaji": "kyōsō",
+      "definition": "cạnh tranh, thi đấu",
+      "exampleSentence": "どちらがいい成績を取るか、友だちと競争した",
+      "exampleTranslation": "Tôi đã thi đấu với bạn xem bên nào sẽ dành được thành tích tốt hơn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10526,
+      "term": "応援 (おうえん)",
+      "reading": "おうえん",
+      "romaji": "ōen",
+      "definition": "hỗ trợ, cổ vũ",
+      "exampleSentence": "自分の学校のチームを応援する",
+      "exampleTranslation": "Cỗ vũ cho đội của trường mình.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10527,
+      "term": "拍手 (はくしゅ)",
+      "reading": "はくしゅ",
+      "romaji": "hakushu",
+      "definition": "vỗ tay",
+      "exampleSentence": "ステージの歌手に拍手をする",
+      "exampleTranslation": "Vỗ tay cỗ vũ cho ca sĩ trên sân khấu.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10528,
+      "term": "人気 (にんき)",
+      "reading": "にんき",
+      "romaji": "ninki",
+      "definition": "phổ biến, được yêu thích",
+      "exampleSentence": "彼はクラスで一番人気がある",
+      "exampleTranslation": "Anh ấy được yêu thích nhất lớp.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10529,
+      "term": "うわさ",
+      "reading": "うわさ",
+      "romaji": "uwasa",
+      "definition": "tin đồn",
+      "exampleSentence": "クラスメートのうわさをしていたら、そこに本人が現れた",
+      "exampleTranslation": "Vừa mới nói chuyện về người bạn cùng lớp thì chính cậu ấy lại xuất hiện ở đó.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10530,
+      "term": "情報 (じょうほう)",
+      "reading": "じょうほう",
+      "romaji": "jōhō",
+      "definition": "tin tức, thông tin",
+      "exampleSentence": "テレビからいろいろな情報を得る",
+      "exampleTranslation": "Có được nhiều thông tin từ Tivi.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10531,
+      "term": "交換 (こうかん)",
+      "reading": "こうかん",
+      "romaji": "kōkan",
+      "definition": "trao đổi, thay thế",
+      "exampleSentence": "プレゼントを交換する",
+      "exampleTranslation": "Trao đổi quà, danh thiếp, thông tin, ý kiến…",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10532,
+      "term": "流行 (りゅうこう)",
+      "reading": "りゅうこう",
+      "romaji": "ryūkō",
+      "definition": "thịnh hành, mốt; (bệnh) bùng phát",
+      "exampleSentence": "新しい流行",
+      "exampleTranslation": "Trào lưu mới.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10533,
+      "term": "宣伝 (せんでん)",
+      "reading": "せんでん",
+      "romaji": "senden",
+      "definition": "quảng bá, tuyên truyền",
+      "exampleSentence": "バーゲンセールの宣伝が始まった",
+      "exampleTranslation": "Việc quảng cáo cho đợt bán giảm giá đã bắt đầu.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10534,
+      "term": "広告 (こうこく)",
+      "reading": "こうこく",
+      "romaji": "kōkoku",
+      "definition": "quảng cáo",
+      "exampleSentence": "新聞に新製品の広告がのっていた",
+      "exampleTranslation": "Đăng quảng cáo sản phẩm mới trên báo, tạp chí.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10535,
+      "term": "注目 (ちゅうもく)",
+      "reading": "ちゅうもく",
+      "romaji": "chūmoku",
+      "definition": "sự chú ý, để ý",
+      "exampleSentence": "有名歌手の結婚が注目を集めている",
+      "exampleTranslation": "Việc kết hôn của ca sĩ nổi tiếng đang thu hút sự chú ý.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10536,
+      "term": "通訳 (つうやく)",
+      "reading": "つうやく",
+      "romaji": "tsūyaku",
+      "definition": "phiên dịch, người phiên dịch",
+      "exampleSentence": "英語を日本語に通訳する",
+      "exampleTranslation": "Phiên dịch tiếng Anh sang tiếng Nhật.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10537,
+      "term": "翻訳 (ほんやく)",
+      "reading": "ほんやく",
+      "romaji": "hon'yaku",
+      "definition": "biên dịch",
+      "exampleSentence": "日本語の小説を英語に翻訳する",
+      "exampleTranslation": "Dịch tiểu thuyết tiếng Nhật sang tiếng Anh.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 10538,
+      "term": "伝言 (でんごん)",
+      "reading": "でんごん",
+      "romaji": "dengon",
+      "definition": "lời nhắn",
+      "exampleSentence": "留守番電話に伝言を残す",
+      "exampleTranslation": "Để lại lời nhắn trong hộp thư thoại.",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

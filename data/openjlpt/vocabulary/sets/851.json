@@ -1,0 +1,253 @@
+{
+  "id": 851,
+  "title": "N1 Tango 14.2 - Các cách diễn đạt dễ bị sai ② · Thành ngữ: Thân thể",
+  "description": "Tango N1 — Các cách diễn đạt dễ bị sai ②",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:44.653056",
+  "cards": [
+    {
+      "id": 19946,
+      "term": "頭が切れる (あたまがきれる)",
+      "reading": "あたまがきれる",
+      "romaji": null,
+      "definition": "Sắc sảo",
+      "exampleSentence": "彼は頭が切れるので、複雑な問題もすぐに解決してしまう。",
+      "exampleTranslation": "Anh ấy rất sắc sảo nên có thể nhanh chóng giải quyết cả những vấn đề phức tạp.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 19947,
+      "term": "頭が上がらない (あたまがあがらない)",
+      "reading": "あたまがあがらない",
+      "romaji": null,
+      "definition": "Không dám ngẩng đầu",
+      "exampleSentence": "長年世話になった恩師には、今でも頭が上がらない。",
+      "exampleTranslation": "Đối với người thầy đã tận tình giúp đỡ tôi suốt nhiều năm, đến giờ tôi vẫn không dám ngẩng đầu.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 19948,
+      "term": "頭を抱える (あたまをかかえる)",
+      "reading": "あたまをかかえる",
+      "romaji": null,
+      "definition": "Ôm đầu lo lắng",
+      "exampleSentence": "予想外の出費が重なると、店主は頭を抱える。",
+      "exampleTranslation": "Khi các khoản chi ngoài dự tính chồng chất, chủ cửa hàng lại ôm đầu lo lắng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 19949,
+      "term": "頭を冷やす (あたまをひやす)",
+      "reading": "あたまをひやす",
+      "romaji": null,
+      "definition": "Bình tĩnh lại",
+      "exampleSentence": "感情的になったときは、少し時間を置いて頭を冷やす。",
+      "exampleTranslation": "Khi trở nên nóng giận, hãy để một chút thời gian trôi qua rồi bình tĩnh lại.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 19950,
+      "term": "首を突っ込む (くびをつっこむ)",
+      "reading": "くびをつっこむ",
+      "romaji": null,
+      "definition": "Xía mũi vào",
+      "exampleSentence": "他人の家庭問題にまで首を突っ込むのは、やめたほうがいい。",
+      "exampleTranslation": "Tốt hơn hết là đừng xía mũi vào cả chuyện gia đình của người khác.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 19951,
+      "term": "首を長くする (くびをながくする)",
+      "reading": "くびをながくする",
+      "romaji": null,
+      "definition": "Nóng lòng mong đợi",
+      "exampleSentence": "ファンは新作の発売を首を長くするほど待ち望んでいる。",
+      "exampleTranslation": "Người hâm mộ nóng lòng mong đợi ngày sản phẩm mới được phát hành.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 19952,
+      "term": "首をひねる (くびをひねる)",
+      "reading": "くびをひねる",
+      "romaji": null,
+      "definition": "Bối rối, thắc mắc",
+      "exampleSentence": "彼の説明を聞いても、なぜそうなるのか首をひねるばかりだった。",
+      "exampleTranslation": "Dù đã nghe anh ấy giải thích, tôi vẫn chỉ thấy khó hiểu tại sao lại thành ra như vậy.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 19953,
+      "term": "首を縦に振る (くびをたてにふる)",
+      "reading": "くびをたてにふる",
+      "romaji": null,
+      "definition": "Đồng ý, gật đầu",
+      "exampleSentence": "提案の内容を確認した部長は、満足そうに首を縦に振る。",
+      "exampleTranslation": "Sau khi xem xét nội dung đề xuất, trưởng phòng gật đầu vẻ hài lòng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 19954,
+      "term": "肩を並べる (かたをならべる)",
+      "reading": "かたをならべる",
+      "romaji": null,
+      "definition": "Sánh vai",
+      "exampleSentence": "彼は世界の一流選手と肩を並べるまでに成長した。",
+      "exampleTranslation": "Anh ấy đã trưởng thành đến mức có thể sánh vai với những vận động viên hàng đầu thế giới.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 19955,
+      "term": "肩を持つ (かたをもつ)",
+      "reading": "かたをもつ",
+      "romaji": null,
+      "definition": "Thiên vị, bênh vực",
+      "exampleSentence": "公平な審判なら、特定の選手の肩を持つべきではない。",
+      "exampleTranslation": "Một trọng tài công bằng thì không nên thiên vị bất kỳ vận động viên cụ thể nào.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 19956,
+      "term": "のどから手が出る (のどからてがでる)",
+      "reading": "のどからてがでる",
+      "romaji": null,
+      "definition": "Thèm muốn, khao khát",
+      "exampleSentence": "以前から、彼女はその限定モデルがのどから手が出るほど欲しかった。",
+      "exampleTranslation": "Từ lâu cô ấy đã khao khát có được mẫu sản phẩm giới hạn đó.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 19957,
+      "term": "手が足りない (てがたりない)",
+      "reading": "てがたりない",
+      "romaji": null,
+      "definition": "Thiếu nhân lực",
+      "exampleSentence": "年末の大量注文に対応するには、現場は手が足りない。",
+      "exampleTranslation": "Để xử lý lượng đơn hàng lớn cuối năm, nhân lực tại hiện trường là không đủ.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 19958,
+      "term": "手が回らない (てがまわらない)",
+      "reading": "てがまわらない",
+      "romaji": null,
+      "definition": "Không xuể, không rảnh tay",
+      "exampleSentence": "締め切り前は、問い合わせにまで手が回らない。",
+      "exampleTranslation": "Trước hạn chót, tôi bận đến mức không thể xử lý cả những yêu cầu giải đáp.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 19959,
+      "term": "手を切る (てをきる)",
+      "reading": "てをきる",
+      "romaji": null,
+      "definition": "Cắt đứt quan hệ",
+      "exampleSentence": "不正を繰り返す取引先とは、今年中に手を切るつもりだ。",
+      "exampleTranslation": "Tôi định cắt đứt quan hệ với đối tác liên tục tái phạm hành vi gian lận trong năm nay.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 19960,
+      "term": "手に余る (てにあまる)",
+      "reading": "てにあまる",
+      "romaji": null,
+      "definition": "Quá sức, không kham nổi",
+      "exampleSentence": "この難解な案件は、経験豊富な彼にも手に余るものだった。",
+      "exampleTranslation": "Vụ việc phức tạp này ngay cả với người giàu kinh nghiệm như anh ấy cũng quá sức.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 19961,
+      "term": "手に負えない (てにおえない)",
+      "reading": "てにおえない",
+      "romaji": null,
+      "definition": "Không thể xoay xở",
+      "exampleSentence": "専門家でさえ手に負えないほど、事態は複雑化していた。",
+      "exampleTranslation": "Tình hình đã trở nên phức tạp đến mức ngay cả chuyên gia cũng không thể xoay xở.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 19962,
+      "term": "手も足も出ない (てもあしもでない)",
+      "reading": "てもあしもでない",
+      "romaji": null,
+      "definition": "Bất lực, không thể làm gì",
+      "exampleSentence": "相手の巧みな話術の前では、私たちは手も足も出ない。",
+      "exampleTranslation": "Trước tài ăn nói khéo léo của đối phương, chúng tôi hoàn toàn bất lực.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 19963,
+      "term": "手を焼く (てをやく)",
+      "reading": "てをやく",
+      "romaji": null,
+      "definition": "Bó tay, không biết xử lý thế nào",
+      "exampleSentence": "反抗期の息子には、父親でさえ手を焼くことがある。",
+      "exampleTranslation": "Có những lúc ngay cả người cha cũng không biết phải làm sao với cậu con trai đang tuổi nổi loạn.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 19964,
+      "term": "足が早い (あしがはやい)",
+      "reading": "あしがはやい",
+      "romaji": null,
+      "definition": "Nhanh hỏng",
+      "exampleSentence": "生魚は足が早いので、買ったその日に食べてください。",
+      "exampleTranslation": "Cá tươi nhanh hỏng nên hãy ăn ngay trong ngày mua.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 19965,
+      "term": "足が出る (あしがでる)",
+      "reading": "あしがでる",
+      "romaji": null,
+      "definition": "Vượt ngân sách",
+      "exampleSentence": "綿密に計算したつもりでも、改修工事では足が出ることがある。",
+      "exampleTranslation": "Dù đã tính toán kỹ, việc sửa chữa công trình đôi khi vẫn vượt ngân sách.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 19966,
+      "term": "足が棒になる (あしがぼうになる)",
+      "reading": "あしがぼうになる",
+      "romaji": null,
+      "definition": "Chân cứng đơ",
+      "exampleSentence": "山道を一日歩き続け、夕方には足が棒になるほど疲れた。",
+      "exampleTranslation": "Tôi đi bộ suốt một ngày trên đường núi, đến chiều thì mệt rã rời, chân cứng đơ.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 19967,
+      "term": "足を引っ張る (あしをひっぱる)",
+      "reading": "あしをひっぱる",
+      "romaji": null,
+      "definition": "Kéo chân, cản trở",
+      "exampleSentence": "経験不足の私が、かえってチームの足を引っ張る結果となった。",
+      "exampleTranslation": "Vì thiếu kinh nghiệm, rốt cuộc tôi lại trở thành người cản trở cả đội.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

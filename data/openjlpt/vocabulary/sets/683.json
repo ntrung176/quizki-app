@@ -1,0 +1,242 @@
+{
+  "id": 683,
+  "title": "N3 Tango 11.5 - Hãy truyền đạt cảm xúc của mình · Tâm trạng phức tạp",
+  "description": "Tango N3 — Hãy truyền đạt cảm xúc của mình",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:26.329686",
+  "cards": [
+    {
+      "id": 15593,
+      "term": "表現（する） (ひょうげん（する）)",
+      "reading": "ひょうげん（する）",
+      "romaji": null,
+      "definition": "Sự diễn đạt, thể hiện, cách nói",
+      "exampleSentence": "「表現（する）」という言葉の使い方を先生に質問した。",
+      "exampleTranslation": "Tôi đã hỏi giáo viên về cách dùng từ “diễn đạt, thể hiện”.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 15594,
+      "term": "あがる",
+      "reading": "あがる",
+      "romaji": null,
+      "definition": "Căng thẳng, hồi hộp",
+      "exampleSentence": "人前で話すと、すぐにあがる。",
+      "exampleTranslation": "Hễ nói trước đám đông là tôi lại hồi hộp.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 15595,
+      "term": "表現（する） (ひょうげん（する）)",
+      "reading": "ひょうげん（する）",
+      "romaji": null,
+      "definition": "Sự diễn đạt, thể hiện, cách nói",
+      "exampleSentence": "絵で気持ちを表現（する）方法は人によって違う。",
+      "exampleTranslation": "Cách thể hiện cảm xúc bằng tranh khác nhau tùy mỗi người.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 15596,
+      "term": "あがる",
+      "reading": "あがる",
+      "romaji": null,
+      "definition": "Căng thẳng, hồi hộp",
+      "exampleSentence": "大勢の人に見られると、どうしてもあがる。",
+      "exampleTranslation": "Khi bị nhiều người nhìn, tôi cứ thế nào cũng hồi hộp.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 15597,
+      "term": "あせる",
+      "reading": "あせる",
+      "romaji": null,
+      "definition": "Cuống, rối trí",
+      "exampleSentence": "時間がなくても、あせるとミスが増える。",
+      "exampleTranslation": "Dù không còn nhiều thời gian, cuống lên sẽ khiến lỗi sai tăng thêm.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 15598,
+      "term": "そわそわ（する）",
+      "reading": "そわそわ（する）",
+      "romaji": null,
+      "definition": "Sự bồn chồn, thấp thỏm, sốt ruột",
+      "exampleSentence": "試験の結果が気になって、朝からそわそわ（する）気持ちで落ち着かない。",
+      "exampleTranslation": "Vì cứ bận tâm đến kết quả thi nên từ sáng tôi đã bồn chồn không yên.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 15599,
+      "term": "我慢（する） (がまん（する）)",
+      "reading": "がまん（する）",
+      "romaji": null,
+      "definition": "Sự chịu đựng",
+      "exampleSentence": "健康のために、甘い物は我慢（する）ことにした。",
+      "exampleTranslation": "Vì sức khỏe, tôi quyết định nhịn đồ ngọt.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 15600,
+      "term": "自慢（する） (じまん（する）)",
+      "reading": "じまん（する）",
+      "romaji": null,
+      "definition": "Sự tự hào, hãnh diện",
+      "exampleSentence": "彼は自分の料理の腕を、会うたびに自慢（する）ので、少し困っている。",
+      "exampleTranslation": "Lần nào gặp anh ấy cũng khoe tài nấu ăn của mình nên tôi hơi khó xử.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 15601,
+      "term": "関心 (かんしん)",
+      "reading": "かんしん",
+      "romaji": null,
+      "definition": "Quan tâm",
+      "exampleSentence": "最近、若い人たちの間でも環境問題への関心が高まっている。",
+      "exampleTranslation": "Gần đây, mối quan tâm đến các vấn đề môi trường cũng đang tăng lên trong giới trẻ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 15602,
+      "term": "機嫌 (きげん)",
+      "reading": "きげん",
+      "romaji": null,
+      "definition": "Tâm trạng",
+      "exampleSentence": "父は朝から機嫌が悪く、誰とも話そうとしなかった。",
+      "exampleTranslation": "Bố tôi từ sáng đã khó chịu, không muốn nói chuyện với ai.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 15603,
+      "term": "平気（な） (へいき（な）)",
+      "reading": "へいき（な）",
+      "romaji": null,
+      "definition": "Sự bình thản (bình thản)",
+      "exampleSentence": "彼は何を言われても平気（な）顔をして、笑っていた。",
+      "exampleTranslation": "Dù bị nói gì, anh ấy vẫn tỏ vẻ bình thản và mỉm cười.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 15604,
+      "term": "本気（な） (ほんき（な）)",
+      "reading": "ほんき（な）",
+      "romaji": null,
+      "definition": "Sự thật lòng (thật lòng)",
+      "exampleSentence": "彼が本気（な）顔で謝ったので、冗談ではないと分かった。",
+      "exampleTranslation": "Vì anh ấy xin lỗi với vẻ rất nghiêm túc nên tôi biết đó không phải chuyện đùa.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 15605,
+      "term": "迷う (まよう)",
+      "reading": "まよう",
+      "romaji": null,
+      "definition": "Lạc",
+      "exampleSentence": "初めて来た町で道に迷うと、とても不安になる。",
+      "exampleTranslation": "Nếu bị lạc đường ở một thị trấn lần đầu đặt chân đến, tôi sẽ rất lo lắng.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 15606,
+      "term": "迷い (まよい)",
+      "reading": "まよい",
+      "romaji": null,
+      "definition": "Phân vân",
+      "exampleSentence": "大学に進むか働くか、まだ迷いが残っている。",
+      "exampleTranslation": "Tôi vẫn còn phân vân không biết nên học tiếp đại học hay đi làm.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 15607,
+      "term": "微妙な (びみょうな)",
+      "reading": "びみょうな",
+      "romaji": null,
+      "definition": "Khó tả",
+      "exampleSentence": "彼女の返事は微妙な感じで、賛成なのか分からなかった。",
+      "exampleTranslation": "Câu trả lời của cô ấy khá khó tả, nên tôi không biết cô ấy có đồng ý hay không.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 15608,
+      "term": "魅力 (みりょく)",
+      "reading": "みりょく",
+      "romaji": null,
+      "definition": "Vẻ hấp dẫn",
+      "exampleSentence": "この町の魅力は、海と山の両方を楽しめることだ。",
+      "exampleTranslation": "Điểm hấp dẫn của thị trấn này là có thể tận hưởng cả biển và núi.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 15609,
+      "term": "本音 (ほんね)",
+      "reading": "ほんね",
+      "romaji": null,
+      "definition": "Suy nghĩ thực, lòng dạ",
+      "exampleSentence": "彼は笑顔を見せていたが、本音は分からなかった。",
+      "exampleTranslation": "Anh ấy luôn nở nụ cười, nhưng tôi không hiểu được suy nghĩ thật lòng của anh ấy.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 15610,
+      "term": "ましな",
+      "reading": "ましな",
+      "romaji": null,
+      "definition": "Còn tốt hơn",
+      "exampleSentence": "少し高くても、前の部屋よりましな部屋を選びたいです。",
+      "exampleTranslation": "Dù hơi đắt một chút, tôi vẫn muốn chọn căn phòng tốt hơn căn phòng trước.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 15611,
+      "term": "涙 (なみだ)",
+      "reading": "なみだ",
+      "romaji": null,
+      "definition": "Nước mắt",
+      "exampleSentence": "悲しい映画を見て、思わず涙がこぼれました。",
+      "exampleTranslation": "Xem một bộ phim buồn, tôi bất giác rơi nước mắt.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 15612,
+      "term": "憎む (にくむ)",
+      "reading": "にくむ",
+      "romaji": null,
+      "definition": "Hận, căm thù",
+      "exampleSentence": "どんな理由があっても、人を憎むことは悲しいことです。",
+      "exampleTranslation": "Dù có lý do gì đi nữa, căm ghét người khác là một điều đáng buồn.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 15613,
+      "term": "カウンセリング（する）",
+      "reading": "カウンセリング（する）",
+      "romaji": null,
+      "definition": "Sự tư vấn, tư vấn tâm lý",
+      "exampleSentence": "心の悩みがある人は、「カウンセリング（する）」という方法で専門家に相談できます。",
+      "exampleTranslation": "Những người có vấn đề về tâm lý có thể tham khảo ý kiến chuyên gia bằng phương pháp tư vấn tâm lý.",
+      "forms": [],
+      "displayOrder": 20
+    }
+  ]
+}

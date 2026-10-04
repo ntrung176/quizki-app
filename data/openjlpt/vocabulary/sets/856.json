@@ -1,0 +1,176 @@
+{
+  "id": 856,
+  "title": "N5 Tango 1.2 - Tự giới thiệu · Xin chào",
+  "description": "Tango N5 — Tự giới thiệu",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:46.488334",
+  "cards": [
+    {
+      "id": 20025,
+      "term": "おはよう。",
+      "reading": "おはよう。",
+      "romaji": null,
+      "definition": "Chào. (buổi sáng)",
+      "exampleSentence": "朝、友だちに会ったら、「おはよう。」と言います。",
+      "exampleTranslation": "Buổi sáng, khi gặp bạn bè, tôi nói: “Chào buổi sáng”.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20026,
+      "term": "おはようございます。",
+      "reading": "おはようございます。",
+      "romaji": null,
+      "definition": "Xin chào. (buổi sáng)",
+      "exampleSentence": "先生には、毎朝「おはようございます。」とあいさつします。",
+      "exampleTranslation": "Mỗi sáng, tôi chào thầy cô: “Em chào thầy/cô ạ”.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20027,
+      "term": "こんにちは。",
+      "reading": "こんにちは。",
+      "romaji": null,
+      "definition": "Xin chào. (buổi trưa)",
+      "exampleSentence": "昼に会った人には、「こんにちは。」と声をかけます。",
+      "exampleTranslation": "Buổi trưa, tôi lên tiếng chào người mình gặp: “Xin chào”.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20028,
+      "term": "こんばんは。",
+      "reading": "こんばんは。",
+      "romaji": null,
+      "definition": "Xin chào. (buổi tối)",
+      "exampleSentence": "夜に先生に会って、「こんばんは。」と言いました。",
+      "exampleTranslation": "Buổi tối, tôi gặp giáo viên và nói: “Xin chào.”",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20029,
+      "term": "さようなら。",
+      "reading": "さようなら。",
+      "romaji": null,
+      "definition": "Tạm biệt.",
+      "exampleSentence": "先生に「さようなら。」と言って、学校を出ました。",
+      "exampleTranslation": "Tôi nói “Tạm biệt” với giáo viên rồi rời khỏi trường.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20030,
+      "term": "じゃ、また。",
+      "reading": "じゃ、また。",
+      "romaji": null,
+      "definition": "Vậy nhé, gặp lại sau.",
+      "exampleSentence": "「じゃ、また明日。」と言って、友達と別れました。",
+      "exampleTranslation": "Tôi nói “Vậy nhé, hẹn gặp lại ngày mai” rồi tạm biệt bạn.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20031,
+      "term": "おやすみなさい。",
+      "reading": "おやすみなさい。",
+      "romaji": null,
+      "definition": "Chúc ngủ ngon.",
+      "exampleSentence": "寝る前に、母に「おやすみなさい。」と言いました。",
+      "exampleTranslation": "Trước khi đi ngủ, tôi nói “Chúc mẹ ngủ ngon.”",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20032,
+      "term": "ありがとう。",
+      "reading": "ありがとう。",
+      "romaji": null,
+      "definition": "Cảm ơn.",
+      "exampleSentence": "プレゼントをもらって、友達に「ありがとう。」と言いました。",
+      "exampleTranslation": "Nhận được quà, tôi nói “Cảm ơn” với bạn.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20033,
+      "term": "どういたしまして。",
+      "reading": "どういたしまして。",
+      "romaji": null,
+      "definition": "Không có chi.",
+      "exampleSentence": "「ありがとう」と言われたので、「どういたしまして。」と答えました。",
+      "exampleTranslation": "Vì được nói lời cảm ơn nên tôi đáp: “Không có chi.”",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20034,
+      "term": "ありがとうございます。",
+      "reading": "ありがとうございます。",
+      "romaji": null,
+      "definition": "Xin cảm ơn.",
+      "exampleSentence": "先生に教えてもらったので、「ありがとうございます。」と言いました。",
+      "exampleTranslation": "Vì được giáo viên chỉ bảo nên tôi nói: “Xin cảm ơn.”",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20035,
+      "term": "どうぞ。",
+      "reading": "どうぞ。",
+      "romaji": null,
+      "definition": "Xin mời.",
+      "exampleSentence": "先に入りたい人に、ドアを開けて「どうぞ。」と言いました。",
+      "exampleTranslation": "Tôi mở cửa và nói “Xin mời” với người muốn vào trước.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 20036,
+      "term": "どうも。",
+      "reading": "どうも。",
+      "romaji": null,
+      "definition": "Cảm ơn.",
+      "exampleSentence": "手伝ってくれた友達に、「どうも。」と笑って言いました。",
+      "exampleTranslation": "Tôi mỉm cười nói “Cảm ơn” với người bạn đã giúp mình.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 20037,
+      "term": "はじめまして。",
+      "reading": "はじめまして。",
+      "romaji": null,
+      "definition": "Xin chào. (dùng khi lần đầu tiên gặp mặt)",
+      "exampleSentence": "初めて会った人に、「はじめまして。」とあいさつしました。",
+      "exampleTranslation": "Tôi chào người lần đầu gặp mặt bằng câu “Xin chào.”",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 20038,
+      "term": "どうぞよろしく。",
+      "reading": "どうぞよろしく。",
+      "romaji": null,
+      "definition": "Xin vui lòng giúp đỡ.",
+      "exampleSentence": "自己紹介の最後に、「どうぞよろしく。」と言いました。",
+      "exampleTranslation": "Cuối phần tự giới thiệu, tôi nói: “Mong được giúp đỡ.”",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 20039,
+      "term": "こちらこそ。",
+      "reading": "こちらこそ。",
+      "romaji": null,
+      "definition": "Tôi mới phải nhờ. / Tôi mới phải cám ơn. / Tôi mới phải xin lỗi.",
+      "exampleSentence": "「どうぞよろしく」と言われて、「こちらこそ。」と答えました。",
+      "exampleTranslation": "Khi được nói “Mong được giúp đỡ”, tôi đáp: “Tôi mới là người phải nhờ bạn.”",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

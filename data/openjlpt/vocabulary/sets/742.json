@@ -1,0 +1,231 @@
+{
+  "id": 742,
+  "title": "N2 Tango 4.3 - Phố xá · Quê hương",
+  "description": "Tango N2 — Phố xá",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:34.447718",
+  "cards": [
+    {
+      "id": 17045,
+      "term": "故郷 (こきょう)",
+      "reading": "こきょう",
+      "romaji": null,
+      "definition": "Quê hương, quê nhà",
+      "exampleSentence": "久しぶりに故郷へ帰ると、昔の友人が温かく迎えてくれた。",
+      "exampleTranslation": "Lâu ngày trở về quê hương, tôi được những người bạn cũ nồng nhiệt chào đón.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 17046,
+      "term": "地元 (じもと)",
+      "reading": "じもと",
+      "romaji": null,
+      "definition": "Địa phương, bản địa, bản xứ",
+      "exampleSentence": "地元の農家が作った野菜は、新鮮でとてもおいしい。",
+      "exampleTranslation": "Rau do nông dân địa phương trồng rất tươi ngon.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 17047,
+      "term": "離れる (はなれる)",
+      "reading": "はなれる",
+      "romaji": null,
+      "definition": "Rời xa, cách xa",
+      "exampleSentence": "大学進学を機に、家族と離れることになった。",
+      "exampleTranslation": "Nhân dịp vào đại học, tôi đã phải rời xa gia đình.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 17048,
+      "term": "つかむ",
+      "reading": "つかむ",
+      "romaji": null,
+      "definition": "Nắm bắt, nắm",
+      "exampleSentence": "面接では、相手の質問の意図を正確につかむことが大切だ。",
+      "exampleTranslation": "Trong buổi phỏng vấn, điều quan trọng là nắm bắt chính xác ý định trong câu hỏi của đối phương.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 17049,
+      "term": "帰省（する） (きせい（する）)",
+      "reading": "きせい（する）",
+      "romaji": null,
+      "definition": "Sự về quê",
+      "exampleSentence": "正月には帰省（する）人が多く、新幹線は大変混雑する。",
+      "exampleTranslation": "Vào dịp năm mới, nhiều người về quê nên tàu Shinkansen rất đông.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 17050,
+      "term": "アクセス（する）",
+      "reading": "アクセス（する）",
+      "romaji": null,
+      "definition": "Đường đi, truy cập, tiếp cận",
+      "exampleSentence": "駅から会場へアクセス（する）方法を、事前に確認しておきましょう。",
+      "exampleTranslation": "Hãy kiểm tra trước cách đi từ nhà ga đến địa điểm tổ chức.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 17051,
+      "term": "改善（する） (かいぜん（する）)",
+      "reading": "かいぜん（する）",
+      "romaji": null,
+      "definition": "Sự cải thiện, làm cho tốt lên",
+      "exampleSentence": "職場の環境を改善（する）ため、社員から意見を集めている。",
+      "exampleTranslation": "Để cải thiện môi trường làm việc, công ty đang thu thập ý kiến của nhân viên.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 17052,
+      "term": "行事 (ぎょうじ)",
+      "reading": "ぎょうじ",
+      "romaji": null,
+      "definition": "Sự kiện",
+      "exampleSentence": "地域の行事に参加すると、近所の人と親しくなれる。",
+      "exampleTranslation": "Tham gia các sự kiện địa phương giúp chúng ta trở nên thân thiết với hàng xóm.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 17053,
+      "term": "はるか（な）",
+      "reading": "はるか（な）",
+      "romaji": null,
+      "definition": "Xa, xa xôi",
+      "exampleSentence": "はるか（な）昔から、この地域では米が作られてきた。",
+      "exampleTranslation": "Từ xa xưa, lúa gạo đã được trồng ở khu vực này.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 17054,
+      "term": "誇り (ほこり)",
+      "reading": "ほこり",
+      "romaji": null,
+      "definition": "Sự tự hào",
+      "exampleSentence": "地域の伝統を守ることは、私たちの誇りです。",
+      "exampleTranslation": "Bảo vệ truyền thống của địa phương là niềm tự hào của chúng tôi.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 17055,
+      "term": "載る (のる)",
+      "reading": "のる",
+      "romaji": null,
+      "definition": "Đăng, đăng tải",
+      "exampleSentence": "その記事は、今朝の新聞に載る予定です。",
+      "exampleTranslation": "Bài viết đó dự định sẽ được đăng trên báo sáng nay.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 17056,
+      "term": "宣伝（する） (せんでん（する）)",
+      "reading": "せんでん（する）",
+      "romaji": null,
+      "definition": "Sự quảng cáo, tuyên truyền",
+      "exampleSentence": "新商品を宣伝（する）ために、駅前でチラシを配った。",
+      "exampleTranslation": "Để quảng cáo sản phẩm mới, người ta đã phát tờ rơi trước ga.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 17057,
+      "term": "作成（する） (さくせい（する）)",
+      "reading": "さくせい（する）",
+      "romaji": null,
+      "definition": "Sự soạn thảo, tạo, làm",
+      "exampleSentence": "会議の資料を作成（する）ため、必要な情報を集めている。",
+      "exampleTranslation": "Tôi đang thu thập thông tin cần thiết để soạn tài liệu cho cuộc họp.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 17058,
+      "term": "見慣れる (みなれる)",
+      "reading": "みなれる",
+      "romaji": null,
+      "definition": "Nhìn quen, quen thuộc",
+      "exampleSentence": "毎日その景色を見ているうちに、すっかり見慣れるようになった。",
+      "exampleTranslation": "Trong lúc ngày nào cũng ngắm cảnh đó, tôi dần trở nên hoàn toàn quen mắt.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 17059,
+      "term": "近郊 (きんこう)",
+      "reading": "きんこう",
+      "romaji": null,
+      "definition": "Ngoại ô",
+      "exampleSentence": "東京近郊には、自然を楽しめる場所がたくさんある。",
+      "exampleTranslation": "Ở vùng ngoại ô Tokyo có rất nhiều nơi có thể tận hưởng thiên nhiên.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 17060,
+      "term": "描く (えがく)",
+      "reading": "えがく",
+      "romaji": null,
+      "definition": "Vẽ, miêu tả",
+      "exampleSentence": "彼は旅先で出会った人々の表情を、絵に描くのが好きだ。",
+      "exampleTranslation": "Anh ấy thích vẽ những nét mặt của mọi người gặp trên đường du lịch.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 17061,
+      "term": "若者 (わかもの)",
+      "reading": "わかもの",
+      "romaji": null,
+      "definition": "Giới trẻ, thanh niên",
+      "exampleSentence": "最近は、若者の間で環境問題への関心が高まっている。",
+      "exampleTranslation": "Gần đây, mối quan tâm của giới trẻ đối với các vấn đề môi trường đang tăng lên.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 17062,
+      "term": "Uターン（する）",
+      "reading": "Uターン（する）",
+      "romaji": null,
+      "definition": "Quay về quê, quay đầu",
+      "exampleSentence": "仕事を終えた後、彼は故郷へUターン（する）ことを決めた。",
+      "exampleTranslation": "Sau khi kết thúc công việc, anh ấy quyết định quay về quê hương.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 17063,
+      "term": "行き来（する） (いきき（する）)",
+      "reading": "いきき（する）",
+      "romaji": null,
+      "definition": "Sự đi lại",
+      "exampleSentence": "仕事の都合で、東京と大阪を行き来（する）毎日を送っている。",
+      "exampleTranslation": "Vì công việc, tôi sống những ngày đi lại giữa Tokyo và Osaka.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 17064,
+      "term": "担う (になう)",
+      "reading": "になう",
+      "romaji": null,
+      "definition": "Gánh vác",
+      "exampleSentence": "若い世代が社会の未来を担うことが期待されている。",
+      "exampleTranslation": "Thế hệ trẻ được kỳ vọng sẽ gánh vác tương lai của xã hội.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

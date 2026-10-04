@@ -1,0 +1,187 @@
+{
+  "id": 903,
+  "title": "N5 Tango 10.4 - Sức khỏe · Tương lai",
+  "description": "Tango N5 — Sức khỏe",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:49.917195",
+  "cards": [
+    {
+      "id": 21019,
+      "term": "しょうらい",
+      "reading": "しょうらい",
+      "romaji": null,
+      "definition": "Tương lai",
+      "exampleSentence": "しょうらい、日本で働きたいです。",
+      "exampleTranslation": "Trong tương lai, tôi muốn làm việc ở Nhật.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 21020,
+      "term": "ゆめ",
+      "reading": "ゆめ",
+      "romaji": null,
+      "definition": "Ước mơ, giấc mơ",
+      "exampleSentence": "私のゆめは日本語の先生になることです。",
+      "exampleTranslation": "Ước mơ của tôi là trở thành giáo viên tiếng Nhật.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 21021,
+      "term": "りゅうがく<する>",
+      "reading": "りゅうがく<する>",
+      "romaji": null,
+      "definition": "Du học",
+      "exampleSentence": "大学を卒業したら、りゅうがく<する>つもりです。",
+      "exampleTranslation": "Sau khi tốt nghiệp đại học, tôi định đi du học.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 21022,
+      "term": "けんきゅう<する>",
+      "reading": "けんきゅう<する>",
+      "romaji": null,
+      "definition": "Nghiên cứu",
+      "exampleSentence": "大学で日本の歴史をけんきゅう<する>予定です。",
+      "exampleTranslation": "Tôi dự định nghiên cứu lịch sử Nhật Bản ở trường đại học.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 21023,
+      "term": "けんきゅうしゃ",
+      "reading": "けんきゅうしゃ",
+      "romaji": null,
+      "definition": "Nhà nghiên cứu",
+      "exampleSentence": "あのけんきゅうしゃは、毎日図書館で勉強しています。",
+      "exampleTranslation": "Nhà nghiên cứu kia học tập ở thư viện mỗi ngày.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 21024,
+      "term": "大学院 (だいがくいん)",
+      "reading": "だいがくいん",
+      "romaji": null,
+      "definition": "Cao học",
+      "exampleSentence": "兄は大学院で勉強しています。",
+      "exampleTranslation": "Anh trai tôi đang học cao học.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 21025,
+      "term": "せんもん",
+      "reading": "せんもん",
+      "romaji": null,
+      "definition": "Chuyên môn",
+      "exampleSentence": "私のせんもんは日本語です。",
+      "exampleTranslation": "Chuyên môn của tôi là tiếng Nhật.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 21026,
+      "term": "けいざい",
+      "reading": "けいざい",
+      "romaji": null,
+      "definition": "Kinh tế",
+      "exampleSentence": "大学でけいざいを勉強しています。",
+      "exampleTranslation": "Tôi đang học kinh tế ở trường đại học.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 21027,
+      "term": "びじゅつ",
+      "reading": "びじゅつ",
+      "romaji": null,
+      "definition": "Mỹ thuật",
+      "exampleSentence": "休みの日に、びじゅつの本を読みます。",
+      "exampleTranslation": "Vào ngày nghỉ, tôi đọc sách về mỹ thuật.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 21028,
+      "term": "ちきゅう",
+      "reading": "ちきゅう",
+      "romaji": null,
+      "definition": "Địa cầu, trái đất",
+      "exampleSentence": "ちきゅうは太陽の周りを回っています。",
+      "exampleTranslation": "Trái đất quay quanh mặt trời.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 21029,
+      "term": "〜について",
+      "reading": "〜について",
+      "romaji": null,
+      "definition": "~ về",
+      "exampleSentence": "「〜について」を使って、日本の文化について話しました。",
+      "exampleTranslation": "Tôi đã dùng “〜について” để nói về văn hóa Nhật Bản.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 21030,
+      "term": "やめる",
+      "reading": "やめる",
+      "romaji": null,
+      "definition": "Nghỉ, bỏ, thôi",
+      "exampleSentence": "体のために、お酒をやめることにしました。",
+      "exampleTranslation": "Vì sức khỏe, tôi đã quyết định bỏ rượu.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 21031,
+      "term": "かんがえる",
+      "reading": "かんがえる",
+      "romaji": null,
+      "definition": "Suy nghĩ",
+      "exampleSentence": "将来のことをよくかんがえる時間が必要です。",
+      "exampleTranslation": "Tôi cần thời gian để suy nghĩ kỹ về tương lai.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 21032,
+      "term": "もう",
+      "reading": "もう",
+      "romaji": null,
+      "definition": "(Đã) rồi",
+      "exampleSentence": "私はもう朝ご飯を食べました。",
+      "exampleTranslation": "Tôi đã ăn sáng rồi.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 21033,
+      "term": "まだ",
+      "reading": "まだ",
+      "romaji": null,
+      "definition": "Chưa",
+      "exampleSentence": "宿題はまだ終わっていません。",
+      "exampleTranslation": "Bài tập vẫn chưa xong.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 21034,
+      "term": "これから",
+      "reading": "これから",
+      "romaji": null,
+      "definition": "Từ nay",
+      "exampleSentence": "これから駅へ行きます。",
+      "exampleTranslation": "Bây giờ tôi sẽ đi đến ga.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+{
+  "id": 722,
+  "title": "N4 Tango 7.4 - Khi nào? Tại đâu? · Hãy ghi nhớ cả phó từ ①",
+  "description": "Tango N4 — Khi nào? Tại đâu?",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:32.306502",
+  "cards": [
+    {
+      "id": 16560,
+      "term": "かならず",
+      "reading": "かならず",
+      "romaji": null,
+      "definition": "Nhất định",
+      "exampleSentence": "出かける前に、かならず窓を閉めてください。",
+      "exampleTranslation": "Trước khi ra ngoài, nhất định hãy đóng cửa sổ.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 16561,
+      "term": "きっと",
+      "reading": "きっと",
+      "romaji": null,
+      "definition": "Chắc chắn",
+      "exampleSentence": "彼なら、きっと試験に合格します。",
+      "exampleTranslation": "Nếu là cậu ấy thì chắc chắn sẽ đỗ kỳ thi.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 16562,
+      "term": "しっかり[と]（する）",
+      "reading": "しっかり[と]（する）",
+      "romaji": null,
+      "definition": "Chắc, chắc chắn",
+      "exampleSentence": "仕事は「しっかり（する）」ことが大切なので、確認を二回しました。",
+      "exampleTranslation": "Vì làm việc chắc chắn, cẩn thận rất quan trọng nên tôi đã kiểm tra hai lần.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 16563,
+      "term": "きちんと（する）",
+      "reading": "きちんと（する）",
+      "romaji": null,
+      "definition": "Đàng hoàng",
+      "exampleSentence": "「きちんと（する）」ことが大切なので、部屋を毎日片づけます。",
+      "exampleTranslation": "Vì làm mọi việc đàng hoàng rất quan trọng nên tôi dọn phòng mỗi ngày.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 16564,
+      "term": "ちゃんと（する）",
+      "reading": "ちゃんと（する）",
+      "romaji": null,
+      "definition": "Đàng hoàng",
+      "exampleSentence": "母に「ちゃんと（する）」と言われたので、宿題をしました。",
+      "exampleTranslation": "Vì mẹ nhắc phải làm cho đàng hoàng nên tôi đã làm bài tập.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 16565,
+      "term": "ぜったい[に]",
+      "reading": "ぜったい[に]",
+      "romaji": null,
+      "definition": "Nhất định",
+      "exampleSentence": "私は約束をぜったいに破りません。",
+      "exampleTranslation": "Tôi nhất định không thất hứa.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 16566,
+      "term": "ぜひ",
+      "reading": "ぜひ",
+      "romaji": null,
+      "definition": "Nhất định (làm gì đó)",
+      "exampleSentence": "京都へ来たら、ぜひこの店で食べてみてください。",
+      "exampleTranslation": "Nếu đến Kyoto, nhất định hãy thử ăn ở quán này nhé.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 16567,
+      "term": "できるだけ",
+      "reading": "できるだけ",
+      "romaji": null,
+      "definition": "Trong khả năng có thể",
+      "exampleSentence": "健康のために、できるだけ毎日歩いています。",
+      "exampleTranslation": "Vì sức khỏe, tôi cố gắng đi bộ mỗi ngày trong khả năng có thể.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 16568,
+      "term": "はっきり[と] （する）",
+      "reading": "はっきり[と] （する）",
+      "romaji": null,
+      "definition": "Rõ ràng",
+      "exampleSentence": "先生に「はっきり （する）」と言われたので、大きな声で話しました。",
+      "exampleTranslation": "Vì được giáo viên bảo phải nói rõ ràng nên tôi đã nói bằng giọng lớn.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 16569,
+      "term": "ずいぶん[と]",
+      "reading": "ずいぶん[と]",
+      "romaji": null,
+      "definition": "Nhiều",
+      "exampleSentence": "この町は、昔と比べてずいぶんと便利になりました。",
+      "exampleTranslation": "Thị trấn này đã trở nên tiện lợi hơn rất nhiều so với trước đây.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 16570,
+      "term": "かなり",
+      "reading": "かなり",
+      "romaji": null,
+      "definition": "Khá là",
+      "exampleSentence": "この問題はかなり難しいですが、頑張れば解けます。",
+      "exampleTranslation": "Bài này khá khó, nhưng nếu cố gắng thì sẽ giải được.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 16571,
+      "term": "だいぶ",
+      "reading": "だいぶ",
+      "romaji": null,
+      "definition": "Nhiều",
+      "exampleSentence": "病気はだいぶよくなりました。",
+      "exampleTranslation": "Bệnh đã đỡ nhiều rồi.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 16572,
+      "term": "もっと",
+      "reading": "もっと",
+      "romaji": null,
+      "definition": "Hơn nữa",
+      "exampleSentence": "今日はもっと日本語を話したいです。",
+      "exampleTranslation": "Hôm nay tôi muốn nói tiếng Nhật nhiều hơn nữa.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 16573,
+      "term": "だいたい",
+      "reading": "だいたい",
+      "romaji": null,
+      "definition": "Đại khái, gần như, hầu như",
+      "exampleSentence": "宿題はだいたい終わりました。",
+      "exampleTranslation": "Bài tập về nhà gần như đã xong.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 16574,
+      "term": "たいてい",
+      "reading": "たいてい",
+      "romaji": null,
+      "definition": "Gần như, hầu như",
+      "exampleSentence": "私はたいてい朝ご飯を家で食べます。",
+      "exampleTranslation": "Tôi thường ăn sáng ở nhà.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 16575,
+      "term": "たまに",
+      "reading": "たまに",
+      "romaji": null,
+      "definition": "Đôi khi",
+      "exampleSentence": "たまに友達と映画を見に行きます。",
+      "exampleTranslation": "Thỉnh thoảng tôi đi xem phim với bạn.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 16576,
+      "term": "ぜんぜん",
+      "reading": "ぜんぜん",
+      "romaji": null,
+      "definition": "Hoàn toàn(không)",
+      "exampleSentence": "この店の料理はぜんぜん辛くありません。",
+      "exampleTranslation": "Món ăn của quán này hoàn toàn không cay.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 16577,
+      "term": "けっして",
+      "reading": "けっして",
+      "romaji": null,
+      "definition": "Nhất định (không)",
+      "exampleSentence": "彼は約束をけっして忘れません。",
+      "exampleTranslation": "Anh ấy nhất định không quên lời hứa.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 16578,
+      "term": "ちっとも",
+      "reading": "ちっとも",
+      "romaji": null,
+      "definition": "Một chút cũng (không)",
+      "exampleSentence": "昨日のテストはちっとも難しくありませんでした。",
+      "exampleTranslation": "Bài kiểm tra hôm qua hoàn toàn không khó chút nào.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 16579,
+      "term": "まだ",
+      "reading": "まだ",
+      "romaji": null,
+      "definition": "Vẫn còn, vẫn chưa",
+      "exampleSentence": "すみません、仕事がまだ終わっていません。",
+      "exampleTranslation": "Xin lỗi, công việc vẫn chưa xong.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 16580,
+      "term": "ほとんど",
+      "reading": "ほとんど",
+      "romaji": null,
+      "definition": "Hầu như, hầu hết",
+      "exampleSentence": "週末はほとんど家で勉強します。",
+      "exampleTranslation": "Cuối tuần tôi hầu như học ở nhà.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 16581,
+      "term": "なかなか",
+      "reading": "なかなか",
+      "romaji": null,
+      "definition": "Mãi vẫn (không)",
+      "exampleSentence": "バスがなかなか来ません。",
+      "exampleTranslation": "Xe buýt mãi vẫn chưa đến.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

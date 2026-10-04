@@ -1,0 +1,165 @@
+{
+  "id": 595,
+  "title": "N2 Unit 8.8 - 動詞B (bài 8/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.460178",
+  "cards": [
+    {
+      "id": 13929,
+      "term": "透き通る (すきとおる)",
+      "reading": "すきとおる",
+      "romaji": null,
+      "definition": "trong suốt, trong vắt",
+      "exampleSentence": "川の水が透き通っている。",
+      "exampleTranslation": "Nước sông trong vắt.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13930,
+      "term": "静まる・鎮まる (しずまる・しずまる)",
+      "reading": "しずまる・しずまる",
+      "romaji": null,
+      "definition": "yên lặng, yên tĩnh",
+      "exampleSentence": "先生が入ってくると、教室がしいんと静まった。",
+      "exampleTranslation": "Thầy/cô vừa vào là cả lớp im phăng phắc.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13931,
+      "term": "静める・鎮める (しずめる・しずめる)",
+      "reading": "しずめる・しずめる",
+      "romaji": null,
+      "definition": "yên lặng, làm giảm bớt, trấn áp",
+      "exampleSentence": "司会者は騒がしい場内を一言で静めた。",
+      "exampleTranslation": "MC chỉ nói một câu đã làm khán phòng ồn ào yên lặng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13932,
+      "term": "優れる (すぐれる)",
+      "reading": "すぐれる",
+      "romaji": null,
+      "definition": "giỏi, ưu tú, tốt",
+      "exampleSentence": "彼は運動能力｛が/に｝優れている。",
+      "exampleTranslation": "Anh ấy có năng lực vận động rất xuất sắc.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13933,
+      "term": "落ち着く (おちつく)",
+      "reading": "おちつく",
+      "romaji": null,
+      "definition": "bình tĩnh, thanh thản, lắng xuống, trầm lắng",
+      "exampleSentence": "「慌てないで、落ち着いて話してください」",
+      "exampleTranslation": "“Đừng hoảng, hãy bình tĩnh mà nói.”",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13934,
+      "term": "長引く (ながびく)",
+      "reading": "ながびく",
+      "romaji": null,
+      "definition": "kéo dài",
+      "exampleSentence": "仕事が長引いて約束に遅れてしまった。",
+      "exampleTranslation": "Công việc kéo dài nên tôi đến trễ cuộc hẹn.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13935,
+      "term": "衰える (おとろえる)",
+      "reading": "おとろえる",
+      "romaji": null,
+      "definition": "suy yếu, yếu đi",
+      "exampleSentence": "年を取ると、体力が衰える。",
+      "exampleTranslation": "Có tuổi rồi thì thể lực suy giảm.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13936,
+      "term": "備わる (そなわる)",
+      "reading": "そなわる",
+      "romaji": null,
+      "definition": "lắp đặt, chuẩn bị, sẵn có",
+      "exampleSentence": "新幹線にはさまざまな安全装置が備わっている。",
+      "exampleTranslation": "Trên Shinkansen có trang bị nhiều thiết bị an toàn.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13937,
+      "term": "備える (そなえる)",
+      "reading": "そなえる",
+      "romaji": null,
+      "definition": "lắp đặt, chuẩn bị, sẵn có",
+      "exampleSentence": "学校では火災報知器が備えてある。",
+      "exampleTranslation": "Ở trường có trang bị sẵn chuông báo cháy.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13938,
+      "term": "蓄える (たくわえる)",
+      "reading": "たくわえる",
+      "romaji": null,
+      "definition": "bảo quản, bảo vệ, tích lũy",
+      "exampleSentence": "お金を蓄える。",
+      "exampleTranslation": "Tích lũy tiền.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13939,
+      "term": "整う・調う (ととのう・ととのう)",
+      "reading": "ととのう・ととのう",
+      "romaji": null,
+      "definition": "đã được chuẩn bị, sẵn sàng",
+      "exampleSentence": "準備が整った。",
+      "exampleTranslation": "Khâu chuẩn bị đã sẵn sàng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13940,
+      "term": "整える・調える (ととのえる・ととのえる)",
+      "reading": "ととのえる・ととのえる",
+      "romaji": null,
+      "definition": "chuẩn bị, sẵn sàng",
+      "exampleSentence": "準備を整えた。",
+      "exampleTranslation": "Chuẩn bị (mọi thứ) sẵn sàng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13941,
+      "term": "覆う (おおう)",
+      "reading": "おおう",
+      "romaji": null,
+      "definition": "phủ lên, che phủ, che",
+      "exampleSentence": "テーブルをテーブルクロスで覆った。",
+      "exampleTranslation": "Phủ bàn bằng khăn trải bàn.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13942,
+      "term": "照る (てる)",
+      "reading": "てる",
+      "romaji": null,
+      "definition": "chiếu sáng",
+      "exampleSentence": "日が照っているうちに洗濯物を干そう。",
+      "exampleTranslation": "Tranh thủ nắng còn, đem đồ ra phơi.",
+      "forms": [],
+      "displayOrder": 13
+    }
+  ]
+}

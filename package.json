@@ -22,6 +22,7 @@
     "@uiw/react-md-editor": "^4.1.0",
     "firebase": "^12.12.1",
     "hanzi-writer": "^3.7.3",
+    "jsonrepair": "^3.15.0",
     "katex": "^0.16.45",
     "kuroshiro": "^1.2.0",
     "kuroshiro-analyzer-kuromoji": "^1.1.0",

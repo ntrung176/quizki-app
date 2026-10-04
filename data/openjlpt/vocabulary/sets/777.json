@@ -1,0 +1,253 @@
+{
+  "id": 777,
+  "title": "N2 Tango 11.3 - Trạng thái - Hình ảnh · Cảm giác buồn bã",
+  "description": "Tango N2 — Trạng thái - Hình ảnh",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:38.297618",
+  "cards": [
+    {
+      "id": 17987,
+      "term": "ゆううつ（な）",
+      "reading": "ゆううつ（な）",
+      "romaji": null,
+      "definition": "U uất, ảm đạm",
+      "exampleSentence": "雨の日が続くと、「ゆううつ（な）」という気分になり、外へ出たくなくなる。",
+      "exampleTranslation": "Những ngày mưa kéo dài khiến tôi cảm thấy u sầu và không muốn ra ngoài.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 17988,
+      "term": "みじめな",
+      "reading": "みじめな",
+      "romaji": null,
+      "definition": "Đáng thương, khốn khổ",
+      "exampleSentence": "失敗を人前で笑われ、彼はみじめな気持ちになった。",
+      "exampleTranslation": "Bị người khác cười nhạo trước mặt mọi người vì thất bại, anh ấy cảm thấy rất khốn khổ.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 17989,
+      "term": "つらい",
+      "reading": "つらい",
+      "romaji": null,
+      "definition": "Buồn, khổ sở, đau khổ, khắc nghiệt, vất vả",
+      "exampleSentence": "家族と離れて暮らすのは、思っていた以上につらい。",
+      "exampleTranslation": "Sống xa gia đình khổ sở hơn tôi tưởng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 17990,
+      "term": "心細い (こころぼそい)",
+      "reading": "こころぼそい",
+      "romaji": null,
+      "definition": "Cô đơn, trơ trọi",
+      "exampleSentence": "知らない土地で一人暮らしを始めると、夜はとても心細い。",
+      "exampleTranslation": "Khi bắt đầu sống một mình ở nơi xa lạ, ban đêm cảm thấy rất cô đơn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 17991,
+      "term": "弱気（な） (よわき（な）)",
+      "reading": "よわき（な）",
+      "romaji": null,
+      "definition": "Sự yếu đuối, nhát gan",
+      "exampleSentence": "弱気な性格を直すために、毎日小さな目標に挑戦している。",
+      "exampleTranslation": "Để sửa tính nhút nhát, tôi thử thách bản thân bằng những mục tiêu nhỏ mỗi ngày.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 17992,
+      "term": "落ち込む (おちこむ)",
+      "reading": "おちこむ",
+      "romaji": null,
+      "definition": "Buồn bã, suy sụp",
+      "exampleSentence": "試験に落ちても、いつまでも落ち込む必要はありません。",
+      "exampleTranslation": "Dù trượt kỳ thi, bạn cũng không cần buồn bã mãi.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 17993,
+      "term": "失望（する） (しつぼう（する）)",
+      "reading": "しつぼう（する）",
+      "romaji": null,
+      "definition": "Sự thất vọng",
+      "exampleSentence": "期待していた結果が出ず、彼は「失望（する）」という気持ちを初めて知った。",
+      "exampleTranslation": "Kết quả không như mong đợi khiến anh ấy lần đầu hiểu được cảm giác thất vọng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 17994,
+      "term": "絶望（する） (ぜつぼう（する）)",
+      "reading": "ぜつぼう（する）",
+      "romaji": null,
+      "definition": "Sự tuyệt vọng",
+      "exampleSentence": "困難な状況でも、「絶望（する）」という気持ちに負けてはいけない。",
+      "exampleTranslation": "Ngay cả trong hoàn cảnh khó khăn, cũng không được khuất phục trước sự tuyệt vọng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 17995,
+      "term": "傷つく (きずつく)",
+      "reading": "きずつく",
+      "romaji": null,
+      "definition": "Tổn thương",
+      "exampleSentence": "人の何気ない一言で、相手が傷つくこともある。",
+      "exampleTranslation": "Đôi khi một lời nói vô tình cũng có thể làm người khác tổn thương.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 17996,
+      "term": "わずらわしい",
+      "reading": "わずらわしい",
+      "romaji": null,
+      "definition": "Phiền phức, phiền toái",
+      "exampleSentence": "頻繁に届く広告メールがわずらわしいので、配信を停止した。",
+      "exampleTranslation": "Vì những email quảng cáo gửi đến liên tục rất phiền phức nên tôi đã dừng nhận chúng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 17997,
+      "term": "うんざり（する）",
+      "reading": "うんざり（する）",
+      "romaji": null,
+      "definition": "Chán ngán, ngán ngẩm",
+      "exampleSentence": "同じ説明を何度も聞かされて、皆「うんざり（する）」という顔をしていた。",
+      "exampleTranslation": "Bị nghe đi nghe lại cùng một lời giải thích, ai nấy đều tỏ vẻ chán ngán.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 17998,
+      "term": "戸惑う (とまどう)",
+      "reading": "とまどう",
+      "romaji": null,
+      "definition": "Phân vân, băn khoăn",
+      "exampleSentence": "初めて海外で働くと、文化の違いに戸惑う人も多い。",
+      "exampleTranslation": "Khi lần đầu làm việc ở nước ngoài, nhiều người bối rối trước sự khác biệt văn hóa.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 17999,
+      "term": "ためらう",
+      "reading": "ためらう",
+      "romaji": null,
+      "definition": "Do dự, lưỡng lự",
+      "exampleSentence": "失敗を恐れてためらうより、まず行動してみることが大切だ。",
+      "exampleTranslation": "Thay vì do dự vì sợ thất bại, điều quan trọng là hãy thử hành động trước.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 18000,
+      "term": "申し訳ない (もうしわけない)",
+      "reading": "もうしわけない",
+      "romaji": null,
+      "definition": "Cảm thấy có lỗi, khó tha thứ",
+      "exampleSentence": "約束の時間に遅れてしまい、本当に申し訳ないと思っています。",
+      "exampleTranslation": "Tôi thực sự xin lỗi vì đã đến muộn so với giờ hẹn.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 18001,
+      "term": "すまない",
+      "reading": "すまない",
+      "romaji": null,
+      "definition": "Xin lỗi",
+      "exampleSentence": "迷惑をかけてすまないが、もう少しだけ手伝ってくれないか。",
+      "exampleTranslation": "Xin lỗi vì đã làm phiền, nhưng bạn có thể giúp tôi thêm một chút nữa không?",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 18002,
+      "term": "仕方[が]ない (しかた[が]ない)",
+      "reading": "しかた[が]ない",
+      "romaji": null,
+      "definition": "Đành chịu, không còn cách nào khác",
+      "exampleSentence": "電車が遅れたのだから、仕方ないが、急いで会場へ向かおう。",
+      "exampleTranslation": "Tàu đã trễ thì đành chịu, nhưng hãy nhanh chóng đến hội trường.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 18003,
+      "term": "しまった",
+      "reading": "しまった",
+      "romaji": null,
+      "definition": "Tiêu rồi, chết rồi, thôi rồi",
+      "exampleSentence": "しまった、家に財布を忘れてきてしまった。",
+      "exampleTranslation": "Thôi chết, tôi để quên ví ở nhà mất rồi.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 18004,
+      "term": "恐れる (おそれる)",
+      "reading": "おそれる",
+      "romaji": null,
+      "definition": "Sợ, e sợ, khiếp sợ",
+      "exampleSentence": "失敗を恐れるより、まず挑戦してみることが大切です。",
+      "exampleTranslation": "Điều quan trọng là thử thách bản thân trước, thay vì sợ thất bại.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 18005,
+      "term": "情けない (なさけない)",
+      "reading": "なさけない",
+      "romaji": null,
+      "definition": "Đáng buồn, đáng trách, tội nghiệp",
+      "exampleSentence": "こんな簡単な約束を忘れるなんて、本当に情けない。",
+      "exampleTranslation": "Đến một lời hứa đơn giản như vậy mà cũng quên, thật đáng trách.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 18006,
+      "term": "恥 (はじ)",
+      "reading": "はじ",
+      "romaji": null,
+      "definition": "Sự xấu hổ, mắc cỡ",
+      "exampleSentence": "人前で大声を出すのは、社会人として恥です。",
+      "exampleTranslation": "La hét nơi công cộng là điều đáng xấu hổ đối với một người đi làm.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 18007,
+      "term": "別に（〜ない） (べつに（～ない）)",
+      "reading": "べつに（～ない）",
+      "romaji": null,
+      "definition": "Ngoài ra, (không có gì) đặc biệt",
+      "exampleSentence": "その件については、別に気にしていません。",
+      "exampleTranslation": "Về chuyện đó thì tôi không bận tâm gì đặc biệt cả.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 18008,
+      "term": "構わない (かまわない)",
+      "reading": "かまわない",
+      "romaji": null,
+      "definition": "Không sao, không bận tâm",
+      "exampleSentence": "ここに荷物を置いても構わないですか。",
+      "exampleTranslation": "Tôi để hành lý ở đây có được không?",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

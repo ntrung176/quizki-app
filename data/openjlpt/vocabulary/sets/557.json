@@ -1,0 +1,77 @@
+{
+  "id": 557,
+  "title": "N2 Unit 3.5 - 形容詞A (bài 5/5)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 形容詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.692263",
+  "cards": [
+    {
+      "id": 13428,
+      "term": "頑固な (がんこな)",
+      "reading": "がんこな",
+      "romaji": null,
+      "definition": "bảo thủ, cố chấp",
+      "exampleSentence": "妹は頑固で、一度言い出したら後へ引かない。",
+      "exampleTranslation": "Em gái tôi rất cứng đầu, đã nói ra là không rút lại.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13429,
+      "term": "過剰な (かじょうな)",
+      "reading": "かじょうな",
+      "romaji": null,
+      "definition": "dư thừa, vượt quá",
+      "exampleSentence": "塩分を過剰に取ると体に悪い。",
+      "exampleTranslation": "Nạp muối quá mức thì hại sức khỏe.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13430,
+      "term": "重大な (じゅうだいな)",
+      "reading": "じゅうだいな",
+      "romaji": null,
+      "definition": "trọng đại, nghiêm trọng",
+      "exampleSentence": "政治の混乱を招いた首相の責任は重大だ。",
+      "exampleTranslation": "Trách nhiệm của thủ tướng gây ra hỗn loạn chính trị là rất nghiêm trọng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13431,
+      "term": "深刻な (しんこくな)",
+      "reading": "しんこくな",
+      "romaji": null,
+      "definition": "nghiêm trọng",
+      "exampleSentence": "猛暑によって深刻な水不足が起きた。",
+      "exampleTranslation": "Nắng nóng khắc nghiệt gây thiếu nước nghiêm trọng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13432,
+      "term": "気楽な (きらくな)",
+      "reading": "きらくな",
+      "romaji": null,
+      "definition": "thoải mái, nhàn hạ",
+      "exampleSentence": "寮に住むより一人暮らしの方が、お金はかかるが気楽でいい。",
+      "exampleTranslation": "Sống một mình tốn hơn ở ký túc nhưng thoải mái/dễ chịu hơn.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13433,
+      "term": "安易な (あんいな)",
+      "reading": "あんいな",
+      "romaji": null,
+      "definition": "dễ dàng, sự đơn giản",
+      "exampleSentence": "今だけ楽しければいいというのは安易な考え方だ。",
+      "exampleTranslation": "Chỉ cần hiện tại vui là được—đó là suy nghĩ quá dễ dãi.",
+      "forms": [],
+      "displayOrder": 5
+    }
+  ]
+}

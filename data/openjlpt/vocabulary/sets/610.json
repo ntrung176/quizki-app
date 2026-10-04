@@ -1,0 +1,176 @@
+{
+  "id": 610,
+  "title": "N2 Unit 11.6 - 名詞D (bài 6/8)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞D",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.671003",
+  "cards": [
+    {
+      "id": 14120,
+      "term": "傾向 (けいこう)",
+      "reading": "けいこう",
+      "romaji": null,
+      "definition": "khuynh hướng",
+      "exampleSentence": "最近の若者は仕事より自分の生活を重視する傾向がある。",
+      "exampleTranslation": "Giới trẻ ngày nay có xu hướng coi trọng cuộc sống cá nhân hơn công việc.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14121,
+      "term": "方針 (ほうしん)",
+      "reading": "ほうしん",
+      "romaji": null,
+      "definition": "phương châm",
+      "exampleSentence": "会社の方針に沿って、働く。",
+      "exampleTranslation": "Làm việc theo phương châm của công ty.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14122,
+      "term": "徹底 (てってい)",
+      "reading": "てってい",
+      "romaji": null,
+      "definition": "triệt để, quán triệt",
+      "exampleSentence": "指導を徹底する。",
+      "exampleTranslation": "Thực hiện chỉ đạo một cách triệt để.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14123,
+      "term": "分析 (ぶんせき)",
+      "reading": "ぶんせき",
+      "romaji": null,
+      "definition": "phân tích",
+      "exampleSentence": "建物に使われている木を分析して、造られた年代を調べる。",
+      "exampleTranslation": "Phân tích gỗ dùng trong công trình để xác định niên đại xây dựng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14124,
+      "term": "維持 (いじ)",
+      "reading": "いじ",
+      "romaji": null,
+      "definition": "duy trì",
+      "exampleSentence": "親の家を出たら、今の生活レベルを維持するのは難しい。",
+      "exampleTranslation": "Sau khi rời nhà, việc duy trì mức sống hiện tại là rất khó.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14125,
+      "term": "管理 (かんり)",
+      "reading": "かんり",
+      "romaji": null,
+      "definition": "quản lý",
+      "exampleSentence": "私の仕事は｛ビル/駐車場/公園…｝の管理だ。",
+      "exampleTranslation": "Công việc của tôi là quản lý {tòa nhà/bãi đỗ xe/công viên…}.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14126,
+      "term": "行方(不明) (ゆくえ(ふめい))",
+      "reading": "ゆくえ(ふめい)",
+      "romaji": null,
+      "definition": "tung tích, hướng đi (không rõ rành, không minh bạch)",
+      "exampleSentence": "娘が家出した。今、行方を探しているところだ。",
+      "exampleTranslation": "Con gái tôi bỏ nhà đi, hiện đang được tìm kiếm.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14127,
+      "term": "端 (はし)",
+      "reading": "はし",
+      "romaji": null,
+      "definition": "cạnh, lề",
+      "exampleSentence": "道の端を歩く。",
+      "exampleTranslation": "Đi bộ ở mép đường.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14128,
+      "term": "場 (じょう)",
+      "reading": "じょう",
+      "romaji": null,
+      "definition": "địa điểm, chỗ, nơi",
+      "exampleSentence": "山田さんは、高橋さんの申し出をその場で断った。",
+      "exampleTranslation": "Anh Yamada đã từ chối lời đề nghị ngay tại chỗ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14129,
+      "term": "分野 (ぶんや)",
+      "reading": "ぶんや",
+      "romaji": null,
+      "definition": "lĩnh vực",
+      "exampleSentence": "私の専門分野は会計学だ。",
+      "exampleTranslation": "Chuyên ngành của tôi là kế toán.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14130,
+      "term": "需要 (じゅよう)",
+      "reading": "じゅよう",
+      "romaji": null,
+      "definition": "nhu cầu",
+      "exampleSentence": "物の値段には、需要と供給の関係が影響している。",
+      "exampleTranslation": "Giá cả hàng hóa chịu ảnh hưởng bởi quan hệ cung–cầu.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14131,
+      "term": "供給 (きょうきゅう)",
+      "reading": "きょうきゅう",
+      "romaji": null,
+      "definition": "cung cấp",
+      "exampleSentence": "夏の電力の供給が不足しがちだ。",
+      "exampleTranslation": "Mùa hè nguồn cung điện hay bị thiếu.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 14132,
+      "term": "物資 (ぶっし)",
+      "reading": "ぶっし",
+      "romaji": null,
+      "definition": "vật tư",
+      "exampleSentence": "内戦中のこの国は生活物資がひどく欠乏している。",
+      "exampleTranslation": "Đang nội chiến nên nước này thiếu thốn hàng thiết yếu nghiêm trọng.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 14133,
+      "term": "用途 (ようと)",
+      "reading": "ようと",
+      "romaji": null,
+      "definition": "sử dụng",
+      "exampleSentence": "海外のスーパーには、用途の分からない道具がたくさん並んでいた。",
+      "exampleTranslation": "Trong siêu thị nước ngoài bày rất nhiều dụng cụ không rõ dùng để làm gì.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 14134,
+      "term": "関連 (かんれん)",
+      "reading": "かんれん",
+      "romaji": null,
+      "definition": "liên quan, quan hệ",
+      "exampleSentence": "この二つの事件に関連があるかどうか調べてみよう。",
+      "exampleTranslation": "Thử điều tra xem hai vụ này có liên quan hay không.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

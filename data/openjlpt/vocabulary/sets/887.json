@@ -1,0 +1,132 @@
+{
+  "id": 887,
+  "title": "N5 Tango 7.3 - Mua sắm · Máy rút tiền tự động",
+  "description": "Tango N5 — Mua sắm",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:48.964018",
+  "cards": [
+    {
+      "id": 20701,
+      "term": "〜かた",
+      "reading": "〜かた",
+      "romaji": null,
+      "definition": "Cách ~",
+      "exampleSentence": "この「〜かた」は、動詞につけて方法を表します。",
+      "exampleTranslation": "「〜かた」 này được thêm vào động từ để chỉ cách làm.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20702,
+      "term": "おひきだしですか。",
+      "reading": "おひきだしですか。",
+      "romaji": null,
+      "definition": "Quý khách rút (tiền) ạ?",
+      "exampleSentence": "銀行員に「おひきだしですか。」と聞かれました。",
+      "exampleTranslation": "Nhân viên ngân hàng hỏi tôi: “Quý khách rút tiền ạ?”",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20703,
+      "term": "げんきん",
+      "reading": "げんきん",
+      "romaji": null,
+      "definition": "Tiền mặt",
+      "exampleSentence": "げんきんで払ってもいいですか。",
+      "exampleTranslation": "Tôi thanh toán bằng tiền mặt có được không ạ?",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20704,
+      "term": "ATM",
+      "reading": "ATM",
+      "romaji": null,
+      "definition": "Máy rút tiền tự động",
+      "exampleSentence": "駅のATMでげんきんをおろしました。",
+      "exampleTranslation": "Tôi đã rút tiền mặt ở cây ATM trong ga.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20705,
+      "term": "おろす",
+      "reading": "おろす",
+      "romaji": null,
+      "definition": "Rút (tiền)",
+      "exampleSentence": "ATMでお金を「おろす」方法を教えてください。",
+      "exampleTranslation": "Hãy chỉ cho tôi cách rút tiền bằng ATM.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20706,
+      "term": "まず/キャッシュカード",
+      "reading": "まず/キャッシュカード",
+      "romaji": null,
+      "definition": "Trước tiên/thẻ ngân hàng",
+      "exampleSentence": "ATMの画面に「まず/キャッシュカード」と表示されました。",
+      "exampleTranslation": "Trên màn hình ATM hiện dòng “Trước tiên / thẻ ngân hàng”.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20707,
+      "term": "つぎに/[あんしょう]ばんごう",
+      "reading": "つぎに/[あんしょう]ばんごう",
+      "romaji": null,
+      "definition": "Tiếp theo / số (mật khẩu, bảo mật)",
+      "exampleSentence": "画面に「つぎに/ばんごう」と表示されたので、暗証番号を入力しました。",
+      "exampleTranslation": "Vì màn hình hiện “Tiếp theo / số”, tôi đã nhập mã PIN.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20708,
+      "term": "おす/それから",
+      "reading": "おす/それから",
+      "romaji": null,
+      "definition": "Bấm, nhấn / sau đó",
+      "exampleSentence": "画面に「おす/それから」と表示されたので、ボタンを押しました。",
+      "exampleTranslation": "Vì màn hình hiện “Bấm / sau đó”, tôi đã nhấn nút.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20709,
+      "term": "きんがく / かくにん<する> / ボタン",
+      "reading": "きんがく / かくにん<する> / ボタン",
+      "romaji": null,
+      "definition": "Số tiền / xác nhận, kiểm tra / nút",
+      "exampleSentence": "ATMの画面に「きんがく / かくにん<する> / ボタン」と表示されました。",
+      "exampleTranslation": "Trên màn hình ATM hiện dòng “Số tiền / xác nhận / nút bấm”.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20710,
+      "term": "出る (でる)",
+      "reading": "でる",
+      "romaji": null,
+      "definition": "Xuất hiện ra",
+      "exampleSentence": "ボタンを押すと、画面に確認のメッセージが出る。",
+      "exampleTranslation": "Khi nhấn nút, thông báo xác nhận sẽ xuất hiện trên màn hình.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20711,
+      "term": "かえる",
+      "reading": "かえる",
+      "romaji": null,
+      "definition": "Đổi",
+      "exampleSentence": "ATMでは、暗証番号をかえることができます。",
+      "exampleTranslation": "Tại ATM, bạn có thể đổi mã PIN.",
+      "forms": [],
+      "displayOrder": 10
+    }
+  ]
+}

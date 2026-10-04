@@ -1,0 +1,176 @@
+{
+  "id": 384,
+  "title": "N3 Unit 2.5 - 動詞A・衝突と片付け (Va chạm & dọn dẹp)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 動詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.191731",
+  "cards": [
+    {
+      "id": 10378,
+      "term": "離す (はなす)",
+      "reading": "はなす",
+      "romaji": "hanasu",
+      "definition": "rời xa, tách rời",
+      "exampleSentence": "テストのときは、机を離して並べる",
+      "exampleTranslation": "Khi kiểm tra thì xếp bàn cách xa nhau.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10379,
+      "term": "ぶつかる",
+      "reading": "ぶつかる",
+      "romaji": "butsukaru",
+      "definition": "va chạm, xung đột",
+      "exampleSentence": "道で自転車にぶつかってけがをした",
+      "exampleTranslation": "Tôi bị thương bởi va chạm với chiếc xe đạp trên đường.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10380,
+      "term": "ぶつける",
+      "reading": "ぶつける",
+      "romaji": "butsukeru",
+      "definition": "đâm mạnh, đụng vào",
+      "exampleSentence": "運転していて、車を電柱にぶつけてしまった",
+      "exampleTranslation": "Đang lái xe thì ô tô tông chạm mạnh vào cột điện.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10381,
+      "term": "こぼれる",
+      "reading": "こぼれる",
+      "romaji": "koboreru",
+      "definition": "bị đổ, tràn",
+      "exampleSentence": "手がふるえてお茶がこぼれてしまった。",
+      "exampleTranslation": "Do tay run rẩy nên nước trà bị đổ ra ngoài.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10382,
+      "term": "こぼす",
+      "reading": "こぼす",
+      "romaji": "kobosu",
+      "definition": "làm đổ, làm tràn",
+      "exampleSentence": "コップを倒して水をこぼしてしまった",
+      "exampleTranslation": "Làm đổ cốc nên làm nước tràn ra ngoài.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10383,
+      "term": "ふく",
+      "reading": "ふく",
+      "romaji": "fuku",
+      "definition": "lau, chùi",
+      "exampleSentence": "汗をふく",
+      "exampleTranslation": "Lau mồ hôi .",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10384,
+      "term": "片付く (かたづく)",
+      "reading": "かたづく",
+      "romaji": "katazuku",
+      "definition": "được dọn dẹp, được giải quyết",
+      "exampleSentence": "大掃除をして、やっと部屋がかたづいた",
+      "exampleTranslation": "Sau khi tổng vệ sinh, cuối cùng phòng ốc căn cũng được dọn dẹp.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10385,
+      "term": "片付ける (かたづける)",
+      "reading": "かたづける",
+      "romaji": "katazukeru",
+      "definition": "dọn dẹp, giải quyết",
+      "exampleSentence": "机の上をかたづける",
+      "exampleTranslation": "Dọn dẹp phía trên mặt bàn.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10386,
+      "term": "包む (つつむ)",
+      "reading": "つつむ",
+      "romaji": "tsutsumu",
+      "definition": "bọc, gói",
+      "exampleSentence": "プレゼントをきれいな紙で包む",
+      "exampleTranslation": "Gói quà bằng giấy đẹp.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10387,
+      "term": "張る (はる)",
+      "reading": "はる",
+      "romaji": "haru",
+      "definition": "dán",
+      "exampleSentence": "壁にポスターを張る",
+      "exampleTranslation": "Dán áp phích lên tường.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10388,
+      "term": "無くなる (なくなる)",
+      "reading": "なくなる",
+      "romaji": "nakunaru",
+      "definition": "bị mất",
+      "exampleSentence": "部屋のかぎがなくなってしまった",
+      "exampleTranslation": "Chìa khóa căn phòng đã bị mất rồi.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10389,
+      "term": "無くす (なくす)",
+      "reading": "なくす",
+      "romaji": "nakusu",
+      "definition": "làm mất",
+      "exampleSentence": "パスポートをなくして困っている",
+      "exampleTranslation": "Tôi đã làm mất hộ chiếu nên giờ không biết phải làm sao nữa đây.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10390,
+      "term": "足りる (たりる)",
+      "reading": "たりる",
+      "romaji": "tariru",
+      "definition": "đủ",
+      "exampleSentence": "この収入では生活するのに全然足りない",
+      "exampleTranslation": "Với thu nhập này thì hoàn toàn không đủ sống.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10391,
+      "term": "残る (のこる)",
+      "reading": "のこる",
+      "romaji": "nokoru",
+      "definition": "còn lại, sót lại",
+      "exampleSentence": "料理を作りすぎて、たくさん残ってしまった",
+      "exampleTranslation": "Làm quá nhiều đồ ăn nên vẫn còn lại khá nhiều.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10392,
+      "term": "残す (のこす)",
+      "reading": "のこす",
+      "romaji": "nokosu",
+      "definition": "để lại, gác lại",
+      "exampleSentence": "ごはんを残してしまった",
+      "exampleTranslation": "Tôi đã để thừa cơm.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

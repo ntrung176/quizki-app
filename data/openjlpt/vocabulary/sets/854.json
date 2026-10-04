@@ -1,0 +1,176 @@
+{
+  "id": 854,
+  "title": "N1 Tango 14.5 - Các cách diễn đạt dễ bị sai ② · Từ nhiều nghĩa",
+  "description": "Tango N1 — Các cách diễn đạt dễ bị sai ②",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:44.781085",
+  "cards": [
+    {
+      "id": 19997,
+      "term": "起こす (おこす)",
+      "reading": "おこす",
+      "romaji": null,
+      "definition": "①đánh thức ②gây ra ③khơi dậy ④bắt đầu",
+      "exampleSentence": "母は毎朝、寝坊した私を六時に起こす。",
+      "exampleTranslation": "Mẹ đánh thức tôi lúc sáu giờ mỗi sáng khi tôi ngủ quên.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 19998,
+      "term": "寝かす (ねかす)",
+      "reading": "ねかす",
+      "romaji": null,
+      "definition": "①cho đi ngủ ②đặt nằm xuống ③gác lại, ủ",
+      "exampleSentence": "仕込んだ味噌を、発酵が進むまで半年ほど寝かす。",
+      "exampleTranslation": "Để tương miso đã làm ủ khoảng nửa năm cho đến khi lên men.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 19999,
+      "term": "受ける (うける)",
+      "reading": "うける",
+      "romaji": null,
+      "definition": "①nhận ②chịu ảnh hưởng ③thi, tham dự ④được yêu thích",
+      "exampleSentence": "来月、大学院の入学試験を受ける予定だ。",
+      "exampleTranslation": "Tháng sau, tôi dự định thi đầu vào cao học.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20000,
+      "term": "滑る (すべる)",
+      "reading": "すべる",
+      "romaji": null,
+      "definition": "①trượt tuyết ②trượt chân ③tuột tay ④lỡ miệng",
+      "exampleSentence": "雪道では、急に走ると足が滑るので危険だ。",
+      "exampleTranslation": "Trên đường tuyết, chạy đột ngột rất nguy hiểm vì có thể bị trượt chân.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20001,
+      "term": "切れる (きれる)",
+      "reading": "きれる",
+      "romaji": null,
+      "definition": "①bị cắt ②cắt đứt ③hết",
+      "exampleSentence": "長年使った電球が突然切れると、部屋は一瞬で真っ暗になる。",
+      "exampleTranslation": "Khi bóng đèn đã dùng nhiều năm đột nhiên cháy, căn phòng lập tức tối om.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20002,
+      "term": "はまる",
+      "reading": "はまる",
+      "romaji": null,
+      "definition": "①phù hợp ②say mê, nghiện ③mắc bẫy ④rập khuôn",
+      "exampleSentence": "彼は歴史小説にはまると、週末でも一日中読み続ける。",
+      "exampleTranslation": "Một khi say mê tiểu thuyết lịch sử, anh ấy đọc suốt cả ngày kể cả cuối tuần.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20003,
+      "term": "迫る (せまる)",
+      "reading": "せまる",
+      "romaji": null,
+      "definition": "①tiến gần ②lại gần hơn ③thúc giục ④ép buộc",
+      "exampleSentence": "締め切りが迫る中、研究チームは最後の確認を急いだ。",
+      "exampleTranslation": "Trong lúc thời hạn chót đang đến gần, nhóm nghiên cứu vội kiểm tra lần cuối.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20004,
+      "term": "通る (とおる)",
+      "reading": "とおる",
+      "romaji": null,
+      "definition": "①chạy qua ②đi qua ③đỗ ④được thông qua",
+      "exampleSentence": "慎重に練った提案でも、委員会を通るとは限らない。",
+      "exampleTranslation": "Ngay cả đề xuất được cân nhắc kỹ cũng chưa chắc được ủy ban thông qua.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20005,
+      "term": "飛ぶ (とぶ)",
+      "reading": "とぶ",
+      "romaji": null,
+      "definition": "①bay ②bay qua ③lan truyền ④nhảy",
+      "exampleSentence": "強風が吹くと、屋外に干した洗濯物が飛ぶことがある。",
+      "exampleTranslation": "Khi gió mạnh thổi, quần áo phơi ngoài trời đôi khi bị bay mất.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20006,
+      "term": "抜く (ぬく)",
+      "reading": "ぬく",
+      "romaji": null,
+      "definition": "①nhổ ②xả ③bỏ qua ④vượt qua",
+      "exampleSentence": "忙しくても、健康のために朝食を抜くことは避けたほうがいい。",
+      "exampleTranslation": "Dù bận rộn, bạn vẫn nên tránh bỏ bữa sáng vì sức khỏe.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20007,
+      "term": "乗る (のる)",
+      "reading": "のる",
+      "romaji": null,
+      "definition": "①leo lên ②đi, lên ③tư vấn, lắng nghe ④tự mãn, quá đà",
+      "exampleSentence": "困ったときは、いつでも相談に乗るよ。",
+      "exampleTranslation": "Khi gặp khó khăn, lúc nào tôi cũng sẵn lòng lắng nghe và tư vấn cho bạn.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 20008,
+      "term": "弾む (はずむ)",
+      "reading": "はずむ",
+      "romaji": null,
+      "definition": "①nảy ②rôm rả, sôi nổi ③thở hổn hển ④trả hậu hĩnh",
+      "exampleSentence": "好きな音楽の話をすると、自然に会話が弾む。",
+      "exampleTranslation": "Khi nói về âm nhạc yêu thích, cuộc trò chuyện tự nhiên trở nên rôm rả.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 20009,
+      "term": "控える (ひかえる)",
+      "reading": "ひかえる",
+      "romaji": null,
+      "definition": "①kiêng, hạn chế ②sắp đến ③ghi chép",
+      "exampleSentence": "健康のため、夜遅くの食事は控えるようにしている。",
+      "exampleTranslation": "Vì sức khỏe, tôi cố gắng hạn chế ăn uống vào đêm muộn.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 20010,
+      "term": "引く (ひく)",
+      "reading": "ひく",
+      "romaji": null,
+      "definition": "①kéo ②thu hút ③tra ④rút ⑤trừ ⑥phết, tráng ⑦thừa hưởng",
+      "exampleSentence": "分からない言葉があれば、すぐ辞書を引く。",
+      "exampleTranslation": "Nếu gặp từ không hiểu, tôi lập tức tra từ điển.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 20011,
+      "term": "回す (まわす)",
+      "reading": "まわす",
+      "romaji": null,
+      "definition": "①bật lên ②dành cho ③chuyển tiếp ④để sau",
+      "exampleSentence": "この資料は会議の前に全員へ回す。",
+      "exampleTranslation": "Tài liệu này sẽ được chuyển cho mọi người trước cuộc họp.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

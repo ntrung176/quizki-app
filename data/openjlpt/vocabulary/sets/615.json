@@ -1,0 +1,154 @@
+{
+  "id": 615,
+  "title": "N2 Unit 12.3 - 動詞C (bài 3/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.747589",
+  "cards": [
+    {
+      "id": 14175,
+      "term": "見つめる (みつめる)",
+      "reading": "みつめる",
+      "romaji": null,
+      "definition": "nhìn chăm chú",
+      "exampleSentence": "子供は母親の写真をじっと見つめていた。",
+      "exampleTranslation": "Đứa trẻ nhìn chằm chằm vào tấm ảnh của mẹ.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14176,
+      "term": "眺める (ながめる)",
+      "reading": "ながめる",
+      "romaji": null,
+      "definition": "ngắm nhìn",
+      "exampleSentence": "母はベンチに座って、子供が遊んでいるのをじっと眺めていた。",
+      "exampleTranslation": "Người mẹ ngồi trên ghế băng, lặng lẽ nhìn con chơi.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14177,
+      "term": "見合わせる (みあわせる)",
+      "reading": "みあわせる",
+      "romaji": null,
+      "definition": "nhìn nhau",
+      "exampleSentence": "不思議な現象を見て、二人は顔を見合わせた。",
+      "exampleTranslation": "Thấy hiện tượng kỳ lạ, hai người nhìn nhau.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14178,
+      "term": "見送る (みおくる)",
+      "reading": "みおくる",
+      "romaji": null,
+      "definition": "tiễn (khách)",
+      "exampleSentence": "客を玄関まで見送った。",
+      "exampleTranslation": "Tiễn khách ra tới cửa.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14179,
+      "term": "訪れる (おとずれる)",
+      "reading": "おとずれる",
+      "romaji": null,
+      "definition": "thăm, ghé thăm, đến",
+      "exampleSentence": "北国にも、ようやく春が訪れた。",
+      "exampleTranslation": "Cuối cùng mùa xuân cũng đến với miền bắc.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14180,
+      "term": "引き返す (ひきかえす)",
+      "reading": "ひきかえす",
+      "romaji": null,
+      "definition": "quay lại",
+      "exampleSentence": "定期を忘れたのに気づいて、うちに引き返した。",
+      "exampleTranslation": "Nhận ra quên vé tháng nên tôi quay về nhà.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14181,
+      "term": "去る (さる)",
+      "reading": "さる",
+      "romaji": null,
+      "definition": "qua, trải qua, rời khỏi",
+      "exampleSentence": "冬が去って春になった。",
+      "exampleTranslation": "Mùa đông qua đi, mùa xuân đã đến.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14182,
+      "term": "啜る (すする)",
+      "reading": "すする",
+      "romaji": null,
+      "definition": "hớp, húp",
+      "exampleSentence": "そばを音を立ててすする。",
+      "exampleTranslation": "Húp mì soba sùm sụp phát ra tiếng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14183,
+      "term": "味わう (あじわう)",
+      "reading": "あじわう",
+      "romaji": null,
+      "definition": "nếm, thưởng thức",
+      "exampleSentence": "久しぶりにふるさとの料理をゆっくり味わうことができた。",
+      "exampleTranslation": "Lâu lắm rồi mới có dịp thong thả thưởng thức món ăn quê hương.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14184,
+      "term": "匂う (におう)",
+      "reading": "におう",
+      "romaji": null,
+      "definition": "có mùi, nực mùi",
+      "exampleSentence": "生ごみが匂う。",
+      "exampleTranslation": "Mùi từ rác (đồ ăn thừa) bốc lên.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14185,
+      "term": "飢える (うえる)",
+      "reading": "うえる",
+      "romaji": null,
+      "definition": "đói, thiếu thốn",
+      "exampleSentence": "戦争中は食べ物がなく、皆が飢えていた。",
+      "exampleTranslation": "Trong thời chiến thiếu thức ăn nên ai cũng bị đói.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14186,
+      "term": "問う (とう)",
+      "reading": "とう",
+      "romaji": null,
+      "definition": "hỏi về, hỏi, vấn",
+      "exampleSentence": "あんなことを言った彼の本心を問いたい。",
+      "exampleTranslation": "Tôi muốn hỏi cho ra lẽ tấm lòng thật của anh ta, người đã nói những lời như thế.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 14187,
+      "term": "語る (かたる)",
+      "reading": "かたる",
+      "romaji": null,
+      "definition": "kể chuyện; kể lại",
+      "exampleSentence": "被害者が事件の状況を語った。",
+      "exampleTranslation": "Nạn nhân kể lại tình hình/diễn biến của vụ việc.",
+      "forms": [],
+      "displayOrder": 12
+    }
+  ]
+}

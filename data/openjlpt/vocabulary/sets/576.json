@@ -1,0 +1,176 @@
+{
+  "id": 576,
+  "title": "N2 Unit 6.2 - 副詞＋接続詞 (bài 2/5)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 副詞＋接続詞",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.177513",
+  "cards": [
+    {
+      "id": 13688,
+      "term": "一段と (いちだんと)",
+      "reading": "いちだんと",
+      "romaji": null,
+      "definition": "hơn rất nhiều, hơn 1 bậc",
+      "exampleSentence": "1月になると、寒さは一段と厳しくなった。",
+      "exampleTranslation": "Sang tháng 1, cái lạnh càng khắc nghiệt hơn.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13689,
+      "term": "より",
+      "reading": "より",
+      "romaji": null,
+      "definition": "hơn, hơn nữa",
+      "exampleSentence": "より良い未来を築くために、みんなで力を合わせましょう。",
+      "exampleTranslation": "Để xây dựng tương lai tốt hơn, mọi người hãy cùng chung sức.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13690,
+      "term": "結局 (けっきょく)",
+      "reading": "けっきょく",
+      "romaji": null,
+      "definition": "kết cuộc",
+      "exampleSentence": "いろいろ考えて、結局断ることにした。",
+      "exampleTranslation": "Suy nghĩ nhiều rồi cuối cùng tôi quyết định từ chối.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13691,
+      "term": "漸く (ようやく)",
+      "reading": "ようやく",
+      "romaji": null,
+      "definition": "cuối cùng",
+      "exampleSentence": "5年かかって、ようやく橋が完成した。",
+      "exampleTranslation": "Mất 5 năm, cuối cùng cây cầu cũng hoàn thành.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13692,
+      "term": "再び (ふたたび)",
+      "reading": "ふたたび",
+      "romaji": null,
+      "definition": "lại, lần nữa",
+      "exampleSentence": "1年目は不合格だったので、翌年再び受験し、今度は合格した。",
+      "exampleTranslation": "Năm đầu trượt, năm sau thi lại và lần này đã đỗ.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13693,
+      "term": "忽ち (たちまち)",
+      "reading": "たちまち",
+      "romaji": null,
+      "definition": "ngay lập tức, đột nhiên",
+      "exampleSentence": "空が暗くなったかと思うと、たちまち雨が降り始めた。",
+      "exampleTranslation": "Tưởng trời tối lại, lập tức mưa đổ xuống.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13694,
+      "term": "今度 (こんど)",
+      "reading": "こんど",
+      "romaji": null,
+      "definition": "lần tới, lần sau, lần này",
+      "exampleSentence": "今度できたレストランは、味がいいと評判だ。",
+      "exampleTranslation": "Nhà hàng mới mở được khen là ngon.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13695,
+      "term": "今後 (こんご)",
+      "reading": "こんご",
+      "romaji": null,
+      "definition": "sau này, từ nay về sau",
+      "exampleSentence": "会社を辞めた。今後のことはまだ何も決まっていない。",
+      "exampleTranslation": "Tôi nghỉ việc. Chuyện sắp tới vẫn chưa quyết gì cả.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13696,
+      "term": "後に (あとに)",
+      "reading": "あとに",
+      "romaji": null,
+      "definition": "sau đó, tương lai",
+      "exampleSentence": "松本さんは文学部を卒業した後に、医学部に入り直したそうだ。",
+      "exampleTranslation": "Nghe nói Matsumoto tốt nghiệp Văn rồi vào học lại Y.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13697,
+      "term": "間も無く (まもなく)",
+      "reading": "まもなく",
+      "romaji": null,
+      "definition": "sắp; chẳng bao lâu nữa; sắp sửa",
+      "exampleSentence": "「まもなく開演です。お席にお着きになってお待ちください」",
+      "exampleTranslation": "Sắp khai mạc. Xin mời quý khách ổn định chỗ ngồi và chờ.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13698,
+      "term": "そのうち(に)",
+      "reading": "そのうち(に)",
+      "romaji": null,
+      "definition": "sớm muộn cũng, chẳng mấy chốc, nhanh chóng",
+      "exampleSentence": "「そんなめちゃくちゃな生活をしていたら、そのうち病気になるよ」",
+      "exampleTranslation": "Sống bừa bãi thế rồi cũng có ngày đổ bệnh.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13699,
+      "term": "やがて",
+      "reading": "やがて",
+      "romaji": null,
+      "definition": "chẳng mấy chốc, nhanh chóng, sắp sửa",
+      "exampleSentence": "朝5時になった。やがて夜が明けるだろう。",
+      "exampleTranslation": "5 giờ sáng rồi. Chẳng mấy chốc trời sẽ sáng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13700,
+      "term": "いずれ",
+      "reading": "いずれ",
+      "romaji": null,
+      "definition": "một lúc nào đó, sớm muộn gì cũng",
+      "exampleSentence": "子供はいずれ親から離れていくものだ。",
+      "exampleTranslation": "Con cái sớm muộn cũng rời bố mẹ.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13701,
+      "term": "先ほど (さきほど)",
+      "reading": "さきほど",
+      "romaji": null,
+      "definition": "mới lúc trước",
+      "exampleSentence": "先ほど、無事到着したとの連絡があった。",
+      "exampleTranslation": "Vừa nãy có liên lạc báo đã đến nơi an toàn.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13702,
+      "term": "疾っくに (とっくに)",
+      "reading": "とっくに",
+      "romaji": null,
+      "definition": "rồi, lâu rồi",
+      "exampleSentence": "「松井さんは？」「とっくに帰ったよ」",
+      "exampleTranslation": "Matsui à? Về từ lâu rồi.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

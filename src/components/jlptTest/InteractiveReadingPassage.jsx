@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
-import { Volume2, BookOpen, Languages, Sparkles, ChevronDown, ChevronUp, Eye, EyeOff } from 'lucide-react';
+import React, { useState, useMemo } from 'react';
+import { Volume2, BookOpen, Languages, ChevronDown, ChevronUp, Eye, EyeOff, Layers } from 'lucide-react';
 import SentenceBreakdownModal from './SentenceBreakdownModal';
+import { buildInteractivePassageData } from '../../utils/jlptExplanationParser';
 
 const InteractiveReadingPassage = ({
     passageHtml,
     passageData,
+    explanationText,
+    question,
     onAddFlashcard
 }) => {
     const [selectedSentenceIdx, setSelectedSentenceIdx] = useState(null);
@@ -12,13 +15,18 @@ const InteractiveReadingPassage = ({
     const [showVietnamese, setShowVietnamese] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
 
-    const sentences = passageData?.sentences || [];
+    // Automatically build rich interactive passage data from passage + explanation
+    const activePassageData = useMemo(() => {
+        return buildInteractivePassageData(passageHtml, explanationText || question?.explanation || question?.detail, passageData);
+    }, [passageHtml, explanationText, question, passageData]);
+
+    const sentences = activePassageData?.sentences || [];
     const hasInteractiveSentences = sentences.length > 0;
 
     const speakPassage = (rate = 0.9) => {
         if (!('speechSynthesis' in window)) return;
         window.speechSynthesis.cancel();
-        const text = passageData?.rawJapanese || passageData?.japanese?.replace(/<[^>]*>/g, '') || '';
+        const text = activePassageData?.rawJapanese || activePassageData?.japanese?.replace(/<[^>]*>/g, '') || (typeof passageHtml === 'string' ? passageHtml.replace(/<[^>]*>/g, '') : '') || '';
         if (!text) return;
         const utterance = new SpeechSynthesisUtterance(text);
         utterance.lang = 'ja-JP';
@@ -35,15 +43,28 @@ const InteractiveReadingPassage = ({
     };
 
     // Extract all grammar points used in sentences
-    const passageGrammarPoints = [];
-    sentences.forEach((s, sIdx) => {
-        (s.grammar || []).forEach(g => {
-            passageGrammarPoints.push({
-                ...g,
-                sentenceIdx: sIdx
+    const passageGrammarPoints = useMemo(() => {
+        const list = [];
+        sentences.forEach((s, sIdx) => {
+            (s.grammar || []).forEach(g => {
+                if (!list.some(item => item.point === g.point)) {
+                    list.push({
+                        ...g,
+                        sentenceIdx: sIdx
+                    });
+                }
             });
         });
-    });
+        if (list.length === 0 && activePassageData?.grammarPoints) {
+            return activePassageData.grammarPoints.map((g, idx) => ({ ...g, sentenceIdx: 0 }));
+        }
+        return list;
+    }, [sentences, activePassageData]);
+
+    // Extract all vocabulary points used in sentences
+    const passageVocabPoints = useMemo(() => {
+        return activePassageData?.vocabList || [];
+    }, [activePassageData]);
 
     return (
         <div className="space-y-3">
@@ -52,12 +73,12 @@ const InteractiveReadingPassage = ({
                 {/* Header with Title & Action Controls */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 pb-3 border-b border-slate-100 dark:border-slate-800">
                     <div className="flex items-center gap-2 flex-wrap">
-                        <span className="px-2 py-0.5 rounded-md text-[10px] font-black uppercase bg-emerald-100 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400 border border-emerald-200/50">
+                        <span className="px-2.5 py-1 rounded-lg text-[10px] font-black uppercase bg-emerald-100 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-400 border border-emerald-200/50">
                             Đọc hiểu
                         </span>
-                        {(passageData?.title || passageData?.titleVi) && (
+                        {(activePassageData?.title || activePassageData?.titleVi) && (
                             <h4 className="text-xs sm:text-sm font-black text-slate-800 dark:text-white">
-                                {passageData.title} {passageData.titleVi && <span className="text-slate-400 font-normal">· {passageData.titleVi}</span>}
+                                {activePassageData.title} {activePassageData.titleVi && <span className="text-slate-400 font-normal">· {activePassageData.titleVi}</span>}
                             </h4>
                         )}
                     </div>
@@ -88,7 +109,7 @@ const InteractiveReadingPassage = ({
                             <span>Nghe chậm</span>
                         </button>
 
-                        {passageData?.vietnamese && (
+                        {activePassageData?.vietnamese && (
                             <button
                                 type="button"
                                 onClick={() => setShowVietnamese(!showVietnamese)}
@@ -113,62 +134,97 @@ const InteractiveReadingPassage = ({
                             <span
                                 key={idx}
                                 onClick={() => handleSentenceClick(idx)}
-                                className={`inline transition-all duration-150 rounded px-1 py-0.5 cursor-pointer ${
+                                className={`inline transition-all duration-150 rounded px-1.5 py-0.5 cursor-pointer ${
                                     selectedSentenceIdx === idx && isModalOpen
-                                        ? 'bg-amber-100 dark:bg-amber-950/60 ring-2 ring-amber-400 dark:ring-amber-500 font-medium'
-                                        : 'hover:bg-emerald-50 dark:hover:bg-emerald-950/40 hover:ring-1 hover:ring-emerald-300 dark:hover:ring-emerald-700'
+                                        ? 'bg-amber-200/90 dark:bg-amber-950/80 ring-2 ring-amber-400 dark:ring-amber-500 font-medium'
+                                        : 'hover:bg-emerald-100/70 dark:hover:bg-emerald-950/50 hover:ring-1 hover:ring-emerald-400 dark:hover:ring-emerald-600'
                                 }`}
-                                title="Bấm vào để mở bảng phân tích câu (từ vựng, ngữ pháp, dịch)"
+                                title="Bấm vào câu này để mở bảng phân tích (nghĩa câu · từ vựng · ngữ pháp)"
                                 dangerouslySetInnerHTML={{ __html: s.jp }}
                             />
                         ))
                     ) : (
-                        <div dangerouslySetInnerHTML={{ __html: passageHtml || passageData?.japanese || '' }} />
+                        <div className="whitespace-pre-line leading-relaxed tracking-wide font-japanese text-[15px] sm:text-[17px] text-slate-800 dark:text-slate-100" dangerouslySetInnerHTML={{ __html: passageHtml || activePassageData?.japanese || '' }} />
                     )}
                 </div>
 
                 {/* Helpful Instruction Banner */}
                 {hasInteractiveSentences && (
-                    <div className="p-2.5 rounded-xl bg-emerald-50/60 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900/40 flex items-center gap-2 text-xs text-emerald-800 dark:text-emerald-300 font-medium">
-                        <Sparkles className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                        <span>
-                            💡 <strong>Mẹo:</strong> Bấm vào từng câu trên bài đọc để xem phân tích chi tiết (nghĩa câu · từ vựng · ngữ pháp).
-                        </span>
+                    <div className="p-2.5 rounded-xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/60 dark:border-emerald-900/40 flex items-center justify-between gap-2 text-xs text-emerald-800 dark:text-emerald-300 font-medium flex-wrap">
+                        <div className="flex items-center gap-2">
+                            <BookOpen className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                            <span>
+                                💡 <strong>Mẹo:</strong> Bấm trực tiếp vào từng câu trên bài đọc để xem phân tích chi tiết (nghĩa câu · từ vựng · ngữ pháp).
+                            </span>
+                        </div>
+                        <button
+                            type="button"
+                            onClick={() => handleSentenceClick(0)}
+                            className="px-2.5 py-1 rounded-lg text-[11px] font-black bg-emerald-600 hover:bg-emerald-700 text-white transition cursor-pointer shrink-0 shadow-2xs"
+                        >
+                            Phân tích toàn bài
+                        </button>
                     </div>
                 )}
 
                 {/* Vietnamese Full Translation (Collapsible) */}
-                {showVietnamese && passageData?.vietnamese && (
+                {showVietnamese && activePassageData?.vietnamese && (
                     <div className="p-4 rounded-2xl bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900/40 space-y-2 animate-fade-in">
                         <div className="flex items-center gap-1.5 text-xs font-bold text-indigo-700 dark:text-indigo-300 uppercase tracking-wider">
                             <Languages className="w-3.5 h-3.5" />
                             <span>Bản dịch tiếng Việt</span>
                         </div>
                         <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed font-sans font-medium whitespace-pre-line">
-                            {passageData.vietnamese.toString().normalize('NFC')}
+                            {activePassageData.vietnamese.toString().normalize('NFC')}
                         </p>
                     </div>
                 )}
 
-                {/* Bottom Grammar Chips */}
-                {passageGrammarPoints.length > 0 && (
-                    <div className="pt-2 border-t border-slate-100 dark:border-slate-800 space-y-2">
-                        <div className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
-                            Ngữ pháp xuất hiện trong bài
-                        </div>
-                        <div className="flex flex-wrap gap-1.5">
-                            {passageGrammarPoints.map((g, gIdx) => (
-                                <button
-                                    key={gIdx}
-                                    type="button"
-                                    onClick={() => handleSentenceClick(g.sentenceIdx)}
-                                    className="px-2.5 py-1 rounded-lg text-xs font-bold bg-sky-50 dark:bg-sky-950/40 hover:bg-sky-100 text-sky-700 dark:text-sky-300 border border-sky-200/60 dark:border-sky-800/60 transition flex items-center gap-1 cursor-pointer"
-                                >
-                                    <BookOpen className="w-3 h-3" />
-                                    <span>{g.point}</span>
-                                </button>
-                            ))}
-                        </div>
+                {/* Bottom Grammar & Vocab Chips */}
+                {(passageGrammarPoints.length > 0 || passageVocabPoints.length > 0) && (
+                    <div className="pt-2 border-t border-slate-100 dark:border-slate-800 space-y-2.5">
+                        {passageGrammarPoints.length > 0 && (
+                            <div className="space-y-1.5">
+                                <div className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                                    Ngữ pháp xuất hiện trong bài:
+                                </div>
+                                <div className="flex flex-wrap gap-1.5">
+                                    {passageGrammarPoints.map((g, gIdx) => (
+                                        <button
+                                            key={gIdx}
+                                            type="button"
+                                            onClick={() => handleSentenceClick(g.sentenceIdx || 0)}
+                                            className="px-2.5 py-1 rounded-lg text-xs font-bold bg-sky-50 dark:bg-sky-950/40 hover:bg-sky-100 dark:hover:bg-sky-900/50 text-sky-700 dark:text-sky-300 border border-sky-200/60 dark:border-sky-800/60 transition flex items-center gap-1 cursor-pointer"
+                                            title={g.meaning || g.structure || ''}
+                                        >
+                                            <BookOpen className="w-3 h-3" />
+                                            <span>{g.point}</span>
+                                            {g.meaning && <span className="opacity-70 font-normal">({g.meaning})</span>}
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
+                        {passageVocabPoints.length > 0 && (
+                            <div className="space-y-1.5 pt-1">
+                                <div className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                                    Từ vựng quan trọng:
+                                </div>
+                                <div className="flex flex-wrap gap-1.5">
+                                    {passageVocabPoints.slice(0, 12).map((v, vIdx) => (
+                                        <span
+                                            key={vIdx}
+                                            className="px-2.5 py-1 rounded-lg text-xs font-medium bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 flex items-center gap-1"
+                                        >
+                                            <strong className="font-bold text-emerald-600 dark:text-emerald-400">{v.w}</strong>
+                                            {v.read && v.read !== v.w && <span className="text-[11px] text-slate-400">({v.read})</span>}
+                                            <span>: {v.vi}</span>
+                                        </span>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                     </div>
                 )}
             </div>

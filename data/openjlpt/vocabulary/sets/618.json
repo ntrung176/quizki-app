@@ -1,0 +1,154 @@
+{
+  "id": 618,
+  "title": "N2 Unit 12.6 - 動詞C (bài 6/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.785575",
+  "cards": [
+    {
+      "id": 14204,
+      "term": "略す (りゃくす)",
+      "reading": "りゃくす",
+      "romaji": null,
+      "definition": "lượt bớt, viết tắt, tóm gọn",
+      "exampleSentence": "国際連合を略して国連と言う。",
+      "exampleTranslation": "“Quốc tế liên hợp” được viết tắt là “quốc liên”.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14205,
+      "term": "迫る (せまる)",
+      "reading": "せまる",
+      "romaji": null,
+      "definition": "tiến sát, thúc giục, cưỡng bức",
+      "exampleSentence": "後ろのランナーが前のランナーにだんだん迫ってきた。",
+      "exampleTranslation": "Người chạy sau đang dần áp sát người chạy trước.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14206,
+      "term": "狙う (ねらう)",
+      "reading": "ねらう",
+      "romaji": null,
+      "definition": "nhắm đến",
+      "exampleSentence": "的を狙って撃つ。",
+      "exampleTranslation": "Nhắm vào mục tiêu rồi bắn.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14207,
+      "term": "犯す (おかす)",
+      "reading": "おかす",
+      "romaji": null,
+      "definition": "thực hiện (hành vi phạm tội)",
+      "exampleSentence": "罪を犯したら、償わなければならない。",
+      "exampleTranslation": "Phạm tội thì phải chuộc tội/đền bù.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14208,
+      "term": "侵す (おかす)",
+      "reading": "おかす",
+      "romaji": null,
+      "definition": "xâm chiếm",
+      "exampleSentence": "他国の領土を侵す。",
+      "exampleTranslation": "Xâm phạm lãnh thổ nước khác.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14209,
+      "term": "冒す (おかす)",
+      "reading": "おかす",
+      "romaji": null,
+      "definition": "can đảm, đương đầu",
+      "exampleSentence": "救援隊は危険を冒して遭難者を救助した。",
+      "exampleTranslation": "Đội cứu hộ bất chấp nguy hiểm để cứu người gặp nạn.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14210,
+      "term": "脅す (おどす)",
+      "reading": "おどす",
+      "romaji": null,
+      "definition": "bắt nạt, đe dọa",
+      "exampleSentence": "ナイフで脅して金を奪う。",
+      "exampleTranslation": "Dùng dao uy hiếp để cướp tiền.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14211,
+      "term": "脅かす (おどかす)",
+      "reading": "おどかす",
+      "romaji": null,
+      "definition": "hù dọa",
+      "exampleSentence": "暗いところで突然大声を出して、友達を脅かした。",
+      "exampleTranslation": "Trong chỗ tối bỗng hét to để hù bạn.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14212,
+      "term": "逆らう (さからう)",
+      "reading": "さからう",
+      "romaji": null,
+      "definition": "ngược lại, không tuân theo",
+      "exampleSentence": "川の流れに逆らって進む。",
+      "exampleTranslation": "Tiến ngược dòng nước sông.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14213,
+      "term": "妨げる (さまたげる)",
+      "reading": "さまたげる",
+      "romaji": null,
+      "definition": "ngăn chặn",
+      "exampleSentence": "過保護は子供の成長を妨げる。",
+      "exampleTranslation": "Nuông chiều quá mức sẽ cản trở sự trưởng thành của trẻ.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14214,
+      "term": "打ち消す (うちけす)",
+      "reading": "うちけす",
+      "romaji": null,
+      "definition": "phủ nhận, bác bỏ",
+      "exampleSentence": "良くないうわさが流れると、それを打ち消すのは大変だ。",
+      "exampleTranslation": "Tin đồn xấu đã lan ra thì rất khó dập tắt.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14215,
+      "term": "応じる (おうじる)",
+      "reading": "おうじる",
+      "romaji": null,
+      "definition": "đáp lại, đối ứng",
+      "exampleSentence": "ボランティア募集の呼びかけに応じて、大勢の若者が集まった。",
+      "exampleTranslation": "Hưởng ứng lời kêu gọi tuyển tình nguyện viên, rất nhiều bạn trẻ đã tập hợp.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 14216,
+      "term": "承る (うけたまわる)",
+      "reading": "うけたまわる",
+      "romaji": null,
+      "definition": "hiểu, rõ rồi",
+      "exampleSentence": "「ご注文、確かに承りました」",
+      "exampleTranslation": "“Vâng, tôi đã nhận đơn gọi món của quý khách.”",
+      "forms": [],
+      "displayOrder": 12
+    }
+  ]
+}

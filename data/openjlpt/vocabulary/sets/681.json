@@ -1,0 +1,231 @@
+{
+  "id": 681,
+  "title": "N3 Tango 11.3 - Hãy truyền đạt cảm xúc của mình · Tâm trạng buồn chán",
+  "description": "Tango N3 — Hãy truyền đạt cảm xúc của mình",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:26.146799",
+  "cards": [
+    {
+      "id": 15556,
+      "term": "あきる",
+      "reading": "あきる",
+      "romaji": null,
+      "definition": "Chán",
+      "exampleSentence": "毎日同じ料理を食べると、だれでもあきる。",
+      "exampleTranslation": "Ăn cùng một món mỗi ngày thì ai cũng sẽ chán.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 15557,
+      "term": "嫌がる (いやがる)",
+      "reading": "いやがる",
+      "romaji": null,
+      "definition": "Ghét",
+      "exampleSentence": "弟は苦い薬を飲むのを嫌がる。",
+      "exampleTranslation": "Em trai không chịu uống thuốc đắng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 15558,
+      "term": "落ち込む (おちこむ)",
+      "reading": "おちこむ",
+      "romaji": null,
+      "definition": "Buồn, thất vọng",
+      "exampleSentence": "試験に失敗しても、いつまでも落ち込む必要はない。",
+      "exampleTranslation": "Dù thất bại trong kỳ thi cũng không cần buồn bã mãi.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 15559,
+      "term": "がっかり（する）",
+      "reading": "がっかり（する）",
+      "romaji": null,
+      "definition": "Sự thất vọng",
+      "exampleSentence": "楽しみにしていた試合が中止になり、私はがっかり（する）気持ちになった。",
+      "exampleTranslation": "Trận đấu mà tôi mong đợi bị hủy nên tôi cảm thấy rất thất vọng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 15560,
+      "term": "悲しむ (かなしむ)",
+      "reading": "かなしむ",
+      "romaji": null,
+      "definition": "Đau buồn",
+      "exampleSentence": "大切な人を失うと、誰でも悲しむ。",
+      "exampleTranslation": "Khi mất đi người quan trọng, ai cũng đau buồn.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 15561,
+      "term": "かわいそうな",
+      "reading": "かわいそうな",
+      "romaji": null,
+      "definition": "Đáng thương, tội nghiệp",
+      "exampleSentence": "雨の中で震えている子犬が、かわいそうな目でこちらを見ていた。",
+      "exampleTranslation": "Chú chó con run rẩy dưới mưa nhìn tôi bằng ánh mắt tội nghiệp.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 15562,
+      "term": "気の毒な (きのどくな)",
+      "reading": "きのどくな",
+      "romaji": null,
+      "definition": "Tội nghiệp, kém may mắn",
+      "exampleSentence": "それは気の毒な話なので、みんなで彼を励ましました。",
+      "exampleTranslation": "Đó là một câu chuyện đáng thương nên mọi người đã cùng động viên anh ấy.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 15563,
+      "term": "きつい",
+      "reading": "きつい",
+      "romaji": null,
+      "definition": "Chật, vất vả, cực nhọc",
+      "exampleSentence": "この靴は少しきついので、長く歩くと足が痛くなります。",
+      "exampleTranslation": "Đôi giày này hơi chật nên đi bộ lâu sẽ bị đau chân.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 15564,
+      "term": "恐怖 (きょうふ)",
+      "reading": "きょうふ",
+      "romaji": null,
+      "definition": "Nỗi sợ",
+      "exampleSentence": "子どものころ、私は地震に大きな恐怖を感じました。",
+      "exampleTranslation": "Khi còn nhỏ, tôi đã cảm thấy vô cùng sợ hãi trước động đất.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 15565,
+      "term": "ショック",
+      "reading": "ショック",
+      "romaji": null,
+      "definition": "Cú sốc",
+      "exampleSentence": "突然会社が倒産したと聞いて、みんなショックを受けました。",
+      "exampleTranslation": "Nghe tin công ty đột nhiên phá sản, mọi người đều bị sốc.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 15566,
+      "term": "後悔（する） (こうかい（する）)",
+      "reading": "こうかい（する）",
+      "romaji": null,
+      "definition": "Sự ân hận",
+      "exampleSentence": "「後悔（する）」という気持ちを残さないように、今できることを始めよう。",
+      "exampleTranslation": "Hãy bắt đầu làm những điều có thể làm ngay bây giờ để không phải nuối tiếc.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 15567,
+      "term": "悩む (なやむ)",
+      "reading": "なやむ",
+      "romaji": null,
+      "definition": "Trăn trở",
+      "exampleSentence": "進路について一人で悩む前に、先生に相談してください。",
+      "exampleTranslation": "Trước khi trăn trở một mình về hướng đi tương lai, hãy trao đổi với giáo viên.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 15568,
+      "term": "悩み (なやみ)",
+      "reading": "なやみ",
+      "romaji": null,
+      "definition": "Điều trăn trở",
+      "exampleSentence": "将来のことが大きな悩みになっています。",
+      "exampleTranslation": "Chuyện tương lai đang trở thành nỗi trăn trở lớn của tôi.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 15569,
+      "term": "不安（な） (ふあん（な）)",
+      "reading": "ふあん（な）",
+      "romaji": null,
+      "definition": "Sự bất an (bất an, lo lắng)",
+      "exampleSentence": "初めての海外生活では、「不安（な）」という気持ちになる人も多いです。",
+      "exampleTranslation": "Khi lần đầu sống ở nước ngoài, nhiều người cũng cảm thấy bất an.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 15570,
+      "term": "迷惑（な/する） (めいわく（な/する）)",
+      "reading": "めいわく（な/する）",
+      "romaji": null,
+      "definition": "Sự phiền phức, phiền toái",
+      "exampleSentence": "「迷惑（な/する）」という言葉を覚え、人に迷惑をかけないようにしましょう。",
+      "exampleTranslation": "Hãy ghi nhớ từ này và cố gắng không gây phiền toái cho người khác.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 15571,
+      "term": "面倒（な） (めんどう（な）)",
+      "reading": "めんどう（な）",
+      "romaji": null,
+      "definition": "Sự chăm sóc, trông nom, sự phiền phức, khó khăn (phiền)",
+      "exampleSentence": "「面倒（な）」には、世話をする意味と手間がかかる意味があります。",
+      "exampleTranslation": "「面倒（な）」 có nghĩa là chăm sóc hoặc tốn nhiều công sức.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 15572,
+      "term": "面倒くさい (めんどうくさい)",
+      "reading": "めんどうくさい",
+      "romaji": null,
+      "definition": "Phiền phức",
+      "exampleSentence": "毎日同じ料理を作るのは面倒くさいです。",
+      "exampleTranslation": "Ngày nào cũng nấu cùng một món ăn thật phiền phức.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 15573,
+      "term": "ぶつぶつ",
+      "reading": "ぶつぶつ",
+      "romaji": null,
+      "definition": "Lầm bầm",
+      "exampleSentence": "弟は宿題をしながら、ぶつぶつ文句を言っています。",
+      "exampleTranslation": "Em trai tôi vừa làm bài tập vừa lẩm bẩm than phiền.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 15574,
+      "term": "いちいち",
+      "reading": "いちいち",
+      "romaji": null,
+      "definition": "Hơi một tí là",
+      "exampleSentence": "彼はいちいち細かいことまで説明しないと、納得してくれない。",
+      "exampleTranslation": "Anh ấy cứ phải giải thích đến từng chi tiết nhỏ thì mới chịu hiểu.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 15575,
+      "term": "やかましい",
+      "reading": "やかましい",
+      "romaji": null,
+      "definition": "Ầm ĩ, rát tai",
+      "exampleSentence": "隣の工事の音がやかましいので、窓を閉めて勉強した。",
+      "exampleTranslation": "Vì tiếng công trình bên cạnh quá ồn nên tôi đã đóng cửa sổ để học.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

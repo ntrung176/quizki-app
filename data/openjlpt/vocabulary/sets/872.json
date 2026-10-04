@@ -1,0 +1,220 @@
+{
+  "id": 872,
+  "title": "N5 Tango 4.3 - Bạn bè · Mặc váy",
+  "description": "Tango N5 — Bạn bè",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:47.674625",
+  "cards": [
+    {
+      "id": 20347,
+      "term": "はく",
+      "reading": "はく",
+      "romaji": null,
+      "definition": "Mặc (váy, quần)",
+      "exampleSentence": "寒い朝は、まずズボンをはく。",
+      "exampleTranslation": "Vào những buổi sáng lạnh, tôi mặc quần trước tiên.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20348,
+      "term": "ズボン",
+      "reading": "ズボン",
+      "romaji": null,
+      "definition": "Quần, quần dài",
+      "exampleSentence": "このズボンは大きいので、ベルトが必要です。",
+      "exampleTranslation": "Chiếc quần này rộng nên cần có thắt lưng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20349,
+      "term": "ジーンズ",
+      "reading": "ジーンズ",
+      "romaji": null,
+      "definition": "Quần jeans",
+      "exampleSentence": "兄はいつもジーンズをはいています。",
+      "exampleTranslation": "Anh trai tôi lúc nào cũng mặc quần jeans.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20350,
+      "term": "パンツ",
+      "reading": "パンツ",
+      "romaji": null,
+      "definition": "Quần tây",
+      "exampleSentence": "このパンツは軽くて、動きやすいです。",
+      "exampleTranslation": "Chiếc quần này nhẹ và dễ vận động.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20351,
+      "term": "スカート",
+      "reading": "スカート",
+      "romaji": null,
+      "definition": "Váy",
+      "exampleSentence": "妹は赤いスカートをはいて、友達と出かけました。",
+      "exampleTranslation": "Em gái tôi mặc váy đỏ và đã đi chơi với bạn.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20352,
+      "term": "くつ",
+      "reading": "くつ",
+      "romaji": null,
+      "definition": "Giày",
+      "exampleSentence": "これは私のくつです。",
+      "exampleTranslation": "Đây là đôi giày của tôi.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20353,
+      "term": "くつした",
+      "reading": "くつした",
+      "romaji": null,
+      "definition": "Vớ, tất",
+      "exampleSentence": "毎朝、くつしたをはいてから学校へ行きます。",
+      "exampleTranslation": "Mỗi sáng, tôi đi tất rồi mới đến trường.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20354,
+      "term": "かぶる",
+      "reading": "かぶる",
+      "romaji": null,
+      "definition": "Đội",
+      "exampleSentence": "私は毎朝、帽子をかぶる。",
+      "exampleTranslation": "Mỗi sáng, tôi đội mũ.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20355,
+      "term": "ぼうし",
+      "reading": "ぼうし",
+      "romaji": null,
+      "definition": "Nón, mũ",
+      "exampleSentence": "新しいぼうしを買いました。",
+      "exampleTranslation": "Tôi đã mua một chiếc mũ mới.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20356,
+      "term": "（めがねを）かける",
+      "reading": "（めがねを）かける",
+      "romaji": null,
+      "definition": "Đeo (mắt kính)",
+      "exampleSentence": "朝、（めがねを）かけると、よく見えます。",
+      "exampleTranslation": "Buổi sáng, đeo kính vào thì tôi nhìn rõ hơn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20357,
+      "term": "めがね",
+      "reading": "めがね",
+      "romaji": null,
+      "definition": "Mắt kính",
+      "exampleSentence": "めがねをかけると、字がよく見えます。",
+      "exampleTranslation": "Đeo kính vào thì nhìn chữ rõ hơn.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 20358,
+      "term": "サングラス",
+      "reading": "サングラス",
+      "romaji": null,
+      "definition": "Kính mát",
+      "exampleSentence": "夏はサングラスをかけて、自転車に乗ります。",
+      "exampleTranslation": "Mùa hè, tôi đeo kính mát và đi xe đạp.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 20359,
+      "term": "（ゆびわを）する",
+      "reading": "（ゆびわを）する",
+      "romaji": null,
+      "definition": "Đeo (nhẫn)",
+      "exampleSentence": "姉は出かける前に、（ゆびわを）する。",
+      "exampleTranslation": "Chị tôi đeo nhẫn trước khi ra ngoài.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 20360,
+      "term": "ネクタイ",
+      "reading": "ネクタイ",
+      "romaji": null,
+      "definition": "Cà vạt",
+      "exampleSentence": "父は仕事の日にネクタイをします。",
+      "exampleTranslation": "Bố tôi đeo cà vạt vào những ngày đi làm.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 20361,
+      "term": "ゆびわ",
+      "reading": "ゆびわ",
+      "romaji": null,
+      "definition": "Chiếc nhẫn",
+      "exampleSentence": "このゆびわは母からのプレゼントです。",
+      "exampleTranslation": "Chiếc nhẫn này là quà mẹ tặng tôi.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 20362,
+      "term": "とけい",
+      "reading": "とけい",
+      "romaji": null,
+      "definition": "Đồng hồ",
+      "exampleSentence": "このとけいは三時で止まりました。",
+      "exampleTranslation": "Chiếc đồng hồ này đã dừng ở lúc ba giờ.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 20363,
+      "term": "もつ",
+      "reading": "もつ",
+      "romaji": null,
+      "definition": "Có, cầm, giữ, xách",
+      "exampleSentence": "私は学校へ行くとき、水をもつ。",
+      "exampleTranslation": "Khi đi học, tôi mang theo nước.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 20364,
+      "term": "かばん",
+      "reading": "かばん",
+      "romaji": null,
+      "definition": "Túi xách",
+      "exampleSentence": "これはわたしのかばんです。",
+      "exampleTranslation": "Đây là chiếc túi xách của tôi.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 20365,
+      "term": "さいふ",
+      "reading": "さいふ",
+      "romaji": null,
+      "definition": "Ví, bóp",
+      "exampleSentence": "さいふをかばんの中に入れました。",
+      "exampleTranslation": "Tôi đã bỏ ví vào trong túi xách.",
+      "forms": [],
+      "displayOrder": 18
+    }
+  ]
+}

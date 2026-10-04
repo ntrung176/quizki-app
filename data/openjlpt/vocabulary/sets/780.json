@@ -1,0 +1,231 @@
+{
+  "id": 780,
+  "title": "N2 Tango 12.1 - Cách nói dễ nhầm lẫn · Thành ngữ ① Tính khí, tâm hồn, tâm trạng",
+  "description": "Tango N2 — Cách nói dễ nhầm lẫn",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:38.4921",
+  "cards": [
+    {
+      "id": 18048,
+      "term": "気が早い (きがはやい)",
+      "reading": "きがはやい",
+      "romaji": null,
+      "definition": "Nôn nóng",
+      "exampleSentence": "まだ春になったばかりなのに、夏休みの旅行を予約するなんて気が早い。",
+      "exampleTranslation": "Mới chỉ bắt đầu mùa xuân mà đã đặt chuyến du lịch hè thì thật là nôn nóng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 18049,
+      "term": "気が重い (きがおもい)",
+      "reading": "きがおもい",
+      "romaji": null,
+      "definition": "Cảm thấy chán nản, nặng nề",
+      "exampleSentence": "苦手な上司に報告しなければならず、今日は朝から気が重い。",
+      "exampleTranslation": "Vì phải báo cáo với cấp trên mình không ưa nên từ sáng tôi đã cảm thấy nặng nề.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 18050,
+      "term": "気が合う (きがあう)",
+      "reading": "きがあう",
+      "romaji": null,
+      "definition": "Hợp tính",
+      "exampleSentence": "初めて会ったのに、彼とはすぐに気が合うと感じた。",
+      "exampleTranslation": "Dù mới gặp lần đầu, tôi đã cảm thấy mình nhanh chóng hợp tính với anh ấy.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 18051,
+      "term": "気が利く (きがきく)",
+      "reading": "きがきく",
+      "romaji": null,
+      "definition": "Chu đáo, quan tâm, ân cần",
+      "exampleSentence": "彼は気が利くので、頼む前に必要なものを用意してくれる。",
+      "exampleTranslation": "Anh ấy rất chu đáo, luôn chuẩn bị sẵn những thứ cần thiết trước khi được nhờ.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 18052,
+      "term": "気がつく (きがつく)",
+      "reading": "きがつく",
+      "romaji": null,
+      "definition": "Nhận thấy, nhớ ra, để ý, chu đáo",
+      "exampleSentence": "彼女は小さな変化にもすぐ気がつく人だ。",
+      "exampleTranslation": "Cô ấy là người nhận ra ngay cả những thay đổi nhỏ.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 18053,
+      "term": "気が強い (きがつよい)",
+      "reading": "きがつよい",
+      "romaji": null,
+      "definition": "Cá tính, mạnh mẽ",
+      "exampleSentence": "彼女は気が強いので、反対意見にもひるまず自分の考えを述べる。",
+      "exampleTranslation": "Vì cá tính mạnh nên cô ấy không nao núng trước ý kiến phản đối mà vẫn nói lên suy nghĩ của mình.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 18054,
+      "term": "気が小さい (きがちいさい)",
+      "reading": "きがちいさい",
+      "romaji": null,
+      "definition": "Nhút nhát, nhát gan, yếu bóng vía",
+      "exampleSentence": "弟は気が小さいので、失敗をいつまでも気にしている。",
+      "exampleTranslation": "Em trai tôi nhút nhát nên cứ mãi lo lắng về thất bại.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 18055,
+      "term": "気を遣う (きをつかう)",
+      "reading": "きをつかう",
+      "romaji": null,
+      "definition": "Giữ ý, lo lắng",
+      "exampleSentence": "彼は気を遣う性格なので、旅行中もみんなの疲れ具合を気にしていた。",
+      "exampleTranslation": "Vì có tính hay giữ ý, trong chuyến đi anh ấy luôn để tâm đến mức độ mệt mỏi của mọi người.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 18056,
+      "term": "気が進まない (きがすすまない)",
+      "reading": "きがすすまない",
+      "romaji": null,
+      "definition": "Không hứng thú",
+      "exampleSentence": "今日はどうも気が進まないので、その集まりを欠席することにした。",
+      "exampleTranslation": "Hôm nay tôi không thấy hứng thú lắm nên quyết định không tham dự buổi tụ họp đó.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 18057,
+      "term": "気にかかる (きにかかる)",
+      "reading": "きにかかる",
+      "romaji": null,
+      "definition": "Lo lắng",
+      "exampleSentence": "息子がまだ帰ってこないことが気にかかる。",
+      "exampleTranslation": "Tôi lo lắng vì con trai vẫn chưa về.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 18058,
+      "term": "気にくわない (きにくわない)",
+      "reading": "きにくわない",
+      "romaji": null,
+      "definition": "Bất mãn, không ưa",
+      "exampleSentence": "約束の時間にいつも遅れる彼の態度が気にくわない。",
+      "exampleTranslation": "Tôi không ưa thái độ lúc nào cũng đến muộn so với giờ hẹn của anh ta.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 18059,
+      "term": "心が通う (こころがかよう)",
+      "reading": "こころがかよう",
+      "romaji": null,
+      "definition": "Thấu hiểu nhau",
+      "exampleSentence": "長年一緒に働くうちに、言葉が少なくても心が通うようになった。",
+      "exampleTranslation": "Sau nhiều năm làm việc cùng nhau, chúng tôi đã trở nên thấu hiểu nhau dù không cần nói nhiều.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 18060,
+      "term": "心が狭い (こころがせまい)",
+      "reading": "こころがせまい",
+      "romaji": null,
+      "definition": "Hẹp lòng, hẹp hòi",
+      "exampleSentence": "一度の失敗をいつまでも責めるなんて、少し心が狭いと思う。",
+      "exampleTranslation": "Tôi nghĩ cứ mãi trách móc một lỗi lầm thì hơi hẹp lòng.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 18061,
+      "term": "心が動く (こころがうごく)",
+      "reading": "こころがうごく",
+      "romaji": null,
+      "definition": "Dao động, xáo động",
+      "exampleSentence": "困っている人を見捨てられない彼の優しさに心が動く。",
+      "exampleTranslation": "Tôi bị lay động bởi lòng tốt của anh ấy, người không thể bỏ mặc những ai đang gặp khó khăn.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 18062,
+      "term": "心を配る (こころをくばる)",
+      "reading": "こころをくばる",
+      "romaji": null,
+      "definition": "Quan tâm, chu đáo",
+      "exampleSentence": "彼女はいつも周囲に心を配るので、みんなから信頼されています。",
+      "exampleTranslation": "Vì cô ấy luôn quan tâm chu đáo đến mọi người xung quanh nên được mọi người tin tưởng.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 18063,
+      "term": "心を引かれる (こころをひかれる)",
+      "reading": "こころをひかれる",
+      "romaji": null,
+      "definition": "Bị thu hút",
+      "exampleSentence": "美しい景色を見ると、自然に心を引かれるものです。",
+      "exampleTranslation": "Khi ngắm cảnh đẹp, người ta thường tự nhiên bị thu hút.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 18064,
+      "term": "心を許す (こころをゆるす)",
+      "reading": "こころをゆるす",
+      "romaji": null,
+      "definition": "Tin tưởng, thật lòng",
+      "exampleSentence": "誰にでも心を許すのではなく、信頼できる人を選ぶことが大切です。",
+      "exampleTranslation": "Điều quan trọng là không nên tin tưởng bất kỳ ai mà phải chọn người đáng tin cậy.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 18065,
+      "term": "胸が痛む (むねがいたむ)",
+      "reading": "むねがいたむ",
+      "romaji": null,
+      "definition": "Đau lòng, xót xa",
+      "exampleSentence": "子どもたちが苦しむ姿を見ると、胸が痛む。",
+      "exampleTranslation": "Nhìn những đứa trẻ phải chịu khổ, tôi cảm thấy rất đau lòng.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 18066,
+      "term": "胸が一杯になる (むねがいっぱいになる)",
+      "reading": "むねがいっぱいになる",
+      "romaji": null,
+      "definition": "Xúc động, cảm xúc dâng trào",
+      "exampleSentence": "卒業式で先生の言葉を聞くと、感謝の気持ちで胸が一杯になる。",
+      "exampleTranslation": "Nghe lời thầy cô trong lễ tốt nghiệp, lòng tôi tràn ngập sự biết ơn.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 18067,
+      "term": "胸をはずませる (むねをはずませる)",
+      "reading": "むねをはずませる",
+      "romaji": null,
+      "definition": "Hồi hộp, náo nức, lòng rộn ràng",
+      "exampleSentence": "子どもたちは遠足を前にして、胸をはずませる。",
+      "exampleTranslation": "Trước chuyến dã ngoại, bọn trẻ háo hức vô cùng.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

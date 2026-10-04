@@ -40,3 +40,31 @@ export const ROADMAP_TASKS = {
     listening: { title: "Kỹ năng Nghe hiểu", desc: "Nghe hội thoại ngắn 10 phút và trả lời câu hỏi." },
     practice: { title: "Luyện đề thi thử", desc: "Làm 1 bài thi mini test kiểm tra năng lực tổng quát." }
 };
+
+/**
+ * Calculates accurate question count for a test, taking into account multi-question reading passages (subQuestions).
+ */
+export const getTestQuestionCount = (test) => {
+    if (!test) return 0;
+    if (test.sections && Array.isArray(test.sections)) {
+        return test.sections.reduce((sum, s) => {
+            if (!s || !s.questions || !Array.isArray(s.questions)) return sum;
+            return sum + s.questions.reduce((qSum, q) => {
+                if (q && Array.isArray(q.subQuestions) && q.subQuestions.length > 0) {
+                    return qSum + q.subQuestions.length;
+                }
+                return qSum + 1;
+            }, 0);
+        }, 0);
+    }
+    if (test.questions && Array.isArray(test.questions)) {
+        return test.questions.reduce((qSum, q) => {
+            if (q && Array.isArray(q.subQuestions) && q.subQuestions.length > 0) {
+                return qSum + q.subQuestions.length;
+            }
+            return qSum + 1;
+        }, 0);
+    }
+    return 0;
+};
+

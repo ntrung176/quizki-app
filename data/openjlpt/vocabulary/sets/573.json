@@ -1,0 +1,165 @@
+{
+  "id": 573,
+  "title": "N2 Unit 5.4 - カタカナA (bài 4/5)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — カタカナA",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.13147",
+  "cards": [
+    {
+      "id": 13658,
+      "term": "キャプテン",
+      "reading": "キャプテン",
+      "romaji": null,
+      "definition": "đội trưởng",
+      "exampleSentence": "スポーツのキャプテンは、責任感とチームをまとめる力を求められる。",
+      "exampleTranslation": "Đội trưởng thể thao cần trách nhiệm và khả năng gắn kết đội.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13659,
+      "term": "サークル",
+      "reading": "サークル",
+      "romaji": null,
+      "definition": "câu lạc bộ",
+      "exampleSentence": "学生時代、演劇のサークル入っていた。",
+      "exampleTranslation": "Thời sinh viên, tôi từng tham gia CLB kịch.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13660,
+      "term": "キャンパス",
+      "reading": "キャンパス",
+      "romaji": null,
+      "definition": "khuôn viên trường học",
+      "exampleSentence": "この大学のキャンパスは緑が豊かだ。",
+      "exampleTranslation": "Khuôn viên trường đại học này rất nhiều cây xanh.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13661,
+      "term": "オリエンテーション",
+      "reading": "オリエンテーション",
+      "romaji": null,
+      "definition": "buổi định hướng, hướng dẫn",
+      "exampleSentence": "新学期、学生を対象に授業登録のオリエンテーションがあった。",
+      "exampleTranslation": "Đầu học kỳ có buổi định hướng đăng ký môn cho sinh viên.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13662,
+      "term": "カリキュラム",
+      "reading": "カリキュラム",
+      "romaji": null,
+      "definition": "giáo án; giáo trình; chương trình giảng dạy",
+      "exampleSentence": "カリキュラムに沿って授業を行う。",
+      "exampleTranslation": "Dạy học theo đúng giáo trình/chương trình.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13663,
+      "term": "プログラム",
+      "reading": "プログラム",
+      "romaji": null,
+      "definition": "chương trình",
+      "exampleSentence": "大会の参加者にプログラムが配られた。",
+      "exampleTranslation": "Tài liệu chương trình (program) được phát cho người tham dự.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13664,
+      "term": "レッスン",
+      "reading": "レッスン",
+      "romaji": null,
+      "definition": "bài học",
+      "exampleSentence": "ピアノのレッスンに通う。",
+      "exampleTranslation": "Tôi đi học lớp piano.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13665,
+      "term": "レクリエーション",
+      "reading": "レクリエーション",
+      "romaji": null,
+      "definition": "giải trí, sự nghỉ giải lao",
+      "exampleSentence": "合宿では、勉強だけではなくレクリエーションも行われる。",
+      "exampleTranslation": "Trong trại huấn luyện, không chỉ học mà còn có các hoạt động giải trí.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13666,
+      "term": "レジャー",
+      "reading": "レジャー",
+      "romaji": null,
+      "definition": "sự thư giãn; sự nhàn nhã; sự nghỉ ngơi",
+      "exampleSentence": "休みに海外へレジャーに出かける。",
+      "exampleTranslation": "Kỳ nghỉ này tôi sẽ ra nước ngoài du lịch/nghỉ dưỡng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13667,
+      "term": "ガイド",
+      "reading": "ガイド",
+      "romaji": null,
+      "definition": "hướng dẫn",
+      "exampleSentence": "旅行会社でガイドをしている。",
+      "exampleTranslation": "Tôi làm hướng dẫn viên tại công ty du lịch.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13668,
+      "term": "シーズン",
+      "reading": "シーズン",
+      "romaji": null,
+      "definition": "mùa",
+      "exampleSentence": "日本では12月から2月にかけてが受験のシーズンだ。",
+      "exampleTranslation": "Ở Nhật, mùa thi cử rơi vào khoảng tháng 12 đến tháng 2.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13669,
+      "term": "ダイヤ(グラム)",
+      "reading": "ダイヤ(グラム)",
+      "romaji": null,
+      "definition": "lịch trình (đường sắt), biểu đồ, kim cương",
+      "exampleSentence": "事故で列車のダイヤが乱れたが、数時間後に復旧した。",
+      "exampleTranslation": "Do tai nạn nên lịch tàu bị đảo lộn, nhưng vài giờ sau đã trở lại bình thường.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13670,
+      "term": "ウイークデー",
+      "reading": "ウイークデー",
+      "romaji": null,
+      "definition": "ngày trong tuần",
+      "exampleSentence": "この道路はウィークデーは渋滞するが、休日はガラガラだ。",
+      "exampleTranslation": "Con đường này ngày thường hay kẹt xe, nhưng ngày nghỉ thì vắng tanh.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13671,
+      "term": "サービス",
+      "reading": "サービス",
+      "romaji": null,
+      "definition": "dịch vụ",
+      "exampleSentence": "「当社はお客様に喜ばれるサービスを心がけております」",
+      "exampleTranslation": "Công ty chúng tôi luôn chú trọng cung cấp dịch vụ làm hài lòng khách hàng.",
+      "forms": [],
+      "displayOrder": 13
+    }
+  ]
+}

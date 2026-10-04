@@ -1,0 +1,231 @@
+{
+  "id": 889,
+  "title": "N5 Tango 7.5 - Mua sắm · Quà tặng",
+  "description": "Tango N5 — Mua sắm",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:49.070485",
+  "cards": [
+    {
+      "id": 20730,
+      "term": "あげる",
+      "reading": "あげる",
+      "romaji": null,
+      "definition": "Tặng, cho",
+      "exampleSentence": "誕生日に妹へ花をあげる。",
+      "exampleTranslation": "Tôi sẽ tặng hoa cho em gái vào ngày sinh nhật.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20731,
+      "term": "もらう",
+      "reading": "もらう",
+      "romaji": null,
+      "definition": "Nhận",
+      "exampleSentence": "母からプレゼントをもらう。",
+      "exampleTranslation": "Tôi nhận quà từ mẹ.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20732,
+      "term": "くれる",
+      "reading": "くれる",
+      "romaji": null,
+      "definition": "(Được) cho, tặng",
+      "exampleSentence": "友達が私に本をくれる。",
+      "exampleTranslation": "Bạn tặng sách cho tôi.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20733,
+      "term": "プレゼント",
+      "reading": "プレゼント",
+      "romaji": null,
+      "definition": "Quà tặng",
+      "exampleSentence": "誕生日にプレゼントをもらいました。",
+      "exampleTranslation": "Tôi đã nhận được quà vào ngày sinh nhật.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20734,
+      "term": "物 (もの)",
+      "reading": "もの",
+      "romaji": null,
+      "definition": "Đồ vật",
+      "exampleSentence": "これは私の大切な物です。",
+      "exampleTranslation": "Đây là đồ vật quan trọng đối với tôi.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20735,
+      "term": "パーティー",
+      "reading": "パーティー",
+      "romaji": null,
+      "definition": "Tiệc",
+      "exampleSentence": "今週の土曜日にパーティーをします。",
+      "exampleTranslation": "Thứ Bảy tuần này chúng tôi sẽ tổ chức tiệc.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20736,
+      "term": "はじめる",
+      "reading": "はじめる",
+      "romaji": null,
+      "definition": "Bắt đầu",
+      "exampleSentence": "先生は九時に授業をはじめる。",
+      "exampleTranslation": "Thầy giáo bắt đầu tiết học lúc 9 giờ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20737,
+      "term": "だれ",
+      "reading": "だれ",
+      "romaji": null,
+      "definition": "Ai",
+      "exampleSentence": "あの人はだれですか。",
+      "exampleTranslation": "Người kia là ai vậy?",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20738,
+      "term": "どなた",
+      "reading": "どなた",
+      "romaji": null,
+      "definition": "Ai (kính ngữ)",
+      "exampleSentence": "受付にいる方はどなたですか。",
+      "exampleTranslation": "Vị đang ở quầy lễ tân là ai ạ?",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20739,
+      "term": "あのかた",
+      "reading": "あのかた",
+      "romaji": null,
+      "definition": "Người đó (kính ngữ)",
+      "exampleSentence": "あのかたは学校の先生です。",
+      "exampleTranslation": "Người đó là giáo viên của trường.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20740,
+      "term": "クリスマス",
+      "reading": "クリスマス",
+      "romaji": null,
+      "definition": "Giáng sinh",
+      "exampleSentence": "クリスマスに家族とケーキを食べます。",
+      "exampleTranslation": "Vào Giáng sinh, tôi ăn bánh cùng gia đình.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 20741,
+      "term": "[お]たんじょうび",
+      "reading": "[お]たんじょうび",
+      "romaji": null,
+      "definition": "Sinh nhật",
+      "exampleSentence": "おたんじょうびに何がほしいですか。",
+      "exampleTranslation": "Sinh nhật bạn muốn món quà gì?",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 20742,
+      "term": "生まれる (うまれる)",
+      "reading": "うまれる",
+      "romaji": null,
+      "definition": "Chào đời, được sinh ra",
+      "exampleSentence": "赤ちゃんは来月生まれる予定です。",
+      "exampleTranslation": "Em bé dự định sẽ chào đời vào tháng sau.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 20743,
+      "term": "おめでとう[ございます]",
+      "reading": "おめでとう[ございます]",
+      "romaji": null,
+      "definition": "(Xin) chúc mừng",
+      "exampleSentence": "お誕生日、おめでとうございます。",
+      "exampleTranslation": "Chúc mừng sinh nhật bạn.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 20744,
+      "term": "わあ",
+      "reading": "わあ",
+      "romaji": null,
+      "definition": "Ôi",
+      "exampleSentence": "わあ、きれいな花ですね。",
+      "exampleTranslation": "Ồ, hoa đẹp quá nhỉ!",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 20745,
+      "term": "何歳 (なんさい)",
+      "reading": "なんさい",
+      "romaji": null,
+      "definition": "Bao nhiêu (mấy) tuổi",
+      "exampleSentence": "妹さんは何歳ですか。",
+      "exampleTranslation": "Em gái bạn bao nhiêu tuổi?",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 20746,
+      "term": "[お]いくつ",
+      "reading": "[お]いくつ",
+      "romaji": null,
+      "definition": "Bao nhiêu (mấy) tuổi (kính ngữ)",
+      "exampleSentence": "おいくつですか。",
+      "exampleTranslation": "Bạn bao nhiêu tuổi ạ?",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 20747,
+      "term": "〜さい",
+      "reading": "〜さい",
+      "romaji": null,
+      "definition": "〜tuổi",
+      "exampleSentence": "年齢は「〜さい」を使って答えます。",
+      "exampleTranslation": "Khi trả lời tuổi, hãy dùng “〜tuổi”.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 20748,
+      "term": "何日 (なんにち)",
+      "reading": "なんにち",
+      "romaji": null,
+      "definition": "Ngày mấy",
+      "exampleSentence": "今日は何日ですか。",
+      "exampleTranslation": "Hôm nay là ngày mấy?",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 20749,
+      "term": "〜日 (～にち)",
+      "reading": "～にち",
+      "romaji": null,
+      "definition": "Ngày",
+      "exampleSentence": "日にちを言うとき、「〜日」を使います。",
+      "exampleTranslation": "Khi nói ngày, chúng ta dùng “〜日”.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

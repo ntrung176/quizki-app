@@ -1,0 +1,231 @@
+{
+  "id": 708,
+  "title": "N4 Tango 4.5 - Hãy đi ra ngoài nào · Thế giới",
+  "description": "Tango N4 — Hãy đi ra ngoài nào",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:30.316935",
+  "cards": [
+    {
+      "id": 16228,
+      "term": "人口 (じんこう)",
+      "reading": "じんこう",
+      "romaji": null,
+      "definition": "Dân số",
+      "exampleSentence": "この町は人口が少なくて、とても静かです。",
+      "exampleTranslation": "Thị trấn này có dân số ít nên rất yên tĩnh.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 16229,
+      "term": "億 (おく)",
+      "reading": "おく",
+      "romaji": null,
+      "definition": "Trăm triệu",
+      "exampleSentence": "この会社の売り上げは、一億円を超えました。",
+      "exampleTranslation": "Doanh thu của công ty này đã vượt một trăm triệu yên.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 16230,
+      "term": "経済 (けいざい)",
+      "reading": "けいざい",
+      "romaji": null,
+      "definition": "Kinh tế",
+      "exampleSentence": "最近、日本の経済について勉強しています。",
+      "exampleTranslation": "Gần đây tôi đang học về kinh tế Nhật Bản.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 16231,
+      "term": "貿易（する） (ぼうえき（する）)",
+      "reading": "ぼうえき（する）",
+      "romaji": null,
+      "definition": "Mậu dịch",
+      "exampleSentence": "授業で「貿易（する）」という言葉を習いました。",
+      "exampleTranslation": "Trong giờ học, tôi đã học từ “mậu dịch”.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 16232,
+      "term": "ゆしゅつ（する）",
+      "reading": "ゆしゅつ（する）",
+      "romaji": null,
+      "definition": "Việc xuất khẩu",
+      "exampleSentence": "「ゆしゅつ（する）」は、外国へ商品を売ることです。",
+      "exampleTranslation": "“Xuất khẩu” là việc bán hàng hóa ra nước ngoài.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 16233,
+      "term": "ゆにゅう（する）",
+      "reading": "ゆにゅう（する）",
+      "romaji": null,
+      "definition": "Việc nhập khẩu",
+      "exampleSentence": "「ゆにゅう（する）」は、外国から商品を買うことです。",
+      "exampleTranslation": "“Nhập khẩu” là việc mua hàng hóa từ nước ngoài.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 16234,
+      "term": "原料 (げんりょう)",
+      "reading": "げんりょう",
+      "romaji": null,
+      "definition": "Nguyên liệu",
+      "exampleSentence": "この工場では、地元で取れた米をお酒の原料にしています。",
+      "exampleTranslation": "Nhà máy này dùng gạo thu hoạch tại địa phương làm nguyên liệu sản xuất rượu.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 16235,
+      "term": "石油 (せきゆ)",
+      "reading": "せきゆ",
+      "romaji": null,
+      "definition": "Dầu",
+      "exampleSentence": "石油は車や飛行機を動かすために使われています。",
+      "exampleTranslation": "Dầu mỏ được sử dụng để vận hành ô tô và máy bay.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 16236,
+      "term": "物価 (ぶっか)",
+      "reading": "ぶっか",
+      "romaji": null,
+      "definition": "Vật giá",
+      "exampleSentence": "最近、物価が上がって、生活が少し苦しくなりました。",
+      "exampleTranslation": "Gần đây, vật giá tăng khiến cuộc sống trở nên khó khăn hơn một chút.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 16237,
+      "term": "政治 (せいじ)",
+      "reading": "せいじ",
+      "romaji": null,
+      "definition": "Chính trị",
+      "exampleSentence": "若い人も日本の政治について考えることが大切です。",
+      "exampleTranslation": "Việc giới trẻ cũng suy nghĩ về chính trị Nhật Bản là điều quan trọng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 16238,
+      "term": "首相 (しゅしょう)",
+      "reading": "しゅしょう",
+      "romaji": null,
+      "definition": "Thủ tướng",
+      "exampleSentence": "日本の首相は来週、外国の大使と会う予定です。",
+      "exampleTranslation": "Thủ tướng Nhật Bản dự định gặp đại sứ nước ngoài vào tuần tới.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 16239,
+      "term": "大統領 (だいとうりょう)",
+      "reading": "だいとうりょう",
+      "romaji": null,
+      "definition": "Tổng thống",
+      "exampleSentence": "その国の大統領は、国民に新しい計画を発表しました。",
+      "exampleTranslation": "Tổng thống của đất nước đó đã công bố kế hoạch mới với người dân.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 16240,
+      "term": "平和（な） (へいわ（な）)",
+      "reading": "へいわ（な）",
+      "romaji": null,
+      "definition": "Nền hòa bình (hòa bình)",
+      "exampleSentence": "「平和（な）」という言葉は、戦争がない状態を表します。",
+      "exampleTranslation": "Từ “hòa bình” chỉ trạng thái không có chiến tranh.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 16241,
+      "term": "戦争 (せんそう)",
+      "reading": "せんそう",
+      "romaji": null,
+      "definition": "Chiến tranh",
+      "exampleSentence": "戦争で多くの人が家族や家を失いました。",
+      "exampleTranslation": "Nhiều người đã mất gia đình và nhà cửa vì chiến tranh.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 16242,
+      "term": "文化 (ぶんか)",
+      "reading": "ぶんか",
+      "romaji": null,
+      "definition": "Văn hóa",
+      "exampleSentence": "外国で生活すると、その国の文化を深く知ることができます。",
+      "exampleTranslation": "Khi sống ở nước ngoài, bạn có thể hiểu sâu hơn về văn hóa của đất nước đó.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 16243,
+      "term": "世界遺産 (せかいいさん)",
+      "reading": "せかいいさん",
+      "romaji": null,
+      "definition": "Di sản thế giới",
+      "exampleSentence": "京都には、たくさんの世界遺産があります。",
+      "exampleTranslation": "Kyoto có rất nhiều di sản thế giới.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 16244,
+      "term": "世紀 (せいき)",
+      "reading": "せいき",
+      "romaji": null,
+      "definition": "Thế kỷ",
+      "exampleSentence": "この建物は二十世紀の初めに建てられました。",
+      "exampleTranslation": "Tòa nhà này được xây dựng vào đầu thế kỷ 20.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 16245,
+      "term": "時代 (じだい)",
+      "reading": "じだい",
+      "romaji": null,
+      "definition": "Thời đại",
+      "exampleSentence": "昔の時代の人々は、どんな生活をしていたのでしょうか。",
+      "exampleTranslation": "Người thời xưa đã có cuộc sống như thế nào nhỉ?",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 16246,
+      "term": "国際 (こくさい)",
+      "reading": "こくさい",
+      "romaji": null,
+      "definition": "Quốc tế",
+      "exampleSentence": "国際交流のイベントで、いろいろな国の人と話しました。",
+      "exampleTranslation": "Tôi đã trò chuyện với người đến từ nhiều quốc gia tại một sự kiện giao lưu quốc tế.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 16247,
+      "term": "世界中 (せかいじゅう)",
+      "reading": "せかいじゅう",
+      "romaji": null,
+      "definition": "Khắp thế giới, toàn thế giới",
+      "exampleSentence": "この歌は世界中の人に知られています。",
+      "exampleTranslation": "Bài hát này được mọi người trên khắp thế giới biết đến.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

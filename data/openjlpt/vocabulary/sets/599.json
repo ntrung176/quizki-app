@@ -1,0 +1,154 @@
+{
+  "id": 599,
+  "title": "N2 Unit 9.3 - カタカナB (bài 3/4)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — カタカナB",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.514888",
+  "cards": [
+    {
+      "id": 13978,
+      "term": "キャッシュ",
+      "reading": "キャッシュ",
+      "romaji": null,
+      "definition": "tiền mặt",
+      "exampleSentence": "彼は車の代金をキャッシュで払ったそうだ。",
+      "exampleTranslation": "Nghe nói anh ấy trả tiền mua xe bằng tiền mặt.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13979,
+      "term": "インフレ(インフレーション)",
+      "reading": "インフレ(インフレーション)",
+      "romaji": null,
+      "definition": "lạm phát",
+      "exampleSentence": "インフレで物価は上昇している。",
+      "exampleTranslation": "Do lạm phát, giá cả đang tăng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13980,
+      "term": "デモ(デモンストレーション)",
+      "reading": "デモ(デモンストレーション)",
+      "romaji": null,
+      "definition": "biểu tình",
+      "exampleSentence": "増税に抗議して、国のあちこちでデモが行われた。",
+      "exampleTranslation": "Để phản đối tăng thuế, nhiều nơi trong cả nước đã diễn ra biểu tình.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13981,
+      "term": "メーカー",
+      "reading": "メーカー",
+      "romaji": null,
+      "definition": "nhà chế tạo, người sản xuất",
+      "exampleSentence": "メーカーは海外に工場を持っていることが多い。",
+      "exampleTranslation": "Nhiều hãng sản xuất có nhà máy ở nước ngoài.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13982,
+      "term": "システム",
+      "reading": "システム",
+      "romaji": null,
+      "definition": "hệ thống",
+      "exampleSentence": "今、教育システムの見直しが進んでいる。",
+      "exampleTranslation": "Hiện việc rà soát/cải tổ hệ thống giáo dục đang được thúc đẩy.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13983,
+      "term": "ケース",
+      "reading": "ケース",
+      "romaji": null,
+      "definition": "trường hợp, hộp, thùng, bao",
+      "exampleSentence": "指輪をケースにしまった。",
+      "exampleTranslation": "Tôi cất chiếc nhẫn vào hộp.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13984,
+      "term": "パターン",
+      "reading": "パターン",
+      "romaji": null,
+      "definition": "mô típ, hình mẫu, mẫu, kiểu (mẫu)",
+      "exampleSentence": "血液型性格占いは、人間の性格を4つのパターンに分けている。",
+      "exampleTranslation": "Bói tính cách theo nhóm máu chia tính cách con người thành 4 kiểu.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13985,
+      "term": "プラン",
+      "reading": "プラン",
+      "romaji": null,
+      "definition": "kế hoạch",
+      "exampleSentence": "両親は、定年後に海外移住するプランを立てている。",
+      "exampleTranslation": "Bố mẹ tôi đang lập kế hoạch di cư ra nước ngoài sau khi về hưu.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13986,
+      "term": "トラブル",
+      "reading": "トラブル",
+      "romaji": null,
+      "definition": "rắc rối",
+      "exampleSentence": "テレビの音のことでアパートの隣人とトラブルになった。",
+      "exampleTranslation": "Tôi gặp rắc rối với hàng xóm căn hộ bên cạnh vì chuyện âm lượng TV.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13987,
+      "term": "エラー",
+      "reading": "エラー",
+      "romaji": null,
+      "definition": "lỗi",
+      "exampleSentence": "このデジカメはよくエラーが起こる。",
+      "exampleTranslation": "Cái máy ảnh số này rất hay gặp lỗi.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13988,
+      "term": "クレーム",
+      "reading": "クレーム",
+      "romaji": null,
+      "definition": "phàn nàn, khiếu nại",
+      "exampleSentence": "「買った肉が変な匂いがする」と、スーパーにクレームがあった。",
+      "exampleTranslation": "Thịt đã mua có mùi lạ nên đã khiếu nại với siêu thị.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13989,
+      "term": "キャンセル",
+      "reading": "キャンセル",
+      "romaji": null,
+      "definition": "hủy bỏ",
+      "exampleSentence": "ホテルの予約をキャンセルした。",
+      "exampleTranslation": "Hủy đặt phòng khách sạn.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13990,
+      "term": "ストップ",
+      "reading": "ストップ",
+      "romaji": null,
+      "definition": "dừng lại",
+      "exampleSentence": "踏切事故で電車が1時間ストップした。",
+      "exampleTranslation": "Do tai nạn ở đường ngang nên tàu điện bị ngừng hoạt động 1 tiếng.",
+      "forms": [],
+      "displayOrder": 12
+    }
+  ]
+}

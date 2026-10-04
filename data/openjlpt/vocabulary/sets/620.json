@@ -1,0 +1,143 @@
+{
+  "id": 620,
+  "title": "N2 Unit 12.8 - 動詞C (bài 8/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.822961",
+  "cards": [
+    {
+      "id": 14230,
+      "term": "及ぶ (およぶ)",
+      "reading": "およぶ",
+      "romaji": null,
+      "definition": "đạt đến, lan ra",
+      "exampleSentence": "台風の被害は、九州地方全域に及んだ。",
+      "exampleTranslation": "Thiệt hại do bão ảnh hưởng khắp toàn vùng Kyushu.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14231,
+      "term": "及ぼす (およぼす)",
+      "reading": "およぼす",
+      "romaji": null,
+      "definition": "ảnh hưởng",
+      "exampleSentence": "彼らの音楽は若者に大きな影響を及ぼした。",
+      "exampleTranslation": "Âm nhạc của họ đã tác động mạnh đến giới trẻ.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14232,
+      "term": "至る (いたる)",
+      "reading": "いたる",
+      "romaji": null,
+      "definition": "dẫn đến, đi đến",
+      "exampleSentence": "山頂に至る道",
+      "exampleTranslation": "Con đường dẫn lên đỉnh núi.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14233,
+      "term": "達する (たっする)",
+      "reading": "たっする",
+      "romaji": null,
+      "definition": "đến, chạm tới",
+      "exampleSentence": "5時間昇って山頂に達した。",
+      "exampleTranslation": "Leo 5 giờ, cuối cùng cũng lên tới đỉnh.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14234,
+      "term": "実る (みのる)",
+      "reading": "みのる",
+      "romaji": null,
+      "definition": "mang lại kết quả tốt",
+      "exampleSentence": "今年は稲がよく実っている。",
+      "exampleTranslation": "Lúa năm nay được mùa.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14235,
+      "term": "暮れる (くれる)",
+      "reading": "くれる",
+      "romaji": null,
+      "definition": "tối, hết",
+      "exampleSentence": "冬は日が早く暮れる。",
+      "exampleTranslation": "Mùa đông trời tối sớm.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14236,
+      "term": "劣る (おとる)",
+      "reading": "おとる",
+      "romaji": null,
+      "definition": "kém hơn",
+      "exampleSentence": "ベテランのA 選手は体力ではB選手｛に/より｝劣るが、テクニックで勝てるだろう。",
+      "exampleTranslation": "VĐV kỳ cựu A thua B về thể lực, nhưng có lẽ sẽ thắng nhờ kỹ thuật.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14237,
+      "term": "異なる (ことなる)",
+      "reading": "ことなる",
+      "romaji": null,
+      "definition": "khác",
+      "exampleSentence": "私はあの人と意見が異なる。",
+      "exampleTranslation": "Tôi có ý kiến khác với người đó.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14238,
+      "term": "乱れる (みだれる)",
+      "reading": "みだれる",
+      "romaji": null,
+      "definition": "hỗn loạn, rối",
+      "exampleSentence": "風で髪が乱れた。",
+      "exampleTranslation": "Gió làm tóc rối.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14239,
+      "term": "乱す (みだす)",
+      "reading": "みだす",
+      "romaji": null,
+      "definition": "lộn xộn, làm đảo lộn kế hoạch, làm hỏng",
+      "exampleSentence": "新人選手は後半ペースを乱して、負けてしまった。",
+      "exampleTranslation": "VĐV mới về sau bị loạn nhịp, nên thua.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14240,
+      "term": "緩む (ゆるむ)",
+      "reading": "ゆるむ",
+      "romaji": null,
+      "definition": "lỏng lẻo; dịu lại; chậm lại",
+      "exampleSentence": "靴ひもが緩んで、くつが脱げてしまった。",
+      "exampleTranslation": "Dây giày lỏng nên giày tuột ra.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14241,
+      "term": "緩める (ゆるめる)",
+      "reading": "ゆるめる",
+      "romaji": null,
+      "definition": "làm nới lỏng, làm chậm lại",
+      "exampleSentence": "ネクタイを緩めてゆっくりする。",
+      "exampleTranslation": "Nới cà vạt ra để thư giãn.",
+      "forms": [],
+      "displayOrder": 11
+    }
+  ]
+}

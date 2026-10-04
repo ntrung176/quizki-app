@@ -1,0 +1,154 @@
+{
+  "id": 558,
+  "title": "N2 Unit 4.1 - 名詞B (bài 1/12)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.70241",
+  "cards": [
+    {
+      "id": 13434,
+      "term": "運 (うん)",
+      "reading": "うん",
+      "romaji": null,
+      "definition": "số, vận mệnh",
+      "exampleSentence": "「中村さんは3回続けて宝くじに当たったそうだ。なんて運のいい人だろう」",
+      "exampleTranslation": "Nghe nói anh Nakamura trúng vé số 3 lần liên tiếp—đúng là số đỏ.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13435,
+      "term": "勘 (かん)",
+      "reading": "かん",
+      "romaji": null,
+      "definition": "trực giác, linh cảm",
+      "exampleSentence": "母は勘が良くて、嘘をついてもすぐばれてしまう。",
+      "exampleTranslation": "Mẹ trực giác tốt, nói dối là bị phát hiện ngay.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13436,
+      "term": "感覚 (かんかく)",
+      "reading": "かんかく",
+      "romaji": null,
+      "definition": "cảm giác",
+      "exampleSentence": "冷えて、手足の感覚がなくなってしまった。",
+      "exampleTranslation": "Trời lạnh nên tay chân tê, mất cảm giác.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13437,
+      "term": "神経 (しんけい)",
+      "reading": "しんけい",
+      "romaji": null,
+      "definition": "thần kinh, tủy (răng)",
+      "exampleSentence": "虫歯が痛いので神経を抜いた。",
+      "exampleTranslation": "Răng sâu đau nên phải rút thần kinh.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13438,
+      "term": "記憶 (きおく)",
+      "reading": "きおく",
+      "romaji": null,
+      "definition": "ký ức, trí nhớ",
+      "exampleSentence": "その時のことは全く記憶にない。",
+      "exampleTranslation": "Tôi hoàn toàn không nhớ gì về chuyện lúc đó.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13439,
+      "term": "様子 (ようす)",
+      "reading": "ようす",
+      "romaji": null,
+      "definition": "tình trạng, trạng thái",
+      "exampleSentence": "手術を受けた母のことが心配で、何度も様子を見に行った。",
+      "exampleTranslation": "Lo ca phẫu thuật của mẹ nên tôi nhiều lần đến xem tình hình.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13440,
+      "term": "雰囲気 (ふんいき)",
+      "reading": "ふんいき",
+      "romaji": null,
+      "definition": "bầu không khí",
+      "exampleSentence": "この店は雰囲気がいい。",
+      "exampleTranslation": "Không khí/bầu không khí quán này rất ổn.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13441,
+      "term": "魅力 (みりょく)",
+      "reading": "みりょく",
+      "romaji": null,
+      "definition": "sự quyến rũ; sức hút",
+      "exampleSentence": "始めて歌舞伎を見て、その魅力に引かれた。",
+      "exampleTranslation": "Lần đầu xem Kabuki, tôi bị cuốn hút.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13442,
+      "term": "機嫌 (きげん)",
+      "reading": "きげん",
+      "romaji": null,
+      "definition": "tâm trạng, sức khỏe",
+      "exampleSentence": "父は機嫌が悪いらしく、何を聞いても返事もしない。",
+      "exampleTranslation": "Bố có vẻ đang bực; hỏi gì cũng không trả lời.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13443,
+      "term": "関心 (かんしん)",
+      "reading": "かんしん",
+      "romaji": null,
+      "definition": "quan tâm",
+      "exampleSentence": "私はスポーツにはあまり関心がない。",
+      "exampleTranslation": "Tôi không mấy quan tâm thể thao.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13444,
+      "term": "意欲 (いよく)",
+      "reading": "いよく",
+      "romaji": null,
+      "definition": "ý muốn, muốn",
+      "exampleSentence": "働く意欲はあるのだが、仕事が見つからない。",
+      "exampleTranslation": "Tôi có động lực muốn làm việc nhưng chưa tìm được việc.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13445,
+      "term": "全力 (ぜんりょく)",
+      "reading": "ぜんりょく",
+      "romaji": null,
+      "definition": "toàn lực",
+      "exampleSentence": "ボールを全力で投げた。",
+      "exampleTranslation": "Tôi ném bóng hết sức.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13446,
+      "term": "本気 (ほんき)",
+      "reading": "ほんき",
+      "romaji": null,
+      "definition": "nghiêm chỉnh, chân thực",
+      "exampleSentence": "あの学生はやっと本気になって勉強し始めた。",
+      "exampleTranslation": "Cậu học sinh đó cuối cùng cũng nghiêm túc học hành.",
+      "forms": [],
+      "displayOrder": 12
+    }
+  ]
+}

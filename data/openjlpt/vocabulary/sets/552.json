@@ -1,0 +1,88 @@
+{
+  "id": 552,
+  "title": "N2 Unit 2.9 - 動詞A (bài 9/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.608578",
+  "cards": [
+    {
+      "id": 13377,
+      "term": "努める (つとめる)",
+      "reading": "つとめる",
+      "romaji": null,
+      "definition": "nỗ lực, cố gắng",
+      "exampleSentence": "できるかぎり問題の解決に努めたい。",
+      "exampleTranslation": "Tôi muốn cố gắng hết sức để giải quyết vấn đề.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13378,
+      "term": "務まる (つとまる)",
+      "reading": "つとまる",
+      "romaji": null,
+      "definition": "hợp, thích hợp cho",
+      "exampleSentence": "こんな難しい役が私に務まるだろうか。",
+      "exampleTranslation": "Vai trò khó như vậy liệu tôi có đảm đương nổi không?",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13379,
+      "term": "務める (つとめる)",
+      "reading": "つとめる",
+      "romaji": null,
+      "definition": "phục vụ, làm",
+      "exampleSentence": "会社で議長を務めた。",
+      "exampleTranslation": "Tôi làm chủ tọa cuộc họp ở công ty.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13380,
+      "term": "取り消す (とりけす)",
+      "reading": "とりけす",
+      "romaji": null,
+      "definition": "hủy",
+      "exampleSentence": "仕事が忙しくなり、飛行機の予約を取り消した。",
+      "exampleTranslation": "Công việc bận quá nên tôi đã hủy đặt vé máy bay.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13381,
+      "term": "終える (おえる)",
+      "reading": "おえる",
+      "romaji": null,
+      "definition": "kết thúc",
+      "exampleSentence": "今日は6時までに仕事を終えて退社するつもりだ。",
+      "exampleTranslation": "Tôi định hôm nay làm xong việc trước 6 giờ rồi về (rời công ty).",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13382,
+      "term": "呼びかける (よびかける)",
+      "reading": "よびかける",
+      "romaji": null,
+      "definition": "gọi, kêu gọi",
+      "exampleSentence": "意識不明の母に呼び掛けた。",
+      "exampleTranslation": "Tôi gọi/lay gọi mẹ đang hôn mê.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13383,
+      "term": "呼び出す (よびだす)",
+      "reading": "よびだす",
+      "romaji": null,
+      "definition": "triệu hồi, triệu tập",
+      "exampleSentence": "学費を払っていなかったので、事務局に呼び出された。",
+      "exampleTranslation": "Vì chưa đóng học phí nên tôi bị gọi lên văn phòng.",
+      "forms": [],
+      "displayOrder": 6
+    }
+  ]
+}

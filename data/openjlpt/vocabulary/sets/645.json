@@ -1,0 +1,209 @@
+{
+  "id": 645,
+  "title": "N3 Tango 4.2 - Thành phố (thị trấn) của chúng tôi · Đi bộ trong thành phố",
+  "description": "Tango N3 — Thành phố (thị trấn) của chúng tôi",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:16.990513",
+  "cards": [
+    {
+      "id": 14721,
+      "term": "人ごみ (ひとごみ)",
+      "reading": "ひとごみ",
+      "romaji": null,
+      "definition": "Đám đông",
+      "exampleSentence": "休日の駅は人ごみで、なかなか前に進めませんでした。",
+      "exampleTranslation": "Nhà ga vào ngày nghỉ đông người đến mức tôi khó có thể tiến lên phía trước.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14722,
+      "term": "都会 (とかい)",
+      "reading": "とかい",
+      "romaji": null,
+      "definition": "Đô thị",
+      "exampleSentence": "都会では、便利な生活ができる一方で、自然が少ないという問題もあります。",
+      "exampleTranslation": "Ở đô thị, bên cạnh việc có thể sống tiện nghi thì cũng có vấn đề là thiên nhiên khá ít.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14723,
+      "term": "ぶらぶら（する）",
+      "reading": "ぶらぶら（する）",
+      "romaji": null,
+      "definition": "Sự lang thang",
+      "exampleSentence": "休日は、目的もなくぶらぶら（する）ことが多いです。",
+      "exampleTranslation": "Vào ngày nghỉ, tôi thường lang thang không có mục đích.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14724,
+      "term": "うろうろ（する）",
+      "reading": "うろうろ（する）",
+      "romaji": null,
+      "definition": "Sự lởn vởn, lảng vảng",
+      "exampleSentence": "不審な男が駅の周りをうろうろ（する）ので、警察に連絡しました。",
+      "exampleTranslation": "Vì một người đàn ông khả nghi cứ lảng vảng quanh nhà ga nên tôi đã liên lạc với cảnh sát.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14725,
+      "term": "通りかかる (とおりかかる)",
+      "reading": "とおりかかる",
+      "romaji": null,
+      "definition": "Đi qua",
+      "exampleSentence": "駅の前を通りかかる人に、道を尋ねました。",
+      "exampleTranslation": "Tôi đã hỏi đường một người tình cờ đi ngang qua trước nhà ga.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14726,
+      "term": "通り過ぎる (とおりすぎる)",
+      "reading": "とおりすぎる",
+      "romaji": null,
+      "definition": "Đi quá",
+      "exampleSentence": "駅を通り過ぎる前に、降りる準備をしてください。",
+      "exampleTranslation": "Hãy chuẩn bị xuống tàu trước khi đi quá nhà ga.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14727,
+      "term": "徒歩 (とほ)",
+      "reading": "とほ",
+      "romaji": null,
+      "definition": "Đi bộ",
+      "exampleSentence": "家から駅まで徒歩で十五分ほどかかります。",
+      "exampleTranslation": "Từ nhà đến ga mất khoảng 15 phút đi bộ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14728,
+      "term": "方向 (ほうこう)",
+      "reading": "ほうこう",
+      "romaji": null,
+      "definition": "Hướng, phương hướng",
+      "exampleSentence": "道に迷ったら、まず地図で進む方向を確認しましょう。",
+      "exampleTranslation": "Nếu bị lạc đường, trước hết hãy xác nhận hướng đi trên bản đồ.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14729,
+      "term": "遠回り（する） (とおまわり（する）)",
+      "reading": "とおまわり（する）",
+      "romaji": null,
+      "definition": "Sự đi vòng, đường vòng",
+      "exampleSentence": "今日は、景色を楽しみながら遠回り（する）ことにしました。",
+      "exampleTranslation": "Hôm nay tôi quyết định đi đường vòng để vừa đi vừa thưởng ngoạn phong cảnh.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14730,
+      "term": "近道（する） (ちかみち（する）)",
+      "reading": "ちかみち（する）",
+      "romaji": null,
+      "definition": "Sự đi tắt, đường tắt",
+      "exampleSentence": "急いでいたので、地図を見て近道（する）ことにしました。",
+      "exampleTranslation": "Vì đang vội nên tôi xem bản đồ và quyết định đi đường tắt.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14731,
+      "term": "距離 (きょり)",
+      "reading": "きょり",
+      "romaji": null,
+      "definition": "Cự ly, khoảng cách",
+      "exampleSentence": "家から駅までの距離は、歩いて約十分です。",
+      "exampleTranslation": "Khoảng cách từ nhà đến ga đi bộ mất khoảng 10 phút.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14732,
+      "term": "追いかける (おいかける)",
+      "reading": "おいかける",
+      "romaji": null,
+      "definition": "Đuổi theo",
+      "exampleSentence": "逃げた犬を追いかけるために、私は全速力で走りました。",
+      "exampleTranslation": "Để đuổi theo con chó đã chạy mất, tôi đã chạy hết tốc lực.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 14733,
+      "term": "追いつく (おいつく)",
+      "reading": "おいつく",
+      "romaji": null,
+      "definition": "Đuổi kịp",
+      "exampleSentence": "先に出発した友達に追いつくため、私は急いで歩きました。",
+      "exampleTranslation": "Để đuổi kịp người bạn đã xuất phát trước, tôi đã bước đi thật nhanh.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 14734,
+      "term": "追い越す (おいこす)",
+      "reading": "おいこす",
+      "romaji": null,
+      "definition": "Vượt",
+      "exampleSentence": "この道は狭いので、前の車を無理に追い越すのは危険です。",
+      "exampleTranslation": "Con đường này hẹp nên cố vượt chiếc xe phía trước là rất nguy hiểm.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 14735,
+      "term": "突き当たり (つきあたり)",
+      "reading": "つきあたり",
+      "romaji": null,
+      "definition": "Cuối đường, cuối đường hình chữ T",
+      "exampleSentence": "この道をまっすぐ進むと、突き当たりに駅があります。",
+      "exampleTranslation": "Đi thẳng con đường này, ở cuối đường sẽ có một nhà ga.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 14736,
+      "term": "立ち止まる (たちどまる)",
+      "reading": "たちどまる",
+      "romaji": null,
+      "definition": "Dừng lại",
+      "exampleSentence": "危険を感じたら、すぐに立ち止まることが大切です。",
+      "exampleTranslation": "Nếu cảm thấy nguy hiểm thì việc dừng lại ngay là rất quan trọng.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 14737,
+      "term": "横切る (よこぎる)",
+      "reading": "よこぎる",
+      "romaji": null,
+      "definition": "Băng qua",
+      "exampleSentence": "道路を横切る前に、左右をよく確認してください。",
+      "exampleTranslation": "Trước khi băng qua đường, hãy kiểm tra kỹ bên trái và bên phải.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 14738,
+      "term": "見かける (みかける)",
+      "reading": "みかける",
+      "romaji": null,
+      "definition": "Trông thấy, bắt gặp",
+      "exampleSentence": "最近、駅でよく見かける人に声をかけました。",
+      "exampleTranslation": "Gần đây, tôi đã bắt chuyện với người mà tôi thường bắt gặp ở nhà ga.",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

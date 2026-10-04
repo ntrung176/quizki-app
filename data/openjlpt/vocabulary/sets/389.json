@@ -1,0 +1,209 @@
+{
+  "id": 389,
+  "title": "N3 Unit 3.1 - 形容詞A・性格と感情 (Tính cách & cảm giác)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 形容詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.41801",
+  "cards": [
+    {
+      "id": 10453,
+      "term": "幸せな (しあわせな)",
+      "reading": "しあわせな",
+      "romaji": "shiawasena",
+      "definition": "hạnh phúc",
+      "exampleSentence": "幸せな人生",
+      "exampleTranslation": "Sống hạnh phúc.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10454,
+      "term": "得意な (とくいな)",
+      "reading": "とくいな",
+      "romaji": "tokuina",
+      "definition": "giỏi, tinh thông, thành thạo",
+      "exampleSentence": "彼女はギターが得意だ",
+      "exampleTranslation": "Cô ấy giỏi về {đàn guitar / viết văn / nấu ăn...}.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10455,
+      "term": "苦手な (にがてな)",
+      "reading": "にがてな",
+      "romaji": "nigatena",
+      "definition": "kém, yếu, không ưu",
+      "exampleSentence": "彼女はギターが苦手だ",
+      "exampleTranslation": "Cô ấy không giỏi { đàn guitar / viết văn / nấu ăn ...}.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10456,
+      "term": "熱心な (ねっしんな)",
+      "reading": "ねっしんな",
+      "romaji": "nesshinna",
+      "definition": "nhiệt tình, tận tâm",
+      "exampleSentence": "熱心な仕事ぶりが認められて昇進した",
+      "exampleTranslation": "Được ghi nhận sự nhiệt tình trong công việc và được thăng chức.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10457,
+      "term": "夢中な (むちゅうな)",
+      "reading": "むちゅうな",
+      "romaji": "muchūna",
+      "definition": "say sưa, miệt mài",
+      "exampleSentence": "子どものころ、SF漫画に夢中になった",
+      "exampleTranslation": "Hồi còn nhỏ, tôi say mê truyện tranh SF.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10458,
+      "term": "退屈な (たいくつな)",
+      "reading": "たいくつな",
+      "romaji": "taikutsuna",
+      "definition": "buồn tẻ, chán ngắt",
+      "exampleSentence": "ほかの観客は笑いながら見ていたが、私には退屈な映画だった",
+      "exampleTranslation": "Các khán giả khác vừa xem vừa cười, nhưng đó là một bộ phim nhàm chán đối với tôi .",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10459,
+      "term": "健康な (けんこうな)",
+      "reading": "けんこうな",
+      "romaji": "kenkōna",
+      "definition": "khỏe mạnh, tráng kiện",
+      "exampleSentence": "心も体も健康な子どもを育てたい",
+      "exampleTranslation": "Tôi muốn nuôi dạy con khỏe mạnh cả thể chất lẫn tinh thần.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10460,
+      "term": "苦しい (くるしい)",
+      "reading": "くるしい",
+      "romaji": "kurushii",
+      "definition": "khổ cực, đau đớn",
+      "exampleSentence": "息が苦しい",
+      "exampleTranslation": "Hơi thở khó nhọc/ tức ngực/ khó chịu ở tim/ cuộc sống khổ cực…",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10461,
+      "term": "平気な (へいきな)",
+      "reading": "へいきな",
+      "romaji": "heikina",
+      "definition": "bình tĩnh, bình thản",
+      "exampleSentence": "彼女は、どんなに悪口を言われても平気な顔をしている",
+      "exampleTranslation": "Dù cho bị nói xấu đến mức nào thì, cô ấy vẫn luôn tỏ ra khuôn mặt bình tĩnh.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10462,
+      "term": "悔しい (くやしい)",
+      "reading": "くやしい",
+      "romaji": "kuyashii",
+      "definition": "ấm ức, tiếc (không cam lòng)",
+      "exampleSentence": "何度練習してもうまくできなくて、悔しい",
+      "exampleTranslation": "Cảm thấy tiếc nuối vì dù luyện tập bao nhiêu vẫn không giỏi.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10463,
+      "term": "うらやましい",
+      "reading": "うらやましい",
+      "romaji": "urayamashii",
+      "definition": "ghen tị",
+      "exampleSentence": "才能の豊かな人がうらやましい",
+      "exampleTranslation": "Ghen tị với người có nhiều tài năng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10464,
+      "term": "かゆい",
+      "reading": "かゆい",
+      "romaji": "kayui",
+      "definition": "ngứa",
+      "exampleSentence": "蚊に刺されて首がかゆい",
+      "exampleTranslation": "Cổ tôi bị ngứa do muỗi cắn.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10465,
+      "term": "おとなしい",
+      "reading": "おとなしい",
+      "romaji": "otonashii",
+      "definition": "dịu dàng, trầm lặng",
+      "exampleSentence": "彼はおとなしい人だ",
+      "exampleTranslation": "Anh ấy là một người trầm tính.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10466,
+      "term": "我慢強い (がまんづよい)",
+      "reading": "がまんづよい",
+      "romaji": "gamanzuyoi",
+      "definition": "kiên nhẫn, chịu đựng giỏi",
+      "exampleSentence": "我慢強い性格",
+      "exampleTranslation": "Tính cách nhẫn nại, chịu đựng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10467,
+      "term": "正直な (しょうじきな)",
+      "reading": "しょうじきな",
+      "romaji": "shōjikina",
+      "definition": "trung thực, thành thật",
+      "exampleSentence": "彼は正直な人だから、うそをつくことができない",
+      "exampleTranslation": "Anh ấy là người trung thực nên anh ấy không biết nói dối đâu.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10468,
+      "term": "けちな",
+      "reading": "けちな",
+      "romaji": "kechina",
+      "definition": "keo kiệt, ki bo",
+      "exampleSentence": "あの人はとてもけちだ",
+      "exampleTranslation": "Người đó rất keo kiệt.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 10469,
+      "term": "わがままな",
+      "reading": "わがままな",
+      "romaji": "wagamamana",
+      "definition": "ích kỷ, tùy hứng, chỉ nghĩ cho mình",
+      "exampleSentence": "わがままな人",
+      "exampleTranslation": "Người ích kỷ, tính cách ích kỷ, hành động ích kỷ…",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 10470,
+      "term": "積極的な (せっきょくてきな)",
+      "reading": "せっきょくてきな",
+      "romaji": "sekkyokutekina",
+      "definition": "tích cực, chủ động",
+      "exampleSentence": "積極的な人",
+      "exampleTranslation": "{Người / cá tính / hành vi ...} mang tính tích cực.",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

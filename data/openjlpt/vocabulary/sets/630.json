@@ -1,0 +1,231 @@
+{
+  "id": 630,
+  "title": "N3 Tango 1.2 - Quan hệ giữa người với người · Bạn bè và người quen",
+  "description": "Tango N3 — Quan hệ giữa người với người",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:11.06122",
+  "cards": [
+    {
+      "id": 14354,
+      "term": "親友 (しんゆう)",
+      "reading": "しんゆう",
+      "romaji": null,
+      "definition": "Bạn thân",
+      "exampleSentence": "親友に悩みを相談しました。",
+      "exampleTranslation": "Tôi đã tâm sự chuyện phiền muộn với bạn thân.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14355,
+      "term": "仲間 (なかま)",
+      "reading": "なかま",
+      "romaji": null,
+      "definition": "Hội, bạn, hội bạn",
+      "exampleSentence": "同じ目標を持つ仲間と、毎日練習しています。",
+      "exampleTranslation": "Tôi luyện tập mỗi ngày cùng những người bạn có chung mục tiêu.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14356,
+      "term": "仲良し (なかよし)",
+      "reading": "なかよし",
+      "romaji": null,
+      "definition": "Thân, thân thiết, quan hệ tốt",
+      "exampleSentence": "あの二人は小さいころからずっと仲良しです。",
+      "exampleTranslation": "Hai người đó đã thân thiết với nhau từ khi còn nhỏ.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14357,
+      "term": "幼なじみ (おさななじみ)",
+      "reading": "おさななじみ",
+      "romaji": null,
+      "definition": "Bạn thuở bé",
+      "exampleSentence": "彼とは幼なじみで、今もよく一緒に出かけます。",
+      "exampleTranslation": "Tôi là bạn thuở bé của anh ấy, và bây giờ chúng tôi vẫn thường đi chơi cùng nhau.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14358,
+      "term": "友情 (ゆうじょう)",
+      "reading": "ゆうじょう",
+      "romaji": null,
+      "definition": "Tình bạn",
+      "exampleSentence": "長い時間をかけて、二人の友情は深まりました。",
+      "exampleTranslation": "Tình bạn của hai người đã trở nên sâu sắc hơn theo thời gian.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14359,
+      "term": "親しい (したしい)",
+      "reading": "したしい",
+      "romaji": null,
+      "definition": "Thân",
+      "exampleSentence": "彼女とは親しい友達なので、何でも話せます。",
+      "exampleTranslation": "Vì cô ấy là người bạn thân thiết nên tôi có thể nói mọi chuyện.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14360,
+      "term": "知人 (ちじん)",
+      "reading": "ちじん",
+      "romaji": null,
+      "definition": "Người quen",
+      "exampleSentence": "駅で偶然知人に会い、少し話しました。",
+      "exampleTranslation": "Tôi tình cờ gặp một người quen ở ga và đã nói chuyện một lúc.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14361,
+      "term": "メンバー",
+      "reading": "メンバー",
+      "romaji": null,
+      "definition": "Thành viên, thành phần tham dự",
+      "exampleSentence": "チームのメンバー全員が、試合に向けて一生懸命練習しています。",
+      "exampleTranslation": "Tất cả thành viên trong đội đang chăm chỉ luyện tập để chuẩn bị cho trận đấu.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14362,
+      "term": "つなぐ",
+      "reading": "つなぐ",
+      "romaji": null,
+      "definition": "Nắm, nối, thông",
+      "exampleSentence": "子どもが離れないように、母親は手をしっかりつなぐ。",
+      "exampleTranslation": "Để con không rời xa, người mẹ nắm chặt tay con.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14363,
+      "term": "つながる",
+      "reading": "つながる",
+      "romaji": null,
+      "definition": "Kết nối, gọi được",
+      "exampleSentence": "この番号なら、すぐ担当者につながる。",
+      "exampleTranslation": "Nếu gọi số này thì sẽ kết nối ngay được với người phụ trách.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14364,
+      "term": "当時 (とうじ)",
+      "reading": "とうじ",
+      "romaji": null,
+      "definition": "Lúc đó, thời đó",
+      "exampleSentence": "当時の私は、まだ日本語をほとんど話せませんでした。",
+      "exampleTranslation": "Lúc đó tôi hầu như vẫn chưa nói được tiếng Nhật.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14365,
+      "term": "祝う (いわう)",
+      "reading": "いわう",
+      "romaji": null,
+      "definition": "Mừng, chúc mừng",
+      "exampleSentence": "毎年、家族みんなで祖父の誕生日を祝う。",
+      "exampleTranslation": "Mỗi năm, cả gia đình tôi đều mừng sinh nhật ông.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 14366,
+      "term": "遠慮（する） (えんりょ（する）)",
+      "reading": "えんりょ（する）",
+      "romaji": null,
+      "definition": "Sự làm khách, e ngại, giữ kẽ",
+      "exampleSentence": "この店では、遠慮（する）必要はありません。",
+      "exampleTranslation": "Ở quán này, bạn không cần phải giữ ý.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 14367,
+      "term": "しょっちゅう",
+      "reading": "しょっちゅう",
+      "romaji": null,
+      "definition": "Thường xuyên",
+      "exampleSentence": "彼はしょっちゅう忘れ物をするので、家族に注意されています。",
+      "exampleTranslation": "Anh ấy thường xuyên quên đồ nên luôn bị gia đình nhắc nhở.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 14368,
+      "term": "たびたび",
+      "reading": "たびたび",
+      "romaji": null,
+      "definition": "Nhiều lần",
+      "exampleSentence": "たびたびご連絡をいただき、ありがとうございます。",
+      "exampleTranslation": "Cảm ơn anh/chị đã nhiều lần liên lạc với tôi.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 14369,
+      "term": "たまに",
+      "reading": "たまに",
+      "romaji": null,
+      "definition": "Thi thoảng",
+      "exampleSentence": "たまに仕事の帰りに、駅前の店で夕食を食べます。",
+      "exampleTranslation": "Thỉnh thoảng trên đường tan làm, tôi ăn tối ở quán trước ga.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 14370,
+      "term": "たまたま",
+      "reading": "たまたま",
+      "romaji": null,
+      "definition": "Tình cờ, ngẫu nhiên",
+      "exampleSentence": "駅でたまたま高校時代の友人に会いました。",
+      "exampleTranslation": "Tôi tình cờ gặp một người bạn thời trung học ở nhà ga.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 14371,
+      "term": "めったに",
+      "reading": "めったに",
+      "romaji": null,
+      "definition": "Họa hoằn, hiếm khi",
+      "exampleSentence": "彼はめったに怒らないので、みんなから信頼されています。",
+      "exampleTranslation": "Vì anh ấy hiếm khi nổi giận nên được mọi người tin tưởng.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 14372,
+      "term": "しばらく",
+      "reading": "しばらく",
+      "romaji": null,
+      "definition": "Một lúc, một thời gian",
+      "exampleSentence": "しばらくこの町に住む予定です。",
+      "exampleTranslation": "Tôi dự định sống ở thị trấn này một thời gian.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 14373,
+      "term": "別々（な） (べつべつ（な）)",
+      "reading": "べつべつ（な）",
+      "romaji": null,
+      "definition": "Sự khác nhau, riêng biệt",
+      "exampleSentence": "卒業後、二人は別々（な）道を歩むことになった。",
+      "exampleTranslation": "Sau khi tốt nghiệp, hai người đã chọn những con đường riêng.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

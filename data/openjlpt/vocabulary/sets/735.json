@@ -1,0 +1,242 @@
+{
+  "id": 735,
+  "title": "N2 Tango 3.1 - Ở nhà · Buổi sáng",
+  "description": "Tango N2 — Ở nhà",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:33.967102",
+  "cards": [
+    {
+      "id": 16881,
+      "term": "夜明け (よあけ)",
+      "reading": "よあけ",
+      "romaji": null,
+      "definition": "Ban mai, rạng sáng",
+      "exampleSentence": "夜明けの空が少しずつ明るくなり、鳥の声が聞こえてきました。",
+      "exampleTranslation": "Bầu trời lúc rạng sáng dần sáng lên, và tiếng chim bắt đầu vọng đến.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 16882,
+      "term": "起床（する） (きしょう（する）)",
+      "reading": "きしょう（する）",
+      "romaji": null,
+      "definition": "Sự thức dậy",
+      "exampleSentence": "健康のために、毎朝の起床（する）時刻を一定にしています。",
+      "exampleTranslation": "Vì sức khỏe, tôi giữ giờ thức dậy mỗi sáng cố định.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 16883,
+      "term": "もたれる",
+      "reading": "もたれる",
+      "romaji": null,
+      "definition": "Dựa vào, nặng (bụng)",
+      "exampleSentence": "食べ過ぎると胃がもたれるので、夕食は軽くしています。",
+      "exampleTranslation": "Nếu ăn quá nhiều thì bụng sẽ nặng nề, nên tôi ăn tối nhẹ.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 16884,
+      "term": "フレッシュな",
+      "reading": "フレッシュな",
+      "romaji": null,
+      "definition": "Tươi ngon, tươi mát",
+      "exampleSentence": "朝はフレッシュな果物を食べると、気分がすっきりします。",
+      "exampleTranslation": "Buổi sáng, ăn trái cây tươi ngon sẽ giúp tinh thần sảng khoái.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 16885,
+      "term": "乳製品 (にゅうせいひん)",
+      "reading": "にゅうせいひん",
+      "romaji": null,
+      "definition": "Sản phẩm làm từ sữa",
+      "exampleSentence": "牛乳やチーズなどの乳製品は、冷蔵庫に保存してください。",
+      "exampleTranslation": "Hãy bảo quản các sản phẩm từ sữa như sữa tươi và phô mai trong tủ lạnh.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 16886,
+      "term": "洗い物 (あらいもの)",
+      "reading": "あらいもの",
+      "romaji": null,
+      "definition": "Đồ để rửa, việc rửa",
+      "exampleSentence": "夕食の後、たまった洗い物をみんなで片づけた。",
+      "exampleTranslation": "Sau bữa tối, mọi người cùng nhau dọn đống bát đĩa cần rửa.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 16887,
+      "term": "欠かす (かかす)",
+      "reading": "かかす",
+      "romaji": null,
+      "definition": "Thiếu, khuyết, bỏ sót",
+      "exampleSentence": "毎朝の運動を欠かすと、体調を崩しやすくなる。",
+      "exampleTranslation": "Nếu bỏ thói quen tập thể dục mỗi sáng, bạn sẽ dễ bị ảnh hưởng sức khỏe.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 16888,
+      "term": "配達（する） (はいたつ（する）)",
+      "reading": "はいたつ（する）",
+      "romaji": null,
+      "definition": "Sự phát, phân phối",
+      "exampleSentence": "「配達（する）」を選んだ人は、荷物を指定された住所まで届けます。",
+      "exampleTranslation": "Người chọn công việc “giao hàng” sẽ chuyển bưu kiện đến địa chỉ được chỉ định.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 16889,
+      "term": "見出し (みだし)",
+      "reading": "みだし",
+      "romaji": null,
+      "definition": "Đầu đề",
+      "exampleSentence": "新聞の見出しを見て、事故の大きさに驚いた。",
+      "exampleTranslation": "Nhìn tiêu đề báo, tôi đã bất ngờ trước mức độ nghiêm trọng của vụ tai nạn.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 16890,
+      "term": "一切（〜ない） (いっさい（〜ない）)",
+      "reading": "いっさい（〜ない）",
+      "romaji": null,
+      "definition": "Hoàn toàn (không ~)",
+      "exampleSentence": "「一切（〜ない）」は、何もないことを強く表す表現です。",
+      "exampleTranslation": "“Hoàn toàn không...” là cách diễn đạt nhấn mạnh rằng không có gì cả.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 16891,
+      "term": "合間 (あいま)",
+      "reading": "あいま",
+      "romaji": null,
+      "definition": "Thời gian trống, thời gian rảnh",
+      "exampleSentence": "仕事の合間に、窓の外を見て少し目を休めた。",
+      "exampleTranslation": "Trong lúc rảnh giữa công việc, tôi nhìn ra ngoài cửa sổ để mắt được nghỉ một chút.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 16892,
+      "term": "てきぱき[と] （する）",
+      "reading": "てきぱき[と] （する）",
+      "romaji": null,
+      "definition": "Nhanh chóng, mau lẹ",
+      "exampleSentence": "「てきぱき （する）」とは、仕事をてきぱきと進めることです。",
+      "exampleTranslation": "“てきぱき （する）” nghĩa là tiến hành công việc một cách nhanh nhẹn.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 16893,
+      "term": "間 (あいだ)",
+      "reading": "あいだ",
+      "romaji": null,
+      "definition": "Thời gian, khoảng trống",
+      "exampleSentence": "発表の間に、質問があれば手を挙げてください。",
+      "exampleTranslation": "Trong lúc thuyết trình, nếu có câu hỏi thì hãy giơ tay.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 16894,
+      "term": "周辺 (しゅうへん)",
+      "reading": "しゅうへん",
+      "romaji": null,
+      "definition": "Xung quanh, quanh",
+      "exampleSentence": "駅の周辺には、新しい飲食店が次々に開店している。",
+      "exampleTranslation": "Xung quanh nhà ga, các quán ăn mới lần lượt khai trương.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 16895,
+      "term": "周囲 (しゅうい)",
+      "reading": "しゅうい",
+      "romaji": null,
+      "definition": "Xung quanh, chu vi",
+      "exampleSentence": "周囲の人に迷惑をかけないよう、静かに話してください。",
+      "exampleTranslation": "Hãy nói chuyện nhỏ nhẹ để không làm phiền những người xung quanh.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 16896,
+      "term": "あと",
+      "reading": "あと",
+      "romaji": null,
+      "definition": "Nữa, sau",
+      "exampleSentence": "あと五分で出発するので、急いで準備してください。",
+      "exampleTranslation": "Năm phút nữa chúng ta sẽ khởi hành, nên hãy nhanh chóng chuẩn bị.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 16897,
+      "term": "すれ違う (すれちがう)",
+      "reading": "すれちがう",
+      "romaji": null,
+      "definition": "(Đi, gặp) ngược chiều",
+      "exampleSentence": "駅へ向かう途中、昔の友人とすれ違うとは思わなかった。",
+      "exampleTranslation": "Tôi không ngờ mình lại đi lướt qua một người bạn cũ trên đường đến ga.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 16898,
+      "term": "はう",
+      "reading": "はう",
+      "romaji": null,
+      "definition": "Bò ra",
+      "exampleSentence": "子どもは床をはうようにして、母親のところまで進んだ。",
+      "exampleTranslation": "Đứa trẻ bò trên sàn tiến về phía mẹ.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 16899,
+      "term": "替える (かえる)",
+      "reading": "かえる",
+      "romaji": null,
+      "definition": "Thay, đổi",
+      "exampleSentence": "季節が変わったので、部屋のカーテンを替えることにした。",
+      "exampleTranslation": "Vì mùa đã thay đổi nên tôi quyết định thay rèm phòng.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 16900,
+      "term": "整える (ととのえる)",
+      "reading": "ととのえる",
+      "romaji": null,
+      "definition": "Chỉnh đốn, trang bị",
+      "exampleSentence": "面接の前に、服装と髪型を整える必要がある。",
+      "exampleTranslation": "Trước buổi phỏng vấn, cần chỉnh trang trang phục và kiểu tóc.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 16901,
+      "term": "ろくに（〜ない）",
+      "reading": "ろくに（〜ない）",
+      "romaji": null,
+      "definition": "Đầy đủ, tốt",
+      "exampleSentence": "「ろくに（〜ない）」は、「十分に〜ない」という意味で使われます。",
+      "exampleTranslation": "「ろくに（〜ない）」 được dùng với nghĩa là “không … đầy đủ/đàng hoàng”.",
+      "forms": [],
+      "displayOrder": 20
+    }
+  ]
+}

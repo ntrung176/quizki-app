@@ -1,0 +1,165 @@
+{
+  "id": 597,
+  "title": "N2 Unit 9.1 - カタカナB (bài 1/4)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — カタカナB",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.488171",
+  "cards": [
+    {
+      "id": 13954,
+      "term": "インテリア",
+      "reading": "インテリア",
+      "romaji": null,
+      "definition": "nội thất, trang trí",
+      "exampleSentence": "友達の部屋はインテリアの趣味がいい。",
+      "exampleTranslation": "Phòng của bạn tôi có gu nội thất rất đẹp.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13955,
+      "term": "コーナー",
+      "reading": "コーナー",
+      "romaji": null,
+      "definition": "góc, cạnh",
+      "exampleSentence": "冬になるとデパートにはお歳暮のコーナーが設けられる。",
+      "exampleTranslation": "Vào mùa đông, các trung tâm thương mại thường mở khu quà biếu cuối năm.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13956,
+      "term": "カウンター",
+      "reading": "カウンター",
+      "romaji": null,
+      "definition": "quầy, quầy (tiếp tân) counter",
+      "exampleSentence": "デパートには入り口に案内のカウンターがある。",
+      "exampleTranslation": "Ở lối vào trung tâm thương mại có quầy thông tin.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13957,
+      "term": "スペース",
+      "reading": "スペース",
+      "romaji": null,
+      "definition": "không gian",
+      "exampleSentence": "部屋に大型テレビを置きたいが、スペースがない。",
+      "exampleTranslation": "Tôi muốn đặt TV màn hình lớn trong phòng nhưng không có chỗ.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13958,
+      "term": "オープン",
+      "reading": "オープン",
+      "romaji": null,
+      "definition": "mở, mở cửa",
+      "exampleSentence": "駅前に新しいデパートがオープンした。",
+      "exampleTranslation": "Một trung tâm thương mại mới đã khai trương trước nhà ga.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13959,
+      "term": "センター",
+      "reading": "センター",
+      "romaji": null,
+      "definition": "trung tâm, ở giữa",
+      "exampleSentence": "駅前のショッピングセンターで買い物をする。",
+      "exampleTranslation": "Tôi mua sắm ở trung tâm thương mại trước nhà ga.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13960,
+      "term": "カルチャー",
+      "reading": "カルチャー",
+      "romaji": null,
+      "definition": "văn hóa",
+      "exampleSentence": "外国の生活でカルチャーショックを受けることがある。",
+      "exampleTranslation": "Sống ở nước ngoài đôi khi gây sốc văn hóa.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13961,
+      "term": "ブーム",
+      "reading": "ブーム",
+      "romaji": null,
+      "definition": "sự bùng nổ; thịnh hành",
+      "exampleSentence": "1960年代にフォークソングがブームになった。",
+      "exampleTranslation": "Nhạc folk trở thành trào lưu vào thập niên 1960.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13962,
+      "term": "インフォメーション",
+      "reading": "インフォメーション",
+      "romaji": null,
+      "definition": "thông tin",
+      "exampleSentence": "駅には観光客用のインフォメーションデスクがある。",
+      "exampleTranslation": "Tại nhà ga có quầy thông tin dành cho khách du lịch.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13963,
+      "term": "キャッチ",
+      "reading": "キャッチ",
+      "romaji": null,
+      "definition": "bắt, chộp, bắt lấy",
+      "exampleSentence": "ボールをキャッチする。",
+      "exampleTranslation": "Bắt bóng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13964,
+      "term": "メディア",
+      "reading": "メディア",
+      "romaji": null,
+      "definition": "phương tiện truyền thông",
+      "exampleSentence": "今は、さまざまなメディアから情報を得ることができる。",
+      "exampleTranslation": "Ngày nay có thể tiếp cận thông tin từ nhiều phương tiện truyền thông.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13965,
+      "term": "コメント",
+      "reading": "コメント",
+      "romaji": null,
+      "definition": "bình luận",
+      "exampleSentence": "評論家はテレビで経済についてコメントしていた。",
+      "exampleTranslation": "Nhà bình luận nhận xét về kinh tế trên truyền hình.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13966,
+      "term": "コラム",
+      "reading": "コラム",
+      "romaji": null,
+      "definition": "cột",
+      "exampleSentence": "新聞や雑誌には多くのコラムがある。",
+      "exampleTranslation": "Báo và tạp chí có nhiều chuyên mục.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13967,
+      "term": "エピソード",
+      "reading": "エピソード",
+      "romaji": null,
+      "definition": "giai thoại, mẩu chuyện, câu chuyện",
+      "exampleSentence": "日常生活のエピソードをエッセイに書く。",
+      "exampleTranslation": "Viết những câu chuyện đời thường thành bài luận.",
+      "forms": [],
+      "displayOrder": 13
+    }
+  ]
+}

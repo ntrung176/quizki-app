@@ -1,0 +1,253 @@
+{
+  "id": 813,
+  "title": "N1 Tango 6.4 - Thành phố của tôi · Sản xuất",
+  "description": "Tango N1 — Thành phố của tôi",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:41.739118",
+  "cards": [
+    {
+      "id": 18912,
+      "term": "産出（する） (さんしゅつ（する）)",
+      "reading": "さんしゅつ（する）",
+      "romaji": null,
+      "definition": "Sản xuất, khai thác",
+      "exampleSentence": "この地域は高品質なワインを「産出（する）」ことで知られている。",
+      "exampleTranslation": "Khu vực này nổi tiếng với việc sản xuất rượu vang chất lượng cao.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 18913,
+      "term": "製造（する） (せいぞう（する）)",
+      "reading": "せいぞう（する）",
+      "romaji": null,
+      "definition": "Chế tạo, sản xuất",
+      "exampleSentence": "この工場では、医療機器を「製造（する）」ための新技術が開発されている。",
+      "exampleTranslation": "Nhà máy này đang phát triển công nghệ mới để sản xuất thiết bị y tế.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 18914,
+      "term": "精巧（な） (せいこう（な）)",
+      "reading": "せいこう（な）",
+      "romaji": null,
+      "definition": "Tinh xảo",
+      "exampleSentence": "この模型は「精巧（な）」作品として、専門家から高く評価されている。",
+      "exampleTranslation": "Mô hình này được các chuyên gia đánh giá cao như một tác phẩm tinh xảo.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 18915,
+      "term": "巧みな (たくみな)",
+      "reading": "たくみな",
+      "romaji": null,
+      "definition": "Khéo léo, khéo tay",
+      "exampleSentence": "彼は「巧みな」話術で、相手の警戒心を解いた。",
+      "exampleTranslation": "Anh ấy đã dùng tài ăn nói khéo léo để khiến đối phương bớt cảnh giác.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 18916,
+      "term": "品種 (ひんしゅ)",
+      "reading": "ひんしゅ",
+      "romaji": null,
+      "definition": "Giống, phẩm loại, chủng loại",
+      "exampleSentence": "この地域では、気候に適した品種の米が多く栽培されている。",
+      "exampleTranslation": "Ở khu vực này, nhiều giống lúa phù hợp với khí hậu được trồng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 18917,
+      "term": "改良（する） (かいりょう（する）)",
+      "reading": "かいりょう（する）",
+      "romaji": null,
+      "definition": "Cải tiến, cải thiện",
+      "exampleSentence": "農家は、収穫量を増やすために品種を「改良（する）」方法を試している。",
+      "exampleTranslation": "Nông dân đang thử phương pháp cải tiến giống cây trồng để tăng sản lượng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 18918,
+      "term": "栄える (さかえる)",
+      "reading": "さかえる",
+      "romaji": null,
+      "definition": "Hưng thịnh, phồn vinh",
+      "exampleSentence": "交通網が整備されれば、この地域は観光地としてさらに栄えるだろう。",
+      "exampleTranslation": "Nếu mạng lưới giao thông được hoàn thiện, khu vực này sẽ còn phát triển thịnh vượng hơn với tư cách là điểm du lịch.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 18919,
+      "term": "よみがえる",
+      "reading": "よみがえる",
+      "romaji": null,
+      "definition": "Hồi sinh, sống lại",
+      "exampleSentence": "祭りの季節になると、町の活気が少しずつよみがえる。",
+      "exampleTranslation": "Mỗi khi đến mùa lễ hội, sức sống của thị trấn lại dần hồi sinh.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 18920,
+      "term": "乗り切る (のりきる)",
+      "reading": "のりきる",
+      "romaji": null,
+      "definition": "Vượt qua, khắc phục",
+      "exampleSentence": "厳しい冬を乗り切るため、十分な食料を備えておく必要がある。",
+      "exampleTranslation": "Để vượt qua mùa đông khắc nghiệt, cần chuẩn bị đầy đủ lương thực.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 18921,
+      "term": "上回る (うわまわる)",
+      "reading": "うわまわる",
+      "romaji": null,
+      "definition": "Vượt quá, vượt trội hơn",
+      "exampleSentence": "今年の輸出額は、政府の予測を大きく上回る結果となった。",
+      "exampleTranslation": "Kim ngạch xuất khẩu năm nay đã vượt xa dự đoán của chính phủ.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 18922,
+      "term": "もたらす",
+      "reading": "もたらす",
+      "romaji": null,
+      "definition": "Đem đến, mang lại",
+      "exampleSentence": "再生可能エネルギーの普及は、社会に大きな変化をもたらすだろう。",
+      "exampleTranslation": "Việc phổ biến năng lượng tái tạo có thể mang lại những thay đổi lớn cho xã hội.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 18923,
+      "term": "割り当てる (わりあてる)",
+      "reading": "わりあてる",
+      "romaji": null,
+      "definition": "Phân công, phân bổ, giao",
+      "exampleSentence": "管理者は、経験に応じて各担当者に仕事を割り当てる。",
+      "exampleTranslation": "Người quản lý phân công công việc cho từng người phụ trách tùy theo kinh nghiệm.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 18924,
+      "term": "急速な (きゅうそくな)",
+      "reading": "きゅうそくな",
+      "romaji": null,
+      "definition": "Nhanh chóng, cấp tốc",
+      "exampleSentence": "この地域では、急速な都市化によって自然環境が失われつつある。",
+      "exampleTranslation": "Tại khu vực này, môi trường tự nhiên đang dần bị mất đi do quá trình đô thị hóa nhanh chóng.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 18925,
+      "term": "次ぐ (つぐ)",
+      "reading": "つぐ",
+      "romaji": null,
+      "definition": "Xếp sau, tiếp theo, đứng sau",
+      "exampleSentence": "大阪は、人口では東京に次ぐ大都市である。",
+      "exampleTranslation": "Xét về dân số, Osaka là thành phố lớn đứng sau Tokyo.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 18926,
+      "term": "欠陥 (けっかん)",
+      "reading": "けっかん",
+      "romaji": null,
+      "definition": "Khuyết điểm, lỗi, thiếu sót",
+      "exampleSentence": "製品に重大な欠陥が見つかり、メーカーは回収を決めた。",
+      "exampleTranslation": "Một lỗi nghiêm trọng được phát hiện trong sản phẩm nên nhà sản xuất đã quyết định thu hồi.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 18927,
+      "term": "ネック",
+      "reading": "ネック",
+      "romaji": null,
+      "definition": "Trở ngại, nút thắt cổ chai",
+      "exampleSentence": "人手不足が事業拡大のネックになっている。",
+      "exampleTranslation": "Tình trạng thiếu nhân lực đang trở thành trở ngại cho việc mở rộng kinh doanh.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 18928,
+      "term": "弊害 (へいがい)",
+      "reading": "へいがい",
+      "romaji": null,
+      "definition": "Tác hại, mặt tiêu cực",
+      "exampleSentence": "インターネットの普及は便利さをもたらす一方で、さまざまな弊害も生んでいる。",
+      "exampleTranslation": "Sự phổ cập của Internet mang lại sự tiện lợi, nhưng đồng thời cũng gây ra nhiều tác hại.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 18929,
+      "term": "水をさす (みずをさす)",
+      "reading": "みずをさす",
+      "romaji": null,
+      "definition": "Xen ngang, gây trở ngại, làm mất hứng",
+      "exampleSentence": "楽しい会話に水をさすような発言は、できるだけ控えてください。",
+      "exampleTranslation": "Xin hãy hạn chế tối đa những lời nói làm mất hứng cuộc trò chuyện vui vẻ.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 18930,
+      "term": "対比（する） (たいひ（する）)",
+      "reading": "たいひ（する）",
+      "romaji": null,
+      "definition": "Đối chiếu, so sánh",
+      "exampleSentence": "二つの作品を対比（する）と、それぞれの特徴がはっきり見えてくる。",
+      "exampleTranslation": "Khi đối chiếu hai tác phẩm, đặc điểm của mỗi tác phẩm sẽ hiện lên rõ ràng.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 18931,
+      "term": "匹敵（する） (ひってき（する）)",
+      "reading": "ひってき（する）",
+      "romaji": null,
+      "definition": "Ngang tầm, sánh ngang",
+      "exampleSentence": "彼の実力は、プロ選手にも匹敵（する）ほど高く評価されている。",
+      "exampleTranslation": "Năng lực của anh ấy được đánh giá cao đến mức ngang tầm với cả vận động viên chuyên nghiệp.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 18932,
+      "term": "電力 (でんりょく)",
+      "reading": "でんりょく",
+      "romaji": null,
+      "definition": "Điện lực, điện năng",
+      "exampleSentence": "夏は電力の消費量が増えるため、節電を心がけましょう。",
+      "exampleTranslation": "Vì lượng điện tiêu thụ tăng vào mùa hè, hãy cố gắng tiết kiệm điện.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 18933,
+      "term": "下地 (したじ)",
+      "reading": "したじ",
+      "romaji": null,
+      "definition": "Nền tảng, nền móng",
+      "exampleSentence": "長年の研究経験が、今回の成果の下地となった。",
+      "exampleTranslation": "Kinh nghiệm nghiên cứu nhiều năm đã trở thành nền tảng cho thành quả lần này.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

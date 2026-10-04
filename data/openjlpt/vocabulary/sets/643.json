@@ -1,0 +1,231 @@
+{
+  "id": 643,
+  "title": "N3 Tango 3.5 - Cuộc sống hàng ngày ② · Cả những việc như thế này",
+  "description": "Tango N3 — Cuộc sống hàng ngày ②",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:15.796348",
+  "cards": [
+    {
+      "id": 14669,
+      "term": "日常 (にちじょう)",
+      "reading": "にちじょう",
+      "romaji": null,
+      "definition": "Thường nhật",
+      "exampleSentence": "日常の小さな出来事を、毎晩日記に書いています。",
+      "exampleTranslation": "Tôi viết những chuyện nhỏ thường ngày vào nhật ký mỗi tối.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14670,
+      "term": "常に (つねに)",
+      "reading": "つねに",
+      "romaji": null,
+      "definition": "Thường xuyên",
+      "exampleSentence": "彼は常に周りの人への感謝を忘れません。",
+      "exampleTranslation": "Anh ấy luôn không quên biết ơn những người xung quanh.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14671,
+      "term": "出迎え (でむかえ)",
+      "reading": "でむかえ",
+      "romaji": null,
+      "definition": "(sự) đón",
+      "exampleSentence": "駅での出迎えを、兄にお願いしました。",
+      "exampleTranslation": "Tôi đã nhờ anh trai đón mình ở nhà ga.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14672,
+      "term": "出迎える (でむかえる)",
+      "reading": "でむかえる",
+      "romaji": null,
+      "definition": "Đón",
+      "exampleSentence": "明日は空港まで友達を出迎える予定です。",
+      "exampleTranslation": "Ngày mai tôi dự định ra sân bay đón bạn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14673,
+      "term": "見送り (みおくり)",
+      "reading": "みおくり",
+      "romaji": null,
+      "definition": "(sự) tiễn",
+      "exampleSentence": "旅行の日、母の見送りがとても嬉しかったです。",
+      "exampleTranslation": "Vào ngày đi du lịch, tôi rất vui vì được mẹ tiễn.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14674,
+      "term": "見送る (みおくる)",
+      "reading": "みおくる",
+      "romaji": null,
+      "definition": "Tiễn",
+      "exampleSentence": "駅まで友達を見送るために、早く家を出ました。",
+      "exampleTranslation": "Để tiễn bạn đến ga, tôi đã rời nhà sớm.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14675,
+      "term": "郵送（する） (ゆうそう（する）)",
+      "reading": "ゆうそう（する）",
+      "romaji": null,
+      "definition": "Gửi bưu điện",
+      "exampleSentence": "申込書は郵送（する）こともできます。",
+      "exampleTranslation": "Đơn đăng ký cũng có thể được gửi qua bưu điện.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14676,
+      "term": "小包 (こづつみ)",
+      "reading": "こづつみ",
+      "romaji": null,
+      "definition": "Gói, bưu kiện",
+      "exampleSentence": "母から届いた小包を、家族みんなで開けました。",
+      "exampleTranslation": "Cả gia đình cùng mở bưu kiện mẹ gửi đến.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14677,
+      "term": "送料 (そうりょう)",
+      "reading": "そうりょう",
+      "romaji": null,
+      "definition": "Tiền gửi, tiền cước",
+      "exampleSentence": "この店は三千円以上買うと、送料が無料になります。",
+      "exampleTranslation": "Ở cửa hàng này, nếu mua từ 3.000 yên trở lên thì được miễn phí vận chuyển.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14678,
+      "term": "あて先 (あてさき)",
+      "reading": "あてさき",
+      "romaji": null,
+      "definition": "Địa chỉ nhận",
+      "exampleSentence": "封筒のあて先を確認してから、ポストに入れました。",
+      "exampleTranslation": "Sau khi kiểm tra địa chỉ người nhận trên phong bì, tôi đã bỏ vào hòm thư.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14679,
+      "term": "あて名 (あてな)",
+      "reading": "あてな",
+      "romaji": null,
+      "definition": "Tên người nhận",
+      "exampleSentence": "小包のあて名を正しく書いて、郵便局へ持って行きました。",
+      "exampleTranslation": "Tôi viết đúng tên người nhận trên bưu kiện rồi mang đến bưu điện.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14680,
+      "term": "差出人 (さしだしにん)",
+      "reading": "さしだしにん",
+      "romaji": null,
+      "definition": "Người gửi",
+      "exampleSentence": "手紙には差出人の住所と名前も書いてください。",
+      "exampleTranslation": "Vui lòng ghi cả địa chỉ và tên người gửi trên thư.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 14681,
+      "term": "とりあえず",
+      "reading": "とりあえず",
+      "romaji": null,
+      "definition": "Trước mắt",
+      "exampleSentence": "とりあえず、ホテルに着いたら電話してください。",
+      "exampleTranslation": "Trước mắt, khi đến khách sạn thì hãy gọi điện cho tôi.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 14682,
+      "term": "出前 (でまえ)",
+      "reading": "でまえ",
+      "romaji": null,
+      "definition": "Gọi đến nhà",
+      "exampleSentence": "今日は忙しいので、昼ご飯は出前を取ります。",
+      "exampleTranslation": "Hôm nay bận nên tôi sẽ gọi cơm trưa giao đến nhà.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 14683,
+      "term": "ほどく",
+      "reading": "ほどく",
+      "romaji": null,
+      "definition": "Tháo, cởi",
+      "exampleSentence": "家に帰ったら、玄関で靴ひもをほどく習慣があります。",
+      "exampleTranslation": "Tôi có thói quen tháo dây giày ở cửa ra vào khi về nhà.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 14684,
+      "term": "留守番電話 (るすばんでんわ)",
+      "reading": "るすばんでんわ",
+      "romaji": null,
+      "definition": "Điện thoại trả lời tự động khi vắng nhà",
+      "exampleSentence": "電話に出られなかったので、留守番電話にメッセージを残しました。",
+      "exampleTranslation": "Vì không thể nghe điện thoại nên tôi đã để lại lời nhắn trong máy trả lời tự động.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 14685,
+      "term": "よく",
+      "reading": "よく",
+      "romaji": null,
+      "definition": "Hay",
+      "exampleSentence": "彼はよくこの喫茶店で勉強しています。",
+      "exampleTranslation": "Anh ấy thường học ở quán cà phê này.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 14686,
+      "term": "早め（な） (はやめ（な）)",
+      "reading": "はやめ（な）",
+      "romaji": null,
+      "definition": "Sớm, nhanh chóng",
+      "exampleSentence": "「早め（な）」を意識して、試験会場には三十分前に着きました。",
+      "exampleTranslation": "Ý thức đến sớm, tôi đã đến địa điểm thi trước ba mươi phút.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 14687,
+      "term": "リサイクル（する）",
+      "reading": "リサイクル（する）",
+      "romaji": null,
+      "definition": "Sự tái chế, tái sử dụng",
+      "exampleSentence": "「リサイクル（する）」を意識して、空き缶を分別しています。",
+      "exampleTranslation": "Có ý thức tái chế nên tôi đang phân loại những lon rỗng.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 14688,
+      "term": "どける",
+      "reading": "どける",
+      "romaji": null,
+      "definition": "Xê, xê dịch, để tránh sang một bên",
+      "exampleSentence": "通路に置いた自転車は、邪魔にならない場所へどけるべきです。",
+      "exampleTranslation": "Chiếc xe đạp để ở lối đi nên được chuyển sang nơi không cản trở.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

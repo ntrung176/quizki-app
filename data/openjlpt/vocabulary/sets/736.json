@@ -1,0 +1,253 @@
+{
+  "id": 736,
+  "title": "N2 Tango 3.2 - Ở nhà · Công việc hàng ngày",
+  "description": "Tango N2 — Ở nhà",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:34.023387",
+  "cards": [
+    {
+      "id": 16902,
+      "term": "めりはり",
+      "reading": "めりはり",
+      "romaji": null,
+      "definition": "Nhịp độ, sự rõ ràng, tách bạch",
+      "exampleSentence": "仕事と休憩にめりはりをつけると、集中力が続きやすい。",
+      "exampleTranslation": "Nếu phân biệt rõ thời gian làm việc và nghỉ ngơi, bạn sẽ dễ duy trì sự tập trung hơn.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 16903,
+      "term": "何度も (なんども)",
+      "reading": "なんども",
+      "romaji": null,
+      "definition": "Nhiều lần",
+      "exampleSentence": "何度も練習したので、発表では落ち着いて話せた。",
+      "exampleTranslation": "Vì đã luyện tập nhiều lần nên tôi có thể bình tĩnh nói trong buổi thuyết trình.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 16904,
+      "term": "ほぼ",
+      "reading": "ほぼ",
+      "romaji": null,
+      "definition": "Hầu như",
+      "exampleSentence": "駅から会社まではほぼ一本道なので、迷うことはない。",
+      "exampleTranslation": "Từ ga đến công ty hầu như chỉ có một con đường nên không thể bị lạc.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 16905,
+      "term": "寄り道（する） (よりみち（する）)",
+      "reading": "よりみち（する）",
+      "romaji": null,
+      "definition": "Sự tiện đường, ghé ngang, ghé qua",
+      "exampleSentence": "「寄り道（する）」という言葉は、途中で別の場所に立ち寄ることを表します。",
+      "exampleTranslation": "Từ 「寄り道（する）」 chỉ việc ghé qua một nơi khác trên đường đi.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 16906,
+      "term": "食物 (しょくもつ)",
+      "reading": "しょくもつ",
+      "romaji": null,
+      "definition": "Đồ ăn",
+      "exampleSentence": "食物アレルギーがある人は、原材料を必ず確認してください。",
+      "exampleTranslation": "Những người bị dị ứng thực phẩm nhất định phải kiểm tra nguyên liệu.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 16907,
+      "term": "換気（する） (かんき（する）)",
+      "reading": "かんき（する）",
+      "romaji": null,
+      "definition": "Sự thông gió",
+      "exampleSentence": "「換気（する）」ことは、部屋の空気を清潔に保つために大切です。",
+      "exampleTranslation": "Việc thông gió rất quan trọng để giữ không khí trong phòng sạch sẽ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 16908,
+      "term": "いったん",
+      "reading": "いったん",
+      "romaji": null,
+      "definition": "Tạm, một chút",
+      "exampleSentence": "いったん荷物を部屋に置いてから、買い物に出かけます。",
+      "exampleTranslation": "Tôi sẽ tạm đặt hành lý vào phòng rồi đi mua sắm.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 16909,
+      "term": "物干し (ものほし)",
+      "reading": "ものほし",
+      "romaji": null,
+      "definition": "Dây, chỗ phơi đồ",
+      "exampleSentence": "洗濯物を物干しに掛けたら、急に雨が降ってきた。",
+      "exampleTranslation": "Vừa phơi quần áo lên chỗ phơi thì trời đột nhiên đổ mưa.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 16910,
+      "term": "食卓 (しょくたく)",
+      "reading": "しょくたく",
+      "romaji": null,
+      "definition": "Bàn ăn",
+      "exampleSentence": "夕食の時間になると、母は食卓に料理を並べた。",
+      "exampleTranslation": "Đến giờ ăn tối, mẹ bày thức ăn lên bàn.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 16911,
+      "term": "後回し (あとまわし)",
+      "reading": "あとまわし",
+      "romaji": null,
+      "definition": "Sự để sau, hoãn",
+      "exampleSentence": "大切な仕事を後回しにすると、後で困ることになる。",
+      "exampleTranslation": "Nếu cứ trì hoãn những việc quan trọng, sau này sẽ gặp rắc rối.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 16912,
+      "term": "削る (けずる)",
+      "reading": "けずる",
+      "romaji": null,
+      "definition": "Cắt bớt, gọt",
+      "exampleSentence": "予算が足りないので、旅行の費用を少し削ることにした。",
+      "exampleTranslation": "Vì ngân sách không đủ nên tôi quyết định cắt bớt chi phí chuyến đi.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 16913,
+      "term": "かなえる",
+      "reading": "かなえる",
+      "romaji": null,
+      "definition": "Đạt nguyện vọng, mục đích",
+      "exampleSentence": "努力を続ければ、いつか自分の夢をかなえることができる。",
+      "exampleTranslation": "Nếu tiếp tục nỗ lực, một ngày nào đó bạn có thể biến ước mơ thành hiện thực.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 16914,
+      "term": "調節（する） (ちょうせつ（する）)",
+      "reading": "ちょうせつ（する）",
+      "romaji": null,
+      "definition": "Sự điều chỉnh",
+      "exampleSentence": "季節に合わせて、エアコンの温度を「調節（する）」ことが大切です。",
+      "exampleTranslation": "Điều chỉnh nhiệt độ điều hòa phù hợp với mùa là điều quan trọng.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 16915,
+      "term": "ゆったり[と]（する）",
+      "reading": "ゆったり[と]（する）",
+      "romaji": null,
+      "definition": "Thong thả, chậm rãi, rộng rãi",
+      "exampleSentence": "休日は「ゆったり（する）」と決めて、好きな音楽を聴きながら過ごしました。",
+      "exampleTranslation": "Vào ngày nghỉ, tôi quyết định thư thả nghỉ ngơi và nghe nhạc mình yêu thích.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 16916,
+      "term": "売り買い（する） (うりかい（する）)",
+      "reading": "うりかい（する）",
+      "romaji": null,
+      "definition": "Sự mua bán",
+      "exampleSentence": "この市場では、商品の「売り買い（する）」が毎日行われています。",
+      "exampleTranslation": "Ở khu chợ này, việc mua bán hàng hóa diễn ra mỗi ngày.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 16917,
+      "term": "思い浮かべる (おもいうかべる)",
+      "reading": "おもいうかべる",
+      "romaji": null,
+      "definition": "Nhớ ra, hồi tưởng",
+      "exampleSentence": "彼の名前を聞くと、昔の笑顔を思い浮かべる。",
+      "exampleTranslation": "Mỗi khi nghe tên anh ấy, tôi lại nhớ đến nụ cười ngày xưa.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 16918,
+      "term": "独り言 (ひとりごと)",
+      "reading": "ひとりごと",
+      "romaji": null,
+      "definition": "Sự nói một mình",
+      "exampleSentence": "彼は緊張すると、いつも小さな声で独り言を言う。",
+      "exampleTranslation": "Mỗi khi căng thẳng, anh ấy luôn lẩm bẩm một mình với giọng nhỏ.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 16919,
+      "term": "風呂場 (ふろば)",
+      "reading": "ふろば",
+      "romaji": null,
+      "definition": "Phòng tắm",
+      "exampleSentence": "風呂場の窓を開けて、湯気を外に逃がした。",
+      "exampleTranslation": "Tôi mở cửa sổ phòng tắm để hơi nước thoát ra ngoài.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 16920,
+      "term": "かぐ",
+      "reading": "かぐ",
+      "romaji": null,
+      "definition": "Ngửi, hít",
+      "exampleSentence": "花をかぐと、春の香りが広がった。",
+      "exampleTranslation": "Khi ngửi hoa, hương thơm mùa xuân lan tỏa.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 16921,
+      "term": "寝つき (ねつき)",
+      "reading": "ねつき",
+      "romaji": null,
+      "definition": "Sự ngủ, dỗ giấc ngủ",
+      "exampleSentence": "最近、仕事の悩みが多くて、寝つきが悪い。",
+      "exampleTranslation": "Gần đây tôi có nhiều chuyện công việc phải lo nên khó đi vào giấc ngủ.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 16922,
+      "term": "用心（する） (ようじん（する）)",
+      "reading": "ようじん（する）",
+      "romaji": null,
+      "definition": "Sự chú ý, cẩn thận",
+      "exampleSentence": "旅行中は、貴重品をなくさないように十分用心（する）ことが大切です。",
+      "exampleTranslation": "Khi đi du lịch, cẩn thận để không làm mất đồ quý là điều quan trọng.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 16923,
+      "term": "メッセージ",
+      "reading": "メッセージ",
+      "romaji": null,
+      "definition": "Thông điệp, tin nhắn",
+      "exampleSentence": "母からのメッセージを読んで、安心して仕事に戻りました。",
+      "exampleTranslation": "Đọc tin nhắn của mẹ xong, tôi yên tâm quay lại làm việc.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

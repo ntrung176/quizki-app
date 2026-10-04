@@ -1,0 +1,187 @@
+{
+  "id": 396,
+  "title": "N3 Unit 4.5 - 名詞B・位置と範囲 (Vị trí & phạm vi)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 名詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.643766",
+  "cards": [
+    {
+      "id": 10573,
+      "term": "税金 (ぜいきん)",
+      "reading": "ぜいきん",
+      "romaji": "zeikin",
+      "definition": "thuế",
+      "exampleSentence": "年度末に税金を払う",
+      "exampleTranslation": "Trả tiền thuế vào cuối năm.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10574,
+      "term": "責任 (せきにん)",
+      "reading": "せきにん",
+      "romaji": "sekinin",
+      "definition": "trách nhiệm",
+      "exampleSentence": "「この失敗はあなたの責任ではない」",
+      "exampleTranslation": "\"Thất bại này không phải là trách nhiệm của bạn.\"",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10575,
+      "term": "書類 (しょるい)",
+      "reading": "しょるい",
+      "romaji": "shorui",
+      "definition": "tài liệu, hồ sơ, giấy tờ",
+      "exampleSentence": "留学の手続きに必要な書類を準備する",
+      "exampleTranslation": "Chuẩn bị giấy tờ cần thiết để làm thủ tục du học.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10576,
+      "term": "題名 (だいめい)",
+      "reading": "だいめい",
+      "romaji": "daimei",
+      "definition": "nhan đề, tên ( sách...)",
+      "exampleSentence": "コンクールに出す作品に題名をつける",
+      "exampleTranslation": "Đặt tên cho tác phẩm tham gia cuộc thi âm nhạc.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10577,
+      "term": "条件 (じょうけん)",
+      "reading": "じょうけん",
+      "romaji": "jōken",
+      "definition": "điều kiện",
+      "exampleSentence": "運転免許を持っていることが採用の条件だ",
+      "exampleTranslation": "Điều kiện tuyển dụng là phải có bằng lái xe.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10578,
+      "term": "締め切り (しめきり)",
+      "reading": "しめきり",
+      "romaji": "shimekiri",
+      "definition": "hạn cuối",
+      "exampleSentence": "レポートのしめ切りは30日です",
+      "exampleTranslation": "Ngày 30 là hạn cuối nộp báo cáo.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10579,
+      "term": "期間 (きかん)",
+      "reading": "きかん",
+      "romaji": "kikan",
+      "definition": "kỳ, thời kỳ",
+      "exampleSentence": "申し込む期間は１２月１日から３日までです",
+      "exampleTranslation": "Thời hạn đăng kí/ đóng cửa/ thicông xây dựng... là ngày 1 đến ngày 3 tháng 12.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10580,
+      "term": "倍 (ばい)",
+      "reading": "ばい",
+      "romaji": "bai",
+      "definition": "gấp đôi, lần",
+      "exampleSentence": "値段が倍になる",
+      "exampleTranslation": "Giá tăng lên gấp đôi.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10581,
+      "term": "くじ",
+      "reading": "くじ",
+      "romaji": "kuji",
+      "definition": "rút thăm, xổ số",
+      "exampleSentence": "ス―パーで買い物をしてくじをひいたら、テレビが当たった",
+      "exampleTranslation": "Đi mua đồ ở siêu thị, sau khi rút thăm trúng thưởng thì đã trúng được cái tivi.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10582,
+      "term": "近道 (ちかみち)",
+      "reading": "ちかみち",
+      "romaji": "chikamichi",
+      "definition": "đường tắt",
+      "exampleSentence": "駅への近道を通る",
+      "exampleTranslation": "Đến nhà ga thông qua đường tắt.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10583,
+      "term": "中心 (ちゅうしん)",
+      "reading": "ちゅうしん",
+      "romaji": "chūshin",
+      "definition": "trung tâm",
+      "exampleSentence": "街の中心",
+      "exampleTranslation": "Trung tâm thành phố.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10584,
+      "term": "辺り (あたり)",
+      "reading": "あたり",
+      "romaji": "atari",
+      "definition": "xung quanh, vùng lân cận",
+      "exampleSentence": "あたりを見回す",
+      "exampleTranslation": "Nhìn xung quanh.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10585,
+      "term": "周り/回り (まわり)",
+      "reading": "まわり",
+      "romaji": "mawari",
+      "definition": "vòng quanh, xung quanh",
+      "exampleSentence": "池の周りを歩く",
+      "exampleTranslation": "Đi bộ xung quanh ao.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10586,
+      "term": "穴 (あな)",
+      "reading": "あな",
+      "romaji": "ana",
+      "definition": "hố, lỗ",
+      "exampleSentence": "地面にあなを掘る",
+      "exampleTranslation": "Đào một cái lỗ trên mặt đất.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10587,
+      "term": "列 (れつ)",
+      "reading": "れつ",
+      "romaji": "retsu",
+      "definition": "hàng, dòng",
+      "exampleSentence": "入り口の前には長い列ができていた",
+      "exampleTranslation": "Có một hàng dài trước cổng vào.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10588,
+      "term": "幅 (はば)",
+      "reading": "はば",
+      "romaji": "haba",
+      "definition": "chiều rộng",
+      "exampleSentence": "道のはばが広い",
+      "exampleTranslation": "Chiều rộng của con đường này rộng.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "id": 586,
+  "title": "N2 Unit 7.7 - 名詞C (bài 7/8)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.323641",
+  "cards": [
+    {
+      "id": 13819,
+      "term": "増大 (ぞうだい)",
+      "reading": "ぞうだい",
+      "romaji": null,
+      "definition": "sự mở rộng; sự tăng thêm; sự khuyếch trương",
+      "exampleSentence": "時が経つとともに、不安が増大した。",
+      "exampleTranslation": "Theo thời gian, sự bất an tăng lên.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13820,
+      "term": "増量 (ぞうりょう)",
+      "reading": "ぞうりょう",
+      "romaji": null,
+      "definition": "sự tăng số lượng, sự tăng cân",
+      "exampleSentence": "現在、1割増量サービス中です。",
+      "exampleTranslation": "Hiện đang tăng thêm 10%.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13821,
+      "term": "増税 (ぞうぜい)",
+      "reading": "ぞうぜい",
+      "romaji": null,
+      "definition": "sự tăng thuế",
+      "exampleSentence": "労働人口が減少し、政府は増税を考えているらしい。",
+      "exampleTranslation": "Chính phủ đang tính tăng thuế.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13822,
+      "term": "増員 (ぞういん)",
+      "reading": "ぞういん",
+      "romaji": null,
+      "definition": "tăng thêm số (của) nhân sự",
+      "exampleSentence": "アメリカ大統領来日に当たり、警備員が増員された。",
+      "exampleTranslation": "Tăng nhân sự an ninh.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13823,
+      "term": "減点 (げんてん)",
+      "reading": "げんてん",
+      "romaji": null,
+      "definition": "sự giảm trừ; sự giảm điểm",
+      "exampleSentence": "漢字のテストで、送り仮名を間違えて減点された。",
+      "exampleTranslation": "Bị trừ điểm do sai okurigana.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13824,
+      "term": "減退 (げんたい)",
+      "reading": "げんたい",
+      "romaji": null,
+      "definition": "giảm thiểu",
+      "exampleSentence": "暑さのせいで食欲が減退した。",
+      "exampleTranslation": "Giảm cảm giác ăn.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13825,
+      "term": "減量 (げんりょう)",
+      "reading": "げんりょう",
+      "romaji": null,
+      "definition": "giảm trọng lượng, tụt cân",
+      "exampleSentence": "洗剤の中身が減量された。",
+      "exampleTranslation": "Giảm dung lượng (giống tăng giá).",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13826,
+      "term": "開発 (かいはつ)",
+      "reading": "かいはつ",
+      "romaji": null,
+      "definition": "sự phát triển, khai thác",
+      "exampleSentence": "遊園地が開発される。",
+      "exampleTranslation": "Phát triển khu vui chơi.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13827,
+      "term": "開店 (かいてん)",
+      "reading": "かいてん",
+      "romaji": null,
+      "definition": "sự mở cửa hàng",
+      "exampleSentence": "近所に新しいレストランが開店した。",
+      "exampleTranslation": "Khai trương nhà hàng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13828,
+      "term": "開業 (かいぎょう)",
+      "reading": "かいぎょう",
+      "romaji": null,
+      "definition": "bắt đầu kinh doanh; khởi nghiệp",
+      "exampleSentence": "歯医者が開業した。",
+      "exampleTranslation": "Mở phòng khám.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13829,
+      "term": "開催 (かいさい)",
+      "reading": "かいさい",
+      "romaji": null,
+      "definition": "sự tổ chức; tổ chức",
+      "exampleSentence": "議会を開催する。",
+      "exampleTranslation": "Tổ chức hội nghị.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13830,
+      "term": "開放 (かいほう)",
+      "reading": "かいほう",
+      "romaji": null,
+      "definition": "sự mở cửa; sự tự do hoá",
+      "exampleSentence": "校庭は市民に開放されている。",
+      "exampleTranslation": "Mở cho người dân.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13831,
+      "term": "閉鎖 (へいさ)",
+      "reading": "へいさ",
+      "romaji": null,
+      "definition": "sự phong bế; sự phong tỏa",
+      "exampleSentence": "夜間は閉鎖されている。",
+      "exampleTranslation": "Đóng cửa ban đêm.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13832,
+      "term": "密閉 (みっぺい)",
+      "reading": "みっぺい",
+      "romaji": null,
+      "definition": "kín hơi, kín gió",
+      "exampleSentence": "瓶を密閉する。",
+      "exampleTranslation": "Đóng kín chai.",
+      "forms": [],
+      "displayOrder": 13
+    }
+  ]
+}

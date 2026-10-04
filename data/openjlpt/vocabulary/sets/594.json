@@ -1,0 +1,176 @@
+{
+  "id": 594,
+  "title": "N2 Unit 8.7 - 動詞B (bài 7/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.444461",
+  "cards": [
+    {
+      "id": 13914,
+      "term": "膨らむ (ふくらむ)",
+      "reading": "ふくらむ",
+      "romaji": null,
+      "definition": "to ra, làm to ra, phồng lên",
+      "exampleSentence": "桜のつぼみが膨らんだ。",
+      "exampleTranslation": "Nụ hoa anh đào đã căng/phồng lên (sắp nở).",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13915,
+      "term": "膨らます (ふくらます)",
+      "reading": "ふくらます",
+      "romaji": null,
+      "definition": "phồng, thổi phồng, phình",
+      "exampleSentence": "娘は怒ると頬を膨らます。",
+      "exampleTranslation": "Con gái tôi hễ giận là phồng má.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13916,
+      "term": "尖る (とがる)",
+      "reading": "とがる",
+      "romaji": null,
+      "definition": "nhọn, sắc",
+      "exampleSentence": "鉛筆の先が尖っている。",
+      "exampleTranslation": "Đầu bút chì nhọn.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13917,
+      "term": "当てはまる (あてはまる)",
+      "reading": "あてはまる",
+      "romaji": null,
+      "definition": "áp dụng, ứng dụng",
+      "exampleSentence": "この規則はすべての人に当てはまる。",
+      "exampleTranslation": "Quy tắc này áp dụng cho tất cả mọi người.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13918,
+      "term": "就く (つく)",
+      "reading": "つく",
+      "romaji": null,
+      "definition": "nhận việc, nhậm chức, làm (nghề)",
+      "exampleSentence": "大学を卒業して教職に就いた。",
+      "exampleTranslation": "Tốt nghiệp đại học rồi đi làm nghề giáo.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13919,
+      "term": "受け持つ (うけもつ)",
+      "reading": "うけもつ",
+      "romaji": null,
+      "definition": "đảm nhận, phụ trách, đảm đương (trách nhiệm)",
+      "exampleSentence": "サークルで、今年は会計を受け持つことになった。",
+      "exampleTranslation": "Năm nay tôi phụ trách kế toán cho câu lạc bộ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13920,
+      "term": "従う (したがう)",
+      "reading": "したがう",
+      "romaji": null,
+      "definition": "theo đó, theo",
+      "exampleSentence": "「非常の際は係員の指示に従って避難してください」",
+      "exampleTranslation": "“Khi khẩn cấp, hãy làm theo chỉ dẫn của nhân viên.”",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13921,
+      "term": "呟く (つぶやく)",
+      "reading": "つぶやく",
+      "romaji": null,
+      "definition": "thì thầm, thì thào",
+      "exampleSentence": "彼女は下を向いて、何かぶつぶつつぶやいていた。",
+      "exampleTranslation": "Cô ấy cúi mặt xuống và lẩm bẩm gì đó.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13922,
+      "term": "述べる (のべる)",
+      "reading": "のべる",
+      "romaji": null,
+      "definition": "bày tỏ, nêu lên",
+      "exampleSentence": "自分の意見を述べる。",
+      "exampleTranslation": "Trình bày/phát biểu ý kiến của mình.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13923,
+      "term": "目覚める (めざめる)",
+      "reading": "めざめる",
+      "romaji": null,
+      "definition": "thức giấc, mở mắt",
+      "exampleSentence": "早朝、鳥の声で目覚めた。",
+      "exampleTranslation": "Sáng sớm, tôi thức giấc bởi tiếng chim.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13924,
+      "term": "限る (かぎる)",
+      "reading": "かぎる",
+      "romaji": null,
+      "definition": "chỉ",
+      "exampleSentence": "日本では漫画を読むのは子供に限らない。",
+      "exampleTranslation": "Ở Nhật, không chỉ trẻ con mới đọc manga.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13925,
+      "term": "片寄る・偏る (かたよる・かたよる)",
+      "reading": "かたよる・かたよる",
+      "romaji": null,
+      "definition": "dồn về một phía",
+      "exampleSentence": "ボートで客が一方に片寄ったため、船体が傾いてしまった。",
+      "exampleTranslation": "Do hành khách dồn về một phía nên thân thuyền bị nghiêng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13926,
+      "term": "薄まる (うすまる)",
+      "reading": "うすまる",
+      "romaji": null,
+      "definition": "bị nhạt đi, phai nhòa",
+      "exampleSentence": "凍りがとけてジュースが薄まった。",
+      "exampleTranslation": "Đá tan ra làm nước trái cây bị nhạt.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13927,
+      "term": "薄める (うすめる)",
+      "reading": "うすめる",
+      "romaji": null,
+      "definition": "pha loãng, làm nhạt đi",
+      "exampleSentence": "水を足して味を薄めた。",
+      "exampleTranslation": "Thêm nước để làm nhạt vị.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13928,
+      "term": "薄れる (うすれる)",
+      "reading": "うすれる",
+      "romaji": null,
+      "definition": "mất dần đi, mỏng dần, nhạt đi",
+      "exampleSentence": "霧が薄れ、見通しが良くなった。",
+      "exampleTranslation": "Sương mỏng dần, tầm nhìn tốt hơn.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

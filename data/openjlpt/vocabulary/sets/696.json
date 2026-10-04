@@ -1,0 +1,231 @@
+{
+  "id": 696,
+  "title": "N4 Tango 2.3 - Việc học và công việc · Việc học",
+  "description": "Tango N4 — Việc học và công việc",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:28.334103",
+  "cards": [
+    {
+      "id": 15927,
+      "term": "考える (かんがえる)",
+      "reading": "かんがえる",
+      "romaji": null,
+      "definition": "Suy nghĩ, nghĩ",
+      "exampleSentence": "将来のことをよく考える時間が必要です。",
+      "exampleTranslation": "Cần có thời gian để suy nghĩ kỹ về tương lai.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 15928,
+      "term": "辞典 (じてん)",
+      "reading": "じてん",
+      "romaji": null,
+      "definition": "Từ điển",
+      "exampleSentence": "わからない言葉を辞典で調べました。",
+      "exampleTranslation": "Tôi đã tra những từ không hiểu trong từ điển.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 15929,
+      "term": "調べる (しらべる)",
+      "reading": "しらべる",
+      "romaji": null,
+      "definition": "Tra, tìm",
+      "exampleSentence": "わからない言葉は、まず辞典で調べるようにしています。",
+      "exampleTranslation": "Tôi luôn cố gắng tra từ điển trước những từ mình không hiểu.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 15930,
+      "term": "たしかめる",
+      "reading": "たしかめる",
+      "romaji": null,
+      "definition": "Kiểm tra, xác nhận",
+      "exampleSentence": "答えをたしかめるために、もう一度計算します。",
+      "exampleTranslation": "Để kiểm tra đáp án, tôi sẽ tính lại một lần nữa.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 15931,
+      "term": "予習<する> (よしゅう<する>)",
+      "reading": "よしゅう<する>",
+      "romaji": null,
+      "definition": "Việc học trước, sự chuẩn bị bài",
+      "exampleSentence": "「予習<する>」は、授業の前に勉強することです。",
+      "exampleTranslation": "「予習<する>」 nghĩa là học bài trước giờ học.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 15932,
+      "term": "復習（する） (ふくしゅう（する）)",
+      "reading": "ふくしゅう（する）",
+      "romaji": null,
+      "definition": "Việc ôn tập",
+      "exampleSentence": "授業のあとで復習（する）時間を作りましょう。",
+      "exampleTranslation": "Sau giờ học, hãy dành thời gian ôn tập.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 15933,
+      "term": "思い出す (おもいだす)",
+      "reading": "おもいだす",
+      "romaji": null,
+      "definition": "Nhớ ra",
+      "exampleSentence": "写真を見ると、子どものころのことを思い出す。",
+      "exampleTranslation": "Khi nhìn ảnh, tôi nhớ lại những chuyện thời thơ ấu.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 15934,
+      "term": "じゅく",
+      "reading": "じゅく",
+      "romaji": null,
+      "definition": "Lớp học thêm, lớp luyện thi",
+      "exampleSentence": "試験の前に、毎日じゅくで勉強しています。",
+      "exampleTranslation": "Trước kỳ thi, tôi học ở lớp luyện thi mỗi ngày.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 15935,
+      "term": "やる",
+      "reading": "やる",
+      "romaji": null,
+      "definition": "Làm",
+      "exampleSentence": "宿題をやる前に、テレビを消しました。",
+      "exampleTranslation": "Trước khi làm bài tập, tôi đã tắt tivi.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 15936,
+      "term": "がんばる",
+      "reading": "がんばる",
+      "romaji": null,
+      "definition": "Cố gắng",
+      "exampleSentence": "試験に合格するために、毎日がんばるつもりです。",
+      "exampleTranslation": "Tôi định cố gắng mỗi ngày để đỗ kỳ thi.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 15937,
+      "term": "字 (じ)",
+      "reading": "じ",
+      "romaji": null,
+      "definition": "Chữ, chữ viết",
+      "exampleSentence": "この紙に、名前をきれいな字で書いてください。",
+      "exampleTranslation": "Hãy viết tên của bạn bằng chữ đẹp lên tờ giấy này.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 15938,
+      "term": "ふりがな",
+      "reading": "ふりがな",
+      "romaji": null,
+      "definition": "Phiên âm",
+      "exampleSentence": "この漢字には、ふりがなが付いているので読めます。",
+      "exampleTranslation": "Chữ Hán này có phiên âm nên tôi có thể đọc được.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 15939,
+      "term": "メモ<する>",
+      "reading": "メモ<する>",
+      "romaji": null,
+      "definition": "Việc ghi chép",
+      "exampleSentence": "忘れないように、大切なことをメモ<する>習慣があります。",
+      "exampleTranslation": "Để không quên, tôi có thói quen ghi lại những điều quan trọng.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 15940,
+      "term": "文法 (ぶんぽう)",
+      "reading": "ぶんぽう",
+      "romaji": null,
+      "definition": "Văn phạm, ngữ pháp",
+      "exampleSentence": "日本語の文法は難しいですが、少しずつ分かってきました。",
+      "exampleTranslation": "Ngữ pháp tiếng Nhật khó, nhưng tôi đã dần hiểu hơn.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 15941,
+      "term": "説明<する> (せつめい<する>)",
+      "reading": "せつめい<する>",
+      "romaji": null,
+      "definition": "Việc giải thích, phần giải thích",
+      "exampleSentence": "先生が文法を説明<する>とき、私はノートを取ります。",
+      "exampleTranslation": "Khi giáo viên giải thích ngữ pháp, tôi ghi chép vào vở.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 15942,
+      "term": "発音（する） (はつおん（する）)",
+      "reading": "はつおん（する）",
+      "romaji": null,
+      "definition": "Việc phát âm",
+      "exampleSentence": "先生に正しい発音（する）を教えてもらいました。",
+      "exampleTranslation": "Tôi đã được giáo viên dạy cách phát âm đúng.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 15943,
+      "term": "会話<する> (かいわ<する>)",
+      "reading": "かいわ<する>",
+      "romaji": null,
+      "definition": "Cuộc nói chuyện, đoạn hội thoại",
+      "exampleSentence": "日本人の友達と日本語で会話<する>練習をしています。",
+      "exampleTranslation": "Tôi đang luyện hội thoại bằng tiếng Nhật với một người bạn Nhật.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 15944,
+      "term": "足す (たす)",
+      "reading": "たす",
+      "romaji": null,
+      "definition": "Thêm vào, cộng",
+      "exampleSentence": "スープの味が薄いときは、塩を少し足すとおいしくなります。",
+      "exampleTranslation": "Khi súp nhạt, thêm một chút muối sẽ làm súp ngon hơn.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 15945,
+      "term": "役に立つ (やくにたつ)",
+      "reading": "やくにたつ",
+      "romaji": null,
+      "definition": "Có ích",
+      "exampleSentence": "この辞書は日本語の勉強にとても役に立つと思います。",
+      "exampleTranslation": "Tôi nghĩ cuốn từ điển này rất có ích cho việc học tiếng Nhật.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 15946,
+      "term": "勉強中 (べんきょうちゅう)",
+      "reading": "べんきょうちゅう",
+      "romaji": null,
+      "definition": "Đang học",
+      "exampleSentence": "勉強中なので、今はテレビを見ません。",
+      "exampleTranslation": "Vì đang học nên bây giờ tôi không xem tivi.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

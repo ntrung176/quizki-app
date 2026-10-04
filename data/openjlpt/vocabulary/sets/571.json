@@ -1,0 +1,121 @@
+{
+  "id": 571,
+  "title": "N2 Unit 5.2 - カタカナA (bài 2/5)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — カタカナA",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.097213",
+  "cards": [
+    {
+      "id": 13638,
+      "term": "サイン",
+      "reading": "サイン",
+      "romaji": null,
+      "definition": "chữ kí, kí",
+      "exampleSentence": "契約書にサインをする。",
+      "exampleTranslation": "Ký vào hợp đồng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13639,
+      "term": "スター",
+      "reading": "スター",
+      "romaji": null,
+      "definition": "ngôi sao nổi tiếng",
+      "exampleSentence": "映画がヒットし、主演俳優はたちまち世界的なスターになった。",
+      "exampleTranslation": "Phim hit, nam chính lập tức trở thành ngôi sao thế giới.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13640,
+      "term": "アンコール",
+      "reading": "アンコール",
+      "romaji": null,
+      "definition": "diễn lại, hát lại, một lần nữa",
+      "exampleSentence": "観客のアンコールに応えて出演者が舞台で挨拶した。",
+      "exampleTranslation": "Đáp lại tiếng encore, các nghệ sĩ lên sân khấu chào khán giả.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13641,
+      "term": "モデル",
+      "reading": "モデル",
+      "romaji": null,
+      "definition": "người mẫu",
+      "exampleSentence": "彼女はファッションショーのモデルをしている。",
+      "exampleTranslation": "Cô ấy làm người mẫu cho show thời trang.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13642,
+      "term": "サンプル",
+      "reading": "サンプル",
+      "romaji": null,
+      "definition": "hàng mẫu",
+      "exampleSentence": "食堂の入口に料理のサンプルが置いてある。",
+      "exampleTranslation": "Trước cửa quán ăn có trưng bày mẫu món ăn.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13643,
+      "term": "スタイル",
+      "reading": "スタイル",
+      "romaji": null,
+      "definition": "kiểu cách, phong cách",
+      "exampleSentence": "彼女はとてもスタイルがいい。",
+      "exampleTranslation": "Cô ấy dáng rất đẹp.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13644,
+      "term": "ウエスト",
+      "reading": "ウエスト",
+      "romaji": null,
+      "definition": "eo, vòng eo",
+      "exampleSentence": "最近太ってスカートのウエストがきつくなった。",
+      "exampleTranslation": "Gần đây tôi tăng cân nên eo váy bị chật.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13645,
+      "term": "カロリー",
+      "reading": "カロリー",
+      "romaji": null,
+      "definition": "calo",
+      "exampleSentence": "成人男性が1日に必要なカロリーは、1800～2000kcal ぐらいと言われている。",
+      "exampleTranslation": "Nam trưởng thành được cho là cần khoảng 1.800–2.000 kcal/ngày.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13646,
+      "term": "オーバー",
+      "reading": "オーバー",
+      "romaji": null,
+      "definition": "vượt quá",
+      "exampleSentence": "志願者が定員をオーバーした。",
+      "exampleTranslation": "Số người đăng ký đã vượt chỉ tiêu.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13647,
+      "term": "コントロール",
+      "reading": "コントロール",
+      "romaji": null,
+      "definition": "kiểm soát, điều khiển",
+      "exampleSentence": "この機械はコンピューターでコントロールされている。",
+      "exampleTranslation": "Máy này được điều khiển bằng máy tính.",
+      "forms": [],
+      "displayOrder": 9
+    }
+  ]
+}

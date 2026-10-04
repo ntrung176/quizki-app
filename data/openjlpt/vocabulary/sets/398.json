@@ -1,0 +1,198 @@
+{
+  "id": 398,
+  "title": "N3 Unit 5.1 - 動詞B・接触と一致 (Tiếp xúc & khớp hợp)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 動詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.695963",
+  "cards": [
+    {
+      "id": 10605,
+      "term": "届く (とどく)",
+      "reading": "とどく",
+      "romaji": "todoku",
+      "definition": "đến nơi, tới (bưu phẩm/tin), tới tay; (tay) với tới",
+      "exampleSentence": "父から手紙が届いた",
+      "exampleTranslation": "Bức thư của bố được giao đến.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10606,
+      "term": "届ける (とどける)",
+      "reading": "とどける",
+      "romaji": "todokeru",
+      "definition": "gửi/đem đến; nộp/trình (đơn, giấy tờ); báo cáo/khai báo",
+      "exampleSentence": "隣の家に旅行のおみやげを届けた",
+      "exampleTranslation": "Giao quà du lịch đến nhà bên cạnh.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10607,
+      "term": "かく",
+      "reading": "かく",
+      "romaji": "kaku",
+      "definition": "gãi (đầu), gãi (ngứa), toát (mồ hôi)",
+      "exampleSentence": "頭をかく",
+      "exampleTranslation": "Gãi đầu.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10608,
+      "term": "つかむ",
+      "reading": "つかむ",
+      "romaji": "tsukamu",
+      "definition": "cầm nắm, tóm được, nắm bắt (cơ hội, ý nghĩa)",
+      "exampleSentence": "電車で突然腕をつかまれてびっくりした",
+      "exampleTranslation": "Ở trên tàu bỗng nhiên tay bị ai đó nắm cánh tay, giật hết cả mình.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10609,
+      "term": "握る (にぎる)",
+      "reading": "にぎる",
+      "romaji": "nigiru",
+      "definition": "nắm, cầm, nắm chặt; nắm quyền/giữ bí mật",
+      "exampleSentence": "子どもはこわがって母親の手を強くにぎった",
+      "exampleTranslation": "Đứa trẻ tỏ vẻ sợ hãi nắm chặt lấy tay mẹ.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10610,
+      "term": "押さえる (おさえる)",
+      "reading": "おさえる",
+      "romaji": "osaeru",
+      "definition": "nắm bắt, giữ",
+      "exampleSentence": "あの人はおなかを押さえて座っている。腹痛だろうか",
+      "exampleTranslation": "Người kia cứ ngồi ôm bụng. Chắc có vẻ đau bụng thì phải.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10611,
+      "term": "近づく (ちかづく)",
+      "reading": "ちかづく",
+      "romaji": "chikazuku",
+      "definition": "lại gần",
+      "exampleSentence": "目的地が近づいてきた",
+      "exampleTranslation": "Dần tiến gần địa điểm đích.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10612,
+      "term": "近づける (ちかづける)",
+      "reading": "ちかづける",
+      "romaji": "chikazukeru",
+      "definition": "mang, đưa đến gần",
+      "exampleSentence": "車を道のわきに近づける",
+      "exampleTranslation": "Lái xe tấp vào gần lề đường.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10613,
+      "term": "合う (あう)",
+      "reading": "あう",
+      "romaji": "au",
+      "definition": "hợp, khớp",
+      "exampleSentence": "ふと顔を上げると、先生と目が合ってしまった",
+      "exampleTranslation": "Bất chợt ngẩng mặt lên thì gặp ánh mắt giáo viên.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10614,
+      "term": "合わせる (あわせる)",
+      "reading": "あわせる",
+      "romaji": "awaseru",
+      "definition": "hợp, chỉnh (đồng hồ)",
+      "exampleSentence": "みんなで力を合わせてがんばりましょう",
+      "exampleTranslation": "Mọi người cùng chung sức cố gắng nhé.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10615,
+      "term": "当たる (あたる)",
+      "reading": "あたる",
+      "romaji": "ataru",
+      "definition": "trúng (số), va/chạm, đúng; bị (ánh nắng) chiếu; gặp phải; ăn trúng (đồ ăn không hợp)",
+      "exampleSentence": "ボールが当たって窓がラスが割れた",
+      "exampleTranslation": "Quả bóng này đập vào cái cửa sổ thế là kính vỡ.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10616,
+      "term": "当てる (あてる)",
+      "reading": "あてる",
+      "romaji": "ateru",
+      "definition": "đặt/áp vào; trúng; đoán; chỉ định; (đèn) rọi; (xe) đâm vào",
+      "exampleSentence": "相手選手にボールが速いので、ラケットに当てるのも大変だ",
+      "exampleTranslation": "Vì bóng của đối phương rất nhanh nên đỡ trúng là rất khó.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10617,
+      "term": "比べる (くらべる)",
+      "reading": "くらべる",
+      "romaji": "kuraberu",
+      "definition": "so sánh",
+      "exampleSentence": "東京と大阪の面積を比べる",
+      "exampleTranslation": "So sánh diện tích của Tokyo và Osaka.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10618,
+      "term": "似合う (にあう)",
+      "reading": "にあう",
+      "romaji": "niau",
+      "definition": "hợp (với), hợp gu",
+      "exampleSentence": "彼女は着物がよく似合う",
+      "exampleTranslation": "Cô ấy rất hợp với kimono.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10619,
+      "term": "似る (にる)",
+      "reading": "にる",
+      "romaji": "niru",
+      "definition": "giống",
+      "exampleSentence": "彼女は母親によく似ている",
+      "exampleTranslation": "Cô ấy rất giống mẹ.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10620,
+      "term": "似せる (にせる)",
+      "reading": "にせる",
+      "romaji": "niseru",
+      "definition": "bắt chước, mô phỏng",
+      "exampleSentence": "アイドルに髪型を似せる",
+      "exampleTranslation": "Bắt chước kiểu tóc của thần tượng .",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 10621,
+      "term": "分かれる (わかれる)",
+      "reading": "わかれる",
+      "romaji": "wakareru",
+      "definition": "chia, phân chia",
+      "exampleSentence": "トイレは、男性用と女性用に分かれている",
+      "exampleTranslation": "Vệ sinh của nam và nữ thì được phân chia tách biệt ra.",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

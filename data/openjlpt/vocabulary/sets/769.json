@@ -1,0 +1,242 @@
+{
+  "id": 769,
+  "title": "N2 Tango 9.5 - Vì sức khỏe · Làm đẹp",
+  "description": "Tango N2 — Vì sức khỏe",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:37.518747",
+  "cards": [
+    {
+      "id": 17754,
+      "term": "肌 (はだ)",
+      "reading": "はだ",
+      "romaji": null,
+      "definition": "Da",
+      "exampleSentence": "冬は肌が乾燥しやすいので、毎日クリームを塗っています。",
+      "exampleTranslation": "Vì mùa đông da dễ bị khô nên tôi bôi kem mỗi ngày.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 17755,
+      "term": "手入れ（する） (ていれ（する）)",
+      "reading": "ていれ（する）",
+      "romaji": null,
+      "definition": "Sự chăm sóc",
+      "exampleSentence": "お気に入りの靴を長く使うには、定期的な「手入れ（する）」が必要です。",
+      "exampleTranslation": "Muốn sử dụng đôi giày yêu thích lâu dài thì cần chăm sóc chúng thường xuyên.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 17756,
+      "term": "ケア（する）",
+      "reading": "ケア（する）",
+      "romaji": null,
+      "definition": "Sự chăm sóc",
+      "exampleSentence": "肌をきれいに保つには、毎日の「ケア（する）」が欠かせません。",
+      "exampleTranslation": "Để giữ cho làn da đẹp, việc chăm sóc hằng ngày là không thể thiếu.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 17757,
+      "term": "維持（する） (いじ（する）)",
+      "reading": "いじ（する）",
+      "romaji": null,
+      "definition": "Sự duy trì",
+      "exampleSentence": "健康を「維持（する）」ためには、適度な運動と十分な睡眠が必要です。",
+      "exampleTranslation": "Để duy trì sức khỏe, cần vận động vừa phải và ngủ đủ giấc.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 17758,
+      "term": "機能（する） (きのう（する）)",
+      "reading": "きのう（する）",
+      "romaji": null,
+      "definition": "Tính năng, chức năng",
+      "exampleSentence": "この機械が正常に「機能（する）」かどうか、確認してください。",
+      "exampleTranslation": "Hãy kiểm tra xem chiếc máy này có hoạt động bình thường hay không.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 17759,
+      "term": "かえって",
+      "reading": "かえって",
+      "romaji": null,
+      "definition": "Ngược lại",
+      "exampleSentence": "急いで説明すると、かえって相手を混乱させることがあります。",
+      "exampleTranslation": "Nếu giải thích quá vội, ngược lại có thể khiến đối phương bối rối.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 17760,
+      "term": "刺激 (しげき)",
+      "reading": "しげき",
+      "romaji": null,
+      "definition": "Sự kích thích, thức đẩy, động lực",
+      "exampleSentence": "新しい友人との出会いは、勉強を続けるよい刺激になりました。",
+      "exampleTranslation": "Cuộc gặp gỡ với người bạn mới đã trở thành động lực tốt để tôi tiếp tục học.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 17761,
+      "term": "かさかさ（な/する）",
+      "reading": "かさかさ（な/する）",
+      "romaji": null,
+      "definition": "Khô ráp, nhám",
+      "exampleSentence": "冬になると、手が「かさかさ（な/する）」になりやすいので、保湿クリームを使いましょう。",
+      "exampleTranslation": "Vào mùa đông, tay dễ trở nên khô ráp nên hãy sử dụng kem dưỡng ẩm.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 17762,
+      "term": "低下（する） (ていか（する）)",
+      "reading": "ていか（する）",
+      "romaji": null,
+      "definition": "Sự suy giảm, kém đi",
+      "exampleSentence": "睡眠不足が続くと、仕事の能率が低下（する）ことがあります。",
+      "exampleTranslation": "Nếu tình trạng thiếu ngủ kéo dài, hiệu suất công việc có thể giảm sút.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 17763,
+      "term": "くっきり（する）",
+      "reading": "くっきり（する）",
+      "romaji": null,
+      "definition": "Rõ ràng",
+      "exampleSentence": "この写真は、色を調整すると輪郭がくっきり（する）ように見える。",
+      "exampleTranslation": "Bức ảnh này trông như có đường nét rõ ràng hơn khi điều chỉnh màu sắc.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 17764,
+      "term": "つや",
+      "reading": "つや",
+      "romaji": null,
+      "definition": "Độ bóng",
+      "exampleSentence": "毎日手入れをしている彼女の髪は、自然なつやがある。",
+      "exampleTranslation": "Mái tóc được chăm sóc hằng ngày của cô ấy có độ bóng tự nhiên.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 17765,
+      "term": "脂肪 (しぼう)",
+      "reading": "しぼう",
+      "romaji": null,
+      "definition": "Mỡ, chất béo",
+      "exampleSentence": "健康のために、脂肪の多い食事を控えるようにしている。",
+      "exampleTranslation": "Vì sức khỏe, tôi cố gắng hạn chế những bữa ăn nhiều chất béo.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 17766,
+      "term": "肥満（する） (ひまん（する）)",
+      "reading": "ひまん（する）",
+      "romaji": null,
+      "definition": "Béo phì",
+      "exampleSentence": "運動不足が続くと、肥満（する）おそれがある。",
+      "exampleTranslation": "Nếu thiếu vận động kéo dài, có nguy cơ bị béo phì.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 17767,
+      "term": "減量（する） (げんりょう（する）)",
+      "reading": "げんりょう（する）",
+      "romaji": null,
+      "definition": "Sự giảm cân, giảm trọng lượng",
+      "exampleSentence": "試合前に選手が減量（する）場合、専門家の指導が必要だ。",
+      "exampleTranslation": "Khi vận động viên giảm cân trước trận đấu, cần có sự hướng dẫn của chuyên gia.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 17768,
+      "term": "急激な (きゅうげきな)",
+      "reading": "きゅうげきな",
+      "romaji": null,
+      "definition": "Đột ngột, nhanh chóng, kịch liệt / dữ dội",
+      "exampleSentence": "急激な気温の変化で、体調を崩す人が増えている。",
+      "exampleTranslation": "Do nhiệt độ thay đổi đột ngột, số người bị ảnh hưởng sức khỏe đang tăng lên.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 17769,
+      "term": "一向に（〜ない） (いっこうに（～ない）)",
+      "reading": "いっこうに（～ない）",
+      "romaji": null,
+      "definition": "Hoàn toàn (không ~)",
+      "exampleSentence": "薬を飲み続けているのに、症状は一向に（〜ない）改善しない。",
+      "exampleTranslation": "Dù vẫn tiếp tục uống thuốc, các triệu chứng hoàn toàn không thuyên giảm.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 17770,
+      "term": "疑わしい (うたがわしい)",
+      "reading": "うたがわしい",
+      "romaji": null,
+      "definition": "Đáng nghi, khả nghi",
+      "exampleSentence": "その証言には、いくつか疑わしい点がある。",
+      "exampleTranslation": "Lời khai đó có một vài điểm đáng nghi.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 17771,
+      "term": "姿勢 (しせい)",
+      "reading": "しせい",
+      "romaji": null,
+      "definition": "Tư thế, thái độ",
+      "exampleSentence": "問題が起きたときこそ、冷静に話し合う姿勢が必要だ。",
+      "exampleTranslation": "Chính khi xảy ra vấn đề, thái độ bình tĩnh trao đổi càng cần thiết.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 17772,
+      "term": "（医者に）かかる (（いしゃに）かかる)",
+      "reading": "（いしゃに）かかる",
+      "romaji": null,
+      "definition": "Đi (bác sỹ), đi bác sỹ điều trị",
+      "exampleSentence": "体調が悪いときは、早めに（医者に）かかるようにしてください。",
+      "exampleTranslation": "Khi cảm thấy không khỏe, hãy đi khám bác sĩ sớm.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 17773,
+      "term": "依存（する） (いぞん（する）)",
+      "reading": "いぞん（する）",
+      "romaji": null,
+      "definition": "Sự phụ thuộc, lệ thuộc, nghiện ~",
+      "exampleSentence": "スマートフォンに依存（する）生活を続けると、睡眠の質が下がる。",
+      "exampleTranslation": "Nếu tiếp tục lối sống lệ thuộc vào điện thoại thông minh, chất lượng giấc ngủ sẽ giảm.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 17774,
+      "term": "映す (うつす)",
+      "reading": "うつす",
+      "romaji": null,
+      "definition": "Soi, chiếu",
+      "exampleSentence": "この鏡は、顔全体を明るく映す。",
+      "exampleTranslation": "Chiếc gương này soi rõ toàn bộ khuôn mặt.",
+      "forms": [],
+      "displayOrder": 20
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "id": 383,
+  "title": "N3 Unit 2.4 - 動詞A・時間と移動 (Thời gian & di chuyển)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 動詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.147165",
+  "cards": [
+    {
+      "id": 10363,
+      "term": "訪ねる (たずねる)",
+      "reading": "たずねる",
+      "romaji": "tazuneru",
+      "definition": "thăm",
+      "exampleSentence": "友人の家を訪ねた",
+      "exampleTranslation": "Đến thăm nhà bạn.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10364,
+      "term": "付き合う (つきあう)",
+      "reading": "つきあう",
+      "romaji": "tsukiau",
+      "definition": "hẹn hò, quan hệ",
+      "exampleSentence": "隣の家の人と親しく付き合っている",
+      "exampleTranslation": "Giữ mối quan hệ thân thiết với nhà bên cạnh.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10365,
+      "term": "効く (きく)",
+      "reading": "きく",
+      "romaji": "kiku",
+      "definition": "hiệu quả",
+      "exampleSentence": "この薬は頭痛によく効く",
+      "exampleTranslation": "Thuốc này rất hiệu quả cho người bị đau đầu.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10366,
+      "term": "はやる",
+      "reading": "はやる",
+      "romaji": "hayaru",
+      "definition": "thịnh hành, phổ biến, bùng phát (dịch bệnh)",
+      "exampleSentence": "この冬は赤い色がはやっている",
+      "exampleTranslation": "Mùa đông này màu đỏ rất thịnh hành.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10367,
+      "term": "経つ (たつ)",
+      "reading": "たつ",
+      "romaji": "tatsu",
+      "definition": "trải qua, trôi qua",
+      "exampleSentence": "日本へ来てから10年がたった",
+      "exampleTranslation": "Đã đến Nhật được 10 năm rồi.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10368,
+      "term": "間に合う (まにあう)",
+      "reading": "まにあう",
+      "romaji": "maniau",
+      "definition": "kịp giờ, đúng lúc",
+      "exampleSentence": "電車が遅れたが、駅から走って、なんとか授業に間に合った",
+      "exampleTranslation": "Xe điện đến muộn, nhưng mà chạy từ ga nên vừa kịp giờ học.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10369,
+      "term": "間に合わせる (まにあわせる)",
+      "reading": "まにあわせる",
+      "romaji": "maniawaseru",
+      "definition": "làm cho kịp",
+      "exampleSentence": "レポートを、がんばって締め切りに間に合わせた",
+      "exampleTranslation": "Tôi đã cố gắng hoàn thành bản báo cáo đúng thời hạn.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10370,
+      "term": "通う (かよう)",
+      "reading": "かよう",
+      "romaji": "kayou",
+      "definition": "đi lại, lưu thông",
+      "exampleSentence": "学校に通う",
+      "exampleTranslation": "Đi học / đi làm / đi viện…",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10371,
+      "term": "込む (こむ)",
+      "reading": "こむ",
+      "romaji": "komu",
+      "definition": "đông đúc",
+      "exampleSentence": "電車が込む",
+      "exampleTranslation": "{ Xe điện / cửa hàng / đường ...} đông đúc.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10372,
+      "term": "すれ違う (すれちがう)",
+      "reading": "すれちがう",
+      "romaji": "surechigau",
+      "definition": "đi ngang qua, lướt qua, lỡ",
+      "exampleSentence": "この道はせまいので、自動車がすれ違うのは大変だ",
+      "exampleTranslation": "Con đường này hẹp nên ô tô ngược hướng khó đi ngang qua nhau.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10373,
+      "term": "掛かる (かかる)",
+      "reading": "かかる",
+      "romaji": "kakaru",
+      "definition": "được phủ lên, tiêu tốn, vướng vào, gây ra, khởi động",
+      "exampleSentence": "このサラダには何もかかっていないようだ",
+      "exampleTranslation": "Hình như món rau trộn này không cho bất kỳ cái gì lên trên cả.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10374,
+      "term": "掛ける (かける)",
+      "reading": "かける",
+      "romaji": "kakeru",
+      "definition": "phủ lên, lấy thời gian của ai đó, bắt đầu, nhân",
+      "exampleSentence": "料理にしょうゆをかけて食べる",
+      "exampleTranslation": "Cho vài giọt nước tương lên món ăn rồi ăn.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10375,
+      "term": "動く (うごく)",
+      "reading": "うごく",
+      "romaji": "ugoku",
+      "definition": "di chuyển, cử động, hoạt động",
+      "exampleSentence": "「写真を撮るから動かないでください」",
+      "exampleTranslation": "\"Tôi sẽ chụp ảnh nên đừng cử động.\"",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10376,
+      "term": "動かす (うごかす)",
+      "reading": "うごかす",
+      "romaji": "ugokasu",
+      "definition": "di chuyển, vận hành, làm lay động",
+      "exampleSentence": "ひどいけがをして、体を動かすこともできない",
+      "exampleTranslation": "Bị thương rất nặng nên việc cử động cơ thể cũng không thể làm được.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10377,
+      "term": "離れる (はなれる)",
+      "reading": "はなれる",
+      "romaji": "hanareru",
+      "definition": "tránh xa, cách xa",
+      "exampleSentence": "危ないから、ストーブから離れて遊びなさい」",
+      "exampleTranslation": "\"Vì nguy hiểm nên hãy chơi tranh xa khu vực lò sưởi ra!\"",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

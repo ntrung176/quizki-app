@@ -1,0 +1,165 @@
+{
+  "id": 603,
+  "title": "N2 Unit 10.3 - 形容詞B (bài 3/4)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 形容詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.572233",
+  "cards": [
+    {
+      "id": 14030,
+      "term": "合理的な (ごうりてきな)",
+      "reading": "ごうりてきな",
+      "romaji": null,
+      "definition": "hợp lý",
+      "exampleSentence": "工場の生産ラインは合理的に作られている。",
+      "exampleTranslation": "Dây chuyền sản xuất của nhà máy được thiết kế một cách hợp lý.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14031,
+      "term": "器用な (きような)",
+      "reading": "きような",
+      "romaji": null,
+      "definition": "khéo léo, khéo tay",
+      "exampleSentence": "彼女は手先が器用で、アクセサリーを全部手作りしている。",
+      "exampleTranslation": "Cô ấy khéo tay, tự làm toàn bộ phụ kiện bằng tay.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14032,
+      "term": "手軽な (てがるな)",
+      "reading": "てがるな",
+      "romaji": null,
+      "definition": "nhẹ nhàng, đơn giản",
+      "exampleSentence": "ジョギングは誰でも手軽にできるスポーツだ。",
+      "exampleTranslation": "Chạy bộ là môn thể thao ai cũng có thể dễ dàng thực hiện.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14033,
+      "term": "手頃な (てごろな)",
+      "reading": "てごろな",
+      "romaji": null,
+      "definition": "phù hợp, vừa phải",
+      "exampleSentence": "この店では手ごろな値段でおいしいフランス料理が食べられる。",
+      "exampleTranslation": "Ở cửa hàng này có thể ăn món Pháp ngon với giá phải chăng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14034,
+      "term": "高価な (こうかな)",
+      "reading": "こうかな",
+      "romaji": null,
+      "definition": "đắt giá",
+      "exampleSentence": "この博物館には世界一高価な宝石が展示してある。",
+      "exampleTranslation": "Ở bảo tàng này có trưng bày viên đá quý đắt nhất thế giới.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14035,
+      "term": "贅沢な (ぜいたくな)",
+      "reading": "ぜいたくな",
+      "romaji": null,
+      "definition": "sự xa xỉ, lãng phí",
+      "exampleSentence": "贅沢な暮らしをしている。",
+      "exampleTranslation": "Đang sống một cuộc sống xa hoa.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14036,
+      "term": "豪華な (ごうかな)",
+      "reading": "ごうかな",
+      "romaji": null,
+      "definition": "hoành tráng, cao cấp",
+      "exampleSentence": "客を500人招いて豪華な結婚披露宴をした。",
+      "exampleTranslation": "Đã tổ chức tiệc cưới sang trọng với 500 khách mời.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14037,
+      "term": "高級な (こうきゅうな)",
+      "reading": "こうきゅうな",
+      "romaji": null,
+      "definition": "cao cấp, chất lượng cao",
+      "exampleSentence": "ツバメの巣は中華料理では高級な食材だ。",
+      "exampleTranslation": "Tổ yến là nguyên liệu cao cấp trong ẩm thực Trung Hoa.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14038,
+      "term": "上等な (じょうとうな)",
+      "reading": "じょうとうな",
+      "romaji": null,
+      "definition": "thượng hạng, cao cấp, ưu tú",
+      "exampleSentence": "上等なお菓子をお土産にいただいた。",
+      "exampleTranslation": "Tôi đã nhận được món bánh cao cấp làm quà.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14039,
+      "term": "上品な (じょうひんな)",
+      "reading": "じょうひんな",
+      "romaji": null,
+      "definition": "thượng phẩm, tao nhã, lịch sự",
+      "exampleSentence": "彼女はいつも上品な服を着ている。",
+      "exampleTranslation": "Cô ấy luôn mặc quần áo thanh lịch.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14040,
+      "term": "適度な (てきどな)",
+      "reading": "てきどな",
+      "romaji": null,
+      "definition": "điều độ, thích hợp, vừa phải",
+      "exampleSentence": "健康のためには、適度な運動が大切だ。",
+      "exampleTranslation": "Để giữ sức khỏe, vận động vừa phải là rất quan trọng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14041,
+      "term": "快適な (かいてきな)",
+      "reading": "かいてきな",
+      "romaji": null,
+      "definition": "dễ chịu, sảng khoái",
+      "exampleSentence": "新しい車の乗り心地は快適だ。",
+      "exampleTranslation": "Cảm giác ngồi trên chiếc xe mới rất thoải mái.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 14042,
+      "term": "快い (こころよい)",
+      "reading": "こころよい",
+      "romaji": null,
+      "definition": "hài lòng, dễ chịu",
+      "exampleSentence": "草原には快い風が吹いていて気持ちが良かった。",
+      "exampleTranslation": "Trên thảo nguyên có làn gió dễ chịu thổi qua, cảm giác rất thoải mái.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 14043,
+      "term": "順調な (じゅんちょうな)",
+      "reading": "じゅんちょうな",
+      "romaji": null,
+      "definition": "thuận lợi",
+      "exampleSentence": "計画は順調に進んでいる。",
+      "exampleTranslation": "Kế hoạch đang tiến triển thuận lợi.",
+      "forms": [],
+      "displayOrder": 13
+    }
+  ]
+}

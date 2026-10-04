@@ -1,0 +1,143 @@
+{
+  "id": 554,
+  "title": "N2 Unit 3.2 - 形容詞A (bài 2/5)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 形容詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.642327",
+  "cards": [
+    {
+      "id": 13396,
+      "term": "仕方(が)ない (しかた(が)ない)",
+      "reading": "しかた(が)ない",
+      "romaji": null,
+      "definition": "vô phương, bó tay",
+      "exampleSentence": "借金を返すには、休日も働くよりほかに仕方ない。",
+      "exampleTranslation": "Muốn trả nợ thì ngoài đi làm cả ngày nghỉ ra chẳng còn cách nào khác.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13397,
+      "term": "止むを得ない (やむをえない)",
+      "reading": "やむをえない",
+      "romaji": null,
+      "definition": "không tránh khỏi",
+      "exampleSentence": "この嵐では休校もやむを得ない。",
+      "exampleTranslation": "Bão thế này thì cho nghỉ học cũng là điều khó tránh.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13398,
+      "term": "面倒臭い (めんどうくさい)",
+      "reading": "めんどうくさい",
+      "romaji": null,
+      "definition": "phiền toái",
+      "exampleSentence": "ゴミの分別は面倒くさいが、環境のためには仕方ない。",
+      "exampleTranslation": "Phân loại rác thì phiền, nhưng vì môi trường thì cũng đành chịu.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13399,
+      "term": "しつこい",
+      "reading": "しつこい",
+      "romaji": null,
+      "definition": "lằng nhằng, đậm (vị), lèo nhèo",
+      "exampleSentence": "店に店員にしつこく進められて困った。",
+      "exampleTranslation": "Nhân viên cửa hàng cứ chèo kéo mãi làm tôi khổ sở.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13400,
+      "term": "諄い (くどい)",
+      "reading": "くどい",
+      "romaji": null,
+      "definition": "dài dòng, lắm lời",
+      "exampleSentence": "あの先生の注意はいつもくどくてうんざりする。",
+      "exampleTranslation": "Nhắc nhở của thầy/cô lúc nào cũng dài dòng, nghe chán phát ngán.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13401,
+      "term": "煙い (けむい)",
+      "reading": "けむい",
+      "romaji": null,
+      "definition": "nhiều khói",
+      "exampleSentence": "煙いと思ったら、魚が焦げていた。",
+      "exampleTranslation": "Tưởng có khói, hóa ra cá bị cháy khét.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13402,
+      "term": "邪魔な (じゃまな)",
+      "reading": "じゃまな",
+      "romaji": null,
+      "definition": "vướng víu",
+      "exampleSentence": "仕事をするため、まず机の上の邪魔な物を片付けた。",
+      "exampleTranslation": "Để làm việc, tôi dọn mấy thứ vướng trên bàn trước.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13403,
+      "term": "煩い (うるさい)",
+      "reading": "うるさい",
+      "romaji": null,
+      "definition": "ồn ào, om sòm",
+      "exampleSentence": "「テレビの音がうるさいから、ちょっと小さくして」",
+      "exampleTranslation": "“Tiếng TV ồn quá, vặn nhỏ lại chút đi.”",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13404,
+      "term": "騒々しい (そうぞうしい)",
+      "reading": "そうぞうしい",
+      "romaji": null,
+      "definition": "ồn ào, sôi nổi",
+      "exampleSentence": "先生が怒ったら、騒々しかった教室は静かになった。",
+      "exampleTranslation": "Cô giáo nổi giận là lớp đang ồn cũng im bặt.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13405,
+      "term": "慌ただしい (あわただしい)",
+      "reading": "あわただしい",
+      "romaji": null,
+      "definition": "bận rộn; bận tối mắt tối mũi; bận túi bụi",
+      "exampleSentence": "今日は急な用事や来客が重なって、慌ただしい一日だった。",
+      "exampleTranslation": "Hôm nay vừa việc gấp vừa khách đến dồn dập—một ngày cuống cuồng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13406,
+      "term": "そそっかしい",
+      "reading": "そそっかしい",
+      "romaji": null,
+      "definition": "vô tâm, không để ý, vội vàng",
+      "exampleSentence": "片方ずつ違った靴下をはくなんて、そそっかしい人だ。",
+      "exampleTranslation": "Mang hai chiếc tất khác nhau—đúng là người hấp tấp/đãng trí.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13407,
+      "term": "思いがけない (おもいがけない)",
+      "reading": "おもいがけない",
+      "romaji": null,
+      "definition": "không ngờ đến",
+      "exampleSentence": "道で思いがけない人に会った。",
+      "exampleTranslation": "Trên đường tôi gặp một người không ngờ tới.",
+      "forms": [],
+      "displayOrder": 11
+    }
+  ]
+}

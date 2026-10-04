@@ -1,0 +1,187 @@
+{
+  "id": 418,
+  "title": "N3 Unit 10.3 - 動詞C・接続と持続 (Kết nối & kéo dài)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 動詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:36.265984",
+  "cards": [
+    {
+      "id": 10942,
+      "term": "結ぶ (むすぶ)",
+      "reading": "むすぶ",
+      "romaji": "musubu",
+      "definition": "buộc, thắt, nối, kí (hợp đồng)",
+      "exampleSentence": "くつのひもを結ぶ",
+      "exampleTranslation": "Buộc dây giày.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10943,
+      "term": "済む (すむ)",
+      "reading": "すむ",
+      "romaji": "sumu",
+      "definition": "kết thúc, hoàn tất, xong",
+      "exampleSentence": "仕事が済んだらすぐ帰る",
+      "exampleTranslation": "Sau khi hoàn thành công việc tôi về ngay.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10944,
+      "term": "済ませる/済ます (すませる/すます)",
+      "reading": "すませる/すます",
+      "romaji": "sumaseru/sumasu",
+      "definition": "kết thúc, cũng xong",
+      "exampleSentence": "お金の支払いを済ませる",
+      "exampleTranslation": "Hoàn thành việc trả tiền.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10945,
+      "term": "出来る (できる)",
+      "reading": "できる",
+      "romaji": "dekiru",
+      "definition": "hoàn thành, xong, có thể",
+      "exampleSentence": "駅前に新しいスーパーができた",
+      "exampleTranslation": "Trước ga vừa có/mới mở một siêu thị mới.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10946,
+      "term": "切れる (きれる)",
+      "reading": "きれる",
+      "romaji": "kireru",
+      "definition": "cắt, hết, hết hạn",
+      "exampleSentence": "このはさみはよく切れる",
+      "exampleTranslation": "Cái kéo này cắt ngọt (lẹ) thật.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10947,
+      "term": "切らす (きらす)",
+      "reading": "きらす",
+      "romaji": "kirasu",
+      "definition": "dùng hết",
+      "exampleSentence": "うっかりしていて、さとうを切らしてしまった",
+      "exampleTranslation": "Không để ý là đã dùng hết {đường / bột giặt/ giấy vệ sinh…}.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10948,
+      "term": "伝わる (つたわる)",
+      "reading": "つたわる",
+      "romaji": "tsutawaru",
+      "definition": "lan truyền, được truyền",
+      "exampleSentence": "彼が結婚するといううわさが伝わってきた",
+      "exampleTranslation": "Tin đồn anh ấy kết hôn đã được lan truyền.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10949,
+      "term": "伝える (つたえる)",
+      "reading": "つたえる",
+      "romaji": "tsutaeru",
+      "definition": "truyền, truyền đạt, truyền (đạo), dẫn, truyền",
+      "exampleSentence": "電話で用事を伝える",
+      "exampleTranslation": "Truyền đạt việc bận qua điện thoại.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10950,
+      "term": "続く (つづく)",
+      "reading": "つづく",
+      "romaji": "tsuzuku",
+      "definition": "tiếp tục, theo",
+      "exampleSentence": "雨の日が続く",
+      "exampleTranslation": "Tiếp tục những ngày mưa.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10951,
+      "term": "続ける (つづける)",
+      "reading": "つづける",
+      "romaji": "tsuzukeru",
+      "definition": "tiếp tục, liên tiếp kéo dài",
+      "exampleSentence": "もう３時間も会議を続けている",
+      "exampleTranslation": "Cuộc họp đã kéo dài 3 tiếng vẫn tiếp tục.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10952,
+      "term": "つながる",
+      "reading": "つながる",
+      "romaji": "tsunagaru",
+      "definition": "được kết nối, dẫn tới, nối nhau, kết nối",
+      "exampleSentence": "本州と四国は橋でつながっている",
+      "exampleTranslation": "Honshuu và Shikoku được nối với nhau bằng cầu.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10953,
+      "term": "つなぐ",
+      "reading": "つなぐ",
+      "romaji": "tsunagu",
+      "definition": "kết nối",
+      "exampleSentence": "この橋は本州と四国をつないでいる",
+      "exampleTranslation": "Cây cầu này nối hai đảo là Honshu và Shinkoku.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10954,
+      "term": "つなげる",
+      "reading": "つなげる",
+      "romaji": "tsunageru",
+      "definition": "nối/kết nối; gắn; liên kết; nối máy (điện/điện thoại); kéo dài (câu chuyện)",
+      "exampleSentence": "このチャンスをぜひ成功につなげたい",
+      "exampleTranslation": "Tôi muốn nắm chắc thành công ở cơ hội này.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10955,
+      "term": "伸びる (のびる)",
+      "reading": "のびる",
+      "romaji": "nobiru",
+      "definition": "dài ra/giãn ra; cao lên; phát triển/tăng; (tóc) mọc dài; (đường) kéo dài; (thành tích) tiến bộ",
+      "exampleSentence": "背が伸びる",
+      "exampleTranslation": "Cao lên.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10956,
+      "term": "伸ばす (のばす)",
+      "reading": "のばす",
+      "romaji": "nobasu",
+      "definition": "kéo dài/duỗi ra; làm dài ra; kéo dài thời gian; phát triển/nâng cao (năng lực)",
+      "exampleSentence": "髪を伸ばす",
+      "exampleTranslation": "Nuôi {tóc/ râu/ chiều cao…} dài ra.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10957,
+      "term": "延びる (のびる)",
+      "reading": "のびる",
+      "romaji": "nobiru",
+      "definition": "bị trì hoãn, kéo dài",
+      "exampleSentence": "レポートのしめ切りが延びてよかった",
+      "exampleTranslation": "Hạn chót của báo cáo được trì hoãn thật may.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

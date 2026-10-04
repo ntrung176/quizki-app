@@ -1,0 +1,165 @@
+{
+  "id": 570,
+  "title": "N2 Unit 5.1 - カタカナA (bài 1/5)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — カタカナA",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.074544",
+  "cards": [
+    {
+      "id": 13624,
+      "term": "アンテナ",
+      "reading": "アンテナ",
+      "romaji": null,
+      "definition": "ăng ten",
+      "exampleSentence": "アンテナの向きのせいかテレビの映りが悪い。",
+      "exampleTranslation": "Không biết do hướng ăng-ten hay không mà hình TV hiển thị kém/không rõ.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13625,
+      "term": "イヤホン",
+      "reading": "イヤホン",
+      "romaji": null,
+      "definition": "tai nghe",
+      "exampleSentence": "電車の中でイヤホンを付けて音楽を聞いている若者が多い。",
+      "exampleTranslation": "Trên tàu, có nhiều bạn trẻ đeo tai nghe nghe nhạc.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13626,
+      "term": "サイレン",
+      "reading": "サイレン",
+      "romaji": null,
+      "definition": "còi, tiếng còi, còi báo động",
+      "exampleSentence": "工場でお昼のサイレンが鳴った。",
+      "exampleTranslation": "Trong nhà máy, còi báo giờ nghỉ trưa vang lên.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13627,
+      "term": "コード",
+      "reading": "コード",
+      "romaji": null,
+      "definition": "dây (điện)",
+      "exampleSentence": "アイロンのコードをコンセントにつないだ。",
+      "exampleTranslation": "Tôi cắm dây bàn ủi vào ổ điện.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13628,
+      "term": "モニター",
+      "reading": "モニター",
+      "romaji": null,
+      "definition": "màn hình",
+      "exampleSentence": "警備室には、建物内部を映すモニターがある。",
+      "exampleTranslation": "Trong phòng bảo vệ có màn hình hiển thị bên trong tòa nhà.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13629,
+      "term": "メーター",
+      "reading": "メーター",
+      "romaji": null,
+      "definition": "đồng hồ đo",
+      "exampleSentence": "メーターを見ると、電気やガス使用量が分かる。",
+      "exampleTranslation": "Nhìn công-tơ là biết lượng điện/gas đã dùng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13630,
+      "term": "ペア",
+      "reading": "ペア",
+      "romaji": null,
+      "definition": "một cặp",
+      "exampleSentence": "男女をペアになってゲームをした。",
+      "exampleTranslation": "Tôi ghép nam nữ thành cặp để chơi trò chơi.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13631,
+      "term": "リズム",
+      "reading": "リズム",
+      "romaji": null,
+      "definition": "nhịp điệu, tiết tấu, nhịp",
+      "exampleSentence": "この曲のリズムは3拍子だ。",
+      "exampleTranslation": "Nhịp của bản nhạc này là nhịp 3.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13632,
+      "term": "アクセント",
+      "reading": "アクセント",
+      "romaji": null,
+      "definition": "giọng, nhấn",
+      "exampleSentence": "日本語のアクセントは難しい。",
+      "exampleTranslation": "Trọng âm tiếng Nhật rất khó.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13633,
+      "term": "アルファベット",
+      "reading": "アルファベット",
+      "romaji": null,
+      "definition": "bảng chữ cái",
+      "exampleSentence": "図書館では英語の本はアルファベットの順に並べている。",
+      "exampleTranslation": "Trong thư viện, sách tiếng Anh được xếp theo thứ tự chữ cái.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13634,
+      "term": "アドレス",
+      "reading": "アドレス",
+      "romaji": null,
+      "definition": "địa chỉ",
+      "exampleSentence": "友達とメールのアドレスを交換した。",
+      "exampleTranslation": "Trao đổi địa chỉ email với bạn.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13635,
+      "term": "メモ",
+      "reading": "メモ",
+      "romaji": null,
+      "definition": "ghi chú",
+      "exampleSentence": "大事なことを紙にメモする。",
+      "exampleTranslation": "Tôi ghi chú điều quan trọng vào giấy.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13636,
+      "term": "マーク",
+      "reading": "マーク",
+      "romaji": null,
+      "definition": "đánh dấu",
+      "exampleSentence": "文章の重要なポイントにマークを付けて覚える。",
+      "exampleTranslation": "Đánh dấu điểm quan trọng để nhớ.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13637,
+      "term": "イラスト",
+      "reading": "イラスト",
+      "romaji": null,
+      "definition": "minh họa",
+      "exampleSentence": "この本はイラストがたくさんあって内容が理解しやすい。",
+      "exampleTranslation": "Quyển sách này có nhiều minh họa nên nội dung rất dễ hiểu.",
+      "forms": [],
+      "displayOrder": 13
+    }
+  ]
+}

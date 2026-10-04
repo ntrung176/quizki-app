@@ -1,0 +1,231 @@
+{
+  "id": 842,
+  "title": "N1 Tango 12.3 - Tình trạng - Hình ảnh · Tâm trạng xấu",
+  "description": "Tango N1 — Tình trạng - Hình ảnh",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:44.161596",
+  "cards": [
+    {
+      "id": 19751,
+      "term": "うっとうしい",
+      "reading": "うっとうしい",
+      "romaji": null,
+      "definition": "U ám; khó chịu, phiền phức",
+      "exampleSentence": "梅雨の長雨が続くと、部屋の中までうっとうしい。",
+      "exampleTranslation": "Mùa mưa kéo dài khiến ngay cả trong phòng cũng trở nên u ám, khó chịu.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 19752,
+      "term": "切ない (せつない)",
+      "reading": "せつない",
+      "romaji": null,
+      "definition": "Đau buồn, xót xa",
+      "exampleSentence": "遠くに引っ越す友人との別れが、どうしても切ない。",
+      "exampleTranslation": "Chia tay người bạn chuyển đi xa khiến tôi không khỏi đau buồn.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 19753,
+      "term": "やるせない",
+      "reading": "やるせない",
+      "romaji": null,
+      "definition": "Bất lực, buồn bã không nơi trút",
+      "exampleSentence": "助けたいのに何もできず、やるせない思いだけが残った。",
+      "exampleTranslation": "Muốn giúp nhưng chẳng thể làm gì, cuối cùng chỉ còn lại cảm giác bất lực và buồn bã.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 19754,
+      "term": "しゃくに障る (しゃくにさわる)",
+      "reading": "しゃくにさわる",
+      "romaji": null,
+      "definition": "Bực mình, tức giận",
+      "exampleSentence": "上司の無責任な発言が、どうにもしゃくに障る。",
+      "exampleTranslation": "Phát ngôn vô trách nhiệm của cấp trên khiến tôi vô cùng bực bội.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 19755,
+      "term": "へこむ",
+      "reading": "へこむ",
+      "romaji": null,
+      "definition": "Chán nản, suy sụp; bị lõm",
+      "exampleSentence": "そんな失敗くらいで、いつまでもへこむ必要はない。",
+      "exampleTranslation": "Không cần phải mãi chán nản chỉ vì một thất bại như thế.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 19756,
+      "term": "くよくよ（する）",
+      "reading": "くよくよ（する）",
+      "romaji": null,
+      "definition": "Lo lắng, buồn phiền, suy nghĩ nhiều",
+      "exampleSentence": "失敗をいつまでも「くよくよ（する）」のは、時間の無駄だ。",
+      "exampleTranslation": "Cứ mãi buồn phiền vì thất bại là phí thời gian.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 19757,
+      "term": "心苦しい (こころぐるしい)",
+      "reading": "こころぐるしい",
+      "romaji": null,
+      "definition": "Áy náy, không yên lòng",
+      "exampleSentence": "忙しい彼に無理を頼むのは、いかにも心苦しい。",
+      "exampleTranslation": "Nhờ vả quá sức một người đang bận khiến tôi thật áy náy.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 19758,
+      "term": "むなしい",
+      "reading": "むなしい",
+      "romaji": null,
+      "definition": "Hư vô, trống rỗng, vô ích",
+      "exampleSentence": "どれほど成功しても、心がむなしいままでは幸せとは言えない。",
+      "exampleTranslation": "Dù thành công đến đâu, nếu lòng vẫn trống rỗng thì cũng không thể nói là hạnh phúc.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 19759,
+      "term": "憂うつ（な） (ゆううつ（な）)",
+      "reading": "ゆううつ（な）",
+      "romaji": null,
+      "definition": "U uất, chán nản, trầm uất",
+      "exampleSentence": "長雨が続くと、「憂うつ（な）」気分になり、何もする気が起きない。",
+      "exampleTranslation": "Mưa dầm kéo dài khiến tôi cảm thấy u uất và chẳng muốn làm gì cả.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 19760,
+      "term": "惨めな (みじめな)",
+      "reading": "みじめな",
+      "romaji": null,
+      "definition": "Thảm hại, đáng thương",
+      "exampleSentence": "誰にも相談できず、一人で悩み続ける自分が惨めな存在に思えた。",
+      "exampleTranslation": "Tôi cảm thấy bản thân thật thảm hại khi cứ phải một mình lo lắng mà không thể tâm sự với ai.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 19761,
+      "term": "根に持つ (ねにもつ)",
+      "reading": "ねにもつ",
+      "romaji": null,
+      "definition": "Để bụng, thù dai",
+      "exampleSentence": "彼は些細な批判をいつまでも根に持つ傾向がある。",
+      "exampleTranslation": "Anh ấy có xu hướng để bụng những lời chỉ trích nhỏ nhặt mãi không thôi.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 19762,
+      "term": "ねたむ",
+      "reading": "ねたむ",
+      "romaji": null,
+      "definition": "Ghen tị, đố kỵ",
+      "exampleSentence": "他人の成功をねたむより、自分の努力に目を向けるべきだ。",
+      "exampleTranslation": "Thay vì đố kỵ với thành công của người khác, bạn nên tập trung vào nỗ lực của mình.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 19763,
+      "term": "劣等感 (れっとうかん)",
+      "reading": "れっとうかん",
+      "romaji": null,
+      "definition": "Mặc cảm tự ti",
+      "exampleSentence": "周囲と比べる習慣が、彼の劣等感をさらに強めた。",
+      "exampleTranslation": "Thói quen so sánh với những người xung quanh càng làm mặc cảm tự ti của anh ấy thêm nặng nề.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 19764,
+      "term": "孤独（な） (こどく（な）)",
+      "reading": "こどく（な）",
+      "romaji": null,
+      "definition": "Cô đơn, cô độc",
+      "exampleSentence": "一人でいても、必ずしも「孤独（な）」状態とは限らない。",
+      "exampleTranslation": "Dù ở một mình cũng không nhất thiết là đang trong trạng thái cô độc.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 19765,
+      "term": "屈折（する） (くっせつ（する）)",
+      "reading": "くっせつ（する）",
+      "romaji": null,
+      "definition": "Lệch lạc, méo mó (tính cách) / khúc xạ (ánh sáng)",
+      "exampleSentence": "光が「屈折（する）」と、水中の物体は実際より近く見える。",
+      "exampleTranslation": "Khi ánh sáng khúc xạ, vật thể dưới nước trông gần hơn so với thực tế.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 19766,
+      "term": "気が向かない (きがむかない)",
+      "reading": "きがむかない",
+      "romaji": null,
+      "definition": "Không có hứng thú",
+      "exampleSentence": "今日はどうしても気が向かないので、誘いを断った。",
+      "exampleTranslation": "Hôm nay tôi hoàn toàn không có hứng nên đã từ chối lời mời.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 19767,
+      "term": "未熟な (みじゅくな)",
+      "reading": "みじゅくな",
+      "romaji": null,
+      "definition": "Non nớt, chưa chín chắn",
+      "exampleSentence": "経験が少なく、判断の甘さが残る未熟な考え方だった。",
+      "exampleTranslation": "Đó là cách suy nghĩ non nớt, vẫn còn thiếu sự chín chắn trong phán đoán vì ít kinh nghiệm.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 19768,
+      "term": "びくびく[と] （する）",
+      "reading": "びくびく[と] （する）",
+      "romaji": null,
+      "definition": "Nơm nớp lo sợ, rụt rè",
+      "exampleSentence": "失敗を恐れて「びくびく （する）」のではなく、堂々と自分の意見を述べよう。",
+      "exampleTranslation": "Đừng nơm nớp lo sợ vì sợ thất bại, hãy mạnh dạn nêu ý kiến của mình.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 19769,
+      "term": "おどおど（する）",
+      "reading": "おどおど（する）",
+      "romaji": null,
+      "definition": "Lúng túng, rụt rè",
+      "exampleSentence": "人前で「おどおど（する）」より、相手の目を見て落ち着いて話しましょう。",
+      "exampleTranslation": "Thay vì lúng túng trước mặt mọi người, hãy nhìn vào mắt đối phương và bình tĩnh nói chuyện.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 19770,
+      "term": "もやもや（する）",
+      "reading": "もやもや（する）",
+      "romaji": null,
+      "definition": "Bứt rứt, khó chịu, không thoải mái",
+      "exampleSentence": "結果に納得できず、何日も心がもやもや（する）ままだった。",
+      "exampleTranslation": "Vì không thể chấp nhận kết quả, tôi cứ bứt rứt suốt nhiều ngày.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

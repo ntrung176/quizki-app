@@ -1,0 +1,143 @@
+{
+  "id": 621,
+  "title": "N2 Unit 12.9 - 動詞C (bài 9/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.835642",
+  "cards": [
+    {
+      "id": 14242,
+      "term": "錆びる (さびる)",
+      "reading": "さびる",
+      "romaji": null,
+      "definition": "bị rỉ sét",
+      "exampleSentence": "雨に濡れて自転車がさびてしまった。",
+      "exampleTranslation": "Bị mưa ướt nên xe đạp bị rỉ sét.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14243,
+      "term": "接する (せっする)",
+      "reading": "せっする",
+      "romaji": null,
+      "definition": "gắn với, tiếp xúc, gặp",
+      "exampleSentence": "長野県は海に接していない。",
+      "exampleTranslation": "Tỉnh Nagano không giáp biển.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14244,
+      "term": "属する (ぞくする)",
+      "reading": "ぞくする",
+      "romaji": null,
+      "definition": "thuộc về",
+      "exampleSentence": "クジラは哺乳類に属している。",
+      "exampleTranslation": "Cá voi thuộc loài động vật có vú.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14245,
+      "term": "占める (しめる)",
+      "reading": "しめる",
+      "romaji": null,
+      "definition": "chiếm, giữ (vị trí)",
+      "exampleSentence": "この会社の製品は、市場の8割を占めている。",
+      "exampleTranslation": "Sản phẩm của công ty này chiếm 80% thị trường.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14246,
+      "term": "草臥れる (くたびれる)",
+      "reading": "くたびれる",
+      "romaji": null,
+      "definition": "bị mệt, bị chán",
+      "exampleSentence": "一日中仕事をしてくたびれた。",
+      "exampleTranslation": "Làm việc cả ngày nên rã rời.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14247,
+      "term": "恵まれる (めぐまれる)",
+      "reading": "めぐまれる",
+      "romaji": null,
+      "definition": "được yêu thương, được trời phú",
+      "exampleSentence": "この国は天然資源に恵まれている。",
+      "exampleTranslation": "Đất nước này được thiên nhiên ưu đãi về tài nguyên.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14248,
+      "term": "湧く (わく)",
+      "reading": "わく",
+      "romaji": null,
+      "definition": "phun ra, trào ra, tuôn ra, dâng trào",
+      "exampleSentence": "家の土地から温泉が沸いた。",
+      "exampleTranslation": "Trên đất nhà tôi đã phun (trào) lên suối nước nóng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14249,
+      "term": "微笑む (ほほえむ)",
+      "reading": "ほほえむ",
+      "romaji": null,
+      "definition": "cười",
+      "exampleSentence": "彼女は私ににっこりとほほ笑んだ。",
+      "exampleTranslation": "Cô ấy mỉm cười với tôi.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14250,
+      "term": "ふざける",
+      "reading": "ふざける",
+      "romaji": null,
+      "definition": "đùa cợt, hiếu động",
+      "exampleSentence": "弟はふざけて人を笑わせるのが得意だ。",
+      "exampleTranslation": "Em trai tôi giỏi chọc người khác cười.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14251,
+      "term": "悔やむ (くやむ)",
+      "reading": "くやむ",
+      "romaji": null,
+      "definition": "hối tiếc",
+      "exampleSentence": "過ぎたことを今さら悔やんでも遅い。",
+      "exampleTranslation": "Chuyện đã qua rồi, giờ có hối hận cũng muộn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14252,
+      "term": "躊躇う (ためらう)",
+      "reading": "ためらう",
+      "romaji": null,
+      "definition": "chần chừ",
+      "exampleSentence": "申し込みをためらっているうちに、締め切りが過ぎてしまった。",
+      "exampleTranslation": "Trong lúc còn do dự đăng ký thì đã qua hạn chót.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14253,
+      "term": "敬う (うやまう)",
+      "reading": "うやまう",
+      "romaji": null,
+      "definition": "tôn trọng",
+      "exampleSentence": "神仏を敬う。",
+      "exampleTranslation": "Kính trọng thần Phật.",
+      "forms": [],
+      "displayOrder": 11
+    }
+  ]
+}

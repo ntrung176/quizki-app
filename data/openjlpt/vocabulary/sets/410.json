@@ -1,0 +1,176 @@
+{
+  "id": 410,
+  "title": "N3 Unit 8.3 - 副詞A・判断と気持ち (Phán đoán & tâm trạng)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 副詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:36.033373",
+  "cards": [
+    {
+      "id": 10815,
+      "term": "もちろん",
+      "reading": "もちろん",
+      "romaji": "mochiron",
+      "definition": "tất nhiên",
+      "exampleSentence": "マンションを買った。もちろん、ローンでだ",
+      "exampleTranslation": "Đã mua căn chung cư, tất nhiên là trả góp.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10816,
+      "term": "やはり",
+      "reading": "やはり",
+      "romaji": "yahari",
+      "definition": "như dự tính, như tính toán, vẫn, cũng, quả nhiên",
+      "exampleSentence": "やはりAチームが勝った。予想通りだった",
+      "exampleTranslation": "Đôi A là đội chiến thắng quả đúng như theo dự đoán.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10817,
+      "term": "きっと",
+      "reading": "きっと",
+      "romaji": "kitto",
+      "definition": "chắc chắn là, nhất định là",
+      "exampleSentence": "田中さんはいつも遅刻するから、きょうもきっと遅れてくるだろう",
+      "exampleTranslation": "Anh Tanaka lúc nào cũng muộn giờ nên chắc chắn hôm nay cũng sẽ đến muộn.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10818,
+      "term": "ぜひ",
+      "reading": "ぜひ",
+      "romaji": "zehi",
+      "definition": "bằng mọi giá, nhất định",
+      "exampleSentence": "若いときに、ぜひ留学したいと思っている",
+      "exampleTranslation": "Khi còn trẻ tôi nhất định sẽ đi du học.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10819,
+      "term": "なるべく",
+      "reading": "なるべく",
+      "romaji": "narubeku",
+      "definition": "cố gắng, nếu có thể",
+      "exampleSentence": "なるべく辞書を見ないで、この本を読んでみてください。",
+      "exampleTranslation": "Hãy thử đọc cuốn sách này mà cố gắng không nhìn từ điển xem sao.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10820,
+      "term": "案外 (あんがい)",
+      "reading": "あんがい",
+      "romaji": "angai",
+      "definition": "không ngờ đến",
+      "exampleSentence": "きょうはくもっているが、案外暖かい",
+      "exampleTranslation": "Trời hôm nay có nhiều mây nhưng lại nóng không ngờ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10821,
+      "term": "もしかすると/もしかしたら/もしかして",
+      "reading": "もしかすると/もしかしたら/もしかして",
+      "romaji": "moshika suru to/moshika shitara/moshika shite",
+      "definition": "có lẽ, nếu không nhầm thì",
+      "exampleSentence": "体調が悪いので、もしかすると、あした休むかもしれません",
+      "exampleTranslation": "Sức khỏe của tôi không tốt lắm, có lẽ ngày mai tôi sẽ nghỉ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10822,
+      "term": "まさか",
+      "reading": "まさか",
+      "romaji": "masaka",
+      "definition": "không lẽ nào, không thể nào",
+      "exampleSentence": "「あの二人、離婚するそうだよ」「まさか！ あんなに仲がよかったのに」",
+      "exampleTranslation": "\"Nghe nói hai người kia sắp li hôn đó.\" -\"Không thể nào, họ rất gắn bó với nhau cơ mà.\"",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10823,
+      "term": "うっかり",
+      "reading": "うっかり",
+      "romaji": "ukkari",
+      "definition": "lỡ/nhỡ, sơ ý, bất cẩn, đãng trí",
+      "exampleSentence": "うっかりして、さとうと塩を間違えて入れてしまった",
+      "exampleTranslation": "Lơ đãng một chút tôi đã vô ý nhầm muối với đường.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10824,
+      "term": "つい",
+      "reading": "つい",
+      "romaji": "tsui",
+      "definition": "vô ý, lỡ",
+      "exampleSentence": "禁煙しようと思うのだが、食事の後などについ吸ってしまう",
+      "exampleTranslation": "Tôi định là bỏ thuốc mà vẫn lỡ hút sau giờ cơm.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10825,
+      "term": "思わず (おもわず)",
+      "reading": "おもわず",
+      "romaji": "omowazu",
+      "definition": "bất giác / không kìm được / lỡ (buột miệng)",
+      "exampleSentence": "夜道で急に肩をたたかれ、思わず「ワーッ」と叫んでしまった",
+      "exampleTranslation": "Trong lúc đi bộ vào ban đêm, bất chợt bị đập vào vai, tôi đã hét toáng lên (theo bản năng).",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10826,
+      "term": "ほっと",
+      "reading": "ほっと",
+      "romaji": "hotto",
+      "definition": "thở phào, nhẹ nhõm",
+      "exampleSentence": "試験が終わってほっとした",
+      "exampleTranslation": "Kỳ thi kết thúc khiến tôi thở phào nhẹ nhõm.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10827,
+      "term": "いらいら",
+      "reading": "いらいら",
+      "romaji": "iraira",
+      "definition": "nóng lòng",
+      "exampleSentence": "急いでいるのにバスがなかなか来なくていらいらした",
+      "exampleTranslation": "Đang vội mà xe bus mãi không đến, cảm thấy rất nóng lòng.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10828,
+      "term": "のんびり",
+      "reading": "のんびり",
+      "romaji": "nonbiri",
+      "definition": "thong thả, từ từ",
+      "exampleSentence": "半年ほどとても忙しかった。温泉へでも行ってのんびりしたい。",
+      "exampleTranslation": "Khoảng nửa năm nay rất bận rộn nên tôi muốn đi suối nước nóng để thong thả nghỉ ngơi.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10829,
+      "term": "実は (じつは)",
+      "reading": "じつは",
+      "romaji": "jitsu wa",
+      "definition": "thực ra là, thực tế là",
+      "exampleSentence": "「きのう言ったことは、実はうそなんです」",
+      "exampleTranslation": "\"Chuyện tôi nói ngày hôm qua thực ra là nói phét đấy.\"",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

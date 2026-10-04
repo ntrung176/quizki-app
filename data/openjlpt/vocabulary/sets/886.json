@@ -1,0 +1,253 @@
+{
+  "id": 886,
+  "title": "N5 Tango 7.2 - Mua sắm · Cửa hàng, cửa tiệm",
+  "description": "Tango N5 — Mua sắm",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:48.832013",
+  "cards": [
+    {
+      "id": 20679,
+      "term": "みせ",
+      "reading": "みせ",
+      "romaji": null,
+      "definition": "Cửa hàng, cửa tiệm",
+      "exampleSentence": "あのみせで新しい靴を買いました。",
+      "exampleTranslation": "Tôi đã mua đôi giày mới ở cửa hàng kia.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20680,
+      "term": "〜や",
+      "reading": "〜や",
+      "romaji": null,
+      "definition": "Tiệm 〜",
+      "exampleSentence": "「〜や」は、魚屋や花屋など、店を表す言葉です。",
+      "exampleTranslation": "「〜や」 là từ dùng để chỉ các cửa tiệm như tiệm cá hay tiệm hoa.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20681,
+      "term": "デパート",
+      "reading": "デパート",
+      "romaji": null,
+      "definition": "Cửa hàng bách hóa, trung tâm thương mại",
+      "exampleSentence": "日曜日に母とデパートへ買い物に行きます。",
+      "exampleTranslation": "Chủ nhật tôi sẽ đi mua sắm ở trung tâm thương mại với mẹ.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20682,
+      "term": "コンビニ",
+      "reading": "コンビニ",
+      "romaji": null,
+      "definition": "Cửa hàng tiện lợi",
+      "exampleSentence": "駅の近くのコンビニでおにぎりを買いました。",
+      "exampleTranslation": "Tôi đã mua cơm nắm ở cửa hàng tiện lợi gần ga.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20683,
+      "term": "うる",
+      "reading": "うる",
+      "romaji": null,
+      "definition": "Bán",
+      "exampleSentence": "この店は、新鮮な魚をうる店です。",
+      "exampleTranslation": "Cửa hàng này là nơi bán cá tươi.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20684,
+      "term": "うりば",
+      "reading": "うりば",
+      "romaji": null,
+      "definition": "Quầy bán hàng",
+      "exampleSentence": "デパートの一階は、女性の服のうりばです。",
+      "exampleTranslation": "Tầng một của trung tâm thương mại là quầy bán quần áo nữ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20685,
+      "term": "コーナー",
+      "reading": "コーナー",
+      "romaji": null,
+      "definition": "Góc, khu",
+      "exampleSentence": "駅の本屋には、子どもの本のコーナーがあります。",
+      "exampleTranslation": "Hiệu sách ở ga có một khu sách dành cho trẻ em.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20686,
+      "term": "たな",
+      "reading": "たな",
+      "romaji": null,
+      "definition": "Kệ (hàng)",
+      "exampleSentence": "たなの上に、白い箱が三つあります。",
+      "exampleTranslation": "Trên kệ có ba chiếc hộp màu trắng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20687,
+      "term": "コピー<する>",
+      "reading": "コピー<する>",
+      "romaji": null,
+      "definition": "Phô-tô, in sao",
+      "exampleSentence": "「コピー<する>」ときは、この機械を使います。",
+      "exampleTranslation": "Khi phô-tô, hãy sử dụng chiếc máy này.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20688,
+      "term": "チケット",
+      "reading": "チケット",
+      "romaji": null,
+      "definition": "Vé",
+      "exampleSentence": "来週の映画のチケットを二枚買いました。",
+      "exampleTranslation": "Tôi đã mua hai vé xem bộ phim tuần sau.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20689,
+      "term": "カタログ",
+      "reading": "カタログ",
+      "romaji": null,
+      "definition": "Tập giới thiệu, catalogue",
+      "exampleSentence": "店で新しい家具のカタログをもらいました。",
+      "exampleTranslation": "Tôi đã nhận được catalogue đồ nội thất mới ở cửa hàng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 20690,
+      "term": "ざっし",
+      "reading": "ざっし",
+      "romaji": null,
+      "definition": "Tạp chí",
+      "exampleSentence": "駅で日本語のざっしを買いました。",
+      "exampleTranslation": "Tôi đã mua một tạp chí tiếng Nhật ở nhà ga.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 20691,
+      "term": "しんぶん",
+      "reading": "しんぶん",
+      "romaji": null,
+      "definition": "Báo",
+      "exampleSentence": "父は毎朝、コーヒーを飲みながらしんぶんを読みます。",
+      "exampleTranslation": "Bố tôi đọc báo mỗi sáng trong khi uống cà phê.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 20692,
+      "term": "ほしい",
+      "reading": "ほしい",
+      "romaji": null,
+      "definition": "Muốn có",
+      "exampleSentence": "誕生日に新しい自転車がほしいです。",
+      "exampleTranslation": "Tôi muốn có một chiếc xe đạp mới vào ngày sinh nhật.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 20693,
+      "term": "できる",
+      "reading": "できる",
+      "romaji": null,
+      "definition": "Có thể",
+      "exampleSentence": "私は簡単な日本語なら話すことができる。",
+      "exampleTranslation": "Nếu là tiếng Nhật đơn giản thì tôi có thể nói được.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 20694,
+      "term": "〜でございます",
+      "reading": "〜でございます",
+      "romaji": null,
+      "definition": "Là ~ (kính ngữ)",
+      "exampleSentence": "お客様がお求めの商品は、こちらの〜でございます。",
+      "exampleTranslation": "Sản phẩm quý khách đang tìm là ~ này ạ.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 20695,
+      "term": "おさがしですか。",
+      "reading": "おさがしですか。",
+      "romaji": null,
+      "definition": "Tìm ~ ạ ?(kính ngữ)",
+      "exampleSentence": "「おさがしですか。」と店員が笑顔で尋ねました。",
+      "exampleTranslation": "Nhân viên mỉm cười hỏi: “Quý khách đang tìm gì ạ?”",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 20696,
+      "term": "見せる (みせる)",
+      "reading": "みせる",
+      "romaji": null,
+      "definition": "Cho xem",
+      "exampleSentence": "私は友達に旅行の写真を見せる約束をしました。",
+      "exampleTranslation": "Tôi đã hứa sẽ cho bạn xem ảnh chuyến du lịch.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 20697,
+      "term": "かしこまりました。",
+      "reading": "かしこまりました。",
+      "romaji": null,
+      "definition": "Tôi đã hiểu rồi ạ.",
+      "exampleSentence": "「かしこまりました。」と店員が丁寧に答えました。",
+      "exampleTranslation": "Nhân viên lịch sự đáp: “Tôi hiểu rồi ạ.”",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 20698,
+      "term": "しょうしょうおまちください。",
+      "reading": "しょうしょうおまちください。",
+      "romaji": null,
+      "definition": "Vui lòng chờ cho một chút.",
+      "exampleSentence": "店員は「しょうしょうおまちください。」と言いました。",
+      "exampleTranslation": "Nhân viên nói: “Vui lòng chờ một chút ạ.”",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 20699,
+      "term": "どんなカメラをおさがしですか。",
+      "reading": "どんなカメラをおさがしですか。",
+      "romaji": null,
+      "definition": "Anh / chị tìm máy ảnh như thế nào ạ?",
+      "exampleSentence": "店員が「どんなカメラをおさがしですか。」と尋ねました。",
+      "exampleTranslation": "Nhân viên hỏi: “Quý khách đang tìm loại máy ảnh như thế nào ạ?”",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 20700,
+      "term": "あのカメラを見せてください。 (あのカメラをみせてください。)",
+      "reading": "あのカメラをみせてください。",
+      "romaji": null,
+      "definition": "Cho tôi xem máy ảnh kia.",
+      "exampleSentence": "店員さんに「あのカメラを見せてください。」と言いました。",
+      "exampleTranslation": "Tôi đã nói với nhân viên: “Cho tôi xem chiếc máy ảnh kia với ạ.”",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

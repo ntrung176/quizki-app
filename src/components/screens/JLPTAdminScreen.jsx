@@ -872,7 +872,7 @@ const JLPTAdminScreen = ({ userId }) => {
         }
     };
     const toggleSection = (i) => setExpandedSections(p => ({ ...p, [i]: !p[i] }));
-    const totalQuestions = formData.sections.reduce((sum, s) => sum + (s.questions?.length || 0), 0);
+    const totalQuestions = formData.sections.reduce((sum, s) => sum + (s.questions || []).reduce((qSum, q) => qSum + (q.subQuestions?.length || 1), 0), 0);
     const getSectionMeta = (type) => SECTION_TYPES.find(s => s.value === type) || SECTION_TYPES[0];
     // Render
     if (loading) {
@@ -1015,7 +1015,7 @@ const JLPTAdminScreen = ({ userId }) => {
                                                         <span className="font-extrabold text-slate-800 dark:text-white text-xs block">
                                                             PHẦN {si + 1}: {section.title || SKILL_LABELS[section.type] || section.type}
                                                         </span>
-                                                        <span className="text-[10px] text-slate-400 font-semibold">{section.questions.length} câu hỏi • Thể loại: {SKILL_LABELS[section.type] || section.type}</span>
+                                                        <span className="text-[10px] text-slate-400 font-semibold">{(section.questions || []).reduce((qSum, q) => qSum + (q.subQuestions?.length || 1), 0)} câu hỏi • Thể loại: {SKILL_LABELS[section.type] || section.type}</span>
                                                     </div>
                                                 </div>
                                                 <div className="flex items-center gap-1.5" onClick={e => e.stopPropagation()}>

@@ -1,0 +1,209 @@
+{
+  "id": 776,
+  "title": "N2 Tango 11.2 - Trạng thái - Hình ảnh · Cảm giác thoải mái",
+  "description": "Tango N2 — Trạng thái - Hình ảnh",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:38.225648",
+  "cards": [
+    {
+      "id": 17969,
+      "term": "快適な (かいてきな)",
+      "reading": "かいてきな",
+      "romaji": null,
+      "definition": "Sảng khoái, dễ chịu, thoải mái",
+      "exampleSentence": "このホテルは長期滞在にも快適な環境が整っている。",
+      "exampleTranslation": "Khách sạn này có môi trường thoải mái, phù hợp cả với việc lưu trú dài ngày.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 17970,
+      "term": "快い (こころよい)",
+      "reading": "こころよい",
+      "romaji": null,
+      "definition": "Dễ chịu, du dương",
+      "exampleSentence": "窓から入る快い風に吹かれながら、しばらく本を読んだ。",
+      "exampleTranslation": "Tôi vừa đọc sách một lúc vừa tận hưởng làn gió dễ chịu thổi vào từ cửa sổ.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 17971,
+      "term": "心地よい (ここちよい)",
+      "reading": "ここちよい",
+      "romaji": null,
+      "definition": "Dễ chịu, thích thú, êm ái",
+      "exampleSentence": "心地よい音楽を聞きながら、静かな午後を過ごした。",
+      "exampleTranslation": "Tôi đã trải qua một buổi chiều yên tĩnh trong tiếng nhạc êm dịu.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 17972,
+      "term": "すがすがしい",
+      "reading": "すがすがしい",
+      "romaji": null,
+      "definition": "Khỏe khoắn, sảng khoái",
+      "exampleSentence": "朝の公園を歩くと、すがすがしい気分になって元気が出る。",
+      "exampleTranslation": "Đi bộ trong công viên buổi sáng khiến tôi thấy sảng khoái và tràn đầy năng lượng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 17973,
+      "term": "リフレッシュ（する）",
+      "reading": "リフレッシュ（する）",
+      "romaji": null,
+      "definition": "Sự làm mới, làm cho tỉnh người",
+      "exampleSentence": "忙しい毎日だからこそ、週末は自然の中でリフレッシュ（する）ことにしている。",
+      "exampleTranslation": "Chính vì ngày nào cũng bận rộn nên cuối tuần tôi thường hòa mình vào thiên nhiên để làm mới tinh thần.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 17974,
+      "term": "穏やかな (おだやかな)",
+      "reading": "おだやかな",
+      "romaji": null,
+      "definition": "Ôn hòa, thanh thản, yên ả",
+      "exampleSentence": "海が穏やかな日は、遠くの島まで見渡すことができる。",
+      "exampleTranslation": "Vào những ngày biển yên ả, có thể nhìn thấy tận những hòn đảo xa.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 17975,
+      "term": "心強い (こころづよい)",
+      "reading": "こころづよい",
+      "romaji": null,
+      "definition": "Vững tâm, yên tâm, an lòng, vững dạ",
+      "exampleSentence": "経験豊富な先輩がそばにいてくれるので、心強い。",
+      "exampleTranslation": "Vì có người tiền bối giàu kinh nghiệm ở bên nên tôi cảm thấy rất được động viên.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 17976,
+      "term": "恋しい (こいしい)",
+      "reading": "こいしい",
+      "romaji": null,
+      "definition": "Nhung nhớ",
+      "exampleSentence": "故郷を離れて暮らすと、家族と過ごした日々が恋しい。",
+      "exampleTranslation": "Sống xa quê hương khiến tôi nhớ những ngày tháng bên gia đình.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 17977,
+      "term": "前向き (まえむき)",
+      "reading": "まえむき",
+      "romaji": null,
+      "definition": "Tích cực, hướng về phía trước",
+      "exampleSentence": "失敗しても前向きな気持ちを失わず、次の挑戦に進みたい。",
+      "exampleTranslation": "Dù thất bại, tôi vẫn muốn giữ tinh thần tích cực và tiến tới thử thách tiếp theo.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 17978,
+      "term": "めでたい",
+      "reading": "めでたい",
+      "romaji": null,
+      "definition": "Đáng mừng, vui mừng",
+      "exampleSentence": "息子の合格を祝う、めでたい席に家族が集まった。",
+      "exampleTranslation": "Gia đình đã tụ họp trong buổi tiệc đáng mừng để chúc mừng con trai đỗ đạt.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 17979,
+      "term": "ラッキーな",
+      "reading": "ラッキーな",
+      "romaji": null,
+      "definition": "May mắn",
+      "exampleSentence": "ラッキーなことに、電車に乗った直後に雨が降り始めた。",
+      "exampleTranslation": "May mắn là ngay sau khi tôi lên tàu thì trời bắt đầu mưa.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 17980,
+      "term": "幸福（な） (こうふく（な）)",
+      "reading": "こうふく（な）",
+      "romaji": null,
+      "definition": "Niềm hạnh phúc, hạnh phúc",
+      "exampleSentence": "家族と過ごす時間に、私は「幸福（な）」という言葉の意味を実感する。",
+      "exampleTranslation": "Khi ở bên gia đình, tôi cảm nhận sâu sắc ý nghĩa của từ “hạnh phúc”.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 17981,
+      "term": "張り切る (はりきる)",
+      "reading": "はりきる",
+      "romaji": null,
+      "definition": "Hăng hái, sẵn sàng",
+      "exampleSentence": "新しい仕事を任されると、彼はいつも張り切る。",
+      "exampleTranslation": "Mỗi khi được giao công việc mới, anh ấy luôn rất hăng hái.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 17982,
+      "term": "わくわく（する）",
+      "reading": "わくわく（する）",
+      "romaji": null,
+      "definition": "Hồi hộp, phấn khởi",
+      "exampleSentence": "初めての海外旅行を前に、「わくわく（する）」という気持ちでなかなか眠れなかった。",
+      "exampleTranslation": "Trước chuyến du lịch nước ngoài đầu tiên, tôi phấn khởi đến mức mãi không ngủ được.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 17983,
+      "term": "そわそわ[と]（する）",
+      "reading": "そわそわ[と]（する）",
+      "romaji": null,
+      "definition": "Sốt ruột",
+      "exampleSentence": "面接の結果を待つ間、彼は「そわそわ（する）」と感じ、何度も時計を見た。",
+      "exampleTranslation": "Trong lúc chờ kết quả phỏng vấn, anh ấy sốt ruột và liên tục nhìn đồng hồ.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 17984,
+      "term": "うっとり[と]（する）",
+      "reading": "うっとり[と]（する）",
+      "romaji": null,
+      "definition": "Như bị thôi miên, say đắm, lãng đãng",
+      "exampleSentence": "美しい旋律を聴いて、彼女は「うっとり（する）」と感じ、静かに目を閉じた。",
+      "exampleTranslation": "Nghe giai điệu tuyệt đẹp, cô ấy say đắm và khẽ nhắm mắt lại.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 17985,
+      "term": "すっと（する）",
+      "reading": "すっと（する）",
+      "romaji": null,
+      "definition": "Nhẹ nhàng, nhẹ nhõm",
+      "exampleSentence": "深呼吸をすると、「すっと（する）」と感じて、気持ちが落ち着いた。",
+      "exampleTranslation": "Sau khi hít thở sâu, tôi cảm thấy nhẹ nhõm và bình tĩnh lại.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 17986,
+      "term": "気分転換（する） (きぶんてんかん（する）)",
+      "reading": "きぶんてんかん（する）",
+      "romaji": null,
+      "definition": "Sự thay đổi tâm trạng",
+      "exampleSentence": "仕事の合間に散歩をすることは、よい気分転換になる。",
+      "exampleTranslation": "Đi dạo giữa giờ làm việc là một cách thay đổi tâm trạng rất tốt.",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

@@ -1,0 +1,209 @@
+{
+  "id": 560,
+  "title": "N2 Unit 4.3 - 名詞B (bài 3/12)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.751743",
+  "cards": [
+    {
+      "id": 13463,
+      "term": "観測 (かんそく)",
+      "reading": "かんそく",
+      "romaji": null,
+      "definition": "sự quan trắc; sự quan sát; sự đo đạc",
+      "exampleSentence": "地震の15分後に、高さ30センチの津波が観測された。",
+      "exampleTranslation": "15 phút sau động đất, ghi nhận sóng thần cao 30 cm.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13464,
+      "term": "遭難 (そうなん)",
+      "reading": "そうなん",
+      "romaji": null,
+      "definition": "thảm họa, tai nạn",
+      "exampleSentence": "｛山/海｝で遭難する。",
+      "exampleTranslation": "Gặp nạn (bị nạn) trên núi/biển.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13465,
+      "term": "発生 (はっせい)",
+      "reading": "はっせい",
+      "romaji": null,
+      "definition": "phát sinh",
+      "exampleSentence": "事故が発生し、電車がストップした。",
+      "exampleTranslation": "Xảy ra sự cố, tàu điện đã dừng lại.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13466,
+      "term": "登場 (とうじょう)",
+      "reading": "とうじょう",
+      "romaji": null,
+      "definition": "lối vào, sự xuất hiện (trên màn ảnh)",
+      "exampleSentence": "舞台に俳優が登場する。",
+      "exampleTranslation": "Diễn viên xuất hiện trên sân khấu.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13467,
+      "term": "回復 (かいふく)",
+      "reading": "かいふく",
+      "romaji": null,
+      "definition": "hồi phục",
+      "exampleSentence": "経済状況が回復する。",
+      "exampleTranslation": "Tình hình kinh tế hồi phục.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13468,
+      "term": "援助 (えんじょ)",
+      "reading": "えんじょ",
+      "romaji": null,
+      "definition": "viện trợ",
+      "exampleSentence": "親戚の援助で学校を卒業できた。",
+      "exampleTranslation": "Nhờ họ hàng giúp đỡ nên tôi mới tốt nghiệp được.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13469,
+      "term": "保険 (ほけん)",
+      "reading": "ほけん",
+      "romaji": null,
+      "definition": "bảo hiểm",
+      "exampleSentence": "子供が生まれたので、生命保険に入った。",
+      "exampleTranslation": "Vì có con nên tôi tham gia bảo hiểm nhân thọ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13470,
+      "term": "追加 (ついか)",
+      "reading": "ついか",
+      "romaji": null,
+      "definition": "thêm vào, cho vào",
+      "exampleSentence": "飲み会でビールを追加する。",
+      "exampleTranslation": "Gọi thêm bia ở buổi nhậu.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13471,
+      "term": "応用 (おうよう)",
+      "reading": "おうよう",
+      "romaji": null,
+      "definition": "ứng dụng",
+      "exampleSentence": "この技術はいろいろな機械に応用できる。",
+      "exampleTranslation": "Kỹ thuật này có thể ứng dụng cho nhiều loại máy móc.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13472,
+      "term": "解答(回答) (かいとう(かいとう))",
+      "reading": "かいとう(かいとう)",
+      "romaji": null,
+      "definition": "trả lời, hồi đáp",
+      "exampleSentence": "10問のうち5問解答できないと失格になります。",
+      "exampleTranslation": "Nếu không trả lời được 5/10 câu thì bị loại.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13473,
+      "term": "結論 (けつろん)",
+      "reading": "けつろん",
+      "romaji": null,
+      "definition": "kết luận",
+      "exampleSentence": "3時間議論しても、結論は出なかった。",
+      "exampleTranslation": "Thảo luận 3 tiếng mà vẫn chưa ra kết luận.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13474,
+      "term": "案 (あん)",
+      "reading": "あん",
+      "romaji": null,
+      "definition": "kế hoạch, ý tưởng",
+      "exampleSentence": "新製品について、案を出すように言われた。",
+      "exampleTranslation": "Tôi được bảo hãy đưa ra phương án cho sản phẩm mới.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13475,
+      "term": "集中 (しゅうちゅう)",
+      "reading": "しゅうちゅう",
+      "romaji": null,
+      "definition": "tập trung",
+      "exampleSentence": "人口は大都市に集中している。",
+      "exampleTranslation": "Dân số tập trung ở các thành phố lớn.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13476,
+      "term": "区別 (くべつ)",
+      "reading": "くべつ",
+      "romaji": null,
+      "definition": "phân biệt",
+      "exampleSentence": "レポートを書くときは、事実と意見を区別して書かなければならない。",
+      "exampleTranslation": "Khi viết báo cáo phải phân biệt rõ sự thật và ý kiến.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13477,
+      "term": "差別 (さべつ)",
+      "reading": "さべつ",
+      "romaji": null,
+      "definition": "phân biệt, phân biệt đối xử (chủng tộc)",
+      "exampleSentence": "差別のない社会を作りたい。",
+      "exampleTranslation": "Tôi muốn xây dựng một xã hội không phân biệt đối xử.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 13478,
+      "term": "中間 (ちゅうかん)",
+      "reading": "ちゅうかん",
+      "romaji": null,
+      "definition": "ở giữa",
+      "exampleSentence": "名古屋は東京と大阪の中間にある。",
+      "exampleTranslation": "Nagoya nằm giữa Tokyo và Osaka.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 13479,
+      "term": "逆 (ぎゃく)",
+      "reading": "ぎゃく",
+      "romaji": null,
+      "definition": "ngược lại",
+      "exampleSentence": "鏡では左右が逆になる。",
+      "exampleTranslation": "Soi gương thì trái phải bị đảo ngược.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 13480,
+      "term": "他所 (よそ)",
+      "reading": "よそ",
+      "romaji": null,
+      "definition": "nơi khác",
+      "exampleSentence": "方言はよその土地の人には分かりにくい。",
+      "exampleTranslation": "Phương ngữ khó hiểu với người ở nơi khác.",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

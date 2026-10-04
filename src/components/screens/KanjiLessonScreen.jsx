@@ -2,19 +2,19 @@ import React, { useState, useEffect, useMemo, useRef } from 'react'
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import HanziWriter from 'hanzi-writer';
-import { ChevronLeft, ChevronRight, Plus, BookOpen, PenTool, Award, Volume2, Check, X, Sparkle, RotateCcw, Keyboard, Layers, RefreshCw, ArrowLeft, Search, User, Heart, Bookmark } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Plus, BookOpen, PenTool, Award, Volume2, Check, X, Sparkle, Sparkles, RotateCcw, Keyboard, Layers, RefreshCw, ArrowLeft, Search, User, Heart, Bookmark } from 'lucide-react'
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, getDoc, deleteDoc, increment, addDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { ROUTES } from '../../router';
 import { playCorrectSound, playIncorrectSound, playCompletionFanfare, playFlipSound } from '../../utils/soundEffects';
 import { speakJapanese } from '../../utils/audio';
-import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
+import { getJotobaKanjiData, JOTOBA_KANJI_DATA } from '../../data/jotobaKanjiData';
 import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitchAccent';
 import { showToast } from '../../utils/toast';
 import { renderMaziiStyleKanji, fetchKanjiSvg } from '../../utils/kanjiStroke';
-import { getSharedKanjiList, getSharedVocabList, getSharedKanjiSrs, updateCachedUserSrs, updateCachedKanjiProgress } from '../../utils/kanjiService';
+import { getSharedKanjiList, getSharedVocabList, getSharedKanjiSrs, updateCachedUserSrs, updateCachedKanjiProgress, getCachedKanjiList, getCachedVocabList, getCachedUserSrsData, getCachedKanjiMap } from '../../utils/kanjiService';
 import { normalize, toHiragana } from '../../utils/ankiDiff';
 // ── Module-level data cache ────────────────────────────────────────────────
 // Survives component unmount/remount (e.g. Back from KanjiScreen detail).
@@ -29,16 +29,64 @@ const _lessonDataCache = {
     level: null,
     day: null,
 };
+
+// Instant fallback from pre-compiled static OpenJLPT dataset (2,443 kanji)
+const getInitialKanjiList = () => {
+    if (_lessonDataCache.kanjiList && _lessonDataCache.kanjiList.length > 0) {
+        return _lessonDataCache.kanjiList;
+    }
+    const memCached = getCachedKanjiList();
+    if (memCached && memCached.length > 0) {
+        return memCached;
+    }
+    const baseList = Object.values(JOTOBA_KANJI_DATA || {}).map(k => ({
+        id: k.literal,
+        character: k.literal,
+        meaning: k.meaningVi || (k.meanings ? k.meanings.join(', ') : ''),
+        meaningVi: k.meaningVi || '',
+        sinoViet: k.sinoViet || '',
+        onyomi: k.onyomi ? (Array.isArray(k.onyomi) ? k.onyomi.join('、') : k.onyomi) : '',
+        kunyomi: k.kunyomi ? (Array.isArray(k.kunyomi) ? k.kunyomi.join('、') : k.kunyomi) : '',
+        level: k.level,
+        strokeCount: k.stroke_count,
+        openJlptOrder: k.openJlptOrder,
+        frequency: k.frequency
+    }));
+    try {
+        const localEditedMap = typeof getCachedKanjiMap === 'function' ? getCachedKanjiMap() : {};
+        if (localEditedMap && Object.keys(localEditedMap).length > 0) {
+            const map = new Map(baseList.map(k => [k.id || k.character, k]));
+            Object.values(localEditedMap).forEach(ed => {
+                const key = ed.id || ed.character;
+                if (key) map.set(key, { ...(map.get(key) || {}), ...ed });
+            });
+            return Array.from(map.values());
+        }
+    } catch (_) {}
+    return baseList;
+};
+
+const getInitialVocabList = () => {
+    if (_lessonDataCache.vocabList && _lessonDataCache.vocabList.length > 0) {
+        return _lessonDataCache.vocabList;
+    }
+    const memCached = getCachedVocabList();
+    if (memCached && memCached.length > 0) {
+        return memCached;
+    }
+    return [];
+};
+
 // ==================== MAIN COMPONENT ====================
 const KanjiLessonScreen = ({ awardXP }) => {
     const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
     const level = searchParams.get('level') || 'N5';
     const day = parseInt(searchParams.get('day') || '1');
-    // Data — seed from module cache if available (instant restore on back-navigation)
-    const [kanjiList, setKanjiList] = useState(() => _lessonDataCache.kanjiList || []);
-    const [vocabList, setVocabList] = useState(() => _lessonDataCache.vocabList || []);
-    const [loading, setLoading] = useState(() => !_lessonDataCache.kanjiList);
+    // Data — instant seed from cache or static dictionary
+    const [kanjiList, setKanjiList] = useState(getInitialKanjiList);
+    const [vocabList, setVocabList] = useState(getInitialVocabList);
+    const [loading, setLoading] = useState(false);
     // UI State
     const [activeMode, setActiveMode] = useState('flashcard');
     const [flashcardType, setFlashcardType] = useState('kanji');
@@ -60,8 +108,14 @@ const KanjiLessonScreen = ({ awardXP }) => {
     const [viewedSet, setViewedSet] = useState(() => sameLesson ? _lessonDataCache.viewedSet : new Set([0]));
     const [isCompleted, setIsCompleted] = useState(() => sameLesson ? _lessonDataCache.isCompleted : false);
     const [showCelebration, setShowCelebration] = useState(false);
-    const [srsAddedSet, setSrsAddedSet] = useState(new Set());
-    const [srsDataMap, setSrsDataMap] = useState(new Map());
+    const [srsAddedSet, setSrsAddedSet] = useState(() => {
+        const cached = getCachedUserSrsData();
+        return cached ? new Set(Object.keys(cached)) : new Set();
+    });
+    const [srsDataMap, setSrsDataMap] = useState(() => {
+        const cached = getCachedUserSrsData();
+        return cached ? new Map(Object.entries(cached)) : new Map();
+    });
     const [toastMessage, setToastMessage] = useState(null);
     const [showSrsConfirm, setShowSrsConfirm] = useState(false); // SRS confirmation modal
     const showToast = (msg) => {
@@ -69,7 +123,13 @@ const KanjiLessonScreen = ({ awardXP }) => {
         setTimeout(() => setToastMessage(null), 2000);
     };
     // User Profile, Dark Mode, Search and Notifications
-    const [profile, setProfile] = useState(null);
+    const [profile, setProfile] = useState(() => {
+        try {
+            return JSON.parse(localStorage.getItem('quizki-profile') || 'null');
+        } catch (_) {
+            return null;
+        }
+    });
     const [isDarkMode, setIsDarkMode] = useState(() => localStorage.getItem('darkMode') === 'true');
     const [searchTerm, setSearchTerm] = useState('');
     const [showNotifications, setShowNotifications] = useState(false);
@@ -115,32 +175,25 @@ const KanjiLessonScreen = ({ awardXP }) => {
         };
         loadSrs();
     }, [userId]);
-    // Load data — use getDocsFromServer to always get fresh data, bypassing stale IndexedDB cache
-    // Skip fetch entirely when module cache already has data (e.g. back-navigation from detail view)
+    // Asynchronous background data loading & prefetching without blocking screen render
     useEffect(() => {
-        if (_lessonDataCache.kanjiList) {
-            // Cache hit: data already loaded, nothing to do
-            return;
-        }
+        let isMounted = true;
         const load = async () => {
             try {
                 const [kanjiData, vocabData] = await Promise.all([
                     getSharedKanjiList(),
                     getSharedVocabList()
                 ]);
+                if (!isMounted) return;
                 // Populate module-level cache so back-navigation is instant
                 _lessonDataCache.kanjiList = kanjiData;
                 _lessonDataCache.vocabList = vocabData;
                 setKanjiList(kanjiData);
                 setVocabList(vocabData);
                 // ── INLINE PREFETCH ────────────────────────────────────────────────
-                // Kick off background prefetch immediately after data arrives
-                // so caches (HanziWriter SVGs + Jotoba pitch) are warm before the
-                // user ever taps "Xem chi tiết".
                 const level_ = new URLSearchParams(window.location.search).get('level') || 'N5';
                 const day_ = parseInt(new URLSearchParams(window.location.search).get('day') || '1');
                 const filtered = kanjiData.filter(k => k.level === level_);
-                // Use already-imported synchronous getJotobaKanjiData — sort cannot be async
                 filtered.sort((a, b) => {
                     const jA = getJotobaKanjiData(a.character);
                     const jB = getJotobaKanjiData(b.character);
@@ -158,23 +211,19 @@ const KanjiLessonScreen = ({ awardXP }) => {
                 const todayV = vocabData.filter(v => v.word && todayChars.some(c => v.word.includes(c)));
                 // Fire-and-forget background prefetch — don't block UI
                 (async () => {
-                    // 1. Mazii-style SVG data for the 10 kanji
                     for (const k of todayK) {
                         try { await fetchKanjiSvg(k.character); } catch (_) { }
                     }
-                    // 2. Jotoba pitch/audio cache for each vocab word
                     for (const v of todayV) {
                         try { await fetchJotobaWordData(v.word); } catch (_) { }
                     }
                 })();
-                // ── END PREFETCH ───────────────────────────────────────────────────
             } catch (e) {
-                console.error('Error loading data:', e);
-            } finally {
-                setLoading(false);
+                console.warn('Background sync error:', e);
             }
         };
         load();
+        return () => { isMounted = false; };
     }, []);
     // Listen to cache updates and sync state across all screens
     useEffect(() => {
@@ -495,6 +544,25 @@ const KanjiLessonScreen = ({ awardXP }) => {
         window.addEventListener('keydown', handleCelebrationKeyDown);
         return () => window.removeEventListener('keydown', handleCelebrationKeyDown);
     }, [showCelebration, goToNextDay]);
+
+    // Keyboard navigation (Left / Right arrows) for lesson mode
+    useEffect(() => {
+        if (activeMode !== 'flashcard' && activeMode !== 'lesson') return;
+        const handleKeyDown = (e) => {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            if (e.key === 'ArrowLeft') {
+                if (currentIndex > 0) goTo(currentIndex - 1);
+            } else if (e.key === 'ArrowRight') {
+                if (currentIndex === todayKanji.length - 1) {
+                    handleCompleteClick();
+                } else {
+                    goTo(currentIndex + 1);
+                }
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [activeMode, currentIndex, todayKanji.length, handleCompleteClick, goTo]);
     if (loading) {
         return <LoadingIndicator text="Đang tải dữ liệu bài học..." />;
     }
@@ -867,54 +935,70 @@ const KanjiLessonScreen = ({ awardXP }) => {
             document.body.classList.remove('dark');
         }
     };
+
     // ==================== MAIN RENDER ====================
     return (
-        <div className="max-w-7xl mx-auto px-4 py-6 pb-24 lg:pb-6 space-y-6 animate-fade-in">
-            {/* Top Navigation Header */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-gray-100 dark:border-slate-700/50 pb-5">
+        <div className="max-w-6xl mx-auto px-3.5 sm:px-6 py-4 sm:py-6 pb-28 lg:pb-8 space-y-4 sm:space-y-5 animate-fade-in">
+            {/* Top Navigation & Controls Header */}
+            <div className="flex items-center justify-between gap-3 pb-3 border-b border-gray-100 dark:border-slate-800">
                 {/* Breadcrumbs */}
-                <div className="space-y-1">
-                    <div className="flex items-center gap-2 text-gray-400 dark:text-slate-400 text-[10px] font-bold tracking-wider uppercase">
-                        <button onClick={handleBackToRoadmap} className="hover:text-indigo-500 transition-colors">
-                            Lộ trình {level}
-                        </button>
-                        <span>/</span>
-                        <span>Ngày {day}</span>
-                        <span>/</span>
-                        <span className="text-gray-600 dark:text-gray-200">Chữ Kanji thứ {(day - 1) * 10 + currentIndex + 1}</span>
-                    </div>
+                <div className="flex items-center gap-1.5 sm:gap-2 text-gray-400 dark:text-slate-400 text-[10px] sm:text-xs font-bold tracking-wider uppercase truncate">
+                    <button onClick={handleBackToRoadmap} className="hover:text-indigo-500 transition-colors shrink-0 cursor-pointer">
+                        Lộ trình {level}
+                    </button>
+                    <span>/</span>
+                    <span className="shrink-0">Ngày {day}</span>
+                    <span>/</span>
+                    <span className="text-gray-700 dark:text-gray-200 truncate font-black">
+                        Chữ {currentIndex + 1} ({currentKanji?.character || ''})
+                    </span>
                 </div>
-            </div>
-            {/* Progress bar */}
-            <div className="space-y-2">
-                <div className="flex justify-between items-center text-xs text-gray-400 dark:text-slate-500 font-bold">
-                    <span>Tiến độ bài học</span>
-                    <span>{currentIndex + 1} / {todayKanji.length} chữ Kanji</span>
-                </div>
-                <div className="w-full h-2 bg-gray-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                    <div className="h-full bg-gradient-to-r from-indigo-500 to-cyan-400 rounded-full transition-all duration-500"
-                        style={{ width: `${((currentIndex + 1) / todayKanji.length) * 100}%` }} />
-                </div>
-            </div>
-            {/* Practice Mode Button & Kanji navigation indicators */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-                <button onClick={() => setActiveMode('test')}
-                    className="flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white transition-all hover:scale-[1.02] shadow-md shadow-sky-500/20 cursor-pointer">
-                    <Award className="w-4 h-4 text-amber-300" />
-                    🎯 Chế độ luyện tập
+
+                {/* Practice Mode Button */}
+                <button 
+                    onClick={() => setActiveMode('test')}
+                    className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm font-bold bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white transition-all hover:scale-[1.02] shadow-xs shadow-sky-500/20 cursor-pointer shrink-0"
+                >
+                    <Award className="w-3.5 h-3.5 text-amber-300" />
+                    <span className="hidden sm:inline">🎯 Chế độ luyện tập</span>
+                    <span className="sm:hidden">Luyện tập</span>
                 </button>
-                <div className="flex justify-center gap-1.5 py-1">
+            </div>
+
+            {/* Progress bar with Integrated Centered Pagination Dots */}
+            <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-3 sm:p-4 shadow-2xs space-y-2.5">
+                <div className="flex justify-between items-center text-xs font-bold text-slate-500 dark:text-slate-400">
+                    <span className="flex items-center gap-1.5">
+                        <Sparkles className="w-3.5 h-3.5 text-indigo-500" />
+                        <span>Tiến độ bài học</span>
+                    </span>
+                    <span className="font-mono text-indigo-600 dark:text-cyan-400 font-black">
+                        {currentIndex + 1} / {todayKanji.length} chữ Kanji
+                    </span>
+                </div>
+
+                {/* Progress bar line */}
+                <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                    <div 
+                        className="h-full bg-gradient-to-r from-indigo-500 via-sky-400 to-cyan-400 rounded-full transition-all duration-500"
+                        style={{ width: `${((currentIndex + 1) / todayKanji.length) * 100}%` }} 
+                    />
+                </div>
+
+                {/* Interactive Kanji Pill Dots */}
+                <div className="flex justify-center items-center gap-1.5 pt-1 overflow-x-auto no-scrollbar">
                     {todayKanji.map((k, i) => (
                         <button
                             key={k.id || i}
                             onClick={() => goTo(i)}
-                            className={`h-2 rounded-full transition-all duration-300 ${i === currentIndex
-                                    ? 'w-8 bg-indigo-500 dark:bg-cyan-400 shadow-sm shadow-indigo-500/20'
+                            className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer shrink-0 ${
+                                i === currentIndex
+                                    ? 'w-7 bg-indigo-600 dark:bg-cyan-400 shadow-xs shadow-indigo-500/30 ring-2 ring-indigo-200 dark:ring-cyan-900'
                                     : viewedSet.has(i)
-                                        ? 'w-3 bg-indigo-300 dark:bg-cyan-600/50'
-                                        : 'w-2 bg-gray-200 dark:bg-slate-800 hover:bg-gray-300'
-                                }`}
-                            title={k.character}
+                                        ? 'w-3 bg-indigo-300 dark:bg-cyan-700/60 hover:bg-indigo-400'
+                                        : 'w-2 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700'
+                            }`}
+                            title={`Chữ ${i + 1}: ${k.character} (${k.sinoViet || ''})`}
                         />
                     ))}
                 </div>
@@ -944,15 +1028,7 @@ const KanjiLessonScreen = ({ awardXP }) => {
                 level={level}
                 day={day}
             />
-            {/* Completion button */}
-            {isCompleted && (
-                <div className="text-center pt-2">
-                    <button onClick={handleCompleteClick}
-                        className="px-8 py-3 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-400 hover:to-orange-400 text-white rounded-xl font-bold text-lg transition-all shadow-lg shadow-orange-500/30 animate-pulse">
-                        🎉 Hoàn thành ngày {day}
-                    </button>
-                </div>
-            )}
+
             {/* SRS Confirmation Modal */}
             {showSrsConfirm && (() => {
                 const allKanjiIds = todayKanji.map(k => k.id).filter(Boolean);
@@ -1318,22 +1394,24 @@ const KanjiFlashcard = ({
                         </button>
                     </div>
                     {/* Animated Stroke box */}
-                    <div className="relative w-44 h-44 sm:w-52 sm:h-52 bg-slate-50 dark:bg-slate-900/40 rounded-2xl border border-gray-100 dark:border-slate-700/50 flex items-center justify-center shadow-inner mx-auto mb-4 sm:mb-6 overflow-hidden">
-                        {/* Plus pattern grid guidelines */}
-                        <div className="absolute inset-0 pointer-events-none">
-                            <div className="w-full h-full border-b border-dashed border-gray-200 dark:border-slate-700/50 absolute top-1/2 left-0 -translate-y-1/2" />
-                            <div className="w-full h-full border-r border-dashed border-gray-200 dark:border-slate-700/50 absolute left-1/2 top-0 -translate-x-1/2" />
+                    <div className="flex items-center justify-center my-3 sm:my-4">
+                        <div className="relative w-48 h-48 sm:w-56 sm:h-56 bg-slate-50 dark:bg-slate-900/40 rounded-2xl border border-gray-100 dark:border-slate-700/50 flex items-center justify-center shadow-inner overflow-hidden">
+                            {/* Plus pattern grid guidelines */}
+                            <div className="absolute inset-0 pointer-events-none">
+                                <div className="w-full h-full border-b border-dashed border-gray-200 dark:border-slate-700/50 absolute top-1/2 left-0 -translate-y-1/2" />
+                                <div className="w-full h-full border-r border-dashed border-gray-200 dark:border-slate-700/50 absolute left-1/2 top-0 -translate-x-1/2" />
+                            </div>
+                            {/* Target for HanziWriter */}
+                            <div ref={writerContainerRef} className="z-10 flex items-center justify-center" />
+                            {/* Replay stroke button */}
+                            <button
+                                onClick={() => writerRef.current?.replay?.()}
+                                className="absolute bottom-2.5 right-2.5 z-20 p-2 bg-white/90 dark:bg-slate-800/90 backdrop-blur-xs border border-gray-200 dark:border-slate-700 text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-cyan-400 rounded-xl shadow-xs transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                                title="Xem lại nét viết"
+                            >
+                                <RotateCcw className="w-4 h-4" />
+                            </button>
                         </div>
-                        {/* Target for HanziWriter */}
-                        <div ref={writerContainerRef} className="z-10 flex items-center justify-center" />
-                        {/* Replay stroke button */}
-                        <button
-                            onClick={() => writerRef.current?.replay?.()}
-                            className="absolute bottom-2.5 right-2.5 z-20 p-2 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-white rounded-xl shadow-sm transition-all"
-                            title="Xem lại nét viết"
-                        >
-                            <RotateCcw className="w-4 h-4" />
-                        </button>
                     </div>
                     {/* Onyomi & Kunyomi Badges */}
                     <div className="grid grid-cols-2 gap-3 sm:gap-4 border-t border-gray-100 dark:border-slate-700/50 pt-3 sm:pt-4">
@@ -1562,19 +1640,26 @@ const KanjiFlashcard = ({
                     </div>
                 </div>
                 {/* Bottom Action buttons */}
-                <div className="order-6 lg:order-none lg:static fixed bottom-0 left-0 right-0 lg:p-0 p-3 sm:p-4 lg:bg-transparent bg-white/95 dark:bg-slate-950/95 backdrop-blur-xl lg:border-0 border-t border-slate-200 dark:border-slate-800 lg:shadow-none shadow-[0_-8px_25px_rgba(0,0,0,0.15)] flex gap-2.5 sm:gap-4 z-40">
+                <div className="order-6 lg:order-none fixed lg:static bottom-[calc(3.75rem+env(safe-area-inset-bottom))] lg:bottom-auto left-0 right-0 p-3 sm:p-4 bg-white/95 dark:bg-slate-900/95 lg:bg-transparent backdrop-blur-xl border-t border-slate-200/90 dark:border-slate-800 lg:border-0 shadow-xl lg:shadow-none flex items-center justify-between gap-2.5 sm:gap-4 z-30">
                     <button
                         onClick={onPrev}
                         disabled={currentIndex === 0}
-                        className="flex-1 px-4 py-3 sm:px-6 sm:py-3.5 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 disabled:opacity-40 text-gray-700 dark:text-gray-300 font-bold text-xs sm:text-sm rounded-xl sm:rounded-2xl transition-all shadow-sm flex items-center justify-center gap-1.5 min-h-[44px]"
+                        className="flex-1 max-w-[130px] sm:max-w-[150px] px-3.5 py-2.5 sm:px-5 sm:py-3 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed text-gray-700 dark:text-gray-300 font-bold text-xs sm:text-sm rounded-xl sm:rounded-2xl transition-all shadow-xs flex items-center justify-center gap-1.5 min-h-[42px] sm:min-h-[44px] cursor-pointer"
                     >
                         <ChevronLeft className="w-4 h-4" /> Trước
                     </button>
+
+                    {/* Centered counter indicator for mobile */}
+                    <div className="flex flex-col items-center justify-center px-1 text-center lg:hidden">
+                        <span className="text-[10px] font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider">Chữ</span>
+                        <span className="text-xs font-black text-indigo-600 dark:text-cyan-400 font-mono">{currentIndex + 1} / {totalKanjiCount}</span>
+                    </div>
+
                     <button
                         onClick={isLastKanji ? onComplete : onNext}
-                        className="flex-1 px-4 py-3 sm:px-6 sm:py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs sm:text-sm rounded-xl sm:rounded-2xl transition-all shadow-lg shadow-indigo-600/20 hover:shadow-indigo-500/30 flex items-center justify-center gap-1.5 min-h-[44px]"
+                        className={`flex-1 ${isLastKanji ? 'max-w-[200px]' : 'max-w-[140px] sm:max-w-[160px]'} px-3.5 py-2.5 sm:px-6 sm:py-3 ${isLastKanji ? 'bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white shadow-emerald-500/25' : 'bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white shadow-indigo-600/20'} font-bold text-xs sm:text-sm rounded-xl sm:rounded-2xl transition-all shadow-md flex items-center justify-center gap-1.5 min-h-[42px] sm:min-h-[44px] cursor-pointer`}
                     >
-                        {isLastKanji ? 'Hoàn thành ngày' : 'Tiếp theo'} <ChevronRight className="w-4 h-4" />
+                        {isLastKanji ? '🎉 Hoàn thành ngày' : 'Tiếp theo'} {!isLastKanji && <ChevronRight className="w-4 h-4" />}
                     </button>
                 </div>
             </div>

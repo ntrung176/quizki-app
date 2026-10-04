@@ -3,13 +3,14 @@ import {
     X, Check, Settings, Maximize, Minimize, FileText, 
     Save, ChevronLeft, ChevronRight, Edit3, Pencil, 
     ShieldAlert, Play, BookOpen, Lock, Volume2, Printer, 
-    RotateCcw, HelpCircle, Layers, Eye, EyeOff, Sparkles, 
-    CheckCircle2, ChevronDown, List, AlertCircle
+    RotateCcw, HelpCircle, Layers, Eye, EyeOff, 
+    CheckCircle2, ChevronDown, List, AlertCircle, Zap
 } from 'lucide-react';
 import QuestionEditModal from './QuestionEditModal';
 import HandwritingCanvas from '../ui/HandwritingCanvas';
 import ExamAnnotationOverlay from '../screens/ExamAnnotationOverlay';
 import InteractiveReadingPassage from './InteractiveReadingPassage';
+import QuestionExplanationCard from './QuestionExplanationCard';
 import { SECTION_ICONS, SECTION_COLORS } from './jlptConstants';
 
 export const hasHtmlTags = (str) => {
@@ -147,6 +148,7 @@ const JLPTTestTakeView = ({
     const [showSubmitModal, setShowSubmitModal] = useState(false);
     const [showResetModal, setShowResetModal] = useState(false);
     const [activeNoteTarget, setActiveNoteTarget] = useState(null); // { sIdx, qIdx }
+    const [isInstantPracticeMode, setIsInstantPracticeMode] = useState(true); // Instant Answer Mode
 
     const rightScrollContainerRef = useRef(null);
 
@@ -477,7 +479,7 @@ const JLPTTestTakeView = ({
 
                         <button
                             onClick={() => setShowSubmitModal(true)}
-                            className="w-full py-2.5 rounded-xl font-black text-xs bg-emerald-600 hover:bg-emerald-500 text-white transition flex items-center justify-center gap-1.5 shadow-md shadow-emerald-600/20 cursor-pointer active:scale-95"
+                            className="w-full py-2.5 rounded-xl font-black text-xs bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 transition flex items-center justify-center gap-1.5 shadow-[0_4px_14px_rgba(244,148,188,0.35)] cursor-pointer active:scale-95"
                         >
                             <Check className="w-4 h-4 stroke-[3]" />
                             <span>Nộp bài ({answeredCount}/{totalQ})</span>
@@ -561,6 +563,19 @@ const JLPTTestTakeView = ({
 
                                 <div className="flex items-center gap-2 flex-wrap">
                                     <button
+                                        onClick={() => setIsInstantPracticeMode(!isInstantPracticeMode)}
+                                        className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer shadow-xs active:scale-95 ${
+                                            isInstantPracticeMode
+                                                ? 'bg-amber-500 hover:bg-amber-600 text-white font-extrabold shadow-amber-500/20'
+                                                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                                        }`}
+                                        title="Bật/Tắt chế độ hiện kết quả và giải thích ngay khi chọn"
+                                    >
+                                        <Zap className={`w-3.5 h-3.5 ${isInstantPracticeMode ? 'text-white' : 'text-slate-400'}`} />
+                                        <span>Hiện đáp án ngay: {isInstantPracticeMode ? 'BẬT' : 'TẮT'}</span>
+                                    </button>
+
+                                    <button
                                         onClick={() => setShowResetModal(true)}
                                         className="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition flex items-center gap-1 cursor-pointer active:scale-95"
                                         title="Làm lại từ đầu"
@@ -572,7 +587,7 @@ const JLPTTestTakeView = ({
                                     {handleStartPrint && (
                                         <button
                                             onClick={handleStartPrint}
-                                            className="px-3 py-1.5 rounded-xl text-xs font-bold bg-amber-500 hover:bg-amber-600 text-white transition flex items-center gap-1 shadow-sm cursor-pointer active:scale-95"
+                                            className="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition flex items-center gap-1 cursor-pointer active:scale-95"
                                             title="In đề thi ra giấy hoặc PDF"
                                         >
                                             <Printer className="w-3.5 h-3.5" />
@@ -582,7 +597,7 @@ const JLPTTestTakeView = ({
 
                                     <button
                                         onClick={() => setShowSubmitModal(true)}
-                                        className="px-4 py-1.5 rounded-xl text-xs font-black bg-emerald-600 hover:bg-emerald-500 text-white transition flex items-center gap-1.5 shadow-md shadow-emerald-600/20 cursor-pointer active:scale-95"
+                                        className="px-4 py-1.5 rounded-xl text-xs font-black bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 transition flex items-center gap-1.5 shadow-[0_4px_14px_rgba(244,148,188,0.35)] cursor-pointer active:scale-95"
                                         title="Nộp bài thi"
                                     >
                                         <Check className="w-4 h-4 stroke-[3]" />
@@ -704,14 +719,36 @@ const JLPTTestTakeView = ({
                                         )}
 
                                         {/* Reading Passage (Interactive Sentence Analysis & Audio) */}
-                                        {activeSection?.type === 'reading' && (question?.passageData || question?.passage || (activeSection?.passages && typeof question?.passageIndex === 'number')) && (
-                                            <div className="mb-4">
-                                                <InteractiveReadingPassage 
-                                                    passageHtml={question.passage || (activeSection?.passages && typeof question.passageIndex === 'number' ? activeSection.passages[question.passageIndex]?.passage : '')} 
-                                                    passageData={question.passageData || (activeSection?.passages && typeof question.passageIndex === 'number' ? activeSection.passages[question.passageIndex]?.passageData : null)} 
-                                                />
-                                            </div>
-                                        )}
+                                        {(() => {
+                                            const prevQ = qIdx > 0 ? activeSection?.questions?.[qIdx - 1] : null;
+                                            const currentPassage = (question.passage || (activeSection?.passages && typeof question.passageIndex === 'number' ? activeSection.passages[question.passageIndex]?.passage : '') || question.passageData?.japanese || '').trim();
+                                            const prevPassage = prevQ ? ((prevQ.passage || (activeSection?.passages && typeof prevQ.passageIndex === 'number' ? activeSection.passages[prevQ.passageIndex]?.passage : '') || prevQ.passageData?.japanese || '').trim()) : '';
+
+                                            const isSamePassage = !!(currentPassage && prevPassage && currentPassage === prevPassage);
+                                            const hasPassage = !!(question?.passageData || question?.passage || (activeSection?.passages && typeof question?.passageIndex === 'number'));
+
+                                            if (!hasPassage) return null;
+
+                                            if (isSamePassage) {
+                                                return (
+                                                    <div className="mb-3.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-indigo-50/80 dark:bg-indigo-950/40 text-xs font-bold text-indigo-700 dark:text-indigo-300 border border-indigo-200/60 dark:border-indigo-800/40">
+                                                        <BookOpen className="w-3.5 h-3.5" />
+                                                        <span>Câu hỏi cùng bài đọc ở trên ↑</span>
+                                                    </div>
+                                                );
+                                            }
+
+                                            return (
+                                                <div className="mb-4">
+                                                    <InteractiveReadingPassage 
+                                                        passageHtml={question.passage || (activeSection?.passages && typeof question.passageIndex === 'number' ? activeSection.passages[question.passageIndex]?.passage : '')} 
+                                                        passageData={question.passageData || (activeSection?.passages && typeof question.passageIndex === 'number' ? activeSection.passages[question.passageIndex]?.passageData : null)}
+                                                        explanationText={question.explanation || question.detail}
+                                                        question={question}
+                                                    />
+                                                </div>
+                                            );
+                                        })()}
 
                                         {/* Question Image */}
                                         {question?.imageUrl && (
@@ -720,43 +757,105 @@ const JLPTTestTakeView = ({
                                             </div>
                                         )}
 
-                                        {/* Options (Standard 4 Options: a, b, c, d) */}
+                                        {/* Options (Standard 4 Options: A, B, C, D) */}
                                         {(!question.subQuestions || question.subQuestions.length === 0) ? (
-                                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
-                                                {question.options?.map((opt, oi) => {
-                                                    const isSelected = selectedOpt === oi;
-                                                    const letter = String.fromCharCode(97 + oi);
+                                            <div>
+                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+                                                    {question.options?.map((opt, oi) => {
+                                                        const isSelected = selectedOpt === oi;
+                                                        const letter = String.fromCharCode(65 + oi);
+                                                        
+                                                        // Correct answer calculation
+                                                        const correctIndex = typeof question.correctAnswer === 'number' 
+                                                            ? question.correctAnswer 
+                                                            : (typeof question.answer === 'number' 
+                                                                ? question.answer 
+                                                                : (typeof question.correct === 'number' 
+                                                                    ? question.correct 
+                                                                    : (typeof question.correct === 'string' 
+                                                                        ? question.options?.findIndex(o => o.trim() === question.correct.trim()) 
+                                                                        : -1)));
 
-                                                    return (
-                                                        <button
-                                                            key={oi}
-                                                            type="button"
-                                                            onClick={() => selectAnswer(selectedTabIdx, qIdx, oi)}
-                                                            className={`p-3 sm:p-3.5 rounded-2xl text-left transition-all duration-150 flex items-center justify-between gap-3 border-2 cursor-pointer select-none active:scale-[0.98] ${
-                                                                isSelected
-                                                                    ? 'bg-indigo-50/90 dark:bg-indigo-950/40 border-indigo-600 dark:border-indigo-500 text-slate-900 dark:text-white shadow-xs font-bold'
-                                                                    : 'bg-white dark:bg-slate-800/80 border-slate-200/90 dark:border-slate-750 text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800'
-                                                            }`}
-                                                        >
-                                                            <div className="flex items-center gap-2.5 min-w-0 flex-1">
-                                                                <span className={`w-6 h-6 rounded-full text-xs font-bold flex items-center justify-center shrink-0 transition-colors ${
-                                                                    isSelected
-                                                                        ? 'bg-indigo-600 text-white'
-                                                                        : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-300/60 dark:border-slate-600'
-                                                                }`}>
-                                                                    {letter}
-                                                                </span>
-                                                                <span 
-                                                                    className={getCleanClassName("font-japanese text-[15px] sm:text-[16px] leading-relaxed truncate", opt)} 
-                                                                    dangerouslySetInnerHTML={{ __html: opt }} 
-                                                                />
-                                                            </div>
-                                                            {isSelected && (
-                                                                <Check className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0" />
-                                                            )}
-                                                        </button>
-                                                    );
-                                                })}
+                                                        const isCorrectOpt = correctIndex !== -1 && oi === correctIndex;
+                                                        const isWrongSelected = isSelected && !isCorrectOpt;
+
+                                                        let optionStyle = 'bg-white dark:bg-slate-800/80 border-slate-200/90 dark:border-slate-750 text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:bg-slate-50 dark:hover:bg-slate-800';
+
+                                                        if (isInstantPracticeMode && selectedOpt !== undefined) {
+                                                            if (isCorrectOpt) {
+                                                                optionStyle = 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-emerald-800 dark:text-emerald-200 font-bold shadow-xs';
+                                                            } else if (isWrongSelected) {
+                                                                optionStyle = 'bg-rose-50 dark:bg-rose-950/40 border-rose-500 text-rose-800 dark:text-rose-200 font-bold shadow-xs';
+                                                            } else {
+                                                                optionStyle = 'bg-slate-50/60 dark:bg-slate-900/40 border-slate-200/50 dark:border-slate-800 text-slate-400 opacity-60';
+                                                            }
+                                                        } else if (isSelected) {
+                                                            optionStyle = 'bg-indigo-50/90 dark:bg-indigo-950/40 border-indigo-600 dark:border-indigo-500 text-slate-900 dark:text-white shadow-xs font-bold';
+                                                        }
+
+                                                        return (
+                                                            <button
+                                                                key={oi}
+                                                                type="button"
+                                                                onClick={() => selectAnswer(selectedTabIdx, qIdx, oi)}
+                                                                className={`p-3 sm:p-3.5 rounded-2xl text-left transition-all duration-150 flex items-center justify-between gap-3 border-2 cursor-pointer select-none active:scale-[0.98] ${optionStyle}`}
+                                                            >
+                                                                <div className="flex items-center gap-2.5 min-w-0 flex-1">
+                                                                    <span className={`w-6 h-6 rounded-full text-xs font-bold flex items-center justify-center shrink-0 transition-colors ${
+                                                                        isInstantPracticeMode && selectedOpt !== undefined
+                                                                            ? isCorrectOpt
+                                                                                ? 'bg-emerald-600 text-white'
+                                                                                : isWrongSelected
+                                                                                    ? 'bg-rose-600 text-white'
+                                                                                    : 'bg-slate-200 text-slate-500'
+                                                                            : isSelected
+                                                                                ? 'bg-indigo-600 text-white'
+                                                                                : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-300/60 dark:border-slate-600'
+                                                                    }`}>
+                                                                        {letter}
+                                                                    </span>
+                                                                    <span 
+                                                                        className={getCleanClassName("font-japanese text-[15px] sm:text-[16px] leading-relaxed", opt)} 
+                                                                        dangerouslySetInnerHTML={{ __html: opt }} 
+                                                                    />
+                                                                </div>
+                                                                {isInstantPracticeMode && selectedOpt !== undefined ? (
+                                                                    isCorrectOpt ? (
+                                                                        <span className="text-[11px] font-black text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-950 px-2 py-0.5 rounded-md shrink-0">
+                                                                            ✓ Đúng
+                                                                        </span>
+                                                                    ) : isWrongSelected ? (
+                                                                        <span className="text-[11px] font-black text-rose-600 dark:text-rose-400 bg-rose-100 dark:bg-rose-950 px-2 py-0.5 rounded-md shrink-0">
+                                                                            ✗ Sai
+                                                                        </span>
+                                                                    ) : null
+                                                                ) : isSelected ? (
+                                                                    <Check className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0" />
+                                                                ) : null}
+                                                            </button>
+                                                        );
+                                                    })}
+                                                </div>
+
+                                                {/* Instant Explanation Box with structured parsing */}
+                                                {isInstantPracticeMode && selectedOpt !== undefined && (
+                                                    <QuestionExplanationCard 
+                                                        question={question}
+                                                        options={question.options || []}
+                                                        correctAnswer={
+                                                            typeof question.correctAnswer === 'number' 
+                                                                ? question.correctAnswer 
+                                                                : (typeof question.answer === 'number' 
+                                                                    ? question.answer 
+                                                                    : (typeof question.correct === 'number' 
+                                                                        ? question.correct 
+                                                                        : (typeof question.correct === 'string' 
+                                                                            ? question.options?.findIndex(o => o.trim() === question.correct.trim()) 
+                                                                            : -1)))
+                                                        }
+                                                        userAnswer={selectedOpt}
+                                                    />
+                                                )}
                                             </div>
                                         ) : (
                                             /* SubQuestions */
@@ -764,6 +863,7 @@ const JLPTTestTakeView = ({
                                                 {question.subQuestions.map((sq, sqi) => {
                                                     const subAnsKey = subAnswerKey(selectedTabIdx, qIdx, sqi);
                                                     const isSubSelected = answers[subAnsKey];
+                                                    const sqCorrectIdx = typeof sq.correctAnswer === 'number' ? sq.correctAnswer : (typeof sq.answer === 'number' ? sq.answer : -1);
 
                                                     return (
                                                         <div key={sqi} className="space-y-3 p-3.5 bg-slate-50/60 dark:bg-slate-950/30 rounded-2xl border border-slate-100 dark:border-slate-800/80">
@@ -780,22 +880,38 @@ const JLPTTestTakeView = ({
                                                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                                                                 {sq.options?.map((opt, oi) => {
                                                                     const isSqOptSelected = isSubSelected === oi;
-                                                                    const letter = String.fromCharCode(97 + oi);
+                                                                    const letter = String.fromCharCode(65 + oi);
+                                                                    
+                                                                    const isSqCorrect = sqCorrectIdx !== -1 && oi === sqCorrectIdx;
+                                                                    const isSqWrong = isSqOptSelected && !isSqCorrect;
+
+                                                                    let sqStyle = 'bg-white dark:bg-slate-800/80 border-slate-200 dark:border-slate-750 text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500';
+
+                                                                    if (isInstantPracticeMode && isSubSelected !== undefined) {
+                                                                        if (isSqCorrect) sqStyle = 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-emerald-800 font-bold';
+                                                                        else if (isSqWrong) sqStyle = 'bg-rose-50 dark:bg-rose-950/40 border-rose-500 text-rose-800 font-bold';
+                                                                    } else if (isSqOptSelected) {
+                                                                        sqStyle = 'bg-indigo-50/90 dark:bg-indigo-950/40 border-indigo-600 dark:border-indigo-500 text-slate-900 dark:text-white shadow-xs font-bold';
+                                                                    }
 
                                                                     return (
                                                                         <button
                                                                             key={oi}
                                                                             type="button"
                                                                             onClick={() => selectAnswerSub(selectedTabIdx, qIdx, sqi, oi)}
-                                                                            className={`p-3 rounded-xl text-left transition-all duration-150 flex items-center justify-between gap-2.5 border-2 cursor-pointer select-none active:scale-[0.98] ${
-                                                                                isSqOptSelected
-                                                                                    ? 'bg-indigo-50/90 dark:bg-indigo-950/40 border-indigo-600 dark:border-indigo-500 text-slate-900 dark:text-white shadow-xs font-bold'
-                                                                                    : 'bg-white dark:bg-slate-800/80 border-slate-200 dark:border-slate-750 text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500'
-                                                                            }`}
+                                                                            className={`p-3 rounded-xl text-left transition-all duration-150 flex items-center justify-between gap-2.5 border-2 cursor-pointer select-none active:scale-[0.98] ${sqStyle}`}
                                                                         >
                                                                             <div className="flex items-center gap-2 min-w-0 flex-1">
                                                                                 <span className={`w-5.5 h-5.5 rounded-full text-xs font-bold flex items-center justify-center shrink-0 ${
-                                                                                    isSqOptSelected ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
+                                                                                    isInstantPracticeMode && isSubSelected !== undefined
+                                                                                        ? isSqCorrect
+                                                                                            ? 'bg-emerald-600 text-white'
+                                                                                            : isSqWrong
+                                                                                                ? 'bg-rose-600 text-white'
+                                                                                                : 'bg-slate-200 text-slate-500'
+                                                                                        : isSqOptSelected
+                                                                                            ? 'bg-indigo-600 text-white'
+                                                                                            : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
                                                                                 }`}>
                                                                                     {letter}
                                                                                 </span>
@@ -804,13 +920,28 @@ const JLPTTestTakeView = ({
                                                                                     dangerouslySetInnerHTML={{ __html: opt }} 
                                                                                 />
                                                                             </div>
-                                                                            {isSqOptSelected && (
+                                                                            {isInstantPracticeMode && isSubSelected !== undefined ? (
+                                                                                isSqCorrect ? (
+                                                                                    <span className="text-[11px] font-black text-emerald-600 bg-emerald-100 px-1.5 py-0.5 rounded shrink-0">✓ Đúng</span>
+                                                                                ) : isSqWrong ? (
+                                                                                    <span className="text-[11px] font-black text-rose-600 bg-rose-100 px-1.5 py-0.5 rounded shrink-0">✗ Sai</span>
+                                                                                ) : null
+                                                                            ) : isSqOptSelected ? (
                                                                                 <Check className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400 shrink-0" />
-                                                                            )}
+                                                                            ) : null}
                                                                         </button>
                                                                     );
                                                                 })}
                                                             </div>
+
+                                                            {isInstantPracticeMode && isSubSelected !== undefined && (
+                                                                <QuestionExplanationCard 
+                                                                    question={sq}
+                                                                    options={sq.options || []}
+                                                                    correctAnswer={sqCorrectIdx}
+                                                                    userAnswer={isSubSelected}
+                                                                />
+                                                            )}
                                                         </div>
                                                     );
                                                 })}
@@ -1070,7 +1201,7 @@ const JLPTTestTakeView = ({
                                     setShowSubmitModal(false);
                                     submitTest();
                                 }}
-                                className="py-2.5 rounded-xl text-xs font-black bg-emerald-600 hover:bg-emerald-500 text-white transition shadow-md shadow-emerald-600/20 cursor-pointer"
+                                className="py-2.5 rounded-xl text-xs font-black bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 transition shadow-[0_4px_14px_rgba(244,148,188,0.35)] cursor-pointer"
                             >
                                 Nộp bài ngay
                             </button>

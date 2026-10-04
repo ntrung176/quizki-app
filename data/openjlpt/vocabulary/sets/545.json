@@ -1,0 +1,187 @@
+{
+  "id": 545,
+  "title": "N2 Unit 2.2 - 動詞A (bài 2/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.504426",
+  "cards": [
+    {
+      "id": 13280,
+      "term": "しゃがむ",
+      "reading": "しゃがむ",
+      "romaji": null,
+      "definition": "ngồi xổm",
+      "exampleSentence": "子供が道にしゃがんで地面の虫を見ている。",
+      "exampleTranslation": "Đứa trẻ ngồi xổm trên đường xem côn trùng dưới đất.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13281,
+      "term": "退く (どく)",
+      "reading": "どく",
+      "romaji": null,
+      "definition": "tránh ra, thoái lui, rút lui",
+      "exampleSentence": "「ちょっとそこをどいてください」",
+      "exampleTranslation": "“Làm ơn tránh sang một chút.”",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13282,
+      "term": "退ける (どける)",
+      "reading": "どける",
+      "romaji": null,
+      "definition": "đuổi khỏi, đẩy ra, làm tránh ra",
+      "exampleSentence": "「通行の邪魔になるので、自転車を歩道からどけてください」",
+      "exampleTranslation": "Vì cản trở giao thông, hãy dắt/dời xe đạp khỏi vỉa hè.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13283,
+      "term": "被る (かぶる)",
+      "reading": "かぶる",
+      "romaji": null,
+      "definition": "đội",
+      "exampleSentence": "帽子をかぶる。",
+      "exampleTranslation": "Đội mũ.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13284,
+      "term": "被せる (かぶせる)",
+      "reading": "かぶせる",
+      "romaji": null,
+      "definition": "phủ lên",
+      "exampleSentence": "ぬれないように、自転車にシートをかぶせておいた。",
+      "exampleTranslation": "Để khỏi ướt, tôi phủ tấm che lên yên xe đạp.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13285,
+      "term": "齧る (かじる)",
+      "reading": "かじる",
+      "romaji": null,
+      "definition": "nhai, cắn",
+      "exampleSentence": "リンゴを丸ごとかじる。",
+      "exampleTranslation": "Gặm nguyên cả quả táo.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13286,
+      "term": "撃つ (うつ)",
+      "reading": "うつ",
+      "romaji": null,
+      "definition": "bắn",
+      "exampleSentence": "警官が犯人をピストルで撃った。",
+      "exampleTranslation": "Cảnh sát bắn tên phạm nhân bằng súng lục.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13287,
+      "term": "漕ぐ (こぐ)",
+      "reading": "こぐ",
+      "romaji": null,
+      "definition": "đạp xe",
+      "exampleSentence": "自転車（のペダル）をこぐ。",
+      "exampleTranslation": "Đạp (đạp xe/đạp bàn đạp).",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13288,
+      "term": "敷く (しく)",
+      "reading": "しく",
+      "romaji": null,
+      "definition": "trải ra",
+      "exampleSentence": "床にふとんを敷く。",
+      "exampleTranslation": "Trải futon xuống sàn.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13289,
+      "term": "注ぐ (つぐ)",
+      "reading": "つぐ",
+      "romaji": null,
+      "definition": "đổ, rót",
+      "exampleSentence": "コップに水をつぐ。",
+      "exampleTranslation": "Rót nước vào cốc.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13290,
+      "term": "配る (くばる)",
+      "reading": "くばる",
+      "romaji": null,
+      "definition": "phân phát",
+      "exampleSentence": "先生が生徒にプリントを配った。",
+      "exampleTranslation": "Giáo viên phát bản in/tài liệu cho học sinh.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13291,
+      "term": "放る (ほうる)",
+      "reading": "ほうる",
+      "romaji": null,
+      "definition": "ném, bỏ mặc",
+      "exampleSentence": "ボールを放る。",
+      "exampleTranslation": "Ném bóng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13292,
+      "term": "掘る (ほる)",
+      "reading": "ほる",
+      "romaji": null,
+      "definition": "đào",
+      "exampleSentence": "地面に穴を掘る。",
+      "exampleTranslation": "Đào một cái hố trên mặt đất.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13293,
+      "term": "撒く (まく)",
+      "reading": "まく",
+      "romaji": null,
+      "definition": "rắc, rải",
+      "exampleSentence": "暑いので庭に水を撒く。",
+      "exampleTranslation": "Trời nóng nên tôi rưới nước ra sân.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13294,
+      "term": "測る・計る・量る (はかる・はかる・はかる)",
+      "reading": "はかる・はかる・はかる",
+      "romaji": null,
+      "definition": "đo, đo đạc",
+      "exampleSentence": "時間を計る。",
+      "exampleTranslation": "Đo thời gian.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 13295,
+      "term": "占う (うらなう)",
+      "reading": "うらなう",
+      "romaji": null,
+      "definition": "dự đoán, bói",
+      "exampleSentence": "来年の運勢をうらなってもらった。",
+      "exampleTranslation": "Tôi nhờ xem bói vận may năm sau.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

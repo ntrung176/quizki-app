@@ -1,0 +1,242 @@
+{
+  "id": 568,
+  "title": "N2 Unit 4.11 - 名詞B (bài 11/12)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.031596",
+  "cards": [
+    {
+      "id": 13598,
+      "term": "話し合う (はなしあう)",
+      "reading": "はなしあう",
+      "romaji": null,
+      "definition": "đàm luận",
+      "exampleSentence": "「暴力はいけない。話し合って解決しよう」",
+      "exampleTranslation": "Không được dùng bạo lực. Hãy nói chuyện để giải quyết.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13599,
+      "term": "言い合う (いいあう)",
+      "reading": "いいあう",
+      "romaji": null,
+      "definition": "nói (với nhau)",
+      "exampleSentence": "言いたいことを言い合って、最後に仲直りした。",
+      "exampleTranslation": "Nói thẳng hết rồi cuối cùng làm hòa.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13600,
+      "term": "語り合う (かたりあう)",
+      "reading": "かたりあう",
+      "romaji": null,
+      "definition": "nói cùng nhau",
+      "exampleSentence": "久しぶりに会った友人と深夜まで語り合った。",
+      "exampleTranslation": "Tôi trò chuyện đến khuya với người bạn lâu ngày không gặp.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13601,
+      "term": "見つめ合う (みつめあう)",
+      "reading": "みつめあう",
+      "romaji": null,
+      "definition": "nhìn nhau chằm chằm",
+      "exampleSentence": "二人は互いの目を見つめ合った。",
+      "exampleTranslation": "Hai người nhìn chằm chằm vào mắt nhau.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13602,
+      "term": "向かい合う (むかいあう)",
+      "reading": "むかいあう",
+      "romaji": null,
+      "definition": "đối diện nhau",
+      "exampleSentence": "相手と向かい合って座る。＜＝＞並んで座る",
+      "exampleTranslation": "Ngồi đối diện với đối phương. (↔ ngồi cạnh nhau)",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13603,
+      "term": "助け合う (たすけあう)",
+      "reading": "たすけあう",
+      "romaji": null,
+      "definition": "giúp đỡ lẫn nhau",
+      "exampleSentence": "「困ったときは助け合おう」",
+      "exampleTranslation": "Khi gặp khó khăn thì hãy giúp đỡ lẫn nhau.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13604,
+      "term": "分け合う (わけあう)",
+      "reading": "わけあう",
+      "romaji": null,
+      "definition": "chia sẻ",
+      "exampleSentence": "一つのパンをみんなで分け合って食べた。",
+      "exampleTranslation": "Chia nhau ăn (cùng chia một cái bánh).",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13605,
+      "term": "出し合う (だしあう)",
+      "reading": "だしあう",
+      "romaji": null,
+      "definition": "đóng góp, chia sẻ, góp (chi phí)",
+      "exampleSentence": "兄弟でお金を出し合って、両親にプレゼントをした。",
+      "exampleTranslation": "Anh em góp tiền mua quà tặng bố mẹ.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13606,
+      "term": "申し合わせる (もうしあわせる)",
+      "reading": "もうしあわせる",
+      "romaji": null,
+      "definition": "thỏa thuận, thống nhất, quy ước",
+      "exampleSentence": "会議の内容は外部には言わないことを申し合わせた。",
+      "exampleTranslation": "Đã thống nhất với nhau rằng không tiết lộ nội dung cuộc họp ra bên ngoài.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13607,
+      "term": "誘い合わせる (さそいあわせる)",
+      "reading": "さそいあわせる",
+      "romaji": null,
+      "definition": "mời, rủ lẫn nhau",
+      "exampleSentence": "クラスメートたちと誘い合わせて富士山に行った。",
+      "exampleTranslation": "Rủ các bạn cùng lớp đi núi Phú Sĩ.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13608,
+      "term": "隣り合わせる (となりあわせる)",
+      "reading": "となりあわせる",
+      "romaji": null,
+      "definition": "ở bên cạnh, ở cạnh nhau",
+      "exampleSentence": null,
+      "exampleTranslation": null,
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13609,
+      "term": "組み合わせる (くみあわせる)",
+      "reading": "くみあわせる",
+      "romaji": null,
+      "definition": "lắp ráp, kết hợp",
+      "exampleSentence": "部品を組み合わせてプラモデルを作る。",
+      "exampleTranslation": "Ghép các bộ phận để làm mô hình nhựa.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13610,
+      "term": "詰め合わせる (つめあわせる)",
+      "reading": "つめあわせる",
+      "romaji": null,
+      "definition": "đóng gói",
+      "exampleSentence": "一箱にいろいろなお菓子が詰め合わせになっている。",
+      "exampleTranslation": "Trong một hộp có gói chung đủ loại bánh kẹo.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13611,
+      "term": "重ね合わせる (かさねあわせる)",
+      "reading": "かさねあわせる",
+      "romaji": null,
+      "definition": "chồng lên",
+      "exampleSentence": "二つの事件を重ね合わせて考えてみると、共通点が浮かび上がった。",
+      "exampleTranslation": "Chồng hai vụ việc lên để nghĩ thì thấy điểm chung nổi lên.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13612,
+      "term": "居合わせる (いあわせる)",
+      "reading": "いあわせる",
+      "romaji": null,
+      "definition": "tình cờ có mặt",
+      "exampleSentence": "犯人は居合わせた客を人質に取って逃走した。",
+      "exampleTranslation": "Tội phạm bắt những khách có mặt làm con tin rồi bỏ trốn.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 13613,
+      "term": "乗り合わせる (のりあわせる)",
+      "reading": "のりあわせる",
+      "romaji": null,
+      "definition": "đi chung xe (bus), đi cùng nhau",
+      "exampleSentence": "バスで小銭がなくて困っていたら、乗り合わせていた人が200円貸してくれた。",
+      "exampleTranslation": "Tôi thiếu tiền lẻ đi xe buýt, người đi cùng đã cho mượn 200 yên.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 13614,
+      "term": "持ち合わせる (もちあわせる)",
+      "reading": "もちあわせる",
+      "romaji": null,
+      "definition": "có",
+      "exampleSentence": "「すみません、今日は名刺を持ち合わせておりませんで」",
+      "exampleTranslation": "Xin lỗi, hôm nay tôi không mang theo danh thiếp.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 13615,
+      "term": "問い合わせる (といあわせる)",
+      "reading": "といあわせる",
+      "romaji": null,
+      "definition": "kiểm tra, hỏi; hỏi thăm",
+      "exampleSentence": "住民登録について、区役所に問い合わせた。",
+      "exampleTranslation": "Tôi liên hệ văn phòng quận để hỏi về việc đăng ký cư trú.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 13616,
+      "term": "照らし合わせる (てらしあわせる)",
+      "reading": "てらしあわせる",
+      "romaji": null,
+      "definition": "so sánh, đối chiếu, kiểm tra, soát lại",
+      "exampleSentence": "過去の同様のケースと照らし合わせて考える。",
+      "exampleTranslation": "Đối chiếu với các trường hợp tương tự trong quá khứ để suy nghĩ.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 13617,
+      "term": "聞き直す (ききなおす)",
+      "reading": "ききなおす",
+      "romaji": null,
+      "definition": "nghe lại, hỏi lại",
+      "exampleSentence": "聞こえなかったので聞き直した。",
+      "exampleTranslation": "Không nghe rõ nên tôi hỏi lại.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 13618,
+      "term": "やり直す (やりなおす)",
+      "reading": "やりなおす",
+      "romaji": null,
+      "definition": "làm lại",
+      "exampleSentence": "実験がうまくいかなかったので、初めからやり直した。",
+      "exampleTranslation": "Thí nghiệm không thành công nên tôi làm lại từ đầu.",
+      "forms": [],
+      "displayOrder": 20
+    }
+  ]
+}

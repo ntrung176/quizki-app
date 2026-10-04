@@ -1,0 +1,176 @@
+{
+  "id": 860,
+  "title": "N5 Tango 2.1 - Học tập · Trường học",
+  "description": "Tango N5 — Học tập",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:46.971433",
+  "cards": [
+    {
+      "id": 20116,
+      "term": "先生 (せんせい)",
+      "reading": "せんせい",
+      "romaji": null,
+      "definition": "Thầy, cô, giáo viên",
+      "exampleSentence": "わたしの先生はとてもやさしいです。",
+      "exampleTranslation": "Giáo viên của tôi rất tốt bụng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20117,
+      "term": "学生 (がくせい)",
+      "reading": "がくせい",
+      "romaji": null,
+      "definition": "Học sinh",
+      "exampleSentence": "兄は大学の学生です。",
+      "exampleTranslation": "Anh trai tôi là sinh viên đại học.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20118,
+      "term": "りゅうがくせい",
+      "reading": "りゅうがくせい",
+      "romaji": null,
+      "definition": "Du học sinh",
+      "exampleSentence": "田中さんは日本のりゅうがくせいです。",
+      "exampleTranslation": "Anh Tanaka là du học sinh ở Nhật.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20119,
+      "term": "学校 (がっこう)",
+      "reading": "がっこう",
+      "romaji": null,
+      "definition": "Trường học",
+      "exampleSentence": "毎朝、学校へ歩いて行きます。",
+      "exampleTranslation": "Mỗi sáng, tôi đi bộ đến trường.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20120,
+      "term": "べんきょう<する>",
+      "reading": "べんきょう<する>",
+      "romaji": null,
+      "definition": "Học, học tập",
+      "exampleSentence": "毎晩、日本語をべんきょう<する>のは楽しいです。",
+      "exampleTranslation": "Mỗi tối, học tiếng Nhật rất vui.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20121,
+      "term": "日本語学校 (にほんごがっこう)",
+      "reading": "にほんごがっこう",
+      "romaji": null,
+      "definition": "Trường dạy tiếng Nhật, trường Nhật ngữ",
+      "exampleSentence": "駅の近くに日本語学校があります。",
+      "exampleTranslation": "Có một trường Nhật ngữ gần nhà ga.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20122,
+      "term": "小学校 (しょうがっこう)",
+      "reading": "しょうがっこう",
+      "romaji": null,
+      "definition": "Trường tiểu học",
+      "exampleSentence": "妹は小学校へ通っています。",
+      "exampleTranslation": "Em gái tôi đang đi học tiểu học.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20123,
+      "term": "中学校 (ちゅうがっこう)",
+      "reading": "ちゅうがっこう",
+      "romaji": null,
+      "definition": "Trường cấp 2, trường trung học cơ sở",
+      "exampleSentence": "弟は来年、中学校に入ります。",
+      "exampleTranslation": "Em trai tôi sẽ vào trường trung học cơ sở vào năm sau.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20124,
+      "term": "高校 (こうこう)",
+      "reading": "こうこう",
+      "romaji": null,
+      "definition": "Trường cấp 3, trường trung học phổ thông",
+      "exampleSentence": "兄は高校の先生で、毎日生徒に日本語を教えています。",
+      "exampleTranslation": "Anh trai tôi là giáo viên cấp ba và mỗi ngày đều dạy tiếng Nhật cho học sinh.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20125,
+      "term": "大学 (だいがく)",
+      "reading": "だいがく",
+      "romaji": null,
+      "definition": "Đại học",
+      "exampleSentence": "姉は大学で日本の歴史を勉強しています。",
+      "exampleTranslation": "Chị gái tôi đang học lịch sử Nhật Bản ở trường đại học.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20126,
+      "term": "きょうしつ",
+      "reading": "きょうしつ",
+      "romaji": null,
+      "definition": "Phòng học, lớp học",
+      "exampleSentence": "授業の前に、きょうしつの窓を開けます。",
+      "exampleTranslation": "Trước giờ học, tôi mở cửa sổ phòng học.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 20127,
+      "term": "クラス",
+      "reading": "クラス",
+      "romaji": null,
+      "definition": "Lớp",
+      "exampleSentence": "私のクラスには、外国人の学生もいます。",
+      "exampleTranslation": "Trong lớp tôi cũng có sinh viên nước ngoài.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 20128,
+      "term": "行く (いく)",
+      "reading": "いく",
+      "romaji": null,
+      "definition": "Đi",
+      "exampleSentence": "毎朝、電車で学校へ行く。",
+      "exampleTranslation": "Mỗi sáng, tôi đi tàu điện đến trường.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 20129,
+      "term": "来る (くる)",
+      "reading": "くる",
+      "romaji": null,
+      "definition": "Đến",
+      "exampleSentence": "明日の午後、友達が私の家に来る。",
+      "exampleTranslation": "Chiều mai, bạn tôi sẽ đến nhà tôi.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 20130,
+      "term": "帰る (かえる)",
+      "reading": "かえる",
+      "romaji": null,
+      "definition": "Về",
+      "exampleSentence": "授業が終わったら、まっすぐ家へ帰る。",
+      "exampleTranslation": "Sau khi tan học, tôi về thẳng nhà.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

@@ -1,0 +1,187 @@
+{
+  "id": 417,
+  "title": "N3 Unit 10.2 - 動詞C・心と人間関係 (Cảm xúc & quan hệ)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 動詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:36.249757",
+  "cards": [
+    {
+      "id": 10926,
+      "term": "向く (むく)",
+      "reading": "むく",
+      "romaji": "muku",
+      "definition": "hướng, thích hợp, dành cho",
+      "exampleSentence": "私の部屋は、東南を向いている",
+      "exampleTranslation": "Phòng tôi hướng về phía đông nam.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10927,
+      "term": "向ける (むける)",
+      "reading": "むける",
+      "romaji": "mukeru",
+      "definition": "hướng về, quay về phía, hướng tới (đối tượng)",
+      "exampleSentence": "顔を右に向ける",
+      "exampleTranslation": "Quay mặt sang phải.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10928,
+      "term": "勧める (すすめる)",
+      "reading": "すすめる",
+      "romaji": "susumeru",
+      "definition": "khuyên, đề nghị, giới thiệu",
+      "exampleSentence": "ダイエットしている友人に、いっしょにウォーキングをしようと勧めた",
+      "exampleTranslation": "Tôi đã gợi ý đứa bạn thân đang giảm cân cùng đi bộ với tôi.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10929,
+      "term": "薦める (すすめる)",
+      "reading": "すすめる",
+      "romaji": "susumeru",
+      "definition": "giới thiệu/đề cử/khuyên dùng",
+      "exampleSentence": "先生にすすめられた本を買った",
+      "exampleTranslation": "Đã mua quyển sách mà thầy giới thiệu.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10930,
+      "term": "任せる (まかせる)",
+      "reading": "まかせる",
+      "romaji": "makaseru",
+      "definition": "giao phó",
+      "exampleSentence": "責任の重い仕事を新人に任せてみた",
+      "exampleTranslation": "Thử giao trách nhiệm công việc nặng nề cho người mới.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10931,
+      "term": "守る (まもる)",
+      "reading": "まもる",
+      "romaji": "mamoru",
+      "definition": "giữ, tuân thủ, bảo vệ",
+      "exampleSentence": "法律を守る",
+      "exampleTranslation": "Tuân thủ {pháp luật/ quy tắc/ luật lệ/ lời hứa…}.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10932,
+      "term": "争う (あらそう)",
+      "reading": "あらそう",
+      "romaji": "arasou",
+      "definition": "tranh nhau, tranh cãi, chiến đấu, cạnh tranh",
+      "exampleSentence": "あの兄弟はいつも小さなことで争っている",
+      "exampleTranslation": "Anh em nhà kia lúc nào cũng cãi nhau vì mấy chuyện nhỏ nhặt.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10933,
+      "term": "望む (のぞむ)",
+      "reading": "のぞむ",
+      "romaji": "nozomu",
+      "definition": "mong muốn",
+      "exampleSentence": "卒業後は、教師になることを望んでいる",
+      "exampleTranslation": "Sau khi tốt nghiệp tôi mong muốn trở thành giáo viên.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10934,
+      "term": "信じる (しんじる)",
+      "reading": "しんじる",
+      "romaji": "shinjiru",
+      "definition": "tin, tin rằng, tinh tưởng, tin",
+      "exampleSentence": "「きのう、ゆうれいを見たよ」「うそ！信じられない！」",
+      "exampleTranslation": "\"Ngày hôm qua tôi đã nhìn thấy ma đó.\" -\"Điêu! Thật là không thể tin nỗi.\"",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10935,
+      "term": "通じる (つうじる)",
+      "reading": "つうじる",
+      "romaji": "tsūjiru",
+      "definition": "hiểu, thông qua, xuyên qua, kết nối được",
+      "exampleSentence": "日本に来たとき、私の日本語が通じるかどうか心配だった",
+      "exampleTranslation": "Khi đến Nhật tôi lo lắng mọi người không hiểu tiếng Nhật của tôi.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10936,
+      "term": "飽きる (あきる)",
+      "reading": "あきる",
+      "romaji": "akiru",
+      "definition": "chán",
+      "exampleSentence": "好きなものでも、毎日食べるとあきてしまう",
+      "exampleTranslation": "Dù là đồ mình thích nhưng ngày nào cũng ăn sẽ rất chán.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10937,
+      "term": "思いつく (おもいつく)",
+      "reading": "おもいつく",
+      "romaji": "omoitsuku",
+      "definition": "nghĩ, nghĩ ra",
+      "exampleSentence": "アイディアを思いつく",
+      "exampleTranslation": "Nghĩ ra {ý tưởng/ suy nghĩ/ phương pháp…}.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10938,
+      "term": "思いやる (おもいやる)",
+      "reading": "おもいやる",
+      "romaji": "omoiyaru",
+      "definition": "quan tâm, thông cảm",
+      "exampleSentence": "父親の言葉は厳しかったが、その言葉には子どもを思いやる気持ちが表れていた",
+      "exampleTranslation": "Lời nói của người cha rất nghiêm khắc, nhưng trong những lời đó thể hiện sự quan tâm đến con cái.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10939,
+      "term": "熱中する (ねっちゅうする)",
+      "reading": "ねっちゅうする",
+      "romaji": "necchūsuru",
+      "definition": "mải mê, nghiện",
+      "exampleSentence": "母は今カラオケに熱中している",
+      "exampleTranslation": "Mẹ tôi bây giờ đang rất mải mê hát Karaoke.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10940,
+      "term": "暮らす (くらす)",
+      "reading": "くらす",
+      "romaji": "kurasu",
+      "definition": "sống, sinh hoạt",
+      "exampleSentence": "都会で暮らすのは便利だが、お金がかかる",
+      "exampleTranslation": "Sống ở thành phố rất tiện lợi nhưng tốn tiền.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10941,
+      "term": "巻く (まく)",
+      "reading": "まく",
+      "romaji": "maku",
+      "definition": "quấn, bọc, choàng",
+      "exampleSentence": "マフラーを首に巻く",
+      "exampleTranslation": "Quàng khăn vào cổ.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

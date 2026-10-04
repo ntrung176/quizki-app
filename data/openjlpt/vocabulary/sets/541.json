@@ -1,0 +1,220 @@
+{
+  "id": 541,
+  "title": "N2 Unit 1.4 - 名詞A (bài 4/6)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.434199",
+  "cards": [
+    {
+      "id": 13214,
+      "term": "材料 (ざいりょう)",
+      "reading": "ざいりょう",
+      "romaji": null,
+      "definition": "nguyên liệu",
+      "exampleSentence": "スーパーへ夕食の材料を買いに行った。",
+      "exampleTranslation": "Đi siêu thị mua nguyên liệu cho bữa tối.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13215,
+      "term": "石 (いし)",
+      "reading": "いし",
+      "romaji": null,
+      "definition": "hòn đá",
+      "exampleSentence": "グラウンドに落ちている石を拾った。",
+      "exampleTranslation": "Nhặt những hòn đá rơi trên sân.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13216,
+      "term": "紐 (ひも)",
+      "reading": "ひも",
+      "romaji": null,
+      "definition": "dây",
+      "exampleSentence": "古新聞をひもで縛る。",
+      "exampleTranslation": "Buộc báo cũ bằng dây.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13217,
+      "term": "券 (けん)",
+      "reading": "けん",
+      "romaji": null,
+      "definition": "vé",
+      "exampleSentence": "あの店はいつも込んでいて、入るのに整理券が必要だ。",
+      "exampleTranslation": "Cửa hàng đó lúc nào cũng đông, muốn vào phải có vé thứ tự.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13218,
+      "term": "名簿 (めいぼ)",
+      "reading": "めいぼ",
+      "romaji": null,
+      "definition": "danh bạ, danh sách",
+      "exampleSentence": "クラスの名簿を作る。",
+      "exampleTranslation": "Lập danh sách lớp.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13219,
+      "term": "表 (ひょう)",
+      "reading": "ひょう",
+      "romaji": null,
+      "definition": "bảng biểu",
+      "exampleSentence": "成績を表にする。",
+      "exampleTranslation": "Lập bảng thành tích.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13220,
+      "term": "針 (はり)",
+      "reading": "はり",
+      "romaji": null,
+      "definition": "kim",
+      "exampleSentence": "針に糸を通す。",
+      "exampleTranslation": "Xâu chỉ vào kim.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13221,
+      "term": "栓 (せん)",
+      "reading": "せん",
+      "romaji": null,
+      "definition": "nút, nắp",
+      "exampleSentence": "ビールの栓を抜く。",
+      "exampleTranslation": "Mở nắp chai bia.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13222,
+      "term": "湯気 (ゆげ)",
+      "reading": "ゆげ",
+      "romaji": null,
+      "definition": "hơi nước",
+      "exampleSentence": "うどんの湯気で眼鏡が曇ってしまった。",
+      "exampleTranslation": "Hơi nước từ mì udon làm kính bị mờ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13223,
+      "term": "日当たり (ひあたり)",
+      "reading": "ひあたり",
+      "romaji": null,
+      "definition": "nơi có ánh sáng chiếu vào",
+      "exampleSentence": "私の部屋は南向きで日当たりがいい。",
+      "exampleTranslation": "Phòng tôi hướng nam nên đón nắng tốt.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13224,
+      "term": "空 (から)",
+      "reading": "から",
+      "romaji": null,
+      "definition": "trống rỗng",
+      "exampleSentence": "昨夜は一人でワイン一瓶をからにした。",
+      "exampleTranslation": "Tối qua tôi uống cạn một chai vang.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13225,
+      "term": "斜め (ななめ)",
+      "reading": "ななめ",
+      "romaji": null,
+      "definition": "nghiêng",
+      "exampleSentence": "地震で家が斜めに傾いた。",
+      "exampleTranslation": "Do động đất, ngôi nhà bị nghiêng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13226,
+      "term": "履歴 (りれき)",
+      "reading": "りれき",
+      "romaji": null,
+      "definition": "lý lịch",
+      "exampleSentence": "会社に応募するにあたり、履歴書を書いた。",
+      "exampleTranslation": "Khi nộp đơn xin vào công ty, tôi đã viết sơ yếu lý lịch.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13227,
+      "term": "娯楽 (ごらく)",
+      "reading": "ごらく",
+      "romaji": null,
+      "definition": "vui chơi, thú vui",
+      "exampleSentence": "うちの父は、釣りを娯楽として楽しんでいる。",
+      "exampleTranslation": "Bố tôi lấy câu cá làm thú vui giải trí.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13228,
+      "term": "司会 (しかい)",
+      "reading": "しかい",
+      "romaji": null,
+      "definition": "người dẫn chương trình, MC, chủ trì",
+      "exampleSentence": "友人に結婚式の司会を頼んだ。",
+      "exampleTranslation": "Tôi nhờ bạn làm người dẫn chương trình cho lễ cưới.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 13229,
+      "term": "歓迎 (かんげい)",
+      "reading": "かんげい",
+      "romaji": null,
+      "definition": "hoan nghênh",
+      "exampleSentence": "新入社員を歓迎する会が開かれた。",
+      "exampleTranslation": "Buổi tiệc chào đón nhân viên mới đã được tổ chức.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 13230,
+      "term": "窓口 (まどぐち)",
+      "reading": "まどぐち",
+      "romaji": null,
+      "definition": "cửa bán vé",
+      "exampleSentence": "｛銀行/役所/病院…｝の窓口には大勢の人が並んでいる。",
+      "exampleTranslation": "Rất đông người xếp hàng tại quầy giao dịch {ngân hàng/cơ quan/bệnh viện…}.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 13231,
+      "term": "手続き (てつづき)",
+      "reading": "てつづき",
+      "romaji": null,
+      "definition": "thủ tục",
+      "exampleSentence": "入学の手続きをする。",
+      "exampleTranslation": "Làm thủ tục nhập học.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 13232,
+      "term": "徒歩 (とほ)",
+      "reading": "とほ",
+      "romaji": null,
+      "definition": "đi bộ",
+      "exampleSentence": "会社に徒歩で通っている。",
+      "exampleTranslation": "Tôi đi làm bằng cách đi bộ.",
+      "forms": [],
+      "displayOrder": 18
+    }
+  ]
+}

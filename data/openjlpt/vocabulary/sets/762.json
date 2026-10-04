@@ -1,0 +1,253 @@
+{
+  "id": 762,
+  "title": "N2 Tango 8.3 - Thiên nhiên - Thư giãn · Thiên nhiên",
+  "description": "Tango N2 — Thiên nhiên - Thư giãn",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:36.9516",
+  "cards": [
+    {
+      "id": 17577,
+      "term": "大地 (だいち)",
+      "reading": "だいち",
+      "romaji": null,
+      "definition": "Trái đất, vùng đất",
+      "exampleSentence": "雨上がりの大地は、太陽の光を受けて輝いていた。",
+      "exampleTranslation": "Mặt đất sau cơn mưa tỏa sáng dưới ánh nắng mặt trời.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 17578,
+      "term": "広大な (こうだいな)",
+      "reading": "こうだいな",
+      "romaji": null,
+      "definition": "Bao la, rộng lớn",
+      "exampleSentence": "広大な土地に、新しい工場が建設される予定です。",
+      "exampleTranslation": "Một nhà máy mới dự kiến sẽ được xây dựng trên vùng đất rộng lớn.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 17579,
+      "term": "砂漠 (さばく)",
+      "reading": "さばく",
+      "romaji": null,
+      "definition": "Sa mạc",
+      "exampleSentence": "砂漠では、昼と夜の気温差が非常に大きい。",
+      "exampleTranslation": "Ở sa mạc, chênh lệch nhiệt độ giữa ngày và đêm rất lớn.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 17580,
+      "term": "谷 (たに)",
+      "reading": "たに",
+      "romaji": null,
+      "definition": "Thung lũng",
+      "exampleSentence": "深い谷に沿って、細い道が山の奥へ続いている。",
+      "exampleTranslation": "Một con đường nhỏ chạy dọc theo thung lũng sâu vào tận trong núi.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 17581,
+      "term": "滝 (たき)",
+      "reading": "たき",
+      "romaji": null,
+      "definition": "Thác nước",
+      "exampleSentence": "山を登った先に、迫力のある滝が現れた。",
+      "exampleTranslation": "Ở phía bên kia đoạn đường leo núi, một thác nước hùng vĩ hiện ra.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 17582,
+      "term": "岸 (きし)",
+      "reading": "きし",
+      "romaji": null,
+      "definition": "Bờ, ven",
+      "exampleSentence": "川の岸に座って、夕日を眺めながら友達と話した。",
+      "exampleTranslation": "Tôi ngồi bên bờ sông, vừa ngắm hoàng hôn vừa trò chuyện với bạn.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 17583,
+      "term": "海辺 (うみべ)",
+      "reading": "うみべ",
+      "romaji": null,
+      "definition": "Ven biển, bờ biển",
+      "exampleSentence": "夏休みには、海辺の小さな町でゆっくり過ごした。",
+      "exampleTranslation": "Trong kỳ nghỉ hè, tôi đã thong thả tận hưởng thời gian ở một thị trấn nhỏ ven biển.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 17584,
+      "term": "透明な (とうめいな)",
+      "reading": "とうめいな",
+      "romaji": null,
+      "definition": "Trong suốt",
+      "exampleSentence": "透明な水の中を、小さな魚が泳いでいる。",
+      "exampleTranslation": "Những con cá nhỏ đang bơi trong làn nước trong suốt.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 17585,
+      "term": "底 (そこ)",
+      "reading": "そこ",
+      "romaji": null,
+      "definition": "Đáy",
+      "exampleSentence": "プールの底に落とした鍵を、潜って探した。",
+      "exampleTranslation": "Tôi đã lặn xuống để tìm chiếc chìa khóa làm rơi dưới đáy hồ bơi.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 17586,
+      "term": "生き物 (いきもの)",
+      "reading": "いきもの",
+      "romaji": null,
+      "definition": "Sinh vật, động vật",
+      "exampleSentence": "海辺では、見たことのない生き物を見つけることがある。",
+      "exampleTranslation": "Ở ven biển, đôi khi ta có thể tìm thấy những sinh vật chưa từng thấy.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 17587,
+      "term": "生物 (せいぶつ)",
+      "reading": "せいぶつ",
+      "romaji": null,
+      "definition": "Sinh vật",
+      "exampleSentence": "この池には、環境の変化に弱い生物も生息している。",
+      "exampleTranslation": "Trong cái ao này cũng có những sinh vật nhạy cảm với sự thay đổi của môi trường.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 17588,
+      "term": "植物 (しょくぶつ)",
+      "reading": "しょくぶつ",
+      "romaji": null,
+      "definition": "Thực vật",
+      "exampleSentence": "この公園では、珍しい植物を大切に育てている。",
+      "exampleTranslation": "Ở công viên này, người ta chăm sóc và trồng những loài thực vật quý hiếm.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 17589,
+      "term": "芽 (め)",
+      "reading": "め",
+      "romaji": null,
+      "definition": "Mầm",
+      "exampleSentence": "春になると、庭の木々から新しい芽が出始める。",
+      "exampleTranslation": "Khi mùa xuân đến, những mầm non bắt đầu nhú ra trên các cây trong vườn.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 17590,
+      "term": "人間 (にんげん)",
+      "reading": "にんげん",
+      "romaji": null,
+      "definition": "Con người",
+      "exampleSentence": "人間は自然の恵みなしには生きていけない。",
+      "exampleTranslation": "Con người không thể sống nếu thiếu những ân huệ từ thiên nhiên.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 17591,
+      "term": "天然 (てんねん)",
+      "reading": "てんねん",
+      "romaji": null,
+      "definition": "Thiên nhiên",
+      "exampleSentence": "この店では、天然の魚だけを使った料理を出している。",
+      "exampleTranslation": "Cửa hàng này chỉ phục vụ các món ăn làm từ cá tự nhiên.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 17592,
+      "term": "日光 (にっこう)",
+      "reading": "にっこう",
+      "romaji": null,
+      "definition": "Ánh nắng mặt trời, nắng",
+      "exampleSentence": "日光を十分に浴びると、気分も明るくなる。",
+      "exampleTranslation": "Khi tắm đủ ánh nắng mặt trời, tinh thần cũng trở nên phấn chấn hơn.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 17593,
+      "term": "昇る (のぼる)",
+      "reading": "のぼる",
+      "romaji": null,
+      "definition": "Lên, (mặt trời) mọc",
+      "exampleSentence": "東の空から太陽が昇るころ、鳥の声が聞こえ始めた。",
+      "exampleTranslation": "Khoảng lúc mặt trời mọc từ phía đông, tiếng chim bắt đầu vang lên.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 17594,
+      "term": "日陰 (ひかげ)",
+      "reading": "ひかげ",
+      "romaji": null,
+      "definition": "Bóng râm",
+      "exampleSentence": "暑い日は、木の下の日陰で休むと涼しく感じます。",
+      "exampleTranslation": "Vào những ngày nóng, nghỉ dưới bóng cây sẽ cảm thấy mát mẻ.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 17595,
+      "term": "夕焼け (ゆうやけ)",
+      "reading": "ゆうやけ",
+      "romaji": null,
+      "definition": "Hoàng hôn đỏ rực",
+      "exampleSentence": "山の上から見た夕焼けが、空一面を赤く染めていました。",
+      "exampleTranslation": "Hoàng hôn đỏ rực nhìn từ trên núi nhuộm đỏ cả bầu trời.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 17596,
+      "term": "飛び回る (とびまわる)",
+      "reading": "とびまわる",
+      "romaji": null,
+      "definition": "Bay quanh, bay khắp nơi",
+      "exampleSentence": "春になると、庭の周りを蝶が飛び回るようになります。",
+      "exampleTranslation": "Khi mùa xuân đến, những chú bướm bắt đầu bay khắp quanh vườn.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 17597,
+      "term": "鳴く (なく)",
+      "reading": "なく",
+      "romaji": null,
+      "definition": "(Động vật) kêu, hót, hú, gáy",
+      "exampleSentence": "夜になると、庭で虫が鳴く声が聞こえます。",
+      "exampleTranslation": "Khi đêm xuống, có thể nghe tiếng côn trùng kêu trong vườn.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 17598,
+      "term": "し[い]んと（する）",
+      "reading": "し[い]んと（する）",
+      "romaji": null,
+      "definition": "Im lặng, lặng phắc như tờ",
+      "exampleSentence": "先生が入ると、教室は「しんと（する）」という言葉がぴったりな静けさに包まれました。",
+      "exampleTranslation": "Khi giáo viên bước vào, cả lớp chìm trong sự im lặng đúng như từ “しんと（する）”.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

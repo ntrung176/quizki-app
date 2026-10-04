@@ -1,0 +1,242 @@
+{
+  "id": 765,
+  "title": "N2 Tango 9.1 - Vì sức khỏe · Cơ thể và sức khỏe",
+  "description": "Tango N2 — Vì sức khỏe",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:37.212222",
+  "cards": [
+    {
+      "id": 17661,
+      "term": "測定（する） (そくてい（する）)",
+      "reading": "そくてい（する）",
+      "romaji": null,
+      "definition": "Sự đo lường, đo đạc",
+      "exampleSentence": "健康診断では、身長や体重を測定（する）ことがあります。",
+      "exampleTranslation": "Trong khám sức khỏe, người ta có thể đo chiều cao và cân nặng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 17662,
+      "term": "定期的な (ていきてきな)",
+      "reading": "ていきてきな",
+      "romaji": null,
+      "definition": "Một cách định kỳ",
+      "exampleSentence": "定期的な運動は、心身の健康に役立ちます。",
+      "exampleTranslation": "Việc vận động định kỳ có ích cho sức khỏe tinh thần và thể chất.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 17663,
+      "term": "血圧 (けつあつ)",
+      "reading": "けつあつ",
+      "romaji": null,
+      "definition": "Huyết áp",
+      "exampleSentence": "毎朝、血圧を測って健康状態を確認しています。",
+      "exampleTranslation": "Mỗi sáng, tôi đo huyết áp để kiểm tra tình trạng sức khỏe.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 17664,
+      "term": "体力 (たいりょく)",
+      "reading": "たいりょく",
+      "romaji": null,
+      "definition": "Thể lực",
+      "exampleSentence": "最近は体力が落ちたので、毎朝歩いています。",
+      "exampleTranslation": "Gần đây thể lực giảm sút nên sáng nào tôi cũng đi bộ.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 17665,
+      "term": "心身 (しんしん)",
+      "reading": "しんしん",
+      "romaji": null,
+      "definition": "Tinh thần và thể chất",
+      "exampleSentence": "十分な睡眠は、心身の健康を保つために必要です。",
+      "exampleTranslation": "Ngủ đủ giấc là điều cần thiết để duy trì sức khỏe tinh thần và thể chất.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 17666,
+      "term": "健やかな (すこやかな)",
+      "reading": "すこやかな",
+      "romaji": null,
+      "definition": "Mạnh khỏe",
+      "exampleSentence": "子どもたちの健やかな成長を、家族みんなで願っています。",
+      "exampleTranslation": "Cả gia đình đều cầu mong các con trưởng thành khỏe mạnh.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 17667,
+      "term": "かたよる",
+      "reading": "かたよる",
+      "romaji": null,
+      "definition": "Chênh lệch, mất cân bằng",
+      "exampleSentence": "食事が野菜だけにかたよると、栄養のバランスが崩れることがあります。",
+      "exampleTranslation": "Nếu chế độ ăn chỉ thiên về rau củ thì đôi khi sẽ mất cân bằng dinh dưỡng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 17668,
+      "term": "小柄な (こがらな)",
+      "reading": "こがらな",
+      "romaji": null,
+      "definition": "Nhỏ con, nhỏ người",
+      "exampleSentence": "彼女は小柄な体つきですが、とても体力があります。",
+      "exampleTranslation": "Cô ấy có vóc dáng nhỏ nhắn nhưng thể lực rất tốt.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 17669,
+      "term": "寿命 (じゅみょう)",
+      "reading": "じゅみょう",
+      "romaji": null,
+      "definition": "Tuổi thọ",
+      "exampleSentence": "医療の進歩によって、人間の寿命は少しずつ延びています。",
+      "exampleTranslation": "Nhờ những tiến bộ trong y học, tuổi thọ con người đang dần tăng lên.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 17670,
+      "term": "一般に (いっぱんに)",
+      "reading": "いっぱんに",
+      "romaji": null,
+      "definition": "Thông thường",
+      "exampleSentence": "一般に、適度な運動は健康に良いと言われています。",
+      "exampleTranslation": "Thông thường, người ta cho rằng vận động vừa phải có lợi cho sức khỏe.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 17671,
+      "term": "手首 (てくび)",
+      "reading": "てくび",
+      "romaji": null,
+      "definition": "Cổ tay",
+      "exampleSentence": "重い荷物を持ったら、手首が痛くなってしまいました。",
+      "exampleTranslation": "Sau khi xách hành lý nặng, cổ tay tôi bị đau.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 17672,
+      "term": "かかと",
+      "reading": "かかと",
+      "romaji": null,
+      "definition": "Gót chân",
+      "exampleSentence": "新しい靴を履いたら、かかとが痛くなりました。",
+      "exampleTranslation": "Tôi bị đau gót chân sau khi đi đôi giày mới.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 17673,
+      "term": "つま先 (つまさき)",
+      "reading": "つまさき",
+      "romaji": null,
+      "definition": "Đầu ngón chân",
+      "exampleSentence": "階段を上るときは、つま先に力を入れすぎないようにしましょう。",
+      "exampleTranslation": "Khi đi lên cầu thang, hãy cố gắng không dồn quá nhiều lực vào đầu ngón chân.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 17674,
+      "term": "血管 (けっかん)",
+      "reading": "けっかん",
+      "romaji": null,
+      "definition": "Huyết quản",
+      "exampleSentence": "運動不足が続くと、血管が硬くなりやすいと言われています。",
+      "exampleTranslation": "Người ta cho rằng nếu thiếu vận động kéo dài thì mạch máu dễ bị xơ cứng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 17675,
+      "term": "さらさら（な/する）",
+      "reading": "さらさら（な/する）",
+      "romaji": null,
+      "definition": "Mềm mại, trơn tru, thông suốt",
+      "exampleSentence": "「さらさら（な/する）」は、髪の手触りや水の流れを表す言葉です。",
+      "exampleTranslation": "“さらさら（な/する）” là từ diễn tả độ mượt của tóc hoặc dòng nước chảy thông suốt.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 17676,
+      "term": "筋肉 (きんにく)",
+      "reading": "きんにく",
+      "romaji": null,
+      "definition": "Cơ bắp",
+      "exampleSentence": "筋肉をつけるために、毎日少しずつ運動しています。",
+      "exampleTranslation": "Để phát triển cơ bắp, tôi tập thể dục từng chút một mỗi ngày.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 17677,
+      "term": "障がい (しょうがい)",
+      "reading": "しょうがい",
+      "romaji": null,
+      "definition": "Khuyết tật",
+      "exampleSentence": "障がいのある人も安心して利用できる施設を増やすべきです。",
+      "exampleTranslation": "Nên tăng thêm các cơ sở mà người khuyết tật cũng có thể yên tâm sử dụng.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 17678,
+      "term": "乗り越える (のりこえる)",
+      "reading": "のりこえる",
+      "romaji": null,
+      "definition": "Vượt qua",
+      "exampleSentence": "家族の支えがあれば、どんな困難も乗り越えることができます。",
+      "exampleTranslation": "Nếu có sự ủng hộ của gia đình, chúng ta có thể vượt qua bất kỳ khó khăn nào.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 17679,
+      "term": "傷跡 (きずあと)",
+      "reading": "きずあと",
+      "romaji": null,
+      "definition": "Vết thẹo",
+      "exampleSentence": "手術の傷跡は、時間がたつにつれて目立たなくなりました。",
+      "exampleTranslation": "Vết sẹo sau phẫu thuật dần trở nên khó nhận thấy theo thời gian.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 17680,
+      "term": "いびき",
+      "reading": "いびき",
+      "romaji": null,
+      "definition": "Tiếng ngáy",
+      "exampleSentence": "隣で寝ていた弟のいびきが大きくて、なかなか眠れませんでした。",
+      "exampleTranslation": "Tiếng ngáy của em trai ngủ bên cạnh lớn đến mức tôi mãi không ngủ được.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 17681,
+      "term": "体が持つ (からだがもつ)",
+      "reading": "からだがもつ",
+      "romaji": null,
+      "definition": "Đủ sức",
+      "exampleSentence": "この薬を飲めば、長時間の仕事でも体が持つでしょう。",
+      "exampleTranslation": "Nếu uống thuốc này thì dù làm việc trong thời gian dài, cơ thể vẫn sẽ đủ sức.",
+      "forms": [],
+      "displayOrder": 20
+    }
+  ]
+}

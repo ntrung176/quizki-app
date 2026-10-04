@@ -1,0 +1,143 @@
+{
+  "id": 589,
+  "title": "N2 Unit 8.2 - 動詞B (bài 2/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.366995",
+  "cards": [
+    {
+      "id": 13855,
+      "term": "追いかける (おいかける)",
+      "reading": "おいかける",
+      "romaji": null,
+      "definition": "chạy theo, đuổi theo",
+      "exampleSentence": "犯人を追いかけたが、逃げられてしまった。",
+      "exampleTranslation": "Đuổi theo tội phạm nhưng để hắn chạy thoát.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13856,
+      "term": "追いつく (おいつく)",
+      "reading": "おいつく",
+      "romaji": null,
+      "definition": "đuổi kịp",
+      "exampleSentence": "彼は足が速いから、今から追いかけても追いつかないだろう。",
+      "exampleTranslation": "Anh ấy chạy nhanh nên giờ đuổi cũng không kịp.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13857,
+      "term": "追い越す (おいこす)",
+      "reading": "おいこす",
+      "romaji": null,
+      "definition": "vượt qua (chạy vượt)",
+      "exampleSentence": "前を走る選手に追いついたが、追い越すことはできなかった。",
+      "exampleTranslation": "Đã bắt kịp người chạy trước nhưng không vượt qua được.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13858,
+      "term": "振り向く (ふりむく)",
+      "reading": "ふりむく",
+      "romaji": null,
+      "definition": "ngoảnh mặt, nhìn quanh",
+      "exampleSentence": "名前を呼ばれて、振り向いた。",
+      "exampleTranslation": "Bị gọi tên nên tôi ngoảnh lại.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13859,
+      "term": "捕る・採る・執る (とる・とる・とる)",
+      "reading": "とる・とる・とる",
+      "romaji": null,
+      "definition": "bắt; hái, tuyển dụng; nắm giữ, đảm nhiệm",
+      "exampleSentence": "公園でセミを捕った。",
+      "exampleTranslation": "Bắt ve sầu ở công viên.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13860,
+      "term": "取り上げる (とりあげる)",
+      "reading": "とりあげる",
+      "romaji": null,
+      "definition": "nhặt lên, lấy, chọn",
+      "exampleSentence": "彼女は机の上の本を取り上げた。",
+      "exampleTranslation": "Cô ấy nhấc/lấy quyển sách trên bàn lên.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13861,
+      "term": "取り入れる (とりいれる)",
+      "reading": "とりいれる",
+      "romaji": null,
+      "definition": "nhặt vào, cho vào, thu hoạch",
+      "exampleSentence": "洗濯物を取り入れる。",
+      "exampleTranslation": "Thu đồ phơi vào.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13862,
+      "term": "削る (けずる)",
+      "reading": "けずる",
+      "romaji": null,
+      "definition": "cắt, chuốt, gọt",
+      "exampleSentence": "ナイフで鉛筆を削った。",
+      "exampleTranslation": "Gọt bút chì bằng dao.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13863,
+      "term": "縛る (しばる)",
+      "reading": "しばる",
+      "romaji": null,
+      "definition": "buộc, thắt",
+      "exampleSentence": "古い雑誌を重ねてひもで縛る。",
+      "exampleTranslation": "Chồng tạp chí cũ rồi buộc dây lại.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13864,
+      "term": "絞る・搾る (しぼる・しぼる)",
+      "reading": "しぼる・しぼる",
+      "romaji": null,
+      "definition": "vắt, bóp",
+      "exampleSentence": "水に濡らしたタオルを絞る。",
+      "exampleTranslation": "Vắt chiếc khăn đã làm ướt.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13865,
+      "term": "回る (まわる)",
+      "reading": "まわる",
+      "romaji": null,
+      "definition": "xoay quanh",
+      "exampleSentence": "地球は太陽の周りを回っている。",
+      "exampleTranslation": "Trái Đất quay quanh Mặt Trời.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13866,
+      "term": "回す (まわす)",
+      "reading": "まわす",
+      "romaji": null,
+      "definition": "xoay, vặn",
+      "exampleSentence": "ドアの取っ手を回して開ける。",
+      "exampleTranslation": "Vặn tay nắm cửa rồi mở.",
+      "forms": [],
+      "displayOrder": 11
+    }
+  ]
+}

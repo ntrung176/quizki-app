@@ -1,0 +1,132 @@
+{
+  "id": 547,
+  "title": "N2 Unit 2.4 - 動詞A (bài 4/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.541306",
+  "cards": [
+    {
+      "id": 13313,
+      "term": "稼ぐ (かせぐ)",
+      "reading": "かせぐ",
+      "romaji": null,
+      "definition": "kiếm tiền",
+      "exampleSentence": "大学年代はアルバイトで学費を稼いだ。",
+      "exampleTranslation": "Thời đại học tôi làm thêm để kiếm học phí.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13314,
+      "term": "支払う (しはらう)",
+      "reading": "しはらう",
+      "romaji": null,
+      "definition": "trả tiền",
+      "exampleSentence": "買い物の代金をカードで支払う。",
+      "exampleTranslation": "Thanh toán tiền mua sắm bằng thẻ.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13315,
+      "term": "受け取る (うけとる)",
+      "reading": "うけとる",
+      "romaji": null,
+      "definition": "nhận",
+      "exampleSentence": "着払いの荷物を、代金を払って受け取った。",
+      "exampleTranslation": "Tôi trả tiền rồi nhận kiện hàng gửi “trả tiền khi nhận”.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13316,
+      "term": "払い込む (はらいこむ)",
+      "reading": "はらいこむ",
+      "romaji": null,
+      "definition": "trả vào",
+      "exampleSentence": "今期の授業料を銀行に払い込んだ。",
+      "exampleTranslation": "Tôi đã nộp học phí kỳ này ở ngân hàng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13317,
+      "term": "払い戻す (はらいもどす)",
+      "reading": "はらいもどす",
+      "romaji": null,
+      "definition": "trả lại",
+      "exampleSentence": "電話会社は過大請求額を利用者の口座に払い戻した。",
+      "exampleTranslation": "Công ty điện thoại đã hoàn lại phần bị tính quá vào tài khoản của khách hàng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13318,
+      "term": "引き出す (ひきだす)",
+      "reading": "ひきだす",
+      "romaji": null,
+      "definition": "rút ra, kéo ra",
+      "exampleSentence": "銀行から生活費を引き出した。",
+      "exampleTranslation": "Tôi rút tiền sinh hoạt từ ngân hàng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13319,
+      "term": "儲かる (もうかる)",
+      "reading": "もうかる",
+      "romaji": null,
+      "definition": "có lợi nhuận",
+      "exampleSentence": "株で100万円儲かった。",
+      "exampleTranslation": "Tôi lãi 1 triệu yên nhờ cổ phiếu.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13320,
+      "term": "儲ける (もうける)",
+      "reading": "もうける",
+      "romaji": null,
+      "definition": "kiếm lợi",
+      "exampleSentence": "彼は株で100万円儲けた。",
+      "exampleTranslation": "Anh ấy kiếm lời 1 triệu yên nhờ cổ phiếu.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13321,
+      "term": "落ち込む (おちこむ)",
+      "reading": "おちこむ",
+      "romaji": null,
+      "definition": "chán nản; suy sụp; giảm sút",
+      "exampleSentence": "景気が落ち込んで、失業率が上がった。",
+      "exampleTranslation": "Kinh tế suy giảm nên tỷ lệ thất nghiệp tăng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13322,
+      "term": "売れる (うれる)",
+      "reading": "うれる",
+      "romaji": null,
+      "definition": "bán chạy",
+      "exampleSentence": "このCD は100万枚売れたそうだ。",
+      "exampleTranslation": "Nghe nói CD này bán được 1 triệu bản.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13323,
+      "term": "売り切れる (うりきれる)",
+      "reading": "うりきれる",
+      "romaji": null,
+      "definition": "bán sạch",
+      "exampleSentence": "そのコンサートのチケットは1時間で売り切れたそうだ。",
+      "exampleTranslation": "Nghe nói vé buổi hòa nhạc đó bán sạch trong 1 giờ.",
+      "forms": [],
+      "displayOrder": 10
+    }
+  ]
+}

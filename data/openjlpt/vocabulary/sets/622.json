@@ -1,0 +1,154 @@
+{
+  "id": 622,
+  "title": "N2 Unit 13.1 - 副詞＋連体詞 (bài 1/5)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 副詞＋連体詞",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.848752",
+  "cards": [
+    {
+      "id": 14254,
+      "term": "さっぱり",
+      "reading": "さっぱり",
+      "romaji": null,
+      "definition": "hoàn toàn, thoải mái, nhẹ bỗng",
+      "exampleSentence": "早くシャワーを浴びて、さっぱりしたい。",
+      "exampleTranslation": "Tắm nhanh để thấy sảng khoái.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14255,
+      "term": "すっきり",
+      "reading": "すっきり",
+      "romaji": null,
+      "definition": "khoan khoái, sảng khoái, dễ chịu",
+      "exampleSentence": "眠かったが、顔を洗うとすっきりした。",
+      "exampleTranslation": "Buồn ngủ nhưng rửa mặt xong thấy tỉnh hẳn.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14256,
+      "term": "実に (じつに)",
+      "reading": "じつに",
+      "romaji": null,
+      "definition": "thật là, thực sự, quả thực",
+      "exampleSentence": "この小説は実に面白かった。",
+      "exampleTranslation": "Cuốn tiểu thuyết này thực sự rất hay.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14257,
+      "term": "思い切り (おもいきり)",
+      "reading": "おもいきり",
+      "romaji": null,
+      "definition": "hết mình, hết sức, quyết trí",
+      "exampleSentence": "試験が終わったら、思い切り遊びたい。",
+      "exampleTranslation": "Thi xong tôi muốn chơi cho đã.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14258,
+      "term": "何と無く (なんとなく)",
+      "reading": "なんとなく",
+      "romaji": null,
+      "definition": "không hiểu sao, không có lý do",
+      "exampleSentence": "今日は何となくいいことがありそうな気がする。",
+      "exampleTranslation": "Không hiểu sao hôm nay tôi thấy như sẽ có chuyện tốt.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14259,
+      "term": "何だか (なんだか)",
+      "reading": "なんだか",
+      "romaji": null,
+      "definition": "hơi hơi, 1 chút",
+      "exampleSentence": "なんだか寒気がする、風邪を引いたのだろうか。",
+      "exampleTranslation": "Tự nhiên thấy ớn lạnh—chắc bị cảm chăng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14260,
+      "term": "どうにか",
+      "reading": "どうにか",
+      "romaji": null,
+      "definition": "bằng cách nào đó, cuối cùng cũng…",
+      "exampleSentence": "家から走り続け、どうにか7時の電車に間に合った。",
+      "exampleTranslation": "Chạy một mạch từ nhà và may sao kịp chuyến tàu 7 giờ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14261,
+      "term": "どうにも",
+      "reading": "どうにも",
+      "romaji": null,
+      "definition": "chẳng thể làm gì",
+      "exampleSentence": "助けてあげたかったが、私の力ではどうにもできなかった。",
+      "exampleTranslation": "Tôi muốn giúp nhưng sức tôi thì bó tay.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14262,
+      "term": "何とか (なんとか)",
+      "reading": "なんとか",
+      "romaji": null,
+      "definition": "dù thế nào đi nữa",
+      "exampleSentence": "必死に頑張って、何とか合格することができた。",
+      "exampleTranslation": "Cố sống cố chết, cuối cùng cũng đỗ được.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14263,
+      "term": "何とも (なんとも)",
+      "reading": "なんとも",
+      "romaji": null,
+      "definition": "không...một chút nào",
+      "exampleSentence": "私をいじめた人を、前は恨んでいたが、今は何とも思っていない。",
+      "exampleTranslation": "Trước đây tôi từng căm người bắt nạt mình, nhưng giờ không còn cảm giác gì.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14264,
+      "term": "態と (わざと)",
+      "reading": "わざと",
+      "romaji": null,
+      "definition": "cố ý",
+      "exampleSentence": "子供相手にゲームをするときは、時々わざと負けてやったりする。",
+      "exampleTranslation": "Chơi game với trẻ con thì đôi khi cố tình thua cho nó.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14265,
+      "term": "態々 (わざわざ)",
+      "reading": "わざわざ",
+      "romaji": null,
+      "definition": "cất công, mất công",
+      "exampleSentence": "学校の欠席をしたら、クラスメートがわざわざ宿題をうちまで届けてくれた。",
+      "exampleTranslation": "Tôi nghỉ học, bạn cùng lớp đã cất công mang bài tập đến tận nhà.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 14266,
+      "term": "折角 (せっかく)",
+      "reading": "せっかく",
+      "romaji": null,
+      "definition": "đã mất công",
+      "exampleSentence": "せっかく都心の美術館まで行ったのに、満員で入れなかった。",
+      "exampleTranslation": "Cất công vào tận bảo tàng trung tâm mà đông quá không vào được.",
+      "forms": [],
+      "displayOrder": 12
+    }
+  ]
+}

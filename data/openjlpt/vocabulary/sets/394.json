@@ -1,0 +1,198 @@
+{
+  "id": 394,
+  "title": "N3 Unit 4.3 - 名詞B・事故と故障 (Tai nạn & hư hỏng)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 名詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.573615",
+  "cards": [
+    {
+      "id": 10539,
+      "term": "報告 (ほうこく)",
+      "reading": "ほうこく",
+      "romaji": "hōkoku",
+      "definition": "báo cáo",
+      "exampleSentence": "出張の報告",
+      "exampleTranslation": "Báo cáo công tác.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10540,
+      "term": "録画 (ろくが)",
+      "reading": "ろくが",
+      "romaji": "rokuga",
+      "definition": "ghi hình",
+      "exampleSentence": "テレビ番組をビデオに録画する",
+      "exampleTranslation": "Ghi lại thành video chương trình trên tivi.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10541,
+      "term": "混雑 (こんざつ)",
+      "reading": "こんざつ",
+      "romaji": "konzatsu",
+      "definition": "đông đúc, tắc nghẽn (nơi đông người)",
+      "exampleSentence": "デパートは、大勢の人で混雑している",
+      "exampleTranslation": "Cửa hàng bách hóa tổng hợp đang hỗn loạn vì đám đông.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10542,
+      "term": "渋滞 (じゅうたい)",
+      "reading": "じゅうたい",
+      "romaji": "jūtai",
+      "definition": "tắc nghẽn ( xe cộ )",
+      "exampleSentence": "道路が渋滞していて、会議に遅刻した",
+      "exampleTranslation": "Vì tắc đường nên tôi đến trễ cuộc họp.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10543,
+      "term": "衝突 (しょうとつ)",
+      "reading": "しょうとつ",
+      "romaji": "shōtotsu",
+      "definition": "va chạm, xung đột",
+      "exampleSentence": "電車の衝突の場面を見た",
+      "exampleTranslation": "Tôi đã chứng kiến cảnh va chạm của xe điện.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10544,
+      "term": "被害 (ひがい)",
+      "reading": "ひがい",
+      "romaji": "higai",
+      "definition": "thiệt hại",
+      "exampleSentence": "台風の被害",
+      "exampleTranslation": "Thiệt hại do bão.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10545,
+      "term": "事故 (じこ)",
+      "reading": "じこ",
+      "romaji": "jiko",
+      "definition": "tai nạn",
+      "exampleSentence": "事故の原因を調べる",
+      "exampleTranslation": "Điều tra nguyên nhân của tai nạn.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10546,
+      "term": "事件 (じけん)",
+      "reading": "じけん",
+      "romaji": "jiken",
+      "definition": "biến cố, sự kiện",
+      "exampleSentence": "近所で子どもが次々といなくなるという事件があった",
+      "exampleTranslation": "Khu vực gần đây liên tục xảy ra các vụ mất tích trẻ con.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10547,
+      "term": "故障 (こしょう)",
+      "reading": "こしょう",
+      "romaji": "koshō",
+      "definition": "hỏng, sự cố",
+      "exampleSentence": "洗たく機が故障したので、コインランドリーへ行った",
+      "exampleTranslation": "Vì máy giặt bị hỏng nên mang đồ đi giặt ở tiệm giặt tự động.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10548,
+      "term": "修理 (しゅうり)",
+      "reading": "しゅうり",
+      "romaji": "shūri",
+      "definition": "sửa chữa",
+      "exampleSentence": "パソコンがこわれたので、修理に出した",
+      "exampleTranslation": "Máy tính bị hỏng nên tôi mang đi sửa.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10549,
+      "term": "停電 (ていでん)",
+      "reading": "ていでん",
+      "romaji": "teiden",
+      "definition": "mất điện",
+      "exampleSentence": "雷が落ちて停電した",
+      "exampleTranslation": "Sét đánh xuống rồi mất điện.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10550,
+      "term": "調子 (ちょうし)",
+      "reading": "ちょうし",
+      "romaji": "chōshi",
+      "definition": "tình trạng, phong độ, nhịp điệu",
+      "exampleSentence": "体の調子がいい",
+      "exampleTranslation": "{Tình trạng cơ thể/ máy móc... } tốt.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10551,
+      "term": "緊張 (きんちょう)",
+      "reading": "きんちょう",
+      "romaji": "kinchō",
+      "definition": "căng thẳng, lo lắng",
+      "exampleSentence": "面接では緊張して、うまく答えられなかった",
+      "exampleTranslation": "Lúc phỏng vấn vì căng thẳng nên tôi không thể trả lời trôi chảy được.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10552,
+      "term": "自信 (じしん)",
+      "reading": "じしん",
+      "romaji": "jishin",
+      "definition": "tự tin",
+      "exampleSentence": "体力に自信がある",
+      "exampleTranslation": "Tự tin vào thể lực.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10553,
+      "term": "自慢 (じまん)",
+      "reading": "じまん",
+      "romaji": "jiman",
+      "definition": "tự hào, khoe khoang",
+      "exampleSentence": "自慢の料理を作る",
+      "exampleTranslation": "Làm món tủ.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10554,
+      "term": "感心 (かんしん)",
+      "reading": "かんしん",
+      "romaji": "kanshin",
+      "definition": "thán phục, khâm phục",
+      "exampleSentence": "チンさんの進歩の速さに感心した",
+      "exampleTranslation": "Tôi ngưỡng mộ sự tiến bộ nhanh chóng của Chin.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 10555,
+      "term": "感動 (かんどう)",
+      "reading": "かんどう",
+      "romaji": "kandō",
+      "definition": "bị xúc động, cảm động",
+      "exampleSentence": "パラリンピックを見て、とても感動した",
+      "exampleTranslation": "Xem Paralymic, tôi đã rất xúc động/ làm tôi thấy xúc động (paralympic là đại hôi thể thao người khuyết tật).",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

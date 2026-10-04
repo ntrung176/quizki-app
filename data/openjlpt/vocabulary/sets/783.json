@@ -1,0 +1,187 @@
+{
+  "id": 783,
+  "title": "N2 Tango 12.4 - Cách nói dễ nhầm lẫn · Phó từ",
+  "description": "Tango N2 — Cách nói dễ nhầm lẫn",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:38.729333",
+  "cards": [
+    {
+      "id": 18118,
+      "term": "何かと (なにかと)",
+      "reading": "なにかと",
+      "romaji": null,
+      "definition": "Cách này hay cách khác, gì thì gì, kiểu gì cũng",
+      "exampleSentence": "何かと忙しい時期ですが、体調には気をつけてください。",
+      "exampleTranslation": "Dạo này có nhiều việc bận rộn, nhưng bạn hãy chú ý giữ gìn sức khỏe.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 18119,
+      "term": "何だかんだ (なんだかんだ)",
+      "reading": "なんだかんだ",
+      "romaji": null,
+      "definition": "Chuyện gì cũng, chuyện này chuyện kia",
+      "exampleSentence": "何だかんだ言いながら、彼は最後まで仕事を手伝ってくれた。",
+      "exampleTranslation": "Dù nói này nói kia, cuối cùng anh ấy vẫn giúp tôi làm việc đến cùng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 18120,
+      "term": "なぜか",
+      "reading": "なぜか",
+      "romaji": null,
+      "definition": "Tại sao đó",
+      "exampleSentence": "なぜか今日は朝から気分がすぐれない。",
+      "exampleTranslation": "Không hiểu sao hôm nay từ sáng tôi đã cảm thấy không được khỏe.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 18121,
+      "term": "何だか (なんだか)",
+      "reading": "なんだか",
+      "romaji": null,
+      "definition": "Có chút gì đó",
+      "exampleSentence": "何だか今日はいつもより静かですね。",
+      "exampleTranslation": "Hôm nay có cảm giác yên tĩnh hơn mọi khi nhỉ.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 18122,
+      "term": "何しろ (なにしろ)",
+      "reading": "なにしろ",
+      "romaji": null,
+      "definition": "Dù gì đi nữa",
+      "exampleSentence": "何しろ初めての海外旅行なので、準備に時間がかかりました。",
+      "exampleTranslation": "Dù gì đi nữa, vì đây là chuyến du lịch nước ngoài đầu tiên nên tôi đã mất nhiều thời gian chuẩn bị.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 18123,
+      "term": "何とも（〜ない） (なんとも（〜ない）)",
+      "reading": "なんとも（〜ない）",
+      "romaji": null,
+      "definition": "(Không ~) chút nào",
+      "exampleSentence": "「何とも（〜ない）」という表現は、「少しも〜ない」という意味です。",
+      "exampleTranslation": "Cụm 「何とも（〜ない）」 có nghĩa là “hoàn toàn không chút nào”.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 18124,
+      "term": "どうか",
+      "reading": "どうか",
+      "romaji": null,
+      "definition": "Vui lòng",
+      "exampleSentence": "どうかこの手紙を本人に渡してください。",
+      "exampleTranslation": "Xin vui lòng trao lá thư này cho chính người đó.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 18125,
+      "term": "どうにか",
+      "reading": "どうにか",
+      "romaji": null,
+      "definition": "Bằng cách nào đó, cuối cùng rồi cũng",
+      "exampleSentence": "困難な状況だったが、どうにか期限までに仕事を終えた。",
+      "exampleTranslation": "Tuy tình hình khó khăn, nhưng cuối cùng tôi cũng hoàn thành công việc trước thời hạn.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 18126,
+      "term": "どうしても",
+      "reading": "どうしても",
+      "romaji": null,
+      "definition": "Bằng mọi giá, nhất định, làm cách nào cũng (không thể)",
+      "exampleSentence": "どうしても彼の説明には納得できません。",
+      "exampleTranslation": "Dù thế nào tôi cũng không thể đồng tình với lời giải thích của anh ấy.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 18127,
+      "term": "どうせ",
+      "reading": "どうせ",
+      "romaji": null,
+      "definition": "Đằng nào cũng, tiện thể",
+      "exampleSentence": "どうせ駅へ行くなら、帰りにこの手紙を出してくれませんか。",
+      "exampleTranslation": "Đằng nào bạn cũng đi đến ga, tiện thể gửi giúp tôi lá thư này khi về được không?",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 18128,
+      "term": "どうやら",
+      "reading": "どうやら",
+      "romaji": null,
+      "definition": "Xem ra, có vẻ",
+      "exampleSentence": "どうやら会議は予定より早く終わりそうです。",
+      "exampleTranslation": "Xem ra cuộc họp sẽ kết thúc sớm hơn dự định.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 18129,
+      "term": "とにかく",
+      "reading": "とにかく",
+      "romaji": null,
+      "definition": "Tóm lại, nói chung, dù thế nào",
+      "exampleSentence": "とにかく一度、専門家に相談してみましょう。",
+      "exampleTranslation": "Dù thế nào đi nữa, trước hết hãy thử trao đổi với chuyên gia một lần.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 18130,
+      "term": "とても（〜ない）",
+      "reading": "とても（〜ない）",
+      "romaji": null,
+      "definition": "Hoàn toàn (không thể ~)",
+      "exampleSentence": "「とても（〜ない）」は、能力や可能性を強く否定する表現です。",
+      "exampleTranslation": "「とても（〜ない）」 là cách diễn đạt phủ định mạnh về năng lực hoặc khả năng.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 18131,
+      "term": "より",
+      "reading": "より",
+      "romaji": null,
+      "definition": "Hơn nữa",
+      "exampleSentence": "春になると、桜の美しさがより一層引き立ちます。",
+      "exampleTranslation": "Khi mùa xuân đến, vẻ đẹp của hoa anh đào càng nổi bật hơn nữa.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 18132,
+      "term": "いかに",
+      "reading": "いかに",
+      "romaji": null,
+      "definition": "Như thế nào, biết bao nhiêu",
+      "exampleSentence": "いかに努力しても、才能だけでは成功できない。",
+      "exampleTranslation": "Dù có nỗ lực đến đâu, chỉ dựa vào tài năng thì cũng không thể thành công.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 18133,
+      "term": "いかにも",
+      "reading": "いかにも",
+      "romaji": null,
+      "definition": "Quả thật, đúng là",
+      "exampleSentence": "彼の態度はいかにも責任者らしく、皆に安心感を与えた。",
+      "exampleTranslation": "Thái độ của anh ấy quả thật rất đúng với phong thái của một người phụ trách, khiến mọi người cảm thấy yên tâm.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

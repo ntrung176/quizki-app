@@ -1,0 +1,154 @@
+{
+  "id": 893,
+  "title": "N5 Tango 8.4 - Ngày nghỉ · Ở đâu",
+  "description": "Tango N5 — Ngày nghỉ",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:49.378346",
+  "cards": [
+    {
+      "id": 20813,
+      "term": "となり",
+      "reading": "となり",
+      "romaji": null,
+      "definition": "Bên cạnh",
+      "exampleSentence": "私のとなりに田中さんが座っています。",
+      "exampleTranslation": "Anh Tanaka đang ngồi bên cạnh tôi.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20814,
+      "term": "間 (あいだ)",
+      "reading": "あいだ",
+      "romaji": null,
+      "definition": "Giữa",
+      "exampleSentence": "机といすの間にかばんがあります。",
+      "exampleTranslation": "Có một chiếc cặp ở giữa bàn và ghế.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20815,
+      "term": "ちかく",
+      "reading": "ちかく",
+      "romaji": null,
+      "definition": "Gần",
+      "exampleSentence": "駅のちかくにコンビニがあります。",
+      "exampleTranslation": "Gần nhà ga có một cửa hàng tiện lợi.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20816,
+      "term": "上 (うえ)",
+      "reading": "うえ",
+      "romaji": null,
+      "definition": "Trên",
+      "exampleSentence": "つくえの上に本があります。",
+      "exampleTranslation": "Có một quyển sách ở trên bàn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20817,
+      "term": "下 (した)",
+      "reading": "した",
+      "romaji": null,
+      "definition": "Dưới",
+      "exampleSentence": "いすの下にねこがいます。",
+      "exampleTranslation": "Có một con mèo ở dưới ghế.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20818,
+      "term": "まえ",
+      "reading": "まえ",
+      "romaji": null,
+      "definition": "Trước",
+      "exampleSentence": "学校のまえで友達を待ちます。",
+      "exampleTranslation": "Tôi đợi bạn ở trước trường học.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20819,
+      "term": "うしろ",
+      "reading": "うしろ",
+      "romaji": null,
+      "definition": "Sau",
+      "exampleSentence": "私のうしろに山田さんがいます。",
+      "exampleTranslation": "Anh Yamada đang ở phía sau tôi.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20820,
+      "term": "中 (なか)",
+      "reading": "なか",
+      "romaji": null,
+      "definition": "Trong",
+      "exampleSentence": "かばんの中に本があります。",
+      "exampleTranslation": "Trong cặp có một quyển sách.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20821,
+      "term": "外 (そと)",
+      "reading": "そと",
+      "romaji": null,
+      "definition": "Ngoài",
+      "exampleSentence": "外はとても寒いです。",
+      "exampleTranslation": "Bên ngoài rất lạnh.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20822,
+      "term": "あそこ",
+      "reading": "あそこ",
+      "romaji": null,
+      "definition": "Đằng đó",
+      "exampleSentence": "あそこに大きな木があります。",
+      "exampleTranslation": "Đằng kia có một cái cây lớn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20823,
+      "term": "ここ",
+      "reading": "ここ",
+      "romaji": null,
+      "definition": "Nơi này, chỗ này",
+      "exampleSentence": "ここに名前を書いてください。",
+      "exampleTranslation": "Hãy viết tên vào đây.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 20824,
+      "term": "そこ",
+      "reading": "そこ",
+      "romaji": null,
+      "definition": "Nơi đó, chỗ đó",
+      "exampleSentence": "そこにかばんを置いてください。",
+      "exampleTranslation": "Hãy đặt cặp ở chỗ đó.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 20825,
+      "term": "どこ",
+      "reading": "どこ",
+      "romaji": null,
+      "definition": "Ở đâu",
+      "exampleSentence": "駅はどこですか。",
+      "exampleTranslation": "Nhà ga ở đâu vậy?",
+      "forms": [],
+      "displayOrder": 12
+    }
+  ]
+}

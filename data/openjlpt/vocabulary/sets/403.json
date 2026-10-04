@@ -1,0 +1,187 @@
+{
+  "id": 403,
+  "title": "N3 Unit 5.6 - 動詞B・心の動き (Trạng thái tâm lý & giấc ngủ)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 動詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.863639",
+  "cards": [
+    {
+      "id": 10689,
+      "term": "外す (はずす)",
+      "reading": "はずす",
+      "romaji": "hazusu",
+      "definition": "tháo; làm trượt; bỏ (ca trực); trật (đáp án)",
+      "exampleSentence": "メガネをはずす",
+      "exampleTranslation": "Tháo {kính/ đồng hồ đeo tay/ nút…}.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10690,
+      "term": "揺れる (ゆれる)",
+      "reading": "ゆれる",
+      "romaji": "yureru",
+      "definition": "dao động, lung lay",
+      "exampleSentence": "風で木の葉がゆれている",
+      "exampleTranslation": "Lá cây lay động trong gió.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10691,
+      "term": "揺らす (ゆらす)",
+      "reading": "ゆらす",
+      "romaji": "yurasu",
+      "definition": "rung lắc, làm lung lay",
+      "exampleSentence": "子どもの乗ったブランコを揺らして遊ばせた",
+      "exampleTranslation": "Đung đưa chiếc xích đu đứa bé đang ngồi để cho nó chơi.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10692,
+      "term": "流れる (ながれる)",
+      "reading": "ながれる",
+      "romaji": "nagareru",
+      "definition": "chảy, trôi, lan ra",
+      "exampleSentence": "町の中心を大きな川が流れている",
+      "exampleTranslation": "Giữa thành phố có con sông rất lớn chảy qua.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10693,
+      "term": "流す (ながす)",
+      "reading": "ながす",
+      "romaji": "nagasu",
+      "definition": "làm cho chảy ra",
+      "exampleSentence": "汚れた水を川に流してはいけない",
+      "exampleTranslation": "Không được cho nước bẩn lan ra ngoài sông.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10694,
+      "term": "濡れる (ぬれる)",
+      "reading": "ぬれる",
+      "romaji": "nureru",
+      "definition": "ướt, dính",
+      "exampleSentence": "雨にぬれて、かぜをひいた",
+      "exampleTranslation": "Tôi ướt mưa và bị cảm lạnh.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10695,
+      "term": "濡らす (ぬらす)",
+      "reading": "ぬらす",
+      "romaji": "nurasu",
+      "definition": "làm ướt, làm ẩm",
+      "exampleSentence": "水をこぼして、服をぬらしてしまった",
+      "exampleTranslation": "Tôi làm đổ nước nên ướt áo.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10696,
+      "term": "迷う (まよう)",
+      "reading": "まよう",
+      "romaji": "mayou",
+      "definition": "lạc đường, lúng túng, phân vân",
+      "exampleSentence": "道に迷う",
+      "exampleTranslation": "Lạc đường.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10697,
+      "term": "悩む (なやむ)",
+      "reading": "なやむ",
+      "romaji": "nayamu",
+      "definition": "phiền não, trăn trở, đau đầu vì…",
+      "exampleSentence": "就職するか、進学するか、悩んでいる",
+      "exampleTranslation": "Tôi lo lắng về việc tìm việc hay học lên tiếp.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10698,
+      "term": "慌てる (あわてる)",
+      "reading": "あわてる",
+      "romaji": "awateru",
+      "definition": "vội, luống cuống, hốt hoảng",
+      "exampleSentence": "学校に遅れそうになって、あわてて家を出た",
+      "exampleTranslation": "Sắp muộn học nên tôi vội vàng phi nhanh ra khỏi nhà.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10699,
+      "term": "覚める (さめる)",
+      "reading": "さめる",
+      "romaji": "sameru",
+      "definition": "tỉnh dậy, tỉnh",
+      "exampleSentence": "昨夜は暑くて、夜中に何度も目が覚めた",
+      "exampleTranslation": "Đêm qua rất nóng nên giữa đêm tôi đã tỉnh dậy không biết bao nhiêu lần.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10700,
+      "term": "覚ます (さます)",
+      "reading": "さます",
+      "romaji": "samasu",
+      "definition": "đánh thức, làm cho tỉnh",
+      "exampleSentence": "目を覚ますと、もう１０時だった",
+      "exampleTranslation": "Khi mở mắt thì đã 10 giờ rồi.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10701,
+      "term": "眠る (ねむる)",
+      "reading": "ねむる",
+      "romaji": "nemuru",
+      "definition": "ngủ",
+      "exampleSentence": "入試の前の日、緊張してよく眠れなかった",
+      "exampleTranslation": "Hôm trước ngày thi tôi rất căng thẳng và ngủ không ngon.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10702,
+      "term": "祈る (いのる)",
+      "reading": "いのる",
+      "romaji": "inoru",
+      "definition": "cầu nguyện",
+      "exampleSentence": "家族の健康を神に祈った",
+      "exampleTranslation": "Tôi cầu sức khỏe cho gia đình với các thánh thần.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10703,
+      "term": "祝う (いわう)",
+      "reading": "いわう",
+      "romaji": "iwau",
+      "definition": "ăn mừng, chúc mừng",
+      "exampleSentence": "新年を祝って乾杯した",
+      "exampleTranslation": "Chúc mừng {năm mới/ sinh nhật/ thành công…} cạn li!",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10704,
+      "term": "感じる (かんじる)",
+      "reading": "かんじる",
+      "romaji": "kanjiru",
+      "definition": "cảm giác, cảm thấy",
+      "exampleSentence": "寒さを感じる",
+      "exampleTranslation": "Cảm giác {lạnh/ đau / đói/ rung…}.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

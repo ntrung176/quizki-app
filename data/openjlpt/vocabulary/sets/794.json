@@ -1,0 +1,231 @@
+{
+  "id": 794,
+  "title": "N1 Tango 2.5 - Cuộc sống · Từ thể hiện thời gian",
+  "description": "Tango N1 — Cuộc sống",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:40.414297",
+  "cards": [
+    {
+      "id": 18413,
+      "term": "終日 (しゅうじつ)",
+      "reading": "しゅうじつ",
+      "romaji": null,
+      "definition": "Cả ngày, suốt ngày",
+      "exampleSentence": "今日は終日、館内で工事が行われます。",
+      "exampleTranslation": "Hôm nay, công trình sẽ được tiến hành trong tòa nhà suốt cả ngày.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 18414,
+      "term": "四六時中 (しろくじちゅう)",
+      "reading": "しろくじちゅう",
+      "romaji": null,
+      "definition": "Suốt ngày đêm, mọi lúc",
+      "exampleSentence": "彼は四六時中仕事のことを考えていて、なかなか休めない。",
+      "exampleTranslation": "Anh ấy lúc nào cũng nghĩ đến công việc nên khó mà nghỉ ngơi được.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 18415,
+      "term": "日夜 (にちや)",
+      "reading": "にちや",
+      "romaji": null,
+      "definition": "Ngày đêm, không kể ngày đêm",
+      "exampleSentence": "研究チームは新薬の開発に日夜取り組んでいる。",
+      "exampleTranslation": "Nhóm nghiên cứu ngày đêm nỗ lực phát triển loại thuốc mới.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 18416,
+      "term": "日々 (ひび)",
+      "reading": "ひび",
+      "romaji": null,
+      "definition": "Hàng ngày, ngày ngày",
+      "exampleSentence": "日々の努力が、やがて大きな成果につながる。",
+      "exampleTranslation": "Những nỗ lực hằng ngày rồi sẽ dẫn đến thành quả lớn.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 18417,
+      "term": "夕闇 (ゆうやみ)",
+      "reading": "ゆうやみ",
+      "romaji": null,
+      "definition": "Bóng tối lúc chạng vạng",
+      "exampleSentence": "夕闇が迫るころ、街の明かりが一つずつ灯り始めた。",
+      "exampleTranslation": "Khi bóng tối chạng vạng buông xuống, đèn trong phố bắt đầu lần lượt sáng lên.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 18418,
+      "term": "暮れる (くれる)",
+      "reading": "くれる",
+      "romaji": null,
+      "definition": "Lặn (mặt trời), hết (ngày, năm)",
+      "exampleSentence": "日が暮れる前に、山道を下りよう。",
+      "exampleTranslation": "Hãy xuống núi trước khi mặt trời lặn.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 18419,
+      "term": "日没 (にちぼつ)",
+      "reading": "にちぼつ",
+      "romaji": null,
+      "definition": "Mặt trời lặn, lúc hoàng hôn",
+      "exampleSentence": "日没後は急に気温が下がるため、早めにテントを設営した。",
+      "exampleTranslation": "Vì nhiệt độ giảm nhanh sau khi mặt trời lặn nên chúng tôi đã dựng lều sớm.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 18420,
+      "term": "夜分 (やぶん)",
+      "reading": "やぶん",
+      "romaji": null,
+      "definition": "Ban đêm, đêm khuya",
+      "exampleSentence": "夜分に失礼いたしますが、緊急のご相談がございます。",
+      "exampleTranslation": "Xin lỗi vì đã làm phiền vào ban đêm, nhưng tôi có việc khẩn cấp muốn trao đổi.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 18421,
+      "term": "夜更け (よふけ)",
+      "reading": "よふけ",
+      "romaji": null,
+      "definition": "Đêm khuya",
+      "exampleSentence": "夜更けまで議論を続けた末、ようやく全員の意見がまとまった。",
+      "exampleTranslation": "Sau khi tranh luận đến tận khuya, cuối cùng mọi người cũng thống nhất được ý kiến.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 18422,
+      "term": "更ける (ふける)",
+      "reading": "ふける",
+      "romaji": null,
+      "definition": "Về khuya, đêm dần khuya",
+      "exampleSentence": "夜が更けるにつれ、町の音は次第に小さくなっていった。",
+      "exampleTranslation": "Càng về khuya, âm thanh trong thị trấn càng nhỏ dần.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 18423,
+      "term": "未明 (みめい)",
+      "reading": "みめい",
+      "romaji": null,
+      "definition": "Lúc trời chưa sáng, trước rạng đông",
+      "exampleSentence": "事故は十二日未明、海岸近くの道路で発生した。",
+      "exampleTranslation": "Vụ tai nạn xảy ra trên con đường gần bờ biển vào rạng sáng ngày 12.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 18424,
+      "term": "先頃 (さきごろ)",
+      "reading": "さきごろ",
+      "romaji": null,
+      "definition": "Mới đây, dạo trước",
+      "exampleSentence": "先頃、政府は新たな経済対策を発表した。",
+      "exampleTranslation": "Mới đây, chính phủ đã công bố một chính sách kinh tế mới.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 18425,
+      "term": "時折 (ときおり)",
+      "reading": "ときおり",
+      "romaji": null,
+      "definition": "Thỉnh thoảng, đôi khi",
+      "exampleSentence": "時折、昔の友人から届く手紙を読み返している。",
+      "exampleTranslation": "Thỉnh thoảng, tôi đọc lại những lá thư nhận được từ bạn cũ.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 18426,
+      "term": "矢先 (やさき)",
+      "reading": "やさき",
+      "romaji": null,
+      "definition": "Đúng lúc (sắp làm gì đó)",
+      "exampleSentence": "出発しようとした矢先に、急な仕事を頼まれた。",
+      "exampleTranslation": "Đúng lúc định khởi hành thì tôi được nhờ một việc gấp.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 18427,
+      "term": "長々[と] (ながなが[と])",
+      "reading": "ながなが[と]",
+      "romaji": null,
+      "definition": "Dài dòng, lê thê, rất lâu",
+      "exampleSentence": "彼は会議で同じ説明を長々と繰り返した。",
+      "exampleTranslation": "Anh ấy cứ dài dòng lặp đi lặp lại cùng một lời giải thích trong cuộc họp.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 18428,
+      "term": "隔月 (かくげつ)",
+      "reading": "かくげつ",
+      "romaji": null,
+      "definition": "Cách tháng, hai tháng một lần",
+      "exampleSentence": "この雑誌は隔月で発行され、特集記事も充実している。",
+      "exampleTranslation": "Tạp chí này được phát hành hai tháng một lần và có nhiều bài chuyên đề phong phú.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 18429,
+      "term": "隔週 (かくしゅう)",
+      "reading": "かくしゅう",
+      "romaji": null,
+      "definition": "Cách tuần, hai tuần một lần",
+      "exampleSentence": "隔週で開かれる勉強会には、毎回多くの参加者が集まる。",
+      "exampleTranslation": "Buổi học nhóm được tổ chức hai tuần một lần luôn thu hút đông người tham gia.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 18430,
+      "term": "隔日 (かくじつ)",
+      "reading": "かくじつ",
+      "romaji": null,
+      "definition": "Cách ngày, hai ngày một lần",
+      "exampleSentence": "医師の指示に従い、隔日で薬を飲んでいる。",
+      "exampleTranslation": "Theo chỉ dẫn của bác sĩ, tôi uống thuốc cách ngày.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 18431,
+      "term": "きたる",
+      "reading": "きたる",
+      "romaji": null,
+      "definition": "Sắp tới, sắp đến",
+      "exampleSentence": "きたる十月、当市で国際的な環境会議が開催される。",
+      "exampleTranslation": "Tháng Mười sắp tới, một hội nghị quốc tế về môi trường sẽ được tổ chức tại thành phố này.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 18432,
+      "term": "去る (さる)",
+      "reading": "さる",
+      "romaji": null,
+      "definition": "Vừa qua, vừa rồi; rời đi, ra đi",
+      "exampleSentence": "去る六月に、長年勤めた会社を退職した。",
+      "exampleTranslation": "Tháng Sáu vừa qua, tôi đã nghỉ việc tại công ty mình gắn bó nhiều năm.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

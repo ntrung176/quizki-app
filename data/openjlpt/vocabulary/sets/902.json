@@ -1,0 +1,187 @@
+{
+  "id": 902,
+  "title": "N5 Tango 10.3 - Sức khỏe · Vật - việc quan trọng",
+  "description": "Tango N5 — Sức khỏe",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:49.8637",
+  "cards": [
+    {
+      "id": 21003,
+      "term": "パスポート",
+      "reading": "パスポート",
+      "romaji": null,
+      "definition": "Hộ chiếu",
+      "exampleSentence": "パスポートをホテルの金庫に入れました。",
+      "exampleTranslation": "Tôi đã cất hộ chiếu vào két sắt của khách sạn.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 21004,
+      "term": "ビザ",
+      "reading": "ビザ",
+      "romaji": null,
+      "definition": "Thị thực",
+      "exampleSentence": "ビザが必要なので、早く申請します。",
+      "exampleTranslation": "Vì cần thị thực nên tôi sẽ sớm xin cấp.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 21005,
+      "term": "たいしかん",
+      "reading": "たいしかん",
+      "romaji": null,
+      "definition": "Đại sứ quán",
+      "exampleSentence": "ビザを取りに、たいしかんへ行きます。",
+      "exampleTranslation": "Tôi sẽ đến đại sứ quán để xin thị thực.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 21006,
+      "term": "たいせつな",
+      "reading": "たいせつな",
+      "romaji": null,
+      "definition": "Quan trọng",
+      "exampleSentence": "これは家族からもらったたいせつな写真です。",
+      "exampleTranslation": "Đây là bức ảnh quan trọng tôi nhận được từ gia đình.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 21007,
+      "term": "なくす",
+      "reading": "なくす",
+      "romaji": null,
+      "definition": "Đánh mất",
+      "exampleSentence": "大切な鍵をなくすと、家に入れません。",
+      "exampleTranslation": "Nếu làm mất chiếc chìa khóa quan trọng thì không thể vào nhà.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 21008,
+      "term": "かす",
+      "reading": "かす",
+      "romaji": null,
+      "definition": "Cho mượn",
+      "exampleSentence": "友達に本をかす約束をしました。",
+      "exampleTranslation": "Tôi đã hứa cho bạn mượn sách.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 21009,
+      "term": "かりる",
+      "reading": "かりる",
+      "romaji": null,
+      "definition": "Mượn",
+      "exampleSentence": "駅で自転車をかりることができます。",
+      "exampleTranslation": "Bạn có thể thuê xe đạp ở nhà ga.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 21010,
+      "term": "かえす",
+      "reading": "かえす",
+      "romaji": null,
+      "definition": "Trả lại",
+      "exampleSentence": "借りた本を、明日かえす予定です。",
+      "exampleTranslation": "Tôi dự định trả cuốn sách đã mượn vào ngày mai.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 21011,
+      "term": "むだな",
+      "reading": "むだな",
+      "romaji": null,
+      "definition": "Hoang phí, phí phạm",
+      "exampleSentence": "電気をつけたままにするのは、むだな使い方です。",
+      "exampleTranslation": "Để điện sáng suốt như vậy là một cách sử dụng lãng phí.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 21012,
+      "term": "いる",
+      "reading": "いる",
+      "romaji": null,
+      "definition": "Cần thiết",
+      "exampleSentence": "この仕事には時間がいる。 ",
+      "exampleTranslation": "Công việc này cần thời gian.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 21013,
+      "term": "えっ",
+      "reading": "えっ",
+      "romaji": null,
+      "definition": "Hả, ơ",
+      "exampleSentence": "えっ、明日は学校が休みなんですか。",
+      "exampleTranslation": "Hả, ngày mai trường được nghỉ ạ?",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 21014,
+      "term": "ほんとう",
+      "reading": "ほんとう",
+      "romaji": null,
+      "definition": "Thật",
+      "exampleSentence": "それはほんとうですか。",
+      "exampleTranslation": "Điều đó có thật không?",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 21015,
+      "term": "うそ",
+      "reading": "うそ",
+      "romaji": null,
+      "definition": "Lời nói dối, nói xạo",
+      "exampleSentence": "それはうそです。",
+      "exampleTranslation": "Đó là lời nói dối.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 21016,
+      "term": "こと",
+      "reading": "こと",
+      "romaji": null,
+      "definition": "Việc (về ~)",
+      "exampleSentence": "日本語を勉強することは楽しいです。",
+      "exampleTranslation": "Việc học tiếng Nhật rất vui.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 21017,
+      "term": "おいのり",
+      "reading": "おいのり",
+      "romaji": null,
+      "definition": "Cầu nguyện",
+      "exampleSentence": "毎晩、家族の健康をおいのりします。",
+      "exampleTranslation": "Mỗi tối, tôi cầu nguyện cho sức khỏe của gia đình.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 21018,
+      "term": "さわる",
+      "reading": "さわる",
+      "romaji": null,
+      "definition": "Sờ, rờ",
+      "exampleSentence": "この花にさわると、手が汚れます。",
+      "exampleTranslation": "Nếu sờ vào bông hoa này thì tay sẽ bị bẩn.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

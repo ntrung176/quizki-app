@@ -1,0 +1,44 @@
+{
+  "id": 583,
+  "title": "N2 Unit 7.4 - 名詞C (bài 4/8)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.289998",
+  "cards": [
+    {
+      "id": 13791,
+      "term": "信用 (しんよう)",
+      "reading": "しんよう",
+      "romaji": null,
+      "definition": "tin tưởng; tín nhiệm",
+      "exampleSentence": "｛人/人の言葉｝を信用してお金を貸す。",
+      "exampleTranslation": "Tin người/tin lời rồi cho mượn tiền.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13792,
+      "term": "信頼 (しんらい)",
+      "reading": "しんらい",
+      "romaji": null,
+      "definition": "tin cậy, tín nhiệm, tin tưởng",
+      "exampleSentence": "彼は信頼できる指導者だ。",
+      "exampleTranslation": "Anh ấy là người lãnh đạo đáng tin.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13793,
+      "term": "尊重 (そんちょう)",
+      "reading": "そんちょう",
+      "romaji": null,
+      "definition": "tôn trọng",
+      "exampleSentence": "人の意見を尊重する。",
+      "exampleTranslation": "Tôn trọng ý kiến người khác.",
+      "forms": [],
+      "displayOrder": 2
+    }
+  ]
+}

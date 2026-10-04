@@ -1,0 +1,132 @@
+{
+  "id": 611,
+  "title": "N2 Unit 11.7 - 名詞D (bài 7/8)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞D",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.689015",
+  "cards": [
+    {
+      "id": 14135,
+      "term": "消耗 (しょうもう)",
+      "reading": "しょうもう",
+      "romaji": null,
+      "definition": "tiêu thụ, tiêu hao",
+      "exampleSentence": "最近コピーの量が増えて、紙の消耗が厳しい。",
+      "exampleTranslation": "Dạo này lượng photocopy tăng nên giấy bị tiêu hao rất nhiều.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14136,
+      "term": "欠陥 (けっかん)",
+      "reading": "けっかん",
+      "romaji": null,
+      "definition": "khuyết điểm, hỏng",
+      "exampleSentence": "新発売の車のブレーキに欠陥が見つかり、回収されることになった。",
+      "exampleTranslation": "Phát hiện lỗi ở phanh mẫu xe mới nên quyết định thu hồi.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14137,
+      "term": "予備 (よび)",
+      "reading": "よび",
+      "romaji": null,
+      "definition": "dự bị, dự trữ",
+      "exampleSentence": "予備の電池を買っておいた。",
+      "exampleTranslation": "Tôi đã mua sẵn pin dự phòng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14138,
+      "term": "付属 (ふぞく)",
+      "reading": "ふぞく",
+      "romaji": null,
+      "definition": "trực thuộc, phụ thuộc, sát nhập",
+      "exampleSentence": "大きな工場ができ、それに付属して保育園も作られた。",
+      "exampleTranslation": "Có một nhà máy lớn được xây, và kèm theo đó cũng xây luôn nhà trẻ.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14139,
+      "term": "手当 (てあて)",
+      "reading": "てあて",
+      "romaji": null,
+      "definition": "trị liệu",
+      "exampleSentence": "けがの手当てをする。",
+      "exampleTranslation": "Sơ cứu/điều trị vết thương.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14140,
+      "term": "元 (もと)",
+      "reading": "もと",
+      "romaji": null,
+      "definition": "nguyên, ban đầu",
+      "exampleSentence": "「使ったものは元に戻しておいてください」",
+      "exampleTranslation": "Đồ dùng rồi thì hãy để lại về chỗ cũ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14141,
+      "term": "面 (めん)",
+      "reading": "めん",
+      "romaji": null,
+      "definition": "mặt nạ, bề mặt,",
+      "exampleSentence": "この踊りは面を着けて踊る。",
+      "exampleTranslation": "Điệu nhảy này nhảy trong lúc đeo mặt nạ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14142,
+      "term": "説 (せつ)",
+      "reading": "せつ",
+      "romaji": null,
+      "definition": "thuyết, ý kiến",
+      "exampleSentence": "人類はアフリカから始まったという説がある。",
+      "exampleTranslation": "Có thuyết cho rằng loài người bắt nguồn từ châu Phi.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14143,
+      "term": "差 (さ)",
+      "reading": "さ",
+      "romaji": null,
+      "definition": "khác biệt, sai khác, khoảng cách",
+      "exampleSentence": "テストの結果は、どの学生もほとんど差がなかった。",
+      "exampleTranslation": "Kết quả bài kiểm tra: hầu như các học sinh không chênh nhau mấy.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14144,
+      "term": "間 (あいだ)",
+      "reading": "あいだ",
+      "romaji": null,
+      "definition": "thời gian, phòng, khoảng trống",
+      "exampleSentence": "私は来日してまだ間がない。",
+      "exampleTranslation": "Tôi sang Nhật vẫn chưa lâu.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14145,
+      "term": "分 (ぶん)",
+      "reading": "ぶん",
+      "romaji": null,
+      "definition": "phần, trạng thái, trình độ",
+      "exampleSentence": "お菓子を、弟の分まで食べてしまって怒られた。",
+      "exampleTranslation": "Tôi ăn luôn cả phần bánh kẹo của em trai nên bị mắng.",
+      "forms": [],
+      "displayOrder": 10
+    }
+  ]
+}

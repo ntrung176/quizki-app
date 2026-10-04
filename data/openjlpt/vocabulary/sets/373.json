@@ -1,0 +1,176 @@
+{
+  "id": 373,
+  "title": "N3 Unit 1.2 - 名詞A・進学と就職 (Học tập & đi làm)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 名詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:34.665871",
+  "cards": [
+    {
+      "id": 10210,
+      "term": "出身 (しゅっしん)",
+      "reading": "しゅっしん",
+      "romaji": "shusshin",
+      "definition": "xuất thân, gốc gác",
+      "exampleSentence": "「ご出身はどちらですか」...「東京です」",
+      "exampleTranslation": "\"Bạn đến từ đâu?\" \"Đến từ Tokyo.\"",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10211,
+      "term": "故郷 (こきょう)",
+      "reading": "こきょう",
+      "romaji": "kokyō",
+      "definition": "quê hương",
+      "exampleSentence": "仕事が忙しくて、もう何年も故郷に帰っていない",
+      "exampleTranslation": "Vì công việc bận rộn, nên nhiều năm chưa trở về quê hương.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10212,
+      "term": "成長 (せいちょう)",
+      "reading": "せいちょう",
+      "romaji": "seichō",
+      "definition": "sinh trưởng, phát triển, trưởng thành",
+      "exampleSentence": "子どもの成長を喜ぶ",
+      "exampleTranslation": "Vui mừng về sự trưởng thành của đứa con.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10213,
+      "term": "成人 (せいじん)",
+      "reading": "せいじん",
+      "romaji": "seijin",
+      "definition": "người trưởng thành",
+      "exampleSentence": "日本では二十歳以上の人を成人という",
+      "exampleTranslation": "Ở Nhật người ta gọi người trên 20 tuổi là người trưởng thành.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10214,
+      "term": "合格 (ごうかく)",
+      "reading": "ごうかく",
+      "romaji": "gōkaku",
+      "definition": "thi đỗ, trúng tuyển",
+      "exampleSentence": "大学に合格する",
+      "exampleTranslation": "Đỗ đại học.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10215,
+      "term": "進学 (しんがく)",
+      "reading": "しんがく",
+      "romaji": "shingaku",
+      "definition": "học lên",
+      "exampleSentence": "子どもの進学について考える",
+      "exampleTranslation": "Tôi suy nghĩ về việc học lên của đứa con.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10216,
+      "term": "退学 (たいがく)",
+      "reading": "たいがく",
+      "romaji": "taigaku",
+      "definition": "thôi học",
+      "exampleSentence": "退学の理由を説明する",
+      "exampleTranslation": "Trình bày lý do thôi học.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10217,
+      "term": "就職 (しゅうしょく)",
+      "reading": "しゅうしょく",
+      "romaji": "shūshoku",
+      "definition": "tìm việc",
+      "exampleSentence": "旅行会社に就職する",
+      "exampleTranslation": "Tôi sẽ làm việc ở công ty du lịch.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10218,
+      "term": "退職 (たいしょく)",
+      "reading": "たいしょく",
+      "romaji": "taishoku",
+      "definition": "nghỉ việc",
+      "exampleSentence": "母の介護のため、退職を決めた",
+      "exampleTranslation": "Tôi quyết định thôi việc để chăm sóc mẹ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10219,
+      "term": "失業 (しつぎょう)",
+      "reading": "しつぎょう",
+      "romaji": "shitsugyō",
+      "definition": "thất nghiệp",
+      "exampleSentence": "会社が倒産して失業した",
+      "exampleTranslation": "Vì công ty phá sản nên tôi thất nghiệp.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10220,
+      "term": "残業 (ざんぎょう)",
+      "reading": "ざんぎょう",
+      "romaji": "zangyō",
+      "definition": "làm thêm giờ",
+      "exampleSentence": "残業が多くて疲れた",
+      "exampleTranslation": "Vì tăng ca nhiều nên mệt mỏi.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10221,
+      "term": "生活 (せいかつ)",
+      "reading": "せいかつ",
+      "romaji": "seikatsu",
+      "definition": "sinh hoạt, cuộc sống",
+      "exampleSentence": "健康的な生活を送る",
+      "exampleTranslation": "Sống cuộc sống khỏe mạnh.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10222,
+      "term": "通勤 (つうきん)",
+      "reading": "つうきん",
+      "romaji": "tsūkin",
+      "definition": "đi làm",
+      "exampleSentence": "私は毎日１時間かけて通勤している",
+      "exampleTranslation": "Hàng ngày tôi mất một tiếng đi làm.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10223,
+      "term": "学歴 (がくれき)",
+      "reading": "がくれき",
+      "romaji": "gakureki",
+      "definition": "bằng cấp, quá trình học tập",
+      "exampleSentence": "学歴が高くても、実力があるかどうかはわからない",
+      "exampleTranslation": "Cho dù bằng cấp cao nhưng thực lực thì không biết thế nào.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10224,
+      "term": "給料 (きゅうりょう)",
+      "reading": "きゅうりょう",
+      "romaji": "kyūryō",
+      "definition": "tiền lương",
+      "exampleSentence": "会社から給料をもらう",
+      "exampleTranslation": "Nhận lương từ công ty.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

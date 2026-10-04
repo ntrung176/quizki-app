@@ -1,0 +1,121 @@
+{
+  "id": 598,
+  "title": "N2 Unit 9.2 - カタカナB (bài 2/4)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — カタカナB",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.503686",
+  "cards": [
+    {
+      "id": 13968,
+      "term": "アリバイ",
+      "reading": "アリバイ",
+      "romaji": null,
+      "definition": "chứng cứ ngoại phạm",
+      "exampleSentence": "彼には事件当日のアリバイがある。",
+      "exampleTranslation": "Anh ta có bằng chứng ngoại phạm vào ngày xảy ra vụ án.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13969,
+      "term": "シリーズ",
+      "reading": "シリーズ",
+      "romaji": null,
+      "definition": "xe-ri; loạt, hàng loạt",
+      "exampleSentence": "この映画は、評判が良かったので、シリーズ化された。",
+      "exampleTranslation": "Bộ phim này được đánh giá tốt nên đã được làm thành loạt (series).",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13970,
+      "term": "ポイント",
+      "reading": "ポイント",
+      "romaji": null,
+      "definition": "điểm",
+      "exampleSentence": "スクリーンのポイントを指しながら、プレゼンテーションをした。",
+      "exampleTranslation": "Vừa chỉ vào các điểm trên màn hình, vừa thuyết trình.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13971,
+      "term": "キー",
+      "reading": "キー",
+      "romaji": null,
+      "definition": "chìa khóa",
+      "exampleSentence": "車のキーを中に入れたままロックしてしまった。",
+      "exampleTranslation": "Tôi khóa xe trong khi chìa vẫn để bên trong.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13972,
+      "term": "マスター",
+      "reading": "マスター",
+      "romaji": null,
+      "definition": "bậc thầy, giỏi, chủ, thạc sĩ",
+      "exampleSentence": "独学で日本語をマスターした。",
+      "exampleTranslation": "Tôi tự học và thành thạo tiếng Nhật.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13973,
+      "term": "ビジネス",
+      "reading": "ビジネス",
+      "romaji": null,
+      "definition": "kinh doanh",
+      "exampleSentence": "彼はビジネスで世界中を飛び回っている。",
+      "exampleTranslation": "Anh ấy đi công tác kinh doanh khắp thế giới.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13974,
+      "term": "キャリア",
+      "reading": "キャリア",
+      "romaji": null,
+      "definition": "sự nghiệp, nghiệp vụ, mầm bệnh",
+      "exampleSentence": "この仕事はキャリアのある人ではないと務まらない。",
+      "exampleTranslation": "Công việc này không có kinh nghiệm thì không đảm đương nổi.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13975,
+      "term": "ベテラン",
+      "reading": "ベテラン",
+      "romaji": null,
+      "definition": "kỳ cựu, chuyên nghiệp, có kinh nghiệm",
+      "exampleSentence": "田中さんは教師歴は20年のベテランだ。",
+      "exampleTranslation": "Anh Tanaka là giáo viên kỳ cựu với 20 năm kinh nghiệm.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13976,
+      "term": "フリー",
+      "reading": "フリー",
+      "romaji": null,
+      "definition": "tự do",
+      "exampleSentence": "彼はフリー（ランス）のカメラマンをしている。",
+      "exampleTranslation": "Anh ấy là nhiếp ảnh gia tự do (freelance).",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13977,
+      "term": "エコノミー",
+      "reading": "エコノミー",
+      "romaji": null,
+      "definition": "nền kinh tế, hạng thường, giá rẻ",
+      "exampleSentence": "飛行機ではいつもエコノミークラスに乗っている。",
+      "exampleTranslation": "Tôi luôn bay hạng phổ thông (economy class).",
+      "forms": [],
+      "displayOrder": 9
+    }
+  ]
+}

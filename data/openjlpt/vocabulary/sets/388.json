@@ -1,0 +1,176 @@
+{
+  "id": 388,
+  "title": "N3 Unit 2.9 - 動詞A・感情と結果 (Cảm xúc & kết quả)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 動詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.386219",
+  "cards": [
+    {
+      "id": 10438,
+      "term": "貸し (かし)",
+      "reading": "かし",
+      "romaji": "kashi",
+      "definition": "cho vay",
+      "exampleSentence": "あの人には10万円の貸しがある",
+      "exampleTranslation": "Tôi cho người kia vay 10 man.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10439,
+      "term": "借り (かり)",
+      "reading": "かり",
+      "romaji": "kari",
+      "definition": "vay",
+      "exampleSentence": "借りは返さなければならない",
+      "exampleTranslation": "Vay thì phải trả.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10440,
+      "term": "勝ち (かち)",
+      "reading": "かち",
+      "romaji": "kachi",
+      "definition": "thắng",
+      "exampleSentence": "きょうの試合はAチームの勝ちだった",
+      "exampleTranslation": "Trận đấu hôm nay đội A thắng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10441,
+      "term": "負け (まけ)",
+      "reading": "まけ",
+      "romaji": "make",
+      "definition": "thua",
+      "exampleSentence": "負けが続いて、いやになった",
+      "exampleTranslation": "Thấy khó chịu bởi thất bại liên tiếp.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10442,
+      "term": "迎え (むかえ)",
+      "reading": "むかえ",
+      "romaji": "mukae",
+      "definition": "đón",
+      "exampleSentence": "迎えの車がなかなか来ない",
+      "exampleTranslation": "Ô tô đến đón mãi chưa thấy tới.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10443,
+      "term": "始まり (はじまり)",
+      "reading": "はじまり",
+      "romaji": "hajimari",
+      "definition": "sự bắt đầu",
+      "exampleSentence": "映画の始まりに間に合わなかった",
+      "exampleTranslation": "Đã không kịp xem bộ phim từ lúc mở màn.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10444,
+      "term": "終わり (おわり)",
+      "reading": "おわり",
+      "romaji": "owari",
+      "definition": "sự kết thúc",
+      "exampleSentence": "夏休みはもうすぐ終わりだ",
+      "exampleTranslation": "Kỳ nghỉ hè sắp kết thúc.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10445,
+      "term": "戻り (もどり)",
+      "reading": "もどり",
+      "romaji": "modori",
+      "definition": "trở lại",
+      "exampleSentence": "「きょうの戻りは３時ごろになります」",
+      "exampleTranslation": "\"Hôm nay tôi quay lại lúc tầm 3 giờ.\"",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10446,
+      "term": "別れ (わかれ)",
+      "reading": "わかれ",
+      "romaji": "wakare",
+      "definition": "chia ly",
+      "exampleSentence": "日本では3月は別れの季節だ",
+      "exampleTranslation": "Ở Nhật , tháng 3 là mùa chia ly.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10447,
+      "term": "喜び (よろこび)",
+      "reading": "よろこび",
+      "romaji": "yorokobi",
+      "definition": "vui mừng",
+      "exampleSentence": "優勝できて、喜びでいっぱいだ",
+      "exampleTranslation": "Đã giành chức vô địch, thật là tràn đầy niềm vui sướng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10448,
+      "term": "楽しみ (たのしみ)",
+      "reading": "たのしみ",
+      "romaji": "tanoshimi",
+      "definition": "vui vẻ",
+      "exampleSentence": "来週のパーティーが楽しみだ",
+      "exampleTranslation": "Mong đợi bữa tiệc tuần tới.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10449,
+      "term": "笑い (わらい)",
+      "reading": "わらい",
+      "romaji": "warai",
+      "definition": "cười, tiếng cười",
+      "exampleSentence": "歌手の冗談で会場に笑いが起きた",
+      "exampleTranslation": "Cả hội trường dậy lên tiếng cười vì câu nói đùa của ca sỹ.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10450,
+      "term": "驚き (おどろき)",
+      "reading": "おどろき",
+      "romaji": "odoroki",
+      "definition": "ngạc nhiên",
+      "exampleSentence": "この大きな家がたったの100万円とは驚きだ",
+      "exampleTranslation": "Thật bất ngờ khi chỉ mất 1.000.000 yên để xây ngôi nhà to rộng này.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10451,
+      "term": "怒り (いかり)",
+      "reading": "いかり",
+      "romaji": "ikari",
+      "definition": "tức giận, phẫn nộ",
+      "exampleSentence": "殺人のニュースに怒りを感じた",
+      "exampleTranslation": "Tôi cảm thấy phẫn nộ trước tin tức về kẻ sát nhân.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10452,
+      "term": "悲しみ (かなしみ)",
+      "reading": "かなしみ",
+      "romaji": "kanashimi",
+      "definition": "buồn đau",
+      "exampleSentence": "愛犬を亡くした悲しみが消えない",
+      "exampleTranslation": "Nỗi buồn về cái chết của chú chó cưng day dứt khôn nguôi.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

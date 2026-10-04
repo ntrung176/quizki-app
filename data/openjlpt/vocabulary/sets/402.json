@@ -1,0 +1,187 @@
+{
+  "id": 402,
+  "title": "N3 Unit 5.5 - 動詞B・壊れる・破れる (Hư hỏng & gãy vỡ)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 動詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.823703",
+  "cards": [
+    {
+      "id": 10673,
+      "term": "育てる (そだてる)",
+      "reading": "そだてる",
+      "romaji": "sodateru",
+      "definition": "nuôi dưỡng, nuôi lớn, chăm sóc (hoa)",
+      "exampleSentence": "母は５人の子どもを育てた",
+      "exampleTranslation": "Mẹ tôi đã nuôi nấng 5 đứa con.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10674,
+      "term": "生える (はえる)",
+      "reading": "はえる",
+      "romaji": "haeru",
+      "definition": "mọc (cỏ, tóc, răng)",
+      "exampleSentence": "髪が生える",
+      "exampleTranslation": "{Tóc, râu ,răng, mốc…} mọc lên.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10675,
+      "term": "生やす (はやす)",
+      "reading": "はやす",
+      "romaji": "hayasu",
+      "definition": "nuôi, chăm",
+      "exampleSentence": "ひげを生やす",
+      "exampleTranslation": "Để râu.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10676,
+      "term": "汚れる (よごれる)",
+      "reading": "よごれる",
+      "romaji": "yogoreru",
+      "definition": "vấy bẩn, bị bẩn",
+      "exampleSentence": "空気の汚れたところには住みたくない",
+      "exampleTranslation": "Tôi không muốn sống trong một nơi ô nhiễm không khí.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10677,
+      "term": "汚す (よごす)",
+      "reading": "よごす",
+      "romaji": "yogosu",
+      "definition": "làm dơ, làm bẩn",
+      "exampleSentence": "どろ遊びをして服を汚した",
+      "exampleTranslation": "Nghịch bùn làm bẩn quần áo.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10678,
+      "term": "壊れる (こわれる)",
+      "reading": "こわれる",
+      "romaji": "kowareru",
+      "definition": "hỏng, bị hỏng",
+      "exampleSentence": "地震で家が壊れました。",
+      "exampleTranslation": "Nhà bị đổ sập do động đất.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10679,
+      "term": "壊す (こわす)",
+      "reading": "こわす",
+      "romaji": "kowasu",
+      "definition": "làm hư, làm hỏng, gây hại",
+      "exampleSentence": "家を壊す",
+      "exampleTranslation": "Làm hỏng {nhà/ đồ đạc/ đồ điện…}.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10680,
+      "term": "割れる (われる)",
+      "reading": "われる",
+      "romaji": "wareru",
+      "definition": "bể, nứt, hỏng",
+      "exampleSentence": "ガラスが割れる",
+      "exampleTranslation": "{Kính( thủy tinh)/ đĩa/ cóc…} bị vỡ.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10681,
+      "term": "割る (わる)",
+      "reading": "わる",
+      "romaji": "waru",
+      "definition": "làm vỡ, chia",
+      "exampleSentence": "ガラスを割る",
+      "exampleTranslation": "Làm {kính / đĩa/ cốc…} vỡ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10682,
+      "term": "折れる (おれる)",
+      "reading": "おれる",
+      "romaji": "oreru",
+      "definition": "bị bẻ, gãy",
+      "exampleSentence": "強い風で枝が折れた",
+      "exampleTranslation": "Cành cây bị gãy vì gió mạnh.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10683,
+      "term": "折る (おる)",
+      "reading": "おる",
+      "romaji": "oru",
+      "definition": "bẻ gãy, gấp lại",
+      "exampleSentence": "スキーをして、足の骨を折った。",
+      "exampleTranslation": "Tôi trượt tuyết và bị gãy xương chân.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10684,
+      "term": "破れる (やぶれる)",
+      "reading": "やぶれる",
+      "romaji": "yabureru",
+      "definition": "bị rách (giấy, sách, vải, áo…)",
+      "exampleSentence": "紙が破れる",
+      "exampleTranslation": "{Giấy/ sách/ vải/ áo…} bị rách.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10685,
+      "term": "破る (やぶる)",
+      "reading": "やぶる",
+      "romaji": "yaburu",
+      "definition": "làm rách (giấy, sách, vải, áo…)",
+      "exampleSentence": "紙を破る",
+      "exampleTranslation": "Làm rách {giấy/ vở/ vải/ áo…}.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10686,
+      "term": "曲がる (まがる)",
+      "reading": "まがる",
+      "romaji": "magaru",
+      "definition": "cong, rẽ",
+      "exampleSentence": "曲がった道",
+      "exampleTranslation": "Khúc đường cong.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10687,
+      "term": "曲げる (まげる)",
+      "reading": "まげる",
+      "romaji": "mageru",
+      "definition": "bẻ cong , uốn cong",
+      "exampleSentence": "針金を曲げる",
+      "exampleTranslation": "Bẻ cong, gập dây kim loại, đầu gối…",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10688,
+      "term": "外れる (はずれる)",
+      "reading": "はずれる",
+      "romaji": "hazureru",
+      "definition": "tuột ra, rời ra",
+      "exampleSentence": "ボタンがはずれる",
+      "exampleTranslation": "Nút rớt ra.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

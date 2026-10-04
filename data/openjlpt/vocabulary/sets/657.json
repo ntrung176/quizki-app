@@ -1,0 +1,242 @@
+{
+  "id": 657,
+  "title": "N3 Tango 6.4 - Công việc · Là công việc như thế nào?",
+  "description": "Tango N3 — Công việc",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:20.115384",
+  "cards": [
+    {
+      "id": 15027,
+      "term": "勤務（する） (きんむ（する）)",
+      "reading": "きんむ（する）",
+      "romaji": null,
+      "definition": "Sự làm việc",
+      "exampleSentence": "日本で「勤務（する）」場合は、会社の規則を守る必要があります。",
+      "exampleTranslation": "Khi làm việc ở Nhật, bạn cần tuân thủ các quy định của công ty.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 15028,
+      "term": "事務 (じむ)",
+      "reading": "じむ",
+      "romaji": null,
+      "definition": "Việc văn phòng",
+      "exampleSentence": "姉は駅の近くの会社で事務の仕事をしています。",
+      "exampleTranslation": "Chị tôi đang làm công việc văn phòng tại một công ty gần nhà ga.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 15029,
+      "term": "担当（する） (たんとう（する）)",
+      "reading": "たんとう（する）",
+      "romaji": null,
+      "definition": "Sự phụ trách",
+      "exampleSentence": "この仕事を「担当（する）」人は、来週の会議に参加してください。",
+      "exampleTranslation": "Người phụ trách công việc này hãy tham gia cuộc họp tuần sau.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 15030,
+      "term": "営業（する） (えいぎょう（する）)",
+      "reading": "えいぎょう（する）",
+      "romaji": null,
+      "definition": "Kinh doanh (thường chỉ hoạt động mua bán của doanh nghiệp)",
+      "exampleSentence": "この会社は来月から海外でも「営業（する）」予定です。",
+      "exampleTranslation": "Công ty này dự định bắt đầu kinh doanh ở nước ngoài từ tháng sau.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 15031,
+      "term": "経営（する） (けいえい（する）)",
+      "reading": "けいえい（する）",
+      "romaji": null,
+      "definition": "Kinh doanh (nói chung)",
+      "exampleSentence": "父は長年、小さな会社を「経営（する）」ことを夢見ていました。",
+      "exampleTranslation": "Suốt nhiều năm, bố tôi đã mơ ước điều hành một công ty nhỏ.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 15032,
+      "term": "広告（する） (こうこく（する）)",
+      "reading": "こうこく（する）",
+      "romaji": null,
+      "definition": "Việc quảng cáo",
+      "exampleSentence": "新しい商品を「広告（する）」ために、会社は駅にポスターを貼りました。",
+      "exampleTranslation": "Để quảng cáo sản phẩm mới, công ty đã dán áp phích ở nhà ga.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 15033,
+      "term": "出版（する） (しゅっぱん（する）)",
+      "reading": "しゅっぱん（する）",
+      "romaji": null,
+      "definition": "Sự xuất bản",
+      "exampleSentence": "出版社は来月、この作家の新しい小説を「出版（する）」予定です。",
+      "exampleTranslation": "Nhà xuất bản dự định xuất bản tiểu thuyết mới của nhà văn này vào tháng sau.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 15034,
+      "term": "制作（する） (せいさく（する）)",
+      "reading": "せいさく（する）",
+      "romaji": null,
+      "definition": "Việc sản xuất, làm, chế tác",
+      "exampleSentence": "学生たちは映画の制作（する）について、先生から説明を受けました。",
+      "exampleTranslation": "Các sinh viên được giáo viên giải thích về việc sản xuất phim.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 15035,
+      "term": "通訳（する） (つうやく（する）)",
+      "reading": "つうやく（する）",
+      "romaji": null,
+      "definition": "Sự phiên dịch, thông dịch",
+      "exampleSentence": "「通訳（する）」には、両方の言語を正しく理解する力が必要です。",
+      "exampleTranslation": "Để thông dịch, cần có khả năng hiểu chính xác cả hai ngôn ngữ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 15036,
+      "term": "精算（する） (せいさん（する）)",
+      "reading": "せいさん（する）",
+      "romaji": null,
+      "definition": "Sự thanh toán, quyết toán",
+      "exampleSentence": "旅行の終わりに、ホテルの料金を精算（する）必要があります。",
+      "exampleTranslation": "Cuối chuyến đi, cần phải thanh toán tiền khách sạn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 15037,
+      "term": "（予定を）立てる (（よていを）たてる)",
+      "reading": "（よていを）たてる",
+      "romaji": null,
+      "definition": "Lên, lập (dự định)",
+      "exampleSentence": "夏休みの前に、家族旅行の（予定を）立てることにしました。",
+      "exampleTranslation": "Trước kỳ nghỉ hè, gia đình tôi quyết định lên kế hoạch cho chuyến du lịch.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 15038,
+      "term": "長期 (ちょうき)",
+      "reading": "ちょうき",
+      "romaji": null,
+      "definition": "Trường kỳ, dài hạn",
+      "exampleSentence": "この会社では、長期の研修を受ける社員も多いです。",
+      "exampleTranslation": "Ở công ty này, cũng có nhiều nhân viên tham gia khóa đào tạo dài hạn.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 15039,
+      "term": "日程 (にってい)",
+      "reading": "にってい",
+      "romaji": null,
+      "definition": "Lịch trình",
+      "exampleSentence": "来月の日程が決まったら、すぐに皆さんへお知らせします。",
+      "exampleTranslation": "Khi lịch trình tháng sau được quyết định, tôi sẽ thông báo ngay cho mọi người.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 15040,
+      "term": "ずらす",
+      "reading": "ずらす",
+      "romaji": null,
+      "definition": "Đẩy, dời qua một bên, đổi lịch",
+      "exampleSentence": "都合が悪くなったので、会議の日程を一週間ずらすことにしました。",
+      "exampleTranslation": "Vì có việc không thuận tiện nên chúng tôi quyết định dời lịch họp một tuần.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 15041,
+      "term": "延期（する） (えんき（する）)",
+      "reading": "えんき（する）",
+      "romaji": null,
+      "definition": "Sự hoãn, hoãn lại",
+      "exampleSentence": "台風のため、明日の試合を延期（する）ことになりました。",
+      "exampleTranslation": "Do bão, trận đấu ngày mai đã được quyết định hoãn lại.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 15042,
+      "term": "携帯（する） (けいたい（する）)",
+      "reading": "けいたい（する）",
+      "romaji": null,
+      "definition": "Sự mang theo, cầm theo",
+      "exampleSentence": "旅行中は、パスポートを必ず携帯（する）ようにしてください。",
+      "exampleTranslation": "Trong chuyến du lịch, hãy nhớ luôn mang theo hộ chiếu.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 15043,
+      "term": "協力（する） (きょうりょく（する）)",
+      "reading": "きょうりょく（する）",
+      "romaji": null,
+      "definition": "Sự hợp tác",
+      "exampleSentence": "地域の人々が協力（する）ことで、町はきれいになりました。",
+      "exampleTranslation": "Nhờ người dân trong khu vực hợp tác, thị trấn đã trở nên sạch đẹp hơn.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 15044,
+      "term": "省略（する） (しょうりゃく（する）)",
+      "reading": "しょうりゃく（する）",
+      "romaji": null,
+      "definition": "Sự tóm lược, lược bớt",
+      "exampleSentence": "この説明書では、分かりやすくするために一部を省略（する）場合があります。",
+      "exampleTranslation": "Trong hướng dẫn này, một số phần có thể được lược bớt để dễ hiểu hơn.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 15045,
+      "term": "積む (つむ)",
+      "reading": "つむ",
+      "romaji": null,
+      "definition": "Tích lũy, chống chất",
+      "exampleSentence": "毎日少しずつ経験を積むことが、上達への近道です。",
+      "exampleTranslation": "Tích lũy kinh nghiệm từng chút mỗi ngày là con đường ngắn nhất để tiến bộ.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 15046,
+      "term": "成長（する） (せいちょう（する）)",
+      "reading": "せいちょう（する）",
+      "romaji": null,
+      "definition": "Sự trưởng thành",
+      "exampleSentence": "「成長（する）」という言葉どおり、子どもは毎日少しずつ成長します。",
+      "exampleTranslation": "Đúng như ý nghĩa của từ “trưởng thành”, trẻ em mỗi ngày lớn lên từng chút một.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 15047,
+      "term": "かせぐ",
+      "reading": "かせぐ",
+      "romaji": null,
+      "definition": "Kiếm tiền",
+      "exampleSentence": "将来の夢のために、アルバイトでお金をかせぐつもりです。",
+      "exampleTranslation": "Tôi dự định kiếm tiền từ công việc làm thêm để thực hiện ước mơ tương lai.",
+      "forms": [],
+      "displayOrder": 20
+    }
+  ]
+}

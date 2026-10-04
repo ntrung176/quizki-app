@@ -5,7 +5,7 @@ import {
     ArrowLeft, ArrowRight, Settings, Sparkle, AlertCircle, CheckCircle2, 
     Play, Send, RefreshCw, Star, Info, Languages, Radio, Trophy, Phone, PhoneOff,
     Activity, Zap, Award, Lightbulb, Volume1, X, ShieldAlert, Cpu, Terminal, Sparkles, Clock,
-    SlidersHorizontal
+    SlidersHorizontal, BookOpen
 } from 'lucide-react';
 import { callKaiwaAI, parseJsonFromAI, callWhisperSTT, callOpenAITTS } from '../../utils/aiProvider';
 import { ROUTES } from '../../router';
@@ -14,6 +14,8 @@ import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import KaiwaScorecardModal from '../ui/KaiwaScorecardModal';
 import AiKaiwaCallOverlay from '../ui/AiKaiwaCallOverlay';
+import KaiwaCoachSection from '../kaiwa/KaiwaCoachSection';
+
 
 // Level configurations with futuristic Cyber gradients & HUD tags
 const LEVELS = [
@@ -172,9 +174,11 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
     
     // Core setup states
     const [step, setStep] = useState('setup'); // 'setup' | 'chat'
+    const [mainKaiwaTab, setMainKaiwaTab] = useState('live'); // 'live' | 'coach'
     const [level, setLevel] = useState(isEnglishMode ? 'B1_B2' : 'N3');
     const [teacher, setTeacher] = useState(isEnglishMode ? 'alex' : 'sakura');
     const [topic, setTopic] = useState('free_talk');
+
     
     // Premium Daily 10-Min Limit (Unlimited for Admin)
     const isUnlimited = isAdmin && !profile?.trialPricingTier;
@@ -1175,26 +1179,64 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
 
             {step === 'setup' ? (
                 /* SIMPLIFIED ELEVATED SETUP PANEL (MOBILE-FIRST) */
-                <div className="w-full max-w-3xl mx-auto space-y-5 sm:space-y-6 relative z-10 py-2 px-1 sm:px-0">
+                <div className="w-full max-w-4xl mx-auto space-y-5 sm:space-y-6 relative z-10 py-2 px-1 sm:px-0">
                     {/* Header */}
                     <div className="text-center space-y-1.5">
                         <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
-                            {isEnglishMode ? 'Phòng Luyện Nói Tiếng Anh' : 'Phòng Kaiwa AI Bản Xứ'}
+                            {isEnglishMode ? 'Phòng Luyện Nói Tiếng Anh' : 'Trung Tâm Giao Tiếp & Hội Thoại AI'}
                         </h1>
 
                         <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm max-w-md mx-auto font-medium">
-                            Luyện phản xạ giao tiếp tự nhiên và nhận phản hồi trực tiếp từ Giáo viên AI.
+                            Luyện phản xạ giao tiếp thực chiến và học phương pháp tạo lập câu qua 70 bài học chiến lược.
                         </p>
                     </div>
 
-                    {/* Single Unified Configuration Card */}
-                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-4 sm:p-7 shadow-xl space-y-5 sm:space-y-6">
-                        {/* 1. TEACHER SELECTION */}
-                        <div className="space-y-2.5">
-                            <label className="text-xs font-bold font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-2">
-                                <Star className="w-4 h-4 text-amber-500" />
-                                <span>1. Chọn Giáo Viên AI</span>
-                            </label>
+                    {/* Mode Switcher Tabs */}
+                    <div className="flex items-center justify-center gap-2 p-1.5 bg-slate-200/70 dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 max-w-lg mx-auto shadow-2xs">
+                        <button
+                            onClick={() => setMainKaiwaTab('live')}
+                            className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer flex items-center justify-center gap-2 ${
+                                mainKaiwaTab === 'live'
+                                    ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-cyan-400 shadow-sm'
+                                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                            }`}
+                        >
+                            <Radio className="w-4 h-4" />
+                            <span>Phòng Luyện Nói AI</span>
+                        </button>
+
+                        <button
+                            onClick={() => setMainKaiwaTab('coach')}
+                            className={`flex-1 py-2.5 px-3 rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer flex items-center justify-center gap-2 ${
+                                mainKaiwaTab === 'coach'
+                                    ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-cyan-400 shadow-sm'
+                                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                            }`}
+                        >
+                            <BookOpen className="w-4 h-4" />
+                            <span>Huấn Luyện Viên (70 Bài)</span>
+                        </button>
+                    </div>
+
+                    {mainKaiwaTab === 'coach' ? (
+                        <KaiwaCoachSection 
+                            onStartCoachChat={(coachTopic) => {
+                                setTopic(coachTopic);
+                                setMainKaiwaTab('live');
+                                handleStartConversation();
+                            }}
+                        />
+                    ) : (
+                        <>
+                            {/* Single Unified Configuration Card */}
+                            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-4 sm:p-7 shadow-xl space-y-5 sm:space-y-6">
+                                {/* 1. TEACHER SELECTION */}
+                                <div className="space-y-2.5">
+                                    <label className="text-xs font-bold font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-2">
+                                        <Star className="w-4 h-4 text-amber-500" />
+                                        <span>1. Chọn Giáo Viên AI</span>
+                                    </label>
+
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
                                 {currentTeachers.map((tc) => {
                                     const isSelected = teacher === tc.id;
@@ -1291,8 +1333,11 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
                             <span>BẮT ĐẦU TRÒ CHUYỆN AI</span>
                         </button>
                     </div>
+                    </>
+                    )}
                 </div>
             ) : (
+
                 /* RESPONSIVE DYNAMIC HEIGHT CHAT PANEL WITH STICKY FOOTER */
                 <div className="w-full max-w-5xl mx-auto flex flex-col h-[calc(100dvh-5rem)] md:h-[calc(100vh-90px)] bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200 dark:border-cyan-500/30 shadow-2xl relative overflow-hidden z-10">
                     {/* Sci-Fi Top Cyber Terminal Header */}

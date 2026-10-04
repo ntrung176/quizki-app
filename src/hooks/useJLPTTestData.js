@@ -4,13 +4,15 @@ import { db, appId } from '../config/firebase';
 import { 
     subscribeJLPTTests, 
     getSynchronousJLPTTests, 
-    isJLPTDataLoaded 
+    isJLPTDataLoaded,
+    loadJLPTLevelData
 } from '../services/jlptDataService';
 
 export const useJLPTTestData = ({ userId, profile }) => {
     const [tests, setTests] = useState(() => getSynchronousJLPTTests());
     const [loading, setLoading] = useState(() => !isJLPTDataLoaded());
     const [targetLevel, setTargetLevel] = useState(profile?.jlptTargetLevel || 'N2');
+
     const [completedTests, setCompletedTests] = useState(() => {
         try {
             return JSON.parse(localStorage.getItem('quizki_completed_tests') || '{}');
@@ -61,6 +63,13 @@ export const useJLPTTestData = ({ userId, profile }) => {
             setTargetLevel(profile.jlptTargetLevel);
         }
     }, [profile?.jlptTargetLevel]);
+
+    useEffect(() => {
+        if (targetLevel) {
+            loadJLPTLevelData(targetLevel);
+        }
+    }, [targetLevel]);
+
 
     const handleUpdateTargetLevel = async (newLevel) => {
         setTargetLevel(newLevel);

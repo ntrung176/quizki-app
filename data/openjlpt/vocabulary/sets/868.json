@@ -1,0 +1,44 @@
+{
+  "id": 868,
+  "title": "N5 Tango 3.4 - Công việc · Có bao nhiêu cái?",
+  "description": "Tango N5 — Công việc",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:47.529558",
+  "cards": [
+    {
+      "id": 20290,
+      "term": "何個 (なんこ)",
+      "reading": "なんこ",
+      "romaji": null,
+      "definition": "Bao nhiêu (mấy) cái (cục, trái, chiếc..)",
+      "exampleSentence": "りんごを何個買いましたか。",
+      "exampleTranslation": "Bạn đã mua mấy quả táo?",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20291,
+      "term": "〜個 (こ)",
+      "reading": "こ",
+      "romaji": null,
+      "definition": "Cục, cái (counter)",
+      "exampleSentence": "「〜個」は小さい物を数えるときに使います。",
+      "exampleTranslation": "“〜個” được dùng để đếm những vật nhỏ.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20292,
+      "term": "何台 (なんだい)",
+      "reading": "なんだい",
+      "romaji": null,
+      "definition": "Bao nhiêu (mấy) cái (đếm máy móc, xe cộ…)",
+      "exampleSentence": "駐車場に車が何台ありますか。",
+      "exampleTranslation": "Trong bãi đỗ xe có bao nhiêu chiếc ô tô?",
+      "forms": [],
+      "displayOrder": 2
+    }
+  ]
+}

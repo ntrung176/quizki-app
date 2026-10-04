@@ -1,0 +1,165 @@
+{
+  "id": 606,
+  "title": "N2 Unit 11.2 - 名詞D (bài 2/8)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞D",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.614214",
+  "cards": [
+    {
+      "id": 14068,
+      "term": "動機 (どうき)",
+      "reading": "どうき",
+      "romaji": null,
+      "definition": "động cơ, nguyên nhân, lý do",
+      "exampleSentence": "「我が社の求人に応募した動機は何ですか」",
+      "exampleTranslation": "Động cơ ứng tuyển vào công ty chúng tôi là gì?",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14069,
+      "term": "皮肉 (ひにく)",
+      "reading": "ひにく",
+      "romaji": null,
+      "definition": "giễu cợt, mỉa mai",
+      "exampleSentence": "田中部長はよく皮肉を言う。",
+      "exampleTranslation": "Trưởng phòng Tanaka hay nói lời mỉa mai.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14070,
+      "term": "皮肉 (ひにく)",
+      "reading": "ひにく",
+      "romaji": null,
+      "definition": "mỉa mai, châm biếm, trớ trêu",
+      "exampleSentence": "青年時代には人生の意義について考える物だ。",
+      "exampleTranslation": "Thời trẻ người ta thường suy nghĩ về ý nghĩa cuộc đời.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14071,
+      "term": "主義 (しゅぎ)",
+      "reading": "しゅぎ",
+      "romaji": null,
+      "definition": "chủ nghĩa, nguyên tắc",
+      "exampleSentence": "私は、一度言ったことは必ず最後まで貫く主義だ。",
+      "exampleTranslation": "Tôi theo chủ nghĩa đã nói là làm đến cùng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14072,
+      "term": "精神 (せいしん)",
+      "reading": "せいしん",
+      "romaji": null,
+      "definition": "tinh thần",
+      "exampleSentence": "精神と肉体は結び付いている。",
+      "exampleTranslation": "Tinh thần và thể xác có mối liên hệ chặt chẽ.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14073,
+      "term": "年代 (ねんだい)",
+      "reading": "ねんだい",
+      "romaji": null,
+      "definition": "niên đại",
+      "exampleSentence": "日本では、1960年代は高度成長の時代だった。",
+      "exampleTranslation": "Nhật Bản những năm 1960 là thời kỳ tăng trưởng cao.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14074,
+      "term": "世代 (せだい)",
+      "reading": "せだい",
+      "romaji": null,
+      "definition": "thế hệ",
+      "exampleSentence": "我が家は三世代が一緒に住んでいる。",
+      "exampleTranslation": "Gia đình tôi có ba thế hệ cùng chung sống.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14075,
+      "term": "基礎 (きそ)",
+      "reading": "きそ",
+      "romaji": null,
+      "definition": "cơ bản",
+      "exampleSentence": "何事も、基礎が大切だ。",
+      "exampleTranslation": "Việc gì cũng cần nền tảng vững chắc.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14076,
+      "term": "基準 (きじゅん)",
+      "reading": "きじゅん",
+      "romaji": null,
+      "definition": "tiêu chuẩn",
+      "exampleSentence": "この川の水は水質基準を満たしていないから、飲まないほうがいい。",
+      "exampleTranslation": "Nước sông này không đạt tiêu chuẩn chất lượng nên không nên uống.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14077,
+      "term": "標準 (ひょうじゅん)",
+      "reading": "ひょうじゅん",
+      "romaji": null,
+      "definition": "tiêu chuẩn",
+      "exampleSentence": "オリンピックの標準記録を上回り、出場できることになった。",
+      "exampleTranslation": "Vượt chuẩn Olympic nên đủ điều kiện tham dự.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14078,
+      "term": "典型 (てんけい)",
+      "reading": "てんけい",
+      "romaji": null,
+      "definition": "điển hình",
+      "exampleSentence": "この寺は江戸時代の仏教建築の典型だと言われている。",
+      "exampleTranslation": "Ngôi chùa này được xem là kiến trúc Phật giáo tiêu biểu thời Edo.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14079,
+      "term": "方言 (ほうげん)",
+      "reading": "ほうげん",
+      "romaji": null,
+      "definition": "tiếng địa phương",
+      "exampleSentence": "方言を聞くと、ふるさとを思い出す。",
+      "exampleTranslation": "Nghe phương ngữ là nhớ quê.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 14080,
+      "term": "分布 (ぶんぷ)",
+      "reading": "ぶんぷ",
+      "romaji": null,
+      "definition": "phân bố",
+      "exampleSentence": "この植物は、西日本に広く分布している。",
+      "exampleTranslation": "Loài thực vật này phân bố rộng ở miền Tây Nhật Bản.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 14081,
+      "term": "発展 (はってん)",
+      "reading": "はってん",
+      "romaji": null,
+      "definition": "phát triển, mở rộng",
+      "exampleSentence": "アジアは現在大きく発展している。",
+      "exampleTranslation": "Châu Á hiện đang phát triển mạnh.",
+      "forms": [],
+      "displayOrder": 13
+    }
+  ]
+}

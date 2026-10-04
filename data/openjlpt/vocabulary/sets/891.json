@@ -1,0 +1,143 @@
+{
+  "id": 891,
+  "title": "N5 Tango 8.2 - Ngày nghỉ · Khoảng bao lâu?",
+  "description": "Tango N5 — Ngày nghỉ",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:49.229549",
+  "cards": [
+    {
+      "id": 20778,
+      "term": "時間 (じかん)",
+      "reading": "じかん",
+      "romaji": null,
+      "definition": "Thời gian",
+      "exampleSentence": "駅から学校まで時間がかかります。",
+      "exampleTranslation": "Từ ga đến trường mất khá nhiều thời gian.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20779,
+      "term": "いそぐ",
+      "reading": "いそぐ",
+      "romaji": null,
+      "definition": "Gấp rút, vội vã",
+      "exampleSentence": "学校に遅れそうなときは、いそぐことが大切です。",
+      "exampleTranslation": "Khi có vẻ sắp muộn học thì việc vội vàng là rất quan trọng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20780,
+      "term": "どのくらい/ぐらい",
+      "reading": "どのくらい/ぐらい",
+      "romaji": null,
+      "definition": "Khoảng bao lâu",
+      "exampleSentence": "駅から学校までどのくらい/ぐらいかかりますか。",
+      "exampleTranslation": "Từ ga đến trường mất khoảng bao lâu?",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20781,
+      "term": "かかる",
+      "reading": "かかる",
+      "romaji": null,
+      "definition": "Mất, tốn (thời gian, tiền bạc)",
+      "exampleSentence": "駅から学校まで、歩いて十分かかる。",
+      "exampleTranslation": "Từ ga đến trường đi bộ mất mười phút.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20782,
+      "term": "ちかい",
+      "reading": "ちかい",
+      "romaji": null,
+      "definition": "Gần",
+      "exampleSentence": "私の家は駅にちかいです。",
+      "exampleTranslation": "Nhà tôi gần nhà ga.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20783,
+      "term": "とおい",
+      "reading": "とおい",
+      "romaji": null,
+      "definition": "Xa",
+      "exampleSentence": "私の家は駅からとおいです。",
+      "exampleTranslation": "Nhà tôi ở xa nhà ga.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20784,
+      "term": "ずっと",
+      "reading": "ずっと",
+      "romaji": null,
+      "definition": "Suốt, hẳn",
+      "exampleSentence": "休みの日は、ずっと家で映画を見ました。",
+      "exampleTranslation": "Vào ngày nghỉ, tôi đã xem phim suốt ở nhà.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20785,
+      "term": "いつも",
+      "reading": "いつも",
+      "romaji": null,
+      "definition": "Luôn luôn",
+      "exampleSentence": "私はいつも朝七時に起きます。",
+      "exampleTranslation": "Tôi luôn thức dậy lúc bảy giờ sáng.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20786,
+      "term": "たいてい",
+      "reading": "たいてい",
+      "romaji": null,
+      "definition": "Đại thể, thường",
+      "exampleSentence": "私はたいてい朝ご飯を家で食べます。",
+      "exampleTranslation": "Tôi thường ăn sáng ở nhà.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20787,
+      "term": "よく",
+      "reading": "よく",
+      "romaji": null,
+      "definition": "Thường, hay",
+      "exampleSentence": "私はよく図書館で勉強します。",
+      "exampleTranslation": "Tôi thường học ở thư viện.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20788,
+      "term": "ときどき",
+      "reading": "ときどき",
+      "romaji": null,
+      "definition": "Thỉnh thoảng, đôi khi",
+      "exampleSentence": "ときどき友達と映画を見に行きます。",
+      "exampleTranslation": "Thỉnh thoảng tôi đi xem phim với bạn.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 20789,
+      "term": "だけ",
+      "reading": "だけ",
+      "romaji": null,
+      "definition": "Chỉ",
+      "exampleSentence": "今日は水だけ飲みました。",
+      "exampleTranslation": "Hôm nay tôi chỉ uống nước.",
+      "forms": [],
+      "displayOrder": 11
+    }
+  ]
+}

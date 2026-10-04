@@ -1,0 +1,198 @@
+{
+  "id": 858,
+  "title": "N5 Tango 1.4 - Tự giới thiệu · Bao nhiêu người",
+  "description": "Tango N5 — Tự giới thiệu",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:46.698948",
+  "cards": [
+    {
+      "id": 20065,
+      "term": "ひとり",
+      "reading": "ひとり",
+      "romaji": null,
+      "definition": "Một người",
+      "exampleSentence": "今日はひとりで映画を見に行きます。",
+      "exampleTranslation": "Hôm nay tôi đi xem phim một mình.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20066,
+      "term": "ふたり",
+      "reading": "ふたり",
+      "romaji": null,
+      "definition": "Hai người",
+      "exampleSentence": "ふたりで公園を散歩しました。",
+      "exampleTranslation": "Hai chúng tôi đã đi dạo trong công viên.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20067,
+      "term": "さんにん",
+      "reading": "さんにん",
+      "romaji": null,
+      "definition": "Ba người",
+      "exampleSentence": "教室にさんにんの学生がいます。",
+      "exampleTranslation": "Trong lớp có ba học sinh.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20068,
+      "term": "よにん",
+      "reading": "よにん",
+      "romaji": null,
+      "definition": "Bốn người",
+      "exampleSentence": "私の家族はよにんで、毎晩いっしょにご飯を食べます。",
+      "exampleTranslation": "Gia đình tôi có bốn người và tối nào cũng ăn cơm cùng nhau.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20069,
+      "term": "ごにん",
+      "reading": "ごにん",
+      "romaji": null,
+      "definition": "Năm người",
+      "exampleSentence": "パーティーにごにんの友達が来ました。",
+      "exampleTranslation": "Có năm người bạn đã đến bữa tiệc.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20070,
+      "term": "ろくにん",
+      "reading": "ろくにん",
+      "romaji": null,
+      "definition": "Sáu người",
+      "exampleSentence": "会社にろくにんの新しい社員が入りました。",
+      "exampleTranslation": "Có sáu nhân viên mới vào công ty.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20071,
+      "term": "しち/ななにん",
+      "reading": "しち/ななにん",
+      "romaji": null,
+      "definition": "Bảy người",
+      "exampleSentence": "「しち/ななにん」は「七人」の読み方です。",
+      "exampleTranslation": "「しち/ななにん」 là cách đọc của 「七人」.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20072,
+      "term": "はちにん",
+      "reading": "はちにん",
+      "romaji": null,
+      "definition": "Tám người",
+      "exampleSentence": "イベントに八人、はちにんの学生が参加しました。",
+      "exampleTranslation": "Tám học sinh đã tham gia sự kiện.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20073,
+      "term": "く/きゅうにん",
+      "reading": "く/きゅうにん",
+      "romaji": null,
+      "definition": "Chín người",
+      "exampleSentence": "「く/きゅうにん」は「九人」の読み方です。",
+      "exampleTranslation": "「く/きゅうにん」 là cách đọc của 「九人」.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20074,
+      "term": "じゅうにん",
+      "reading": "じゅうにん",
+      "romaji": null,
+      "definition": "Mười người",
+      "exampleSentence": "教室にじゅうにんの学生が集まりました。",
+      "exampleTranslation": "Mười học sinh đã tập trung trong lớp.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20075,
+      "term": "なんにん",
+      "reading": "なんにん",
+      "romaji": null,
+      "definition": "Mấy người, bao nhiêu người",
+      "exampleSentence": "その会議にはなんにん参加しますか。",
+      "exampleTranslation": "Có bao nhiêu người sẽ tham gia cuộc họp đó?",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 20076,
+      "term": "おとな",
+      "reading": "おとな",
+      "romaji": null,
+      "definition": "Người lớn",
+      "exampleSentence": "おとなは子どもより長く働きます。",
+      "exampleTranslation": "Người lớn làm việc lâu hơn trẻ em.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 20077,
+      "term": "こども",
+      "reading": "こども",
+      "romaji": null,
+      "definition": "Trẻ em, trẻ con, con cái",
+      "exampleSentence": "あのこどもは毎日公園で遊びます。",
+      "exampleTranslation": "Đứa trẻ kia ngày nào cũng chơi ở công viên.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 20078,
+      "term": "おとこのひと",
+      "reading": "おとこのひと",
+      "romaji": null,
+      "definition": "Người đàn ông",
+      "exampleSentence": "あそこにいるおとこのひとは先生です。",
+      "exampleTranslation": "Người đàn ông ở đằng kia là giáo viên.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 20079,
+      "term": "おんなのひと",
+      "reading": "おんなのひと",
+      "romaji": null,
+      "definition": "Người phụ nữ",
+      "exampleSentence": "駅でおんなのひとに道を聞きました。",
+      "exampleTranslation": "Tôi đã hỏi đường một người phụ nữ ở nhà ga.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 20080,
+      "term": "おとこのこ",
+      "reading": "おとこのこ",
+      "romaji": null,
+      "definition": "Cậu bé, đứa bé trai",
+      "exampleSentence": "公園でおとこのこがサッカーをしています。",
+      "exampleTranslation": "Một cậu bé đang chơi bóng đá trong công viên.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 20081,
+      "term": "おんなのこ",
+      "reading": "おんなのこ",
+      "romaji": null,
+      "definition": "Cô bé, đứa bé gái",
+      "exampleSentence": "そのおんなのこは赤い帽子をかぶっています。",
+      "exampleTranslation": "Cô bé đó đang đội một chiếc mũ đỏ.",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

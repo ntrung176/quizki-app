@@ -1,0 +1,121 @@
+{
+  "id": 592,
+  "title": "N2 Unit 8.5 - 動詞B (bài 5/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.421942",
+  "cards": [
+    {
+      "id": 13894,
+      "term": "引っ掛かる (ひっかかる)",
+      "reading": "ひっかかる",
+      "romaji": null,
+      "definition": "bị mắc vào, bị vướng vào,bị kéo vào, bị lừa",
+      "exampleSentence": "山で服が木に引っかかって破れてしまった。",
+      "exampleTranslation": "Trên núi, áo bị mắc vào cây nên bị rách.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13895,
+      "term": "引っ掛ける (ひっかける)",
+      "reading": "ひっかける",
+      "romaji": null,
+      "definition": "mắc, lừa đảo, ném vào",
+      "exampleSentence": "釘に服をひっかけて破ってしまった。",
+      "exampleTranslation": "Mắc áo vào đinh làm rách.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13896,
+      "term": "ひっくり返る (ひっくりかえる)",
+      "reading": "ひっくりかえる",
+      "romaji": null,
+      "definition": "bị lật, bị đảo ngược, hỗn loạn",
+      "exampleSentence": "ボートが波でひっくりかえって上下さかさまになった。",
+      "exampleTranslation": "Thuyền bị sóng lật úp, úp ngửa đảo lộn.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13897,
+      "term": "ひっくり返す (ひっくりかえす)",
+      "reading": "ひっくりかえす",
+      "romaji": null,
+      "definition": "đảo ngược, lật ngửa",
+      "exampleSentence": "魚をひっくり返して焼く。",
+      "exampleTranslation": "Lật mặt cá lại để nướng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13898,
+      "term": "ずれる",
+      "reading": "ずれる",
+      "romaji": null,
+      "definition": "trượt, đi chệch",
+      "exampleSentence": "地震で鉄道のレールがずれた。",
+      "exampleTranslation": "Động đất làm đường ray bị lệch.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13899,
+      "term": "ずらす",
+      "reading": "ずらす",
+      "romaji": null,
+      "definition": "rời ra, lùi ra, hoãn lại",
+      "exampleSentence": "机を少しずらして床を掃除した。",
+      "exampleTranslation": "Dịch cái bàn ra một chút để lau sàn.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13900,
+      "term": "崩れる (くずれる)",
+      "reading": "くずれる",
+      "romaji": null,
+      "definition": "sụp đổ",
+      "exampleSentence": "大雨で山が崩れた。",
+      "exampleTranslation": "Mưa lớn làm núi bị sạt lở.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13901,
+      "term": "崩す (くずす)",
+      "reading": "くずす",
+      "romaji": null,
+      "definition": "phá",
+      "exampleSentence": "山を崩して住宅地が造られている。",
+      "exampleTranslation": "Phá núi/san núi để xây khu dân cư.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13902,
+      "term": "荒れる (あれる)",
+      "reading": "あれる",
+      "romaji": null,
+      "definition": "bão bùng, hỗn loạn",
+      "exampleSentence": "台風の接近で山も海も荒れている。",
+      "exampleTranslation": "Do bão tiến gần, cả núi lẫn biển đều động/dữ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13903,
+      "term": "荒らす (あらす)",
+      "reading": "あらす",
+      "romaji": null,
+      "definition": "tàn phá, gây thiệt hại, phá hoại",
+      "exampleSentence": "泥棒に入られ、部屋が荒らされた。",
+      "exampleTranslation": "Bị trộm đột nhập, phòng bị lục tung/bày bừa.",
+      "forms": [],
+      "displayOrder": 9
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+{
+  "id": 800,
+  "title": "N1 Tango 4.1 - Ở trường · Trường học",
+  "description": "Tango N1 — Ở trường",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:40.799729",
+  "cards": [
+    {
+      "id": 18554,
+      "term": "創立（する） (そうりつ（する）)",
+      "reading": "そうりつ（する）",
+      "romaji": null,
+      "definition": "Thành lập, sáng lập, xây dựng",
+      "exampleSentence": "祖父がこの会社を創立（する）際に掲げた理念は、今も社員に受け継がれている。",
+      "exampleTranslation": "Triết lý mà ông tôi đề ra khi thành lập công ty này đến nay vẫn được nhân viên kế thừa.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 18555,
+      "term": "〜周年 (～しゅうねん)",
+      "reading": "～しゅうねん",
+      "romaji": null,
+      "definition": "Kỷ niệm ~năm, ~chu niên",
+      "exampleSentence": "今年、会社は創立〜周年の節目を迎え、記念式典を開いた。",
+      "exampleTranslation": "Năm nay, công ty đã đón cột mốc kỷ niệm ~ năm thành lập và tổ chức lễ kỷ niệm.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 18556,
+      "term": "重んじる (おもんじる)",
+      "reading": "おもんじる",
+      "romaji": null,
+      "definition": "Coi trọng, quý trọng, tôn trọng",
+      "exampleSentence": "その企業は、利益よりも社員の安全を重んじる姿勢を明確にしている。",
+      "exampleTranslation": "Công ty đó thể hiện rõ lập trường coi trọng sự an toàn của nhân viên hơn lợi nhuận.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 18557,
+      "term": "掲げる (かかげる)",
+      "reading": "かかげる",
+      "romaji": null,
+      "definition": "Đề ra, nêu lên / Giương, treo lên",
+      "exampleSentence": "政府は少子化対策を最重要課題として掲げる方針を示した。",
+      "exampleTranslation": "Chính phủ đã đưa ra chính sách đề ra đối sách với tình trạng tỷ lệ sinh giảm là nhiệm vụ quan trọng nhất.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 18558,
+      "term": "禁じる (きんじる)",
+      "reading": "きんじる",
+      "romaji": null,
+      "definition": "Cấm, nghiêm cấm",
+      "exampleSentence": "この規則は、差別的な表現の使用を禁じる。",
+      "exampleTranslation": "Quy định này nghiêm cấm việc sử dụng những cách diễn đạt mang tính phân biệt đối xử.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 18559,
+      "term": "見なす (みなす)",
+      "reading": "みなす",
+      "romaji": null,
+      "definition": "Xem như là, coi như là",
+      "exampleSentence": "法律上、この契約書への署名を正式な同意と見なす。",
+      "exampleTranslation": "Về mặt pháp luật, chữ ký trên hợp đồng này được xem là sự đồng ý chính thức.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 18560,
+      "term": "募る (つのる)",
+      "reading": "つのる",
+      "romaji": null,
+      "definition": "Chiêu mộ, tuyển mộ / Ngày càng mạnh, dữ dội",
+      "exampleSentence": "市は災害復旧を支援するボランティアを全国から募る。",
+      "exampleTranslation": "Thành phố tuyển tình nguyện viên trên toàn quốc để hỗ trợ khôi phục sau thiên tai.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 18561,
+      "term": "共学 (きょうがく)",
+      "reading": "きょうがく",
+      "romaji": null,
+      "definition": "Đồng học, học chung (nam nữ)",
+      "exampleSentence": "私の母校は、男女がともに学ぶ共学の高校です。",
+      "exampleTranslation": "Trường cũ của tôi là một trường trung học nam nữ học chung.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 18562,
+      "term": "在籍（する） (ざいせき（する）)",
+      "reading": "ざいせき（する）",
+      "romaji": null,
+      "definition": "Tại tịch, đang làm việc, đang theo học",
+      "exampleSentence": "本校に在籍（する）学生は、図書館を自由に利用できる。",
+      "exampleTranslation": "Học sinh đang theo học tại trường này có thể tự do sử dụng thư viện.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 18563,
+      "term": "総数 (そうすう)",
+      "reading": "そうすう",
+      "romaji": null,
+      "definition": "Tổng số",
+      "exampleSentence": "応募者の総数は、昨年度より三割増加した。",
+      "exampleTranslation": "Tổng số người ứng tuyển đã tăng 30% so với năm ngoái.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 18564,
+      "term": "見込み (みこみ)",
+      "reading": "みこみ",
+      "romaji": null,
+      "definition": "Khả năng, dự kiến, triển vọng",
+      "exampleSentence": "今年の売上は、前年を上回る見込みです。",
+      "exampleTranslation": "Doanh thu năm nay dự kiến sẽ vượt năm trước.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 18565,
+      "term": "課程 (かてい)",
+      "reading": "かてい",
+      "romaji": null,
+      "definition": "Khóa trình, chương trình học",
+      "exampleSentence": "この大学院の修士課程では、実践的な研究能力を身につける。",
+      "exampleTranslation": "Ở chương trình thạc sĩ của trường sau đại học này, học viên sẽ trau dồi năng lực nghiên cứu thực tiễn.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 18566,
+      "term": "レッスン",
+      "reading": "レッスン",
+      "romaji": null,
+      "definition": "Bài học, buổi học",
+      "exampleSentence": "毎週のレッスンで、発音と会話を重点的に練習している。",
+      "exampleTranslation": "Trong các buổi học hằng tuần, tôi tập trung luyện phát âm và hội thoại.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 18567,
+      "term": "ひとえに",
+      "reading": "ひとえに",
+      "romaji": null,
+      "definition": "Hoàn toàn là nhờ, chỉ nhờ vào",
+      "exampleSentence": "この成功は、ひとえに皆様のご支援のおかげです。",
+      "exampleTranslation": "Thành công này hoàn toàn là nhờ sự ủng hộ của quý vị.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 18568,
+      "term": "多数決 (たすうけつ)",
+      "reading": "たすうけつ",
+      "romaji": null,
+      "definition": "Biểu quyết theo đa số, quyết định theo số đông",
+      "exampleSentence": "意見が割れたため、最後は多数決で方針を決めることになった。",
+      "exampleTranslation": "Vì ý kiến bị chia rẽ nên cuối cùng mọi người quyết định phương hướng bằng biểu quyết theo đa số.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 18569,
+      "term": "指名（する） (しめい（する）)",
+      "reading": "しめい（する）",
+      "romaji": null,
+      "definition": "Chỉ định, chỉ đích danh",
+      "exampleSentence": "会議では、議長が発言者を指名（する）ことで議論を円滑に進めた。",
+      "exampleTranslation": "Trong cuộc họp, chủ tọa đã chỉ định người phát biểu để cuộc thảo luận diễn ra suôn sẻ.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 18570,
+      "term": "承認（する） (しょうにん（する）)",
+      "reading": "しょうにん（する）",
+      "romaji": null,
+      "definition": "Phê duyệt, thông qua, chấp thuận",
+      "exampleSentence": "委員会は新しい計画を承認（する）前に、費用と効果を慎重に検討した。",
+      "exampleTranslation": "Trước khi phê duyệt kế hoạch mới, ủy ban đã thận trọng xem xét chi phí và hiệu quả.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 18571,
+      "term": "漫然と（する） (まんぜんと（する）)",
+      "reading": "まんぜんと（する）",
+      "romaji": null,
+      "definition": "Mơ hồ, không có mục đích, vô định",
+      "exampleSentence": "目的もなく漫然と（する）日々を過ごしていると、貴重な時間を失ってしまう。",
+      "exampleTranslation": "Nếu cứ sống những ngày tháng vô định, không mục đích, ta sẽ đánh mất khoảng thời gian quý giá.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 18572,
+      "term": "率先（する） (そっせん（する）)",
+      "reading": "そっせん（する）",
+      "romaji": null,
+      "definition": "Đi đầu, tiên phong, dẫn đầu",
+      "exampleSentence": "彼は率先（する）姿勢を示し、難しい仕事にも最初に取り組んだ。",
+      "exampleTranslation": "Anh ấy thể hiện tinh thần đi đầu và là người đầu tiên bắt tay vào công việc khó.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 18573,
+      "term": "指摘（する） (してき（する）)",
+      "reading": "してき（する）",
+      "romaji": null,
+      "definition": "Chỉ ra, chỉ trích",
+      "exampleSentence": "専門家は報告書の誤りを指摘（する）だけでなく、具体的な改善策も示した。",
+      "exampleTranslation": "Chuyên gia không chỉ chỉ ra lỗi trong báo cáo mà còn đưa ra biện pháp cải thiện cụ thể.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 18574,
+      "term": "名称 (めいしょう)",
+      "reading": "めいしょう",
+      "romaji": null,
+      "definition": "Tên gọi, danh xưng",
+      "exampleSentence": "この制度は正式な名称が決まるまで、仮の名前で呼ばれていた。",
+      "exampleTranslation": "Chế độ này được gọi bằng tên tạm thời cho đến khi có tên gọi chính thức.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 18575,
+      "term": "恩師 (おんし)",
+      "reading": "おんし",
+      "romaji": null,
+      "definition": "Ân sư, người thầy đáng kính",
+      "exampleSentence": "卒業後も、恩師からいただいた助言は私の支えになっている。",
+      "exampleTranslation": "Ngay cả sau khi tốt nghiệp, những lời khuyên của người thầy đáng kính vẫn là chỗ dựa của tôi.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "id": 612,
+  "title": "N2 Unit 11.8 - 名詞D (bài 8/8)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞D",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.713929",
+  "cards": [
+    {
+      "id": 14146,
+      "term": "筋 (すじ)",
+      "reading": "すじ",
+      "romaji": null,
+      "definition": "cốt truyện, gân, nguồn",
+      "exampleSentence": "昔読んだ小説の筋を忘れてしまった。",
+      "exampleTranslation": "Tôi quên mất cốt truyện của cuốn tiểu thuyết đọc hồi xưa.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14147,
+      "term": "余裕 (よゆう)",
+      "reading": "よゆう",
+      "romaji": null,
+      "definition": "thừa, dư ra",
+      "exampleSentence": "車を買い替えたいが、その余裕がない。",
+      "exampleTranslation": "Tôi muốn đổi xe nhưng không có dư tiền (không đủ điều kiện).",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14148,
+      "term": "負担 (ふたん)",
+      "reading": "ふたん",
+      "romaji": null,
+      "definition": "gánh chịu",
+      "exampleSentence": "「送料は当社負担とします」",
+      "exampleTranslation": "Phí vận chuyển do công ty chúng tôi chịu.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14149,
+      "term": "保証 (ほしょう)",
+      "reading": "ほしょう",
+      "romaji": null,
+      "definition": "bảo hành",
+      "exampleSentence": "この商品には1年間の保証が付いている。",
+      "exampleTranslation": "Sản phẩm này có bảo hành 1 năm.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14150,
+      "term": "催促 (さいそく)",
+      "reading": "さいそく",
+      "romaji": null,
+      "definition": "thúc giục, hối thúc",
+      "exampleSentence": "貸した金をかえすよう、催促の電話をかけた。",
+      "exampleTranslation": "Tôi gọi điện thúc/nhắc để họ trả tiền đã vay.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14151,
+      "term": "成立 (せいりつ)",
+      "reading": "せいりつ",
+      "romaji": null,
+      "definition": "hình thành, thành lập",
+      "exampleSentence": "｛国家/法律/予算/条約/契約/商談…｝が成立する。",
+      "exampleTranslation": "{Quốc gia/luật/ngân sách/hiệp ước/hợp đồng/thương vụ…} được thông qua/được ký kết/được thành lập.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14152,
+      "term": "矛盾 (むじゅん)",
+      "reading": "むじゅん",
+      "romaji": null,
+      "definition": "mâu thuẫn",
+      "exampleSentence": "田中さんの言っていることとしていることが矛盾している。",
+      "exampleTranslation": "Những gì anh Tanaka nói và những gì anh ấy làm đang mâu thuẫn.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14153,
+      "term": "存在 (そんざい)",
+      "reading": "そんざい",
+      "romaji": null,
+      "definition": "tồn tại",
+      "exampleSentence": "世界にはUFOの存在を信じる人が多くいる。",
+      "exampleTranslation": "Trên thế giới có rất nhiều người tin vào sự tồn tại của UFO.",
+      "forms": [],
+      "displayOrder": 7
+    }
+  ]
+}

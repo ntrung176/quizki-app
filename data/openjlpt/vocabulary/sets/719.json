@@ -1,0 +1,209 @@
+{
+  "id": 719,
+  "title": "N4 Tango 7.1 - Khi nào? Tại đâu? · Tin tức",
+  "description": "Tango N4 — Khi nào? Tại đâu?",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:32.010098",
+  "cards": [
+    {
+      "id": 16501,
+      "term": "新聞社 (しんぶんしゃ)",
+      "reading": "しんぶんしゃ",
+      "romaji": null,
+      "definition": "Tòa soạn báo",
+      "exampleSentence": "兄は新聞社で記者として働いています。",
+      "exampleTranslation": "Anh trai tôi đang làm phóng viên tại một tòa soạn báo.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 16502,
+      "term": "テレビ局 (テレビきょく)",
+      "reading": "テレビきょく",
+      "romaji": null,
+      "definition": "Đài truyền hình",
+      "exampleSentence": "テレビ局の前に、大勢の人が集まっていました。",
+      "exampleTranslation": "Rất nhiều người đã tập trung trước đài truyền hình.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 16503,
+      "term": "番組 (ばんぐみ)",
+      "reading": "ばんぐみ",
+      "romaji": null,
+      "definition": "Chương trình",
+      "exampleSentence": "毎週日曜日に、好きな番組を見ます。",
+      "exampleTranslation": "Mỗi chủ nhật, tôi xem chương trình mình yêu thích.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 16504,
+      "term": "ネットニュース",
+      "reading": "ネットニュース",
+      "romaji": null,
+      "definition": "Tin tức trên mạng",
+      "exampleSentence": "朝、ネットニュースで事故の記事を読みました。",
+      "exampleTranslation": "Buổi sáng, tôi đã đọc bài viết về vụ tai nạn trên tin tức mạng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 16505,
+      "term": "情報 (じょうほう)",
+      "reading": "じょうほう",
+      "romaji": null,
+      "definition": "Thông tin",
+      "exampleSentence": "旅行の前に、現地の情報を集めました。",
+      "exampleTranslation": "Trước chuyến đi, tôi đã thu thập thông tin về địa phương đó.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 16506,
+      "term": "データ",
+      "reading": "データ",
+      "romaji": null,
+      "definition": "Dữ liệu",
+      "exampleSentence": "このデータを使って、グラフを作ってください。",
+      "exampleTranslation": "Hãy dùng dữ liệu này để tạo biểu đồ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 16507,
+      "term": "キーワード",
+      "reading": "キーワード",
+      "romaji": null,
+      "definition": "Từ khóa",
+      "exampleSentence": "検索するときは、正しいキーワードを入れてください。",
+      "exampleTranslation": "Khi tìm kiếm, hãy nhập từ khóa chính xác.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 16508,
+      "term": "放送（する） (ほうそう（する）)",
+      "reading": "ほうそう（する）",
+      "romaji": null,
+      "definition": "Việc chiếu, phát sóng",
+      "exampleSentence": "ニュースを「放送（する）」ことは、テレビ局の大切な仕事です。",
+      "exampleTranslation": "Việc phát sóng tin tức là công việc quan trọng của đài truyền hình.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 16509,
+      "term": "伝える (つたえる)",
+      "reading": "つたえる",
+      "romaji": null,
+      "definition": "Truyền đạt",
+      "exampleSentence": "大切なことは、早く友達に伝えるようにしてください。",
+      "exampleTranslation": "Hãy cố gắng truyền đạt những điều quan trọng cho bạn bè sớm nhất có thể.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 16510,
+      "term": "火事 (かじ)",
+      "reading": "かじ",
+      "romaji": null,
+      "definition": "Hỏa hoạn",
+      "exampleSentence": "近所で火事があったので、消防車が何台も来ました。",
+      "exampleTranslation": "Vì có hỏa hoạn xảy ra ở gần nhà nên nhiều xe cứu hỏa đã đến.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 16511,
+      "term": "（事故が）起こる (（じこが）おこる)",
+      "reading": "（じこが）おこる",
+      "romaji": null,
+      "definition": "(Tai nạn) xảy ra",
+      "exampleSentence": "この道は車が多く、（事故が）起こる可能性があります。",
+      "exampleTranslation": "Con đường này có nhiều xe nên có khả năng xảy ra tai nạn.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 16512,
+      "term": "発見（する） (はっけん（する）)",
+      "reading": "はっけん（する）",
+      "romaji": null,
+      "definition": "Việc phát hiện, tìm thấy",
+      "exampleSentence": "研究者たちは、森で珍しい植物を発見（する）ために調査を続けています。",
+      "exampleTranslation": "Các nhà nghiên cứu tiếp tục khảo sát để phát hiện loài thực vật quý hiếm trong rừng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 16513,
+      "term": "見つかる (みつかる)",
+      "reading": "みつかる",
+      "romaji": null,
+      "definition": "Được tìm ra, tìm thấy",
+      "exampleSentence": "なくした財布が駅の受付で見つかると、すぐに連絡が来ます。",
+      "exampleTranslation": "Nếu chiếc ví bị mất được tìm thấy ở quầy lễ tân nhà ga, họ sẽ liên lạc ngay.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 16514,
+      "term": "見つける (みつける)",
+      "reading": "みつける",
+      "romaji": null,
+      "definition": "Tìm thấy",
+      "exampleSentence": "駅で財布を見つけるために、来た道を戻りました。",
+      "exampleTranslation": "Để tìm chiếc ví ở nhà ga, tôi đã quay lại con đường vừa đi.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 16515,
+      "term": "発表（する） (はっぴょう（する）)",
+      "reading": "はっぴょう（する）",
+      "romaji": null,
+      "definition": "Bài phát biểu, việc công bố",
+      "exampleSentence": "来週の授業で研究結果を発表します。",
+      "exampleTranslation": "Trong tiết học tuần sau, tôi sẽ báo cáo kết quả nghiên cứu.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 16516,
+      "term": "スピーチ（する）",
+      "reading": "スピーチ（する）",
+      "romaji": null,
+      "definition": "Diễn văn",
+      "exampleSentence": "「スピーチ（する）」という言葉を使って、将来の夢について話しました。",
+      "exampleTranslation": "Tôi đã dùng từ “diễn thuyết” để nói về ước mơ tương lai của mình.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 16517,
+      "term": "つづく",
+      "reading": "つづく",
+      "romaji": null,
+      "definition": "Tiếp tục, kéo dài",
+      "exampleSentence": "雨が三日もつづくと、洗濯物がなかなか乾きません。",
+      "exampleTranslation": "Nếu mưa kéo dài đến ba ngày thì quần áo giặt mãi không khô.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 16518,
+      "term": "つづける",
+      "reading": "つづける",
+      "romaji": null,
+      "definition": "Tiếp tục",
+      "exampleSentence": "体に気をつけながら、毎日勉強をつづけることが大切です。",
+      "exampleTranslation": "Vừa chú ý giữ gìn sức khỏe vừa tiếp tục học mỗi ngày là điều quan trọng.",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

@@ -1,0 +1,220 @@
+{
+  "id": 863,
+  "title": "N5 Tango 2.4 - Học tập · Từ ngữ",
+  "description": "Tango N5 — Học tập",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:47.198126",
+  "cards": [
+    {
+      "id": 20177,
+      "term": "ことば",
+      "reading": "ことば",
+      "romaji": null,
+      "definition": "Từ ngữ, tiếng",
+      "exampleSentence": "新しいことばをノートに書きました。",
+      "exampleTranslation": "Tôi đã viết những từ mới vào vở.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20178,
+      "term": "字 (じ)",
+      "reading": "じ",
+      "romaji": null,
+      "definition": "Chữ",
+      "exampleSentence": "この字は大きく書いてください。",
+      "exampleTranslation": "Hãy viết chữ này thật to.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20179,
+      "term": "にほんご",
+      "reading": "にほんご",
+      "romaji": null,
+      "definition": "Tiếng Nhật",
+      "exampleSentence": "にほんごを毎日少しずつ勉強しています。",
+      "exampleTranslation": "Tôi đang học tiếng Nhật từng chút một mỗi ngày.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20180,
+      "term": "〜ご",
+      "reading": "〜ご",
+      "romaji": null,
+      "definition": "Tiếng",
+      "exampleSentence": "「〜ご」は、国や地域の言葉を表すことばです。",
+      "exampleTranslation": "「〜ご」 là từ chỉ ngôn ngữ của một quốc gia hoặc khu vực.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20181,
+      "term": "話す (はなす)",
+      "reading": "はなす",
+      "romaji": null,
+      "definition": "Nói, nói chuyện",
+      "exampleSentence": "先生はゆっくり話すので、よく分かります。",
+      "exampleTranslation": "Vì giáo viên nói chậm nên tôi hiểu rõ.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20182,
+      "term": "ゆっくり",
+      "reading": "ゆっくり",
+      "romaji": null,
+      "definition": "Chậm, chậm rãi",
+      "exampleSentence": "もう少しゆっくり話してください。",
+      "exampleTranslation": "Xin hãy nói chậm hơn một chút.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20183,
+      "term": "言う (いう)",
+      "reading": "いう",
+      "romaji": null,
+      "definition": "Nói",
+      "exampleSentence": "母は毎朝「早く起きなさい」と言う。",
+      "exampleTranslation": "Mỗi sáng, mẹ đều nói: “Hãy dậy sớm đi.”",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20184,
+      "term": "もういちど",
+      "reading": "もういちど",
+      "romaji": null,
+      "definition": "Một lần nữa",
+      "exampleSentence": "先生、もういちど言ってください。",
+      "exampleTranslation": "Thưa thầy/cô, xin hãy nói lại một lần nữa.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20185,
+      "term": "おねがいします",
+      "reading": "おねがいします",
+      "romaji": null,
+      "definition": "Xin vui lòng",
+      "exampleSentence": "水を一杯、おねがいします。",
+      "exampleTranslation": "Cho tôi một cốc nước, xin vui lòng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20186,
+      "term": "わかる",
+      "reading": "わかる",
+      "romaji": null,
+      "definition": "Hiểu, biết",
+      "exampleSentence": "この問題の答えがわかる。",
+      "exampleTranslation": "Tôi hiểu đáp án của bài tập này.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20187,
+      "term": "少し (すこし)",
+      "reading": "すこし",
+      "romaji": null,
+      "definition": "Một chút",
+      "exampleSentence": "すみません、少し待ってください。",
+      "exampleTranslation": "Xin lỗi, hãy đợi một chút.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 20188,
+      "term": "もう少し (もうすこし)",
+      "reading": "もうすこし",
+      "romaji": null,
+      "definition": "Một chút nữa",
+      "exampleSentence": "もう少しゆっくり話してください。",
+      "exampleTranslation": "Xin hãy nói chậm hơn một chút nữa.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 20189,
+      "term": "よく",
+      "reading": "よく",
+      "romaji": null,
+      "definition": "Rõ, giỏi, tốt",
+      "exampleSentence": "私は日本語がよくわかります。",
+      "exampleTranslation": "Tôi hiểu tiếng Nhật khá rõ.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 20190,
+      "term": "だいたい",
+      "reading": "だいたい",
+      "romaji": null,
+      "definition": "Đại khái",
+      "exampleSentence": "話の内容はだいたいわかりました。",
+      "exampleTranslation": "Tôi đã hiểu đại khái nội dung câu chuyện.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 20191,
+      "term": "ぜんぜん",
+      "reading": "ぜんぜん",
+      "romaji": null,
+      "definition": "Hoàn toàn",
+      "exampleSentence": "この問題はぜんぜんわかりません。",
+      "exampleTranslation": "Tôi hoàn toàn không hiểu bài tập này.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 20192,
+      "term": "ひらがな",
+      "reading": "ひらがな",
+      "romaji": null,
+      "definition": "(Chữ) Hiragana",
+      "exampleSentence": "ひらがなを毎日練習しています。",
+      "exampleTranslation": "Tôi luyện tập chữ hiragana mỗi ngày.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 20193,
+      "term": "かたかな",
+      "reading": "かたかな",
+      "romaji": null,
+      "definition": "(Chữ) katakana",
+      "exampleSentence": "かたかなで名前を書いてください。",
+      "exampleTranslation": "Hãy viết tên bằng chữ katakana.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 20194,
+      "term": "漢字 (かんじ)",
+      "reading": "かんじ",
+      "romaji": null,
+      "definition": "Chữ Hán",
+      "exampleSentence": "この漢字の読み方を教えてください。",
+      "exampleTranslation": "Hãy cho tôi biết cách đọc chữ Hán này.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 20195,
+      "term": "ローマ字 (ローマじ)",
+      "reading": "ローマじ",
+      "romaji": null,
+      "definition": "Chữ La tinh (rōmaji)",
+      "exampleSentence": "名前をローマ字で書きます。",
+      "exampleTranslation": "Tôi sẽ viết tên bằng chữ La tinh.",
+      "forms": [],
+      "displayOrder": 18
+    }
+  ]
+}

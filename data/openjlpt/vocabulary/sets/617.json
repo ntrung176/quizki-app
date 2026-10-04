@@ -1,0 +1,77 @@
+{
+  "id": 617,
+  "title": "N2 Unit 12.5 - 動詞C (bài 5/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.774006",
+  "cards": [
+    {
+      "id": 14198,
+      "term": "兼ねる (かねる)",
+      "reading": "かねる",
+      "romaji": null,
+      "definition": "không thể",
+      "exampleSentence": "この家は住居と仕事場を兼ねている。",
+      "exampleTranslation": "Ngôi nhà này kiêm luôn cả chỗ ở và nơi làm việc.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14199,
+      "term": "適する (てきする)",
+      "reading": "てきする",
+      "romaji": null,
+      "definition": "hợp, xứng đáng",
+      "exampleSentence": "キャベツは、冷涼な気候に適した野菜だ。",
+      "exampleTranslation": "Bắp cải là loại rau hợp với khí hậu mát lạnh.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14200,
+      "term": "相当する (そうとうする)",
+      "reading": "そうとうする",
+      "romaji": null,
+      "definition": "tương đương, tương ứng",
+      "exampleSentence": "月給の3か月分に相当する指輪を婚約者に送った。",
+      "exampleTranslation": "Tôi tặng vị hôn thê một chiếc nhẫn trị giá tương đương ba tháng lương.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14201,
+      "term": "伴う (ともなう)",
+      "reading": "ともなう",
+      "romaji": null,
+      "definition": "cuùng với, đi cùng",
+      "exampleSentence": "この事件には危険が伴う。",
+      "exampleTranslation": "Vụ việc này kèm theo nguy hiểm.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14202,
+      "term": "響く (ひびく)",
+      "reading": "ひびく",
+      "romaji": null,
+      "definition": "vang, vọng",
+      "exampleSentence": "このホールは音が良く響く。",
+      "exampleTranslation": "Hội trường này âm thanh vang rất hay.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14203,
+      "term": "次ぐ (つぐ)",
+      "reading": "つぐ",
+      "romaji": null,
+      "definition": "tiếp theo",
+      "exampleSentence": "大阪は東京に次ぐ大都市だ。",
+      "exampleTranslation": "Osaka là đô thị lớn thứ hai sau Tokyo.",
+      "forms": [],
+      "displayOrder": 5
+    }
+  ]
+}

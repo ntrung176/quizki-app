@@ -1,0 +1,209 @@
+{
+  "id": 624,
+  "title": "N2 Unit 13.3 - 副詞＋連体詞 (bài 3/5)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 副詞＋連体詞",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.880589",
+  "cards": [
+    {
+      "id": 14282,
+      "term": "どっと",
+      "reading": "どっと",
+      "romaji": null,
+      "definition": "tất cả cùng lúc, bất thình lình, bất chợt",
+      "exampleSentence": "その冗談を聞いて、人々はどっと笑った。",
+      "exampleTranslation": "Nghe trò đùa đó, mọi người cười ầm lên.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14283,
+      "term": "ばったり",
+      "reading": "ばったり",
+      "romaji": null,
+      "definition": "đột nhiên (ngã), đột ngột",
+      "exampleSentence": "隣に立っていた人が突然ばったり倒れたので驚いた。",
+      "exampleTranslation": "Người đứng cạnh bỗng ngã lăn ra nên tôi giật mình.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14284,
+      "term": "さっさと",
+      "reading": "さっさと",
+      "romaji": null,
+      "definition": "nhanh chóng",
+      "exampleSentence": "「早く片付けたいから、さっさと食べて」",
+      "exampleTranslation": "Muốn dọn sớm nên ăn nhanh lên.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14285,
+      "term": "さっと",
+      "reading": "さっと",
+      "romaji": null,
+      "definition": "nhanh, đột ngột",
+      "exampleSentence": "私がコーヒーをこぼすと、店員がさっと拭いてくれた。",
+      "exampleTranslation": "Tôi làm đổ cà phê, nhân viên lau cái rụp.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14286,
+      "term": "すっと",
+      "reading": "すっと",
+      "romaji": null,
+      "definition": "vươn thẳng",
+      "exampleSentence": "彼女はすっと立ち上がって、部屋を出ていった。",
+      "exampleTranslation": "Cô ấy đứng phắt dậy rồi đi ra khỏi phòng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14287,
+      "term": "せっせと",
+      "reading": "せっせと",
+      "romaji": null,
+      "definition": "siêng năng, cần cù",
+      "exampleSentence": "彼は若い時にせっせと働いてお金をためた。",
+      "exampleTranslation": "Hồi trẻ anh ấy chăm chỉ làm việc để dành tiền.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14288,
+      "term": "ざっと",
+      "reading": "ざっと",
+      "romaji": null,
+      "definition": "khoảng, nháp, qua",
+      "exampleSentence": "ざっと計算したところ、10万円ほどかかりそうだと分かった。",
+      "exampleTranslation": "Tính sơ sơ thì chắc tốn khoảng 100.000 yên.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14289,
+      "term": "こっそり",
+      "reading": "こっそり",
+      "romaji": null,
+      "definition": "bí mật, lén lút",
+      "exampleSentence": "先生に見つからないように、こっそりケータイのメールを見た。",
+      "exampleTranslation": "Sợ thầy/cô phát hiện nên tôi lén xem mail điện thoại.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14290,
+      "term": "生き生き (いきいき)",
+      "reading": "いきいき",
+      "romaji": null,
+      "definition": "sinh động",
+      "exampleSentence": "彼女は生き生きと働いている。",
+      "exampleTranslation": "Cô ấy làm việc rất tràn đầy sức sống.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14291,
+      "term": "ぼんやり",
+      "reading": "ぼんやり",
+      "romaji": null,
+      "definition": "lờ mờ, mơ hồ, lơ đãng",
+      "exampleSentence": "霧の中に、ぼんやり船が見えた。",
+      "exampleTranslation": "Trong sương, con tàu hiện ra mờ mờ.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14292,
+      "term": "不図 (ふと)",
+      "reading": "ふと",
+      "romaji": null,
+      "definition": "đột nhiên, tình cờ",
+      "exampleSentence": "不図窓の外を見ると、雪が降っていた。",
+      "exampleTranslation": "Bỗng nhìn ra ngoài cửa sổ thì thấy tuyết rơi.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14293,
+      "term": "直に (じかに)",
+      "reading": "じかに",
+      "romaji": null,
+      "definition": "trực tiếp",
+      "exampleSentence": "何も敷かないで、直に地面に座った。",
+      "exampleTranslation": "Không trải gì, ngồi trực tiếp xuống đất.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 14294,
+      "term": "一度に (いちどに)",
+      "reading": "いちどに",
+      "romaji": null,
+      "definition": "một lần, cùng lúc",
+      "exampleSentence": "一度に多くのことを言われても、覚えられない。",
+      "exampleTranslation": "Bị nói quá nhiều thứ một lúc thì không nhớ nổi.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 14295,
+      "term": "一斉に (いっせいに)",
+      "reading": "いっせいに",
+      "romaji": null,
+      "definition": "cùng lúc",
+      "exampleSentence": "ピストルの音と同時に、選手たちは一斉にスタートした。",
+      "exampleTranslation": "Cùng lúc tiếng súng nổ, các VĐV đồng loạt xuất phát.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 14296,
+      "term": "共に (ともに)",
+      "reading": "ともに",
+      "romaji": null,
+      "definition": "cùng với",
+      "exampleSentence": "毎年正月には、家族とともに祖父母の家に行くことになっている。",
+      "exampleTranslation": "Mỗi Tết, cả nhà tôi thường đi cùng nhau đến nhà ông bà.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 14297,
+      "term": "相互に (そうごに)",
+      "reading": "そうごに",
+      "romaji": null,
+      "definition": "lẫn nhau, cùng nhau",
+      "exampleSentence": "よく話し合って、相互に理解し合うことが大切だ。",
+      "exampleTranslation": "Thảo luận kỹ và hiểu nhau lẫn nhau là điều quan trọng.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 14298,
+      "term": "一人一人 (ひとりひとり)",
+      "reading": "ひとりひとり",
+      "romaji": null,
+      "definition": "từng người một, lần lượt",
+      "exampleSentence": "出席者は一人一人意見を述べた。",
+      "exampleTranslation": "Những người tham dự lần lượt từng người phát biểu.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 14299,
+      "term": "いちいち",
+      "reading": "いちいち",
+      "romaji": null,
+      "definition": "từng thứ một, chi tiết",
+      "exampleSentence": "母は私のすることにいちいち文句を言う。",
+      "exampleTranslation": "Mẹ tôi chuyện gì cũng soi, cứ lặt vặt phàn nàn.",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+{
+  "id": 792,
+  "title": "N1 Tango 2.3 - Cuộc sống · Nấu ăn",
+  "description": "Tango N1 — Cuộc sống",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:40.26786",
+  "cards": [
+    {
+      "id": 18369,
+      "term": "味覚 (みかく)",
+      "reading": "みかく",
+      "romaji": null,
+      "definition": "Vị giác, vị",
+      "exampleSentence": "年齢を重ねるにつれて、味覚が少しずつ変化してきた。",
+      "exampleTranslation": "Càng có tuổi, vị giác của tôi dần thay đổi.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 18370,
+      "term": "甘口（な） (あまくち（な）)",
+      "reading": "あまくち（な）",
+      "romaji": null,
+      "definition": "Vị ngọt, ngọt nhẹ",
+      "exampleSentence": "私は甘口（な）ワインより、すっきりした辛口のほうを好む。",
+      "exampleTranslation": "Tôi thích rượu vang khô, thanh nhẹ hơn là vang ngọt.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 18371,
+      "term": "辛口（な） (からくち（な）)",
+      "reading": "からくち（な）",
+      "romaji": null,
+      "definition": "Không ngọt, nồng (rượu)/Gay gắt, cay nghiệt (lời nói)",
+      "exampleSentence": "彼は甘口（な）酒を好まず、辛口（な）日本酒を選ぶ。",
+      "exampleTranslation": "Anh ấy không thích rượu ngọt mà chọn rượu sake có vị nồng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 18372,
+      "term": "辛党 (からとう)",
+      "reading": "からとう",
+      "romaji": null,
+      "definition": "Người thích đồ mặn cay, người thích uống rượu",
+      "exampleSentence": "父は辛党なので、晩酌にはいつも日本酒を飲んでいる。",
+      "exampleTranslation": "Bố tôi là người thích rượu nên tối nào cũng uống sake.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 18373,
+      "term": "食わず嫌い（な） (くわずぎらい（な）)",
+      "reading": "くわずぎらい（な）",
+      "romaji": null,
+      "definition": "Ghét dù chưa thử bao giờ, kén ăn không lý do",
+      "exampleSentence": "食わず嫌い（な）人でも、この料理を一度食べればきっと気に入るだろう。",
+      "exampleTranslation": "Ngay cả người kén ăn vô lý, nếu thử món này một lần chắc chắn cũng sẽ thích.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 18374,
+      "term": "たしなむ",
+      "reading": "たしなむ",
+      "romaji": null,
+      "definition": "Nhấm nháp, thưởng thức, am hiểu (một thú vui)",
+      "exampleSentence": "祖父は若い頃から茶道をたしなむ人で、今でも毎朝お茶を点てる。",
+      "exampleTranslation": "Ông tôi là người thưởng thức trà đạo từ khi còn trẻ, đến nay vẫn pha trà mỗi sáng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 18375,
+      "term": "すくう",
+      "reading": "すくう",
+      "romaji": null,
+      "definition": "Múc, vớt lên",
+      "exampleSentence": "彼女は川に落ちた子犬をすくうため、ためらわず水に入った。",
+      "exampleTranslation": "Cô ấy không chút do dự xuống nước để vớt chú chó con rơi xuống sông.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 18376,
+      "term": "すする",
+      "reading": "すする",
+      "romaji": null,
+      "definition": "Húp soàm soạp, nhấp",
+      "exampleSentence": "熱いお茶を音を立ててすするのは、店内では控えたほうがいい。",
+      "exampleTranslation": "Trong quán, tốt hơn hết là nên hạn chế húp trà nóng tạo ra tiếng động.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 18377,
+      "term": "つつく",
+      "reading": "つつく",
+      "romaji": null,
+      "definition": "Chọc, gắp, nghịch, mổ",
+      "exampleSentence": "箸で料理をつつくのは、行儀が悪いのでやめましょう。",
+      "exampleTranslation": "Đừng dùng đũa chọc vào thức ăn vì như vậy là bất lịch sự.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 18378,
+      "term": "かみきる",
+      "reading": "かみきる",
+      "romaji": null,
+      "definition": "Cắn đứt",
+      "exampleSentence": "固い肉でも、彼は前歯で簡単にかみきることができる。",
+      "exampleTranslation": "Ngay cả thịt dai, anh ấy cũng có thể dễ dàng cắn đứt bằng răng cửa.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 18379,
+      "term": "飲み込む (のみこむ)",
+      "reading": "のみこむ",
+      "romaji": null,
+      "definition": "Nuốt/Hiểu rõ, nắm bắt",
+      "exampleSentence": "会議で説明された複雑な内容を、一度で飲み込むのは難しかった。",
+      "exampleTranslation": "Thật khó để nắm bắt ngay được nội dung phức tạp được giải thích trong cuộc họp.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 18380,
+      "term": "ごくごく[と]",
+      "reading": "ごくごく[と]",
+      "romaji": null,
+      "definition": "Ừng ực (uống)",
+      "exampleSentence": "彼は運動の後、水をごくごくと飲んで、ようやく落ち着いた。",
+      "exampleTranslation": "Sau khi vận động, anh ấy uống nước ừng ực rồi cuối cùng cũng bình tĩnh lại.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 18381,
+      "term": "残らず (のこらず)",
+      "reading": "のこらず",
+      "romaji": null,
+      "definition": "Toàn bộ, tất cả, không để lại thứ gì",
+      "exampleSentence": "参加者は配られた資料を残らず読み、疑問点を整理した。",
+      "exampleTranslation": "Những người tham gia đã đọc hết toàn bộ tài liệu được phát và sắp xếp lại các điểm thắc mắc.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 18382,
+      "term": "とりわけ",
+      "reading": "とりわけ",
+      "romaji": null,
+      "definition": "Đặc biệt là, nhất là",
+      "exampleSentence": "この地域は、冬の朝はとりわけ冷え込みが厳しい。",
+      "exampleTranslation": "Khu vực này, đặc biệt là vào những buổi sáng mùa đông, trời rét buốt khắc nghiệt.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 18383,
+      "term": "ひたすら",
+      "reading": "ひたすら",
+      "romaji": null,
+      "definition": "Một mực, miệt mài, chỉ chăm chú",
+      "exampleSentence": "彼女は周囲の雑音を気にせず、ひたすら研究に打ち込んでいる。",
+      "exampleTranslation": "Cô ấy không để tâm đến tiếng ồn xung quanh mà chỉ miệt mài tập trung nghiên cứu.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 18384,
+      "term": "しなびる",
+      "reading": "しなびる",
+      "romaji": null,
+      "definition": "Héo, nhăn nheo",
+      "exampleSentence": "水分が不足すると、葉物野菜はすぐにしなびる。",
+      "exampleTranslation": "Nếu thiếu nước, các loại rau ăn lá sẽ nhanh chóng héo đi.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 18385,
+      "term": "粘る (ねばる)",
+      "reading": "ねばる",
+      "romaji": null,
+      "definition": "Dính/Kiên trì",
+      "exampleSentence": "この納豆はよく粘るので、箸でつかむには少し工夫が必要だ。",
+      "exampleTranslation": "Món natto này rất dính nên cần khéo léo một chút mới gắp được bằng đũa.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 18386,
+      "term": "膨れる (ふくれる)",
+      "reading": "ふくれる",
+      "romaji": null,
+      "definition": "Phồng lên, nở ra/Hờn dỗi",
+      "exampleSentence": "発酵が進むと、パンの生地は大きく膨れる。",
+      "exampleTranslation": "Khi quá trình lên men tiếp diễn, bột bánh mì sẽ nở phồng lên.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 18387,
+      "term": "偏る (かたよる)",
+      "reading": "かたよる",
+      "romaji": null,
+      "definition": "Lệch, thiên lệch, mất cân bằng",
+      "exampleSentence": "健康のためには、栄養が一方に偏る食事を避ける必要がある。",
+      "exampleTranslation": "Để đảm bảo sức khỏe, cần tránh những bữa ăn bị thiên lệch về một nhóm dinh dưỡng.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 18388,
+      "term": "添える (そえる)",
+      "reading": "そえる",
+      "romaji": null,
+      "definition": "Thêm vào, đính kèm, bày kèm",
+      "exampleSentence": "料理を出すときは、季節の花を一輪添えると、食卓が華やかになる。",
+      "exampleTranslation": "Khi dọn món ăn, nếu bày thêm một cành hoa theo mùa thì bàn ăn sẽ trở nên đẹp mắt.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 18389,
+      "term": "まちまちな",
+      "reading": "まちまちな",
+      "romaji": null,
+      "definition": "Không đồng nhất, khác nhau, thất thường",
+      "exampleSentence": "参加者から出たまちまちな意見を整理し、全員が納得できる結論を出した。",
+      "exampleTranslation": "Chúng tôi đã sắp xếp những ý kiến khác nhau của người tham gia và đưa ra kết luận mà mọi người đều đồng tình.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 18390,
+      "term": "三昧 (ざんまい)",
+      "reading": "ざんまい",
+      "romaji": null,
+      "definition": "Đắm chìm, toàn là, thỏa thích",
+      "exampleSentence": "休日は読書三昧で、好きな本を何冊も読み終えた。",
+      "exampleTranslation": "Ngày nghỉ, tôi đắm chìm trong việc đọc sách và đã đọc xong mấy cuốn sách yêu thích.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

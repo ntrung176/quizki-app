@@ -1,0 +1,187 @@
+{
+  "id": 609,
+  "title": "N2 Unit 11.5 - 名詞D (bài 5/8)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞D",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.653452",
+  "cards": [
+    {
+      "id": 14104,
+      "term": "輪 (わ)",
+      "reading": "わ",
+      "romaji": null,
+      "definition": "vòng tròn",
+      "exampleSentence": "日本では親指と人差し指で輪を作ると、OKのサインになる。",
+      "exampleTranslation": "Ở Nhật, tạo vòng tròn bằng ngón cái và ngón trỏ là ký hiệu OK.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14105,
+      "term": "凸凹 (でこぼこ)",
+      "reading": "でこぼこ",
+      "romaji": null,
+      "definition": "lồi lõm, lởm chởm, ổ gà",
+      "exampleSentence": "凸凹の土地を平らにする。",
+      "exampleTranslation": "Làm phẳng vùng đất gồ ghề.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14106,
+      "term": "跡 (あと)",
+      "reading": "あと",
+      "romaji": null,
+      "definition": "dấu vết",
+      "exampleSentence": "道路に｛タイヤの/人が歩いた…｝跡がある。",
+      "exampleTranslation": "Trên đường có dấu lốp xe / dấu chân người.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14107,
+      "term": "手間 (てま)",
+      "reading": "てま",
+      "romaji": null,
+      "definition": "thời gian, công sức",
+      "exampleSentence": "和食を作るのは手間がかかる。",
+      "exampleTranslation": "Nấu món Nhật rất tốn công.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14108,
+      "term": "能率 (のうりつ)",
+      "reading": "のうりつ",
+      "romaji": null,
+      "definition": "hiệu quả, năng suất",
+      "exampleSentence": "仕事の能率を上げよう。",
+      "exampleTranslation": "Hãy nâng cao hiệu suất công việc.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14109,
+      "term": "性能 (せいのう)",
+      "reading": "せいのう",
+      "romaji": null,
+      "definition": "hiệu suất、tính năng,",
+      "exampleSentence": "この車はエンジンの性能がいい。",
+      "exampleTranslation": "Chiếc xe này có hiệu năng động cơ tốt.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14110,
+      "term": "操作 (そうさ)",
+      "reading": "そうさ",
+      "romaji": null,
+      "definition": "thao tác, điều kiển",
+      "exampleSentence": "｛機械/ロボット…｝を操作する。",
+      "exampleTranslation": "Vận hành {máy móc/robot…}.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14111,
+      "term": "発揮 (はっき)",
+      "reading": "はっき",
+      "romaji": null,
+      "definition": "phát huy, gắng sức",
+      "exampleSentence": "日本チームは実力を発揮して優勝した。",
+      "exampleTranslation": "Đội tuyển Nhật Bản đã phát huy thực lực và giành chức vô địch.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14112,
+      "term": "頂点 (ちょうてん)",
+      "reading": "ちょうてん",
+      "romaji": null,
+      "definition": "đỉnh, điểm",
+      "exampleSentence": "三角形の頂点",
+      "exampleTranslation": "Đỉnh (của hình tam giác).",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14113,
+      "term": "周辺 (しゅうへん)",
+      "reading": "しゅうへん",
+      "romaji": null,
+      "definition": "xung quanh",
+      "exampleSentence": "山火事が起こり、周辺の住民たちは避難した。",
+      "exampleTranslation": "Xảy ra cháy rừng, người dân xung quanh đã sơ tán.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14114,
+      "term": "現場 (げんば)",
+      "reading": "げんば",
+      "romaji": null,
+      "definition": "hiện trường",
+      "exampleSentence": "交通事故の現場を目撃した。",
+      "exampleTranslation": "Chứng kiến hiện trường tai nạn giao thông.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14115,
+      "term": "状況 (じょうきょう)",
+      "reading": "じょうきょう",
+      "romaji": null,
+      "definition": "trạng thái, tình trạng",
+      "exampleSentence": "今、経済の状況が良くない。",
+      "exampleTranslation": "Tình hình kinh tế hiện nay không tốt.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 14116,
+      "term": "組織 (そしき)",
+      "reading": "そしき",
+      "romaji": null,
+      "definition": "tổ chức, tập thể, cơ quan",
+      "exampleSentence": "ユニセフは国際連合の組織だ。",
+      "exampleTranslation": "UNICEF là một tổ chức của Liên Hợp Quốc.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 14117,
+      "term": "制度 (せいど)",
+      "reading": "せいど",
+      "romaji": null,
+      "definition": "chế độ",
+      "exampleSentence": "日本に郵便の制度ができたのは明治時代だ。",
+      "exampleTranslation": "Hệ thống bưu điện ở Nhật được thiết lập từ thời Minh Trị.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 14118,
+      "term": "構成 (こうせい)",
+      "reading": "こうせい",
+      "romaji": null,
+      "definition": "cấu trúc, cấu thành",
+      "exampleSentence": "論文の構成を考える。",
+      "exampleTranslation": "Suy nghĩ về cấu trúc bài luận.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 14119,
+      "term": "形式 (けいしき)",
+      "reading": "けいしき",
+      "romaji": null,
+      "definition": "hình thức",
+      "exampleSentence": "日本語で手紙を書きたいのだが、形式が分からない。",
+      "exampleTranslation": "Tôi muốn viết thư bằng tiếng Nhật nhưng không biết hình thức.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

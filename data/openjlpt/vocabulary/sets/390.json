@@ -1,0 +1,198 @@
+{
+  "id": 390,
+  "title": "N3 Unit 3.2 - 形容詞A・気持ちと態度 (Tâm trạng & thái độ)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 形容詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.444517",
+  "cards": [
+    {
+      "id": 10471,
+      "term": "消極的な (しょうきょくてきな)",
+      "reading": "しょうきょくてきな",
+      "romaji": "shōkyokutekina",
+      "definition": "tiêu cực, thụ động",
+      "exampleSentence": "消極的な人",
+      "exampleTranslation": "Con người thụ động/ tính cách tiêu cực…",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10472,
+      "term": "満足な (まんぞくな)",
+      "reading": "まんぞくな",
+      "romaji": "manzokuna",
+      "definition": "thõa mãn, hài lòng",
+      "exampleSentence": "アルバイトだけでは満足な収入は得られない",
+      "exampleTranslation": "Chỉ làm thêm thôi thì không thể nhận mức lương ưng ý được.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10473,
+      "term": "不満な (ふまんな)",
+      "reading": "ふまんな",
+      "romaji": "fumanna",
+      "definition": "bất mãn, không hài lòng",
+      "exampleSentence": "この仕事に不満な点はない",
+      "exampleTranslation": "Tôi không có điểm nào để chê về công việc này cả.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10474,
+      "term": "不安な (ふあんな)",
+      "reading": "ふあんな",
+      "romaji": "fuanna",
+      "definition": "bất an",
+      "exampleSentence": "最近、体の調子がよくない。悪い病気ではないかと不安だ",
+      "exampleTranslation": "Thời gian gần đây, tình trạng cơ thể không tốt. Tôi đang lo không biết có bệnh gì xấu không.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10475,
+      "term": "大変な (たいへんな)",
+      "reading": "たいへんな",
+      "romaji": "taihenna",
+      "definition": "vất vả, khó khăn, nghiêm trọng; rất (phó từ)",
+      "exampleSentence": "子育て中のお母さんは大変だ",
+      "exampleTranslation": "Người mẹ vất vả trong quá trình nuôi dạy con cái.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10476,
+      "term": "無理な (むりな)",
+      "reading": "むりな",
+      "romaji": "murina",
+      "definition": "không thể làm được, quá sức, vô lý",
+      "exampleSentence": "たった１００万円で家を建てるなんて無理な話だ",
+      "exampleTranslation": "Xây nhà chỉ với 100 vạn yên thật là câu chuyện vô lý.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10477,
+      "term": "不注意な (ふちゅういな)",
+      "reading": "ふちゅういな",
+      "romaji": "fuchūina",
+      "definition": "bất cẩn, thiếu chú ý",
+      "exampleSentence": "不注意な人",
+      "exampleTranslation": "Người cẩu thả (mất tập trung).",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10478,
+      "term": "楽な (らくな)",
+      "reading": "らくな",
+      "romaji": "rakuna",
+      "definition": "dễ dàng, thoải mái",
+      "exampleSentence": "もう少し楽な暮らしがしたい",
+      "exampleTranslation": "Muốn sống một cuộc sống an nhàn hơn chút nữa.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10479,
+      "term": "面倒な (めんどうな)",
+      "reading": "めんどうな",
+      "romaji": "mendōna",
+      "definition": "rắc rối, phiền toái",
+      "exampleSentence": "「ご入会にはめんどうな手続きはいりません」",
+      "exampleTranslation": "\"Khi nhập hội thì không cần làm mấy thủ tục rắc rối đâu\" .",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10480,
+      "term": "失礼な (しつれいな)",
+      "reading": "しつれいな",
+      "romaji": "shitsureina",
+      "definition": "thất lễ, mất lịch sự",
+      "exampleSentence": "あいさつしても返事もしない。なんて失礼な人だろう",
+      "exampleTranslation": "Chào hỏi rồi mà không thèm trả lời. Đúng là người vô lễ.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10481,
+      "term": "当然な (とうぜんな)",
+      "reading": "とうぜんな",
+      "romaji": "tōzenna",
+      "definition": "tất nhiên, đương nhiên",
+      "exampleSentence": "お金を借りたら、返すのが当然だ",
+      "exampleTranslation": "Nếu mượn tiền thì đương nhiên phải trả.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10482,
+      "term": "意外な (いがいな)",
+      "reading": "いがいな",
+      "romaji": "igaina",
+      "definition": "không ngờ, không lường trước được",
+      "exampleSentence": "事故を調査するうちに意外な事実がわかった",
+      "exampleTranslation": "Trong khi điều tra vụ tai nạn tôi đã biết sự thật bất ngờ.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10483,
+      "term": "結構な (けっこうな)",
+      "reading": "けっこうな",
+      "romaji": "kekkōna",
+      "definition": "đủ, được, ổn; khá; (lịch sự) không cần / được rồi",
+      "exampleSentence": "「お味はいかがですか」「大変けっこうです」",
+      "exampleTranslation": "\"Mùi vị thế nào\" \"Rất ngon.\"",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10484,
+      "term": "派手な (はでな)",
+      "reading": "はでな",
+      "romaji": "hadena",
+      "definition": "loè loẹt, màu mè",
+      "exampleSentence": "はでな人",
+      "exampleTranslation": "{người / tính cách / quần áo / trang điểm / thiết kế / cuộc sống ...} đồng bóng, màu mè, phong cách, hào nhoáng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10485,
+      "term": "地味な (じみな)",
+      "reading": "じみな",
+      "romaji": "jimina",
+      "definition": "giản dị, đơn giản, mộc mạc",
+      "exampleSentence": "じみな人",
+      "exampleTranslation": "{người / cá / quần áo / trang điểm / thiết kế / cuộc sống ...} giản dị.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10486,
+      "term": "おしゃれな",
+      "reading": "おしゃれな",
+      "romaji": "osharena",
+      "definition": "hợp thời trang, sành điệu",
+      "exampleSentence": "彼女はとてもおしゃれだ",
+      "exampleTranslation": "Cô ấy ăn mặc rất thời trang.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 10487,
+      "term": "変な (へんな)",
+      "reading": "へんな",
+      "romaji": "henna",
+      "definition": "kì lạ, lạ",
+      "exampleSentence": "変なメールが届いたのですぐに消した",
+      "exampleTranslation": "Có mail lạ gửi đến nên tôi đã xóa ngay rồi.",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "id": 379,
+  "title": "N3 Unit 1.8 - 名詞A・順序と程度 (Thứ tự & mức độ)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 名詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:34.962399",
+  "cards": [
+    {
+      "id": 10300,
+      "term": "後半 (こうはん)",
+      "reading": "こうはん",
+      "romaji": "kōhan",
+      "definition": "nửa sau",
+      "exampleSentence": "映画の前半はたいくつだったが、後半はおもしろかった",
+      "exampleTranslation": "Phần đầu phim chán lắm nhưng phần sau thì thú vị.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10301,
+      "term": "最高 (さいこう)",
+      "reading": "さいこう",
+      "romaji": "saikō",
+      "definition": "cao nhất, tuyệt vời, rất",
+      "exampleSentence": "最高気温",
+      "exampleTranslation": "Nhiệt độ cao nhất.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10302,
+      "term": "最低 (さいてい)",
+      "reading": "さいてい",
+      "romaji": "saitei",
+      "definition": "thấp nhất, tồi tệ, kinh khủng",
+      "exampleSentence": "最低気温",
+      "exampleTranslation": "Nhiệt độ thấp nhất .",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10303,
+      "term": "最初 (さいしょ)",
+      "reading": "さいしょ",
+      "romaji": "saisho",
+      "definition": "đầu tiên",
+      "exampleSentence": "最初にひらがなを、次にカタカナを勉強した",
+      "exampleTranslation": "Đầu tiên tôi học Hiragana và sau đó là Katakana.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10304,
+      "term": "最後 (さいご)",
+      "reading": "さいご",
+      "romaji": "saigo",
+      "definition": "cuối cùng",
+      "exampleSentence": "「あとから来た人は列の最後に並んでください」",
+      "exampleTranslation": "\"Những người đến sau hãy đứng phía cuối hàng.\"",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10305,
+      "term": "自動 (じどう)",
+      "reading": "じどう",
+      "romaji": "jidō",
+      "definition": "tự động",
+      "exampleSentence": "このドアは自動だから、手で開けなくてもいい",
+      "exampleTranslation": "Cửa này là tự động nên không cần phải mở bằng tay.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10306,
+      "term": "種類 (しゅるい)",
+      "reading": "しゅるい",
+      "romaji": "shurui",
+      "definition": "chủng loại, loại",
+      "exampleSentence": "公園にはいろいろな種類の花がある",
+      "exampleTranslation": "Trong công viên có rất nhiều loại hoa.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10307,
+      "term": "性格 (せいかく)",
+      "reading": "せいかく",
+      "romaji": "seikaku",
+      "definition": "tính cách, nhân phẩm",
+      "exampleSentence": "あの人は性格がいいので、みんなに好かれている",
+      "exampleTranslation": "Người ấy có tính cách tốt nên được mọi người yêu quý.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10308,
+      "term": "性質 (せいしつ)",
+      "reading": "せいしつ",
+      "romaji": "seishitsu",
+      "definition": "tính chất, bản chất",
+      "exampleSentence": "この布は燃えにくい性質を持っている",
+      "exampleTranslation": "Vải này có tính chất chống cháy.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10309,
+      "term": "順番 (じゅんばん)",
+      "reading": "じゅんばん",
+      "romaji": "junban",
+      "definition": "thứ tự, lần lượt",
+      "exampleSentence": "発表の順番を決める",
+      "exampleTranslation": "Quyết định thứ tự thuyết trình.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10310,
+      "term": "番 (ばん)",
+      "reading": "ばん",
+      "romaji": "ban",
+      "definition": "lượt, trông coi",
+      "exampleSentence": "次は私の番だ",
+      "exampleTranslation": "Tiếp theo đến lượt của tôi.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10311,
+      "term": "方法 (ほうほう)",
+      "reading": "ほうほう",
+      "romaji": "hōhō",
+      "definition": "phương pháp, cách thức",
+      "exampleSentence": "いい方法を探す",
+      "exampleTranslation": "Tìm kiếm phương pháp hiệu quả.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10312,
+      "term": "製品 (せいひん)",
+      "reading": "せいひん",
+      "romaji": "seihin",
+      "definition": "sản phẩm",
+      "exampleSentence": "完成した製品を検査する",
+      "exampleTranslation": "Kiểm tra sản phẩm đã hoàn thành.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10313,
+      "term": "値上がり (ねあがり)",
+      "reading": "ねあがり",
+      "romaji": "neagari",
+      "definition": "tăng giá",
+      "exampleSentence": "食品の値上がり",
+      "exampleTranslation": "Thực phẩm tăng giá.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10314,
+      "term": "生 (なま)",
+      "reading": "なま",
+      "romaji": "sei",
+      "definition": "sống, tươi sống",
+      "exampleSentence": "生の魚",
+      "exampleTranslation": "Cá tươi.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

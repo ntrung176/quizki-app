@@ -1,0 +1,242 @@
+{
+  "id": 878,
+  "title": "N5 Tango 5.4 - Cơm hôm nay · Nhà hàng",
+  "description": "Tango N5 — Cơm hôm nay",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:48.038166",
+  "cards": [
+    {
+      "id": 20503,
+      "term": "何 (なん)",
+      "reading": "なん",
+      "romaji": null,
+      "definition": "Cái gì",
+      "exampleSentence": "これは何の料理ですか。",
+      "exampleTranslation": "Đây là món ăn gì vậy?",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20504,
+      "term": "何か (なにか)",
+      "reading": "なにか",
+      "romaji": null,
+      "definition": "Cái gì đó",
+      "exampleSentence": "何か飲み物を買いましょう。",
+      "exampleTranslation": "Chúng ta hãy mua đồ uống gì đó.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20505,
+      "term": "しょくじ<する>",
+      "reading": "しょくじ<する>",
+      "romaji": null,
+      "definition": "Bữa ăn",
+      "exampleSentence": "毎晩、家族としょくじ<する>時間を大切にしています。",
+      "exampleTranslation": "Mỗi tối, tôi trân trọng thời gian dùng bữa cùng gia đình.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20506,
+      "term": "ゆうめいな",
+      "reading": "ゆうめいな",
+      "romaji": null,
+      "definition": "Nổi tiếng",
+      "exampleSentence": "あのゆうめいな店で昼ご飯を食べました。",
+      "exampleTranslation": "Tôi đã ăn trưa ở cửa hàng nổi tiếng kia.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20507,
+      "term": "入る (はいる)",
+      "reading": "はいる",
+      "romaji": null,
+      "definition": "Vào",
+      "exampleSentence": "授業が始まる前に教室に入る。",
+      "exampleTranslation": "Tôi vào lớp trước khi tiết học bắt đầu.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20508,
+      "term": "レストラン",
+      "reading": "レストラン",
+      "romaji": null,
+      "definition": "Nhà hàng",
+      "exampleSentence": "レストランで家族と晩ご飯を食べました。",
+      "exampleTranslation": "Tôi đã ăn tối cùng gia đình ở nhà hàng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20509,
+      "term": "しょくどう",
+      "reading": "しょくどう",
+      "romaji": null,
+      "definition": "Tiệm ăn, quán ăn",
+      "exampleSentence": "駅の近くのしょくどうで昼ご飯を食べます。",
+      "exampleTranslation": "Tôi ăn trưa ở quán ăn gần nhà ga.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20510,
+      "term": "ていしょく",
+      "reading": "ていしょく",
+      "romaji": null,
+      "definition": "Cơm phần (bao gồm cơm, canh, thức ăn)",
+      "exampleSentence": "昼ご飯に魚のていしょくを食べました。",
+      "exampleTranslation": "Tôi đã ăn cơm phần cá vào bữa trưa.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20511,
+      "term": "きっさてん",
+      "reading": "きっさてん",
+      "romaji": null,
+      "definition": "Quán nước",
+      "exampleSentence": "きっさてんで友達とコーヒーを飲みました。",
+      "exampleTranslation": "Tôi đã uống cà phê với bạn ở quán nước.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20512,
+      "term": "〜で",
+      "reading": "〜で",
+      "romaji": null,
+      "definition": "Bằng",
+      "exampleSentence": "「〜で」を使って、道具や方法を表します。",
+      "exampleTranslation": "Dùng 「〜で」 để biểu thị công cụ hoặc phương pháp.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20513,
+      "term": "はし",
+      "reading": "はし",
+      "romaji": null,
+      "definition": "Đũa",
+      "exampleSentence": "はしでご飯を上手に食べられますか。",
+      "exampleTranslation": "Bạn có thể dùng đũa ăn cơm thành thạo không?",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 20514,
+      "term": "スプーン",
+      "reading": "スプーン",
+      "romaji": null,
+      "definition": "Muỗng, thìa",
+      "exampleSentence": "スープをスプーンでゆっくり飲みました。",
+      "exampleTranslation": "Tôi đã từ từ ăn súp bằng thìa.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 20515,
+      "term": "フォーク",
+      "reading": "フォーク",
+      "romaji": null,
+      "definition": "Nĩa",
+      "exampleSentence": "フォークでサラダを食べています。",
+      "exampleTranslation": "Tôi đang ăn sa lát bằng nĩa.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 20516,
+      "term": "ナイフ",
+      "reading": "ナイフ",
+      "romaji": null,
+      "definition": "Dao",
+      "exampleSentence": "ナイフで肉を小さく切ってください。",
+      "exampleTranslation": "Hãy dùng dao cắt thịt thành miếng nhỏ.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 20517,
+      "term": "さら",
+      "reading": "さら",
+      "romaji": null,
+      "definition": "Đĩa",
+      "exampleSentence": "テーブルの上に白いさらがあります。",
+      "exampleTranslation": "Có một chiếc đĩa trắng trên bàn.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 20518,
+      "term": "ちゃわん",
+      "reading": "ちゃわん",
+      "romaji": null,
+      "definition": "Chén, bát",
+      "exampleSentence": "ちゃわんにご飯を入れてください。",
+      "exampleTranslation": "Hãy cho cơm vào bát.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 20519,
+      "term": "いらっしゃいませ",
+      "reading": "いらっしゃいませ",
+      "romaji": null,
+      "definition": "Kính chào quý khách.",
+      "exampleSentence": "店員はお客さんに「いらっしゃいませ」と言いました。",
+      "exampleTranslation": "Nhân viên đã nói “Kính chào quý khách” với khách hàng.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 20520,
+      "term": "サンドイッチをおねがいします。",
+      "reading": "サンドイッチをおねがいします。",
+      "romaji": null,
+      "definition": "Cho tôi sandwich.",
+      "exampleSentence": "すみません、サンドイッチをおねがいします。",
+      "exampleTranslation": "Xin lỗi, cho tôi một phần sandwich.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 20521,
+      "term": "これでおねがいします。",
+      "reading": "これでおねがいします。",
+      "romaji": null,
+      "definition": "Lấy cho tôi cái này.",
+      "exampleSentence": "はい、これでおねがいします。",
+      "exampleTranslation": "Vâng, tôi lấy cái này.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 20522,
+      "term": "ほかに",
+      "reading": "ほかに",
+      "romaji": null,
+      "definition": "Ngoài ra, khác",
+      "exampleSentence": "ほかに何か食べたいですか。",
+      "exampleTranslation": "Bạn có muốn ăn thêm gì khác không?",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 20523,
+      "term": "べつべつに",
+      "reading": "べつべつに",
+      "romaji": null,
+      "definition": "Riêng lẻ. Riêng bệt",
+      "exampleSentence": "お会計はべつべつにお願いします。",
+      "exampleTranslation": "Xin tính tiền riêng cho chúng tôi.",
+      "forms": [],
+      "displayOrder": 20
+    }
+  ]
+}

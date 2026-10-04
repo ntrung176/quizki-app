@@ -1,0 +1,242 @@
+{
+  "id": 710,
+  "title": "N4 Tango 5.2 - Mối quan hệ giữa người với người · Người yêu",
+  "description": "Tango N4 — Mối quan hệ giữa người với người",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:31.047143",
+  "cards": [
+    {
+      "id": 16277,
+      "term": "デート（する）",
+      "reading": "デート（する）",
+      "romaji": null,
+      "definition": "Cuộc hẹn hò",
+      "exampleSentence": "友達から「デート（する）」という言葉を教えてもらいました。",
+      "exampleTranslation": "Tôi được bạn dạy cho từ “デート（する）”.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 16278,
+      "term": "付き合う (つきあう)",
+      "reading": "つきあう",
+      "romaji": null,
+      "definition": "Quen, hẹn hò, cặp bồ, cùng với",
+      "exampleSentence": "友達だった二人は、去年から付き合うことになりました。",
+      "exampleTranslation": "Hai người vốn là bạn đã bắt đầu hẹn hò từ năm ngoái.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 16279,
+      "term": "連れて行く (つれていく)",
+      "reading": "つれていく",
+      "romaji": null,
+      "definition": "Dẫn đi",
+      "exampleSentence": "旅行のとき、弟を連れて行くつもりです。",
+      "exampleTranslation": "Khi đi du lịch, tôi định dẫn em trai đi cùng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 16280,
+      "term": "連れて来る (つれてくる)",
+      "reading": "つれてくる",
+      "romaji": null,
+      "definition": "Dẫn đến",
+      "exampleSentence": "今度の日曜日、友達を家に連れて来る予定です。",
+      "exampleTranslation": "Chủ nhật tới, tôi dự định dẫn bạn đến nhà.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 16281,
+      "term": "[お]見合い（する） ([お]みあい（する）)",
+      "reading": "[お]みあい（する）",
+      "romaji": null,
+      "definition": "Việc gặp mặt qua mai mối",
+      "exampleSentence": "姉は来月、初めてお見合いすることになりました。",
+      "exampleTranslation": "Chị tôi sẽ lần đầu gặp mặt qua mai mối vào tháng sau.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 16282,
+      "term": "婚約（する） (こんやく（する）)",
+      "reading": "こんやく（する）",
+      "romaji": null,
+      "definition": "Việc đính hôn",
+      "exampleSentence": "「婚約（する）」という言葉を、先週初めて知りました。",
+      "exampleTranslation": "Tuần trước, tôi mới lần đầu biết từ “đính hôn”.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 16283,
+      "term": "結婚（する） (けっこん（する）)",
+      "reading": "けっこん（する）",
+      "romaji": null,
+      "definition": "Việc kết hôn",
+      "exampleSentence": "「結婚（する）」という言葉の意味を、先生が説明しました。",
+      "exampleTranslation": "Giáo viên đã giải thích ý nghĩa của từ “kết hôn”.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 16284,
+      "term": "知らせる (しらせる)",
+      "reading": "しらせる",
+      "romaji": null,
+      "definition": "Thông báo, cho biết",
+      "exampleSentence": "試験の日程が決まったら、すぐにみんなへ知らせるつもりです。",
+      "exampleTranslation": "Khi lịch thi được quyết định, tôi định sẽ báo ngay cho mọi người.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 16285,
+      "term": "合図（する） (あいず（する）)",
+      "reading": "あいず（する）",
+      "romaji": null,
+      "definition": "Dấu hiệu, sự ra hiệu",
+      "exampleSentence": "「合図（する）」という言葉は、どんな場面で使いますか。",
+      "exampleTranslation": "Từ “ra hiệu” được dùng trong những tình huống nào?",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 16286,
+      "term": "けんか（する）",
+      "reading": "けんか（する）",
+      "romaji": null,
+      "definition": "Việc cãi nhau",
+      "exampleSentence": "「けんか（する）」という言葉の使い方を、先生に教えてもらいました。",
+      "exampleTranslation": "Tôi đã được giáo viên dạy cách sử dụng từ “cãi nhau”.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 16287,
+      "term": "うそ",
+      "reading": "うそ",
+      "romaji": null,
+      "definition": "Lời nói dối",
+      "exampleSentence": "うそをついてはいけません。",
+      "exampleTranslation": "Không được nói dối.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 16288,
+      "term": "別れる (わかれる)",
+      "reading": "わかれる",
+      "romaji": null,
+      "definition": "Chia tay",
+      "exampleSentence": "駅で友達と別れるとき、また会おうと言いました。",
+      "exampleTranslation": "Khi chia tay bạn ở nhà ga, tôi đã nói rằng sẽ gặp lại.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 16289,
+      "term": "じゃま（な/する）",
+      "reading": "じゃま（な/する）",
+      "romaji": null,
+      "definition": "Sự cản trở (phiền phức)",
+      "exampleSentence": "「じゃま（な/する）」という言葉は、どんな場面で使いますか。",
+      "exampleTranslation": "Từ “cản trở, gây phiền” được dùng trong những tình huống nào?",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 16290,
+      "term": "彼 (かれ)",
+      "reading": "かれ",
+      "romaji": null,
+      "definition": "Anh ấy, người yêu (nam)",
+      "exampleSentence": "彼は大学の友達で、今は外国に住んでいます。",
+      "exampleTranslation": "Anh ấy là bạn đại học của tôi và hiện đang sống ở nước ngoài.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 16291,
+      "term": "彼女 (かのじょ)",
+      "reading": "かのじょ",
+      "romaji": null,
+      "definition": "Cô ấy, người yêu (nữ)",
+      "exampleSentence": "彼女は毎朝、私にメールをくれます。",
+      "exampleTranslation": "Cô ấy gửi email cho tôi mỗi sáng.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 16292,
+      "term": "きみ",
+      "reading": "きみ",
+      "romaji": null,
+      "definition": "Em (người con trai gọi người con gái, người lớn gọi người nhỏ)",
+      "exampleSentence": "きみは将来、何になりたいですか。",
+      "exampleTranslation": "Sau này em muốn trở thành người như thế nào?",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 16293,
+      "term": "ぼく",
+      "reading": "ぼく",
+      "romaji": null,
+      "definition": "Tôi (dành cho nam nói)",
+      "exampleSentence": "ぼくは毎朝、電車で学校へ行きます。",
+      "exampleTranslation": "Mỗi sáng, tôi đi học bằng tàu điện.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 16294,
+      "term": "独身 (どくしん)",
+      "reading": "どくしん",
+      "romaji": null,
+      "definition": "Độc thân",
+      "exampleSentence": "兄はまだ独身ですが、毎日楽しく暮らしています。",
+      "exampleTranslation": "Anh trai tôi vẫn còn độc thân nhưng đang sống rất vui vẻ mỗi ngày.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 16295,
+      "term": "関係 (かんけい)",
+      "reading": "かんけい",
+      "romaji": null,
+      "definition": "Mối quan hệ",
+      "exampleSentence": "日本語の勉強と将来の仕事には深い関係があります。",
+      "exampleTranslation": "Việc học tiếng Nhật có mối quan hệ sâu sắc với công việc tương lai.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 16296,
+      "term": "大事な (だいじな)",
+      "reading": "だいじな",
+      "romaji": null,
+      "definition": "Quan trọng",
+      "exampleSentence": "家族と過ごす時間は、私にとって大事なものです。",
+      "exampleTranslation": "Thời gian ở bên gia đình là điều quan trọng đối với tôi.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 16297,
+      "term": "特別な (とくべつな)",
+      "reading": "とくべつな",
+      "romaji": null,
+      "definition": "Đặc biệt",
+      "exampleSentence": "今日は母の誕生日なので、特別な料理を作ります。",
+      "exampleTranslation": "Hôm nay là sinh nhật mẹ nên tôi sẽ nấu một món ăn đặc biệt.",
+      "forms": [],
+      "displayOrder": 20
+    }
+  ]
+}

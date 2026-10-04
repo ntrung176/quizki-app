@@ -1,0 +1,231 @@
+{
+  "id": 405,
+  "title": "N3 Unit 6.2 - カタカナA・情報・データ (Thông tin & truyền thông)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — カタカナA",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.904768",
+  "cards": [
+    {
+      "id": 10725,
+      "term": "デザイン",
+      "reading": "デザイン",
+      "romaji": "dezain",
+      "definition": "thiết kế (design)",
+      "exampleSentence": "あのドレスは色もデザインもいい",
+      "exampleTranslation": "Bộ trang phục kia màu cũng như thiết kế đều đẹp.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10726,
+      "term": "バーゲンセール",
+      "reading": "バーゲンセール",
+      "romaji": "bāgensēru",
+      "definition": "hạ giá, giảm giá (sale)",
+      "exampleSentence": "デパートで今バーゲンセールをしている。",
+      "exampleTranslation": "Trung tâm thương mại hiện đang có đợt bán hàng giảm giá.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10727,
+      "term": "パート",
+      "reading": "パート",
+      "romaji": "pāto",
+      "definition": "việc làm part time, một phần (part-time job, part)",
+      "exampleSentence": "母は週三日、スーパーでパートをしている",
+      "exampleTranslation": "Mẹ tôi làm thêm ở siêu thị 3 ngày 1 tuần.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10728,
+      "term": "コンビニエンスストア",
+      "reading": "コンビニエンスストア",
+      "romaji": "konbiniensusutoa",
+      "definition": "cửa hàng tiện lợi",
+      "exampleSentence": null,
+      "exampleTranslation": null,
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10729,
+      "term": "レジ（レジスター）",
+      "reading": "レジ（レジスター）",
+      "romaji": "reji (rejisutā)",
+      "definition": "máy tính tiền (cash register)",
+      "exampleSentence": "スーパーでレジのアルバイトをしている",
+      "exampleTranslation": "Tôi làm thu ngân ở siêu thị.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10730,
+      "term": "レシート",
+      "reading": "レシート",
+      "romaji": "reshīto",
+      "definition": "biên nhận, hóa đơn (receipt)",
+      "exampleSentence": "レジでお金を払って、レシートを受け取る",
+      "exampleTranslation": "Trả tiền ở quầy tính tiền rồi nhận hóa đơn.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10731,
+      "term": "インスタント",
+      "reading": "インスタント",
+      "romaji": "insutanto",
+      "definition": "(ăn, uống, …)liền, lập tức (instant)",
+      "exampleSentence": "インスタント食品は便利だ",
+      "exampleTranslation": "Thức ăn nhanh thì tiện lợi.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10732,
+      "term": "ファストフード",
+      "reading": "ファストフード",
+      "romaji": "fasutofūdo",
+      "definition": "thức ăn nhanh (fast food)",
+      "exampleSentence": "そばは江戸時代のファストフードだった",
+      "exampleTranslation": "Soba là thức ăn nhanh thời Edo.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10733,
+      "term": "フルーツ",
+      "reading": "フルーツ",
+      "romaji": "furūtsu",
+      "definition": "hoa quả, trái cây (fruit)",
+      "exampleSentence": "暖かいところには、いろいろなフルーツがある",
+      "exampleTranslation": "Có nhiều loại trái cây ở vùng ấm áp.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10734,
+      "term": "デザート",
+      "reading": "デザート",
+      "romaji": "dezāto",
+      "definition": "món tráng miệng (dessert)",
+      "exampleSentence": "デザートにアイスクリームを食べる",
+      "exampleTranslation": "Ăn kem tráng miệng.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10735,
+      "term": "インターネット",
+      "reading": "インターネット",
+      "romaji": "intānetto",
+      "definition": "internet",
+      "exampleSentence": "インターネットで世界の環境問題について調べた",
+      "exampleTranslation": "Tra cứu vấn đề môi trường của thế giới trên internet.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10736,
+      "term": "チャイム",
+      "reading": "チャイム",
+      "romaji": "chaimu",
+      "definition": "chuông (chime)",
+      "exampleSentence": "授業が始まるとき、チャイムが鳴る",
+      "exampleTranslation": "Khi bắt đầu tiết học thì chuông reo.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10737,
+      "term": "アナウンス",
+      "reading": "アナウンス",
+      "romaji": "anaunsu",
+      "definition": "thông báo (announcement)",
+      "exampleSentence": "電車の中でアナウンスを聞く",
+      "exampleTranslation": "Nghe thông báo trên tàu điện.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10738,
+      "term": "メッセージ",
+      "reading": "メッセージ",
+      "romaji": "messēji",
+      "definition": "tin nhắn, thông điệp (message)",
+      "exampleSentence": "留守番電話にメッセージをのこす",
+      "exampleTranslation": "Để lại lời nhắn trong điện thoại trả lời tự động khi vắng nhà.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10739,
+      "term": "パンフレット",
+      "reading": "パンフレット",
+      "romaji": "panfuretto",
+      "definition": "ấn phẩm quảng cáo (pamphlet)",
+      "exampleSentence": "旅行会社でパンフレットをたくさんもらってきた",
+      "exampleTranslation": "Lấy nhiều tờ rơi ở công ty du lịch.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10740,
+      "term": "カード",
+      "reading": "カード",
+      "romaji": "kādo",
+      "definition": "thẻ card",
+      "exampleSentence": "これは図書館のカードです。",
+      "exampleTranslation": "Đây là thẻ thư viện.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 10741,
+      "term": "インタビュー",
+      "reading": "インタビュー",
+      "romaji": "intabyū",
+      "definition": "phỏng vấn (interview)",
+      "exampleSentence": "勝ったチームの選手にインタビューする",
+      "exampleTranslation": "Phỏng vấn tuyển thủ của đội thắng.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 10742,
+      "term": "アンケート",
+      "reading": "アンケート",
+      "romaji": "ankēto",
+      "definition": "bảng khảo sát / bảng điều tra",
+      "exampleSentence": "「アンケートにご協力ください」",
+      "exampleTranslation": "Xin hãy hợp tác làm giúp bảng điều tra.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 10743,
+      "term": "データ",
+      "reading": "データ",
+      "romaji": "dēta",
+      "definition": "dữ liệu (data)",
+      "exampleSentence": "研究のために、データを集めている",
+      "exampleTranslation": "Tôi đang tập hợp tài liệu để phục vụ nghiên cứu.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 10744,
+      "term": "パーセント",
+      "reading": "パーセント",
+      "romaji": "pāsento",
+      "definition": "phần trăm (pecent)",
+      "exampleSentence": null,
+      "exampleTranslation": null,
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

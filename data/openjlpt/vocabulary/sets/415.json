@@ -1,0 +1,187 @@
+{
+  "id": 415,
+  "title": "N3 Unit 9.5 - 名詞C・経済と社会 (Kinh tế & xã hội)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 名詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:36.198687",
+  "cards": [
+    {
+      "id": 10894,
+      "term": "商売 (しょうばい)",
+      "reading": "しょうばい",
+      "romaji": "shōbai",
+      "definition": "thương mại, buôn bán",
+      "exampleSentence": "父は衣料品の商売をしている",
+      "exampleTranslation": "Bố tôi đang kinh doanh may mặc.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10895,
+      "term": "商品 (しょうひん)",
+      "reading": "しょうひん",
+      "romaji": "shōhin",
+      "definition": "hàng hóa, thương phẩm",
+      "exampleSentence": "店に商品を並べる",
+      "exampleTranslation": "Xếp sản phẩm vào cửa hàng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10896,
+      "term": "質 (しつ)",
+      "reading": "しつ",
+      "romaji": "shitsu",
+      "definition": "chất lượng",
+      "exampleSentence": "このメーカーの製品は質がいい",
+      "exampleTranslation": "Sản phẩm của nhà sản suất này có chất lượng tốt.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10897,
+      "term": "型 (かた)",
+      "reading": "かた",
+      "romaji": "kata",
+      "definition": "kiểu",
+      "exampleSentence": "新しい型のパソコンを買った",
+      "exampleTranslation": "Mua máy tính kiểu mới.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10898,
+      "term": "生産 (せいさん)",
+      "reading": "せいさん",
+      "romaji": "seisan",
+      "definition": "sản xuất, sinh sản",
+      "exampleSentence": "日本は農作物の生産が少ない",
+      "exampleTranslation": "Nhật Bản ít sản xuất ra những mặt hàng nông nghiệp.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10899,
+      "term": "消費 (しょうひ)",
+      "reading": "しょうひ",
+      "romaji": "shōhi",
+      "definition": "tiêu dùng, tiêu hao",
+      "exampleSentence": "牛乳の消費が減っている",
+      "exampleTranslation": "Tiêu dùng sữa đang giảm.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10900,
+      "term": "物価 (ぶっか)",
+      "reading": "ぶっか",
+      "romaji": "bukka",
+      "definition": "giá cả, vật giá, mức giá chung",
+      "exampleSentence": "東京は物価が高い",
+      "exampleTranslation": "Tokyo giá cả đắt đỏ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10901,
+      "term": "倒産 (とうさん)",
+      "reading": "とうさん",
+      "romaji": "tōsan",
+      "definition": "phá sản",
+      "exampleSentence": "会社が倒産する",
+      "exampleTranslation": "Công ty phá sản.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10902,
+      "term": "携帯 (けいたい)",
+      "reading": "けいたい",
+      "romaji": "keitai",
+      "definition": "mang theo, di động",
+      "exampleSentence": "外国人はいつも外国人登録証を携帯していなければならない",
+      "exampleTranslation": "Người ngoại quốc luôn luôn phải mang theo thẻ đăng kí nước ngoài.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10903,
+      "term": "現代 (げんだい)",
+      "reading": "げんだい",
+      "romaji": "gendai",
+      "definition": "hiện đại, ngày nay",
+      "exampleSentence": "現代は情報の時代だと言われている",
+      "exampleTranslation": "Ngày nay được nói là thời đại của thông tin.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10904,
+      "term": "世紀 (せいき)",
+      "reading": "せいき",
+      "romaji": "seiki",
+      "definition": "thế kỷ",
+      "exampleSentence": "２１世紀が始まった",
+      "exampleTranslation": "Thế kỉ 21 đã bắt đầu.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10905,
+      "term": "文化 (ぶんか)",
+      "reading": "ぶんか",
+      "romaji": "bunka",
+      "definition": "văn hóa",
+      "exampleSentence": "日本（の）文化",
+      "exampleTranslation": "Văn hóa Nhật Bản.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10906,
+      "term": "都市 (とし)",
+      "reading": "とし",
+      "romaji": "toshi",
+      "definition": "đô thị, thành phố",
+      "exampleSentence": "都市に人口が集中する",
+      "exampleTranslation": "Dân số tập trung chủ yếu ở các đô thị.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10907,
+      "term": "地方 (ちほう)",
+      "reading": "ちほう",
+      "romaji": "chihō",
+      "definition": "địa phương, vùng",
+      "exampleSentence": "雨が多い地方では、植物がよく育つ",
+      "exampleTranslation": "Ở địa phương có mưa nhiều thì thực vật phát triển.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10908,
+      "term": "戦争 (せんそう)",
+      "reading": "せんそう",
+      "romaji": "sensō",
+      "definition": "chiến tranh",
+      "exampleSentence": "A国とB国の間で戦争が起きた",
+      "exampleTranslation": "Đã xảy ra chiến tranh giữa hai nước A và B.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10909,
+      "term": "平和 (へいわ)",
+      "reading": "へいわ",
+      "romaji": "heiwa",
+      "definition": "hòa bình",
+      "exampleSentence": "世界の平和を守る",
+      "exampleTranslation": "Giữ gìn hòa bình thế giới.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

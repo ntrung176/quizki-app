@@ -1,0 +1,253 @@
+{
+  "id": 829,
+  "title": "N1 Tango 9.5 - Thế giới · Quan hệ quốc tế",
+  "description": "Tango N1 — Thế giới",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:43.041503",
+  "cards": [
+    {
+      "id": 19379,
+      "term": "紛争 (ふんそう)",
+      "reading": "ふんそう",
+      "romaji": null,
+      "definition": "Xung đột, tranh chấp",
+      "exampleSentence": "長期化する紛争の背景には、資源をめぐる複雑な利害対立がある。",
+      "exampleTranslation": "Đằng sau cuộc xung đột kéo dài là những mâu thuẫn lợi ích phức tạp xoay quanh tài nguyên.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 19380,
+      "term": "介入（する） (かいにゅう（する）)",
+      "reading": "かいにゅう（する）",
+      "romaji": null,
+      "definition": "Sự can thiệp",
+      "exampleSentence": "第三者が不用意に介入（する）と、当事者間の対立がさらに深まる恐れがある。",
+      "exampleTranslation": "Nếu bên thứ ba can thiệp thiếu thận trọng, mâu thuẫn giữa các bên liên quan có thể trở nên sâu sắc hơn.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 19381,
+      "term": "強いる (しいる)",
+      "reading": "しいる",
+      "romaji": null,
+      "definition": "Ép buộc, bắt buộc",
+      "exampleSentence": "経済的な不安を理由に、若者へ早期の進路決定を強いるべきではない。",
+      "exampleTranslation": "Không nên ép buộc người trẻ phải sớm quyết định hướng đi tương lai chỉ vì lo lắng kinh tế.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 19382,
+      "term": "支援（する） (しえん（する）)",
+      "reading": "しえん（する）",
+      "romaji": null,
+      "definition": "Chi viện, hỗ trợ",
+      "exampleSentence": "国連は被災地を支援（する）ため、医療チームを現地に派遣した。",
+      "exampleTranslation": "Liên Hợp Quốc đã cử đội ngũ y tế đến hiện trường để hỗ trợ vùng bị thiên tai.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 19383,
+      "term": "打ち切る (うちきる)",
+      "reading": "うちきる",
+      "romaji": null,
+      "definition": "Ngừng, cắt bỏ, chấm dứt",
+      "exampleSentence": "予算不足を理由に、政府はその事業を年度末で打ち切ることにした。",
+      "exampleTranslation": "Với lý do thiếu ngân sách, chính phủ quyết định chấm dứt dự án đó vào cuối năm tài chính.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 19384,
+      "term": "合意（する） (ごうい（する）)",
+      "reading": "ごうい（する）",
+      "romaji": null,
+      "definition": "Nhất trí, thỏa thuận, đồng thuận",
+      "exampleSentence": "両国が「合意（する）」には、双方が条件を受け入れる必要があった。",
+      "exampleTranslation": "Để hai nước đạt được thỏa thuận, cả hai bên cần chấp nhận các điều kiện.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 19385,
+      "term": "和解（する） (わかい（する）)",
+      "reading": "わかい（する）",
+      "romaji": null,
+      "definition": "Hòa giải",
+      "exampleSentence": "両者は長年の対立を終わらせるため、「和解（する）」道を選んだ。",
+      "exampleTranslation": "Để chấm dứt mối bất hòa kéo dài nhiều năm, hai bên đã chọn con đường hòa giải.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 19386,
+      "term": "確立（する） (かくりつ（する）)",
+      "reading": "かくりつ（する）",
+      "romaji": null,
+      "definition": "Xác lập, thiết lập",
+      "exampleSentence": "政府は災害時の情報伝達体制を「確立（する）」ため、法改正を進めた。",
+      "exampleTranslation": "Chính phủ đã tiến hành sửa đổi luật để thiết lập hệ thống truyền đạt thông tin khi có thiên tai.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 19387,
+      "term": "結束（する） (けっそく（する）)",
+      "reading": "けっそく（する）",
+      "romaji": null,
+      "definition": "Đoàn kết, đồng lòng",
+      "exampleSentence": "危機を乗り越えるには、社員全員が「結束（する）」ことが不可欠だ。",
+      "exampleTranslation": "Để vượt qua khủng hoảng, toàn thể nhân viên đoàn kết với nhau là điều không thể thiếu.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 19388,
+      "term": "唱える (となえる)",
+      "reading": "となえる",
+      "romaji": null,
+      "definition": "Đề xướng, chủ trương, tụng",
+      "exampleSentence": "専門家は、持続可能な成長には教育への投資が不可欠だと唱える。",
+      "exampleTranslation": "Chuyên gia chủ trương rằng đầu tư vào giáo dục là điều không thể thiếu để tăng trưởng bền vững.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 19389,
+      "term": "捧げる (ささげる)",
+      "reading": "ささげる",
+      "romaji": null,
+      "definition": "Cống hiến, dâng hiến",
+      "exampleSentence": "彼は生涯を地域医療の発展に捧げる覚悟を決めた。",
+      "exampleTranslation": "Ông đã quyết tâm cống hiến cả cuộc đời cho sự phát triển của y tế địa phương.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 19390,
+      "term": "説く (とく)",
+      "reading": "とく",
+      "romaji": null,
+      "definition": "Giải thích, thuyết giảng, thuyết phục",
+      "exampleSentence": "教授は、失敗を恐れず挑戦することの重要性を説く。",
+      "exampleTranslation": "Giáo sư giảng giải về tầm quan trọng của việc thử thách bản thân mà không sợ thất bại.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 19391,
+      "term": "危ぶむ (あやぶむ)",
+      "reading": "あやぶむ",
+      "romaji": null,
+      "definition": "Lo ngại, e ngại",
+      "exampleSentence": "専門家は、急激な改革が社会の分断を深める可能性を危ぶむ。",
+      "exampleTranslation": "Các chuyên gia lo ngại rằng cải cách quá nhanh có thể làm xã hội thêm chia rẽ.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 19392,
+      "term": "危うい (あやうい)",
+      "reading": "あやうい",
+      "romaji": null,
+      "definition": "Nguy hiểm, bấp bênh",
+      "exampleSentence": "その国の経済は、度重なる政変によって極めて危うい状況にある。",
+      "exampleTranslation": "Nền kinh tế của quốc gia đó đang ở trong tình trạng vô cùng bấp bênh do những biến động chính trị liên tiếp.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 19393,
+      "term": "おびえる",
+      "reading": "おびえる",
+      "romaji": null,
+      "definition": "Sợ hãi, hoảng sợ",
+      "exampleSentence": "突然の雷鳴におびえる子どもを、母親が優しく抱きしめた。",
+      "exampleTranslation": "Người mẹ dịu dàng ôm đứa trẻ đang sợ hãi vì tiếng sấm bất ngờ.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 19394,
+      "term": "見失う (みうしなう)",
+      "reading": "みうしなう",
+      "romaji": null,
+      "definition": "Mất dấu, đánh mất",
+      "exampleSentence": "情報が氾濫すると、私たちは本来の目的を見失うおそれがある。",
+      "exampleTranslation": "Khi thông tin tràn lan, chúng ta có nguy cơ đánh mất mục tiêu ban đầu.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 19395,
+      "term": "強行（する） (きょうこう（する）)",
+      "reading": "きょうこう（する）",
+      "romaji": null,
+      "definition": "Cưỡng hành, ép buộc thực hiện",
+      "exampleSentence": "政府は反対意見を押し切り、計画を「強行（する）」方針を示した。",
+      "exampleTranslation": "Chính phủ đã phớt lờ ý kiến phản đối và cho thấy chủ trương cưỡng ép thực hiện kế hoạch.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 19396,
+      "term": "仕掛ける (しかける)",
+      "reading": "しかける",
+      "romaji": null,
+      "definition": "Phát động, gài, đặt (bẫy)",
+      "exampleSentence": "犯人は誰にも気づかれないよう、玄関に盗聴器を仕掛ける。",
+      "exampleTranslation": "Tên tội phạm định đặt máy nghe trộm ở cửa ra vào mà không để ai phát hiện.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 19397,
+      "term": "極めて (きわめて)",
+      "reading": "きわめて",
+      "romaji": null,
+      "definition": "Cực kỳ, vô cùng",
+      "exampleSentence": "今回の判断は、会社の将来にとって極めて重要だ。",
+      "exampleTranslation": "Quyết định lần này cực kỳ quan trọng đối với tương lai của công ty.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 19398,
+      "term": "証 (あかし)",
+      "reading": "あかし",
+      "romaji": null,
+      "definition": "Bằng chứng, minh chứng",
+      "exampleSentence": "このメダルは、彼が努力を続けた証だ。",
+      "exampleTranslation": "Tấm huy chương này là minh chứng cho những nỗ lực không ngừng của anh ấy.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 19399,
+      "term": "至る (いたる)",
+      "reading": "いたる",
+      "romaji": null,
+      "definition": "Đạt tới, dẫn đến",
+      "exampleSentence": "両国の交渉は、ようやく最終合意に至る見込みだ。",
+      "exampleTranslation": "Cuộc đàm phán giữa hai nước cuối cùng cũng có triển vọng đi đến thỏa thuận cuối cùng.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 19400,
+      "term": "抜け出す (ぬけだす)",
+      "reading": "ぬけだす",
+      "romaji": null,
+      "definition": "Thoát khỏi, lẻn ra",
+      "exampleSentence": "彼は渋滞から抜け出すため、脇道に入った。",
+      "exampleTranslation": "Để thoát khỏi cảnh tắc đường, anh ấy đã rẽ vào đường phụ.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

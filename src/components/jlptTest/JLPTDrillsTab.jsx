@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { 
     Zap, BookOpen, Volume2, Play, CheckCircle2, 
-    Search, Filter, ArrowRight, RotateCcw, Sparkles, Check, X,
-    HelpCircle, Headphones, CheckCircle, XCircle
+    Search, Filter, ArrowRight, RotateCcw, Check, X,
+    HelpCircle, Headphones, CheckCircle, XCircle, Lightbulb
 } from 'lucide-react';
 import { LEVEL_GRADIENTS } from './jlptConstants';
 
@@ -175,9 +175,14 @@ const JLPTDrillsTab = ({
                                 )}
                             </div>
 
-                            <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-amber-600 dark:text-amber-400">
-                                <span>Bắt đầu luyện tập</span>
-                                <ArrowRight className="w-4 h-4 transform group-hover:translate-x-1 transition" />
+                            <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                                <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
+                                    61 bài phản xạ ngữ pháp
+                                </span>
+                                <span className="px-3 py-1 rounded-xl bg-[#f494bc] group-hover:bg-[#f6a0c5] text-slate-950 font-black text-xs flex items-center gap-1 shadow-[0_3px_10px_rgba(244,148,188,0.35)] transition-all">
+                                    <span>Luyện phản xạ</span>
+                                    <ArrowRight className="w-3.5 h-3.5" />
+                                </span>
                             </div>
                         </div>
                     );
@@ -220,7 +225,7 @@ const JLPTDrillsTab = ({
                                 onClick={() => setModalTab('cards')}
                                 className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
                                     modalTab === 'cards'
-                                        ? 'bg-amber-500 text-white shadow-xs'
+                                        ? 'bg-[#f494bc] text-slate-950 font-black shadow-xs'
                                         : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'
                                 }`}
                             >
@@ -233,7 +238,7 @@ const JLPTDrillsTab = ({
                                     onClick={() => setModalTab('know')}
                                     className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
                                         modalTab === 'know'
-                                            ? 'bg-amber-500 text-white shadow-xs'
+                                            ? 'bg-[#f494bc] text-slate-950 font-black shadow-xs'
                                             : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'
                                     }`}
                                 >
@@ -304,7 +309,7 @@ const JLPTDrillsTab = ({
                                                 {showAnswer && explanation && (
                                                     <div className="pt-3 border-t border-slate-200 dark:border-slate-800 text-left space-y-1.5 animate-fade-in">
                                                         <div className="flex items-center gap-1.5 text-xs font-black text-amber-700 dark:text-amber-400">
-                                                            <Sparkles className="w-3.5 h-3.5" />
+                                                            <Lightbulb className="w-3.5 h-3.5 text-amber-500" />
                                                             <span>Giải thích & Mẹo ngữ pháp:</span>
                                                         </div>
                                                         <p 

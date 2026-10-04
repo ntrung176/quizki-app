@@ -1,0 +1,132 @@
+{
+  "id": 596,
+  "title": "N2 Unit 8.9 - 動詞B (bài 9/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.475995",
+  "cards": [
+    {
+      "id": 13943,
+      "term": "照らす (てらす)",
+      "reading": "てらす",
+      "romaji": null,
+      "definition": "chiếu sáng",
+      "exampleSentence": "懐中電灯で足跡を照らしながら夜道を歩いた。",
+      "exampleTranslation": "Tôi đi đường đêm, rọi đèn pin để soi dấu chân.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13944,
+      "term": "染まる (そまる)",
+      "reading": "そまる",
+      "romaji": null,
+      "definition": "bị nhuộm, nhiễm",
+      "exampleSentence": "染料で布が染まる。",
+      "exampleTranslation": "Vải bị nhuộm màu bởi thuốc nhuộm.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13945,
+      "term": "染める (そめる)",
+      "reading": "そめる",
+      "romaji": null,
+      "definition": "nhuộm, nhiễm",
+      "exampleSentence": "染料で布を染める。",
+      "exampleTranslation": "Dùng thuốc nhuộm để nhuộm vải.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13946,
+      "term": "ダブる",
+      "reading": "ダブる",
+      "romaji": null,
+      "definition": "nhân đôi, chồng chất",
+      "exampleSentence": "目が疲れてパソコンの字がダブって見える。",
+      "exampleTranslation": "Mắt mỏi nên chữ trên màn hình máy tính nhìn bị nhòe, chồng lên nhau.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13947,
+      "term": "憧れる (あこがれる)",
+      "reading": "あこがれる",
+      "romaji": null,
+      "definition": "mong ước, mơ ước",
+      "exampleSentence": "｛プロの選手/スター…｝にあこがれる。",
+      "exampleTranslation": "Ngưỡng mộ (vận động viên chuyên nghiệp, ngôi sao…).",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13948,
+      "term": "羨む (うらやむ)",
+      "reading": "うらやむ",
+      "romaji": null,
+      "definition": "đố kỵ, ghen tị",
+      "exampleSentence": "人の幸せをうらやんでも仕方がない。",
+      "exampleTranslation": "Có ghen tị với hạnh phúc của người khác cũng chẳng ích gì.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13949,
+      "term": "諦める (あきらめる)",
+      "reading": "あきらめる",
+      "romaji": null,
+      "definition": "từ bỏ",
+      "exampleSentence": "大けがをして、プロのサッカーの選手になる夢をあきらめた。",
+      "exampleTranslation": "Bị chấn thương nặng nên đã từ bỏ giấc mơ trở thành cầu thủ bóng đá chuyên nghiệp.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13950,
+      "term": "呆れる (あきれる)",
+      "reading": "あきれる",
+      "romaji": null,
+      "definition": "bị shock, ngạc nhiên",
+      "exampleSentence": "新入社員があまりに物を知らないので、あきれてしまった。",
+      "exampleTranslation": "Nhân viên mới thiếu hiểu biết quá nên tôi không khỏi ngán ngẩm.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13951,
+      "term": "恐れる (おそれる)",
+      "reading": "おそれる",
+      "romaji": null,
+      "definition": "sợ, lo sợ, khủng khiếp, đáng sợ",
+      "exampleSentence": "動物は火を恐れる。",
+      "exampleTranslation": "Động vật sợ lửa.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13952,
+      "term": "恨む (うらむ)",
+      "reading": "うらむ",
+      "romaji": null,
+      "definition": "hận, căm ghét, căm thù",
+      "exampleSentence": "私は今でも、私をいじめた同級生を恨んでいる。",
+      "exampleTranslation": "Đến giờ tôi vẫn căm hận người bạn cùng lớp đã bắt nạt tôi.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13953,
+      "term": "慰める (なぐさめる)",
+      "reading": "なぐさめる",
+      "romaji": null,
+      "definition": "an ủi, động viên",
+      "exampleSentence": "失恋した友達をみんなで慰めた。",
+      "exampleTranslation": "Mọi người cùng nhau an ủi người bạn vừa thất tình.",
+      "forms": [],
+      "displayOrder": 10
+    }
+  ]
+}

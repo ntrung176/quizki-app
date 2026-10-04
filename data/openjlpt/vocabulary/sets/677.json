@@ -1,0 +1,242 @@
+{
+  "id": 677,
+  "title": "N3 Tango 10.4 - Hãy học trên bản tin thời sự! · Rắc rối",
+  "description": "Tango N3 — Hãy học trên bản tin thời sự!",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:25.624761",
+  "cards": [
+    {
+      "id": 15466,
+      "term": "苦情 (くじょう)",
+      "reading": "くじょう",
+      "romaji": null,
+      "definition": "Kêu ca, phàn nàn",
+      "exampleSentence": "店員の対応について、客から苦情が寄せられました。",
+      "exampleTranslation": "Khách hàng đã gửi lời phàn nàn về cách phục vụ của nhân viên.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 15467,
+      "term": "あわただしい",
+      "reading": "あわただしい",
+      "romaji": null,
+      "definition": "Tất bật",
+      "exampleSentence": "朝はあわただしいので、朝食を食べない日もあります。",
+      "exampleTranslation": "Vì buổi sáng tất bật nên cũng có những ngày tôi không ăn sáng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 15468,
+      "term": "あわてる",
+      "reading": "あわてる",
+      "romaji": null,
+      "definition": "Cuống lên",
+      "exampleSentence": "道に迷っても、あわてる必要はありません。",
+      "exampleTranslation": "Dù bị lạc đường cũng không cần phải cuống lên.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 15469,
+      "term": "いきなり",
+      "reading": "いきなり",
+      "romaji": null,
+      "definition": "Bỗng nhiên",
+      "exampleSentence": "彼はいきなり立ち上がって、部屋を出て行きました。",
+      "exampleTranslation": "Anh ấy bỗng nhiên đứng dậy rồi ra khỏi phòng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 15470,
+      "term": "いじめ",
+      "reading": "いじめ",
+      "romaji": null,
+      "definition": "Sự trêu chọc, bắt nạt",
+      "exampleSentence": "学校でのいじめをなくすために、みんなで話し合いました。",
+      "exampleTranslation": "Mọi người đã cùng thảo luận để xóa bỏ nạn bắt nạt trong trường học.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 15471,
+      "term": "いじめる",
+      "reading": "いじめる",
+      "romaji": null,
+      "definition": "Trêu chọc, bắt nạt",
+      "exampleSentence": "弱い立場の人をいじめるのは、絶対によくありません。",
+      "exampleTranslation": "Bắt nạt những người ở vị thế yếu hơn tuyệt đối không tốt.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 15472,
+      "term": "迷子 (まいご)",
+      "reading": "まいご",
+      "romaji": null,
+      "definition": "Trẻ lạc, sự đi lạc",
+      "exampleSentence": "駅で迷子になった男の子を、駅員が助けました。",
+      "exampleTranslation": "Nhân viên nhà ga đã giúp một cậu bé bị lạc ở nhà ga.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 15473,
+      "term": "場合 (ばあい)",
+      "reading": "ばあい",
+      "romaji": null,
+      "definition": "Trường hợp",
+      "exampleSentence": "電車が遅れた場合は、学校へ電話してください。",
+      "exampleTranslation": "Trong trường hợp tàu điện bị trễ, hãy gọi điện cho trường.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 15474,
+      "term": "落とす (おとす)",
+      "reading": "おとす",
+      "romaji": null,
+      "definition": "Đánh rơi",
+      "exampleSentence": "道で財布を落とすと、見つけるのは大変です。",
+      "exampleTranslation": "Nếu đánh rơi ví trên đường thì việc tìm lại sẽ rất khó khăn.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 15475,
+      "term": "なくす",
+      "reading": "なくす",
+      "romaji": null,
+      "definition": "Đánh mất, làm mất",
+      "exampleSentence": "大切な書類をなくすと困るので、コピーを取っておきましょう。",
+      "exampleTranslation": "Vì sẽ rắc rối nếu làm mất tài liệu quan trọng, nên hãy sao lưu trước.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 15476,
+      "term": "借金<する> (しゃっきん（する）)",
+      "reading": "しゃっきん（する）",
+      "romaji": null,
+      "definition": "Sự vay tiền, tiền nợ",
+      "exampleSentence": "「借金<する>」ときは、返せる金額かよく考えましょう。",
+      "exampleTranslation": "Khi vay tiền, hãy suy nghĩ kỹ xem đó có phải số tiền mình có thể trả hay không.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 15477,
+      "term": "ずるい",
+      "reading": "ずるい",
+      "romaji": null,
+      "definition": "Gian dối, khôn lỏi",
+      "exampleSentence": "何も手伝わずに自分だけ休むのは、ずるいと思います。",
+      "exampleTranslation": "Tôi nghĩ chỉ mình nghỉ ngơi mà không giúp gì là rất khôn lỏi.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 15478,
+      "term": "倒れる (たおれる)",
+      "reading": "たおれる",
+      "romaji": null,
+      "definition": "Đổ, đổ bệnh",
+      "exampleSentence": "無理をすると、仕事中に倒れることがあります。",
+      "exampleTranslation": "Nếu làm việc quá sức, đôi khi bạn có thể gục xuống ngay lúc đang làm việc.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 15479,
+      "term": "転ぶ (ころぶ)",
+      "reading": "ころぶ",
+      "romaji": null,
+      "definition": "Bị ngã",
+      "exampleSentence": "急いで走ると、足を滑らせて転ぶことがあります。",
+      "exampleTranslation": "Nếu chạy vội, bạn có thể trượt chân và bị ngã.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 15480,
+      "term": "（会社が）つぶれる (（かいしゃが）つぶれる)",
+      "reading": "（かいしゃが）つぶれる",
+      "romaji": null,
+      "definition": "(Công ty) bị phá sản, bị dập",
+      "exampleSentence": "不景気になると、（会社が）つぶれることもあります。",
+      "exampleTranslation": "Khi kinh tế suy thoái, cũng có những công ty bị phá sản.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 15481,
+      "term": "次々[と] (つぎつぎ [と])",
+      "reading": "つぎつぎ [と]",
+      "romaji": null,
+      "definition": "Liên tiếp",
+      "exampleSentence": "春になると、色々な花が次々と咲き始めます。",
+      "exampleTranslation": "Khi mùa xuân đến, nhiều loài hoa lần lượt bắt đầu nở.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 15482,
+      "term": "停電（する） (ていでん（する）)",
+      "reading": "ていでん（する）",
+      "romaji": null,
+      "definition": "Sự mất điện, cúp điện",
+      "exampleSentence": "台風で停電（する）地域があり、住民はろうそくを使いました。",
+      "exampleTranslation": "Do bão, có khu vực bị mất điện nên người dân đã dùng nến.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 15483,
+      "term": "断水（する） (だんすい（する）)",
+      "reading": "だんすい（する）",
+      "romaji": null,
+      "definition": "Sự mất nước, cúp nước",
+      "exampleSentence": "水道管の工事で、明日は朝から断水（する）予定です。",
+      "exampleTranslation": "Do thi công đường ống nước, ngày mai dự kiến sẽ bị cúp nước từ sáng.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 15484,
+      "term": "ゆれる",
+      "reading": "ゆれる",
+      "romaji": null,
+      "definition": "Rung lắc",
+      "exampleSentence": "強い風が吹くと、この古い窓は大きくゆれることがあります。",
+      "exampleTranslation": "Khi gió mạnh thổi, cửa sổ cũ này đôi khi rung lắc mạnh.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 15485,
+      "term": "ぐらぐら（する）",
+      "reading": "ぐらぐら（する）",
+      "romaji": null,
+      "definition": "Bần bật",
+      "exampleSentence": "この古い椅子は、座るとぐらぐら（する）ことがあります。",
+      "exampleTranslation": "Cái ghế cũ này đôi khi bị chao đảo khi ngồi lên.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 15486,
+      "term": "非常口 (ひじょうぐち)",
+      "reading": "ひじょうぐち",
+      "romaji": null,
+      "definition": "Lối thoát hiểm",
+      "exampleSentence": "火事のときに備えて、非常口の場所を確認しておきましょう。",
+      "exampleTranslation": "Để đề phòng hỏa hoạn, hãy kiểm tra trước vị trí lối thoát hiểm.",
+      "forms": [],
+      "displayOrder": 20
+    }
+  ]
+}

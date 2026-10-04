@@ -1,0 +1,209 @@
+{
+  "id": 716,
+  "title": "N4 Tango 6.3 - Sức khỏe và trạng thái · Thời trang",
+  "description": "Tango N4 — Sức khỏe và trạng thái",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:31.779973",
+  "cards": [
+    {
+      "id": 16436,
+      "term": "スーツ",
+      "reading": "スーツ",
+      "romaji": null,
+      "definition": "Trang phục vét",
+      "exampleSentence": "明日はスーツを着て会社へ行きます。",
+      "exampleTranslation": "Ngày mai tôi sẽ mặc com-lê và đi đến công ty.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 16437,
+      "term": "着物 (きもの)",
+      "reading": "きもの",
+      "romaji": null,
+      "definition": "Kimono",
+      "exampleSentence": "母はお正月にきれいな着物を着ます。",
+      "exampleTranslation": "Mẹ tôi mặc một bộ kimono đẹp vào dịp năm mới.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 16438,
+      "term": "くつ下 (くつした)",
+      "reading": "くつした",
+      "romaji": null,
+      "definition": "Vớ",
+      "exampleSentence": "寒い日は、厚いくつ下をはいて学校へ行きます。",
+      "exampleTranslation": "Những ngày lạnh, tôi đi học bằng cách mang đôi vớ dày.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 16439,
+      "term": "下着 (したぎ)",
+      "reading": "したぎ",
+      "romaji": null,
+      "definition": "Đồ lót",
+      "exampleSentence": "旅行に行く前に、新しい下着を何枚か買いました。",
+      "exampleTranslation": "Trước khi đi du lịch, tôi đã mua vài bộ đồ lót mới.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 16440,
+      "term": "手ぶくろ (てぶくろ)",
+      "reading": "てぶくろ",
+      "romaji": null,
+      "definition": "Găng tay",
+      "exampleSentence": "寒かったので、母が手ぶくろを貸してくれました。",
+      "exampleTranslation": "Vì trời lạnh nên mẹ đã cho tôi mượn găng tay.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 16441,
+      "term": "指輪 (ゆびわ)",
+      "reading": "ゆびわ",
+      "romaji": null,
+      "definition": "Nhẫn",
+      "exampleSentence": "姉は誕生日に、母からきれいな指輪をもらいました。",
+      "exampleTranslation": "Vào sinh nhật, chị tôi đã nhận được một chiếc nhẫn đẹp từ mẹ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 16442,
+      "term": "サンダル",
+      "reading": "サンダル",
+      "romaji": null,
+      "definition": "Giày xăng-đan",
+      "exampleSentence": "夏はサンダルをはいて、海辺を歩くのが好きです。",
+      "exampleTranslation": "Mùa hè, tôi thích mang xăng-đan đi dạo bên bờ biển.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 16443,
+      "term": "リュック",
+      "reading": "リュック",
+      "romaji": null,
+      "definition": "Ba lô",
+      "exampleSentence": "重い教科書をリュックに入れて、駅まで走りました。",
+      "exampleTranslation": "Tôi cho những quyển giáo khoa nặng vào ba lô rồi chạy đến ga.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 16444,
+      "term": "アクセサリー",
+      "reading": "アクセサリー",
+      "romaji": null,
+      "definition": "Đồ trang sức",
+      "exampleSentence": "この店では、若い人向けのアクセサリーを売っています。",
+      "exampleTranslation": "Cửa hàng này bán đồ trang sức dành cho giới trẻ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 16445,
+      "term": "ポケット",
+      "reading": "ポケット",
+      "romaji": null,
+      "definition": "Túi, ngăn",
+      "exampleSentence": "ポケットに鍵を入れたまま、洗濯してしまいました。",
+      "exampleTranslation": "Tôi đã lỡ giặt quần áo trong khi vẫn để chìa khóa trong túi.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 16446,
+      "term": "ひも",
+      "reading": "ひも",
+      "romaji": null,
+      "definition": "Dây",
+      "exampleSentence": "靴のひもがほどけたので、道の端で結び直しました。",
+      "exampleTranslation": "Vì dây giày bị tuột nên tôi đã buộc lại bên đường.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 16447,
+      "term": "髪型 (かみがた)",
+      "reading": "かみがた",
+      "romaji": null,
+      "definition": "Kiểu tóc",
+      "exampleSentence": "美容院で髪型を変えたら、友達がすぐ気づきました。",
+      "exampleTranslation": "Sau khi đổi kiểu tóc ở tiệm, bạn tôi đã lập tức nhận ra.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 16448,
+      "term": "美容院 (びよういん)",
+      "reading": "びよういん",
+      "romaji": null,
+      "definition": "Tiệm cắt (uốn) tóc",
+      "exampleSentence": "駅の近くの美容院で、髪を短く切ってもらいました。",
+      "exampleTranslation": "Tôi đã nhờ cắt tóc ngắn ở tiệm gần nhà ga.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 16449,
+      "term": "カット（する）",
+      "reading": "カット（する）",
+      "romaji": null,
+      "definition": "Việc cắt (thường chỉ việc cắt tóc)",
+      "exampleSentence": "美容院で「カット（する）」の予約をして、土曜日に行きます。",
+      "exampleTranslation": "Tôi đặt lịch cắt tóc ở tiệm và sẽ đến vào thứ Bảy.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 16450,
+      "term": "かがみ",
+      "reading": "かがみ",
+      "romaji": null,
+      "definition": "Gương",
+      "exampleSentence": "毎朝、かがみを見てから、学校へ行きます。",
+      "exampleTranslation": "Mỗi sáng, tôi soi gương rồi đi học.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 16451,
+      "term": "かっこいい",
+      "reading": "かっこいい",
+      "romaji": null,
+      "definition": "Phong độ, ngầu, đẹp",
+      "exampleSentence": "あの店員さんは、制服を着るととてもかっこいいです。",
+      "exampleTranslation": "Nhân viên cửa hàng kia mặc đồng phục trông rất ngầu.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 16452,
+      "term": "かわいい",
+      "reading": "かわいい",
+      "romaji": null,
+      "definition": "Dễ thương",
+      "exampleSentence": "妹がかわいい犬の写真を見せてくれました。",
+      "exampleTranslation": "Em gái đã cho tôi xem ảnh một chú chó dễ thương.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 16453,
+      "term": "ちょうどいい",
+      "reading": "ちょうどいい",
+      "romaji": null,
+      "definition": "Vừa vặn, vừa phải, vừa đẹp",
+      "exampleSentence": "この部屋は広すぎず、勉強するのにちょうどいいです。",
+      "exampleTranslation": "Căn phòng này không quá rộng, rất vừa để học.",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

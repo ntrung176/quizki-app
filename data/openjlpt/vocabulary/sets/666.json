@@ -1,0 +1,198 @@
+{
+  "id": 666,
+  "title": "N3 Tango 8.3 - Vì sức khỏe · Triệu chứng",
+  "description": "Tango N3 — Vì sức khỏe",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:22.269859",
+  "cards": [
+    {
+      "id": 15240,
+      "term": "アレルギー",
+      "reading": "アレルギー",
+      "romaji": null,
+      "definition": "Dị ứng",
+      "exampleSentence": "私は卵アレルギーなので、料理に卵が入っているか確認します。",
+      "exampleTranslation": "Vì bị dị ứng với trứng nên tôi kiểm tra xem món ăn có trứng hay không.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 15241,
+      "term": "花粉症 (かふんしょう)",
+      "reading": "かふんしょう",
+      "romaji": null,
+      "definition": "Dị ứng phấn hoa",
+      "exampleSentence": "花粉症のせいで、春になると目がかゆくなります。",
+      "exampleTranslation": "Do dị ứng phấn hoa nên cứ đến mùa xuân là mắt tôi lại ngứa.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 15242,
+      "term": "うがい（する）",
+      "reading": "うがい（する）",
+      "romaji": null,
+      "definition": "Súc miệng, súc họng",
+      "exampleSentence": "外から帰ったら、うがい（する）ことを習慣にしましょう。",
+      "exampleTranslation": "Hãy tạo thói quen súc họng sau khi từ bên ngoài về.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 15243,
+      "term": "手洗い (てあらい)",
+      "reading": "てあらい",
+      "romaji": null,
+      "definition": "Rửa tay",
+      "exampleSentence": "食事の前には、手洗いを忘れないようにしましょう。",
+      "exampleTranslation": "Trước khi ăn, hãy nhớ rửa tay.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 15244,
+      "term": "くしゃみ（する）",
+      "reading": "くしゃみ（する）",
+      "romaji": null,
+      "definition": "Hắt xì hơi",
+      "exampleSentence": "人前でくしゃみ（する）ときは、口を手で押さえましょう。",
+      "exampleTranslation": "Khi hắt hơi trước mặt mọi người, hãy dùng tay che miệng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 15245,
+      "term": "鼻水 (はなみず)",
+      "reading": "はなみず",
+      "romaji": null,
+      "definition": "Nước mũi",
+      "exampleSentence": "風邪をひいて、鼻水が止まりません。",
+      "exampleTranslation": "Tôi bị cảm nên nước mũi không ngừng chảy.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 15246,
+      "term": "マスク",
+      "reading": "マスク",
+      "romaji": null,
+      "definition": "Khẩu trang",
+      "exampleSentence": "人が多い場所では、マスクをつけるようにしています。",
+      "exampleTranslation": "Ở những nơi đông người, tôi cố gắng đeo khẩu trang.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 15247,
+      "term": "つらい",
+      "reading": "つらい",
+      "romaji": null,
+      "definition": "Mệt mỏi, khó chịu",
+      "exampleSentence": "熱があると、体がだるくてつらいです。",
+      "exampleTranslation": "Khi bị sốt, cơ thể mệt mỏi và rất khó chịu.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 15248,
+      "term": "かゆい",
+      "reading": "かゆい",
+      "romaji": null,
+      "definition": "Ngứa",
+      "exampleSentence": "蚊に刺されたところがかゆいです。",
+      "exampleTranslation": "Chỗ bị muỗi đốt rất ngứa.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 15249,
+      "term": "かゆみ",
+      "reading": "かゆみ",
+      "romaji": null,
+      "definition": "Sự ngứa ngáy",
+      "exampleSentence": "薬を塗ったら、かゆみが少し治まりました。",
+      "exampleTranslation": "Sau khi bôi thuốc, cảm giác ngứa đã dịu đi một chút.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 15250,
+      "term": "かく",
+      "reading": "かく",
+      "romaji": null,
+      "definition": "Gãi",
+      "exampleSentence": "蚊に刺されたところをかくと、もっとかゆくなります。",
+      "exampleTranslation": "Nếu gãi chỗ bị muỗi đốt thì sẽ càng ngứa hơn.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 15251,
+      "term": "こする",
+      "reading": "こする",
+      "romaji": null,
+      "definition": "Dụi",
+      "exampleSentence": "目をこすると、さらにかゆくなるので気をつけてください。",
+      "exampleTranslation": "Nếu dụi mắt thì sẽ càng ngứa hơn, nên hãy cẩn thận.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 15252,
+      "term": "（肩が）こる (（かたが）こる)",
+      "reading": "（かたが）こる",
+      "romaji": null,
+      "definition": "(Vai) đau mỏi",
+      "exampleSentence": "長時間パソコンを使うと、（肩が）こることがあります。",
+      "exampleTranslation": "Sử dụng máy tính trong thời gian dài có thể khiến vai bị mỏi.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 15253,
+      "term": "肩こり (かたこり)",
+      "reading": "かたこり",
+      "romaji": null,
+      "definition": "Chứng đau mỏi vai",
+      "exampleSentence": "最近は肩こりがひどくて、仕事に集中できません。",
+      "exampleTranslation": "Gần đây tôi bị đau mỏi vai nghiêm trọng nên không thể tập trung làm việc.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 15254,
+      "term": "だるい",
+      "reading": "だるい",
+      "romaji": null,
+      "definition": "Uể oải",
+      "exampleSentence": "薬を飲んだら、体がだるい感じがします。",
+      "exampleTranslation": "Sau khi uống thuốc, tôi cảm thấy người uể oải.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 15255,
+      "term": "だるさ",
+      "reading": "だるさ",
+      "romaji": null,
+      "definition": "Sự uể oải",
+      "exampleSentence": "十分寝たのに、朝から体のだるさが取れません。",
+      "exampleTranslation": "Dù đã ngủ đủ nhưng từ sáng đến giờ sự uể oải trong người vẫn không hết.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 15256,
+      "term": "マッサージ（する）",
+      "reading": "マッサージ（する）",
+      "romaji": null,
+      "definition": "Sự xoa bóp, đấm bóp, mát-xa",
+      "exampleSentence": "疲れがたまった日は、「マッサージ（する）」という方法で体を休めます。",
+      "exampleTranslation": "Những ngày mệt mỏi tích tụ, tôi thư giãn cơ thể bằng phương pháp mát-xa.",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

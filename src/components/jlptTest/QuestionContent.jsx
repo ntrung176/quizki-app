@@ -1,6 +1,7 @@
 import React from 'react';
 import { Edit3, Volume2, Check, X } from 'lucide-react';
 import InteractiveReadingPassage from './InteractiveReadingPassage';
+import QuestionExplanationCard from './QuestionExplanationCard';
 
 export const hasHtmlTags = (str) => {
     if (!str) return false;
@@ -57,11 +58,13 @@ const QuestionContent = React.memo(({
                 </div>
             )}
             {/* Reading passage */}
-            {section.type === 'reading' && (question?.passageData || question?.passage || (section?.passages && typeof question?.passageIndex === 'number')) && (
+            {(question?.passageData || question?.passage || (section?.passages && typeof question?.passageIndex === 'number')) && (
                 <div className="mb-6">
                     <InteractiveReadingPassage 
                         passageHtml={question.passage || (section?.passages && typeof question.passageIndex === 'number' ? section.passages[question.passageIndex]?.passage : '')} 
-                        passageData={question.passageData || (section?.passages && typeof question.passageIndex === 'number' ? section.passages[question.passageIndex]?.passageData : null)} 
+                        passageData={question.passageData || (section?.passages && typeof question.passageIndex === 'number' ? section.passages[question.passageIndex]?.passageData : null)}
+                        explanationText={question.explanation || question.detail}
+                        question={question}
                     />
                 </div>
             )}
@@ -149,8 +152,13 @@ const QuestionContent = React.memo(({
                                         );
                                     })}
                                 </div>
-                                {isReview && sq.explanation && (
-                                    <p className={getCleanClassName("text-[15px] md:text-[16px] text-gray-500 dark:text-gray-400 mt-2 italic", sq.explanation)} dangerouslySetInnerHTML={{ __html: `💡 ${sq.explanation}` }} />
+                                {isReview && (
+                                    <QuestionExplanationCard 
+                                        question={sq}
+                                        options={sq.options || []}
+                                        correctAnswer={sq.correctAnswer}
+                                        userAnswer={answers[subAnswerKey(currentSectionIdx, currentQuestionIdx, sqi)]}
+                                    />
                                 )}
                             </div>
                         );
@@ -217,8 +225,13 @@ const QuestionContent = React.memo(({
                     })}
                 </div>
             )}
-            {isReview && (!question?.subQuestions || question.subQuestions.length === 0) && question?.explanation && (
-                <p className={getCleanClassName("text-[15px] md:text-[16px] text-gray-500 dark:text-gray-400 mt-2 italic pl-2 mb-8", question.explanation)} dangerouslySetInnerHTML={{ __html: `💡 ${question.explanation}` }} />
+            {isReview && (!question?.subQuestions || question.subQuestions.length === 0) && (
+                <QuestionExplanationCard 
+                    question={question}
+                    options={question.options || []}
+                    correctAnswer={question.correctAnswer}
+                    userAnswer={answers[answerKey(currentSectionIdx, currentQuestionIdx)]}
+                />
             )}
         </>
     );

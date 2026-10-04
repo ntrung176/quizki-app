@@ -1,0 +1,242 @@
+{
+  "id": 901,
+  "title": "N5 Tango 10.2 - Sức khỏe · (Bạn) khỏe không?",
+  "description": "Tango N5 — Sức khỏe",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:49.817144",
+  "cards": [
+    {
+      "id": 20982,
+      "term": "体 (からだ)",
+      "reading": "からだ",
+      "romaji": null,
+      "definition": "Cơ thể",
+      "exampleSentence": "体を鍛える。",
+      "exampleTranslation": "Rèn luyện thân thể.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20983,
+      "term": "体にいい (からだにいい)",
+      "reading": "からだにいい",
+      "romaji": null,
+      "definition": "Tốt (có lợi) cho cơ thể",
+      "exampleSentence": "野菜をたくさん食べると、体にいいですよ。",
+      "exampleTranslation": "Ăn nhiều rau thì tốt cho cơ thể đấy.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20984,
+      "term": "ちょうし",
+      "reading": "ちょうし",
+      "romaji": null,
+      "definition": "Tình trạng",
+      "exampleSentence": "今日は体のちょうしがいいです。",
+      "exampleTranslation": "Hôm nay tình trạng sức khỏe của tôi tốt.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20985,
+      "term": "つかれる",
+      "reading": "つかれる",
+      "romaji": null,
+      "definition": "Mệt mỏi",
+      "exampleSentence": "たくさん運動すると、体がつかれる。",
+      "exampleTranslation": "Vận động nhiều thì cơ thể sẽ mệt.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20986,
+      "term": "ねむい",
+      "reading": "ねむい",
+      "romaji": null,
+      "definition": "Buồn ngủ",
+      "exampleSentence": "夜遅くまで勉強すると、朝はねむいです。",
+      "exampleTranslation": "Nếu học đến khuya thì buổi sáng sẽ buồn ngủ.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20987,
+      "term": "はやく",
+      "reading": "はやく",
+      "romaji": null,
+      "definition": "Sớm, mau",
+      "exampleSentence": "明日は朝早いので、今日ははやく寝ます。",
+      "exampleTranslation": "Vì ngày mai phải dậy sớm nên hôm nay tôi sẽ đi ngủ sớm.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20988,
+      "term": "たいへんな",
+      "reading": "たいへんな",
+      "romaji": null,
+      "definition": "Vất vả",
+      "exampleSentence": "今日はたいへんな仕事がたくさんあります。",
+      "exampleTranslation": "Hôm nay có rất nhiều công việc vất vả.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20989,
+      "term": "さいきん",
+      "reading": "さいきん",
+      "romaji": null,
+      "definition": "Gần đây",
+      "exampleSentence": "さいきん、毎朝早く起きています。",
+      "exampleTranslation": "Gần đây, sáng nào tôi cũng dậy sớm.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20990,
+      "term": "しんぱい<する>",
+      "reading": "しんぱい<する>",
+      "romaji": null,
+      "definition": "Lo lắng",
+      "exampleSentence": "「しんぱい<する>」とは、不安な気持ちになることです。",
+      "exampleTranslation": "「しんぱい<する>」 nghĩa là cảm thấy lo lắng, bất an.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20991,
+      "term": "たばこ",
+      "reading": "たばこ",
+      "romaji": null,
+      "definition": "Thuốc lá",
+      "exampleSentence": "父はたばこを一本も吸いません。",
+      "exampleTranslation": "Bố tôi không hút dù chỉ một điếu thuốc.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20992,
+      "term": "すい",
+      "reading": "すい",
+      "romaji": null,
+      "definition": "Hút",
+      "exampleSentence": "父は毎朝、庭でたばこをすいます。",
+      "exampleTranslation": "Bố tôi hút thuốc trong vườn mỗi sáng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 20993,
+      "term": "きんえん",
+      "reading": "きんえん",
+      "romaji": null,
+      "definition": "Cấm hút thuốc",
+      "exampleSentence": "この病院はきんえんです。",
+      "exampleTranslation": "Bệnh viện này cấm hút thuốc.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 20994,
+      "term": "だいじょうぶな",
+      "reading": "だいじょうぶな",
+      "romaji": null,
+      "definition": "Ổn, không sao",
+      "exampleSentence": "足をけがしましたが、歩いてもだいじょうぶなようです。",
+      "exampleTranslation": "Tôi bị thương ở chân nhưng có vẻ vẫn đi được.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 20995,
+      "term": "むりな",
+      "reading": "むりな",
+      "romaji": null,
+      "definition": "Quá sức, miễn cưỡng",
+      "exampleSentence": "体調が悪いときは、むりな運動をしないでください。",
+      "exampleTranslation": "Khi sức khỏe không tốt, đừng cố tập thể dục quá sức.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 20996,
+      "term": "ダイエット",
+      "reading": "ダイエット",
+      "romaji": null,
+      "definition": "Ăn kiêng",
+      "exampleSentence": "健康のために、来月からダイエットを始めます。",
+      "exampleTranslation": "Vì sức khỏe, từ tháng sau tôi sẽ bắt đầu ăn kiêng.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 20997,
+      "term": "おもいだす",
+      "reading": "おもいだす",
+      "romaji": null,
+      "definition": "Nhớ ra, nhớ",
+      "exampleSentence": "旅行の写真を見ると、楽しかった日々をおもいだす。",
+      "exampleTranslation": "Mỗi khi xem ảnh du lịch, tôi nhớ lại những ngày vui vẻ.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 20998,
+      "term": "さびしい",
+      "reading": "さびしい",
+      "romaji": null,
+      "definition": "Buồn ngủ",
+      "exampleSentence": "夜、一人で家にいると、さびしいので友達に電話します。",
+      "exampleTranslation": "Buổi tối, khi ở nhà một mình thấy cô đơn nên tôi gọi cho bạn.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 20999,
+      "term": "[お]ひさしぶりです[ね]",
+      "reading": "[お]ひさしぶりです[ね]",
+      "romaji": null,
+      "definition": "Lâu ngày",
+      "exampleSentence": "おひさしぶりです、お元気でしたか。",
+      "exampleTranslation": "Lâu rồi không gặp, bạn vẫn khỏe chứ?",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 21000,
+      "term": "あっ",
+      "reading": "あっ",
+      "romaji": null,
+      "definition": "Á, a",
+      "exampleSentence": "あっ、雨が降ってきました。",
+      "exampleTranslation": "Á, trời bắt đầu mưa rồi.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 21001,
+      "term": "[お]元気ですか ([お]げんきですか)",
+      "reading": "[お]げんきですか",
+      "romaji": null,
+      "definition": "Anh /chị khỏe không?",
+      "exampleSentence": "先生、お元気ですか。",
+      "exampleTranslation": "Thưa thầy/cô, thầy/cô khỏe không ạ?",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 21002,
+      "term": "おかげさまで",
+      "reading": "おかげさまで",
+      "romaji": null,
+      "definition": "Nhờ trời",
+      "exampleSentence": "おかげさまで、毎日元気に過ごしています。",
+      "exampleTranslation": "Nhờ trời, ngày nào tôi cũng sống khỏe mạnh.",
+      "forms": [],
+      "displayOrder": 20
+    }
+  ]
+}

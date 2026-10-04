@@ -1,0 +1,198 @@
+{
+  "id": 400,
+  "title": "N3 Unit 5.3 - 動詞B・隠す・詰める (Giấu, lấp & vây quanh)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 動詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.764371",
+  "cards": [
+    {
+      "id": 10639,
+      "term": "だます",
+      "reading": "だます",
+      "romaji": "damasu",
+      "definition": "lừa gạt",
+      "exampleSentence": "彼は「独身だ」とだまして５人の女性とつきあっていた",
+      "exampleTranslation": "Anh ta nói dối rằng độc thân và cặp kè cùng lúc 5 cô gái.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10640,
+      "term": "盗む (ぬすむ)",
+      "reading": "ぬすむ",
+      "romaji": "nusumu",
+      "definition": "ăn trộm, ăn cắp",
+      "exampleSentence": "留守中にどろぼうに入られて、お金をぬすまれてしまった",
+      "exampleTranslation": "Khi vắng nhà thì bị kẻ trộm lẻn vào, lấy cắp mất tiền.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10641,
+      "term": "刺さる (ささる)",
+      "reading": "ささる",
+      "romaji": "sasaru",
+      "definition": "mắc, hóc, đâm",
+      "exampleSentence": "指にとげが刺さって痛い",
+      "exampleTranslation": "Gai đâm vào ngón tay đau quá.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10642,
+      "term": "刺す (さす)",
+      "reading": "さす",
+      "romaji": "sasu",
+      "definition": "cắn, hút, chích, đâm, thọc",
+      "exampleSentence": "指にとげを刺してしまった。",
+      "exampleTranslation": "Tôi lỡ để gai đâm vào ngón tay rồi.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10643,
+      "term": "殺す (ころす)",
+      "reading": "ころす",
+      "romaji": "korosu",
+      "definition": "giết, sát hại",
+      "exampleSentence": "ゴキブリをスリッパでたたいて殺した",
+      "exampleTranslation": "Dùng dép đập chết con gián.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10644,
+      "term": "隠れる (かくれる)",
+      "reading": "かくれる",
+      "romaji": "kakureru",
+      "definition": "trốn, ẩn nấp",
+      "exampleSentence": "逃げた犯人は空き家にかくれていた",
+      "exampleTranslation": "Tên tội phạm bỏ chạy đang ẩn núp trong ngôi nhà hoang.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10645,
+      "term": "隠す (かくす)",
+      "reading": "かくす",
+      "romaji": "kakusu",
+      "definition": "giấu diếm, che giấu",
+      "exampleSentence": "お金を引き出しの奥にかくした",
+      "exampleTranslation": "Giấu tiền sâu bên trong ngăn kéo.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10646,
+      "term": "埋まる (うまる)",
+      "reading": "うまる",
+      "romaji": "umaru",
+      "definition": "bị chôn/lấp; bị vùi; (chỗ trống) được lấp đầy; (lịch) kín",
+      "exampleSentence": "山がくずれて家がうまってしまった",
+      "exampleTranslation": "Núi lở, nhà cửa bị chôn vùi.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10647,
+      "term": "埋める (うめる)",
+      "reading": "うめる",
+      "romaji": "umeru",
+      "definition": "chôn/lấp; lấp đầy; bù (khoảng cách/thiếu hụt)",
+      "exampleSentence": "あなを掘ってごみをうめた",
+      "exampleTranslation": "Đào lỗ rồi chôn rác.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10648,
+      "term": "囲む (かこむ)",
+      "reading": "かこむ",
+      "romaji": "kakomu",
+      "definition": "bao quanh, vây quanh",
+      "exampleSentence": "テーブルを囲んで座る",
+      "exampleTranslation": "Ngồi quanh bàn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10649,
+      "term": "詰まる (つまる)",
+      "reading": "つまる",
+      "romaji": "tsumaru",
+      "definition": "chất, chặt, tắc, bít, gần lại",
+      "exampleSentence": "かばんにたくさん荷物がつまっていて重い",
+      "exampleTranslation": "Hành lí chất đầy trong cặp nặng thật .",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10650,
+      "term": "詰める (つめる)",
+      "reading": "つめる",
+      "romaji": "tsumeru",
+      "definition": "chất, nhét vào, rút ngắn (khoảng cách)",
+      "exampleSentence": "かばんに荷物をつめる",
+      "exampleTranslation": "Nhét đầy đồ vào cặp.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10651,
+      "term": "開く (ひらく)",
+      "reading": "ひらく",
+      "romaji": "hiraku",
+      "definition": "mở, tổ chức",
+      "exampleSentence": "ドアが開く",
+      "exampleTranslation": "Cửa mở.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10652,
+      "term": "閉じる (とじる)",
+      "reading": "とじる",
+      "romaji": "tojiru",
+      "definition": "đóng (cửa)",
+      "exampleSentence": "エレベーターのドアが閉じた",
+      "exampleTranslation": "Đóng cửa thang máy.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10653,
+      "term": "飛ぶ (とぶ)",
+      "reading": "とぶ",
+      "romaji": "tobu",
+      "definition": "bay, bay mất",
+      "exampleSentence": "鳥が空を飛んでいる",
+      "exampleTranslation": "Chim đang bay trên bầu trời.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10654,
+      "term": "飛ばす (とばす)",
+      "reading": "とばす",
+      "romaji": "tobasu",
+      "definition": "bắn, phóng, làm bay, bỏ qua",
+      "exampleSentence": "紙飛行機を飛ばす",
+      "exampleTranslation": "Phóng máy bay giấy.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 10655,
+      "term": "振る (ふる)",
+      "reading": "ふる",
+      "romaji": "furu",
+      "definition": "vẫy (tay), rắc (muối), chia tay / đá (người yêu)",
+      "exampleSentence": "手をふる",
+      "exampleTranslation": "Vẫy tay.",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

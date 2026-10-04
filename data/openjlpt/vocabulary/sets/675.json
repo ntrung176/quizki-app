@@ -1,0 +1,242 @@
+{
+  "id": 675,
+  "title": "N3 Tango 10.2 - Hãy học trên bản tin thời sự! · Vụ việc",
+  "description": "Tango N3 — Hãy học trên bản tin thời sự!",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:24.99043",
+  "cards": [
+    {
+      "id": 15423,
+      "term": "怪しい (あやしい)",
+      "reading": "あやしい",
+      "romaji": null,
+      "definition": "Khả nghi",
+      "exampleSentence": "あの男は挙動が怪しいので、警察に通報した。",
+      "exampleTranslation": "Người đàn ông đó có hành vi khả nghi nên tôi đã báo cảnh sát.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 15424,
+      "term": "恐ろしい (おそろしい)",
+      "reading": "おそろしい",
+      "romaji": null,
+      "definition": "Sợ, đáng sợ",
+      "exampleSentence": "山で一人で夜を過ごすのは恐ろしい。",
+      "exampleTranslation": "Ở một mình qua đêm trên núi thật đáng sợ.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 15425,
+      "term": "暴れる (あばれる)",
+      "reading": "あばれる",
+      "romaji": null,
+      "definition": "Đập phá, quậy phá",
+      "exampleSentence": "酔った客が店の中で暴れるので、店員が警察を呼んだ。",
+      "exampleTranslation": "Vì một vị khách say rượu quậy phá trong quán nên nhân viên đã gọi cảnh sát.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 15426,
+      "term": "争う (あらそう)",
+      "reading": "あらそう",
+      "romaji": null,
+      "definition": "Tranh cãi, đấu tranh",
+      "exampleSentence": "兄弟が一つの部屋を使おうとして争うことがある。",
+      "exampleTranslation": "Anh em đôi khi tranh cãi vì muốn sử dụng cùng một căn phòng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 15427,
+      "term": "犯罪 (はんざい)",
+      "reading": "はんざい",
+      "romaji": null,
+      "definition": "Tội phạm",
+      "exampleSentence": "犯罪を防ぐために、町の人々が協力している。",
+      "exampleTranslation": "Người dân trong thị trấn đang hợp tác để ngăn chặn tội phạm.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 15428,
+      "term": "発見者 (はっけんしゃ)",
+      "reading": "はっけんしゃ",
+      "romaji": null,
+      "definition": "Người phát hiện",
+      "exampleSentence": "事故の発見者が、すぐに救急車を呼んだ。",
+      "exampleTranslation": "Người phát hiện vụ tai nạn đã lập tức gọi xe cấp cứu.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 15429,
+      "term": "疑う (うたがう)",
+      "reading": "うたがう",
+      "romaji": null,
+      "definition": "Nghi ngờ",
+      "exampleSentence": "証拠がないのに、彼を疑うのはよくない。",
+      "exampleTranslation": "Không có bằng chứng mà nghi ngờ anh ấy thì không nên.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 15430,
+      "term": "うそつき",
+      "reading": "うそつき",
+      "romaji": null,
+      "definition": "Kẻ nói dối, sự nói dối",
+      "exampleSentence": "彼はうそつきなので、話をそのまま信じないほうがいい。",
+      "exampleTranslation": "Vì anh ấy là kẻ nói dối nên tốt hơn hết là đừng tin nguyên lời anh ấy nói.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 15431,
+      "term": "犯人 (はんにん)",
+      "reading": "はんにん",
+      "romaji": null,
+      "definition": "Phạm nhân, thủ phạm",
+      "exampleSentence": "警察は防犯カメラの映像から犯人を見つけた。",
+      "exampleTranslation": "Cảnh sát đã tìm ra thủ phạm từ hình ảnh camera an ninh.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 15432,
+      "term": "いたずら（な/する）",
+      "reading": "いたずら（な/する）",
+      "romaji": null,
+      "definition": "Trò nghịch ngợm (nghịch ngợm)",
+      "exampleSentence": "「いたずら（な/する）」は、子どもがよくする悪い遊びです。",
+      "exampleTranslation": "「いたずら（な/する）」 là trò nghịch ngợm mà trẻ em thường làm.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 15433,
+      "term": "さけぶ",
+      "reading": "さけぶ",
+      "romaji": null,
+      "definition": "Gào, thét",
+      "exampleSentence": "危険を感じると、彼は大声でさけぶ。",
+      "exampleTranslation": "Khi cảm thấy nguy hiểm, anh ấy sẽ hét lớn.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 15434,
+      "term": "たたく",
+      "reading": "たたく",
+      "romaji": null,
+      "definition": "Gõ",
+      "exampleSentence": "ドアをたたくと、中から返事が聞こえた。",
+      "exampleTranslation": "Khi gõ cửa, tôi nghe thấy tiếng trả lời từ bên trong.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 15435,
+      "term": "盗む (ぬすむ)",
+      "reading": "ぬすむ",
+      "romaji": null,
+      "definition": "Lấy trộm",
+      "exampleSentence": "人の物を盗むのは、絶対にいけないことです。",
+      "exampleTranslation": "Lấy trộm đồ của người khác là việc tuyệt đối không được làm.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 15436,
+      "term": "うばう",
+      "reading": "うばう",
+      "romaji": null,
+      "definition": "Cướp",
+      "exampleSentence": "強盗が店員から現金をうばう事件が起きた。",
+      "exampleTranslation": "Đã xảy ra một vụ cướp, trong đó tên cướp lấy tiền mặt từ nhân viên cửa hàng.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 15437,
+      "term": "捜す (さがす)",
+      "reading": "さがす",
+      "romaji": null,
+      "definition": "Tìm",
+      "exampleSentence": "警察は行方不明の子どもを捜すため、町を歩き回った。",
+      "exampleTranslation": "Cảnh sát đi khắp thị trấn để tìm đứa trẻ mất tích.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 15438,
+      "term": "追う (おう)",
+      "reading": "おう",
+      "romaji": null,
+      "definition": "Đuổi theo",
+      "exampleSentence": "警察は逃げた犯人を追うため、車を急発進させた。",
+      "exampleTranslation": "Cảnh sát nhanh chóng cho xe chạy để đuổi theo tên thủ phạm đã bỏ trốn.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 15439,
+      "term": "捕まえる (つかまえる)",
+      "reading": "つかまえる",
+      "romaji": null,
+      "definition": "Bắt, tóm",
+      "exampleSentence": "駅員は逃げようとした男を捕まえることができた。",
+      "exampleTranslation": "Nhân viên nhà ga đã có thể bắt được người đàn ông định bỏ chạy.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 15440,
+      "term": "捕まる (つかまる)",
+      "reading": "つかまる",
+      "romaji": null,
+      "definition": "Bị bắt",
+      "exampleSentence": "悪いことをすると、いつか警察に捕まる。",
+      "exampleTranslation": "Nếu làm điều xấu thì sớm muộn cũng sẽ bị cảnh sát bắt.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 15441,
+      "term": "逮捕（する） (たいほ（する）)",
+      "reading": "たいほ（する）",
+      "romaji": null,
+      "definition": "Bắt giữ, sự bắt giữ",
+      "exampleSentence": "「逮捕（する）」は、警察が犯人を捕まえることを表す言葉です。",
+      "exampleTranslation": "「逮捕（する）」 là từ chỉ việc cảnh sát bắt giữ thủ phạm.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 15442,
+      "term": "気味が悪い (きみがわるい)",
+      "reading": "きみがわるい",
+      "romaji": null,
+      "definition": "Cảm thấy ghê ghê, cảm thấy sợ sợ",
+      "exampleSentence": "夜道で後ろから足音が聞こえて、気味が悪いと思った。",
+      "exampleTranslation": "Trên đường tối nghe tiếng bước chân phía sau, tôi thấy rờn rợn.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 15443,
+      "term": "パトカー",
+      "reading": "パトカー",
+      "romaji": null,
+      "definition": "Xe cảnh sát",
+      "exampleSentence": "交差点にパトカーが止まり、警察官が事故の確認をしていた。",
+      "exampleTranslation": "Một chiếc xe cảnh sát dừng ở ngã tư, và cảnh sát đang kiểm tra vụ tai nạn.",
+      "forms": [],
+      "displayOrder": 20
+    }
+  ]
+}

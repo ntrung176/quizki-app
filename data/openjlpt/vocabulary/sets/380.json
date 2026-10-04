@@ -1,0 +1,187 @@
+{
+  "id": 380,
+  "title": "N3 Unit 2.1 - 動詞A・体の動作 (Hành động cơ thể)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 動詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.008595",
+  "cards": [
+    {
+      "id": 10315,
+      "term": "渇く (かわく)",
+      "reading": "かわく",
+      "romaji": "kawaku",
+      "definition": "khát",
+      "exampleSentence": "のどがかわいた",
+      "exampleTranslation": "Khát nước.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10316,
+      "term": "嗅ぐ (かぐ)",
+      "reading": "かぐ",
+      "romaji": "kagu",
+      "definition": "ngửi",
+      "exampleSentence": "においをかぐ",
+      "exampleTranslation": "Ngửi thấy mùi.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10317,
+      "term": "叩く (たたく)",
+      "reading": "たたく",
+      "romaji": "tataku",
+      "definition": "đánh, gõ, vỗ",
+      "exampleSentence": "子どものおしりをたたく",
+      "exampleTranslation": "Đánh vào mông đứa trẻ.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10318,
+      "term": "殴る (なぐる)",
+      "reading": "なぐる",
+      "romaji": "naguru",
+      "definition": "đánh, đấm",
+      "exampleSentence": "教師が生徒をなぐって、問題になっている",
+      "exampleTranslation": "Đang có vấn đề bởi giáo viên đấm học sinh.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10319,
+      "term": "ける",
+      "reading": "ける",
+      "romaji": "keru",
+      "definition": "đá",
+      "exampleSentence": "ボールをける",
+      "exampleTranslation": "Đá bóng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10320,
+      "term": "抱く (だく)",
+      "reading": "だく",
+      "romaji": "daku",
+      "definition": "ôm, ẵm, bế",
+      "exampleSentence": "子どもを両手でしっかりと抱く",
+      "exampleTranslation": "Ẫm đứa bé bằng hai tay một cách cẩn thận.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10321,
+      "term": "倒れる (たおれる)",
+      "reading": "たおれる",
+      "romaji": "taoreru",
+      "definition": "ngã, đổ",
+      "exampleSentence": "台風で木が倒れた",
+      "exampleTranslation": "Do bão nên cây đổ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10322,
+      "term": "倒す (たおす)",
+      "reading": "たおす",
+      "romaji": "taosu",
+      "definition": "làm đổ, hạ gục",
+      "exampleSentence": "花びんを倒して割ってしまった",
+      "exampleTranslation": "Tôi làm đổ bình hoa và nó vỡ mất rồi.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10323,
+      "term": "起きる／ 起こる (おきる／ おこる)",
+      "reading": "おきる／ おこる",
+      "romaji": "okiru / okoru",
+      "definition": "thức dậy, thức, xảy ra",
+      "exampleSentence": "きょうは８時に起きた",
+      "exampleTranslation": "Hôm nay tôi thức dậy lúc 8 giờ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10324,
+      "term": "起こす (おこす)",
+      "reading": "おこす",
+      "romaji": "okosu",
+      "definition": "đánh thức, dựng lên, gây ra",
+      "exampleSentence": "うちの子は朝起こしてもなかなか起きない",
+      "exampleTranslation": "Bọn trẻ nhà tôi, sáng có đánh thức chúng thì mãi chúng cũng không dậy cho ngay.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10325,
+      "term": "尋ねる (たずねる)",
+      "reading": "たずねる",
+      "romaji": "tazuneru",
+      "definition": "hỏi, xin, yêu cầu",
+      "exampleSentence": "交番で警官に市役所までの道をたずねた",
+      "exampleTranslation": "Hỏi đường đến tòa thị chính với viên cảnh sát tại bốt cảnh sát.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10326,
+      "term": "呼ぶ (よぶ)",
+      "reading": "よぶ",
+      "romaji": "yobu",
+      "definition": "gọi",
+      "exampleSentence": "「名前を呼ばれたら返事をしてください」",
+      "exampleTranslation": "\"Vui lòng trả lời khi được gọi tên\"",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10327,
+      "term": "叫ぶ (さけぶ)",
+      "reading": "さけぶ",
+      "romaji": "sakebu",
+      "definition": "kêu gào, la hét",
+      "exampleSentence": "大声で叫んだが、相手は気づかずに行ってしまった",
+      "exampleTranslation": "Dù đã gào thét lớn tiếng nhưng đối phương vẫn đi mất mà không hề biết gì.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10328,
+      "term": "黙る (だまる)",
+      "reading": "だまる",
+      "romaji": "damaru",
+      "definition": "im lặng, làm thinh",
+      "exampleSentence": "先生が質問したが、だれも答えないでだまっている",
+      "exampleTranslation": "Thầy giáo đặt câu hỏi nhưng tất cả đều im lặng không trả lời.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10329,
+      "term": "飼う (かう)",
+      "reading": "かう",
+      "romaji": "kau",
+      "definition": "nuôi",
+      "exampleSentence": "何かペットを飼いたいと思っている",
+      "exampleTranslation": "Tôi muốn nuôi một con vật gì nào đó.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10330,
+      "term": "数える (かぞえる)",
+      "reading": "かぞえる",
+      "romaji": "kazoeru",
+      "definition": "đếm",
+      "exampleSentence": "数を数える",
+      "exampleTranslation": "Đếm số.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

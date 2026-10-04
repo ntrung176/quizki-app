@@ -1,0 +1,187 @@
+{
+  "id": 550,
+  "title": "N2 Unit 2.7 - 動詞A (bài 7/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.580551",
+  "cards": [
+    {
+      "id": 13349,
+      "term": "解ける (ほどける)",
+      "reading": "ほどける",
+      "romaji": null,
+      "definition": "mở, cởi ra",
+      "exampleSentence": "くつのひもがほどけた。",
+      "exampleTranslation": "Dây giày bị tuột.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13350,
+      "term": "解く (ほどく)",
+      "reading": "ほどく",
+      "romaji": null,
+      "definition": "cởi",
+      "exampleSentence": "荷物のひもをほどいて中の物を出す。",
+      "exampleTranslation": "Tháo dây buộc hành lý rồi lấy đồ ra.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13351,
+      "term": "枯れる (かれる)",
+      "reading": "かれる",
+      "romaji": null,
+      "definition": "bị héo, bị tàn",
+      "exampleSentence": "害虫のせいで、木が枯れてしまった。",
+      "exampleTranslation": "Do sâu bọ gây hại nên cây bị khô héo.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13352,
+      "term": "枯らす (からす)",
+      "reading": "からす",
+      "romaji": null,
+      "definition": "làm héo, làm chết khô",
+      "exampleSentence": "病気が発生し、多くの木が枯らしてしまった。",
+      "exampleTranslation": "Dịch bệnh bùng phát khiến nhiều cây bị chết khô.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13353,
+      "term": "傷む (いたむ)",
+      "reading": "いたむ",
+      "romaji": null,
+      "definition": "bị hỏng",
+      "exampleSentence": "生魚は傷みやすいから、早く食べたほうがいい。",
+      "exampleTranslation": "Cá tươi dễ bị hỏng nên nên ăn sớm.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13354,
+      "term": "湿る (しめる)",
+      "reading": "しめる",
+      "romaji": null,
+      "definition": "bị ẩm",
+      "exampleSentence": "朝干した洗濯物がまだ湿っている。",
+      "exampleTranslation": "Đồ phơi buổi sáng vẫn còn ẩm.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13355,
+      "term": "凍る (こおる)",
+      "reading": "こおる",
+      "romaji": null,
+      "definition": "đông cứng",
+      "exampleSentence": "水が凍る。",
+      "exampleTranslation": "Nước đóng băng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13356,
+      "term": "震える (ふるえる)",
+      "reading": "ふるえる",
+      "romaji": null,
+      "definition": "run rẩy",
+      "exampleSentence": "寒さ｛に/で｝手足がぶるぶる震える。",
+      "exampleTranslation": "Vì lạnh nên tay chân run cầm cập.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13357,
+      "term": "輝く (かがやく)",
+      "reading": "かがやく",
+      "romaji": null,
+      "definition": "sáng",
+      "exampleSentence": "空に太陽が輝いている。",
+      "exampleTranslation": "Mặt trời chiếu sáng trên bầu trời.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13358,
+      "term": "溢れる (あふれる)",
+      "reading": "あふれる",
+      "romaji": null,
+      "definition": "tràn, đầy",
+      "exampleSentence": "大雨で川の水があふれた。",
+      "exampleTranslation": "Mưa lớn làm nước sông tràn bờ.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13359,
+      "term": "余る (あまる)",
+      "reading": "あまる",
+      "romaji": null,
+      "definition": "còn sót lại",
+      "exampleSentence": "作りすぎて料理が余ってしまった。",
+      "exampleTranslation": "Nấu quá nhiều nên thức ăn bị dư.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13360,
+      "term": "目立つ (めだつ)",
+      "reading": "めだつ",
+      "romaji": null,
+      "definition": "nổi bật",
+      "exampleSentence": "彼女は背が高いので目立つ。",
+      "exampleTranslation": "Cô ấy cao nên rất nổi bật.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13361,
+      "term": "見下ろす (みおろす)",
+      "reading": "みおろす",
+      "romaji": null,
+      "definition": "nhìn xuống",
+      "exampleSentence": "このビルの屋上から町が見下ろせる。",
+      "exampleTranslation": "Từ sân thượng tòa nhà này có thể nhìn bao quát cả thành phố.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13362,
+      "term": "戦う・闘う (たたかう・たたかう)",
+      "reading": "たたかう・たたかう",
+      "romaji": null,
+      "definition": "đánh nhau, tranh chấp",
+      "exampleSentence": "国と国とが領土をめぐって戦う。",
+      "exampleTranslation": "Các quốc gia tranh chấp lãnh thổ và giao chiến.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13363,
+      "term": "敗れる (やぶれる)",
+      "reading": "やぶれる",
+      "romaji": null,
+      "definition": "bị đánh bại",
+      "exampleSentence": "試合に敗れる。",
+      "exampleTranslation": "Thua trận.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 13364,
+      "term": "逃げる (にげる)",
+      "reading": "にげる",
+      "romaji": null,
+      "definition": "chạy trốn",
+      "exampleSentence": "犯人は海外に逃げたらしい。",
+      "exampleTranslation": "Tên tội phạm dường như đã trốn ra nước ngoài.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

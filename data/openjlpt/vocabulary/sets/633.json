@@ -1,0 +1,209 @@
+{
+  "id": 633,
+  "title": "N3 Tango 1.5 - Quan hệ giữa người với người · Là người như thế nào?",
+  "description": "Tango N3 — Quan hệ giữa người với người",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:12.05549",
+  "cards": [
+    {
+      "id": 14424,
+      "term": "名字 (みょうじ)",
+      "reading": "みょうじ",
+      "romaji": null,
+      "definition": "Họ (tên)",
+      "exampleSentence": "申込書には、名字と名前を正しく書いてください。",
+      "exampleTranslation": "Vui lòng điền đúng họ và tên vào đơn đăng ký.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14425,
+      "term": "性別 (せいべつ)",
+      "reading": "せいべつ",
+      "romaji": null,
+      "definition": "Giới tính",
+      "exampleSentence": "病院の受付で、性別と生年月日を記入しました。",
+      "exampleTranslation": "Tôi đã điền giới tính và ngày tháng năm sinh tại quầy tiếp nhận của bệnh viện.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14426,
+      "term": "年齢 (ねんれい)",
+      "reading": "ねんれい",
+      "romaji": null,
+      "definition": "Tuổi, tuổi tác",
+      "exampleSentence": "このアンケートでは、年齢を答える必要があります。",
+      "exampleTranslation": "Trong bảng khảo sát này, bạn cần trả lời tuổi của mình.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14427,
+      "term": "高齢 (こうれい)",
+      "reading": "こうれい",
+      "romaji": null,
+      "definition": "Cao tuổi, nhiều tuổi",
+      "exampleSentence": "高齢の方が安心して暮らせる町を目指しています。",
+      "exampleTranslation": "Chúng tôi hướng tới một thành phố nơi người cao tuổi có thể sống yên tâm.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14428,
+      "term": "老人 (ろうじん)",
+      "reading": "ろうじん",
+      "romaji": null,
+      "definition": "Người già",
+      "exampleSentence": "駅で困っている老人に、道を教えてあげました。",
+      "exampleTranslation": "Tôi đã chỉ đường cho một cụ già đang gặp khó khăn ở nhà ga.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14429,
+      "term": "幼児 (ようじ)",
+      "reading": "ようじ",
+      "romaji": null,
+      "definition": "Trẻ ấu nhi (trẻ từ 1-5 tuổi)",
+      "exampleSentence": "この施設には、幼児が遊べる安全な部屋があります。",
+      "exampleTranslation": "Cơ sở này có một căn phòng an toàn để trẻ nhỏ vui chơi.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14430,
+      "term": "出身 (しゅっしん)",
+      "reading": "しゅっしん",
+      "romaji": null,
+      "definition": "Xuất thân, sinh ra",
+      "exampleSentence": "私はベトナム出身ですが、今は日本で働いています。",
+      "exampleTranslation": "Tôi xuất thân từ Việt Nam, nhưng hiện đang làm việc ở Nhật Bản.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14431,
+      "term": "生まれ (うまれ)",
+      "reading": "うまれ",
+      "romaji": null,
+      "definition": "(sự) sinh ra, chào đời",
+      "exampleSentence": "彼は北海道生まれで、冬の寒さに慣れています。",
+      "exampleTranslation": "Anh ấy sinh ra ở Hokkaido nên đã quen với cái lạnh mùa đông.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14432,
+      "term": "育ち (そだち)",
+      "reading": "そだち",
+      "romaji": null,
+      "definition": "(sự) lớn lên, trưởng thành",
+      "exampleSentence": "彼女は東京育ちなので、都会の生活に慣れています。",
+      "exampleTranslation": "Cô ấy lớn lên ở Tokyo nên đã quen với cuộc sống thành thị.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14433,
+      "term": "行儀 (ぎょうぎ)",
+      "reading": "ぎょうぎ",
+      "romaji": null,
+      "definition": "Hành xử, cư xử",
+      "exampleSentence": "食事中は行儀よくするように、母に注意されました。",
+      "exampleTranslation": "Tôi bị mẹ nhắc phải cư xử đúng mực trong bữa ăn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14434,
+      "term": "マナー",
+      "reading": "マナー",
+      "romaji": null,
+      "definition": "Phép lịch sự, ứng xử",
+      "exampleSentence": "マナーを守って、みんなが気持ちよく食事できるようにしましょう。",
+      "exampleTranslation": "Hãy giữ phép lịch sự để mọi người đều có thể ăn uống thoải mái.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14435,
+      "term": "個人 (こじん)",
+      "reading": "こじん",
+      "romaji": null,
+      "definition": "Cá nhân",
+      "exampleSentence": "個人情報は、大切に管理してください。",
+      "exampleTranslation": "Vui lòng quản lý cẩn thận thông tin cá nhân.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 14436,
+      "term": "アドレス",
+      "reading": "アドレス",
+      "romaji": null,
+      "definition": "Địa chỉ e-mail",
+      "exampleSentence": "アドレスを間違えないように、もう一度確認してください。",
+      "exampleTranslation": "Hãy kiểm tra lại một lần nữa để không nhập sai địa chỉ email.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 14437,
+      "term": "本人 (ほんにん)",
+      "reading": "ほんにん",
+      "romaji": null,
+      "definition": "Bản thân, đúng người",
+      "exampleSentence": "本人が来るまで、ここで待っていてください。",
+      "exampleTranslation": "Hãy chờ ở đây cho đến khi chính người đó đến.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 14438,
+      "term": "独身 (どくしん)",
+      "reading": "どくしん",
+      "romaji": null,
+      "definition": "Độc thân",
+      "exampleSentence": "独身の友人は、休日によく旅行へ出かけます。",
+      "exampleTranslation": "Người bạn độc thân của tôi thường đi du lịch vào ngày nghỉ.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 14439,
+      "term": "主婦 (しゅふ)",
+      "reading": "しゅふ",
+      "romaji": null,
+      "definition": "Nội trợ",
+      "exampleSentence": "私の母は主婦ですが、毎日忙しく働いています。",
+      "exampleTranslation": "Mẹ tôi là nội trợ nhưng ngày nào cũng bận rộn làm việc.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 14440,
+      "term": "フリーター",
+      "reading": "フリーター",
+      "romaji": null,
+      "definition": "Người làm thêm tự do",
+      "exampleSentence": "フリーターの兄は、将来の仕事について考え始めました。",
+      "exampleTranslation": "Anh trai làm nhiều công việc bán thời gian của tôi đã bắt đầu suy nghĩ về công việc tương lai.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 14441,
+      "term": "無職 (むしょく)",
+      "reading": "むしょく",
+      "romaji": null,
+      "definition": "Sự không có việc làm",
+      "exampleSentence": "無職の期間が長くなると、不安になる人もいます。",
+      "exampleTranslation": "Khi thời gian không có việc làm kéo dài, cũng có người cảm thấy lo lắng.",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

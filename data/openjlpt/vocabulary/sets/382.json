@@ -1,0 +1,187 @@
+{
+  "id": 382,
+  "title": "N3 Unit 2.3 - 動詞A・乗り物と回復 (Di chuyển & hồi phục)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 動詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.101292",
+  "cards": [
+    {
+      "id": 10347,
+      "term": "見つける (みつける)",
+      "reading": "みつける",
+      "romaji": "mitsukeru",
+      "definition": "tìm thấy, bắt gặp",
+      "exampleSentence": "なくなったと思っていた指輪を、ソファーの下で見つけた",
+      "exampleTranslation": "Đã tìm ra chiếc nhẫn cứ ngỡ đã mất ở dưới ghế Sofa.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10348,
+      "term": "捕まる (つかまる)",
+      "reading": "つかまる",
+      "romaji": "tsukamaru",
+      "definition": "bị bắt; bị giữ (bị túm)",
+      "exampleSentence": "犯人が警察に捕まった",
+      "exampleTranslation": "Phạm nhân đã bị cảnh sát bắt giữ.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10349,
+      "term": "捕まえる (つかまえる)",
+      "reading": "つかまえる",
+      "romaji": "tsukamaeru",
+      "definition": "bắt, tóm",
+      "exampleSentence": "警察が泥棒を捕まえた",
+      "exampleTranslation": "Cảnh sát tóm lấy tên trộm.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10350,
+      "term": "乗る (のる)",
+      "reading": "のる",
+      "romaji": "noru",
+      "definition": "lên (tàu,xe), cưỡi (ngựa)",
+      "exampleSentence": "毎朝、電車に乗って学校に通っている",
+      "exampleTranslation": "Sáng nào tôi cũng lên tàu điện đi đến trường.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10351,
+      "term": "乗せる (のせる)",
+      "reading": "のせる",
+      "romaji": "noseru",
+      "definition": "chất lên, cho lên",
+      "exampleSentence": "子どもを車に乗せて、学校まで送って行った",
+      "exampleTranslation": "Cho bọn trẻ lên xe rồi đưa đến trường.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10352,
+      "term": "降りる／下りる (おりる)",
+      "reading": "おりる",
+      "romaji": "oriru",
+      "definition": "xuống (tàu, xe, núi), nhận được(cấp phép, chứng chỉ, lương hưu…)",
+      "exampleSentence": "電車を降りる",
+      "exampleTranslation": "Xuống tàu điện.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10353,
+      "term": "降ろす／下ろす (おろす)",
+      "reading": "おろす",
+      "romaji": "orosu",
+      "definition": "cho xuống (tàu, xe), hạ xuống, rút tiền",
+      "exampleSentence": "（タクシーの客が）「あの銀行の前で降ろしてください」",
+      "exampleTranslation": "(Khách đi Taxi) \"Xin hãy cho tôi xuống trước ngân hàng kia\".",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10354,
+      "term": "直る (なおる)",
+      "reading": "なおる",
+      "romaji": "naoru",
+      "definition": "được sửa",
+      "exampleSentence": "こわれたパソコンが直った",
+      "exampleTranslation": "Máy tính cá nhân bị hỏng đã được sửa.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10355,
+      "term": "直す (なおす)",
+      "reading": "なおす",
+      "romaji": "naosu",
+      "definition": "sửa chữa, chỉnh lại",
+      "exampleSentence": "こわれた時計を直す",
+      "exampleTranslation": "Sửa đồng hồ bị hỏng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10356,
+      "term": "治る (なおる)",
+      "reading": "なおる",
+      "romaji": "naoru",
+      "definition": "khỏi, lành",
+      "exampleSentence": "なかなか頭痛が治らない",
+      "exampleTranslation": "Mãi mà không khỏi đau đầu.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10357,
+      "term": "治す (なおす)",
+      "reading": "なおす",
+      "romaji": "naosu",
+      "definition": "chữa trị, phục hồi",
+      "exampleSentence": "「よく休んで早くかぜを治してください」",
+      "exampleTranslation": "\"Hãy nghỉ ngơi thư thái cho nhanh khỏi cảm nhé.\"",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10358,
+      "term": "亡くなる (なくなる)",
+      "reading": "なくなる",
+      "romaji": "nakunaru",
+      "definition": "mất, chết",
+      "exampleSentence": "社長が９０歳でなくなった",
+      "exampleTranslation": "Giám đốc mất vào năm 90 tuổi.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10359,
+      "term": "亡くす (なくす)",
+      "reading": "なくす",
+      "romaji": "nakusu",
+      "definition": "mất (người thân qua đời)",
+      "exampleSentence": "彼は子どものとき、父親をなくした",
+      "exampleTranslation": "Anh ấy mất bố khi còn nhỏ.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10360,
+      "term": "生まれる (うまれる)",
+      "reading": "うまれる",
+      "romaji": "umareru",
+      "definition": "được sinh ra, được tạo ra",
+      "exampleSentence": "先月子どもが生まれた",
+      "exampleTranslation": "Đứa trẻ được sinh ra vào tháng trước.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10361,
+      "term": "産む 生む (うむ うむ)",
+      "reading": "うむ うむ",
+      "romaji": "umu",
+      "definition": "sinh, tạo ra",
+      "exampleSentence": "妻が先日元気な女の子を産んだ",
+      "exampleTranslation": "Cách đây vài ngày, vợ tôi đã sinh ra một bé gái khỏe mạnh.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10362,
+      "term": "出会う (であう)",
+      "reading": "であう",
+      "romaji": "deau",
+      "definition": "gặp gỡ, hội ngộ",
+      "exampleSentence": "駅で偶然大学時代の友人に出会った",
+      "exampleTranslation": "Ở nhà ga, tôi tình cờ gặp người bạn thời đại học.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

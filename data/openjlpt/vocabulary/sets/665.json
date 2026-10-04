@@ -1,0 +1,253 @@
+{
+  "id": 665,
+  "title": "N3 Tango 8.2 - Vì sức khỏe · Có dấu hiệu gì?",
+  "description": "Tango N3 — Vì sức khỏe",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:22.054919",
+  "cards": [
+    {
+      "id": 15218,
+      "term": "調子 (ちょうし)",
+      "reading": "ちょうし",
+      "romaji": null,
+      "definition": "Tình trạng, cảm giác",
+      "exampleSentence": "今日は体の調子がよくないので、早く帰ります。",
+      "exampleTranslation": "Hôm nay tôi cảm thấy không khỏe nên sẽ về sớm.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 15219,
+      "term": "あくび（する）",
+      "reading": "あくび（する）",
+      "romaji": null,
+      "definition": "Ngáp",
+      "exampleSentence": "眠いときに「あくび（する）」のは、誰にでもあることです。",
+      "exampleTranslation": "Ngáp khi buồn ngủ là chuyện ai cũng từng trải qua.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 15220,
+      "term": "しゃっくり（する）",
+      "reading": "しゃっくり（する）",
+      "romaji": null,
+      "definition": "Nấc",
+      "exampleSentence": "「しゃっくり（する）」ときは、水をゆっくり飲みます。",
+      "exampleTranslation": "Khi bị nấc, tôi uống nước thật chậm.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 15221,
+      "term": "よだれ",
+      "reading": "よだれ",
+      "romaji": null,
+      "definition": "Dớt dãi, nước miếng",
+      "exampleSentence": "赤ちゃんが寝ながら、よだれをたらしています。",
+      "exampleTranslation": "Em bé đang chảy dãi trong khi ngủ.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 15222,
+      "term": "にきび",
+      "reading": "にきび",
+      "romaji": null,
+      "definition": "Mụn trứng cá",
+      "exampleSentence": "最近、顔ににきびができて困っています。",
+      "exampleTranslation": "Gần đây tôi khổ sở vì nổi mụn trên mặt.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 15223,
+      "term": "気になる (きになる)",
+      "reading": "きになる",
+      "romaji": null,
+      "definition": "Bận tâm",
+      "exampleSentence": "隣の部屋の大きな音が気になるので、勉強に集中できません。",
+      "exampleTranslation": "Vì tiếng động lớn từ phòng bên khiến tôi bận tâm nên không thể tập trung học.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 15224,
+      "term": "気にする (きにする)",
+      "reading": "きにする",
+      "romaji": null,
+      "definition": "Bận tâm, lo lắng",
+      "exampleSentence": "小さな失敗をいつまでも気にする必要はありません。",
+      "exampleTranslation": "Bạn không cần phải mãi lo lắng về một thất bại nhỏ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 15225,
+      "term": "白髪 (しらが)",
+      "reading": "しらが",
+      "romaji": null,
+      "definition": "Tóc bạc",
+      "exampleSentence": "父は最近、白髪が増えたと気にしています。",
+      "exampleTranslation": "Gần đây bố tôi lo lắng vì tóc bạc ngày càng nhiều.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 15226,
+      "term": "抜く (ぬく)",
+      "reading": "ぬく",
+      "romaji": null,
+      "definition": "Nhổ",
+      "exampleSentence": "庭の雑草を一本ずつ抜く。",
+      "exampleTranslation": "Nhổ từng cây cỏ dại trong vườn.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 15227,
+      "term": "生える (はえる)",
+      "reading": "はえる",
+      "romaji": null,
+      "definition": "Mọc",
+      "exampleSentence": "春になると、庭に新しい草が生える。",
+      "exampleTranslation": "Cứ đến mùa xuân, cỏ mới lại mọc trong vườn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 15228,
+      "term": "しみ",
+      "reading": "しみ",
+      "romaji": null,
+      "definition": "Vết nám",
+      "exampleSentence": "母は顔にできたしみを気にしている。",
+      "exampleTranslation": "Mẹ tôi lo lắng về những vết nám trên mặt.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 15229,
+      "term": "しわ",
+      "reading": "しわ",
+      "romaji": null,
+      "definition": "Nếp nhăn",
+      "exampleSentence": "笑うと目の横にしわができる。",
+      "exampleTranslation": "Khi cười, nếp nhăn sẽ xuất hiện bên khóe mắt.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 15230,
+      "term": "日焼け（する） (ひやけ（する）)",
+      "reading": "ひやけ（する）",
+      "romaji": null,
+      "definition": "Cháy nắng",
+      "exampleSentence": "夏に長時間外にいると、日焼け（する）ことがあります。",
+      "exampleTranslation": "Vào mùa hè, nếu ở ngoài trời lâu thì có thể bị cháy nắng.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 15231,
+      "term": "傷 (きず)",
+      "reading": "きず",
+      "romaji": null,
+      "definition": "Vết thương",
+      "exampleSentence": "転んで、ひざに小さな傷ができました。",
+      "exampleTranslation": "Tôi bị ngã và đầu gối bị một vết thương nhỏ.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 15232,
+      "term": "酔っぱらう (よっぱらう)",
+      "reading": "よっぱらう",
+      "romaji": null,
+      "definition": "Say, say rượu",
+      "exampleSentence": "父は酒を飲みすぎると、すぐに酔っぱらう。",
+      "exampleTranslation": "Bố tôi cứ uống quá nhiều rượu là say ngay.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 15233,
+      "term": "酔っぱらい (よっぱらい)",
+      "reading": "よっぱらい",
+      "romaji": null,
+      "definition": "Kẻ say rượu",
+      "exampleSentence": "駅の前で、酔っぱらいが大声で歌っていた。",
+      "exampleTranslation": "Một kẻ say rượu đang hát lớn tiếng trước nhà ga.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 15234,
+      "term": "ぺこぺこな",
+      "reading": "ぺこぺこな",
+      "romaji": null,
+      "definition": "Cồn cào",
+      "exampleSentence": "昼ご飯を食べていないので、おなかはぺこぺこな状態です。",
+      "exampleTranslation": "Vì chưa ăn trưa nên bụng tôi đang cồn cào.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 15235,
+      "term": "からからな",
+      "reading": "からからな",
+      "romaji": null,
+      "definition": "Khát khô",
+      "exampleSentence": "水を飲まないと、のどがからからな状態になります。",
+      "exampleTranslation": "Nếu không uống nước, cổ họng sẽ khát khô.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 15236,
+      "term": "ダイエット",
+      "reading": "ダイエット",
+      "romaji": null,
+      "definition": "Ăn kiêng",
+      "exampleSentence": "健康のために、来月からダイエットを始めるつもりです。",
+      "exampleTranslation": "Vì sức khỏe, tôi định bắt đầu ăn kiêng từ tháng sau.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 15237,
+      "term": "カロリー",
+      "reading": "カロリー",
+      "romaji": null,
+      "definition": "Ca-lo, lượng ca-lo",
+      "exampleSentence": "このケーキはおいしいですが、カロリーが高いです。",
+      "exampleTranslation": "Chiếc bánh này ngon nhưng có lượng calo cao.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 15238,
+      "term": "控える (ひかえる)",
+      "reading": "ひかえる",
+      "romaji": null,
+      "definition": "Tránh",
+      "exampleSentence": "健康のために、甘い物は控えるようにしています。",
+      "exampleTranslation": "Vì sức khỏe, tôi cố gắng hạn chế đồ ngọt.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 15239,
+      "term": "つい",
+      "reading": "つい",
+      "romaji": null,
+      "definition": "Biết thế mà cứ",
+      "exampleSentence": "体に悪いと分かっていても、つい夜更かししてしまいます。",
+      "exampleTranslation": "Dù biết là không tốt cho cơ thể nhưng tôi cứ lỡ thức khuya.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

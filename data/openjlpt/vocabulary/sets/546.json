@@ -1,0 +1,198 @@
+{
+  "id": 546,
+  "title": "N2 Unit 2.3 - 動詞A (bài 3/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.524241",
+  "cards": [
+    {
+      "id": 13296,
+      "term": "引っ張る (ひっぱる)",
+      "reading": "ひっぱる",
+      "romaji": null,
+      "definition": "kéo",
+      "exampleSentence": "このひもを引っ張ると電気がつく。",
+      "exampleTranslation": "Kéo sợi dây này thì đèn sẽ sáng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13297,
+      "term": "突く (つく)",
+      "reading": "つく",
+      "romaji": null,
+      "definition": "chọc, đâm",
+      "exampleSentence": "喧嘩して相手の胸を手で突いた。",
+      "exampleTranslation": "Cãi nhau nên tôi dùng tay thúc/đẩy vào ngực đối phương.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13298,
+      "term": "突き当たる (つきあたる)",
+      "reading": "つきあたる",
+      "romaji": null,
+      "definition": "đi hết đường",
+      "exampleSentence": "「この道を真っすぐ行って、突き当たったら左に曲がってください」",
+      "exampleTranslation": "“Đi thẳng đường này, đến chỗ cụt thì rẽ trái.”",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13299,
+      "term": "立ち止まる (たちどまる)",
+      "reading": "たちどまる",
+      "romaji": null,
+      "definition": "dừng lại",
+      "exampleSentence": "道で声をかけられて立ち止まる。",
+      "exampleTranslation": "Đang đi đường bị gọi nên tôi đứng lại.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13300,
+      "term": "近寄る (ちかよる)",
+      "reading": "ちかよる",
+      "romaji": null,
+      "definition": "tiếp cận",
+      "exampleSentence": "物音がしたので窓に近寄って外を見た。",
+      "exampleTranslation": "Nghe tiếng động nên tôi lại gần cửa sổ nhìn ra ngoài.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13301,
+      "term": "横切る (よこぎる)",
+      "reading": "よこぎる",
+      "romaji": null,
+      "definition": "băng qua",
+      "exampleSentence": "道を横切って向こう側に渡った。",
+      "exampleTranslation": "Băng qua đường sang phía bên kia.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13302,
+      "term": "転ぶ (ころぶ)",
+      "reading": "ころぶ",
+      "romaji": null,
+      "definition": "ngã, trượt ngã, chụp ếch",
+      "exampleSentence": "雪道で滑って転んでしまった。",
+      "exampleTranslation": "Trượt trên đường tuyết rồi ngã.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13303,
+      "term": "躓く (つまずく)",
+      "reading": "つまずく",
+      "romaji": null,
+      "definition": "vấp; vấp ngã",
+      "exampleSentence": "道で石につまずいて転んでしまった。",
+      "exampleTranslation": "Vấp đá trên đường nên bị ngã.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13304,
+      "term": "轢く (ひく)",
+      "reading": "ひく",
+      "romaji": null,
+      "definition": "cán; tông cán",
+      "exampleSentence": "車にひかれて骨折した。",
+      "exampleTranslation": "Bị xe cán nên gãy xương.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13305,
+      "term": "溺れる (おぼれる)",
+      "reading": "おぼれる",
+      "romaji": null,
+      "definition": "chìm, đắm",
+      "exampleSentence": "川に落ちておぼれている子どもを助けた。",
+      "exampleTranslation": "Tôi cứu một đứa trẻ rơi xuống sông đang sắp chết đuối.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13306,
+      "term": "痛む (いたむ)",
+      "reading": "いたむ",
+      "romaji": null,
+      "definition": "đau",
+      "exampleSentence": "｛歯/頭/足…｝が痛む。",
+      "exampleTranslation": "{Răng/đầu/chân…} đau nhức.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13307,
+      "term": "罹る (かかる)",
+      "reading": "かかる",
+      "romaji": null,
+      "definition": "bị nhiễm",
+      "exampleSentence": "インフルエンザにかかって、学校を休んだ。",
+      "exampleTranslation": "Bị cúm nên tôi nghỉ học.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13308,
+      "term": "酔う (よう)",
+      "reading": "よう",
+      "romaji": null,
+      "definition": "say",
+      "exampleSentence": "酒に酔う。",
+      "exampleTranslation": "Say rượu.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13309,
+      "term": "吐く (はく)",
+      "reading": "はく",
+      "romaji": null,
+      "definition": "thở ra, nôn ra",
+      "exampleSentence": "息を吸って吐く。",
+      "exampleTranslation": "Hít vào rồi thở ra.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13310,
+      "term": "診る (みる)",
+      "reading": "みる",
+      "romaji": null,
+      "definition": "khám; chẩn đoán",
+      "exampleSentence": "体の調子が悪いので医者に診てもらおう。",
+      "exampleTranslation": "Vì người không khỏe nên tôi đi khám bác sĩ.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 13311,
+      "term": "見舞う (みまう)",
+      "reading": "みまう",
+      "romaji": null,
+      "definition": "đi thăm bệnh",
+      "exampleSentence": "入院中の友だちをみんなで見舞った。",
+      "exampleTranslation": "Cả nhóm đến thăm người bạn đang nằm viện.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 13312,
+      "term": "勤める (つとめる)",
+      "reading": "つとめる",
+      "romaji": null,
+      "definition": "làm việc",
+      "exampleSentence": "会社に勤める。",
+      "exampleTranslation": "Làm việc ở công ty.",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

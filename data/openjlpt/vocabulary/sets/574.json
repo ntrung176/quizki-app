@@ -1,0 +1,33 @@
+{
+  "id": 574,
+  "title": "N2 Unit 5.5 - カタカナA (bài 5/5)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — カタカナA",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.157376",
+  "cards": [
+    {
+      "id": 13672,
+      "term": "アルコール",
+      "reading": "アルコール",
+      "romaji": null,
+      "definition": "cồn, rượu",
+      "exampleSentence": "注射の前にアルコールで消毒する。",
+      "exampleTranslation": "Trước khi tiêm, sát trùng bằng cồn.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13673,
+      "term": "デコレーション",
+      "reading": "デコレーション",
+      "romaji": null,
+      "definition": "sự trang trí; sự trang hoàng",
+      "exampleSentence": "12月になると、多くの店がクリスマスのデコレーションをする。",
+      "exampleTranslation": "Tháng 12, nhiều cửa hàng trang trí Noel.",
+      "forms": [],
+      "displayOrder": 1
+    }
+  ]
+}

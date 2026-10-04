@@ -1,0 +1,121 @@
+{
+  "id": 593,
+  "title": "N2 Unit 8.6 - 動詞B (bài 6/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.433524",
+  "cards": [
+    {
+      "id": 13904,
+      "term": "認める (みとめる)",
+      "reading": "みとめる",
+      "romaji": null,
+      "definition": "thừa nhận, công nhận, chứng nhận",
+      "exampleSentence": "彼は犯行を認めた。",
+      "exampleTranslation": "Anh ấy đã thừa nhận hành vi phạm tội.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13905,
+      "term": "見直す (みなおす)",
+      "reading": "みなおす",
+      "romaji": null,
+      "definition": "nhìn lại, cân nhắc lại",
+      "exampleSentence": "「テストを出す前に、もう一度見直しなさい」",
+      "exampleTranslation": "“Trước khi nộp bài kiểm tra, hãy xem lại một lần nữa.”",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13906,
+      "term": "見慣れる (みなれる)",
+      "reading": "みなれる",
+      "romaji": null,
+      "definition": "quen, nhẵn mặt",
+      "exampleSentence": "見慣れない人が教室にいる。",
+      "exampleTranslation": "Có một người lạ/không quen trong lớp.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13907,
+      "term": "求める (もとめる)",
+      "reading": "もとめる",
+      "romaji": null,
+      "definition": "tìm kiếm, yêu cầu, mong muốn",
+      "exampleSentence": "彼女は職を求めている。",
+      "exampleTranslation": "Cô ấy đang tìm việc.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13908,
+      "term": "漏れる (もれる)",
+      "reading": "もれる",
+      "romaji": null,
+      "definition": "bị rò rỉ, lọt qua, rỉ ra",
+      "exampleSentence": "台所でガスが漏れている。",
+      "exampleTranslation": "Bếp bị rò rỉ gas.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13909,
+      "term": "漏らす (もらす)",
+      "reading": "もらす",
+      "romaji": null,
+      "definition": "làm lộ; làm rò rỉ",
+      "exampleSentence": "一滴も漏らさず水をバケツで運んだ。",
+      "exampleTranslation": "Anh ấy múc nước vào xô mang đi mà không để rơi một giọt nào.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13910,
+      "term": "なる",
+      "reading": "なる",
+      "romaji": null,
+      "definition": "ra (hoa), kết (quả)",
+      "exampleSentence": "庭に実がなる木を植えた。",
+      "exampleTranslation": "Trồng cây trong vườn cho ra quả.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13911,
+      "term": "焦げる (こげる)",
+      "reading": "こげる",
+      "romaji": null,
+      "definition": "bị cháy",
+      "exampleSentence": "焼き過ぎて、魚が真っ黒にこげてしまった。",
+      "exampleTranslation": "Nướng quá tay nên cá cháy đen.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13912,
+      "term": "反する (はんする)",
+      "reading": "はんする",
+      "romaji": null,
+      "definition": "trái lại",
+      "exampleSentence": "両親の期待に反して、大学に進学しなかった。",
+      "exampleTranslation": "Trái với kỳ vọng của bố mẹ, anh ấy không học lên đại học.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13913,
+      "term": "膨れる (ふくれる)",
+      "reading": "ふくれる",
+      "romaji": null,
+      "definition": "phồng, sưng",
+      "exampleSentence": "網の上でもちが膨れている。",
+      "exampleTranslation": "Bánh mochi phồng lên trên vỉ nướng.",
+      "forms": [],
+      "displayOrder": 9
+    }
+  ]
+}

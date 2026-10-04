@@ -1,0 +1,220 @@
+{
+  "id": 871,
+  "title": "N5 Tango 4.2 - Bạn bè · Mặc áo",
+  "description": "Tango N5 — Bạn bè",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:47.631938",
+  "cards": [
+    {
+      "id": 20328,
+      "term": "ふく",
+      "reading": "ふく",
+      "romaji": null,
+      "definition": "Áo quần",
+      "exampleSentence": "この店では、ふくを安く買えます。",
+      "exampleTranslation": "Ở cửa hàng này, bạn có thể mua quần áo với giá rẻ.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 20329,
+      "term": "サイズ",
+      "reading": "サイズ",
+      "romaji": null,
+      "definition": "Kích cỡ",
+      "exampleSentence": "このシャツのサイズはMです。",
+      "exampleTranslation": "Kích cỡ của chiếc áo này là M.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 20330,
+      "term": "すてきな",
+      "reading": "すてきな",
+      "romaji": null,
+      "definition": "Đẹp, duyệt",
+      "exampleSentence": "それはすてきなかばんですね。",
+      "exampleTranslation": "Cái túi đó đẹp thật đấy nhỉ.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 20331,
+      "term": "デザイン",
+      "reading": "デザイン",
+      "romaji": null,
+      "definition": "Thiết kế, mẫu mã",
+      "exampleSentence": "このシャツはデザインがすてきです。",
+      "exampleTranslation": "Chiếc áo này có thiết kế rất đẹp.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 20332,
+      "term": "きる",
+      "reading": "きる",
+      "romaji": null,
+      "definition": "Mặc",
+      "exampleSentence": "夏はTシャツをきることが多いです。",
+      "exampleTranslation": "Vào mùa hè, tôi thường mặc áo phông.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 20333,
+      "term": "ぬぐ",
+      "reading": "ぬぐ",
+      "romaji": null,
+      "definition": "Cởi",
+      "exampleSentence": "お風呂に入る前に、服をぬぐことにしています。",
+      "exampleTranslation": "Trước khi tắm, tôi luôn cởi quần áo.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 20334,
+      "term": "あかい",
+      "reading": "あかい",
+      "romaji": null,
+      "definition": "Đỏ",
+      "exampleSentence": "わたしはあかいかさを持っています。",
+      "exampleTranslation": "Tôi có một chiếc ô màu đỏ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 20335,
+      "term": "あおい",
+      "reading": "あおい",
+      "romaji": null,
+      "definition": "Xanh (da trời)",
+      "exampleSentence": "あおい空がとてもきれいですね。",
+      "exampleTranslation": "Bầu trời xanh đẹp quá nhỉ.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 20336,
+      "term": "しろい",
+      "reading": "しろい",
+      "romaji": null,
+      "definition": "Trắng",
+      "exampleSentence": "今日はしろいシャツを着ています。",
+      "exampleTranslation": "Hôm nay tôi đang mặc một chiếc áo sơ mi trắng.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 20337,
+      "term": "くろい",
+      "reading": "くろい",
+      "romaji": null,
+      "definition": "Đen",
+      "exampleSentence": "あのくろいねこは隣の家のねこです。",
+      "exampleTranslation": "Con mèo đen kia là mèo nhà bên cạnh.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 20338,
+      "term": "きいろい",
+      "reading": "きいろい",
+      "romaji": null,
+      "definition": "Vàng",
+      "exampleSentence": "妹はきいろいぼうしをかぶっています。",
+      "exampleTranslation": "Em gái tôi đang đội một chiếc mũ màu vàng.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 20339,
+      "term": "いろいろな",
+      "reading": "いろいろな",
+      "romaji": null,
+      "definition": "Nhiều loại, đủ thứ",
+      "exampleSentence": "この店では、いろいろな服を売っています。",
+      "exampleTranslation": "Cửa hàng này bán nhiều loại quần áo khác nhau.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 20340,
+      "term": "シャツ",
+      "reading": "シャツ",
+      "romaji": null,
+      "definition": "Áo thun, áo sơ-mi, áo",
+      "exampleSentence": "シャツを着て、学校へ行きます。",
+      "exampleTranslation": "Tôi mặc áo sơ mi rồi đi học.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 20341,
+      "term": "セーター",
+      "reading": "セーター",
+      "romaji": null,
+      "definition": "Áo len",
+      "exampleSentence": "セーターを着て、冬の公園を散歩します。",
+      "exampleTranslation": "Tôi mặc áo len đi dạo trong công viên vào mùa đông.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 20342,
+      "term": "コート",
+      "reading": "コート",
+      "romaji": null,
+      "definition": "Áo khoác, áo choàng",
+      "exampleSentence": "寒い日は、コートを着て出かけます。",
+      "exampleTranslation": "Vào những ngày lạnh, tôi mặc áo khoác rồi ra ngoài.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 20343,
+      "term": "スーツ",
+      "reading": "スーツ",
+      "romaji": null,
+      "definition": "Đồ vét",
+      "exampleSentence": "父は仕事へ行くとき、スーツを着ます。",
+      "exampleTranslation": "Khi đi làm, bố tôi mặc đồ vét.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 20344,
+      "term": "うわぎ",
+      "reading": "うわぎ",
+      "romaji": null,
+      "definition": "Áo choàng",
+      "exampleSentence": "外へ出る前に、うわぎを着てください。",
+      "exampleTranslation": "Hãy mặc áo khoác trước khi ra ngoài.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 20345,
+      "term": "したぎ",
+      "reading": "したぎ",
+      "romaji": null,
+      "definition": "Đồ lót",
+      "exampleSentence": "お風呂のあとで、きれいなしたぎに着替えます。",
+      "exampleTranslation": "Sau khi tắm, tôi thay đồ lót sạch.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 20346,
+      "term": "きもの",
+      "reading": "きもの",
+      "romaji": null,
+      "definition": "Kimono, đồ mặc",
+      "exampleSentence": "お祭りの日に、姉はきものを着ました。",
+      "exampleTranslation": "Vào ngày lễ hội, chị tôi đã mặc kimono.",
+      "forms": [],
+      "displayOrder": 18
+    }
+  ]
+}

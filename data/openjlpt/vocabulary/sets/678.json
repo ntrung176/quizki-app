@@ -1,0 +1,209 @@
+{
+  "id": 678,
+  "title": "N3 Tango 10.5 - Hãy học trên bản tin thời sự! · Dữ liệu",
+  "description": "Tango N3 — Hãy học trên bản tin thời sự!",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:25.7768",
+  "cards": [
+    {
+      "id": 15487,
+      "term": "増加（する） (ぞうか（する）)",
+      "reading": "ぞうか（する）",
+      "romaji": null,
+      "definition": "Sự gia tăng, tăng lên",
+      "exampleSentence": "この町では、外国人観光客が年々増加（する）傾向にあります。",
+      "exampleTranslation": "Tại thị trấn này, số du khách nước ngoài có xu hướng tăng lên qua từng năm.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 15488,
+      "term": "減少（する） (げんしょう（する）)",
+      "reading": "げんしょう（する）",
+      "romaji": null,
+      "definition": "Sự giảm thiểu, giảm đi",
+      "exampleSentence": "少子化の影響で、子どもの数が減少（する）と予測されています。",
+      "exampleTranslation": "Do ảnh hưởng của tình trạng ít trẻ em, số trẻ em được dự đoán sẽ giảm.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 15489,
+      "term": "超える (こえる)",
+      "reading": "こえる",
+      "romaji": null,
+      "definition": "Vượt",
+      "exampleSentence": "今年は気温が三十五度を超える日が何日もありました。",
+      "exampleTranslation": "Năm nay có nhiều ngày nhiệt độ vượt quá 35 độ.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 15490,
+      "term": "ピーク",
+      "reading": "ピーク",
+      "romaji": null,
+      "definition": "Đỉnh điểm, cao nhất",
+      "exampleSentence": "観光地の人出のピークは、午後三時ごろでした。",
+      "exampleTranslation": "Lượng người ở khu du lịch đạt đỉnh vào khoảng ba giờ chiều.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 15491,
+      "term": "越える (こえる)",
+      "reading": "こえる",
+      "romaji": null,
+      "definition": "Qua",
+      "exampleSentence": "この坂を越えると、駅まであと少しです。",
+      "exampleTranslation": "Vượt qua con dốc này là chỉ còn một đoạn ngắn nữa đến nhà ga.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 15492,
+      "term": "全体 (ぜんたい)",
+      "reading": "ぜんたい",
+      "romaji": null,
+      "definition": "Toàn bộ",
+      "exampleSentence": "参加者全体に、アンケートの結果を知らせました。",
+      "exampleTranslation": "Chúng tôi đã thông báo kết quả khảo sát cho toàn bộ người tham gia.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 15493,
+      "term": "かなり",
+      "reading": "かなり",
+      "romaji": null,
+      "definition": "Đáng kể",
+      "exampleSentence": "この薬を飲んだら、かなり楽になりました。",
+      "exampleTranslation": "Sau khi uống thuốc này, tôi đã thấy dễ chịu hơn đáng kể.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 15494,
+      "term": "信用<する> (しんよう（する）)",
+      "reading": "しんよう（する）",
+      "romaji": null,
+      "definition": "Sự tin tưởng",
+      "exampleSentence": "人を「信用<する>」には、長い時間がかかります。",
+      "exampleTranslation": "Để tin tưởng một người cần rất nhiều thời gian.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 15495,
+      "term": "失う (うしなう)",
+      "reading": "うしなう",
+      "romaji": null,
+      "definition": "Đánh mất",
+      "exampleSentence": "大切な書類を失うと、手続きができなくなります。",
+      "exampleTranslation": "Nếu làm mất giấy tờ quan trọng thì sẽ không thể làm thủ tục.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 15496,
+      "term": "正常（な） (せいじょう（な）)",
+      "reading": "せいじょう（な）",
+      "romaji": null,
+      "definition": "Bình thường",
+      "exampleSentence": "「正常（な）」という言葉は、異常がない状態を表します。",
+      "exampleTranslation": "Từ “bình thường” diễn tả trạng thái không có gì bất thường.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 15497,
+      "term": "不景気（な） (ふけいき（な）)",
+      "reading": "ふけいき（な）",
+      "romaji": null,
+      "definition": "Tình trạng kinh tế trì trệ",
+      "exampleSentence": "「不景気（な）」という言葉を、最近のニュースでよく聞きます。",
+      "exampleTranslation": "Gần đây, chúng ta thường nghe từ “suy thoái kinh tế” trên tin tức.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 15498,
+      "term": "円高 (えんだか)",
+      "reading": "えんだか",
+      "romaji": null,
+      "definition": "Đồng yên tăng gía",
+      "exampleSentence": "円高になると、海外旅行の費用が安くなることがあります。",
+      "exampleTranslation": "Khi đồng yên tăng giá, chi phí du lịch nước ngoài đôi khi sẽ rẻ hơn.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 15499,
+      "term": "平均（する） (へいきん（する）)",
+      "reading": "へいきん（する）",
+      "romaji": null,
+      "definition": "Bình quân",
+      "exampleSentence": "「平均（する）」という方法で、クラス全員の点数を比べました。",
+      "exampleTranslation": "Chúng tôi đã so sánh điểm của cả lớp bằng phương pháp tính trung bình.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 15500,
+      "term": "およそ",
+      "reading": "およそ",
+      "romaji": null,
+      "definition": "Khoảng, khoảng chừng",
+      "exampleSentence": "この箱には、およそ百冊の本が入っています。",
+      "exampleTranslation": "Trong chiếc hộp này có khoảng một trăm quyển sách.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 15501,
+      "term": "めちゃくちゃ（な）",
+      "reading": "めちゃくちゃ（な）",
+      "romaji": null,
+      "definition": "Sự vớ vẩn, sự lung tung (vớ vẩn, lung tung)",
+      "exampleSentence": "台風の後、庭は「めちゃくちゃ（な）」状態になっていました。",
+      "exampleTranslation": "Sau cơn bão, khu vườn đã trở nên vô cùng lộn xộn.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 15502,
+      "term": "最も (もっとも)",
+      "reading": "もっとも",
+      "romaji": null,
+      "definition": "Nhất",
+      "exampleSentence": "この町で最も人気がある店は、駅前のラーメン屋です。",
+      "exampleTranslation": "Cửa hàng nổi tiếng nhất trong thị trấn này là quán ramen trước ga.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 15503,
+      "term": "ついに",
+      "reading": "ついに",
+      "romaji": null,
+      "definition": "Cuối cùng thì, mãi thì cũng, rồi thì",
+      "exampleSentence": "三年間勉強して、ついに日本語能力試験に合格しました。",
+      "exampleTranslation": "Sau ba năm học tập, cuối cùng tôi cũng đã đỗ kỳ thi năng lực tiếng Nhật.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 15504,
+      "term": "とうとう",
+      "reading": "とうとう",
+      "romaji": null,
+      "definition": "Cuối cùng thì, mãi thì cũng",
+      "exampleSentence": "何度も迷いましたが、とうとう会社を辞めることにしました。",
+      "exampleTranslation": "Dù đã nhiều lần do dự, cuối cùng tôi quyết định nghỉ việc.",
+      "forms": [],
+      "displayOrder": 17
+    }
+  ]
+}

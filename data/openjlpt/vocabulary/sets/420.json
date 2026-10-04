@@ -1,0 +1,187 @@
+{
+  "id": 420,
+  "title": "N3 Unit 10.5 - 動詞C・変化と出現 (Biến đổi & xuất hiện)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 動詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:36.30263",
+  "cards": [
+    {
+      "id": 10974,
+      "term": "混ざる/交ざる (まざる)",
+      "reading": "まざる",
+      "romaji": "mazaru",
+      "definition": "trộn vào",
+      "exampleSentence": "男女が交ざってサッカーをした",
+      "exampleTranslation": "Cả nam nữ hòa vào nhau chơi đá bóng.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10975,
+      "term": "混ぜる/交ぜる (まぜる)",
+      "reading": "まぜる",
+      "romaji": "mazeru",
+      "definition": "trộn lẫn",
+      "exampleSentence": "お米に豆を交ぜてたいた",
+      "exampleTranslation": "Trộn gạo lẫn với đậu.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10976,
+      "term": "解ける/溶ける (とける)",
+      "reading": "とける",
+      "romaji": "tokeru",
+      "definition": "được giải (bài toán), được tháo/tuột (nút dây), được giải tỏa (căng thẳng); tan chảy",
+      "exampleSentence": "３時間かかって、やっと問題が解けた",
+      "exampleTranslation": "Mất 3 tiếng cuối cùng cũng giải quyết xong vấn đề.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10977,
+      "term": "解く/溶く/溶かす (とく/とく/とかす)",
+      "reading": "とく/とく/とかす",
+      "romaji": "toku/toku/tokasu",
+      "definition": "giải (bài); tháo (nút); hòa tan; làm tan chảy",
+      "exampleSentence": "数学の問題を解く",
+      "exampleTranslation": "Giải quyết vấn đề của bài toán.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10978,
+      "term": "含む (ふくむ)",
+      "reading": "ふくむ",
+      "romaji": "fukumu",
+      "definition": "bao gồm, chứa",
+      "exampleSentence": "レモンはビタミンCを多くふくんでいる",
+      "exampleTranslation": "Chanh chứa nhiều vitamin C.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10979,
+      "term": "含める (ふくめる)",
+      "reading": "ふくめる",
+      "romaji": "fukumeru",
+      "definition": "bao gồm",
+      "exampleSentence": "うちの家族は、私をふくめて５人です",
+      "exampleTranslation": "Gia đình tôi bao gồm cả tôi là 5 người.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10980,
+      "term": "抜ける (ぬける)",
+      "reading": "ぬける",
+      "romaji": "nukeru",
+      "definition": "tháo, tuột",
+      "exampleSentence": "髪の毛が抜ける",
+      "exampleTranslation": "Tóc rụng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10981,
+      "term": "抜く (ぬく)",
+      "reading": "ぬく",
+      "romaji": "nuku",
+      "definition": "lấy ra, nhổ, cho qua, bỏ, thư giãn (cơ thể)",
+      "exampleSentence": "虫歯を抜く",
+      "exampleTranslation": "Nhổ răng sâu.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10982,
+      "term": "現れる (あらわれる)",
+      "reading": "あらわれる",
+      "romaji": "arawareru",
+      "definition": "xuất hiện, hiện ra",
+      "exampleSentence": "犯人は金を取りに現れたところを逮捕された",
+      "exampleTranslation": "Tên phạm nhân bị bắt ngay lúc hắn xuất hiện để lấy tiền.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10983,
+      "term": "現す (あらわす)",
+      "reading": "あらわす",
+      "romaji": "arawasu",
+      "definition": "làm hiện ra",
+      "exampleSentence": "雲がなくなって、富士山が姿を現した",
+      "exampleTranslation": "Hiện ra hình dạng núi Phú Sĩ khi trời quang mây.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10984,
+      "term": "表れる (あらわれる)",
+      "reading": "あらわれる",
+      "romaji": "arawareru",
+      "definition": "biểu hiện",
+      "exampleSentence": "彼の顔には合格した喜びが表れていた",
+      "exampleTranslation": "Mặt anh ấy hiện ra niềm vui khi đã đỗ.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10985,
+      "term": "表す (あらわす)",
+      "reading": "あらわす",
+      "romaji": "arawasu",
+      "definition": "biểu thị, biểu lộ",
+      "exampleSentence": "気持ちを言葉で表す",
+      "exampleTranslation": "Biểu thị cảm xúc bằng {từ ngữ/ tranh/ thái độ…}.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10986,
+      "term": "散る (ちる)",
+      "reading": "ちる",
+      "romaji": "chiru",
+      "definition": "rơi, tàn",
+      "exampleSentence": "風で桜が散ってしまった",
+      "exampleTranslation": "Hoa anh đào rụng vì gió.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10987,
+      "term": "散らす (ちらす)",
+      "reading": "ちらす",
+      "romaji": "chirasu",
+      "definition": "làm rụng, vứt lung tung",
+      "exampleSentence": "風が桜を散らしてしまった",
+      "exampleTranslation": "Hoa anh đào bị rụng vì gió.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10988,
+      "term": "明ける (あける)",
+      "reading": "あける",
+      "romaji": "akeru",
+      "definition": "kết thúc (mùa mưa), bắt đầu (năm mới), rạng sáng/trời sáng (đêm)",
+      "exampleSentence": "夜が明ける",
+      "exampleTranslation": "Đến đêm/ bắt đầu năm mới/ hết( cuối) mùa mưa.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10989,
+      "term": "差す (さす)",
+      "reading": "さす",
+      "romaji": "sasu",
+      "definition": "giương (ô), giơ (tay), chiếu (nắng).",
+      "exampleSentence": "雨がやんで、日が差してきた",
+      "exampleTranslation": "Hết cơn mưa trời lại sáng.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

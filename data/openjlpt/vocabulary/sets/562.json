@@ -1,0 +1,176 @@
+{
+  "id": 562,
+  "title": "N2 Unit 4.5 - 名詞B (bài 5/12)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.791969",
+  "cards": [
+    {
+      "id": 13484,
+      "term": "普段 (ふだん)",
+      "reading": "ふだん",
+      "romaji": null,
+      "definition": "bình thường, thường ngày, thông thường",
+      "exampleSentence": "普段は7時に起きるが、今日は寝坊してしまった。",
+      "exampleTranslation": "Thường thì tôi dậy lúc 7 giờ, nhưng hôm nay ngủ quên.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13485,
+      "term": "日常 (にちじょう)",
+      "reading": "にちじょう",
+      "romaji": null,
+      "definition": "hàng ngày",
+      "exampleSentence": "日常の業務を果たす。",
+      "exampleTranslation": "Hoàn thành công việc thường nhật.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13486,
+      "term": "一般 (いっぱん)",
+      "reading": "いっぱん",
+      "romaji": null,
+      "definition": "thông thường, cái chung",
+      "exampleSentence": "これは一般の店では手に入らない薬だ。",
+      "exampleTranslation": "Đây là loại thuốc không mua được ở các cửa hàng bình thường.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13487,
+      "term": "常識 (じょうしき)",
+      "reading": "じょうしき",
+      "romaji": null,
+      "definition": "thường thức, kiến thức thông thường",
+      "exampleSentence": "ミスをしたらきちんと責任を取るのが社会人の常識だ。",
+      "exampleTranslation": "Mắc lỗi thì nghiêm túc chịu trách nhiệm là “thường thức” của người đi làm.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13488,
+      "term": "諺 (ことわざ)",
+      "reading": "ことわざ",
+      "romaji": null,
+      "definition": "thành ngữ",
+      "exampleSentence": "ことわざには教訓が含まれていることが多い。",
+      "exampleTranslation": "Tục ngữ thường chứa bài học/giáo huấn.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13489,
+      "term": "権利 (けんり)",
+      "reading": "けんり",
+      "romaji": null,
+      "definition": "quyền lợi",
+      "exampleSentence": "すべての国民には健康的な生活を送る権利がある。",
+      "exampleTranslation": "Mọi công dân đều có quyền được sống lành mạnh.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13490,
+      "term": "義務 (ぎむ)",
+      "reading": "ぎむ",
+      "romaji": null,
+      "definition": "nghĩa vụ",
+      "exampleSentence": "親には子どもに教育を受けさせる義務がある。",
+      "exampleTranslation": "Cha mẹ có nghĩa vụ cho con được học.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13491,
+      "term": "切っ掛け(切掛) (きっかけ)",
+      "reading": "きっかけ",
+      "romaji": null,
+      "definition": "cơ hội, dịp, cớ",
+      "exampleSentence": "喧嘩のきっかけは、つまらないことだった。",
+      "exampleTranslation": "Cớ gây cãi nhau chỉ là chuyện vặt/vô nghĩa.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13492,
+      "term": "行動 (こうどう)",
+      "reading": "こうどう",
+      "romaji": null,
+      "definition": "hành động",
+      "exampleSentence": "彼の行動は、とても立派だった。",
+      "exampleTranslation": "Hành động của anh ấy rất đáng khen.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13493,
+      "term": "使用 (しよう)",
+      "reading": "しよう",
+      "romaji": null,
+      "definition": "sử dụng",
+      "exampleSentence": "今は、文章の作成にはパソコンが使用されることが多い。",
+      "exampleTranslation": "Ngày nay máy tính thường được dùng để soạn thảo văn bản.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13494,
+      "term": "提出 (ていしゅつ)",
+      "reading": "ていしゅつ",
+      "romaji": null,
+      "definition": "sự nộp",
+      "exampleSentence": "願書の提出は10月31日までだ。",
+      "exampleTranslation": "Hạn nộp đơn đến 31/10.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13495,
+      "term": "期限 (きげん)",
+      "reading": "きげん",
+      "romaji": null,
+      "definition": "giới hạn, kỳ hạn",
+      "exampleSentence": "支払いの期限を延ばしてもらった。",
+      "exampleTranslation": "Tôi được gia hạn thời hạn thanh toán.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13496,
+      "term": "延期 (えんき)",
+      "reading": "えんき",
+      "romaji": null,
+      "definition": "trì hoãn",
+      "exampleSentence": "大雨のため、運動会は1週間後に延期された。",
+      "exampleTranslation": "Vì mưa lớn nên hội thao bị hoãn 1 tuần.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13497,
+      "term": "延長 (えんちょう)",
+      "reading": "えんちょう",
+      "romaji": null,
+      "definition": "kéo dài",
+      "exampleSentence": "結論が出なかったので、会議は30分延長された。",
+      "exampleTranslation": "Vì chưa ra kết luận nên cuộc họp bị kéo dài thêm 30 phút.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13498,
+      "term": "短縮 (たんしゅく)",
+      "reading": "たんしゅく",
+      "romaji": null,
+      "definition": "rút ngắn",
+      "exampleSentence": "冬は動物園の営業時間が短縮される。",
+      "exampleTranslation": "Mùa đông rút ngắn giờ mở cửa sở thú.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

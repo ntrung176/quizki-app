@@ -1,0 +1,165 @@
+{
+  "id": 549,
+  "title": "N2 Unit 2.6 - 動詞A (bài 6/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.566323",
+  "cards": [
+    {
+      "id": 13335,
+      "term": "転がる (ころがる)",
+      "reading": "ころがる",
+      "romaji": null,
+      "definition": "(tự) lăn",
+      "exampleSentence": "ボールが転がる。",
+      "exampleTranslation": "Bóng lăn.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13336,
+      "term": "転がす (ころがす)",
+      "reading": "ころがす",
+      "romaji": null,
+      "definition": "lăn (vật gì đó)",
+      "exampleSentence": "ボーリングの球を転がしてピンを倒す。",
+      "exampleTranslation": "Lăn bóng bowling làm đổ ky.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13337,
+      "term": "傾く (かたむく)",
+      "reading": "かたむく",
+      "romaji": null,
+      "definition": "nghiêng",
+      "exampleSentence": "地震で塀が傾いてしまった。",
+      "exampleTranslation": "Động đất làm hàng rào bị nghiêng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13338,
+      "term": "傾ける (かたむける)",
+      "reading": "かたむける",
+      "romaji": null,
+      "definition": "nghiêng, hướng vào",
+      "exampleSentence": "あの子は分からないことがあると、首を傾ける癖がある。",
+      "exampleTranslation": "Cậu bé đó có thói quen cứ không hiểu là lại nghiêng đầu.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13339,
+      "term": "裏返す (うらがえす)",
+      "reading": "うらがえす",
+      "romaji": null,
+      "definition": "lật úp",
+      "exampleSentence": "「この書類を書き終わったら、裏返して机の上に置いてください」",
+      "exampleTranslation": "“Viết xong tài liệu thì lật úp lại và để lên bàn nhé.”",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13340,
+      "term": "散らかる (ちらかる)",
+      "reading": "ちらかる",
+      "romaji": null,
+      "definition": "bừa bộn, trong mớ hỗn độn",
+      "exampleSentence": "兄の部屋はいつも散らかっている。",
+      "exampleTranslation": "Phòng anh trai tôi lúc nào cũng bừa bộn.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13341,
+      "term": "散らかす (ちらかす)",
+      "reading": "ちらかす",
+      "romaji": null,
+      "definition": "làm lung tung, vương vãi",
+      "exampleSentence": "うちの子はすぐに部屋を散らかしてしまう。",
+      "exampleTranslation": "Con tôi hở chút là làm bừa bộn cả phòng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13342,
+      "term": "散らばる (ちらばる)",
+      "reading": "ちらばる",
+      "romaji": null,
+      "definition": "vứt lung tung",
+      "exampleSentence": "路上にゴミが散らばっている。",
+      "exampleTranslation": "Rác vương vãi trên đường.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13343,
+      "term": "刻む (きざむ)",
+      "reading": "きざむ",
+      "romaji": null,
+      "definition": "cắt nhỏ",
+      "exampleSentence": "キャベツを刻んでいためる。",
+      "exampleTranslation": "Băm nhỏ bắp cải rồi xào.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13344,
+      "term": "挟まる (はさまる)",
+      "reading": "はさまる",
+      "romaji": null,
+      "definition": "bị kẹp",
+      "exampleSentence": "コートは電車のドアに挟まって抜けない。",
+      "exampleTranslation": "Áo khoác bị kẹt vào cửa tàu nên không rút ra được.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13345,
+      "term": "挟む (はさむ)",
+      "reading": "はさむ",
+      "romaji": null,
+      "definition": "kẹp",
+      "exampleSentence": "「電車のドアに挟まれないようご注意ください」",
+      "exampleTranslation": "“Xin chú ý đừng để bị kẹt vào cửa tàu điện.”",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13346,
+      "term": "潰れる (つぶれる)",
+      "reading": "つぶれる",
+      "romaji": null,
+      "definition": "bị bẹp、méo",
+      "exampleSentence": "箱が落ちて、中のケースがつぶれてしまった。",
+      "exampleTranslation": "Cái thùng rơi xuống làm hộp bên trong bị bẹp.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13347,
+      "term": "潰す (つぶす)",
+      "reading": "つぶす",
+      "romaji": null,
+      "definition": "làm bẹp, méo",
+      "exampleSentence": "ゆでたジャガイモをつぶしてサラダを作った。",
+      "exampleTranslation": "Nghiền nát khoai tây luộc để làm salad.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13348,
+      "term": "凹む (へこむ)",
+      "reading": "へこむ",
+      "romaji": null,
+      "definition": "lõm",
+      "exampleSentence": "木にぶつかって車がへこんだ。",
+      "exampleTranslation": "Xe ô tô đâm vào cây nên bị móp.",
+      "forms": [],
+      "displayOrder": 13
+    }
+  ]
+}

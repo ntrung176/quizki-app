@@ -1,0 +1,198 @@
+{
+  "id": 395,
+  "title": "N3 Unit 4.4 - 名詞B・研究と調査 (Nghiên cứu & khảo sát)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 名詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.609202",
+  "cards": [
+    {
+      "id": 10556,
+      "term": "興奮 (こうふん)",
+      "reading": "こうふん",
+      "romaji": "kōfun",
+      "definition": "hưng phấn",
+      "exampleSentence": "試合を見ていた観客たちは、興奮して大声を出した",
+      "exampleTranslation": "Khán giả xem trận đấu hưng phấn và reo hò ầm ĩ.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10557,
+      "term": "感想 (かんそう)",
+      "reading": "かんそう",
+      "romaji": "kansō",
+      "definition": "cảm nghĩ, cảm tưởng",
+      "exampleSentence": "［ご感想はいかがですか」「すばらしかったです」",
+      "exampleTranslation": "Bạn cảm thấy thế nào? Rất tuyệt vời.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10558,
+      "term": "予想 (よそう)",
+      "reading": "よそう",
+      "romaji": "yosō",
+      "definition": "dự đoán",
+      "exampleSentence": "選挙の結果を予想する",
+      "exampleTranslation": "Dự đoán kết quả bầu cử.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10559,
+      "term": "専門 (せんもん)",
+      "reading": "せんもん",
+      "romaji": "senmon",
+      "definition": "chuyên môn, chuyên ngành",
+      "exampleSentence": "専門は言語学です",
+      "exampleTranslation": "Chuyên môn của tôi là ngôn ngữ học.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10560,
+      "term": "研究 (けんきゅう)",
+      "reading": "けんきゅう",
+      "romaji": "kenkyū",
+      "definition": "nghiên cứu, tìm hiểu, học tập",
+      "exampleSentence": "私は大学で日本の政治を研究している",
+      "exampleTranslation": "Tôi đang nghiên cứu chính trị Nhật Bản ở trường đại học.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10561,
+      "term": "調査 (ちょうさ)",
+      "reading": "ちょうさ",
+      "romaji": "chōsa",
+      "definition": "điều tra, khảo sát",
+      "exampleSentence": "調査を行う",
+      "exampleTranslation": "Tiến hành điều tra.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10562,
+      "term": "原因 (げんいん)",
+      "reading": "げんいん",
+      "romaji": "gen'in",
+      "definition": "nguyên nhân",
+      "exampleSentence": "今、警察が事故の原因を調べている",
+      "exampleTranslation": "Bây giờ cảnh sát đang điều tra nguyên nhân của vụ tai nạn.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10563,
+      "term": "結果 (けっか)",
+      "reading": "けっか",
+      "romaji": "kekka",
+      "definition": "kết quả",
+      "exampleSentence": "１位になりたかったが、結果は３位だった",
+      "exampleTranslation": "Tôi muốn vị trí số 1 nhưng kết quả đạt được vị trí thứ 3.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10564,
+      "term": "解決 (かいけつ)",
+      "reading": "かいけつ",
+      "romaji": "kaiketsu",
+      "definition": "giải quyết",
+      "exampleSentence": "大きな問題が解決した",
+      "exampleTranslation": "Vấn đề lớn được giải quyết.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10565,
+      "term": "確認 (かくにん)",
+      "reading": "かくにん",
+      "romaji": "kakunin",
+      "definition": "xác nhận, xác minh",
+      "exampleSentence": "まちがいがないかどうか（を）確認する",
+      "exampleTranslation": "Kiểm tra lại xem có lỗi sai không.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10566,
+      "term": "利用 (りよう)",
+      "reading": "りよう",
+      "romaji": "riyō",
+      "definition": "sử dụng, khai thác",
+      "exampleSentence": "水不足なので、水道の利用を減らした",
+      "exampleTranslation": "Vì thiếu nước nên phải giảm thiểu việc sử dụng nước sinh hoạt.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10567,
+      "term": "理解 (りかい)",
+      "reading": "りかい",
+      "romaji": "rikai",
+      "definition": "hiểu",
+      "exampleSentence": "意味の理解",
+      "exampleTranslation": "Hiểu rõ ý nghĩa.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10568,
+      "term": "発見 (はっけん)",
+      "reading": "はっけん",
+      "romaji": "hakken",
+      "definition": "khám phá, tìm thấy, phát hiện",
+      "exampleSentence": "大きな発見",
+      "exampleTranslation": "Phát kiến lớn.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10569,
+      "term": "発明 (はつめい)",
+      "reading": "はつめい",
+      "romaji": "hatsumei",
+      "definition": "phát minh",
+      "exampleSentence": "ベルは電話を発明した",
+      "exampleTranslation": "Bell đã phát minh ra điện thoại.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10570,
+      "term": "関係 (かんけい)",
+      "reading": "かんけい",
+      "romaji": "kankei",
+      "definition": "quan hệ",
+      "exampleSentence": "「お二人の関係は」「親子です」",
+      "exampleTranslation": "Quan hệ của hai người là (cha/ con; anh/ em…).",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10571,
+      "term": "団体 (だんたい)",
+      "reading": "だんたい",
+      "romaji": "dantai",
+      "definition": "nhóm, đoàn thể",
+      "exampleSentence": "博物館で団体のチケットを買う",
+      "exampleTranslation": "Tôi mua vé theo nhóm vào tham quan viện bảo tàng.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 10572,
+      "term": "選挙 (せんきょ)",
+      "reading": "せんきょ",
+      "romaji": "senkyo",
+      "definition": "cuộc bầu cử",
+      "exampleSentence": "1月に選挙が行われる",
+      "exampleTranslation": "Tháng 1 bầu cử sẽ được tiến hành.",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

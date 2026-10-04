@@ -1,0 +1,176 @@
+{
+  "id": 386,
+  "title": "N3 Unit 2.7 - 動詞A・日常の名詞化 (Hoạt động thường ngày)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 動詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.253434",
+  "cards": [
+    {
+      "id": 10408,
+      "term": "燃やす (もやす)",
+      "reading": "もやす",
+      "romaji": "moyasu",
+      "definition": "đốt cháy, cháy cùng (đam mê)",
+      "exampleSentence": "火を燃やす",
+      "exampleTranslation": "Đốt lửa / đốt giấy…",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10409,
+      "term": "沸く (わく)",
+      "reading": "わく",
+      "romaji": "waku",
+      "definition": "sôi, (bồn tắm) sẵn sàng, sôi động lên",
+      "exampleSentence": "湯がわく",
+      "exampleTranslation": "Nước sôi / bồn tắm sẵn sàng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10410,
+      "term": "沸かす (わかす)",
+      "reading": "わかす",
+      "romaji": "wakasu",
+      "definition": "đun sôi, chuẩn bị (bồn tắm), sôi động",
+      "exampleSentence": "湯をわかす",
+      "exampleTranslation": "Đun sôi nước / chuẩn bị bồn tắm.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10411,
+      "term": "鳴る (なる)",
+      "reading": "なる",
+      "romaji": "naru",
+      "definition": "reo, kêu, hót, vang",
+      "exampleSentence": "雷が鳴っている",
+      "exampleTranslation": "Tiếng sấm vang vọng.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10412,
+      "term": "鳴らす (ならす)",
+      "reading": "ならす",
+      "romaji": "narasu",
+      "definition": "làm kêu, bấm (còi)",
+      "exampleSentence": "ブザーを鳴らす",
+      "exampleTranslation": "Bấm chuông điện.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10413,
+      "term": "役立つ/ 役に立つ (やくだつ/ やくにたつ)",
+      "reading": "やくだつ/ やくにたつ",
+      "romaji": "yakudatsu / yaku ni tatsu",
+      "definition": "hữu ích",
+      "exampleSentence": "インターネットの情報は、勉強や仕事に役立つ",
+      "exampleTranslation": "Thông tin trên Internet rất hữu ích cho học tập cũng như công việc.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10414,
+      "term": "役立てる/ 役に立てる (やくだてる/ やくにたてる)",
+      "reading": "やくだてる/ やくにたてる",
+      "romaji": "yakudateru / yaku ni tateru",
+      "definition": "ứng dụng, đưa vào sử dụng",
+      "exampleSentence": "インターネットの情報を、勉強や仕事に役立てる",
+      "exampleTranslation": "Sử dụng thông tin trên Internet để giúp ích cho học tập cũng như công việc.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10415,
+      "term": "飾り (かざり)",
+      "reading": "かざり",
+      "romaji": "kazari",
+      "definition": "trang trí",
+      "exampleSentence": "クリスマスの飾りを買った",
+      "exampleTranslation": "Tôi đã mua đồ trang trí Giáng sinh.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10416,
+      "term": "遊び (あそび)",
+      "reading": "あそび",
+      "romaji": "asobi",
+      "definition": "chơi, trò chơi",
+      "exampleSentence": "かくれんぼは子どもの遊びだ",
+      "exampleTranslation": "Trốn tìm là trò chơi của những đứa trẻ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10417,
+      "term": "集まり (あつまり)",
+      "reading": "あつまり",
+      "romaji": "atsumari",
+      "definition": "tập trung",
+      "exampleSentence": "あした、マンションの住人の集まりがある",
+      "exampleTranslation": "Ngày mai, sẽ có buổi họp mặt những người sống ở chung cư.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10418,
+      "term": "教え (おしえ)",
+      "reading": "おしえ",
+      "romaji": "oshie",
+      "definition": "chỉ dạy",
+      "exampleSentence": "母の教えを今でも思い出す",
+      "exampleTranslation": "Đến bây giờ tôi vẫn nhớ những lời mẹ dạy.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10419,
+      "term": "踊り (おどり)",
+      "reading": "おどり",
+      "romaji": "odori",
+      "definition": "nhảy múa",
+      "exampleSentence": "留学生が各国の踊りを踊った",
+      "exampleTranslation": "Du học sinh nhảy múa điệu nhảy của các nước.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10420,
+      "term": "思い (おもい)",
+      "reading": "おもい",
+      "romaji": "omoi",
+      "definition": "nghĩ, cảm nhận",
+      "exampleSentence": "あの人に私の思いが届いた",
+      "exampleTranslation": "Tình cảm của tôi đã truyền tải đến người ấy.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10421,
+      "term": "考え (かんがえ)",
+      "reading": "かんがえ",
+      "romaji": "kangae",
+      "definition": "suy nghĩ, ý tưởng",
+      "exampleSentence": "私にいい考えがある",
+      "exampleTranslation": "Tôi có ý tưởng tốt.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10422,
+      "term": "片づけ (かたづけ)",
+      "reading": "かたづけ",
+      "romaji": "katazuke",
+      "definition": "dọn dẹp",
+      "exampleSentence": "私は片づけが苦手だ",
+      "exampleTranslation": "Tôi không thích dọn dẹp.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

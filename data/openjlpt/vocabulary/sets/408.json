@@ -1,0 +1,176 @@
+{
+  "id": 408,
+  "title": "N3 Unit 8.1 - 副詞A・程度・量 (Mức độ & lượng)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 副詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.975947",
+  "cards": [
+    {
+      "id": 10785,
+      "term": "非常に (ひじょうに)",
+      "reading": "ひじょうに",
+      "romaji": "hijō ni",
+      "definition": "vô cùng, cực kỳ, rất",
+      "exampleSentence": "これは非常に高価なものですので、気をつけて運んでください",
+      "exampleTranslation": "Vì là đồ đặc biệt, đắt tiền nên hãy vận chuyển cẩn thận nhé.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10786,
+      "term": "大変（に） (たいへん（に）)",
+      "reading": "たいへん（に）",
+      "romaji": "taihen (ni)",
+      "definition": "vất vả, vô cùng, rất (mức độ)",
+      "exampleSentence": "朝夕は電車が大変込むので疲れる",
+      "exampleTranslation": "Tàu điện lúc nào cũng đông nên mệt mỏi vô cùng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10787,
+      "term": "ほとんど",
+      "reading": "ほとんど",
+      "romaji": "hotondo",
+      "definition": "hầu hết, hầu như, hầu như…không (phủ định)",
+      "exampleSentence": "準備はほとんどできた",
+      "exampleTranslation": "Việc chuẩn bị gần như đã xong.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10788,
+      "term": "大体 (だいたい)",
+      "reading": "だいたい",
+      "romaji": "daitai",
+      "definition": "đại khái, nhìn chung, khoảng chừng",
+      "exampleSentence": "きょうの試験はだいたいできた",
+      "exampleTranslation": "Bài kiểm tra hôm nay làm được đại khái rồi.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10789,
+      "term": "かなり",
+      "reading": "かなり",
+      "romaji": "kanari",
+      "definition": "tương đối, khá",
+      "exampleSentence": "頭痛の薬を飲んだら、３０分ぐらいでかなりよくなった",
+      "exampleTranslation": "Sau khi uống thuốc đau đầu khoảng 30 phút thì đỡ hơn rất nhiều.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10790,
+      "term": "ずいぶん",
+      "reading": "ずいぶん",
+      "romaji": "zuibun",
+      "definition": "đáng kể, nhiều",
+      "exampleSentence": "しばらく会わない間に、チンさんはずいぶん日本語が上手になっていた",
+      "exampleTranslation": "Chỉ trong khoảng thời gian ngắn không gặp mà tiếng Nhật của Chin đã tiến bộ đáng kể.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10791,
+      "term": "けっこう",
+      "reading": "けっこう",
+      "romaji": "kekkō",
+      "definition": "rất, cũng được, vừa đủ",
+      "exampleSentence": "日曜日なので込んでいるかと思ったら、けっこうすいていた",
+      "exampleTranslation": "Vì chủ nhật nên tôi nghĩ là sẽ đông nhưng cuối cùng thì cũng rất vắng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10792,
+      "term": "大分 (だいぶ)",
+      "reading": "だいぶ",
+      "romaji": "daibu",
+      "definition": "nhiều, khá",
+      "exampleSentence": "病気はだいぶよくなった",
+      "exampleTranslation": "Bệnh cũng đã khá hơn nhiều.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10793,
+      "term": "もっと",
+      "reading": "もっと",
+      "romaji": "motto",
+      "definition": "hơn nữa, thêm nữa",
+      "exampleSentence": "リンゴよりイチゴのほうが好きだ。でも、メロンはもっと好きだ",
+      "exampleTranslation": "So với táo thì tôi thích dâu hơn. Nhưng dưa lưới thì tôi còn thích hơn nữa.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10794,
+      "term": "すっかり",
+      "reading": "すっかり",
+      "romaji": "sukkari",
+      "definition": "toàn bộ, hoàn toàn",
+      "exampleSentence": "さくらの花はもうすっかり散ってしまった",
+      "exampleTranslation": "Hoa anh đào đã rụng hết rồi.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10795,
+      "term": "いっぱい",
+      "reading": "いっぱい",
+      "romaji": "ippai",
+      "definition": "đầy, no, hoàn toàn",
+      "exampleSentence": "会場には子どもたちがいっぱいいて、とてもにぎやかだった",
+      "exampleTranslation": "Hội trường đầy trẻ con, rất là náo nhiệt.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10796,
+      "term": "ぎりぎり",
+      "reading": "ぎりぎり",
+      "romaji": "girigiri",
+      "definition": "gần, sát nút",
+      "exampleSentence": "走れば、９時の電車にぎりぎり間に合うだろう",
+      "exampleTranslation": "Nếu chạy thì có thể vừa kịp chuyến tàu lúc 9 giờ.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10797,
+      "term": "ぴったり（と）",
+      "reading": "ぴったり（と）",
+      "romaji": "pittari (to)",
+      "definition": "vừa vặn, đúng kịp, dính chặt, khép chặt, hợp, hoàn toàn",
+      "exampleSentence": "７時ぴったりにめざまし時計をセットした",
+      "exampleTranslation": "Tôi đã cài đặt đồng hồ báo thức vào 7 giờ đúng.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10798,
+      "term": "たいてい",
+      "reading": "たいてい",
+      "romaji": "taitei",
+      "definition": "thông thường, đa phần",
+      "exampleSentence": "日曜日はたいていうちにいます",
+      "exampleTranslation": "Chủ nhật thường thì tôi ở nhà.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10799,
+      "term": "同時に (どうじに)",
+      "reading": "どうじに",
+      "romaji": "dōji ni",
+      "definition": "đồng thời, cùng một lúc",
+      "exampleSentence": "二人は同時にゴールした",
+      "exampleTranslation": "Hai ngươi về đích (ghi điểm) cùng lúc.",
+      "forms": [],
+      "displayOrder": 14
+    }
+  ]
+}

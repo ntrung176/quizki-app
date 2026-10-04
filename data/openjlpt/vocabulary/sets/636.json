@@ -1,0 +1,220 @@
+{
+  "id": 636,
+  "title": "N3 Tango 2.3 - Cuộc sống hàng ngày ① · Dụng cụ và nguyên liệu nấu ăn",
+  "description": "Tango N3 — Cuộc sống hàng ngày ①",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:12.832396",
+  "cards": [
+    {
+      "id": 14487,
+      "term": "なべ",
+      "reading": "なべ",
+      "romaji": null,
+      "definition": "Nồi",
+      "exampleSentence": "寒い日は、家族でなべを囲んで夕食を食べます。",
+      "exampleTranslation": "Những ngày lạnh, gia đình tôi quây quần bên nồi lẩu để ăn tối.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14488,
+      "term": "フライパン",
+      "reading": "フライパン",
+      "romaji": null,
+      "definition": "Chảo",
+      "exampleSentence": "フライパンに油を入れて、卵を焼きます。",
+      "exampleTranslation": "Cho dầu vào chảo rồi rán trứng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14489,
+      "term": "包丁 (ほうちょう)",
+      "reading": "ほうちょう",
+      "romaji": null,
+      "definition": "Dao",
+      "exampleSentence": "包丁で野菜を切るときは、手元に気をつけてください。",
+      "exampleTranslation": "Khi dùng dao cắt rau, hãy chú ý đến tay.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14490,
+      "term": "まな板 (まないた)",
+      "reading": "まないた",
+      "romaji": null,
+      "definition": "Thớt",
+      "exampleSentence": "まな板の上で、野菜を食べやすい大きさに切ります。",
+      "exampleTranslation": "Cắt rau thành kích thước vừa ăn trên thớt.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14491,
+      "term": "おたま",
+      "reading": "おたま",
+      "romaji": null,
+      "definition": "Muôi, vá",
+      "exampleSentence": "おたまでスープをすくって、器に入れます。",
+      "exampleTranslation": "Dùng muôi múc súp rồi cho vào bát.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14492,
+      "term": "しゃもじ",
+      "reading": "しゃもじ",
+      "romaji": null,
+      "definition": "Thìa xới cơm",
+      "exampleSentence": "ご飯が炊けたら、しゃもじで茶碗によそいます。",
+      "exampleTranslation": "Khi cơm chín, dùng thìa xới cơm để xới vào bát.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14493,
+      "term": "大さじ (おおさじ)",
+      "reading": "おおさじ",
+      "romaji": null,
+      "definition": "Thìa to, muỗng to",
+      "exampleSentence": "しょうゆを大さじ一杯入れて、よく混ぜてください。",
+      "exampleTranslation": "Hãy cho một thìa canh nước tương vào rồi trộn đều.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14494,
+      "term": "炊飯器 (すいはんき)",
+      "reading": "すいはんき",
+      "romaji": null,
+      "definition": "Nồi cơm điện",
+      "exampleSentence": "炊飯器に米と水を入れて、スイッチを押しました。",
+      "exampleTranslation": "Tôi cho gạo và nước vào nồi cơm điện rồi nhấn công tắc.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14495,
+      "term": "流し台 (ながしだい)",
+      "reading": "ながしだい",
+      "romaji": null,
+      "definition": "Bồn rửa",
+      "exampleSentence": "流し台にたまった皿を、食後にまとめて洗いました。",
+      "exampleTranslation": "Sau bữa ăn, tôi gom những chiếc đĩa trong bồn rửa lại và rửa.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14496,
+      "term": "電子レンジ (でんしレンジ)",
+      "reading": "でんしレンジ",
+      "romaji": null,
+      "definition": "Lò vi sóng",
+      "exampleSentence": "電子レンジで弁当を温めてから、昼ご飯にしました。",
+      "exampleTranslation": "Tôi hâm nóng hộp cơm bằng lò vi sóng rồi ăn trưa.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14497,
+      "term": "ガスレンジ",
+      "reading": "ガスレンジ",
+      "romaji": null,
+      "definition": "Lò ga",
+      "exampleSentence": "ガスレンジの火を消したか、出かける前に確認してください。",
+      "exampleTranslation": "Hãy kiểm tra xem đã tắt bếp ga trước khi ra ngoài chưa.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14498,
+      "term": "調味料 (ちょうみりょう)",
+      "reading": "ちょうみりょう",
+      "romaji": null,
+      "definition": "Gia vị, bột ngọt",
+      "exampleSentence": "この料理には、調味料を少し加えると味がよくなります。",
+      "exampleTranslation": "Nếu thêm một chút gia vị vào món này thì hương vị sẽ ngon hơn.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 14499,
+      "term": "サラダ油 (サラダゆ)",
+      "reading": "サラダゆ",
+      "romaji": null,
+      "definition": "Dầu ăn",
+      "exampleSentence": "野菜をサラダ油で炒めて、塩を少し入れました。",
+      "exampleTranslation": "Tôi xào rau bằng dầu ăn rồi cho thêm một chút muối.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 14500,
+      "term": "食品 (しょくひん)",
+      "reading": "しょくひん",
+      "romaji": null,
+      "definition": "Thực phẩm, đồ ăn",
+      "exampleSentence": "夏は食品が傷みやすいので、冷蔵庫に入れてください。",
+      "exampleTranslation": "Vào mùa hè, thực phẩm dễ bị hỏng nên hãy cho vào tủ lạnh.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 14501,
+      "term": "切らす (きらす)",
+      "reading": "きらす",
+      "romaji": null,
+      "definition": "Dùng hết",
+      "exampleSentence": "牛乳を切らすと、朝のコーヒーが飲めません。",
+      "exampleTranslation": "Nếu dùng hết sữa thì buổi sáng sẽ không có sữa để uống cà phê.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 14502,
+      "term": "くさる",
+      "reading": "くさる",
+      "romaji": null,
+      "definition": "Hỏng, thiu",
+      "exampleSentence": "肉は暑い場所に置くと、すぐにくさる。",
+      "exampleTranslation": "Thịt mà để ở nơi nóng thì sẽ nhanh chóng bị thiu.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 14503,
+      "term": "アルミホイル",
+      "reading": "アルミホイル",
+      "romaji": null,
+      "definition": "Giấy bạc",
+      "exampleSentence": "魚をアルミホイルで包んで、オーブンで焼きました。",
+      "exampleTranslation": "Tôi bọc cá bằng giấy bạc rồi nướng trong lò.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 14504,
+      "term": "ラップ（する）",
+      "reading": "ラップ（する）",
+      "romaji": null,
+      "definition": "Màng bọc thực phẩm, giấy bóng",
+      "exampleSentence": "残った料理をラップ（する）と、冷蔵庫で保存しやすくなります。",
+      "exampleTranslation": "Bọc màng thực phẩm phần thức ăn còn thừa sẽ giúp bảo quản trong tủ lạnh dễ hơn.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 14505,
+      "term": "おしぼり",
+      "reading": "おしぼり",
+      "romaji": null,
+      "definition": "Khăn ướt",
+      "exampleSentence": "食事の前に、おしぼりで手をきれいに拭きました。",
+      "exampleTranslation": "Trước bữa ăn, tôi dùng khăn ướt lau tay thật sạch.",
+      "forms": [],
+      "displayOrder": 18
+    }
+  ]
+}

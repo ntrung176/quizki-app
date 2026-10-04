@@ -1,0 +1,242 @@
+{
+  "id": 539,
+  "title": "N2 Unit 1.2 - 名詞A (bài 2/6)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.385384",
+  "cards": [
+    {
+      "id": 13181,
+      "term": "能力 (のうりょく)",
+      "reading": "のうりょく",
+      "romaji": null,
+      "definition": "năng lực",
+      "exampleSentence": "私にはこの問題を解決する能力はない。",
+      "exampleTranslation": "Tôi không có năng lực để giải quyết vấn đề này.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13182,
+      "term": "長所 (ちょうしょ)",
+      "reading": "ちょうしょ",
+      "romaji": null,
+      "definition": "sở trường",
+      "exampleSentence": "「あなたの性格の長所と短所を言ってください。」",
+      "exampleTranslation": "Hãy nói về sở trường và sở đoản trong tính cách của bạn.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13183,
+      "term": "個性 (こせい)",
+      "reading": "こせい",
+      "romaji": null,
+      "definition": "cá tính",
+      "exampleSentence": "子供たちの個性を伸ばすような教育したい。",
+      "exampleTranslation": "Muốn giáo dục để phát triển cá tính của con trẻ.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13184,
+      "term": "遺伝 (いでん)",
+      "reading": "いでん",
+      "romaji": null,
+      "definition": "di truyền",
+      "exampleSentence": "私の左利きは親からの遺伝だ。",
+      "exampleTranslation": "Tôi thuận tay trái là sự di truyền từ bố mẹ.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13185,
+      "term": "動作 (どうさ)",
+      "reading": "どうさ",
+      "romaji": null,
+      "definition": "động tác",
+      "exampleSentence": "彼女の動作は優雅で美しい。",
+      "exampleTranslation": "Động tác của cô ấy dịu dàng và đẹp đẽ.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13186,
+      "term": "真似 (まね)",
+      "reading": "まね",
+      "romaji": null,
+      "definition": "bắt chước, copy",
+      "exampleSentence": "子供は何でも親の真似をしたがるものだ。",
+      "exampleTranslation": "Trẻ con thường bắt chước cha mẹ.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13187,
+      "term": "睡眠 (すいみん)",
+      "reading": "すいみん",
+      "romaji": null,
+      "definition": "ngủ, giấc ngủ",
+      "exampleSentence": "アンケートの結果、睡眠時間は平均7時間という人が最も多かった。",
+      "exampleTranslation": "Theo kết quả khảo sát, người ngủ trung bình 7 tiếng là nhiều nhất.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13188,
+      "term": "食欲 (しょくよく)",
+      "reading": "しょくよく",
+      "romaji": null,
+      "definition": "thèm ăn",
+      "exampleSentence": "今、風邪を引いて食欲がない。",
+      "exampleTranslation": "Bây giờ bị cảm nên không muốn ăn.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13189,
+      "term": "外食 (がいしょく)",
+      "reading": "がいしょく",
+      "romaji": null,
+      "definition": "ăn ngoài",
+      "exampleSentence": "ひとり暮らしになって、外食が増えた。",
+      "exampleTranslation": "Sống một mình nên thường ăn ngoài.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13190,
+      "term": "家事 (かじ)",
+      "reading": "かじ",
+      "romaji": null,
+      "definition": "việc nhà",
+      "exampleSentence": "最近は、家事や育児する男性が増えた。",
+      "exampleTranslation": "Gần đây, số lượng nam giới làm việc nhà và chăm con đang tăng lên.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13191,
+      "term": "出産 (しゅっさん)",
+      "reading": "しゅっさん",
+      "romaji": null,
+      "definition": "sinh đẻ",
+      "exampleSentence": "先日、姉が女の子を出産した。",
+      "exampleTranslation": "Ngày trước, chị gái tôi đã sinh đứa bé gái.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13192,
+      "term": "介護 (かいご)",
+      "reading": "かいご",
+      "romaji": null,
+      "definition": "chăm sóc, trông nom",
+      "exampleSentence": "お年寄りの介護をする。",
+      "exampleTranslation": "Chăm sóc người già.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13193,
+      "term": "共働き (ともばたらき)",
+      "reading": "ともばたらき",
+      "romaji": null,
+      "definition": "vợ chồng cùng làm việc",
+      "exampleSentence": "「結婚20年、ずっと共働きだ」",
+      "exampleTranslation": "Kết hôn được 20 năm, hai vợ chồng đi làm suốt.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13194,
+      "term": "出勤 (しゅっきん)",
+      "reading": "しゅっきん",
+      "romaji": null,
+      "definition": "đi làm",
+      "exampleSentence": "毎朝8時に出勤している。",
+      "exampleTranslation": "Tôi đi làm vào 8 giờ mỗi ngày.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13195,
+      "term": "出世 (しゅっせ)",
+      "reading": "しゅっせ",
+      "romaji": null,
+      "definition": "sự thăng tiến",
+      "exampleSentence": "出世もしたいが、仕事ばかりの人生も嫌だ。",
+      "exampleTranslation": "Dù thành đạt nhưng nếu cuộc sống toàn là công việc thì cũng chán.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 13196,
+      "term": "地位 (ちい)",
+      "reading": "ちい",
+      "romaji": null,
+      "definition": "địa vị, vị trí",
+      "exampleSentence": "地位が上がるとともにストレスも増える。",
+      "exampleTranslation": "Khi địa vị tăng lên thì áp lực cũng nhiều lên.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 13197,
+      "term": "受験 (じゅけん)",
+      "reading": "じゅけん",
+      "romaji": null,
+      "definition": "kì thi, tham gia kỳ thi",
+      "exampleSentence": "東京の大学を受験した。",
+      "exampleTranslation": "Tôi đã thi vào một trường đại học ở Tokyo.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 13198,
+      "term": "専攻 (せんこう)",
+      "reading": "せんこう",
+      "romaji": null,
+      "definition": "chuyên ngành",
+      "exampleSentence": "私は大学で経済学を専攻した。",
+      "exampleTranslation": "Tôi đã học khoa kinh tế ở trường đại học.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 13199,
+      "term": "支度 (したく)",
+      "reading": "したく",
+      "romaji": null,
+      "definition": "sự chuẩn bị; sự sửa soạn",
+      "exampleSentence": "「出かけるから支度しなさい」",
+      "exampleTranslation": "Sắp đi ra ngoài nên hãy chuẩn bị các thứ thôi.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 13200,
+      "term": "全身 (ぜんしん)",
+      "reading": "ぜんしん",
+      "romaji": null,
+      "definition": "toàn bộ cơ thể",
+      "exampleSentence": "玄関に、全身を映す大きな鏡が置いてある。",
+      "exampleTranslation": "Ở cửa có đặt một chiếc gương lớn soi toàn thân.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 13201,
+      "term": "皺 (しわ)",
+      "reading": "しわ",
+      "romaji": null,
+      "definition": "nếp nhăn",
+      "exampleSentence": "洗濯物のしわをアイロンで伸ばす。",
+      "exampleTranslation": "Dùng bàn là để ủi thẳng nếp nhăn trên áo quần.",
+      "forms": [],
+      "displayOrder": 20
+    }
+  ]
+}

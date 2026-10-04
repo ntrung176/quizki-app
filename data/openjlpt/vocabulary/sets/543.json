@@ -1,0 +1,154 @@
+{
+  "id": 543,
+  "title": "N2 Unit 1.6 - 名詞A (bài 6/6)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞A",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:52.474413",
+  "cards": [
+    {
+      "id": 13251,
+      "term": "収入 (しゅうにゅう)",
+      "reading": "しゅうにゅう",
+      "romaji": null,
+      "definition": "thu nhập",
+      "exampleSentence": "彼は喫茶店を経営して収入を得ている。",
+      "exampleTranslation": "Anh ấy kiếm thu nhập bằng việc kinh doanh quán cà phê.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13252,
+      "term": "支出 (ししゅつ)",
+      "reading": "ししゅつ",
+      "romaji": null,
+      "definition": "chi tiêu; khoản chi",
+      "exampleSentence": "今年は支出が収入を上回って赤字になった。",
+      "exampleTranslation": "Năm nay chi tiêu vượt thu nhập nên bị thâm hụt.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13253,
+      "term": "予算 (よさん)",
+      "reading": "よさん",
+      "romaji": null,
+      "definition": "ngân sách",
+      "exampleSentence": "来年度の予算を立てる。",
+      "exampleTranslation": "Lập ngân sách cho năm sau.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13254,
+      "term": "利益 (りえき)",
+      "reading": "りえき",
+      "romaji": null,
+      "definition": "lợi nhuận",
+      "exampleSentence": "企業が利益を追求するのは当然だ。",
+      "exampleTranslation": "Doanh nghiệp theo đuổi lợi nhuận là chuyện đương nhiên.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13255,
+      "term": "赤字 (あかじ)",
+      "reading": "あかじ",
+      "romaji": null,
+      "definition": "lỗ, thâm hụt",
+      "exampleSentence": "今月は支出が多くて、家計は赤字｛だった/になった｝。",
+      "exampleTranslation": "Tháng này chi tiêu nhiều nên gia đình bị thâm hụt.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13256,
+      "term": "経費 (けいひ)",
+      "reading": "けいひ",
+      "romaji": null,
+      "definition": "kinh phí",
+      "exampleSentence": "宣伝に経費をかけたので、売り上げが伸びた。",
+      "exampleTranslation": "Vì chi tiền quảng cáo nên doanh số tăng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13257,
+      "term": "勘定 (かんじょう)",
+      "reading": "かんじょう",
+      "romaji": null,
+      "definition": "tính tiền; thanh toán; hóa đơn",
+      "exampleSentence": "｛金/人数…｝を勘定する。",
+      "exampleTranslation": "Tính {tiền/số người…}.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13258,
+      "term": "弁償 (べんしょう)",
+      "reading": "べんしょう",
+      "romaji": null,
+      "definition": "bồi thường",
+      "exampleSentence": "隣の家の窓ガラスを割ってしまったので、修理代を弁償した。",
+      "exampleTranslation": "Tôi làm vỡ kính cửa sổ nhà bên nên đã bồi thường tiền sửa chữa.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13259,
+      "term": "請求 (せいきゅう)",
+      "reading": "せいきゅう",
+      "romaji": null,
+      "definition": "yêu cầu; đòi (tiền); hóa đơn yêu cầu thanh toán",
+      "exampleSentence": "大学に資料を請求する。",
+      "exampleTranslation": "Yêu cầu (xin) tài liệu từ trường đại học.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13260,
+      "term": "景気 (けいき)",
+      "reading": "けいき",
+      "romaji": null,
+      "definition": "tình hình kinh tế; kinh tế (chu kỳ)",
+      "exampleSentence": "景気が悪くなると、倒産する会社が増える。",
+      "exampleTranslation": "Khi kinh tế xấu đi, số công ty phá sản tăng lên.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13261,
+      "term": "募金 (ぼきん)",
+      "reading": "ぼきん",
+      "romaji": null,
+      "definition": "quyên tiền, gây quỹ",
+      "exampleSentence": "地震の被災者のために募金した。",
+      "exampleTranslation": "Tôi quyên góp cho các nạn nhân động đất.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13262,
+      "term": "募集 (ぼしゅう)",
+      "reading": "ぼしゅう",
+      "romaji": null,
+      "definition": "tuyển dụng",
+      "exampleSentence": "アルバイトを募集していたので、応募した。",
+      "exampleTranslation": "Thấy đang tuyển làm thêm nên tôi nộp đơn ứng tuyển.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13263,
+      "term": "価値 (かち)",
+      "reading": "かち",
+      "romaji": null,
+      "definition": "giá trị",
+      "exampleSentence": "情報は新しいほど価値がある。",
+      "exampleTranslation": "Thông tin càng mới càng có giá trị.",
+      "forms": [],
+      "displayOrder": 12
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+{
+  "id": 664,
+  "title": "N3 Tango 8.1 - Vì sức khỏe · Cơ thể",
+  "description": "Tango N3 — Vì sức khỏe",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:21.759199",
+  "cards": [
+    {
+      "id": 15196,
+      "term": "身長 (しんちょう)",
+      "reading": "しんちょう",
+      "romaji": null,
+      "definition": "Chiều cao",
+      "exampleSentence": "健康診断で身長と体重を測りました。",
+      "exampleTranslation": "Tôi đã đo chiều cao và cân nặng trong buổi khám sức khỏe.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 15197,
+      "term": "伸びる (のびる)",
+      "reading": "のびる",
+      "romaji": null,
+      "definition": "Phát triển",
+      "exampleSentence": "毎日練習すれば、日本語の力が少しずつ伸びるでしょう。",
+      "exampleTranslation": "Nếu luyện tập mỗi ngày, năng lực tiếng Nhật sẽ dần tiến bộ.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 15198,
+      "term": "測る (はかる)",
+      "reading": "はかる",
+      "romaji": null,
+      "definition": "Đo",
+      "exampleSentence": "健康診断で身長を測りました。",
+      "exampleTranslation": "Tôi đã đo chiều cao trong buổi khám sức khỏe.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 15199,
+      "term": "体重 (たいじゅう)",
+      "reading": "たいじゅう",
+      "romaji": null,
+      "definition": "Cân nặng, thể trọng",
+      "exampleSentence": "最近運動しているので、体重が少し減りました。",
+      "exampleTranslation": "Gần đây vì tôi tập thể dục nên cân nặng đã giảm một chút.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 15200,
+      "term": "体重計 (たいじゅうけい)",
+      "reading": "たいじゅうけい",
+      "romaji": null,
+      "definition": "Cân, cân sức khỏe",
+      "exampleSentence": "毎朝、体重計に乗って体重を記録しています。",
+      "exampleTranslation": "Mỗi sáng, tôi bước lên cân để ghi lại cân nặng.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 15201,
+      "term": "体温 (たいおん)",
+      "reading": "たいおん",
+      "romaji": null,
+      "definition": "Thân nhiệt",
+      "exampleSentence": "熱があるかどうか、体温を測ってみてください。",
+      "exampleTranslation": "Hãy thử đo thân nhiệt xem có bị sốt hay không.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 15202,
+      "term": "額 (ひたい)",
+      "reading": "ひたい",
+      "romaji": null,
+      "definition": "Trán",
+      "exampleSentence": "夏の日差しで、額に汗が流れた。",
+      "exampleTranslation": "Vì ánh nắng mùa hè, mồ hôi chảy trên trán.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 15203,
+      "term": "血液 (けつえき)",
+      "reading": "けつえき",
+      "romaji": null,
+      "definition": "Máu",
+      "exampleSentence": "健康診断で血液を調べてもらいました。",
+      "exampleTranslation": "Tôi đã được kiểm tra máu khi khám sức khỏe.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 15204,
+      "term": "血液型 (けつえきがた)",
+      "reading": "けつえきがた",
+      "romaji": null,
+      "definition": "Nhóm máu",
+      "exampleSentence": "友達に血液型を聞かれました。",
+      "exampleTranslation": "Tôi được bạn hỏi nhóm máu.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 15205,
+      "term": "心臓 (しんぞう)",
+      "reading": "しんぞう",
+      "romaji": null,
+      "definition": "Tim",
+      "exampleSentence": "運動をすると、心臓が速く動きます。",
+      "exampleTranslation": "Khi vận động, tim đập nhanh hơn.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 15206,
+      "term": "汗 (あせ)",
+      "reading": "あせ",
+      "romaji": null,
+      "definition": "Mồ hôi",
+      "exampleSentence": "暑い日に外を歩くと、汗がたくさん出ます。",
+      "exampleTranslation": "Đi bộ bên ngoài vào ngày nóng thì ra rất nhiều mồ hôi.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 15207,
+      "term": "息 (いき)",
+      "reading": "いき",
+      "romaji": null,
+      "definition": "Hơi thở",
+      "exampleSentence": "階段を上ったので、息が少し苦しいです。",
+      "exampleTranslation": "Vì vừa leo cầu thang nên tôi hơi khó thở.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 15208,
+      "term": "ため息 (ためいき)",
+      "reading": "ためいき",
+      "romaji": null,
+      "definition": "Thở dài",
+      "exampleSentence": "彼は仕事の多さを見て、ため息をついた。",
+      "exampleTranslation": "Nhìn thấy công việc quá nhiều, anh ấy thở dài.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 15209,
+      "term": "皮ふ (ひふ)",
+      "reading": "ひふ",
+      "romaji": null,
+      "definition": "Da",
+      "exampleSentence": "皮ふが弱いので、強い薬は使わないでください。",
+      "exampleTranslation": "Vì da yếu nên đừng dùng thuốc mạnh.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 15210,
+      "term": "顔色 (かおいろ)",
+      "reading": "かおいろ",
+      "romaji": null,
+      "definition": "Sắc mặt",
+      "exampleSentence": "朝から顔色が悪いので、今日は早く帰ってください。",
+      "exampleTranslation": "Sắc mặt bạn trông không tốt từ sáng, hôm nay hãy về sớm nhé.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 15211,
+      "term": "睡眠 (すいみん)",
+      "reading": "すいみん",
+      "romaji": null,
+      "definition": "Giấc ngủ",
+      "exampleSentence": "毎日十分な睡眠を取ることが大切です。",
+      "exampleTranslation": "Mỗi ngày ngủ đủ giấc là điều quan trọng.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 15212,
+      "term": "まぶた",
+      "reading": "まぶた",
+      "romaji": null,
+      "definition": "Mí mắt",
+      "exampleSentence": "眠くて、まぶたが自然に閉じてしまいました。",
+      "exampleTranslation": "Vì buồn ngủ nên mí mắt tôi cứ tự nhiên khép lại.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 15213,
+      "term": "丈夫な (じょうぶな)",
+      "reading": "じょうぶな",
+      "romaji": null,
+      "definition": "Khỏe, dẻo dai",
+      "exampleSentence": "この靴は丈夫な作りなので、長く使えます。",
+      "exampleTranslation": "Đôi giày này được làm chắc chắn nên có thể sử dụng lâu dài.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 15214,
+      "term": "歯科医 (しかい)",
+      "reading": "しかい",
+      "romaji": null,
+      "definition": "Nha sỹ",
+      "exampleSentence": "虫歯が痛くて、歯科医に診てもらいました。",
+      "exampleTranslation": "Vì răng sâu bị đau nên tôi đã đi khám nha sĩ.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 15215,
+      "term": "虫歯 (むしば)",
+      "reading": "むしば",
+      "romaji": null,
+      "definition": "Răng sâu",
+      "exampleSentence": "甘いものを食べすぎて、虫歯になりました。",
+      "exampleTranslation": "Vì ăn quá nhiều đồ ngọt nên tôi đã bị sâu răng.",
+      "forms": [],
+      "displayOrder": 19
+    },
+    {
+      "id": 15216,
+      "term": "裸 (はだか)",
+      "reading": "はだか",
+      "romaji": null,
+      "definition": "Cởi truồng, trần truồng",
+      "exampleSentence": "赤ちゃんが裸で気持ちよさそうに眠っています。",
+      "exampleTranslation": "Em bé đang ngủ rất thoải mái trong trạng thái trần truồng.",
+      "forms": [],
+      "displayOrder": 20
+    },
+    {
+      "id": 15217,
+      "term": "裸足 (はだし)",
+      "reading": "はだし",
+      "romaji": null,
+      "definition": "Chân trần, chân đất",
+      "exampleSentence": "砂浜では、裸足で歩くと気持ちがいいです。",
+      "exampleTranslation": "Đi chân trần trên bãi cát cảm thấy rất dễ chịu.",
+      "forms": [],
+      "displayOrder": 21
+    }
+  ]
+}

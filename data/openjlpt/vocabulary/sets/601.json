@@ -1,0 +1,143 @@
+{
+  "id": 601,
+  "title": "N2 Unit 10.1 - 形容詞B (bài 1/4)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 形容詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.541984",
+  "cards": [
+    {
+      "id": 14004,
+      "term": "単純な (たんじゅんな)",
+      "reading": "たんじゅんな",
+      "romaji": null,
+      "definition": "đơn giản",
+      "exampleSentence": "この機械は単純な仕掛けで働く。",
+      "exampleTranslation": "Máy này hoạt động bằng cơ chế đơn giản.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14005,
+      "term": "純粋な (じゅんすいな)",
+      "reading": "じゅんすいな",
+      "romaji": null,
+      "definition": "trong sáng, thuần",
+      "exampleSentence": "あの人は純粋な心の持ち主だ。",
+      "exampleTranslation": "Người đó có một tâm hồn thuần khiết.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14006,
+      "term": "透明な (とうめいな)",
+      "reading": "とうめいな",
+      "romaji": null,
+      "definition": "trong suốt",
+      "exampleSentence": "水や空気は無色透明だ。",
+      "exampleTranslation": "Nước và không khí không màu, trong suốt.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14007,
+      "term": "爽やかな (さわやかな)",
+      "reading": "さわやかな",
+      "romaji": null,
+      "definition": "dễ chịu; sảng khoái, tươi trẻ",
+      "exampleSentence": "朝の空気はさわやかだ。",
+      "exampleTranslation": "Không khí buổi sáng thật dễ chịu.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14008,
+      "term": "素直な (すなおな)",
+      "reading": "すなおな",
+      "romaji": null,
+      "definition": "ngoan ngoãn, dễ bảo, dễ dàng",
+      "exampleSentence": "この童話を読むと、子供のような素直な気持ちになれる。",
+      "exampleTranslation": "Đọc truyện cổ tích này khiến tôi có cảm giác hồn nhiên như trẻ con.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14009,
+      "term": "率直な (そっちょくな)",
+      "reading": "そっちょくな",
+      "romaji": null,
+      "definition": "trực tính, thẳng thắn",
+      "exampleSentence": "彼は率直な人で、言うべきことをきちんと言う。",
+      "exampleTranslation": "Anh ấy thẳng thắn, điều cần nói thì nói đàng hoàng.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14010,
+      "term": "誠実な (せいじつな)",
+      "reading": "せいじつな",
+      "romaji": null,
+      "definition": "thành thực, thật thà",
+      "exampleSentence": "男女とも、「誠実な人と結婚したい」と言う若者が多い。",
+      "exampleTranslation": "Cả nam lẫn nữ, nhiều bạn trẻ nói “muốn kết hôn với người chân thành”.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14011,
+      "term": "謙虚な (けんきょな)",
+      "reading": "けんきょな",
+      "romaji": null,
+      "definition": "khiêm tốn",
+      "exampleSentence": "彼は謙虚な人柄だ。",
+      "exampleTranslation": "Anh ấy là người khiêm tốn.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14012,
+      "term": "賢い (かしこい)",
+      "reading": "かしこい",
+      "romaji": null,
+      "definition": "thông minh, khôn ngoan",
+      "exampleSentence": "こんな難しい話が理解できるとは賢い子だ。",
+      "exampleTranslation": "Hiểu được chuyện khó như vậy đúng là đứa trẻ thông minh.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14013,
+      "term": "慎重な (しんちょうな)",
+      "reading": "しんちょうな",
+      "romaji": null,
+      "definition": "thận trọng",
+      "exampleSentence": "私は慎重な性格なので、よく考えてからでなければ行動しない。",
+      "exampleTranslation": "Tôi tính thận trọng nên nếu không nghĩ kỹ thì không hành động.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14014,
+      "term": "穏やかな (おだやかな)",
+      "reading": "おだやかな",
+      "romaji": null,
+      "definition": "điềm tĩnh, yên lặng, ôn hòa",
+      "exampleSentence": "この辺りは気候が穏やかで住みやすい。",
+      "exampleTranslation": "Khu này khí hậu ôn hòa nên dễ sống.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14015,
+      "term": "真剣な (しんけんな)",
+      "reading": "しんけんな",
+      "romaji": null,
+      "definition": "nghiêm túc, nghiêm chỉnh",
+      "exampleSentence": "二人は結婚するつもりで真剣に付き合っている。",
+      "exampleTranslation": "Hai người đang quen nhau nghiêm túc với ý định kết hôn.",
+      "forms": [],
+      "displayOrder": 11
+    }
+  ]
+}

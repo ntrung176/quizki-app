@@ -8,7 +8,7 @@ import {
 } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { getStorage } from 'firebase/storage';
-import { runStorageSanityCleanup } from '../utils/storageCleanup';
+import { runStorageSanityCleanup } from '../utils/storageCleanup.js';
 
 // Tự động dọn dẹp các cache quá lớn gây tràn quota localStorage trước khi khởi động
 runStorageSanityCleanup();

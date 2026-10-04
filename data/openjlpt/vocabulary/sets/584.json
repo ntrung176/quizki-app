@@ -1,0 +1,198 @@
+{
+  "id": 584,
+  "title": "N2 Unit 7.5 - 名詞C (bài 5/8)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.295734",
+  "cards": [
+    {
+      "id": 13794,
+      "term": "作業 (さぎょう)",
+      "reading": "さぎょう",
+      "romaji": null,
+      "definition": "công việc, sự làm việc",
+      "exampleSentence": "時計を作る仕事は、作業が細かくて複雑だ。",
+      "exampleTranslation": "Công việc làm đồng hồ thao tác tỉ mỉ và phức tạp.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13795,
+      "term": "工夫 (くふう)",
+      "reading": "くふう",
+      "romaji": null,
+      "definition": "công sức; công phu; lao tâm khổ tứ",
+      "exampleSentence": "仕事のやり方を工夫すれば、もう少し時間を短縮できるだろう。",
+      "exampleTranslation": "Nếu cải tiến cách làm, chắc có thể rút ngắn thêm chút thời gian.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13796,
+      "term": "消化 (しょうか)",
+      "reading": "しょうか",
+      "romaji": null,
+      "definition": "tiêu hóa",
+      "exampleSentence": "私は胃腸が弱いので、消化｛が/に｝いいものを食べるようにしている。",
+      "exampleTranslation": "Vì dạ dày yếu nên tôi cố ăn đồ dễ tiêu.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13797,
+      "term": "吸収 (きゅうしゅう)",
+      "reading": "きゅうしゅう",
+      "romaji": null,
+      "definition": "sự hấp thụ",
+      "exampleSentence": "この物質は｛水分/匂い/音…｝を吸収する。",
+      "exampleTranslation": "Chất này hấp thụ {nước/mùi/âm thanh...}.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13798,
+      "term": "設置 (せっち)",
+      "reading": "せっち",
+      "romaji": null,
+      "definition": "lắp đặt",
+      "exampleSentence": "工場に新しい機械を設置する。",
+      "exampleTranslation": "Nhà máy lắp đặt máy móc mới.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13799,
+      "term": "設定 (せってい)",
+      "reading": "せってい",
+      "romaji": null,
+      "definition": "thiết lập",
+      "exampleSentence": "エアコンの温度を26度に設定する。",
+      "exampleTranslation": "Cài/thiết lập nhiệt độ điều hòa ở 26°C.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13800,
+      "term": "調節 (ちょうせつ)",
+      "reading": "ちょうせつ",
+      "romaji": null,
+      "definition": "điều tiết, điều chỉnh",
+      "exampleSentence": "リモコンで温度の調節をする。",
+      "exampleTranslation": "Điều chỉnh nhiệt độ bằng remote.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13801,
+      "term": "調整 (ちょうせい)",
+      "reading": "ちょうせい",
+      "romaji": null,
+      "definition": "điều chỉnh",
+      "exampleSentence": "テレビの映りが悪いので、アンテナの向きを調整した。",
+      "exampleTranslation": "Do tivi thu hình kém nên tôi đã điều chỉnh lại hướng ăng-ten.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13802,
+      "term": "解放 (かいほう)",
+      "reading": "かいほう",
+      "romaji": null,
+      "definition": "giải phóng; thoát khỏi",
+      "exampleSentence": "人質を解放する。",
+      "exampleTranslation": "Giải phóng con tin.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13803,
+      "term": "総合 (そうごう)",
+      "reading": "そうごう",
+      "romaji": null,
+      "definition": "tổng hợp",
+      "exampleSentence": "皆の意見を総合して、結論を出す。",
+      "exampleTranslation": "Tổng hợp ý kiến mọi người rồi đưa ra kết luận.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13804,
+      "term": "連続 (れんぞく)",
+      "reading": "れんぞく",
+      "romaji": null,
+      "definition": "liên tục",
+      "exampleSentence": "3回連続で失敗してしまった。",
+      "exampleTranslation": "Tôi đã thất bại 3 lần liên tiếp.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13805,
+      "term": "持続 (じぞく)",
+      "reading": "じぞく",
+      "romaji": null,
+      "definition": "kéo dài",
+      "exampleSentence": "この薬の効果は6時間持続する。",
+      "exampleTranslation": "Tác dụng thuốc kéo dài 6 giờ.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13806,
+      "term": "中断 (ちゅうだん)",
+      "reading": "ちゅうだん",
+      "romaji": null,
+      "definition": "gián đoạn",
+      "exampleSentence": "雨で試合が中断した。",
+      "exampleTranslation": "Trận đấu bị gián đoạn do mưa.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13807,
+      "term": "安定 (あんてい)",
+      "reading": "あんてい",
+      "romaji": null,
+      "definition": "ổn định",
+      "exampleSentence": "正社員になって、安定した暮らしがしたい。",
+      "exampleTranslation": "Tôi muốn thành nhân viên chính thức để có cuộc sống ổn định.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 13808,
+      "term": "混乱 (こんらん)",
+      "reading": "こんらん",
+      "romaji": null,
+      "definition": "hỗn độn, hỗn loạn",
+      "exampleSentence": "頭が混乱して、どうしていいのかわからない。",
+      "exampleTranslation": "Đầu óc rối loạn, không biết phải làm sao.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 13809,
+      "term": "上昇 (じょうしょう)",
+      "reading": "じょうしょう",
+      "romaji": null,
+      "definition": "tiến lên, tăng lên",
+      "exampleSentence": "午後から気温が急激に上昇した。",
+      "exampleTranslation": "Từ chiều nhiệt độ tăng vọt đột ngột.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 13810,
+      "term": "達成 (たっせい)",
+      "reading": "たっせい",
+      "romaji": null,
+      "definition": "thành tựu, đạt được",
+      "exampleSentence": "5年かかって、やっと目標を達成した。",
+      "exampleTranslation": "Mất 5 năm, cuối cùng tôi cũng đạt mục tiêu.",
+      "forms": [],
+      "displayOrder": 16
+    }
+  ]
+}

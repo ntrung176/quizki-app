@@ -1,0 +1,220 @@
+{
+  "id": 667,
+  "title": "N3 Tango 8.4 - Vì sức khỏe · Không sao chứ?",
+  "description": "Tango N3 — Vì sức khỏe",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:22.394848",
+  "cards": [
+    {
+      "id": 15257,
+      "term": "痛み (いたみ)",
+      "reading": "いたみ",
+      "romaji": null,
+      "definition": "Cơn đau, sự đau đớn",
+      "exampleSentence": "この薬を飲むと、傷の痛みが少し和らぎます。",
+      "exampleTranslation": "Uống thuốc này sẽ giúp cơn đau ở vết thương dịu bớt.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 15258,
+      "term": "頭痛 (ずつう)",
+      "reading": "ずつう",
+      "romaji": null,
+      "definition": "Đau đầu",
+      "exampleSentence": "朝から頭痛がひどいので、今日は早く帰ります。",
+      "exampleTranslation": "Vì bị đau đầu dữ dội từ sáng nên hôm nay tôi sẽ về sớm.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 15259,
+      "term": "腹痛 (ふくつう)",
+      "reading": "ふくつう",
+      "romaji": null,
+      "definition": "Đau bụng",
+      "exampleSentence": "食べ過ぎたせいか、急に腹痛が起こりました。",
+      "exampleTranslation": "Có lẽ do ăn quá nhiều nên tôi đột nhiên bị đau bụng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 15260,
+      "term": "はげしい",
+      "reading": "はげしい",
+      "romaji": null,
+      "definition": "Dữ dội",
+      "exampleSentence": "台風が近づき、はげしい雨が一晩中降り続きました。",
+      "exampleTranslation": "Bão đến gần, mưa dữ dội đã tiếp tục rơi suốt cả đêm.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 15261,
+      "term": "異常（な） (いじょう（な）)",
+      "reading": "いじょう（な）",
+      "romaji": null,
+      "definition": "Sự bất thường (bất thường)",
+      "exampleSentence": "「異常（な）」という言葉は、普通と違う状態を表します。",
+      "exampleTranslation": "Từ “異常（な）” biểu thị trạng thái khác với bình thường.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 15262,
+      "term": "めまい",
+      "reading": "めまい",
+      "romaji": null,
+      "definition": "Chóng mặt",
+      "exampleSentence": "めまいがして、駅のベンチで少し休みました。",
+      "exampleTranslation": "Tôi bị chóng mặt nên đã nghỉ một lát trên ghế băng ở nhà ga.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 15263,
+      "term": "やけど（する）",
+      "reading": "やけど（する）",
+      "romaji": null,
+      "definition": "Bỏng",
+      "exampleSentence": "熱い鍋に触ると、やけど（する）ことがあります。",
+      "exampleTranslation": "Chạm vào nồi nóng có thể bị bỏng.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 15264,
+      "term": "吐く (はく)",
+      "reading": "はく",
+      "romaji": null,
+      "definition": "Nôn",
+      "exampleSentence": "気分が悪くなり、道端で吐く人を見かけました。",
+      "exampleTranslation": "Tôi thấy một người cảm thấy khó chịu và nôn bên đường.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 15265,
+      "term": "吐き気 (はきけ)",
+      "reading": "はきけ",
+      "romaji": null,
+      "definition": "Buồn nôn",
+      "exampleSentence": "朝から吐き気がして、何も食べられません。",
+      "exampleTranslation": "Từ sáng tôi đã buồn nôn nên không ăn được gì.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 15266,
+      "term": "（痛みが）とれる (（いたみが）とれる)",
+      "reading": "（いたみが）とれる",
+      "romaji": null,
+      "definition": "Hết (đau)",
+      "exampleSentence": "薬を飲めば、（痛みが）とれると思います。",
+      "exampleTranslation": "Tôi nghĩ nếu uống thuốc thì cơn đau sẽ hết.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 15267,
+      "term": "インフルエンザ",
+      "reading": "インフルエンザ",
+      "romaji": null,
+      "definition": "Cúm",
+      "exampleSentence": "インフルエンザにかかって、三日間学校を休みました。",
+      "exampleTranslation": "Tôi bị cúm nên đã nghỉ học ba ngày.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 15268,
+      "term": "ウイルス",
+      "reading": "ウイルス",
+      "romaji": null,
+      "definition": "Vi rút",
+      "exampleSentence": "ウイルスが広がらないように、外から帰ったら手を洗いましょう。",
+      "exampleTranslation": "Để virus không lây lan, hãy rửa tay khi về nhà.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 15269,
+      "term": "ふるえる",
+      "reading": "ふるえる",
+      "romaji": null,
+      "definition": "Run",
+      "exampleSentence": "熱が高くて、体がふるえるほど寒く感じました。",
+      "exampleTranslation": "Vì sốt cao nên tôi cảm thấy lạnh đến mức người run lên.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 15270,
+      "term": "うなる",
+      "reading": "うなる",
+      "romaji": null,
+      "definition": "Rên rỉ",
+      "exampleSentence": "痛みがひどく、彼は一晩中うなるように苦しんでいました。",
+      "exampleTranslation": "Cơn đau rất dữ dội, anh ấy khổ sở rên rỉ suốt đêm.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 15271,
+      "term": "苦しむ (くるしむ)",
+      "reading": "くるしむ",
+      "romaji": null,
+      "definition": "Khổ sở",
+      "exampleSentence": "重い病気に苦しむ人を支える仕事がしたいです。",
+      "exampleTranslation": "Tôi muốn làm công việc hỗ trợ những người khổ sở vì bệnh nặng.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 15272,
+      "term": "しびれる",
+      "reading": "しびれる",
+      "romaji": null,
+      "definition": "Tê",
+      "exampleSentence": "長時間正座をしていたので、足がしびれるようになりました。",
+      "exampleTranslation": "Vì ngồi quỳ trong thời gian dài nên chân tôi bắt đầu bị tê.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 15273,
+      "term": "部分 (ぶぶん)",
+      "reading": "ぶぶん",
+      "romaji": null,
+      "definition": "Bộ phận, chỗ",
+      "exampleSentence": "この機械は壊れた部分を交換すれば、まだ使えます。",
+      "exampleTranslation": "Nếu thay bộ phận bị hỏng thì chiếc máy này vẫn dùng được.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 15274,
+      "term": "骨折（する） (こっせつ（する）)",
+      "reading": "こっせつ（する）",
+      "romaji": null,
+      "definition": "Gãy xương",
+      "exampleSentence": "「骨折（する）」という言葉を、病院で初めて聞きました。",
+      "exampleTranslation": "Tôi lần đầu nghe từ “骨折（する）” ở bệnh viện.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 15275,
+      "term": "さわる",
+      "reading": "さわる",
+      "romaji": null,
+      "definition": "Sờ",
+      "exampleSentence": "熱い鍋にさわると、やけどをします。",
+      "exampleTranslation": "Nếu chạm vào nồi nóng, bạn sẽ bị bỏng.",
+      "forms": [],
+      "displayOrder": 18
+    }
+  ]
+}

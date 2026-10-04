@@ -1,0 +1,165 @@
+{
+  "id": 591,
+  "title": "N2 Unit 8.4 - 動詞B (bài 4/9)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 動詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.402294",
+  "cards": [
+    {
+      "id": 13880,
+      "term": "除く (のぞく)",
+      "reading": "のぞく",
+      "romaji": null,
+      "definition": "trừ, loại trừ",
+      "exampleSentence": "この機械は空気中の有害物質を除く作用がある。",
+      "exampleTranslation": "Chiếc máy này có tác dụng loại bỏ các chất độc hại trong không khí.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13881,
+      "term": "省く (はぶく)",
+      "reading": "はぶく",
+      "romaji": null,
+      "definition": "cắt giảm, loại bỏ; lược bớt",
+      "exampleSentence": "「表1はあまり関係ないので資料から省きましょう」",
+      "exampleTranslation": "“Bảng 1 không liên quan lắm, nên lược khỏi tài liệu đi.”",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13882,
+      "term": "誤る (あやまる)",
+      "reading": "あやまる",
+      "romaji": null,
+      "definition": "mắc lỗi",
+      "exampleSentence": "運転を誤って、事故を起こしてしまった。",
+      "exampleTranslation": "Lái xe sai nên gây tai nạn.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13883,
+      "term": "奪う (うばう)",
+      "reading": "うばう",
+      "romaji": null,
+      "definition": "cướp đoạt, trấn lột",
+      "exampleSentence": "コンビニで強盗が入り、レジから売上金を奪って逃走した。",
+      "exampleTranslation": "Một tên cướp xông vào cửa hàng tiện lợi, cướp tiền ở quầy rồi tẩu thoát.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13884,
+      "term": "しまう",
+      "reading": "しまう",
+      "romaji": null,
+      "definition": "cất, cất đi, thu dọn",
+      "exampleSentence": "春になったので、冬物をしまった。",
+      "exampleTranslation": "Vì sang xuân nên đã cất đồ mùa đông.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13885,
+      "term": "怠ける (なまける)",
+      "reading": "なまける",
+      "romaji": null,
+      "definition": "lười biếng",
+      "exampleSentence": "仕事を怠ける。",
+      "exampleTranslation": "Lười biếng; trễ nải công việc.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13886,
+      "term": "失う (うしなう)",
+      "reading": "うしなう",
+      "romaji": null,
+      "definition": "mất",
+      "exampleSentence": "地震で財産を失った。",
+      "exampleTranslation": "Mất tài sản vì động đất.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13887,
+      "term": "攻める (せめる)",
+      "reading": "せめる",
+      "romaji": null,
+      "definition": "tấn công",
+      "exampleSentence": "敵を攻める。",
+      "exampleTranslation": "Tấn công kẻ địch.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13888,
+      "term": "睨む (にらむ)",
+      "reading": "にらむ",
+      "romaji": null,
+      "definition": "lườm",
+      "exampleSentence": "その学生は注意されて、逆に先生をにらんだ。",
+      "exampleTranslation": "Bị nhắc nhở, học sinh đó lại lườm thầy.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13889,
+      "term": "責める (せめる)",
+      "reading": "せめる",
+      "romaji": null,
+      "definition": "đổ lỗi",
+      "exampleSentence": "相手の失敗を責める。",
+      "exampleTranslation": "Trách cứ đối phương vì lỗi lầm của họ.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13890,
+      "term": "裏切る (うらぎる)",
+      "reading": "うらぎる",
+      "romaji": null,
+      "definition": "phản bội, phản lại",
+      "exampleSentence": "彼は味方を裏切り、敵のグループに入った。",
+      "exampleTranslation": "Hắn phản bội đồng đội và gia nhập phe địch.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13891,
+      "term": "頼る (たよる)",
+      "reading": "たよる",
+      "romaji": null,
+      "definition": "nhờ vào, dựa dẫm, dựa vào, phụ thuộc",
+      "exampleSentence": "彼は学費を親に頼らず、自分で働いて払っている。",
+      "exampleTranslation": "Anh ấy không nhờ bố mẹ tiền học, mà tự đi làm để trả.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13892,
+      "term": "遭う (あう)",
+      "reading": "あう",
+      "romaji": null,
+      "definition": "gặp, bị",
+      "exampleSentence": "交通事故に遭ってけがをした。",
+      "exampleTranslation": "Gặp tai nạn giao thông và bị thương.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13893,
+      "term": "招く (まねく)",
+      "reading": "まねく",
+      "romaji": null,
+      "definition": "mời",
+      "exampleSentence": "自宅に友人を招いた。",
+      "exampleTranslation": "Mời bạn đến nhà.",
+      "forms": [],
+      "displayOrder": 13
+    }
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "id": 663,
+  "title": "N3 Tango 7.5 - Những điều vui · Sở thích",
+  "description": "Tango N3 — Những điều vui",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:21.515021",
+  "cards": [
+    {
+      "id": 15176,
+      "term": "気に入る (きにいる)",
+      "reading": "きにいる",
+      "romaji": null,
+      "definition": "Thích, ưa",
+      "exampleSentence": "この店なら、きっとあなたも気に入ると思います。",
+      "exampleTranslation": "Tôi nghĩ nếu là cửa hàng này thì chắc chắn bạn cũng sẽ thích.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 15177,
+      "term": "お気に入り (おきにいり)",
+      "reading": "おきにいり",
+      "romaji": null,
+      "definition": "Thích, ưa",
+      "exampleSentence": "これは私のお気に入りの店です。",
+      "exampleTranslation": "Đây là cửa hàng yêu thích của tôi.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 15178,
+      "term": "芸術 (げいじゅつ)",
+      "reading": "げいじゅつ",
+      "romaji": null,
+      "definition": "Nghệ thuật",
+      "exampleSentence": "芸術は、人の心を豊かにし、生活に新しい美しさを与えてくれます。",
+      "exampleTranslation": "Nghệ thuật làm tâm hồn con người phong phú hơn và mang đến vẻ đẹp mới cho cuộc sống.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 15179,
+      "term": "絵画 (かいが)",
+      "reading": "かいが",
+      "romaji": null,
+      "definition": "Hội họa, tranh vẽ",
+      "exampleSentence": "美術館で有名な画家の絵画をじっくり鑑賞しました。",
+      "exampleTranslation": "Tôi đã thưởng thức kỹ một bức tranh của họa sĩ nổi tiếng tại bảo tàng mỹ thuật.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 15180,
+      "term": "才能 (さいのう)",
+      "reading": "さいのう",
+      "romaji": null,
+      "definition": "Tài năng, năng khiếu",
+      "exampleSentence": "彼女は音楽の才能があり、難しい曲もすぐに覚えられます。",
+      "exampleTranslation": "Cô ấy có năng khiếu âm nhạc nên có thể nhanh chóng nhớ cả những bản nhạc khó.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 15181,
+      "term": "けいこ（する）",
+      "reading": "けいこ（する）",
+      "romaji": null,
+      "definition": "Việc học (thường chỉ các môn ngoại khóa)",
+      "exampleSentence": "「けいこ（する）」は、茶道や書道などを習うときに使う言葉です。",
+      "exampleTranslation": "「けいこ（する）」 là từ được dùng khi học trà đạo, thư pháp và những môn tương tự.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 15182,
+      "term": "アニメ",
+      "reading": "アニメ",
+      "romaji": null,
+      "definition": "Phim hoạt hình anime",
+      "exampleSentence": "私は週末に子どもと一緒に日本のアニメを見ます。",
+      "exampleTranslation": "Cuối tuần tôi xem anime Nhật Bản cùng con.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 15183,
+      "term": "読書（する） (どくしょ（する）)",
+      "reading": "どくしょ（する）",
+      "romaji": null,
+      "definition": "Việc đọc sách",
+      "exampleSentence": "「読書（する）」という習慣を続けると、語彙が増えて文章も読みやすくなります。",
+      "exampleTranslation": "Nếu duy trì thói quen đọc sách, vốn từ sẽ tăng và việc đọc văn bản cũng trở nên dễ dàng hơn.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 15184,
+      "term": "おすすめ",
+      "reading": "おすすめ",
+      "romaji": null,
+      "definition": "Lời khuyên, tiến cử",
+      "exampleSentence": "この店は駅から近くて料理もおいしいので、おすすめです。",
+      "exampleTranslation": "Tôi đề xuất cửa hàng này vì nó gần ga và đồ ăn cũng ngon.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 15185,
+      "term": "ストーリー",
+      "reading": "ストーリー",
+      "romaji": null,
+      "definition": "Câu chuyện",
+      "exampleSentence": "この映画はストーリーが分かりやすく、最後まで楽しく見られます。",
+      "exampleTranslation": "Bộ phim này có cốt truyện dễ hiểu và có thể xem vui vẻ đến cuối.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 15186,
+      "term": "シリーズ",
+      "reading": "シリーズ",
+      "romaji": null,
+      "definition": "Tuyển tập, sê-ri",
+      "exampleSentence": "このシリーズは毎回違う事件を扱っていて、どの作品も面白いです。",
+      "exampleTranslation": "Sê-ri này khai thác một vụ án khác nhau trong mỗi phần nên tác phẩm nào cũng thú vị.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 15187,
+      "term": "名作 (めいさく)",
+      "reading": "めいさく",
+      "romaji": null,
+      "definition": "Tác phẩm nổi tiếng, tác phẩm xuất sắc",
+      "exampleSentence": "この小説は、今でも多くの人に読まれている名作です。",
+      "exampleTranslation": "Cuốn tiểu thuyết này là một kiệt tác vẫn được nhiều người đọc cho đến ngày nay.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 15188,
+      "term": "登場（する） (とうじょう（する）)",
+      "reading": "とうじょう（する）",
+      "romaji": null,
+      "definition": "Sự xuất hiện",
+      "exampleSentence": "「登場（する）」という言葉は、物語に人物が現れるときに使います。",
+      "exampleTranslation": "Từ 「登場（する）」 được dùng khi một nhân vật xuất hiện trong câu chuyện.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 15189,
+      "term": "好奇心 (こうきしん)",
+      "reading": "こうきしん",
+      "romaji": null,
+      "definition": "Hiếu kỳ, tò mò",
+      "exampleSentence": "子どもの好奇心を大切にすると、学ぶ意欲も自然に高まります。",
+      "exampleTranslation": "Nếu coi trọng sự tò mò của trẻ, động lực học tập cũng sẽ tự nhiên tăng lên.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 15190,
+      "term": "コンクール",
+      "reading": "コンクール",
+      "romaji": null,
+      "definition": "Cuộc thi, giải thưởng (thường về âm nhạc, hội họa, điện ảnh)",
+      "exampleSentence": "妹はピアノのコンクールで、見事な演奏を披露した。",
+      "exampleTranslation": "Em gái tôi đã có màn biểu diễn xuất sắc trong cuộc thi piano.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 15191,
+      "term": "出品（する） (しゅっぴん（する）)",
+      "reading": "しゅっぴん（する）",
+      "romaji": null,
+      "definition": "Đưa tác phẩm đi tham dự",
+      "exampleSentence": "先生は「出品（する）」という言葉の意味を説明してくれた。",
+      "exampleTranslation": "Giáo viên đã giải thích ý nghĩa của từ “đưa tác phẩm đi tham dự”.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 15192,
+      "term": "演奏（する） (えんそう（する）)",
+      "reading": "えんそう（する）",
+      "romaji": null,
+      "definition": "Sự biểu diễn",
+      "exampleSentence": "彼は発表会で、みんなの前でギターを演奏する予定です。",
+      "exampleTranslation": "Cậu ấy dự định biểu diễn guitar trước mọi người trong buổi biểu diễn.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 15193,
+      "term": "イヤホン",
+      "reading": "イヤホン",
+      "romaji": null,
+      "definition": "Tai nghe, dây nghe",
+      "exampleSentence": "電車の中で音楽を聞くときは、イヤホンの音量に注意してください。",
+      "exampleTranslation": "Khi nghe nhạc trên tàu điện, hãy chú ý đến âm lượng tai nghe.",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 15194,
+      "term": "講演会 (こうえんかい)",
+      "reading": "こうえんかい",
+      "romaji": null,
+      "definition": "Buổi diễn thuyết",
+      "exampleSentence": "来週、大学で環境問題についての講演会があります。",
+      "exampleTranslation": "Tuần sau, tại trường đại học sẽ có một buổi diễn thuyết về vấn đề môi trường.",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 15195,
+      "term": "サークル",
+      "reading": "サークル",
+      "romaji": null,
+      "definition": "Câu lạc bộ",
+      "exampleSentence": "大学では写真のサークルに入って、毎週活動しています。",
+      "exampleTranslation": "Ở trường đại học, tôi tham gia câu lạc bộ nhiếp ảnh và hoạt động hằng tuần.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+{
+  "id": 605,
+  "title": "N2 Unit 11.1 - 名詞D (bài 1/8)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞D",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.599161",
+  "cards": [
+    {
+      "id": 14054,
+      "term": "人物 (じんぶつ)",
+      "reading": "じんぶつ",
+      "romaji": null,
+      "definition": "nhân vật, con người",
+      "exampleSentence": "これは歴史上の人物を描いた小説だ。",
+      "exampleTranslation": "Đây là tiểu thuyết viết về một nhân vật lịch sử.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 14055,
+      "term": "者 (もの)",
+      "reading": "もの",
+      "romaji": null,
+      "definition": "người, kẻ",
+      "exampleSentence": "「うちの者と相談してからお返事いたします」",
+      "exampleTranslation": "“Tôi sẽ bàn với người nhà / người bên chúng tôi rồi trả lời.”",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 14056,
+      "term": "各自 (かくじ)",
+      "reading": "かくじ",
+      "romaji": null,
+      "definition": "mỗi người",
+      "exampleSentence": "「パスポートは各自でお持ちください」",
+      "exampleTranslation": "“Mỗi người vui lòng tự mang hộ chiếu của mình.”",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 14057,
+      "term": "気分 (きぶん)",
+      "reading": "きぶん",
+      "romaji": null,
+      "definition": "tâm trạng",
+      "exampleSentence": "緊張過ぎて気分が悪くなった。",
+      "exampleTranslation": "Vì quá căng thẳng nên tôi thấy khó chịu / không khỏe.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 14058,
+      "term": "気配 (けはい)",
+      "reading": "けはい",
+      "romaji": null,
+      "definition": "cảm giác, linh cảm",
+      "exampleSentence": "暗くてよく見えないが、人のいる気配がする。",
+      "exampleTranslation": "Trời tối nên không nhìn rõ, nhưng có cảm giác như có người ở đó.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 14059,
+      "term": "生きがい (いきがい)",
+      "reading": "いきがい",
+      "romaji": null,
+      "definition": "mục đích sống",
+      "exampleSentence": "私は今の仕事に生きがいを感じている。",
+      "exampleTranslation": "Tôi cảm thấy công việc hiện tại là lẽ sống của mình.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 14060,
+      "term": "行儀 (ぎょうぎ)",
+      "reading": "ぎょうぎ",
+      "romaji": null,
+      "definition": "lễ nghi, cách cư xử",
+      "exampleSentence": "音を立てて食べるのは行儀が悪い。",
+      "exampleTranslation": "Ăn phát ra tiếng là bất lịch sự.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 14061,
+      "term": "品 (ひん)",
+      "reading": "ひん",
+      "romaji": null,
+      "definition": "phẩm giá, phong độ",
+      "exampleSentence": "女王は姿にも話し方にも品がある。",
+      "exampleTranslation": "Nữ hoàng toát lên vẻ thanh lịch cả trong dáng vẻ lẫn cách nói chuyện.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 14062,
+      "term": "姿 (すがた)",
+      "reading": "すがた",
+      "romaji": null,
+      "definition": "hình ảnh, bóng dáng",
+      "exampleSentence": "姉の後ろ姿は、母にそっくりだ。",
+      "exampleTranslation": "Dáng lưng của chị tôi nhìn từ phía sau rất giống mẹ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 14063,
+      "term": "姿勢 (しせい)",
+      "reading": "しせい",
+      "romaji": null,
+      "definition": "điệu bộ,tư thế, thái độ",
+      "exampleSentence": "彼女はダンスをやっているので、いつも姿勢がいい。",
+      "exampleTranslation": "Vì chơi nhảy múa nên cô ấy luôn có tư thế rất đẹp.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 14064,
+      "term": "見かけ (みかけ)",
+      "reading": "みかけ",
+      "romaji": null,
+      "definition": "vẻ bề ngoài, ngoại hình",
+      "exampleSentence": "うちの犬は見かけは強そうだが、実は怖がりだ。",
+      "exampleTranslation": "Con chó nhà tôi trông có vẻ dữ nhưng thực ra rất nhát.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 14065,
+      "term": "振り (ふり)",
+      "reading": "ふり",
+      "romaji": null,
+      "definition": "giả vờ",
+      "exampleSentence": "田中さんの欠席の理由を知っていたが、知らないふりをした。",
+      "exampleTranslation": "Tôi biết lý do Tanaka nghỉ nhưng giả vờ như không biết.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 14066,
+      "term": "苦情 (くじょう)",
+      "reading": "くじょう",
+      "romaji": null,
+      "definition": "phàn nàn",
+      "exampleSentence": "駅が汚いので、駅員に苦情を言った。",
+      "exampleTranslation": "Nhà ga bẩn nên tôi đã phàn nàn với nhân viên.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 14067,
+      "term": "口実 (こうじつ)",
+      "reading": "こうじつ",
+      "romaji": null,
+      "definition": "lấy lý do, bào chữa",
+      "exampleSentence": "気が進まなかったので、風邪を口実にして飲み会を欠席した。",
+      "exampleTranslation": "Không muốn đi nên lấy cớ bị cảm để vắng mặt buổi nhậu.",
+      "forms": [],
+      "displayOrder": 13
+    }
+  ]
+}

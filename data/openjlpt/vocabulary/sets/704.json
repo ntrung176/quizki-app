@@ -1,0 +1,187 @@
+{
+  "id": 704,
+  "title": "N4 Tango 4.1 - Hãy đi ra ngoài nào · Thời tiết",
+  "description": "Tango N4 — Hãy đi ra ngoài nào",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-08-09T15:32:29.612727",
+  "cards": [
+    {
+      "id": 16139,
+      "term": "天気予報 (てんきよほう)",
+      "reading": "てんきよほう",
+      "romaji": null,
+      "definition": "Dự báo thời tiết",
+      "exampleSentence": "朝、テレビで天気予報を見ました。",
+      "exampleTranslation": "Buổi sáng, tôi đã xem dự báo thời tiết trên tivi.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 16140,
+      "term": "青空 (あおぞら)",
+      "reading": "あおぞら",
+      "romaji": null,
+      "definition": "Bầu trời xanh",
+      "exampleSentence": "雨がやんで、きれいな青空が見えました。",
+      "exampleTranslation": "Mưa tạnh, và bầu trời xanh tuyệt đẹp hiện ra.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 16141,
+      "term": "晴れる (はれる)",
+      "reading": "はれる",
+      "romaji": null,
+      "definition": "(Trời) nắng",
+      "exampleSentence": "明日は晴れるでしょう。",
+      "exampleTranslation": "Ngày mai có lẽ trời sẽ nắng.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 16142,
+      "term": "くもり",
+      "reading": "くもり",
+      "romaji": null,
+      "definition": "Thời tiết âm u, trời âm u",
+      "exampleSentence": "今日はくもりですが、雨は降らないそうです。",
+      "exampleTranslation": "Hôm nay trời âm u, nhưng nghe nói sẽ không mưa.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 16143,
+      "term": "風 (かぜ)",
+      "reading": "かぜ",
+      "romaji": null,
+      "definition": "Gió",
+      "exampleSentence": "今日は風が強いので、窓を閉めてください。",
+      "exampleTranslation": "Hôm nay gió mạnh nên hãy đóng cửa sổ lại.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 16144,
+      "term": "吹く (ふく)",
+      "reading": "ふく",
+      "romaji": null,
+      "definition": "Thổi",
+      "exampleSentence": "海から冷たい風が吹くと、少し寒く感じます。",
+      "exampleTranslation": "Khi gió lạnh thổi từ biển vào, tôi cảm thấy hơi lạnh.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 16145,
+      "term": "やむ",
+      "reading": "やむ",
+      "romaji": null,
+      "definition": "Tạnh, ngưng",
+      "exampleSentence": "雨がやむまで、ここで待ちましょう。",
+      "exampleTranslation": "Hãy đợi ở đây cho đến khi mưa tạnh.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 16146,
+      "term": "台風 (たいふう)",
+      "reading": "たいふう",
+      "romaji": null,
+      "definition": "Bão",
+      "exampleSentence": "台風が近づいているので、早く帰りましょう。",
+      "exampleTranslation": "Bão đang đến gần nên chúng ta hãy về sớm.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 16147,
+      "term": "かみなり",
+      "reading": "かみなり",
+      "romaji": null,
+      "definition": "Sấm",
+      "exampleSentence": "かみなりが鳴っているので、窓を閉めました。",
+      "exampleTranslation": "Vì có tiếng sấm nên tôi đã đóng cửa sổ.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 16148,
+      "term": "レインコート",
+      "reading": "レインコート",
+      "romaji": null,
+      "definition": "Áo mưa",
+      "exampleSentence": "雨が降りそうなので、レインコートを着て出かけます。",
+      "exampleTranslation": "Vì có vẻ sắp mưa nên tôi sẽ mặc áo mưa rồi ra ngoài.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 16149,
+      "term": "（かさを）さす",
+      "reading": "（かさを）さす",
+      "romaji": null,
+      "definition": "Che (dù)",
+      "exampleSentence": "雨の日は、（かさを）さす人がたくさんいます。",
+      "exampleTranslation": "Vào những ngày mưa, có rất nhiều người che ô.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 16150,
+      "term": "ぬれる",
+      "reading": "ぬれる",
+      "romaji": null,
+      "definition": "Bị ướt",
+      "exampleSentence": "雨にぬれると、風邪をひきやすくなります。",
+      "exampleTranslation": "Nếu bị ướt mưa, bạn sẽ dễ bị cảm lạnh hơn.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 16151,
+      "term": "波 (なみ)",
+      "reading": "なみ",
+      "romaji": null,
+      "definition": "Sóng",
+      "exampleSentence": "海の波が高いので、今日は泳がないほうがいいです。",
+      "exampleTranslation": "Vì sóng biển cao nên hôm nay tốt hơn là không nên bơi.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 16152,
+      "term": "気温 (きおん)",
+      "reading": "きおん",
+      "romaji": null,
+      "definition": "Nhiệt độ (thời tiết)",
+      "exampleSentence": "今日は気温が高くて、外に出ると汗をかきます。",
+      "exampleTranslation": "Hôm nay nhiệt độ cao nên hễ ra ngoài là tôi đổ mồ hôi.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 16153,
+      "term": "冷える (ひえる)",
+      "reading": "ひえる",
+      "romaji": null,
+      "definition": "Bị lạnh",
+      "exampleSentence": "冬は夜になると、部屋の中も冷えることがあります。",
+      "exampleTranslation": "Vào mùa đông, khi đêm xuống thì bên trong phòng đôi khi cũng lạnh đi.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 16154,
+      "term": "比べる (くらべる)",
+      "reading": "くらべる",
+      "romaji": null,
+      "definition": "So sánh",
+      "exampleSentence": "二つの町の生活を比べると、違いがよく分かります。",
+      "exampleTranslation": "Khi so sánh cuộc sống ở hai thị trấn, chúng ta có thể hiểu rõ sự khác biệt.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

@@ -1,0 +1,231 @@
+{
+  "id": 406,
+  "title": "N3 Unit 7.1 - 形容詞B・感覚と性質 (Cảm giác & tính chất)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — 形容詞B",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:35.926468",
+  "cards": [
+    {
+      "id": 10745,
+      "term": "濃い (こい)",
+      "reading": "こい",
+      "romaji": "koi",
+      "definition": "đậm, đặc",
+      "exampleSentence": "色が濃い",
+      "exampleTranslation": "Màu/ vị / cà phê/ trà/ trang điểm đậm/ râu dày….",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 10746,
+      "term": "薄い (うすい)",
+      "reading": "うすい",
+      "romaji": "usui",
+      "definition": "nhạt, mỏng",
+      "exampleSentence": "薄い本",
+      "exampleTranslation": "Quyển sách mỏng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 10747,
+      "term": "酸っぱい (すっぱい)",
+      "reading": "すっぱい",
+      "romaji": "suppai",
+      "definition": "chua",
+      "exampleSentence": "レモンはすっぱい",
+      "exampleTranslation": "Chanh thì chua.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 10748,
+      "term": "臭い (くさい)",
+      "reading": "くさい",
+      "romaji": "kusai",
+      "definition": "thối, tanh",
+      "exampleSentence": "なっとうはくさいから嫌いだという日本人も多い",
+      "exampleTranslation": "Có nhiều người Nhật ghét Natto vì nó có mùi thối.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 10749,
+      "term": "おかしい",
+      "reading": "おかしい",
+      "romaji": "okashii",
+      "definition": "buồn cười, kì quặc (sự cố) có vấn đề, lạ",
+      "exampleSentence": "山本君は、授業中にいつもおかしいことを言ってみんなを笑わせる",
+      "exampleTranslation": "Bạn Yamamoto ở trong lớp lúc nào cũng nói mấy câu hài hài làm mọi người phá lên cười.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 10750,
+      "term": "かっこいい",
+      "reading": "かっこいい",
+      "romaji": "kakkoii",
+      "definition": "dễ nhìn, bảnh bao, ngầu",
+      "exampleSentence": "あの先輩は、かっこいいので人気がある",
+      "exampleTranslation": "Tiền bối đó đẹp trai nên rất được yêu thích.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 10751,
+      "term": "うまい",
+      "reading": "うまい",
+      "romaji": "umai",
+      "definition": "giỏi, ngon, suôn sẻ, trôi chảy",
+      "exampleSentence": "母は料理がうまい",
+      "exampleTranslation": "Mẹ rất giỏi nấu ăn.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 10752,
+      "term": "親しい (したしい)",
+      "reading": "したしい",
+      "romaji": "shitashii",
+      "definition": "thân thiết",
+      "exampleSentence": "私は田中さんと親しい",
+      "exampleTranslation": "Tôi thân với anh Tanaka.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 10753,
+      "term": "詳しい (くわしい)",
+      "reading": "くわしい",
+      "romaji": "kuwashii",
+      "definition": "rành / am hiểu / thạo / biết rõ (về lĩnh vực, sự việc)",
+      "exampleSentence": "この地図はとてもくわしい",
+      "exampleTranslation": "Cái bản đồ này rất chi tiết.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 10754,
+      "term": "細かい (こまかい)",
+      "reading": "こまかい",
+      "romaji": "komakai",
+      "definition": "nhỏ, chi tiết, tiểu tiết, tiền lẻ",
+      "exampleSentence": "新聞の字は細かくて、お年よりには読みづらい",
+      "exampleTranslation": "Chữ của tờ báo rất nhỏ nên đối với người già thì khó đọc.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 10755,
+      "term": "浅い (あさい)",
+      "reading": "あさい",
+      "romaji": "asai",
+      "definition": "nông, nông cạn, chưa thâm sâu",
+      "exampleSentence": "この川は浅いので、子どもが泳いでも危なくない",
+      "exampleTranslation": "Con sông này nông nên dù bọn trẻ bơi cũng không nguy hiểm.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 10756,
+      "term": "硬い/固い (かたい)",
+      "reading": "かたい",
+      "romaji": "katai",
+      "definition": "硬い: cứng (vật), cứng nhắc; 固い: chắc/chặt/kiên cố",
+      "exampleSentence": "このパンはとても固い",
+      "exampleTranslation": "Cái bánh này rất cứng.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 10757,
+      "term": "ぬるい",
+      "reading": "ぬるい",
+      "romaji": "nurui",
+      "definition": "nguội",
+      "exampleSentence": "ぬるいコーヒーはおいしくない",
+      "exampleTranslation": "Cà phê nguội thì không ngon.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 10758,
+      "term": "まぶしい",
+      "reading": "まぶしい",
+      "romaji": "mabushii",
+      "definition": "chói (mắt), rạng rỡ",
+      "exampleSentence": "カーテンを開けたら、太陽がまぶしかった",
+      "exampleTranslation": "Khi mở rèm thì thấy mặt trời khá chói.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 10759,
+      "term": "蒸し暑い (むしあつい)",
+      "reading": "むしあつい",
+      "romaji": "mushiatsui",
+      "definition": "oi bức",
+      "exampleSentence": "日本の夏は、蒸し暑い",
+      "exampleTranslation": "Mùa hè ở Nhật thì oi bức.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 10760,
+      "term": "清潔な (せいけつな)",
+      "reading": "せいけつな",
+      "romaji": "seiketsuna",
+      "definition": "sạch sẽ",
+      "exampleSentence": "清潔な服を身につける",
+      "exampleTranslation": "Mặc lên người bộ áo quần sạch sẽ.",
+      "forms": [],
+      "displayOrder": 15
+    },
+    {
+      "id": 10761,
+      "term": "新鮮な (しんせんな)",
+      "reading": "しんせんな",
+      "romaji": "shinsenna",
+      "definition": "tươi",
+      "exampleSentence": "新鮮な魚はおいしい",
+      "exampleTranslation": "Cá tươi thì ngon.",
+      "forms": [],
+      "displayOrder": 16
+    },
+    {
+      "id": 10762,
+      "term": "豊かな (ゆたかな)",
+      "reading": "ゆたかな",
+      "romaji": "yutakana",
+      "definition": "giàu có, trù phú, đa dạng",
+      "exampleSentence": "豊かな資源",
+      "exampleTranslation": "Tài nguyên phong phú",
+      "forms": [],
+      "displayOrder": 17
+    },
+    {
+      "id": 10763,
+      "term": "立派な (りっぱな)",
+      "reading": "りっぱな",
+      "romaji": "rippana",
+      "definition": "đàng hoàng, tử tế, xứng đáng, đáng khen",
+      "exampleSentence": "立派な人",
+      "exampleTranslation": "Người tuyệt vời (đáng kính, đàng hoàng)",
+      "forms": [],
+      "displayOrder": 18
+    },
+    {
+      "id": 10764,
+      "term": "正確な (せいかくな)",
+      "reading": "せいかくな",
+      "romaji": "seikakuna",
+      "definition": "chính xác",
+      "exampleSentence": "正確な数はわからないが、この観客は5,000人ぐらいだろう",
+      "exampleTranslation": "Tôi không biết con số chính xác nhưng ở đây có khoảng 5000 khách.",
+      "forms": [],
+      "displayOrder": 19
+    }
+  ]
+}

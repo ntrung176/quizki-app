@@ -1,0 +1,187 @@
+{
+  "id": 423,
+  "title": "N3 Unit 11.3 - カタカナB・調理と機器 (Nấu ăn & thiết bị)",
+  "description": "Mimi Kara Oboeru N3 - 語彙トレーニング — カタカナB",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-17T22:51:36.359157",
+  "cards": [
+    {
+      "id": 11024,
+      "term": "ロボット",
+      "reading": "ロボット",
+      "romaji": "robotto",
+      "definition": "robot",
+      "exampleSentence": "子どもはロボットのアニメが好きだ",
+      "exampleTranslation": "Trẻ con rất thích phim hoạt hình robot.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 11025,
+      "term": "エネルギー",
+      "reading": "エネルギー",
+      "romaji": "enerugī",
+      "definition": "năng lượng (energy)",
+      "exampleSentence": "地球ではさまざまなエネルギーが不足している",
+      "exampleTranslation": "Trái đất đang thiếu nhiều loại năng lượng.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 11026,
+      "term": "デジタル",
+      "reading": "デジタル",
+      "romaji": "dejitaru",
+      "definition": "kỹ thuật số (digital)",
+      "exampleSentence": "デジタルの時計は見やすい",
+      "exampleTranslation": "Đồng hồ kĩ thuật số( đồng hồ điện tử) dễ nhìn.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 11027,
+      "term": "マイク",
+      "reading": "マイク",
+      "romaji": "maiku",
+      "definition": "microphone",
+      "exampleSentence": "みんなの前でマイクを持って話す",
+      "exampleTranslation": "Cầm micro và nói trước mặt mọi người.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 11028,
+      "term": "ブレーキ",
+      "reading": "ブレーキ",
+      "romaji": "burēki",
+      "definition": "phanh (brake)",
+      "exampleSentence": "ブレーキを踏んでスピードを落とした",
+      "exampleTranslation": "Giẫm lên phanh giảm tốc độ.",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 11029,
+      "term": "ペンキ",
+      "reading": "ペンキ",
+      "romaji": "penki",
+      "definition": "sơn (paint)",
+      "exampleSentence": "かべにペンキを塗る",
+      "exampleTranslation": "Quét sơn lên tường.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 11030,
+      "term": "炊ける (たける)",
+      "reading": "たける",
+      "romaji": "takeru",
+      "definition": "được nấu",
+      "exampleSentence": "ごはんがたけた",
+      "exampleTranslation": "Cơm đã nấu xong.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 11031,
+      "term": "炊く (たく)",
+      "reading": "たく",
+      "romaji": "taku",
+      "definition": "nấu (cơm)",
+      "exampleSentence": "ごはんをたく",
+      "exampleTranslation": "Nấu cơm.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 11032,
+      "term": "煮える (にえる)",
+      "reading": "にえる",
+      "romaji": "nieru",
+      "definition": "được nấu, hầm",
+      "exampleSentence": "「この野菜をスープで煮て、煮えたら塩で味をつけてください」",
+      "exampleTranslation": "Ninh rau bằng súp, khi rau nhừ rồi cho gia vị muối vào.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 11033,
+      "term": "煮る (にる)",
+      "reading": "にる",
+      "romaji": "niru",
+      "definition": "ninh, nấu",
+      "exampleSentence": null,
+      "exampleTranslation": null,
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 11034,
+      "term": "炒める (いためる)",
+      "reading": "いためる",
+      "romaji": "itameru",
+      "definition": "rán, xào",
+      "exampleSentence": "フライパンに油をひいて、肉と野菜をいためる",
+      "exampleTranslation": "Cho dầu ăn vào chảo, xào rau và thịt.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 11035,
+      "term": "焼ける (やける)",
+      "reading": "やける",
+      "romaji": "yakeru",
+      "definition": "được nướng, được rán",
+      "exampleSentence": "よく焼けていないぶた肉は食べないほうがいい",
+      "exampleTranslation": "Thịt nướng chưa chín kĩ không nên ăn.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 11036,
+      "term": "焼く (やく)",
+      "reading": "やく",
+      "romaji": "yaku",
+      "definition": "nướng, rán",
+      "exampleSentence": "フライパンでオムレツを焼く",
+      "exampleTranslation": "Rán/làm món trứng omelet bằng chảo.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 11037,
+      "term": "ゆでる",
+      "reading": "ゆでる",
+      "romaji": "yuderu",
+      "definition": "luộc",
+      "exampleSentence": "熱い湯で卵をゆでる",
+      "exampleTranslation": "Luộc trứng bằng nước sôi.",
+      "forms": [],
+      "displayOrder": 13
+    },
+    {
+      "id": 11038,
+      "term": "揚げる (あげる)",
+      "reading": "あげる",
+      "romaji": "ageru",
+      "definition": "chiên, rán",
+      "exampleSentence": "油で天ぷらをあげる",
+      "exampleTranslation": "Chiên (rán) tempura bằng dầu.",
+      "forms": [],
+      "displayOrder": 14
+    },
+    {
+      "id": 11039,
+      "term": "蒸す (むす)",
+      "reading": "むす",
+      "romaji": "musu",
+      "definition": "hấp",
+      "exampleSentence": "湯をわかして、その湯気でギョーザをむす",
+      "exampleTranslation": "Đun sôi nước rồi hấp bánh sủi cảo bằng hơi nước.",
+      "forms": [],
+      "displayOrder": 15
+    }
+  ]
+}

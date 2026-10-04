@@ -1,0 +1,165 @@
+{
+  "id": 582,
+  "title": "N2 Unit 7.3 - 名詞C (bài 3/8)",
+  "description": "Mimi Kara Oboeru N2 - 語彙トレーニング — 名詞C",
+  "coverImageUrl": null,
+  "isPublic": true,
+  "ownerUsername": "__system__",
+  "createdAt": "2026-07-19T12:00:53.276456",
+  "cards": [
+    {
+      "id": 13777,
+      "term": "評価 (ひょうか)",
+      "reading": "ひょうか",
+      "romaji": null,
+      "definition": "đánh giá, bình phẩm",
+      "exampleSentence": "この映画に対する世間の評価を高める。",
+      "exampleTranslation": "Nâng cao đánh giá của công chúng đối với bộ phim này.",
+      "forms": [],
+      "displayOrder": 0
+    },
+    {
+      "id": 13778,
+      "term": "指示 (しじ)",
+      "reading": "しじ",
+      "romaji": null,
+      "definition": "chỉ dẫn, chỉ thị",
+      "exampleSentence": "部長は田中さんに会議のレポートを出すよう指示した。",
+      "exampleTranslation": "Trưởng phòng chỉ thị anh Tanaka nộp báo cáo cuộc họp.",
+      "forms": [],
+      "displayOrder": 1
+    },
+    {
+      "id": 13779,
+      "term": "無視 (むし)",
+      "reading": "むし",
+      "romaji": null,
+      "definition": "bỏ qua, phớt lờ",
+      "exampleSentence": "話しかけたのに無視された。",
+      "exampleTranslation": "Tôi bắt chuyện mà bị lờ đi.",
+      "forms": [],
+      "displayOrder": 2
+    },
+    {
+      "id": 13780,
+      "term": "無断 (むだん)",
+      "reading": "むだん",
+      "romaji": null,
+      "definition": "không có sự cho phép, không được phép",
+      "exampleSentence": "無断で人のものを使ってはいけない。",
+      "exampleTranslation": "Không được dùng đồ của người khác khi chưa xin phép.",
+      "forms": [],
+      "displayOrder": 3
+    },
+    {
+      "id": 13781,
+      "term": "承知 (しょうち)",
+      "reading": "しょうち",
+      "romaji": null,
+      "definition": "hiểu, đồng ý, chấp nhận",
+      "exampleSentence": "「この仕事、明日までに頼みます」「承知しました」",
+      "exampleTranslation": "&quot;Việc này nhờ anh xong trước ngày mai.&quot; &quot;Vâng, tôi rõ rồi.&quot;",
+      "forms": [],
+      "displayOrder": 4
+    },
+    {
+      "id": 13782,
+      "term": "納得 (なっとく)",
+      "reading": "なっとく",
+      "romaji": null,
+      "definition": "bị thuyết phục, thỏa mãn, hài lòng, bằng lòng",
+      "exampleSentence": "会社のやり方には納得できない。",
+      "exampleTranslation": "Tôi không thể chấp nhận/cảm thấy không thuyết phục với cách làm của công ty.",
+      "forms": [],
+      "displayOrder": 5
+    },
+    {
+      "id": 13783,
+      "term": "疑問 (ぎもん)",
+      "reading": "ぎもん",
+      "romaji": null,
+      "definition": "nghi vấn, câu hỏi",
+      "exampleSentence": "子供はいろいろなことに疑問を持つ。",
+      "exampleTranslation": "Trẻ con hay có thắc mắc về nhiều thứ.",
+      "forms": [],
+      "displayOrder": 6
+    },
+    {
+      "id": 13784,
+      "term": "推測 (すいそく)",
+      "reading": "すいそく",
+      "romaji": null,
+      "definition": "phỏng đoán, dự báo",
+      "exampleSentence": "相手の気持ちを推測する。",
+      "exampleTranslation": "Suy đoán cảm xúc của đối phương.",
+      "forms": [],
+      "displayOrder": 7
+    },
+    {
+      "id": 13785,
+      "term": "肯定 (こうてい)",
+      "reading": "こうてい",
+      "romaji": null,
+      "definition": "khẳng định, xác nhận",
+      "exampleSentence": "相手の意見を肯定する。",
+      "exampleTranslation": "Khẳng định/đồng tình ý kiến của đối phương.",
+      "forms": [],
+      "displayOrder": 8
+    },
+    {
+      "id": 13786,
+      "term": "参考 (さんこう)",
+      "reading": "さんこう",
+      "romaji": null,
+      "definition": "tham khảo",
+      "exampleSentence": "いろいろな資料を参考にしてレポートを書いた。",
+      "exampleTranslation": "Tôi tham khảo nhiều tài liệu để viết báo cáo.",
+      "forms": [],
+      "displayOrder": 9
+    },
+    {
+      "id": 13787,
+      "term": "程度 (ていど)",
+      "reading": "ていど",
+      "romaji": null,
+      "definition": "trình độ, mức",
+      "exampleSentence": "彼女の学校は教育の程度が高い。",
+      "exampleTranslation": "Trường của cô ấy có trình độ giáo dục cao.",
+      "forms": [],
+      "displayOrder": 10
+    },
+    {
+      "id": 13788,
+      "term": "程度 (ていど)",
+      "reading": "ていど",
+      "romaji": null,
+      "definition": "trình độ, mức độ, chừng",
+      "exampleSentence": "大統領就任演説は評判が良かった。",
+      "exampleTranslation": "Bài diễn văn nhậm chức tổng thống được đánh giá tốt.",
+      "forms": [],
+      "displayOrder": 11
+    },
+    {
+      "id": 13789,
+      "term": "批評 (ひひょう)",
+      "reading": "ひひょう",
+      "romaji": null,
+      "definition": "phê bình, lời bình, bình phẩm",
+      "exampleSentence": "新聞に新刊書の批評が載った。",
+      "exampleTranslation": "Báo đăng bài phê bình sách mới.",
+      "forms": [],
+      "displayOrder": 12
+    },
+    {
+      "id": 13790,
+      "term": "推薦 (すいせん)",
+      "reading": "すいせん",
+      "romaji": null,
+      "definition": "tiến cử, giới thiệu",
+      "exampleSentence": "重役たちは、田中氏を次期社長に推薦した。",
+      "exampleTranslation": "Các lãnh đạo đã tiến cử ông Tanaka làm giám đốc kỳ tới.",
+      "forms": [],
+      "displayOrder": 13
+    }
+  ]
+}
