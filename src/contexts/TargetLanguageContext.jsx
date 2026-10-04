@@ -5,7 +5,7 @@ import { showToast } from '../utils/toast';
 
 export const SUPPORTED_TARGET_LANGUAGES = [
     { code: 'ja', name: 'Tiếng Nhật', nativeName: '日本語', flag: '🇯🇵', countryCode: 'jp', testName: 'JLPT', characterSystem: 'Kanji & Kana' },
-    { code: 'en', name: 'Tiếng Anh', nativeName: 'English', flag: '🇬🇧', countryCode: 'gb', testName: 'IELTS / TOEIC', characterSystem: 'Alphabet & IPA', disabled: true },
+    { code: 'en', name: 'Tiếng Anh', nativeName: 'English', flag: '🇬🇧', countryCode: 'gb', testName: 'IELTS / TOEIC', characterSystem: 'Alphabet & IPA' },
     { code: 'ko', name: 'Tiếng Hàn', nativeName: '한국어', flag: '🇰🇷', countryCode: 'kr', testName: 'TOPIK', characterSystem: 'Hangul', disabled: true },
 ];
 

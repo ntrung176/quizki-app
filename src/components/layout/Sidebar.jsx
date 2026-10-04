@@ -438,46 +438,47 @@ const Sidebar = ({
             { id: 'HOME', icon: Home, label: t('nav.home', 'Trang chủ'), route: ROUTES.HOME, group: 'Học tập' },
         ];
 
-        // 1. Nhập môn bảng chữ cái theo từng ngôn ngữ
+        // 1. Chế độ Tiếng Anh: Khóa hết các menu khác, chỉ để Từ vựng và Trang chủ (+ Quản trị nếu là Admin)
+        if (isEnglishMode) {
+            items.push({ id: 'VOCAB_LIST', icon: BookOpen, label: 'Từ vựng', route: ROUTES.VOCAB_REVIEW, group: 'Học tập' });
+            if (isAdmin) {
+                items.push({ id: 'ADMIN', icon: Shield, label: 'Quản trị', route: ROUTES.ADMIN, group: 'Cộng đồng' });
+            }
+            return items;
+        }
+
+        // 2. Nhập môn bảng chữ cái theo từng ngôn ngữ (Tiếng Nhật & Tiếng Hàn)
         if (isJapaneseMode) {
             items.push({ id: 'KANA_STUDY', icon: KanaMenuIcon, label: 'Bảng chữ Kana', route: ROUTES.KANA, group: 'Học tập' });
         } else if (isKoreanMode) {
             items.push({ id: 'HANGUL_STUDY', icon: HangulMenuIcon, label: 'Bảng chữ Hangul', route: ROUTES.HANGUL, group: 'Học tập' });
-        } else if (isEnglishMode) {
-            items.push({ id: 'IPA_STUDY', icon: IpaMenuIcon, label: 'Bảng phiên âm IPA', route: ROUTES.IPA, group: 'Học tập' });
         }
 
-        // 2. Từ vựng theo ngôn ngữ
-        const vocabLabel = isEnglishMode 
+        // 3. Từ vựng theo ngôn ngữ
+        const vocabLabel = isKoreanMode 
             ? 'Từ vựng' 
-            : isKoreanMode 
-                ? 'Từ vựng' 
-                : t('nav.vocab', 'Từ vựng');
+            : t('nav.vocab', 'Từ vựng');
 
         items.push(
             { id: 'VOCAB_LIST', icon: BookOpen, label: vocabLabel, route: ROUTES.VOCAB_REVIEW, group: 'Học tập' },
         );
 
-        // 3. Kanji menu is only relevant for Japanese learning
+        // 4. Kanji menu is only relevant for Japanese learning
         if (isJapaneseMode) {
             items.push({ id: 'KANJI_STUDY', icon: Languages, label: t('nav.kanji', 'Thư viện Kanji'), route: ROUTES.KANJI_REVIEW, group: 'Học tập' });
         }
 
-        const kaiwaLabel = isEnglishMode 
-            ? 'Phòng Speaking AI' 
-            : isKoreanMode 
-                ? 'Luyện nói AI (말하기)' 
-                : t('nav.kaiwa', 'Phòng Kaiwa AI');
+        const kaiwaLabel = isKoreanMode 
+            ? 'Luyện nói AI (말하기)' 
+            : t('nav.kaiwa', 'Phòng Kaiwa AI');
 
-        const testLabel = isEnglishMode 
-            ? 'Luyện thi IELTS / TOEIC' 
-            : isKoreanMode 
-                ? 'Luyện thi TOPIK' 
-                : t('nav.jlptTest', 'Luyện đề JLPT');
+        const testLabel = isKoreanMode 
+            ? 'Luyện thi TOPIK' 
+            : t('nav.jlptTest', 'Luyện đề JLPT');
 
         items.push(
             { id: 'GRAMMAR', icon: Repeat2, label: t('nav.grammar', 'Ngữ pháp'), route: ROUTES.GRAMMAR_REVIEW, group: 'Học tập' },
-            { id: 'VIDEO_KAIWA', icon: Film, label: isEnglishMode ? 'Video Shadowing' : isKoreanMode ? 'Video K-Drama' : 'Video Kaiwa', route: ROUTES.VIDEO_KAIWA, group: 'Luyện tập & AI' },
+            { id: 'VIDEO_KAIWA', icon: Film, label: isKoreanMode ? 'Video K-Drama' : 'Video Kaiwa', route: ROUTES.VIDEO_KAIWA, group: 'Luyện tập & AI' },
             { id: 'JLPT_KAIWA', icon: MessageSquare, label: kaiwaLabel, route: ROUTES.JLPT_KAIWA, group: 'Luyện tập & AI' },
             { id: 'JLPT_TEST', icon: FileCheck, label: testLabel, route: ROUTES.JLPT_TEST, group: 'Luyện tập & AI' },
             { id: 'HUB', icon: Trophy, label: t('nav.leaderboard', 'Bảng vinh danh'), route: ROUTES.HUB, group: 'Cộng đồng' },
@@ -536,6 +537,40 @@ const Sidebar = ({
         const isGrammarActive = path.includes('/grammar');
         const isMoreActive = isMobileMenuOpen;
 
+        if (isEnglishMode) {
+            return [
+                {
+                    id: 'home',
+                    label: 'Trang chủ',
+                    icon: Home,
+                    route: ROUTES.HOME,
+                    isActive: isHomeActive && !isMobileMenuOpen,
+                    badge: 0,
+                    onClick: () => setIsMobileMenuOpen(false)
+                },
+                {
+                    id: 'vocab',
+                    label: 'Từ vựng',
+                    icon: BookOpen,
+                    route: ROUTES.VOCAB_REVIEW,
+                    isActive: isVocabActive && !isMobileMenuOpen,
+                    badge: dueVocabCount,
+                    onClick: () => setIsMobileMenuOpen(false)
+                },
+                {
+                    id: 'more',
+                    label: 'Thêm',
+                    icon: MoreHorizontal,
+                    isActive: isMoreActive,
+                    badge: (unreadChatCount > 0 ? unreadChatCount : 0),
+                    onClick: (e) => {
+                        e.preventDefault();
+                        handleMobileToggle();
+                    }
+                }
+            ];
+        }
+
         return [
             {
                 id: 'home',
@@ -585,9 +620,13 @@ const Sidebar = ({
                 }
             }
         ];
-    }, [location.pathname, isMobileMenuOpen, dueVocabCount, grammarDueCount, kanjiDueCount, unreadChatCount, isJapaneseMode, isKoreanMode, handleMobileToggle]);
+    }, [location.pathname, isMobileMenuOpen, dueVocabCount, grammarDueCount, kanjiDueCount, unreadChatCount, isJapaneseMode, isEnglishMode, isKoreanMode, handleMobileToggle]);
 
     const studyMenuItems = useMemo(() => {
+        if (isEnglishMode) {
+            return [];
+        }
+
         const items = [];
 
         // 1. Bảng chữ cái theo ngôn ngữ
@@ -623,20 +662,12 @@ const Sidebar = ({
                 route: ROUTES.HANGUL,
                 badge: null,
             });
-        } else if (isEnglishMode) {
-            items.push({
-                id: 'ipa',
-                label: 'Bảng phiên âm IPA',
-                icon: IpaMenuIcon,
-                route: ROUTES.IPA,
-                badge: null,
-            });
         }
 
         // 3. Giáo trình & Sách
         items.push({
             id: 'books',
-            label: isEnglishMode ? 'Sách & Từ vựng' : 'Giáo trình & Sách',
+            label: 'Giáo trình & Sách',
             icon: Library,
             route: ROUTES.BOOKS,
             badge: null,
@@ -645,7 +676,7 @@ const Sidebar = ({
         // 4. Video Kaiwa / Shadowing
         items.push({
             id: 'video',
-            label: isEnglishMode ? 'Video Shadowing' : isKoreanMode ? 'Video K-Drama' : 'Video Kaiwa',
+            label: isKoreanMode ? 'Video K-Drama' : 'Video Kaiwa',
             icon: Film,
             route: ROUTES.VIDEO_KAIWA,
             badge: null,
@@ -654,7 +685,7 @@ const Sidebar = ({
         // 5. Phòng Kaiwa AI / Speaking AI
         items.push({
             id: 'kaiwa_ai',
-            label: isEnglishMode ? 'Phòng Speaking AI' : isKoreanMode ? 'Luyện nói AI' : 'Phòng Kaiwa AI',
+            label: isKoreanMode ? 'Luyện nói AI' : 'Phòng Kaiwa AI',
             icon: Bot,
             route: ROUTES.JLPT_KAIWA,
             badge: null,
@@ -663,7 +694,7 @@ const Sidebar = ({
         // 6. Luyện đề thi JLPT / TOPIK / IELTS
         items.push({
             id: 'jlpt_test',
-            label: isEnglishMode ? 'Luyện thi IELTS/TOEIC' : isKoreanMode ? 'Luyện thi TOPIK' : 'Luyện đề JLPT',
+            label: isKoreanMode ? 'Luyện thi TOPIK' : 'Luyện đề JLPT',
             icon: FileCheck,
             route: ROUTES.JLPT_TEST,
             badge: null,
