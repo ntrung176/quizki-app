@@ -438,21 +438,35 @@ export const getSharedKanjiSrs = async (userId) => {
     if (cachedUserIdForSrs === userId && cachedUserSrsData) {
         return cachedUserSrsData;
     }
+    if (!cachedUserSrsData) {
+        try {
+            const localCached = localStorage.getItem(`quizki_cached_kanji_srs_${userId}`);
+            if (localCached) {
+                cachedUserSrsData = JSON.parse(localCached);
+                cachedUserIdForSrs = userId;
+            }
+        } catch (_) {}
+    }
     if (userSrsPromise) return userSrsPromise;
 
     userSrsPromise = (async () => {
         try {
             console.log('Fetching user Kanji SRS data from Firestore...');
-            const srsSnap = await getDocs(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`));
+            const fetchPromise = getDocs(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`));
+            const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error('Kanji SRS fetch timeout')), 3500));
+            const srsSnap = await Promise.race([fetchPromise, timeoutPromise]);
             const srs = {};
             srsSnap.docs.forEach(d => { srs[d.id] = d.data(); });
             cachedUserSrsData = srs;
             cachedUserIdForSrs = userId;
+            try {
+                localStorage.setItem(`quizki_cached_kanji_srs_${userId}`, JSON.stringify(srs));
+            } catch (_) {}
             return cachedUserSrsData;
         } catch (e) {
-            console.error('Error fetching user Kanji SRS data:', e);
+            console.warn('Kanji SRS fetch notice:', e.message);
             userSrsPromise = null;
-            return {};
+            return cachedUserSrsData || {};
         }
     })();
 
@@ -567,12 +581,23 @@ export const getSharedKanjiProgress = async (userId) => {
     if (cachedUserIdForProgress === userId && cachedKanjiProgress) {
         return cachedKanjiProgress;
     }
+    if (!cachedKanjiProgress) {
+        try {
+            const localCached = localStorage.getItem(`quizki_cached_kanji_progress_${userId}`);
+            if (localCached) {
+                cachedKanjiProgress = JSON.parse(localCached);
+                cachedUserIdForProgress = userId;
+            }
+        } catch (_) {}
+    }
     if (kanjiProgressPromise) return kanjiProgressPromise;
 
     kanjiProgressPromise = (async () => {
         try {
             console.log('Fetching user Kanji progress from Firestore...');
-            const progressSnap = await getDocs(collection(db, `artifacts/${appId}/users/${userId}/kanjiProgress`));
+            const fetchPromise = getDocs(collection(db, `artifacts/${appId}/users/${userId}/kanjiProgress`));
+            const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error('Kanji progress fetch timeout')), 3500));
+            const progressSnap = await Promise.race([fetchPromise, timeoutPromise]);
             const progress = {};
             progressSnap.docs.forEach(d => {
                 const data = d.data();
@@ -581,11 +606,14 @@ export const getSharedKanjiProgress = async (userId) => {
             });
             cachedKanjiProgress = progress;
             cachedUserIdForProgress = userId;
+            try {
+                localStorage.setItem(`quizki_cached_kanji_progress_${userId}`, JSON.stringify(progress));
+            } catch (_) {}
             return cachedKanjiProgress;
         } catch (e) {
-            console.error('Error fetching user Kanji progress:', e);
+            console.warn('Kanji progress fetch notice:', e.message);
             kanjiProgressPromise = null;
-            return {};
+            return cachedKanjiProgress || {};
         }
     })();
 
@@ -600,6 +628,9 @@ export const updateCachedKanjiProgress = (userId, level, day, progressData) => {
         } else {
             cachedKanjiProgress[key] = progressData;
         }
+        try {
+            localStorage.setItem(`quizki_cached_kanji_progress_${userId}`, JSON.stringify(cachedKanjiProgress));
+        } catch (_) {}
     }
 };
 

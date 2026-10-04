@@ -112,11 +112,11 @@ const GrammarNuancesScreen = () => {
     };
 
     return (
-        <div className="grammar-nuances-screen min-h-screen bg-[#FAFBFD] dark:bg-slate-950 p-3.5 sm:p-5 md:p-8 font-sans text-slate-900 dark:text-slate-100 animate-fade-in">
-            <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
-                {/* 1. Navigation Top Bar */}
-                <TopTabBar tabs={GRAMMAR_TABS} />
+        <div className="grammar-nuances-screen min-h-screen bg-[#FAFBFD] dark:bg-slate-950 font-sans text-slate-900 dark:text-slate-100 pb-24">
+            {/* 1. Navigation Top Bar */}
+            <TopTabBar tabs={GRAMMAR_TABS} />
 
+            <div className="max-w-6xl mx-auto px-3.5 sm:px-5 md:px-8 mt-2 space-y-6 sm:space-y-8 animate-fade-in">
                 {/* 2. Hero Banner & Stats */}
                 <div className="p-6 sm:p-8 bg-gradient-to-br from-indigo-900 via-slate-900 to-indigo-950 text-white rounded-3xl border border-indigo-800/50 shadow-xl relative overflow-hidden space-y-6">
                     <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">

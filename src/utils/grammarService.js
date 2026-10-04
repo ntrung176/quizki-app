@@ -1411,21 +1411,35 @@ export const getSharedGrammarSrs = async (userId) => {
     if (cachedUserIdForGrammarSrs === userId && cachedUserGrammarSrsData) {
         return cachedUserGrammarSrsData;
     }
+    if (!cachedUserGrammarSrsData) {
+        try {
+            const localCached = localStorage.getItem(`quizki_cached_grammar_srs_${userId}`);
+            if (localCached) {
+                cachedUserGrammarSrsData = JSON.parse(localCached);
+                cachedUserIdForGrammarSrs = userId;
+            }
+        } catch (_) {}
+    }
     if (userGrammarSrsPromise) return userGrammarSrsPromise;
 
     userGrammarSrsPromise = (async () => {
         try {
             console.log('Fetching user Grammar SRS data from Firestore...');
-            const srsSnap = await getDocs(collection(db, `artifacts/${appId}/users/${userId}/grammarSRS`));
+            const fetchPromise = getDocs(collection(db, `artifacts/${appId}/users/${userId}/grammarSRS`));
+            const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error('Grammar SRS fetch timeout')), 3500));
+            const srsSnap = await Promise.race([fetchPromise, timeoutPromise]);
             const srs = {};
             srsSnap.docs.forEach(d => { srs[d.id] = d.data(); });
             cachedUserGrammarSrsData = srs;
             cachedUserIdForGrammarSrs = userId;
+            try {
+                localStorage.setItem(`quizki_cached_grammar_srs_${userId}`, JSON.stringify(srs));
+            } catch (_) {}
             return cachedUserGrammarSrsData;
         } catch (e) {
-            console.error('Error fetching user Grammar SRS data:', e);
+            console.warn('Grammar SRS fetch notice:', e.message);
             userGrammarSrsPromise = null;
-            return {};
+            return cachedUserGrammarSrsData || {};
         }
     })();
 

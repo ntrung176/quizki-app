@@ -81,13 +81,29 @@ const isUserPremiumActive = (u) => {
 // ==================== MAIN LEADERBOARD SCREEN ====================
 const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivityLogs = [], userId, publicStatsPath }) => {
     const { t } = useLanguage();
+    const LEADERBOARD_CACHE_KEY = 'quizki_cached_leaderboard';
     const [kanjiSrsStats, setKanjiSrsStats] = useState({ total: 0, learning: 0, mastered: 0, dueToday: 0 });
-    const [leaderboardData, setLeaderboardData] = useState([]);
+    const [leaderboardData, setLeaderboardData] = useState(() => {
+        try {
+            const cached = localStorage.getItem(LEADERBOARD_CACHE_KEY);
+            if (cached) {
+                const parsed = JSON.parse(cached);
+                if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+            }
+        } catch (_) {}
+        return [];
+    });
     const [searchTerm, setSearchTerm] = useState('');
     const [sortBy, setSortBy] = useState('score'); // 'score' | 'vocab' | 'kanji' | 'mastered' | 'streak'
     const [displayCount, setDisplayCount] = useState(20);
     const [expandedUser, setExpandedUser] = useState(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(() => {
+        try {
+            const cached = localStorage.getItem(LEADERBOARD_CACHE_KEY);
+            if (cached && JSON.parse(cached).length > 0) return false;
+        } catch (_) {}
+        return true;
+    });
     const [activeLeaderboardTab, setActiveLeaderboardTab] = useState('weekly'); // 'weekly' | 'allTime'
     const [timeLeft, setTimeLeft] = useState('');
     const [showRules, setShowRules] = useState(false);
@@ -163,20 +179,37 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
             setLoading(false);
             return;
         }
+
+        // Safety timeout: tối đa 1.8s, không bao giờ để người dùng bị kẹt vô tận ở loading spinner
+        const safetyTimer = setTimeout(() => {
+            setLoading(false);
+        }, 1800);
+
         const q = query(collection(db, publicStatsPath));
-        const unsub = onSnapshot(q, (snap) => {
+        const unsub = onSnapshot(q, { includeMetadataChanges: true }, (snap) => {
+            clearTimeout(safetyTimer);
             const users = [];
             snap.docs.forEach(d => {
                 const data = d.data();
                 users.push({ id: d.id, ...data });
             });
-            setLeaderboardData(users);
+            if (users.length > 0) {
+                setLeaderboardData(users);
+                try {
+                    localStorage.setItem(LEADERBOARD_CACHE_KEY, JSON.stringify(users));
+                } catch (_) {}
+            }
             setLoading(false);
         }, (err) => {
+            clearTimeout(safetyTimer);
             console.error('Lỗi tải dữ liệu bảng xếp hạng:', err);
             setLoading(false);
         });
-        return () => unsub();
+
+        return () => {
+            clearTimeout(safetyTimer);
+            unsub();
+        };
     }, [publicStatsPath]);
 
     // Tính toán chuỗi ngày streak của người dùng hiện tại

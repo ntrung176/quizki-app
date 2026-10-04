@@ -127,12 +127,17 @@ const AdminFloatingSupportChatbox = ({ currentUserId }) => {
         if (!db || !isOpen) return;
 
         setLoadingThreads(true);
+        const safetyTimer = setTimeout(() => {
+            setLoadingThreads(false);
+        }, 1800);
+
         const q = query(
             collection(db, `artifacts/${appId}/forum`),
             where('isSupportChat', '==', true)
         );
 
-        const unsubscribe = onSnapshot(q, (snapshot) => {
+        const unsubscribe = onSnapshot(q, { includeMetadataChanges: true }, (snapshot) => {
+            clearTimeout(safetyTimer);
             const threadList = snapshot.docs.map(doc => {
                 const data = doc.data();
                 return {
@@ -160,11 +165,15 @@ const AdminFloatingSupportChatbox = ({ currentUserId }) => {
             setThreads(threadList);
             setLoadingThreads(false);
         }, (error) => {
+            clearTimeout(safetyTimer);
             console.error("Error loading threads in admin floating box:", error);
             setLoadingThreads(false);
         });
 
-        return () => unsubscribe();
+        return () => {
+            clearTimeout(safetyTimer);
+            unsubscribe();
+        };
     }, [isOpen]);
 
     // Unread count for floating badge (loaded in background if logged in)
@@ -174,7 +183,7 @@ const AdminFloatingSupportChatbox = ({ currentUserId }) => {
             collection(db, `artifacts/${appId}/forum`),
             where('isSupportChat', '==', true)
         );
-        const unsubscribe = onSnapshot(q, (snapshot) => {
+        const unsubscribe = onSnapshot(q, { includeMetadataChanges: true }, (snapshot) => {
             const threadList = snapshot.docs.map(doc => doc.data());
             const unreads = threadList.filter(t => t.hasUnreadAdmin).length;
             // Document title notifier or local badge update
@@ -190,9 +199,14 @@ const AdminFloatingSupportChatbox = ({ currentUserId }) => {
         }
 
         setLoadingMessages(true);
+        const safetyTimer = setTimeout(() => {
+            setLoadingMessages(false);
+        }, 1800);
+
         const q = collection(db, `artifacts/${appId}/forum/support_chat_${selectedUserId}/comments`);
 
-        const unsubscribe = onSnapshot(q, (snapshot) => {
+        const unsubscribe = onSnapshot(q, { includeMetadataChanges: true }, (snapshot) => {
+            clearTimeout(safetyTimer);
             const list = snapshot.docs.map(doc => ({
                 id: doc.id,
                 ...doc.data()
@@ -221,11 +235,15 @@ const AdminFloatingSupportChatbox = ({ currentUserId }) => {
             });
             setLoadingMessages(false);
         }, (error) => {
+            clearTimeout(safetyTimer);
             console.error("Error loading messages for user:", selectedUserId, error);
             setLoadingMessages(false);
         });
 
-        return () => unsubscribe();
+        return () => {
+            clearTimeout(safetyTimer);
+            unsubscribe();
+        };
     }, [selectedUserId, isOpen]);
 
     // Mark messages as read when admin enters chat

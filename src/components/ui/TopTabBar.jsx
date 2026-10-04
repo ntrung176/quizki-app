@@ -42,6 +42,7 @@ const TopTabBar = ({ tabs, theme }) => {
     const location = useLocation();
     const { t, language } = useLanguage();
     const containerRef = useRef(null);
+    const scrollContainerRef = useRef(null);
     const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0, opacity: 0, animated: false });
     const isMounted = useRef(false);
 
@@ -77,6 +78,21 @@ const TopTabBar = ({ tabs, theme }) => {
                     opacity: 1,
                     animated: animate
                 });
+
+                // Auto-center active tab in horizontal scroll on mobile without shifting the parent window
+                if (scrollContainerRef.current) {
+                    const scrollContainer = scrollContainerRef.current;
+                    const containerWidth = scrollContainer.clientWidth;
+                    const scrollWidth = scrollContainer.scrollWidth;
+                    
+                    if (scrollWidth > containerWidth) {
+                        const targetLeft = activeElement.offsetLeft - (containerWidth / 2) + (activeElement.offsetWidth / 2);
+                        scrollContainer.scrollTo({
+                            left: Math.max(0, targetLeft),
+                            behavior: animate ? 'smooth' : 'auto'
+                        });
+                    }
+                }
             }
         } else {
             setIndicatorStyle(prev => ({ ...prev, opacity: 0 }));
@@ -103,9 +119,12 @@ const TopTabBar = ({ tabs, theme }) => {
 
     return (
         <div className="w-full relative z-10 pt-2 pb-2 px-2 sm:px-4 flex justify-center">
-            {/* Floating Solid Capsule Container */}
-            <div className={`w-full max-w-xl sm:max-w-max p-1.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800/90 shadow-md transition-shadow duration-200 overflow-hidden ${themeClasses.shadow}`}>
-                <div className="relative flex items-center justify-between w-full space-x-1" ref={containerRef}>
+            {/* Floating Solid Capsule Container with Horizontal Scroll Support */}
+            <div 
+                ref={scrollContainerRef}
+                className={`w-full sm:w-auto max-w-full sm:max-w-max p-1.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800/90 shadow-md transition-shadow duration-200 overflow-x-auto no-scrollbar touch-pan-x ${themeClasses.shadow}`}
+            >
+                <div className="relative flex items-center justify-start sm:justify-between w-max sm:w-auto min-w-full space-x-1" ref={containerRef}>
                     {/* Sliding Capsule Pill Indicator (GPU-accelerated translate3d) */}
                     <div 
                         className={`absolute top-0 bottom-0 rounded-xl ${themeClasses.bg} shadow-md shadow-slate-900/10 z-0 transform-gpu ${
@@ -136,7 +155,7 @@ const TopTabBar = ({ tabs, theme }) => {
                             <Link
                                 key={tab.id}
                                 to={destination}
-                                className={`tab-item group relative z-10 flex-1 flex items-center justify-center space-x-1.5 px-2 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-bold whitespace-nowrap rounded-xl transition-colors duration-150 min-h-[40px] select-none active:scale-95 ${
+                                className={`tab-item group relative z-10 shrink-0 flex items-center justify-center space-x-1.5 px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-bold whitespace-nowrap rounded-xl transition-colors duration-150 min-h-[40px] select-none active:scale-95 ${
                                     isActive
                                         ? 'text-white drop-shadow-sm'
                                         : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'

@@ -941,17 +941,29 @@ const KanjiLessonScreen = ({ awardXP }) => {
         <div className="max-w-6xl mx-auto px-3.5 sm:px-6 py-4 sm:py-6 pb-28 lg:pb-8 space-y-4 sm:space-y-5 animate-fade-in">
             {/* Top Navigation & Controls Header */}
             <div className="flex items-center justify-between gap-3 pb-3 border-b border-gray-100 dark:border-slate-800">
-                {/* Breadcrumbs */}
-                <div className="flex items-center gap-1.5 sm:gap-2 text-gray-400 dark:text-slate-400 text-[10px] sm:text-xs font-bold tracking-wider uppercase truncate">
-                    <button onClick={handleBackToRoadmap} className="hover:text-indigo-500 transition-colors shrink-0 cursor-pointer">
-                        Lộ trình {level}
+                <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+                    {/* Dedicated Back Button */}
+                    <button
+                        onClick={handleBackToRoadmap}
+                        className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700/80 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all font-bold text-xs shadow-2xs hover:scale-105 cursor-pointer shrink-0 active:scale-95"
+                        title="Quay lại lộ trình Kanji"
+                    >
+                        <ArrowLeft className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400 shrink-0" />
+                        <span>Quay lại</span>
                     </button>
-                    <span>/</span>
-                    <span className="shrink-0">Ngày {day}</span>
-                    <span>/</span>
-                    <span className="text-gray-700 dark:text-gray-200 truncate font-black">
-                        Chữ {currentIndex + 1} ({currentKanji?.character || ''})
-                    </span>
+
+                    {/* Breadcrumbs */}
+                    <div className="flex items-center gap-1.5 sm:gap-2 text-gray-400 dark:text-slate-400 text-[10px] sm:text-xs font-bold tracking-wider uppercase truncate">
+                        <button onClick={handleBackToRoadmap} className="hover:text-indigo-500 transition-colors shrink-0 cursor-pointer hidden min-[480px]:inline">
+                            Lộ trình {level}
+                        </button>
+                        <span className="hidden min-[480px]:inline">/</span>
+                        <span className="shrink-0">Ngày {day}</span>
+                        <span>/</span>
+                        <span className="text-gray-700 dark:text-gray-200 truncate font-black">
+                            Chữ {currentIndex + 1} ({currentKanji?.character || ''})
+                        </span>
+                    </div>
                 </div>
 
                 {/* Practice Mode Button */}

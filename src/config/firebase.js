@@ -29,22 +29,33 @@ let db;
 let auth;
 let storage;
 
+const isMobileDevice = typeof navigator !== 'undefined' && /iPhone|iPad|iPod|Android|Mobile/i.test(navigator.userAgent || '');
+
 try {
     app = initializeApp(firebaseConfig);
 
     try {
-        // Ưu tiên Persistent Cache đa tab với IndexedDB
-        db = initializeFirestore(app, {
-            localCache: persistentLocalCache({
-                tabManager: persistentMultipleTabManager()
-            })
-        });
+        if (isMobileDevice) {
+            // Trên mobile: Dùng singleTabManager({ forceOwnership: true }) để tránh WebLocks deadlock khi Safari iOS đóng băng tab nền
+            db = initializeFirestore(app, {
+                localCache: persistentLocalCache({
+                    tabManager: persistentSingleTabManager({ forceOwnership: true })
+                })
+            });
+        } else {
+            // Trên desktop: Ưu tiên Persistent Cache đa tab với IndexedDB
+            db = initializeFirestore(app, {
+                localCache: persistentLocalCache({
+                    tabManager: persistentMultipleTabManager()
+                })
+            });
+        }
     } catch (cacheErr) {
-        console.warn("⚠️ Không thể khởi tạo persistentMultipleTabManager, thử singleTabManager:", cacheErr);
+        console.warn("⚠️ Không thể khởi tạo cache Firestore, thử singleTabManager forceOwnership:", cacheErr);
         try {
             db = initializeFirestore(app, {
                 localCache: persistentLocalCache({
-                    tabManager: persistentSingleTabManager()
+                    tabManager: persistentSingleTabManager({ forceOwnership: true })
                 })
             });
         } catch (singleErr) {

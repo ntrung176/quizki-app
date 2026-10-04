@@ -58,21 +58,32 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
 
     // Load kanji and progress from Firebase/Cache
     useEffect(() => {
+        let isMounted = true;
+        const safetyTimer = setTimeout(() => {
+            if (isMounted) setLoading(false);
+        }, 2000);
+
         const loadData = async () => {
             try {
                 const kanjiData = await getSharedKanjiList();
-                setKanjiList(kanjiData);
+                if (isMounted) setKanjiList(kanjiData);
                 if (userId) {
                     const progress = await getSharedKanjiProgress(userId);
-                    setCompletedDays(progress);
+                    if (isMounted) setCompletedDays(progress);
                 }
             } catch (e) {
                 console.error('Error loading kanji:', e);
             } finally {
-                setLoading(false);
+                clearTimeout(safetyTimer);
+                if (isMounted) setLoading(false);
             }
         };
         loadData();
+
+        return () => {
+            isMounted = false;
+            clearTimeout(safetyTimer);
+        };
     }, [userId]);
 
     // Precompute total days for each level once kanjiList changes to avoid doing it in tabs rendering loop

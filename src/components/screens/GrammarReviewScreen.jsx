@@ -121,20 +121,28 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     };
 
     useEffect(() => {
+        let isMounted = true;
+        const safetyTimer = setTimeout(() => {
+            if (isMounted) setLoading(false);
+        }, 2000);
+
         const load = async () => {
             try {
                 const [gpData, srs] = await Promise.all([
                     getSharedGrammarPointsList(),
                     userId ? getSharedGrammarSrs(userId) : Promise.resolve({})
                 ]);
-                setGrammarList(gpData || []);
-                if (userId && srs) {
-                    setSrsData(srs);
+                if (isMounted) {
+                    setGrammarList(gpData || []);
+                    if (userId && srs) {
+                        setSrsData(srs);
+                    }
                 }
             } catch (e) {
                 console.error('Error loading Grammar SRS data:', e);
             } finally {
-                setLoading(false);
+                clearTimeout(safetyTimer);
+                if (isMounted) setLoading(false);
             }
         };
 
@@ -160,7 +168,11 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 }
             });
         }
-        return () => unsubSrs();
+        return () => {
+            isMounted = false;
+            clearTimeout(safetyTimer);
+            unsubSrs();
+        };
     }, [userId]);
 
     const dueGrammar = useMemo(() => {

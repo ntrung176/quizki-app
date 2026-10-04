@@ -141,20 +141,28 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
     };
 
     useEffect(() => {
+        let isMounted = true;
+        const safetyTimer = setTimeout(() => {
+            if (isMounted) setLoading(false);
+        }, 2000);
+
         const load = async () => {
             try {
                 const [kanjiData, srs] = await Promise.all([
                     getSharedKanjiList(),
                     userId ? getSharedKanjiSrs(userId) : Promise.resolve({})
                 ]);
-                setKanjiList(kanjiData);
-                if (userId && srs) {
-                    setSrsData(srs);
+                if (isMounted) {
+                    setKanjiList(kanjiData);
+                    if (userId && srs) {
+                        setSrsData(srs);
+                    }
                 }
             } catch (e) {
                 console.error('Error loading data:', e);
             } finally {
-                setLoading(false);
+                clearTimeout(safetyTimer);
+                if (isMounted) setLoading(false);
             }
         };
 
@@ -181,7 +189,11 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                 }
             });
         }
-        return () => unsubSrs();
+        return () => {
+            isMounted = false;
+            clearTimeout(safetyTimer);
+            unsubSrs();
+        };
     }, [userId]);
 
     const kanjiMap = useMemo(() => {
