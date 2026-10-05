@@ -116,7 +116,7 @@ const JLPTTestDashboard = ({
     return (
         <div className="jlpt-screen min-h-screen bg-[#FAFBFD] dark:bg-slate-950 p-3.5 sm:p-5 md:p-8 font-sans animate-fade-in text-slate-900 dark:text-slate-100">
             {notification && (
-                <div className="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3 rounded-2xl shadow-2xl border border-slate-700/50 flex items-center gap-2 text-xs font-bold animate-bounce">
+                <div className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-50 bg-slate-900/95 dark:bg-slate-800/95 text-white px-5 py-3 rounded-2xl shadow-2xl border border-slate-700/50 flex items-center gap-2 text-xs font-bold backdrop-blur-md animate-fade-in pointer-events-none">
                     <span>{notification}</span>
                 </div>
             )}

@@ -14,7 +14,11 @@ import QuestionEditModal from '../jlptTest/QuestionEditModal';
 import JLPTTestTakeView from '../jlptTest/JLPTTestTakeView';
 import JLPTTestResultView from '../jlptTest/JLPTTestResultView';
 import JLPTTestDashboard from '../jlptTest/JLPTTestDashboard';
+import { showToast } from '../../utils/toast';
 import { X, Play, BookOpen, Lock, ChevronRight, FileText, Printer, Check } from 'lucide-react';
+
+export const answerKey = (si, qi) => `s${si}_q${qi}`;
+export const subAnswerKey = (si, qi, sqi) => `s${si}_q${qi}_sq${sqi}`;
 
 const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP }) => {
     // Custom Hook for JLPT Data and States
@@ -50,6 +54,16 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
     const [showDetailedReview, setShowDetailedReview] = useState(false);
     const [isFullscreen, setIsFullscreen] = useState(false);
     const [notification, setNotification] = useState(null);
+
+    // Auto-dismiss notification toast after 3.5 seconds
+    useEffect(() => {
+        if (notification) {
+            const timer = setTimeout(() => {
+                setNotification(null);
+            }, 3500);
+            return () => clearTimeout(timer);
+        }
+    }, [notification]);
 
     // Admin Edit HTML states
     const [editingQuestionData, setEditingQuestionData] = useState(null);
@@ -645,7 +659,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                 } catch (e) {}
                 saveProgressesToFirestore(newProgresses);
             }
-            setNotification("Chưa chọn câu trả lời nào, không lưu tiến trình.");
+            showToast("Chưa chọn câu trả lời nào, không lưu tiến trình.", "info");
             exitTest();
             return;
         }
@@ -664,7 +678,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             localStorage.setItem('quizki_jlpt_saved_progresses', JSON.stringify(newProgresses));
         } catch (e) {}
         saveProgressesToFirestore(newProgresses);
-        setNotification("Đã lưu tiến trình làm bài!");
+        showToast("Đã lưu tiến trình làm bài!", "success");
         exitTest();
     };
 
@@ -686,10 +700,10 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             setActiveTest(prev => ({ ...prev, sections: updatedSections }));
             setTests(prevTests => prevTests.map(t => t.id === activeTest.id ? { ...t, sections: updatedSections } : t));
             setEditingQuestionData(null);
-            setNotification('Đã lưu thay đổi HTML câu hỏi thành công!');
+            showToast('Đã lưu thay đổi HTML câu hỏi thành công!', 'success');
         } catch (err) {
             console.error('Error updating question HTML:', err);
-            alert('Lỗi khi lưu HTML câu hỏi: ' + err.message);
+            showToast('Lỗi khi lưu HTML câu hỏi: ' + err.message, 'error');
         } finally {
             setSavingHtml(false);
         }
@@ -703,9 +717,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             const nextVal = !test.isPremium;
             await setDoc(testRef, { ...test, isPremium: nextVal, updatedAt: Date.now() }, { merge: true });
             updateSingleJLPTTestInCache(test.id, { isPremium: nextVal });
-            setNotification(`Đã chuyển đề thi sang: ${nextVal ? 'Premium' : 'Miễn phí'}`);
+            showToast(`Đã chuyển đề thi sang: ${nextVal ? 'Premium' : 'Miễn phí'}`, 'success');
             setTests(prevTests => prevTests.map(t => t.id === test.id ? { ...t, isPremium: nextVal } : t));
-        } catch (err) { setNotification('Lỗi: ' + err.message); }
+        } catch (err) { showToast('Lỗi: ' + err.message, 'error'); }
     };
 
     const handleToggleTestFixed = async (e, test) => {
