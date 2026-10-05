@@ -2,6 +2,7 @@ import { useState, useEffect, useMemo } from 'react';
 import { collection, query, onSnapshot, doc, getDoc, getDocs, setDoc, writeBatch, orderBy, limit, collectionGroup, where } from 'firebase/firestore';
 import { db, appId } from '../config/firebase';
 import { subscribeVouchers, subscribeCreditRequests, subscribeExpenses } from '../utils/adminSettings';
+import { extractUserLastActive } from '../utils/userActivityHelper';
 
 export const useAdminData = ({ publicStatsPath, currentUserId, adminConfig, onAdminDeleteUserData }) => {
     const [users, setUsers] = useState([]);
@@ -263,10 +264,10 @@ export const useAdminData = ({ publicStatsPath, currentUserId, adminConfig, onAd
     const stats = useMemo(() => {
         const total = users.length;
         const totalCards = users.reduce((sum, u) => sum + (u.totalCards || 0), 0);
+        const today = new Date().setHours(0, 0, 0, 0);
         const activeToday = users.filter(u => {
-            if (!u.lastActive) return false;
-            const today = new Date().setHours(0, 0, 0, 0);
-            return u.lastActive >= today;
+            const time = extractUserLastActive(u);
+            return time >= today;
         }).length;
         return { total, totalCards, activeToday };
     }, [users]);

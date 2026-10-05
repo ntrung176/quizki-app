@@ -303,6 +303,7 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
                         displayName: userDisplayName,
                         photoURL: userPhoto,
                         lastLoginAt: Date.now(),
+                        lastActive: Date.now(),
                         updatedAt: Date.now()
                     }, { merge: true }).catch(err => console.warn('Auto-sync userStats on login warning:', err));
 
@@ -393,6 +394,7 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
                         totalXp: newXp,
                         displayName: rawProfile?.displayName || 'User',
                         photoURL: rawProfile?.photoURL || '',
+                        lastActive: Date.now(),
                         updatedAt: Date.now()
                     }, { merge: true }).catch(() => {});
                 }

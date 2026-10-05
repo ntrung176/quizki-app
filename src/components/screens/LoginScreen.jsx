@@ -84,6 +84,7 @@ const LoginScreen = () => {
                     displayName: defaultName,
                     photoURL: userPhoto,
                     lastLoginAt: Date.now(),
+                    lastActive: Date.now(),
                     updatedAt: Date.now()
                 }, { merge: true }).catch(err => console.warn('Sync userStats in GIS warning:', err));
             }
@@ -205,6 +206,7 @@ const LoginScreen = () => {
                         photoURL: '',
                         createdAt: serverTimestamp(),
                         lastLoginAt: Date.now(),
+                        lastActive: Date.now(),
                         updatedAt: Date.now()
                     }, { merge: true }).catch(err => console.warn('Sync userStats on register warning:', err));
                 }
@@ -304,6 +306,7 @@ const LoginScreen = () => {
                     displayName: defaultName,
                     photoURL: userPhoto,
                     lastLoginAt: Date.now(),
+                    lastActive: Date.now(),
                     updatedAt: Date.now()
                 }, { merge: true }).catch(err => console.warn('Sync userStats in Popup warning:', err));
             }

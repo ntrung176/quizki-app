@@ -16,10 +16,10 @@ import JLPTDrillsTab from './JLPTDrillsTab';
 import JLPTWrongQuestionsTab from './JLPTWrongQuestionsTab';
 
 const MAIN_TABS = [
-    { id: 'books', label: '104 Sách Luyện Thi', icon: BookOpen, desc: 'Tuyển tập 104 bộ sách & 5.818 đề thi Master Series' },
-    { id: 'roadmap', label: 'Lộ Trình Theo Bài', icon: Compass, desc: 'Bài học 1 ➔ 148 trọn gói 4 kỹ năng' },
+    { id: 'books', label: 'Kho Sách Luyện Thi', icon: BookOpen, desc: 'Tuyển tập giáo trình và đề thi' },
+    { id: 'roadmap', label: 'Lộ Trình Theo Bài', icon: Compass, desc: 'Bài học trọn gói 4 kỹ năng' },
     { id: 'skills', label: 'Luyện Kỹ Năng', icon: Target, desc: 'Chữ Hán • Ngữ pháp • Đọc hiểu' },
-    { id: 'drills', label: 'Ôn Tập Phản Xạ', icon: Repeat, desc: '61 bài drills phản xạ ngữ pháp' },
+    { id: 'drills', label: 'Ôn Tập Phản Xạ', icon: Repeat, desc: 'Drills phản xạ ngữ pháp' },
     { id: 'wrong', label: 'Sổ Tay Câu Sai', icon: AlertCircle, desc: 'Ôn luyện lại các câu làm sai' },
     { id: 'mock', label: 'Phòng Thi Tổng Hợp', icon: Trophy, desc: 'Đề thi mô phỏng JLPT tính giờ' },
 ];
@@ -72,7 +72,7 @@ const JLPTTestDashboard = ({
     const setSearchQuery = externalSetSearchQuery || setInternalSearchQuery;
 
     const statusFilter = externalStatusFilter !== undefined ? externalStatusFilter : internalStatusFilter;
-    const setStatusFilter = externalStatusFilter || setInternalStatusFilter;
+    const setStatusFilter = externalSetStatusFilter || setInternalStatusFilter;
 
     React.useEffect(() => {
         // Load all level data so all 104 books populate immediately

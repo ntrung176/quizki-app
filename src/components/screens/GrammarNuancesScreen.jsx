@@ -117,42 +117,12 @@ const GrammarNuancesScreen = () => {
             <TopTabBar tabs={GRAMMAR_TABS} />
 
             <div className="max-w-6xl mx-auto px-3.5 sm:px-5 md:px-8 mt-2 space-y-6 sm:space-y-8 animate-fade-in">
-                {/* 2. Hero Banner & Stats */}
-                <div className="p-6 sm:p-8 bg-gradient-to-br from-indigo-900 via-slate-900 to-indigo-950 text-white rounded-3xl border border-indigo-800/50 shadow-xl relative overflow-hidden space-y-6">
-                    <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-                        <div className="space-y-2 max-w-2xl">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-xs font-black uppercase tracking-wider">
-                                <Brain className="w-4 h-4 text-amber-400" />
-                                <span>Thư Viện Bản Đồ Tư Duy & Sắc Thái Ngữ Pháp</span>
-                            </div>
-                            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-white">
-                                752 Bản Đồ Tư Duy & 18.400+ Nhánh Nuance
-                            </h1>
-                            <p className="text-xs sm:text-sm text-indigo-200/90 font-medium leading-relaxed">
-                                Phân tích cấu trúc tâm lý, ngữ cảnh thực tế, và so sánh sắc thái đối chiếu của 384 mẫu câu JLPT từ N5 đến N1.
-                            </p>
-                        </div>
-
-                        {/* Total Stats Pills */}
-                        <div className="grid grid-cols-2 gap-3 shrink-0">
-                            <div className="bg-white/10 backdrop-blur-md p-3.5 rounded-2xl border border-white/10 text-center">
-                                <p className="text-2xl sm:text-3xl font-black text-amber-400">384</p>
-                                <p className="text-[10px] uppercase font-bold text-indigo-200 mt-0.5">Mẫu câu cốt lõi</p>
-                            </div>
-                            <div className="bg-white/10 backdrop-blur-md p-3.5 rounded-2xl border border-white/10 text-center">
-                                <p className="text-2xl sm:text-3xl font-black text-emerald-400">18.445</p>
-                                <p className="text-[10px] uppercase font-bold text-indigo-200 mt-0.5">Nhánh tư duy & ví dụ</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                {/* 3. Search & Level Filters */}
+                {/* 2. Compact Filters & Search Bar */}
                 <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-4 sm:p-5 shadow-xs flex flex-col md:flex-row items-center justify-between gap-4">
                     {/* Level Selector */}
                     <div className="flex flex-wrap items-center gap-1.5 p-1 bg-slate-100 dark:bg-slate-800/80 rounded-2xl w-full md:w-auto">
                         {[
-                            { key: 'all', label: 'Tất cả cấp độ' },
+                            { key: 'all', label: 'Tất cả' },
                             { key: 'N5', label: 'N5' },
                             { key: 'N4', label: 'N4' },
                             { key: 'N3', label: 'N3' },

@@ -99,27 +99,23 @@ const JLPTMockExamsTab = ({
 
     return (
         <div className="space-y-6">
-            {/* Info Banner */}
-            <div className="p-4 sm:p-6 bg-gradient-to-r from-indigo-900 to-slate-900 text-white rounded-3xl border border-indigo-700/40 shadow-md flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div className="space-y-1">
-                    <div className="flex items-center gap-2 text-indigo-300 text-xs font-bold uppercase tracking-wider">
-                        <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                        <span>Phòng thi chuẩn quy chế JLPT</span>
-                    </div>
-                    <h3 className="text-base sm:text-lg font-black tracking-tight">
-                        Tổng hợp {mockTests.length} bộ đề thi mô phỏng JLPT
-                    </h3>
-                    <p className="text-xs text-slate-300 font-medium max-w-xl leading-relaxed">
-                        Hỗ trợ 2 chế độ: <strong>Luyện tập tự do</strong> (tra từ, xem giải thích chi tiết) và <strong>Thi thực tế</strong> (bấm giờ nghiêm túc, toàn màn hình).
-                    </p>
+            {/* Minimal Header & Sort Bar */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white dark:bg-slate-900 p-3.5 sm:p-4 rounded-2xl sm:rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xs">
+                <div className="flex items-center gap-2">
+                    <span className="text-xs sm:text-sm font-black text-slate-800 dark:text-white">
+                        Đề thi mô phỏng JLPT
+                    </span>
+                    <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400">
+                        {mockTests.length} đề thi
+                    </span>
                 </div>
 
-                <div className="flex items-center gap-2 shrink-0">
-                    <span className="text-xs text-indigo-200 font-semibold hidden sm:inline">Sắp xếp:</span>
+                <div className="flex items-center gap-2 self-start sm:self-center">
+                    <span className="text-xs text-slate-500 dark:text-slate-400 font-semibold hidden sm:inline">Sắp xếp:</span>
                     <select
                         value={sortBy}
                         onChange={(e) => setSortBy(e.target.value)}
-                        className="bg-indigo-950/80 border border-indigo-700/50 rounded-xl px-3 py-2 text-xs font-semibold text-white focus:outline-none cursor-pointer"
+                        className="bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 rounded-xl px-3 py-1.5 text-xs font-semibold text-slate-700 dark:text-slate-200 focus:outline-none cursor-pointer"
                     >
                         <option value="lesson">Thứ tự Đề thi (Đề 1 ➔ 148)</option>
                         <option value="questions">Số câu hỏi nhiều nhất</option>

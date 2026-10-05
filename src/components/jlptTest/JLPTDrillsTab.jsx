@@ -111,24 +111,18 @@ const JLPTDrillsTab = ({
     return (
         <div className="space-y-6 animate-fade-in font-sans">
             
-            {/* Header */}
-            <div className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl p-5 sm:p-6 shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div className="flex items-start gap-3.5">
-                    <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 shadow-xs mt-0.5">
-                        <Zap className="w-6 h-6" />
+            {/* Minimal Header */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-3.5 sm:p-4 shadow-xs">
+                <div className="flex items-center gap-2.5">
+                    <div className="w-8 h-8 rounded-xl bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0">
+                        <Zap className="w-4 h-4" />
                     </div>
-                    <div>
-                        <h2 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white leading-snug">
-                            Luyện Phản Xạ Ngữ Pháp (61 Bài Ôn Tập)
-                        </h2>
-                        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-medium mt-0.5">
-                            Rèn luyện phản xạ ngữ pháp nhanh qua hệ thống thẻ bài tương tác và kiểm tra độ nhạy cấu trúc câu.
-                        </p>
-                    </div>
-                </div>
-
-                <div className="text-xs font-bold text-slate-500 dark:text-slate-400 self-start sm:self-center">
-                    Hiển thị <strong>{filteredDrills.length}</strong> bài ôn tập {selectedLevel !== 'all' ? `(${selectedLevel})` : ''}
+                    <h2 className="text-xs sm:text-sm font-black text-slate-900 dark:text-white flex items-center gap-2">
+                        <span>Luyện phản xạ ngữ pháp</span>
+                        <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400">
+                            {filteredDrills.length} bài ôn {selectedLevel !== 'all' ? `(${selectedLevel})` : ''}
+                        </span>
+                    </h2>
                 </div>
             </div>
 

@@ -17,7 +17,7 @@ export const KANJI_TABS = [
 
 export const GRAMMAR_TABS = [
     { id: 'grammar-review', label: 'Ôn tập', icon: BookOpen, route: ROUTES.GRAMMAR_REVIEW, exact: true },
-    { id: 'grammar-nuances', label: 'Bản đồ tư duy (752)', icon: Brain, route: ROUTES.GRAMMAR_NUANCES, exact: false },
+    { id: 'grammar-nuances', label: 'Bản đồ tư duy', icon: Brain, route: ROUTES.GRAMMAR_NUANCES, exact: false },
     { id: 'grammar-curriculum', label: 'Chủ đề', icon: LayoutGrid, route: ROUTES.GRAMMAR_CURRICULUM, exact: false },
     { id: 'grammar-cheatsheets', label: 'Sổ tay chuyên đề', icon: Bookmark, route: ROUTES.GRAMMAR_CHEATSHEETS, exact: false },
     { id: 'grammar-saved', label: 'Đã lưu', icon: Heart, route: ROUTES.GRAMMAR_SAVED, exact: true },

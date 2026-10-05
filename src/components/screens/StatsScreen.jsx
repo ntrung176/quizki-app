@@ -7,6 +7,7 @@ import { SafeAvatarImage } from '../ui';
 import { isKanjiMastered, isSrsCardDue, isVocabCardMastered } from '../../utils/srs';
 import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
 import { getLevelFromXp, getLevelTitle, formatScore } from '../../utils/scoring';
+import { formatLastActive, isUserOnline } from '../../utils/userActivityHelper';
 import { useLanguage } from '../../context/LanguageContext';
 
 // Avatar emoji lookup
@@ -44,20 +45,7 @@ const getAvatarDisplayNode = (avatarValue, textFallback = 'U', isMe = false) => 
     return fallbackNode;
 };
 
-// Helper định dạng thời gian hoạt động cuối
-const formatLastActive = (lastUpdated) => {
-    if (!lastUpdated) return 'Không rõ';
-    const date = lastUpdated.toDate ? lastUpdated.toDate() : new Date(lastUpdated);
-    const diffMs = Date.now() - date.getTime();
-    const diffMins = Math.floor(diffMs / 60000);
-    if (diffMins < 60) return `${Math.max(1, diffMins)} phút trước`;
-    const diffHours = Math.floor(diffMins / 60);
-    if (diffHours < 24) return `${diffHours} giờ trước`;
-    const diffDays = Math.floor(diffHours / 24);
-    if (diffDays === 0) return 'Hôm nay';
-    if (diffDays === 1) return 'Hôm qua';
-    return `${diffDays} ngày trước`;
-};
+
 
 // Helper kiểm tra trạng thái Premium
 const isUserPremiumActive = (u) => {
@@ -361,6 +349,7 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
 
         setDoc(statsRef, {
             ...payload,
+            lastActive: Date.now(),
             updatedAt: Date.now()
         }, { merge: true }).catch(e => console.warn('Lỗi đồng bộ public stats:', e));
     }, [
@@ -408,7 +397,8 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
                 reviewsLast7Days,
                 activeDaysLast7Days,
                 weeklyScore: Math.max(0, weeklyScore),
-                computedScore: isMe ? myScore : computedScore
+                computedScore: isMe ? myScore : computedScore,
+                ...(isMe ? { lastActive: Date.now(), updatedAt: Date.now(), lastUpdated: Date.now() } : {})
             };
         });
 
@@ -431,7 +421,9 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
                 activeDaysLast7Days: myWeeklyStats.activeDaysLast7Days,
                 weeklyScore: myWeeklyStats.weeklyXp,
                 computedScore: myScore,
-                lastUpdated: { toDate: () => new Date() }
+                lastActive: Date.now(),
+                updatedAt: Date.now(),
+                lastUpdated: Date.now()
             });
         }
 
@@ -485,7 +477,8 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
                 kanjiTotal: isMe ? kanjiSrsStats.total : (Number(u.kanjiTotal) || 0),
                 kanjiMastered: isMe ? kanjiSrsStats.mastered : (Number(u.kanjiMastered) || 0),
                 streak: isMe ? streak : (Number(u.streak) || 0),
-                computedScore: isMe ? myScore : computedScore
+                computedScore: isMe ? myScore : computedScore,
+                ...(isMe ? { lastActive: Date.now(), updatedAt: Date.now(), lastUpdated: Date.now() } : {})
             };
         });
 
@@ -503,7 +496,9 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
                 kanjiMastered: kanjiSrsStats.mastered,
                 streak: streak,
                 computedScore: myScore,
-                lastUpdated: { toDate: () => new Date() }
+                lastActive: Date.now(),
+                updatedAt: Date.now(),
+                lastUpdated: Date.now()
             });
         }
 
@@ -969,7 +964,7 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
                                                         <Flame className="w-3.5 h-3.5 fill-orange-500" /> {formatScore(user.streak || 0)} ngày
                                                     </span>
                                                     <span className="text-[10px] text-slate-400 block mt-0.5 font-sans">
-                                                        {formatLastActive(user.lastUpdated)}
+                                                        {formatLastActive(user)}
                                                     </span>
                                                 </div>
                                                 <div className="p-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">

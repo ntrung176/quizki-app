@@ -362,23 +362,19 @@ const JLPTBooksCollectionTab = ({
 
     return (
         <div className="space-y-6">
-            {/* Header Hero Banner - Clean, Minimalist, No Star Icons */}
-            <div className="p-5 sm:p-7 bg-slate-900 dark:bg-slate-950 text-white rounded-3xl border border-slate-800 shadow-sm flex flex-col md:flex-row items-center justify-between gap-5">
-                <div className="space-y-1.5 text-center md:text-left">
-                    <div className="flex items-center justify-center md:justify-start gap-2 text-slate-400 text-xs font-bold uppercase tracking-wider">
-                        <BookOpen className="w-4 h-4 text-[#f494bc]" />
-                        <span>Kho Sách & Giáo Trình JLPT Chuẩn (Quizki Master Library)</span>
-                    </div>
-                    <h2 className="text-lg sm:text-2xl font-black tracking-tight text-white">
-                        Tuyển Tập {filteredBooks.length} Bộ Giáo Trình & {tests.length.toLocaleString('vi-VN')} Đề Thi
-                    </h2>
-                    <p className="text-xs text-slate-400 font-medium max-w-xl leading-relaxed">
-                        Gom nhóm toàn bộ bài học theo đúng giáo trình chuẩn (2nd Dokkai, 4nd Dokkai, Bài đọc giáo trình, 1000 Câu Ngữ Pháp, Speed Master, Mimikara...). Bấm vào từng sách để chọn bài luyện tập.
-                    </p>
+            {/* Minimal Filter Bar */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white dark:bg-slate-900 p-3 sm:p-4 rounded-2xl sm:rounded-3xl border border-slate-200/80 dark:border-slate-800 shadow-xs">
+                <div className="flex items-center gap-2">
+                    <span className="text-xs sm:text-sm font-black text-slate-800 dark:text-white">
+                        Danh sách giáo trình
+                    </span>
+                    <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400">
+                        {filteredBooks.length} bộ sách · {tests.length.toLocaleString('vi-VN')} đề
+                    </span>
                 </div>
 
                 {/* Skill Filter Chips */}
-                <div className="flex flex-wrap items-center justify-center gap-1.5 p-1 bg-slate-950 rounded-2xl border border-slate-800 shrink-0">
+                <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-0.5 sm:pb-0">
                     {[
                         { key: 'all', label: 'Tất cả' },
                         { key: 'reading', label: 'Đọc hiểu' },
@@ -389,10 +385,10 @@ const JLPTBooksCollectionTab = ({
                         <button
                             key={sk.key}
                             onClick={() => setSelectedSkillFilter(sk.key)}
-                            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition cursor-pointer ${
+                            className={`px-3 py-1.5 rounded-xl text-xs font-bold transition whitespace-nowrap cursor-pointer ${
                                 selectedSkillFilter === sk.key
-                                    ? 'bg-[#f494bc] text-slate-950 font-black shadow-xs'
-                                    : 'text-slate-400 hover:text-white'
+                                    ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-950 font-black shadow-xs'
+                                    : 'bg-slate-100 dark:bg-slate-800/70 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
                             }`}
                         >
                             {sk.label}

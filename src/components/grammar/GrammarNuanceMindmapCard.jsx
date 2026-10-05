@@ -243,7 +243,7 @@ const GrammarNuanceMindmapCard = ({ nuances = [], pattern = '' }) => {
                 <div className="space-y-4">
                     {currentThemeNodes.map((node, idx) => (
                         <div
-                            key={node.key || idx}
+                            key={node.key ? `${node.key}-${idx}` : `node-${idx}`}
                             className="bg-slate-50/90 dark:bg-slate-950/70 border border-slate-200/90 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-4 sm:p-6 space-y-4 shadow-2xs hover:border-indigo-400/80 transition-colors"
                         >
                             {/* Node Header */}

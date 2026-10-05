@@ -505,7 +505,7 @@ const JLPTTestResultView = ({
                 </header>
 
                 {/* 2. BODY SPLIT: FIXED LEFT SIDEBAR (TOC) + SCROLLABLE RIGHT QUESTIONS ROLL */}
-                <div className="flex-1 flex overflow-hidden w-full relative">
+                <div className="flex-1 min-h-0 flex overflow-hidden w-full relative">
                     
                     {/* LEFT SIDEBAR: Table of Contents */}
                     <aside className="hidden lg:flex flex-col w-72 xl:w-80 shrink-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 h-full overflow-hidden shadow-xs z-30 select-none">
@@ -621,10 +621,11 @@ const JLPTTestResultView = ({
                     {/* RIGHT SCROLLABLE QUESTIONS FEED ("SỔ CÂU HỎI XUỐNG") */}
                     <main 
                         ref={rightScrollContainerRef}
-                        className="flex-1 h-full overflow-y-auto px-3.5 sm:px-6 md:px-8 py-4 sm:py-6 space-y-5 scroll-smooth custom-scrollbar relative"
+                        className="flex-1 min-h-0 h-full overflow-y-auto px-3.5 sm:px-6 md:px-8 py-4 sm:py-6 space-y-5 scroll-smooth custom-scrollbar relative overscroll-y-contain"
+                        style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y' }}
                         id="jlpt-review-right-scroll-container"
                     >
-                        <div className="max-w-4xl mx-auto space-y-5 pb-20">
+                        <div className="max-w-4xl mx-auto space-y-5 pb-36 sm:pb-28">
                             
                             {/* 1. SECTION TABS & ACTION BAR */}
                             <div className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-3.5 sm:p-4.5 shadow-xs space-y-3">

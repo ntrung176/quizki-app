@@ -148,7 +148,7 @@ const JLPTTestTakeView = ({
     const [showSubmitModal, setShowSubmitModal] = useState(false);
     const [showResetModal, setShowResetModal] = useState(false);
     const [activeNoteTarget, setActiveNoteTarget] = useState(null); // { sIdx, qIdx }
-    const [isInstantPracticeMode, setIsInstantPracticeMode] = useState(true); // Instant Answer Mode
+    const isInstantPracticeMode = !isRealExam; // Luyện tập: Hiện đáp án ngay | Thi thực tế: Tắt (chấm điểm sau khi nộp)
 
     const rightScrollContainerRef = useRef(null);
 
@@ -229,6 +229,7 @@ const JLPTTestTakeView = ({
         <div 
             ref={containerRef} 
             className="fixed inset-0 z-50 bg-[#FAFBFD] dark:bg-slate-950 text-slate-900 dark:text-slate-100 flex flex-col overflow-hidden font-sans select-none-take"
+            style={{ WebkitOverflowScrolling: 'touch' }}
         >
             {furiganaStyleElement}
 
@@ -373,7 +374,7 @@ const JLPTTestTakeView = ({
             </header>
 
             {/* 2. BODY SPLIT: FIXED LEFT SIDEBAR (FIT ENTIRE LEFT) + SCROLLABLE RIGHT QUESTIONS ROLL */}
-            <div className="flex-1 flex overflow-hidden w-full relative">
+            <div className="flex-1 min-h-0 flex overflow-hidden w-full relative">
                 
                 {/* LEFT SIDEBAR: Table of Contents (FIT TO LEFT, NEVER SCROLLS AWAY) */}
                 <aside className="hidden lg:flex flex-col w-72 xl:w-80 shrink-0 bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 h-full overflow-hidden shadow-xs z-30 select-none">
@@ -490,10 +491,11 @@ const JLPTTestTakeView = ({
                 {/* RIGHT SCROLLABLE QUESTIONS FEED ("ROLL XUỐNG") */}
                 <main 
                     ref={rightScrollContainerRef}
-                    className="flex-1 h-full overflow-y-auto px-3.5 sm:px-6 md:px-8 py-4 sm:py-6 space-y-5 scroll-smooth custom-scrollbar relative"
+                    className="flex-1 min-h-0 h-full overflow-y-auto px-3.5 sm:px-6 md:px-8 py-4 sm:py-6 space-y-5 scroll-smooth custom-scrollbar relative overscroll-y-contain"
+                    style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y' }}
                     id="jlpt-take-right-scroll-container"
                 >
-                    <div className="max-w-4xl mx-auto space-y-5 pb-20">
+                    <div className="max-w-4xl mx-auto space-y-5 pb-36 sm:pb-28">
                         
                         {/* 1. SECTION TABS & ACTION BAR (SCROLLS NATURALLY WITH QUESTIONS) */}
                         <div className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-3.5 sm:p-4.5 shadow-xs space-y-3">
@@ -562,19 +564,6 @@ const JLPTTestTakeView = ({
                                 </div>
 
                                 <div className="flex items-center gap-2 flex-wrap">
-                                    <button
-                                        onClick={() => setIsInstantPracticeMode(!isInstantPracticeMode)}
-                                        className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer shadow-xs active:scale-95 ${
-                                            isInstantPracticeMode
-                                                ? 'bg-amber-500 hover:bg-amber-600 text-white font-extrabold shadow-amber-500/20'
-                                                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900'
-                                        }`}
-                                        title="Bật/Tắt chế độ hiện kết quả và giải thích ngay khi chọn"
-                                    >
-                                        <Zap className={`w-3.5 h-3.5 ${isInstantPracticeMode ? 'text-white' : 'text-slate-400'}`} />
-                                        <span>Hiện đáp án ngay: {isInstantPracticeMode ? 'BẬT' : 'TẮT'}</span>
-                                    </button>
-
                                     <button
                                         onClick={() => setShowResetModal(true)}
                                         className="px-3 py-1.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition flex items-center gap-1 cursor-pointer active:scale-95"
@@ -1033,7 +1022,7 @@ const JLPTTestTakeView = ({
                         </div>
 
                         {/* BOTTOM SECTION NAVIGATION BUTTONS */}
-                        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 border-t border-slate-200 dark:border-slate-800">
+                        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-6 pb-6 border-t border-slate-200 dark:border-slate-800">
                             {selectedTabIdx > 0 ? (
                                 <button
                                     onClick={() => {
@@ -1043,7 +1032,7 @@ const JLPTTestTakeView = ({
                                             rightScrollContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
                                         }
                                     }}
-                                    className="w-full sm:w-auto px-5 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition flex items-center justify-center gap-2 cursor-pointer shadow-xs active:scale-95"
+                                    className="w-full sm:w-auto px-5 py-3 rounded-2xl font-bold text-xs sm:text-sm bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition flex items-center justify-center gap-2 cursor-pointer shadow-xs active:scale-95"
                                 >
                                     <ChevronLeft className="w-4 h-4" />
                                     <span>Phần trước: {sectionStats[selectedTabIdx - 1]?.ja}</span>
@@ -1059,7 +1048,7 @@ const JLPTTestTakeView = ({
                                             rightScrollContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
                                         }
                                     }}
-                                    className="w-full sm:w-auto px-6 py-2.5 rounded-xl font-bold text-xs sm:text-sm bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-100 transition flex items-center justify-center gap-2 cursor-pointer shadow-md active:scale-95"
+                                    className="w-full sm:w-auto px-6 py-3 rounded-2xl font-black text-xs sm:text-sm bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-slate-800 dark:hover:bg-slate-100 transition flex items-center justify-center gap-2 cursor-pointer shadow-md active:scale-95"
                                 >
                                     <span>Phần tiếp theo: {sectionStats[selectedTabIdx + 1]?.ja}</span>
                                     <ChevronRight className="w-4 h-4" />
@@ -1067,9 +1056,9 @@ const JLPTTestTakeView = ({
                             ) : (
                                 <button
                                     onClick={() => setShowSubmitModal(true)}
-                                    className="w-full sm:w-auto px-8 py-2.5 rounded-xl font-black text-xs sm:text-sm bg-emerald-600 hover:bg-emerald-500 text-white transition flex items-center justify-center gap-2 cursor-pointer shadow-lg shadow-emerald-600/30 active:scale-95"
+                                    className="w-full sm:w-auto px-8 py-3.5 rounded-2xl font-black text-sm sm:text-base bg-emerald-600 hover:bg-emerald-500 text-white transition flex items-center justify-center gap-2 cursor-pointer shadow-xl shadow-emerald-600/30 active:scale-95"
                                 >
-                                    <Check className="w-4 h-4 stroke-[3]" />
+                                    <Check className="w-5 h-5 stroke-[3]" />
                                     <span>Hoàn thành & Nộp bài</span>
                                 </button>
                             )}
@@ -1078,14 +1067,22 @@ const JLPTTestTakeView = ({
                 </main>
             </div>
 
-            {/* 3. FLOATING MOBILE TABLE OF CONTENTS BUTTON (< lg) */}
-            <div className="lg:hidden fixed bottom-6 right-4 z-50">
+            {/* 3. FLOATING MOBILE CONTROLS BAR (< lg) */}
+            <div className="lg:hidden fixed bottom-5 left-3.5 right-3.5 z-40 flex items-center justify-between pointer-events-none pb-[env(safe-area-inset-bottom,0px)]">
                 <button
                     onClick={() => setShowMobileTOC(true)}
-                    className="flex items-center gap-2 px-4 py-2.5 rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-extrabold text-xs shadow-2xl shadow-slate-900/50 border border-slate-700/30 active:scale-90 transition-transform cursor-pointer"
+                    className="pointer-events-auto flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-slate-900/95 dark:bg-slate-800/95 text-white font-extrabold text-xs shadow-2xl backdrop-blur-md border border-slate-700/40 active:scale-90 transition-transform cursor-pointer"
                 >
-                    <List className="w-4 h-4" />
+                    <List className="w-4 h-4 text-indigo-400" />
                     <span>Mục lục ({answeredCount}/{totalQ})</span>
+                </button>
+
+                <button
+                    onClick={() => setShowSubmitModal(true)}
+                    className="pointer-events-auto flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs shadow-2xl shadow-emerald-600/40 active:scale-90 transition-transform cursor-pointer"
+                >
+                    <Check className="w-4 h-4 stroke-[3]" />
+                    <span>Nộp bài</span>
                 </button>
             </div>
 

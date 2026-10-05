@@ -2,6 +2,7 @@ import React from 'react';
 import { query, collection, where, getDocs, doc, setDoc, addDoc, serverTimestamp } from 'firebase/firestore';
 import { db, appId } from '../../config/firebase';
 import { MessageSquare, Loader2, ChevronLeft, Smile, CornerUpLeft, Image as ImageIcon, Send, X as XIcon } from 'lucide-react';
+import { extractUserLastActive, isUserOnline, formatLastActive } from '../../utils/userActivityHelper';
 
 const AdminSupportChatSection = ({ users, currentUserId }) => {
     const [threads, setThreads] = React.useState([]);
@@ -16,26 +17,23 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
     const [replyingTo, setReplyingTo] = React.useState(null);
     const [activeReactionPicker, setActiveReactionPicker] = React.useState(null);
 
-    const isUserOnline = React.useCallback((userId) => {
-        const u = users.find(user => user.id === userId);
-        if (!u || !u.lastUpdated) return false;
-        const date = u.lastUpdated.toDate ? u.lastUpdated.toDate() : new Date(u.lastUpdated);
-        return (Date.now() - date.getTime()) < 3 * 60 * 1000;
-    }, [users]);
+    const getUserActivityTime = React.useCallback((userId, threadObj = null) => {
+        const thread = threadObj || threads.find(t => t.userId === userId || t.id === `support_chat_${userId}`);
+        const threadTime = thread ? extractUserLastActive(thread) : 0;
+        const u = users.find(user => user.id === userId || user.userId === userId);
+        const userTime = u ? extractUserLastActive(u) : 0;
+        return Math.max(threadTime, userTime);
+    }, [threads, users]);
 
-    const formatLastActive = React.useCallback((userId) => {
-        const u = users.find(user => user.id === userId);
-        if (!u || !u.lastUpdated) return 'Ngoại tuyến';
-        const date = u.lastUpdated.toDate ? u.lastUpdated.toDate() : new Date(u.lastUpdated);
-        const diffMs = Date.now() - date.getTime();
-        const diffMinutes = Math.floor(diffMs / 60000);
-        if (diffMinutes < 1) return 'Vừa hoạt động';
-        if (diffMinutes < 60) return `Hoạt động ${diffMinutes} phút trước`;
-        const diffHours = Math.floor(diffMinutes / 60);
-        if (diffHours < 24) return `Hoạt động ${diffHours} giờ trước`;
-        const diffDays = Math.floor(diffHours / 24);
-        return `Hoạt động ${diffDays} ngày trước`;
-    }, [users]);
+    const checkUserOnline = React.useCallback((userId, threadObj = null) => {
+        const time = getUserActivityTime(userId, threadObj);
+        return isUserOnline(time);
+    }, [getUserActivityTime]);
+
+    const formatUserLastActive = React.useCallback((userId, threadObj = null) => {
+        const time = getUserActivityTime(userId, threadObj);
+        return formatLastActive(time, 'Ngoại tuyến');
+    }, [getUserActivityTime]);
 
     const handleReact = async (msgId, emoji) => {
         try {
@@ -83,15 +81,19 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
 
             const threadList = snapshot.docs.map(doc => {
                 const data = doc.data();
+                const uId = data.userId || (doc.id.startsWith('support_chat_') ? doc.id.replace('support_chat_', '') : doc.id);
                 return {
-                    userId: data.userId,
+                    id: doc.id,
+                    userId: uId,
                     displayName: data.senderName || 'Người dùng ẩn danh',
                     email: data.email || '',
                     hasUnreadAdmin: data.hasUnreadAdmin || false,
                     hasUnreadUser: data.hasUnreadUser || false,
+                    userLastActive: data.userLastActive || data.updatedAt || data.createdAt || null,
+                    updatedAt: data.updatedAt || null,
                     lastMessage: {
                         text: data.text || '',
-                        createdAt: data.updatedAt,
+                        createdAt: data.updatedAt || data.createdAt || null,
                         isAdmin: data.isAdminReply
                     }
                 };
@@ -338,7 +340,7 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                         threads.map(thread => {
                             const isSelected = thread.userId === selectedUserId;
                             const needsReply = thread.hasUnreadAdmin;
-                            const isOnline = isUserOnline(thread.userId);
+                            const isOnline = checkUserOnline(thread.userId, thread);
                             return (
                                 <div
                                     key={thread.userId}
@@ -397,10 +399,10 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                         <h4 className="font-bold text-gray-800 dark:text-white text-xs leading-none">
                                             {selectedThread.displayName}
                                         </h4>
-                                        <span className={`w-1.5 h-1.5 rounded-full ${isUserOnline(selectedThread.userId) ? 'bg-emerald-500 animate-pulse' : 'bg-gray-400'}`} />
+                                        <span className={`w-1.5 h-1.5 rounded-full ${checkUserOnline(selectedThread.userId, selectedThread) ? 'bg-emerald-500 animate-pulse' : 'bg-gray-400'}`} />
                                     </div>
                                     <p className="text-[10px] text-gray-440 dark:text-gray-500 font-mono mt-1.5">
-                                        {isUserOnline(selectedThread.userId) ? 'Trực tuyến' : formatLastActive(selectedThread.userId)} | Email: {selectedThread.email || 'N/A'} | ID: {selectedThread.userId}
+                                        {checkUserOnline(selectedThread.userId, selectedThread) ? 'Trực tuyến' : formatUserLastActive(selectedThread.userId, selectedThread)} | Email: {selectedThread.email || 'N/A'} | ID: {selectedThread.userId}
                                     </p>
                                 </div>
                             </div>

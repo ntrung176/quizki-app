@@ -61,22 +61,22 @@ const QuestionExplanationCard = ({
         <div className={`mt-4 rounded-3xl bg-gradient-to-br from-indigo-50/90 via-slate-50 to-purple-50/50 dark:from-slate-900 dark:via-slate-900/90 dark:to-indigo-950/40 border-2 border-indigo-200/80 dark:border-indigo-800/60 p-4 sm:p-6 shadow-sm space-y-4 animate-fade-in ${className}`}>
             
             {/* 1. Header Banner */}
-            <div className="flex items-center justify-between gap-3 border-b border-indigo-100 dark:border-indigo-900/60 pb-3">
-                <div className="flex items-center gap-2.5">
+            <div className="flex flex-wrap sm:flex-nowrap items-start sm:items-center justify-between gap-2 sm:gap-3 border-b border-indigo-100 dark:border-indigo-900/60 pb-3">
+                <div className="flex items-center gap-2.5 min-w-0 flex-1">
                     <div className="w-8 h-8 rounded-xl bg-slate-900 dark:bg-slate-800 text-[#f494bc] flex items-center justify-center shrink-0 shadow-xs border border-slate-700/50">
                         <BookOpen className="w-4 h-4" />
                     </div>
-                    <div>
-                        <h4 className="text-sm sm:text-base font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2">
+                    <div className="min-w-0 flex-1">
+                        <h4 className="text-sm sm:text-base font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2 truncate">
                             <span>Phân Tích & Giải Thích Chi Tiết</span>
                         </h4>
-                        <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium">
+                        <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 font-medium leading-tight truncate">
                             Lời giải chính xác và phân tích chuyên sâu cho câu hỏi này
                         </p>
                     </div>
                 </div>
 
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-2 shrink-0 self-start sm:self-center">
                     {parsed.sentences && parsed.sentences.length > 0 && (
                         <button
                             type="button"
@@ -93,8 +93,8 @@ const QuestionExplanationCard = ({
                     )}
 
                     {correctLetter && (
-                        <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-100 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 font-black text-xs sm:text-sm shrink-0 shadow-2xs">
-                            <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+                        <div className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-xl bg-emerald-100 dark:bg-emerald-950/80 border border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300 font-black text-xs sm:text-sm shrink-0 whitespace-nowrap shadow-2xs">
+                            <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                             <span>Đáp án: {correctLetter}</span>
                         </div>
                     )}
