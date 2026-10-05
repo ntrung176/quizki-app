@@ -599,7 +599,7 @@ export const CardEditorItem = ({
                                                 card.pos === 'grammar' ? (
                                                     `Ngữ pháp ${card.level ? `(${card.level})` : ''}`
                                                 ) : (
-                                                    getPosLabel(card.pos)
+                                                    POS_TYPES[card.pos]?.label || getPosLabel(card.pos, 'ja')
                                                 )
                                             ) : (
                                                 '-- Chọn từ loại --'

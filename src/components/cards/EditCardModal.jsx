@@ -228,13 +228,13 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                     className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-100 text-left flex justify-between items-center cursor-pointer"
                                 >
                                     <span>
-                                        {pos ? (
-                                            pos === 'grammar' ? (
-                                                `Ngữ pháp ${level ? `(${level})` : ''}`
+                                            {pos ? (
+                                                pos === 'grammar' ? (
+                                                    `Ngữ pháp ${level ? `(${level})` : ''}`
+                                                ) : (
+                                                    getPosLabel(pos, cardIsKorean ? 'ko' : cardIsEnglish ? 'en' : 'ja')
+                                                )
                                             ) : (
-                                                getPosLabel(pos)
-                                            )
-                                        ) : (
                                             '-- Chọn Từ Loại --'
                                         )}
                                     </span>

@@ -130,11 +130,11 @@ export const MASTERED_THRESHOLD = 43200; // 30 ngày = 43200 phút
 // Interval tối đa (365 ngày)
 export const MAX_INTERVAL = 525600; // 365 ngày = 525600 phút
 
-export const getPosLabel = (posKey) => {
+export const getPosLabel = (posKey, targetLanguage = null) => {
     if (!posKey) return '';
     const cleanKey = posKey.trim().toLowerCase();
     
-    // Bản dịch trực tiếp cho các từ loại tiếng Anh
+    // Bản dịch trực tiếp cho các từ loại tiếng Nhật / tiếng Việt chung
     const dict = {
         'noun': 'Danh từ',
         'verb': 'Động từ',
@@ -205,24 +205,57 @@ export const getPosLabel = (posKey) => {
         'other': 'Khác'
     };
     
-    if (KOREAN_POS_TYPES[cleanKey]) return KOREAN_POS_TYPES[cleanKey].label;
-    if (ENGLISH_POS_TYPES[cleanKey]) return ENGLISH_POS_TYPES[cleanKey].label;
+    // Nếu chỉ định tiếng Hàn:
+    if (targetLanguage === 'ko' || targetLanguage === 'korean') {
+        if (KOREAN_POS_TYPES[cleanKey]) return KOREAN_POS_TYPES[cleanKey].label;
+        const normalized = normalizePosKey(posKey);
+        if (KOREAN_POS_TYPES[normalized]) return KOREAN_POS_TYPES[normalized].label;
+    }
+
+    // Nếu chỉ định tiếng Anh:
+    if (targetLanguage === 'en' || targetLanguage === 'english') {
+        if (ENGLISH_POS_TYPES[cleanKey]) return ENGLISH_POS_TYPES[cleanKey].label;
+        const normalized = normalizePosKey(posKey);
+        if (ENGLISH_POS_TYPES[normalized]) return ENGLISH_POS_TYPES[normalized].label;
+    }
+
+    // Tiếng Nhật / Mặc định:
     if (dict[cleanKey]) return dict[cleanKey];
     
     const normalized = normalizePosKey(posKey);
     if (POS_TYPES[normalized]) return POS_TYPES[normalized].label;
-    if (KOREAN_POS_TYPES[normalized]) return KOREAN_POS_TYPES[normalized].label;
-    if (ENGLISH_POS_TYPES[normalized]) return ENGLISH_POS_TYPES[normalized].label;
     
     const matched = Object.keys(POS_TYPES).find(k => k.toLowerCase() === cleanKey);
     if (matched) return POS_TYPES[matched].label;
     
+    // Fallback nếu không có trong Tiếng Nhật:
+    if (ENGLISH_POS_TYPES[cleanKey]) return ENGLISH_POS_TYPES[cleanKey].label;
+    if (KOREAN_POS_TYPES[cleanKey]) return KOREAN_POS_TYPES[cleanKey].label;
+    if (ENGLISH_POS_TYPES[normalized]) return ENGLISH_POS_TYPES[normalized].label;
+    if (KOREAN_POS_TYPES[normalized]) return KOREAN_POS_TYPES[normalized].label;
+    
     return posKey;
 };
-export const getPosColor = (posKey) => {
+export const getPosColor = (posKey, targetLanguage = null) => {
     if (!posKey) return 'bg-gray-100 text-gray-700 border-gray-200';
+    const cleanKey = posKey.trim().toLowerCase();
     const normalized = normalizePosKey(posKey);
-    return KOREAN_POS_TYPES[normalized]?.color || ENGLISH_POS_TYPES[normalized]?.color || POS_TYPES[normalized]?.color || 'bg-gray-100 text-gray-700 border-gray-200';
+
+    if (targetLanguage === 'ko' || targetLanguage === 'korean') {
+        if (KOREAN_POS_TYPES[cleanKey]) return KOREAN_POS_TYPES[cleanKey].color;
+        if (KOREAN_POS_TYPES[normalized]) return KOREAN_POS_TYPES[normalized].color;
+    }
+
+    if (targetLanguage === 'en' || targetLanguage === 'english') {
+        if (ENGLISH_POS_TYPES[cleanKey]) return ENGLISH_POS_TYPES[cleanKey].color;
+        if (ENGLISH_POS_TYPES[normalized]) return ENGLISH_POS_TYPES[normalized].color;
+    }
+
+    return POS_TYPES[normalized]?.color || 
+           POS_TYPES[cleanKey]?.color || 
+           ENGLISH_POS_TYPES[cleanKey]?.color || 
+           KOREAN_POS_TYPES[cleanKey]?.color || 
+           'bg-gray-100 text-gray-700 border-gray-200';
 };
 
 export const getLevelColor = (levelValue) => {
