@@ -171,6 +171,44 @@ const JLPTTestTakeView = ({
         return answers[answerKey(si, qi)] !== undefined;
     };
 
+    const getQuestionStatus = (si, qi, q) => {
+        if (!isQuestionAnswered(si, qi, q)) return 'unanswered';
+        if (!isInstantPracticeMode) return 'answered';
+
+        if (q.subQuestions && q.subQuestions.length > 0) {
+            const isAllCorrect = q.subQuestions.every((sq, sqi) => {
+                const subAns = answers[subAnswerKey(si, qi, sqi)];
+                const sqCorrect = typeof sq.correctAnswer === 'number' 
+                    ? sq.correctAnswer 
+                    : (typeof sq.answer === 'number' 
+                        ? sq.answer 
+                        : (typeof sq.correct === 'number' 
+                            ? sq.correct 
+                            : (typeof sq.correct === 'string' && sq.options 
+                                ? sq.options.findIndex(o => o.trim() === sq.correct.trim()) 
+                                : -1)));
+                return sqCorrect !== -1 && subAns === sqCorrect;
+            });
+            return isAllCorrect ? 'correct' : 'wrong';
+        }
+
+        const userAns = answers[answerKey(si, qi)];
+        const correctIdx = typeof q.correctAnswer === 'number' 
+            ? q.correctAnswer 
+            : (typeof q.answer === 'number' 
+                ? q.answer 
+                : (typeof q.correct === 'number' 
+                    ? q.correct 
+                    : (typeof q.correct === 'string' && q.options 
+                        ? q.options.findIndex(o => o.trim() === q.correct.trim()) 
+                        : -1)));
+        
+        if (correctIdx !== -1 && userAns === correctIdx) {
+            return 'correct';
+        }
+        return 'wrong';
+    };
+
     // Calculate section stats
     const sectionStats = useMemo(() => {
         if (!activeTest?.sections) return [];
@@ -439,21 +477,26 @@ const JLPTTestTakeView = ({
                                     {/* Question Grid Buttons */}
                                     <div className="grid grid-cols-5 gap-1.5">
                                         {activeTest?.sections?.[sIdx]?.questions?.map((q, qIdx) => {
-                                            const answered = isQuestionAnswered(sIdx, qIdx, q);
+                                            const status = getQuestionStatus(sIdx, qIdx, q);
                                             const isFocused = isCurrentTab && currentQuestionIdx === qIdx;
+
+                                            let btnClass = 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-slate-400 dark:hover:border-slate-500';
+                                            if (status === 'correct') {
+                                                btnClass = 'bg-emerald-500 text-white shadow-xs hover:bg-emerald-600 font-black';
+                                            } else if (status === 'wrong') {
+                                                btnClass = 'bg-rose-500 text-white shadow-xs hover:bg-rose-600 font-black';
+                                            } else if (status === 'answered') {
+                                                btnClass = 'bg-emerald-500 text-white shadow-xs hover:bg-emerald-600 font-black';
+                                            } else if (isFocused) {
+                                                btnClass = 'bg-indigo-600 text-white ring-2 ring-indigo-300 dark:ring-indigo-700 font-black';
+                                            }
 
                                             return (
                                                 <button
                                                     key={qIdx}
                                                     onClick={() => scrollToQuestion(sIdx, qIdx)}
-                                                    className={`h-7.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center justify-center select-none active:scale-90 ${
-                                                        answered
-                                                            ? 'bg-emerald-500 text-white shadow-xs hover:bg-emerald-600 font-black'
-                                                            : isFocused
-                                                                ? 'bg-indigo-600 text-white ring-2 ring-indigo-300 dark:ring-indigo-700 font-black'
-                                                                : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-slate-400 dark:hover:border-slate-500'
-                                                    }`}
-                                                    title={`Câu ${qIdx + 1} (${answered ? 'Đã làm' : 'Chưa làm'})`}
+                                                    className={`h-7.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center justify-center select-none active:scale-90 ${btnClass}`}
+                                                    title={`Câu ${qIdx + 1} (${status === 'correct' ? 'Đúng' : status === 'wrong' ? 'Sai' : status === 'answered' ? 'Đã làm' : 'Chưa làm'})`}
                                                 >
                                                     {qIdx + 1}
                                                 </button>
@@ -472,10 +515,23 @@ const JLPTTestTakeView = ({
                                 <span className="w-2.5 h-2.5 rounded-full border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-800" />
                                 <span>Chưa làm</span>
                             </div>
-                            <div className="flex items-center gap-1.5">
-                                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-                                <span>Đã làm</span>
-                            </div>
+                            {isInstantPracticeMode ? (
+                                <>
+                                    <div className="flex items-center gap-1.5">
+                                        <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                                        <span>Đúng</span>
+                                    </div>
+                                    <div className="flex items-center gap-1.5">
+                                        <span className="w-2.5 h-2.5 rounded-full bg-rose-500" />
+                                        <span>Sai</span>
+                                    </div>
+                                </>
+                            ) : (
+                                <div className="flex items-center gap-1.5">
+                                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
+                                    <span>Đã làm</span>
+                                </div>
+                            )}
                         </div>
 
                         <button
@@ -635,13 +691,22 @@ const JLPTTestTakeView = ({
                                         <div className="flex items-start justify-between gap-3 mb-4">
                                             <div className="flex items-start gap-3 min-w-0 flex-1">
                                                 {/* Number Badge */}
-                                                <span className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl font-black text-xs sm:text-sm flex items-center justify-center shrink-0 shadow-xs transition-colors ${
-                                                    isAnswered
-                                                        ? 'bg-emerald-500 text-white'
-                                                        : 'bg-slate-900 text-white dark:bg-white dark:text-slate-900'
-                                                }`}>
-                                                    {qIdx + 1}
-                                                </span>
+                                                {(() => {
+                                                    const qStatus = getQuestionStatus(selectedTabIdx, qIdx, question);
+                                                    return (
+                                                        <span className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl font-black text-xs sm:text-sm flex items-center justify-center shrink-0 shadow-xs transition-colors ${
+                                                            qStatus === 'correct'
+                                                                ? 'bg-emerald-500 text-white'
+                                                                : qStatus === 'wrong'
+                                                                    ? 'bg-rose-500 text-white'
+                                                                    : isAnswered
+                                                                        ? 'bg-emerald-500 text-white'
+                                                                        : 'bg-slate-900 text-white dark:bg-white dark:text-slate-900'
+                                                        }`}>
+                                                            {qIdx + 1}
+                                                        </span>
+                                                    );
+                                                })()}
 
                                                 {/* Question Prompt Text */}
                                                 <div className="min-w-0 flex-1 pt-0.5">
@@ -786,8 +851,13 @@ const JLPTTestTakeView = ({
                                                             <button
                                                                 key={oi}
                                                                 type="button"
+                                                                disabled={isInstantPracticeMode && selectedOpt !== undefined}
                                                                 onClick={() => selectAnswer(selectedTabIdx, qIdx, oi)}
-                                                                className={`p-3 sm:p-3.5 rounded-2xl text-left transition-all duration-150 flex items-center justify-between gap-3 border-2 cursor-pointer select-none active:scale-[0.98] ${optionStyle}`}
+                                                                className={`p-3 sm:p-3.5 rounded-2xl text-left transition-all duration-150 flex items-center justify-between gap-3 border-2 select-none ${
+                                                                    isInstantPracticeMode && selectedOpt !== undefined 
+                                                                        ? 'cursor-default' 
+                                                                        : 'cursor-pointer active:scale-[0.98]'
+                                                                } ${optionStyle}`}
                                                             >
                                                                 <div className="flex items-center gap-2.5 min-w-0 flex-1">
                                                                     <span className={`w-6 h-6 rounded-full text-xs font-bold flex items-center justify-center shrink-0 transition-colors ${
@@ -887,8 +957,13 @@ const JLPTTestTakeView = ({
                                                                         <button
                                                                             key={oi}
                                                                             type="button"
+                                                                            disabled={isInstantPracticeMode && isSubSelected !== undefined}
                                                                             onClick={() => selectAnswerSub(selectedTabIdx, qIdx, sqi, oi)}
-                                                                            className={`p-3 rounded-xl text-left transition-all duration-150 flex items-center justify-between gap-2.5 border-2 cursor-pointer select-none active:scale-[0.98] ${sqStyle}`}
+                                                                            className={`p-3 rounded-xl text-left transition-all duration-150 flex items-center justify-between gap-2.5 border-2 select-none ${
+                                                                                isInstantPracticeMode && isSubSelected !== undefined 
+                                                                                    ? 'cursor-default' 
+                                                                                    : 'cursor-pointer active:scale-[0.98]'
+                                                                            } ${sqStyle}`}
                                                                         >
                                                                             <div className="flex items-center gap-2 min-w-0 flex-1">
                                                                                 <span className={`w-5.5 h-5.5 rounded-full text-xs font-bold flex items-center justify-center shrink-0 ${
@@ -1056,7 +1131,7 @@ const JLPTTestTakeView = ({
                             ) : (
                                 <button
                                     onClick={() => setShowSubmitModal(true)}
-                                    className="w-full sm:w-auto px-8 py-3.5 rounded-2xl font-black text-sm sm:text-base bg-emerald-600 hover:bg-emerald-500 text-white transition flex items-center justify-center gap-2 cursor-pointer shadow-xl shadow-emerald-600/30 active:scale-95"
+                                    className="w-full sm:w-auto px-8 py-3.5 rounded-2xl font-black text-sm sm:text-base bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 transition flex items-center justify-center gap-2 cursor-pointer shadow-xl shadow-[#f494bc]/30 active:scale-95"
                                 >
                                     <Check className="w-5 h-5 stroke-[3]" />
                                     <span>Hoàn thành & Nộp bài</span>
@@ -1068,21 +1143,13 @@ const JLPTTestTakeView = ({
             </div>
 
             {/* 3. FLOATING MOBILE CONTROLS BAR (< lg) */}
-            <div className="lg:hidden fixed bottom-5 left-3.5 right-3.5 z-40 flex items-center justify-between pointer-events-none pb-[env(safe-area-inset-bottom,0px)]">
+            <div className="lg:hidden fixed bottom-5 left-3.5 z-40 flex items-center pointer-events-none pb-[env(safe-area-inset-bottom,0px)]">
                 <button
                     onClick={() => setShowMobileTOC(true)}
                     className="pointer-events-auto flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-slate-900/95 dark:bg-slate-800/95 text-white font-extrabold text-xs shadow-2xl backdrop-blur-md border border-slate-700/40 active:scale-90 transition-transform cursor-pointer"
                 >
                     <List className="w-4 h-4 text-indigo-400" />
                     <span>Mục lục ({answeredCount}/{totalQ})</span>
-                </button>
-
-                <button
-                    onClick={() => setShowSubmitModal(true)}
-                    className="pointer-events-auto flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs shadow-2xl shadow-emerald-600/40 active:scale-90 transition-transform cursor-pointer"
-                >
-                    <Check className="w-4 h-4 stroke-[3]" />
-                    <span>Nộp bài</span>
                 </button>
             </div>
 
@@ -1128,18 +1195,23 @@ const JLPTTestTakeView = ({
                                         </div>
                                         <div className="grid grid-cols-6 gap-1.5">
                                             {activeTest?.sections?.[sIdx]?.questions?.map((q, qIdx) => {
-                                                const answered = isQuestionAnswered(sIdx, qIdx, q);
+                                                const status = getQuestionStatus(sIdx, qIdx, q);
+                                                let btnClass = 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300';
+                                                if (status === 'correct') {
+                                                    btnClass = 'bg-emerald-500 text-white font-black';
+                                                } else if (status === 'wrong') {
+                                                    btnClass = 'bg-rose-500 text-white font-black';
+                                                } else if (status === 'answered') {
+                                                    btnClass = 'bg-emerald-500 text-white font-black';
+                                                } else if (isCurrentTab && currentQuestionIdx === qIdx) {
+                                                    btnClass = 'bg-indigo-600 text-white ring-2 ring-indigo-300';
+                                                }
+
                                                 return (
                                                     <button
                                                         key={qIdx}
                                                         onClick={() => scrollToQuestion(sIdx, qIdx)}
-                                                        className={`h-8 rounded-lg text-xs font-bold flex items-center justify-center cursor-pointer transition select-none active:scale-90 ${
-                                                            answered
-                                                                ? 'bg-emerald-500 text-white font-black'
-                                                                : isCurrentTab && currentQuestionIdx === qIdx
-                                                                    ? 'bg-indigo-600 text-white ring-2 ring-indigo-300'
-                                                                    : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300'
-                                                        }`}
+                                                        className={`h-8 rounded-lg text-xs font-bold flex items-center justify-center cursor-pointer transition select-none active:scale-90 ${btnClass}`}
                                                     >
                                                         {qIdx + 1}
                                                     </button>
@@ -1158,7 +1230,7 @@ const JLPTTestTakeView = ({
                                     setShowMobileTOC(false);
                                     setShowSubmitModal(true);
                                 }}
-                                className="w-full py-2.5 bg-emerald-600 text-white rounded-xl text-xs font-black hover:bg-emerald-500 transition shadow-md"
+                                className="w-full py-2.5 bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 font-black rounded-xl text-xs transition shadow-md shadow-[#f494bc]/30 cursor-pointer"
                             >
                                 Nộp bài thi ({answeredCount}/{totalQ})
                             </button>

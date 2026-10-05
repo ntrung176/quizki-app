@@ -11,7 +11,8 @@ import { RADICALS_214, KANJI_TREE } from '../data/radicals214';
 import {
     getSharedKanjiList, getSharedVocabList, getSharedVocabCategories, updateCachedKanji,
     deleteCachedKanji, updateCachedVocab, deleteCachedVocab, getCachedKanjiList,
-    getCachedVocabList, getCachedVocabCategories, syncKanjiAndVocabToCDN, getSharedKanjiSrs, updateCachedUserSrs
+    getCachedVocabList, getCachedVocabCategories, syncKanjiAndVocabToCDN, getSharedKanjiSrs, updateCachedUserSrs,
+    sanitizeForFirestore, updateEditedKanjiLocalCache
 } from '../utils/kanjiService';
 import { JOTOBA_KANJI_DATA, getJotobaKanjiChars, getJotobaKanjiData } from '../data/jotobaKanjiData';
 import kanjiComponents from '../data/kanjiComponents.json' with { type: 'json' };
@@ -681,7 +682,7 @@ export const useKanjiData = ({
                 parts: kanjiComponents[char] ? kanjiComponents[char].join('、') : (fbData.parts || jData?.parts?.join('、') || ''),
                 radical: fbData.radical || '',
                 mnemonic: fbData.mnemonic || '',
-                level: jData?.level || fbData.level || 'N5',
+                level: fbData._userEdited ? (fbData.level || jData?.level || 'N5') : (jData?.level || fbData.level || 'N5'),
                 imageUrl: fbData.imageUrl || '',
             };
         }
@@ -1115,32 +1116,45 @@ export const useKanjiData = ({
 
     const handleEditKanji = async () => {
         if (!editingKanji || (!editingKanji.character && !editingKanji.id)) return;
+        const char = (editingKanji.character || '').trim();
+        const rawStroke = editingKanji.strokeCount || editingKanji.stroke_count || '';
         const kanjiDoc = {
             ...editingKanji,
-            character: editingKanji.character || '',
+            character: char,
             meaning: editingKanji.meaning || '',
+            meaningVi: editingKanji.meaningVi || editingKanji.meaning || '',
             onyomi: editingKanji.onyomi || '',
             kunyomi: editingKanji.kunyomi || '',
             level: editingKanji.level || 'N5',
-            strokeCount: editingKanji.strokeCount || '',
+            strokeCount: rawStroke ? (Number(rawStroke) || rawStroke) : '',
             sinoViet: editingKanji.sinoViet || '',
             mnemonic: editingKanji.mnemonic || '',
             radical: editingKanji.radical || '',
             parts: editingKanji.parts || '',
             imageUrl: editingKanji.imageUrl || '',
+            _userEdited: true,
             updatedAt: Date.now()
         };
 
-        try {
-            const existingFbKanji = kanjiList.find(k => k.character === kanjiDoc.character || k.id === editingKanji.id);
-            const targetId = String(editingKanji.id || existingFbKanji?.id || kanjiDoc.character);
+        delete kanjiDoc._fromJotoba;
 
-            const kanjiDocToSave = { ...kanjiDoc, id: targetId };
+        try {
+            const existingFbKanji = kanjiList.find(k => k.character === char || k.id === editingKanji.id);
+            const targetId = String(editingKanji.id || existingFbKanji?.id || char);
+
+            const kanjiDocToSave = sanitizeForFirestore({ ...kanjiDoc, id: targetId });
             await setDoc(doc(db, 'kanji', targetId), kanjiDocToSave, { merge: true });
 
-            setKanjiList(prev => prev.map(k => (k.id === targetId || k.character === kanjiDoc.character) ? kanjiDocToSave : k));
+            setKanjiList(prev => {
+                const exists = prev.some(k => k.id === targetId || k.character === char);
+                if (exists) {
+                    return prev.map(k => (k.id === targetId || k.character === char) ? kanjiDocToSave : k);
+                }
+                return [...prev, kanjiDocToSave];
+            });
             updateCachedKanji(kanjiDocToSave);
-            showToast(`Đã lưu thành công Kanji "${kanjiDoc.character}" vào Database!`, 'success');
+            updateEditedKanjiLocalCache(kanjiDocToSave);
+            showToast(`Đã lưu thành công Kanji "${kanjiDocToSave.character}" vào Database!`, 'success');
 
             setShowEditKanjiModal(false);
             setEditingKanji(null);

@@ -129,6 +129,21 @@ if (typeof window !== 'undefined') {
     window.addEventListener('cache-config-updated', invalidateKanjiCache);
 }
 
+export const sanitizeForFirestore = (obj) => {
+    if (obj === undefined) return null;
+    if (obj === null || typeof obj !== 'object') return obj;
+    if (Array.isArray(obj)) {
+        return obj.map(item => sanitizeForFirestore(item)).filter(item => item !== undefined);
+    }
+    const clean = {};
+    Object.entries(obj).forEach(([key, value]) => {
+        if (value !== undefined) {
+            clean[key] = sanitizeForFirestore(value);
+        }
+    });
+    return clean;
+};
+
 export const getSharedKanjiList = async () => {
     if (cachedKanjiList) return cachedKanjiList;
     if (kanjiPromise) return kanjiPromise;
@@ -183,7 +198,7 @@ export const getSharedKanjiList = async () => {
                         onyomi: (jData.onyomi?.length ? jData.onyomi.join('、') : '') || k.onyomi,
                         kunyomi: (jData.kunyomi?.length ? jData.kunyomi.join('、') : '') || k.kunyomi,
                         level: jData.level || k.level,
-                        openJlptOrder: jData.openJlptOrder || k.openJlptOrder
+                        openJlptOrder: jData.openJlptOrder ?? k.openJlptOrder ?? null
                     };
                 }
                 return k;
@@ -221,7 +236,7 @@ export const getSharedKanjiList = async () => {
                             onyomi: (jData.onyomi?.length ? jData.onyomi.join('、') : '') || data.onyomi,
                             kunyomi: (jData.kunyomi?.length ? jData.kunyomi.join('、') : '') || data.kunyomi,
                             level: jData.level || data.level,
-                            openJlptOrder: jData.openJlptOrder || data.openJlptOrder
+                            openJlptOrder: jData.openJlptOrder ?? data.openJlptOrder ?? null
                         };
                     }
                     return data;

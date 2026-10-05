@@ -251,18 +251,98 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
     }, [isRealExam, activeTest, showResult]);
 
     // Answers navigation
-    const answerKey = (si, qi) => `s${si}_q${qi}`;
-    const subAnswerKey = (si, qi, sqi) => `s${si}_q${qi}_sq${sqi}`;
-
     const selectAnswer = useCallback((si, qi, optIdx) => {
         if (showResult) return;
-        setAnswers(prev => ({ ...prev, [answerKey(si, qi)]: optIdx }));
-    }, [showResult]);
+        const key = answerKey(si, qi);
+
+        // Lock answers in practice mode (!isRealExam) once picked
+        if (!isRealExam && answers[key] !== undefined) return;
+
+        setAnswers(prev => ({ ...prev, [key]: optIdx }));
+
+        // In Practice mode: if wrong answer, immediately log to Sổ tay câu sai
+        if (!isRealExam && activeTest?.sections?.[si]?.questions?.[qi]) {
+            const sec = activeTest.sections[si];
+            const q = sec.questions[qi];
+            const correctIndex = typeof q.correctAnswer === 'number' 
+                ? q.correctAnswer 
+                : (typeof q.answer === 'number' 
+                    ? q.answer 
+                    : (typeof q.correct === 'number' 
+                        ? q.correct 
+                        : (typeof q.correct === 'string' && q.options 
+                            ? q.options.findIndex(o => o.trim() === q.correct.trim()) 
+                            : -1)));
+
+            if (correctIndex !== -1 && optIdx !== correctIndex) {
+                const wrongKey = `${activeTest.id}_s${si}_q${qi}`;
+                recordWrongQuestions({
+                    [wrongKey]: {
+                        testId: activeTest.id,
+                        testTitle: activeTest.title || 'Đề thi JLPT',
+                        level: activeTest.level || 'N2',
+                        sectionTitle: sec.title || '',
+                        sectionType: sec.type || '',
+                        skillType: sec.type || activeTest.skill || 'grammar',
+                        question: q.question || '',
+                        options: q.options || [],
+                        correctAnswer: correctIndex,
+                        userAnswer: optIdx,
+                        explanation: q.explanation || '',
+                        passage: q.passage || '',
+                        date: new Date().toISOString()
+                    }
+                });
+            }
+        }
+    }, [showResult, isRealExam, answers, activeTest, recordWrongQuestions]);
 
     const selectAnswerSub = useCallback((si, qi, sqi, optIdx) => {
         if (showResult) return;
-        setAnswers(prev => ({ ...prev, [subAnswerKey(si, qi, sqi)]: optIdx }));
-    }, [showResult]);
+        const key = subAnswerKey(si, qi, sqi);
+
+        // Lock answers in practice mode (!isRealExam) once picked
+        if (!isRealExam && answers[key] !== undefined) return;
+
+        setAnswers(prev => ({ ...prev, [key]: optIdx }));
+
+        // In Practice mode: if wrong answer, immediately log to Sổ tay câu sai
+        if (!isRealExam && activeTest?.sections?.[si]?.questions?.[qi]?.subQuestions?.[sqi]) {
+            const sec = activeTest.sections[si];
+            const q = sec.questions[qi];
+            const sq = q.subQuestions[sqi];
+            const correctIndex = typeof sq.correctAnswer === 'number' 
+                ? sq.correctAnswer 
+                : (typeof sq.answer === 'number' 
+                    ? sq.answer 
+                    : (typeof sq.correct === 'number' 
+                        ? sq.correct 
+                        : (typeof sq.correct === 'string' && sq.options 
+                            ? sq.options.findIndex(o => o.trim() === sq.correct.trim()) 
+                            : -1)));
+
+            if (correctIndex !== -1 && optIdx !== correctIndex) {
+                const wrongKey = `${activeTest.id}_s${si}_q${qi}_sq${sqi}`;
+                recordWrongQuestions({
+                    [wrongKey]: {
+                        testId: activeTest.id,
+                        testTitle: activeTest.title || 'Đề thi JLPT',
+                        level: activeTest.level || 'N2',
+                        sectionTitle: sec.title || '',
+                        sectionType: sec.type || '',
+                        skillType: sec.type || activeTest.skill || 'grammar',
+                        question: sq.question || q.question || '',
+                        options: sq.options || q.options || [],
+                        correctAnswer: correctIndex,
+                        userAnswer: optIdx,
+                        explanation: sq.explanation || q.explanation || '',
+                        passage: q.passage || '',
+                        date: new Date().toISOString()
+                    }
+                });
+            }
+        }
+    }, [showResult, isRealExam, answers, activeTest, recordWrongQuestions]);
 
     const goToQuestion = (si, qi) => {
         setCurrentSectionIdx(si);
