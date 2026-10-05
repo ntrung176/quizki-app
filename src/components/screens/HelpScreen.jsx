@@ -271,7 +271,7 @@ const HelpScreen = ({ isFirstTime, onConfirmFirstTime }) => {
     }, [moduleGuides, activeSection, searchFilter]);
 
     return (
-        <div className="w-full max-w-5xl mx-auto space-y-6 sm:space-y-8 px-2.5 sm:px-4 md:px-6 py-4 md:py-6 pb-24 animate-fade-in text-slate-800 dark:text-slate-100 min-w-0 overflow-x-hidden">
+        <div className="w-full max-w-5xl mx-auto space-y-6 sm:space-y-8 px-2.5 sm:px-4 md:px-6 py-4 md:py-6 pb-24 animate-fade-in text-slate-800 dark:text-slate-100 min-w-0 overflow-x-clip">
             
             {/* TOP HEADER BAR */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 sm:gap-4 border-b border-slate-200 dark:border-slate-800 pb-5 sm:pb-6 min-w-0">

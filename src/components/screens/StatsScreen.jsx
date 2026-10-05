@@ -564,7 +564,7 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
     }
 
     return (
-        <div className="space-y-5 sm:space-y-6 w-full max-w-4xl mx-auto px-2.5 sm:px-4 pb-24 animate-fade-in overflow-x-hidden">
+        <div className="space-y-5 sm:space-y-6 w-full max-w-4xl mx-auto px-2.5 sm:px-4 pb-24 animate-fade-in overflow-x-clip">
             {/* ==================== HEADER PROFILE & STATS HUD ==================== */}
             <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-6 text-slate-800 dark:text-slate-100 shadow-sm dark:shadow-xl group">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/5 dark:bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
