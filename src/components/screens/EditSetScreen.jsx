@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import { Plus, Loader2, Image as ImageIcon, Check, X, Folder, AlertTriangle, FileJson, Camera, Wrench, ChevronDown } from 'lucide-react';
 
 import { compressImage } from '../../utils/image';
@@ -712,9 +713,9 @@ const EditSetScreen = ({
             </SectionErrorBoundary>
 
             {/* Folder Selector Dialog */}
-            {showFolderSelector && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-                    <div className="bg-white dark:bg-gray-800 rounded-3xl w-full max-w-md max-h-[80vh] flex flex-col shadow-2xl border border-slate-100 dark:border-slate-700 overflow-hidden">
+            {showFolderSelector && typeof document !== 'undefined' && createPortal(
+                <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+                    <div className="bg-white dark:bg-gray-800 rounded-3xl w-full max-w-md max-h-[80vh] flex flex-col shadow-2xl border border-slate-100 dark:border-slate-700 overflow-hidden my-auto">
                         
                         {/* Dialog Header */}
                         <div className="flex items-center justify-between p-5 border-b border-slate-100 dark:border-slate-750">
@@ -820,12 +821,13 @@ const EditSetScreen = ({
                             </button>
                         </div>
                     </div>
-                </div>
+                </div>,
+                document.body
             )}
             {/* Duplicates Alert Dialog */}
-            {duplicateCheckResult && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-                    <div className="bg-white dark:bg-gray-800 rounded-3xl w-full max-w-lg max-h-[85vh] flex flex-col shadow-2xl border border-slate-100 dark:border-slate-700 overflow-hidden">
+            {duplicateCheckResult && typeof document !== 'undefined' && createPortal(
+                <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
+                    <div className="bg-white dark:bg-gray-800 rounded-3xl w-full max-w-lg max-h-[85vh] flex flex-col shadow-2xl border border-slate-100 dark:border-slate-700 overflow-hidden my-auto">
                         
                         {/* Dialog Header */}
                         <div className="flex items-center gap-3 p-5 border-b border-slate-100 dark:border-slate-700 bg-amber-50/60 dark:bg-amber-950/20">
@@ -931,7 +933,8 @@ const EditSetScreen = ({
                             </button>
                         </div>
                     </div>
-                </div>
+                </div>,
+                document.body
             )}
             <PremiumLockedModal isOpen={showPremiumModal} onClose={() => setShowPremiumModal(false)} />
         </div>

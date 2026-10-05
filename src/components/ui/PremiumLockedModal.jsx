@@ -1,4 +1,5 @@
 import React from 'react';
+import { createPortal } from 'react-dom';
 import { X, ShieldAlert, Zap, Award, Sparkle } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../router';
@@ -16,8 +17,8 @@ const PremiumLockedModal = ({ isOpen, show, onClose, pkgName, packageName }) => 
         navigate(ROUTES.UPGRADE);
     };
 
-    return (
-        <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 animate-fade-in">
+    const modalContent = (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-4 animate-fade-in">
             {/* Backdrop with backdrop blur */}
             <div 
                 className="absolute inset-0 bg-slate-900/60 backdrop-blur-md transition-opacity duration-300"
@@ -98,6 +99,8 @@ const PremiumLockedModal = ({ isOpen, show, onClose, pkgName, packageName }) => 
             </div>
         </div>
     );
+
+    return typeof document !== 'undefined' ? createPortal(modalContent, document.body) : modalContent;
 };
 
 export default PremiumLockedModal;

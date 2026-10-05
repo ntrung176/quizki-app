@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { createPortal } from 'react-dom';
 import { X, Copy, Check, FileJson, Download, AlertCircle } from 'lucide-react';
 import { showToast } from '../../utils/toast';
 import { cleanJapaneseExampleSentence } from '../../utils/furiganaHelper';
@@ -276,11 +277,11 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
         }
     };
 
-    return (
-        <div className="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in overflow-y-auto">
-            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 max-w-2xl w-full shadow-2xl space-y-5 my-8">
+    const modalContent = (
+        <div className="fixed inset-0 z-[100] bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 animate-fade-in overflow-y-auto">
+            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 max-w-2xl w-full shadow-2xl space-y-5 my-auto max-h-[92vh] flex flex-col">
                 {/* Header */}
-                <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
+                <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4 shrink-0">
                     <div className="flex items-center gap-3 text-indigo-600 dark:text-indigo-400">
                         <div className="p-2.5 rounded-2xl bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-100 dark:border-indigo-900/50">
                             <FileJson className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
@@ -306,63 +307,66 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                     </button>
                 </div>
 
-                {/* Full Prompt AI Copy Box */}
-                <div className="p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800 rounded-2xl space-y-2.5">
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-2 text-slate-700 dark:text-slate-200 font-bold text-xs">
-                            <FileJson className="w-4 h-4 text-blue-500" />
-                            <span>
-                                {isKoreanMode
-                                    ? 'Prompt AI đầy đủ các trường từ vựng tiếng Hàn (ChatGPT / Gemini / Claude)'
-                                    : isEnglishMode
-                                    ? 'Prompt AI đầy đủ các trường từ vựng tiếng Anh (ChatGPT / Gemini / Claude)'
-                                    : 'Prompt AI đầy đủ các trường từ vựng tiếng Nhật (ChatGPT / Gemini / Claude)'}
-                            </span>
+                {/* Body Content - Scrollable on small screens */}
+                <div className="space-y-4 overflow-y-auto custom-scrollbar flex-1 pr-1">
+                    {/* Full Prompt AI Copy Box */}
+                    <div className="p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800 rounded-2xl space-y-2.5">
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2 text-slate-700 dark:text-slate-200 font-bold text-xs">
+                                <FileJson className="w-4 h-4 text-blue-500" />
+                                <span>
+                                    {isKoreanMode
+                                        ? 'Prompt AI đầy đủ các trường từ vựng tiếng Hàn (ChatGPT / Gemini / Claude)'
+                                        : isEnglishMode
+                                        ? 'Prompt AI đầy đủ các trường từ vựng tiếng Anh (ChatGPT / Gemini / Claude)'
+                                        : 'Prompt AI đầy đủ các trường từ vựng tiếng Nhật (ChatGPT / Gemini / Claude)'}
+                                </span>
+                            </div>
+                            <button
+                                onClick={handleCopyPrompt}
+                                className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold transition-all shadow-sm active:scale-95 cursor-pointer shrink-0"
+                            >
+                                {copiedPrompt ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
+                                <span>{copiedPrompt ? 'Đã chép Prompt!' : 'Sao chép Prompt'}</span>
+                            </button>
                         </div>
-                        <button
-                            onClick={handleCopyPrompt}
-                            className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold transition-all shadow-sm active:scale-95 cursor-pointer shrink-0"
-                        >
-                            {copiedPrompt ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                            <span>{copiedPrompt ? 'Đã chép Prompt!' : 'Sao chép Prompt'}</span>
-                        </button>
+                        <pre className="text-[11px] font-mono leading-relaxed bg-white/90 dark:bg-slate-950/90 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 whitespace-pre-wrap max-h-48 overflow-y-auto custom-scrollbar">
+                            {currentPrompt}
+                        </pre>
                     </div>
-                    <pre className="text-[11px] font-mono leading-relaxed bg-white/90 dark:bg-slate-950/90 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 whitespace-pre-wrap max-h-56 overflow-y-auto custom-scrollbar">
-                        {currentPrompt}
-                    </pre>
-                </div>
 
-                {/* Textarea Input */}
-                <div className="space-y-2">
-                    <label className="block text-xs font-bold text-slate-700 dark:text-slate-300">
-                        Dán chuỗi mảng JSON từ vựng do AI tạo vào đây:
-                    </label>
-                    <textarea
-                        value={jsonInput}
-                        onChange={(e) => {
-                            setJsonInput(e.target.value);
-                            setErrorMsg('');
-                        }}
-                        rows={6}
-                        placeholder={
-                            isKoreanMode
-                                ? `Dán chuỗi JSON từ AI vào đây, ví dụ:\n[\n  {\n    "front": "공부하다",\n    "reading": "gong-bu-ha-da",\n    "back": "Học, học tập",\n    "sinoVietnamese": "CÔNG PHU",\n    "pos": "Động từ",\n    "level": "TOPIK 1",\n    "example": "1. 저는 매일 한국어를 2시간 공부해요.\\n2. 도서관에서 친구와 같이 공부했어요.",\n    "exampleMeaning": "1. Tôi học tiếng Hàn 2 tiếng mỗi ngày.\\n2. Tôi đã cùng bạn học bài ở thư viện.",\n    "synonym": "배우다",\n    "nuance": "Dùng cho việc học tập rèn luyện."\n  }\n]`
-                                : isEnglishMode
-                                ? `Dán chuỗi JSON từ AI vào đây, ví dụ:\n[\n  {\n    "front": "Accomplish",\n    "reading": "/əˈkɑːm.plɪʃ/",\n    "back": "Hoàn thành, đạt được",\n    "pos": "Verb (Động từ)",\n    "level": "B2",\n    "example": "1. If we work together, we can accomplish anything.\\n2. She accomplished such a lot during her visit.",\n    "exampleMeaning": "1. Nếu chúng ta làm việc cùng nhau, chúng ta có thể hoàn thành bất cứ điều gì.\\n2. Cô ấy đã đạt được rất nhiều thành tựu.",\n    "synonym": "Achieve, Complete",\n    "nuance": "Dùng cho việc hoàn thành mục tiêu sau nỗ lực."\n  }\n]`
-                                : `Dán chuỗi JSON từ AI vào đây, ví dụ:\n[\n  {\n    "front": "勉強",\n    "reading": "べんきょう",\n    "back": "Học tập, học hành",\n    "sinoVietnamese": "MIỄN CƯỜNG",\n    "pos": "Danh từ / Động từ nhóm 3",\n    "level": "N5",\n    "example": "1. 毎日日本語を2時間勉強しています。\\n2. 図書館で友達と一緒に勉強しました。",\n    "exampleMeaning": "1. Tôi học tiếng Nhật 2 tiếng mỗi ngày.\\n2. Tôi đã cùng bạn học bài ở thư viện.",\n    "synonym": "学習",\n    "synonymSinoVietnamese": "HỌC TẬP",\n    "nuance": "Dùng trong học tập kiến thức, thi cử."\n  }\n]`
-                        }
-                        className="w-full p-3.5 text-xs font-mono bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-2xl focus:ring-2 focus:ring-indigo-500 outline-none text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-600 transition-all custom-scrollbar"
-                    />
-                    {errorMsg && (
-                        <div className="flex items-center gap-1.5 text-xs text-rose-500 font-semibold mt-1">
-                            <AlertCircle className="w-4 h-4 shrink-0" />
-                            <span>{errorMsg}</span>
-                        </div>
-                    )}
+                    {/* Textarea Input */}
+                    <div className="space-y-2">
+                        <label className="block text-xs font-bold text-slate-700 dark:text-slate-300">
+                            Dán chuỗi mảng JSON từ vựng do AI tạo vào đây:
+                        </label>
+                        <textarea
+                            value={jsonInput}
+                            onChange={(e) => {
+                                setJsonInput(e.target.value);
+                                setErrorMsg('');
+                            }}
+                            rows={5}
+                            placeholder={
+                                isKoreanMode
+                                    ? `Dán chuỗi JSON từ AI vào đây, ví dụ:\n[\n  {\n    "front": "공부하다",\n    "reading": "gong-bu-ha-da",\n    "back": "Học, học tập",\n    "sinoVietnamese": "CÔNG PHU",\n    "pos": "Động từ",\n    "level": "TOPIK 1",\n    "example": "1. 저는 매일 한국어를 2시간 공부해요.\\n2. 도서관에서 친구와 같이 공부했어요.",\n    "exampleMeaning": "1. Tôi học tiếng Hàn 2 tiếng mỗi ngày.\\n2. Tôi đã cùng bạn học bài ở thư viện.",\n    "synonym": "배우다",\n    "nuance": "Dùng cho việc học tập rèn luyện."\n  }\n]`
+                                    : isEnglishMode
+                                    ? `Dán chuỗi JSON từ AI vào đây, ví dụ:\n[\n  {\n    "front": "Accomplish",\n    "reading": "/əˈkɑːm.plɪʃ/",\n    "back": "Hoàn thành, đạt được",\n    "pos": "Verb (Động từ)",\n    "level": "B2",\n    "example": "1. If we work together, we can accomplish anything.\\n2. She accomplished such a lot during her visit.",\n    "exampleMeaning": "1. Nếu chúng ta làm việc cùng nhau, chúng ta có thể hoàn thành bất cứ điều gì.\\n2. Cô ấy đã đạt được rất nhiều thành tựu.",\n    "synonym": "Achieve, Complete",\n    "nuance": "Dùng cho việc hoàn thành mục tiêu sau nỗ lực."\n  }\n]`
+                                    : `Dán chuỗi JSON từ AI vào đây, ví dụ:\n[\n  {\n    "front": "勉強",\n    "reading": "べんきょう",\n    "back": "Học tập, học hành",\n    "sinoVietnamese": "MIỄN CƯỜNG",\n    "pos": "Danh từ / Động từ nhóm 3",\n    "level": "N5",\n    "example": "1. 毎日日本語を2時間勉強しています。\\n2. 図書館で友達と一緒に勉強しました。",\n    "exampleMeaning": "1. Tôi học tiếng Nhật 2 tiếng mỗi ngày.\\n2. Tôi đã cùng bạn học bài ở thư viện.",\n    "synonym": "学習",\n    "synonymSinoVietnamese": "HỌC TẬP",\n    "nuance": "Dùng trong học tập kiến thức, thi cử."\n  }\n]`
+                            }
+                            className="w-full p-3.5 text-xs font-mono bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-2xl focus:ring-2 focus:ring-indigo-500 outline-none text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-600 transition-all custom-scrollbar"
+                        />
+                        {errorMsg && (
+                            <div className="flex items-center gap-1.5 text-xs text-rose-500 font-semibold mt-1">
+                                <AlertCircle className="w-4 h-4 shrink-0" />
+                                <span>{errorMsg}</span>
+                            </div>
+                        )}
+                    </div>
                 </div>
 
                 {/* Footer Buttons */}
-                <div className="flex items-center justify-end gap-2.5 border-t border-slate-100 dark:border-slate-800 pt-4">
+                <div className="flex items-center justify-end gap-2.5 border-t border-slate-100 dark:border-slate-800 pt-4 shrink-0">
                     <button
                         onClick={onClose}
                         className="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
@@ -380,6 +384,8 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
             </div>
         </div>
     );
+
+    return typeof document !== 'undefined' ? createPortal(modalContent, document.body) : modalContent;
 };
 
 export default JsonImportModal;

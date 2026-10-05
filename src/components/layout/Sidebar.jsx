@@ -913,7 +913,7 @@ const Sidebar = ({
     return (
         <>
             {/* Top Fixed Mobile Header Bar */}
-            <header className="lg:hidden fixed top-0 left-0 right-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 px-3.5 pb-2 pt-[max(0.625rem,env(safe-area-inset-top))] flex items-center justify-between shadow-xs">
+            <header className="lg:hidden fixed top-0 left-0 right-0 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 px-3.5 pb-2 pt-[max(0.625rem,env(safe-area-inset-top))] flex items-center justify-between shadow-xs">
                 {/* Left Logo / Torii Avatar */}
                 <Link
                     to={ROUTES.HOME}
@@ -969,7 +969,7 @@ const Sidebar = ({
 
             {/* Mobile Bottom Navigation Bar - Fixed at bottom matching iOS native proportion */}
             <nav 
-                className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/98 dark:bg-slate-900/98 backdrop-blur-md border-t border-slate-200/80 dark:border-slate-800/80 shadow-[0_-2px_12px_rgba(0,0,0,0.04)] dark:shadow-[0_-4px_20px_rgba(0,0,0,0.3)] transition-colors select-none"
+                className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/98 dark:bg-slate-900/98 backdrop-blur-md border-t border-slate-200/80 dark:border-slate-800/80 shadow-[0_-2px_12px_rgba(0,0,0,0.04)] dark:shadow-[0_-4px_20px_rgba(0,0,0,0.3)] transition-colors select-none"
                 style={{
                     paddingTop: '6px',
                     paddingBottom: 'max(8px, env(safe-area-inset-bottom, 8px))'
