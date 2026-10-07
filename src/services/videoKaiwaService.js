@@ -674,3 +674,390 @@ export const enrichSingleSubtitleWithAI = async (subtitle, topicContext = '') =>
     return res[0] || subtitle;
 };
 
+/**
+ * Fetches YouTube video metadata (Title, Author/Channel, Thumbnail) without requiring an API key.
+ */
+export const fetchYoutubeMetadata = async (youtubeId) => {
+    if (!youtubeId) return null;
+    const cleanId = extractYoutubeId(youtubeId) || youtubeId;
+
+    // 1. Try noembed.com
+    try {
+        const res = await fetch(`https://noembed.com/embed?url=https://www.youtube.com/watch?v=${cleanId}`, {
+            signal: AbortSignal.timeout(6000)
+        });
+        if (res.ok) {
+            const data = await res.json();
+            if (data && (data.title || data.author_name)) {
+                return {
+                    youtubeId: cleanId,
+                    title: data.title || '',
+                    channelTitle: data.author_name || '',
+                    thumbnail: `https://img.youtube.com/vi/${cleanId}/hqdefault.jpg`,
+                    authorUrl: data.author_url || ''
+                };
+            }
+        }
+    } catch (e) {
+        console.warn('noembed fetch failed:', e?.message);
+    }
+
+    // 2. Try official YouTube oEmbed
+    try {
+        const res = await fetch(`https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=${cleanId}&format=json`, {
+            signal: AbortSignal.timeout(6000)
+        });
+        if (res.ok) {
+            const data = await res.json();
+            if (data && (data.title || data.author_name)) {
+                return {
+                    youtubeId: cleanId,
+                    title: data.title || '',
+                    channelTitle: data.author_name || '',
+                    thumbnail: `https://img.youtube.com/vi/${cleanId}/hqdefault.jpg`,
+                    authorUrl: data.author_url || ''
+                };
+            }
+        }
+    } catch (e) {
+        console.warn('YouTube oEmbed fetch failed:', e?.message);
+    }
+
+    // Fallback default
+    return {
+        youtubeId: cleanId,
+        title: '',
+        channelTitle: '',
+        thumbnail: `https://img.youtube.com/vi/${cleanId}/hqdefault.jpg`
+    };
+};
+
+/**
+ * Parses YouTube JSON3 timed text format into QuizKi subtitle format.
+ */
+export const parseJson3Subtitles = (jsonData) => {
+    if (!jsonData || !Array.isArray(jsonData.events)) return [];
+    const list = [];
+    let count = 1;
+    for (const ev of jsonData.events) {
+        if (!ev.segs || ev.segs.length === 0) continue;
+        const text = ev.segs
+            .map(s => s.utf8 || '')
+            .join('')
+            .replace(/\[音楽\]|\[Music\]|[\r\n]+/gi, ' ')
+            .trim();
+        if (!text || /^[。、\.\,\s\d]+$/.test(text)) continue;
+        const start = (ev.tStartMs || 0) / 1000;
+        const dur = (ev.dDurationMs || 3000) / 1000;
+        const end = start + dur;
+        list.push({
+            id: count++,
+            start: Math.round(start * 10) / 10,
+            end: Math.round(end * 10) / 10,
+            ja: text,
+            furigana: text,
+            vi: '',
+            keywords: [],
+            grammar: []
+        });
+    }
+    return list;
+};
+
+/**
+ * Parses YouTube XML timed text format into QuizKi subtitle format.
+ */
+export const parseXmlTimedText = (xmlStr) => {
+    if (!xmlStr || typeof xmlStr !== 'string') return [];
+    const list = [];
+    let count = 1;
+    const regex = /<text\s+start="([0-9.]+)"\s+dur="([0-9.]+)"[^>]*>([\s\S]*?)<\/text>/gi;
+    let match;
+    while ((match = regex.exec(xmlStr)) !== null) {
+        const start = parseFloat(match[1]) || 0;
+        const dur = parseFloat(match[2]) || 3;
+        let text = match[3] || '';
+        text = text
+            .replace(/&amp;/g, '&')
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, "'")
+            .replace(/&#(\d+);/g, (_, dec) => String.fromCharCode(dec))
+            .replace(/\[音楽\]|\[Music\]/gi, '')
+            .trim();
+        if (text && !/^[。、\.\,\s\d]+$/.test(text)) {
+            list.push({
+                id: count++,
+                start: Math.round(start * 10) / 10,
+                end: Math.round((start + dur) * 10) / 10,
+                ja: text,
+                furigana: text,
+                vi: '',
+                keywords: [],
+                grammar: []
+            });
+        }
+    }
+    return list;
+};
+
+/**
+ * Multi-tiered YouTube subtitle fetcher.
+ * Queries public mirrors, CORS proxies, and TimedText endpoints to find Japanese subtitles.
+ */
+export const fetchYoutubeSubtitles = async (youtubeId) => {
+    if (!youtubeId) return { success: false, reason: 'invalid_id', message: 'ID YouTube không hợp lệ' };
+    const cleanId = extractYoutubeId(youtubeId) || youtubeId;
+
+    // Strategy 1: Invidious Instances
+    const invidiousHosts = [
+        'https://inv.nadeko.net',
+        'https://invidious.nerdvpn.de',
+        'https://vid.priv.au',
+        'https://yt.drgnz.club',
+        'https://invidious.private.coffee',
+        'https://invidious.flokinet.to',
+        'https://yt.artemislena.eu',
+        'https://invidious.projectsegfau.lt',
+        'https://yewtu.be',
+        'https://invidious.jing.rocks',
+        'https://invidious.lunar.icu',
+        'https://invidious.einfachzocken.eu',
+        'https://inv.tux.pizza'
+    ];
+
+    for (const host of invidiousHosts) {
+        try {
+            const res = await fetch(`${host}/api/v1/captions/${cleanId}`, {
+                signal: AbortSignal.timeout(3000)
+            });
+            if (res.ok) {
+                const data = await res.json();
+                if (data?.captions && Array.isArray(data.captions) && data.captions.length > 0) {
+                    // Find Japanese caption track
+                    const jaTrack = data.captions.find(c =>
+                        (c.languageCode || '').startsWith('ja') ||
+                        (c.label || '').includes('Japan') ||
+                        (c.label || '').includes('Nhật') ||
+                        (c.label || '').includes('日本語')
+                    ) || data.captions[0];
+
+                    const capUrl = jaTrack.url.startsWith('http') ? jaTrack.url : `${host}${jaTrack.url}`;
+                    const capRes = await fetch(capUrl, { signal: AbortSignal.timeout(3500) });
+                    if (capRes.ok) {
+                        const content = await capRes.text();
+                        if (content && content.length > 20) {
+                            let parsed = [];
+                            if (content.startsWith('WEBVTT') || content.includes('-->')) {
+                                parsed = parseTextToSubtitles(content);
+                            } else if (content.includes('<transcript') || content.includes('<text')) {
+                                parsed = parseXmlTimedText(content);
+                            } else {
+                                try {
+                                    parsed = parseJson3Subtitles(JSON.parse(content));
+                                } catch (e) {
+                                    parsed = parseTextToSubtitles(content);
+                                }
+                            }
+                            if (parsed.length > 0) {
+                                return {
+                                    success: true,
+                                    subtitles: parsed,
+                                    trackLabel: jaTrack.label || 'Tiếng Nhật (YouTube CC)',
+                                    source: host
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (err) {
+            // continue to next host
+        }
+    }
+
+    // Strategy 2: Piped Instances
+    const pipedHosts = [
+        'https://pipedapi.kavin.rocks',
+        'https://api.piped.privacydev.net',
+        'https://piped-api.garudalinux.org',
+        'https://api.piped.yt',
+        'https://pipedapi.tokhmi.xyz',
+        'https://pipedapi.leptons.xyz',
+        'https://pipedapi.adminforge.de'
+    ];
+
+    for (const host of pipedHosts) {
+        try {
+            const res = await fetch(`${host}/streams/${cleanId}`, {
+                signal: AbortSignal.timeout(3500)
+            });
+            if (res.ok) {
+                const data = await res.json();
+                if (data?.subtitles && Array.isArray(data.subtitles) && data.subtitles.length > 0) {
+                    const jaSub = data.subtitles.find(s =>
+                        (s.code || '').startsWith('ja') ||
+                        (s.name || '').includes('Japan') ||
+                        (s.name || '').includes('Nhật') ||
+                        (s.name || '').includes('日本語')
+                    ) || data.subtitles[0];
+
+                    if (jaSub?.url) {
+                        const capRes = await fetch(jaSub.url, { signal: AbortSignal.timeout(4000) });
+                        if (capRes.ok) {
+                            const content = await capRes.text();
+                            const parsed = parseTextToSubtitles(content);
+                            if (parsed.length > 0) {
+                                return {
+                                    success: true,
+                                    subtitles: parsed,
+                                    trackLabel: jaSub.name || 'Tiếng Nhật (YouTube CC)',
+                                    source: host
+                                };
+                            }
+                        }
+                    }
+                }
+            }
+        } catch (err) {
+            // continue
+        }
+    }
+
+    // Strategy 3: CORS Proxies to YouTube timedtext
+    const corsProxies = [
+        (target) => `https://api.allorigins.win/raw?url=${encodeURIComponent(target)}`,
+        (target) => `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(target)}`
+    ];
+
+    const timedTextUrls = [
+        `https://www.youtube.com/api/timedtext?v=${cleanId}&lang=ja&fmt=json3`,
+        `https://www.youtube.com/api/timedtext?v=${cleanId}&lang=ja-JP&fmt=json3`,
+        `https://www.youtube.com/api/timedtext?v=${cleanId}&lang=ja&fmt=srv3`,
+        `https://www.youtube.com/api/timedtext?v=${cleanId}&lang=ja`
+    ];
+
+    for (const proxyFn of corsProxies) {
+        for (const targetUrl of timedTextUrls) {
+            try {
+                const proxyUrl = proxyFn(targetUrl);
+                const res = await fetch(proxyUrl, { signal: AbortSignal.timeout(4000) });
+                if (res.ok) {
+                    const text = await res.text();
+                    if (text && text.length > 20) {
+                        let parsed = [];
+                        if (text.startsWith('{')) {
+                            try {
+                                parsed = parseJson3Subtitles(JSON.parse(text));
+                            } catch (e) {}
+                        } else if (text.includes('<text') || text.includes('<transcript')) {
+                            parsed = parseXmlTimedText(text);
+                        } else if (text.includes('-->') || text.startsWith('WEBVTT')) {
+                            parsed = parseTextToSubtitles(text);
+                        }
+                        if (parsed.length > 0) {
+                            return {
+                                success: true,
+                                subtitles: parsed,
+                                trackLabel: 'Tiếng Nhật (YouTube TimedText)',
+                                source: 'timedtext'
+                            };
+                        }
+                    }
+                }
+            } catch (e) {
+                // continue
+            }
+        }
+    }
+
+    return {
+        success: false,
+        reason: 'no_subtitles',
+        message: 'Không tìm thấy phụ đề có sẵn trên YouTube cho video này.'
+    };
+};
+
+/**
+ * Uses AI to analyze video title and subtitle sample to automatically deduce:
+ * Level (N5-N1), Category (daily, news, kaigo, business, interview, anime), Vietnamese Title translation, Channel, and Summary description.
+ */
+export const analyzeVideoMetadataWithAI = async ({ title = '', channelTitle = '', subtitlesSample = [], rawText = '' }) => {
+    // Construct sample text representation
+    let sampleContent = '';
+    if (Array.isArray(subtitlesSample) && subtitlesSample.length > 0) {
+        sampleContent = subtitlesSample.slice(0, 15).map((s, idx) => `${idx + 1}. ${s.ja || s.furigana || ''}`).join('\n');
+    } else if (typeof rawText === 'string' && rawText.trim()) {
+        sampleContent = rawText.slice(0, 1500);
+    }
+
+    const prompt = `Bạn là chuyên gia giáo dục Tiếng Nhật JLPT và phân tích nội dung video Kaiwa chuyên nghiệp.
+Nhiệm vụ: Dựa vào Tiêu đề video, Tên kênh và Mẫu các câu thoại trong video dưới đây, hãy tự động phân tích và xác định các thông tin sau:
+
+1. "title": Tiêu đề tiếng Nhật chuẩn của video (có thể giữ nguyên hoặc rút gọn tinh gọn, loại bỏ các thẻ rác như [4K], (Official), #Shorts...).
+2. "titleVi": Tiêu đề dịch sang Tiếng Việt tự nhiên, hấp dẫn, chuẩn nghĩa (BẮT BUỘC có).
+3. "level": Cấp độ JLPT phù hợp nhất cho người học. BẮT BUỘC chọn 1 trong 5 giá trị: "N5", "N4", "N3", "N2", "N1" (Dựa vào độ phức tạp của ngữ pháp và từ vựng trong bài).
+4. "category": Danh mục chủ đề của video. BẮT BUỘC chọn 1 trong các mã sau:
+   - "kaigo": Kaigo (Điều dưỡng, Y tế, Chăm sóc người cao tuổi, Hộ lý)
+   - "daily": Đời sống thường nhật & Giao tiếp thường ngày, mua sắm, nấu ăn, du lịch
+   - "business": Công sở & Thương mại, Kính ngữ Keigo, phỏng vấn công việc, email công ty
+   - "interview": Phỏng vấn xin việc, Arubaito, giới thiệu bản thân
+   - "news": Tin tức Thời sự, phóng sự xã hội, khoa học, văn hóa Nhật
+   - "anime": Anime, phim ngắn, hoạt hình, truyện tranh
+5. "channelTitle": Tên kênh hoặc tác giả (loại bỏ các hậu tố không cần thiết).
+6. "description": Tóm tắt ngắn gọn 1-2 câu bằng Tiếng Việt về nội dung chính của video và điểm trọng tâm người học sẽ tiếp thu được.
+
+Thông tin đầu vào:
+- Tiêu đề gốc: ${title || 'Chưa có'}
+- Tên kênh gốc: ${channelTitle || 'Chưa có'}
+- Mẫu các câu thoại trong video:
+${sampleContent || 'Chưa có mẫu câu thoại'}
+
+BẮT BUỘC trả về định dạng JSON thuần (KHÔNG kèm markdown ngoài JSON):
+{
+  "title": "...",
+  "titleVi": "...",
+  "level": "N3",
+  "category": "daily",
+  "channelTitle": "...",
+  "description": "..."
+}`;
+
+    try {
+        let aiResponse;
+        try {
+            aiResponse = await callKaiwaAI(prompt, [], 'Trả về đúng 1 object JSON chứa metadata video.');
+        } catch (e) {
+            aiResponse = await callAI(prompt, null, 'kaiwa_agent');
+        }
+        const parsed = parseJsonFromAI(aiResponse);
+        if (parsed && typeof parsed === 'object') {
+            const validLevels = ['N5', 'N4', 'N3', 'N2', 'N1'];
+            const validCategories = ['kaigo', 'daily', 'business', 'interview', 'news', 'anime'];
+
+            return {
+                title: parsed.title || title || 'Video Kaiwa Tiếng Nhật',
+                titleVi: parsed.titleVi || '',
+                level: validLevels.includes(parsed.level) ? parsed.level : 'N3',
+                category: validCategories.includes(parsed.category) ? parsed.category : 'daily',
+                channelTitle: parsed.channelTitle || channelTitle || 'QuizKi Master',
+                description: parsed.description || ''
+            };
+        }
+    } catch (e) {
+        console.warn('Lỗi khi AI phân tích metadata video:', e);
+    }
+
+    // Fallback if AI fails
+    return {
+        title: title || 'Video Kaiwa Tiếng Nhật',
+        titleVi: '',
+        level: 'N3',
+        category: 'daily',
+        channelTitle: channelTitle || 'QuizKi Master',
+        description: ''
+    };
+};
+
+
