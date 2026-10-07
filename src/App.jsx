@@ -54,6 +54,8 @@ const AppContent = () => {
         }
     }, [authReady]);
 
+    const isAuthPage = location.pathname === '/login' || location.pathname.startsWith('/auth');
+
     return (
         <div className={`min-h-screen font-sans ${isDarkMode ? 'dark text-slate-100' : 'text-slate-900'} relative transition-colors duration-200`}>
             {/* Automatic Scroll To Top on Route Change */}
@@ -87,8 +89,8 @@ const AppContent = () => {
                 handleDismissPopup={handleDismissPopup}
             />
 
-            {/* Global Sidebar (only when authenticated) */}
-            {userId && (
+            {/* Global Sidebar (available for both authenticated users and guests, hidden on login screen) */}
+            {!isAuthPage && (
                 <Sidebar
                     currentView={view}
                     setView={setView}
@@ -107,7 +109,7 @@ const AppContent = () => {
             )}
 
             {/* Main view container */}
-            <main className={`min-h-screen flex flex-col w-full max-w-full min-w-0 overflow-x-clip transition-[padding,margin] duration-200 ease-out ${userId ? (isReviewSessionPage ? 'p-0' : (isSidebarCollapsed ? 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-0 lg:pl-20' : 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-0 lg:pl-64')) : 'pl-0'}`}>
+            <main className={`min-h-screen flex flex-col w-full max-w-full min-w-0 overflow-x-clip transition-[padding,margin] duration-200 ease-out ${isAuthPage ? 'p-0' : (isReviewSessionPage ? 'p-0' : (isSidebarCollapsed ? 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-0 lg:pl-20' : 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-0 lg:pl-64'))}`}>
                 {/* Admin Test Mode Banner */}
                 {profile?.trialPricingTier && (
                     <div className="bg-indigo-600 text-white text-xs font-semibold px-4 py-2.5 flex items-center justify-between shadow-md relative z-40">

@@ -78,7 +78,7 @@ const getInitialVocabList = () => {
 };
 
 // ==================== MAIN COMPONENT ====================
-const KanjiLessonScreen = ({ awardXP }) => {
+const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = null }) => {
     const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
     const level = searchParams.get('level') || 'N5';
@@ -124,12 +124,18 @@ const KanjiLessonScreen = ({ awardXP }) => {
     };
     // User Profile, Dark Mode, Search and Notifications
     const [profile, setProfile] = useState(() => {
+        if (propProfile) return propProfile;
         try {
             return JSON.parse(localStorage.getItem('quizki-profile') || 'null');
         } catch (_) {
             return null;
         }
     });
+
+    useEffect(() => {
+        if (propProfile) setProfile(propProfile);
+    }, [propProfile]);
+
     const [isDarkMode, setIsDarkMode] = useState(() => localStorage.getItem('darkMode') === 'true');
     const [searchTerm, setSearchTerm] = useState('');
     const [showNotifications, setShowNotifications] = useState(false);
@@ -153,14 +159,14 @@ const KanjiLessonScreen = ({ awardXP }) => {
         loadProfile();
     }, [userId]);
     useEffect(() => {
-        if (profile) {
-            const userIsAdmin = profile?.email && ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'].includes(profile.email);
-            const isLockedLevel = ['N3', 'N2', 'N1'].includes(level) && !userIsAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('kanji_zen');
-            if (isLockedLevel) {
+        if (level !== 'N5') {
+            const userIsAdmin = isAdmin || (profile?.email && ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'].includes(profile.email));
+            const hasKanjiAccess = userIsAdmin || profile?.isPremiumUnlocked || profile?.isPremium || (profile?.unlockedSpecializedPackages || []).includes('kanji_zen') || (profile?.unlockedSpecializedPackages || []).includes('premium');
+            if (!hasKanjiAccess) {
                 navigate(ROUTES.KANJI_STUDY);
             }
         }
-    }, [profile, level, navigate]);
+    }, [profile, level, navigate, isAdmin]);
     useEffect(() => {
         if (!userId) return;
         const loadSrs = async () => {

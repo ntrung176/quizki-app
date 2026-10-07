@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {
     Bookmark, Search, Sparkles, BookOpen, ChevronRight, Heart, X
 } from 'lucide-react';
-import { TopTabBar } from '../ui';
+import { TopTabBar, PremiumLockedModal } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
 import { showToast } from '../../utils/toast';
 
@@ -18,13 +18,16 @@ const CATEGORIES = [
     { id: 'Văn phong', label: 'Văn phong' }
 ];
 
-const GrammarCheatSheetsScreen = () => {
+const GrammarCheatSheetsScreen = ({ isAdmin = false, profile = null }) => {
     const navigate = useNavigate();
     const [sheets, setSheets] = useState([]);
     const [loading, setLoading] = useState(true);
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [showSavedOnly, setShowSavedOnly] = useState(false);
+    const [showPremiumModal, setShowPremiumModal] = useState(false);
+
+    const hasGrammarAccess = isAdmin || profile?.isPremiumUnlocked || profile?.isPremium || (profile?.unlockedSpecializedPackages || []).includes('grammar_zen') || (profile?.unlockedSpecializedPackages || []).includes('premium');
     const [savedSheets, setSavedSheets] = useState(() => {
         try {
             return JSON.parse(localStorage.getItem('quizki_saved_grammar_sheets') || '[]');
@@ -185,11 +188,18 @@ const GrammarCheatSheetsScreen = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                         {filteredSheets.map((sheet) => {
                             const isSaved = savedSheets.includes(sheet.id);
+                            const isLocked = (!sheet.level || (!sheet.level.includes('N5') && sheet.level !== 'N5')) && !hasGrammarAccess;
 
                             return (
                                 <div
                                     key={sheet.id}
-                                    onClick={() => navigate(`/grammar/cheatsheets/${sheet.id}`)}
+                                    onClick={() => {
+                                        if (isLocked) {
+                                            setShowPremiumModal(true);
+                                            return;
+                                        }
+                                        navigate(`/grammar/cheatsheets/${sheet.id}`);
+                                    }}
                                     className="group relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 hover:border-slate-900 dark:hover:border-slate-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between cursor-pointer"
                                 >
                                     <div>
@@ -201,8 +211,9 @@ const GrammarCheatSheetsScreen = () => {
 
                                             <div className="flex items-center gap-2">
                                                 {sheet.level && (
-                                                    <span className="px-2.5 py-1 rounded-xl text-[11px] font-extrabold border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 group-hover:border-slate-400 transition-colors">
-                                                        {sheet.level}
+                                                    <span className={`px-2.5 py-1 rounded-xl text-[11px] font-extrabold border ${isLocked ? 'border-amber-300 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300' : 'border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300'} flex items-center gap-1`}>
+                                                        {isLocked && <span>🔒</span>}
+                                                        <span>{sheet.level}</span>
                                                     </span>
                                                 )}
 
@@ -241,8 +252,8 @@ const GrammarCheatSheetsScreen = () => {
                                                 {sheet.sections?.length || 0} bảng quy tắc
                                             </span>
 
-                                            <div className="flex items-center gap-1 text-xs font-bold text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white group-hover:translate-x-1 transition-all">
-                                                <span>Xem bảng tra cứu</span>
+                                            <div className={`flex items-center gap-1 text-xs font-bold ${isLocked ? 'text-amber-600 dark:text-amber-400' : 'text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white group-hover:translate-x-1'} transition-all`}>
+                                                <span>{isLocked ? 'Khóa Premium' : 'Xem bảng tra cứu'}</span>
                                                 <ChevronRight className="w-3.5 h-3.5" />
                                             </div>
                                         </div>
@@ -253,6 +264,12 @@ const GrammarCheatSheetsScreen = () => {
                     </div>
                 )}
             </div>
+
+            <PremiumLockedModal
+                isOpen={showPremiumModal}
+                onClose={() => setShowPremiumModal(false)}
+                packageName="Thư viện Ngữ pháp Chuyên sâu"
+            />
         </div>
     );
 };

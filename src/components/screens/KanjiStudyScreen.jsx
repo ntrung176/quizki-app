@@ -188,7 +188,14 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
         }
     }, [selectedLevel, completedDays, totalDays, loading, kanjiList]);
 
+    const hasKanjiAccess = isAdmin || profile?.isPremiumUnlocked || profile?.isPremium || (profile?.unlockedSpecializedPackages || []).includes('kanji_zen') || (profile?.unlockedSpecializedPackages || []).includes('premium');
+
     const handleStartStudy = () => {
+        if (selectedLevel !== 'N5' && !hasKanjiAccess) {
+            setLockedPkgName('Thư viện Kanji Zen');
+            setShowPremiumModal(true);
+            return;
+        }
         navigate(`${ROUTES.KANJI_STUDY}/lesson?level=${selectedLevel}&day=${currentDay}`);
     };
 
@@ -266,7 +273,7 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                     {Object.entries(JLPT_CONFIG).map(([level, cfg]) => {
                         const isSelected = selectedLevel === level;
                         const isCompleted = isLevelCompleted(level);
-                        const isLocked = ['N3', 'N2', 'N1'].includes(level) && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('kanji_zen');
+                        const isLocked = level !== 'N5' && !hasKanjiAccess;
                         return (
                             <button
                                 key={level}

@@ -224,7 +224,9 @@ const GrammarLessonsScreen = ({ isAdmin, profile = null }) => {
             {lessons.length === 0 && <p className="text-center text-slate-400 py-12">Chưa có bài học nào. {isAdmin ? 'Nhấn "Thêm bài học" hoặc "Nhập bằng JSON" để bắt đầu.' : ''}</p>}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 {lessons.map(lesson => {
-                    const isLocked = lesson.isPremium && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('grammar_zen');
+                    const isTextbookN5 = (Array.isArray(textbook.levels) && textbook.levels.length > 0 && textbook.levels.every(lvl => lvl === 'N5')) || textbook.levels === 'N5';
+                    const hasGrammarAccess = isAdmin || profile?.isPremiumUnlocked || profile?.isPremium || (profile?.unlockedSpecializedPackages || []).includes('grammar_zen') || (profile?.unlockedSpecializedPackages || []).includes('premium');
+                    const isLocked = (!isTextbookN5 || lesson.isPremium) && !hasGrammarAccess;
                     const handleLessonClick = () => {
                         if (isLocked) {
                             setLockedPkgName('Ngữ pháp chuyên sâu Zen');

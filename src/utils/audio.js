@@ -54,6 +54,14 @@ const pcmToWav = (pcm16, sampleRate = 24000) => {
 // Global audio object reference
 let currentAudioObj = null;
 
+// Helper: Fast promise timeout
+const withTimeout = (promise, ms, fallbackValue = null) => {
+    return Promise.race([
+        promise,
+        new Promise(resolve => setTimeout(() => resolve(fallbackValue), ms))
+    ]);
+};
+
 // ============== VOICE SETTINGS ==============
 
 const VOICE_STORAGE_KEY = 'quizki-tts-voice';
@@ -86,9 +94,12 @@ export const setTTSVoice = (voiceId) => {
 
 // ============== AZURE TTS AND CACHE ==============
 
-// Cache cho audio URL đã tạo (trong session)
+// In-memory Session Cache for generated audio Blob URLs
 const ttsCache = new Map();
-const MAX_CACHE_SIZE = 100;
+const MAX_CACHE_SIZE = 500;
+
+// Fast In-Memory Cache for Shared Audio from Firestore
+const sharedAudioMemCache = new Map();
 
 // --- Shared Vocab Audio Cache (Firestore) ---
 // Cho phép inject Firestore dependencies từ App.jsx
@@ -98,43 +109,64 @@ let _sharedAudioDeps = null;
  * Inject Firestore dependencies cho shared audio cache
  * Gọi 1 lần từ App.jsx khi component mount
  */
-const initSharedAudioCache = (deps) => {
+export const initSharedAudioCache = (deps) => {
     _sharedAudioDeps = deps;
 };
 
+const getSharedAudioKey = (text, reading = '') => {
+    const { word, reading: kanaReading } = getWordAndReading(text, reading);
+    const main = word || kanaReading || String(text || '').trim();
+    if (kanaReading && kanaReading !== main) {
+        return `${main}_${kanaReading}`.trim().replace(/\s+/g, ' ');
+    }
+    return main.trim().replace(/\s+/g, ' ');
+};
+
 /**
- * Tra cứu audio trong shared vocab (theo giọng nam/nữ)
+ * Tra cứu audio trong shared vocab (theo giọng nam/nữ) với in-memory cache & fast timeout
  * @param {string} text - Text tiếng Nhật
  * @param {string} gender - 'male' hoặc 'female'
+ * @param {string} reading - Phiên âm kana (nếu có)
  * @returns {Promise<string|null>} base64 audio hoặc null
  */
-const lookupSharedAudio = async (text, gender) => {
-    if (!_sharedAudioDeps || !text) return null;
+const lookupSharedAudio = async (text, gender, reading = '') => {
+    if (!text) return null;
+    const key = getSharedAudioKey(text, reading);
+    const memKey = `${gender}:${key}`;
+    if (sharedAudioMemCache.has(memKey)) {
+        return sharedAudioMemCache.get(memKey);
+    }
+    if (!_sharedAudioDeps) return null;
     try {
         const { db, sharedVocabPath, getDoc, doc, disabled } = _sharedAudioDeps;
         if (disabled?.current) return null;
-        const isKor = isKoreanText(text);
-        const isEng = !isKor && isEnglishText(text);
-        const key = text.trim().replace(/\s+/g, ' ');
+        const isKor = isKoreanText(text || reading);
+        const isEng = !isKor && isEnglishText(text || reading);
         const encodedKey = encodeURIComponent(key);
         const targetPath = isKor
             ? sharedVocabPath.replace(/shared_vocab$/, 'shared_vocab_ko')
             : (isEng ? sharedVocabPath.replace(/shared_vocab$/, 'shared_vocab_en') : sharedVocabPath);
         const vocabRef = doc(db, targetPath, encodedKey);
-        const snap = await getDoc(vocabRef);
-        if (snap.exists()) {
-            const data = snap.data();
-            const audioField = isKor
-                ? (gender === 'male' ? 'audioBase64_ko_male' : 'audioBase64_ko_female')
-                : (isEng 
-                    ? (gender === 'male' ? 'audioBase64_en_male' : 'audioBase64_en_female')
-                    : (gender === 'male' ? 'audioBase64_male' : 'audioBase64_female'));
-            if (data[audioField]) {
-                console.log(`🔊 Shared audio HIT (${isKor ? 'KO' : (isEng ? 'EN' : 'JA')} ${gender}): "${text}"`);
-                return data[audioField];
+        
+        const fetchSnap = async () => {
+            const snap = await getDoc(vocabRef);
+            if (snap && snap.exists()) {
+                const data = snap.data();
+                const audioField = isKor
+                    ? (gender === 'male' ? 'audioBase64_ko_male' : 'audioBase64_ko_female')
+                    : (isEng 
+                        ? (gender === 'male' ? 'audioBase64_en_male' : 'audioBase64_en_female')
+                        : (gender === 'male' ? 'audioBase64_male' : 'audioBase64_female'));
+                if (data[audioField]) {
+                    sharedAudioMemCache.set(memKey, data[audioField]);
+                    return data[audioField];
+                }
             }
-        }
-        return null;
+            sharedAudioMemCache.set(memKey, null);
+            return null;
+        };
+
+        return await withTimeout(fetchSnap(), 600, null);
     } catch (e) {
         if (e?.code === 'permission-denied' || e?.message?.includes('permissions')) {
             if (_sharedAudioDeps?.disabled) _sharedAudioDeps.disabled.current = true;
@@ -148,15 +180,16 @@ const lookupSharedAudio = async (text, gender) => {
  * @param {string} text - Text tiếng Nhật / Tiếng Anh / Tiếng Hàn
  * @param {string} base64 - Audio base64
  * @param {string} gender - 'male' hoặc 'female'
+ * @param {string} reading - Phiên âm kana (nếu có)
  */
-const saveSharedAudio = async (text, base64, gender) => {
+const saveSharedAudio = async (text, base64, gender, reading = '') => {
     if (!_sharedAudioDeps || !text || !base64) return;
     try {
         const { db, sharedVocabPath, setDoc, doc, disabled } = _sharedAudioDeps;
         if (disabled?.current) return;
-        const isKor = isKoreanText(text);
-        const isEng = !isKor && isEnglishText(text);
-        const key = text.trim().replace(/\s+/g, ' ');
+        const isKor = isKoreanText(text || reading);
+        const isEng = !isKor && isEnglishText(text || reading);
+        const key = getSharedAudioKey(text, reading);
         const encodedKey = encodeURIComponent(key);
         const targetPath = isKor
             ? sharedVocabPath.replace(/shared_vocab$/, 'shared_vocab_ko')
@@ -168,7 +201,7 @@ const saveSharedAudio = async (text, base64, gender) => {
                 ? (gender === 'male' ? 'audioBase64_en_male' : 'audioBase64_en_female')
                 : (gender === 'male' ? 'audioBase64_male' : 'audioBase64_female'));
         await setDoc(vocabRef, { [audioField]: base64 }, { merge: true });
-        console.log(`💾 Saved shared audio (${isKor ? 'KO' : (isEng ? 'EN' : 'JA')} ${gender}): "${text}"`);
+        console.log(`💾 Saved shared audio (${isKor ? 'KO' : (isEng ? 'EN' : 'JA')} ${gender}): "${key}"`);
     } catch (e) {
         if (e?.code === 'permission-denied' || e?.message?.includes('permissions')) {
             if (_sharedAudioDeps?.disabled) _sharedAudioDeps.disabled.current = true;
@@ -248,60 +281,85 @@ const escapeXml = (unsafe) => {
  */
 export const fetchNativeJapaneseAudio = async (text, reading = '') => {
     if (!text && !reading) return null;
-    const rawWord = String(text || '').split('（')[0].split('(')[0].trim();
+    const { word, reading: cleanReading } = getWordAndReading(text, reading);
+    const rawWord = word || cleanReading;
     if (!rawWord || !/[\u3040-\u309F\u30A0-\u30FF\u4e00-\u9faf]/.test(rawWord)) return null;
 
     try {
-        const { fetchJotobaWordData } = await import('./pitchAccent');
-        const data = await fetchJotobaWordData(rawWord);
-        if (data && data.audioUrl) {
-            const res = await fetch(data.audioUrl);
-            if (res.ok) {
-                const audioBlob = await res.blob();
-                const blobUrl = URL.createObjectURL(audioBlob);
-                const base64 = await new Promise((resolve) => {
-                    const reader = new FileReader();
-                    reader.onloadend = () => {
-                        const result = reader.result;
-                        const base64Data = result.split(',')[1] || result;
-                        resolve(base64Data);
+        const fetchNativePromise = (async () => {
+            const { fetchJotobaWordData } = await import('./pitchAccent');
+            const data = await fetchJotobaWordData(rawWord);
+            if (data && data.audioUrl) {
+                // VERIFICATION: Nếu có cleanReading và Jotoba có reading, kiểm tra khớp cách đọc
+                if (cleanReading && data.reading) {
+                    const normClean = cleanReading.replace(/[\s・]/g, '');
+                    const normData = data.reading.replace(/[\s・]/g, '');
+                    if (normClean !== normData) {
+                        return null;
+                    }
+                }
+                const res = await fetch(data.audioUrl);
+                if (res.ok) {
+                    const audioBlob = await res.blob();
+                    const blobUrl = URL.createObjectURL(audioBlob);
+                    const base64 = await new Promise((resolve) => {
+                        const reader = new FileReader();
+                        reader.onloadend = () => {
+                            const result = reader.result;
+                            const base64Data = result.split(',')[1] || result;
+                            resolve(base64Data);
+                        };
+                        reader.readAsDataURL(audioBlob);
+                    });
+                    return {
+                        blobUrl,
+                        base64,
+                        voiceId: 'native',
+                        fromNative: true,
+                        pitch: data.pitch || []
                     };
-                    reader.readAsDataURL(audioBlob);
-                });
-                return {
-                    blobUrl,
-                    base64,
-                    voiceId: 'native',
-                    fromNative: true,
-                    pitch: data.pitch || []
-                };
+                }
             }
-        }
+            return null;
+        })();
+
+        // Fast 700ms timeout for native audio so we never lag UI
+        return await withTimeout(fetchNativePromise, 700, null);
     } catch (e) {
-        console.warn('Native audio fetch failed, will fallback to Azure TTS:', e.message);
+        return null;
     }
-    return null;
 };
 
 /**
  * Bóc tách chữ viết (Word / Kanji) và phiên âm (Reading / Kana)
- * Đảm bảo giữ nguyên chữ Hán để Azure Neural TTS nhận diện đúng ngữ nghĩa và quy tắc Pitch Accent Tokyo
+ * Xóa bỏ các ký tự thừa (～, ~, 【名】, bullet, STT, chú thích trong ngoặc) để TTS đọc chuẩn xác 100%
  */
 export const getWordAndReading = (text, reading = '') => {
     if (!text && !reading) return { word: '', reading: '' };
-    const rawText = String(text || '').trim();
-    const rawReading = String(reading || '').trim();
+    let rawText = String(text || '').trim();
+    let rawReading = String(reading || '').trim();
 
-    // 1. Kiểm tra định dạng ngoặc: e.g. "募集（ぼしゅう）" hoặc "雨 (あめ)"
-    const bracketMatch = rawText.match(/[（(]([^）)]+)[）)]/);
-    const mainText = rawText.split('（')[0].split('(')[0].trim();
+    // 1. Remove leading/trailing symbols like ～, ~, 〜, ・, 1., 2., -, _
+    rawText = rawText.replace(/^[～~〜・\s\d\.\-—_]+/, '').replace(/[～~〜・\s\-—_]+$/, '');
+    rawReading = rawReading.replace(/^[～~〜・\s\d\.\-—_]+/, '').replace(/[～~〜・\s\-—_]+$/, '');
+
+    // 2. Remove classification tags like 【名】, 【動】, 〔名〕, [n], [v], (n), (v), (adj)
+    rawText = rawText.replace(/^[【〔［\[(（][^】〕］\])）]{1,8}[】〕］\])）]\s*/, '');
+    rawReading = rawReading.replace(/^[【〔［\[(（][^】〕］\])）]{1,8}[】〕］\])）]\s*/, '');
+
+    // 3. Extract bracketed reading: e.g. "募集（ぼしゅう）" hoặc "雨 (あめ)" hoặc "食べる[たべる]"
+    const bracketMatch = rawText.match(/[（(\[\{]([^）)\]\}]+)[）)\]\}]/);
+    const mainText = rawText.split(/[（(\[\{]/)[0].trim();
 
     let candidateReading = rawReading;
     if (bracketMatch && !candidateReading) {
-        candidateReading = bracketMatch[1].trim();
+        // Only use bracket content if it contains kana
+        if (/[\u3040-\u309F\u30A0-\u30FF]/.test(bracketMatch[1])) {
+            candidateReading = bracketMatch[1].trim();
+        }
     }
 
-    const cleanWord = mainText || rawText;
+    const cleanWord = mainText || rawText || rawReading;
     return {
         word: cleanWord,
         reading: candidateReading || ''
@@ -312,51 +370,36 @@ export const getWordAndReading = (text, reading = '') => {
  * Microsoft Azure Speech API cho từ vựng (chất lượng cao, chuẩn pitch accent Tokyo)
  * Sử dụng thẻ SSML <sub> để truyền cả chữ Hán (cho ngữ cảnh trọng âm) và Furigana (cho cách đọc chính xác)
  */
-export const azureTTS = async (text, reading = '', forceVoice = null) => {
+export const azureTTS = async (text, reading = '', forceVoice = null, options = {}) => {
+    const { forceRegenerate = false } = options;
     const key = import.meta.env.VITE_AZURE_SPEECH_KEY;
     const region = import.meta.env.VITE_AZURE_SPEECH_REGION || 'eastasia';
     const proxyUrl = import.meta.env.VITE_AZURE_SPEECH_PROXY_URL;
 
-    if (!proxyUrl && !key) return null;
     if (!text && !reading) return null;
 
     const voiceId = forceVoice || getTTSVoice();
-    const speed = 1.0; // Tốc độ 1.0 giữ nguyên dải tần F0 tự nhiên của pitch accent
+    const speed = 1.0;
     const volume = 'default';
 
     const { word, reading: kanaReading } = getWordAndReading(text, reading);
-    const textToSpeak = word || kanaReading;
+    const textToSpeak = word || kanaReading || String(text || '').trim();
     if (!textToSpeak) return null;
 
     const isKor = isKoreanText(textToSpeak);
     const isEng = !isKor && isEnglishText(textToSpeak);
     const langKey = isKor ? 'ko' : (isEng ? 'en' : 'ja');
     const cacheKey = `azure:${voiceId}:${langKey}:${speed}:${volume}:${word}:${kanaReading}`;
-    if (ttsCache.has(cacheKey)) {
+    if (!forceRegenerate && ttsCache.has(cacheKey)) {
         return ttsCache.get(cacheKey);
     }
 
-    const voiceMap = {
-        ja: {
-            female: 'ja-JP-NanamiNeural', // Giọng Nữ chuẩn giáo dục NHK của Microsoft (Tokyo pitch accent)
-            male: 'ja-JP-KeitaNeural'     // Giọng Nam Tokyo chuẩn
-        },
-        en: {
-            female: 'en-US-JennyNeural',
-            male: 'en-US-GuyNeural'
-        },
-        ko: {
-            female: 'ko-KR-SunHiNeural',  // Giọng Nữ tiếng Hàn chuẩn Seoul
-            male: 'ko-KR-InJoonNeural'    // Giọng Nam tiếng Hàn chuẩn Seoul
-        }
-    };
-
-    const azureVoiceName = (voiceMap[langKey] && voiceMap[langKey][voiceId]) || (isKor ? 'ko-KR-SunHiNeural' : (isEng ? 'en-US-JennyNeural' : 'ja-JP-NanamiNeural'));
     const gender = voiceId === 'male' ? 'male' : 'female';
 
+    // 1. In-memory & Shared Audio Cache (instant 0ms if hit, skip if forceRegenerate)
     let cachedAudio = null;
-    if (volume === 'default') {
-        cachedAudio = await lookupSharedAudio(word || kanaReading, gender);
+    if (!forceRegenerate && volume === 'default') {
+        cachedAudio = await lookupSharedAudio(word || kanaReading || textToSpeak, gender, kanaReading);
     }
     if (cachedAudio) {
         const audioSrc = cachedAudio.startsWith('data:audio')
@@ -376,93 +419,104 @@ export const azureTTS = async (text, reading = '', forceVoice = null) => {
         return result;
     }
 
+    if (!proxyUrl && !key) return null;
+
+    const voiceMap = {
+        ja: {
+            female: 'ja-JP-NanamiNeural', // Giọng Nữ chuẩn giáo dục NHK của Microsoft (Tokyo pitch accent)
+            male: 'ja-JP-KeitaNeural'     // Giọng Nam Tokyo chuẩn
+        },
+        en: {
+            female: 'en-US-JennyNeural',
+            male: 'en-US-GuyNeural'
+        },
+        ko: {
+            female: 'ko-KR-SunHiNeural',
+            male: 'ko-KR-InJoonNeural'
+        }
+    };
+
+    const azureVoiceName = (voiceMap[langKey] && voiceMap[langKey][voiceId]) || (isKor ? 'ko-KR-SunHiNeural' : (isEng ? 'en-US-JennyNeural' : 'ja-JP-NanamiNeural'));
+
     try {
-        let response;
-        const xmlLang = isKor ? 'ko-KR' : (isEng ? 'en-US' : 'ja-JP');
-        const hasKanji = /[\u4E00-\u9FAF\u3400-\u4DBF\u3005]/.test(word);
+        const fetchAzurePromise = (async () => {
+            const xmlLang = isKor ? 'ko-KR' : (isEng ? 'en-US' : 'ja-JP');
+            const hasKanji = /[\u4E00-\u9FAF\u3400-\u4DBF\u3005]/.test(word);
 
-        // SSML: Nếu có Kanji và có Kana khác nhau, chỉ dùng <sub alias="Kana">Kanji</sub> khi Kana bao hàm toàn bộ từ/cụm từ
-        let ssmlBody = escapeXml(word);
-        if (hasKanji && kanaReading && kanaReading !== word) {
-            // Kiểm tra xem kanaReading có khớp với word không:
-            // 1. Nếu word có chứa Hiragana/Katakana ở đuôi (như 食べる hoặc 警告を与える), kanaReading phải chứa đuôi đó
-            const kanaTailMatch = word.match(/[\u3040-\u309F\u30A0-\u30FF]+$/);
-            const isTailValid = !kanaTailMatch || kanaReading.endsWith(kanaTailMatch[0]);
-            
-            // 2. Nếu word có các trợ từ hoặc khoảng trắng (cụm từ dài) mà kanaReading quá ngắn (chỉ là 1 từ đơn)
-            const hasMultipleWords = /[をにでがはとからまでより\s]/.test(word);
-            const isReadingPartial = hasMultipleWords && !/[をにでがはとからまでより\s]/.test(kanaReading);
-
-            if (isTailValid && !isReadingPartial) {
-                ssmlBody = `<sub alias="${escapeXml(kanaReading)}">${escapeXml(word)}</sub>`;
+            let ssmlBody = escapeXml(word);
+            // So sánh từ vựng với trường reading để ép Azure TTS phát âm chính xác tuyệt đối theo reading
+            if (kanaReading && kanaReading !== word) {
+                if (hasKanji) {
+                    ssmlBody = `<sub alias="${escapeXml(kanaReading)}">${escapeXml(word)}</sub>`;
+                } else {
+                    ssmlBody = escapeXml(kanaReading);
+                }
             }
-        }
 
-        const ssml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="${xmlLang}"><voice xml:lang="${xmlLang}" name="${azureVoiceName}"><prosody rate="1.0">${ssmlBody}</prosody></voice></speak>`;
+            const ssml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="${xmlLang}"><voice xml:lang="${xmlLang}" name="${azureVoiceName}"><prosody rate="1.0">${ssmlBody}</prosody></voice></speak>`;
 
-        if (proxyUrl) {
-            const baseProxy = proxyUrl.replace(/\/+$/, '');
-            response = await fetch(baseProxy, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    text: word,
-                    reading: kanaReading,
-                    voiceName: azureVoiceName,
-                    ssml: ssml
-                })
+            let response;
+            if (proxyUrl) {
+                const baseProxy = proxyUrl.replace(/\/+$/, '');
+                response = await fetch(baseProxy, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        text: word,
+                        reading: kanaReading,
+                        voiceName: azureVoiceName,
+                        ssml: ssml
+                    })
+                });
+            } else {
+                const url = `https://${region}.tts.speech.microsoft.com/cognitiveservices/v1`;
+                response = await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Ocp-Apim-Subscription-Key': key,
+                        'Content-Type': 'application/ssml+xml',
+                        'X-Microsoft-OutputFormat': 'audio-24khz-48kbitrate-mono-mp3',
+                        'User-Agent': 'quizki-app'
+                    },
+                    body: ssml
+                });
+            }
+
+            if (!response || !response.ok) return null;
+
+            const audioBlob = await response.blob();
+            const blobUrl = URL.createObjectURL(audioBlob);
+
+            const base64 = await new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onloadend = () => {
+                    const result = reader.result;
+                    const base64Data = result.split(',')[1] || result;
+                    resolve(base64Data);
+                };
+                reader.readAsDataURL(audioBlob);
             });
-        } else {
-            const url = `https://${region}.tts.speech.microsoft.com/cognitiveservices/v1`;
-            response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Ocp-Apim-Subscription-Key': key,
-                    'Content-Type': 'application/ssml+xml',
-                    'X-Microsoft-OutputFormat': 'audio-24khz-48kbitrate-mono-mp3',
-                    'User-Agent': 'quizki-app'
-                },
-                body: ssml
-            });
-        }
 
-        if (!response.ok) {
-            console.warn(`⚠️ Azure TTS API error (${response.status})`);
-            return null;
-        }
+            const result = { blobUrl, base64, voiceId };
 
-        const audioBlob = await response.blob();
-        const blobUrl = URL.createObjectURL(audioBlob);
+            if (ttsCache.size >= MAX_CACHE_SIZE) {
+                const firstKey = ttsCache.keys().next().value;
+                const oldResult = ttsCache.get(firstKey);
+                if (oldResult?.blobUrl) URL.revokeObjectURL(oldResult.blobUrl);
+                ttsCache.delete(firstKey);
+            }
+            ttsCache.set(cacheKey, result);
 
-        const base64 = await new Promise((resolve) => {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-                const result = reader.result;
-                const base64Data = result.split(',')[1] || result;
-                resolve(base64Data);
-            };
-            reader.readAsDataURL(audioBlob);
-        });
+            if (volume === 'default') {
+                saveSharedAudio(word || kanaReading || textToSpeak, base64, gender, kanaReading);
+            }
 
-        const result = { blobUrl, base64, voiceId };
+            return result;
+        })();
 
-        if (ttsCache.size >= MAX_CACHE_SIZE) {
-            const firstKey = ttsCache.keys().next().value;
-            const oldResult = ttsCache.get(firstKey);
-            if (oldResult?.blobUrl) URL.revokeObjectURL(oldResult.blobUrl);
-            ttsCache.delete(firstKey);
-        }
-        ttsCache.set(cacheKey, result);
-
-        if (volume === 'default') {
-            saveSharedAudio(word || kanaReading, base64, gender);
-        }
-
-        return result;
+        // Fast 1800ms timeout for Azure TTS so we never block user
+        return await withTimeout(fetchAzurePromise, 1800, null);
     } catch (e) {
-        console.warn('⚠️ Azure TTS network error:', e.message);
         return null;
     }
 };
@@ -478,7 +532,7 @@ const JAP_HOMOGRAPHS = {
     '下': { default: 'した', alternatives: ['もと', 'しも', 'くだ'] },
     '本': { default: 'ほん', alternatives: ['もと'] },
     '人気': { default: 'にんき', alternatives: ['ひとけ'] },
-    '上手': { default: 'じょうず', alternatives: ['うわて', 'かみて'] },
+    '上手': { default: 'じょうず', alternatives: ['うわte', 'かみて'] },
     '下手': { default: 'へた', alternatives: ['したて', 'しもて'] },
     '十分': { default: 'じゅうぶん', alternatives: ['じゅっぷん'] },
     '生': { default: 'なま', alternatives: ['せい', 'しょう', 'き'] },
@@ -493,7 +547,7 @@ const JAP_HOMOGRAPHS = {
 export const extractReadingText = (text, reading = '') => {
     if (!text && !reading) return '';
     const { word, reading: kanaReading } = getWordAndReading(text, reading);
-    return word || kanaReading || String(text || '').trim();
+    return kanaReading || word || String(text || '').trim();
 };
 
 const loadWebVoice = (langKey, voiceId) => {
@@ -525,9 +579,8 @@ const speakWithWebSpeech = (text, reading = '') => {
         };
 
         const safetyTimeout = setTimeout(() => {
-            console.warn('⚠️ Web Speech synthesis timed out');
             safeResolve();
-        }, 4000);
+        }, 3000);
 
         if (!text && !reading) return safeResolve();
         if (typeof window === 'undefined' || !window.speechSynthesis) return safeResolve();
@@ -540,6 +593,8 @@ const speakWithWebSpeech = (text, reading = '') => {
         } catch (_) {}
 
         let cleanText = reading ? extractReadingText(text, reading) : cleanTextForTTS(text);
+        if (!cleanText) cleanText = String(text || '').trim();
+        cleanText = cleanText.replace(/^[～~〜・\s\d\.\-—_]+/, '').replace(/[～~〜・\s\-—_]+$/, '');
         if (!cleanText) cleanText = String(text || '').trim();
         if (!cleanText) return safeResolve();
 
@@ -561,8 +616,18 @@ const speakWithWebSpeech = (text, reading = '') => {
         const webVoice = loadWebVoice(langKey, voiceId);
         if (webVoice) utterance.voice = webVoice;
 
-        utterance.onend = () => safeResolve();
-        utterance.onerror = () => safeResolve();
+        // GC Prevention: Keep an active reference so browser doesn't garbage collect and abort audio
+        window._activeUtterances = window._activeUtterances || [];
+        window._activeUtterances.push(utterance);
+
+        utterance.onend = () => {
+            window._activeUtterances = (window._activeUtterances || []).filter(u => u !== utterance);
+            safeResolve();
+        };
+        utterance.onerror = () => {
+            window._activeUtterances = (window._activeUtterances || []).filter(u => u !== utterance);
+            safeResolve();
+        };
 
         try {
             if (window.speechSynthesis.paused) {
@@ -605,7 +670,7 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null, reading =
 
         const safetyTimeout = setTimeout(() => {
             safeResolve();
-        }, 6000);
+        }, 3500);
 
         if (!text && !reading) return safeResolve();
 
@@ -618,29 +683,27 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null, reading =
         }
         safeCancelSpeechSynthesis();
 
-        let result = null;
+        // 1. Fast In-Memory Cache Check (0ms)
+        const voiceId = getTTSVoice();
+        const { word, reading: kanaReading } = getWordAndReading(text, reading);
+        const isKor = isKoreanText(word || kanaReading);
+        const isEng = !isKor && isEnglishText(word || kanaReading);
+        const langKey = isKor ? 'ko' : (isEng ? 'en' : 'ja');
+        const cacheKey = `azure:${voiceId}:${langKey}:1.0:default:${word}:${kanaReading}`;
 
-        // 1. Thử âm thanh người bản xứ Jotoba / Wadoku trước (chỉ áp dụng cho từ vựng tiếng Nhật)
-        const isKor = isKoreanText(text || reading);
-        const isEng = !isKor && isEnglishText(text || reading);
-        if (!isEng && !isKor) {
-            try {
-                result = await fetchNativeJapaneseAudio(text, reading);
-            } catch (e) {
-                console.warn('Native audio fetch in speakWithTTS error:', e);
-            }
-        }
+        let result = ttsCache.get(cacheKey) || null;
 
-        // 2. Nếu không có âm thanh người thật, gọi Microsoft Azure Neural TTS (Nanami / Keita kèm SSML chữ Hán)
+        // 2. Fetch Native Audio or Azure TTS
         if (!result) {
-            const azureKey = import.meta.env.VITE_AZURE_SPEECH_KEY;
-            const proxyUrl = import.meta.env.VITE_AZURE_SPEECH_PROXY_URL;
-            if (azureKey || proxyUrl) {
+            if (!isEng && !isKor) {
+                try {
+                    result = await fetchNativeJapaneseAudio(text, reading);
+                } catch (e) {}
+            }
+            if (!result) {
                 try {
                     result = await azureTTS(text, reading);
-                } catch (e) {
-                    console.warn('Azure TTS error:', e);
-                }
+                } catch (e) {}
             }
         }
 
@@ -674,13 +737,70 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null, reading =
             return;
         }
 
-        // Fallback: Web Speech API (khi không có mạng hoặc Azure proxy offline)
+        // 3. Fast Fallback to Web Speech API (instant)
         await speakWithWebSpeech(text, reading);
         safeResolve();
     });
 };
 
 let globalAudioSessionId = 0;
+
+// ============== PRELOAD AUDIO (ULTRA FAST) ==============
+
+/**
+ * Tải trước âm thanh vào bộ nhớ cache trong nền để khi lật thẻ âm thanh phát ra ngay lập tức (0ms)
+ */
+export const preloadAudio = async (cardOrText, reading = '', forceVoice = null) => {
+    if (!cardOrText) return null;
+    try {
+        let text = '';
+        let base64 = null;
+        let cardReading = reading;
+        let voiceId = forceVoice || getTTSVoice();
+
+        if (typeof cardOrText === 'object' && cardOrText !== null) {
+            text = cardOrText.front || cardOrText.word || cardOrText.character || '';
+            base64 = cardOrText.audioBase64 || null;
+            cardReading = cardOrText.reading || reading;
+            if (cardOrText.audioVoiceId) voiceId = cardOrText.audioVoiceId;
+        } else {
+            text = String(cardOrText || '');
+        }
+
+        if (!text && !base64) return null;
+
+        const { word, reading: kanaReading } = getWordAndReading(text, cardReading);
+        const textToSpeak = word || kanaReading || text;
+        if (!textToSpeak) return null;
+
+        const isKor = isKoreanText(textToSpeak);
+        const isEng = !isKor && isEnglishText(textToSpeak);
+        const langKey = isKor ? 'ko' : (isEng ? 'en' : 'ja');
+        const cacheKey = `azure:${voiceId}:${langKey}:1.0:default:${word}:${kanaReading}`;
+
+        // If already in memory, instant return
+        if (ttsCache.has(cacheKey)) {
+            return ttsCache.get(cacheKey);
+        }
+
+        // If base64 exists directly on card, create Blob URL and store in cache
+        if (base64) {
+            const cleanB64 = base64.replace('|cleaned', '');
+            const audioSrc = cleanB64.startsWith('data:audio') ? cleanB64 : `data:audio/mp3;base64,${cleanB64}`;
+            const res = await fetch(audioSrc);
+            const audioBlob = await res.blob();
+            const blobUrl = URL.createObjectURL(audioBlob);
+            const result = { blobUrl, base64: cleanB64, voiceId };
+            ttsCache.set(cacheKey, result);
+            return result;
+        }
+
+        // Otherwise prefetch in background via azureTTS
+        return await azureTTS(text, cardReading, voiceId);
+    } catch (e) {
+        return null;
+    }
+};
 
 // ============== PLAY AUDIO ==============
 
@@ -706,7 +826,7 @@ export const playAudio = (base64Data, text = '', onAudioGenerated = null, cardVo
 
         const safetyTimeout = setTimeout(() => {
             safeResolve();
-        }, 5000);
+        }, 4000);
 
         if (currentAudioObj) {
             try {
@@ -756,7 +876,7 @@ export const speakJapanese = (cardOrText, audioBase64 = null, onAudioGenerated =
     // Support receiving card object directly
     if (typeof cardOrText === 'object' && cardOrText !== null) {
         const card = cardOrText;
-        const text = card.front || card.word || '';
+        const text = card.front || card.word || card.character || '';
         const effectiveAudioBase64 = card.audioBase64 || audioBase64;
         const effectiveVoiceId = card.audioVoiceId || cardVoiceId;
         const effectiveReading = card.reading || reading;
@@ -771,29 +891,30 @@ export const speakJapanese = (cardOrText, audioBase64 = null, onAudioGenerated =
         const savedVoiceId = cardVoiceId || 'female';
         const normSaved = savedVoiceId === 'mayu' ? 'female' : (savedVoiceId === 'ryota' ? 'male' : savedVoiceId);
         if (normSaved !== currentVoiceId) {
-            console.log(`🔊 Voice mismatch: card voice is "${normSaved}", user selected "${currentVoiceId}". Bypassing pre-saved audio to regenerate.`);
             effectiveBase64 = null;
         }
     }
 
     if (effectiveBase64) return playAudio(effectiveBase64, text || '', onAudioGenerated, cardVoiceId, reading);
-    const textToSpeak = extractReadingText(text, reading);
+    const textToSpeak = extractReadingText(text, reading) || text;
     return textToSpeak ? playAudio(null, textToSpeak, onAudioGenerated, cardVoiceId, reading) : Promise.resolve();
 };
 
-export const generateAudioSilent = async (text, reading = '', forceVoice = null) => {
+export const generateAudioSilent = async (text, reading = '', forceVoice = null, options = {}) => {
     if (!text && !reading) return null;
+    const { forceRegenerate = false, skipNative = false } = options;
 
-    // 1. Thử lấy âm thanh từ người Nhật bản xứ (Jotoba / Wadoku - chỉ tiếng Nhật)
+    const { word, reading: kanaReading } = getWordAndReading(text, reading);
     const isKor = isKoreanText(text || reading);
     const isEng = !isKor && isEnglishText(text || reading);
-    if (!isEng && !isKor) {
+
+    // 1. Thử lấy âm thanh từ người Nhật bản xứ (Jotoba / Wadoku - chỉ tiếng Nhật, bỏ qua khi forceRegenerate/skipNative)
+    if (!isEng && !isKor && !forceRegenerate && !skipNative) {
         try {
             const nativeResult = await fetchNativeJapaneseAudio(text, reading);
             if (nativeResult && nativeResult.base64) {
-                const { word, reading: kanaReading } = getWordAndReading(text, reading);
                 const gender = (forceVoice || getTTSVoice()) === 'male' ? 'male' : 'female';
-                saveSharedAudio(word || kanaReading, nativeResult.base64, gender);
+                saveSharedAudio(word || kanaReading, nativeResult.base64, gender, kanaReading);
                 return {
                     base64: nativeResult.base64,
                     voiceId: 'native',
@@ -805,12 +926,12 @@ export const generateAudioSilent = async (text, reading = '', forceVoice = null)
         }
     }
 
-    // 2. Gọi Microsoft Azure Neural TTS (Nanami/Keita kèm SSML chữ Hán Tokyo Pitch)
+    // 2. Gọi Microsoft Azure Neural TTS (Nanami/Keita kèm SSML chữ Hán Tokyo Pitch theo reading)
     const azureKey = import.meta.env.VITE_AZURE_SPEECH_KEY;
     const proxyUrl = import.meta.env.VITE_AZURE_SPEECH_PROXY_URL;
     try {
         if (azureKey || proxyUrl) {
-            const result = await azureTTS(text, reading, forceVoice);
+            const result = await azureTTS(text, reading, forceVoice, { forceRegenerate });
             if (result && result.base64) return { base64: result.base64, voiceId: result.voiceId };
         }
     } catch (e) {
@@ -819,8 +940,8 @@ export const generateAudioSilent = async (text, reading = '', forceVoice = null)
     return null;
 };
 
-export const generateAudioSilentWithVoice = async (text, voiceId, reading = '') => {
-    return generateAudioSilent(text, reading, voiceId);
+export const generateAudioSilentWithVoice = async (text, voiceId, reading = '', options = {}) => {
+    return generateAudioSilent(text, reading, voiceId, options);
 };
 
 /**

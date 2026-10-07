@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, ChevronDown, ChevronUp, Edit, Edit2, PlayCir
 import { shuffleArray } from '../../utils/textProcessing';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
-import { playAudio, speakJapanese, speakExampleSentence } from '../../utils/audio';
+import { playAudio, speakJapanese, speakExampleSentence, preloadAudio } from '../../utils/audio';
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, writeBatch, updateDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
@@ -178,19 +178,22 @@ const FlashcardPlayerSection = ({
 
     const activeCard = activeCardsList[currentCardIndex];
 
-    // Preload adjacent cards' base64 images for seamless transitions
+    // Preload adjacent cards' base64 images and audio for seamless transitions and instant playback
     useEffect(() => {
         if (!activeCardsList || activeCardsList.length === 0) return;
-        const indicesToPreload = [currentCardIndex - 1, currentCardIndex + 1, currentCardIndex + 2];
+        const indicesToPreload = [currentCardIndex, currentCardIndex + 1, currentCardIndex + 2];
         indicesToPreload.forEach(idx => {
             if (idx >= 0 && idx < activeCardsList.length) {
                 const card = activeCardsList[idx];
-                if (card && card.imageBase64) {
-                    const img = new Image();
-                    img.src = card.imageBase64;
-                    if (typeof img.decode === 'function') {
-                        img.decode().catch(() => {});
+                if (card) {
+                    if (card.imageBase64) {
+                        const img = new Image();
+                        img.src = card.imageBase64;
+                        if (typeof img.decode === 'function') {
+                            img.decode().catch(() => {});
+                        }
                     }
+                    preloadAudio(card).catch(() => {});
                 }
             }
         });

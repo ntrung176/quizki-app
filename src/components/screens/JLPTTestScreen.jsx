@@ -419,9 +419,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
     };
 
     const startTest = async (test) => {
-        let isPremium = test?.isPremium;
+        let isPremium = test?.level !== 'N5' || test?.isPremium;
         if (isPremium && !hasPremiumAccess) {
-            setLockedPkgName('jlpt_prep');
+            setLockedPkgName('Luyện đề thi thử JLPT');
             setShowPremiumModal(true);
             return;
         }
@@ -431,9 +431,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
     const retakeTest = (test) => {
         const targetTest = test || activeTest;
         if (!targetTest) return;
-        let isPremium = targetTest?.isPremium;
+        let isPremium = targetTest?.level !== 'N5' || targetTest?.isPremium;
         if (isPremium && !hasPremiumAccess) {
-            setLockedPkgName('jlpt_prep');
+            setLockedPkgName('Luyện đề thi thử JLPT');
             setShowPremiumModal(true);
             return;
         }
@@ -482,8 +482,8 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
     };
 
     const reviewTest = (test) => {
-        if (test.isPremium && !hasPremiumAccess) {
-            setLockedPkgName('jlpt_prep');
+        if ((test.level !== 'N5' || test.isPremium) && !hasPremiumAccess) {
+            setLockedPkgName('Luyện đề thi thử JLPT');
             setShowPremiumModal(true);
             return;
         }

@@ -17,7 +17,10 @@ export const useAppStudySets = ({ authReady, userId, targetLanguage, allCards = 
     }, [userId]);
 
     useEffect(() => {
-        if (!authReady || !studySetsCollectionPath) return;
+        if (!authReady || !studySetsCollectionPath) {
+            setFolders([]);
+            return;
+        }
         const q = query(collection(db, studySetsCollectionPath));
         const unsubscribe = onSnapshot(q, (snapshot) => {
             const fetchedFolders = [];

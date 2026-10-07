@@ -9,13 +9,15 @@ import { TopTabBar } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
 import { showToast } from '../../utils/toast';
 
-const GrammarTopicDetailScreen = () => {
+const GrammarTopicDetailScreen = ({ isAdmin = false, profile = null }) => {
     const { topicId } = useParams();
     const navigate = useNavigate();
 
     const [topic, setTopic] = useState(null);
     const [loading, setLoading] = useState(true);
     const [activeTab, setActiveTab] = useState('patterns');
+
+    const hasGrammarAccess = isAdmin || profile?.isPremiumUnlocked || profile?.isPremium || (profile?.unlockedSpecializedPackages || []).includes('grammar_zen') || (profile?.unlockedSpecializedPackages || []).includes('premium');
 
     // Saved states
     const [isTopicSaved, setIsTopicSaved] = useState(false);
@@ -34,6 +36,10 @@ const GrammarTopicDetailScreen = () => {
                 if (res.ok) {
                     const data = await res.json();
                     const found = data.find(t => t.id === topicId);
+                    if (found && found.level !== 'N5' && !hasGrammarAccess) {
+                        navigate('/grammar/curriculum');
+                        return;
+                    }
                     setTopic(found || null);
 
                     // Check if topic is saved
@@ -47,7 +53,7 @@ const GrammarTopicDetailScreen = () => {
             }
         };
         fetchTopic();
-    }, [topicId]);
+    }, [topicId, hasGrammarAccess, navigate]);
 
     const toggleSaveTopic = () => {
         if (!topic) return;

@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { parseJlptExplanation } from '../../utils/jlptExplanationParser';
 import SentenceBreakdownModal from './SentenceBreakdownModal';
+import { speakJapanese } from '../../utils/audio';
 
 const QuestionExplanationCard = ({ 
     question = {}, 
@@ -44,17 +45,12 @@ const QuestionExplanationCard = ({
     const correctLetter = correctIdx >= 0 ? String.fromCharCode(65 + correctIdx) : '';
     const correctOptionText = correctIdx >= 0 && options[correctIdx] ? options[correctIdx] : '';
 
-    const speakJapanese = (text) => {
-        if (!('speechSynthesis' in window) || !text) return;
-        window.speechSynthesis.cancel();
-        const clean = text.replace(/<[^>]*>/g, '').trim();
-        const utterance = new SpeechSynthesisUtterance(clean);
-        utterance.lang = 'ja-JP';
-        utterance.rate = 0.9;
+    const handleSpeakVocab = (text, reading = '') => {
+        if (!text) return;
         setPlayingVocab(text);
-        utterance.onend = () => setPlayingVocab(null);
-        utterance.onerror = () => setPlayingVocab(null);
-        window.speechSynthesis.speak(utterance);
+        speakJapanese(text, null, null, null, reading).finally(() => {
+            setPlayingVocab(null);
+        });
     };
 
     return (
@@ -275,7 +271,7 @@ const QuestionExplanationCard = ({
                             >
                                 <button
                                     type="button"
-                                    onClick={() => speakJapanese(v.w)}
+                                    onClick={() => handleSpeakVocab(v.w, v.read || '')}
                                     className="text-slate-400 hover:text-emerald-600 transition cursor-pointer"
                                     title="Nghe phát âm từ này"
                                 >

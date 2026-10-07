@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { ArrowLeft, Check, X, BookOpen, RotateCcw, Zap, ChevronRight, Settings, Maximize2, Minimize2 } from 'lucide-react'
-import { speakJapanese } from '../../utils/audio';
+import { speakJapanese, preloadAudio } from '../../utils/audio';
 import { playCorrectSound, playIncorrectSound } from '../../utils/soundEffects';
 import { launchFanfare } from '../../utils/celebrations';
 import { getAuth } from 'firebase/auth';
@@ -90,6 +90,10 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furigana
     const [selected, setSelected] = useState(null);
     const [answered, setAnswered] = useState(false);
     const correct = formatCardForOption(card);
+
+    useEffect(() => {
+        if (card) preloadAudio(card).catch(() => {});
+    }, [card]);
 
     const handleSelect = (opt) => {
         if (answered) return;
@@ -232,7 +236,8 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
 
     useEffect(() => {
         setTimeout(() => inputRef.current?.focus(), 100);
-    }, []);
+        if (card) preloadAudio(card).catch(() => {});
+    }, [card]);
 
     const check = () => {
         if (!input.trim()) return;

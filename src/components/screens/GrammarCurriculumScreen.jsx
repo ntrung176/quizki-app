@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import {
     Search, Heart, BookOpen, ChevronRight, X
 } from 'lucide-react';
-import { TopTabBar } from '../ui';
+import { TopTabBar, PremiumLockedModal } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
 import { showToast } from '../../utils/toast';
 
@@ -16,13 +16,16 @@ const JLPT_LEVEL_TABS = [
     { key: 'N1', label: 'N1 最上級' },
 ];
 
-const GrammarCurriculumScreen = () => {
+const GrammarCurriculumScreen = ({ isAdmin = false, profile = null }) => {
     const navigate = useNavigate();
     const [curriculum, setCurriculum] = useState([]);
     const [loading, setLoading] = useState(true);
     const [selectedLevel, setSelectedLevel] = useState('N5');
     const [searchQuery, setSearchQuery] = useState('');
     const [showSavedOnly, setShowSavedOnly] = useState(false);
+    const [showPremiumModal, setShowPremiumModal] = useState(false);
+
+    const hasGrammarAccess = isAdmin || profile?.isPremiumUnlocked || profile?.isPremium || (profile?.unlockedSpecializedPackages || []).includes('grammar_zen') || (profile?.unlockedSpecializedPackages || []).includes('premium');
     const [savedTopics, setSavedTopics] = useState(() => {
         try {
             return JSON.parse(localStorage.getItem('quizki_saved_grammar_topics') || '[]');
@@ -193,11 +196,18 @@ const GrammarCurriculumScreen = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
                         {filteredTopics.map((topic) => {
                             const isSaved = savedTopics.includes(topic.id);
+                            const isLocked = topic.level !== 'N5' && !hasGrammarAccess;
 
                             return (
                                 <div
                                     key={topic.id}
-                                    onClick={() => navigate(`/grammar/curriculum/${topic.id}`)}
+                                    onClick={() => {
+                                        if (isLocked) {
+                                            setShowPremiumModal(true);
+                                            return;
+                                        }
+                                        navigate(`/grammar/curriculum/${topic.id}`);
+                                    }}
                                     className="group relative bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between hover:border-slate-900 dark:hover:border-slate-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 cursor-pointer"
                                 >
                                     <div>
@@ -208,8 +218,9 @@ const GrammarCurriculumScreen = () => {
                                             </div>
 
                                             <div className="flex items-center gap-2">
-                                                <span className="px-2.5 py-1 rounded-xl text-[11px] font-extrabold border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300 group-hover:border-slate-400 transition-colors">
-                                                    {topic.level}
+                                                <span className={`px-2.5 py-1 rounded-xl text-[11px] font-extrabold border ${isLocked ? 'border-amber-300 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300' : 'border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300'} flex items-center gap-1`}>
+                                                    {isLocked && <span>🔒</span>}
+                                                    <span>{topic.level}</span>
                                                 </span>
                                                 <span className="px-2 py-1 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-400 text-xs font-serif font-bold tracking-widest select-none">
                                                     {topic.numeral}
@@ -263,8 +274,8 @@ const GrammarCurriculumScreen = () => {
                                                 </span>
                                             </div>
 
-                                            <div className="flex items-center gap-1 text-xs font-bold text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white group-hover:translate-x-1 transition-all">
-                                                <span>Xem chi tiết</span>
+                                            <div className={`flex items-center gap-1 text-xs font-bold ${isLocked ? 'text-amber-600 dark:text-amber-400' : 'text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white group-hover:translate-x-1'} transition-all`}>
+                                                <span>{isLocked ? 'Khóa Premium' : 'Xem chi tiết'}</span>
                                                 <ChevronRight className="w-3.5 h-3.5" />
                                             </div>
                                         </div>
@@ -275,6 +286,12 @@ const GrammarCurriculumScreen = () => {
                     </div>
                 )}
             </div>
+
+            <PremiumLockedModal
+                isOpen={showPremiumModal}
+                onClose={() => setShowPremiumModal(false)}
+                packageName="Thư viện Ngữ pháp Chuyên sâu"
+            />
         </div>
     );
 };

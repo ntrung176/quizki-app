@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import { RotateCcw, Check, X, Undo2, RefreshCw, Volume2, ArrowLeft, ChevronRight, Zap, Layers, Settings, Lightbulb, Maximize2, Minimize2 } from 'lucide-react'
-import { speakJapanese } from '../../utils/audio'
+import { speakJapanese, preloadAudio } from '../../utils/audio'
 import { playCompletionFanfare, playFlipSound } from '../../utils/soundEffects';
 import { getAuth } from 'firebase/auth';
 import { saveStudyProgress } from '../../utils/studyProgressService';
@@ -176,19 +176,22 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         cardShownTimeRef.current = Date.now(); // Reset timer khi đổi card
     }, [currentIndex, round]);
 
-    // Preload adjacent cards' base64 images for seamless transitions
+    // Preload adjacent cards' base64 images and audio for seamless transitions and instant playback
     useEffect(() => {
         if (!currentDeck || currentDeck.length === 0) return;
-        const indicesToPreload = [currentIndex - 1, currentIndex + 1, currentIndex + 2];
+        const indicesToPreload = [currentIndex, currentIndex + 1, currentIndex + 2];
         indicesToPreload.forEach(idx => {
             if (idx >= 0 && idx < currentDeck.length) {
                 const card = currentDeck[idx];
-                if (card && card.imageBase64) {
-                    const img = new Image();
-                    img.src = card.imageBase64;
-                    if (typeof img.decode === 'function') {
-                        img.decode().catch(() => { });
+                if (card) {
+                    if (card.imageBase64) {
+                        const img = new Image();
+                        img.src = card.imageBase64;
+                        if (typeof img.decode === 'function') {
+                            img.decode().catch(() => { });
+                        }
                     }
+                    preloadAudio(card).catch(() => {});
                 }
             }
         });

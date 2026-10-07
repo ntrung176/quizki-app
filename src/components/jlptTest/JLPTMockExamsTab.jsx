@@ -130,7 +130,7 @@ const JLPTMockExamsTab = ({
                     const status = getTestStatus(test);
                     const score = getTestScore(test);
                     const totalQ = getTestQuestionCount(test);
-                    const isLocked = test.isPremium && !hasPremiumAccess;
+                    const isLocked = (test.level !== 'N5' || test.isPremium) && !hasPremiumAccess;
                     const lvlGradient = LEVEL_GRADIENTS[test.level] || 'from-indigo-500 to-sky-600';
 
                     return (
@@ -141,8 +141,9 @@ const JLPTMockExamsTab = ({
                             <div>
                                 <div className="flex items-center justify-between gap-2 mb-3">
                                     <div className="flex items-center gap-2">
-                                        <div className={`px-3 py-1 rounded-xl bg-gradient-to-r ${lvlGradient} text-white font-black text-xs shadow-2xs`}>
-                                            {test.level}
+                                        <div className={`px-3 py-1 rounded-xl bg-gradient-to-r ${lvlGradient} text-white font-black text-xs shadow-2xs flex items-center gap-1`}>
+                                            <span>{test.level}</span>
+                                            {isLocked && <Lock className="w-3 h-3 text-amber-300" />}
                                         </div>
                                         <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500">
                                             {test.sections?.length || 2} phần thi

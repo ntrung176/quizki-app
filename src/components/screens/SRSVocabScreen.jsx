@@ -15,7 +15,7 @@ import SRSForecastChart from '../ui/SRSForecastChart';
 import LeechManagerModal from '../ui/LeechManagerModal';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations';
 import { playCompletionFanfare, playFlipSound } from '../../utils/soundEffects';
-import { speakJapanese } from '../../utils/audio';
+import { speakJapanese, preloadAudio } from '../../utils/audio';
 import { POINTS } from '../../utils/scoring';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
@@ -1078,6 +1078,17 @@ const SRSVocabScreen = ({
     }, [reviewMode, currentReviewIndex, reviewQueue, reviewHistory, hasCheckedTyping, cardSettings?.reviewType]);
 
     const lastPlayedKeyRef = useRef('');
+
+    // Preload audio for current & upcoming cards for instant 0ms playback on flip
+    useEffect(() => {
+        if (!reviewMode || !reviewQueue || reviewQueue.length === 0) return;
+        const current = reviewQueue[currentReviewIndex];
+        const next1 = reviewQueue[currentReviewIndex + 1];
+        const next2 = reviewQueue[currentReviewIndex + 2];
+        if (current) preloadAudio(current).catch(() => {});
+        if (next1) preloadAudio(next1).catch(() => {});
+        if (next2) preloadAudio(next2).catch(() => {});
+    }, [reviewMode, currentReviewIndex, reviewQueue]);
 
     // Auto-play audio when flipped to answer side
     useEffect(() => {

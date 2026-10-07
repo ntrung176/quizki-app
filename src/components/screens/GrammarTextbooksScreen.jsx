@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import { GRAMMAR_CATEGORIES } from '../../data/grammarData';
 import { subscribeTextbooks, addTextbook, updateTextbook, deleteTextbook, importTextbooksFromJson } from '../../utils/grammarService';
-import { TopTabBar } from '../ui';
+import { TopTabBar, PremiumLockedModal } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
 import AdminPdfIngestorModal from '../admin/AdminPdfIngestorModal';
 
@@ -71,7 +71,7 @@ const LEVEL_BADGES = {
     }
 };
 
-const TextbookCover = ({ title, titleVi, levels, description, color, featured, lessons }) => {
+const TextbookCover = ({ title, titleVi, levels, description, color, featured, lessons, isLocked = false }) => {
     const primaryLevel = Array.isArray(levels) && levels.length === 1 ? levels[0] : (levels && levels.length > 1 ? 'DEFAULT' : 'N3');
     const badgeStyle = LEVEL_BADGES[primaryLevel] || LEVEL_BADGES.DEFAULT;
     const levelText = (levels && levels.length > 0) ? levels.join(', ') : 'N3';
@@ -90,7 +90,7 @@ const TextbookCover = ({ title, titleVi, levels, description, color, featured, l
                 {/* Header: Level Pill & Badges */}
                 <div className="flex items-center justify-between gap-2 mb-3">
                     <div className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full border text-xs font-bold font-mono ${badgeStyle.badge}`}>
-                        <span className={`w-1.5 h-1.5 rounded-full ${badgeStyle.dot}`} />
+                        {isLocked ? <span>🔒</span> : <span className={`w-1.5 h-1.5 rounded-full ${badgeStyle.dot}`} />}
                         <span>CẤP ĐỘ {levelText}</span>
                     </div>
 
@@ -135,8 +135,8 @@ const TextbookCover = ({ title, titleVi, levels, description, color, featured, l
                     <BookOpen className="w-3.5 h-3.5 text-slate-400" />
                     <span>Bài học ngữ pháp</span>
                 </span>
-                <span className={`inline-flex items-center gap-1 font-bold transition-transform group-hover:translate-x-1 ${badgeStyle.hover}`}>
-                    <span>Bắt đầu học</span>
+                <span className={`inline-flex items-center gap-1 font-bold transition-transform group-hover:translate-x-1 ${isLocked ? 'text-amber-600 dark:text-amber-400' : badgeStyle.hover}`}>
+                    <span>{isLocked ? 'Khóa Premium' : 'Bắt đầu học'}</span>
                     <ChevronRight className="w-3.5 h-3.5" />
                 </span>
             </div>
@@ -144,7 +144,7 @@ const TextbookCover = ({ title, titleVi, levels, description, color, featured, l
     );
 };
 
-const GrammarTextbooksScreen = ({ isAdmin }) => {
+const GrammarTextbooksScreen = ({ isAdmin = false, profile = null }) => {
     const navigate = useNavigate();
     const [textbooks, setTextbooks] = useState([]);
     const [activeCategory, setActiveCategory] = useState('all');
@@ -152,6 +152,7 @@ const GrammarTextbooksScreen = ({ isAdmin }) => {
     const [showAdd, setShowAdd] = useState(false);
     const [showJsonImport, setShowJsonImport] = useState(false);
     const [showAiPdfModal, setShowAiPdfModal] = useState(false);
+    const [showPremiumModal, setShowPremiumModal] = useState(false);
     const [jsonText, setJsonText] = useState('');
     const [importError, setImportError] = useState('');
     const [importSuccess, setImportSuccess] = useState('');
@@ -159,6 +160,8 @@ const GrammarTextbooksScreen = ({ isAdmin }) => {
     const [editId, setEditId] = useState(null);
     const [form, setForm] = useState({ title: '', titleVi: '', description: '', levels: '', category: 'jlpt', featured: false, color: '#10b981' });
     const [saving, setSaving] = useState(false);
+
+    const hasGrammarAccess = isAdmin || profile?.isPremiumUnlocked || profile?.isPremium || (profile?.unlockedSpecializedPackages || []).includes('grammar_zen') || (profile?.unlockedSpecializedPackages || []).includes('premium');
 
     useEffect(() => {
         const unsub = subscribeTextbooks(setTextbooks, isAdmin);
@@ -404,27 +407,42 @@ const GrammarTextbooksScreen = ({ isAdmin }) => {
                 {/* Textbooks grid */}
                 {filtered.length === 0 && <p className="text-center text-slate-400 dark:text-slate-500 py-12">Chưa có giáo trình nào. {isAdmin ? 'Nhấn "Thêm giáo trình" hoặc "Nhập bằng JSON" để bắt đầu.' : ''}</p>}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                    {filtered.map(tb => (
-                        <div key={tb.id} className="group relative text-left rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-350">
-                            <button onClick={() => navigate(`/grammar/textbook/${tb.id}`)} className="w-full text-left">
-                                <TextbookCover
-                                    title={tb.title}
-                                    titleVi={tb.titleVi}
-                                    levels={tb.levels}
-                                    description={tb.description}
-                                    color={tb.color}
-                                    featured={tb.featured}
-                                    lessons={tb.lessons}
-                                />
-                            </button>
-                            {isAdmin && (
-                                <div className="absolute top-3 right-3 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity z-20">
-                                    <button onClick={(e) => { e.stopPropagation(); handleEdit(tb); }} className="p-2 bg-white/95 dark:bg-slate-800/95 shadow-lg rounded-xl hover:bg-indigo-50 dark:hover:bg-indigo-950/60 transition-all border border-slate-200/40 dark:border-slate-700/40" title="Sửa giáo trình"><Edit2 className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" /></button>
-                                    <button onClick={(e) => { e.stopPropagation(); handleDelete(tb.id); }} className="p-2 bg-white/95 dark:bg-slate-800/95 shadow-lg rounded-xl hover:bg-red-50 dark:hover:bg-red-950/60 transition-all border border-slate-200/40 dark:border-slate-700/40" title="Xóa giáo trình"><Trash2 className="w-3.5 h-3.5 text-red-500" /></button>
-                                </div>
-                            )}
-                        </div>
-                    ))}
+                    {filtered.map(tb => {
+                        const isN5 = (Array.isArray(tb.levels) && tb.levels.length > 0 && tb.levels.every(lvl => lvl === 'N5')) || tb.levels === 'N5';
+                        const isLocked = !isN5 && !hasGrammarAccess;
+
+                        return (
+                            <div key={tb.id} className="group relative text-left rounded-2xl overflow-hidden hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-350">
+                                <button
+                                    onClick={() => {
+                                        if (isLocked) {
+                                            setShowPremiumModal(true);
+                                            return;
+                                        }
+                                        navigate(`/grammar/textbook/${tb.id}`);
+                                    }}
+                                    className="w-full text-left cursor-pointer"
+                                >
+                                    <TextbookCover
+                                        title={tb.title}
+                                        titleVi={tb.titleVi}
+                                        levels={tb.levels}
+                                        description={tb.description}
+                                        color={tb.color}
+                                        featured={tb.featured}
+                                        lessons={tb.lessons}
+                                        isLocked={isLocked}
+                                    />
+                                </button>
+                                {isAdmin && (
+                                    <div className="absolute top-3 right-3 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity z-20">
+                                        <button onClick={(e) => { e.stopPropagation(); handleEdit(tb); }} className="p-2 bg-white/95 dark:bg-slate-800/95 shadow-lg rounded-xl hover:bg-indigo-50 dark:hover:bg-indigo-950/60 transition-all border border-slate-200/40 dark:border-slate-700/40 cursor-pointer" title="Sửa giáo trình"><Edit2 className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" /></button>
+                                        <button onClick={(e) => { e.stopPropagation(); handleDelete(tb.id); }} className="p-2 bg-white/95 dark:bg-slate-800/95 shadow-lg rounded-xl hover:bg-red-50 dark:hover:bg-red-950/60 transition-all border border-slate-200/40 dark:border-slate-700/40 cursor-pointer" title="Xóa giáo trình"><Trash2 className="w-3.5 h-3.5 text-red-500" /></button>
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
 
@@ -433,6 +451,12 @@ const GrammarTextbooksScreen = ({ isAdmin }) => {
                 isOpen={showAiPdfModal}
                 onClose={() => setShowAiPdfModal(false)}
                 initialCategory="GRAMMAR_BOOK"
+            />
+
+            <PremiumLockedModal
+                isOpen={showPremiumModal}
+                onClose={() => setShowPremiumModal(false)}
+                packageName="Thư viện Ngữ pháp Chuyên sâu"
             />
         </div>
     );

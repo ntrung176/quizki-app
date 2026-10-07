@@ -72,19 +72,28 @@ export default {
         // POST / -> Thực hiện TTS và trả về file binary audio
         if (request.method === 'POST') {
             try {
-                const { text, voiceName } = await request.json();
+                const { text, voiceName, ssml: clientSsml, reading } = await request.json();
 
-                if (!text || !voiceName) {
-                    return new Response(JSON.stringify({ error: 'Missing text or voiceName parameter' }), {
+                if (!text && !clientSsml) {
+                    return new Response(JSON.stringify({ error: 'Missing text or ssml parameter' }), {
                         status: 400,
                         headers: { 'Content-Type': 'application/json', ...corsHeaders },
                     });
                 }
 
                 const azureUrl = `https://${region}.tts.speech.microsoft.com/cognitiveservices/v1`;
-                const isEng = voiceName.startsWith('en-');
+                const isEng = voiceName ? voiceName.startsWith('en-') : false;
                 const xmlLang = isEng ? 'en-US' : 'ja-JP';
-                const ssml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="${xmlLang}"><voice xml:lang="${xmlLang}" name="${voiceName}">${text}</voice></speak>`;
+
+                // Nếu client đã gửi cấu trúc SSML hoàn chỉnh, sử dụng trực tiếp để đảm bảo phát âm chính xác 100%
+                let ssmlToSend = clientSsml;
+                if (!ssmlToSend) {
+                    let ssmlBody = text;
+                    if (reading && reading !== text) {
+                        ssmlBody = `<sub alias="${reading}">${text}</sub>`;
+                    }
+                    ssmlToSend = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="${xmlLang}"><voice xml:lang="${xmlLang}" name="${voiceName || (isEng ? 'en-US-JennyNeural' : 'ja-JP-NanamiNeural')}">${ssmlBody}</voice></speak>`;
+                }
 
                 const response = await fetch(azureUrl, {
                     method: 'POST',
@@ -94,7 +103,7 @@ export default {
                         'X-Microsoft-OutputFormat': 'audio-24khz-48kbitrate-mono-mp3',
                         'User-Agent': 'quizki-app'
                     },
-                    body: ssml
+                    body: ssmlToSend
                 });
 
                 if (!response.ok) {

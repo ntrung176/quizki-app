@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { getAuth } from 'firebase/auth';
 import { MessageSquare, FileText, Headphones, Repeat2 } from 'lucide-react';
-import { speakJapanese } from '../utils/audio';
+import { speakJapanese, preloadAudio } from '../utils/audio';
 import {
     shuffleArray,
     getWordForMasking,
@@ -298,6 +298,18 @@ export const useReviewData = ({
             if (timeoutId) clearTimeout(timeoutId);
         };
     }, [currentIndex, reviewAudioEnabled]);
+
+    // Preload audio for current and upcoming cards in the background for 0ms flip playback
+    useEffect(() => {
+        if (cards && cards.length > 0 && currentIndex < cards.length) {
+            const card = cards[currentIndex];
+            const nextCard1 = cards[currentIndex + 1];
+            const nextCard2 = cards[currentIndex + 2];
+            if (card) preloadAudio(card);
+            if (nextCard1) preloadAudio(nextCard1);
+            if (nextCard2) preloadAudio(nextCard2);
+        }
+    }, [currentIndex, cards]);
 
     const getResponseTime = () => Date.now() - cardShownTimeRef.current;
 

@@ -7,7 +7,7 @@ import {
 import { speakExampleSentence } from '../../utils/audio';
 import { showToast } from '../../utils/toast';
 
-const GrammarCheatSheetDetailScreen = () => {
+const GrammarCheatSheetDetailScreen = ({ isAdmin = false, profile = null }) => {
     const { sheetId } = useParams();
     const navigate = useNavigate();
 
@@ -18,6 +18,8 @@ const GrammarCheatSheetDetailScreen = () => {
     const [drillAnswers, setDrillAnswers] = useState({});
     const [showExplanations, setShowExplanations] = useState({});
 
+    const hasGrammarAccess = isAdmin || profile?.isPremiumUnlocked || profile?.isPremium || (profile?.unlockedSpecializedPackages || []).includes('grammar_zen') || (profile?.unlockedSpecializedPackages || []).includes('premium');
+
     useEffect(() => {
         const fetchSheet = async () => {
             try {
@@ -25,6 +27,10 @@ const GrammarCheatSheetDetailScreen = () => {
                 if (res.ok) {
                     const data = await res.json();
                     const found = data.find(s => s.id === sheetId);
+                    if (found && (!found.level || (!found.level.includes('N5') && found.level !== 'N5')) && !hasGrammarAccess) {
+                        navigate('/grammar/cheatsheets');
+                        return;
+                    }
                     setSheet(found || null);
                 }
             } catch (err) {
@@ -34,7 +40,7 @@ const GrammarCheatSheetDetailScreen = () => {
             }
         };
         fetchSheet();
-    }, [sheetId]);
+    }, [sheetId, hasGrammarAccess, navigate]);
 
     const handleSelectOption = (qIdx, opt) => {
         setDrillAnswers(prev => ({ ...prev, [qIdx]: opt }));

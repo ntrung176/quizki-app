@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { collection, addDoc, updateDoc, deleteDoc, doc, query, orderBy, onSnapshot, serverTimestamp, arrayUnion, arrayRemove, limit, getDocs } from 'firebase/firestore'
 import { db, appId } from '../../config/firebase';
 import { MessageSquare, Send, Heart, ArrowLeft, Plus, X, MoreHorizontal, Trash2, Clock, TrendingUp, Search, Tag, Edit3, MessageCircle, Eye, EyeOff, Users, Pencil, Check } from 'lucide-react'
@@ -258,6 +258,10 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
         }
     }, [showComments]);
     const handleLikePost = async () => {
+        if (!userId) {
+            window.showToast?.('Vui lòng đăng nhập để thích bài viết', { type: 'info' });
+            return;
+        }
         const postRef = doc(db, forumPath, post.id);
         try {
             if (isLiked) {
@@ -268,6 +272,10 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
         } catch (e) { console.error('Like error:', e); }
     };
     const handleLikeComment = async (commentId) => {
+        if (!userId) {
+            window.showToast?.('Vui lòng đăng nhập để thích bình luận', { type: 'info' });
+            return;
+        }
         const commentRef = doc(db, forumPath, post.id, 'comments', commentId);
         const comment = comments.find(c => c.id === commentId);
         const alreadyLiked = comment?.likes?.includes(userId);
@@ -332,6 +340,10 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
     };
     const handleSubmitComment = async (e) => {
         e.preventDefault();
+        if (!userId) {
+            window.showToast?.('Vui lòng đăng nhập để gửi bình luận', { type: 'info' });
+            return;
+        }
         const trimmed = commentText.trim();
         if (!trimmed || isSubmitting) return;
         setIsSubmitting(true);
@@ -811,6 +823,7 @@ const CreatePostModal = ({ onClose, onSubmit, profile }) => {
 // MAIN FORUM SCREEN
 // ==========================
 const ForumScreen = ({ userId, profile, isAdmin }) => {
+    const navigate = useNavigate();
     const [posts, setPosts] = useState([]);
     const [showCreateModal, setShowCreateModal] = useState(false);
     const [sortBy, setSortBy] = useState('latest'); // 'latest' | 'popular'
@@ -952,7 +965,14 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
             </div>
             {/* Create post button */}
             <button
-                onClick={() => setShowCreateModal(true)}
+                onClick={() => {
+                    if (!userId) {
+                        window.showToast?.('Vui lòng đăng nhập để đăng bài trên diễn đàn', { type: 'info' });
+                        navigate(ROUTES.LOGIN);
+                        return;
+                    }
+                    setShowCreateModal(true);
+                }}
                 className="w-full flex items-center gap-3 p-3.5 bg-gray-50 dark:bg-gray-800 rounded-2xl border-2 border-dashed border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10 transition-all group"
             >
                 <AvatarDisplay avatar={profile?.avatar} name={profile?.displayName} size="w-9 h-9" />
@@ -994,7 +1014,14 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
                         </p>
                         {!searchQuery && (
                             <button
-                                onClick={() => setShowCreateModal(true)}
+                                onClick={() => {
+                                    if (!userId) {
+                                        window.showToast?.('Vui lòng đăng nhập để đăng bài', { type: 'info' });
+                                        navigate(ROUTES.LOGIN);
+                                        return;
+                                    }
+                                    setShowCreateModal(true);
+                                }}
                                 className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-indigo-500 to-sky-500 text-white rounded-xl font-bold text-sm shadow-lg shadow-indigo-500/25 hover:from-indigo-600 hover:to-sky-600 transition-all"
                             >
                                 <Plus className="w-4 h-4" /> Đăng bài đầu tiên
@@ -1006,7 +1033,14 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
             {/* FAB - Floating Action Button */}
             {posts.length > 0 && (
                 <button
-                    onClick={() => setShowCreateModal(true)}
+                    onClick={() => {
+                        if (!userId) {
+                            window.showToast?.('Vui lòng đăng nhập để đăng bài', { type: 'info' });
+                            navigate(ROUTES.LOGIN);
+                            return;
+                        }
+                        setShowCreateModal(true);
+                    }}
                     className="fixed bottom-20 right-4 sm:right-8 w-14 h-14 bg-gradient-to-r from-indigo-500 to-sky-500 rounded-full shadow-xl shadow-indigo-500/30 flex items-center justify-center text-white hover:scale-110 transition-transform z-30"
                 >
                     <Plus className="w-6 h-6" />

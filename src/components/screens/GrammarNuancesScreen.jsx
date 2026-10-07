@@ -5,7 +5,7 @@ import {
     Volume2, X, Filter, Layers, CheckCircle2, Lightbulb,
     Compass, ArrowUpRight, ArrowLeft
 } from 'lucide-react';
-import { TopTabBar } from '../ui';
+import { TopTabBar, PremiumLockedModal } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
 import { speakExampleSentence } from '../../utils/audio';
 import GrammarNuanceMindmapCard from '../grammar/GrammarNuanceMindmapCard';
@@ -18,7 +18,7 @@ const LEVEL_COLORS = {
     N1: { bg: 'bg-rose-500', text: 'text-rose-500', lightBg: 'bg-rose-50 dark:bg-rose-950/40', border: 'border-rose-200 dark:border-rose-800' },
 };
 
-const GrammarNuancesScreen = () => {
+const GrammarNuancesScreen = ({ isAdmin = false, profile = null }) => {
     const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
     const [nuancesData, setNuancesData] = useState({});
@@ -27,6 +27,9 @@ const GrammarNuancesScreen = () => {
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedPatternKey, setSelectedPatternKey] = useState(null);
     const [displayLimit, setDisplayLimit] = useState(24);
+    const [showPremiumModal, setShowPremiumModal] = useState(false);
+
+    const hasGrammarAccess = isAdmin || profile?.isPremiumUnlocked || profile?.isPremium || (profile?.unlockedSpecializedPackages || []).includes('grammar_zen') || (profile?.unlockedSpecializedPackages || []).includes('premium');
 
     useEffect(() => {
         const loadNuances = async () => {
@@ -191,19 +194,27 @@ const GrammarNuancesScreen = () => {
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
                             {filteredPatterns.slice(0, displayLimit).map(item => {
                                 const lvlColor = LEVEL_COLORS[item.level] || LEVEL_COLORS.N3;
+                                const isLocked = item.level !== 'N5' && !hasGrammarAccess;
 
                                 return (
                                     <div
                                         key={item.rawKey}
-                                        onClick={() => setSelectedPatternKey(item.rawKey)}
+                                        onClick={() => {
+                                            if (isLocked) {
+                                                setShowPremiumModal(true);
+                                                return;
+                                            }
+                                            setSelectedPatternKey(item.rawKey);
+                                        }}
                                         className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-5 hover:border-indigo-500 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden"
                                     >
                                         <div className="space-y-3">
                                             {/* Header Tags */}
                                             <div className="flex items-center justify-between gap-2">
                                                 <div className="flex items-center gap-2">
-                                                    <span className={`px-2.5 py-0.5 rounded-lg text-[11px] font-black text-white ${lvlColor.bg}`}>
-                                                        {item.level}
+                                                    <span className={`px-2.5 py-0.5 rounded-lg text-[11px] font-black text-white ${lvlColor.bg} flex items-center gap-1`}>
+                                                        {isLocked && <span>🔒</span>}
+                                                        <span>{item.level}</span>
                                                     </span>
                                                     {item.reading && (
                                                         <span className="text-xs text-slate-400 font-japanese">
@@ -212,10 +223,16 @@ const GrammarNuancesScreen = () => {
                                                     )}
                                                 </div>
 
-                                                <span className="px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900/60 flex items-center gap-1">
-                                                    <Brain className="w-3 h-3" />
-                                                    <span>{item.nodeCount} nhánh</span>
-                                                </span>
+                                                {isLocked ? (
+                                                    <span className="px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-900/60 flex items-center gap-1">
+                                                        <span>Khóa Premium</span>
+                                                    </span>
+                                                ) : (
+                                                    <span className="px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900/60 flex items-center gap-1">
+                                                        <Brain className="w-3 h-3" />
+                                                        <span>{item.nodeCount} nhánh</span>
+                                                    </span>
+                                                )}
                                             </div>
 
                                             {/* Pattern Title */}
@@ -253,9 +270,9 @@ const GrammarNuancesScreen = () => {
                                         </div>
 
                                         {/* Bottom Action */}
-                                        <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold text-indigo-600 dark:text-indigo-400">
+                                        <div className={`mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs font-bold ${isLocked ? 'text-amber-600 dark:text-amber-400' : 'text-indigo-600 dark:text-indigo-400'}`}>
                                             <span className="flex items-center gap-1">
-                                                <span>Xem bản đồ tư duy</span>
+                                                <span>{isLocked ? 'Mở khóa Premium' : 'Xem bản đồ tư duy'}</span>
                                                 <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                                             </span>
                                             <ArrowUpRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-indigo-600" />
@@ -321,6 +338,12 @@ const GrammarNuancesScreen = () => {
                     </div>
                 </div>
             )}
+
+            <PremiumLockedModal
+                isOpen={showPremiumModal}
+                onClose={() => setShowPremiumModal(false)}
+                packageName="Thư viện Ngữ pháp Chuyên sâu"
+            />
         </div>
     );
 };

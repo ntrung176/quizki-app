@@ -62,8 +62,10 @@ const KanjiNavHeader = ({
         };
     }, [adminMenuOpen, searchInputRef, setShowSearchResults]);
 
+    const hasKanjiAccess = isAdmin || isUserAdmin || profile?.isPremiumUnlocked || profile?.isPremium || (profile?.unlockedSpecializedPackages || []).includes('kanji_zen') || (profile?.unlockedSpecializedPackages || []).includes('premium');
+
     const handleLevelChange = (level) => {
-        const isLocked = ['N3', 'N2', 'N1'].includes(level) && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('kanji_zen');
+        const isLocked = level !== 'N5' && !['Bộ thủ', 'Mới thêm', 'Chưa có từ vựng', 'Đã có từ vựng'].includes(level) && !hasKanjiAccess;
         if (isLocked) {
             setLockedPkgName('Thư viện Kanji Zen');
             setShowPremiumModal(true);
@@ -76,7 +78,7 @@ const KanjiNavHeader = ({
         ...JLPT_LEVELS.map(lvl => ({
             value: lvl,
             label: lvl,
-            isLocked: ['N3', 'N2', 'N1'].includes(lvl) && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('kanji_zen')
+            isLocked: lvl !== 'N5' && !hasKanjiAccess
         })),
         { value: 'Bộ thủ', label: 'Bộ thủ (214)', isLocked: false },
         ...(isUserAdmin ? [

@@ -8,7 +8,7 @@ import { getAuth } from 'firebase/auth';
 import { getSharedGrammarPointsList, getSharedGrammarSrs, getCachedUserGrammarSrsData, updateCachedUserGrammarSrs, subscribeGrammarSrs, deleteGrammarPoint, deleteGrammarPointsBatch, importDirectGrammarPointsFromJson } from '../../utils/grammarService';
 import { aiGenerateGrammarPointsJson } from '../../utils/aiProvider';
 import { showToast } from '../../utils/toast';
-import { TopTabBar } from '../ui';
+import { TopTabBar, PremiumLockedModal } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
 
 const AI_SYSTEM_PROMPT = `Bạn là một chuyên gia biên soạn giáo trình tiếng Nhật JLPT cho ứng dụng QuizKi App.
@@ -126,7 +126,7 @@ const LEVEL_BORDER_COLORS = {
     N1: 'border-rose-500',
 };
 
-const GrammarListScreen = ({ isAdmin }) => {
+const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
     const user = getAuth().currentUser;
     const userId = user?.uid;
     const navigate = useNavigate();
@@ -136,6 +136,9 @@ const GrammarListScreen = ({ isAdmin }) => {
     const [userGrammarSRS, setUserGrammarSRS] = useState(new Set());
     const [srsData, setSrsData] = useState({});
     const [loading, setLoading] = useState(true);
+    const [showPremiumModal, setShowPremiumModal] = useState(false);
+
+    const hasGrammarAccess = isAdmin || profile?.isPremiumUnlocked || profile?.isPremium || (profile?.unlockedSpecializedPackages || []).includes('grammar_zen') || (profile?.unlockedSpecializedPackages || []).includes('premium');
 
     const [selectedLevel, setSelectedLevel] = useState(() => searchParams.get('level') || 'N5');
     const [searchQuery, setSearchQuery] = useState(() => searchParams.get('search') || '');
@@ -614,12 +617,16 @@ const GrammarListScreen = ({ isAdmin }) => {
                             {visibleGrammar.map(gp => {
                                 const isBookmarked = userGrammarSRS.has(gp.id);
                                 const isSelected = selectedGrammarIds.has(gp.id);
+                                const gpLevel = getGrammarLevel(gp);
+                                const isLocked = gpLevel !== 'N5' && !hasGrammarAccess;
                                 return (
                                     <div
                                         key={gp.id}
                                         onClick={() => {
                                             if (isBatchMode) {
                                                 toggleSelectItem(gp.id);
+                                            } else if (isLocked) {
+                                                setShowPremiumModal(true);
                                             } else {
                                                 const currentParams = new URLSearchParams(searchParams);
                                                 currentParams.set('from', 'list');
@@ -690,9 +697,10 @@ const GrammarListScreen = ({ isAdmin }) => {
                                         <div className="space-y-2 pr-10">
                                             <div className="flex items-center gap-2 flex-wrap">
                                                 <span className={`px-2 py-0.5 rounded-lg text-[10px] font-black shadow-xs ${
-                                                    LEVEL_BADGE_COLORS[getGrammarLevel(gp)] || 'bg-slate-600 text-white'
-                                                }`}>
-                                                    {getGrammarLevel(gp)}
+                                                    LEVEL_BADGE_COLORS[gpLevel] || 'bg-slate-600 text-white'
+                                                } flex items-center gap-1`}>
+                                                    {isLocked && <span>🔒</span>}
+                                                    <span>{gpLevel}</span>
                                                 </span>
                                                 <div className="flex items-center gap-1.5 text-[10px] text-slate-400 dark:text-slate-400 font-bold uppercase tracking-wider">
                                                     <BookOpen className="w-3.5 h-3.5 text-indigo-500" />
@@ -876,6 +884,11 @@ const GrammarListScreen = ({ isAdmin }) => {
                     </div>
                 </div>
             )}
+            <PremiumLockedModal
+                isOpen={showPremiumModal}
+                onClose={() => setShowPremiumModal(false)}
+                packageName="Thư viện Ngữ pháp Chuyên sâu"
+            />
         </div>
     );
 };

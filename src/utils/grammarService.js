@@ -1528,7 +1528,15 @@ export const updateCachedUserGrammarSrs = (userId, grammarId, newSrs) => {
         } else {
             cachedUserGrammarSrsData[grammarId] = newSrs;
         }
+        // Immediately notify all in-memory subscribers
+        grammarSrsListeners.forEach(cb => {
+            try { cb(cachedUserGrammarSrsData); } catch (_) {}
+        });
     }
+    // Dispatch global srs-updated event for instant 0ms badge sync
+    try {
+        window.dispatchEvent(new Event('srs-updated'));
+    } catch (_) {}
 };
 
 export const clearUserGrammarSrsCache = () => {

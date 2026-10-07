@@ -618,13 +618,13 @@ const AppRoutes = ({
 
                 {/* Protected routes - require both auth and approval */}
 
-                {/* Trang chủ mới - Landing page */}
+                {/* Trang chủ mới - Landing page & Dashboard */}
                 <Route
                     path={ROUTES.HOME}
                     element={
                         !authReady ? (
                             <LoadingIndicator fullScreen message="Đang kiểm tra đăng nhập..." />
-                        ) : isAuthenticated ? (
+                        ) : (
                             <HomeScreen
                                 displayName={profile?.displayName}
                                 totalCards={allCards?.length || 0}
@@ -635,8 +635,6 @@ const AppRoutes = ({
                                 calculatedStreak={calculatedStreak}
                                 isActivityLogsLoaded={isActivityLogsLoaded}
                             />
-                        ) : (
-                            <LoginScreen />
                         )
                     }
                 />
@@ -650,43 +648,41 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.VOCAB_REVIEW}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <SRSVocabScreen
-                                displayName={profile?.displayName}
-                                userId={userId}
-                                isAdmin={isAdmin}
-                                folders={folders}
-                                cardFolders={cardFolders}
-                                setReviewCards={setReviewCards}
-                                dueCounts={dueCounts}
-                                totalCards={allCards?.length || 0}
-                                allCards={allCards}
-                                studySessionData={studySessionData}
-                                setStudySessionData={setStudySessionData}
-                                setNotification={setNotification}
-                                setReviewMode={setReviewMode}
-                                setView={setView}
-                                onStartReview={prepareReviewCards}
-                                onNavigate={setView}
-                                setFlashcardCards={setFlashcardCards}
-                                onToggleSrs={onToggleSrs}
-                                onUpdateVocabSrsRating={onUpdateVocabSrsRating}
-                                onRevertVocabSrsRating={onRevertVocabSrsRating}
-                                onRefreshCards={onRefreshCards}
-                                awardXP={awardXP}
-                                setIsReviewActive={setIsReviewActive}
-                                playAudio={playAudio}
-                                onSaveCardAudio={handleSaveCardAudio}
-                                dailyActivityLogs={dailyActivityLogs}
-                                onStudySet={handleStudySet}
-                                onFlashcardSet={handleFlashcardSet}
-                                onMeaningSet={handleMeaningSet}
-                                onDictationSet={handleDictationSet}
-                                onUpdateCard={handleUpdateCard}
-                                onSaveChanges={handleSaveChanges}
-                                vocabCollectionPath={vocabCollectionPath}
-                            />
-                        </ProtectedRoute>
+                        <SRSVocabScreen
+                            displayName={profile?.displayName}
+                            userId={userId}
+                            isAdmin={isAdmin}
+                            folders={folders}
+                            cardFolders={cardFolders}
+                            setReviewCards={setReviewCards}
+                            dueCounts={dueCounts}
+                            totalCards={allCards?.length || 0}
+                            allCards={allCards}
+                            studySessionData={studySessionData}
+                            setStudySessionData={setStudySessionData}
+                            setNotification={setNotification}
+                            setReviewMode={setReviewMode}
+                            setView={setView}
+                            onStartReview={prepareReviewCards}
+                            onNavigate={setView}
+                            setFlashcardCards={setFlashcardCards}
+                            onToggleSrs={onToggleSrs}
+                            onUpdateVocabSrsRating={onUpdateVocabSrsRating}
+                            onRevertVocabSrsRating={onRevertVocabSrsRating}
+                            onRefreshCards={onRefreshCards}
+                            awardXP={awardXP}
+                            setIsReviewActive={setIsReviewActive}
+                            playAudio={playAudio}
+                            onSaveCardAudio={handleSaveCardAudio}
+                            dailyActivityLogs={dailyActivityLogs}
+                            onStudySet={handleStudySet}
+                            onFlashcardSet={handleFlashcardSet}
+                            onMeaningSet={handleMeaningSet}
+                            onDictationSet={handleDictationSet}
+                            onUpdateCard={handleUpdateCard}
+                            onSaveChanges={handleSaveChanges}
+                            vocabCollectionPath={vocabCollectionPath}
+                        />
                     }
                 />
 
@@ -694,26 +690,24 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.VOCAB_LIST}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <LibraryScreen
-                                allCards={allCards}
-                                folders={folders}
-                                cardFolders={cardFolders}
-                                onOpenStudySet={(id) => navigate('/vocab/set/' + id)}
-                                onNavigateToAdd={() => navigate(ROUTES.VOCAB_ADD)}
-                                onDeleteFolder={onDeleteFolder}
-                                onRenameFolder={onRenameFolder}
-                                parentFolders={parentFolders}
-                                onAddParentFolder={onAddParentFolder}
-                                onRenameParentFolder={onRenameParentFolder}
-                                onDeleteParentFolder={onDeleteParentFolder}
-                                onMoveStudySetToParentFolder={onMoveStudySetToParentFolder}
-                                onSaveChanges={handleSaveChanges}
-                                onUpdateCard={handleUpdateCard}
-                                onGeminiAssist={handleGeminiAssist}
-                                canUserUseAI={canUserUseAI}
-                            />
-                        </ProtectedRoute>
+                        <LibraryScreen
+                            allCards={allCards}
+                            folders={folders}
+                            cardFolders={cardFolders}
+                            onOpenStudySet={(id) => navigate('/vocab/set/' + id)}
+                            onNavigateToAdd={() => navigate(ROUTES.VOCAB_ADD)}
+                            onDeleteFolder={onDeleteFolder}
+                            onRenameFolder={onRenameFolder}
+                            parentFolders={parentFolders}
+                            onAddParentFolder={onAddParentFolder}
+                            onRenameParentFolder={onRenameParentFolder}
+                            onDeleteParentFolder={onDeleteParentFolder}
+                            onMoveStudySetToParentFolder={onMoveStudySetToParentFolder}
+                            onSaveChanges={handleSaveChanges}
+                            onUpdateCard={handleUpdateCard}
+                            onGeminiAssist={handleGeminiAssist}
+                            canUserUseAI={canUserUseAI}
+                        />
                     }
                 />
 
@@ -721,104 +715,96 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.VOCAB_SET_DETAIL}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <StudySetDetailWrapper 
-                                allCards={allCards}
-                                folders={folders}
-                                cardFolders={cardFolders}
-                                setReviewCards={setReviewCards}
-                                setReviewMode={setReviewMode}
-                                setFlashcardCards={setFlashcardCards}
-                                setStudySessionData={setStudySessionData}
-                                setFlashcardSetId={setFlashcardSetId}
-                                setReviewSetId={setReviewSetId}
-                                navigate={navigate}
-                                onDeleteFolder={onDeleteFolder}
-                                handleDeleteCard={handleDeleteCard}
-                                handleSaveChanges={handleSaveChanges}
-                                handleSaveCardAudio={handleSaveCardAudio}
-                                onToggleSrs={onToggleSrs}
-                                handleGeminiAssist={handleGeminiAssist}
-                                canUserUseAI={canUserUseAI}
-                                awardXP={awardXP}
-                                onUpdateCard={handleUpdateCard}
-                            />
-                        </ProtectedRoute>
+                        <StudySetDetailWrapper 
+                            allCards={allCards}
+                            folders={folders}
+                            cardFolders={cardFolders}
+                            setReviewCards={setReviewCards}
+                            setReviewMode={setReviewMode}
+                            setFlashcardCards={setFlashcardCards}
+                            setStudySessionData={setStudySessionData}
+                            setFlashcardSetId={setFlashcardSetId}
+                            setReviewSetId={setReviewSetId}
+                            navigate={navigate}
+                            onDeleteFolder={onDeleteFolder}
+                            handleDeleteCard={handleDeleteCard}
+                            handleSaveChanges={handleSaveChanges}
+                            handleSaveCardAudio={handleSaveCardAudio}
+                            onToggleSrs={onToggleSrs}
+                            handleGeminiAssist={handleGeminiAssist}
+                            canUserUseAI={canUserUseAI}
+                            awardXP={awardXP}
+                            onUpdateCard={handleUpdateCard}
+                        />
                     }
                 />
 
                 <Route
                     path={ROUTES.VOCAB_ADD}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <AddCardForm
-                                allCards={allCards}
-                                cardFolders={cardFolders}
-                                folders={folders}
-                                onAddFolder={onAddFolder}
-                                onSave={handleSaveNewCard}
-                                onBack={() => setView('LIST')}
-                                onGeminiAssist={handleGeminiAssist}
-                                onGenerateMoreExample={handleGenerateMoreExample}
-                                onExtractVocabFromImage={handleExtractVocabFromImage}
-                                canUserUseAI={canUserUseAI}
-                                batchMode={batchMode}
-                                currentBatchIndex={currentBatchIndex}
-                                totalBatchCount={batchVocabList?.length || 0}
-                                onBatchNext={handleBatchSaveNext}
-                                onBatchSkip={handleBatchSkip}
-                                editingCard={editingCard}
-                                onOpenBatchImport={() => setShowBatchImportModal(true)}
-                                aiCreditsRemaining={aiCreditsRemaining}
-                                parentFolders={parentFolders}
-                            />
-                        </ProtectedRoute>
+                        <AddCardForm
+                            allCards={allCards}
+                            cardFolders={cardFolders}
+                            folders={folders}
+                            onAddFolder={onAddFolder}
+                            onSave={handleSaveNewCard}
+                            onBack={() => setView('LIST')}
+                            onGeminiAssist={handleGeminiAssist}
+                            onGenerateMoreExample={handleGenerateMoreExample}
+                            onExtractVocabFromImage={handleExtractVocabFromImage}
+                            canUserUseAI={canUserUseAI}
+                            batchMode={batchMode}
+                            currentBatchIndex={currentBatchIndex}
+                            totalBatchCount={batchVocabList?.length || 0}
+                            onBatchNext={handleBatchSaveNext}
+                            onBatchSkip={handleBatchSkip}
+                            editingCard={editingCard}
+                            onOpenBatchImport={() => setShowBatchImportModal(true)}
+                            aiCreditsRemaining={aiCreditsRemaining}
+                            parentFolders={parentFolders}
+                        />
                     }
                 />
 
                 <Route
                     path={ROUTES.VOCAB_QUICK_ADD}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <QuickAddVocabForm
-                                folders={folders}
-                                parentFolders={parentFolders}
-                                cardFolders={cardFolders}
-                                allCards={allCards}
-                                onSave={handleSaveNewCard}
-                                onBack={() => navigate('/')}
-                                onGeminiAssist={handleGeminiAssist}
-                                onGenerateMoreExample={handleGenerateMoreExample}
-                                canUserUseAI={canUserUseAI}
-                                aiCreditsRemaining={aiCreditsRemaining}
-                            />
-                        </ProtectedRoute>
+                        <QuickAddVocabForm
+                            folders={folders}
+                            parentFolders={parentFolders}
+                            cardFolders={cardFolders}
+                            allCards={allCards}
+                            onSave={handleSaveNewCard}
+                            onBack={() => navigate('/')}
+                            onGeminiAssist={handleGeminiAssist}
+                            onGenerateMoreExample={handleGenerateMoreExample}
+                            canUserUseAI={canUserUseAI}
+                            aiCreditsRemaining={aiCreditsRemaining}
+                        />
                     }
                 />
 
                 <Route
                     path={ROUTES.VOCAB_EDIT_SET}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <EditSetScreenWrapper
-                                folders={folders}
-                                cardFolders={cardFolders}
-                                allCards={allCards}
-                                onRenameFolder={onRenameFolder}
-                                onAddFolder={onAddFolder}
-                                handleUpdateCard={handleUpdateCard}
-                                handleDeleteCard={handleDeleteCard}
-                                handleDeleteCards={handleDeleteCards}
-                                handleSaveNewCard={handleSaveNewCard}
-                                handleGeminiAssist={handleGeminiAssist}
-                                handleGenerateMoreExample={handleGenerateMoreExample}
-                                handleExtractVocabFromImage={handleExtractVocabFromImage}
-                                canUserUseAI={canUserUseAI}
-                                aiCreditsRemaining={aiCreditsRemaining}
-                                navigate={navigate}
-                                parentFolders={parentFolders}
-                            />
-                        </ProtectedRoute>
+                        <EditSetScreenWrapper
+                            folders={folders}
+                            cardFolders={cardFolders}
+                            allCards={allCards}
+                            onRenameFolder={onRenameFolder}
+                            onAddFolder={onAddFolder}
+                            handleUpdateCard={handleUpdateCard}
+                            handleDeleteCard={handleDeleteCard}
+                            handleDeleteCards={handleDeleteCards}
+                            handleSaveNewCard={handleSaveNewCard}
+                            handleGeminiAssist={handleGeminiAssist}
+                            handleGenerateMoreExample={handleGenerateMoreExample}
+                            handleExtractVocabFromImage={handleExtractVocabFromImage}
+                            canUserUseAI={canUserUseAI}
+                            aiCreditsRemaining={aiCreditsRemaining}
+                            navigate={navigate}
+                            parentFolders={parentFolders}
+                        />
                     }
                 />
 
@@ -830,90 +816,60 @@ const AppRoutes = ({
                 {/* Bảng chữ cái Hiragana & Katakana */}
                 <Route
                     path={ROUTES.KANA}
-                    element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <KanaScreen awardXP={awardXP} />
-                        </ProtectedRoute>
-                    }
+                    element={<KanaScreen awardXP={awardXP} />}
                 />
 
                 {/* Bảng chữ cái tiếng Hàn (Hangul) */}
                 <Route
                     path={ROUTES.HANGUL}
-                    element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <HangulScreen awardXP={awardXP} />
-                        </ProtectedRoute>
-                    }
+                    element={<HangulScreen awardXP={awardXP} />}
                 />
 
                 {/* Bảng phiên âm tiếng Anh (IPA) */}
                 <Route
                     path={ROUTES.IPA}
-                    element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <IpaScreen awardXP={awardXP} />
-                        </ProtectedRoute>
-                    }
+                    element={<IpaScreen awardXP={awardXP} />}
                 />
 
                 {/* Học Kanji - Study roadmap screen */}
                 <Route
                     path={ROUTES.KANJI_STUDY}
-                    element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <KanjiStudyScreen profile={profile} isAdmin={isAdmin} />
-                        </ProtectedRoute>
-                    }
+                    element={<KanjiStudyScreen profile={profile} isAdmin={isAdmin} />}
                 />
 
                 {/* Bài học Kanji - Lesson screen (flashcard + test) */}
                 <Route
                     path={ROUTES.KANJI_LESSON}
-                    element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <KanjiLessonScreen awardXP={awardXP} />
-                        </ProtectedRoute>
-                    }
+                    element={<KanjiLessonScreen awardXP={awardXP} profile={profile} isAdmin={isAdmin} />}
                 />
 
                 {/* Ôn tập Kanji - Review statistics screen */}
                 <Route
                     path={ROUTES.KANJI_REVIEW}
-                    element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <KanjiReviewScreen awardXP={awardXP} setIsReviewActive={setIsReviewActive} isAdmin={isAdmin} />
-                        </ProtectedRoute>
-                    }
+                    element={<KanjiReviewScreen awardXP={awardXP} setIsReviewActive={setIsReviewActive} isAdmin={isAdmin} />}
                 />
 
                 {/* Danh sách Kanji đã lưu - SRS management */}
                 <Route
                     path={ROUTES.KANJI_SAVED}
-                    element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <KanjiSRSListScreen />
-                        </ProtectedRoute>
-                    }
+                    element={<KanjiSRSListScreen />}
                 />
 
                 {/* Danh sách Kanji */}
                 <Route
                     path={ROUTES.KANJI_LIST}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <KanjiScreen
-                                isAdmin={userHasAdminPrivileges}
-                                onAddVocabToSRS={handleSaveNewCard}
-                                onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
-                                onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
-                                allUserCards={allCards}
-                                profile={profile}
-                                folders={[...(parentFolders || []), ...(folders || [])]}
-                                userId={userId}
-                                 awardXP={awardXP}
-                            />
-                        </ProtectedRoute>
+                        <KanjiScreen
+                            isAdmin={userHasAdminPrivileges}
+                            onAddVocabToSRS={handleSaveNewCard}
+                            onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
+                            onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
+                            allUserCards={allCards}
+                            profile={profile}
+                            folders={[...(parentFolders || []), ...(folders || [])]}
+                            userId={userId}
+                            awardXP={awardXP}
+                        />
                     }
                 />
 
@@ -921,65 +877,50 @@ const AppRoutes = ({
                 <Route
                     path={`${ROUTES.KANJI_LIST}/:char`}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <KanjiScreen
-                                isAdmin={userHasAdminPrivileges}
-                                onAddVocabToSRS={handleSaveNewCard}
-                                onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
-                                onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
-                                allUserCards={allCards}
-                                profile={profile}
-                                folders={[...(parentFolders || []), ...(folders || [])]}
-                                userId={userId}
-                                 awardXP={awardXP}
-                            />
-                        </ProtectedRoute>
+                        <KanjiScreen
+                            isAdmin={userHasAdminPrivileges}
+                            onAddVocabToSRS={handleSaveNewCard}
+                            onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
+                            onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
+                            allUserCards={allCards}
+                            profile={profile}
+                            folders={[...(parentFolders || []), ...(folders || [])]}
+                            userId={userId}
+                            awardXP={awardXP}
+                        />
                     }
                 />
 
                 <Route
                     path={ROUTES.REVIEW}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            {reviewCards?.length > 0 ? (
-                                <ReviewScreen
-                                    cards={reviewCards}
-                                    reviewMode={reviewMode}
-                                    allCards={allCards}
-                                    setId={reviewSetId}
-                                    onUpdateCard={handleUpdateCard}
-                                    vocabCollectionPath={vocabCollectionPath}
-                                    onSaveCardAudio={handleSaveCardAudio}
-                                    awardXP={awardXP}
-                                    onCompleteReview={(failedCardsSet) => {
-                                        if (failedCardsSet && failedCardsSet.size > 0) {
-                                            const failedCardsList = [];
-                                            failedCardsSet.forEach(cardKey => {
-                                                const [cardId, reviewType] = cardKey.split('-');
-                                                const card = allCards.find(c => c.id === cardId);
-                                                if (card) {
-                                                    failedCardsList.push({ ...card, reviewType });
-                                                }
-                                            });
-                                            setReviewCards(shuffleArray(failedCardsList));
-                                            setReviewMode(reviewMode || 'mixed');
-                                        } else {
-                                            if (reviewSetId && reviewMode) {
-                                                const userId = getAuth().currentUser?.uid;
-                                                saveStudyCompletion(userId, reviewSetId, reviewMode);
+                        reviewCards?.length > 0 ? (
+                            <ReviewScreen
+                                cards={reviewCards}
+                                reviewMode={reviewMode}
+                                allCards={allCards}
+                                setId={reviewSetId}
+                                onUpdateCard={handleUpdateCard}
+                                vocabCollectionPath={vocabCollectionPath}
+                                onSaveCardAudio={handleSaveCardAudio}
+                                awardXP={awardXP}
+                                onCompleteReview={(failedCardsSet) => {
+                                    if (failedCardsSet && failedCardsSet.size > 0) {
+                                        const failedCardsList = [];
+                                        failedCardsSet.forEach(cardKey => {
+                                            const [cardId, reviewType] = cardKey.split('-');
+                                            const card = allCards.find(c => c.id === cardId);
+                                            if (card) {
+                                                failedCardsList.push({ ...card, reviewType });
                                             }
-                                            if (reviewSetId && reviewSetId !== 'mistakes') {
-                                                navigate(`/vocab/set/${reviewSetId}`);
-                                            } else {
-                                                navigate(ROUTES.VOCAB_REVIEW);
-                                            }
-                                            setTimeout(() => {
-                                                setReviewCards([]);
-                                                setReviewSetId(null);
-                                            }, 50);
+                                        });
+                                        setReviewCards(shuffleArray(failedCardsList));
+                                        setReviewMode(reviewMode || 'mixed');
+                                    } else {
+                                        if (reviewSetId && reviewMode) {
+                                            const userId = getAuth().currentUser?.uid;
+                                            saveStudyCompletion(userId, reviewSetId, reviewMode);
                                         }
-                                    }}
-                                    onBack={() => {
                                         if (reviewSetId && reviewSetId !== 'mistakes') {
                                             navigate(`/vocab/set/${reviewSetId}`);
                                         } else {
@@ -989,90 +930,95 @@ const AppRoutes = ({
                                             setReviewCards([]);
                                             setReviewSetId(null);
                                         }, 50);
-                                    }}
-                                />
-                            ) : (
-                                <Navigate to={ROUTES.VOCAB_REVIEW} replace />
-                            )}
-                        </ProtectedRoute>
+                                    }
+                                }}
+                                onBack={() => {
+                                    if (reviewSetId && reviewSetId !== 'mistakes') {
+                                        navigate(`/vocab/set/${reviewSetId}`);
+                                    } else {
+                                        navigate(ROUTES.VOCAB_REVIEW);
+                                    }
+                                    setTimeout(() => {
+                                        setReviewCards([]);
+                                        setReviewSetId(null);
+                                    }, 50);
+                                }}
+                            />
+                        ) : (
+                            <Navigate to={ROUTES.VOCAB_REVIEW} replace />
+                        )
                     }
                 />
 
                 <Route
                     path={ROUTES.STUDY}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <StudyScreen
-                                studySessionData={studySessionData}
-                                setStudySessionData={setStudySessionData}
-                                allCards={allCards}
-                                onUpdateCard={handleUpdateCard}
-                                onSaveCardAudio={handleSaveCardAudio}
-                                awardXP={awardXP}
-                                onCompleteStudy={() => {
-                                    if (awardXP) awardXP(50);
-                                    const setId = studySessionData?.setId;
-                                    if (setId) {
-                                        const userId = getAuth().currentUser?.uid;
-                                        saveStudyCompletion(userId, setId, 'study');
-                                    }
-                                    setStudySessionData({
-                                        learning: [],
-                                        new: [],
-                                        reviewing: [],
-                                        currentBatch: [],
-                                        currentPhase: 'multipleChoice',
-                                        batchIndex: 0,
-                                        allNoSrsCards: []
-                                    });
-                                    if (setId && setId !== 'mistakes') {
-                                        navigate(`/vocab/set/${setId}`);
-                                    } else {
-                                        navigate(ROUTES.VOCAB_REVIEW);
-                                    }
-                                }}
-                                onBack={() => {
-                                    const setId = studySessionData?.setId;
-                                    if (setId && setId !== 'mistakes') {
-                                        navigate(`/vocab/set/${setId}`);
-                                    } else {
-                                        navigate(ROUTES.VOCAB_REVIEW);
-                                    }
-                                }}
-                            />
-                        </ProtectedRoute>
+                        <StudyScreen
+                            studySessionData={studySessionData}
+                            setStudySessionData={setStudySessionData}
+                            allCards={allCards}
+                            onUpdateCard={handleUpdateCard}
+                            onSaveCardAudio={handleSaveCardAudio}
+                            awardXP={awardXP}
+                            onCompleteStudy={() => {
+                                if (awardXP) awardXP(50);
+                                const setId = studySessionData?.setId;
+                                if (setId) {
+                                    const userId = getAuth().currentUser?.uid;
+                                    saveStudyCompletion(userId, setId, 'study');
+                                }
+                                setStudySessionData({
+                                    learning: [],
+                                    new: [],
+                                    reviewing: [],
+                                    currentBatch: [],
+                                    currentPhase: 'multipleChoice',
+                                    batchIndex: 0,
+                                    allNoSrsCards: []
+                                });
+                                if (setId && setId !== 'mistakes') {
+                                    navigate(`/vocab/set/${setId}`);
+                                } else {
+                                    navigate(ROUTES.VOCAB_REVIEW);
+                                }
+                            }}
+                            onBack={() => {
+                                const setId = studySessionData?.setId;
+                                if (setId && setId !== 'mistakes') {
+                                    navigate(`/vocab/set/${setId}`);
+                                } else {
+                                    navigate(ROUTES.VOCAB_REVIEW);
+                                }
+                            }}
+                        />
                     }
                 />
 
                 <Route
                     path={ROUTES.TEST}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <TestScreen
-                                allCards={allCards}
-                                onBack={() => navigate(ROUTES.VOCAB_REVIEW)}
-                            />
-                        </ProtectedRoute>
+                        <TestScreen
+                            allCards={allCards}
+                            onBack={() => navigate(ROUTES.VOCAB_REVIEW)}
+                        />
                     }
                 />
 
                 <Route
                     path={ROUTES.HUB}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <StatsScreen
-                                memoryStats={memoryStats}
-                                totalCards={allCards?.length || 0}
-                                profile={profile}
-                                allCards={allCards}
-                                dailyActivityLogs={dailyActivityLogs}
-                                onUpdateGoal={handleUpdateGoal}
-                                onBack={() => setView('HOME')}
-                                userId={userId}
-                                publicStatsPath={publicStatsCollectionPath}
-                                initialTab="stats"
-                            />
-                        </ProtectedRoute>
+                        <StatsScreen
+                            memoryStats={memoryStats}
+                            totalCards={allCards?.length || 0}
+                            profile={profile}
+                            allCards={allCards}
+                            dailyActivityLogs={dailyActivityLogs}
+                            onUpdateGoal={handleUpdateGoal}
+                            onBack={() => setView('HOME')}
+                            userId={userId}
+                            publicStatsPath={publicStatsCollectionPath}
+                            initialTab="stats"
+                        />
                     }
                 />
 
@@ -1235,154 +1181,80 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.BOOKS}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <BookScreen
-                                isAdmin={userHasAdminPrivileges}
-                                onAddVocabToSRS={handleSaveNewCard}
-                                onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
-                                onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
-                                allUserCards={allCards}
-                                userId={userId}
-                                folders={folders}
-                                parentFolders={parentFolders}
-                                onDeleteFolder={onDeleteFolder}
-                                onAddFolder={onAddFolder}
-                                onMoveStudySetToParentFolder={onMoveStudySetToParentFolder}
-                                profile={profile}
-                                awardXP={awardXP}
-                            />
-                        </ProtectedRoute>
+                        <BookScreen
+                            isAdmin={userHasAdminPrivileges}
+                            onAddVocabToSRS={handleSaveNewCard}
+                            onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
+                            onGenerateMoreExample={canUserUseAI ? handleGenerateMoreExample : null}
+                            allUserCards={allCards}
+                            userId={userId}
+                            folders={folders}
+                            parentFolders={parentFolders}
+                            onDeleteFolder={onDeleteFolder}
+                            onAddFolder={onAddFolder}
+                            onMoveStudySetToParentFolder={onMoveStudySetToParentFolder}
+                            profile={profile}
+                            awardXP={awardXP}
+                        />
                     }
                 />
 
                 {/* ==================== GRAMMAR MODULE ==================== */}
                 <Route
                     path={ROUTES.GRAMMAR}
-                    element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <Navigate to={ROUTES.GRAMMAR_REVIEW} replace />
-                        </ProtectedRoute>
-                    }
+                    element={<Navigate to={ROUTES.GRAMMAR_REVIEW} replace />}
                 />
                 <Route
                     path={ROUTES.GRAMMAR_TEXTBOOK}
-                    element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <GrammarProtectedRoute isAdmin={isAdmin}><GrammarLessonsScreen isAdmin={isAdmin} profile={profile} /></GrammarProtectedRoute>
-                        </ProtectedRoute>
-                    }
+                    element={<GrammarLessonsScreen isAdmin={isAdmin} profile={profile} />}
                 />
                 <Route
                     path={ROUTES.GRAMMAR_LESSON}
-                    element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <GrammarProtectedRoute isAdmin={isAdmin}><GrammarPointsScreen isAdmin={isAdmin} profile={profile} /></GrammarProtectedRoute>
-                        </ProtectedRoute>
-                    }
+                    element={<GrammarPointsScreen isAdmin={isAdmin} profile={profile} />}
                 />
                 <Route
                     path={ROUTES.GRAMMAR_DETAIL}
-                    element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <GrammarProtectedRoute isAdmin={isAdmin}><GrammarDetailScreen isAdmin={isAdmin} profile={profile} /></GrammarProtectedRoute>
-                        </ProtectedRoute>
-                    }
+                    element={<GrammarDetailScreen isAdmin={isAdmin} profile={profile} />}
                 />
                 <Route
                     path={ROUTES.GRAMMAR_PRACTICE}
-                    element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <GrammarProtectedRoute isAdmin={isAdmin}><GrammarPracticeScreen isAdmin={isAdmin} profile={profile} /></GrammarProtectedRoute>
-                        </ProtectedRoute>
-                    }
+                    element={<GrammarPracticeScreen isAdmin={isAdmin} profile={profile} />}
                 />
                 <Route
                     path={ROUTES.GRAMMAR_REVIEW}
-                    element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <GrammarProtectedRoute isAdmin={isAdmin}>
-                                <GrammarReviewScreen awardXP={awardXP} setIsReviewActive={setIsReviewActive} />
-                            </GrammarProtectedRoute>
-                        </ProtectedRoute>
-                    }
+                    element={<GrammarReviewScreen awardXP={awardXP} setIsReviewActive={setIsReviewActive} />}
                 />
                 <Route
                     path={ROUTES.GRAMMAR_SAVED}
-                    element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <GrammarProtectedRoute isAdmin={isAdmin}>
-                                <GrammarSavedScreen />
-                            </GrammarProtectedRoute>
-                        </ProtectedRoute>
-                    }
+                    element={<GrammarSavedScreen isAdmin={isAdmin} profile={profile} />}
                 />
                 <Route
                     path={ROUTES.GRAMMAR_CHEATSHEETS}
-                    element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <GrammarProtectedRoute isAdmin={isAdmin}>
-                                <GrammarCheatSheetsScreen />
-                            </GrammarProtectedRoute>
-                        </ProtectedRoute>
-                    }
+                    element={<GrammarCheatSheetsScreen isAdmin={isAdmin} profile={profile} />}
                 />
                 <Route
                     path={ROUTES.GRAMMAR_NUANCES}
-                    element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <GrammarProtectedRoute isAdmin={isAdmin}>
-                                <GrammarNuancesScreen />
-                            </GrammarProtectedRoute>
-                        </ProtectedRoute>
-                    }
+                    element={<GrammarNuancesScreen isAdmin={isAdmin} profile={profile} />}
                 />
                 <Route
                     path={ROUTES.GRAMMAR_CHEATSHEET_DETAIL}
-                    element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <GrammarProtectedRoute isAdmin={isAdmin}>
-                                <GrammarCheatSheetDetailScreen />
-                            </GrammarProtectedRoute>
-                        </ProtectedRoute>
-                    }
+                    element={<GrammarCheatSheetDetailScreen isAdmin={isAdmin} profile={profile} />}
                 />
                 <Route
                     path={ROUTES.GRAMMAR_CURRICULUM}
-                    element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <GrammarProtectedRoute isAdmin={isAdmin}>
-                                <GrammarCurriculumScreen />
-                            </GrammarProtectedRoute>
-                        </ProtectedRoute>
-                    }
+                    element={<GrammarCurriculumScreen isAdmin={isAdmin} profile={profile} />}
                 />
                 <Route
                     path={ROUTES.GRAMMAR_TOPIC_DETAIL}
-                    element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <GrammarProtectedRoute isAdmin={isAdmin}>
-                                <GrammarTopicDetailScreen />
-                            </GrammarProtectedRoute>
-                        </ProtectedRoute>
-                    }
+                    element={<GrammarTopicDetailScreen isAdmin={isAdmin} profile={profile} />}
                 />
                 <Route
                     path={ROUTES.GRAMMAR_LIST}
-                    element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <GrammarProtectedRoute isAdmin={isAdmin}>
-                                <GrammarListScreen isAdmin={isAdmin} />
-                            </GrammarProtectedRoute>
-                        </ProtectedRoute>
-                    }
+                    element={<GrammarListScreen isAdmin={isAdmin} profile={profile} />}
                 />
                 <Route
                     path={ROUTES.GRAMMAR_STUDY}
-                    element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <GrammarProtectedRoute isAdmin={isAdmin}><GrammarTextbooksScreen isAdmin={isAdmin} /></GrammarProtectedRoute>
-                        </ProtectedRoute>
-                    }
+                    element={<GrammarTextbooksScreen isAdmin={isAdmin} profile={profile} />}
                 />
 
                 {/* Cài đặt */}
@@ -1422,13 +1294,11 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.FORUM}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <ForumScreen
-                                userId={userId}
-                                profile={profile}
-                                isAdmin={isAdmin}
-                            />
-                        </ProtectedRoute>
+                        <ForumScreen
+                            userId={userId}
+                            profile={profile}
+                            isAdmin={isAdmin}
+                        />
                     }
                 />
 
@@ -1450,15 +1320,13 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.JLPT_TEST}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <JLPTTestScreen 
-                                isAdmin={isAdmin} 
-                                allCards={allCards} 
-                                profile={profile} 
-                                userId={userId}
-                                awardXP={awardXP}
-                            />
-                        </ProtectedRoute>
+                        <JLPTTestScreen 
+                            isAdmin={isAdmin} 
+                            allCards={allCards} 
+                            profile={profile} 
+                            userId={userId}
+                            awardXP={awardXP}
+                        />
                     }
                 />
 
@@ -1466,57 +1334,11 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.JLPT_KAIWA}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            {(isAdmin || profile?.isPremiumUnlocked || profile?.isPremium) ? (
-                                <JLPTKaiwaScreen 
-                                    profile={profile} 
-                                    isAdmin={isAdmin} 
-                                    awardXP={awardXP}
-                                />
-                            ) : (
-                                <div className="fixed inset-0 z-50 flex flex-col items-center justify-center p-4 sm:p-6 bg-slate-950 text-slate-100 overflow-y-auto animate-fade-in">
-                                    {/* Rich Dark Cinematic Background elements */}
-                                    <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-indigo-950/50 to-slate-950 pointer-events-none" />
-                                    <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-amber-500/15 rounded-full blur-[120px] pointer-events-none animate-pulse" />
-                                    <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-indigo-500/15 rounded-full blur-[100px] pointer-events-none" />
-                                    <div className="absolute inset-0 bg-[radial-gradient(#334155_1px,transparent_1px)] [background-size:24px_24px] opacity-20 pointer-events-none" />
-
-                                    <div className="relative z-10 max-w-md w-full bg-slate-900/90 backdrop-blur-2xl p-8 sm:p-10 rounded-3xl shadow-2xl shadow-amber-950/30 border border-slate-800/80 text-center space-y-6">
-                                        <div className="relative w-20 h-20 mx-auto flex items-center justify-center">
-                                            <div className="absolute inset-0 bg-gradient-to-tr from-amber-500 to-orange-500 rounded-3xl opacity-30 blur-xl animate-pulse" />
-                                            <div className="relative w-16 h-16 rounded-2xl bg-gradient-to-tr from-amber-500 to-orange-500 flex items-center justify-center text-white shadow-xl shadow-amber-500/40">
-                                                <span className="text-3xl animate-bounce">👑</span>
-                                            </div>
-                                        </div>
-
-                                        <div className="space-y-2">
-                                            <span className="inline-block px-3 py-1 text-[10px] font-black tracking-widest text-amber-400 bg-amber-950/50 rounded-full uppercase border border-amber-800/50">
-                                                Đặc quyền Premium
-                                            </span>
-                                            <h2 className="text-2xl font-black text-white tracking-tight">Dành Cho Tài Khoản Premium</h2>
-                                            <p className="text-sm text-slate-300 leading-relaxed max-w-sm mx-auto">
-                                                Tính năng <strong>Phòng Kaiwa AI (Luyện nói 1:1)</strong> dành riêng cho hội viên <strong>Premium</strong>. Vui lòng nâng cấp tài khoản để mở khóa trải nghiệm học tập không giới hạn!
-                                            </p>
-                                        </div>
-
-                                        <div className="flex flex-col gap-3 pt-2">
-                                            <button
-                                                onClick={() => navigate('/account')}
-                                                className="w-full py-3.5 px-6 bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 text-white font-extrabold rounded-2xl transition-all shadow-xl shadow-amber-500/30 active:scale-95 cursor-pointer text-sm tracking-wide uppercase"
-                                            >
-                                                Nâng cấp Tài khoản Premium 👑
-                                            </button>
-                                            <button
-                                                onClick={() => navigate(ROUTES.HOME)}
-                                                className="w-full py-3 px-6 bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold rounded-2xl transition-all cursor-pointer text-xs"
-                                            >
-                                                Quay lại Trang chủ
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
-                            )}
-                        </ProtectedRoute>
+                        <JLPTKaiwaScreen 
+                            profile={profile} 
+                            isAdmin={isAdmin} 
+                            awardXP={awardXP}
+                        />
                     }
                 />
 
@@ -1524,13 +1346,11 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.VIDEO_KAIWA}
                     element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <VideoKaiwaScreen 
-                                profile={profile} 
-                                isAdmin={isAdmin} 
-                                awardXP={awardXP}
-                            />
-                        </ProtectedRoute>
+                        <VideoKaiwaScreen 
+                            profile={profile} 
+                            isAdmin={isAdmin} 
+                            awardXP={awardXP}
+                        />
                     }
                 />
 

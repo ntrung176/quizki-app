@@ -67,7 +67,8 @@ const isUserPremiumActive = (u) => {
 };
 
 // ==================== MAIN LEADERBOARD SCREEN ====================
-const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivityLogs = [], userId, publicStatsPath }) => {
+const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], dailyActivityLogs = [], userId, publicStatsPath }) => {
+    const profile = rawProfile || {};
     const { t } = useLanguage();
     const LEADERBOARD_CACHE_KEY = 'quizki_cached_leaderboard';
     const [kanjiSrsStats, setKanjiSrsStats] = useState({ total: 0, learning: 0, mastered: 0, dueToday: 0 });
@@ -568,7 +569,7 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
                     {/* User Info Bar */}
                     <div className="flex items-center gap-3 sm:gap-4">
                         <div className="w-14 h-14 sm:w-16 sm:h-16 overflow-hidden rounded-full flex items-center justify-center flex-shrink-0 bg-slate-100 dark:bg-slate-800 border-2 border-amber-400 shadow-md text-xl sm:text-2xl">
-                            {getAvatarDisplayNode(profile.avatar, profile.displayName || 'U', true)}
+                            {getAvatarDisplayNode(profile?.avatar, profile?.displayName || 'U', true)}
                         </div>
                         <div className="min-w-0 flex-1">
                             {isUserPremiumActive(profile) && (
@@ -581,7 +582,7 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
                             )}
                             <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
                                 <h2 className="text-lg sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight truncate max-w-[180px] sm:max-w-none">
-                                    {profile.displayName || 'Bạn'}
+                                    {profile?.displayName || 'Bạn'}
                                 </h2>
                                 <span className="bg-gradient-to-r from-amber-400 to-orange-500 text-slate-950 text-[10px] sm:text-[11px] font-black font-mono px-2 py-0.5 rounded-lg shadow-sm">
                                     LV {xpDetails.level}
@@ -1012,7 +1013,7 @@ const StatsScreen = ({ totalCards = 0, profile = {}, allCards = [], dailyActivit
                         </div>
                         <div>
                             <p className="text-xs font-bold text-slate-800 dark:text-slate-100 flex items-center gap-1">
-                                {profile.displayName || 'Bạn'} (Bạn)
+                                {profile?.displayName || 'Bạn'} (Bạn)
                             </p>
                             <p className="text-[10px] text-slate-400 font-medium">Bấm để theo dõi thứ hạng của bạn</p>
                         </div>

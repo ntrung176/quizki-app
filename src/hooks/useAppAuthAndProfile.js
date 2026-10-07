@@ -5,6 +5,7 @@ import { auth, db, appId } from '../config/firebase';
 import { subscribeAdminConfig, hasAdminPrivileges } from '../utils/adminSettings';
 import { getSharedBookGroups } from '../utils/bookService';
 import { getSharedKanjiList, getSharedVocabList, getSharedKanjiSrs, clearUserSrsCache, getSharedKanjiProgress, clearKanjiProgressCache } from '../utils/kanjiService';
+import { clearUserGrammarSrsCache } from '../utils/grammarService';
 import { getOpenRouterKeys } from '../utils/aiProvider';
 
 export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, setEditingCard, setNotification }) => {
@@ -325,17 +326,45 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
                 if (callbacksRef.current.setNotification) callbacksRef.current.setNotification('');
                 clearUserSrsCache();
                 clearKanjiProgressCache();
+                clearUserGrammarSrsCache();
 
+                // Clear all account-specific cached keys from localStorage
                 localStorage.removeItem('quizki_cached_user_profile');
+                localStorage.removeItem('quizki_cached_vocab_list');
+                localStorage.removeItem('quizki_cached_home_vocab_stats');
+                localStorage.removeItem('quizki_cached_kanji_srs_stats');
+                localStorage.removeItem('quizki_cached_grammar_srs_stats');
+                localStorage.removeItem('quizki_cached_user_streak');
+                localStorage.removeItem('quizki_cached_leaderboard');
                 localStorage.removeItem('quizki_vocab_review_session');
                 localStorage.removeItem('quizki_kanji_review_session');
+                localStorage.removeItem('quizki_grammar_review_session');
+                localStorage.removeItem('quizki_saved_folders');
                 localStorage.removeItem('last_kanji_lesson');
+
                 for (let i = localStorage.length - 1; i >= 0; i--) {
                     const key = localStorage.key(i);
-                    if (key && (key.startsWith('study_completed_') || key.startsWith('study_progress_'))) {
+                    if (key && (
+                        key.startsWith('study_completed_') || 
+                        key.startsWith('study_progress_') ||
+                        key.startsWith('quizki_cached_kanji_srs_') ||
+                        key.startsWith('quizki_cached_grammar_srs_') ||
+                        key.startsWith('quizki_cached_kanji_progress_') ||
+                        key.startsWith('study_sets_') ||
+                        key.startsWith('saved_folders_') ||
+                        key.startsWith('quizki_study_sets_') ||
+                        key.startsWith('quizki_folders_') ||
+                        key.startsWith('quizki_jlpt_') ||
+                        key.startsWith('lesson_')
+                    )) {
                         localStorage.removeItem(key);
                     }
                 }
+
+                try {
+                    window.dispatchEvent(new Event('srs-updated'));
+                    window.dispatchEvent(new Event('quizki-user-logged-out'));
+                } catch (_) {}
             }
             setAuthReady(true);
         });

@@ -43,10 +43,6 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
     const cardIsKorean = langService.code === 'ko' || isKoreanCard({ front }, isKoreanMode);
 
     const handlePreFixAudio = () => {
-        if (audioFixed || card?.audioFixed) {
-            showToast("Từ vựng này đã được sửa audio trước đó (Tối đa 1 lần/từ).", "warning");
-            return;
-        }
         const trimmedReading = customHiragana.trim();
         if (!trimmedReading) {
             showToast(cardIsKorean ? "Vui lòng nhập từ vựng hoặc cách đọc tiếng Hàn chuẩn." : cardIsEnglish ? "Vui lòng nhập từ tiếng Anh chuẩn." : "Vui lòng nhập cách đọc bằng Hiragana chuẩn xác.", "warning");
@@ -67,14 +63,18 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
         const trimmedReading = customHiragana.trim();
         setIsGeneratingAudio(true);
         try {
-            const result = await generateAudioSilent(front || trimmedReading, trimmedReading);
+            // Force generate with fresh Azure TTS using exact reading and bypass any old caches
+            const result = await generateAudioSilent(front || trimmedReading, trimmedReading, null, {
+                forceRegenerate: true,
+                skipNative: true
+            });
             if (result && result.base64) {
                 setCustomAudio(result.base64);
                 setAudioFixed(true);
                 if (!cardIsEnglish) {
                     setReading(trimmedReading);
                 }
-                showToast("Đã tạo audio phát âm chuẩn thành công!", "success");
+                showToast("Đã tạo audio phát âm chuẩn theo Hiragana mới!", "success");
                 playAudio(result.base64, front, null, null, trimmedReading);
             } else {
                 throw new Error("Không thể tạo audio từ máy chủ Microsoft Azure TTS. Vui lòng thử lại.");
@@ -333,7 +333,10 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                     </>
                                 ) : (
                                     <>
-                                        <input type="text" value={reading} onChange={(e) => setReading(e.target.value)} placeholder="Cách đọc (Hiragana)" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100 font-japanese" />
+                                        <input type="text" value={reading} onChange={(e) => {
+                                            setReading(e.target.value);
+                                            setCustomHiragana(e.target.value);
+                                        }} placeholder="Cách đọc (Hiragana)" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100 font-japanese" />
                                         <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)} placeholder="Hán Việt" className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
                                         <div className="col-span-2">
                                             <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Đồng nghĩa" className="w-full px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
@@ -387,7 +390,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                             </label>
                                             {(audioFixed || card?.audioFixed) && (
                                                 <span className="text-[10px] font-bold px-2 py-0.5 bg-emerald-100 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 rounded-full flex items-center gap-1 border border-emerald-300 dark:border-emerald-800">
-                                                    <Check className="w-3 h-3" /> Đã sửa (1/1 lần)
+                                                    <Check className="w-3 h-3" /> Đã sửa audio
                                                 </span>
                                             )}
                                         </div>
@@ -396,14 +399,19 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                             <input
                                                 type="text"
                                                 value={customHiragana}
-                                                onChange={(e) => setCustomHiragana(e.target.value)}
-                                                placeholder={cardIsEnglish ? "Nhập từ chuẩn..." : "Nhập Hiragana đúng (VD: もくどく, たべる...)"}
-                                                disabled={audioFixed || card?.audioFixed || isGeneratingAudio}
-                                                className="flex-1 px-3 py-2 bg-gray-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-indigo-500 outline-none disabled:bg-slate-100 dark:disabled:bg-slate-800/80 disabled:cursor-not-allowed font-medium"
+                                                onChange={(e) => {
+                                                    setCustomHiragana(e.target.value);
+                                                    if (!cardIsEnglish && !cardIsKorean) {
+                                                        setReading(e.target.value);
+                                                    }
+                                                }}
+                                                placeholder={cardIsEnglish ? "Nhập từ chuẩn..." : "Nhập Hiragana đúng (VD: ほころびる, たべる...)"}
+                                                disabled={isGeneratingAudio}
+                                                className="flex-1 px-3 py-2 bg-gray-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-indigo-500 outline-none font-medium font-japanese"
                                                 onKeyDown={(e) => {
                                                     if (e.key === 'Enter') {
                                                         e.preventDefault();
-                                                        if (!audioFixed && !card?.audioFixed && customHiragana.trim() && !isGeneratingAudio) {
+                                                        if (customHiragana.trim() && !isGeneratingAudio) {
                                                             handlePreFixAudio();
                                                         }
                                                     }
@@ -412,11 +420,9 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                             <button
                                                 type="button"
                                                 onClick={handlePreFixAudio}
-                                                disabled={audioFixed || card?.audioFixed || isGeneratingAudio || !customHiragana.trim()}
+                                                disabled={isGeneratingAudio || !customHiragana.trim()}
                                                 className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shrink-0 shadow-sm ${
-                                                    audioFixed || card?.audioFixed
-                                                        ? 'bg-slate-200 dark:bg-slate-700 text-slate-400 dark:text-slate-500 cursor-not-allowed'
-                                                        : isGeneratingAudio || !customHiragana.trim()
+                                                    isGeneratingAudio || !customHiragana.trim()
                                                         ? 'bg-indigo-300 dark:bg-indigo-900/50 text-white cursor-not-allowed'
                                                         : 'bg-indigo-600 hover:bg-indigo-700 text-white cursor-pointer active:scale-95'
                                                 }`}
@@ -426,7 +432,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                                 ) : (
                                                     <RefreshCw className="w-3.5 h-3.5" />
                                                 )}
-                                                <span>{audioFixed || card?.audioFixed ? 'Đã sửa' : 'Tạo audio'}</span>
+                                                <span>{customAudio || audioFixed ? 'Tạo lại audio' : 'Tạo audio'}</span>
                                             </button>
                                         </div>
                                     </div>

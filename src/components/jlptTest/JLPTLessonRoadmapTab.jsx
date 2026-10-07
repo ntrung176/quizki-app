@@ -229,7 +229,7 @@ const JLPTLessonRoadmapTab = ({
         const status = getTestStatus(test);
         const score = getTestScore(test);
         const totalQ = getTestQuestionCount(test);
-        const isLocked = test.isPremium && !hasPremiumAccess;
+        const isLocked = (test.level !== 'N5' || test.isPremium) && !hasPremiumAccess;
         const colorClass = ICON_COLOR_STYLES[iconColor] || ICON_COLOR_STYLES.blue;
 
         return (
@@ -246,7 +246,7 @@ const JLPTLessonRoadmapTab = ({
                             <span className="text-xs sm:text-sm font-bold text-slate-800 dark:text-white truncate">
                                 {skillLabel}
                             </span>
-                            {test.isPremium && <Lock className="w-3 h-3 text-amber-500 shrink-0" />}
+                            {(test.level !== 'N5' || test.isPremium) && <Lock className="w-3 h-3 text-amber-500 shrink-0" />}
                         </div>
                         <div className="flex items-center gap-2 text-[11px] text-slate-400 dark:text-slate-500 font-medium mt-0.5">
                             <span>{totalQ} câu</span>

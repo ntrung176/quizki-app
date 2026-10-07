@@ -103,6 +103,24 @@ const HomeScreen = ({
         }
     }, [calculatedStreak]);
 
+    const [homeTick, setHomeTick] = useState(Date.now());
+    useEffect(() => {
+        const handleSrsUpdate = () => setHomeTick(Date.now());
+        const handleLogoutReset = () => {
+            setCachedStreak(0);
+            setCachedVocabStats({ dueCards: 0, newCards: 0, masteredCards: 0, streak: 0, totalCards: 0 });
+            setKanjiSrsStats({ total: 1801, dueCount: 0, mastered: 0, learning: 0, isInitialLoading: false });
+            setGrammarSrsStats({ total: 0, dueCount: 0, isInitialLoading: false });
+            setHomeTick(Date.now());
+        };
+        window.addEventListener('srs-updated', handleSrsUpdate);
+        window.addEventListener('quizki-user-logged-out', handleLogoutReset);
+        return () => {
+            window.removeEventListener('srs-updated', handleSrsUpdate);
+            window.removeEventListener('quizki-user-logged-out', handleLogoutReset);
+        };
+    }, []);
+
     const [kanjiActivityDates, setKanjiActivityDates] = useState([]);
     const [showAddOptions, setShowAddOptions] = useState(false);
 
@@ -183,7 +201,11 @@ const HomeScreen = ({
 
     // Fetch kanji SRS stats + activity dates synchronized with Kanji module (deferred for instant 0ms first paint)
     useEffect(() => {
-        if (!userId) return;
+        if (!userId) {
+            setKanjiSrsStats({ total: 1801, learning: 0, mastered: 0, dueCount: 0, isInitialLoading: false });
+            setKanjiActivityDates([]);
+            return;
+        }
         let isMounted = true;
         let unsub = () => {};
 
@@ -203,7 +225,7 @@ const HomeScreen = ({
                     };
 
                     (kList || []).forEach(k => {
-                        const data = (freshSrs && freshSrs[k.id]) ? freshSrs[k.id] : (k.srsData || null);
+                        const data = freshSrs && (freshSrs[k.id] || freshSrs[k.character]);
                         if (data) {
                             total++;
                             if (isKanjiMastered(data)) mastered++;
@@ -236,7 +258,10 @@ const HomeScreen = ({
 
     // Fetch grammar SRS stats synchronized with Grammar module (deferred for instant 0ms first paint)
     useEffect(() => {
-        if (!userId) return;
+        if (!userId) {
+            setGrammarSrsStats({ total: 0, dueCount: 0, isInitialLoading: false });
+            return;
+        }
         let isMounted = true;
         let unsub = () => {};
 
@@ -273,6 +298,17 @@ const HomeScreen = ({
 
     // Calculate stats with instant fallback cache
     const stats = useMemo(() => {
+        if (!userId) {
+            return {
+                dueCards: 0,
+                newCards: 0,
+                masteredCards: 0,
+                streak: 0,
+                totalCards: 0,
+                isInitialLoading: false
+            };
+        }
+
         const hasLoadedCards = allCards && allCards.length > 0;
         const currentStreak = calculatedStreak > 0 ? calculatedStreak : (cachedStreak ?? 0);
 
@@ -326,7 +362,7 @@ const HomeScreen = ({
         } catch (_) {}
 
         return result;
-    }, [allCards, calculatedStreak, cachedStreak, isEnglishMode, isKoreanMode, cachedVocabStats]);
+    }, [userId, allCards, calculatedStreak, cachedStreak, isEnglishMode, isKoreanMode, cachedVocabStats, homeTick]);
 
 const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-xl sm:text-3xl font-black text-slate-900 dark:text-white leading-none font-mono" }) => {
     if (isLoading && (value === null || value === undefined)) {
@@ -516,6 +552,7 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
     const todayTip = learningTips[new Date().getDate() % learningTips.length];
 
     const effectiveDisplayName = useMemo(() => {
+        if (!userId) return '';
         if (displayName) return displayName;
         try {
             const cached = localStorage.getItem('quizki_cached_user_profile');
@@ -525,7 +562,7 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
             }
         } catch (_) {}
         return '';
-    }, [displayName]);
+    }, [displayName, userId]);
 
     return (
         <div className="flex flex-col max-w-7xl mx-auto gap-4 sm:gap-6 p-3 sm:p-5 md:p-8 animate-fade-in relative z-10 font-sans selection:bg-cyan-500/20">

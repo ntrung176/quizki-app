@@ -25,7 +25,9 @@ const LoginScreen = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [mode, setMode] = useState('login'); // 'login' | 'register'
-    const [isLoading, setIsLoading] = useState(false);
+    const [isEmailLoading, setIsEmailLoading] = useState(false);
+    const [isGoogleLoading, setIsGoogleLoading] = useState(false);
+    const isAnyLoading = isEmailLoading || isGoogleLoading;
     const [error, setErrorState] = useState('');
     const [info, setInfoState] = useState('');
     const setError = (msg) => {
@@ -39,23 +41,37 @@ const LoginScreen = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
-    // Reset body style locks and loading state when LoginScreen mounts
+    // Reset body style locks and loading states when LoginScreen mounts
     useEffect(() => {
         document.body.style.overflow = '';
         document.body.style.pointerEvents = '';
-        setIsLoading(false);
+        setIsEmailLoading(false);
+        setIsGoogleLoading(false);
     }, []);
+
+    // Auto-unfreeze Google loading state if user refocuses parent window after closing popup
+    useEffect(() => {
+        if (!isGoogleLoading) return;
+        const handleWindowFocus = () => {
+            const timer = setTimeout(() => {
+                setIsGoogleLoading(false);
+            }, 1200);
+            return () => clearTimeout(timer);
+        };
+        window.addEventListener('focus', handleWindowFocus);
+        return () => window.removeEventListener('focus', handleWindowFocus);
+    }, [isGoogleLoading]);
 
     const handleCredentialResponse = async (response) => {
         if (!auth) return;
         setError('');
         setInfo('');
-        setIsLoading(true);
+        setIsGoogleLoading(true);
         try {
             const credential = GoogleAuthProvider.credential(response.credential);
             const result = await signInWithCredential(auth, credential);
             const user = result.user;
-            if (db) {
+            if (db && user) {
                 const defaultName = user.displayName || user.email?.split('@')[0] || 'Người học';
                 const userEmail = (user.email || '').trim();
                 const userPhoto = user.photoURL || '';
@@ -90,9 +106,11 @@ const LoginScreen = () => {
             }
         } catch (e) {
             console.error('Lỗi đăng nhập Google GIS:', e);
-            setError('Đăng nhập bằng Google không thành công. Vui lòng thử lại.');
+            if (e.code !== 'auth/popup-closed-by-user' && e.code !== 'auth/cancelled-popup-request') {
+                setError('Đăng nhập bằng Google không thành công. Vui lòng thử lại.');
+            }
         } finally {
-            setIsLoading(false);
+            setIsGoogleLoading(false);
         }
     };
 
@@ -142,7 +160,7 @@ const LoginScreen = () => {
                 return;
             }
         }
-        setIsLoading(true);
+        setIsEmailLoading(true);
         try {
             if (mode === 'login') {
                 const cred = await signInWithEmailAndPassword(auth, email.trim(), password);
@@ -228,7 +246,7 @@ const LoginScreen = () => {
             }
             if (msg) setError(msg);
         } finally {
-            setIsLoading(false);
+            setIsEmailLoading(false);
         }
     };
     const handleResetPassword = async () => {
@@ -267,7 +285,7 @@ const LoginScreen = () => {
         if (!auth) return;
         setError('');
         setInfo('');
-        setIsLoading(true);
+        setIsGoogleLoading(true);
         try {
             const provider = new GoogleAuthProvider();
             provider.setCustomParameters({
@@ -276,8 +294,8 @@ const LoginScreen = () => {
 
             console.log("[Quizki Auth] Using signInWithPopup to bypass cross-origin cookie blocking...");
             const result = await signInWithPopup(auth, provider);
-            const user = result.user;
-            if (db) {
+            const user = result?.user;
+            if (db && user) {
                 const defaultName = user.displayName || user.email?.split('@')[0] || 'Người học';
                 const userEmail = (user.email || '').trim();
                 const userPhoto = user.photoURL || '';
@@ -310,17 +328,18 @@ const LoginScreen = () => {
                     updatedAt: Date.now()
                 }, { merge: true }).catch(err => console.warn('Sync userStats in Popup warning:', err));
             }
-            setIsLoading(false);
         } catch (e) {
             console.error('Lỗi đăng nhập Google:', e);
-            let msg = 'Đăng nhập Google thất bại. Vui lòng thử lại.';
-            if (e.code === 'auth/popup-closed-by-user') {
-                msg = 'Bạn đã đóng cửa sổ đăng nhập Google.';
+            if (e.code === 'auth/popup-closed-by-user' || e.code === 'auth/cancelled-popup-request') {
+                // Người dùng chủ động tắt popup Google - không báo lỗi, mở khóa ngay lập tức
+                console.log('Google sign-in popup closed by user');
             } else if (e.code === 'auth/popup-blocked') {
-                msg = 'Cửa sổ popup bị chặn bởi trình duyệt. Vui lòng cho phép popup và thử lại.';
+                setError('Cửa sổ popup bị chặn bởi trình duyệt. Vui lòng cho phép popup và thử lại.');
+            } else {
+                setError('Đăng nhập Google không thành công. Vui lòng thử lại.');
             }
-            setError(msg);
-            setIsLoading(false);
+        } finally {
+            setIsGoogleLoading(false);
         }
     };
     return (
@@ -431,7 +450,7 @@ const LoginScreen = () => {
                                     <button
                                         type="button"
                                         onClick={handleResetPassword}
-                                        disabled={isLoading}
+                                        disabled={isAnyLoading}
                                         className="text-xs font-bold text-[#2E5B70] hover:underline uppercase tracking-wide cursor-pointer"
                                     >
                                         QUÊN MẬT KHẨU?
@@ -484,10 +503,10 @@ const LoginScreen = () => {
                         {/* Submit Button */}
                         <button
                             type="submit"
-                            disabled={isLoading}
+                            disabled={isAnyLoading}
                             className="w-full py-3.5 mt-4 text-xs font-bold rounded-lg text-white bg-[#2E5B70] hover:bg-[#254A5C] transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-md shadow-[#2E5B70]/10 tracking-widest uppercase cursor-pointer"
                         >
-                            {isLoading ? (
+                            {isEmailLoading ? (
                                 <Loader2 className="animate-spin w-5 h-5 mx-auto" />
                             ) : mode === 'login' ? (
                                 'ĐĂNG NHẬP →'
@@ -510,16 +529,20 @@ const LoginScreen = () => {
                         <button
                             type="button"
                             onClick={handleGoogleSignIn}
-                            disabled={isLoading}
+                            disabled={isAnyLoading}
                             className="w-full py-3.5 text-xs font-bold rounded-lg border border-slate-200 bg-white hover:bg-slate-50 text-slate-600 flex items-center justify-center gap-3 transition-all disabled:opacity-50 shadow-sm tracking-widest cursor-pointer"
                         >
-                            <svg className="w-4 h-4" viewBox="0 0 24 24">
-                                <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
-                                <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
-                                <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
-                                <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
-                            </svg>
-                            TIẾP TỤC VỚI GOOGLE
+                            {isGoogleLoading ? (
+                                <Loader2 className="animate-spin w-4 h-4 text-slate-600" />
+                            ) : (
+                                <svg className="w-4 h-4" viewBox="0 0 24 24">
+                                    <path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                                    <path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                                    <path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" />
+                                    <path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" />
+                                </svg>
+                            )}
+                            {isGoogleLoading ? 'ĐANG KẾT NỐI GOOGLE...' : 'TIẾP TỤC VỚI GOOGLE'}
                         </button>
                     </div>
                     {/* Switch Mode Link */}

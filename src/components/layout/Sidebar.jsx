@@ -6,11 +6,11 @@ import { collection, query, onSnapshot, doc, orderBy, limit } from 'firebase/fir
 import { ROUTES } from '../../router';
 import { getLevelFromXp, getLevelTitle } from '../../utils/scoring';
 import {
-    Home, BookOpen, LogOut, Sun, Moon, ChevronRight, ChevronLeft, X,
+    Home, BookOpen, LogOut, LogIn, Sun, Moon, ChevronRight, ChevronLeft, X,
     List, Repeat2, FileCheck, Languages, Shield, Crown, Bell,
     MessageSquare, HelpCircle, Trophy, Cpu, Zap, Activity, Bot, Timer, Globe, Film,
     FileText, GitBranch, MoreHorizontal, Layers, Settings, Library, LayoutGrid, TrendingUp, Bookmark
-} from 'lucide-react'
+} from 'lucide-react';
 import { SafeAvatarImage } from '../ui';
 import LanguageSelector from '../ui/LanguageSelector';
 import TargetLanguageSelector from '../ui/TargetLanguageSelector';
@@ -287,16 +287,24 @@ const Sidebar = ({
     const grammarSrsRef = useRef({});
 
     const updateKanjiCount = useCallback(() => {
+        if (!userId) {
+            setKanjiDueCount(0);
+            return;
+        }
         const now = Date.now();
         const dueCount = (kanjiListRef.current || []).filter(k => {
-            const srs = kanjiSrsRef.current[k.id] || kanjiSrsRef.current[k.character];
+            const srs = kanjiSrsRef.current[k.id];
             if (!srs) return false;
             return isSrsCardDue(srs, now);
         }).length;
         setKanjiDueCount(dueCount);
-    }, []);
+    }, [userId]);
 
     const updateGrammarCount = useCallback(() => {
+        if (!userId) {
+            setGrammarDueCount(0);
+            return;
+        }
         const now = Date.now();
         const dueCount = (grammarListRef.current || []).filter(g => {
             const srs = grammarSrsRef.current[g.id];
@@ -304,7 +312,7 @@ const Sidebar = ({
             return isSrsCardDue(srs, now);
         }).length;
         setGrammarDueCount(dueCount);
-    }, []);
+    }, [userId]);
 
     useEffect(() => {
         const handleSrsUpdate = () => {
@@ -430,7 +438,7 @@ const Sidebar = ({
             document.body.style.pointerEvents = '';
             setIsMobileMenuOpen(false);
             await signOut(auth);
-            navigate(ROUTES.LOGIN);
+            navigate(ROUTES.HOME);
         } catch (error) {
             console.error('Logout error:', error);
         }
@@ -954,7 +962,7 @@ const Sidebar = ({
                         <NotificationsPopover isMobile={true} />
                     </div>
 
-                    {(userId || auth?.currentUser) && (
+                    {userId || auth?.currentUser ? (
                         <Link
                             to={ROUTES.SETTINGS}
                             onClick={() => setIsMobileMenuOpen(false)}
@@ -962,6 +970,16 @@ const Sidebar = ({
                             title="Trang cá nhân & Cài đặt"
                         >
                             {renderAvatar()}
+                        </Link>
+                    ) : (
+                        <Link
+                            to={ROUTES.LOGIN}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="px-2.5 py-1.5 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold text-xs shadow-xs active:scale-95 transition-transform shrink-0 flex items-center gap-1"
+                            title="Đăng nhập"
+                        >
+                            <LogIn className="w-3.5 h-3.5" />
+                            <span>Đăng nhập</span>
                         </Link>
                     )}
                 </div>
@@ -1233,14 +1251,25 @@ const Sidebar = ({
                                 <span>{t('common.upgrade', 'Nâng cấp tài khoản')}</span>
                             </Link>
 
-                            {/* Logout Button */}
-                            <button
-                                onClick={handleLogout}
-                                className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl bg-rose-50 text-rose-600 dark:bg-rose-950/40 dark:text-rose-400 border border-rose-200 dark:border-rose-800/80 text-xs font-extrabold cursor-pointer hover:bg-rose-100 dark:hover:bg-rose-900/60 transition-colors"
-                            >
-                                <LogOut className="w-3.5 h-3.5" />
-                                <span>Đăng xuất</span>
-                            </button>
+                            {/* Logout or Login Button */}
+                            {userId ? (
+                                <button
+                                    onClick={handleLogout}
+                                    className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl bg-rose-50 text-rose-600 dark:bg-rose-950/40 dark:text-rose-400 border border-rose-200 dark:border-rose-800/80 text-xs font-extrabold cursor-pointer hover:bg-rose-100 dark:hover:bg-rose-900/60 transition-colors"
+                                >
+                                    <LogOut className="w-3.5 h-3.5" />
+                                    <span>Đăng xuất</span>
+                                </button>
+                            ) : (
+                                <Link
+                                    to={ROUTES.LOGIN}
+                                    onClick={() => setIsMobileMenuOpen(false)}
+                                    className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white text-xs font-extrabold shadow-sm active:scale-98 transition-transform"
+                                >
+                                    <LogIn className="w-3.5 h-3.5" />
+                                    <span>Đăng nhập / Đăng ký</span>
+                                </Link>
+                            )}
                         </div>
                     </div>
                 </div>
@@ -1289,64 +1318,86 @@ const Sidebar = ({
                 </div>
 
                 {/* Cyber Profile Telemetry Capsule with Click Menu */}
-                {!isCollapsed && displayName && (
-                    <div className="px-3 py-3 border-b border-slate-200 dark:border-slate-800 relative" ref={profileRef}>
-                        <div
-                            onClick={() => setIsProfileMenuOpen(prev => !prev)}
-                            className="flex items-center gap-3 bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-cyan-500/30 rounded-2xl p-2.5 shadow-inner hover:border-cyan-400 transition-all w-full cursor-pointer group min-w-0"
-                            title="Tài khoản cá nhân"
-                        >
-                            <div className="flex flex-col items-center gap-0.5 flex-shrink-0">
-                                <div className="w-9 h-9 rounded-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-cyan-500/40 flex items-center justify-center text-[10px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden shadow-sm group-hover:scale-105 transition-transform">
-                                    {renderAvatar()}
+                {!isCollapsed && (
+                    userId ? (
+                        <div className="px-3 py-3 border-b border-slate-200 dark:border-slate-800 relative" ref={profileRef}>
+                            <div
+                                onClick={() => setIsProfileMenuOpen(prev => !prev)}
+                                className="flex items-center gap-3 bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-cyan-500/30 rounded-2xl p-2.5 shadow-inner hover:border-cyan-400 transition-all w-full cursor-pointer group min-w-0"
+                                title="Tài khoản cá nhân"
+                            >
+                                <div className="flex flex-col items-center gap-0.5 flex-shrink-0">
+                                    <div className="w-9 h-9 rounded-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-cyan-500/40 flex items-center justify-center text-[10px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden shadow-sm group-hover:scale-105 transition-transform">
+                                        {renderAvatar()}
+                                    </div>
+                                    <span className="bg-gradient-to-r from-cyan-500 to-indigo-600 text-white text-[8px] font-black px-1.5 rounded font-mono uppercase">
+                                        LV {xpDetails.level}
+                                    </span>
                                 </div>
-                                <span className="bg-gradient-to-r from-cyan-500 to-indigo-600 text-white text-[8px] font-black px-1.5 rounded font-mono uppercase">
-                                    LV {xpDetails.level}
-                                </span>
+
+                                <div className="flex flex-col min-w-0 flex-1 justify-center">
+                                    {isPremium ? (
+                                        <span className="text-[9px] font-mono font-black uppercase tracking-widest text-amber-500 flex items-center gap-0.5">
+                                            <Crown className="w-2.5 h-2.5 fill-amber-500 inline" /> PREMIUM
+                                        </span>
+                                    ) : (
+                                        <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">
+                                            FREE ACCOUNT
+                                        </span>
+                                    )}
+                                    <span className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate mt-0.5">
+                                        {displayName || 'Người học'}
+                                    </span>
+                                    <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono truncate mt-0.5">
+                                        {getLevelTitle(xpDetails.level)}
+                                    </span>
+                                </div>
                             </div>
 
-                            <div className="flex flex-col min-w-0 flex-1 justify-center">
-                                {isPremium ? (
-                                    <span className="text-[9px] font-mono font-black uppercase tracking-widest text-amber-500 flex items-center gap-0.5">
-                                        <Crown className="w-2.5 h-2.5 fill-amber-500 inline" /> PREMIUM
-                                    </span>
-                                ) : (
-                                    <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">
-                                        FREE ACCOUNT
-                                    </span>
-                                )}
-                                <span className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate mt-0.5">
-                                    {displayName}
-                                </span>
-                                <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono truncate mt-0.5">
-                                    {getLevelTitle(xpDetails.level)}
-                                </span>
+                            {/* Profile Quick Dropdown */}
+                            {isProfileMenuOpen && (
+                                <div className="absolute left-3 right-3 top-full mt-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-50 p-1.5 space-y-1 animate-fade-in">
+                                    <Link
+                                        to={ROUTES.SETTINGS}
+                                        onClick={() => setIsProfileMenuOpen(false)}
+                                        className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                                    >
+                                        <span>⚙️ Cài đặt cá nhân</span>
+                                    </Link>
+                                    <button
+                                        onClick={() => {
+                                            setIsProfileMenuOpen(false);
+                                            handleLogout();
+                                        }}
+                                        className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/50 transition-colors cursor-pointer"
+                                    >
+                                        <LogOut className="w-4 h-4 text-rose-500 shrink-0" />
+                                        <span>Đăng xuất</span>
+                                    </button>
+                                </div>
+                            )}
+                        </div>
+                    ) : (
+                        <div className="px-3 py-3 border-b border-slate-200 dark:border-slate-800">
+                            <div className="bg-gradient-to-br from-slate-50 to-cyan-50/50 dark:from-slate-950/80 dark:to-cyan-950/30 border border-slate-200 dark:border-cyan-500/30 rounded-2xl p-3 shadow-2xs space-y-2">
+                                <div className="flex items-center gap-2">
+                                    <div className="w-8 h-8 rounded-full bg-cyan-100 dark:bg-cyan-900/60 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-xs font-bold shrink-0">
+                                        👤
+                                    </div>
+                                    <div className="min-w-0 flex-1">
+                                        <div className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate">Khách (Guest)</div>
+                                        <div className="text-[10px] text-slate-400 font-mono truncate">Chưa đăng nhập</div>
+                                    </div>
+                                </div>
+                                <Link
+                                    to={ROUTES.LOGIN}
+                                    className="w-full py-2 bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-bold text-xs rounded-xl shadow-xs text-center block transition-transform active:scale-98"
+                                >
+                                    Đăng nhập / Đăng ký
+                                </Link>
                             </div>
                         </div>
-
-                        {/* Profile Quick Dropdown */}
-                        {isProfileMenuOpen && (
-                            <div className="absolute left-3 right-3 top-full mt-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-50 p-1.5 space-y-1 animate-fade-in">
-                                <Link
-                                    to={ROUTES.SETTINGS}
-                                    onClick={() => setIsProfileMenuOpen(false)}
-                                    className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                                >
-                                    <span>⚙️ Cài đặt cá nhân</span>
-                                </Link>
-                                <button
-                                    onClick={() => {
-                                        setIsProfileMenuOpen(false);
-                                        handleLogout();
-                                    }}
-                                    className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/50 transition-colors cursor-pointer"
-                                >
-                                    <LogOut className="w-4 h-4 text-rose-500 shrink-0" />
-                                    <span>Đăng xuất</span>
-                                </button>
-                            </div>
-                        )}
-                    </div>
+                    )
                 )}
 
                 {/* Grouped Navigation Menu */}

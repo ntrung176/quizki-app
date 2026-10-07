@@ -245,7 +245,7 @@ const JLPTBooksCollectionTab = ({
                         const status = getTestStatus(test);
                         const score = getTestScore(test);
                         const qCount = getTestQuestionCount(test);
-                        const isLocked = test.isPremium && !hasPremiumAccess;
+                        const isLocked = (selectedBook.level !== 'N5' || test.level !== 'N5' || test.isPremium) && !hasPremiumAccess;
                         const matchNum = test.id.match(/(?:-b|-t|#|Bài\s*)(\d+)/i) || test.title.match(/(?:#|Bài\s*)(\d+)/i);
                         const lessonNumber = matchNum ? matchNum[1] : (tIdx + 1);
 
@@ -405,11 +405,17 @@ const JLPTBooksCollectionTab = ({
                     const SkillIcon = skillInfo.icon;
                     const completedCount = book.tests.filter(t => getTestStatus(t) === 'completed').length;
                     const progressPct = book.tests.length > 0 ? Math.round((completedCount / book.tests.length) * 100) : 0;
+                    const isBookLocked = book.level !== 'N5' && !hasPremiumAccess;
 
                     return (
                         <div
                             key={book.key}
                             onClick={() => {
+                                if (isBookLocked) {
+                                    setLockedPkgName('Luyện đề thi thử JLPT');
+                                    setShowPremiumModal(true);
+                                    return;
+                                }
                                 setSelectedBook(book);
                                 setBookInnerSearch('');
                             }}
@@ -419,8 +425,9 @@ const JLPTBooksCollectionTab = ({
                                 {/* Top Badges */}
                                 <div className="flex items-center justify-between gap-2 mb-3.5">
                                     <div className="flex items-center gap-2">
-                                        <span className={`px-3 py-1 rounded-xl bg-gradient-to-r ${lvlGradient} text-white font-black text-xs shadow-2xs`}>
-                                            {book.level}
+                                        <span className={`px-3 py-1 rounded-xl bg-gradient-to-r ${lvlGradient} text-white font-black text-xs shadow-2xs flex items-center gap-1`}>
+                                            <span>{book.level}</span>
+                                            {isBookLocked && <Lock className="w-3 h-3 text-amber-300" />}
                                         </span>
                                         <span className="text-xs font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1">
                                             <SkillIcon className="w-3.5 h-3.5 text-indigo-500" />
@@ -467,10 +474,17 @@ const JLPTBooksCollectionTab = ({
                                     />
                                 </div>
 
-                                <span className="px-3.5 py-1.5 rounded-xl bg-[#f494bc] group-hover:bg-[#f6a0c5] text-slate-950 font-black text-xs flex items-center gap-1 shadow-[0_3px_10px_rgba(244,148,188,0.35)] group-hover:shadow-[0_6px_18px_rgba(244,148,188,0.6)] transition-all">
-                                    <span>Xem các bài</span>
-                                    <ChevronRight className="w-3.5 h-3.5" />
-                                </span>
+                                {isBookLocked ? (
+                                    <span className="px-3.5 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-600 text-white font-black text-xs flex items-center gap-1 shadow-md transition-all">
+                                        <Lock className="w-3.5 h-3.5" />
+                                        <span>Khóa Premium</span>
+                                    </span>
+                                ) : (
+                                    <span className="px-3.5 py-1.5 rounded-xl bg-[#f494bc] group-hover:bg-[#f6a0c5] text-slate-950 font-black text-xs flex items-center gap-1 shadow-[0_3px_10px_rgba(244,148,188,0.35)] group-hover:shadow-[0_6px_18px_rgba(244,148,188,0.6)] transition-all">
+                                        <span>Xem các bài</span>
+                                        <ChevronRight className="w-3.5 h-3.5" />
+                                    </span>
+                                )}
                             </div>
                         </div>
                     );

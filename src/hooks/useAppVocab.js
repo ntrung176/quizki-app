@@ -26,6 +26,8 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
     // Firestore listener for User Vocabulary (allCards)
     useEffect(() => {
         if (!authReady || !vocabCollectionPath) {
+            setAllCards([]);
+            setIsLoading(false);
             return;
         }
 

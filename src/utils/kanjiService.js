@@ -568,7 +568,15 @@ export const updateCachedUserSrs = (userId, kanjiId, newSrs) => {
         } else {
             cachedUserSrsData[kanjiId] = newSrs;
         }
+        // Immediately notify all in-memory subscribers
+        kanjiSrsListeners.forEach(cb => {
+            try { cb(cachedUserSrsData); } catch (_) {}
+        });
     }
+    // Dispatch global srs-updated event for instant 0ms badge sync
+    try {
+        window.dispatchEvent(new Event('srs-updated'));
+    } catch (_) {}
 };
 
 export const clearUserSrsCache = () => {
