@@ -466,7 +466,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         return (
             <div className={isFullscreen
                 ? "fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto w-screen h-screen"
-                : "relative w-full min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center py-6 px-4"
+                : "relative w-full flex-1 min-h-0 flex flex-col items-center justify-center px-3 sm:px-4 py-2 sm:py-3.5 overflow-y-auto"
             }>
                 {/* Back Button */}
                 {onBack && (
@@ -478,7 +478,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                         <ArrowLeft className="w-5 h-5" />
                     </button>
                 )}
-                <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-6 p-8 bg-white dark:bg-slate-900 border-2 border-indigo-400/30 rounded-3xl shadow-xl animate-fade-in">
+                <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-6 p-6 sm:p-8 bg-white dark:bg-slate-900 border-2 border-indigo-400/30 rounded-3xl shadow-xl animate-fade-in">
                     <div className="text-6xl mb-2">✨</div>
                     <div>
                         <h2 className="text-3xl font-black text-gray-800 dark:text-white mb-2">Hoàn thành vòng {round}!</h2>
@@ -523,9 +523,9 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
     return (
         <div className={isFullscreen
             ? "fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto w-screen h-screen"
-            : "relative w-full flex-1 min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center py-6 px-4"
+            : "relative w-full flex-1 min-h-0 flex flex-col items-center justify-center px-3 sm:px-4 py-2 sm:py-3.5 overflow-y-auto"
         }>
-            <div className="w-full max-w-3xl mx-auto flex flex-col justify-center items-center space-y-4 my-auto">
+            <div className="w-full max-w-3xl mx-auto my-auto flex flex-col justify-center items-center space-y-3 sm:space-y-4">
                 {/* Back Button - outside frame */}
                 {onBack && (
                     <div className="w-full flex justify-start mb-1">

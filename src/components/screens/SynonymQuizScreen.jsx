@@ -280,8 +280,8 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
     if (isComplete) {
         const pct = Math.round((score.correct / quizCards.length) * 100);
         return (
-            <div className="relative w-full h-full flex flex-col justify-center py-6 animate-fade-in">
-                <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col items-center space-y-6 p-8 bg-white dark:bg-slate-900 border-2 border-indigo-400/30 rounded-3xl shadow-xl">
+            <div className="relative w-full flex-1 min-h-0 flex flex-col justify-center px-3 sm:px-4 py-2 sm:py-3.5 overflow-y-auto animate-fade-in">
+                <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col items-center space-y-6 p-6 sm:p-8 bg-white dark:bg-slate-900 border-2 border-indigo-400/30 rounded-3xl shadow-xl">
                     <div className="text-6xl mb-2">🎉</div>
                     <div>
                         <h2 className="text-3xl font-black text-gray-800 dark:text-white mb-2">Xuất sắc!</h2>
@@ -323,8 +323,8 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
     const progress = (currentIndex / quizCards.length) * 100;
 
     return (
-        <div className="relative w-full flex-1 min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center py-6 px-4">
-            <div className="w-full max-w-3xl mx-auto my-auto flex flex-col items-center space-y-3">
+        <div className="relative w-full flex-1 min-h-0 flex flex-col items-center justify-center px-3 sm:px-4 py-2 sm:py-3.5 overflow-y-auto">
+            <div className="w-full max-w-3xl mx-auto my-auto flex flex-col items-center space-y-3 sm:space-y-4">
                 {onBack && (
                     <div className="w-full flex justify-start mb-1">
                         <button

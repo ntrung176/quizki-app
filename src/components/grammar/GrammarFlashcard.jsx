@@ -214,13 +214,12 @@ const GrammarFlashcard = ({
             style={{ perspective: '1200px', minHeight: '480px', height: '520px', maxHeight: '72vh' }}
         >
             <div
-                className={`w-full h-full relative card-slide ${
-                    slideDirection === 'left'
+                className={`w-full h-full relative card-slide ${slideDirection === 'left'
                         ? 'slide-out-left'
                         : slideDirection === 'right'
-                        ? 'slide-out-right'
-                        : ''
-                }`}
+                            ? 'slide-out-right'
+                            : ''
+                    }`}
                 style={{
                     width: '100%',
                     height: '100%',
@@ -270,8 +269,8 @@ const GrammarFlashcard = ({
                                     {isTypingMode
                                         ? '⌨️ Chế độ Gõ Phím'
                                         : effectiveStudyMode === 'ja_to_vi'
-                                        ? '🇯🇵 Mẫu Ngữ Pháp'
-                                        : '🇻🇳 Ý Nghĩa Tiếng Việt'}
+                                            ? '🇯🇵 Mẫu Ngữ Pháp'
+                                            : '🇻🇳 Ý Nghĩa Tiếng Việt'}
                                 </span>
                                 {effectiveStudyMode === 'ja_to_vi' &&
                                     !isTypingMode &&
@@ -444,33 +443,33 @@ const GrammarFlashcard = ({
                                                 >
                                                     <MaziiExampleItem
                                                         example={{
-                                                             ja: ex.ja,
-                                                             vi:
-                                                                 settings.showExampleVi !== false
-                                                                     ? ex.vi
-                                                                     : '',
-                                                             furigana:
-                                                                 settings.showFurigana !== false
-                                                                     ? ex.furigana
-                                                                     : '',
-                                                         }}
-                                                         pattern={card.pattern}
-                                                         index={idx}
-                                                         onPlayAudio={(jaText) =>
-                                                             handlePlayAudio(jaText)
-                                                         }
-                                                     />
-                                                 </div>
-                                             ))}
-                                     </div>
-                                 </div>
-                             )}
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     );
- };
+                                                            ja: ex.ja,
+                                                            vi:
+                                                                settings.showExampleVi !== false
+                                                                    ? ex.vi
+                                                                    : '',
+                                                            furigana:
+                                                                settings.showFurigana !== false
+                                                                    ? ex.furigana
+                                                                    : '',
+                                                        }}
+                                                        pattern={card.pattern}
+                                                        index={idx}
+                                                        onPlayAudio={(jaText) =>
+                                                            handlePlayAudio(jaText)
+                                                        }
+                                                    />
+                                                </div>
+                                            ))}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
 
- export default GrammarFlashcard;
+export default GrammarFlashcard;

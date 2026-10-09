@@ -221,7 +221,13 @@ export const useAppLogic = () => {
         handleMoveStudySetToParentFolder
     } = studySetsHook;
 
-    const isReviewSessionPage = ['REVIEW', 'STUDY', 'FLASHCARD'].includes(view) || (location.pathname.startsWith('/vocab/review/') && location.pathname !== '/vocab/review');
+    const isReviewSessionPage = isReviewActive ||
+        ['REVIEW', 'STUDY', 'FLASHCARD'].includes(view) ||
+        location.pathname.startsWith('/vocab/study') ||
+        location.pathname.endsWith('/flashcards') ||
+        location.pathname.endsWith('/synonyms') ||
+        location.pathname.startsWith('/test') ||
+        (location.pathname.startsWith('/vocab/review') && (isReviewActive || (reviewCards && reviewCards.length > 0)));
 
     const prepareReviewCards = useCallback((mode = 'back', targetCards = null, setId = null) => {
         setReviewMode(mode);

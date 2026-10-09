@@ -55,7 +55,12 @@ const KanjiGridList = ({
                     const sinoViet = kanjiDoc?.sinoViet || jData?.sinoViet || '';
                     const meaning = kanjiDoc?.meaning || jData?.meaningVi || jData?.meanings?.join(', ') || '';
                     const strokeCount = kanjiDoc?.strokeCount || jData?.stroke_count || '';
-                    const isSRSAdded = kanjiDoc ? userKanjiSRS.has(kanjiDoc.id) : false;
+                    const isSRSAdded = Boolean(
+                        (char && userKanjiSRS?.has(char)) ||
+                        (char && userKanjiSRS?.has(`kanji_${char}`)) ||
+                        (kanjiDoc?.id && userKanjiSRS?.has(kanjiDoc.id)) ||
+                        (kanjiDoc?.character && userKanjiSRS?.has(kanjiDoc.character))
+                    );
                     const isSelected = kanjiDoc && selectedKanjiIds.includes(kanjiDoc.id);
 
                     const levelStyle = LEVEL_COLORS[selectedLevel] || LEVEL_COLORS.N5;

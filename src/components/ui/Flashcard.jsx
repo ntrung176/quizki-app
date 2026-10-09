@@ -148,7 +148,7 @@ const getCardScaleStyles = (card, settings) => {
     // 4. Tính toán không gian thực tế còn lại cho khung ví dụ (Dynamic Example Max Height)
     // Ước lượng mức chiếm dụng chiều cao của các thành phần phi ví dụ (Reading, Meaning, Hán Việt, Đồng nghĩa, Mẹo nhớ, Ảnh mobile)
     let nonExampleOccupancy = 0;
-    
+
     // Header đọc/kanji
     if (readingLength > 16) nonExampleOccupancy += 1.3;
     else if (readingLength > 8) nonExampleOccupancy += 1.0;
@@ -241,12 +241,12 @@ const Flashcard = ({
 
     useEffect(() => {
         if (!card) return;
-        
+
         const frontText = card.frontWithFurigana || card.front || '';
         const { word, reading } = parseWordAndReading(frontText);
         const hasLocalReading = card.reading || reading;
         const hasLocalPitch = card.pitch || (card.accent !== undefined && card.accent !== '' && card.accent !== null);
-        
+
         if (hasLocalReading && hasLocalPitch) {
             setPitchData(null);
             return;
@@ -313,8 +313,8 @@ const Flashcard = ({
                     {isKoreanCard ? (
                         <>
                             {card.pos && (cardSettings.front?.pos !== false) && (
-                                <span className={variant === 'review' || variant === 'emerald' ? 
-                                    "inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full font-sans mb-1" : 
+                                <span className={variant === 'review' || variant === 'emerald' ?
+                                    "inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full font-sans mb-1" :
                                     "inline-block px-2.5 py-0.5 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 rounded-full text-xs font-semibold text-slate-500 dark:text-slate-400 font-sans mb-1"
                                 }>
                                     {getPosLabel(card.pos)}
@@ -337,8 +337,8 @@ const Flashcard = ({
                     ) : isEnglishCard ? (
                         <>
                             {card.pos && (cardSettings.front?.pos !== false) && (
-                                <span className={variant === 'review' || variant === 'emerald' ? 
-                                    "inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full font-sans mb-1" : 
+                                <span className={variant === 'review' || variant === 'emerald' ?
+                                    "inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full font-sans mb-1" :
                                     "inline-block px-2.5 py-0.5 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 rounded-full text-xs font-semibold text-slate-500 dark:text-slate-400 font-sans mb-1"
                                 }>
                                     {getPosLabel(card.pos)}
@@ -356,8 +356,8 @@ const Flashcard = ({
                     ) : (
                         <>
                             {card.pos && (
-                                <span className={variant === 'review' || variant === 'emerald' ? 
-                                    "inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full font-sans mb-1" : 
+                                <span className={variant === 'review' || variant === 'emerald' ?
+                                    "inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full font-sans mb-1" :
                                     "inline-block px-2.5 py-0.5 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 rounded-full text-xs font-semibold text-slate-500 dark:text-slate-400 font-sans mb-1"
                                 }>
                                     {getPosLabel(card.pos)}
@@ -390,8 +390,8 @@ const Flashcard = ({
                         {isKoreanCard ? (
                             <>
                                 {card.pos && (cardSettings.front?.pos !== false) && (
-                                    <span className={variant === 'review' || variant === 'emerald' ? 
-                                        "inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full font-sans" : 
+                                    <span className={variant === 'review' || variant === 'emerald' ?
+                                        "inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full font-sans" :
                                         "inline-block px-2.5 py-0.5 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 rounded-full text-xs font-semibold text-slate-500 dark:text-slate-400 font-sans"
                                     }>
                                         {getPosLabel(card.pos)}
@@ -407,8 +407,8 @@ const Flashcard = ({
                         ) : isEnglishCard ? (
                             <>
                                 {card.pos && (cardSettings.front?.pos !== false) && (
-                                    <span className={variant === 'review' || variant === 'emerald' ? 
-                                        "inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full font-sans" : 
+                                    <span className={variant === 'review' || variant === 'emerald' ?
+                                        "inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full font-sans" :
                                         "inline-block px-2.5 py-0.5 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 rounded-full text-xs font-semibold text-slate-500 dark:text-slate-400 font-sans"
                                     }>
                                         {getPosLabel(card.pos)}
@@ -475,10 +475,10 @@ const Flashcard = ({
         const renderReadingWithPitchAccent = () => {
             const text = card.frontWithFurigana || card.front || '';
             const { word, reading } = parseWordAndReading(text);
-            
+
             const jotobaReading = pitchData?.reading || null;
             const finalReading = reading || card.reading || jotobaReading || word;
-            
+
             const cardPitchParts = card.pitch || (card.accent !== undefined && card.accent !== null && card.accent !== '' ? accentNumberToPitchParts(finalReading, card.accent) : null);
             const pitchParts = cardPitchParts || pitchData?.pitch || null;
             if (!finalReading) {
@@ -486,7 +486,7 @@ const Flashcard = ({
             }
 
             const readingChars = [...finalReading];
-            
+
             const showPitchLines = showPitchAccent && pitchParts && pitchParts.length > 0;
             if (showPitchLines) {
                 const charPitchMap = [];
@@ -496,7 +496,7 @@ const Flashcard = ({
                         charPitchMap.push({ char: c, high: pp.high });
                     }
                 }
-                
+
                 const lineColor = '#ef4444'; // Standard NHK Red
 
                 return (
@@ -506,7 +506,7 @@ const Flashcard = ({
                             const isHigh = pm ? pm.high : false;
                             const nextHigh = ci + 1 < charPitchMap.length ? charPitchMap[ci + 1]?.high : isHigh;
                             const showTransition = ci + 1 < charPitchMap.length && isHigh !== nextHigh;
-                            
+
                             return (
                                 <span key={ci} className="relative inline-block" style={{ marginRight: '0px' }}>
                                     <span
@@ -524,8 +524,8 @@ const Flashcard = ({
                                         <span className={readingColorClass}>{char}</span>
                                     </span>
                                     {showTransition && (
-                                        <span 
-                                            className="absolute -right-[1px] top-0 bottom-0 w-[2px]" 
+                                        <span
+                                            className="absolute -right-[1px] top-0 bottom-0 w-[2px]"
                                             style={{ backgroundColor: lineColor }}
                                         />
                                     )}
@@ -547,7 +547,7 @@ const Flashcard = ({
             <div className="flex-1 flex flex-col items-center justify-center text-center w-full h-full min-h-0 relative">
                 {/* Desktop & Tablet: Corner Thumbnail Badge ở góc trên bên trái */}
                 {(card.imageUrl || card.imageBase64) && (
-                    <div 
+                    <div
                         onClick={(e) => {
                             e.stopPropagation();
                             setShowImageZoom(true);
@@ -571,7 +571,7 @@ const Flashcard = ({
                 <div className={`flex flex-col items-center justify-center text-center min-w-0 ${scale.contentGap || 'space-y-1.5 sm:space-y-2.5'} w-full my-auto py-1 overflow-y-auto no-scrollbar max-h-full px-1`}>
                     {/* Mobile: Top Centered Thumbnail in-flow (không che lấp từ vựng & nghĩa) */}
                     {(card.imageUrl || card.imageBase64) && (
-                        <div 
+                        <div
                             onClick={(e) => {
                                 e.stopPropagation();
                                 setShowImageZoom(true);
@@ -611,8 +611,8 @@ const Flashcard = ({
                                     </span>
                                 )}
                                 {card.pos && (cardSettings.back?.pos !== false) && (
-                                    <span className={variant === 'review' || variant === 'emerald' ? 
-                                        "inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full font-sans" : 
+                                    <span className={variant === 'review' || variant === 'emerald' ?
+                                        "inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full font-sans" :
                                         "inline-block px-2.5 py-0.5 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 rounded-full text-xs font-semibold text-slate-500 dark:text-slate-400 font-sans"
                                     }>
                                         {getPosLabel(card.pos)}
@@ -629,8 +629,8 @@ const Flashcard = ({
                                     </span>
                                 )}
                                 {card.pos && (cardSettings.back?.pos !== false) && (
-                                    <span className={variant === 'review' || variant === 'emerald' ? 
-                                        "inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full font-sans" : 
+                                    <span className={variant === 'review' || variant === 'emerald' ?
+                                        "inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full font-sans" :
                                         "inline-block px-2.5 py-0.5 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 rounded-full text-xs font-semibold text-slate-500 dark:text-slate-400 font-sans"
                                     }>
                                         {getPosLabel(card.pos)}
@@ -643,8 +643,8 @@ const Flashcard = ({
                             <div className={`${scale.wordSize || 'text-3xl font-extrabold'} shrink-0 font-bold ${readingColorClass} font-japanese select-none leading-relaxed mb-0.5 flex items-center justify-center gap-2 flex-wrap max-w-full w-full text-center px-2 break-words`}>
                                 {renderReadingWithPitchAccent()}
                                 {card.pos && (
-                                    <span className={variant === 'review' || variant === 'emerald' ? 
-                                        "inline-block px-2 py-0.5 bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold rounded-full font-sans" : 
+                                    <span className={variant === 'review' || variant === 'emerald' ?
+                                        "inline-block px-2 py-0.5 bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold rounded-full font-sans" :
                                         "inline-block px-2 py-0.5 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 rounded-full text-[10px] font-semibold text-slate-500 dark:text-slate-400 font-sans"
                                     }>
                                         {getPosLabel(card.pos)}
@@ -737,7 +737,7 @@ const Flashcard = ({
                         return null;
                     })()}
                     {showExample && card.example && (
-                        <div 
+                        <div
                             className={`mt-1 ${scale.exampleItemGap} text-left w-full max-w-full ${scale.exampleBoxPadding} ${exampleBoxClass} rounded-2xl overflow-y-auto ${scale.exampleMaxHeight || 'max-h-[250px] sm:max-h-[280px]'} no-scrollbar cursor-default`}
                             onTouchStart={(e) => e.stopPropagation()}
                             onTouchMove={(e) => e.stopPropagation()}
@@ -762,11 +762,10 @@ const Flashcard = ({
                                             }}
                                             onTouchStart={(e) => e.stopPropagation()}
                                             onTouchEnd={(e) => e.stopPropagation()}
-                                            className={`absolute right-0 top-1/2 -translate-y-1/2 p-2 min-w-[40px] min-h-[40px] rounded-xl transition-all flex items-center justify-center z-30 cursor-pointer active:scale-90 touch-manipulation shadow-sm ${
-                                                variant === 'review' || variant === 'emerald'
+                                            className={`absolute right-0 top-1/2 -translate-y-1/2 p-2 min-w-[40px] min-h-[40px] rounded-xl transition-all flex items-center justify-center z-30 cursor-pointer active:scale-90 touch-manipulation shadow-sm ${variant === 'review' || variant === 'emerald'
                                                     ? 'text-white/80 hover:text-white bg-white/15 hover:bg-white/25 active:bg-white/35'
                                                     : 'text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 bg-slate-100/95 hover:bg-slate-200 dark:bg-slate-800/95 dark:hover:bg-slate-700 active:bg-indigo-100 dark:active:bg-indigo-900/50'
-                                            }`}
+                                                }`}
                                             title="Nghe câu ví dụ"
                                             aria-label="Phát âm câu ví dụ"
                                         >
@@ -831,11 +830,10 @@ const Flashcard = ({
             {/* Hint text OUTSIDE flashcard - Evenly spaced between flashcard and bottom buttons */}
             {showFlipHint && !isTypingMode && (
                 <div className="w-full text-center py-2 pointer-events-none z-20 flex justify-center">
-                    <span className={`px-3.5 py-1 rounded-full text-xs font-semibold shadow-sm tracking-wide ${
-                        variant === 'review' 
-                            ? 'bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-300/40 dark:border-indigo-800/40 backdrop-blur-sm' 
+                    <span className={`px-3.5 py-1 rounded-full text-xs font-semibold shadow-sm tracking-wide ${variant === 'review'
+                            ? 'bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-300/40 dark:border-indigo-800/40 backdrop-blur-sm'
                             : 'bg-slate-100/90 dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-400'
-                    }`}>
+                        }`}>
                         Nhấn để lật thẻ
                     </span>
                 </div>
@@ -843,15 +841,15 @@ const Flashcard = ({
 
             {/* Image Zoom Lightbox Modal */}
             {showImageZoom && (card.imageUrl || card.imageBase64) && typeof document !== 'undefined' && createPortal(
-                <div 
+                <div
                     onClick={(e) => {
                         e.stopPropagation();
                         setShowImageZoom(false);
                     }}
                     className="fixed inset-0 z-[9999] bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in cursor-zoom-out"
                 >
-                    <div 
-                        onClick={(e) => e.stopPropagation()} 
+                    <div
+                        onClick={(e) => e.stopPropagation()}
                         className="relative max-w-sm sm:max-w-md md:max-w-lg w-full bg-white dark:bg-slate-900 rounded-3xl p-3 shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden"
                     >
                         <button
@@ -861,10 +859,10 @@ const Flashcard = ({
                         >
                             <X className="w-4 h-4" />
                         </button>
-                        <img 
-                            src={card.imageUrl || card.imageBase64} 
-                            alt={card.front} 
-                            className="w-full h-auto max-h-[70vh] object-contain rounded-2xl" 
+                        <img
+                            src={card.imageUrl || card.imageBase64}
+                            alt={card.front}
+                            className="w-full h-auto max-h-[70vh] object-contain rounded-2xl"
                         />
                         <div className="flex items-center justify-between mt-3 px-2">
                             <span className="font-bold text-base text-slate-800 dark:text-slate-200 truncate">{card.front}</span>

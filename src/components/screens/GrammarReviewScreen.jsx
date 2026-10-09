@@ -101,6 +101,17 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         setHasCheckedTyping(false);
     }, [currentReviewIndex, reviewMode]);
 
+    useEffect(() => {
+        if (setIsReviewActive) {
+            setIsReviewActive(reviewMode);
+        }
+        return () => {
+            if (setIsReviewActive) {
+                setIsReviewActive(false);
+            }
+        };
+    }, [reviewMode, setIsReviewActive]);
+
     const handleUpdateSettings = (newSettings) => {
         setFlashcardSettings(newSettings);
         try {
@@ -815,8 +826,8 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         const progress = reviewQueue.length > 0 ? Math.min(100, Math.round((currentReviewIndex / reviewQueue.length) * 100)) : 100;
 
         return (
-            <div className="w-full min-h-[calc(100vh-80px)] flex items-center justify-center px-3 sm:px-4 py-6 animate-fade-in">
-                <div className="w-[760px] max-w-full flex flex-col justify-center items-center space-y-4 transition-all duration-300">
+            <div className="w-full min-h-[100dvh] flex flex-col justify-center items-center px-3 sm:px-4 py-3 sm:py-6 animate-fade-in overflow-y-auto">
+                <div className="w-[760px] max-w-full my-auto flex flex-col justify-center items-center space-y-3.5 sm:space-y-4 transition-all duration-300">
                     <div className="w-full flex justify-between items-center mb-2 gap-2">
                         <button onClick={exitReview}
                             className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105 gap-2 cursor-pointer">

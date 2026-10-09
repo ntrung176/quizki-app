@@ -9,6 +9,7 @@ import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth';
 import { getSharedKanjiList, getSharedKanjiSrs, getCachedKanjiList, getCachedUserSrsData, updateCachedUserSrs, subscribeKanjiSrs } from '../../utils/kanjiService';
+import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 
 import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { formatCountdown, getCardState, calculateAnkiSRS, getCardPreviewIntervals, parseNextReviewMs, isSrsCardDue, isLeechCard } from '../../utils/srs';
@@ -68,6 +69,17 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
     useEffect(() => {
         setHasCheckedTyping(false);
     }, [currentReviewIndex, reviewMode]);
+
+    useEffect(() => {
+        if (setIsReviewActive) {
+            setIsReviewActive(reviewMode);
+        }
+        return () => {
+            if (setIsReviewActive) {
+                setIsReviewActive(false);
+            }
+        };
+    }, [reviewMode, setIsReviewActive]);
     const [kanjiSwapSides, setKanjiSwapSides] = useState(() => {
         try {
             return localStorage.getItem('quizki_kanji_swap_sides') === 'true';
@@ -207,12 +219,46 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
 
     const dueKanji = useMemo(() => {
         const now = dashboardTick;
-        return kanjiList.filter(k => {
-            const srs = srsData[k.id];
-            if (!srs) return false;
-            return isSrsCardDue(srs, now);
+        const dueList = [];
+        const seenIds = new Set();
+
+        Object.entries(srsData || {}).forEach(([id, srs]) => {
+            if (!srs || !isSrsCardDue(srs, now)) return;
+            const doc = kanjiMap.get(id);
+            const char = doc?.character || (id.length === 1 ? id : (id.startsWith('kanji_') ? id.replace('kanji_', '') : null));
+            if (!char) return;
+            const jData = getJotobaKanjiData(char);
+            const cardItem = {
+                id: doc?.id || id,
+                character: char,
+                sinoViet: doc?.sinoViet || jData?.sinoViet || '',
+                meaning: doc?.meaning || jData?.meaningVi || (jData?.meanings || []).join(', ') || '',
+                meaningVi: doc?.meaningVi || jData?.meaningVi || '',
+                onyomi: doc?.onyomi || (jData?.onyomi || []).join('、') || '',
+                kunyomi: doc?.kunyomi || (jData?.kunyomi || []).join('、') || '',
+                level: doc?.level || jData?.level || 'N5',
+                strokeCount: doc?.strokeCount || jData?.stroke_count || 0,
+                ...(doc || {})
+            };
+            if (!seenIds.has(cardItem.id) && !seenIds.has(cardItem.character)) {
+                seenIds.add(cardItem.id);
+                if (cardItem.character) seenIds.add(cardItem.character);
+                dueList.push(cardItem);
+            }
         });
-    }, [kanjiList, srsData, dashboardTick]);
+
+        (kanjiList || []).forEach(k => {
+            const srs = srsData[k.id] || srsData[k.character];
+            if (!srs || !isSrsCardDue(srs, now)) return;
+            if (!seenIds.has(k.id) && !seenIds.has(k.character)) {
+                seenIds.add(k.id);
+                if (k.character) seenIds.add(k.character);
+                dueList.push(k);
+            }
+        });
+
+        return dueList;
+    }, [kanjiList, kanjiMap, srsData, dashboardTick]);
 
     const nextDueKanjiInfo = useMemo(() => {
         let earliest = Infinity;
@@ -841,8 +887,8 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         const progress = reviewQueue.length > 0 ? Math.min(100, Math.round((currentReviewIndex / reviewQueue.length) * 100)) : 100;
 
         return (
-            <div className="w-full min-h-[calc(100vh-80px)] flex items-center justify-center px-4 py-6 animate-fade-in">
-                <div className="w-[600px] max-w-full flex flex-col justify-center items-center space-y-4 transition-all duration-300">
+            <div className="w-full flex-1 min-h-0 flex flex-col justify-center items-center px-3 sm:px-4 py-2 sm:py-3.5 animate-fade-in overflow-y-auto">
+                <div className="w-[600px] max-w-full my-auto flex flex-col justify-center items-center space-y-3 sm:space-y-4 transition-all duration-300">
                     {/* Back button & Action Toolbar */}
                     <div className="w-full flex justify-between items-center mb-2">
                         <button onClick={exitReview}

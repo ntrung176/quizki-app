@@ -421,6 +421,17 @@ const SRSVocabScreen = ({
     const pendingWriteIds = useRef(new Set());
 
     useEffect(() => {
+        if (setIsReviewActive) {
+            setIsReviewActive(reviewMode);
+        }
+        return () => {
+            if (setIsReviewActive) {
+                setIsReviewActive(false);
+            }
+        };
+    }, [reviewMode, setIsReviewActive]);
+
+    useEffect(() => {
         setShowNuancePopup(false);
         setHasCheckedTyping(false);
     }, [currentReviewIndex, reviewMode]);
@@ -1085,9 +1096,9 @@ const SRSVocabScreen = ({
         const current = reviewQueue[currentReviewIndex];
         const next1 = reviewQueue[currentReviewIndex + 1];
         const next2 = reviewQueue[currentReviewIndex + 2];
-        if (current) preloadAudio(current).catch(() => {});
-        if (next1) preloadAudio(next1).catch(() => {});
-        if (next2) preloadAudio(next2).catch(() => {});
+        if (current) preloadAudio(current).catch(() => { });
+        if (next1) preloadAudio(next1).catch(() => { });
+        if (next2) preloadAudio(next2).catch(() => { });
     }, [reviewMode, currentReviewIndex, reviewQueue]);
 
     // Auto-play audio when flipped to answer side
@@ -1133,8 +1144,8 @@ const SRSVocabScreen = ({
 
         const progress = reviewQueue.length > 0 ? Math.min(100, Math.round((currentReviewIndex / reviewQueue.length) * 100)) : 100;
         return (
-            <div className="w-full min-h-[calc(100vh-80px)] flex flex-col justify-center items-center px-4 py-6 bg-transparent animate-fade-in">
-                <div className="w-[800px] max-w-[95vw] mx-auto flex flex-col justify-center items-center space-y-6 transition-all duration-300">
+            <div className="w-full flex-1 min-h-0 flex flex-col justify-center items-center px-3 sm:px-4 py-2 sm:py-3.5 bg-transparent animate-fade-in overflow-y-auto">
+                <div className="w-[800px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-3 sm:space-y-4 md:space-y-4.5 transition-all duration-300">
                     {/* Header with Exit */}
                     <div className="w-full flex justify-between items-center gap-2">
                         <button
@@ -1283,7 +1294,7 @@ const SRSVocabScreen = ({
 
                     {/* Typing Input Component */}
                     {cardSettings.reviewType === 'typing' && (
-                        <div className="w-full mt-2">
+                        <div className="w-full mt-1 sm:mt-2">
                             <SrsTypingInput
                                 card={currentCard}
                                 isFlipped={isFlipped}
@@ -1308,8 +1319,8 @@ const SRSVocabScreen = ({
 
                     {/* SRS Rating Buttons: Hidden in typing mode until user checks answer */}
                     {(cardSettings.reviewType !== 'typing' || hasCheckedTyping) && (
-                        <div className="w-full space-y-3 animate-fade-in mt-4">
-                            <div className="grid grid-cols-4 gap-2 sm:gap-3.5 w-full" data-tour-id="RATING_PANEL">
+                        <div className="w-full space-y-2 sm:space-y-3 animate-fade-in mt-2 sm:mt-3.5">
+                            <div className="grid grid-cols-4 gap-1.5 sm:gap-3.5 w-full" data-tour-id="RATING_PANEL">
                                 {[
                                     { key: 'again', num: '1', label: 'Quên rồi', interval: intervals.again, gradient: 'from-rose-500/10 to-rose-600/5', border: 'border-rose-500/30 hover:border-rose-500/60', text: 'text-rose-600 dark:text-rose-400', badge: 'bg-rose-500/10 text-rose-500', shadow: 'shadow-rose-500/5' },
                                     { key: 'hard', num: '2', label: 'Khó', interval: intervals.hard, gradient: 'from-amber-500/10 to-orange-600/5', border: 'border-amber-500/30 hover:border-amber-500/60', text: 'text-amber-600 dark:text-amber-400', badge: 'bg-amber-500/10 text-amber-500', shadow: 'shadow-amber-500/5' },
@@ -1317,12 +1328,12 @@ const SRSVocabScreen = ({
                                     { key: 'easy', num: '4', label: 'Dễ', interval: intervals.easy, gradient: 'from-sky-500/10 to-blue-600/5', border: 'border-sky-500/30 hover:border-sky-500/60', text: 'text-sky-600 dark:text-sky-400', badge: 'bg-sky-500/10 text-sky-500', shadow: 'shadow-sky-500/5' },
                                 ].map(btn => (
                                     <button key={btn.key} onClick={(e) => { e.stopPropagation(); handleRating(btn.key); }}
-                                        className={`relative flex flex-col justify-center items-center py-3 sm:py-4 px-2 min-h-[58px] sm:min-h-[64px] rounded-2xl bg-gradient-to-b ${btn.gradient} bg-white dark:bg-slate-900 border ${btn.border} text-center transition-all duration-300 hover:scale-[1.03] hover:shadow-lg active:scale-95 cursor-pointer select-none ${btn.shadow}`}>
-                                        <span className="absolute top-1.5 right-2 px-1.5 py-0.2 rounded-md bg-slate-100 dark:bg-slate-800 text-[9px] font-mono font-bold text-slate-400 dark:text-slate-500 hidden sm:block">
+                                        className={`relative flex flex-col justify-center items-center py-2 sm:py-3 md:py-3.5 px-1.5 sm:px-2 min-h-[50px] sm:min-h-[58px] md:min-h-[64px] rounded-xl sm:rounded-2xl bg-gradient-to-b ${btn.gradient} bg-white dark:bg-slate-900 border ${btn.border} text-center transition-all duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-95 cursor-pointer select-none ${btn.shadow}`}>
+                                        <span className="absolute top-1 sm:top-1.5 right-1.5 sm:right-2 px-1 py-0.2 rounded-md bg-slate-100 dark:bg-slate-800 text-[8px] sm:text-[9px] font-mono font-bold text-slate-400 dark:text-slate-500 hidden sm:block">
                                             {btn.num}
                                         </span>
-                                        <div className={`font-black ${btn.text} text-xs sm:text-base leading-tight`}>{btn.label}</div>
-                                        <div className={`text-[10px] sm:text-xs font-semibold ${btn.text} opacity-80 mt-0.5 leading-none font-mono`}>{btn.interval}</div>
+                                        <div className={`font-black ${btn.text} text-[11px] sm:text-sm md:text-base leading-tight`}>{btn.label}</div>
+                                        <div className={`text-[9px] sm:text-[10px] md:text-xs font-semibold ${btn.text} opacity-80 mt-0.5 leading-none font-mono`}>{btn.interval}</div>
                                     </button>
                                 ))}
                             </div>

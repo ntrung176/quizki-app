@@ -83,7 +83,9 @@ const Sidebar = ({
     isPremium: isPremiumProp = undefined,
     avatar,
     profile,
-    onTriggerTour
+    onTriggerTour,
+    isReviewActive = false,
+    isRealExamActive = false
 }) => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -921,112 +923,116 @@ const Sidebar = ({
     return (
         <>
             {/* Top Fixed Mobile Header Bar */}
-            <header className="lg:hidden fixed top-0 left-0 right-0 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 px-3.5 pb-2 pt-[max(0.625rem,env(safe-area-inset-top))] flex items-center justify-between shadow-xs">
-                {/* Left Logo / Torii Avatar */}
-                <Link
-                    to={ROUTES.HOME}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700/90 flex items-center justify-center shadow-xs active:scale-95 transition-transform shrink-0"
-                    title="Trang chủ"
-                >
-                    <div className="w-6.5 h-6.5 rounded-full bg-gradient-to-tr from-emerald-500 via-teal-600 to-cyan-500 flex items-center justify-center text-white shadow-xs">
-                        <BookOpen className="w-3.5 h-3.5" />
-                    </div>
-                </Link>
+            {!isReviewActive && !isRealExamActive && (
+                <header className="lg:hidden fixed top-0 left-0 right-0 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80 px-3.5 pb-2 pt-[max(0.625rem,env(safe-area-inset-top))] flex items-center justify-between shadow-xs">
+                    {/* Left Logo / Torii Avatar */}
+                    <Link
+                        to={ROUTES.HOME}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700/90 flex items-center justify-center shadow-xs active:scale-95 transition-transform shrink-0"
+                        title="Trang chủ"
+                    >
+                        <div className="w-6.5 h-6.5 rounded-full bg-gradient-to-tr from-emerald-500 via-teal-600 to-cyan-500 flex items-center justify-center text-white shadow-xs">
+                            <BookOpen className="w-3.5 h-3.5" />
+                        </div>
+                    </Link>
 
-                {/* Center Title */}
-                <div className="flex flex-col items-center justify-center text-center min-w-0 px-2 flex-1">
-                    <span className="text-[10px] font-black tracking-widest text-slate-400 dark:text-slate-500 uppercase font-mono leading-none">
-                        {mobileHeaderSubtitle}
-                    </span>
-                    <span className="text-base font-extrabold text-slate-900 dark:text-white leading-tight mt-0.5 truncate max-w-[200px]">
-                        {mobileHeaderTitle}
-                    </span>
-                </div>
-
-                {/* Right Actions: Notifications Bell & Avatar */}
-                <div className="flex items-center space-x-2 shrink-0">
-                    <div className="relative">
-                        <button
-                            data-notif-trigger="true"
-                            type="button"
-                            onClick={() => setIsNotificationsOpen(prev => !prev)}
-                            className="w-9 h-9 rounded-full bg-slate-100/90 dark:bg-slate-800/90 text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-center cursor-pointer active:scale-95 transition-all hover:border-emerald-500/50"
-                            title="Thông báo"
-                        >
-                            <Bell className="w-4 h-4" />
-                            {hasUnread && (
-                                <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full animate-ping" />
-                            )}
-                        </button>
-                        <NotificationsPopover isMobile={true} />
+                    {/* Center Title */}
+                    <div className="flex flex-col items-center justify-center text-center min-w-0 px-2 flex-1">
+                        <span className="text-[10px] font-black tracking-widest text-slate-400 dark:text-slate-500 uppercase font-mono leading-none">
+                            {mobileHeaderSubtitle}
+                        </span>
+                        <span className="text-base font-extrabold text-slate-900 dark:text-white leading-tight mt-0.5 truncate max-w-[200px]">
+                            {mobileHeaderTitle}
+                        </span>
                     </div>
 
-                    {userId || auth?.currentUser ? (
-                        <Link
-                            to={ROUTES.SETTINGS}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-[9px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden shadow-xs active:scale-95 transition-transform shrink-0"
-                            title="Trang cá nhân & Cài đặt"
-                        >
-                            {renderAvatar()}
-                        </Link>
-                    ) : (
-                        <Link
-                            to={ROUTES.LOGIN}
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="px-2.5 py-1.5 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold text-xs shadow-xs active:scale-95 transition-transform shrink-0 flex items-center gap-1"
-                            title="Đăng nhập"
-                        >
-                            <LogIn className="w-3.5 h-3.5" />
-                            <span>Đăng nhập</span>
-                        </Link>
-                    )}
-                </div>
-            </header>
+                    {/* Right Actions: Notifications Bell & Avatar */}
+                    <div className="flex items-center space-x-2 shrink-0">
+                        <div className="relative">
+                            <button
+                                data-notif-trigger="true"
+                                type="button"
+                                onClick={() => setIsNotificationsOpen(prev => !prev)}
+                                className="w-9 h-9 rounded-full bg-slate-100/90 dark:bg-slate-800/90 text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-center cursor-pointer active:scale-95 transition-all hover:border-emerald-500/50"
+                                title="Thông báo"
+                            >
+                                <Bell className="w-4 h-4" />
+                                {hasUnread && (
+                                    <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full animate-ping" />
+                                )}
+                            </button>
+                            <NotificationsPopover isMobile={true} />
+                        </div>
+
+                        {userId || auth?.currentUser ? (
+                            <Link
+                                to={ROUTES.SETTINGS}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-[9px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden shadow-xs active:scale-95 transition-transform shrink-0"
+                                title="Trang cá nhân & Cài đặt"
+                            >
+                                {renderAvatar()}
+                            </Link>
+                        ) : (
+                            <Link
+                                to={ROUTES.LOGIN}
+                                onClick={() => setIsMobileMenuOpen(false)}
+                                className="px-2.5 py-1.5 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold text-xs shadow-xs active:scale-95 transition-transform shrink-0 flex items-center gap-1"
+                                title="Đăng nhập"
+                            >
+                                <LogIn className="w-3.5 h-3.5" />
+                                <span>Đăng nhập</span>
+                            </Link>
+                        )}
+                    </div>
+                </header>
+            )}
 
             {/* Mobile Bottom Navigation Bar - Fixed at bottom matching iOS native proportion */}
-            <nav 
-                className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/98 dark:bg-slate-900/98 backdrop-blur-md border-t border-slate-200/80 dark:border-slate-800/80 shadow-[0_-2px_12px_rgba(0,0,0,0.04)] dark:shadow-[0_-4px_20px_rgba(0,0,0,0.3)] transition-colors select-none"
-                style={{
-                    paddingTop: '6px',
-                    paddingBottom: 'max(8px, env(safe-area-inset-bottom, 8px))'
-                }}
-            >
-                <div className="grid grid-cols-5 items-center max-w-lg mx-auto px-1">
-                    {bottomNavTabs.map((tab) => {
-                        const TabIcon = tab.icon;
-                        return (
-                            <Link
-                                key={tab.id}
-                                to={tab.route || '#'}
-                                onClick={tab.onClick}
-                                className="flex flex-col items-center justify-center group active:scale-95 transition-transform"
-                            >
-                                <div className={`relative w-12 sm:w-13 h-7 rounded-full flex items-center justify-center transition-all duration-200 ${
-                                    tab.isActive
-                                        ? 'bg-[#e6f4ea] dark:bg-emerald-950/80 text-[#137333] dark:text-emerald-400 shadow-xs'
-                                        : 'text-slate-500 dark:text-slate-400 group-hover:text-slate-700 dark:group-hover:text-slate-300'
-                                }`}>
-                                    <TabIcon className={`w-4.5 h-4.5 ${tab.isActive ? 'stroke-[2.2]' : 'stroke-[1.8]'}`} />
-                                    {tab.badge > 0 && (
-                                        <span className="absolute -top-1.5 -right-2 min-w-[16px] h-3.5 px-1 bg-rose-500 text-white text-[9px] font-mono font-black rounded-full flex items-center justify-center shadow-xs">
-                                            {tab.badge > 999 ? '999+' : tab.badge}
-                                        </span>
-                                    )}
-                                </div>
-                                <span className={`text-[10.5px] mt-0.5 leading-tight tracking-tight transition-colors ${
-                                    tab.isActive
-                                        ? 'font-bold text-slate-900 dark:text-white'
-                                        : 'font-medium text-slate-600 dark:text-slate-400'
-                                }`}>
-                                    {tab.label}
-                                </span>
-                            </Link>
-                        );
-                    })}
-                </div>
-            </nav>
+            {!isReviewActive && !isRealExamActive && (
+                <nav 
+                    className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/98 dark:bg-slate-900/98 backdrop-blur-md border-t border-slate-200/80 dark:border-slate-800/80 shadow-[0_-2px_12px_rgba(0,0,0,0.04)] dark:shadow-[0_-4px_20px_rgba(0,0,0,0.3)] transition-colors select-none"
+                    style={{
+                        paddingTop: '6px',
+                        paddingBottom: 'max(8px, env(safe-area-inset-bottom, 8px))'
+                    }}
+                >
+                    <div className="grid grid-cols-5 items-center max-w-lg mx-auto px-1">
+                        {bottomNavTabs.map((tab) => {
+                            const TabIcon = tab.icon;
+                            return (
+                                <Link
+                                    key={tab.id}
+                                    to={tab.route || '#'}
+                                    onClick={tab.onClick}
+                                    className="flex flex-col items-center justify-center group active:scale-95 transition-transform"
+                                >
+                                    <div className={`relative w-12 sm:w-13 h-7 rounded-full flex items-center justify-center transition-all duration-200 ${
+                                        tab.isActive
+                                            ? 'bg-[#e6f4ea] dark:bg-emerald-950/80 text-[#137333] dark:text-emerald-400 shadow-xs'
+                                            : 'text-slate-500 dark:text-slate-400 group-hover:text-slate-700 dark:group-hover:text-slate-300'
+                                    }`}>
+                                        <TabIcon className={`w-4.5 h-4.5 ${tab.isActive ? 'stroke-[2.2]' : 'stroke-[1.8]'}`} />
+                                        {tab.badge > 0 && (
+                                            <span className="absolute -top-1.5 -right-2 min-w-[16px] h-3.5 px-1 bg-rose-500 text-white text-[9px] font-mono font-black rounded-full flex items-center justify-center shadow-xs">
+                                                {tab.badge > 999 ? '999+' : tab.badge}
+                                            </span>
+                                        )}
+                                    </div>
+                                    <span className={`text-[10.5px] mt-0.5 leading-tight tracking-tight transition-colors ${
+                                        tab.isActive
+                                            ? 'font-bold text-slate-900 dark:text-white'
+                                            : 'font-medium text-slate-600 dark:text-slate-400'
+                                    }`}>
+                                        {tab.label}
+                                    </span>
+                                </Link>
+                            );
+                        })}
+                    </div>
+                </nav>
+            )}
 
             {/* "Khám phá QUIZKI" Bottom Sheet Modal (Toggled by "Thêm" Bottom Nav Tab) */}
             {isMobileMenuOpen && (

@@ -196,7 +196,14 @@ export const useKanjiData = ({
         const loadUserSRS = async () => {
             try {
                 const srs = await getSharedKanjiSrs(userId);
-                setUserKanjiSRS(new Set(Object.keys(srs)));
+                const keys = Object.keys(srs || {});
+                const srsSet = new Set(keys);
+                keys.forEach(k => {
+                    if (k.startsWith('kanji_')) {
+                        srsSet.add(k.replace('kanji_', ''));
+                    }
+                });
+                setUserKanjiSRS(srsSet);
             } catch (e) {
                 console.error('Error loading user kanjiSRS:', e);
             }
@@ -333,16 +340,44 @@ export const useKanjiData = ({
             return;
         }
 
-        const kanjiDoc = kanjiMap.get(kanjiChar);
+        let kanjiDoc = kanjiMap.get(kanjiChar);
         if (!kanjiDoc || !kanjiDoc.id) {
-            showToast('Chữ Kanji này chưa được khởi tạo trong hệ thống dữ liệu', 'warning');
-            return;
+            const jData = getJotobaKanjiData(kanjiChar);
+            if (jData || kanjiChar) {
+                const newDocId = `kanji_${kanjiChar}`;
+                const initialKanjiData = {
+                    id: newDocId,
+                    character: kanjiChar,
+                    sinoViet: jData?.sinoViet || '',
+                    meaning: jData?.meaningVi || (jData?.meanings || []).join(', ') || '',
+                    meaningVi: jData?.meaningVi || '',
+                    onyomi: (jData?.onyomi || []).join('、'),
+                    kunyomi: (jData?.kunyomi || []).join('、'),
+                    level: jData?.level || selectedLevel || 'N1',
+                    strokeCount: jData?.stroke_count || 0,
+                    parts: jData?.parts || [],
+                    createdAt: Date.now(),
+                    updatedAt: Date.now()
+                };
+
+                try {
+                    await setDoc(doc(db, `artifacts/${appId}/public/data/kanji`, newDocId), initialKanjiData, { merge: true });
+                    updateCachedKanji(initialKanjiData);
+                    setKanjiList(prev => [...prev.filter(k => k.id !== newDocId && k.character !== kanjiChar), initialKanjiData]);
+                } catch (saveErr) {
+                    console.warn("Could not save new kanji doc to public collection, continuing with local doc:", saveErr);
+                }
+                kanjiDoc = initialKanjiData;
+            } else {
+                showToast('Chữ Kanji này chưa được khởi tạo trong hệ thống dữ liệu', 'warning');
+                return;
+            }
         }
 
-        const isSRSAdded = userKanjiSRS.has(kanjiDoc.id);
+        const isSRSAdded = userKanjiSRS.has(kanjiDoc.id) || userKanjiSRS.has(kanjiChar);
         if (isSRSAdded) return;
 
-        setUserKanjiSRS(prev => new Set([...prev, kanjiDoc.id]));
+        setUserKanjiSRS(prev => new Set([...prev, kanjiDoc.id, kanjiChar]));
         showToast(`Đã thêm ${kanjiChar} vào danh sách ôn tập SRS`);
 
         try {

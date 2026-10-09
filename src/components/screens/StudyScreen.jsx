@@ -864,9 +864,9 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     return (
         <div className={isFullscreen 
             ? "fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto w-screen h-screen" 
-            : "relative w-full flex-1 min-h-[calc(100vh-6rem)] flex flex-col items-center justify-center py-6 px-4 animate-fade-in"
+            : "relative w-full flex-1 min-h-0 flex flex-col items-center justify-center px-3 sm:px-4 py-2 sm:py-3.5 overflow-y-auto animate-fade-in"
         }>
-            <div className="w-full max-w-3xl mx-auto flex flex-col justify-center items-center space-y-4 my-auto">
+            <div className="w-full max-w-3xl mx-auto my-auto flex flex-col justify-center items-center space-y-3 sm:space-y-4">
                 {/* Back Button - outside frame */}
                 {onBack && (
                     <div className="w-full flex justify-start mb-1">
@@ -881,7 +881,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                     </div>
                 )}
 
-                <div className="w-full flex flex-col space-y-5 p-6 md:p-8 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-2 border-indigo-400/30 dark:border-indigo-500/20 rounded-3xl shadow-xl overflow-hidden">
+                <div className="w-full flex flex-col space-y-4 sm:space-y-5 p-4 sm:p-6 md:p-8 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-2 border-indigo-400/30 dark:border-indigo-500/20 rounded-3xl shadow-xl overflow-hidden">
                     {/* Progress bar inside the box */}
                     {!done && batchPhase !== 'batchComplete' && (
                         <div className="space-y-1.5 w-full flex-shrink-0">

@@ -312,8 +312,14 @@ const KanjiDetailView = ({
                             <span className="text-2xl font-bold text-cyan-600 dark:text-cyan-400">{det.sinoViet || ''}</span>
                             
                             {(() => {
-                                const kanjiDoc = kanjiMap.get(selectedKanji);
-                                const isSRSAdded = kanjiDoc ? userKanjiSRS.has(kanjiDoc.id) : false;
+                                const kanjiDoc = kanjiMap?.get(selectedKanji);
+                                const isSRSAdded = Boolean(
+                                    (selectedKanji && userKanjiSRS?.has(selectedKanji)) ||
+                                    (selectedKanji && userKanjiSRS?.has(`kanji_${selectedKanji}`)) ||
+                                    (kanjiDoc?.id && userKanjiSRS?.has(kanjiDoc.id)) ||
+                                    (kanjiDoc?.character && userKanjiSRS?.has(kanjiDoc.character)) ||
+                                    (det?.id && userKanjiSRS?.has(det.id))
+                                );
                                 return (
                                     <button
                                         onClick={(e) => !isSRSAdded && toggleKanjiSRS(e, selectedKanji)}

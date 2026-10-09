@@ -94,7 +94,7 @@ const AppContent = () => {
                 <Sidebar
                     currentView={view}
                     setView={setView}
-                    isReviewActive={isReviewActive}
+                    isReviewActive={isReviewActive || isReviewSessionPage}
                     isRealExamActive={isRealExamActive}
                     isAdmin={userHasAdminPrivileges}
                     userId={userId}
@@ -109,7 +109,7 @@ const AppContent = () => {
             )}
 
             {/* Main view container */}
-            <main className={`min-h-screen flex flex-col w-full max-w-full min-w-0 overflow-x-clip transition-[padding,margin] duration-200 ease-out ${isAuthPage ? 'p-0' : (isReviewSessionPage ? 'p-0' : (isSidebarCollapsed ? 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-0 lg:pl-20' : 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-0 lg:pl-64'))}`}>
+            <main className={`min-h-screen flex flex-col w-full max-w-full min-w-0 overflow-x-clip transition-[padding,margin] duration-200 ease-out ${isAuthPage ? 'p-0' : ((isReviewActive || isReviewSessionPage) ? (isSidebarCollapsed ? 'p-0 lg:pl-20' : 'p-0 lg:pl-64') : (isSidebarCollapsed ? 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-0 lg:pl-20' : 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-0 lg:pl-64'))}`}>
                 {/* Admin Test Mode Banner */}
                 {profile?.trialPricingTier && (
                     <div className="bg-indigo-600 text-white text-xs font-semibold px-4 py-2.5 flex items-center justify-between shadow-md relative z-40">
@@ -133,7 +133,7 @@ const AppContent = () => {
                     </div>
                 )}
 
-                <div className={`${isReviewSessionPage ? 'w-full flex-1 flex flex-col items-center justify-center bg-transparent py-4 md:py-8' : ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'VOCAB_QUICK_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN', 'VIDEO_KAIWA'].includes(view) || location.pathname.startsWith('/books') || location.pathname.startsWith('/vocab') || location.pathname.startsWith('/kanji') || location.pathname.startsWith('/jlpt') || location.pathname.startsWith('/grammar') || location.pathname.startsWith('/kaiwa') ? 'w-full max-w-full min-w-0 flex-1 flex flex-col p-0' : 'w-full max-w-6xl mx-auto px-3 md:px-4 py-4 md:py-6 flex-1 flex flex-col'}`}>
+                <div className={`${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'VOCAB_QUICK_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN', 'VIDEO_KAIWA'].includes(view) || location.pathname.startsWith('/books') || location.pathname.startsWith('/vocab') || location.pathname.startsWith('/kanji') || location.pathname.startsWith('/jlpt') || location.pathname.startsWith('/grammar') || location.pathname.startsWith('/kaiwa') ? 'w-full max-w-full min-w-0 flex-1 flex flex-col p-0' : 'w-full max-w-6xl mx-auto px-3 md:px-4 py-4 md:py-6 flex-1 flex flex-col'}`}>
                     <div className={`w-full max-w-full min-w-0 flex-1 flex flex-col ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'VOCAB_QUICK_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN', 'VIDEO_KAIWA'].includes(view) || location.pathname.startsWith('/books') || location.pathname.startsWith('/vocab') || location.pathname.startsWith('/kanji') || location.pathname.startsWith('/jlpt') || location.pathname.startsWith('/grammar') || location.pathname.startsWith('/kaiwa') ? 'bg-transparent' : ''}`}>
                         <div className={`w-full max-w-full min-w-0 flex-1 flex flex-col ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'VOCAB_QUICK_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN', 'VIDEO_KAIWA'].includes(view) || location.pathname.startsWith('/books') || location.pathname.startsWith('/vocab') || location.pathname.startsWith('/kanji') || location.pathname.startsWith('/jlpt') || location.pathname.startsWith('/grammar') || location.pathname.startsWith('/kaiwa') ? 'bg-transparent' : ''}`}>
                             <AppRoutes

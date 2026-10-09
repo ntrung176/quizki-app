@@ -693,16 +693,14 @@ const speakWithTTS = (text, onAudioGenerated = null, sessionId = null, reading =
 
         let result = ttsCache.get(cacheKey) || null;
 
-        // 2. Fetch Native Audio or Azure TTS
+        // 2. Fetch Azure TTS first (matching user selected voice), then fallback to Native Audio
         if (!result) {
-            if (!isEng && !isKor) {
+            try {
+                result = await azureTTS(text, reading);
+            } catch (e) {}
+            if (!result && !isEng && !isKor) {
                 try {
                     result = await fetchNativeJapaneseAudio(text, reading);
-                } catch (e) {}
-            }
-            if (!result) {
-                try {
-                    result = await azureTTS(text, reading);
                 } catch (e) {}
             }
         }
@@ -795,8 +793,12 @@ export const preloadAudio = async (cardOrText, reading = '', forceVoice = null) 
             return result;
         }
 
-        // Otherwise prefetch in background via azureTTS
-        return await azureTTS(text, cardReading, voiceId);
+        // Otherwise prefetch in background via azureTTS with fallback to native
+        let result = await azureTTS(text, cardReading, voiceId);
+        if (!result && !isEng && !isKor) {
+            result = await fetchNativeJapaneseAudio(text, cardReading);
+        }
+        return result;
     } catch (e) {
         return null;
     }
@@ -890,7 +892,7 @@ export const speakJapanese = (cardOrText, audioBase64 = null, onAudioGenerated =
     if (audioBase64) {
         const savedVoiceId = cardVoiceId || 'female';
         const normSaved = savedVoiceId === 'mayu' ? 'female' : (savedVoiceId === 'ryota' ? 'male' : savedVoiceId);
-        if (normSaved !== currentVoiceId) {
+        if (normSaved !== currentVoiceId && normSaved !== 'native') {
             effectiveBase64 = null;
         }
     }
@@ -902,14 +904,14 @@ export const speakJapanese = (cardOrText, audioBase64 = null, onAudioGenerated =
 
 export const generateAudioSilent = async (text, reading = '', forceVoice = null, options = {}) => {
     if (!text && !reading) return null;
-    const { forceRegenerate = false, skipNative = false } = options;
+    const { forceRegenerate = false, preferNative = false } = options;
 
     const { word, reading: kanaReading } = getWordAndReading(text, reading);
     const isKor = isKoreanText(text || reading);
     const isEng = !isKor && isEnglishText(text || reading);
 
-    // 1. Thử lấy âm thanh từ người Nhật bản xứ (Jotoba / Wadoku - chỉ tiếng Nhật, bỏ qua khi forceRegenerate/skipNative)
-    if (!isEng && !isKor && !forceRegenerate && !skipNative) {
+    // 1. Nếu preferNative = true, thử lấy native audio trước
+    if (preferNative && !isEng && !isKor && !forceRegenerate) {
         try {
             const nativeResult = await fetchNativeJapaneseAudio(text, reading);
             if (nativeResult && nativeResult.base64) {
@@ -937,6 +939,25 @@ export const generateAudioSilent = async (text, reading = '', forceVoice = null,
     } catch (e) {
         console.warn('generateAudioSilent error:', e.message);
     }
+
+    // 3. Fallback to Native Japanese Audio (Jotoba/Wadoku) if Azure was unavailable or failed
+    if (!preferNative && !isEng && !isKor && !forceRegenerate) {
+        try {
+            const nativeResult = await fetchNativeJapaneseAudio(text, reading);
+            if (nativeResult && nativeResult.base64) {
+                const gender = (forceVoice || getTTSVoice()) === 'male' ? 'male' : 'female';
+                saveSharedAudio(word || kanaReading, nativeResult.base64, gender, kanaReading);
+                return {
+                    base64: nativeResult.base64,
+                    voiceId: 'native',
+                    fromNative: true
+                };
+            }
+        } catch (e) {
+            console.warn('Fallback native audio lookup failed:', e);
+        }
+    }
+
     return null;
 };
 
