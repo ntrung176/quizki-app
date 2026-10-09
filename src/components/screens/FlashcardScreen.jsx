@@ -478,7 +478,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                         <ArrowLeft className="w-5 h-5" />
                     </button>
                 )}
-                <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-6 p-6 sm:p-8 bg-white dark:bg-slate-900 border-2 border-indigo-400/30 rounded-3xl shadow-xl animate-fade-in">
+                <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-6 p-6 sm:p-8 bg-white dark:bg-slate-900 border-2 border-blue-400/30 rounded-3xl shadow-xl animate-fade-in">
                     <div className="text-6xl mb-2">✨</div>
                     <div>
                         <h2 className="text-3xl font-black text-gray-800 dark:text-white mb-2">Hoàn thành vòng {round}!</h2>
@@ -486,8 +486,8 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                             Hãy tiếp tục ôn luyện những thẻ chưa thuộc.
                         </p>
                     </div>
-                    <div className="w-full max-w-xs bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-indigo-200/60 dark:border-indigo-800/60 shadow-lg">
-                        <div className="flex items-center justify-center gap-2 text-indigo-700 dark:text-indigo-300 font-bold text-lg">
+                    <div className="w-full max-w-xs bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl p-5 border border-blue-200/60 dark:border-blue-800/60 shadow-lg">
+                        <div className="flex items-center justify-center gap-2 text-blue-700 dark:text-blue-300 font-bold text-lg">
                             <Layers className="w-5 h-5" />
                             <span>Đã thuộc: {totalKnown} / {allCards.length}</span>
                         </div>
@@ -496,14 +496,14 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                         {unknownCount > 0 && (
                             <button
                                 onClick={handleContinueUnknown}
-                                className="w-full py-3 bg-gradient-to-r from-indigo-600 to-sky-500 text-white font-bold rounded-xl shadow-md hover:-translate-y-0.5 transition-all flex items-center justify-center gap-1 cursor-pointer"
+                                className="w-full py-3 bg-gradient-to-r from-blue-600 to-sky-500 text-white font-bold rounded-xl shadow-md hover:-translate-y-0.5 transition-all flex items-center justify-center gap-1 cursor-pointer"
                             >
                                 <RefreshCw className="w-4 h-4" /> Tiếp tục ({unknownCount} thẻ)
                             </button>
                         )}
                         <button
                             onClick={onComplete}
-                            className="w-full py-3 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-bold rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-all flex items-center justify-center gap-1 cursor-pointer"
+                            className="w-full py-3 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold rounded-xl hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-all flex items-center justify-center gap-1 cursor-pointer"
                         >
                             Thoát <ChevronRight className="w-4 h-4" />
                         </button>
@@ -543,11 +543,11 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                     {/* Progress bar */}
                     <div className="w-full space-y-1 flex-shrink-0">
                         <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400 mb-1">
-                            <span className="px-2.5 py-0.5 bg-indigo-50 text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-400 rounded-full text-xs font-semibold">Vòng {round}</span>
+                            <span className="px-2.5 py-0.5 bg-blue-50 text-blue-600 dark:bg-blue-950/40 dark:text-blue-400 rounded-full text-xs font-semibold">Vòng {round}</span>
                             <span className="px-2.5 py-0.5 bg-slate-100 text-slate-650 dark:bg-slate-800/80 dark:text-slate-400 rounded-full text-xs font-bold">{currentIndex + 1} / {currentDeck.length}</span>
                         </div>
                         <div className="h-2 w-full bg-gray-200/60 dark:bg-gray-700/60 rounded-full overflow-hidden">
-                            <div className="h-full bg-gradient-to-r from-indigo-500 to-indigo-600 progress-bar rounded-full" style={{ width: `${progress}%` }}></div>
+                            <div className="h-full bg-gradient-to-r from-blue-500 to-sky-500 progress-bar rounded-full" style={{ width: `${progress}%` }}></div>
                         </div>
                         <div className="flex justify-between items-center text-[11px] font-semibold mt-1">
                             <div className="flex gap-1.5">
@@ -563,7 +563,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                                     className="p-1.5 bg-white/90 dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm border border-slate-200 dark:border-slate-700 cursor-pointer"
                                     title={isFullscreen ? "Thoát toàn màn hình (Esc)" : "Toàn màn hình"}
                                 >
-                                    {isFullscreen ? <Minimize2 className="w-4 h-4 text-indigo-400" /> : <Maximize2 className="w-4 h-4" />}
+                                    {isFullscreen ? <Minimize2 className="w-4 h-4 text-blue-400" /> : <Maximize2 className="w-4 h-4" />}
                                 </button>
                                 <button
                                     onClick={(e) => {
@@ -662,46 +662,46 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                     </div>
 
                     {/* Action buttons - Know / Don't Know / Undo */}
-                    <div className="flex items-center justify-center gap-3 w-full mt-3">
+                    <div className="flex items-center justify-center gap-2.5 sm:gap-3 w-full mt-2 sm:mt-3">
                         {/* Don't know button */}
                         <button
                             onClick={handleUnknown}
                             disabled={!isFlipped || !!buttonPressed}
-                            className={`flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-base transition-all ${!isFlipped || buttonPressed
-                                ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
+                            className={`flex-1 flex items-center justify-center gap-2 py-2.5 sm:py-3 rounded-xl font-bold text-sm sm:text-base transition-all ${!isFlipped || buttonPressed
+                                ? 'bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-600 cursor-not-allowed border border-slate-200/60 dark:border-slate-800'
                                 : buttonPressed === 'unknown'
-                                    ? 'bg-red-600 text-white scale-95'
-                                    : 'bg-red-100 dark:bg-red-900/40 text-red-600 dark:text-red-400 hover:bg-red-200 dark:hover:bg-red-800/60 border-2 border-red-300 dark:border-red-700 hover:scale-[1.02] shadow-md'
+                                    ? 'bg-rose-600 text-white scale-95 shadow-sm'
+                                    : 'bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 hover:bg-rose-100 dark:hover:bg-rose-900/60 border border-rose-200 dark:border-rose-800/70 hover:scale-[1.01] active:scale-95 shadow-xs cursor-pointer'
                                 }`}
                         >
-                            <X className="w-5 h-5" />
-                            Chưa thuộc
+                            <X className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
+                            <span>Chưa thuộc</span>
                         </button>
                         {/* Known button */}
                         <button
                             onClick={handleKnown}
                             disabled={!isFlipped || !!buttonPressed}
-                            className={`flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl font-bold text-base transition-all ${!isFlipped || buttonPressed
-                                ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
+                            className={`flex-1 flex items-center justify-center gap-2 py-2.5 sm:py-3 rounded-xl font-bold text-sm sm:text-base transition-all ${!isFlipped || buttonPressed
+                                ? 'bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-600 cursor-not-allowed border border-slate-200/60 dark:border-slate-800'
                                 : buttonPressed === 'known'
-                                    ? 'bg-green-600 text-white scale-95'
-                                    : 'bg-green-100 dark:bg-green-900/40 text-green-600 dark:text-green-400 hover:bg-green-200 dark:hover:bg-green-800/60 border-2 border-green-300 dark:border-green-700 hover:scale-[1.02] shadow-md'
+                                    ? 'bg-emerald-600 text-white scale-95 shadow-sm'
+                                    : 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 border border-emerald-200 dark:border-emerald-800/70 hover:scale-[1.01] active:scale-95 shadow-xs cursor-pointer'
                                 }`}
                         >
-                            <Check className="w-5 h-5" />
-                            Đã thuộc
+                            <Check className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
+                            <span>Đã thuộc</span>
                         </button>
                         {/* Undo button */}
                         <button
                             onClick={handleUndo}
                             disabled={history.length === 0}
-                            className={`p-3.5 rounded-xl transition-all ${history.length === 0
-                                ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 cursor-not-allowed'
-                                : 'bg-yellow-100 dark:bg-yellow-900/40 text-yellow-600 dark:text-yellow-400 hover:bg-yellow-200 dark:hover:bg-yellow-800/60 border-2 border-yellow-300 dark:border-yellow-700 hover:scale-[1.05] shadow-md'
+                            className={`p-2.5 sm:p-3 rounded-xl transition-all ${history.length === 0
+                                ? 'bg-slate-100 dark:bg-slate-800 text-slate-300 dark:text-slate-600 cursor-not-allowed border border-slate-200/40 dark:border-slate-800'
+                                : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:scale-105 active:scale-95 shadow-xs cursor-pointer'
                                 }`}
                             title="Hoàn tác (Ctrl+Z)"
                         >
-                            <Undo2 className="w-5 h-5" />
+                            <Undo2 className="w-4 h-4 sm:w-5 sm:h-5" />
                         </button>
                     </div>
                     {/* Keyboard hint */}
@@ -718,24 +718,24 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                         <h4 className="font-extrabold text-lg border-b border-gray-150 dark:border-slate-700 pb-2.5 mb-3">Cấu hình thẻ ghi nhớ</h4>
                         <div className="space-y-4 text-xs font-semibold text-slate-600 dark:text-slate-300">
                             <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                                <span className="text-indigo-650 dark:text-indigo-400 font-bold">Đổi mặt trước/mặt sau</span>
+                                <span className="text-blue-600 dark:text-blue-400 font-bold">Đổi mặt trước/mặt sau</span>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" checked={cardSettings.swapSides} onChange={(e) => setCardSettings(prev => ({ ...prev, swapSides: e.target.checked }))} className="sr-only peer" />
-                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
                                 </label>
                             </div>
                             <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                                <span className="text-indigo-650 dark:text-indigo-400 font-bold">Phát âm thanh từ vựng</span>
+                                <span className="text-blue-600 dark:text-blue-400 font-bold">Phát âm thanh từ vựng</span>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" checked={cardSettings.audioEnabled !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, audioEnabled: e.target.checked }))} className="sr-only peer" />
-                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
                                 </label>
                             </div>
                             <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                                <span className="text-indigo-650 dark:text-indigo-400 font-bold">Tự động phát âm thanh khi lật</span>
+                                <span className="text-blue-600 dark:text-blue-400 font-bold">Tự động phát âm thanh khi lật</span>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" checked={cardSettings.autoPlayAudio} onChange={(e) => setCardSettings(prev => ({ ...prev, autoPlayAudio: e.target.checked }))} className="sr-only peer" />
-                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
                                 </label>
                             </div>
                             {isKoreanMode ? (
@@ -744,19 +744,19 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                                         <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Hàn hiển thị:</p>
                                         <div className="space-y-2.5 pl-1 text-[13px]">
                                             <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.front.word !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <input type="checkbox" checked={cardSettings.front.word !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" />
                                                 <span>Từ vựng tiếng Hàn (Hangul)</span>
                                             </label>
                                             <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.front.reading !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <input type="checkbox" checked={cardSettings.front.reading !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" />
                                                 <span>Phiên âm Romaja</span>
                                             </label>
                                             <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" />
                                                 <span>Âm Hán Hàn</span>
                                             </label>
                                             <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.front.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <input type="checkbox" checked={cardSettings.front.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" />
                                                 <span>Từ loại (Danh từ, Động từ...)</span>
                                             </label>
                                         </div>
@@ -765,33 +765,33 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                                         <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
                                         <div className="space-y-2.5 pl-1 text-[13px]">
                                             <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.meaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <input type="checkbox" checked={cardSettings.back.meaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" />
                                                 <span>Nghĩa tiếng Việt</span>
                                             </label>
                                             <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.reading !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <input type="checkbox" checked={cardSettings.back.reading !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" />
                                                 <span>Phiên âm Romaja</span>
                                             </label>
                                             <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" />
                                                 <span>Âm Hán Hàn</span>
                                             </label>
                                             <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <input type="checkbox" checked={cardSettings.back.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" />
                                                 <span>Từ loại (Danh từ, Động từ...)</span>
                                             </label>
                                             <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" />
                                                 <span>Từ đồng nghĩa / Trái nghĩa</span>
                                             </label>
                                             <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" />
                                                 <span>Câu ví dụ</span>
                                             </label>
                                             {cardSettings.back.example && (
                                                 <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
                                                     <label className="flex items-center gap-2 cursor-pointer">
-                                                        <input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                        <input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" />
                                                         <span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span>
                                                     </label>
                                                 </div>
@@ -805,15 +805,15 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                                         <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Anh hiển thị:</p>
                                         <div className="space-y-2.5 pl-1 text-[13px]">
                                             <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.front.word !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <input type="checkbox" checked={cardSettings.front.word !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" />
                                                 <span>Từ vựng tiếng Anh</span>
                                             </label>
                                             <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.front.ipa !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, ipa: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <input type="checkbox" checked={cardSettings.front.ipa !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, ipa: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" />
                                                 <span>Phiên âm quốc tế IPA</span>
                                             </label>
                                             <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.front.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <input type="checkbox" checked={cardSettings.front.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" />
                                                 <span>Từ loại (Noun, Verb...)</span>
                                             </label>
                                         </div>
@@ -822,29 +822,29 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                                         <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
                                         <div className="space-y-2.5 pl-1 text-[13px]">
                                             <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.meaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <input type="checkbox" checked={cardSettings.back.meaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" />
                                                 <span>Nghĩa tiếng Việt</span>
                                             </label>
                                             <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.ipa !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, ipa: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <input type="checkbox" checked={cardSettings.back.ipa !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, ipa: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" />
                                                 <span>Phiên âm quốc tế IPA</span>
                                             </label>
                                             <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <input type="checkbox" checked={cardSettings.back.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" />
                                                 <span>Từ loại (Noun, Verb...)</span>
                                             </label>
                                             <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" />
                                                 <span>Từ đồng nghĩa / Trái nghĩa</span>
                                             </label>
                                             <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                <input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" />
                                                 <span>Câu ví dụ</span>
                                             </label>
                                             {cardSettings.back.example && (
                                                 <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
                                                     <label className="flex items-center gap-2 cursor-pointer">
-                                                        <input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
+                                                        <input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" />
                                                         <span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span>
                                                     </label>
                                                 </div>
@@ -857,29 +857,29 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                                     <div>
                                         <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Nhật hiển thị:</p>
                                         <div className="space-y-2.5 pl-1 text-[13px]">
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.word} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Chữ Hán / Từ vựng</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.furigana} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, furigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Phiên âm Furigana</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Âm Hán Việt</span></label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.word} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" /><span>Chữ Hán / Từ vựng</span></label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.furigana} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, furigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" /><span>Phiên âm Furigana</span></label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" /><span>Âm Hán Việt</span></label>
                                         </div>
                                     </div>
                                     <div>
                                         <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
                                         <div className="space-y-2.5 pl-1 text-[13px]">
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.meaning} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Nghĩa tiếng Việt</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.furigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, furigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Phiên âm Furigana</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.reading} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Cách đọc (Hiragana)</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Âm Hán Việt</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Đồng nghĩa</span></label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.meaning} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" /><span>Nghĩa tiếng Việt</span></label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.furigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, furigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" /><span>Phiên âm Furigana</span></label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.reading} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" /><span>Cách đọc (Hiragana)</span></label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" /><span>Âm Hán Việt</span></label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" /><span>Đồng nghĩa</span></label>
                                             {cardSettings.back.synonym && (
                                                 <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
-                                                    <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonymFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonymFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Furigana đồng nghĩa</span></label>
+                                                    <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonymFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonymFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Furigana đồng nghĩa</span></label>
                                                 </div>
                                             )}
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Ví dụ</span></label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" /><span>Ví dụ</span></label>
                                             {cardSettings.back.example && (
                                                 <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
-                                                    <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Furigana ví dụ</span></label>
-                                                    <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span></label>
+                                                    <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Furigana ví dụ</span></label>
+                                                    <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span></label>
                                                 </div>
                                             )}
                                         </div>
@@ -888,7 +888,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                             )}
                         </div>
                         <div className="pt-3">
-                            <button onClick={() => setShowSettingsMenu(false)} className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all shadow-md active:scale-95 text-sm">
+                            <button onClick={() => setShowSettingsMenu(false)} className="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all shadow-md active:scale-95 text-sm cursor-pointer">
                                 Đóng
                             </button>
                         </div>

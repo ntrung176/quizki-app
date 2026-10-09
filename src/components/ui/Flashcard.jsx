@@ -330,7 +330,7 @@ const Flashcard = ({
                             )}
                             {cardSettings.front?.hanviet && card.sinoVietnamese && (
                                 <p className={`${hanvietColorClass} ${scale.hanvietSize || 'text-[14px] md:text-base'} font-bold break-words`}>
-                                    <span className={variant === 'review' || variant === 'emerald' ? "text-indigo-200 font-normal" : "text-slate-400 dark:text-slate-500 font-normal"}>Hán Hàn: </span>{card.sinoVietnamese}
+                                    <span className={variant === 'review' || variant === 'emerald' ? "text-blue-200 font-normal" : "text-slate-400 dark:text-slate-500 font-normal"}>Hán Hàn: </span>{card.sinoVietnamese}
                                 </p>
                             )}
                         </>
@@ -348,7 +348,7 @@ const Flashcard = ({
                                 {card.back}
                             </div>
                             {formatIPA(card.ipa, card.front) && (cardSettings.front?.ipa !== false) && (
-                                <span className="text-sm sm:text-base font-mono font-medium text-indigo-500 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-3 py-0.5 rounded-full border border-indigo-200/60 dark:border-indigo-800/60">
+                                <span className="text-sm sm:text-base font-mono font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-3 py-0.5 rounded-full border border-blue-200/60 dark:border-blue-800/60">
                                     {formatIPA(card.ipa, card.front)}
                                 </span>
                             )}
@@ -368,7 +368,7 @@ const Flashcard = ({
                             </div>
                             {cardSettings.front?.hanviet && card.sinoVietnamese && (
                                 <p className={`${hanvietColorClass} ${scale.hanvietSize || 'text-[14px] md:text-base'} font-bold break-words`}>
-                                    <span className={variant === 'review' || variant === 'emerald' ? "text-indigo-200 font-normal" : "text-slate-400 dark:text-slate-500 font-normal"}>Hán Việt: </span>{card.sinoVietnamese}
+                                    <span className={variant === 'review' || variant === 'emerald' ? "text-blue-200 font-normal" : "text-slate-400 dark:text-slate-500 font-normal"}>Hán Việt: </span>{card.sinoVietnamese}
                                 </p>
                             )}
                         </>
@@ -416,7 +416,7 @@ const Flashcard = ({
                                 )}
                                 <span>{card.front}</span>
                                 {formatIPA(card.ipa, card.front) && (cardSettings.front?.ipa !== false) && (
-                                    <span className="text-sm sm:text-base font-mono font-medium text-indigo-500 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-3 py-0.5 rounded-full border border-indigo-200/60 dark:border-indigo-800/60">
+                                    <span className="text-sm sm:text-base font-mono font-medium text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-3 py-0.5 rounded-full border border-blue-200/60 dark:border-blue-800/60">
                                         {formatIPA(card.ipa, card.front)}
                                     </span>
                                 )}
@@ -434,7 +434,7 @@ const Flashcard = ({
                 {/* Hiển thị Âm Hán Việt / Hán Hàn ở mặt trước nếu được bật trong cài đặt hiển thị */}
                 {!isEnglishCard && cardSettings.front?.hanviet && card.sinoVietnamese && (
                     <p className={`${hanvietColorClass} ${scale.hanvietSize || 'text-[14px] md:text-base'} font-bold break-words`}>
-                        <span className={variant === 'review' || variant === 'emerald' ? "text-indigo-200 font-normal" : "text-slate-400 dark:text-slate-500 font-normal"}>{isKoreanCard ? 'Hán Hàn: ' : 'Hán Việt: '}</span>{card.sinoVietnamese}
+                        <span className={variant === 'review' || variant === 'emerald' ? "text-blue-200 font-normal" : "text-slate-400 dark:text-slate-500 font-normal"}>{isKoreanCard ? 'Hán Hàn: ' : 'Hán Việt: '}</span>{card.sinoVietnamese}
                     </p>
                 )}
             </div>
@@ -624,7 +624,7 @@ const Flashcard = ({
                         (formatIPA(card.ipa, card.front) || card.pos) && (
                             <div className="flex items-center justify-center gap-2 flex-wrap mb-1 shrink-0">
                                 {formatIPA(card.ipa, card.front) && (cardSettings.back?.ipa !== false) && (
-                                    <span className="text-base sm:text-lg font-mono font-semibold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-3 py-0.5 rounded-full border border-indigo-200/60 dark:border-indigo-800/60">
+                                    <span className="text-base sm:text-lg font-mono font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-3 py-0.5 rounded-full border border-blue-200/60 dark:border-blue-800/60">
                                         {formatIPA(card.ipa, card.front)}
                                     </span>
                                 )}
@@ -747,7 +747,7 @@ const Flashcard = ({
                             {card.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
                                 const meaning = (card.exampleMeaning || '').split('\n')[idx]?.trim();
                                 return (
-                                    <div key={idx} className={`relative group/ex border-l-2 ${variant === 'review' || variant === 'emerald' ? 'border-white/30' : 'border-indigo-500/30'} pl-3 pr-12 min-h-[38px] flex flex-col justify-center`}>
+                                    <div key={idx} className={`relative group/ex border-l-2 ${variant === 'review' || variant === 'emerald' ? 'border-white/30' : 'border-blue-500/30'} pl-3 pr-12 min-h-[38px] flex flex-col justify-center`}>
                                         <div className={`${scale.exampleTextSize} ${exampleTextClass} ${(isEnglishCard || isKoreanCard) ? 'font-sans' : 'font-japanese'} leading-relaxed select-text`}>
                                             {(isEnglishCard || isKoreanCard) ? ex : <FuriganaText text={ex} forceHide={showExampleFurigana === false} />}
                                         </div>
@@ -764,7 +764,7 @@ const Flashcard = ({
                                             onTouchEnd={(e) => e.stopPropagation()}
                                             className={`absolute right-0 top-1/2 -translate-y-1/2 p-2 min-w-[40px] min-h-[40px] rounded-xl transition-all flex items-center justify-center z-30 cursor-pointer active:scale-90 touch-manipulation shadow-sm ${variant === 'review' || variant === 'emerald'
                                                     ? 'text-white/80 hover:text-white bg-white/15 hover:bg-white/25 active:bg-white/35'
-                                                    : 'text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 bg-slate-100/95 hover:bg-slate-200 dark:bg-slate-800/95 dark:hover:bg-slate-700 active:bg-indigo-100 dark:active:bg-indigo-900/50'
+                                                    : 'text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 bg-slate-100/95 hover:bg-slate-200 dark:bg-slate-800/95 dark:hover:bg-slate-700 active:bg-blue-100 dark:active:bg-blue-900/50'
                                                 }`}
                                             title="Nghe câu ví dụ"
                                             aria-label="Phát âm câu ví dụ"
@@ -785,7 +785,7 @@ const Flashcard = ({
     let backCardClass = "";
 
     if (variant === 'review' || variant === 'emerald') {
-        frontCardClass = `absolute inset-0 backface-hidden bg-gradient-to-br from-indigo-500 to-sky-500 rounded-[32px] border-4 border-white shadow-2xl ${scale.cardPadding || 'p-4 sm:p-6'} flex flex-col items-center w-full h-full hover:shadow-3xl transition-shadow overflow-hidden`;
+        frontCardClass = `absolute inset-0 backface-hidden bg-gradient-to-br from-blue-600 to-sky-500 rounded-[32px] border-4 border-white shadow-2xl ${scale.cardPadding || 'p-4 sm:p-6'} flex flex-col items-center w-full h-full hover:shadow-3xl transition-shadow overflow-hidden`;
         backCardClass = `absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-[32px] border-4 border-white shadow-2xl ${scale.cardPadding || 'p-4 sm:p-6'} flex flex-col items-center w-full h-full hover:shadow-3xl transition-shadow overflow-hidden`;
     } else {
         frontCardClass = `absolute inset-0 backface-hidden bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none ${scale.cardPadding || 'p-4 sm:p-6'} flex flex-col items-center text-center overflow-hidden w-full h-full transition-shadow hover:shadow-xl`;
@@ -831,7 +831,7 @@ const Flashcard = ({
             {showFlipHint && !isTypingMode && (
                 <div className="w-full text-center py-2 pointer-events-none z-20 flex justify-center">
                     <span className={`px-3.5 py-1 rounded-full text-xs font-semibold shadow-sm tracking-wide ${variant === 'review'
-                            ? 'bg-indigo-500/20 text-indigo-700 dark:text-indigo-300 border border-indigo-300/40 dark:border-indigo-800/40 backdrop-blur-sm'
+                            ? 'bg-blue-500/20 text-blue-700 dark:text-blue-300 border border-blue-300/40 dark:border-blue-800/40 backdrop-blur-sm'
                             : 'bg-slate-100/90 dark:bg-slate-800/90 border border-slate-200/80 dark:border-slate-700/80 text-slate-600 dark:text-slate-400'
                         }`}>
                         Nhấn để lật thẻ

@@ -68,13 +68,13 @@ const ReviewInteractionArea = ({
                                 if (feedback && isSelected && feedback === 'correct') {
                                     buttonClass += "bg-emerald-500 text-white border-emerald-600 shadow-md";
                                 } else if (feedback && isSelected && feedback === 'incorrect') {
-                                    buttonClass += "bg-red-500 text-white border-red-600 shadow-md";
+                                    buttonClass += "bg-rose-500 text-white border-rose-600 shadow-md";
                                 } else if (feedback && (option === (currentCard.frontWithFurigana || currentCard.front) || option === `${(currentCard.frontWithFurigana || currentCard.front || '').split('（')[0].trim()}（${(currentCard.reading || '').trim()}）`)) {
-                                    buttonClass += "bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 border-emerald-500";
+                                    buttonClass += "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-500";
                                 } else if (isSelected) {
-                                    buttonClass += "bg-indigo-500 text-white border-indigo-600 shadow-md";
+                                    buttonClass += "bg-blue-600 text-white border-blue-700 shadow-md";
                                 } else {
-                                    buttonClass += "bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 hover:border-indigo-400";
+                                    buttonClass += "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:bg-blue-50/60 dark:hover:bg-blue-950/30 hover:border-blue-400";
                                 }
 
                                 if (isRevealed || isProcessing || !!feedback) {
@@ -90,7 +90,7 @@ const ReviewInteractionArea = ({
                                         onClick={() => handleMultipleChoiceClick(option)}
                                         className={buttonClass}
                                     >
-                                        <span className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-white/20 text-[10px] sm:text-xs font-bold flex-shrink-0 select-none">{index + 1}</span>
+                                        <span className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-[10px] sm:text-xs font-bold flex-shrink-0 select-none border border-slate-200/60 dark:border-slate-700">{index + 1}</span>
                                         <span className="font-japanese truncate-lines-2 break-words"><FuriganaText text={option} forceHide={cardReviewType === 'synonym' ? !synonymFuriganaEnabled : (cardReviewType === 'example' ? !exampleFuriganaEnabled : false)} /></span>
                                     </div>
                                 );
@@ -108,9 +108,9 @@ const ReviewInteractionArea = ({
                         <button
                             onClick={moveToPreviousCard}
                             disabled={isProcessing || currentIndex === 0}
-                            className={`px-3 md:px-4 py-2 md:py-3 text-sm md:text-base font-bold rounded-lg md:rounded-xl transition-all shadow-md cursor-pointer ${isProcessing || currentIndex === 0
-                                ? 'bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
-                                : 'bg-gray-500 dark:bg-gray-600 text-white hover:bg-gray-600 dark:hover:bg-gray-700 hover:shadow-lg hover:scale-105'
+                            className={`px-3 md:px-4 py-2 md:py-3 text-sm md:text-base font-bold rounded-xl transition-all shadow-sm cursor-pointer ${isProcessing || currentIndex === 0
+                                ? 'bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-600 cursor-not-allowed'
+                                : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 active:scale-95'
                                 }`}
                             title="Thẻ trước (←)"
                         >
@@ -137,9 +137,9 @@ const ReviewInteractionArea = ({
                                 }
                             }}
                             disabled={isProcessing}
-                            className={`flex-1 px-4 md:px-6 py-2 md:py-3 text-sm md:text-base font-bold rounded-lg md:rounded-xl transition-all shadow-md cursor-pointer ${isProcessing
-                                ? 'bg-gray-300 dark:bg-gray-700 text-gray-500 dark:text-gray-500 cursor-not-allowed'
-                                : 'bg-gradient-to-r from-indigo-500 to-sky-500 dark:from-indigo-600 dark:to-sky-600 text-white hover:shadow-lg hover:scale-105'
+                            className={`flex-1 px-4 md:px-6 py-2 md:py-3 text-sm md:text-base font-bold rounded-xl transition-all shadow-md cursor-pointer ${isProcessing
+                                ? 'bg-slate-200 dark:bg-slate-800 text-slate-400 cursor-not-allowed'
+                                : 'bg-blue-600 hover:bg-blue-700 text-white active:scale-95'
                                 }`}
                             title="Thẻ tiếp theo (→)"
                         >
@@ -166,7 +166,7 @@ const ReviewInteractionArea = ({
                                     <span
                                         key={idx}
                                         className={`inline-block w-6 h-7 leading-7 text-center text-sm font-bold border-b-2 font-japanese ${idx < hintCount && idx < maxHint
-                                            ? 'text-cyan-300 border-cyan-400'
+                                            ? 'text-blue-600 dark:text-cyan-300 border-blue-500 dark:border-cyan-400'
                                             : 'text-gray-400 dark:text-gray-500 border-gray-300 dark:border-gray-600'
                                             }`}
                                     >
@@ -197,26 +197,26 @@ const ReviewInteractionArea = ({
                             }
                         }}
                         disabled={feedback === 'correct' && !needsRetype}
-                        className={`w-full px-4 sm:px-5 py-3 text-base sm:text-lg rounded-xl border-2 transition-all outline-none shadow-md focus:ring-2 focus:ring-indigo-500/20
+                        className={`w-full px-4 sm:px-5 py-3 text-base sm:text-lg rounded-xl border-2 transition-all outline-none shadow-sm focus:ring-4 focus:ring-blue-500/15
                     ${(inputMode === 'reading' || cardReviewType === 'dictation' || cardReviewType === 'example') ? 'font-japanese font-bold' : 'font-semibold'}
                     ${needsRetype
-                                ? 'border-orange-400 bg-orange-50 dark:bg-orange-900/20 text-orange-900 dark:text-orange-100 focus:border-orange-500 focus:ring-orange-500/20'
+                                ? 'border-rose-400 bg-rose-50/50 dark:bg-rose-950/30 text-rose-900 dark:text-rose-100 focus:border-rose-500'
                                 : feedback === 'correct'
-                                    ? 'border-green-400 bg-green-50 dark:bg-green-900/30 text-green-800 dark:text-green-300'
+                                    ? 'border-emerald-400 bg-emerald-50/50 dark:bg-emerald-950/30 text-emerald-900 dark:text-emerald-100'
                                     : feedback === 'incorrect'
-                                        ? 'border-red-400 bg-red-50 dark:bg-red-900/30 text-red-800 dark:text-red-300'
-                                        : 'border-gray-300 dark:border-gray-600 bg-gray-800 text-white focus:border-indigo-500'}`}
+                                        ? 'border-rose-400 bg-rose-50/50 dark:bg-rose-950/30 text-rose-900 dark:text-rose-100'
+                                        : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-850 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:border-blue-500 dark:focus:border-blue-400'}`}
                         placeholder={needsRetype ? 'Nhập lại đáp án đúng để tiếp tục...' : (cardReviewType === 'example' ? 'Nhập từ còn thiếu bằng tiếng Nhật...' : (cardReviewType === 'dictation' ? 'Nhập từ vựng bạn nghe được...' : (inputMode === 'reading' ? 'Nhập từ vựng tiếng Nhật...' : 'Nhập ý nghĩa tiếng Việt...')))}
                     />
 
                     {/* Hint button and Check button row */}
                     {needsRetype ? (
                         <div className="flex flex-col gap-1.5">
-                            <p className="text-xs font-bold text-orange-500 dark:text-orange-400 text-center">✏️ Nhập lại đáp án đúng để tiếp tục</p>
+                            <p className="text-xs font-bold text-rose-600 dark:text-rose-400 text-center">✏️ Nhập lại đáp án đúng để tiếp tục</p>
                             <button
                                 onClick={handleRetypeSubmit}
                                 disabled={!inputValue.trim() || isProcessing}
-                                className="w-full h-11 flex items-center justify-center gap-2 px-5 text-sm sm:text-base bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-bold shadow-md disabled:opacity-50 disabled:cursor-not-allowed transition-all active:scale-[0.98] cursor-pointer"
+                                className="w-full h-11 flex items-center justify-center gap-2 px-5 text-sm sm:text-base bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold shadow-md disabled:opacity-40 disabled:cursor-not-allowed transition-all active:scale-[0.98] cursor-pointer"
                             >
                                 <Check className="w-4 h-4" />
                                 <span>Xác nhận đáp án đúng</span>
@@ -242,10 +242,10 @@ const ReviewInteractionArea = ({
                                             const maxHint = Math.ceil(reading.length / 2);
                                             return hintCount >= maxHint;
                                         })()}
-                                        className="h-11 px-3 sm:px-4 flex items-center justify-center gap-1.5 text-xs sm:text-sm bg-slate-700/60 hover:bg-slate-700 text-slate-200 border border-slate-600/60 rounded-xl font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-all active:scale-95 cursor-pointer whitespace-nowrap shadow-sm"
+                                        className="h-11 px-3 sm:px-4 flex items-center justify-center gap-1.5 text-xs sm:text-sm bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700 rounded-xl font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-all active:scale-95 cursor-pointer whitespace-nowrap shadow-sm"
                                         title="Hiển thị thêm chữ cái gợi ý"
                                     >
-                                        <Lightbulb className="w-3.5 h-3.5 text-amber-400 flex-shrink-0" />
+                                        <Lightbulb className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400 flex-shrink-0" />
                                         <span>Gợi ý ({hintCount}/{(() => {
                                             const hiraganaMatch = currentCard.front.match(/[（(]([^）)]+)[）)]/);
                                             const reading = hiraganaMatch ? hiraganaMatch[1] : currentCard.front.split('（')[0].split('(')[0];
@@ -256,7 +256,7 @@ const ReviewInteractionArea = ({
                                 <button
                                     onClick={checkAnswer}
                                     disabled={!inputValue.trim() || isProcessing}
-                                    className="flex-1 h-11 flex items-center justify-center gap-2 px-5 text-sm sm:text-base bg-orange-500 hover:bg-orange-600 text-white rounded-xl font-bold shadow-md disabled:opacity-40 disabled:cursor-not-allowed transition-all active:scale-[0.98] cursor-pointer"
+                                    className="flex-1 h-11 flex items-center justify-center gap-2 px-5 text-sm sm:text-base bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold shadow-md disabled:opacity-40 disabled:cursor-not-allowed transition-all active:scale-[0.98] cursor-pointer"
                                 >
                                     <Check className="w-4 h-4" />
                                     <span>Kiểm tra</span>
@@ -269,51 +269,57 @@ const ReviewInteractionArea = ({
             )}
 
             {/* Feedback & Actions */}
-            {reviewMode !== 'flashcard' && (
-                <div className="space-y-2 md:space-y-3">
-                    <div className={`transition-all duration-300 ease-out overflow-hidden ${isRevealed ? 'max-h-[120px] md:max-h-40 opacity-100' : 'max-h-0 opacity-0'}`}>
-                        <div className={`p-3 md:p-5 rounded-xl md:rounded-2xl border flex items-start gap-2 md:gap-4 overflow-y-auto max-h-[120px] md:max-h-40 ${feedback === 'correct' ? 'bg-green-50 dark:bg-green-900/30 border-green-200 dark:border-green-800' : feedback === 'incorrect' ? 'bg-red-50 dark:bg-red-900/30 border-red-200 dark:border-red-800' : 'bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700'}`}>
-                            {(cardReviewType === 'back' || cardReviewType === 'dictation' || cardReviewType === 'example') && reviewMode !== 'flashcard' && !isMultipleChoice && (
-                                <div className={`p-1.5 md:p-2 rounded-full flex-shrink-0 ${feedback === 'correct' ? 'bg-green-200 dark:bg-green-800 text-green-700 dark:text-green-300' : 'bg-red-200 dark:bg-red-800 text-red-700 dark:text-red-300'}`}>
-                                    {feedback === 'correct' ? <Check className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3} /> : <X className="w-4 h-4 md:w-5 md:h-5" strokeWidth={3} />}
+            {reviewMode !== 'flashcard' && isRevealed && (
+                <div className="w-full animate-fade-in mt-1">
+                    {feedback === 'incorrect' ? (
+                        <div className="w-full py-2 sm:py-2.5 px-3 sm:px-4 rounded-xl sm:rounded-2xl border flex items-center justify-between gap-2 shadow-sm bg-rose-50/90 dark:bg-rose-950/40 border-rose-200/80 dark:border-rose-800/60 text-rose-800 dark:text-rose-200">
+                            {/* Trạng thái Chưa đúng */}
+                            <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                                <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0">
+                                    <X className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-600 dark:text-rose-400 stroke-[2.5]" />
                                 </div>
+                                <span className="font-extrabold text-xs sm:text-sm text-rose-700 dark:text-rose-300 whitespace-nowrap">Chưa đúng</span>
+                            </div>
+
+                            {/* Đáp án đúng */}
+                            <div className="flex items-center gap-1.5 min-w-0 max-w-[50%] sm:max-w-[55%] text-xs sm:text-sm">
+                                <span className="text-slate-400 dark:text-slate-500 font-medium text-[11px] sm:text-xs shrink-0">
+                                    {cardReviewType === 'synonym' ? 'Đồng nghĩa:' : 'Đáp án:'}
+                                </span>
+                                <span className="font-bold font-japanese truncate px-2 py-0.5 rounded-md bg-rose-500/15 text-rose-800 dark:text-rose-200 border border-rose-500/20">
+                                    {cardReviewType === 'synonym' ? (
+                                        <FuriganaText text={currentCard.synonym} forceHide={!synonymFuriganaEnabled} />
+                                    ) : (
+                                        <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} knownReading={currentCard.reading} />
+                                    )}
+                                </span>
+                            </div>
+
+                            {/* Nút Tiếp tục */}
+                            {!needsRetype && (
+                                <button
+                                    onClick={handleNext}
+                                    disabled={isProcessing}
+                                    className="px-3 sm:px-4 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 text-white font-bold text-xs sm:text-sm shadow-sm transition-all active:scale-95 flex items-center gap-1 shrink-0 ml-auto cursor-pointer"
+                                >
+                                    <span>Tiếp tục</span>
+                                    <span className="hidden sm:inline opacity-75 font-normal text-[10px]">(Enter)</span>
+                                    <span className="text-xs">→</span>
+                                </button>
                             )}
-                            <div className="flex-1 min-w-0">
-                                {feedback === 'incorrect' ? (
-                                    <div className="space-y-1 text-sm md:text-base">
-                                        <p className="font-extrabold text-base md:text-lg text-red-800 dark:text-red-300">✗ Chưa đúng!</p>
-                                        <div className="space-y-1 border-t border-red-200/50 dark:border-red-800/40 pt-1.5 mt-1">
-                                            <p className="text-red-800 dark:text-red-300">
-                                                Từ vựng: <span className="font-japanese font-bold text-base md:text-lg"><FuriganaText text={currentCard.frontWithFurigana || currentCard.front} knownReading={currentCard.reading} /></span>
-                                                {currentCard.sinoVietnamese && <span className="text-yellow-600 dark:text-yellow-400 font-medium ml-1">({currentCard.sinoVietnamese})</span>}
-                                            </p>
-                                            <p className="text-red-800 dark:text-red-300">
-                                                Ý nghĩa: <span className="font-semibold">{currentCard.back}</span>
-                                            </p>
-                                            {currentCard.synonym && cardReviewType === 'synonym' && (
-                                                <p className="text-red-800 dark:text-red-300">
-                                                    Đồng nghĩa đúng: <span className="font-japanese font-semibold"><FuriganaText text={currentCard.synonym} /></span>
-                                                </p>
-                                            )}
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <div>
-                                        <p className={`font-extrabold text-lg md:text-2xl ${feedback === 'correct' ? 'text-green-800 dark:text-green-300' : 'text-red-800 dark:text-red-300'}`}>{message}</p>
-                                    </div>
-                                )}
+                        </div>
+                    ) : (
+                        <div className="w-full py-2 sm:py-2.5 px-3 sm:px-4 rounded-xl sm:rounded-2xl border flex items-center justify-between gap-2 shadow-sm bg-emerald-50/90 dark:bg-emerald-950/40 border-emerald-200/80 dark:border-emerald-800/60 text-emerald-800 dark:text-emerald-200">
+                            <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                                <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
+                                    <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 dark:text-emerald-400 stroke-[2.5]" />
+                                </div>
+                                <span className="font-extrabold text-xs sm:text-sm text-emerald-700 dark:text-emerald-300 whitespace-nowrap">Chính xác!</span>
+                            </div>
+                            <div className="text-xs sm:text-sm font-semibold truncate text-emerald-800 dark:text-emerald-200">
+                                {message}
                             </div>
                         </div>
-                    </div>
-
-                    {feedback === 'incorrect' && !needsRetype && (
-                        <button
-                            onClick={handleNext}
-                            disabled={isProcessing}
-                            className="w-full mt-3 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl transition-all shadow-md active:scale-95 cursor-pointer"
-                        >
-                            Tiếp tục
-                        </button>
                     )}
                 </div>
             )}

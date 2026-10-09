@@ -121,12 +121,12 @@ const SrsTypingInput = ({
                         }}
                         placeholder={placeholder}
                         autoComplete="off"
-                        className="w-full py-2.5 sm:py-3.5 pl-3.5 sm:pl-4.5 pr-24 sm:pr-28 rounded-xl sm:rounded-2xl bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 text-slate-850 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 font-medium text-sm sm:text-base md:text-lg focus:outline-none focus:border-indigo-500 dark:focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/15 dark:focus:ring-indigo-400/15 shadow-lg shadow-slate-200/50 dark:shadow-none transition-all cursor-text caret-indigo-600 dark:caret-indigo-400"
+                        className="w-full py-2.5 sm:py-3.5 pl-3.5 sm:pl-4.5 pr-24 sm:pr-28 rounded-xl sm:rounded-2xl bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 text-slate-850 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 font-medium text-sm sm:text-base md:text-lg focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 focus:ring-4 focus:ring-blue-500/15 dark:focus:ring-blue-400/15 shadow-lg shadow-slate-200/50 dark:shadow-none transition-all cursor-text caret-blue-600 dark:caret-blue-400"
                     />
                     <div className="absolute right-2 flex items-center gap-1.5">
                         <button
                             type="submit"
-                            className="px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-lg sm:rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white text-xs sm:text-sm font-bold flex items-center gap-1.5 transition-all active:scale-95 shadow-md shadow-indigo-600/20 cursor-pointer"
+                            className="px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-lg sm:rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-bold flex items-center gap-1.5 transition-all active:scale-95 shadow-md shadow-blue-600/20 cursor-pointer"
                         >
                             <span>Kiểm tra</span>
                             <CornerDownLeft className="w-3.5 h-3.5 opacity-80" />

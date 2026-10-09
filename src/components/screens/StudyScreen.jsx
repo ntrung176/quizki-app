@@ -160,7 +160,7 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furigana
         <div className="space-y-4 animate-fade-in">
             {/* Prompt: show Vietnamese meaning */}
             <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 md:p-6 text-center border border-slate-200 dark:border-slate-800 shadow-md min-h-[120px] sm:min-h-[140px] flex flex-col items-center justify-center">
-                <p className="text-xs font-bold text-indigo-400 uppercase tracking-widest mb-2">Nghĩa tiếng Việt</p>
+                <p className="text-xs font-bold text-blue-500 uppercase tracking-widest mb-2">Nghĩa tiếng Việt</p>
                 <p className={`text-gray-800 dark:text-white break-words ${promptSize}`}>{card.back}</p>
             </div>
 
@@ -171,24 +171,24 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furigana
                     const isSelected = selected === opt;
                     let cls = `w-full text-left ${optPadding} rounded-xl border-2 font-medium transition-all flex items-center gap-3 shadow-sm `;
                     if (!answered) {
-                        cls += 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-cyan-400 dark:hover:border-cyan-500 hover:bg-cyan-50/50 dark:hover:bg-cyan-950/30 text-slate-800 dark:text-slate-200 cursor-pointer';
+                        cls += 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-blue-400 dark:hover:border-blue-500 hover:bg-blue-50/50 dark:hover:bg-blue-950/30 text-slate-800 dark:text-slate-200 cursor-pointer';
                     } else if (isCorrectOpt) {
-                        cls += 'bg-emerald-50 dark:bg-emerald-950 border-emerald-400 text-emerald-800 dark:text-emerald-300 cursor-default';
+                        cls += 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-400 text-emerald-800 dark:text-emerald-300 cursor-default';
                     } else if (isSelected && !isCorrectOpt) {
-                        cls += 'bg-red-50 dark:bg-red-950 border-red-400 text-red-800 dark:text-red-300 cursor-default';
+                        cls += 'bg-rose-50 dark:bg-rose-950/50 border-rose-400 text-rose-800 dark:text-rose-300 cursor-default';
                     } else {
                         cls += 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-400 dark:text-slate-500 opacity-60 cursor-default';
                     }
                     return (
                         <div key={i} onClick={() => { if (!answered) handleSelect(opt); }} className={cls}>
-                            <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-gray-100 dark:bg-slate-700 text-xs font-black flex items-center justify-center flex-shrink-0 text-gray-500 dark:text-gray-400 select-none">
+                            <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-black flex items-center justify-center flex-shrink-0 text-slate-500 dark:text-slate-400 select-none border border-slate-200/60 dark:border-slate-700">
                                 {i + 1}
                             </span>
                             <span className={`font-japanese break-words ${optTextSize}`}>
                                 <FuriganaText text={opt} forceHide={!furiganaEnabled} />
                             </span>
                             {answered && isCorrectOpt && <Check className="ml-auto w-5 h-5 text-emerald-500 flex-shrink-0" />}
-                            {answered && isSelected && !isCorrectOpt && <X className="ml-auto w-5 h-5 text-red-500 flex-shrink-0" />}
+                            {answered && isSelected && !isCorrectOpt && <X className="ml-auto w-5 h-5 text-rose-500 flex-shrink-0" />}
                         </div>
                     );
                 })}
@@ -204,18 +204,32 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furigana
                 </p>
             )}
 
-            {/* Wrong answer: show continue */}
+            {/* Wrong answer: Single row compact status bar with correct answer and Continue button */}
             {answered && normalize(selected) !== normalize(correct) && (
-                <div className="space-y-3 animate-fade-in">
-                    <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-sm text-red-700 dark:text-red-300 space-y-1.5">
-                        <p className="font-semibold text-red-800 dark:text-red-300">✗ Chưa đúng!</p>
-                        <div className="space-y-1 text-sm border-t border-red-200 dark:border-red-800/40 pt-2 mt-1">
-                            <p>Từ vựng: <span className="font-japanese font-bold text-lg"><FuriganaText text={correct} knownReading={card.reading} forceHide={!furiganaEnabled} /></span> {card.sinoVietnamese && <span className="text-yellow-600 dark:text-yellow-400">({card.sinoVietnamese})</span>}</p>
-                            <p>Ý nghĩa: <span className="font-semibold">{card.back}</span></p>
+                <div className="w-full py-2 sm:py-2.5 px-3 sm:px-4 rounded-xl sm:rounded-2xl border flex items-center justify-between gap-2 shadow-sm animate-fade-in bg-rose-50/90 dark:bg-rose-950/40 border-rose-200/80 dark:border-rose-800/60 text-rose-800 dark:text-rose-200 mt-2">
+                    <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                        <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0">
+                            <X className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-600 dark:text-rose-400 stroke-[2.5]" />
                         </div>
+                        <span className="font-extrabold text-xs sm:text-sm text-rose-700 dark:text-rose-300 whitespace-nowrap">Chưa đúng</span>
                     </div>
-                    <button onClick={() => onWrong()} className="w-full py-3 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl transition-all">
-                        Tiếp tục →
+
+                    <div className="flex items-center gap-1.5 min-w-0 max-w-[50%] sm:max-w-[55%] text-xs sm:text-sm">
+                        <span className="text-slate-400 dark:text-slate-500 font-medium text-[11px] sm:text-xs shrink-0">
+                            Đáp án:
+                        </span>
+                        <span className="font-bold font-japanese truncate px-2 py-0.5 rounded-md bg-rose-500/15 text-rose-800 dark:text-rose-200 border border-rose-500/20" title={correct}>
+                            <FuriganaText text={correct} knownReading={card.reading} forceHide={!furiganaEnabled} />
+                        </span>
+                    </div>
+
+                    <button
+                        onClick={() => onWrong()}
+                        className="px-3 sm:px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm shadow-sm transition-all active:scale-95 flex items-center gap-1 shrink-0 ml-auto cursor-pointer"
+                    >
+                        <span>Tiếp tục</span>
+                        <span className="hidden sm:inline opacity-75 font-normal text-[10px]">(Enter)</span>
+                        <span className="text-xs">→</span>
                     </button>
                 </div>
             )}
@@ -295,7 +309,7 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
         <div className="space-y-4 animate-fade-in">
             {/* Prompt */}
             <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 md:p-6 text-center border border-slate-200 dark:border-slate-800 shadow-md min-h-[120px] sm:min-h-[140px] flex flex-col items-center justify-center">
-                <p className="text-xs font-bold text-emerald-500 uppercase tracking-widest mb-2">Nhập từ tiếng Nhật</p>
+                <p className="text-xs font-bold text-blue-500 uppercase tracking-widest mb-2">Nhập từ tiếng Nhật</p>
                 <p className={`text-gray-800 dark:text-white break-words ${promptSize}`}>{card.back}</p>
                 {card.sinoVietnamese && (
                     <p className="text-xs sm:text-sm text-yellow-600 dark:text-yellow-400 mt-1.5 font-medium">Hán Việt: {card.sinoVietnamese}</p>
@@ -320,10 +334,10 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
                 }}
                 disabled={feedback === 'correct'}
                 placeholder={needsRetype ? "Nhập lại đáp án đúng để tiếp tục..." : "Nhập từ vựng tiếng Nhật..."}
-                className={`w-full px-4 sm:px-5 py-3 text-base sm:text-lg font-japanese font-bold rounded-xl border-2 outline-none transition-all shadow-sm
+                className={`w-full px-4 sm:px-5 py-3 text-base sm:text-lg font-japanese font-bold rounded-xl border-2 outline-none transition-all shadow-sm focus:ring-4 focus:ring-blue-500/15
                     ${feedback === 'correct' ? 'border-emerald-400 bg-emerald-50 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'
-                        : needsRetype ? 'border-red-400 bg-red-50 dark:bg-red-950 text-red-800 dark:text-red-300'
-                            : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-cyan-500 focus:bg-white dark:focus:bg-slate-900'}`}
+                        : needsRetype ? 'border-rose-400 bg-rose-50/50 dark:bg-rose-950/30 text-rose-900 dark:text-rose-100 focus:border-rose-500'
+                            : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-blue-500'}`}
             />
 
             {!feedback && !needsRetype && (
@@ -331,7 +345,7 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
                     <button
                         onClick={check}
                         disabled={!input.trim()}
-                        className="w-full py-3 text-base bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md"
+                        className="w-full py-3 text-base bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md cursor-pointer active:scale-95"
                     >
                         Kiểm tra
                     </button>
@@ -342,27 +356,47 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
             )}
 
             {feedback === 'correct' && (
-                <div className="p-4 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl text-emerald-700 dark:text-emerald-300 font-bold text-center animate-fade-in">
-                    ✅ Chính xác! <span className="font-japanese"><FuriganaText text={correct} knownReading={card.reading} forceHide={!furiganaEnabled} /></span>
+                <div className="w-full py-2 sm:py-2.5 px-3 sm:px-4 rounded-xl sm:rounded-2xl border flex items-center justify-between gap-2 shadow-sm animate-fade-in bg-emerald-50/90 dark:bg-emerald-950/40 border-emerald-200/80 dark:border-emerald-800/60 text-emerald-800 dark:text-emerald-200">
+                    <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                        <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
+                            <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 dark:text-emerald-400 stroke-[2.5]" />
+                        </div>
+                        <span className="font-extrabold text-xs sm:text-sm text-emerald-700 dark:text-emerald-300 whitespace-nowrap">Chính xác!</span>
+                    </div>
+                    <div className="flex items-center gap-1.5 min-w-0 max-w-[50%] sm:max-w-[55%] text-xs sm:text-sm">
+                        <span className="text-slate-400 dark:text-slate-500 font-medium text-[11px] sm:text-xs shrink-0">Đáp án:</span>
+                        <span className="font-bold font-japanese truncate px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 border border-emerald-500/20">
+                            <FuriganaText text={correct} knownReading={card.reading} forceHide={!furiganaEnabled} />
+                        </span>
+                    </div>
+                    <div className="text-[10px] sm:text-[11px] text-emerald-600 dark:text-emerald-400 font-medium ml-auto">
+                        Đang chuyển tiếp...
+                    </div>
                 </div>
             )}
 
             {needsRetype && (
-                <div className="space-y-3 animate-fade-in">
-                    <div className="p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl space-y-1.5">
-                        <p className="text-sm text-red-500 font-medium mb-1">Bạn nhập sai: <span className="font-bold">{lastWrongInput}</span></p>
-                        <div className="space-y-1 text-sm border-t border-red-200 dark:border-red-800/40 pt-2 mt-1">
-                            <p className="text-red-800 dark:text-red-300">
-                                Đáp án đúng: <span className="font-japanese font-bold text-lg"><FuriganaText text={correct} knownReading={card.reading} forceHide={!furiganaEnabled} /></span>
-                            </p>
-                            <p className="text-red-800 dark:text-red-300">
-                                Ý nghĩa: <span className="font-semibold">{card.back}</span>
-                            </p>
+                <div className="w-full py-2 sm:py-2.5 px-3 sm:px-4 rounded-xl sm:rounded-2xl border flex items-center justify-between gap-2 shadow-sm animate-fade-in bg-rose-50/90 dark:bg-rose-950/40 border-rose-200/80 dark:border-rose-800/60 text-rose-800 dark:text-rose-200">
+                    <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                        <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0">
+                            <X className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-600 dark:text-rose-400 stroke-[2.5]" />
                         </div>
-                        <p className="text-xs text-red-500/80 font-bold italic animate-pulse mt-2 pt-1">Vui lòng gõ lại đáp án đúng ở trên để tiếp tục.</p>
+                        <span className="font-extrabold text-xs sm:text-sm text-rose-700 dark:text-rose-300 whitespace-nowrap">Chưa đúng</span>
                     </div>
-                    <button onClick={handleRetypeCheck} disabled={!input.trim()} className="w-full py-3 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl transition-all">
-                        Kiểm tra & Tiếp tục →
+                    <div className="flex items-center gap-1.5 min-w-0 max-w-[50%] sm:max-w-[55%] text-xs sm:text-sm">
+                        <span className="text-slate-400 dark:text-slate-500 font-medium text-[11px] sm:text-xs shrink-0">Đáp án:</span>
+                        <span className="font-bold font-japanese truncate px-2 py-0.5 rounded-md bg-rose-500/15 text-rose-800 dark:text-rose-200 border border-rose-500/20" title={correct}>
+                            <FuriganaText text={correct} knownReading={card.reading} forceHide={!furiganaEnabled} />
+                        </span>
+                    </div>
+                    <button
+                        onClick={handleRetypeCheck}
+                        disabled={!input.trim()}
+                        className="px-3 sm:px-4 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-xs sm:text-sm shadow-sm transition-all active:scale-95 flex items-center gap-1 shrink-0 ml-auto cursor-pointer"
+                    >
+                        <span>Gõ lại</span>
+                        <span className="hidden sm:inline opacity-75 font-normal text-[10px]">(Enter)</span>
+                        <span className="text-xs">→</span>
                     </button>
                 </div>
             )}
@@ -416,10 +450,10 @@ const SessionComplete = ({ totalCards, onBack, onRestart }) => {
                 </div>
             </div>
             <div className="flex gap-3 w-full max-w-xs">
-                <button onClick={onRestart} className="flex-1 py-3 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 font-bold rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-900/50 transition-all flex items-center justify-center gap-1">
+                <button onClick={onRestart} className="flex-1 py-3 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold rounded-xl hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-all flex items-center justify-center gap-1 cursor-pointer">
                     <RotateCcw className="w-4 h-4" /> Học lại
                 </button>
-                <button onClick={onBack} className="flex-1 py-3 bg-gradient-to-r from-indigo-600 to-sky-500 text-white font-bold rounded-xl shadow-md transition-all hover:-translate-y-0.5 flex items-center justify-center gap-1">
+                <button onClick={onBack} className="flex-1 py-3 bg-gradient-to-r from-blue-600 to-sky-500 text-white font-bold rounded-xl shadow-md transition-all hover:-translate-y-0.5 flex items-center justify-center gap-1 cursor-pointer">
                     Xong <ChevronRight className="w-4 h-4" />
                 </button>
             </div>
@@ -837,7 +871,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             <div className="flex flex-col items-center justify-center h-full gap-4">
                 <BookOpen className="w-16 h-16 text-gray-300 dark:text-gray-600" />
                 <p className="text-gray-500 dark:text-gray-400 font-medium">Không có thẻ nào để học.</p>
-                <button onClick={onBack} className="px-6 py-2.5 bg-indigo-600 text-white font-bold rounded-xl hover:bg-indigo-700">Trở lại</button>
+                <button onClick={onBack} className="px-6 py-2.5 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 cursor-pointer">Trở lại</button>
             </div>
         );
     }
@@ -881,11 +915,11 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                     </div>
                 )}
 
-                <div className="w-full flex flex-col space-y-4 sm:space-y-5 p-4 sm:p-6 md:p-8 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-2 border-indigo-400/30 dark:border-indigo-500/20 rounded-3xl shadow-xl overflow-hidden">
+                <div className="w-full flex flex-col space-y-4 sm:space-y-5 p-4 sm:p-6 md:p-8 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-2 border-blue-400/30 dark:border-blue-500/20 rounded-3xl shadow-xl overflow-hidden">
                     {/* Progress bar inside the box */}
                     {!done && batchPhase !== 'batchComplete' && (
                         <div className="space-y-1.5 w-full flex-shrink-0">
-                            <div className="flex justify-between items-center text-xs font-bold text-indigo-500 dark:text-indigo-400">
+                            <div className="flex justify-between items-center text-xs font-bold text-blue-500 dark:text-blue-400">
                                 <span>{phaseLabel}</span>
                                 <div className="flex items-center gap-2">
                                     <span className="text-gray-500 dark:text-gray-400">{phaseDesc}</span>
@@ -895,7 +929,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                         className="p-1 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-gray-200 dark:hover:bg-slate-700 transition-all cursor-pointer"
                                         title={isFullscreen ? "Thoát toàn màn hình (Esc)" : "Toàn màn hình"}
                                     >
-                                        {isFullscreen ? <Minimize2 className="w-4 h-4 text-indigo-400" /> : <Maximize2 className="w-4 h-4" />}
+                                        {isFullscreen ? <Minimize2 className="w-4 h-4 text-blue-400" /> : <Maximize2 className="w-4 h-4" />}
                                     </button>
                                     <button
                                         onClick={() => setShowSettings(true)}
@@ -908,7 +942,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                             </div>
                             <div className="h-2 w-full bg-gray-100 dark:bg-slate-800 rounded-full overflow-hidden">
                                 <div
-                                    className="h-full bg-gradient-to-r from-indigo-500 to-sky-500 rounded-full transition-all duration-500"
+                                    className="h-full bg-gradient-to-r from-blue-500 to-sky-500 rounded-full transition-all duration-500"
                                     style={{ width: `${progress}%` }}
                                 />
                             </div>
@@ -933,7 +967,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                         ) : batchPhase === 'mc' && currentCard ? (
                             <>
                                 <div className="mb-4 flex items-center gap-2">
-                                    <span className="text-xs font-bold uppercase tracking-widest text-indigo-500 bg-indigo-50 dark:bg-indigo-900/30 px-3 py-1 rounded-full">Nhóm {currentBatchIndex + 1} · Trắc nghiệm</span>
+                                    <span className="text-xs font-bold uppercase tracking-widest text-blue-500 bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full">Nhóm {currentBatchIndex + 1} · Trắc nghiệm</span>
                                 </div>
                                 <MCPhase
                                     key={currentCard.id + '-mc-' + mcIdx}
@@ -974,10 +1008,10 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                         onClick={e => e.stopPropagation()}>
                         <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2">
-                                <Settings className="w-5 h-5 text-indigo-500" />
+                                <Settings className="w-5 h-5 text-blue-500" />
                                 <h3 className="font-bold text-lg text-gray-800 dark:text-white">Cài đặt học tập</h3>
                             </div>
-                            <button onClick={() => setShowSettings(false)} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition-all">
+                            <button onClick={() => setShowSettings(false)} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition-all cursor-pointer">
                                 <X className="w-5 h-5 text-gray-400" />
                             </button>
                         </div>
@@ -994,7 +1028,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                         }}
                                         className="sr-only peer"
                                     />
-                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
                                 </label>
                             </div>
 
@@ -1010,13 +1044,13 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                         }}
                                         className="sr-only peer"
                                     />
-                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
                                 </label>
                             </div>
                         </div>
                         <button
                             onClick={() => setShowSettings(false)}
-                            className="w-full py-2.5 bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded-xl transition-all text-sm"
+                            className="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all text-sm cursor-pointer"
                         >
                             Xong
                         </button>
