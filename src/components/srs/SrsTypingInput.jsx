@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect, useRef, useCallback } from 'react';
-import { Check, X, ArrowRight, CornerDownLeft, Sparkles, AlertCircle } from 'lucide-react';
+import { Check, X, CornerDownLeft } from 'lucide-react';
 import { calculateAnkiDiff, transformVietnameseTelex } from '../../utils/ankiDiff';
 import { playCorrectSound, playIncorrectSound } from '../../utils/soundEffects';
 
@@ -138,81 +138,66 @@ const SrsTypingInput = ({
                 </p>
             </form>
 
-            {/* Kết quả so sánh Diff Anki sau khi submit */}
-            {hasChecked && (
-                <div className="w-full bg-white dark:bg-slate-900/90 rounded-2xl border-2 border-slate-200/80 dark:border-slate-800 p-3 sm:p-4 md:p-5 shadow-xl animate-fade-in space-y-2.5 sm:space-y-3.5">
-                    {/* Header kết quả */}
-                    <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800/80 pb-2 sm:pb-2.5">
-                        <div className="flex items-center gap-2">
+            {/* Hiển thị kết quả Đúng / Sai & Đáp án đúng trên cùng 1 hàng gọn gàng */}
+            {hasChecked && (() => {
+                const correctAnswer = diffResult?.primaryTarget || card?.reading || card?.front || card?.back || card?.meaning || card?.character || '';
+                return (
+                    <div
+                        className={`w-full py-2 sm:py-2.5 px-3 sm:px-4 rounded-xl sm:rounded-2xl border flex items-center justify-between gap-2 shadow-sm animate-fade-in ${
+                            diffResult?.isMatch
+                                ? 'bg-emerald-50/90 dark:bg-emerald-950/40 border-emerald-200/80 dark:border-emerald-800/60 text-emerald-800 dark:text-emerald-200'
+                                : 'bg-rose-50/90 dark:bg-rose-950/40 border-rose-200/80 dark:border-rose-800/60 text-rose-800 dark:text-rose-200'
+                        }`}
+                    >
+                        {/* Bên trái: Trạng thái Đúng / Sai */}
+                        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
                             {diffResult?.isMatch ? (
-                                <div className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-extrabold text-xs sm:text-sm md:text-base">
-                                    <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-emerald-500/15 flex items-center justify-center">
-                                        <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 dark:text-emerald-400" />
+                                <>
+                                    <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
+                                        <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 dark:text-emerald-400 stroke-[2.5]" />
                                     </div>
-                                    <span>Chính xác!</span>
-                                </div>
+                                    <span className="font-extrabold text-xs sm:text-sm text-emerald-700 dark:text-emerald-300 whitespace-nowrap">Chính xác!</span>
+                                </>
                             ) : (
-                                <div className="flex items-center gap-1.5 text-rose-600 dark:text-rose-400 font-extrabold text-xs sm:text-sm md:text-base">
-                                    <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-rose-500/15 flex items-center justify-center">
-                                        <X className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-600 dark:text-rose-400" />
+                                <>
+                                    <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0">
+                                        <X className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-600 dark:text-rose-400 stroke-[2.5]" />
                                     </div>
-                                    <span>Chưa chính xác</span>
-                                </div>
+                                    <span className="font-extrabold text-xs sm:text-sm text-rose-700 dark:text-rose-300 whitespace-nowrap">Chưa đúng</span>
+                                </>
                             )}
                         </div>
-                    </div>
 
-                    {/* Chi tiết So sánh ký tự */}
-                    <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
-                        {/* Bạn đã nhập */}
-                        <div className="p-2 sm:p-2.5 md:p-3 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200/60 dark:border-slate-800/60 flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-1.5">
-                            <span className="text-slate-400 dark:text-slate-500 font-semibold text-[11px] sm:text-xs shrink-0">Bạn đã nhập:</span>
-                            <div className="font-mono text-sm sm:text-base font-bold flex flex-wrap items-center gap-0.5">
-                                {diffResult?.userTokens && diffResult.userTokens.length > 0 ? (
-                                    diffResult.userTokens.map((token, idx) => (
-                                        <span
-                                            key={idx}
-                                            className={`px-1 py-0.2 rounded ${token.type === 'correct'
-                                                    ? 'bg-emerald-500/20 text-emerald-600 dark:text-emerald-400'
-                                                    : 'bg-rose-500/20 text-rose-600 dark:text-rose-400 line-through'
-                                                }`}
-                                        >
-                                            {token.char}
-                                        </span>
-                                    ))
-                                ) : (
-                                    <span className="text-slate-400 italic text-[11px] sm:text-xs">(bỏ trống)</span>
-                                )}
+                        {/* Ở giữa: Đáp án đúng */}
+                        {correctAnswer && (
+                            <div className="flex items-center gap-1.5 min-w-0 max-w-[50%] sm:max-w-[55%] text-xs sm:text-sm">
+                                <span className="text-slate-400 dark:text-slate-500 font-medium text-[11px] sm:text-xs shrink-0">
+                                    Đáp án:
+                                </span>
+                                <span
+                                    className={`font-bold font-japanese truncate px-2 py-0.5 rounded-md ${
+                                        diffResult?.isMatch
+                                            ? 'bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 border border-emerald-500/20'
+                                            : 'bg-rose-500/15 text-rose-800 dark:text-rose-200 border border-rose-500/20'
+                                    }`}
+                                    title={correctAnswer}
+                                >
+                                    {correctAnswer}
+                                </span>
                             </div>
-                        </div>
+                        )}
 
-                        {/* Đáp án chuẩn */}
-                        <div className="p-2 sm:p-2.5 md:p-3 rounded-xl bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-100 dark:border-indigo-900/30 flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-1.5">
-                            <span className="text-indigo-600 dark:text-indigo-400 font-semibold text-[11px] sm:text-xs shrink-0">Đáp án chuẩn:</span>
-                            <div className="font-mono text-sm sm:text-base font-bold flex flex-wrap items-center gap-0.5">
-                                {diffResult?.targetTokens?.map((token, idx) => (
-                                    <span
-                                        key={idx}
-                                        className={`px-1 py-0.2 rounded ${token.type === 'correct'
-                                                ? 'bg-emerald-500/20 text-emerald-600 dark:text-emerald-400'
-                                                : 'bg-sky-500/20 text-sky-600 dark:text-sky-400 underline'
-                                            }`}
-                                    >
-                                        {token.char}
-                                    </span>
-                                ))}
-                            </div>
+                        {/* Bên phải: Phím tắt */}
+                        <div className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-medium flex items-center gap-1 shrink-0 ml-auto">
+                            <span className="hidden md:inline">💡 Nhấn</span>
+                            <kbd className="px-1.5 py-0.5 rounded bg-white dark:bg-slate-800 font-mono text-[9px] sm:text-[10px] font-bold text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 shadow-xs">
+                                {diffResult?.isMatch ? '3 / Space' : '1 (Quên)'}
+                            </kbd>
+                            <span className="hidden lg:inline">để tiếp tục</span>
                         </div>
                     </div>
-
-                    {/* Gợi ý đánh giá SRS */}
-                    <div className="pt-0.5 text-center">
-                        <p className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400">
-                            💡 Nhấn phím <kbd className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 font-mono text-[9px] sm:text-[10px] text-indigo-600 dark:text-indigo-400 font-bold border border-slate-200 dark:border-slate-700">{diffResult?.isMatch ? '3 (Tốt) hoặc Space' : '1 (Quên rồi)'}</kbd> hoặc bấm nút bên dưới để tiếp tục
-                        </p>
-                    </div>
-                </div>
-            )}
+                );
+            })()}
         </div>
     );
 };
