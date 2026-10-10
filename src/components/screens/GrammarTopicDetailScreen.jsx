@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
-    ArrowLeft, Volume2, CheckCircle2, XCircle, Sparkles, BookOpen,
+    ArrowLeft, Volume2, CheckCircle2, XCircle, Target, BookOpen,
     MessageSquare, AlertTriangle, ChevronRight, Layers, HelpCircle, Heart
 } from 'lucide-react';
 import { speakExampleSentence } from '../../utils/audio';
@@ -200,7 +200,7 @@ const GrammarTopicDetailScreen = ({ isAdmin = false, profile = null }) => {
                     {topic.selfCheckGoals && topic.selfCheckGoals.length > 0 && (
                         <div className="mt-6 pt-6 border-t border-slate-100 dark:border-slate-800">
                             <div className="text-xs font-black uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-3 flex items-center gap-1.5">
-                                <Sparkles className="w-3.5 h-3.5 text-slate-400" />
+                                <Target className="w-3.5 h-3.5 text-slate-400" />
                                 <span>Mục tiêu tự đánh giá sau bài học:</span>
                             </div>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">

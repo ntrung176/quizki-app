@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo, memo } from 'react';
 import { 
-    MessageSquare, BookOpen, Layers, Play, Mic, Star, Sparkles, 
+    MessageSquare, BookOpen, Layers, Play, Mic, Star, Languages, 
     Check, ChevronRight, Bookmark, ArrowUpRight, Volume2, Search, Film,
     Edit2, Trash2, Plus, X, Save, Loader2, Wand2, RefreshCw
 } from 'lucide-react';
@@ -266,7 +266,7 @@ const TranscriptDialogueItem = memo(({
                     {isEnrichingSingle ? (
                         <Loader2 className="w-3.5 h-3.5 animate-spin text-amber-500" />
                     ) : (
-                        <Sparkles className="w-3.5 h-3.5 text-amber-500/80" />
+                        <Wand2 className="w-3.5 h-3.5 text-amber-500/80" />
                     )}
                 </button>
 
@@ -676,7 +676,7 @@ const VideoKaiwaTranscript = ({
                                     disabled={subtitles.length === 0}
                                     className="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-amber-500 via-pink-500 to-rose-500 hover:from-amber-600 hover:via-pink-600 hover:to-rose-600 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition transform active:scale-98 cursor-pointer disabled:opacity-50"
                                 >
-                                    <Sparkles className="w-4 h-4" />
+                                    <Wand2 className="w-4 h-4" />
                                     <span>{allKeywords.length > 0 ? 'Bổ sung / Phân tích lại toàn bộ với AI' : 'Bắt đầu phân tích AI cho cả bài'}</span>
                                 </button>
                             )}
@@ -686,7 +686,7 @@ const VideoKaiwaTranscript = ({
                         {currentSub?.keywords && currentSub.keywords.length > 0 && (
                             <div className="p-3.5 bg-pink-50/20 dark:bg-slate-900/90 border-2 border-[#f494bc] dark:border-[#f494bc]/80 rounded-2xl space-y-2.5 shadow-xs">
                                 <span className="text-[10px] font-black text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
-                                    <Sparkles className="w-3.5 h-3.5 text-[#db2777] dark:text-[#f494bc]" /> Từ vựng trong câu đang phát
+                                    <BookOpen className="w-3.5 h-3.5 text-[#db2777] dark:text-[#f494bc]" /> Từ vựng trong câu đang phát
                                 </span>
                                 <div className="space-y-2">
                                     {currentSub.keywords.map((kw, i) => {
@@ -728,7 +728,7 @@ const VideoKaiwaTranscript = ({
                         {currentSub?.grammar && currentSub.grammar.length > 0 && (
                             <div className="p-3.5 bg-indigo-50/20 dark:bg-slate-900/90 border-2 border-indigo-400 dark:border-indigo-500/80 rounded-2xl space-y-2.5 shadow-xs">
                                 <span className="text-[10px] font-black text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
-                                    <Sparkles className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" /> Ngữ pháp trong câu đang phát
+                                    <Languages className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" /> Ngữ pháp trong câu đang phát
                                 </span>
                                 <div className="space-y-1.5">
                                     {currentSub.grammar.map((g, i) => {

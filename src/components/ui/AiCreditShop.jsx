@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Sparkle, Zap, Star, Crown, Gift, Check, CreditCard, CheckCircle, Loader2, QrCode, Copy, Ticket, X, ArrowLeft, ChevronRight, Settings, BookOpen, Languages, Trophy, AlertTriangle, Trash2, Plus } from 'lucide-react'
+import { Zap, Star, Crown, Gift, Check, CreditCard, CheckCircle, Loader2, QrCode, Copy, Ticket, X, ArrowLeft, ChevronRight, Settings, BookOpen, Languages, Trophy, AlertTriangle, Trash2, Plus, Lightbulb } from 'lucide-react'
 import { submitCreditRequest, createPendingAutoPayment, DEFAULT_AI_PACKAGES, DEFAULT_SPECIALIZED_PACKAGES, validateVoucher, calculateDiscountedPrice, redeemVoucher, processPaymentSecurely, submitAndApproveCreditRequest, updateAdminConfig } from '../../utils/adminSettings';
 import { generateOrderCode, generateVietQR, checkPaymentStatus, getSepayToken } from '../../utils/sepayPayment';
 import { sendAIPurchaseSuccessEmail, sendAIPendingConfirmationEmail } from '../../utils/email';
@@ -16,7 +16,7 @@ const ICONS = {
     best_value: Crown,
     ultimate: Gift,
     vocab_zen: BookOpen,
-    grammar_zen: Sparkle,
+    grammar_zen: Lightbulb,
     kanji_zen: Languages,
     jlpt_prep: Trophy
 };
@@ -721,7 +721,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         {/* Phần 2: Giả lập các gói chuyên sâu Zen */}
                         <div className="border border-slate-200 dark:border-slate-700 rounded-2xl p-5 bg-slate-50/50 dark:bg-slate-900/30">
                             <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-1.5 font-bold">
-                                <Sparkle className="w-4 h-4 text-sky-500" />
+                                <Zap className="w-4 h-4 text-sky-500" />
                                 2. Mở khóa Gói tính năng chuyên sâu Zen
                             </h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -1108,7 +1108,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         }} 
                         className="w-full px-8 py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold text-sm shadow-lg shadow-emerald-500/10"
                     >
-                        Bắt đầu khám phá ngay! ✨
+                        Bắt đầu khám phá ngay! 🚀
                     </button>
                 </div>
             );

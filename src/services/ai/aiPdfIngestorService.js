@@ -612,7 +612,7 @@ export const processPdfWithAI = async (pdfFile, {
 
             const chunkJson = safeParseJsonWithRepair(rawResponse);
             parsedChunksData.push(chunkJson);
-            onLog(`✨ [${chunkIndex}/${chunks.length}] Hoàn tất phân đoạn ${chunkIndex}!`);
+            onLog(`[${chunkIndex}/${chunks.length}] Hoàn tất phân đoạn ${chunkIndex}!`);
         } catch (err) {
             console.error(`Lỗi phân đoạn ${chunkIndex}:`, err);
             onLog(`⚠️ [${chunkIndex}/${chunks.length}] Lỗi phân đoạn ${chunkIndex}: ${err.message}`);

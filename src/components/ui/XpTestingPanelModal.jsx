@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Award, Zap, Trophy, CheckCircle2, ShieldCheck, Play, HelpCircle, X, RefreshCw, BarChart2, BookOpen, Layers, Sparkles } from 'lucide-react';
+import { Award, Zap, Trophy, CheckCircle2, ShieldCheck, Play, HelpCircle, X, RefreshCw, BarChart2, BookOpen, Layers } from 'lucide-react';
 import { getLevelFromXp, getLevelTitle } from '../../utils/scoring';
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, serverTimestamp, query } from 'firebase/firestore';

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
     Upload, Folder, RefreshCw, X, Trash2, Plus, Layers, 
     Languages, EyeOff, RotateCcw, FileText, Edit, Save, 
-    Volume2, Wrench, Lightbulb, Mic, AlertTriangle, Sparkles, Loader2, CloudUpload
+    Volume2, Wrench, Lightbulb, Mic, AlertTriangle, Wand2, Loader2, CloudUpload, Search
 } from 'lucide-react';
 import FuriganaText from '../ui/FuriganaText';
 import { accentNumberToPitchParts } from '../../utils/pitchAccent';
@@ -75,6 +75,7 @@ const LessonDetailView = ({
     const [isAiFillingSino, setIsAiFillingSino] = useState(false);
     const [isAiLoadingSingle, setIsAiLoadingSingle] = useState(false);
     const [isSyncingCDN, setIsSyncingCDN] = useState(false);
+    const [lessonSearchQuery, setLessonSearchQuery] = useState('');
     const vocab = vocabWithAudio;
 
     useEffect(() => {
@@ -263,7 +264,18 @@ const LessonDetailView = ({
         .map((v, i) => ({ ...v, originalIndex: i }))
         .filter(item => {
             if (isAdmin && filterMissingInfo) {
-                return isCardIncomplete(item);
+                if (!isCardIncomplete(item)) return false;
+            }
+            if (lessonSearchQuery.trim()) {
+                const q = lessonSearchQuery.trim().toLowerCase();
+                const word = (item.word || item.front || '').toLowerCase();
+                const reading = (item.reading || '').toLowerCase();
+                const meaning = (item.meaning || item.back || '').toLowerCase();
+                const sino = (item.sinoVietnamese || item.sinoViet || '').toLowerCase();
+                const synonym = (item.synonym || '').toLowerCase();
+                if (!word.includes(q) && !reading.includes(q) && !meaning.includes(q) && !sino.includes(q) && !synonym.includes(q)) {
+                    return false;
+                }
             }
             return true;
         });
@@ -468,7 +480,7 @@ const LessonDetailView = ({
                                         {isAiFillingSino ? (
                                             <Loader2 className="w-3.5 h-3.5 animate-spin" />
                                         ) : (
-                                            <Sparkles className="w-3.5 h-3.5" />
+                                            <Wand2 className="w-3.5 h-3.5" />
                                         )}
                                         AI Bổ sung thiếu ({incompleteCount})
                                     </button>
@@ -492,6 +504,28 @@ const LessonDetailView = ({
                         </div>
                     );
                 })()}
+
+                {/* Thanh tìm kiếm từ vựng trong bài học */}
+                {vocab.length > 0 && (
+                    <div className="relative">
+                        <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
+                        <input
+                            type="text"
+                            value={lessonSearchQuery}
+                            onChange={e => setLessonSearchQuery(e.target.value)}
+                            placeholder="Tìm kiếm từ vựng trong bài học để sửa nhanh..."
+                            className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs sm:text-sm text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/15 shadow-xs transition-all"
+                        />
+                        {lessonSearchQuery && (
+                            <button
+                                onClick={() => setLessonSearchQuery('')}
+                                className="p-1 rounded-md text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer"
+                            >
+                                <X className="w-4 h-4" />
+                            </button>
+                        )}
+                    </div>
+                )}
 
                 {displayedVocab.length === 0 ? (
                     <div className="text-center py-12 text-gray-400 bg-white dark:bg-gray-800 rounded-2xl border border-dashed border-slate-200 dark:border-slate-700">
@@ -535,7 +569,7 @@ const LessonDetailView = ({
                                                             className="flex items-center gap-1 px-3 py-1.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white rounded-lg text-xs font-bold cursor-pointer disabled:opacity-50 shadow-xs"
                                                             title="Dùng AI tự động điền các trường còn thiếu (Ví dụ, Hán Việt, Nghĩa, v.v.)"
                                                         >
-                                                            {isAiLoadingSingle ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Sparkles className="w-3.5 h-3.5" />}
+                                                            {isAiLoadingSingle ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Wand2 className="w-3.5 h-3.5" />}
                                                             AI Điền thông tin
                                                         </button>
                                                     )}

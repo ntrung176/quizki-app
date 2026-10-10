@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Plus, Edit, Trash2, FolderPlus, ChevronUp, ChevronDown, ChevronRight, Lock, Unlock, Layers, CloudUpload, Loader2 } from 'lucide-react';
+import { Plus, Edit, Trash2, FolderPlus, ChevronUp, ChevronDown, ChevronRight, Lock, Unlock, Layers, CloudUpload, Loader2, Search } from 'lucide-react';
 import { showToast, showConfirm } from '../../utils/toast';
 import { syncBooksToCDN } from '../../utils/bookService';
 import BookThumbnail from './BookThumbnail';
+import BookVocabSearchModal from './BookVocabSearchModal';
 
 const BookView = ({
     currentGroup,
@@ -29,9 +30,12 @@ const BookView = ({
     profile,
     setLockedPkgName,
     setShowPremiumModal,
-    InlineEditName
+    InlineEditName,
+    onGeminiAssist,
+    handleSaveDirectVocabEdit
 }) => {
     const [isSyncingCDN, setIsSyncingCDN] = useState(false);
+    const [showVocabSearchModal, setShowVocabSearchModal] = useState(false);
 
     const handleSyncCDN = async () => {
         if (!isAdmin || isSyncingCDN) return;
@@ -149,17 +153,42 @@ const BookView = ({
     return (
         <div className="flex gap-6">
             <div className="flex-1 space-y-4">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                     <div>
                         <h1 className="text-xl font-bold text-gray-900 dark:text-white">{currentBook?.name}</h1>
                         <p className="text-sm text-gray-500 dark:text-gray-400">{chapters.length} chương</p>
                     </div>
-                    {isAdmin && (
-                        <button onClick={() => { resetForm(); setShowAddChapter(true); }}
-                            className="flex items-center gap-2 px-3 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-xl text-sm font-medium cursor-pointer">
-                            <FolderPlus className="w-4 h-4" /> Thêm chương
+                    <div className="flex items-center gap-2 flex-wrap">
+                        {/* Nút tìm kiếm từ vựng trong cuốn sách này */}
+                        <button
+                            onClick={() => setShowVocabSearchModal(true)}
+                            className="flex items-center gap-2 px-3.5 py-2 bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/40 dark:hover:bg-blue-900/50 text-blue-600 dark:text-blue-400 border border-blue-200 dark:border-blue-800/60 rounded-xl text-xs sm:text-sm font-bold shadow-xs transition-all active:scale-95 cursor-pointer"
+                            title="Tìm kiếm và chỉnh sửa nhanh từ vựng trong cuốn sách này"
+                        >
+                            <Search className="w-4 h-4" />
+                            <span>Tìm từ vựng</span>
                         </button>
-                    )}
+                        {isAdmin && (
+                            <button onClick={() => { resetForm(); setShowAddChapter(true); }}
+                                className="flex items-center gap-2 px-3 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-xl text-sm font-medium cursor-pointer">
+                                <FolderPlus className="w-4 h-4" /> Thêm chương
+                            </button>
+                        )}
+                    </div>
+                </div>
+
+                {/* Thanh tìm kiếm nhanh từ vựng trong sách */}
+                <div
+                    onClick={() => setShowVocabSearchModal(true)}
+                    className="relative flex items-center bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700/80 rounded-xl px-4 py-2.5 text-slate-400 dark:text-slate-500 hover:border-blue-400 dark:hover:border-blue-500 cursor-pointer shadow-xs transition-colors group"
+                >
+                    <Search className="w-4 h-4 text-slate-400 group-hover:text-blue-500 transition-colors mr-2.5 shrink-0" />
+                    <span className="text-xs sm:text-sm select-none">
+                        Nhập từ vựng trong sách để tìm kiếm và sửa nhanh...
+                    </span>
+                    <kbd className="ml-auto hidden sm:inline-block px-2 py-0.5 text-[10px] bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-300 rounded border border-slate-200 dark:border-slate-600 font-mono">
+                        Tìm kiếm
+                    </kbd>
                 </div>
 
                 {chapters.map((chapter, ci) => (
@@ -320,6 +349,19 @@ const BookView = ({
                     </div>
                 </div>
             )}
+
+            {/* Modal Tìm kiếm từ vựng trong sách */}
+            <BookVocabSearchModal
+                isOpen={showVocabSearchModal}
+                onClose={() => setShowVocabSearchModal(false)}
+                currentBook={currentBook}
+                groupId={groupId}
+                bookId={bookId}
+                isAdmin={isAdmin}
+                navigateTo={navigateTo}
+                onGeminiAssist={onGeminiAssist}
+                onSaveVocabEdit={handleSaveDirectVocabEdit}
+            />
         </div>
     );
 };

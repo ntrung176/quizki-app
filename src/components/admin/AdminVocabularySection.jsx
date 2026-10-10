@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Trash2, Search, Sparkle, X as XIcon, Loader2, Volume2, AlertTriangle, Check, RefreshCw, Bot } from 'lucide-react';
+import { BookOpen, Trash2, Search, Wand2, X as XIcon, Loader2, Volume2, AlertTriangle, Check, RefreshCw, Bot } from 'lucide-react';
 import { playAudio } from '../../utils/audio';
 
 const AdminVocabularySection = ({
@@ -244,7 +244,7 @@ const AdminVocabularySection = ({
                                 disabled={filteredDictResults.length === 0 || isBulkAudioGenerating}
                                 className="px-4 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold disabled:opacity-50 flex items-center gap-1.5 transition-all shadow-sm cursor-pointer"
                             >
-                                <Sparkle className="w-3.5 h-3.5 text-amber-300 fill-amber-300 animate-pulse" />
+                                <Wand2 className="w-3.5 h-3.5 text-amber-300" />
                                 <span>AI tạo hàng loạt ({filteredDictResults.length})</span>
                             </button>
                         )}
@@ -651,7 +651,7 @@ const AdminVocabularySection = ({
                                         {isGeneratingAudio ? (
                                             <Loader2 className="w-4 h-4 animate-spin" />
                                         ) : (
-                                            <Sparkle className="w-4 h-4 text-amber-300 fill-amber-300" />
+                                            <Wand2 className="w-4 h-4 text-amber-300" />
                                         )}
                                         Dùng AI (Tự động theo chữ Nhật)
                                     </button>

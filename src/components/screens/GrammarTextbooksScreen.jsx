@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
     Search, Plus, Trash2, Edit2, Save, X, FileJson, Clipboard, 
-    Check, AlertCircle, Cpu, BookOpen, Sparkles, Award, Compass, 
+    Check, AlertCircle, Cpu, BookOpen, FileText, Award, Compass, 
     Layers, ChevronRight, Star, ArrowRight, Zap, CheckCircle2 
 } from 'lucide-react';
 import { GRAMMAR_CATEGORIES } from '../../data/grammarData';
@@ -278,7 +278,7 @@ const GrammarTextbooksScreen = ({ isAdmin = false, profile = null }) => {
                     <div className="flex flex-wrap gap-2">
                         <button onClick={() => setShowAiPdfModal(true)}
                             className="flex items-center gap-2 px-4 py-2.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-sm font-bold rounded-xl transition-all shadow-sm cursor-pointer">
-                            <Sparkles className="w-4 h-4" /> ✨ Soạn giáo trình từ PDF (AI)
+                            <FileText className="w-4 h-4" /> Soạn giáo trình từ PDF (AI)
                         </button>
                         <button onClick={() => { setShowAdd(true); setShowJsonImport(false); setEditId(null); setForm({ title: '', titleVi: '', description: '', levels: '', category: 'jlpt', featured: false, color: '#10b981' }); }}
                             className="flex items-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold rounded-xl transition-colors">

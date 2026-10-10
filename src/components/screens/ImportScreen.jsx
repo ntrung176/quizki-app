@@ -246,7 +246,7 @@ const ImportScreen = ({ onImport }) => {
                                     <span className="text-xs">
                                         {card.audioBase64 ? '🔊 ' : ''}
                                         {card.imageBase64 ? '🖼 ' : ''}
-                                        {card.intervalIndex_back >= 0 ? `SRS: ${card.intervalIndex_back}` : '✨ Mới'}
+                                        {card.intervalIndex_back >= 0 ? `SRS: ${card.intervalIndex_back}` : 'Mới'}
                                     </span>
                                 </div>
                             ))}

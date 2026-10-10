@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import {
     ArrowLeft, Play, Lightbulb, PenTool, Layers, Settings, Save, Trash2, Plus, X,
-    Volume2, HelpCircle, AlertCircle, Bookmark, ChevronLeft, ChevronRight, Sparkles, Clock, CheckCircle, BookOpen
+    Volume2, HelpCircle, AlertCircle, Bookmark, ChevronLeft, ChevronRight, Wand2, MessageSquare, Clock, CheckCircle, BookOpen
 } from 'lucide-react';
 import { fetchGrammarPointById, updateGrammarPoint, subscribeGrammarPoints, deleteGrammarPoint } from '../../utils/grammarService';
 import { speakExampleSentence } from '../../utils/audio';
@@ -648,8 +648,8 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                 disabled={isStandardizing}
                                 className="text-xs text-indigo-600 dark:text-indigo-400 font-bold hover:underline flex items-center gap-1 cursor-pointer disabled:opacity-50"
                             >
-                                <Sparkles className={`w-3.5 h-3.5 ${isStandardizing ? 'animate-spin' : ''}`} />
-                                {isStandardizing ? 'Đang chuẩn hóa...' : '✨ AI Chuẩn hóa cấu trúc sách'}
+                                <Wand2 className={`w-3.5 h-3.5 ${isStandardizing ? 'animate-spin' : ''}`} />
+                                {isStandardizing ? 'Đang chuẩn hóa...' : 'AI Chuẩn hóa cấu trúc sách'}
                             </button>
                         </div>
                         <textarea value={editForm.structureRaw} onChange={e => setEditForm(f => ({ ...f, structureRaw: e.target.value }))} rows={3}
@@ -799,8 +799,8 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                         className="px-2.5 py-1 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 border border-indigo-200 dark:border-indigo-800 text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer disabled:opacity-50"
                                         title="Sử dụng AI để chuẩn hóa cấu trúc thành công thức sách giáo khoa [ ]"
                                     >
-                                        <Sparkles className={`w-3.5 h-3.5 ${isStandardizing ? 'animate-spin' : ''}`} />
-                                        {isStandardizing ? 'Đang chuẩn hóa...' : '✨ AI Chuẩn hóa sách'}
+                                        <Wand2 className={`w-3.5 h-3.5 ${isStandardizing ? 'animate-spin' : ''}`} />
+                                        {isStandardizing ? 'Đang chuẩn hóa...' : 'AI Chuẩn hóa sách'}
                                     </button>
                                 </div>
                                 <div className="space-y-1.5 pl-0.5">
@@ -863,7 +863,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                             <div className="space-y-3">
                                 <h2 className="text-base md:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
                                     <span className="w-7 h-7 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/70 dark:border-emerald-800/70 flex items-center justify-center shrink-0 shadow-2xs">
-                                        <Sparkles className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                                        <MessageSquare className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                                     </span>
                                     <span>Ví dụ</span>
                                 </h2>

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { 
     ArrowLeft, RotateCcw, Check, Heart, Bookmark, Edit, Trash2, 
-    Layers, Tag, Volume2, Plus, Sparkles 
+    Layers, Tag, Volume2, Plus, Wand2 
 } from 'lucide-react';
 import { renderMaziiStyleKanji } from '../../utils/kanjiStroke';
 import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitchAccent';
@@ -518,7 +518,7 @@ const KanjiDetailView = ({
                                             className="px-2.5 py-1 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 disabled:opacity-50 text-white rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs active:scale-95"
                                             title="Sử dụng AI tự động tạo từ vựng JLPT phổ biến cho Kanji này"
                                         >
-                                            <Sparkles className={`w-3.5 h-3.5 ${generatingAiVocab ? 'animate-spin' : ''}`} />
+                                            <Wand2 className={`w-3.5 h-3.5 ${generatingAiVocab ? 'animate-spin' : ''}`} />
                                             {generatingAiVocab ? 'AI đang tạo...' : 'AI Tạo Từ Vựng'}
                                         </button>
                                     )}
@@ -538,8 +538,8 @@ const KanjiDetailView = ({
                                                         disabled={generatingAiVocab}
                                                         className="px-3.5 py-1.5 bg-slate-100 hover:bg-purple-50 dark:bg-slate-700 dark:hover:bg-purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/50 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs hover:scale-105 active:scale-95"
                                                     >
-                                                        <Sparkles className={`w-3.5 h-3.5 ${generatingAiVocab ? 'animate-spin' : ''}`} />
-                                                        {generatingAiVocab ? 'AI đang khởi tạo...' : '✨ Tạo từ vựng với AI'}
+                                                        <Wand2 className={`w-3.5 h-3.5 ${generatingAiVocab ? 'animate-spin' : ''}`} />
+                                                        {generatingAiVocab ? 'AI đang khởi tạo...' : 'Tạo từ vựng với AI'}
                                                     </button>
                                                 )}
                                             </div>

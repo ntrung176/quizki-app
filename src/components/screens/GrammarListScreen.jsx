@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import LoadingIndicator from '../ui/LoadingIndicator';
-import { Search, Filter, Heart, BookOpen, ExternalLink, Trash2, CheckSquare, Square, ListChecks, X, Check, FileJson, Plus, Loader2, Sparkles } from 'lucide-react';
+import { Search, Filter, Heart, BookOpen, ExternalLink, Trash2, CheckSquare, Square, ListChecks, X, Check, FileJson, Plus, Loader2 } from 'lucide-react';
 import { db, appId } from '../../config/firebase';
 import { doc, setDoc, increment } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
@@ -177,7 +177,7 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
             const result = await aiGenerateGrammarPointsJson(rawAiInput);
             if (result && Array.isArray(result) && result.length > 0) {
                 setJsonInputText(JSON.stringify(result, null, 2));
-                showToast(`✨ AI đã tạo xong ${result.length} điểm ngữ pháp chuẩn JSON!`, "success");
+                showToast(`AI đã tạo xong ${result.length} điểm ngữ pháp chuẩn JSON!`, "success");
             } else {
                 setImportModalError("AI không thể phân tích văn bản này. Vui lòng kiểm tra lại nội dung.");
             }

@@ -70,7 +70,7 @@ const BookScreen = ({
         setSelectedExistingStudySetId, setShowLinkStudySetModal, showLinkStudySetModal, selectedExistingStudySetId,
         handleLinkToExistingStudySet, persistedRevealed, revealedCards, revealCard, blurMode, setBlurMode,
         handleReBlurAll, handleResetProgress, editingVocabIndex, setEditingVocabIndex, editingVocabData, setEditingVocabData,
-        editingCardRef, handleSaveVocabEdit, handleBatchSaveLessonVocab, isVocabInUserList, addedVocabSet, fixAudioIndex, setFixAudioIndex,
+        editingCardRef, handleSaveVocabEdit, handleSaveDirectVocabEdit, handleBatchSaveLessonVocab, isVocabInUserList, addedVocabSet, fixAudioIndex, setFixAudioIndex,
         fixAudioCustomReading, setFixAudioCustomReading, fixAudioLoading, handleFixAudio, showNuanceIndex,
         setShowNuanceIndex, handleEditVocab, handleDeleteVocab,
         showPremiumModal, setShowPremiumModal, lockedPkgName, setLockedPkgName
@@ -216,6 +216,8 @@ const BookScreen = ({
                     setLockedPkgName={setLockedPkgName}
                     setShowPremiumModal={setShowPremiumModal}
                     InlineEditName={InlineEditName}
+                    onGeminiAssist={onGeminiAssist}
+                    handleSaveDirectVocabEdit={handleSaveDirectVocabEdit}
                 />
             );
         }

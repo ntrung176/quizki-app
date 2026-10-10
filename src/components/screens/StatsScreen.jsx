@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { Trophy, Crown, Medal, Star, Flame, BookOpen, Languages, Search, Users, Sparkle, Cpu, ChevronDown, ChevronUp, FileText, CheckCircle2 } from 'lucide-react';
+import { Trophy, Crown, Medal, Star, Flame, BookOpen, Languages, Search, Users, Zap, Cpu, ChevronDown, ChevronUp, FileText, CheckCircle2 } from 'lucide-react';
 import { collection, query, onSnapshot, doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { auth, db } from '../../config/firebase';
 import LoadingIndicator from '../ui/LoadingIndicator';
@@ -598,7 +598,7 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
                     <div className="bg-slate-50 dark:bg-slate-950/80 p-3 sm:p-3.5 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-1.5 sm:space-y-2">
                         <div className="flex justify-between items-center text-[11px] sm:text-xs font-bold font-mono text-slate-700 dark:text-slate-300">
                             <span className="flex items-center gap-1.5">
-                                <Sparkle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500" /> Tiến trình Cấp độ {xpDetails.level}
+                                <Trophy className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500" /> Tiến trình Cấp độ {xpDetails.level}
                             </span>
                             <span className="text-indigo-600 dark:text-indigo-400 font-extrabold">{formatScore(xpDetails.remainingXp)} / {formatScore(xpDetails.nextLevelXp)} XP</span>
                         </div>
@@ -1061,7 +1061,7 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
                     <div className="mt-5 pt-5 border-t border-slate-100 dark:border-slate-800 space-y-4 animate-fade-in text-xs">
                         <div className="bg-slate-50 dark:bg-slate-950/60 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 space-y-3">
                             <div className="flex items-center gap-2 font-bold text-xs text-indigo-700 dark:text-indigo-400 uppercase tracking-wider font-mono">
-                                <Sparkle className="w-4 h-4 text-indigo-500" />
+                                <Zap className="w-4 h-4 text-indigo-500" />
                                 <span>1. Cách Tính Thống Kê & Thứ Hạng ⭐</span>
                             </div>
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 font-mono">

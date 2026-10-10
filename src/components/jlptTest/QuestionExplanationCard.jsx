@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { 
     CheckCircle2, XCircle, Lightbulb, BookOpen, 
-    Volume2, Plus, Sparkles, ChevronDown, ChevronUp,
+    Volume2, Plus, ChevronDown, ChevronUp,
     Languages, ListChecks, HelpCircle
 } from 'lucide-react';
 import { parseJlptExplanation } from '../../utils/jlptExplanationParser';

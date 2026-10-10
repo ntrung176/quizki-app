@@ -2,9 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { 
     MessageSquare, Mic, MicOff, Volume2, VolumeX, Eye, EyeOff, 
-    ArrowLeft, ArrowRight, Settings, Sparkle, AlertCircle, CheckCircle2, 
+    ArrowLeft, ArrowRight, Settings, AlertCircle, CheckCircle2, 
     Play, Send, RefreshCw, Star, Info, Languages, Radio, Trophy, Phone, PhoneOff,
-    Activity, Zap, Award, Lightbulb, Volume1, X, ShieldAlert, Cpu, Terminal, Sparkles, Clock,
+    Activity, Zap, Award, Lightbulb, Volume1, X, ShieldAlert, Cpu, Terminal, ShieldCheck, Loader2, Clock,
     SlidersHorizontal, BookOpen
 } from 'lucide-react';
 import { callKaiwaAI, parseJsonFromAI, callWhisperSTT, callOpenAITTS } from '../../utils/aiProvider';
@@ -72,7 +72,7 @@ const TEACHERS = [
         id: 'yuki',
         name: 'Yuki-chan 🎭',
         gender: 'female',
-        avatar: '✨',
+        avatar: '🎭',
         role: 'Cô Bạn Gen-Z Hài Hước',
         desc: 'Cô bạn Tokyo Gen-Z siêu hài hước, lầy lội! Dùng Slang trẻ vui nhộn, phản xạ siêu nhanh & cực ngắn gọn!',
         systemName: 'Yuki-chan',
@@ -1421,7 +1421,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
                                     className="flex items-center gap-1.5 px-3 py-2 sm:py-1.5 min-h-[40px] sm:min-h-0 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 text-emerald-700 dark:text-emerald-300 text-xs font-mono font-bold shadow-xs flex-1 sm:flex-none justify-center"
                                     title="Tài khoản Quản trị viên không giới hạn thời lượng Kaiwa"
                                 >
-                                    <Sparkles className="w-3.5 h-3.5 text-emerald-500" />
+                                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
                                     <span>Admin: Không giới hạn</span>
                                 </div>
                             )}
@@ -1786,7 +1786,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
                                         </span>
                                     ) : isGenerating ? (
                                         <span className="text-indigo-600 dark:text-indigo-400 flex items-center gap-1.5 animate-pulse">
-                                            <Sparkles className="w-3.5 h-3.5 animate-spin" />
+                                            <Loader2 className="w-3.5 h-3.5 animate-spin" />
                                             AI ĐANG TẠO CÂU TRẢ LỜI...
                                         </span>
                                     ) : isAiSpeaking ? (

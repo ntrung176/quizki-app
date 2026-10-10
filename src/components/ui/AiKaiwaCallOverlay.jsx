@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { PhoneOff, Mic, MicOff, MessageSquare, Volume2, Sparkles, Radio, Eye, EyeOff, Activity } from 'lucide-react';
+import { PhoneOff, Mic, MicOff, MessageSquare, Volume2, Radio, Eye, EyeOff, Activity } from 'lucide-react';
 import FuriganaText from './FuriganaText';
 
 const AiKaiwaCallOverlay = ({

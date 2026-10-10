@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Trophy, Award, Zap, Sparkles, CheckCircle2, AlertCircle, RefreshCw, BarChart2, Star } from 'lucide-react';
+import { X, Trophy, Award, Zap, Lightbulb, CheckCircle2, AlertCircle, RefreshCw, BarChart2, Star } from 'lucide-react';
 import { callAI } from '../../utils/aiProvider';
 
 const KaiwaScorecardModal = ({ isOpen, onClose, conversation = [], selectedLevel = 'N5', selectedTeacher }) => {
@@ -132,7 +132,7 @@ Trả về kết quả thuần JSON chuẩn với định dạng:
                                     <div className="space-y-1.5">
                                         {scoreData.strengths.map((st, i) => (
                                             <div key={i} className="p-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-900/50 text-xs font-semibold text-emerald-900 dark:text-emerald-300 flex items-center gap-2">
-                                                <span>✨</span> {st}
+                                                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" /> {st}
                                             </div>
                                         ))}
                                     </div>
@@ -143,7 +143,7 @@ Trả về kết quả thuần JSON chuẩn với định dạng:
                             {scoreData.improvements && (
                                 <div className="space-y-2">
                                     <h4 className="text-xs font-mono font-extrabold text-slate-700 dark:text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
-                                        <Sparkles className="w-4 h-4 text-amber-500" /> Gợi Ý Nâng Cấp Tự Nhiên Hơn
+                                        <Lightbulb className="w-4 h-4 text-amber-500" /> Gợi Ý Nâng Cấp Tự Nhiên Hơn
                                     </h4>
                                     <div className="space-y-1.5">
                                         {scoreData.improvements.map((imp, i) => (

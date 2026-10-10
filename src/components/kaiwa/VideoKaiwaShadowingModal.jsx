@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
     X, Mic, MicOff, Volume2, RotateCcw, CheckCircle2, AlertCircle, 
-    Sparkles, Star, Trophy, Award, ArrowRight, Zap, RefreshCw, Loader2
+    Star, Trophy, Award, ArrowRight, Zap, RefreshCw, Loader2
 } from 'lucide-react';
 import FuriganaRenderer, { getParsedTokens } from './FuriganaRenderer';
 import { playFocusCompleteSound, playCompletionFanfare } from '../../utils/soundEffects';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Lightbulb, Sparkles, MessageCircle, AlertCircle } from 'lucide-react';
+import { Lightbulb, MessageCircle, AlertCircle } from 'lucide-react';
 
 const MentalModelCard = ({ mentalModel, meaning, formality, speechType, explanation }) => {
     if (!mentalModel && !explanation && !meaning) return null;
@@ -15,7 +15,6 @@ const MentalModelCard = ({ mentalModel, meaning, formality, speechType, explanat
                     <div>
                         <h3 className="text-base font-bold text-slate-800 dark:text-slate-100 flex items-center gap-1.5">
                             Ý nghĩa & Công thức tâm lý
-                            <Sparkles className="w-3.5 h-3.5 text-amber-500 animate-pulse" />
                         </h3>
                         <p className="text-xs text-slate-500 dark:text-slate-400">Mental Model & Sắc thái sử dụng</p>
                     </div>

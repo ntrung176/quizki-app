@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
-    ArrowLeft, Volume2, Search, Sparkles, CheckCircle2, XCircle,
+    ArrowLeft, Volume2, Search, CheckCircle2, XCircle,
     HelpCircle, ChevronDown, ChevronUp, Copy, Check, Bookmark, Share2, Layers, BookOpen
 } from 'lucide-react';
 import { speakExampleSentence } from '../../utils/audio';
@@ -135,7 +135,7 @@ const GrammarCheatSheetDetailScreen = ({ isAdmin = false, profile = null }) => {
                     <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 shadow-sm mb-8">
                         <div className="flex items-center justify-between mb-4 flex-wrap gap-2">
                             <h2 className="text-base sm:text-lg font-bold flex items-center gap-2">
-                                <Sparkles className="w-5 h-5 text-amber-500" />
+                                <BookOpen className="w-5 h-5 text-indigo-500" />
                                 Bảng 12 Động từ Kính ngữ đặc biệt
                             </h2>
                             <div className="text-xs text-slate-500 dark:text-slate-400">

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Sparkles, Save, Loader2, Lightbulb, AlertTriangle } from 'lucide-react';
+import { X, Save, Loader2, Lightbulb, AlertTriangle } from 'lucide-react';
 import { showToast } from '../../utils/toast';
 
 const PersonalMnemonicModal = ({

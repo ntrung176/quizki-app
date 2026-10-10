@@ -884,7 +884,7 @@ const KanjiSRSListScreen = () => {
                                     <option value="shortTerm">⚡ Trung cấp ({stats.shortTerm})</option>
                                     <option value="longTerm">🌟 Cao cấp ({stats.longTerm})</option>
                                     <option value="expert">🏆 Chuyên gia ({stats.expert})</option>
-                                    <option value="new">✨ Thẻ mới ({stats.newCards})</option>
+                                    <option value="new">🆕 Thẻ mới ({stats.newCards})</option>
                                 </select>
                                 <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                             </div>

@@ -479,7 +479,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
                     </button>
                 )}
                 <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col justify-center items-center space-y-6 p-6 sm:p-8 bg-white dark:bg-slate-900 border-2 border-blue-400/30 rounded-3xl shadow-xl animate-fade-in">
-                    <div className="text-6xl mb-2">✨</div>
+                    <div className="text-6xl mb-2">🎉</div>
                     <div>
                         <h2 className="text-3xl font-black text-gray-800 dark:text-white mb-2">Hoàn thành vòng {round}!</h2>
                         <p className="text-gray-500 dark:text-gray-400 text-lg">

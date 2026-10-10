@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, ArrowRight, Plus, Sparkles } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ArrowRight, Plus } from 'lucide-react';
 import VideoKaiwaMovieCard from './VideoKaiwaMovieCard';
 
 const VideoKaiwaCategoryRow = ({

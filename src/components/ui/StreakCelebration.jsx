@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Flame, Sparkles } from 'lucide-react';
+import { Flame } from 'lucide-react';
 
 const StreakCelebration = ({ dailyActivityLogs = [], currentCalculatedStreak = 0 }) => {
     const [show, setShow] = useState(false);
@@ -213,7 +213,7 @@ const StreakCelebration = ({ dailyActivityLogs = [], currentCalculatedStreak = 0
                 {/* Typography details */}
                 <div className="space-y-1.5 sm:space-y-2 mb-5 sm:mb-6">
                     <div className="flex items-center justify-center gap-1.5 text-orange-400 font-extrabold tracking-widest text-[11px] sm:text-xs uppercase">
-                        <Sparkles className="w-3.5 h-3.5 fill-orange-400 animate-spin" style={{ animationDuration: '3s' }} />
+                        <Flame className="w-3.5 h-3.5 fill-orange-400" />
                         Streak Luyện Tập!
                     </div>
                     <h2 className="text-xl sm:text-2xl font-black text-white leading-tight">

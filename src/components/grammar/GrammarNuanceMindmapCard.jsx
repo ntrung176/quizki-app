@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { 
-    Brain, Sparkles, Lightbulb, Compass, ChevronDown, ChevronUp, 
+    Brain, Lightbulb, Compass, ChevronDown, ChevronUp, 
     Volume2, BookOpen, Layers, CheckCircle2, GitBranch,
     Zap, AlertTriangle, ArrowRight, ShieldAlert, Star
 } from 'lucide-react';
@@ -169,7 +169,7 @@ const GrammarNuanceMindmapCard = ({ nuances = [], pattern = '' }) => {
                 <div className="absolute -left-8 -bottom-8 w-40 h-40 bg-purple-500/10 rounded-full blur-2xl pointer-events-none" />
 
                 <span className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-indigo-500/20 border border-indigo-400/30 text-indigo-300 text-[11px] font-black uppercase tracking-widest">
-                    <Sparkles className="w-3.5 h-3.5 text-amber-400" />
+                    <Brain className="w-3.5 h-3.5 text-indigo-400" />
                     <span>TRUNG TÂM BẢN ĐỒ TƯ DUY</span>
                 </span>
 

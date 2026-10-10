@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Volume2, Plus, Check, ChevronLeft, ChevronRight, BookOpen, Languages, Sparkles, ArrowLeft } from 'lucide-react';
+import { X, Volume2, Plus, Check, ChevronLeft, ChevronRight, BookOpen, Languages, ArrowLeft } from 'lucide-react';
 
 const SentenceBreakdownModal = ({
     isOpen,

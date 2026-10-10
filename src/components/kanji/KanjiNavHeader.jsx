@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Search, PenTool, RotateCcw, X, RefreshCw, Upload, Plus, Layers, CheckSquare, Square, Sparkles, Lock, Wrench, ChevronDown, Trash2, Filter } from 'lucide-react';
+import { Search, PenTool, RotateCcw, X, RefreshCw, Upload, Plus, Layers, CheckSquare, Square, Wand2, Lock, Wrench, ChevronDown, Trash2, Filter } from 'lucide-react';
 import { JLPT_LEVELS, LEVEL_TAB_COLORS } from './kanjiConstants';
 
 const KanjiNavHeader = ({
@@ -295,7 +295,7 @@ const KanjiNavHeader = ({
                                                 className="w-full px-2.5 py-2 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 text-slate-700 dark:text-slate-200 hover:text-indigo-700 dark:hover:text-indigo-300 rounded-xl text-xs font-semibold transition-all flex items-center gap-2.5 cursor-pointer text-left disabled:opacity-50"
                                             >
                                                 <div className="w-6 h-6 rounded-lg bg-indigo-100 dark:bg-indigo-950 flex items-center justify-center text-indigo-600 shrink-0">
-                                                    <Sparkles className={`w-3.5 h-3.5 ${generatingAiVocab ? 'animate-spin' : ''}`} />
+                                                    <Wand2 className={`w-3.5 h-3.5 ${generatingAiVocab ? 'animate-spin' : ''}`} />
                                                 </div>
                                                 <span className="truncate">{generatingAiVocab ? 'AI đang tạo từ vựng...' : 'AI Bổ sung Từ vựng (10 Kanji)'}</span>
                                             </button>
@@ -307,7 +307,7 @@ const KanjiNavHeader = ({
                                                 className="w-full px-2.5 py-2 hover:bg-teal-50 dark:hover:bg-teal-950/40 text-slate-700 dark:text-slate-200 hover:text-teal-700 dark:hover:text-teal-300 rounded-xl text-xs font-semibold transition-all flex items-center gap-2.5 cursor-pointer text-left disabled:opacity-50"
                                             >
                                                 <div className="w-6 h-6 rounded-lg bg-teal-100 dark:bg-teal-950 flex items-center justify-center text-teal-600 shrink-0">
-                                                    <Sparkles className={`w-3.5 h-3.5 ${fixingSinoViet ? 'animate-spin' : ''}`} />
+                                                    <Wand2 className={`w-3.5 h-3.5 ${fixingSinoViet ? 'animate-spin' : ''}`} />
                                                 </div>
                                                 <span>Sửa Âm Hán Việt Từ vựng</span>
                                             </button>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import {
     HelpCircle, Brain, Target, ArrowLeft, BookOpen,
     Languages, FileCheck, MessageSquare, Timer,
-    Sparkles, PenTool, Flame, RefreshCw, MousePointer, Search,
+    PenTool, Flame, RefreshCw, MousePointer, Search,
     Loader2, CheckCircle2, Lightbulb, Shield, Globe
 } from 'lucide-react';
 import { ROUTES } from '../../router';
@@ -95,7 +95,7 @@ const HelpScreen = ({ isFirstTime, onConfirmFirstTime }) => {
                     title: 'Tab 3: Ôn Tập SRS Vocab',
                     tag: 'Phòng ôn thông minh',
                     color: 'emerald',
-                    desc: '• Phòng ôn tập với Flashcard lật 3D 2 mặt kèm audio phát âm giọng đọc Tokyo.\n• Mẹo Nhớ Cá Nhân Inline: Bấm "💡 + Thêm mẹo nhớ", bấm "✨ AI Gợi ý" để AI sáng tác liên tưởng âm Hán Việt.\n• Quản Lý Thẻ Khó (Leech): Gom các từ quên ≥ 3 lần, cho phép sửa mẹo nhớ hoặc reset về chu kỳ chuẩn.',
+                    desc: '• Phòng ôn tập với Flashcard lật 3D 2 mặt kèm audio phát âm giọng đọc Tokyo.\n• Mẹo Nhớ Cá Nhân Inline: Bấm "💡 + Thêm mẹo nhớ", bấm "💡 AI Gợi ý" để AI sáng tác liên tưởng âm Hán Việt.\n• Quản Lý Thẻ Khó (Leech): Gom các từ quên ≥ 3 lần, cho phép sửa mẹo nhớ hoặc reset về chu kỳ chuẩn.',
                     tip: 'Tập trung gỡ các thẻ Leech để tăng tốc độ ghi nhớ dài hạn.',
                 },
             ],
@@ -287,7 +287,7 @@ const HelpScreen = ({ isFirstTime, onConfirmFirstTime }) => {
                     )}
                     <div className="min-w-0 flex-1">
                         <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 text-[11px] font-mono font-bold mb-1">
-                            <Sparkles className="w-3.5 h-3.5" /> BÁCH KHOA TOÀN THƯ QUIZKI
+                            <BookOpen className="w-3.5 h-3.5" /> BÁCH KHOA TOÀN THƯ QUIZKI
                         </div>
                         <h1 className="text-base sm:text-xl md:text-2xl font-black tracking-tight text-slate-900 dark:text-white leading-snug break-words">
                             Hướng Dẫn Chi Tiết Từng Bước & Quy Trình Thao Tác
@@ -356,7 +356,7 @@ const HelpScreen = ({ isFirstTime, onConfirmFirstTime }) => {
                             <ol className="space-y-1.5 text-slate-600 dark:text-slate-300 font-medium leading-relaxed list-decimal list-inside">
                                 <li>Vào Menu <b>Từ Vựng</b> → Chọn tab <b>Bộ Từ Vựng</b>.</li>
                                 <li>Bấm nút màu xanh <b>+ Tạo bộ bài học</b> → Nhập tên bộ thẻ.</li>
-                                <li>Bấm <b>✨ AI Quét Từ Ảnh</b> → Tải ảnh chụp sách/đề thi lên.</li>
+                                <li>Bấm <b>📸 AI Quét Từ Ảnh</b> → Tải ảnh chụp sách/đề thi lên.</li>
                                 <li>AI tự trích xuất Kanji, Furigana & Nghĩa → Bấm <b>Lưu thẻ</b>.</li>
                             </ol>
                         </div>
@@ -369,7 +369,7 @@ const HelpScreen = ({ isFirstTime, onConfirmFirstTime }) => {
                             <ol className="space-y-1.5 text-slate-600 dark:text-slate-300 font-medium leading-relaxed list-decimal list-inside">
                                 <li>Trong lúc Ôn tập SRS hoặc Flashcard, lật mặt sau thẻ.</li>
                                 <li>Bấm nút <b>💡 + Thêm mẹo nhớ cá nhân</b>.</li>
-                                <li>Bấm nút <b>✨ AI Gợi ý</b> để AI tạo liên tưởng âm Hán Việt.</li>
+                                <li>Bấm nút <b>💡 AI Gợi ý</b> để AI tạo liên tưởng âm Hán Việt.</li>
                                 <li>Chỉnh sửa theo ý muốn → Bấm dấu <b>Check (Lưu)</b>.</li>
                             </ol>
                         </div>

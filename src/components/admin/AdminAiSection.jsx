@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bot, Settings, Layers, Sparkles } from 'lucide-react';
+import { Bot, Settings, Layers, FileText, Wand2 } from 'lucide-react';
 import { AI_FEATURES, OPENROUTER_MODELS } from '../../utils/adminSettings';
 
 const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarStandardizer, onOpenPdfIngestor }) => {
@@ -25,7 +25,7 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarSt
                                 onClick={() => onOpenPdfIngestor()}
                                 className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all cursor-pointer"
                             >
-                                <Sparkles className="w-4 h-4" />
+                                <FileText className="w-4 h-4" />
                                 🚀 AI PDF Ingestor (Nhập dữ liệu tự động)
                             </button>
                         )}
@@ -35,7 +35,7 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarSt
                                 onClick={onOpenGrammarStandardizer}
                                 className="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all cursor-pointer"
                             >
-                                <Sparkles className="w-4 h-4" />
+                                <Wand2 className="w-4 h-4" />
                                 AI Chuẩn Hóa Cấu Trúc Ngữ Pháp
                             </button>
                         )}
@@ -47,7 +47,7 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarSt
             <div className="bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-indigo-500/10 dark:from-emerald-950/40 dark:via-teal-950/40 dark:to-indigo-950/40 rounded-2xl border border-emerald-200/80 dark:border-emerald-800/80 p-5 flex items-center justify-between flex-wrap gap-4">
                 <div className="flex items-center gap-3.5">
                     <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white flex items-center justify-center shadow-md">
-                        <Sparkles className="w-5 h-5" />
+                        <FileText className="w-5 h-5" />
                     </div>
                     <div>
                         <h4 className="font-bold text-slate-900 dark:text-white text-sm md:text-base flex items-center gap-2">
@@ -67,7 +67,7 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarSt
                     onClick={() => onOpenPdfIngestor && onOpenPdfIngestor()}
                     className="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all shrink-0 cursor-pointer"
                 >
-                    <Sparkles className="w-4 h-4" />
+                    <FileText className="w-4 h-4" />
                     Khởi Chạy AI Soạn Từ PDF
                 </button>
             </div>
@@ -96,7 +96,7 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarSt
                     onClick={onOpenGrammarStandardizer}
                     className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all shrink-0 cursor-pointer"
                 >
-                    <Sparkles className="w-4 h-4" />
+                    <Wand2 className="w-4 h-4" />
                     Mở Bảng Điều Khiển
                 </button>
             </div>

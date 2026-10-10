@@ -168,32 +168,57 @@ const SrsTypingInput = ({
                             )}
                         </div>
 
-                        {/* Ở giữa: Đáp án đúng */}
-                        {correctAnswer && (
-                            <div className="flex items-center gap-1.5 min-w-0 max-w-[50%] sm:max-w-[55%] text-xs sm:text-sm">
-                                <span className="text-slate-400 dark:text-slate-500 font-medium text-[11px] sm:text-xs shrink-0">
-                                    Đáp án:
-                                </span>
-                                <span
-                                    className={`font-bold font-japanese truncate px-2 py-0.5 rounded-md ${
+                        {/* Ở giữa: So sánh Bạn gõ vs Đáp án */}
+                        <div className="flex items-center gap-1.5 sm:gap-2.5 min-w-0 flex-1 text-xs sm:text-sm overflow-hidden">
+                            {input && (
+                                <div className="flex items-center gap-1 min-w-0 shrink">
+                                    <span className={`font-medium text-[11px] sm:text-xs shrink-0 ${
                                         diffResult?.isMatch
-                                            ? 'bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 border border-emerald-500/20'
-                                            : 'bg-rose-500/15 text-rose-800 dark:text-rose-200 border border-rose-500/20'
-                                    }`}
-                                    title={correctAnswer}
-                                >
-                                    {correctAnswer}
-                                </span>
-                            </div>
-                        )}
-
-                        {/* Bên phải: Phím tắt */}
-                        <div className="text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 font-medium flex items-center gap-1 shrink-0 ml-auto">
-                            <span className="hidden md:inline">💡 Nhấn</span>
-                            <kbd className="px-1.5 py-0.5 rounded bg-white dark:bg-slate-800 font-mono text-[9px] sm:text-[10px] font-bold text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 shadow-xs">
-                                {diffResult?.isMatch ? '3 / Space' : '1 (Quên)'}
-                            </kbd>
-                            <span className="hidden lg:inline">để tiếp tục</span>
+                                            ? 'text-emerald-700/80 dark:text-emerald-300/80'
+                                            : 'text-rose-700/80 dark:text-rose-300/80'
+                                    }`}>
+                                        Bạn gõ:
+                                    </span>
+                                    <span
+                                        className={`font-bold font-japanese truncate px-1.5 py-0.5 rounded max-w-[140px] sm:max-w-[200px] border ${
+                                            diffResult?.isMatch
+                                                ? 'bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 border-emerald-500/20'
+                                                : 'bg-rose-500/15 text-rose-700 dark:text-rose-300 line-through border-rose-500/25'
+                                        }`}
+                                        title={input}
+                                    >
+                                        {input}
+                                    </span>
+                                    <span className="text-slate-400 dark:text-slate-500 shrink-0 font-bold text-xs mx-0.5">→</span>
+                                </div>
+                            )}
+                            {!input && !diffResult?.isMatch && (
+                                <div className="flex items-center gap-1 min-w-0 shrink">
+                                    <span className="text-rose-700/80 dark:text-rose-300/80 font-medium text-[11px] sm:text-xs shrink-0">
+                                        Bạn gõ:
+                                    </span>
+                                    <span
+                                        className="font-bold font-japanese truncate px-1.5 py-0.5 rounded bg-rose-500/15 text-rose-700 dark:text-rose-300 line-through border border-rose-500/25 max-w-[140px] sm:max-w-[200px]"
+                                        title="(trống)"
+                                    >
+                                        (trống)
+                                    </span>
+                                    <span className="text-slate-400 dark:text-slate-500 shrink-0 font-bold text-xs mx-0.5">→</span>
+                                </div>
+                            )}
+                            {correctAnswer && (
+                                <div className="flex items-center gap-1 min-w-0 shrink">
+                                    <span className="text-slate-400 dark:text-slate-500 font-medium text-[11px] sm:text-xs shrink-0">
+                                        Đáp án:
+                                    </span>
+                                    <span
+                                        className="font-bold font-japanese truncate px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 border border-emerald-500/20 max-w-[160px] sm:max-w-[260px]"
+                                        title={correctAnswer}
+                                    >
+                                        {correctAnswer}
+                                    </span>
+                                </div>
+                            )}
                         </div>
                     </div>
                 );

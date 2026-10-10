@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
 import { 
     Play, Pause, RotateCcw, RotateCw, Repeat, Volume2, VolumeX, 
-    Maximize, Minimize, Settings, Sparkles, Mic, BookOpen, Eye, EyeOff,
+    Maximize, Minimize, Settings, MessageSquare, Mic, BookOpen, Eye, EyeOff,
     Check, ChevronRight, Layers, SlidersHorizontal, Info, SkipBack, SkipForward, RefreshCw,
     ArrowLeft, Edit3, Languages, Film, Loader2
 } from 'lucide-react';
@@ -581,7 +581,7 @@ const VideoKaiwaPlayer = ({
                         </div>
                     ) : (
                         <div className="text-slate-400 dark:text-slate-500 text-[11px] sm:text-xs lg:text-sm italic flex items-center gap-1.5 my-auto py-1 sm:py-2">
-                            <Sparkles className="w-3.5 h-3.5 text-slate-400 dark:text-slate-600" />
+                            <MessageSquare className="w-3.5 h-3.5 text-slate-400 dark:text-slate-600" />
                             <span>(Phụ đề song ngữ sẽ hiển thị đồng bộ khi video phát đến đoạn đối thoại...)</span>
                         </div>
                     )}

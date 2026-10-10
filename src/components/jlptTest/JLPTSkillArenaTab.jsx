@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { 
     Languages, BookOpen, FileText, Headphones, Award, Lock, Unlock, 
     Printer, RotateCcw, Play, Search, Filter, CheckCircle2, Clock,
-    ChevronRight, ArrowLeft, Layers, Check, Sparkles
+    ChevronRight, ArrowLeft, Layers, Check
 } from 'lucide-react';
 import { LEVEL_GRADIENTS, getTestQuestionCount } from './jlptConstants';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import { Layers, Keyboard, X, Sparkles, CheckCircle2, ChevronRight, Zap } from 'lucide-react';
+import { Layers, Keyboard, X, ChevronRight } from 'lucide-react';
 
 const SrsModeSelectModal = ({
     isOpen,
@@ -30,21 +30,16 @@ const SrsModeSelectModal = ({
                 {/* Header */}
                 <div className="flex items-start justify-between">
                     <div>
-                        <div className="flex items-center gap-2">
-                            <span className="p-2 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400">
-                                <Sparkles className="w-5 h-5" />
-                            </span>
-                            <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white">
-                                {title}
-                            </h3>
-                        </div>
+                        <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white">
+                            {title}
+                        </h3>
                         <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1.5 font-medium">
-                            {subtitle} {cardCount > 0 && <span className="font-bold text-indigo-600 dark:text-indigo-400">({cardCount} thẻ)</span>}
+                            {subtitle} {cardCount > 0 && <span className="font-bold text-blue-600 dark:text-blue-400">({cardCount} thẻ)</span>}
                         </p>
                     </div>
                     <button
                         onClick={onClose}
-                        className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors cursor-pointer"
+                        className="p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors cursor-pointer shrink-0"
                     >
                         <X className="w-5 h-5" />
                     </button>
@@ -55,17 +50,17 @@ const SrsModeSelectModal = ({
                     {/* Option 1: Flashcard */}
                     <button
                         onClick={() => handleSelect('flashcard')}
-                        className="w-full text-left p-4 sm:p-4.5 rounded-2xl border-2 border-slate-200/80 dark:border-slate-800 hover:border-indigo-500 dark:hover:border-indigo-500 bg-white dark:bg-slate-850 hover:bg-indigo-50/30 dark:hover:bg-indigo-950/30 transition-all duration-200 flex items-center gap-4 group cursor-pointer shadow-sm hover:shadow-md active:scale-[0.98]"
+                        className="w-full text-left p-3.5 sm:p-4.5 rounded-2xl border-2 border-slate-200/80 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-500 bg-white dark:bg-slate-850 hover:bg-blue-50/30 dark:hover:bg-blue-950/30 transition-all duration-200 flex items-center gap-3 sm:gap-4 group cursor-pointer shadow-sm hover:shadow-md active:scale-[0.98]"
                     >
-                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-sky-500 text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
-                            <Layers className="w-6 h-6" />
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-sky-500 text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
+                            <Layers className="w-5 h-5 sm:w-6 sm:h-6" />
                         </div>
                         <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2">
-                                <span className="font-extrabold text-base text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                                <span className="font-extrabold text-sm sm:text-base text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                                     Lật thẻ ghi nhớ
                                 </span>
-                                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
+                                <span className="shrink-0 whitespace-nowrap px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
                                     Nhanh gọn
                                 </span>
                             </div>
@@ -73,23 +68,23 @@ const SrsModeSelectModal = ({
                                 Xem câu hỏi, tự nhẩm và lật mặt sau thẻ để đối chiếu đáp án.
                             </p>
                         </div>
-                        <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors shrink-0" />
+                        <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors shrink-0" />
                     </button>
 
                     {/* Option 2: Anki Typing */}
                     <button
                         onClick={() => handleSelect('typing')}
-                        className="w-full text-left p-4 sm:p-4.5 rounded-2xl border-2 border-slate-200/80 dark:border-slate-800 hover:border-emerald-500 dark:hover:border-emerald-500 bg-white dark:bg-slate-850 hover:bg-emerald-50/30 dark:hover:bg-emerald-950/30 transition-all duration-200 flex items-center gap-4 group cursor-pointer shadow-sm hover:shadow-md active:scale-[0.98]"
+                        className="w-full text-left p-3.5 sm:p-4.5 rounded-2xl border-2 border-slate-200/80 dark:border-slate-800 hover:border-emerald-500 dark:hover:border-emerald-500 bg-white dark:bg-slate-850 hover:bg-emerald-50/30 dark:hover:bg-emerald-950/30 transition-all duration-200 flex items-center gap-3 sm:gap-4 group cursor-pointer shadow-sm hover:shadow-md active:scale-[0.98]"
                     >
-                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
-                            <Keyboard className="w-6 h-6" />
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
+                            <Keyboard className="w-5 h-5 sm:w-6 sm:h-6" />
                         </div>
                         <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2">
-                                <span className="font-extrabold text-base text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                                <span className="font-extrabold text-sm sm:text-base text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                                     Gõ câu trả lời (Typing)
                                 </span>
-                                <span className="px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">
+                                <span className="shrink-0 whitespace-nowrap px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">
                                     Nhớ sâu
                                 </span>
                             </div>
@@ -97,7 +92,7 @@ const SrsModeSelectModal = ({
                                 Nhìn nghĩa tiếng Việt, gõ từ (chấp nhận cả Kanji & Hiragana) và so sánh diff từng ký tự.
                             </p>
                         </div>
-                        <ChevronRight className="w-5 h-5 text-slate-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors shrink-0" />
+                        <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors shrink-0" />
                     </button>
                 </div>
             </div>

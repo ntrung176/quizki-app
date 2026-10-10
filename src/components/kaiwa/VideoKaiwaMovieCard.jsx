@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, Layers, Edit3, Trash2, Sparkles, MessageSquare, Clock, Film, HardDrive, Video } from 'lucide-react';
+import { Play, Layers, Edit3, Trash2, MessageSquare, Clock, Film, HardDrive, Video } from 'lucide-react';
 import { KAIWA_LEVELS, KAIWA_CATEGORIES } from './videoKaiwaConstants';
 
 const LEVEL_COLOR_MAP = {

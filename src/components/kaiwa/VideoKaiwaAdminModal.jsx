@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import {
-    X, Plus, Trash2, Sparkles, Upload, Link as LinkIcon,
+    X, Plus, Trash2, Wand2, Upload, Link as LinkIcon,
     Save, CheckCircle2, AlertCircle, FileText, Film, Eye, Edit3, StopCircle, RefreshCw,
     Video, Globe, HardDrive, Check, Zap, ArrowRight, Info, Layers, CheckCircle
 } from 'lucide-react';
@@ -338,7 +338,7 @@ const VideoKaiwaAdminModal = ({
 
             if (enriched && enriched.length > 0) {
                 setSubtitles(enriched);
-                setSuccessMsg(`✨ Đã dịch nghĩa và gán Furigana hoàn tất cho ${enriched.length} câu từ transcript YouTube!`);
+                setSuccessMsg(`Đã dịch nghĩa và gán Furigana hoàn tất cho ${enriched.length} câu từ transcript YouTube!`);
             }
         } catch (e) {
             console.error(e);
@@ -410,10 +410,10 @@ const VideoKaiwaAdminModal = ({
                 if (enriched && enriched.length > 0) {
                     setSubtitles(enriched);
                     setManualSubTab('editor');
-                    setSuccessMsg(`✨ AI đã tự động điền thông tin và dịch nghĩa hoàn tất cho ${enriched.length} câu phụ đề!`);
+                    setSuccessMsg(`AI đã tự động điền thông tin và dịch nghĩa hoàn tất cho ${enriched.length} câu phụ đề!`);
                 }
             } else {
-                setSuccessMsg(`✨ AI đã tự động điền Cấp độ (${aiMeta?.level}), Chủ đề và Tiêu đề dịch thành công!`);
+                setSuccessMsg(`AI đã tự động điền Cấp độ (${aiMeta?.level}), Chủ đề và Tiêu đề dịch thành công!`);
             }
         } catch (e) {
             console.error(e);
@@ -434,7 +434,7 @@ const VideoKaiwaAdminModal = ({
         if (parsed.length > 0) {
             setSubtitles(parsed);
             setManualSubTab('editor');
-            setSuccessMsg(`📋 Đã trích xuất ${parsed.length} câu từ văn bản thành công! Bấm "✨ AI Tự Điền & Dịch" để dịch song ngữ.`);
+            setSuccessMsg(`📋 Đã trích xuất ${parsed.length} câu từ văn bản thành công! Bấm "AI Tự Điền & Dịch" để dịch song ngữ.`);
         } else {
             setErrorMsg('Không thể nhận diện câu từ văn bản. Vui lòng kiểm tra lại!');
         }
@@ -453,7 +453,7 @@ const VideoKaiwaAdminModal = ({
                 if (parsed.length > 0) {
                     setSubtitles(parsed);
                     setManualSubTab('editor');
-                    setSuccessMsg(`📂 Đã nạp ${parsed.length} câu từ file phụ đề! Bạn có thể bấm "✨ AI Tự Điền & Dịch Sub" để AI dịch tự động.`);
+                    setSuccessMsg(`📂 Đã nạp ${parsed.length} câu từ file phụ đề! Bạn có thể bấm "AI Tự Điền & Dịch Sub" để AI dịch tự động.`);
                 } else {
                     setErrorMsg('Không đọc được cấu trúc văn bản hoặc phụ đề từ file này.');
                 }
@@ -691,7 +691,7 @@ const VideoKaiwaAdminModal = ({
                         <div className="p-4 sm:p-5 bg-gradient-to-br from-amber-500/15 via-orange-500/10 to-rose-500/15 border-2 border-amber-500/40 rounded-3xl space-y-4 animate-fade-in shadow-lg">
                             <div className="flex items-start gap-3">
                                 <div className="p-2.5 rounded-2xl bg-amber-500 text-slate-950 font-black shrink-0 shadow-md">
-                                    <Sparkles className="w-5 h-5" />
+                                    <FileText className="w-5 h-5" />
                                 </div>
                                 <div className="space-y-1">
                                     <h4 className="text-xs font-black text-amber-900 dark:text-amber-200 uppercase tracking-wide flex items-center gap-2">
@@ -778,8 +778,8 @@ const VideoKaiwaAdminModal = ({
                                         </>
                                     ) : (
                                         <>
-                                            <Sparkles className="w-4 h-4" />
-                                            <span>✨ AI Dịch & Gán Furigana Toàn Bộ Ngay</span>
+                                            <Wand2 className="w-4 h-4" />
+                                            <span>AI Dịch & Gán Furigana Toàn Bộ Ngay</span>
                                         </>
                                     )}
                                 </button>
@@ -856,7 +856,7 @@ const VideoKaiwaAdminModal = ({
                                         </>
                                     ) : (
                                         <>
-                                            <Sparkles className="w-4 h-4" />
+                                            <Wand2 className="w-4 h-4" />
                                             <span>🚀 Bắt Đầu Tự Động Xử Lý (Lấy Sub & AI Dịch Hóa)</span>
                                         </>
                                     )}
@@ -1191,8 +1191,8 @@ const VideoKaiwaAdminModal = ({
                                     </>
                                 ) : (
                                     <>
-                                        <Sparkles className="w-4 h-4" />
-                                        <span>✨ AI Tự Điền Thông Tin (Level, Chủ đề, Dịch sub & Furigana)</span>
+                                        <Wand2 className="w-4 h-4" />
+                                        <span>AI Tự Điền Thông Tin (Level, Chủ đề, Dịch sub & Furigana)</span>
                                     </>
                                 )}
                             </button>

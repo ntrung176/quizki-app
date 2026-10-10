@@ -1,5 +1,5 @@
 import React from 'react';
-import { X, BookOpen, Sparkles, CheckCircle2, AlertTriangle, ArrowRight, Layers, Target, Compass } from 'lucide-react';
+import { X, BookOpen, CheckCircle2, AlertTriangle, ArrowRight, Layers, Target, Compass } from 'lucide-react';
 import { formatFuriganaRuby } from './JLPTDrillsTab';
 
 const JLPTStrategyModal = ({
@@ -69,7 +69,7 @@ const JLPTStrategyModal = ({
                     {grammarFocus && grammarFocus.length > 0 && (
                         <div className="space-y-2.5">
                             <div className="flex items-center gap-1.5 text-xs font-black text-slate-700 dark:text-slate-300 uppercase tracking-wider">
-                                <Sparkles className="w-4 h-4 text-amber-500" />
+                                <Target className="w-4 h-4 text-indigo-500" />
                                 <span>Ngữ pháp then chốt</span>
                             </div>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">

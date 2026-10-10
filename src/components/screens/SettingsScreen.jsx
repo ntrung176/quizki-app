@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { 
     Settings, User, Volume2, VolumeX, Sun, Moon, ArrowLeft, 
     Save, Check, Shield, Upload, Play, Edit, Type, Camera, 
-    Gift, Copy, Crown, Award, Eye, EyeOff, Sparkles, RefreshCw
+    Gift, Copy, Crown, Award, Eye, EyeOff, RefreshCw
 } from 'lucide-react';
 import AvatarCropper from '../ui/AvatarCropper';
 import { SafeAvatarImage } from '../ui';

@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
     ArrowLeft, Plus, Trash2, Edit2, Save, ChevronRight, ChevronLeft, PenTool, FileJson,
-    Clipboard, Check, AlertCircle, Sparkles, Clock, X,
-    Loader2, Award, ClipboardCheck, Lightbulb, Sparkle, Eye, CheckCircle, BookOpen, Search, ListPlus, CheckSquare, Square
+    Clipboard, Check, AlertCircle, Wand2, Clock, X,
+    Loader2, Award, ClipboardCheck, Lightbulb, Bot, Eye, CheckCircle, BookOpen, Search, ListPlus, CheckSquare, Square
 } from 'lucide-react';
 import {
     subscribeTextbooks, subscribeLessons, subscribeGrammarPoints,
@@ -201,7 +201,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
             });
 
             if (outcome.succeeded > 0) {
-                showToast(`✨ Đã chuẩn hóa thành công ${outcome.succeeded}/${outcome.total} mẫu ngữ pháp!`, "success");
+                showToast(`Đã chuẩn hóa thành công ${outcome.succeeded}/${outcome.total} mẫu ngữ pháp!`, "success");
             } else {
                 showToast("Không thể chuẩn hóa các mẫu ngữ pháp. Vui lòng thử lại sau.", "error");
             }
@@ -710,7 +710,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
             const result = await aiGenerateGrammarPointsJson(rawAiInput);
             if (result && Array.isArray(result) && result.length > 0) {
                 setJsonText(JSON.stringify(result, null, 2));
-                showToast(`✨ AI đã tạo xong ${result.length} điểm ngữ pháp chuẩn JSON!`, "success");
+                showToast(`AI đã tạo xong ${result.length} điểm ngữ pháp chuẩn JSON!`, "success");
             } else {
                 showToast("AI không thể phân tích văn bản này. Vui lòng kiểm tra lại nội dung.", "error");
             }
@@ -1039,7 +1039,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                                                 {ai && (
                                                     <div className={`mt-3 px-4 py-3.5 rounded-xl border transition-all ${ai.isCorrect ? 'bg-emerald-50/50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800/40 text-emerald-900 dark:text-emerald-200' : 'bg-amber-50/60 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800/40 text-amber-900 dark:text-amber-200'}`}>
                                                         <div className="flex items-center gap-2 mb-2 pb-1.5 border-b border-slate-200/40 dark:border-slate-700/40">
-                                                            <Sparkle className="w-4 h-4 text-indigo-500 animate-pulse" />
+                                                            <Bot className="w-4 h-4 text-indigo-500" />
                                                             <span className="text-xs font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">AI Đánh Giá Chi Tiết</span>
                                                             <span className={`ml-auto text-sm font-black px-2 py-0.5 rounded-full ${ai.score >= 80 ? 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300' : ai.score >= 50 ? 'bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300' : 'bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300'}`}>{ai.score}/100</span>
                                                         </div>
@@ -1067,7 +1067,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                                                 <div className="flex flex-wrap items-center gap-2.5 mt-4">
                                                     <button onClick={() => handleReviewAiCheck(id)} disabled={!translateAnswers[id]?.trim() || isAiLoading}
                                                         className="px-4 py-2 bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-600 text-white text-sm font-bold rounded-xl disabled:opacity-40 flex items-center gap-1.5 transition-all">
-                                                        {isAiLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkle className="w-4 h-4" />} AI đánh giá
+                                                        {isAiLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Bot className="w-4 h-4" />} AI đánh giá
                                                     </button>
                                                     <button onClick={() => setShowTranslateAnswer(p => ({ ...p, [id]: true }))}
                                                         className="px-4 py-2 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300 text-sm font-bold rounded-xl hover:bg-slate-50 dark:hover:bg-slate-600 flex items-center gap-1.5 transition-all">
@@ -1272,7 +1272,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                                 className="flex items-center gap-1.5 px-3.5 py-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white text-xs font-bold rounded-xl transition-all shadow-sm cursor-pointer disabled:opacity-50"
                                 title="Dùng AI chuẩn hóa toàn bộ công thức và giải thích cho bài học này"
                             >
-                                {isStandardizingLesson ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Sparkles className="w-3.5 h-3.5 text-amber-300" />}
+                                {isStandardizingLesson ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Wand2 className="w-3.5 h-3.5 text-amber-300" />}
                                 <span>{isStandardizingLesson ? 'Đang chuẩn hóa...' : `AI Chuẩn hóa bài (${points.length})`}</span>
                             </button>
                             <button onClick={openMasterBankModal}

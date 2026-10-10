@@ -1,7 +1,7 @@
 // AdminGrammarStandardizerModal.jsx — Batch AI Grammar Structure Standardizer
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import {
-    X, Sparkles, CheckCircle2, AlertTriangle, Play, Pause, Square, Download,
+    X, Wand2, CheckCircle2, AlertTriangle, Play, Pause, Square, Download,
     RefreshCw, Layers, BookOpen, ChevronDown, ChevronRight, Check, Eye, RotateCcw
 } from 'lucide-react';
 import { getSharedGrammarData, updateGrammarPoint, clearStandardizedGrammarIds } from '../../utils/grammarService';
@@ -426,8 +426,8 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
                                 disabled={isPreviewing || isRunning || filteredPoints.length === 0}
                                 className="px-3 py-1.5 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 border border-indigo-200 dark:border-indigo-800 text-xs font-bold flex items-center gap-1.5 transition-all disabled:opacity-40"
                             >
-                                <Sparkles className={`w-3.5 h-3.5 ${isPreviewing ? 'animate-spin' : ''}`} />
-                                {isPreviewing ? 'Đang chuẩn hóa...' : '✨ Thử 1 mẫu ngẫu nhiên'}
+                                <Wand2 className={`w-3.5 h-3.5 ${isPreviewing ? 'animate-spin' : ''}`} />
+                                {isPreviewing ? 'Đang chuẩn hóa...' : 'Thử 1 mẫu ngẫu nhiên'}
                             </button>
                         </div>
 

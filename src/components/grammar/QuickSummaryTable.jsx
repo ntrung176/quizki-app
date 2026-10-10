@@ -1,5 +1,5 @@
 import React from 'react';
-import { Bookmark, Sparkles, Pin } from 'lucide-react';
+import { Bookmark, Pin } from 'lucide-react';
 import { speakExampleSentence } from '../../utils/audio';
 
 const QuickSummaryTable = ({ headers = ['Mục', 'Tóm tắt'], rows = [], keySentence = '' }) => {

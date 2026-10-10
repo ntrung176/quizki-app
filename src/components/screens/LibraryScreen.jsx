@@ -1,6 +1,6 @@
 import React, { useMemo, useState, useEffect, useRef, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Folder, Plus, Library, Trash2, X, Search, ChevronRight, Layers, GraduationCap, Play, FolderPlus, Edit3, FolderOpen, ArrowLeft, Move, Cpu, Sparkles, BookOpen, ExternalLink } from 'lucide-react'
+import { Folder, Plus, Library, Trash2, X, Search, ChevronRight, Layers, GraduationCap, Play, FolderPlus, Edit3, FolderOpen, ArrowLeft, Move, Cpu, BookOpen, ExternalLink } from 'lucide-react'
 import { TopTabBar } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import useMenuTransition from '../../hooks/useMenuTransition';

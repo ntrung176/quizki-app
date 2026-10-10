@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import {
-    Brain, Search, Sparkles, BookOpen, ChevronRight, 
+    Brain, Search, BookOpen, ChevronRight, 
     Volume2, X, Filter, Layers, CheckCircle2, Lightbulb,
     Compass, ArrowUpRight, ArrowLeft
 } from 'lucide-react';

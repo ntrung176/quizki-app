@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-    Bookmark, Search, Sparkles, BookOpen, ChevronRight, Heart, X
+    Bookmark, Search, BookOpen, ChevronRight, Heart, X
 } from 'lucide-react';
 import { TopTabBar, PremiumLockedModal } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';

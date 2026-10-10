@@ -1,5 +1,5 @@
 import React from 'react';
-import { Play, Sparkles, Clock, MessageSquare, Flame, BookOpen } from 'lucide-react';
+import { Play, Clock, MessageSquare, Flame, BookOpen } from 'lucide-react';
 import { KAIWA_CATEGORIES } from './videoKaiwaConstants';
 
 const VideoKaiwaHeroBanner = ({

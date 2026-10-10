@@ -363,11 +363,22 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
                         </div>
                         <span className="font-extrabold text-xs sm:text-sm text-emerald-700 dark:text-emerald-300 whitespace-nowrap">Chính xác!</span>
                     </div>
-                    <div className="flex items-center gap-1.5 min-w-0 max-w-[50%] sm:max-w-[55%] text-xs sm:text-sm">
-                        <span className="text-slate-400 dark:text-slate-500 font-medium text-[11px] sm:text-xs shrink-0">Đáp án:</span>
-                        <span className="font-bold font-japanese truncate px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 border border-emerald-500/20">
-                            <FuriganaText text={correct} knownReading={card.reading} forceHide={!furiganaEnabled} />
-                        </span>
+                    <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 flex-1 max-w-[55%] sm:max-w-[62%] text-xs sm:text-sm overflow-hidden">
+                        {input && (
+                            <div className="flex items-center gap-1 min-w-0 shrink">
+                                <span className="text-emerald-700/80 dark:text-emerald-300/80 font-medium text-[11px] sm:text-xs shrink-0">Bạn gõ:</span>
+                                <span className="font-bold font-japanese truncate px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 border border-emerald-500/20 max-w-[90px] sm:max-w-[130px]" title={input}>
+                                    {input}
+                                </span>
+                                <span className="text-slate-400 dark:text-slate-500 shrink-0 font-bold text-xs mx-0.5">→</span>
+                            </div>
+                        )}
+                        <div className="flex items-center gap-1 min-w-0 shrink">
+                            <span className="text-slate-400 dark:text-slate-500 font-medium text-[11px] sm:text-xs shrink-0">Đáp án:</span>
+                            <span className="font-bold font-japanese truncate px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 border border-emerald-500/20 max-w-[110px] sm:max-w-[160px]">
+                                <FuriganaText text={correct} knownReading={card.reading} forceHide={!furiganaEnabled} />
+                            </span>
+                        </div>
                     </div>
                     <div className="text-[10px] sm:text-[11px] text-emerald-600 dark:text-emerald-400 font-medium ml-auto">
                         Đang chuyển tiếp...
@@ -383,11 +394,22 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
                         </div>
                         <span className="font-extrabold text-xs sm:text-sm text-rose-700 dark:text-rose-300 whitespace-nowrap">Chưa đúng</span>
                     </div>
-                    <div className="flex items-center gap-1.5 min-w-0 max-w-[50%] sm:max-w-[55%] text-xs sm:text-sm">
-                        <span className="text-slate-400 dark:text-slate-500 font-medium text-[11px] sm:text-xs shrink-0">Đáp án:</span>
-                        <span className="font-bold font-japanese truncate px-2 py-0.5 rounded-md bg-rose-500/15 text-rose-800 dark:text-rose-200 border border-rose-500/20" title={correct}>
-                            <FuriganaText text={correct} knownReading={card.reading} forceHide={!furiganaEnabled} />
-                        </span>
+                    <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 flex-1 max-w-[55%] sm:max-w-[62%] text-xs sm:text-sm overflow-hidden">
+                        {lastWrongInput && (
+                            <div className="flex items-center gap-1 min-w-0 shrink">
+                                <span className="text-rose-700/80 dark:text-rose-300/80 font-medium text-[11px] sm:text-xs shrink-0">Bạn gõ:</span>
+                                <span className="font-bold font-japanese truncate px-1.5 py-0.5 rounded bg-rose-500/15 text-rose-700 dark:text-rose-300 line-through border border-rose-500/25 max-w-[90px] sm:max-w-[130px]" title={lastWrongInput}>
+                                    {lastWrongInput}
+                                </span>
+                                <span className="text-slate-400 dark:text-slate-500 shrink-0 font-bold text-xs mx-0.5">→</span>
+                            </div>
+                        )}
+                        <div className="flex items-center gap-1 min-w-0 shrink">
+                            <span className="text-slate-400 dark:text-slate-500 font-medium text-[11px] sm:text-xs shrink-0">Đáp án:</span>
+                            <span className="font-bold font-japanese truncate px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 border border-emerald-500/20 max-w-[110px] sm:max-w-[160px]" title={correct}>
+                                <FuriganaText text={correct} knownReading={card.reading} forceHide={!furiganaEnabled} />
+                            </span>
+                        </div>
                     </div>
                     <button
                         onClick={handleRetypeCheck}

@@ -1,7 +1,7 @@
 // AdminPdfIngestorModal.jsx — AI PDF Ingestor & Data Generator
 import React, { useState, useEffect, useRef } from 'react';
 import {
-    X, Upload, FileText, Sparkles, BookOpen, Award, Layers, Languages,
+    X, Upload, FileText, Wand2, BookOpen, Award, Layers, Languages,
     Play, Square, Check, CheckCircle2, AlertTriangle, ChevronRight,
     ChevronDown, Eye, Code, Save, Download, RefreshCw, Loader2, ArrowLeft,
     Sliders, HelpCircle, FileCheck
@@ -211,7 +211,7 @@ const AdminPdfIngestorModal = ({
                 <div className="px-6 py-4 border-b border-slate-150 dark:border-slate-800 flex items-center justify-between bg-slate-50/80 dark:bg-slate-900/80 shrink-0">
                     <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-md">
-                            <Sparkles className="w-5 h-5 animate-pulse" />
+                            <FileText className="w-5 h-5" />
                         </div>
                         <div>
                             <h2 className="text-base md:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -432,7 +432,7 @@ const AdminPdfIngestorModal = ({
                                     disabled={!pdfFile || isProcessing}
                                     className="w-full py-3.5 bg-gradient-to-r from-indigo-600 via-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-2xl font-bold text-sm shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 transition-all"
                                 >
-                                    <Sparkles className="w-5 h-5 text-amber-300 fill-amber-300" />
+                                    <Wand2 className="w-5 h-5 text-amber-300" />
                                     <span>Bắt đầu Trích xuất & Soạn dữ liệu bằng AI</span>
                                 </button>
                             </div>

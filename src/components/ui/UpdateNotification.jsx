@@ -1,5 +1,5 @@
 import React from 'react';
-import { RefreshCw, X, Sparkle } from 'lucide-react';
+import { RefreshCw, X, Bell } from 'lucide-react';
 
 /**
  * Banner notification that appears when a new version of the app is deployed.
@@ -10,7 +10,7 @@ const UpdateNotification = ({ onRefresh, onDismiss }) => {
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[9999] animate-slide-up">
             <div className="flex items-center gap-3 px-5 py-3.5 bg-gradient-to-r from-indigo-600 to-indigo-700 text-white rounded-2xl shadow-2xl shadow-indigo-500/30 border border-indigo-400/20 backdrop-blur-sm">
                 <div className="flex items-center gap-2">
-                    <Sparkle className="w-5 h-5 text-yellow-300 animate-pulse" />
+                    <Bell className="w-5 h-5 text-amber-300 animate-bounce" />
                     <span className="text-sm font-semibold whitespace-nowrap">
                         Có bản cập nhật mới!
                     </span>

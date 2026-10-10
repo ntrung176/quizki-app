@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, Check, Sparkle, Plus } from 'lucide-react';
+import { Heart, Check, Plus } from 'lucide-react';
 import { LEVEL_COLORS } from './kanjiConstants';
 import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 

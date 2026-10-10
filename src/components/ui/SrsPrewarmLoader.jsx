@@ -1,5 +1,5 @@
 import React from 'react';
-import { Zap, Sparkles } from 'lucide-react';
+import { Zap, Loader2 } from 'lucide-react';
 
 /**
  * SrsPrewarmLoader - High-tech calculating & pre-warming screen before entering Card #1.
@@ -31,7 +31,7 @@ const SrsPrewarmLoader = ({ title = "Từ Vựng", count = 0 }) => {
             </div>
 
             <div className="flex items-center gap-1.5 mt-4 text-[11px] text-amber-300/90 font-mono">
-                <Sparkles className="w-3.5 h-3.5 animate-spin" />
+                <Loader2 className="w-3.5 h-3.5 animate-spin" />
                 <span>Đã sẵn sàng vào thẻ đầu tiên...</span>
             </div>
         </div>

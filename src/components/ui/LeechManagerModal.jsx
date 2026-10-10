@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Flame, RotateCcw, Play, CheckCircle2, BookOpen, AlertTriangle, Sparkles, Filter, Lightbulb } from 'lucide-react';
+import { X, Flame, RotateCcw, Play, CheckCircle2, BookOpen, AlertTriangle, Filter, Lightbulb } from 'lucide-react';
 import { isLeechCard } from '../../utils/srs';
 import FuriganaText from './FuriganaText';
 import InlineMnemonicEditor from './InlineMnemonicEditor';
@@ -153,8 +153,8 @@ const LeechManagerModal = ({
                 <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-3">
                     {displayedItems.length === 0 ? (
                         <div className="py-12 text-center space-y-3">
-                            <div className="w-14 h-14 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center mx-auto text-2xl">
-                                ✨
+                            <div className="w-14 h-14 rounded-full bg-emerald-500/10 text-emerald-500 flex items-center justify-center mx-auto">
+                                <CheckCircle2 className="w-7 h-7" />
                             </div>
                             <h3 className="text-base font-bold text-slate-800 dark:text-white">
                                 {t('modals.noLeechTitle', 'Không có thẻ khó thuộc nào!')}

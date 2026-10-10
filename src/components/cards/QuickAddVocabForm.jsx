@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { useNavigate } from 'react-router-dom';
 import { 
-    Plus, Loader2, Check, X, Languages, Sparkle, 
+    Plus, Loader2, Check, X, Languages, 
     ChevronDown, Search, Trash2, ArrowLeft, FolderKanban, Folder, BookOpen
 } from 'lucide-react';
 import { POS_TYPES } from '../../config/constants';

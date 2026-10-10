@@ -11,12 +11,12 @@ const LevelUpModal = ({ levelUpInfo, onClose }) => {
                 {/* Floating/rotating glow element behind */}
                 <div className="absolute -inset-1 bg-gradient-to-r from-pink-500 via-sky-500 to-indigo-500 rounded-[26px] blur-2xl opacity-40 animate-pulse -z-10" />
 
-                {/* Celebration sparkles */}
+                {/* Celebration confetti */}
                 <div className="absolute inset-0 pointer-events-none opacity-40">
-                    <span className="absolute top-4 left-6 text-2xl animate-bounce">✨</span>
-                    <span className="absolute top-12 right-6 text-xl animate-ping">⭐</span>
+                    <span className="absolute top-4 left-6 text-2xl animate-bounce">🎉</span>
+                    <span className="absolute top-12 right-6 text-xl animate-ping">🎊</span>
                     <span className="absolute bottom-12 left-4 text-2xl animate-bounce">🎉</span>
-                    <span className="absolute bottom-6 right-8 text-xl animate-pulse">✨</span>
+                    <span className="absolute bottom-6 right-8 text-xl animate-pulse">🎊</span>
                 </div>
 
                 {/* Trophy Container */}

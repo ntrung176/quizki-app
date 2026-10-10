@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { 
-    Film, Sparkles, Search, Filter, Play, Plus, Trash2, Edit3, 
+    Film, Search, Filter, Play, Plus, Trash2, Edit3, 
     ArrowLeft, Link as LinkIcon, BookOpen, Layers, CheckCircle2, 
     Bookmark, Zap, ShieldAlert, Award, ChevronDown, HardDrive, Video, Upload
 } from 'lucide-react';

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BookOpen, X as XIcon, RefreshCw, Volume2, Check, Trash2, Sparkle, Bot, Loader2 } from 'lucide-react';
+import { BookOpen, X as XIcon, RefreshCw, Volume2, Check, Trash2, Wand2, Bot, Loader2 } from 'lucide-react';
 import { playAudio, generateAudioSilent } from '../../utils/audio';
 
 const AdminEditDictModal = ({
@@ -285,7 +285,7 @@ const AdminEditDictModal = ({
                                         {isGeneratingAudio ? (
                                             <Loader2 className="w-4 h-4 animate-spin" />
                                         ) : (
-                                            <Sparkle className="w-4 h-4 text-amber-300 fill-amber-300" />
+                                            <Wand2 className="w-4 h-4 text-amber-300" />
                                         )}
                                         Dùng AI (Tự động theo chữ Nhật)
                                     </button>

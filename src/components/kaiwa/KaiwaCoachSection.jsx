@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { 
-    BookOpen, Sparkles, MessageSquare, Search, ChevronRight, 
+    BookOpen, Compass, MessageSquare, Search, ChevronRight, 
     Lightbulb, UserCheck, ArrowRight, X, Play, CheckCircle2, Award 
 } from 'lucide-react';
 
@@ -57,7 +57,7 @@ const KaiwaCoachSection = ({ onStartCoachChat }) => {
             <div className="p-4 sm:p-6 bg-gradient-to-r from-slate-900 to-indigo-950 text-white rounded-3xl border border-indigo-800/40 shadow-sm flex flex-col md:flex-row items-center justify-between gap-4">
                 <div className="space-y-1 text-center md:text-left">
                     <div className="flex items-center justify-center md:justify-start gap-2 text-indigo-300 text-xs font-bold uppercase tracking-wider">
-                        <Sparkles className="w-4 h-4 text-amber-400" />
+                        <Compass className="w-4 h-4 text-indigo-400" />
                         <span>Huấn Luyện Viên Giao Tiếp & Nhật Ký (Coach Series)</span>
                     </div>
                     <h3 className="text-base sm:text-lg font-black tracking-tight">

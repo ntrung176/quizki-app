@@ -582,12 +582,18 @@ export const useBookData = ({
         setEditingVocabData({ ...v });
     };
 
-    const handleSaveVocabEdit = async () => {
-        if (editingVocabIndex === null || !editingVocabData || !lessonId) return;
+    const handleSaveDirectVocabEdit = async (targetChapterId, targetLessonId, targetVocabIndex, updatedData) => {
+        const cId = targetChapterId || chapterId;
+        const lId = targetLessonId || lessonId;
+        if (!groupId || !bookId || !cId || !lId || targetVocabIndex === null || !updatedData) return false;
         try {
-            const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lessonId);
-            const newVocab = [...(currentLesson?.vocab || [])];
-            newVocab[editingVocabIndex] = { ...editingVocabData };
+            const targetChapter = currentBook?.chapters?.find(c => c.id === cId);
+            const targetLesson = targetChapter?.lessons?.find(l => l.id === lId);
+            if (!targetLesson) return false;
+
+            const lessonRef = doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', cId, 'lessons', lId);
+            const newVocab = [...(targetLesson.vocab || [])];
+            newVocab[targetVocabIndex] = { ...updatedData };
             await setDoc(lessonRef, { vocab: newVocab }, { merge: true });
 
             let updatedGroupToSave = null;
@@ -600,10 +606,10 @@ export const useBookData = ({
                         return {
                             ...b,
                             chapters: (b.chapters || []).map(c => {
-                                if (c.id !== chapterId) return c;
+                                if (c.id !== cId) return c;
                                 return {
                                     ...c,
-                                    lessons: (c.lessons || []).map(l => l.id === lessonId ? { ...l, vocab: newVocab } : l)
+                                    lessons: (c.lessons || []).map(l => l.id === lId ? { ...l, vocab: newVocab } : l)
                                 };
                             })
                         };
@@ -616,12 +622,21 @@ export const useBookData = ({
                 updateEditedBookGroupLocalCache(updatedGroupToSave);
             }
 
+            showToast('Đã lưu thay đổi từ vựng thành công! 🎉', 'success');
+            return true;
+        } catch (e) {
+            console.error('Error saving direct vocab edit:', e);
+            showToast('Lỗi khi lưu từ vựng: ' + e.message, 'error');
+            return false;
+        }
+    };
+
+    const handleSaveVocabEdit = async () => {
+        if (editingVocabIndex === null || !editingVocabData || !lessonId) return;
+        const ok = await handleSaveDirectVocabEdit(chapterId, lessonId, editingVocabIndex, editingVocabData);
+        if (ok) {
             setEditingVocabIndex(null);
             setEditingVocabData(null);
-            showToast('Đã cập nhật từ vựng!', 'success');
-        } catch (e) {
-            console.error('Error saving vocab edit:', e);
-            showToast('Lỗi khi lưu: ' + e.message, 'error');
         }
     };
 
@@ -1245,7 +1260,7 @@ export const useBookData = ({
         handleAddGroup, handleAddBook, handleAddChapter, handleAddLesson,
         handleDeleteGroup, handleDeleteBook, handleDeleteChapter, handleDeleteLesson,
         handleToggleLessonPremium, handleStartEditGroup, handleSaveEditGroup,
-        handleStartEditBook, handleSaveEditBook, handleEditVocab, handleSaveVocabEdit, handleBatchSaveLessonVocab,
+        handleStartEditBook, handleSaveEditBook, handleEditVocab, handleSaveVocabEdit, handleSaveDirectVocabEdit, handleBatchSaveLessonVocab,
         handleDeleteVocab, handleReorderChapter, handleReorderLesson, handleImportJson,
         handleFixAudio, handleCreateStudySetFromLesson, handleLinkToExistingStudySet,
         handleSyncVocabWithStudySet, handleUnlinkStudySet, handleDeleteStudySet,

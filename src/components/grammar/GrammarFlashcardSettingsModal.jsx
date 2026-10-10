@@ -1,6 +1,6 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import { Settings, X, RotateCcw, Volume2, Layers, Keyboard, CreditCard, Sparkles } from 'lucide-react';
+import { Settings, X, RotateCcw, Volume2, Layers, Keyboard, CreditCard } from 'lucide-react';
 
 export const DEFAULT_GRAMMAR_FLASHCARD_SETTINGS = {
     reviewType: 'flashcard', // 'flashcard' | 'typing'
@@ -130,7 +130,7 @@ const GrammarFlashcardSettingsModal = ({
                     {currentSettings.reviewType === 'typing' && (
                         <div className="bg-emerald-50/80 dark:bg-emerald-950/30 border border-emerald-200/70 dark:border-emerald-800/50 rounded-2xl p-3 text-[11.5px] text-emerald-800 dark:text-emerald-300 space-y-1">
                             <div className="font-bold flex items-center gap-1 text-emerald-900 dark:text-emerald-200">
-                                <Sparkles className="w-3.5 h-3.5" /> Chế độ Gõ phím (Typing):
+                                <Keyboard className="w-3.5 h-3.5" /> Chế độ Gõ phím (Typing):
                             </div>
                             <p className="opacity-90 leading-relaxed">
                                 Bạn có thể gõ câu trả lời bằng chữ <strong>Hiragana</strong> (hoặc Romaji / Tiếng Việt). Nhấn <kbd className="px-1 py-0.5 bg-emerald-100 dark:bg-emerald-900 rounded font-mono text-[10px]">Enter</kbd> để kiểm tra so khớp từng ký tự.

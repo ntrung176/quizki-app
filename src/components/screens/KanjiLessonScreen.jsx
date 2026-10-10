@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo, useRef } from 'react'
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import HanziWriter from 'hanzi-writer';
-import { ChevronLeft, ChevronRight, Plus, BookOpen, PenTool, Award, Volume2, Check, X, Sparkle, Sparkles, RotateCcw, Keyboard, Layers, RefreshCw, ArrowLeft, Search, User, Heart, Bookmark } from 'lucide-react'
+import { ChevronLeft, ChevronRight, Plus, BookOpen, PenTool, Award, Volume2, Check, X, Lightbulb, RotateCcw, Keyboard, Layers, RefreshCw, ArrowLeft, Search, User, Heart, Bookmark } from 'lucide-react'
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, getDoc, deleteDoc, increment, addDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
@@ -886,7 +886,7 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
                                         {flipCard.mnemonic && (
                                             <div className="bg-gray-50 dark:bg-slate-800/60 rounded-xl p-4 border border-gray-200 dark:border-slate-600 max-w-md w-full mx-auto text-left">
                                                 <div className="flex items-center justify-center gap-1 text-xs text-yellow-600 dark:text-yellow-400 mb-1">
-                                                    <Sparkle className="w-3.5 h-3.5" /> CÁCH NHỚ
+                                                    <Lightbulb className="w-3.5 h-3.5" /> CÁCH NHỚ
                                                 </div>
                                                 <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed text-center">{flipCard.mnemonic}</div>
                                             </div>
@@ -987,7 +987,7 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
             <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-3 sm:p-4 shadow-2xs space-y-2.5">
                 <div className="flex justify-between items-center text-xs font-bold text-slate-500 dark:text-slate-400">
                     <span className="flex items-center gap-1.5">
-                        <Sparkles className="w-3.5 h-3.5 text-indigo-500" />
+                        <Layers className="w-3.5 h-3.5 text-indigo-500" />
                         <span>Tiến độ bài học</span>
                     </span>
                     <span className="font-mono text-indigo-600 dark:text-cyan-400 font-black">

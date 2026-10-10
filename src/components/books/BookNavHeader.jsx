@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronRight, Plus, Upload, BookOpen, Layers, Sparkles } from 'lucide-react';
+import { ChevronRight, Plus, Upload, BookOpen, Layers, FileText } from 'lucide-react';
 
 const BookNavHeader = ({
     currentGroup,
@@ -106,7 +106,7 @@ const BookNavHeader = ({
                                 className="px-3 py-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm cursor-pointer"
                                 title="Soạn cấu trúc sách và bài học tự động từ file PDF bằng AI"
                             >
-                                <Sparkles className="w-3.5 h-3.5" /> Soạn từ PDF (AI)
+                                <FileText className="w-3.5 h-3.5" /> Soạn từ PDF (AI)
                             </button>
                         )}
                         {groupId && !bookId && (
