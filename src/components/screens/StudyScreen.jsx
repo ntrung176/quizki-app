@@ -206,26 +206,35 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furigana
 
             {/* Wrong answer: Single row compact status bar with correct answer and Continue button */}
             {answered && normalize(selected) !== normalize(correct) && (
-                <div className="w-full py-2 sm:py-2.5 px-3 sm:px-4 rounded-xl sm:rounded-2xl border flex items-center justify-between gap-2 shadow-sm animate-fade-in bg-rose-50/90 dark:bg-rose-950/40 border-rose-200/80 dark:border-rose-800/60 text-rose-800 dark:text-rose-200 mt-2">
-                    <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-                        <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0">
-                            <X className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-600 dark:text-rose-400 stroke-[2.5]" />
+                <div className="w-full py-2.5 px-3 sm:px-4 rounded-xl sm:rounded-2xl border flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3 shadow-sm animate-fade-in bg-rose-50/90 dark:bg-rose-950/40 border-rose-200/80 dark:border-rose-800/60 text-rose-800 dark:text-rose-200 mt-2">
+                    <div className="flex items-center gap-1.5 shrink-0">
+                        <div className="w-5 h-5 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0">
+                            <X className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400 stroke-[2.5]" />
                         </div>
                         <span className="font-extrabold text-xs sm:text-sm text-rose-700 dark:text-rose-300 whitespace-nowrap">Chưa đúng</span>
                     </div>
 
-                    <div className="flex items-center gap-1.5 min-w-0 max-w-[50%] sm:max-w-[55%] text-xs sm:text-sm">
-                        <span className="text-slate-400 dark:text-slate-500 font-medium text-[11px] sm:text-xs shrink-0">
-                            Đáp án:
-                        </span>
-                        <span className="font-bold font-japanese truncate px-2 py-0.5 rounded-md bg-rose-500/15 text-rose-800 dark:text-rose-200 border border-rose-500/20" title={correct}>
-                            <FuriganaText text={correct} knownReading={card.reading} forceHide={!furiganaEnabled} />
-                        </span>
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 min-w-0 flex-1 text-xs sm:text-sm">
+                        {selected && (
+                            <div className="flex items-center gap-1.5 shrink-0 max-w-full">
+                                <span className="text-rose-700/80 dark:text-rose-300/80 font-medium text-[11px] sm:text-xs shrink-0">Đã chọn:</span>
+                                <span className="font-bold font-japanese px-2 py-0.5 rounded bg-rose-500/15 text-rose-700 dark:text-rose-300 line-through border border-rose-500/25 max-w-[180px] sm:max-w-none truncate" title={selected}>
+                                    {selected}
+                                </span>
+                                <span className="text-slate-400 dark:text-slate-500 shrink-0 font-bold text-xs mx-0.5">→</span>
+                            </div>
+                        )}
+                        <div className="flex items-center gap-1.5 min-w-0 flex-wrap">
+                            <span className="text-slate-500 dark:text-slate-400 font-medium text-[11px] sm:text-xs shrink-0">Đáp án:</span>
+                            <span className="inline-flex items-center font-bold font-japanese px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-800 dark:text-emerald-200 border border-emerald-500/30 text-xs sm:text-sm shadow-xs" title={correct}>
+                                <FuriganaText text={correct} knownReading={card.reading} forceHide={!furiganaEnabled} compact={true} />
+                            </span>
+                        </div>
                     </div>
 
                     <button
                         onClick={() => onWrong()}
-                        className="px-3 sm:px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm shadow-sm transition-all active:scale-95 flex items-center gap-1 shrink-0 ml-auto cursor-pointer"
+                        className="px-3 sm:px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm shadow-sm transition-all active:scale-95 flex items-center gap-1 shrink-0 self-end sm:self-auto cursor-pointer"
                     >
                         <span>Tiếp tục</span>
                         <span className="hidden sm:inline opacity-75 font-normal text-[10px]">(Enter)</span>
@@ -356,70 +365,58 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
             )}
 
             {feedback === 'correct' && (
-                <div className="w-full py-2 sm:py-2.5 px-3 sm:px-4 rounded-xl sm:rounded-2xl border flex items-center justify-between gap-2 shadow-sm animate-fade-in bg-emerald-50/90 dark:bg-emerald-950/40 border-emerald-200/80 dark:border-emerald-800/60 text-emerald-800 dark:text-emerald-200">
-                    <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-                        <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
-                            <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 dark:text-emerald-400 stroke-[2.5]" />
+                <div className="w-full py-2.5 px-3 sm:px-4 rounded-xl sm:rounded-2xl border flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 shadow-sm animate-fade-in bg-emerald-50/90 dark:bg-emerald-950/40 border-emerald-200/80 dark:border-emerald-800/60 text-emerald-800 dark:text-emerald-200">
+                    <div className="flex items-center gap-1.5 shrink-0">
+                        <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
+                            <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 stroke-[2.5]" />
                         </div>
                         <span className="font-extrabold text-xs sm:text-sm text-emerald-700 dark:text-emerald-300 whitespace-nowrap">Chính xác!</span>
                     </div>
-                    <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 flex-1 max-w-[55%] sm:max-w-[62%] text-xs sm:text-sm overflow-hidden">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 min-w-0 flex-1 text-xs sm:text-sm">
                         {input && (
-                            <div className="flex items-center gap-1 min-w-0 shrink">
+                            <div className="flex items-center gap-1.5 shrink-0 max-w-full">
                                 <span className="text-emerald-700/80 dark:text-emerald-300/80 font-medium text-[11px] sm:text-xs shrink-0">Bạn gõ:</span>
-                                <span className="font-bold font-japanese truncate px-1.5 py-0.5 rounded bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 border border-emerald-500/20 max-w-[90px] sm:max-w-[130px]" title={input}>
+                                <span className="font-bold font-japanese px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 border border-emerald-500/20 max-w-[180px] sm:max-w-none truncate" title={input}>
                                     {input}
                                 </span>
                                 <span className="text-slate-400 dark:text-slate-500 shrink-0 font-bold text-xs mx-0.5">→</span>
                             </div>
                         )}
-                        <div className="flex items-center gap-1 min-w-0 shrink">
-                            <span className="text-slate-400 dark:text-slate-500 font-medium text-[11px] sm:text-xs shrink-0">Đáp án:</span>
-                            <span className="font-bold font-japanese truncate px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 border border-emerald-500/20 max-w-[110px] sm:max-w-[160px]">
-                                <FuriganaText text={correct} knownReading={card.reading} forceHide={!furiganaEnabled} />
+                        <div className="flex items-center gap-1.5 min-w-0 flex-wrap">
+                            <span className="text-emerald-700/80 dark:text-emerald-300/80 font-medium text-[11px] sm:text-xs shrink-0">Đáp án:</span>
+                            <span className="inline-flex items-center font-bold font-japanese px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-800 dark:text-emerald-200 border border-emerald-500/30 text-xs sm:text-sm shadow-xs" title={correct}>
+                                <FuriganaText text={correct} knownReading={card.reading} forceHide={!furiganaEnabled} compact={true} />
                             </span>
                         </div>
-                    </div>
-                    <div className="text-[10px] sm:text-[11px] text-emerald-600 dark:text-emerald-400 font-medium ml-auto">
-                        Đang chuyển tiếp...
                     </div>
                 </div>
             )}
 
             {needsRetype && (
-                <div className="w-full py-2 sm:py-2.5 px-3 sm:px-4 rounded-xl sm:rounded-2xl border flex items-center justify-between gap-2 shadow-sm animate-fade-in bg-rose-50/90 dark:bg-rose-950/40 border-rose-200/80 dark:border-rose-800/60 text-rose-800 dark:text-rose-200">
-                    <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-                        <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0">
-                            <X className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-600 dark:text-rose-400 stroke-[2.5]" />
+                <div className="w-full py-2.5 px-3 sm:px-4 rounded-xl sm:rounded-2xl border flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 shadow-sm animate-fade-in bg-rose-50/90 dark:bg-rose-950/40 border-rose-200/80 dark:border-rose-800/60 text-rose-800 dark:text-rose-200">
+                    <div className="flex items-center gap-1.5 shrink-0">
+                        <div className="w-5 h-5 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0">
+                            <X className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400 stroke-[2.5]" />
                         </div>
                         <span className="font-extrabold text-xs sm:text-sm text-rose-700 dark:text-rose-300 whitespace-nowrap">Chưa đúng</span>
                     </div>
-                    <div className="flex items-center gap-1.5 sm:gap-2 min-w-0 flex-1 max-w-[55%] sm:max-w-[62%] text-xs sm:text-sm overflow-hidden">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 min-w-0 flex-1 text-xs sm:text-sm">
                         {lastWrongInput && (
-                            <div className="flex items-center gap-1 min-w-0 shrink">
+                            <div className="flex items-center gap-1.5 shrink-0 max-w-full">
                                 <span className="text-rose-700/80 dark:text-rose-300/80 font-medium text-[11px] sm:text-xs shrink-0">Bạn gõ:</span>
-                                <span className="font-bold font-japanese truncate px-1.5 py-0.5 rounded bg-rose-500/15 text-rose-700 dark:text-rose-300 line-through border border-rose-500/25 max-w-[90px] sm:max-w-[130px]" title={lastWrongInput}>
+                                <span className="font-bold font-japanese px-2 py-0.5 rounded bg-rose-500/15 text-rose-700 dark:text-rose-300 line-through border border-rose-500/25 max-w-[180px] sm:max-w-none truncate" title={lastWrongInput}>
                                     {lastWrongInput}
                                 </span>
                                 <span className="text-slate-400 dark:text-slate-500 shrink-0 font-bold text-xs mx-0.5">→</span>
                             </div>
                         )}
-                        <div className="flex items-center gap-1 min-w-0 shrink">
-                            <span className="text-slate-400 dark:text-slate-500 font-medium text-[11px] sm:text-xs shrink-0">Đáp án:</span>
-                            <span className="font-bold font-japanese truncate px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 border border-emerald-500/20 max-w-[110px] sm:max-w-[160px]" title={correct}>
-                                <FuriganaText text={correct} knownReading={card.reading} forceHide={!furiganaEnabled} />
+                        <div className="flex items-center gap-1.5 min-w-0 flex-wrap">
+                            <span className="text-slate-500 dark:text-slate-400 font-medium text-[11px] sm:text-xs shrink-0">Đáp án:</span>
+                            <span className="inline-flex items-center font-bold font-japanese px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-800 dark:text-emerald-200 border border-emerald-500/30 text-xs sm:text-sm shadow-xs" title={correct}>
+                                <FuriganaText text={correct} knownReading={card.reading} forceHide={!furiganaEnabled} compact={true} />
                             </span>
                         </div>
                     </div>
-                    <button
-                        onClick={handleRetypeCheck}
-                        disabled={!input.trim()}
-                        className="px-3 sm:px-4 py-1.5 rounded-lg bg-red-600 hover:bg-red-700 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-xs sm:text-sm shadow-sm transition-all active:scale-95 flex items-center gap-1 shrink-0 ml-auto cursor-pointer"
-                    >
-                        <span>Gõ lại</span>
-                        <span className="hidden sm:inline opacity-75 font-normal text-[10px]">(Enter)</span>
-                        <span className="text-xs">→</span>
-                    </button>
                 </div>
             )}
         </div>

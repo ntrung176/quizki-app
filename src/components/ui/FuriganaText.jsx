@@ -231,7 +231,7 @@ const parseFuriganaText = (text) => {
  * @param {string} text - Japanese text (with or without brackets)
  * @param {string} className - Optional CSS class for the container
  */
-const FuriganaText = ({ text, knownReading = '', className = '', forceHide = false, showReadingOnly = false }) => {
+const FuriganaText = ({ text, knownReading = '', className = '', forceHide = false, showReadingOnly = false, compact = false }) => {
     const [processedText, setProcessedText] = useState(text || '');
     const [furiganaColor, setFuriganaColor] = useState(() => {
         try {
@@ -317,31 +317,57 @@ const FuriganaText = ({ text, knownReading = '', className = '', forceHide = fal
     if (!processedText) return null;
 
     const parts = parseFuriganaText(processedText);
+    const isNowrap = compact || (typeof className === 'string' && className.includes('whitespace-nowrap'));
+    const wrapClass = isNowrap ? 'whitespace-nowrap' : 'break-words whitespace-normal overflow-wrap-anywhere';
+    const containerWrapClass = isNowrap ? 'inline-flex items-center whitespace-nowrap' : 'inline-wrap break-words whitespace-normal overflow-wrap-anywhere';
 
     if (parts.length === 0 || (parts.length === 1 && parts[0].type === 'text')) {
-        return <span className={`break-words whitespace-normal overflow-wrap-anywhere ${className}`}>{processedText}</span>;
+        return <span className={`${isNowrap ? 'whitespace-nowrap' : 'break-words whitespace-normal overflow-wrap-anywhere'} ${className}`}>{processedText}</span>;
     }
 
     return (
-        <span className={`inline-wrap break-words whitespace-normal overflow-wrap-anywhere ${className}`}>
+        <span className={`${containerWrapClass} ${className}`}>
             {parts.map((part, idx) => {
                 if (part.type === 'ruby') {
                     if (showReadingOnly) {
-                        return <span key={idx} className="break-words whitespace-normal">{part.reading}</span>;
+                        return <span key={idx} className={wrapClass}>{part.reading}</span>;
                     }
                     if (!furiganaEnabled) {
-                        return <span key={idx} className="break-words whitespace-normal">{part.kanji}</span>;
+                        return <span key={idx} className={wrapClass}>{part.kanji}</span>;
                     }
                     return (
-                        <ruby key={idx} style={{ rubyPosition: 'over', lineHeight: '2.4', overflowWrap: 'anywhere', wordBreak: 'break-word', whiteSpace: 'normal' }}>
+                        <ruby 
+                            key={idx} 
+                            style={{ 
+                                rubyPosition: 'over', 
+                                lineHeight: compact ? '1.15' : '2.4', 
+                                overflowWrap: isNowrap ? 'normal' : 'anywhere', 
+                                wordBreak: isNowrap ? 'keep-all' : 'break-word', 
+                                whiteSpace: isNowrap ? 'nowrap' : 'normal',
+                                verticalAlign: compact ? 'middle' : 'baseline'
+                            }}
+                        >
                             {part.kanji}
                             <rp>(</rp>
-                            <rt style={{ fontSize: furiganaFontSize, paddingBottom: '3px', letterSpacing: 'normal', color: furiganaColor, whiteSpace: 'normal', overflowWrap: 'anywhere', wordBreak: 'break-word' }}>{part.reading}</rt>
+                            <rt 
+                                style={{ 
+                                    fontSize: compact ? '0.55em' : furiganaFontSize, 
+                                    paddingBottom: compact ? '0px' : '3px', 
+                                    letterSpacing: 'normal', 
+                                    color: furiganaColor, 
+                                    whiteSpace: 'nowrap', 
+                                    lineHeight: '1',
+                                    overflowWrap: 'normal',
+                                    wordBreak: 'keep-all'
+                                }}
+                            >
+                                {part.reading}
+                            </rt>
                             <rp>)</rp>
                         </ruby>
                     );
                 }
-                return <span key={idx} className="break-words whitespace-normal">{part.content}</span>;
+                return <span key={idx} className={wrapClass}>{part.content}</span>;
             })}
         </span>
     );

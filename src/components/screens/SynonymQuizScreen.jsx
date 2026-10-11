@@ -419,27 +419,40 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
 
                     {/* Next */}
                     {isRevealed && selectedAnswer !== currentCard?.synonym && (
-                        <div className="w-full py-2 sm:py-2.5 px-3 sm:px-4 rounded-xl sm:rounded-2xl border flex items-center justify-between gap-2 shadow-sm animate-fade-in bg-rose-50/90 dark:bg-rose-950/40 border-rose-200/80 dark:border-rose-800/60 text-rose-800 dark:text-rose-200 mt-2">
-                            <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-                                <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0">
-                                    <XCircle className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-600 dark:text-rose-400 stroke-[2.5]" />
+                        <div className="w-full py-2.5 px-3 sm:px-4 rounded-xl sm:rounded-2xl border flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3 shadow-sm animate-fade-in bg-rose-50/90 dark:bg-rose-950/40 border-rose-200/80 dark:border-rose-800/60 text-rose-800 dark:text-rose-200 mt-2">
+                            <div className="flex items-center gap-1.5 shrink-0">
+                                <div className="w-5 h-5 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0">
+                                    <XCircle className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400 stroke-[2.5]" />
                                 </div>
                                 <span className="font-extrabold text-xs sm:text-sm text-rose-700 dark:text-rose-300 whitespace-nowrap">Chưa đúng</span>
                             </div>
 
-                            <div className="flex items-center gap-1.5 min-w-0 max-w-[50%] sm:max-w-[55%] text-xs sm:text-sm">
-                                <span className="text-slate-400 dark:text-slate-500 font-medium text-[11px] sm:text-xs shrink-0">
-                                    Đồng nghĩa:
-                                </span>
-                                <span className="font-bold font-japanese truncate px-2 py-0.5 rounded-md bg-rose-500/15 text-rose-800 dark:text-rose-200 border border-rose-500/20" title={currentCard?.synonym}>
-                                    <FuriganaText text={currentCard?.synonym} forceHide={!synonymFuriganaEnabled} />
-                                </span>
+                            <div className="flex flex-wrap items-center gap-2 sm:gap-3 min-w-0 flex-1 text-xs sm:text-sm">
+                                {selectedAnswer && (
+                                    <div className="flex items-center gap-1.5 shrink-0 max-w-full">
+                                        <span className="text-rose-700/80 dark:text-rose-300/80 font-medium text-[11px] sm:text-xs shrink-0">
+                                            Đã chọn:
+                                        </span>
+                                        <span className="font-bold font-japanese px-2 py-0.5 rounded bg-rose-500/15 text-rose-700 dark:text-rose-300 line-through border border-rose-500/25 max-w-[180px] sm:max-w-none truncate" title={selectedAnswer}>
+                                            {selectedAnswer}
+                                        </span>
+                                        <span className="text-slate-400 dark:text-slate-500 shrink-0 font-bold text-xs mx-0.5">→</span>
+                                    </div>
+                                )}
+                                <div className="flex items-center gap-1.5 min-w-0 flex-wrap">
+                                    <span className="text-slate-500 dark:text-slate-400 font-medium text-[11px] sm:text-xs shrink-0">
+                                        Đồng nghĩa:
+                                    </span>
+                                    <span className="inline-flex items-center font-bold font-japanese px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-800 dark:text-emerald-200 border border-emerald-500/30 text-xs sm:text-sm shadow-xs" title={currentCard?.synonym}>
+                                        <FuriganaText text={currentCard?.synonym} forceHide={!synonymFuriganaEnabled} compact={true} />
+                                    </span>
+                                </div>
                             </div>
 
                             <button 
                                 onClick={() => handleNext(false)} 
                                 disabled={isTransitioning}
-                                className={`px-3 sm:px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm shadow-sm transition-all flex items-center gap-1 shrink-0 ml-auto cursor-pointer ${isTransitioning ? 'opacity-70 cursor-not-allowed' : ''}`}
+                                className={`px-3 sm:px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm shadow-sm transition-all flex items-center gap-1 shrink-0 self-end sm:self-auto cursor-pointer ${isTransitioning ? 'opacity-70 cursor-not-allowed' : ''}`}
                             >
                                 {isTransitioning ? 'Đang tải...' : (currentIndex < quizQueue.length - 1 ? <><span>Tiếp tục</span><ChevronRight className="w-3.5 h-3.5" /></> : <span>Xong 🎉</span>)}
                             </button>

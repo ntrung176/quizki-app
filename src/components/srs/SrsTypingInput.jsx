@@ -2,6 +2,7 @@ import React, { useState, useEffect, useLayoutEffect, useRef, useCallback } from
 import { Check, X, CornerDownLeft } from 'lucide-react';
 import { calculateAnkiDiff, transformVietnameseTelex } from '../../utils/ankiDiff';
 import { playCorrectSound, playIncorrectSound } from '../../utils/soundEffects';
+import FuriganaText from '../ui/FuriganaText';
 
 const SrsTypingInput = ({
     card,
@@ -69,7 +70,19 @@ const SrsTypingInput = ({
         if (onFlip) {
             onFlip();
         }
-    }, [input, card, isReversed, hasChecked, onFlip, onCheck]);
+    }, [input, card, isReversed, expectedLanguage, hasChecked, onFlip, onCheck]);
+
+    // Khi thẻ được lật / hiện đáp án ra từ bên ngoài (Space hoặc click thẻ), tự động tính diff và hiện đáp án
+    useEffect(() => {
+        if (isFlipped && !hasChecked) {
+            const result = calculateAnkiDiff(input, card, { isReversed, expectedLanguage });
+            setDiffResult(result);
+            setHasChecked(true);
+            if (onCheck) {
+                onCheck(result);
+            }
+        }
+    }, [isFlipped, hasChecked, input, card, isReversed, expectedLanguage, onCheck]);
 
     const isComposingRef = useRef(false);
 
@@ -97,6 +110,25 @@ const SrsTypingInput = ({
                 handleSubmit();
             }
         }
+    };
+
+    // Chuẩn bị định dạng đáp án đúng chính xác nhất kèm Furigana
+    const getFormattedCorrectAnswer = () => {
+        if (expectedLanguage === 'ja' || (isReversed && expectedLanguage === 'auto')) {
+            const rawFront = (card?.front || card?.vocabulary || card?.word || '').split('（')[0].split('(')[0].split('[')[0].trim();
+            const reading = (card?.reading || card?.kana || card?.reading_hiragana || '').trim();
+            if (rawFront && reading) {
+                return `${rawFront}（${reading}）`;
+            }
+            return card?.frontWithFurigana || card?.front || card?.reading || diffResult?.primaryTarget || '';
+        }
+        if (expectedLanguage === 'sino') {
+            return card?.sinoVietnamese || card?.sinoViet || diffResult?.primaryTarget || '';
+        }
+        if (expectedLanguage === 'kanji') {
+            return card?.character || card?.front || diffResult?.primaryTarget || '';
+        }
+        return diffResult?.primaryTarget || card?.back || card?.meaning || card?.reading || card?.front || card?.character || '';
     };
 
     return (
@@ -138,30 +170,30 @@ const SrsTypingInput = ({
                 </p>
             </form>
 
-            {/* Hiển thị kết quả Đúng / Sai & Đáp án đúng trên cùng 1 hàng gọn gàng */}
+            {/* Hiển thị kết quả Đúng / Sai & Đáp án đúng trên cùng 1 hàng gọn gàng, hiển thị trọn vẹn 2 đáp án */}
             {hasChecked && (() => {
-                const correctAnswer = diffResult?.primaryTarget || card?.reading || card?.front || card?.back || card?.meaning || card?.character || '';
+                const displayCorrectAnswer = getFormattedCorrectAnswer();
                 return (
                     <div
-                        className={`w-full py-2 sm:py-2.5 px-3 sm:px-4 rounded-xl sm:rounded-2xl border flex items-center justify-between gap-2 shadow-sm animate-fade-in ${
+                        className={`w-full py-2.5 px-3 sm:px-4 rounded-xl sm:rounded-2xl border flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3 shadow-sm animate-fade-in ${
                             diffResult?.isMatch
                                 ? 'bg-emerald-50/90 dark:bg-emerald-950/40 border-emerald-200/80 dark:border-emerald-800/60 text-emerald-800 dark:text-emerald-200'
                                 : 'bg-rose-50/90 dark:bg-rose-950/40 border-rose-200/80 dark:border-rose-800/60 text-rose-800 dark:text-rose-200'
                         }`}
                     >
                         {/* Bên trái: Trạng thái Đúng / Sai */}
-                        <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                        <div className="flex items-center gap-1.5 shrink-0">
                             {diffResult?.isMatch ? (
                                 <>
-                                    <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
-                                        <Check className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 dark:text-emerald-400 stroke-[2.5]" />
+                                    <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
+                                        <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 stroke-[2.5]" />
                                     </div>
                                     <span className="font-extrabold text-xs sm:text-sm text-emerald-700 dark:text-emerald-300 whitespace-nowrap">Chính xác!</span>
                                 </>
                             ) : (
                                 <>
-                                    <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0">
-                                        <X className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-rose-600 dark:text-rose-400 stroke-[2.5]" />
+                                    <div className="w-5 h-5 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0">
+                                        <X className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400 stroke-[2.5]" />
                                     </div>
                                     <span className="font-extrabold text-xs sm:text-sm text-rose-700 dark:text-rose-300 whitespace-nowrap">Chưa đúng</span>
                                 </>
@@ -169,9 +201,9 @@ const SrsTypingInput = ({
                         </div>
 
                         {/* Ở giữa: So sánh Bạn gõ vs Đáp án */}
-                        <div className="flex items-center gap-1.5 sm:gap-2.5 min-w-0 flex-1 text-xs sm:text-sm overflow-hidden">
-                            {input && (
-                                <div className="flex items-center gap-1 min-w-0 shrink">
+                        <div className="flex flex-wrap items-center gap-2 sm:gap-3 min-w-0 flex-1 text-xs sm:text-sm">
+                            {input ? (
+                                <div className="flex items-center gap-1.5 shrink-0 max-w-full">
                                     <span className={`font-medium text-[11px] sm:text-xs shrink-0 ${
                                         diffResult?.isMatch
                                             ? 'text-emerald-700/80 dark:text-emerald-300/80'
@@ -180,7 +212,7 @@ const SrsTypingInput = ({
                                         Bạn gõ:
                                     </span>
                                     <span
-                                        className={`font-bold font-japanese truncate px-1.5 py-0.5 rounded max-w-[140px] sm:max-w-[200px] border ${
+                                        className={`font-bold font-japanese px-2 py-0.5 rounded max-w-[180px] sm:max-w-none truncate border ${
                                             diffResult?.isMatch
                                                 ? 'bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 border-emerald-500/20'
                                                 : 'bg-rose-500/15 text-rose-700 dark:text-rose-300 line-through border-rose-500/25'
@@ -191,14 +223,13 @@ const SrsTypingInput = ({
                                     </span>
                                     <span className="text-slate-400 dark:text-slate-500 shrink-0 font-bold text-xs mx-0.5">→</span>
                                 </div>
-                            )}
-                            {!input && !diffResult?.isMatch && (
-                                <div className="flex items-center gap-1 min-w-0 shrink">
+                            ) : (
+                                <div className="flex items-center gap-1.5 shrink-0 max-w-full">
                                     <span className="text-rose-700/80 dark:text-rose-300/80 font-medium text-[11px] sm:text-xs shrink-0">
                                         Bạn gõ:
                                     </span>
                                     <span
-                                        className="font-bold font-japanese truncate px-1.5 py-0.5 rounded bg-rose-500/15 text-rose-700 dark:text-rose-300 line-through border border-rose-500/25 max-w-[140px] sm:max-w-[200px]"
+                                        className="font-bold font-japanese px-2 py-0.5 rounded bg-rose-500/15 text-rose-700 dark:text-rose-300 line-through border border-rose-500/25"
                                         title="(trống)"
                                     >
                                         (trống)
@@ -206,16 +237,16 @@ const SrsTypingInput = ({
                                     <span className="text-slate-400 dark:text-slate-500 shrink-0 font-bold text-xs mx-0.5">→</span>
                                 </div>
                             )}
-                            {correctAnswer && (
-                                <div className="flex items-center gap-1 min-w-0 shrink">
-                                    <span className="text-slate-400 dark:text-slate-500 font-medium text-[11px] sm:text-xs shrink-0">
+                            {displayCorrectAnswer && (
+                                <div className="flex items-center gap-1.5 min-w-0 flex-wrap">
+                                    <span className="text-slate-500 dark:text-slate-400 font-medium text-[11px] sm:text-xs shrink-0">
                                         Đáp án:
                                     </span>
                                     <span
-                                        className="font-bold font-japanese truncate px-2 py-0.5 rounded-md bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 border border-emerald-500/20 max-w-[160px] sm:max-w-[260px]"
-                                        title={correctAnswer}
+                                        className="inline-flex items-center font-bold font-japanese px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-800 dark:text-emerald-200 border border-emerald-500/30 text-xs sm:text-sm shadow-xs"
+                                        title={typeof displayCorrectAnswer === 'string' ? displayCorrectAnswer : ''}
                                     >
-                                        {correctAnswer}
+                                        <FuriganaText text={displayCorrectAnswer} knownReading={card?.reading} compact={true} />
                                     </span>
                                 </div>
                             )}

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { createPortal } from 'react-dom';
 import { Flame } from 'lucide-react';
 
 const StreakCelebration = ({ dailyActivityLogs = [], currentCalculatedStreak = 0 }) => {
@@ -104,8 +105,8 @@ const StreakCelebration = ({ dailyActivityLogs = [], currentCalculatedStreak = 0
 
     if (!show) return null;
 
-    return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/85 backdrop-blur-md animate-fade-in px-4">
+    const modalContent = (
+        <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-slate-950/85 backdrop-blur-md animate-fade-in px-4">
             {/* Inline Custom CSS Animations */}
             <style>{`
                 @keyframes flame-burst {
@@ -234,6 +235,8 @@ const StreakCelebration = ({ dailyActivityLogs = [], currentCalculatedStreak = 0
             </div>
         </div>
     );
+
+    return typeof document !== 'undefined' ? createPortal(modalContent, document.body) : modalContent;
 };
 
 export default StreakCelebration;
