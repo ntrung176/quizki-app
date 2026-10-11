@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { Zap, Star, Crown, Gift, Check, CreditCard, CheckCircle, Loader2, QrCode, Copy, Ticket, X, ArrowLeft, ChevronRight, Settings, BookOpen, Languages, Trophy, AlertTriangle, Trash2, Plus, Lightbulb } from 'lucide-react'
 import { submitCreditRequest, createPendingAutoPayment, DEFAULT_AI_PACKAGES, DEFAULT_SPECIALIZED_PACKAGES, validateVoucher, calculateDiscountedPrice, redeemVoucher, processPaymentSecurely, submitAndApproveCreditRequest, updateAdminConfig } from '../../utils/adminSettings';
 import { generateOrderCode, generateVietQR, checkPaymentStatus, getSepayToken } from '../../utils/sepayPayment';
@@ -95,7 +95,19 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
 
     const packagesReady = adminConfig !== null && adminConfig._fromCache === false;
     const packages = adminConfig?.aiCreditPackages || DEFAULT_AI_PACKAGES;
-    const specializedPackages = (adminConfig?.specializedPackages || DEFAULT_SPECIALIZED_PACKAGES).filter(pkg => pkg.id !== 'premium');
+    const specializedPackages = useMemo(() => {
+        const raw = (adminConfig?.specializedPackages || DEFAULT_SPECIALIZED_PACKAGES).filter(pkg => pkg.id !== 'premium');
+        return raw.map(pkg => {
+            const defaultMatch = DEFAULT_SPECIALIZED_PACKAGES.find(d => d.id === pkg.id);
+            if (!defaultMatch) return pkg;
+            const isLegacy = !pkg.unlockedFeatures || pkg.unlockedFeatures.length <= 5;
+            return {
+                ...pkg,
+                description: isLegacy ? defaultMatch.description : (pkg.description || defaultMatch.description),
+                unlockedFeatures: isLegacy ? defaultMatch.unlockedFeatures : pkg.unlockedFeatures
+            };
+        });
+    }, [adminConfig?.specializedPackages]);
 
     // User's unlocked specialized packages
     const unlockedPackages = profile?.unlockedSpecializedPackages || [];
@@ -114,9 +126,22 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
     // Initialize/sync Admin editing state
     useEffect(() => {
         if (adminConfig) {
+            const rawSpecialized = (adminConfig.specializedPackages || DEFAULT_SPECIALIZED_PACKAGES)
+                .filter(pkg => pkg.id !== 'premium')
+                .map(pkg => {
+                    const defaultMatch = DEFAULT_SPECIALIZED_PACKAGES.find(d => d.id === pkg.id);
+                    if (!defaultMatch) return pkg;
+                    const isLegacy = !pkg.unlockedFeatures || pkg.unlockedFeatures.length <= 5;
+                    return {
+                        ...pkg,
+                        description: isLegacy ? defaultMatch.description : (pkg.description || defaultMatch.description),
+                        unlockedFeatures: isLegacy ? defaultMatch.unlockedFeatures : pkg.unlockedFeatures
+                    };
+                });
+
             setEditedConfig({
                 aiCreditPackages: adminConfig.aiCreditPackages || DEFAULT_AI_PACKAGES,
-                specializedPackages: (adminConfig.specializedPackages || DEFAULT_SPECIALIZED_PACKAGES).filter(pkg => pkg.id !== 'premium'),
+                specializedPackages: rawSpecialized,
                 bankId: adminConfig.bankId || 'MB',
                 bankAccountNo: adminConfig.bankAccountNo || '',
                 bankAccountName: adminConfig.bankAccountName || '',
@@ -539,7 +564,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                                 updated[idx].unlockedFeatures = e.target.value.split('\n').filter(Boolean);
                                                 setEditedConfig({ ...editedConfig, specializedPackages: updated });
                                             }}
-                                            rows={3}
+                                            rows={8}
                                             className="w-full px-2.5 py-1.5 text-xs bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-lg dark:text-white font-mono"
                                         />
                                     </div>
@@ -563,7 +588,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                         if (await window.showConfirm("Bạn có chắc chắn muốn nhập 2 gói Premium mặc định (1 năm & 3 năm)? Thao tác này sẽ ghi đè danh sách đang hiển thị.", { type: 'warning' })) {
                                             setEditedConfig({
                                                 ...editedConfig,
-                                                specializedPackages: [...DEFAULT_SPECIALIZED_PACKAGES]
+                                                specializedPackages: DEFAULT_SPECIALIZED_PACKAGES.filter(p => p.id === 'premium_1y' || p.id === 'premium_3y')
                                             });
                                         }
                                     }}
@@ -813,7 +838,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     </h1>
 
                     <p className="max-w-2xl mx-auto text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
-                        Sử dụng không giới hạn tất cả các tính năng thông minh của ứng dụng bao gồm tạo từ vựng bằng AI, luyện đề JLPT, và các phương pháp học tập chuyên sâu Zen.
+                        Mở khóa toàn diện tất cả tính năng: Trọn bộ giáo trình N5 - N1, 2.136 Kanji nét viết, Spaced Repetition (SRS), luyện đề JLPT thực chiến & Trợ lý đàm thoại AI Kitsu.
                     </p>
                 </div>
 
@@ -897,18 +922,45 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                         </p>
 
                                         {/* Unlocked Features list */}
-                                        <div className="border-t border-amber-200/40 dark:border-slate-700/50 pt-5 mt-2 space-y-3 mb-8">
-                                            <p className="text-[10px] font-black text-amber-700 dark:text-amber-400 uppercase tracking-wider">Quyền lợi Premium:</p>
+                                        <div className="border-t border-amber-200/40 dark:border-slate-700/50 pt-5 mt-2 space-y-2.5 mb-8">
+                                            <div className="flex items-center justify-between mb-1">
+                                                <p className="text-[10px] font-black text-amber-700 dark:text-amber-400 uppercase tracking-wider">Quyền lợi Premium:</p>
+                                                <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500">{pkg.unlockedFeatures?.length || 0} đặc quyền VIP</span>
+                                            </div>
                                             {pkg.unlockedFeatures?.map((feature, fIdx) => {
                                                 const cleanFeature = feature.replace('[Premium]', '').trim();
+                                                const isHeaderPerk = cleanFeature.startsWith('👑');
+                                                const colonIdx = cleanFeature.indexOf(': ');
+                                                const hasColon = colonIdx > 0 && colonIdx < 50;
+
                                                 return (
-                                                    <div key={fIdx} className="flex gap-2.5 items-start">
-                                                        <div className="w-4 h-4 rounded-full bg-amber-100 dark:bg-amber-950/40 flex items-center justify-center flex-shrink-0 mt-0.5 border border-amber-200 dark:border-amber-900">
-                                                            <Check className="w-2.5 h-2.5 text-amber-600 dark:text-amber-400" />
+                                                    <div 
+                                                        key={fIdx} 
+                                                        className={`flex gap-2.5 items-start ${isHeaderPerk ? 'bg-amber-500/10 dark:bg-amber-400/10 p-2 rounded-xl border border-amber-500/20 -mx-1' : ''}`}
+                                                    >
+                                                        <div className={`w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
+                                                            is3Y 
+                                                                ? 'bg-gradient-to-tr from-amber-500 to-orange-500 text-white shadow-xs' 
+                                                                : 'bg-amber-100 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900 text-amber-600 dark:text-amber-400'
+                                                        }`}>
+                                                            <Check className={`w-2.5 h-2.5 ${is3Y ? 'text-white' : 'text-current'}`} />
                                                         </div>
-                                                        <span className="text-xs leading-relaxed text-gray-700 dark:text-slate-350 font-semibold">
-                                                            {cleanFeature}
-                                                        </span>
+                                                        <div className="text-xs leading-relaxed">
+                                                            {hasColon ? (
+                                                                <>
+                                                                    <span className="font-extrabold text-gray-900 dark:text-slate-100">
+                                                                        {cleanFeature.slice(0, colonIdx)}:
+                                                                    </span>{' '}
+                                                                    <span className="text-gray-600 dark:text-slate-350 font-medium">
+                                                                        {cleanFeature.slice(colonIdx + 2)}
+                                                                    </span>
+                                                                </>
+                                                            ) : (
+                                                                <span className={`font-semibold ${isHeaderPerk ? 'text-amber-900 dark:text-amber-200 font-extrabold' : 'text-gray-700 dark:text-slate-350'}`}>
+                                                                    {cleanFeature}
+                                                                </span>
+                                                            )}
+                                                        </div>
                                                     </div>
                                                 );
                                             })}
@@ -918,13 +970,25 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                     <div className="mt-auto pt-4 border-t border-amber-250/20 dark:border-slate-800">
                                         {!isUnlocked ? (
                                             <>
-                                                <div className="flex items-baseline gap-2 mb-3">
-                                                    <span className="text-gray-900 dark:text-white font-black text-2xl">
-                                                        {formatVND(pkg.salePrice)}
-                                                    </span>
-                                                    {pkg.originalPrice && pkg.originalPrice > pkg.salePrice && (
-                                                        <span className="text-gray-400 dark:text-slate-500 line-through text-xs font-bold">
-                                                            {formatVND(pkg.originalPrice)}
+                                                <div className="flex items-baseline justify-between gap-2 mb-3">
+                                                    <div className="flex items-baseline gap-2">
+                                                        <span className="text-gray-900 dark:text-white font-black text-2xl">
+                                                            {formatVND(pkg.salePrice)}
+                                                        </span>
+                                                        {pkg.originalPrice && pkg.originalPrice > pkg.salePrice && (
+                                                            <span className="text-gray-400 dark:text-slate-500 line-through text-xs font-bold">
+                                                                {formatVND(pkg.originalPrice)}
+                                                            </span>
+                                                        )}
+                                                    </div>
+                                                    {pkg.id === 'premium_1y' && (
+                                                        <span className="text-[10px] font-bold text-amber-700 dark:text-amber-300 bg-amber-100/70 dark:bg-amber-950/50 px-2 py-0.5 rounded-md border border-amber-300/40">
+                                                            ~21.500đ / tháng
+                                                        </span>
+                                                    )}
+                                                    {pkg.id === 'premium_3y' && (
+                                                        <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-100/70 dark:bg-emerald-950/50 px-2 py-0.5 rounded-md border border-emerald-300/40">
+                                                            ~15.500đ / tháng
                                                         </span>
                                                     )}
                                                 </div>

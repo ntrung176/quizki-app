@@ -11,43 +11,53 @@ export const DEFAULT_SPECIALIZED_PACKAGES = [
         id: 'premium_1m',
         name: 'Gói Premium 1 Tháng',
         icon: 'Crown',
-        description: 'Mở khóa toàn bộ tính năng cao cấp và học phần chuyên sâu trong thời hạn 1 tháng.',
-        originalPrice: 39000,
-        salePrice: 19000,
+        description: 'Trải nghiệm toàn bộ tính năng cao cấp và kho học liệu chuyên sâu không giới hạn trong 1 tháng.',
+        originalPrice: 59000,
+        salePrice: 29000,
         unlockedFeatures: [
-            '[Premium] Mở khóa tất cả tính năng: Từ vựng Zen, Ngữ pháp Zen, Kanji Zen, Luyện thi JLPT',
-            '[Premium] Thuật toán Spaced Repetition (SRS) nhắc nhở học thông minh tự động',
-            '🤖 Không giới hạn lượt tạo từ vựng và câu ví dụ thông minh bằng AI',
-            '🔊 Phát âm chuẩn giọng đọc bản xứ không giới hạn'
+            '📚 Kho giáo trình chuẩn: Minna no Nihongo, Soumatome, Shinkanzen, Mimikara (N5 - N1)',
+            '🧠 Thuật toán Spaced Repetition (SRS): Nhắc nhở ôn tập thông minh tự động chống quên',
+            '⚡ 6 chế độ học chuyên sâu: Flashcard 3D, Trắc nghiệm, Tự luận, Đồng nghĩa, Ghép thẻ & Test',
+            '🏯 Thư viện 2.136 Kanji: Nét viết động, bộ thủ, âm Hán Việt & ví dụ thực tế',
+            '📖 Sổ tay ngữ pháp N5-N1 & Mindmap tư duy trực quan',
+            '🤖 Luyện nói Kaiwa AI Kitsu, Video Shadowing và OCR quét ảnh tạo flashcard'
         ]
     },
     {
         id: 'premium_1y',
         name: 'Gói Premium 1 Năm',
         icon: 'Crown',
-        description: 'Mở khóa toàn bộ tính năng cao cấp và học phần chuyên sâu trong thời hạn 1 năm.',
-        originalPrice: 399000,
-        salePrice: 199000,
+        description: 'Mở khóa toàn bộ tính năng cao cấp & kho học liệu trong 1 năm. Bứt phá từ sơ cấp lên N2/N1.',
+        originalPrice: 499000,
+        salePrice: 259000,
         unlockedFeatures: [
-            '[Premium] Mở khóa tất cả tính năng: Từ vựng Zen, Ngữ pháp Zen, Kanji Zen, Luyện thi JLPT',
-            '[Premium] Thuật toán Spaced Repetition (SRS) nhắc nhở học thông minh tự động',
-            '🤖 Không giới hạn lượt tạo từ vựng và câu ví dụ thông minh bằng AI',
-            '🔊 Phát âm chuẩn giọng đọc bản xứ không giới hạn'
+            '📚 Trọn bộ giáo trình chuẩn: Minna no Nihongo, Soumatome, Shinkanzen, Mimikara (N5 - N1)',
+            '🧠 Thuật toán Spaced Repetition (SRS): Nhắc ôn thông minh tự động chống quên theo chu kỳ vàng trí nhớ',
+            '⚡ 6 chế độ luyện tập chuyên sâu: Flashcard 3D, Trắc nghiệm phản xạ, Gõ từ tự luận, Đồng nghĩa, Ghép thẻ & Test',
+            '🏯 Thư viện 2.136 Kanji Jouyou: Thứ tự nét viết động, âm Hán Việt, Onyomi, Kunyomi & bài tập ghép từ',
+            '📖 Sổ tay ngữ pháp & Mindmap AI: So sánh mẫu câu dễ nhầm lẫn (Nuances) và phân tích cấu trúc trực quan',
+            '📝 Luyện thi thử JLPT thực chiến: Đề thi chuẩn format kỳ thi thật, bấm giờ, chấm điểm & giải thích chi tiết',
+            '🤖 Trợ lý AI Kitsu & Video Shadowing: Luyện nói Kaiwa phản xạ 1-1, chỉnh phát âm theo ngữ cảnh phim/anime',
+            '📸 Quét ảnh tạo thẻ tự động (OCR AI): Nhận diện chữ sách/vở trong 1 giây & Giọng đọc bản xứ không giới hạn',
+            '☁️ Đồng bộ đám mây Cloud thời gian thực: Học mượt mà trên Điện thoại, Máy tính bảng và Laptop'
         ]
     },
     {
         id: 'premium_3y',
         name: 'Gói Premium 3 Năm',
         icon: 'Crown',
-        description: 'Mở khóa toàn bộ tính năng cao cấp và học phần chuyên sâu trong thời hạn 3 năm. Tiết kiệm tối đa.',
-        originalPrice: 799000,
-        salePrice: 399000,
+        description: 'Đồng hành trọn vẹn từ sơ cấp đến thành thạo N1 và giao tiếp làm việc tại Nhật trong 3 năm. Tiết kiệm tối đa.',
+        originalPrice: 1499000,
+        salePrice: 559000,
         unlockedFeatures: [
-            '[Premium] Mở khóa tất cả tính năng: Từ vựng Zen, Ngữ pháp Zen, Kanji Zen, Luyện thi JLPT',
-            '[Premium] Thuật toán Spaced Repetition (SRS) nhắc nhở học thông minh tự động',
-            '🤖 Không giới hạn lượt tạo từ vựng và câu ví dụ thông minh bằng AI',
-            '🔊 Phát âm chuẩn giọng đọc bản xứ không giới hạn',
-            '⚡ Ưu tiên hỗ trợ học tập và xử lý kỹ thuật 24/7'
+            '👑 Mở khóa TOÀN BỘ đặc quyền của Gói 1 Năm (Giáo trình, SRS, 2.136 Kanji, Ngữ pháp, JLPT, Kaiwa AI)',
+            '💎 Tiết kiệm tối đa 63% chi phí: Chỉ ~15.000đ/tháng – Tiết kiệm hơn 940.000đ so với gia hạn từng năm',
+            '🔒 Khóa giá ưu đãi trọn đời 3 năm: Yên tâm học tập lâu dài, cam kết không phát sinh chi phí khi app tăng giá',
+            '🎯 Lộ trình dài hạn không ngắt quãng: Đủ thời gian chinh phục từ con số 0 lên N3, N2, N1 và đi làm tại Nhật',
+            '🚀 Hạn mức AI Kitsu VIP cao cấp: Ưu tiên tốc độ xử lý AI nhanh nhất, không giới hạn đàm thoại và phân tích ngữ cảnh',
+            '🔄 Tự động cập nhật trọn đời 3 năm: Miễn phí 100% kho đề thi JLPT mới nhất, bài học và giáo trình bổ sung tương lai',
+            '⚡ Kênh hỗ trợ ưu tiên 1-1 riêng biệt: Đội ngũ admin hỗ trợ học tập, phương pháp học và kỹ thuật 24/7',
+            '🏆 Huy hiệu VIP Vinh Danh Hoàng Gia: Vương miện độc quyền hiển thị trên Bảng xếp hạng và trang cá nhân'
         ]
     }
 ];

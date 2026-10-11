@@ -65,18 +65,22 @@ const PremiumLockedModal = ({ isOpen, show, onClose, pkgName, packageName }) => 
                     </p>
 
                     {/* Perks List */}
-                    <div className="bg-slate-50 dark:bg-slate-800/40 rounded-2xl p-4 border border-slate-100 dark:border-slate-800/80 text-left space-y-2.5 text-xs text-slate-600 dark:text-slate-300">
+                    <div className="bg-slate-50 dark:bg-slate-800/40 rounded-2xl p-4 border border-slate-100 dark:border-slate-800/80 text-left space-y-2.5 text-xs text-slate-600 dark:text-slate-350">
                         <div className="flex items-center gap-2">
                             <div className="w-4 h-4 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 shrink-0">✓</div>
-                            <span>Mở khoá toàn bộ các bài học, cấp độ Kanji & Ngữ pháp</span>
+                            <span>Trọn bộ giáo trình N5 - N1 & 2.136 Kanji nét viết</span>
                         </div>
                         <div className="flex items-center gap-2">
                             <div className="w-4 h-4 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 shrink-0">✓</div>
-                            <span>Trọn bộ đề thi thử JLPT có giải thích chi tiết</span>
+                            <span>Spaced Repetition (SRS) nhắc ôn chống quên tự động</span>
                         </div>
                         <div className="flex items-center gap-2">
                             <div className="w-4 h-4 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 shrink-0">✓</div>
-                            <span>Tự động phát âm, giải nghĩa ngữ cảnh bằng AI</span>
+                            <span>Đề thi thử JLPT format chuẩn có giải thích chi tiết</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <div className="w-4 h-4 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 shrink-0">✓</div>
+                            <span>Trợ lý Kaiwa AI Kitsu, Video Shadowing & OCR quét ảnh</span>
                         </div>
                     </div>
 
