@@ -1,14 +1,14 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Calendar, Clock, Target, ChevronLeft, RotateCcw, BarChart3, Volume2, Cpu, Repeat2, Settings, Keyboard, CreditCard, Play } from 'lucide-react';
+import { Calendar, Clock, Target, ChevronLeft, RotateCcw, BarChart3, Volume2, Cpu, Repeat2, Settings, Keyboard, CreditCard, Play, Zap } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { getSharedGrammarPointsList, getSharedGrammarSrs, getCachedUserGrammarSrsData, updateCachedUserGrammarSrs, subscribeGrammarSrs } from '../../utils/grammarService';
 import { logGrammarActivity } from '../../utils/grammarHistory';
-import { formatCountdown, getCardState, calculateAnkiSRS, getCardPreviewIntervals, parseNextReviewMs, isSrsCardDue, isLeechCard } from '../../utils/srs';
+import { formatCountdown, getCardState, calculateAnkiSRS, getCardPreviewIntervals, parseNextReviewMs, isSrsCardDue, isLeechCard, getLearnAheadLimitMs, DEFAULT_LEARN_AHEAD_MINS } from '../../utils/srs';
 import SRSForecastChart from '../ui/SRSForecastChart';
 import LeechManagerModal from '../ui/LeechManagerModal';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations';
@@ -367,7 +367,51 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             });
     };
 
+    const createGrammarCardFromWaiting = useCallback((itemId) => {
+        const fullCard = grammarList.find(c => c.id === itemId);
+        if (!fullCard) return null;
+        const localSrs = srsData[itemId];
+        return {
+            ...fullCard,
+            srsInterval: localSrs ? localSrs.interval : fullCard.srsInterval,
+            srsEase: localSrs ? localSrs.ease : fullCard.srsEase,
+            srsLearningStep: localSrs ? localSrs.learningStep : fullCard.srsLearningStep,
+            srsIsLapsed: localSrs ? localSrs.isLapsed : fullCard.srsIsLapsed,
+            srsReps: localSrs ? localSrs.reps : fullCard.srsReps,
+            srsLapseCount: localSrs ? localSrs.lapseCount : fullCard.srsLapseCount,
+            srsPrelapseInterval: localSrs ? localSrs.prelapseInterval : fullCard.srsPrelapseInterval,
+            srsState: localSrs ? localSrs.state : fullCard.srsState,
+            nextReview_back: localSrs ? (localSrs.nextReview_back instanceof Date ? localSrs.nextReview_back : new Date(localSrs.nextReview_back)) : fullCard.nextReview_back,
+            lastReviewed: localSrs ? localSrs.lastReviewed : fullCard.lastReviewed
+        };
+    }, [grammarList, srsData]);
 
+    const handleStudyAhead = useCallback(() => {
+        const waiting = getLearningCardsWaiting();
+        if (waiting.length === 0) return;
+        const sortedWaiting = [...waiting].sort((a, b) => a.nextReview - b.nextReview);
+        const cardsToPull = sortedWaiting
+            .map(w => createGrammarCardFromWaiting(w.id))
+            .filter(Boolean);
+
+        if (cardsToPull.length === 0) return;
+
+        setReviewQueue(prevQueue => {
+            const upcomingQueueIds = new Set(prevQueue.slice(currentReviewIndex).map(c => String(c.id)));
+            const newCards = cardsToPull.filter(c => !upcomingQueueIds.has(String(c.id)));
+            if (newCards.length === 0) return prevQueue;
+            return [...prevQueue, ...newCards];
+        });
+
+        setHasCheckedTyping(false);
+        setIsAnimatingFlip(false);
+        setIsFlipped(false);
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                setIsAnimatingFlip(true);
+            });
+        });
+    }, [createGrammarCardFromWaiting, currentReviewIndex]);
 
     useEffect(() => {
         if (!reviewMode) return;
@@ -376,7 +420,14 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
             const now = Date.now();
             const waiting = getLearningCardsWaiting();
-            const dueNow = waiting.filter(w => w.nextReview <= now);
+            if (waiting.length === 0) return;
+
+            // Learn Ahead Limit: khi ở màn hình chờ, nếu thẻ có thời gian chờ <= giới hạn thì tự động lấy ra học luôn
+            const learnAheadMs = getLearnAheadLimitMs();
+            const isOnWaitingScreen = currentReviewIndex >= reviewQueue.length;
+            const threshold = isOnWaitingScreen ? (now + learnAheadMs) : now;
+
+            const dueNow = waiting.filter(w => w.nextReview <= threshold);
             if (dueNow.length > 0) {
                 setReviewQueue(prevQueue => {
                     const nextQueue = [...prevQueue];
@@ -384,22 +435,9 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                     const cardsToInject = [];
                     dueNow.forEach(item => {
                         if (!upcomingIds.has(item.id) && (currentReviewIndex >= nextQueue.length || nextQueue[currentReviewIndex].id !== item.id)) {
-                            const fullCard = grammarList.find(c => c.id === item.id);
-                            if (fullCard) {
-                                const localSrs = srsData[item.id];
-                                cardsToInject.push({
-                                    ...fullCard,
-                                    srsInterval: localSrs ? localSrs.interval : fullCard.srsInterval,
-                                    srsEase: localSrs ? localSrs.ease : fullCard.srsEase,
-                                    srsLearningStep: localSrs ? localSrs.learningStep : fullCard.srsLearningStep,
-                                    srsIsLapsed: localSrs ? localSrs.isLapsed : fullCard.srsIsLapsed,
-                                    srsReps: localSrs ? localSrs.reps : fullCard.srsReps,
-                                    srsLapseCount: localSrs ? localSrs.lapseCount : fullCard.srsLapseCount,
-                                    srsPrelapseInterval: localSrs ? localSrs.prelapseInterval : fullCard.srsPrelapseInterval,
-                                    srsState: localSrs ? localSrs.state : fullCard.srsState,
-                                    nextReview_back: localSrs ? (localSrs.nextReview_back instanceof Date ? localSrs.nextReview_back : new Date(localSrs.nextReview_back)) : fullCard.nextReview_back,
-                                    lastReviewed: localSrs ? localSrs.lastReviewed : fullCard.lastReviewed
-                                });
+                            const cardObj = createGrammarCardFromWaiting(item.id);
+                            if (cardObj) {
+                                cardsToInject.push(cardObj);
                             }
                         }
                     });
@@ -414,7 +452,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             }
         }, 1000);
         return () => clearInterval(intervalId);
-    }, [reviewMode, currentReviewIndex, grammarList, srsData]);
+    }, [reviewMode, currentReviewIndex, reviewQueue.length, createGrammarCardFromWaiting]);
 
     const runStartReview = (customList = null) => {
         const validList = Array.isArray(customList) && customList.length > 0
@@ -602,6 +640,39 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         } else {
             const waiting = getLearningCardsWaiting();
             if (waiting.length > 0) {
+                // 🎯 Learn Ahead Limit (Anki Standard: 20 mins): nếu thẻ có countdown <= limit thì lấy lên học luôn
+                const learnAheadMs = getLearnAheadLimitMs();
+                const nowTime = Date.now();
+                const sortedWaiting = [...waiting].sort((a, b) => a.nextReview - b.nextReview);
+                const earliestRemainingMs = sortedWaiting[0].nextReview - nowTime;
+
+                if (earliestRemainingMs <= learnAheadMs) {
+                    const cardsToPull = sortedWaiting
+                        .filter(w => (w.nextReview - nowTime) <= learnAheadMs)
+                        .map(w => createGrammarCardFromWaiting(w.id))
+                        .filter(Boolean);
+
+                    if (cardsToPull.length > 0) {
+                        updatedQueue.push(...cardsToPull);
+                        setReviewQueue(updatedQueue);
+                        saveSessionState(updatedQueue, currentReviewIndex + 1);
+                        setIsAnimatingFlip(false);
+                        setSlideDirection('left');
+                        setTimeout(() => {
+                            setIsFlipped(false);
+                            setCurrentReviewIndex(prev => prev + 1);
+                            setSlideDirection('right');
+                            setTimeout(() => {
+                                setSlideDirection('');
+                                setTimeout(() => {
+                                    setIsAnimatingFlip(true);
+                                }, 110);
+                            }, 20);
+                        }, 70);
+                        return;
+                    }
+                }
+
                 setIsAnimatingFlip(false);
                 setSlideDirection('left');
                 setTimeout(() => {
@@ -1013,10 +1084,17 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             <span className="text-xl font-black tracking-widest">{formattedCountdown}</span>
                         </div>
 
-                        <div className="flex justify-center w-full">
+                        <div className="flex flex-col sm:flex-row items-center gap-3 w-full">
+                            <button
+                                onClick={(e) => { e.stopPropagation(); handleStudyAhead(); }}
+                                className="flex-1 w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-indigo-500 via-purple-600 to-indigo-600 hover:from-indigo-600 hover:to-purple-700 text-white font-black text-xs sm:text-sm shadow-[0_8px_20px_rgba(99,102,241,0.4)] hover:shadow-[0_12px_28px_rgba(99,102,241,0.6)] transition-all duration-300 transform hover:scale-[1.02] active:scale-95 cursor-pointer text-center flex items-center justify-center gap-2 touch-manipulation"
+                            >
+                                <Zap className="w-4 h-4 fill-current text-amber-300" />
+                                <span>Học trước ngay ({waiting.length} mẫu)</span>
+                            </button>
                             <button
                                 onClick={(e) => { e.stopPropagation(); exitReview(true); }}
-                                className="w-full py-3.5 px-6 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 active:scale-95 text-slate-700 dark:text-slate-200 font-bold text-sm rounded-full transition-all border border-slate-200 dark:border-slate-700 cursor-pointer text-center relative z-30 touch-manipulation"
+                                className="w-full sm:w-auto py-3.5 px-6 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 active:scale-95 text-slate-700 dark:text-slate-200 font-bold text-xs sm:text-sm rounded-full transition-all border border-slate-200 dark:border-slate-700 cursor-pointer text-center relative z-30 touch-manipulation"
                             >
                                 Kết thúc phiên ôn tập
                             </button>

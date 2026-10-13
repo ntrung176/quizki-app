@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo, useRef } from 'react';
+import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import { Layers, ArrowRight, CheckCircle2, RotateCw, RotateCcw, BookOpen, Calendar, Play, Plus, Zap, Award, ChevronLeft, ChevronRight, Target, Volume2, Settings, Headphones, Edit2, Lightbulb, Clock, Cpu, Repeat2 } from 'lucide-react'
 import { TopTabBar, SrsPrewarmLoader, PersonalMnemonicModal, SrsCountdownTimer } from '../ui';
@@ -10,7 +10,7 @@ import useMenuTransition from '../../hooks/useMenuTransition';
 import { ROUTES } from '../../router';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
-import { calculateAnkiSRS, parseNextReviewMs, isVocabCardDue, isLeechCard, getCardPreviewIntervals } from '../../utils/srs';
+import { calculateAnkiSRS, parseNextReviewMs, isVocabCardDue, isLeechCard, getCardPreviewIntervals, getLearnAheadLimitMs, DEFAULT_LEARN_AHEAD_MINS } from '../../utils/srs';
 import SRSForecastChart from '../ui/SRSForecastChart';
 import LeechManagerModal from '../ui/LeechManagerModal';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations';
@@ -730,7 +730,52 @@ const SRSVocabScreen = ({
             });
     };
 
+    const createCardFromWaiting = useCallback((itemId) => {
+        const itemIdStr = String(itemId);
+        const fullCard = (allCards || []).find(c => String(c.id) === itemIdStr);
+        if (!fullCard) return null;
+        const localSrs = sessionSrsData.current[itemId];
+        return {
+            ...fullCard,
+            srsInterval: localSrs ? localSrs.srsInterval : fullCard.srsInterval,
+            srsEase: localSrs ? localSrs.srsEase : fullCard.srsEase,
+            srsLearningStep: localSrs ? localSrs.srsLearningStep : fullCard.srsLearningStep,
+            srsIsLapsed: localSrs ? localSrs.srsIsLapsed : fullCard.srsIsLapsed,
+            srsReps: localSrs ? localSrs.srsReps : fullCard.srsReps,
+            srsLapseCount: localSrs ? localSrs.srsLapseCount : fullCard.srsLapseCount,
+            srsPrelapseInterval: localSrs ? localSrs.srsPrelapseInterval : fullCard.srsPrelapseInterval,
+            srsState: localSrs ? localSrs.srsState : fullCard.srsState,
+            nextReview_back: localSrs ? (localSrs.nextReview_back instanceof Date ? localSrs.nextReview_back : new Date(localSrs.nextReview_back)) : fullCard.nextReview_back,
+            lastReviewed: localSrs ? localSrs.lastReviewed : fullCard.lastReviewed
+        };
+    }, [allCards]);
 
+    const handleStudyAhead = useCallback(() => {
+        const waiting = getLearningCardsWaiting();
+        if (waiting.length === 0) return;
+        const sortedWaiting = [...waiting].sort((a, b) => a.nextReview - b.nextReview);
+        const cardsToPull = sortedWaiting
+            .map(w => createCardFromWaiting(w.id))
+            .filter(Boolean);
+
+        if (cardsToPull.length === 0) return;
+
+        setReviewQueue(prevQueue => {
+            const upcomingQueueIds = new Set(prevQueue.slice(currentReviewIndex).map(c => String(c.id)));
+            const newCards = cardsToPull.filter(c => !upcomingQueueIds.has(String(c.id)));
+            if (newCards.length === 0) return prevQueue;
+            return [...prevQueue, ...newCards];
+        });
+
+        setHasCheckedTyping(false);
+        setIsAnimatingFlip(false);
+        setIsFlipped(false);
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                setIsAnimatingFlip(true);
+            });
+        });
+    }, [createCardFromWaiting, currentReviewIndex]);
 
     useEffect(() => {
         if (!reviewMode) return;
@@ -738,7 +783,14 @@ const SRSVocabScreen = ({
             const now = Date.now();
             setLastTick(now);
             const waiting = getLearningCardsWaiting();
-            const dueNow = waiting.filter(w => w.nextReview <= now);
+            if (waiting.length === 0) return;
+
+            // Learn Ahead Limit: khi ở màn hình chờ, nếu thẻ có thời gian chờ <= giới hạn thì tự động lấy ra học luôn
+            const learnAheadMs = getLearnAheadLimitMs();
+            const isOnWaitingScreen = currentReviewIndex >= reviewQueue.length;
+            const threshold = isOnWaitingScreen ? (now + learnAheadMs) : now;
+
+            const dueNow = waiting.filter(w => w.nextReview <= threshold);
             if (dueNow.length > 0) {
                 setReviewQueue(prevQueue => {
                     const nextQueue = [...prevQueue];
@@ -747,22 +799,9 @@ const SRSVocabScreen = ({
                     dueNow.forEach(item => {
                         const itemIdStr = String(item.id);
                         if (!upcomingQueueIds.has(itemIdStr) && !completedCardIds.current.has(itemIdStr)) {
-                            const fullCard = allCards.find(c => String(c.id) === itemIdStr);
-                            if (fullCard) {
-                                const localSrs = sessionSrsData.current[item.id];
-                                cardsToInject.push({
-                                    ...fullCard,
-                                    srsInterval: localSrs ? localSrs.srsInterval : fullCard.srsInterval,
-                                    srsEase: localSrs ? localSrs.srsEase : fullCard.srsEase,
-                                    srsLearningStep: localSrs ? localSrs.srsLearningStep : fullCard.srsLearningStep,
-                                    srsIsLapsed: localSrs ? localSrs.srsIsLapsed : fullCard.srsIsLapsed,
-                                    srsReps: localSrs ? localSrs.srsReps : fullCard.srsReps,
-                                    srsLapseCount: localSrs ? localSrs.srsLapseCount : fullCard.srsLapseCount,
-                                    srsPrelapseInterval: localSrs ? localSrs.srsPrelapseInterval : fullCard.srsPrelapseInterval,
-                                    srsState: localSrs ? localSrs.srsState : fullCard.srsState,
-                                    nextReview_back: localSrs ? (localSrs.nextReview_back instanceof Date ? localSrs.nextReview_back : new Date(localSrs.nextReview_back)) : fullCard.nextReview_back,
-                                    lastReviewed: localSrs ? localSrs.lastReviewed : fullCard.lastReviewed
-                                });
+                            const cardObj = createCardFromWaiting(item.id);
+                            if (cardObj) {
+                                cardsToInject.push(cardObj);
                             }
                         }
                     });
@@ -777,7 +816,7 @@ const SRSVocabScreen = ({
             }
         }, 1000);
         return () => clearInterval(intervalId);
-    }, [reviewMode, currentReviewIndex, allCards]);
+    }, [reviewMode, currentReviewIndex, reviewQueue.length, createCardFromWaiting]);
 
     // 60fps keep-alive ticker for Mobile Safari to prevent timer throttling on mobile browsers
     useEffect(() => {
@@ -907,9 +946,8 @@ const SRSVocabScreen = ({
         }
         // Thẻ có chu kỳ ngắn (1, 5, 10 phút) sẽ ở trạng thái chờ và được tự động chèn ngay sau thẻ hiện tại khi đúng thời gian hẹn
 
-        setReviewQueue(updatedQueue);
-
         if (currentReviewIndex + 1 < updatedQueue.length) {
+            setReviewQueue(updatedQueue);
             setHasCheckedTyping(false);
             setIsAnimatingFlip(false);
             setIsFlipped(false);
@@ -922,7 +960,36 @@ const SRSVocabScreen = ({
         } else {
             const waiting = getLearningCardsWaiting();
             if (waiting.length > 0) {
-                // Show waiting screen (by advancing index to updatedQueue.length)
+                // 🎯 Learn Ahead Limit (Anki Standard: 20 mins): nếu thẻ có countdown <= limit thì lấy lên học luôn
+                const learnAheadMs = getLearnAheadLimitMs();
+                const sortedWaiting = [...waiting].sort((a, b) => a.nextReview - b.nextReview);
+                const earliestRemainingMs = sortedWaiting[0].nextReview - nowTime;
+
+                if (earliestRemainingMs <= learnAheadMs) {
+                    const cardsToPull = sortedWaiting
+                        .filter(w => (w.nextReview - nowTime) <= learnAheadMs)
+                        .map(w => createCardFromWaiting(w.id))
+                        .filter(Boolean);
+
+                    if (cardsToPull.length > 0) {
+                        updatedQueue.push(...cardsToPull);
+                        setReviewQueue(updatedQueue);
+                        setHasCheckedTyping(false);
+                        setIsAnimatingFlip(false);
+                        setIsFlipped(false);
+                        setCurrentReviewIndex(prev => prev + 1);
+                        requestAnimationFrame(() => {
+                            requestAnimationFrame(() => {
+                                setIsAnimatingFlip(true);
+                            });
+                        });
+                        console.timeEnd('⚡ SRS_RATING_VOCAB');
+                        return;
+                    }
+                }
+
+                // Nếu thời gian chờ còn lại > Giới hạn học trước: Hiển thị màn hình chờ đếm ngược
+                setReviewQueue(updatedQueue);
                 setHasCheckedTyping(false);
                 setIsAnimatingFlip(false);
                 setIsFlipped(false);
@@ -933,6 +1000,7 @@ const SRSVocabScreen = ({
                     });
                 });
             } else {
+                setReviewQueue(updatedQueue);
                 try {
                     playCompletionFanfare();
                     launchFanfare();
@@ -1385,6 +1453,27 @@ const SRSVocabScreen = ({
                                         <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
                                     </label>
                                 </div>
+                                <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
+                                    <div>
+                                        <span className="text-indigo-600 dark:text-indigo-400 font-bold block">Giới hạn học trước (Learn Ahead)</span>
+                                        <span className="text-[11px] text-gray-400 dark:text-gray-500 font-normal">Học tiếp nếu thời gian chờ ≤ giới hạn</span>
+                                    </div>
+                                    <select
+                                        value={typeof window !== 'undefined' && localStorage.getItem('quizki_learn_ahead_limit') !== null ? Number(localStorage.getItem('quizki_learn_ahead_limit')) : DEFAULT_LEARN_AHEAD_MINS}
+                                        onChange={(e) => {
+                                            localStorage.setItem('quizki_learn_ahead_limit', e.target.value);
+                                            setDashboardTick(Date.now());
+                                        }}
+                                        className="px-2 py-1 text-xs font-bold rounded-lg bg-gray-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 border border-gray-200 dark:border-slate-600 cursor-pointer"
+                                    >
+                                        <option value={0}>0 phút (Tắt)</option>
+                                        <option value={5}>5 phút</option>
+                                        <option value={10}>10 phút</option>
+                                        <option value={20}>20 phút (Anki)</option>
+                                        <option value={30}>30 phút</option>
+                                        <option value={60}>60 phút</option>
+                                    </select>
+                                </div>
                                 {cardSettings.reviewType === 'typing' ? (
                                     isKoreanMode ? (
                                         <>
@@ -1654,10 +1743,17 @@ const SRSVocabScreen = ({
                             <span className="text-xl font-black tracking-widest">{formattedCountdown}</span>
                         </div>
 
-                        <div className="flex justify-center w-full">
+                        <div className="flex flex-col sm:flex-row items-center gap-3 w-full">
+                            <button
+                                onClick={(e) => { e.stopPropagation(); handleStudyAhead(); }}
+                                className="flex-1 w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-cyan-500 via-indigo-600 to-sky-500 hover:from-cyan-600 hover:to-indigo-700 text-white font-black text-xs sm:text-sm shadow-[0_8px_20px_rgba(14,165,233,0.4)] hover:shadow-[0_12px_28px_rgba(14,165,233,0.6)] transition-all duration-300 transform hover:scale-[1.02] active:scale-95 cursor-pointer text-center flex items-center justify-center gap-2 touch-manipulation"
+                            >
+                                <Zap className="w-4 h-4 fill-current text-amber-300" />
+                                <span>Học trước ngay ({waiting.length} thẻ)</span>
+                            </button>
                             <button
                                 onClick={(e) => { e.stopPropagation(); exitReview(true); }}
-                                className="w-full py-3.5 px-6 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 active:scale-95 text-slate-700 dark:text-slate-200 font-bold text-sm rounded-full transition-all border border-slate-200 dark:border-slate-700 cursor-pointer text-center relative z-30 touch-manipulation"
+                                className="w-full sm:w-auto py-3.5 px-6 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 active:scale-95 text-slate-700 dark:text-slate-200 font-bold text-xs sm:text-sm rounded-full transition-all border border-slate-200 dark:border-slate-700 cursor-pointer text-center relative z-30 touch-manipulation"
                             >
                                 Kết thúc phiên ôn tập
                             </button>

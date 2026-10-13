@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { 
     Settings, User, Volume2, VolumeX, Sun, Moon, ArrowLeft, 
     Save, Check, Shield, Upload, Play, Edit, Type, Camera, 
-    Gift, Copy, Crown, Award, Eye, EyeOff, RefreshCw
+    Gift, Copy, Crown, Award, Eye, EyeOff, RefreshCw, Zap
 } from 'lucide-react';
 import AvatarCropper from '../ui/AvatarCropper';
 import { SafeAvatarImage } from '../ui';
@@ -220,6 +220,13 @@ const SettingsScreen = ({
     const [ttsVolume, setTtsVolume] = useState(() => {
         return cloudSettings.ttsVolume || localSettings.ttsVolume || 'default';
     });
+    const [learnAheadLimit, setLearnAheadLimit] = useState(() => {
+        if (cloudSettings.learnAheadLimit !== undefined) return Number(cloudSettings.learnAheadLimit);
+        try {
+            const saved = localStorage.getItem('quizki_learn_ahead_limit');
+            return saved !== null ? Number(saved) : 20;
+        } catch (_) { return 20; }
+    });
     const [isPreviewingVoice, setIsPreviewingVoice] = useState(false);
     const [isSavingSettings, setIsSavingSettings] = useState(false);
     const [saveSuccess, setSaveSuccess] = useState(false);
@@ -402,13 +409,15 @@ const SettingsScreen = ({
                 ttsVoice,
                 ttsSpeed,
                 ttsVolume,
-                isDarkMode
+                isDarkMode,
+                learnAheadLimit
             };
 
             // 1. Save locally
             saveSettings(settingsObj);
             setTTSVoice(ttsVoice);
             localStorage.setItem('darkMode', isDarkMode ? 'true' : 'false');
+            localStorage.setItem('quizki_learn_ahead_limit', String(learnAheadLimit));
             if (furiganaColor) {
                 document.documentElement.style.setProperty('--furigana-color', furiganaColor);
             }
@@ -1313,6 +1322,33 @@ const SettingsScreen = ({
                                     </div>
                                     {isDarkMode && <Check className="w-4 h-4 text-blue-600 dark:text-blue-400" />}
                                 </button>
+                            </div>
+                        </div>
+
+                        {/* 5. Giới hạn học trước SRS (Learn Ahead Limit) */}
+                        <div className="p-5 sm:p-6 space-y-4">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                                <div className="space-y-0.5">
+                                    <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                                        <Zap className="w-4 h-4 text-blue-500" />
+                                        Giới hạn học trước (Learn Ahead Limit - SRS)
+                                    </h3>
+                                    <p className="text-xs text-slate-500 dark:text-slate-400">
+                                        Chuẩn thuật toán Anki: Tự động lấy thẻ trong hàng đợi Countdown lên học tiếp nếu thời gian chờ còn lại ≤ giới hạn
+                                    </p>
+                                </div>
+                                <select
+                                    value={learnAheadLimit}
+                                    onChange={(e) => setLearnAheadLimit(Number(e.target.value))}
+                                    className="px-3 py-2 text-xs font-bold rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-600 cursor-pointer outline-none focus:border-blue-500"
+                                >
+                                    <option value={0}>0 phút (Tắt - chờ đủ giờ)</option>
+                                    <option value={5}>5 phút</option>
+                                    <option value={10}>10 phút</option>
+                                    <option value={20}>20 phút (Mặc định Anki)</option>
+                                    <option value={30}>30 phút</option>
+                                    <option value={60}>60 phút</option>
+                                </select>
                             </div>
                         </div>
                     </div>

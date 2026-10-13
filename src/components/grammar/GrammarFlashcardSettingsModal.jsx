@@ -349,6 +349,39 @@ const GrammarFlashcardSettingsModal = ({
                     </div>
                 </div>
 
+                {/* Section 6: Spaced Repetition (SRS) Options */}
+                <div className="space-y-3 pt-2 border-t border-slate-150 dark:border-slate-800">
+                    <p className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                        Quy trình lặp lại ngắt quãng (SRS):
+                    </p>
+                    <div className="space-y-2.5 text-xs font-medium text-slate-700 dark:text-slate-350">
+                        <div className="flex items-center justify-between">
+                            <div>
+                                <span className="font-semibold text-slate-800 dark:text-slate-200 block">
+                                    Giới hạn học trước (Learn Ahead)
+                                </span>
+                                <span className="text-[11px] text-slate-400 dark:text-slate-500 font-normal">
+                                    Học tiếp nếu thời gian chờ ≤ giới hạn
+                                </span>
+                            </div>
+                            <select
+                                value={typeof window !== 'undefined' && localStorage.getItem('quizki_learn_ahead_limit') !== null ? Number(localStorage.getItem('quizki_learn_ahead_limit')) : 20}
+                                onChange={(e) => {
+                                    localStorage.setItem('quizki_learn_ahead_limit', e.target.value);
+                                }}
+                                className="px-2.5 py-1.5 text-xs font-bold rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 cursor-pointer"
+                            >
+                                <option value={0}>0 phút (Tắt)</option>
+                                <option value={5}>5 phút</option>
+                                <option value={10}>10 phút</option>
+                                <option value={20}>20 phút (Anki)</option>
+                                <option value={30}>30 phút</option>
+                                <option value={60}>60 phút</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
                 {/* Footer Buttons */}
                 <div className="pt-3 border-t border-slate-150 dark:border-slate-800 flex items-center justify-between gap-3">
                     <button

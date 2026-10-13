@@ -10,6 +10,22 @@ const MAX_INTERVAL_DAYS = 36500; // Unlimited interval ceiling (Anki standard: 3
 const HARD_MULTIPLIER = 1.4; // Balanced Hard Interval multiplier (1.4x)
 const EASY_BONUS = 1.3; // Easy Bonus multiplier (Good 2.0x * 1.3 = 2.6x)
 
+export const DEFAULT_LEARN_AHEAD_MINS = 20; // Anki standard: 20 minutes
+export const getLearnAheadLimitMs = () => {
+    try {
+        if (typeof window !== 'undefined' && window.localStorage) {
+            const saved = window.localStorage.getItem('quizki_learn_ahead_limit');
+            if (saved !== null && saved !== undefined) {
+                const val = Number(saved);
+                if (!isNaN(val) && val >= 0) {
+                    return val * 60 * 1000;
+                }
+            }
+        }
+    } catch (_) {}
+    return DEFAULT_LEARN_AHEAD_MINS * 60 * 1000;
+};
+
 // ==================== UTILITY FUNCTIONS ====================
 
 // Normalize SRS state and handle migration from legacy Leitner system
