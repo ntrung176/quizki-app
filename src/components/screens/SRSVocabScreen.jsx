@@ -1453,27 +1453,6 @@ const SRSVocabScreen = ({
                                         <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
                                     </label>
                                 </div>
-                                <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                                    <div>
-                                        <span className="text-indigo-600 dark:text-indigo-400 font-bold block">Giới hạn học trước (Learn Ahead)</span>
-                                        <span className="text-[11px] text-gray-400 dark:text-gray-500 font-normal">Học tiếp nếu thời gian chờ ≤ giới hạn</span>
-                                    </div>
-                                    <select
-                                        value={typeof window !== 'undefined' && localStorage.getItem('quizki_learn_ahead_limit') !== null ? Number(localStorage.getItem('quizki_learn_ahead_limit')) : DEFAULT_LEARN_AHEAD_MINS}
-                                        onChange={(e) => {
-                                            localStorage.setItem('quizki_learn_ahead_limit', e.target.value);
-                                            setDashboardTick(Date.now());
-                                        }}
-                                        className="px-2 py-1 text-xs font-bold rounded-lg bg-gray-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 border border-gray-200 dark:border-slate-600 cursor-pointer"
-                                    >
-                                        <option value={0}>0 phút (Tắt)</option>
-                                        <option value={5}>5 phút</option>
-                                        <option value={10}>10 phút</option>
-                                        <option value={20}>20 phút (Anki)</option>
-                                        <option value={30}>30 phút</option>
-                                        <option value={60}>60 phút</option>
-                                    </select>
-                                </div>
                                 {cardSettings.reviewType === 'typing' ? (
                                     isKoreanMode ? (
                                         <>
