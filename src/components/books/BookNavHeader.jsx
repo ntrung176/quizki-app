@@ -1,5 +1,5 @@
 import React from 'react';
-import { ChevronRight, Plus, Upload, BookOpen, Layers, FileText } from 'lucide-react';
+import { ChevronRight, Plus, Upload, BookOpen, Layers, FileText, Sparkles } from 'lucide-react';
 
 const BookNavHeader = ({
     currentGroup,
@@ -18,6 +18,7 @@ const BookNavHeader = ({
     setShowAddLesson,
     setShowJsonImport,
     setShowAiPdfModal,
+    setShowBlankFillerModal,
     setShowCreateStudySetModal,
     setShowLinkStudySetModal,
     setSelectedVocabIndices,
@@ -100,6 +101,15 @@ const BookNavHeader = ({
                 )}
                 {isAdmin && (
                     <>
+                        {setShowBlankFillerModal && (
+                            <button
+                                onClick={() => setShowBlankFillerModal(true)}
+                                className="px-3 py-1.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm cursor-pointer"
+                                title="Dùng AI điền từ vựng và chia đúng thể cho các câu ví dụ khuyết"
+                            >
+                                <Sparkles className="w-3.5 h-3.5" /> AI Lắp từ vào ví dụ
+                            </button>
+                        )}
                         {setShowAiPdfModal && (
                             <button
                                 onClick={() => setShowAiPdfModal(true)}

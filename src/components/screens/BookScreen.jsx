@@ -12,6 +12,7 @@ import BookView from '../books/BookView';
 import LessonDetailView from '../books/LessonDetailView';
 import BookFormModal from '../books/BookFormModal';
 import AdminPdfIngestorModal from '../admin/AdminPdfIngestorModal';
+import AdminBookBlankFillerModal from '../admin/AdminBookBlankFillerModal';
 
 // ==================== BOOK SCREEN ====================
 const BookScreen = ({ 
@@ -31,6 +32,7 @@ const BookScreen = ({
 }) => {
     const fadeWholePage = useMenuTransition();
     const [showAiPdfModal, setShowAiPdfModal] = useState(false);
+    const [showBlankFillerModal, setShowBlankFillerModal] = useState(false);
 
     const bookData = useBookData({
         isAdmin,
@@ -239,6 +241,8 @@ const BookScreen = ({
                 handleDeleteGroup={handleDeleteGroup}
                 resetForm={resetForm}
                 setShowAddGroup={setShowAddGroup}
+                setShowBlankFillerModal={setShowBlankFillerModal}
+                setShowAiPdfModal={setShowAiPdfModal}
             />
         );
     };
@@ -265,6 +269,7 @@ const BookScreen = ({
                         setShowAddLesson={setShowAddLesson}
                         setShowJsonImport={setShowJsonImport}
                         setShowAiPdfModal={setShowAiPdfModal}
+                        setShowBlankFillerModal={setShowBlankFillerModal}
                         setShowCreateStudySetModal={setShowCreateStudySetModal}
                         setShowLinkStudySetModal={setShowLinkStudySetModal}
                         setSelectedVocabIndices={setSelectedVocabIndices}
@@ -356,6 +361,16 @@ const BookScreen = ({
                     onClose={() => setShowAiPdfModal(false)}
                     initialCategory="VOCABULARY_BOOK"
                 />
+
+                {/* AI Blank Example Filler Modal */}
+                {isAdmin && (
+                    <AdminBookBlankFillerModal
+                        isOpen={showBlankFillerModal}
+                        onClose={() => setShowBlankFillerModal(false)}
+                        initialGroupId={groupId || null}
+                        initialBookId={bookId || null}
+                    />
+                )}
             </div>
         </div>
     );

@@ -27,6 +27,7 @@ import AdminDeleteDictModal from '../admin/AdminDeleteDictModal';
 import AdminGrammarStandardizerModal from '../admin/AdminGrammarStandardizerModal';
 import AdminPdfIngestorModal from '../admin/AdminPdfIngestorModal';
 import AdminBroadcastEmailModal from '../admin/AdminBroadcastEmailModal';
+import AdminBookBlankFillerModal from '../admin/AdminBookBlankFillerModal';
 
 // Hooks
 import { useAdminData } from '../../hooks/useAdminData';
@@ -38,6 +39,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
     const [showGrammarStandardizerModal, setShowGrammarStandardizerModal] = useState(false);
     const [showPdfIngestorModal, setShowPdfIngestorModal] = useState(false);
     const [showBroadcastEmailModal, setShowBroadcastEmailModal] = useState(false);
+    const [showBlankFillerModal, setShowBlankFillerModal] = useState(false);
     const [pdfIngestorCategory, setPdfIngestorCategory] = useState('VOCABULARY_BOOK');
     const [selectedMonth, setSelectedMonth] = useState(new Date().toISOString().slice(0, 7));
     const [apiBalances, setApiBalances] = useState({ openRouter: null, speechGen: null, loading: false, error: '' });
@@ -530,6 +532,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                 <AdminAiSection
                     adminConfig={adminConfig}
                     handleChangeFeatureModel={handleChangeFeatureModel}
+                    onOpenBlankFiller={() => setShowBlankFillerModal(true)}
                     onOpenGrammarStandardizer={() => setShowGrammarStandardizerModal(true)}
                     onOpenPdfIngestor={(category = 'VOCABULARY_BOOK') => {
                         setPdfIngestorCategory(category);
@@ -635,6 +638,12 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                 users={users}
                 getUserActivePlan={getUserActivePlan}
                 currentAdminEmail={import.meta.env.VITE_ADMIN_EMAIL || ''}
+            />
+
+            <AdminBookBlankFillerModal
+                isOpen={showBlankFillerModal}
+                onClose={() => setShowBlankFillerModal(false)}
+                onSyncCache={() => syncBooks(true)}
             />
 
             {/* Notification Toast */}

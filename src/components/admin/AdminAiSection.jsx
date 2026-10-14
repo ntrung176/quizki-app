@@ -1,8 +1,8 @@
 import React from 'react';
-import { Bot, Settings, Layers, FileText, Wand2 } from 'lucide-react';
+import { Bot, Settings, Layers, FileText, Wand2, Sparkles, BookMarked } from 'lucide-react';
 import { AI_FEATURES, OPENROUTER_MODELS } from '../../utils/adminSettings';
 
-const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarStandardizer, onOpenPdfIngestor }) => {
+const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarStandardizer, onOpenPdfIngestor, onOpenBlankFiller }) => {
     return (
         <div className="space-y-4">
             {/* AI Provider Selection */}
@@ -19,6 +19,16 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarSt
                     </div>
 
                     <div className="flex items-center gap-2 flex-wrap">
+                        {onOpenBlankFiller && (
+                            <button
+                                type="button"
+                                onClick={onOpenBlankFiller}
+                                className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all cursor-pointer"
+                            >
+                                <Sparkles className="w-4 h-4" />
+                                ✨ AI Điền Từ Vào Ví Dụ Sách
+                            </button>
+                        )}
                         {onOpenPdfIngestor && (
                             <button
                                 type="button"
@@ -41,6 +51,35 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarSt
                         )}
                     </div>
                 </div>
+            </div>
+
+            {/* Special AI Tools Box: Blank Filler */}
+            <div className="bg-gradient-to-r from-purple-500/10 via-indigo-500/10 to-sky-500/10 dark:from-purple-950/40 dark:via-indigo-950/40 dark:to-sky-950/40 rounded-2xl border border-purple-200/80 dark:border-purple-800/80 p-5 flex items-center justify-between flex-wrap gap-4">
+                <div className="flex items-center gap-3.5">
+                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-600 text-white flex items-center justify-center shadow-md">
+                        <Sparkles className="w-5 h-5" />
+                    </div>
+                    <div>
+                        <h4 className="font-bold text-slate-900 dark:text-white text-sm md:text-base flex items-center gap-2">
+                            AI Lắp Từ Vào Chỗ Trống Ví Dụ Sách (Blank Example Filler)
+                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-700 dark:text-purple-300 font-black uppercase">
+                                Công cụ mới
+                            </span>
+                        </h4>
+                        <p className="text-xs text-slate-600 dark:text-slate-300 mt-0.5 max-w-2xl">
+                            Quét toàn bộ kho sách hoặc theo nhóm/sách chỉ định để tìm các câu ví dụ có chỗ trống (______, （　）, [ ]). AI tự động lắp từ vựng vào, chia đúng thể ngữ pháp (thể て, た, ない, khả năng, bị động...) và giữ trọn Furigana chuẩn.
+                        </p>
+                    </div>
+                </div>
+
+                <button
+                    type="button"
+                    onClick={onOpenBlankFiller}
+                    className="px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all shrink-0 cursor-pointer"
+                >
+                    <Sparkles className="w-4 h-4" />
+                    Khởi Chạy AI Điền Từ Ví Dụ
+                </button>
             </div>
 
             {/* Special AI Tools Box: PDF Ingestion Engine */}
@@ -120,6 +159,7 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarSt
                             grammar_gen: 'google/gemini-2.5-flash',
                             vocab_sino_viet: 'google/gemini-3.1-flash-lite',
                             more_examples: 'openai/gpt-4o-mini',
+                            fill_example_blanks: 'google/gemini-2.5-flash',
                             ocr_image: 'openai/gpt-4o-mini',
                             grammar_check: 'openai/gpt-4o-mini'
                         };

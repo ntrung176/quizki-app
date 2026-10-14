@@ -1,5 +1,5 @@
 import React from 'react';
-import { BookOpen, Search, Plus, Edit, Trash2 } from 'lucide-react';
+import { BookOpen, Search, Plus, Edit, Trash2, Sparkles, FileText } from 'lucide-react';
 import { getGroupCategory } from './bookConstants';
 import BookThumbnail from './BookThumbnail';
 
@@ -18,10 +18,46 @@ const BookGroupList = ({
     handleStartEditGroup,
     handleDeleteGroup,
     resetForm,
-    setShowAddGroup
+    setShowAddGroup,
+    setShowBlankFillerModal,
+    setShowAiPdfModal
 }) => {
     return (
         <div className="space-y-6">
+            {/* Admin Quick Action Toolbar */}
+            {isAdmin && (
+                <div className="flex items-center gap-2.5 flex-wrap bg-white dark:bg-slate-800 p-3.5 rounded-2xl border border-slate-200 dark:border-slate-700/60 shadow-xs">
+                    <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-1.5 mr-1">
+                        🛠️ Quản trị Kho Sách:
+                    </span>
+                    {setShowBlankFillerModal && (
+                        <button
+                            type="button"
+                            onClick={() => setShowBlankFillerModal(true)}
+                            className="px-3 py-1.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm cursor-pointer"
+                        >
+                            <Sparkles className="w-3.5 h-3.5" /> ✨ AI Lắp từ vào ví dụ
+                        </button>
+                    )}
+                    {setShowAiPdfModal && (
+                        <button
+                            type="button"
+                            onClick={() => setShowAiPdfModal(true)}
+                            className="px-3 py-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm cursor-pointer"
+                        >
+                            <FileText className="w-3.5 h-3.5" /> 🚀 Soạn từ PDF (AI)
+                        </button>
+                    )}
+                    <button
+                        type="button"
+                        onClick={() => { resetForm(); setShowAddGroup(true); }}
+                        className="px-3 py-1.5 bg-sky-500 hover:bg-sky-600 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm cursor-pointer ml-auto"
+                    >
+                        <Plus className="w-3.5 h-3.5" /> Thêm nhóm sách
+                    </button>
+                </div>
+            )}
+
             {/* Header with Search */}
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
                 <div className="flex flex-col gap-1.5">

@@ -242,6 +242,7 @@ export const AI_FEATURES = [
     { id: 'grammar_gen', label: 'Tạo ngữ pháp (Grammar Gen)', description: 'Tạo giải thích cấu trúc, nghĩa, ví dụ và ngữ cảnh cho thẻ ngữ pháp mới.' },
     { id: 'vocab_sino_viet', label: 'Dịch Hán Việt tự động', description: 'Tự động tra cứu và dịch âm Hán Việt cho từ vựng từ sách.' },
     { id: 'more_examples', label: 'Tạo thêm ví dụ', description: 'Tạo thêm câu ví dụ tiếng Nhật tự nhiên kèm nghĩa tiếng Việt theo ngữ cảnh.' },
+    { id: 'fill_example_blanks', label: 'AI Điền từ vào ví dụ sách', description: 'Tự động lắp từ vựng và chia đúng thể cho các câu ví dụ bị khuyết trong kho sách.' },
     { id: 'ocr_image', label: 'Quét chữ từ ảnh (OCR)', description: 'Trích xuất danh sách từ vựng tiếng Nhật từ hình ảnh tải lên.' },
     { id: 'grammar_check', label: 'Chấm điểm/Phân tích Ngữ pháp', description: 'Chấm điểm câu dịch, phân tích lỗi sai và đối chiếu ngữ pháp.' },
     { id: 'kaiwa_agent', label: 'Phòng Kaiwa AI (AI Agent)', description: 'Mô hình AI đóng vai giáo viên bản xứ tương tác hội thoại và sửa lỗi phát âm.' },

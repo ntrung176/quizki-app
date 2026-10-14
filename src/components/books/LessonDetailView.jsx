@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
     Upload, Folder, RefreshCw, X, Trash2, Plus, Layers, 
     Languages, EyeOff, RotateCcw, FileText, Edit, Save, 
-    Volume2, Wrench, Lightbulb, Mic, AlertTriangle, Wand2, Loader2, CloudUpload, Search
+    Volume2, Wrench, Lightbulb, Mic, AlertTriangle, Wand2, Loader2, CloudUpload, Search, Sparkles
 } from 'lucide-react';
 import FuriganaText from '../ui/FuriganaText';
 import { accentNumberToPitchParts } from '../../utils/pitchAccent';
@@ -10,6 +10,7 @@ import { speakJapanese, playAudio, speakExampleSentence } from '../../utils/audi
 import { showToast, showConfirm } from '../../utils/toast';
 import { getSinoVietnamese } from '../../utils/kanjiHVLookup';
 import { syncBooksToCDN } from '../../utils/bookService';
+import { aiFillExampleBlanks } from '../../utils/aiProvider';
 import BookTableOfContents from './BookTableOfContents';
 
 const LessonDetailView = ({
@@ -73,7 +74,9 @@ const LessonDetailView = ({
     navigateTo
 }) => {
     const [filterMissingInfo, setFilterMissingInfo] = useState(false);
+    const [filterBlankExamples, setFilterBlankExamples] = useState(false);
     const [isAiFillingSino, setIsAiFillingSino] = useState(false);
+    const [isAiFillingBlanks, setIsAiFillingBlanks] = useState(false);
     const [isAiLoadingSingle, setIsAiLoadingSingle] = useState(false);
     const [isSyncingCDN, setIsSyncingCDN] = useState(false);
     const [lessonSearchQuery, setLessonSearchQuery] = useState('');
@@ -121,6 +124,12 @@ const LessonDetailView = ({
         return !ex;
     };
 
+    const hasBlankInExample = (v) => {
+        if (!v) return false;
+        const ex = (v.example || v.exampleSentence || '').trim();
+        return /_{2,}|（\s*）|\(\s*\)|\[\s*\]/.test(ex);
+    };
+
     const isCardIncomplete = (v) => {
         return isMissingSino(v) || isMissingExample(v);
     };
@@ -128,6 +137,7 @@ const LessonDetailView = ({
     const incompleteCount = vocab.filter(isCardIncomplete).length;
     const missingSinoCount = vocab.filter(isMissingSino).length;
     const missingExampleCount = vocab.filter(isMissingExample).length;
+    const blankExamplesCount = vocab.filter(hasBlankInExample).length;
 
     const handleAutoFillMissingWithAi = async () => {
         if (!isAdmin || isAiFillingSino) return;
@@ -219,6 +229,95 @@ const LessonDetailView = ({
         setIsAiFillingSino(false);
     };
 
+    const handleAutoFillBlanksWithAi = async () => {
+        if (!isAdmin || isAiFillingBlanks) return;
+
+        const blankItemsWithIndex = [];
+        vocab.forEach((v, idx) => {
+            if (hasBlankInExample(v)) {
+                blankItemsWithIndex.push({ item: v, index: idx });
+            }
+        });
+
+        if (blankItemsWithIndex.length === 0) {
+            showToast('Tất cả câu ví dụ trong bài đều đã có đầy đủ từ vựng! 🎉', 'info');
+            return;
+        }
+
+        const confirmMsg = `Tìm thấy ${blankItemsWithIndex.length} từ vựng có câu ví dụ chứa chỗ trống (______). Bạn có muốn dùng AI để tự động lắp từ vựng vào và chia đúng thể ngữ pháp không?`;
+        if (!(await showConfirm(confirmMsg, { type: 'info', confirmText: 'Bắt đầu điền từ bằng AI' }))) {
+            return;
+        }
+
+        setIsAiFillingBlanks(true);
+        showToast(`Đang dùng AI điền từ vào câu ví dụ cho ${blankItemsWithIndex.length} từ vựng...`, 'info', 6000);
+
+        const updatedVocab = (currentLesson?.vocab || vocab).map(v => ({ ...v }));
+        let filledCount = 0;
+
+        const BATCH_SIZE = 6;
+        for (let b = 0; b < blankItemsWithIndex.length; b += BATCH_SIZE) {
+            const batch = blankItemsWithIndex.slice(b, b + BATCH_SIZE);
+            try {
+                const aiResults = await aiFillExampleBlanks(batch.map(bItem => bItem.item));
+                if (Array.isArray(aiResults)) {
+                    aiResults.forEach(res => {
+                        const localItemObj = batch[res.index];
+                        if (localItemObj && res.example) {
+                            const target = updatedVocab[localItemObj.index];
+                            if (target) {
+                                target.example = res.example;
+                                target.exampleSentence = res.example;
+                                if (res.exampleMeaning) {
+                                    target.exampleMeaning = res.exampleMeaning;
+                                    target.exampleTranslation = res.exampleMeaning;
+                                }
+                                filledCount++;
+                            }
+                        }
+                    });
+                }
+            } catch (e) {
+                console.warn('Batch fill blanks error:', e);
+            }
+        }
+
+        if (filledCount > 0 && handleBatchSaveLessonVocab) {
+            const success = await handleBatchSaveLessonVocab(updatedVocab);
+            if (success) {
+                showToast(`Thành công! Đã dùng AI điền từ & chia thể cho ${filledCount} câu ví dụ! 🎉`, 'success');
+            } else {
+                showToast('Không thể lưu cập nhật vào cơ sở dữ liệu.', 'error');
+            }
+        } else if (filledCount === 0) {
+            showToast('Không thể hoàn tất điền từ cho các câu ví dụ này.', 'warning');
+        }
+
+        setIsAiFillingBlanks(false);
+    };
+
+    const handleFillBlankSingle = async () => {
+        if (!editingVocabData || isAiLoadingSingle) return;
+        setIsAiLoadingSingle(true);
+        try {
+            const res = await aiFillExampleBlanks([editingVocabData]);
+            if (res && res[0] && res[0].example) {
+                setEditingVocabData(prev => ({
+                    ...prev,
+                    example: res[0].example,
+                    exampleSentence: res[0].example,
+                    exampleMeaning: res[0].exampleMeaning || prev.exampleMeaning,
+                    exampleTranslation: res[0].exampleMeaning || prev.exampleTranslation
+                }));
+                showToast('Đã dùng AI lắp từ vào chỗ trống và chia đúng thể! 🎉', 'success');
+            }
+        } catch (e) {
+            showToast('Lỗi AI: ' + (e?.message || e), 'error');
+        } finally {
+            setIsAiLoadingSingle(false);
+        }
+    };
+
     const handleAiFillSingle = async () => {
         if (!editingVocabData || !onGeminiAssist || isAiLoadingSingle) return;
         const word = editingVocabData.word || editingVocabData.front || '';
@@ -266,6 +365,9 @@ const LessonDetailView = ({
         .filter(item => {
             if (isAdmin && filterMissingInfo) {
                 if (!isCardIncomplete(item)) return false;
+            }
+            if (isAdmin && filterBlankExamples) {
+                if (!hasBlankInExample(item)) return false;
             }
             if (lessonSearchQuery.trim()) {
                 const q = lessonSearchQuery.trim().toLowerCase();
@@ -488,6 +590,35 @@ const LessonDetailView = ({
                                 )}
                                 {isAdmin && (
                                     <button
+                                        onClick={() => setFilterBlankExamples(prev => !prev)}
+                                        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all border cursor-pointer ${
+                                            filterBlankExamples
+                                                ? 'bg-indigo-600 text-white border-indigo-700 shadow-md animate-pulse'
+                                                : 'bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800 hover:bg-indigo-100 dark:hover:bg-indigo-900/50'
+                                        }`}
+                                        title="Lọc danh sách từ vựng có câu ví dụ chứa chỗ trống (______)"
+                                    >
+                                        <Sparkles className={`w-3.5 h-3.5 ${filterBlankExamples ? 'text-white' : 'text-indigo-500'}`} />
+                                        Ví dụ có chỗ trống ({blankExamplesCount})
+                                    </button>
+                                )}
+                                {isAdmin && blankExamplesCount > 0 && (
+                                    <button
+                                        onClick={handleAutoFillBlanksWithAi}
+                                        disabled={isAiFillingBlanks}
+                                        className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all border bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white border-indigo-600 shadow-md hover:shadow-lg disabled:opacity-50 cursor-pointer"
+                                        title="Dùng AI tự động điền từ vựng vào chỗ trống và chia đúng thể ngữ pháp cho tất cả câu ví dụ trong bài"
+                                    >
+                                        {isAiFillingBlanks ? (
+                                            <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                                        ) : (
+                                            <Wand2 className="w-3.5 h-3.5" />
+                                        )}
+                                        AI Điền từ vào ví dụ ({blankExamplesCount})
+                                    </button>
+                                )}
+                                {isAdmin && (
+                                    <button
                                         onClick={handleSyncCDN}
                                         disabled={isSyncingCDN}
                                         className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all border bg-emerald-500 hover:bg-emerald-600 text-white border-emerald-600 shadow-md hover:shadow-lg disabled:opacity-50 cursor-pointer"
@@ -635,7 +766,20 @@ const LessonDetailView = ({
                                                 </div>
                                             </div>
                                             <div>
-                                                <label className="block text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase mb-1">Câu ví dụ</label>
+                                                <div className="flex items-center justify-between mb-1">
+                                                    <label className="block text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase">Câu ví dụ</label>
+                                                    {hasBlankInExample(editingVocabData) && (
+                                                        <button
+                                                            type="button"
+                                                            onClick={handleFillBlankSingle}
+                                                            disabled={isAiLoadingSingle}
+                                                            className="flex items-center gap-1 text-[11px] font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 disabled:opacity-50 cursor-pointer"
+                                                        >
+                                                            {isAiLoadingSingle ? <Loader2 className="w-3 h-3 animate-spin" /> : <Sparkles className="w-3 h-3" />}
+                                                            Lắp từ vào chỗ trống bằng AI
+                                                        </button>
+                                                    )}
+                                                </div>
                                                 <textarea value={editingVocabData.example || ''} onChange={e => setEditingVocabData(prev => ({ ...prev, example: e.target.value }))}
                                                     rows={2} className="w-full px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-white" />
                                             </div>

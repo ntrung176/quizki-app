@@ -253,6 +253,7 @@ export const callAI = async (prompt, forcedOpenRouterModel = null, featureId = n
             grammar_gen: 'google/gemini-2.5-flash',
             vocab_sino_viet: 'google/gemini-3.1-flash-lite',
             more_examples: 'openai/gpt-4o-mini',
+            fill_example_blanks: 'google/gemini-2.5-flash',
             ocr_image: 'openai/gpt-4o-mini',
             grammar_check: 'openai/gpt-4o-mini',
             kaiwa_agent: 'google/gemini-2.5-flash',
@@ -1400,6 +1401,46 @@ Trả về duy nhất một mảng JSON có định dạng sau:
         return result || [];
     } catch (e) {
         console.error('Error in aiScanVerbsForNormalization:', e);
+        throw e;
+    }
+};
+
+// ============== AI FILL EXAMPLE BLANKS ==============
+export const aiFillExampleBlanks = async (items) => {
+    if (!items || items.length === 0) return [];
+    
+    const prompt = `Bạn là chuyên gia ngôn ngữ tiếng Nhật. Nhiệm vụ của bạn là điền từ vựng mục tiêu vào chỗ trống (ký hiệu bởi ______ hoặc ____ hoặc tương tự) trong các câu ví dụ tiếng Nhật sau.
+YÊU CẦU QUAN TRỌNG:
+1. Lắp từ vựng vào chỗ trống và CHIA ĐÚNG THỂ ngữ pháp (thể Te, thể Ta, thể Nai, thể Masu, thể khả năng, thể bị động, thể sai khiến, v.v. tùy theo ngữ cảnh của câu ví dụ).
+2. Giữ nguyên cấu trúc câu và các furigana đã có dạng 漢字（かんじ）.
+3. Khi điền từ vào chỗ trống, nếu từ có Kanji hãy kèm furigana dạng 漢字（かんじ） theo chuẩn Quizki.
+4. Giữ nguyên số dòng của câu ví dụ và câu dịch nghĩa tiếng Việt tương ứng (ngăn cách bởi dấu xuống dòng \\n).
+5. Trả về đúng định dạng JSON array:
+[
+  {
+    "index": 0,
+    "example": "câu ví dụ sau khi đã điền và chia thể đúng",
+    "exampleMeaning": "nghĩa tiếng Việt tương ứng"
+  }
+]
+
+Dưới đây là danh sách từ và câu ví dụ cần điền:
+${JSON.stringify(items.map((it, idx) => ({
+    index: idx,
+    word: it.word || it.front || '',
+    reading: it.reading || '',
+    meaning: it.meaning || it.back || '',
+    example: it.example || it.exampleSentence || '',
+    exampleMeaning: it.exampleMeaning || it.exampleTranslation || ''
+})), null, 2)}
+`;
+
+    try {
+        const responseText = await callAI(prompt, 'google/gemini-2.5-flash', 'fill_example_blanks', 2500);
+        const result = parseJsonFromAI(responseText);
+        return Array.isArray(result) ? result : [];
+    } catch (e) {
+        console.error('Error in aiFillExampleBlanks:', e);
         throw e;
     }
 };
