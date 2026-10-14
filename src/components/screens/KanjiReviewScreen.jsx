@@ -64,6 +64,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
     const [reviewHistory, setReviewHistory] = useState([]);
     const [isAnimatingFlip, setIsAnimatingFlip] = useState(true);
     const [slideDirection, setSlideDirection] = useState('');
+    const [reviewUndoNonce, setReviewUndoNonce] = useState(0);
     const [showModeModal, setShowModeModal] = useState(false);
 
     useEffect(() => {
@@ -852,7 +853,13 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         setSlideDirection('right');
         setTimeout(() => {
             setCurrentReviewIndex(cardIndex);
-            setIsFlipped(wasFlipped || false);
+            if (typingMode) {
+                setIsFlipped(false);
+                setHasCheckedTyping(false);
+            } else {
+                setIsFlipped(wasFlipped !== undefined ? wasFlipped : true);
+            }
+            setReviewUndoNonce(n => n + 1);
             setSlideDirection('left');
             setTimeout(() => {
                 setSlideDirection('');
@@ -1163,6 +1170,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                     {typingMode && (
                         <div className="w-full mt-2">
                             <SrsTypingInput
+                                key={`${currentCard.id}_${currentReviewIndex}_${reviewUndoNonce}`}
                                 card={currentCard}
                                 isFlipped={isFlipped}
                                 isReversed={kanjiSwapSides}

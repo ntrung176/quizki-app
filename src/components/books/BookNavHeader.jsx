@@ -49,18 +49,18 @@ const BookNavHeader = ({
                         <ChevronRight className="w-4 h-4 text-slate-400" />
                         <button 
                             onClick={() => navigateTo({ group: groupId, book: bookId })}
-                            className={`font-semibold transition-colors ${!chapterId ? 'text-sky-500 font-bold' : 'text-slate-600 dark:text-slate-300 hover:text-sky-500'}`}
+                            className={`font-semibold transition-colors ${!lessonId ? 'text-sky-500 font-bold' : 'text-slate-600 dark:text-slate-300 hover:text-sky-500'}`}
                         >
                             {currentBook.name}
                         </button>
                     </>
                 )}
-                {currentChapter && (
+                {lessonId && currentChapter && (
                     <>
                         <ChevronRight className="w-4 h-4 text-slate-400" />
                         <button 
-                            onClick={() => navigateTo({ group: groupId, book: bookId, chapter: chapterId })}
-                            className={`font-semibold transition-colors ${!lessonId ? 'text-sky-500 font-bold' : 'text-slate-600 dark:text-slate-300 hover:text-sky-500'}`}
+                            onClick={() => navigateTo({ group: groupId, book: bookId })}
+                            className="font-semibold text-slate-600 dark:text-slate-300 hover:text-sky-500 transition-colors"
                         >
                             {currentChapter.name}
                         </button>

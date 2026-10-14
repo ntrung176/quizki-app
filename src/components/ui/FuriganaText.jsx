@@ -319,7 +319,7 @@ const FuriganaText = ({ text, knownReading = '', className = '', forceHide = fal
     const parts = parseFuriganaText(processedText);
     const isNowrap = compact || (typeof className === 'string' && className.includes('whitespace-nowrap'));
     const wrapClass = isNowrap ? 'whitespace-nowrap' : 'break-words whitespace-normal overflow-wrap-anywhere';
-    const containerWrapClass = isNowrap ? 'inline-flex items-center whitespace-nowrap' : 'inline-wrap break-words whitespace-normal overflow-wrap-anywhere';
+    const containerWrapClass = isNowrap ? 'inline-block whitespace-nowrap align-baseline' : 'inline break-words whitespace-normal overflow-wrap-anywhere';
 
     if (parts.length === 0 || (parts.length === 1 && parts[0].type === 'text')) {
         return <span className={`${isNowrap ? 'whitespace-nowrap' : 'break-words whitespace-normal overflow-wrap-anywhere'} ${className}`}>{processedText}</span>;
@@ -330,10 +330,10 @@ const FuriganaText = ({ text, knownReading = '', className = '', forceHide = fal
             {parts.map((part, idx) => {
                 if (part.type === 'ruby') {
                     if (showReadingOnly) {
-                        return <span key={idx} className={wrapClass}>{part.reading}</span>;
+                        return <span key={idx} className={`${wrapClass} align-baseline`}>{part.reading}</span>;
                     }
                     if (!furiganaEnabled) {
-                        return <span key={idx} className={wrapClass}>{part.kanji}</span>;
+                        return <span key={idx} className={`${wrapClass} align-baseline`}>{part.kanji}</span>;
                     }
                     return (
                         <ruby 
@@ -344,7 +344,7 @@ const FuriganaText = ({ text, knownReading = '', className = '', forceHide = fal
                                 overflowWrap: isNowrap ? 'normal' : 'anywhere', 
                                 wordBreak: isNowrap ? 'keep-all' : 'break-word', 
                                 whiteSpace: isNowrap ? 'nowrap' : 'normal',
-                                verticalAlign: compact ? 'middle' : 'baseline'
+                                verticalAlign: 'baseline'
                             }}
                         >
                             {part.kanji}
@@ -367,7 +367,15 @@ const FuriganaText = ({ text, knownReading = '', className = '', forceHide = fal
                         </ruby>
                     );
                 }
-                return <span key={idx} className={wrapClass}>{part.content}</span>;
+                return (
+                    <span 
+                        key={idx} 
+                        className={`${wrapClass} align-baseline`}
+                        style={{ verticalAlign: 'baseline' }}
+                    >
+                        {part.content}
+                    </span>
+                );
             })}
         </span>
     );

@@ -10,6 +10,7 @@ import { speakJapanese, playAudio, speakExampleSentence } from '../../utils/audi
 import { showToast, showConfirm } from '../../utils/toast';
 import { getSinoVietnamese } from '../../utils/kanjiHVLookup';
 import { syncBooksToCDN } from '../../utils/bookService';
+import BookTableOfContents from './BookTableOfContents';
 
 const LessonDetailView = ({
     currentLesson,
@@ -917,6 +918,22 @@ const LessonDetailView = ({
                     </div>
                 )}
             </div>
+
+            {/* Table of Contents - right sidebar */}
+            {showTOC && (
+                <BookTableOfContents
+                    chapters={currentBook?.chapters || []}
+                    currentLessonId={currentLesson?.id}
+                    groupId={groupId}
+                    bookId={bookId}
+                    getLessonProgressInfo={getLessonProgressInfo}
+                    isAdmin={isAdmin}
+                    profile={profile}
+                    setLockedPkgName={setLockedPkgName}
+                    setShowPremiumModal={setShowPremiumModal}
+                    navigateTo={navigateTo}
+                />
+            )}
 
             {/* Fix Audio Modal */}
             {fixAudioIndex !== null && (

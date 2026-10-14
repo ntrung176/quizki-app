@@ -409,6 +409,7 @@ const SRSVocabScreen = ({
     const [isAnimatingFlip, setIsAnimatingFlip] = useState(true);
     const [slideDirection, setSlideDirection] = useState('');
     const [reviewMode, setReviewModeState] = useState(false);
+    const [reviewUndoNonce, setReviewUndoNonce] = useState(0);
     const setReviewMode = (val) => {
         reviewModeTickRef.current = val;
         setReviewModeState(val);
@@ -1106,7 +1107,13 @@ const SRSVocabScreen = ({
         setSlideDirection('right');
         setTimeout(() => {
             setCurrentReviewIndex(cardIndex);
-            setIsFlipped(wasFlipped || false);
+            if (cardSettings?.reviewType === 'typing') {
+                setIsFlipped(false);
+                setHasCheckedTyping(false);
+            } else {
+                setIsFlipped(wasFlipped !== undefined ? wasFlipped : true);
+            }
+            setReviewUndoNonce(n => n + 1);
             setSlideDirection('left');
             setTimeout(() => {
                 setSlideDirection('');
@@ -1364,6 +1371,7 @@ const SRSVocabScreen = ({
                     {cardSettings.reviewType === 'typing' && (
                         <div className="w-full mt-1 sm:mt-2">
                             <SrsTypingInput
+                                key={`${currentCard.id}_${currentReviewIndex}_${reviewUndoNonce}`}
                                 card={currentCard}
                                 isFlipped={isFlipped}
                                 isReversed={cardSettings.swapSides}

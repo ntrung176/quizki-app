@@ -10,6 +10,14 @@ import { generateAudioSilentWithVoice, speakJapanese, playAudio } from '../utils
 import { ENGLISH_SAMPLE_BOOK_GROUPS, getGroupCategory } from '../components/books/bookConstants';
 import { useLanguage } from '../context/LanguageContext';
 import { useTargetLanguage } from '../context/TargetLanguageContext';
+import {
+    getGroupSlug,
+    getBookSlug,
+    getLessonSlug,
+    findGroupByParam,
+    findBookByParam,
+    findLessonByParam
+} from '../utils/bookSlugHelper';
 
 export const useBookData = ({
     isAdmin = false,
@@ -36,11 +44,26 @@ export const useBookData = ({
     const [bookGroups, setBookGroups] = useState(() => getCachedBookGroups() || []);
     const [loading, setLoading] = useState(!getCachedBookGroups());
 
-    // Navigation IDs
-    const groupId = searchParams.get('g') || searchParams.get('group') || null;
-    const bookId = searchParams.get('b') || searchParams.get('book') || null;
-    const chapterId = searchParams.get('c') || searchParams.get('chapter') || null;
-    const lessonId = searchParams.get('l') || searchParams.get('lesson') || null;
+    // Navigation IDs (Support both short & long param names, plus clean slugs/aliases)
+    const rawGroupId = searchParams.get('g') || searchParams.get('group') || null;
+    const rawBookId = searchParams.get('b') || searchParams.get('book') || null;
+    const rawChapterId = searchParams.get('c') || searchParams.get('chapter') || null;
+    const rawLessonId = searchParams.get('l') || searchParams.get('lesson') || null;
+
+    const [selectedChapterId, setSelectedChapterId] = useState(null);
+    const [progressLoadedNonce, setProgressLoadedNonce] = useState(0);
+
+    // Helper to match alias/clean IDs (e.g. 'topics' matches 'openjlpt-topics-group')
+    const matchBookEntityId = useCallback((realId, inputId) => {
+        if (!realId || !inputId) return false;
+        if (realId === inputId) return true;
+        const realClean = realId.replace(/^openjlpt-/, '');
+        const inputClean = inputId.replace(/^openjlpt-/, '');
+        if (realClean === inputClean) return true;
+        if (realClean.replace(/-group$/, '') === inputClean.replace(/-group$/, '')) return true;
+        if (inputId === 'topics' && (realId === 'openjlpt-topics-group' || realId === 'topics-group')) return true;
+        return false;
+    }, []);
 
     // Admin states
     const [showAddGroup, setShowAddGroup] = useState(false);
@@ -137,10 +160,50 @@ export const useBookData = ({
         });
     }, [activeBookGroups, searchQuery, activeFilter]);
 
-    const currentGroup = useMemo(() => activeBookGroups.find(g => g.id === groupId), [activeBookGroups, groupId]);
-    const currentBook = useMemo(() => currentGroup?.books?.find(b => b.id === bookId), [currentGroup, bookId]);
-    const currentChapter = useMemo(() => currentBook?.chapters?.find(c => c.id === chapterId), [currentBook, chapterId]);
-    const currentLesson = useMemo(() => currentChapter?.lessons?.find(l => l.id === lessonId), [currentChapter, lessonId]);
+    const currentGroup = useMemo(() => {
+        if (rawGroupId) {
+            return findGroupByParam(activeBookGroups, rawGroupId);
+        }
+        if (rawBookId) {
+            for (const g of activeBookGroups) {
+                if (findBookByParam(g.books || [], rawBookId)) {
+                    return g;
+                }
+            }
+        }
+        return null;
+    }, [activeBookGroups, rawGroupId, rawBookId]);
+
+    const currentBook = useMemo(() => {
+        if (!rawBookId) return null;
+        const candidateBooks = currentGroup?.books || activeBookGroups.flatMap(g => g.books || []);
+        return findBookByParam(candidateBooks, rawBookId);
+    }, [currentGroup, activeBookGroups, rawBookId]);
+
+    const currentLesson = useMemo(() => {
+        if (!rawLessonId || !currentBook) return null;
+        return findLessonByParam(currentBook, rawLessonId);
+    }, [currentBook, rawLessonId]);
+
+    const currentChapter = useMemo(() => {
+        if (selectedChapterId) {
+            const found = currentBook?.chapters?.find(c => c.id === selectedChapterId);
+            if (found) return found;
+        }
+        if (rawChapterId) {
+            const found = currentBook?.chapters?.find(c => c.id === rawChapterId);
+            if (found) return found;
+        }
+        if (currentLesson && currentBook) {
+            return currentBook.chapters?.find(c => (c.lessons || []).some(l => l.id === currentLesson.id));
+        }
+        return null;
+    }, [currentBook, rawChapterId, currentLesson, selectedChapterId]);
+
+    const groupId = currentGroup?.id || rawGroupId;
+    const bookId = currentBook?.id || rawBookId;
+    const chapterId = currentChapter?.id || rawChapterId;
+    const lessonId = currentLesson?.id || rawLessonId;
 
     const vocabWithAudio = useMemo(() => {
         const vocab = currentLesson?.vocab || [];
@@ -256,6 +319,34 @@ export const useBookData = ({
         loadProgress();
     }, [loadLessonAudio, lessonId, lessonPersistKey, userId]);
 
+    // Bulk pre-load all user bookProgress from Firestore on mount/user change
+    useEffect(() => {
+        if (!userId || !appId) return;
+        let isMounted = true;
+        const loadAllUserBookProgress = async () => {
+            try {
+                const colRef = collection(db, `artifacts/${appId}/users/${userId}/bookProgress`);
+                const snap = await getDocs(colRef);
+                if (!isMounted) return;
+                snap.docs.forEach(docSnap => {
+                    const data = docSnap.data();
+                    if (data && Array.isArray(data.revealed)) {
+                        try {
+                            localStorage.setItem(docSnap.id, JSON.stringify(data.revealed));
+                        } catch (e) {}
+                    }
+                });
+                setProgressLoadedNonce(n => n + 1);
+            } catch (e) {
+                if (e.code !== 'permission-denied') {
+                    console.warn('Could not bulk load bookProgress from Firestore:', e);
+                }
+            }
+        };
+        loadAllUserBookProgress();
+        return () => { isMounted = false; };
+    }, [userId]);
+
     const revealCard = useCallback((index) => {
         setRevealedCards(prev => {
             const next = new Set(prev);
@@ -312,17 +403,94 @@ export const useBookData = ({
     }, [lessonPersistKey, userId]);
 
     const navigateTo = useCallback((params) => {
+        if (params.chapter) setSelectedChapterId(params.chapter);
+        else if (!params.lesson) setSelectedChapterId(null);
         const sp = new URLSearchParams();
-        if (params.group) sp.set('g', params.group);
-        if (params.book) sp.set('b', params.book);
-        if (params.chapter) sp.set('c', params.chapter);
-        if (params.lesson) sp.set('l', params.lesson);
+
+        // 1. Resolve Target Group
+        let targetGroup = null;
+        if (params.group) {
+            targetGroup = findGroupByParam(activeBookGroups, params.group) || currentGroup;
+        }
+
+        // 2. Resolve Target Book
+        let targetBook = null;
+        if (params.book) {
+            const candidateBooks = targetGroup?.books || currentGroup?.books || activeBookGroups.flatMap(g => g.books || []);
+            targetBook = findBookByParam(candidateBooks, params.book) || currentBook;
+        }
+
+        // 3. Resolve Target Lesson
+        let targetLesson = null;
+        if (params.lesson && (targetBook || currentBook)) {
+            targetLesson = findLessonByParam(targetBook || currentBook, params.lesson);
+        }
+
+        if (params.group) {
+            const gSlug = getGroupSlug(targetGroup) || params.group;
+            sp.set('g', gSlug);
+        }
+        if (params.book) {
+            const bSlug = getBookSlug(targetBook) || params.book;
+            sp.set('b', bSlug);
+        }
+        if (params.lesson) {
+            const lSlug = getLessonSlug(targetLesson, targetBook || currentBook) || params.lesson;
+            sp.set('l', lSlug);
+        }
+
+        // Note: chapter is omitted so URLs remain compact & clean (/books?g=...&b=... or /books?g=...&b=...&l=...)
         setSearchParams(sp);
-    }, [setSearchParams]);
+    }, [setSearchParams, activeBookGroups, currentGroup, currentBook]);
+
+    // Auto-normalize raw Firestore ID URLs to human-friendly clean slugs in address bar
+    useEffect(() => {
+        if (!currentGroup && !currentBook && !currentLesson) return;
+
+        let needsUpdate = false;
+        const sp = new URLSearchParams(searchParams);
+
+        if (currentGroup) {
+            const idealG = getGroupSlug(currentGroup);
+            const currentG = searchParams.get('g') || searchParams.get('group');
+            if (currentG && currentG !== idealG) {
+                sp.delete('group');
+                sp.set('g', idealG);
+                needsUpdate = true;
+            }
+        }
+        if (currentBook) {
+            const idealB = getBookSlug(currentBook);
+            const currentB = searchParams.get('b') || searchParams.get('book');
+            if (currentB && currentB !== idealB) {
+                sp.delete('book');
+                sp.set('b', idealB);
+                needsUpdate = true;
+            }
+        }
+        if (currentLesson && currentBook) {
+            const idealL = getLessonSlug(currentLesson, currentBook);
+            const currentL = searchParams.get('l') || searchParams.get('lesson');
+            if (currentL && currentL !== idealL) {
+                sp.delete('lesson');
+                sp.set('l', idealL);
+                needsUpdate = true;
+            }
+        }
+        // Remove chapter param from URL as chapter is omitted for clean URLs
+        if (searchParams.has('c') || searchParams.has('chapter')) {
+            sp.delete('c');
+            sp.delete('chapter');
+            needsUpdate = true;
+        }
+
+        if (needsUpdate) {
+            setSearchParams(sp, { replace: true });
+        }
+    }, [currentGroup, currentBook, currentLesson, searchParams, setSearchParams]);
 
     const goBack = () => {
-        if (lessonId) navigateTo({ group: groupId, book: bookId, chapter: chapterId });
-        else if (chapterId) navigateTo({ group: groupId, book: bookId });
+        if (lessonId) navigateTo({ group: groupId, book: bookId });
         else if (bookId) navigateTo({ group: groupId });
         else if (groupId) navigateTo({});
         else navigateTo({});
@@ -332,6 +500,7 @@ export const useBookData = ({
         setFormName(''); setFormSubtitle(''); setFormColor('#4F87FF');
         setFormDescription(''); setFormWordCount(''); setFormImageUrl('');
         setJsonInput(''); setEditingItem(null); setEditTarget(null);
+        setSelectedChapterId(null);
     };
 
     const handleAddGroup = async () => {
@@ -1135,61 +1304,49 @@ export const useBookData = ({
     const getLessonProgressInfo = useCallback((gId, bId, chId, lesson) => {
         const vocabLen = lesson.vocab?.length || 0;
         if (vocabLen === 0) return { percent: 0, count: 0, total: 0 };
-        const key = `book_reveal_${gId}_${bId}_${chId}_${lesson.id}`;
-        try {
-            const saved = localStorage.getItem(key);
-            if (saved) {
-                const arr = JSON.parse(saved);
-                const count = new Set(arr).size;
-                return { percent: Math.round((count / vocabLen) * 100), count, total: vocabLen };
-            }
-        } catch(e) {}
+        const realGId = gId === 'topics' ? 'openjlpt-topics-group' : (gId?.startsWith('openjlpt-') ? gId : (activeBookGroups.find(g => matchBookEntityId(g.id, gId))?.id || gId));
+        const realBId = bId?.startsWith('openjlpt-') ? bId : (currentBook?.id || bId);
+        const keys = [
+            `book_reveal_${gId}_${bId}_${chId}_${lesson.id}`,
+            `book_reveal_${realGId}_${realBId}_${chId}_${lesson.id}`,
+            `book_reveal_${realGId}_${bId}_${chId}_${lesson.id}`,
+            `book_reveal_${gId}_${realBId}_${chId}_${lesson.id}`
+        ];
+        for (const key of keys) {
+            try {
+                const saved = localStorage.getItem(key);
+                if (saved) {
+                    const arr = JSON.parse(saved);
+                    const count = new Set(arr).size;
+                    return { percent: Math.round((count / vocabLen) * 100), count, total: vocabLen };
+                }
+            } catch(e) {}
+        }
         return { percent: 0, count: 0, total: vocabLen };
-    }, []);
+    }, [progressLoadedNonce, activeBookGroups, currentBook, matchBookEntityId]);
 
     const getBookProgress = useCallback((gId, book) => {
         let totalVocab = 0;
         let revealedCount = 0;
         if (!book.chapters) return 0;
+        const realGId = gId === 'topics' ? 'openjlpt-topics-group' : gId;
         for (const chapter of book.chapters) {
             if (!chapter.lessons) continue;
             for (const lesson of chapter.lessons) {
                 const vocabLen = lesson.vocab?.length || 0;
                 totalVocab += vocabLen;
                 if (vocabLen > 0) {
-                    const key = `book_reveal_${gId}_${book.id}_${chapter.id}_${lesson.id}`;
-                    try {
-                        const saved = localStorage.getItem(key);
-                        if (saved) {
-                            const arr = JSON.parse(saved);
-                            revealedCount += new Set(arr).size;
-                        }
-                    } catch(e) {}
-                }
-            }
-        }
-        if (totalVocab === 0) return 0;
-        return Math.round((revealedCount / totalVocab) * 100);
-    }, []);
-
-    const getGroupProgress = useCallback((group) => {
-        let totalVocab = 0;
-        let revealedCount = 0;
-        if (!group.books) return 0;
-        for (const book of group.books) {
-            if (!book.chapters) continue;
-            for (const chapter of book.chapters) {
-                if (!chapter.lessons) continue;
-                for (const lesson of chapter.lessons) {
-                    const vocabLen = lesson.vocab?.length || 0;
-                    totalVocab += vocabLen;
-                    if (vocabLen > 0) {
-                        const key = `book_reveal_${group.id}_${book.id}_${chapter.id}_${lesson.id}`;
+                    const keys = [
+                        `book_reveal_${gId}_${book.id}_${chapter.id}_${lesson.id}`,
+                        `book_reveal_${realGId}_${book.id}_${chapter.id}_${lesson.id}`
+                    ];
+                    for (const key of keys) {
                         try {
                             const saved = localStorage.getItem(key);
                             if (saved) {
                                 const arr = JSON.parse(saved);
                                 revealedCount += new Set(arr).size;
+                                break;
                             }
                         } catch(e) {}
                     }
@@ -1198,7 +1355,42 @@ export const useBookData = ({
         }
         if (totalVocab === 0) return 0;
         return Math.round((revealedCount / totalVocab) * 100);
-    }, []);
+    }, [progressLoadedNonce]);
+
+    const getGroupProgress = useCallback((group) => {
+        let totalVocab = 0;
+        let revealedCount = 0;
+        if (!group.books) return 0;
+        const realGId = group.id === 'topics' ? 'openjlpt-topics-group' : group.id;
+        for (const book of group.books) {
+            if (!book.chapters) continue;
+            for (const chapter of book.chapters) {
+                if (!chapter.lessons) continue;
+                for (const lesson of chapter.lessons) {
+                    const vocabLen = lesson.vocab?.length || 0;
+                    totalVocab += vocabLen;
+                    if (vocabLen > 0) {
+                        const keys = [
+                            `book_reveal_${group.id}_${book.id}_${chapter.id}_${lesson.id}`,
+                            `book_reveal_${realGId}_${book.id}_${chapter.id}_${lesson.id}`
+                        ];
+                        for (const key of keys) {
+                            try {
+                                const saved = localStorage.getItem(key);
+                                if (saved) {
+                                    const arr = JSON.parse(saved);
+                                    revealedCount += new Set(arr).size;
+                                    break;
+                                }
+                            } catch(e) {}
+                        }
+                    }
+                }
+            }
+        }
+        if (totalVocab === 0) return 0;
+        return Math.round((revealedCount / totalVocab) * 100);
+    }, [progressLoadedNonce]);
 
     return {
         t, targetLanguage, isEnglishMode,

@@ -4,6 +4,7 @@ import { showToast, showConfirm } from '../../utils/toast';
 import { syncBooksToCDN } from '../../utils/bookService';
 import BookThumbnail from './BookThumbnail';
 import BookVocabSearchModal from './BookVocabSearchModal';
+import BookTableOfContents from './BookTableOfContents';
 
 const BookView = ({
     currentGroup,
@@ -307,47 +308,18 @@ const BookView = ({
             </div>
 
             {/* Table of Contents - right sidebar */}
-            {showTOC && chapters.length > 0 && (
-                <div className="hidden lg:block w-56 shrink-0">
-                    <div className="sticky top-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-3 shadow-sm">
-                        <h4 className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">Mục lục</h4>
-                        <nav className="space-y-1">
-                            {chapters.map((ch) => (
-                                <div key={ch.id}>
-                                    <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 px-2 py-1">{ch.name}</p>
-                                    {ch.lessons.map((ls) => {
-                                        const isLocked = ls.isPremium && !isAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('vocab_zen');
-                                        const progressInfo = getLessonProgressInfo(groupId, bookId, ch.id, ls);
-                                        return (
-                                            <button key={ls.id}
-                                                onClick={() => {
-                                                    if (isLocked) {
-                                                        setLockedPkgName('Từ vựng chuyên sâu Zen');
-                                                        setShowPremiumModal(true);
-                                                    } else {
-                                                        navigateTo({ group: groupId, book: bookId, chapter: ch.id, lesson: ls.id });
-                                                    }
-                                                }}
-                                                className="w-full text-left text-[11px] px-3 py-1 text-gray-500 dark:text-gray-400 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-sky-50 dark:hover:bg-sky-900/10 rounded transition-colors truncate flex items-center justify-between gap-1 cursor-pointer">
-                                                <span className="truncate flex items-center gap-1">
-                                                    {ls.name}
-                                                    {progressInfo.percent > 0 && (
-                                                        progressInfo.percent === 100 ? (
-                                                            <span className="text-emerald-500 font-black text-[9px] shrink-0" title="Hoàn thành">✓</span>
-                                                        ) : (
-                                                            <span className="text-sky-500 font-bold text-[9px] shrink-0">({progressInfo.percent}%)</span>
-                                                        )
-                                                    )}
-                                                </span>
-                                                {ls.isPremium && <span className="text-[9px] text-amber-500 shrink-0" title="Bài học Premium">👑</span>}
-                                            </button>
-                                        );
-                                    })}
-                                </div>
-                            ))}
-                        </nav>
-                    </div>
-                </div>
+            {showTOC && (
+                <BookTableOfContents
+                    chapters={chapters}
+                    groupId={groupId}
+                    bookId={bookId}
+                    getLessonProgressInfo={getLessonProgressInfo}
+                    isAdmin={isAdmin}
+                    profile={profile}
+                    setLockedPkgName={setLockedPkgName}
+                    setShowPremiumModal={setShowPremiumModal}
+                    navigateTo={navigateTo}
+                />
             )}
 
             {/* Modal Tìm kiếm từ vựng trong sách */}
