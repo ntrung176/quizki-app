@@ -681,6 +681,8 @@ export const isKanjiMastered = (srs) => {
 
 export const isVocabCardMastered = (card) => {
     if (!card) return false;
+    // Explicit mastery state takes precedence
+    if (card.masteryState === 'learning' || card.masteryState === 'not_learned') return false;
     if (card.masteryState === 'memorized') return true;
     if (card.mastered === true) return true;
     if (typeof card.correctStreak_back === 'number' && card.correctStreak_back >= 5) return true;
@@ -693,6 +695,8 @@ export const isVocabCardMastered = (card) => {
 
 export const isVocabCardLearning = (card) => {
     if (!card) return false;
+    // Explicit mastery state takes precedence
+    if (card.masteryState === 'not_learned') return false;
     if (isVocabCardMastered(card)) return false;
     if (card.masteryState === 'learning') return true;
     if (typeof card.intervalIndex_back === 'number' && card.intervalIndex_back >= 0) return true;

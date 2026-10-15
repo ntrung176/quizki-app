@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { collection, query, onSnapshot, doc, updateDoc, setDoc, deleteDoc, writeBatch } from 'firebase/firestore';
 import { db, appId } from '../config/firebase';
 import { showToast } from '../utils/toast';
@@ -17,6 +17,11 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
         }
     });
     const [isLoading, setIsLoading] = useState(false);
+
+    const allCardsRef = useRef(allCards);
+    useEffect(() => {
+        allCardsRef.current = allCards;
+    }, [allCards]);
 
     const vocabCollectionPath = useMemo(() => {
         if (!userId) return null;
@@ -162,14 +167,40 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
             updatedFields = { [isCorrectOrData]: mode };
         } else {
             const isCorrect = Boolean(isCorrectOrData);
-            if (action === 'flashcard_known' || action === 'memorized') {
+            const currentCard = (allCardsRef.current || allCards).find(c => String(c.id) === String(cardId));
+            const currentMastery = currentCard?.masteryState || 'not_learned';
+
+            // 1. Chế độ Học tập (StudyScreen) giữ logic 2 giai đoạn riêng biệt (Trắc nghiệm + Tự luận):
+            if (action === 'study_written_promote') {
                 newMasteryState = 'memorized';
-            } else if (action === 'flashcard_unknown' || action === 'learning') {
+            } else if (action === 'study_mc' || action === 'study_written') {
                 newMasteryState = 'learning';
-            } else if (isCorrect) {
+            } else if (action === 'memorized') {
                 newMasteryState = 'memorized';
+            } else if (action === 'learning') {
+                newMasteryState = 'learning';
+            } else if (action === 'not_learned') {
+                newMasteryState = 'not_learned';
             } else {
-                newMasteryState = 'learning';
+                // 2. Tất cả các chế độ khác (Thẻ ghi nhớ, Nghe chép, Nhập ý nghĩa, Câu ví dụ, Đồng nghĩa, Ôn tập):
+                // Tăng 1 mức khi làm đúng, Giảm 1 mức khi làm sai
+                if (isCorrect) {
+                    if (currentMastery === 'not_learned') {
+                        newMasteryState = 'learning';
+                    } else if (currentMastery === 'learning') {
+                        newMasteryState = 'memorized';
+                    } else {
+                        newMasteryState = 'memorized';
+                    }
+                } else {
+                    if (currentMastery === 'memorized') {
+                        newMasteryState = 'learning';
+                    } else if (currentMastery === 'learning') {
+                        newMasteryState = 'not_learned';
+                    } else {
+                        newMasteryState = 'not_learned';
+                    }
+                }
             }
             updatedFields = {
                 masteryState: newMasteryState,
@@ -208,7 +239,7 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
                 console.warn('⚠️ Failed to persist card mastery state to Firestore:', err);
             }
         }
-    }, [userId, vocabCollectionPath, setAllCards]);
+    }, [userId, vocabCollectionPath, setAllCards, allCards]);
 
     const handleAddCard = useCallback(async (newCard) => {
         if (!newCard) return false;

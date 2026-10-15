@@ -9,16 +9,24 @@ import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import UnifiedStudyCompleteModal from '../review/UnifiedStudyCompleteModal';
-const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard, onSaveCardAudio, onBack }) => {
+const FlashcardScreen = ({ cards: initialCards, setId, isCustomSubset = false, onComplete, onUpdateCard, onSaveCardAudio, onBack }) => {
     const { isEnglishMode, isKoreanMode } = useTargetLanguage();
     // Load saved progress from localStorage
     const getSavedProgress = () => {
+        if (isCustomSubset) return null;
         try {
             const key = setId ? `study_progress_${setId}_flashcard` : 'flashcard_progress';
             const saved = localStorage.getItem(key);
             if (saved) {
                 const data = JSON.parse(saved);
                 if (data && (data.cardIds || data.currentDeckIds)) {
+                    // Safety check: Does saved progress match initialCards?
+                    const savedIds = data.cardIds || [];
+                    if (initialCards && initialCards.length > 0 && savedIds.length > 0) {
+                        if (savedIds.length !== initialCards.length) {
+                            return null;
+                        }
+                    }
                     return data;
                 }
             }
@@ -26,7 +34,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         return null;
     };
     const savedProgress = getSavedProgress();
-    const [allCards] = useState(initialCards);
+    const [allCards, setAllCards] = useState(initialCards);
 
     // Xác định các thẻ mới được thêm vào học phần (chưa có trong tiến độ cũ)
     const trackedCardIds = new Set([
@@ -44,11 +52,16 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             if (newlyAddedCards.length > 0) {
                 return [...restored, ...newlyAddedCards];
             }
-            return restored;
+            if (restored.length > 0) {
+                return restored;
+            }
         }
         return initialCards;
     });
-    const [currentIndex, setCurrentIndex] = useState(savedProgress?.currentIndex || 0);
+    const [currentIndex, setCurrentIndex] = useState(() => {
+        const idx = savedProgress?.currentIndex || 0;
+        return (idx >= 0 && idx < (initialCards?.length || 1)) ? idx : 0;
+    });
     const [isFlipped, setIsFlipped] = useState(false);
     const [isAnimatingFlip, setIsAnimatingFlip] = useState(true);
     const [slideDirection, setSlideDirection] = useState('');
@@ -66,6 +79,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
     });
     const [history, setHistory] = useState([]); // For undo: {card, action, index}
     const [isComplete, setIsComplete] = useState(() => {
+        if (isCustomSubset) return false;
         if (newlyAddedCards.length > 0) return false;
         return savedProgress?.isComplete || false;
     });
@@ -146,7 +160,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
     const sessionWrongCardIdsRef = useRef(new Set());
     // Save progress to localStorage whenever state changes
     useEffect(() => {
-        if (!setId || (isComplete && unknownCards.length === 0)) return;
+        if (isCustomSubset || !setId || (isComplete && unknownCards.length === 0)) return;
         const progressData = {
             cardIds: initialCards.map(c => c.id),
             currentDeckIds: currentDeck.map(c => c.id),
@@ -163,7 +177,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             const userId = getAuth().currentUser?.uid;
             saveStudyProgress(userId, setId, 'flashcard', progressData);
         }
-    }, [currentIndex, knownCards, unknownCards, isComplete, round, currentDeck, setId]);
+    }, [currentIndex, knownCards, unknownCards, isComplete, round, currentDeck, setId, isCustomSubset]);
     const currentCard = currentDeck[currentIndex];
     const progress = currentDeck.length > 0 ? Math.round(((currentIndex) / currentDeck.length) * 100) : 100;
     // Reset flip when changing card
@@ -207,6 +221,22 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             return () => clearTimeout(timer);
         }
     }, [isComplete, unknownCards.length, onComplete, onBack]);
+
+    // Sync or recover deck when initialCards changes
+    useEffect(() => {
+        setAllCards(initialCards);
+        if (isCustomSubset) {
+            setCurrentDeck(initialCards);
+            setCurrentIndex(0);
+            setIsComplete(false);
+            setKnownCards([]);
+            setUnknownCards([]);
+            setRound(1);
+        } else if (initialCards && initialCards.length > 0 && currentDeck.length === 0) {
+            setCurrentDeck(initialCards);
+            setCurrentIndex(0);
+        }
+    }, [initialCards, isCustomSubset]);
     // Format multiple meanings
     const formatMultipleMeanings = (text) => {
         if (!text) return text;
@@ -239,6 +269,9 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             previousMasteryState: currentCard.masteryState || 'not_learned',
         }]);
         setKnownCards(prev => [...prev, currentCard]);
+        const currentMastery = currentCard.masteryState || 'not_learned';
+        const nextMastery = currentMastery === 'not_learned' ? 'learning' : 'memorized';
+        setCurrentDeck(prev => prev.map(c => c.id === currentCard.id ? { ...c, masteryState: nextMastery } : c));
         // Cập nhật SRS: flashcard_known (nhớ) - chỉ khi chưa từng trả lời sai trong phiên học này
         if (onUpdateCard && currentCard.id && !sessionWrongCardIdsRef.current.has(currentCard.id)) {
             onUpdateCard(currentCard.id, true, 'back', 'flashcard_known', Date.now() - cardShownTimeRef.current);
@@ -279,6 +312,9 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             previousMasteryState: currentCard.masteryState || 'not_learned',
         }]);
         setUnknownCards(prev => [...prev, currentCard]);
+        const currentMastery = currentCard.masteryState || 'not_learned';
+        const nextMastery = currentMastery === 'memorized' ? 'learning' : 'not_learned';
+        setCurrentDeck(prev => prev.map(c => c.id === currentCard.id ? { ...c, masteryState: nextMastery } : c));
         // Cập nhật SRS: flashcard_unknown (chưa nhớ)
         if (onUpdateCard && currentCard.id) {
             onUpdateCard(currentCard.id, false, 'back', 'flashcard_unknown', Date.now() - cardShownTimeRef.current);
@@ -332,11 +368,11 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
         setIsComplete(false);
         setRound(1);
         sessionWrongCardIdsRef.current = new Set();
-        if (setId) {
+        if (setId && !isCustomSubset) {
             const userId = getAuth().currentUser?.uid;
             resetStudyProgress(userId, setId, 'flashcard');
         }
-    }, [initialCards, setId]);
+    }, [initialCards, setId, isCustomSubset]);
     // Undo last action and revert card's mastery state
     const handleUndo = useCallback(() => {
         if (history.length === 0) return;
@@ -354,6 +390,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
 
         // Revert card's mastery state back to original state
         if (onUpdateCard && lastAction.card?.id && lastAction.previousMasteryState !== undefined) {
+            setCurrentDeck(prev => prev.map(c => c.id === lastAction.card.id ? { ...c, masteryState: lastAction.previousMasteryState } : c));
             onUpdateCard(lastAction.card.id, 'all', { masteryState: lastAction.previousMasteryState });
         }
 
@@ -512,8 +549,26 @@ const FlashcardScreen = ({ cards: initialCards, setId, onComplete, onUpdateCard,
             </div>
         );
     }
+
     // ============ NO CARD ============
     if (!currentCard) {
+        if (initialCards && initialCards.length > 0) {
+            return (
+                <div className="flex flex-col items-center justify-center h-full p-8 text-center space-y-4">
+                    <p className="text-gray-500">Đang chuẩn bị thẻ...</p>
+                    <button
+                        onClick={() => {
+                            setCurrentDeck(initialCards);
+                            setCurrentIndex(0);
+                            setIsComplete(false);
+                        }}
+                        className="px-4 py-2 bg-blue-500 text-white font-bold rounded-xl shadow cursor-pointer hover:bg-blue-600"
+                    >
+                        Tải lại thẻ
+                    </button>
+                </div>
+            );
+        }
         return (
             <div className="flex items-center justify-center h-full">
                 <p className="text-gray-500">Không có thẻ nào để hiển thị.</p>

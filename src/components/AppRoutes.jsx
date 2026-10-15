@@ -100,9 +100,8 @@ import {
     QuickAddVocabForm
 } from './cards';
 
-
 // Wrapper for StudySetDetail
-const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards, setReviewMode, setFlashcardCards, setStudySessionData, setFlashcardSetId, setReviewSetId, navigate, onDeleteFolder, handleSaveChanges, handleSaveCardAudio, handleDeleteCard, onToggleSrs, handleGeminiAssist, canUserUseAI, awardXP, onUpdateCard }) => {
+const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards, setReviewMode, setFlashcardCards, setStudySessionData, setFlashcardSetId, setReviewSetId, setIsCustomFlashcardSubset, setIsCustomReviewSubset, navigate, onDeleteFolder, handleSaveChanges, handleSaveCardAudio, handleDeleteCard, onToggleSrs, handleGeminiAssist, canUserUseAI, awardXP, onUpdateCard }) => {
     const { id } = useParams();
     
     React.useEffect(() => {
@@ -118,24 +117,31 @@ const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards,
         }
     }, [id]);
     
-    const handleStudySet = (setId, customCards) => {
+    const handleStudySet = (setId, customCards, options = {}) => {
         if (awardXP) awardXP(25);
         const targetId = setId || id;
         const setCards = customCards || (targetId === 'unfiled' 
             ? allCards.filter(c => !cardFolders[c.id]) 
             : allCards.filter(c => cardFolders[c.id] === targetId));
-        setStudySessionData({ mode: 'learn', cards: setCards, setId: targetId });
+        setStudySessionData({ 
+            mode: 'learn', 
+            cards: setCards, 
+            setId: targetId,
+            isCustomSubset: Boolean(customCards),
+            customType: options?.customType || null
+        });
         navigate(ROUTES.STUDY);
     };
 
     const handleFlashcardSet = (setId, customCards) => {
-        if (awardXP) awardXP(20);
+        if (awardXP) awardXP(15);
         const targetId = setId || id;
         const setCards = customCards || (targetId === 'unfiled' 
             ? allCards.filter(c => !cardFolders[c.id]) 
             : allCards.filter(c => cardFolders[c.id] === targetId));
         setFlashcardCards(setCards);
         setFlashcardSetId(targetId);
+        if (setIsCustomFlashcardSubset) setIsCustomFlashcardSubset(Boolean(customCards));
         navigate(ROUTES.FLASHCARD);
     };
 
@@ -150,6 +156,7 @@ const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards,
         setReviewCards(shuffleArray(meaningCards));
         if (setReviewMode) setReviewMode('meaning_input');
         setReviewSetId(targetId);
+        if (setIsCustomReviewSubset) setIsCustomReviewSubset(Boolean(customCards));
         navigate(ROUTES.REVIEW);
     };
 
@@ -164,14 +171,16 @@ const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards,
         setReviewCards(shuffleArray(dictationCards));
         if (setReviewMode) setReviewMode('dictation');
         setReviewSetId(targetId);
+        if (setIsCustomReviewSubset) setIsCustomReviewSubset(Boolean(customCards));
         navigate(ROUTES.REVIEW);
     };
 
-    const handleExampleSet = (setId) => {
+    const handleExampleSet = (setId, customCards) => {
         if (awardXP) awardXP(20);
-        const setCards = id === 'unfiled' 
+        const targetId = setId || id;
+        const setCards = customCards || (targetId === 'unfiled' 
             ? allCards.filter(c => !cardFolders[c.id]) 
-            : allCards.filter(c => cardFolders[c.id] === id);
+            : allCards.filter(c => cardFolders[c.id] === targetId));
         const exampleCards = setCards
             .filter(card => card.example && card.example.trim() !== '')
             .map(card => ({ ...card, reviewType: 'example' }));
@@ -182,17 +191,20 @@ const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards,
         }
         setReviewCards(shuffleArray(exampleCards));
         if (setReviewMode) setReviewMode('example');
-        setReviewSetId(id);
+        setReviewSetId(targetId);
+        if (setIsCustomReviewSubset) setIsCustomReviewSubset(Boolean(customCards));
         navigate(ROUTES.REVIEW);
     };
 
-    const handleSynonymQuiz = (setId) => {
+    const handleSynonymQuiz = (setId, customCards) => {
         if (awardXP) awardXP(20);
-        const setCards = id === 'unfiled' 
+        const targetId = setId || id;
+        const setCards = customCards || (targetId === 'unfiled' 
             ? allCards.filter(c => !cardFolders[c.id]) 
-            : allCards.filter(c => cardFolders[c.id] === id);
+            : allCards.filter(c => cardFolders[c.id] === targetId));
         setFlashcardCards(setCards);
-        setFlashcardSetId(id);
+        setFlashcardSetId(targetId);
+        if (setIsCustomFlashcardSubset) setIsCustomFlashcardSubset(Boolean(customCards));
         navigate(ROUTES.SYNONYM_QUIZ);
     };
 
@@ -442,7 +454,9 @@ const AppRoutes = ({
     const aiCreditsRemaining = profile?.aiCreditsRemaining;
 
     const [flashcardSetId, setFlashcardSetId] = React.useState(null);
+    const [isCustomFlashcardSubset, setIsCustomFlashcardSubset] = React.useState(false);
     const [reviewSetId, setReviewSetId] = React.useState(null);
+    const [isCustomReviewSubset, setIsCustomReviewSubset] = React.useState(false);
 
     // Dynamically update document title based on current path
     React.useEffect(() => {
@@ -538,11 +552,17 @@ const AppRoutes = ({
         document.title = title;
     }, [location.pathname]);
 
-    const handleStudySet = (setId, customCards) => {
+    const handleStudySet = (setId, customCards, options = {}) => {
         const setCards = customCards || (setId === 'unfiled' 
             ? allCards.filter(c => !cardFolders[c.id]) 
             : allCards.filter(c => cardFolders[c.id] === setId));
-        setStudySessionData({ mode: 'learn', cards: setCards, setId });
+        setStudySessionData({ 
+            mode: 'learn', 
+            cards: setCards, 
+            setId,
+            isCustomSubset: Boolean(customCards),
+            customType: options?.customType || null
+        });
         navigate(ROUTES.STUDY);
     };
 
@@ -552,6 +572,7 @@ const AppRoutes = ({
             : allCards.filter(c => cardFolders[c.id] === setId));
         setFlashcardCards(setCards);
         setFlashcardSetId(setId);
+        setIsCustomFlashcardSubset(Boolean(customCards));
         navigate(ROUTES.FLASHCARD);
     };
 
@@ -564,6 +585,7 @@ const AppRoutes = ({
         setReviewCards(shuffleArray(meaningCards));
         if (setReviewMode) setReviewMode('meaning_input');
         setReviewSetId(setId);
+        setIsCustomReviewSubset(Boolean(customCards));
         navigate(ROUTES.REVIEW);
     };
 
@@ -576,6 +598,7 @@ const AppRoutes = ({
         setReviewCards(shuffleArray(dictationCards));
         if (setReviewMode) setReviewMode('dictation');
         setReviewSetId(setId);
+        setIsCustomReviewSubset(Boolean(customCards));
         navigate(ROUTES.REVIEW);
     };
 
@@ -596,7 +619,7 @@ const AppRoutes = ({
 
     return (
         <React.Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900"><LoadingIndicator text="Đang nạp tính năng..." /></div>}>
-            <SectionErrorBoundary name="Màn hình ứng dụng">
+            <SectionErrorBoundary name="Màn hình ứng dụng" resetKeys={[location.pathname, location.search]}>
                 <Routes>
                     {/* Public routes */}
                     <Route
@@ -725,6 +748,8 @@ const AppRoutes = ({
                             setStudySessionData={setStudySessionData}
                             setFlashcardSetId={setFlashcardSetId}
                             setReviewSetId={setReviewSetId}
+                            setIsCustomFlashcardSubset={setIsCustomFlashcardSubset}
+                            setIsCustomReviewSubset={setIsCustomReviewSubset}
                             navigate={navigate}
                             onDeleteFolder={onDeleteFolder}
                             handleDeleteCard={handleDeleteCard}
@@ -900,6 +925,7 @@ const AppRoutes = ({
                                 reviewMode={reviewMode}
                                 allCards={allCards}
                                 setId={reviewSetId}
+                                isCustomSubset={isCustomReviewSubset}
                                 onUpdateCard={handleUpdateCard}
                                 vocabCollectionPath={vocabCollectionPath}
                                 onSaveCardAudio={handleSaveCardAudio}
@@ -917,7 +943,7 @@ const AppRoutes = ({
                                         setReviewCards(shuffleArray(failedCardsList));
                                         setReviewMode(reviewMode || 'mixed');
                                     } else {
-                                        if (reviewSetId && reviewMode) {
+                                        if (reviewSetId && reviewMode && !isCustomReviewSubset) {
                                             const userId = getAuth().currentUser?.uid;
                                             saveStudyCompletion(userId, reviewSetId, reviewMode);
                                         }
@@ -929,6 +955,7 @@ const AppRoutes = ({
                                         setTimeout(() => {
                                             setReviewCards([]);
                                             setReviewSetId(null);
+                                            setIsCustomReviewSubset(false);
                                         }, 50);
                                     }
                                 }}
@@ -941,6 +968,7 @@ const AppRoutes = ({
                                     setTimeout(() => {
                                         setReviewCards([]);
                                         setReviewSetId(null);
+                                        setIsCustomReviewSubset(false);
                                     }, 50);
                                 }}
                             />
@@ -963,7 +991,8 @@ const AppRoutes = ({
                             onCompleteStudy={() => {
                                 if (awardXP) awardXP(50);
                                 const setId = studySessionData?.setId;
-                                if (setId) {
+                                const isCustom = studySessionData?.isCustomSubset;
+                                if (setId && !isCustom) {
                                     const userId = getAuth().currentUser?.uid;
                                     saveStudyCompletion(userId, setId, 'study');
                                 }
@@ -1093,10 +1122,11 @@ const AppRoutes = ({
                                 <FlashcardScreen
                                     cards={flashcardCards}
                                     setId={flashcardSetId}
+                                    isCustomSubset={isCustomFlashcardSubset}
                                     onUpdateCard={handleUpdateCard}
                                     onSaveCardAudio={handleSaveCardAudio}
                                     onComplete={() => {
-                                        if (flashcardSetId) {
+                                        if (flashcardSetId && !isCustomFlashcardSubset) {
                                             const userId = getAuth().currentUser?.uid;
                                             saveStudyCompletion(userId, flashcardSetId, 'flashcard');
                                         }
@@ -1108,6 +1138,7 @@ const AppRoutes = ({
                                         setTimeout(() => {
                                             setFlashcardCards([]);
                                             setFlashcardSetId(null);
+                                            setIsCustomFlashcardSubset(false);
                                         }, 50);
                                     }}
                                     onBack={() => {
@@ -1120,6 +1151,7 @@ const AppRoutes = ({
                                         setTimeout(() => {
                                             setFlashcardCards([]);
                                             setFlashcardSetId(null);
+                                            setIsCustomFlashcardSubset(false);
                                         }, 50);
                                     }}
                                 />
@@ -1140,6 +1172,7 @@ const AppRoutes = ({
                                 <SynonymQuizScreen
                                     cards={flashcardCards}
                                     setId={flashcardSetId}
+                                    isCustomSubset={isCustomFlashcardSubset}
                                     onUpdateCard={handleUpdateCard}
                                     onBack={() => {
                                         const targetId = flashcardSetId;
@@ -1151,12 +1184,13 @@ const AppRoutes = ({
                                         setTimeout(() => {
                                             setFlashcardCards([]);
                                             setFlashcardSetId(null);
+                                            setIsCustomFlashcardSubset(false);
                                         }, 50);
                                     }}
                                     onComplete={() => {
-                                        if (flashcardSetId) {
-                                            const userId = getAuth().currentUser?.uid; saveStudyCompletion(userId, flashcardSetId, 'synonym');
-                                            // Completion saved
+                                        if (flashcardSetId && !isCustomFlashcardSubset) {
+                                            const userId = getAuth().currentUser?.uid;
+                                            saveStudyCompletion(userId, flashcardSetId, 'synonym');
                                         }
                                         const targetId = flashcardSetId;
                                         if (targetId && targetId !== 'mistakes') {
@@ -1167,6 +1201,7 @@ const AppRoutes = ({
                                         setTimeout(() => {
                                             setFlashcardCards([]);
                                             setFlashcardSetId(null);
+                                            setIsCustomFlashcardSubset(false);
                                         }, 50);
                                     }}
                                 />

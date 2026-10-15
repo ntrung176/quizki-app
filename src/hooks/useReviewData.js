@@ -21,6 +21,7 @@ export const useReviewData = ({
     reviewMode,
     allCards,
     setId,
+    isCustomSubset = false,
     onUpdateCard,
     onCompleteReview,
     onSaveCardAudio,
@@ -31,13 +32,23 @@ export const useReviewData = ({
 
     // Load saved progress from localStorage
     const getSavedProgress = () => {
-        if (!setId || !reviewMode) return null;
+        if (isCustomSubset || !setId || !reviewMode) return null;
         try {
             const key = `study_progress_${setId}_${reviewMode}`;
             const saved = localStorage.getItem(key);
             if (saved) {
                 const data = JSON.parse(saved);
                 if (data && (data.cardIdsList || data.cardIds || data.cards)) {
+                    // Safety check: Does savedProgress match initialCards?
+                    const savedIds = data.cardIdsList 
+                        ? data.cardIdsList.map(item => typeof item === 'string' ? item : item?.id).filter(Boolean)
+                        : (data.cardIds || (data.cards ? data.cards.map(c => c.id) : []));
+                    if (initialCards && initialCards.length > 0 && savedIds.length > 0) {
+                        // If card count differs, it's a different session or subset
+                        if (savedIds.length !== initialCards.length) {
+                            return null;
+                        }
+                    }
                     return data;
                 }
             }
@@ -218,16 +229,16 @@ export const useReviewData = ({
 
     useEffect(() => {
         const saved = getSavedProgress();
-        if (saved) return;
+        if (saved && !isCustomSubset) return;
         setCards(initialCards);
         setCurrentIndex(0);
         setFailedCards(new Set());
         failedCardsRef.current = new Set();
         isCompletingRef.current = false;
-    }, [initialCards]);
+    }, [initialCards, isCustomSubset]);
 
     useEffect(() => {
-        if (!setId || !reviewMode || showComplete) return;
+        if (isCustomSubset || !setId || !reviewMode || showComplete) return;
         const progressData = {
             cardIds: initialCards.map(c => c.id),
             cardIdsList: (cards || []).map(c => ({ id: c.id, reviewType: c.reviewType })),
@@ -241,7 +252,7 @@ export const useReviewData = ({
             const userId = getAuth().currentUser?.uid;
             saveStudyProgress(userId, setId, reviewMode, progressData);
         }
-    }, [currentIndex, cards, failedCards, setId, reviewMode, initialCards, showComplete]);
+    }, [currentIndex, cards, failedCards, setId, reviewMode, initialCards, showComplete, isCustomSubset]);
 
     useEffect(() => {
         failedCardsRef.current = failedCards;
@@ -630,7 +641,7 @@ export const useReviewData = ({
     }, [currentCardId, isMultipleChoice, currentCard, allCards, cards, normalizeAnswer, reviewTestFormat]);
 
     useEffect(() => {
-        if ((cards.length === 0 || currentIndex >= cards.length) && !isCompletingRef.current && !showComplete) {
+        if (cards.length > 0 && currentIndex >= cards.length && !isCompletingRef.current && !showComplete) {
             const timer = setTimeout(() => {
                 handleCompleteReview();
             }, 150);
@@ -650,6 +661,11 @@ export const useReviewData = ({
         setFeedback(null);
         setMessage('');
         setShowComplete(false);
+        isCompletingRef.current = false;
+        if (setId && reviewMode && !isCustomSubset) {
+            const userId = getAuth().currentUser?.uid;
+            resetStudyProgress(userId, setId, reviewMode);
+        }
     };
 
     useEffect(() => {

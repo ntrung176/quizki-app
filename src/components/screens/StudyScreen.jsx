@@ -528,21 +528,44 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
 
     const [done, setDone] = useState(false);
     const sessionWrongCardIdsRef = useRef(new Set());
+    const initialMasteryRef = useRef(new Map());
+
+    // Track the initial masteryState of each card when this session starts
+    useEffect(() => {
+        if (originalCards.length > 0 && initialMasteryRef.current.size === 0) {
+            originalCards.forEach(c => {
+                initialMasteryRef.current.set(c.id, c.masteryState || 'not_learned');
+            });
+        }
+    }, [originalCards]);
 
     const getSavedProgress = useCallback(() => {
         if (!studySessionData?.setId) return null;
+        // Never use or restore full set progress for a custom subset (e.g. studying 3 'Đang học' words)
+        if (studySessionData?.isCustomSubset) return null;
         try {
             const key = `study_progress_${studySessionData.setId}_study`;
             const saved = localStorage.getItem(key);
             if (saved) {
                 const data = JSON.parse(saved);
                 if (data && (data.batches || data.cardIds)) {
+                    // Validate that saved progress belongs to current cards!
+                    if (Array.isArray(data.cardIds) && originalCards.length > 0) {
+                        const originalIds = new Set(originalCards.map(c => c.id));
+                        const matchedCount = data.cardIds.filter(id => originalIds.has(id)).length;
+                        // If cardIds don't match originalCards, discard corrupted/stale progress!
+                        if (matchedCount < originalCards.length * 0.7 || data.cardIds.length !== originalCards.length) {
+                            console.warn('[StudyScreen] Discarding mismatched saved progress for set:', studySessionData.setId);
+                            localStorage.removeItem(key);
+                            return null;
+                        }
+                    }
                     return data;
                 }
             }
         } catch (e) { /* ignore */ }
         return null;
-    }, [studySessionData?.setId]);
+    }, [studySessionData?.setId, studySessionData?.isCustomSubset, originalCards]);
 
     // Initialize/Restart batches
     const initializeBatches = useCallback(() => {
@@ -555,19 +578,17 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             const restoreCards = (savedList) => {
                 if (!savedList) return [];
                 return savedList.map(item => {
-                    if (typeof item === 'string') {
-                        return cardMap.get(item);
-                    }
-                    if (item && item.id) {
-                        return cardMap.get(item.id) || item;
-                    }
+                    if (typeof item === 'string') return cardMap.get(item);
+                    if (item && item.id) return cardMap.get(item.id) || item;
                     return null;
                 }).filter(Boolean);
             };
 
             const restoreBatches = (savedBatches) => {
                 if (!savedBatches) return [];
-                return savedBatches.map(batch => restoreCards(batch));
+                return savedBatches
+                    .map(batch => restoreCards(batch))
+                    .filter(b => b && b.length > 0); // MUST filter empty batches!
             };
 
             let restoredBatches = restoreBatches(saved.batches);
@@ -582,35 +603,71 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                 }
             }
 
-            setBatches(restoredBatches);
-            const savedBatchIdx = saved.currentBatchIndex || 0;
-            const isPrevDone = saved.done || false;
+            // Fallback if all batches ended up empty
+            if (restoredBatches.length === 0) {
+                const shuffled = shuffleArray([...originalCards]);
+                for (let i = 0; i < shuffled.length; i += 5) {
+                    restoredBatches.push(shuffled.slice(i, i + 5));
+                }
+            }
 
-            if (isPrevDone && brandNewCards.length > 0) {
-                const firstNewBatchIdx = saved.batches ? saved.batches.length : 0;
-                setCurrentBatchIndex(firstNewBatchIdx);
-                const nextBatch = restoredBatches[firstNewBatchIdx] || [];
-                setCurrentBatch(nextBatch);
+            setBatches(restoredBatches);
+
+            // If saved progress had done: true, reset to beginning so user can study instead of seeing congratulations screen immediately
+            if (saved.done && brandNewCards.length === 0) {
+                setCurrentBatchIndex(0);
+                const firstBatch = restoredBatches[0] || [];
+                setCurrentBatch(firstBatch);
                 setBatchPhase('mc');
-                setMcQueue(shuffleArray([...nextBatch]));
+                setMcQueue(shuffleArray([...firstBatch]));
                 setMcIdx(0);
                 setMcWrong([]);
                 setWrittenQueue([]);
                 setWrittenIdx(0);
                 setWrittenWrong([]);
                 setDone(false);
-            } else {
-                setCurrentBatchIndex(savedBatchIdx);
-                setCurrentBatch(restoreCards(saved.currentBatch));
-                setBatchPhase(saved.batchPhase || 'mc');
-                setMcQueue(restoreCards(saved.mcQueue));
-                setMcIdx(saved.mcIdx || 0);
-                setMcWrong(restoreCards(saved.mcWrong));
-                setWrittenQueue(restoreCards(saved.writtenQueue));
-                setWrittenIdx(saved.writtenIdx || 0);
-                setWrittenWrong(restoreCards(saved.writtenWrong));
-                setDone(isPrevDone && brandNewCards.length === 0);
+                return;
             }
+
+            const savedBatchIdx = Math.max(0, Math.min(saved.currentBatchIndex || 0, restoredBatches.length - 1));
+            setCurrentBatchIndex(savedBatchIdx);
+
+            let curBatch = restoreCards(saved.currentBatch);
+            if (!curBatch || curBatch.length === 0) {
+                curBatch = restoredBatches[savedBatchIdx] || [];
+            }
+            setCurrentBatch(curBatch);
+
+            const phase = saved.batchPhase || 'mc';
+            setBatchPhase(phase);
+
+            if (phase === 'mc') {
+                let q = restoreCards(saved.mcQueue);
+                if (!q || q.length === 0) {
+                    q = shuffleArray([...curBatch]);
+                }
+                setMcQueue(q);
+                setMcIdx(Math.max(0, Math.min(saved.mcIdx || 0, q.length - 1)));
+                setMcWrong(restoreCards(saved.mcWrong));
+                setWrittenQueue([]);
+                setWrittenIdx(0);
+                setWrittenWrong([]);
+            } else if (phase === 'written') {
+                setMcQueue([]);
+                setMcIdx(0);
+                setMcWrong([]);
+                let wq = restoreCards(saved.writtenQueue);
+                if (!wq || wq.length === 0) {
+                    wq = shuffleArray([...curBatch]);
+                }
+                setWrittenQueue(wq);
+                setWrittenIdx(Math.max(0, Math.min(saved.writtenIdx || 0, wq.length - 1)));
+                setWrittenWrong(restoreCards(saved.writtenWrong));
+            } else {
+                setMcQueue([]);
+                setWrittenQueue([]);
+            }
+            setDone(false);
             return;
         }
 
@@ -640,12 +697,33 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         }
     }, [originalCards, batches.length, initializeBatches]);
 
-    // Save progress to localStorage whenever state changes
+    // Safety auto-recovery: If currentCard or queue is empty while in active phase, re-populate immediately
     useEffect(() => {
-        if (!studySessionData?.setId || batches.length === 0) return;
+        if (!done && batches.length > 0) {
+            if (batchPhase === 'mc' && mcQueue.length === 0) {
+                const targetBatch = batches[currentBatchIndex] || batches[0];
+                if (targetBatch && targetBatch.length > 0) {
+                    setCurrentBatch(targetBatch);
+                    setMcQueue(shuffleArray([...targetBatch]));
+                    setMcIdx(0);
+                }
+            } else if (batchPhase === 'written' && writtenQueue.length === 0) {
+                const targetBatch = batches[currentBatchIndex] || batches[0];
+                if (targetBatch && targetBatch.length > 0) {
+                    setCurrentBatch(targetBatch);
+                    setWrittenQueue(shuffleArray([...targetBatch]));
+                    setWrittenIdx(0);
+                }
+            }
+        }
+    }, [done, batches, batchPhase, mcQueue.length, writtenQueue.length, currentBatchIndex]);
+
+    // Save progress to localStorage whenever state changes (NEVER overwrite when studying custom subset)
+    useEffect(() => {
+        if (!studySessionData?.setId || studySessionData?.isCustomSubset || batches.length === 0 || done) return;
         const progressData = {
             cardIds: originalCards.map(c => c.id),
-            batches: (batches || []).map(batch => (batch || []).map(c => c?.id).filter(Boolean)),
+            batches: (batches || []).map(batch => (batch || []).map(c => c?.id).filter(Boolean)).filter(b => b.length > 0),
             currentBatchIndex,
             currentBatch: (currentBatch || []).map(c => c?.id).filter(Boolean),
             batchPhase,
@@ -655,7 +733,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             writtenQueue: (writtenQueue || []).map(c => c?.id).filter(Boolean),
             writtenIdx,
             writtenWrong: (writtenWrong || []).map(c => c?.id).filter(Boolean),
-            done,
+            done: false,
             timestamp: Date.now(),
         };
         const key = `study_progress_${studySessionData.setId}_study`;
@@ -666,6 +744,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         }
     }, [
         studySessionData?.setId,
+        studySessionData?.isCustomSubset,
         originalCards,
         batches,
         currentBatchIndex,
@@ -768,7 +847,11 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         if (awardXP) awardXP(15);
         const cCard = writtenQueue[writtenIdx];
         if (onUpdateCard && cCard?.id && !sessionWrongCardIdsRef.current.has(cCard.id)) {
-            onUpdateCard(cCard.id, true, 'back', 'study_written');
+            const initialMastery = initialMasteryRef.current.get(cCard.id);
+            const action = (initialMastery === 'learning' || studySessionData?.customType === 'learning')
+                ? 'study_written_promote'
+                : 'study_written';
+            onUpdateCard(cCard.id, true, 'back', action);
         }
         const nextIdx = writtenIdx + 1;
         if (nextIdx >= writtenQueue.length) {
@@ -783,7 +866,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         } else {
             setWrittenIdx(nextIdx);
         }
-    }, [writtenIdx, writtenQueue.length, writtenWrong, onUpdateCard, writtenQueue]);
+    }, [writtenIdx, writtenQueue.length, writtenWrong, onUpdateCard, writtenQueue, studySessionData?.customType]);
 
     const handleWrittenWrong = useCallback(() => {
         const cCard = writtenQueue[writtenIdx];
@@ -834,7 +917,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     }, [currentBatchIndex, batches]);
 
     const handleRestart = useCallback(() => {
-        if (studySessionData?.setId) {
+        if (studySessionData?.setId && !studySessionData?.isCustomSubset) {
             const userId = getAuth().currentUser?.uid;
             resetStudyProgress(userId, studySessionData.setId, 'study');
         }
@@ -856,7 +939,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             setWrittenIdx(0);
             setWrittenWrong([]);
         }
-    }, [originalCards, studySessionData?.setId]);
+    }, [originalCards, studySessionData?.setId, studySessionData?.isCustomSubset]);
 
     // Handle Enter key for BatchComplete and SessionComplete screens
     useEffect(() => {

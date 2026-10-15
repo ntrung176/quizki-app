@@ -14,17 +14,24 @@ const shuffleArr = (arr) => {
     return a;
 };
 
-const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) => {
+const SynonymQuizScreen = ({ cards, setId, isCustomSubset = false, onUpdateCard, onBack, onComplete }) => {
     const { isEnglishMode } = useTargetLanguage();
     // Load saved progress from localStorage
     const getSavedProgress = () => {
+        if (isCustomSubset || !setId) return null;
         try {
-            if (!setId) return null;
             const key = `study_progress_${setId}_synonym`;
             const saved = localStorage.getItem(key);
             if (saved) {
                 const data = JSON.parse(saved);
-                return data;
+                if (data && data.quizQueue) {
+                    if (cards && cards.length > 0 && data.quizQueue.length > 0) {
+                        if (data.quizQueue.length !== cards.length) {
+                            return null;
+                        }
+                    }
+                    return data;
+                }
             }
         } catch (e) { /* ignore */ }
         return null;
@@ -38,7 +45,10 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
     const [selectedAnswer, setSelectedAnswer] = useState(null);
     const [isRevealed, setIsRevealed] = useState(false);
     const [score, setScore] = useState(savedProgress?.score || { correct: 0, incorrect: 0 });
-    const [isComplete, setIsComplete] = useState(savedProgress?.isComplete || false);
+    const [isComplete, setIsComplete] = useState(() => {
+        if (isCustomSubset) return false;
+        return savedProgress?.isComplete || false;
+    });
     const [isTransitioning, setIsTransitioning] = useState(false);
 
     const [showSettings, setShowSettings] = useState(false);
@@ -68,7 +78,7 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
 
     // Save progress to localStorage whenever state changes
     useEffect(() => {
-        if (!setId || isComplete) return;
+        if (isCustomSubset || !setId || isComplete) return;
         const progressData = {
             currentIndex,
             score,
@@ -83,7 +93,7 @@ const SynonymQuizScreen = ({ cards, setId, onUpdateCard, onBack, onComplete }) =
             const userId = getAuth().currentUser?.uid;
             saveStudyProgress(userId, setId, 'synonym', progressData);
         }
-    }, [currentIndex, score, isComplete, quizQueue, setId]);
+    }, [currentIndex, score, isComplete, quizQueue, setId, isCustomSubset]);
 
     // Generate multiple choice options
     const options = useMemo(() => {

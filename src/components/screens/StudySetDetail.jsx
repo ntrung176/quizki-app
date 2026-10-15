@@ -774,7 +774,7 @@ const StudySetDetail = ({
         if (selectedMasteryMode === 'flashcard') {
             onFlashcardSet(folderId, showMasteryModal.cards);
         } else if (selectedMasteryMode === 'study') {
-            onStudySet(folderId, showMasteryModal.cards);
+            onStudySet(folderId, showMasteryModal.cards, { customType: showMasteryModal.status });
         } else if (selectedMasteryMode === 'meaning') {
             onMeaningSet(folderId, showMasteryModal.cards);
         } else if (selectedMasteryMode === 'dictation') {
