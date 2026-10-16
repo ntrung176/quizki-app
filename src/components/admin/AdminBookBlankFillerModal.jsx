@@ -7,17 +7,16 @@ import {
 } from 'lucide-react';
 import { db } from '../../config/firebase';
 import { doc, setDoc } from 'firebase/firestore';
-import { getSharedBookGroups, updateEditedBookGroupLocalCache, syncBooksToCDN } from '../../utils/bookService';
+import { getSharedBookGroups, updateEditedBookGroupLocalCache, syncBooksToCDN, updateBookLessonVocabInMemory } from '../../utils/bookService';
 import { aiFillExampleBlanks } from '../../utils/aiProvider';
 import { showToast, showConfirm } from '../../utils/toast';
 import FuriganaText from '../ui/FuriganaText';
 
 const BATCH_SIZES = [
-    { value: 10, label: '10 từ / đợt (Thử nghiệm)' },
+    { value: 'ALL', label: 'Tất cả từ / Chạy hết cả cuốn (Khuyên dùng)' },
+    { value: 60, label: '60 từ / đợt' },
     { value: 30, label: '30 từ / đợt' },
-    { value: 60, label: '60 từ / đợt (Khuyên dùng)' },
-    { value: 120, label: '120 từ / đợt' },
-    { value: 'ALL', label: 'Tất cả từ còn lại' }
+    { value: 10, label: '10 từ / đợt (Thử nghiệm)' }
 ];
 
 const hasBlankInExample = (v) => {
@@ -39,7 +38,7 @@ const AdminBookBlankFillerModal = ({
     // Filters
     const [selectedGroupId, setSelectedGroupId] = useState('ALL');
     const [selectedBookId, setSelectedBookId] = useState('ALL');
-    const [batchSize, setBatchSize] = useState(60);
+    const [batchSize, setBatchSize] = useState('ALL');
 
     // Preview state
     const [isPreviewing, setIsPreviewing] = useState(false);
@@ -77,13 +76,14 @@ const AdminBookBlankFillerModal = ({
         const loadData = async () => {
             setIsLoadingData(true);
             try {
-                const groups = await getSharedBookGroups(false, false);
+                const groups = await getSharedBookGroups(false, true);
                 setBookGroups(groups || []);
                 if (initialGroupId) {
                     setSelectedGroupId(initialGroupId);
                 }
                 if (initialBookId) {
                     setSelectedBookId(initialBookId);
+                    setBatchSize('ALL');
                 }
             } catch (err) {
                 console.error('Error loading book groups for blank filler:', err);
@@ -107,11 +107,11 @@ const AdminBookBlankFillerModal = ({
 
     // Reset book filter if group changes and book is no longer valid
     useEffect(() => {
-        if (selectedBookId !== 'ALL') {
+        if (!isLoadingData && availableBooks.length > 0 && selectedBookId !== 'ALL') {
             const exists = availableBooks.some(b => b.id === selectedBookId);
             if (!exists) setSelectedBookId('ALL');
         }
-    }, [availableBooks, selectedBookId]);
+    }, [availableBooks, selectedBookId, isLoadingData]);
 
     // Flatten all vocab matching selected filters
     const allFilteredTasks = useMemo(() => {
@@ -217,9 +217,24 @@ const AdminBookBlankFillerModal = ({
                 };
             }
 
-            // Save to Firestore
+            // Save to Firestore with parent hierarchy
+            const groupRef = doc(db, 'bookGroups', task.groupId);
+            const bookRef = doc(db, 'bookGroups', task.groupId, 'books', task.bookId);
+            const chapterRef = doc(db, 'bookGroups', task.groupId, 'books', task.bookId, 'chapters', task.chapterId);
             const lessonRef = doc(db, 'bookGroups', task.groupId, 'books', task.bookId, 'chapters', task.chapterId, 'lessons', task.lessonId);
-            await setDoc(lessonRef, { vocab: updatedVocab }, { merge: true });
+
+            await setDoc(groupRef, { id: task.groupId, name: g?.name || task.groupName || '' }, { merge: true });
+            await setDoc(bookRef, { id: task.bookId, name: b?.name || task.bookName || '', order: b?.order || 0 }, { merge: true });
+            await setDoc(chapterRef, { id: task.chapterId, name: c?.name || task.chapterName || '', order: c?.order || 0 }, { merge: true });
+            await setDoc(lessonRef, {
+                id: task.lessonId,
+                name: l?.name || task.lessonName || '',
+                order: l?.order || 0,
+                vocab: updatedVocab,
+                updatedAt: Date.now()
+            }, { merge: true });
+
+            updateBookLessonVocabInMemory(task.groupId, task.bookId, task.chapterId, task.lessonId, updatedVocab);
 
             // Update local memory
             setBookGroups(prev => prev.map(grp => {
@@ -358,6 +373,7 @@ const AdminBookBlankFillerModal = ({
                 try {
                     const aiResults = await aiFillExampleBlanks(subBatch.map(s => s.vocab));
                     if (Array.isArray(aiResults)) {
+                        let subBatchModified = 0;
                         aiResults.forEach(res => {
                             const taskItem = subBatch[res.index];
                             if (taskItem && res.example) {
@@ -371,14 +387,62 @@ const AdminBookBlankFillerModal = ({
                                     }
                                     succeededCount++;
                                     lessonModifiedCount++;
+                                    subBatchModified++;
                                 }
                             }
                         });
 
+                        // Progressive save to Database: Cập nhật database tới đâu lưu tới đó
+                        if (subBatchModified > 0) {
+                            try {
+                                const groupRef = doc(db, 'bookGroups', lessonInfo.groupId);
+                                const bookRef = doc(db, 'bookGroups', lessonInfo.groupId, 'books', lessonInfo.bookId);
+                                const chapterRef = doc(db, 'bookGroups', lessonInfo.groupId, 'books', lessonInfo.bookId, 'chapters', lessonInfo.chapterId);
+                                const lessonRef = doc(db, 'bookGroups', lessonInfo.groupId, 'books', lessonInfo.bookId, 'chapters', lessonInfo.chapterId, 'lessons', lessonInfo.lessonId);
+
+                                await setDoc(groupRef, { id: lessonInfo.groupId, name: currentGroupObj?.name || lessonInfo.groupName || '' }, { merge: true });
+                                await setDoc(bookRef, { id: lessonInfo.bookId, name: currentBookObj?.name || lessonInfo.bookName || '', order: currentBookObj?.order || 0 }, { merge: true });
+                                await setDoc(chapterRef, { id: lessonInfo.chapterId, name: currentChapterObj?.name || lessonInfo.chapterName || '', order: currentChapterObj?.order || 0 }, { merge: true });
+                                await setDoc(lessonRef, {
+                                    id: lessonInfo.lessonId,
+                                    name: currentLessonObj?.name || lessonInfo.lessonName || '',
+                                    order: currentLessonObj?.order || 0,
+                                    vocab: updatedLessonVocab,
+                                    updatedAt: Date.now()
+                                }, { merge: true });
+
+                                updateBookLessonVocabInMemory(lessonInfo.groupId, lessonInfo.bookId, lessonInfo.chapterId, lessonInfo.lessonId, updatedLessonVocab);
+
+                                setBookGroups(prev => prev.map(grp => {
+                                    if (grp.id !== lessonInfo.groupId) return grp;
+                                    const updatedGroup = {
+                                        ...grp,
+                                        books: (grp.books || []).map(bk => {
+                                            if (bk.id !== lessonInfo.bookId) return bk;
+                                            return {
+                                                ...bk,
+                                                chapters: (bk.chapters || []).map(ch => {
+                                                    if (ch.id !== lessonInfo.chapterId) return ch;
+                                                    return {
+                                                        ...ch,
+                                                        lessons: (ch.lessons || []).map(ls => ls.id === lessonInfo.lessonId ? { ...ls, vocab: updatedLessonVocab } : ls)
+                                                    };
+                                                })
+                                            };
+                                        })
+                                    };
+                                    updateEditedBookGroupLocalCache(updatedGroup);
+                                    return updatedGroup;
+                                }));
+                            } catch (pSaveErr) {
+                                console.error('Progressive save error to Firestore:', pSaveErr);
+                            }
+                        }
+
                         const wordNames = subBatch.map(s => (s.vocab.word || s.vocab.front || '').split('（')[0]).join(', ');
                         setLogs(prev => [
                             ...prev,
-                            `[${new Date().toLocaleTimeString()}] ✅ ${lessonInfo.bookName} (${lessonInfo.lessonName}): Điền thành công ${subBatch.length} từ: [${wordNames}]`
+                            `[${new Date().toLocaleTimeString()}] ✅ ${lessonInfo.bookName} (${lessonInfo.lessonName}): Điền & lưu database thành công ${subBatch.length} từ: [${wordNames}]`
                         ]);
                     } else {
                         failedCount += subBatch.length;
@@ -409,33 +473,27 @@ const AdminBookBlankFillerModal = ({
                 await new Promise(r => setTimeout(r, 600));
             }
 
-            // Save lesson to Firestore & local state if modified
+            // Final check on lesson completion
             if (lessonModifiedCount > 0) {
                 try {
+                    const groupRef = doc(db, 'bookGroups', lessonInfo.groupId);
+                    const bookRef = doc(db, 'bookGroups', lessonInfo.groupId, 'books', lessonInfo.bookId);
+                    const chapterRef = doc(db, 'bookGroups', lessonInfo.groupId, 'books', lessonInfo.bookId, 'chapters', lessonInfo.chapterId);
                     const lessonRef = doc(db, 'bookGroups', lessonInfo.groupId, 'books', lessonInfo.bookId, 'chapters', lessonInfo.chapterId, 'lessons', lessonInfo.lessonId);
-                    await setDoc(lessonRef, { vocab: updatedLessonVocab }, { merge: true });
 
-                    setBookGroups(prev => prev.map(grp => {
-                        if (grp.id !== lessonInfo.groupId) return grp;
-                        const updatedGroup = {
-                            ...grp,
-                            books: (grp.books || []).map(bk => {
-                                if (bk.id !== lessonInfo.bookId) return bk;
-                                return {
-                                    ...bk,
-                                    chapters: (bk.chapters || []).map(ch => {
-                                        if (ch.id !== lessonInfo.chapterId) return ch;
-                                        return {
-                                            ...ch,
-                                            lessons: (ch.lessons || []).map(ls => ls.id === lessonInfo.lessonId ? { ...ls, vocab: updatedLessonVocab } : ls)
-                                        };
-                                    })
-                                };
-                            })
-                        };
-                        updateEditedBookGroupLocalCache(updatedGroup);
-                        return updatedGroup;
-                    }));
+                    await setDoc(groupRef, { id: lessonInfo.groupId, name: currentGroupObj?.name || lessonInfo.groupName || '' }, { merge: true });
+                    await setDoc(bookRef, { id: lessonInfo.bookId, name: currentBookObj?.name || lessonInfo.bookName || '', order: currentBookObj?.order || 0 }, { merge: true });
+                    await setDoc(chapterRef, { id: lessonInfo.chapterId, name: currentChapterObj?.name || lessonInfo.chapterName || '', order: currentChapterObj?.order || 0 }, { merge: true });
+                    await setDoc(lessonRef, {
+                        id: lessonInfo.lessonId,
+                        name: currentLessonObj?.name || lessonInfo.lessonName || '',
+                        order: currentLessonObj?.order || 0,
+                        vocab: updatedLessonVocab,
+                        updatedAt: Date.now()
+                    }, { merge: true });
+
+                    updateBookLessonVocabInMemory(lessonInfo.groupId, lessonInfo.bookId, lessonInfo.chapterId, lessonInfo.lessonId, updatedLessonVocab);
+                    if (onSuccessUpdate) onSuccessUpdate();
                 } catch (saveErr) {
                     console.error('Error saving lesson after blank filling:', saveErr);
                     setLogs(prev => [
@@ -455,6 +513,23 @@ const AdminBookBlankFillerModal = ({
         ]);
 
         if (succeededCount > 0) {
+            setLogs(prev => [
+                ...prev,
+                `[${new Date().toLocaleTimeString()}] ☁️ Đang tự động xuất và cập nhật lên CDN Cloud Storage để lưu vĩnh viễn...`
+            ]);
+            try {
+                await syncBooksToCDN();
+                setLogs(prev => [
+                    ...prev,
+                    `[${new Date().toLocaleTimeString()}] ✅ Đã cập nhật CDN Storage thành công! F5 hoặc mở trên thiết bị khác đều giữ nguyên kết quả.`
+                ]);
+            } catch (cdnErr) {
+                console.warn('Auto CDN sync error:', cdnErr);
+                setLogs(prev => [
+                    ...prev,
+                    `[${new Date().toLocaleTimeString()}] ⚠️ Lưu ý: Đã lưu Firestore nhưng CDN chưa đồng bộ tự động được (${cdnErr.message}). Bạn có thể bấm nút 'Đồng bộ CDN' bên dưới.`
+                ]);
+            }
             showToast(`Thành công! Đã điền từ & chia đúng thể cho ${succeededCount} câu ví dụ! 🎉`, 'success');
             if (onSuccessUpdate) onSuccessUpdate();
         }

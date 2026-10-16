@@ -75,7 +75,8 @@ const BookScreen = ({
         editingCardRef, handleSaveVocabEdit, handleSaveDirectVocabEdit, handleBatchSaveLessonVocab, isVocabInUserList, addedVocabSet, fixAudioIndex, setFixAudioIndex,
         fixAudioCustomReading, setFixAudioCustomReading, fixAudioLoading, handleFixAudio, showNuanceIndex,
         setShowNuanceIndex, handleEditVocab, handleDeleteVocab,
-        showPremiumModal, setShowPremiumModal, lockedPkgName, setLockedPkgName
+        showPremiumModal, setShowPremiumModal, lockedPkgName, setLockedPkgName,
+        loadAllData
     } = bookData;
 
     useEffect(() => {
@@ -220,6 +221,7 @@ const BookScreen = ({
                     InlineEditName={InlineEditName}
                     onGeminiAssist={onGeminiAssist}
                     handleSaveDirectVocabEdit={handleSaveDirectVocabEdit}
+                    setShowBlankFillerModal={setShowBlankFillerModal}
                 />
             );
         }
@@ -369,6 +371,7 @@ const BookScreen = ({
                         onClose={() => setShowBlankFillerModal(false)}
                         initialGroupId={groupId || null}
                         initialBookId={bookId || null}
+                        onSuccessUpdate={() => loadAllData(true, true)}
                     />
                 )}
             </div>

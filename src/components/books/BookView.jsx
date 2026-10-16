@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Plus, Edit, Trash2, FolderPlus, ChevronUp, ChevronDown, ChevronRight, Lock, Unlock, Layers, CloudUpload, Loader2, Search } from 'lucide-react';
+import { Plus, Edit, Trash2, FolderPlus, ChevronUp, ChevronDown, ChevronRight, Lock, Unlock, Layers, CloudUpload, Loader2, Search, Sparkles } from 'lucide-react';
 import { showToast, showConfirm } from '../../utils/toast';
 import { syncBooksToCDN } from '../../utils/bookService';
 import BookThumbnail from './BookThumbnail';
@@ -33,7 +33,8 @@ const BookView = ({
     setShowPremiumModal,
     InlineEditName,
     onGeminiAssist,
-    handleSaveDirectVocabEdit
+    handleSaveDirectVocabEdit,
+    setShowBlankFillerModal
 }) => {
     const [isSyncingCDN, setIsSyncingCDN] = useState(false);
     const [showVocabSearchModal, setShowVocabSearchModal] = useState(false);
@@ -169,6 +170,16 @@ const BookView = ({
                             <Search className="w-4 h-4" />
                             <span>Tìm từ vựng</span>
                         </button>
+                        {isAdmin && setShowBlankFillerModal && (
+                            <button
+                                onClick={() => setShowBlankFillerModal(true)}
+                                className="flex items-center gap-2 px-3.5 py-2 bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 hover:from-purple-700 hover:via-indigo-700 hover:to-pink-700 text-white rounded-xl text-xs sm:text-sm font-bold shadow-md shadow-purple-500/20 transition-all active:scale-95 cursor-pointer"
+                                title="Dùng AI tự động điền từ vào tất cả chỗ trống trong câu ví dụ cho toàn bộ các bài trong cuốn sách này"
+                            >
+                                <Sparkles className="w-4 h-4 text-amber-300 animate-pulse" />
+                                <span>AI điền từ câu ví dụ (Cả cuốn)</span>
+                            </button>
+                        )}
                         {isAdmin && (
                             <button onClick={() => { resetForm(); setShowAddChapter(true); }}
                                 className="flex items-center gap-2 px-3 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-xl text-sm font-medium cursor-pointer">
@@ -319,6 +330,7 @@ const BookView = ({
                     setLockedPkgName={setLockedPkgName}
                     setShowPremiumModal={setShowPremiumModal}
                     navigateTo={navigateTo}
+                    setShowBlankFillerModal={setShowBlankFillerModal}
                 />
             )}
 

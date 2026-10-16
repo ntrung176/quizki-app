@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { Sparkles } from 'lucide-react';
 
 /**
  * Reusable Table of Contents sidebar for Books (used in both BookView and LessonDetailView)
@@ -14,6 +15,7 @@ const BookTableOfContents = ({
     setLockedPkgName,
     setShowPremiumModal,
     navigateTo,
+    setShowBlankFillerModal,
     className = ''
 }) => {
     const activeItemRef = useRef(null);
@@ -29,9 +31,21 @@ const BookTableOfContents = ({
     return (
         <div className={`hidden lg:block w-56 shrink-0 ${className}`}>
             <div className="sticky top-4 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-3 shadow-sm max-h-[calc(100vh-2rem)] flex flex-col">
-                <h4 className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2 shrink-0">
-                    Mục lục
-                </h4>
+                <div className="flex items-center justify-between gap-1 mb-2 shrink-0">
+                    <h4 className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+                        Mục lục
+                    </h4>
+                    {isAdmin && setShowBlankFillerModal && (
+                        <button
+                            onClick={() => setShowBlankFillerModal(true)}
+                            className="flex items-center gap-1 px-2 py-0.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-md text-[10px] font-bold shadow-xs transition-all active:scale-95 cursor-pointer"
+                            title="Dùng AI điền từ vào chỗ trống câu ví dụ cho cả cuốn sách"
+                        >
+                            <Sparkles className="w-3 h-3 text-amber-300" />
+                            <span>AI Cả cuốn</span>
+                        </button>
+                    )}
+                </div>
                 <nav className="space-y-2 overflow-y-auto pr-1">
                     {chapters.map((ch) => (
                         <div key={ch.id}>

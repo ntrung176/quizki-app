@@ -51,15 +51,53 @@ export const deepMergeBookGroups = (baseGroups, overrideGroups) => {
                             bookMap.set(bKey, oBook);
                         } else {
                             const existingBook = bookMap.get(bKey);
-                            const oLessonCount = (oBook.chapters || []).reduce((sum, c) => sum + (c.lessons || []).length, 0);
-                            const exLessonCount = (existingBook.chapters || []).reduce((sum, c) => sum + (c.lessons || []).length, 0);
+                            const { chapters: oChapters, ...bookMeta } = oBook;
+                            Object.assign(existingBook, bookMeta);
 
-                            if (oLessonCount > 0) {
-                                Object.assign(existingBook, oBook);
-                            } else {
-                                // If override book has 0 lessons (e.g. empty shell in DB), keep existing rich chapters/lessons
-                                const { chapters, ...meta } = oBook;
-                                Object.assign(existingBook, meta);
+                            if (Array.isArray(oChapters) && oChapters.length > 0) {
+                                const chapterMap = new Map();
+                                (existingBook.chapters || []).forEach(ch => {
+                                    const chKey = ch.id || (ch.name || '').trim().toLowerCase();
+                                    chapterMap.set(chKey, ch);
+                                });
+
+                                oChapters.forEach(oChapter => {
+                                    if (!oChapter) return;
+                                    const chKey = oChapter.id || (oChapter.name || '').trim().toLowerCase();
+                                    if (!chapterMap.has(chKey)) {
+                                        chapterMap.set(chKey, oChapter);
+                                    } else {
+                                        const existingChapter = chapterMap.get(chKey);
+                                        const { lessons: oLessons, ...chapterMeta } = oChapter;
+                                        Object.assign(existingChapter, chapterMeta);
+
+                                        if (Array.isArray(oLessons) && oLessons.length > 0) {
+                                            const lessonMap = new Map();
+                                            (existingChapter.lessons || []).forEach(ls => {
+                                                const lsKey = ls.id || (ls.name || '').trim().toLowerCase();
+                                                lessonMap.set(lsKey, ls);
+                                            });
+
+                                            oLessons.forEach(oLesson => {
+                                                if (!oLesson) return;
+                                                const lsKey = oLesson.id || (oLesson.name || '').trim().toLowerCase();
+                                                if (!lessonMap.has(lsKey)) {
+                                                    lessonMap.set(lsKey, oLesson);
+                                                } else {
+                                                    const existingLesson = lessonMap.get(lsKey);
+                                                    Object.assign(existingLesson, oLesson);
+                                                    if (Array.isArray(oLesson.vocab) && oLesson.vocab.length > 0) {
+                                                        existingLesson.vocab = oLesson.vocab;
+                                                    }
+                                                }
+                                            });
+
+                                            existingChapter.lessons = Array.from(lessonMap.values()).sort((a, b) => (a.order || 0) - (b.order || 0));
+                                        }
+                                    }
+                                });
+
+                                existingBook.chapters = Array.from(chapterMap.values()).sort((a, b) => (a.order || 0) - (b.order || 0));
                             }
                         }
                     });
@@ -181,7 +219,19 @@ export const getSharedBookGroups = async (forceRefresh = false, forceLiveFiresto
             }
         };
 
-        if (forceLiveFirestore) {
+        const checkIsAdmin = () => {
+            try {
+                if (typeof window !== 'undefined' && window.__QUIZKI_IS_ADMIN__) return true;
+                if (import.meta.env.DEV) return true;
+                const adminCache = sessionStorage.getItem('quizki_is_admin');
+                if (adminCache === 'true') return true;
+                const profile = JSON.parse(localStorage.getItem('quizki-profile') || '{}');
+                if (profile?.isAdmin || profile?.role === 'admin') return true;
+            } catch (_) {}
+            return false;
+        };
+
+        if (forceLiveFirestore || checkIsAdmin()) {
             const fsResult = await fetchFromFirestoreFallback();
             return mergeEditedBookGroups(fsResult);
         }
@@ -306,18 +356,29 @@ export const mergeEditedBookGroups = (groups) => {
     const editedMap = getEditedBookGroupsMap();
     if (Object.keys(editedMap).length === 0) return groups;
 
-    return groups
+    let hasCleaned = false;
+    const result = groups
         .filter(group => !editedMap[group.id]?.isDeleted)
         .map(group => {
             const editedGroup = editedMap[group.id];
             if (editedGroup) {
-                return {
-                    ...group,
-                    ...editedGroup
-                };
+                // If incoming group from Firestore/CDN is fresher, discard stale local cache
+                if (group.updatedAt && editedGroup.updatedAt && group.updatedAt >= editedGroup.updatedAt) {
+                    delete editedMap[group.id];
+                    hasCleaned = true;
+                    return group;
+                }
+                const [merged] = deepMergeBookGroups([group], [editedGroup]);
+                return merged || group;
             }
             return group;
         });
+
+    if (hasCleaned) {
+        try { localStorage.setItem(EDITED_BOOKS_KEY, JSON.stringify(editedMap)); } catch (_) {}
+    }
+
+    return result;
 };
 
 /**
@@ -335,6 +396,31 @@ export const invalidateBookGroupsCache = () => {
     cachedBookGroups = null;
     bookGroupsPromise = null;
     lastLoadedExportedAt = null;
+};
+
+/**
+ * Updates a specific lesson's vocabulary in the in-memory cache directly.
+ */
+export const updateBookLessonVocabInMemory = (groupId, bookId, chapterId, lessonId, newVocab) => {
+    if (!cachedBookGroups || !Array.isArray(cachedBookGroups)) return;
+    for (const g of cachedBookGroups) {
+        if (g.id === groupId) {
+            for (const b of (g.books || [])) {
+                if (b.id === bookId) {
+                    for (const c of (b.chapters || [])) {
+                        if (c.id === chapterId) {
+                            for (const l of (c.lessons || [])) {
+                                if (l.id === lessonId) {
+                                    l.vocab = newVocab;
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 };
 
 export const syncBooksToCDN = async () => {

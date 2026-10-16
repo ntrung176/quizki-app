@@ -668,6 +668,22 @@ const SRSVocabScreen = ({
         if (allAvailable.length > 0) {
             requestStartReview(allAvailable, 'global', 'Ôn tập từ vựng ngắt quãng');
         } else {
+            // Check if there are cards in Learn Ahead window
+            const learnAheadMs = getLearnAheadLimitMs();
+            const now = Date.now();
+            const learnAheadCards = filteredCards.filter(c => {
+                if (c.srsEnabled === false) return false;
+                const nextReviewVal = c.nextReview_back || c.nextReview;
+                if (!nextReviewVal) return false;
+                const reviewTime = parseNextReviewMs(nextReviewVal);
+                return reviewTime > now && reviewTime <= (now + learnAheadMs);
+            });
+
+            if (learnAheadCards.length > 0) {
+                requestStartReview(learnAheadCards, 'global', `Ôn tập học trước (${learnAheadCards.length} thẻ trong ${Math.round(learnAheadMs / 60000)} phút)`);
+                return;
+            }
+
             if (setNotification) {
                 setNotification("Không có thẻ nào cần ôn tập ngắt quãng lúc này.");
             }
@@ -701,35 +717,70 @@ const SRSVocabScreen = ({
 
     const [lastTick, setLastTick] = useState(Date.now());
 
-    const getLearningCardsWaiting = () => {
-        return Object.entries(sessionSrsData.current)
-            .filter(([id, srs]) => {
-                if (!activeReviewCardIds.current.has(id)) return false;
+    const getLearningCardsWaiting = useCallback(() => {
+        const waitingMap = new Map();
+        const now = Date.now();
+        const learnAheadMs = getLearnAheadLimitMs();
 
-                const stateStr = (srs.state || srs.srsState || '').toUpperCase();
-                if (stateStr === 'REVIEW') return false;
-                if (completedCardIds.current.has(id)) return false;
+        // 1. Thẻ đã được chấm điểm trong phiên hiện tại (sessionSrsData)
+        Object.entries(sessionSrsData.current).forEach(([id, srs]) => {
+            const idStr = String(id);
+            if (completedCardIds.current.has(idStr)) return;
+            const stateStr = (srs.state || srs.srsState || '').toUpperCase();
+            if (stateStr === 'REVIEW') return;
 
-                // Safely parse nextReview date and check if it is more than 12 hours in the future
-                const nextReviewVal = srs.nextReview_back || srs.nextReview;
-                if (nextReviewVal) {
-                    const reviewTime = parseNextReviewMs(nextReviewVal);
-                    if (reviewTime > 0 && reviewTime - Date.now() > 12 * 60 * 60 * 1000) {
-                        return false;
-                    }
-                }
-
-                return true;
-            })
-            .map(([id, srs]) => {
-                const nextReviewVal = srs.nextReview_back || srs.nextReview;
+            const nextReviewVal = srs.nextReview_back || srs.nextReview;
+            if (nextReviewVal) {
                 const reviewTime = parseNextReviewMs(nextReviewVal);
-                return {
-                    id,
-                    nextReview: reviewTime > 0 ? reviewTime : Date.now()
-                };
+                if (reviewTime > 0 && reviewTime - now <= 12 * 60 * 60 * 1000) {
+                    waitingMap.set(idStr, {
+                        id: idStr,
+                        nextReview: reviewTime
+                    });
+                }
+            }
+        });
+
+        // 2. Thẻ trong phạm vi học phần đang ôn (active scope) sắp đến hạn trong vòng Learn Ahead Limit
+        const fId = activeFolderIdRef.current;
+        const candidateCards = (!fId || fId === 'global')
+            ? (filteredCards || [])
+            : (filteredCards || []).filter(c => {
+                const cFolderId = cardFolders[c.id] || c.folderId || 'unfiled';
+                return cFolderId === fId;
             });
-    };
+
+        candidateCards.forEach(c => {
+            const cId = String(c.id);
+            if (c.srsEnabled === false) return;
+            if (completedCardIds.current.has(cId)) return;
+            if (waitingMap.has(cId)) return;
+
+            const localSrs = sessionSrsData.current[c.id];
+            // Nếu thẻ trong session đã tốt nghiệp (REVIEW), bỏ qua
+            if (localSrs && (localSrs.state || '').toUpperCase() === 'REVIEW') return;
+
+            const nextReviewVal = localSrs ? (localSrs.nextReview_back || localSrs.nextReview) : (c.nextReview_back || c.nextReview);
+            if (!nextReviewVal) return;
+
+            const reviewTime = parseNextReviewMs(nextReviewVal);
+            if (reviewTime === 0) return;
+
+            const diff = reviewTime - now;
+            // Thẻ đến hạn hoặc nằm trong phạm vi Learn Ahead Limit
+            if (diff <= learnAheadMs && diff >= -7 * 24 * 60 * 60 * 1000) {
+                const isStudied = (c.seenCount > 0) || (c.intervalIndex_back !== undefined && c.intervalIndex_back >= 0) || c.srsState || c.lastReviewed;
+                if (isStudied) {
+                    waitingMap.set(cId, {
+                        id: cId,
+                        nextReview: reviewTime
+                    });
+                }
+            }
+        });
+
+        return Array.from(waitingMap.values());
+    }, [filteredCards, cardFolders]);
 
     const createCardFromWaiting = useCallback((itemId) => {
         const itemIdStr = String(itemId);
@@ -765,6 +816,12 @@ const SRSVocabScreen = ({
             const upcomingQueueIds = new Set(prevQueue.slice(currentReviewIndex).map(c => String(c.id)));
             const newCards = cardsToPull.filter(c => !upcomingQueueIds.has(String(c.id)));
             if (newCards.length === 0) return prevQueue;
+            newCards.forEach(c => {
+                activeReviewCardIds.current.add(String(c.id));
+                if (!intervalCacheRef.current[c.id]) {
+                    intervalCacheRef.current[c.id] = getPreviewIntervals(c, sessionSrsData.current[c.id] || null);
+                }
+            });
             return [...prevQueue, ...newCards];
         });
 
@@ -802,6 +859,10 @@ const SRSVocabScreen = ({
                         if (!upcomingQueueIds.has(itemIdStr) && !completedCardIds.current.has(itemIdStr)) {
                             const cardObj = createCardFromWaiting(item.id);
                             if (cardObj) {
+                                activeReviewCardIds.current.add(itemIdStr);
+                                if (!intervalCacheRef.current[cardObj.id]) {
+                                    intervalCacheRef.current[cardObj.id] = getPreviewIntervals(cardObj, sessionSrsData.current[cardObj.id] || null);
+                                }
                                 cardsToInject.push(cardObj);
                             }
                         }
@@ -967,12 +1028,19 @@ const SRSVocabScreen = ({
                 const earliestRemainingMs = sortedWaiting[0].nextReview - nowTime;
 
                 if (earliestRemainingMs <= learnAheadMs) {
+                    const upcomingQueueIds = new Set(updatedQueue.slice(currentReviewIndex + 1).map(c => String(c.id)));
                     const cardsToPull = sortedWaiting
-                        .filter(w => (w.nextReview - nowTime) <= learnAheadMs)
+                        .filter(w => (w.nextReview - nowTime) <= learnAheadMs && !upcomingQueueIds.has(String(w.id)))
                         .map(w => createCardFromWaiting(w.id))
                         .filter(Boolean);
 
                     if (cardsToPull.length > 0) {
+                        cardsToPull.forEach(c => {
+                            activeReviewCardIds.current.add(String(c.id));
+                            if (!intervalCacheRef.current[c.id]) {
+                                intervalCacheRef.current[c.id] = getPreviewIntervals(c, sessionSrsData.current[c.id] || null);
+                            }
+                        });
                         updatedQueue.push(...cardsToPull);
                         setReviewQueue(updatedQueue);
                         setHasCheckedTyping(false);
@@ -1750,8 +1818,27 @@ const SRSVocabScreen = ({
             );
         }
 
-        // Check for any newly due cards while staying on the completion screen
-        const newlyDueCards = filteredCards.filter(c => isDue(c, lastTick));
+        // Check for any newly due cards or cards within Learn Ahead Limit while staying on the completion screen
+        const learnAheadMs = getLearnAheadLimitMs();
+        const fId = activeFolderIdRef.current;
+        const candidateCards = (!fId || fId === 'global')
+            ? (filteredCards || [])
+            : (filteredCards || []).filter(c => {
+                const cFolderId = cardFolders[c.id] || c.folderId || 'unfiled';
+                return cFolderId === fId;
+            });
+
+        const newlyDueCards = candidateCards.filter(c => {
+            if (c.srsEnabled === false) return false;
+            const localSrs = sessionSrsData.current[c.id];
+            if (localSrs && (localSrs.state || '').toUpperCase() === 'REVIEW') return false;
+            if (completedCardIds.current.has(String(c.id))) return false;
+
+            const nextReviewVal = localSrs ? (localSrs.nextReview_back || localSrs.nextReview) : (c.nextReview_back || c.nextReview);
+            if (!nextReviewVal) return false;
+            const reviewTime = parseNextReviewMs(nextReviewVal);
+            return reviewTime > 0 && reviewTime <= (lastTick + learnAheadMs);
+        });
 
         // When 0 cards are waiting (session 100% completed) -> Render Completion Congratulation Screen
         return (
@@ -1766,7 +1853,7 @@ const SRSVocabScreen = ({
                         </h2>
                         <p className="text-sm text-slate-600 dark:text-slate-300 max-w-sm">
                             {newlyDueCards.length > 0
-                                ? `Hiện tại có thêm ${newlyDueCards.length} thẻ từ vựng vừa đến hạn ôn tập. Bạn có muốn tiếp tục không?`
+                                ? `Hiện tại có thêm ${newlyDueCards.length} thẻ từ vựng đến hạn / sắp đến hạn (trong vòng 20 phút). Bạn có muốn ôn tiếp dứt điểm không?`
                                 : "Chúc mừng! Bạn đã hoàn thành xuất sắc tất cả các thẻ từ vựng trong phiên ôn tập này."}
                         </p>
                     </div>

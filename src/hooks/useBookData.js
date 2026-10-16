@@ -253,8 +253,8 @@ export const useBookData = ({
     };
 
     useEffect(() => {
-        loadAllData();
-    }, []);
+        loadAllData(false, isAdmin);
+    }, [isAdmin]);
 
     const loadLessonAudio = useCallback(async () => {
         if (!groupId || !bookId || !chapterId || !lessonId) {

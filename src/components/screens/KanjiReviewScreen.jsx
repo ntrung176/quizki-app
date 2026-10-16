@@ -387,24 +387,27 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
     const [lastTick, setLastTick] = useState(Date.now());
 
     const getLearningCardsWaiting = () => {
+        const now = Date.now();
+        const learnAheadMs = getLearnAheadLimitMs();
+
         return Object.entries(srsData || {})
             .filter(([id, srs]) => {
-                if (!srs || !activeReviewCardIds.current.has(id)) return false;
+                if (!srs) return false;
 
                 const stateStr = (srs.state || srs.srsState || '').toUpperCase();
                 if (stateStr === 'REVIEW') return false;
                 if (completedCardIds.current.has(id)) return false;
 
-                // Safely parse nextReview date and check if it is more than 12 hours in the future
                 const nextReviewVal = srs.nextReview || srs.nextReview_back;
-                if (nextReviewVal) {
-                    const reviewTime = parseNextReviewMs(nextReviewVal);
-                    if (reviewTime > 0 && reviewTime - Date.now() > 12 * 60 * 60 * 1000) {
-                        return false;
-                    }
-                }
+                if (!nextReviewVal) return false;
+                const reviewTime = parseNextReviewMs(nextReviewVal);
+                if (reviewTime === 0) return false;
 
-                return true;
+                const diff = reviewTime - now;
+                if (activeReviewCardIds.current.has(id)) {
+                    return diff <= 12 * 60 * 60 * 1000;
+                }
+                return diff <= learnAheadMs && diff >= -7 * 24 * 60 * 60 * 1000;
             })
             .map(([id, srs]) => {
                 const nextReviewVal = srs.nextReview || srs.nextReview_back;
@@ -451,6 +454,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             const upcomingQueueIds = new Set(prevQueue.slice(currentReviewIndex).map(c => String(c.id)));
             const newCards = cardsToPull.filter(c => !upcomingQueueIds.has(String(c.id)));
             if (newCards.length === 0) return prevQueue;
+            newCards.forEach(c => activeReviewCardIds.current.add(String(c.id)));
             return [...prevQueue, ...newCards];
         });
 
@@ -489,6 +493,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                         if (!upcomingQueueIds.has(itemIdStr) && !completedCardIds.current.has(itemIdStr)) {
                             const cardObj = createKanjiCardFromWaiting(item.id);
                             if (cardObj) {
+                                activeReviewCardIds.current.add(itemIdStr);
                                 cardsToInject.push(cardObj);
                             }
                         }
@@ -701,12 +706,14 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                 const earliestRemainingMs = sortedWaiting[0].nextReview - nowTime;
 
                 if (earliestRemainingMs <= learnAheadMs) {
+                    const upcomingQueueIds = new Set(updatedQueue.slice(currentReviewIndex + 1).map(c => String(c.id)));
                     const cardsToPull = sortedWaiting
-                        .filter(w => (w.nextReview - nowTime) <= learnAheadMs)
+                        .filter(w => (w.nextReview - nowTime) <= learnAheadMs && !upcomingQueueIds.has(String(w.id)))
                         .map(w => createKanjiCardFromWaiting(w.id))
                         .filter(Boolean);
 
                     if (cardsToPull.length > 0) {
+                        cardsToPull.forEach(c => activeReviewCardIds.current.add(String(c.id)));
                         updatedQueue.push(...cardsToPull);
                         setReviewQueue(updatedQueue);
                         saveSessionState(updatedQueue, currentReviewIndex + 1);
@@ -1278,10 +1285,16 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             );
         }
 
-        // Check for any newly due kanji while staying on the completion screen
+        // Check for any newly due or learn-ahead kanji while staying on the completion screen
+        const learnAheadMs = getLearnAheadLimitMs();
         const newlyDueKanji = (kanjiList || []).filter(k => {
             const srs = srsData[k.id] || k.srsData;
-            return isSrsCardDue(srs, lastTick);
+            if (!srs) return false;
+            if (completedCardIds.current.has(k.id)) return false;
+            const nextReviewVal = srs.nextReview || srs.nextReview_back;
+            if (!nextReviewVal) return false;
+            const reviewTime = parseNextReviewMs(nextReviewVal);
+            return reviewTime > 0 && reviewTime <= (lastTick + learnAheadMs);
         });
 
         // When 0 cards are waiting -> Render Completion Screen
@@ -1297,7 +1310,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                         </h2>
                         <p className="text-sm text-slate-600 dark:text-slate-300 max-w-sm">
                             {newlyDueKanji.length > 0
-                                ? `Hiện tại có thêm ${newlyDueKanji.length} chữ Kanji vừa đến hạn ôn tập. Bạn có muốn tiếp tục không?`
+                                ? `Hiện tại có thêm ${newlyDueKanji.length} chữ Kanji đến hạn / sắp đến hạn (trong vòng 20 phút). Bạn có muốn ôn tiếp dứt điểm không?`
                                 : "Chúc mừng! Bạn đã hoàn thành tất cả các thẻ Kanji trong phiên ôn tập này."}
                         </p>
                     </div>
