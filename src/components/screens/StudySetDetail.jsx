@@ -78,7 +78,7 @@ const InlineEditCell = ({ value, onSave, className = '', isJapanese = false, pla
                 onKeyDown={handleKeyDown}
                 onClick={(e) => e.stopPropagation()}
                 placeholder={placeholder}
-                className={`w-full bg-blue-600 dark:bg-blue-950/20 border-2 border-blue-500 dark:border-blue-500 rounded-lg px-3 py-1.5 outline-none text-gray-900 dark:text-white ${isJapanese ? 'font-japanese' : ''} ${className}`}
+                className={`w-full bg-blue-50/60 dark:bg-slate-800 border-2 border-blue-500 dark:border-blue-400 rounded-lg px-3 py-1 outline-none text-gray-900 dark:text-white shadow-xs ${isJapanese ? 'font-japanese' : ''} ${className}`}
             />
         );
     }
@@ -86,7 +86,7 @@ const InlineEditCell = ({ value, onSave, className = '', isJapanese = false, pla
     return (
         <div
             onClick={(e) => { e.stopPropagation(); startEdit(); }}
-            className={`cursor-pointer rounded-lg px-3 py-1.5 -mx-3 hover:bg-blue-600 dark:hover:bg-blue-/20 transition-colors border-2 border-transparent hover:border-blue-500 dark:hover:border-blue-500 ${className}`}
+            className={`cursor-pointer rounded-lg px-3 py-1 -mx-3 hover:bg-slate-100/80 dark:hover:bg-slate-800/60 transition-colors border-2 border-transparent hover:border-blue-300 dark:hover:border-blue-700/60 ${className}`}
             title="Bấm để sửa"
         >
             {isJapanese ? (
@@ -1218,7 +1218,7 @@ const StudySetDetail = ({
                                                 setCompletedStates(prev => ({ ...prev, flashcard: false }));
                                                 setProgressStates(prev => ({ ...prev, flashcard: false }));
                                             }}
-                                            className="mt-3 text-[11px] bg-blue-600 hover:bg-blue-600 dark:bg-blue-/30 dark:hover:bg-blue-/50 text-blue-600 dark:text-blue-600 px-3 py-1.5 rounded-xl border border-blue-500 dark:border-blue-900 flex items-center gap-1 font-bold transition-all shadow-sm active:scale-95 cursor-pointer"
+                                            className="mt-3 text-[11px] bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/40 dark:hover:bg-blue-900/60 text-blue-600 dark:text-blue-400 px-3 py-1.5 rounded-xl border border-blue-200 dark:border-blue-800/80 flex items-center gap-1 font-bold transition-all shadow-xs active:scale-95 cursor-pointer"
                                         >
                                             <RotateCcw className="w-3 h-3" /> Làm lại
                                         </button>
@@ -1253,7 +1253,7 @@ const StudySetDetail = ({
                                                 setCompletedStates(prev => ({ ...prev, study: false }));
                                                 setProgressStates(prev => ({ ...prev, study: false }));
                                             }}
-                                            className="mt-3 text-[11px] bg-blue-600 hover:bg-blue-600 dark:bg-blue-/30 dark:hover:bg-blue-/50 text-blue-600 dark:text-blue-600 px-3 py-1.5 rounded-xl border border-blue-500 dark:border-blue-900 flex items-center gap-1 font-bold transition-all shadow-sm active:scale-95 cursor-pointer"
+                                            className="mt-3 text-[11px] bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/40 dark:hover:bg-blue-900/60 text-blue-600 dark:text-blue-400 px-3 py-1.5 rounded-xl border border-blue-200 dark:border-blue-800/80 flex items-center gap-1 font-bold transition-all shadow-xs active:scale-95 cursor-pointer"
                                         >
                                             <RotateCcw className="w-3 h-3" /> Làm lại
                                         </button>
@@ -1288,7 +1288,7 @@ const StudySetDetail = ({
                                                 setCompletedStates(prev => ({ ...prev, meaning_input: false }));
                                                 setProgressStates(prev => ({ ...prev, meaning_input: false }));
                                             }}
-                                            className="mt-3 text-[11px] bg-blue-600 hover:bg-blue-600 dark:bg-blue-/30 dark:hover:bg-blue-/50 text-blue-600 dark:text-blue-600 px-3 py-1.5 rounded-xl border border-blue-500 dark:border-blue-900 flex items-center gap-1 font-bold transition-all shadow-sm active:scale-95 cursor-pointer"
+                                            className="mt-3 text-[11px] bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/40 dark:hover:bg-blue-900/60 text-blue-600 dark:text-blue-400 px-3 py-1.5 rounded-xl border border-blue-200 dark:border-blue-800/80 flex items-center gap-1 font-bold transition-all shadow-xs active:scale-95 cursor-pointer"
                                         >
                                             <RotateCcw className="w-3 h-3" /> Làm lại
                                         </button>
@@ -1323,19 +1323,19 @@ const StudySetDetail = ({
                                                 setCompletedStates(prev => ({ ...prev, dictation: false }));
                                                 setProgressStates(prev => ({ ...prev, dictation: false }));
                                             }}
-                                            className="mt-3 text-[11px] bg-blue-600 hover:bg-blue-600 dark:bg-blue-/30 dark:hover:bg-blue-/50 text-blue-600 dark:text-blue-600 px-3 py-1.5 rounded-xl border border-blue-500 dark:border-blue-900 flex items-center gap-1 font-bold transition-all shadow-sm active:scale-95 cursor-pointer"
+                                            className="mt-3 text-[11px] bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/40 dark:hover:bg-blue-900/60 text-blue-600 dark:text-blue-400 px-3 py-1.5 rounded-xl border border-blue-200 dark:border-blue-800/80 flex items-center gap-1 font-bold transition-all shadow-xs active:scale-95 cursor-pointer"
                                         >
                                             <RotateCcw className="w-3 h-3" /> Làm lại
                                         </button>
                                     </div>
                                 ) : (
-                                    <button onClick={() => onDictationSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-blue-500 dark:hover:border-blue-500 shadow-sm hover:shadow-lg transition-all group relative">
+                                    <button onClick={() => onDictationSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-blue-400 dark:hover:border-blue-600 shadow-sm hover:shadow-lg transition-all group relative">
                                         {progressStates.dictation && (
-                                            <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-blue-600 text-[9px] text-white font-bold uppercase tracking-wider animate-pulse">
+                                            <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-blue-500 text-[9px] text-white font-bold uppercase tracking-wider animate-pulse">
                                                 Đang học
                                             </div>
                                         )}
-                                        <div className="w-11 h-11 rounded-full bg-blue-600 dark:bg-blue-/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Headphones className="w-5 h-5 text-blue-600" /></div>
+                                        <div className="w-11 h-11 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Headphones className="w-5 h-5 text-blue-500" /></div>
                                         <span className="font-bold text-sm text-gray-800 dark:text-white text-center">Nghe Chép</span>
                                         <span className="text-[11px] text-gray-500 mt-0.5 text-center">Nghe và viết lại</span>
                                     </button>
@@ -1358,7 +1358,7 @@ const StudySetDetail = ({
                                                 setCompletedStates(prev => ({ ...prev, example: false }));
                                                 setProgressStates(prev => ({ ...prev, example: false }));
                                             }}
-                                            className="mt-3 text-[11px] bg-blue-600 hover:bg-blue-600 dark:bg-blue-/30 dark:hover:bg-blue-/50 text-blue-600 dark:text-blue-600 px-3 py-1.5 rounded-xl border border-blue-500 dark:border-blue-900 flex items-center gap-1 font-bold transition-all shadow-sm active:scale-95 cursor-pointer"
+                                            className="mt-3 text-[11px] bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/40 dark:hover:bg-blue-900/60 text-blue-600 dark:text-blue-400 px-3 py-1.5 rounded-xl border border-blue-200 dark:border-blue-800/80 flex items-center gap-1 font-bold transition-all shadow-xs active:scale-95 cursor-pointer"
                                         >
                                             <RotateCcw className="w-3 h-3" /> Làm lại
                                         </button>
@@ -1393,7 +1393,7 @@ const StudySetDetail = ({
                                                 setCompletedStates(prev => ({ ...prev, synonym: false }));
                                                 setProgressStates(prev => ({ ...prev, synonym: false }));
                                             }}
-                                            className="mt-3 text-[11px] bg-blue-600 hover:bg-blue-600 dark:bg-blue-/30 dark:hover:bg-blue-/50 text-blue-600 dark:text-blue-600 px-3 py-1.5 rounded-xl border border-blue-500 dark:border-blue-900 flex items-center gap-1 font-bold transition-all shadow-sm active:scale-95 cursor-pointer"
+                                            className="mt-3 text-[11px] bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/40 dark:hover:bg-blue-900/60 text-blue-600 dark:text-blue-400 px-3 py-1.5 rounded-xl border border-blue-200 dark:border-blue-800/80 flex items-center gap-1 font-bold transition-all shadow-xs active:scale-95 cursor-pointer"
                                         >
                                             <RotateCcw className="w-3 h-3" /> Làm lại
                                         </button>
@@ -1469,7 +1469,7 @@ const StudySetDetail = ({
                                                                                 value={card.reading}
                                                                                 placeholder="[Thêm Romaja]"
                                                                                 onSave={(v) => handleInlineSave(card, 'reading', v)}
-                                                                                className="text-xs font-mono text-blue-600 dark:text-blue-600 bg-blue-600 dark:bg-blue-/60 px-2 py-0.5 rounded-md border border-blue-/60 dark:border-blue-/60 inline-block min-w-[70px]"
+                                                                                className="text-xs font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50 px-2 py-0.5 rounded-md border border-blue-200 dark:border-blue-800/60 inline-block min-w-[70px]"
                                                                             />
                                                                         </div>
                                                                     )
@@ -1479,7 +1479,7 @@ const StudySetDetail = ({
                                                                             value={formatIPA(card.ipa)}
                                                                             placeholder="[Thêm IPA]"
                                                                             onSave={(v) => handleInlineSave(card, 'ipa', v)}
-                                                                            className="text-xs font-mono text-blue-600 dark:text-blue-600 bg-blue-600 dark:bg-blue-/60 px-2 py-0.5 rounded-md border border-blue-/60 dark:border-blue-/60 inline-block min-w-[70px]"
+                                                                            className="text-xs font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50 px-2 py-0.5 rounded-md border border-blue-200 dark:border-blue-800/60 inline-block min-w-[70px]"
                                                                         />
                                                                     </div>
                                                                 ) : (
@@ -1523,14 +1523,14 @@ const StudySetDetail = ({
                                                                 {card.audioBase64 && (
                                                                     <button
                                                                         onClick={(e) => { e.stopPropagation(); playAudio(card.audioBase64, card.front, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null); }}
-                                                                        className="p-2.5 text-blue-600 hover:bg-blue-600 dark:hover:bg-blue-/30 rounded-full transition-colors flex-shrink-0"
+                                                                        className="p-2.5 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950/40 rounded-full transition-colors flex-shrink-0 cursor-pointer"
                                                                     >
                                                                         <Volume2 className="w-5 h-5" />
                                                                     </button>
                                                                 )}
                                                                 <button
                                                                     onClick={(e) => { e.stopPropagation(); setEditingCard(card); }}
-                                                                    className="p-2.5 text-slate-500 hover:text-blue-600 hover:bg-blue-600 dark:hover:bg-blue-/30 rounded-full transition-colors flex-shrink-0"
+                                                                    className="p-2.5 text-slate-500 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950/40 rounded-full transition-colors flex-shrink-0 cursor-pointer"
                                                                     title="Sửa từ vựng"
                                                                 >
                                                                     <Edit className="w-5 h-5" />
@@ -1574,7 +1574,7 @@ const StudySetDetail = ({
                                                                             card.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
                                                                                 const meaning = (card.exampleMeaning || '').split('\n')[idx]?.trim();
                                                                                 return (
-                                                                                    <div key={idx} className="relative group/ex border-l-2 border-blue-/30 pl-2.5 pr-8">
+                                                                                    <div key={idx} className="relative group/ex border-l-2 border-blue-400/40 dark:border-blue-500/30 pl-2.5 pr-8">
                                                                                         <div className="text-sm text-slate-800 dark:text-slate-200 font-japanese leading-relaxed">
                                                                                             <FuriganaText text={ex} />
                                                                                         </div>
@@ -1587,7 +1587,7 @@ const StudySetDetail = ({
                                                                                                 e.stopPropagation();
                                                                                                 speakExampleSentence(ex);
                                                                                             }}
-                                                                                            className="absolute right-0 top-1/2 -translate-y-1/2 p-1.5 rounded-lg text-slate-400 hover:text-blue-600 dark:hover:text-blue-600 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                                                                                            className="absolute right-0 top-1/2 -translate-y-1/2 p-1.5 rounded-lg text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition-colors cursor-pointer"
                                                                                             title="Nghe câu ví dụ"
                                                                                         >
                                                                                             <Volume2 className="w-3.5 h-3.5" />
@@ -1637,7 +1637,7 @@ const StudySetDetail = ({
                                                         {/* Toggle details button */}
                                                         <button
                                                             onClick={(e) => { e.stopPropagation(); toggleCardExpanded(card.id); }}
-                                                            className="flex items-center gap-1 text-xs font-bold text-blue-600 dark:text-blue-600 hover:text-blue-600 dark:hover:text-blue-600 transition-colors"
+                                                            className="flex items-center gap-1 text-xs font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
                                                         >
                                                             {isExpanded ? (
                                                                 <>Thu gọn <ChevronUp className="w-3.5 h-3.5" /></>
@@ -1681,7 +1681,7 @@ const StudySetDetail = ({
                                         {isSyncingFromLesson ? 'Đang nạp từ vựng...' : 'Đồng bộ từ vựng từ Sách'}
                                     </button>
                                 )}
-                                <button onClick={folderId !== 'unfiled' ? () => onEditSet(folderId) : onNavigateToAdd} className="px-6 py-3 bg-blue-600 text-white rounded-xl font-bold flex items-center gap-2 hover:bg-blue-600 transition-colors cursor-pointer">
+                                <button onClick={folderId !== 'unfiled' ? () => onEditSet(folderId) : onNavigateToAdd} className="px-6 py-3 bg-blue-600 text-white rounded-xl font-bold flex items-center gap-2 hover:bg-blue-700 transition-colors cursor-pointer">
                                     <Plus className="w-5 h-5" /> {folderId !== 'unfiled' ? 'Thêm từ vựng ngay' : 'Tạo học phần mới'}
                                 </button>
                             </div>
@@ -1699,7 +1699,7 @@ const StudySetDetail = ({
                                 Chọn chế độ ôn tập
                             </h3>
                             <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                                Ôn tập {showMasteryModal.cards.length} từ ở trạng thái <span className="font-bold text-blue-600 dark:text-blue-600">
+                                Ôn tập {showMasteryModal.cards.length} từ ở trạng thái <span className="font-bold text-blue-600 dark:text-blue-400">
                                     {showMasteryModal.status === 'not_learned' ? 'Chưa học' :
                                         showMasteryModal.status === 'learning' ? 'Đang học' :
                                             showMasteryModal.status === 'memorized' ? 'Đã nhớ' : 'Chưa học & Đang học'}
@@ -1751,7 +1751,7 @@ const StudySetDetail = ({
                             </button>
                             <button
                                 onClick={handleStartMasteryTest}
-                                className="flex-1 py-2.5 bg-blue-600 hover:bg-blue-600 text-white font-bold rounded-xl transition-colors text-sm shadow-md cursor-pointer"
+                                className="flex-1 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-colors text-sm shadow-md cursor-pointer"
                             >
                                 Bắt đầu ôn
                             </button>
@@ -1827,8 +1827,8 @@ const StudySetDetail = ({
                     <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
                     <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-lg p-6 space-y-5 border border-gray-200 dark:border-slate-700 animate-fade-in text-slate-800 dark:text-slate-200" onClick={e => e.stopPropagation()}>
                         <div className="flex items-center gap-3 border-b border-gray-100 dark:border-slate-700/80 pb-3.5">
-                            <div className="w-10 h-10 rounded-2xl bg-blue-600 dark:bg-blue-50/40 flex items-center justify-center flex-shrink-0">
-                                <BookOpen className="w-5 h-5 text-blue-600 dark:text-blue-600" />
+                            <div className="w-10 h-10 rounded-2xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center flex-shrink-0">
+                                <BookOpen className="w-5 h-5 text-blue-600 dark:text-blue-400" />
                             </div>
                             <div>
                                 <h3 className="font-bold text-base text-gray-800 dark:text-white">
@@ -1868,7 +1868,7 @@ const StudySetDetail = ({
                                                 };
                                             });
                                         }}
-                                        className="text-blue-600 dark:text-blue-600 hover:underline font-semibold cursor-pointer"
+                                        className="text-blue-600 dark:text-blue-400 hover:underline font-semibold cursor-pointer"
                                     >
                                         {kanjiPreviewModal.selectedIds.size === kanjiPreviewModal.newKanji.length ? 'Bỏ chọn tất cả' : 'Chọn tất cả'}
                                     </button>
@@ -1883,7 +1883,7 @@ const StudySetDetail = ({
                                                 onClick={() => togglePreviewKanjiSelect(k.id)}
                                                 className={`w-11 h-11 rounded-xl border flex items-center justify-center font-bold text-xl font-japanese shadow-sm transition-all duration-200 transform hover:scale-105 active:scale-95 cursor-pointer ${
                                                     isSelected 
-                                                        ? 'bg-blue-600 border-blue-500 text-blue-600 dark:bg-blue-50/40 dark:border-blue-500 dark:text-blue-600 scale-100 ring-2 ring-blue-/15'
+                                                        ? 'bg-blue-50 border-blue-500 text-blue-600 dark:bg-blue-950/50 dark:border-blue-500 dark:text-blue-400 scale-100 ring-2 ring-blue-500/15'
                                                         : 'bg-white border-gray-200 text-gray-400 dark:bg-slate-800/60 dark:border-slate-700/60 opacity-40 line-through'
                                                 }`}
                                                 title={isSelected ? 'Click để bỏ chọn' : 'Click để chọn'}
@@ -1906,7 +1906,7 @@ const StudySetDetail = ({
                             <button
                                 onClick={handleConfirmAddKanji}
                                 disabled={isAddingKanji || kanjiPreviewModal.selectedIds.size === 0}
-                                className="flex-1 py-3 bg-blue-600 hover:bg-blue-600 text-white font-bold rounded-2xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm shadow-md cursor-pointer"
+                                className="flex-1 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm shadow-md cursor-pointer"
                             >
                                 {isAddingKanji ? 'Đang lưu...' : `Xác nhận Lưu (${kanjiPreviewModal.selectedIds.size})`}
                             </button>
@@ -2093,7 +2093,7 @@ const StudySetDetail = ({
                             )}
                         </div>
                         <div className="pt-3">
-                            <button onClick={() => setShowSettingsMenu(false)} className="w-full py-2.5 bg-blue-600 hover:bg-blue-600 text-white font-bold rounded-xl transition-all shadow-md active:scale-95 text-sm">
+                            <button onClick={() => setShowSettingsMenu(false)} className="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all shadow-md active:scale-95 text-sm">
                                 Đóng
                             </button>
                         </div>
