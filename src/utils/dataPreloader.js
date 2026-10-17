@@ -2,13 +2,15 @@ import { getSharedBookGroups } from './bookService';
 import { getSharedKanjiList, getSharedVocabList, getSharedVocabCategories } from './kanjiService';
 import { getSharedGrammarData } from './grammarService';
 import { getSharedJLPTTests } from '../services/jlptDataService';
+import { syncDictionary } from '../services/dictionaryService';
 
 let isPreloading = false;
 let hasPreloaded = false;
 
 /**
  * Intelligent background preloader to warm in-memory singletons during browser idle time.
- * Delivers instantaneous (0ms) page transitions for Books, Kanji, Grammar, and JLPT Tests.
+ * Delivers instantaneous (0ms) page transitions for Books, Kanji, Grammar, and JLPT Tests,
+ * and preloads the Yomitan Japanese Dictionary into IndexedDB.
  */
 export const preloadCoreData = () => {
     if (typeof window === 'undefined' || isPreloading || hasPreloaded) return;
@@ -31,6 +33,9 @@ export const preloadCoreData = () => {
 
             // Stage 3: Load JLPT tests in the background
             getSharedJLPTTests().catch(() => {});
+
+            // Stage 4: Idle background dictionary sync (0ms instant lookup)
+            syncDictionary({ silent: true }).catch(() => {});
 
             hasPreloaded = true;
             if (process.env.NODE_ENV === 'development') {

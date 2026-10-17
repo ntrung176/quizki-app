@@ -11,6 +11,7 @@ import { db } from '../../config/firebase';
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 
 import { getPosLabel } from '../../config/constants';
+import { searchDictionary } from '../../services/dictionaryService';
 
 // Helper to format Japanese readings: e.g. "日本語（にほんご）" -> "日本語 (にほんご)"
 const formatReading = (text) => {
@@ -445,36 +446,32 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                     setError('Không thể dịch câu này.');
                 }
             } else {
-                // Check shared dictionary first
-                const enableDbLookup = false; // Tạm thời vô hiệu hoá lấy dữ liệu từ kho từ vựng chung
-                const normalizedKey = pendingWord.split('（')[0].split('(')[0].trim().toLowerCase();
-                const docRef = doc(db, 'sharedVocabulary', normalizedKey);
                 let fetchedResult = null;
 
-                if (enableDbLookup) {
-                    try {
-                        const docSnap = await getDoc(docRef);
-                        if (docSnap.exists()) {
-                            const data = docSnap.data();
-                            fetchedResult = {
-                                frontWithFurigana: data.front || data.frontWithFurigana || pendingWord,
-                                meaning: data.back || data.meaning || '',
-                                synonym: data.synonym || '',
-                                sinoVietnamese: data.sinoVietnamese || '',
-                                synonymSinoVietnamese: data.synonymSinoVietnamese || '',
-                                example: data.example || '',
-                                exampleMeaning: data.exampleMeaning || '',
-                                nuance: data.nuance || '',
-                                pos: data.pos || '',
-                                level: data.level || '',
-                                isShared: true,
-                                reportedError: data.reportedError || false
-                            };
-                            console.log('📚 Found shared dictionary match:', fetchedResult);
-                        }
-                    } catch (dbErr) {
-                        console.warn('Error reading from sharedVocabulary:', dbErr);
+                // 1. Check Yomitan offline dictionary first (instant <5ms, free, 266k words)
+                try {
+                    const yomitanResults = await searchDictionary(pendingWord, 1);
+                    if (yomitanResults && yomitanResults.length > 0) {
+                        const item = yomitanResults[0];
+                        fetchedResult = {
+                            frontWithFurigana: item.r ? `${item.w}（${item.r}）` : item.w,
+                            reading: item.r || '',
+                            meaning: item.m ? item.m.join('\n') : '',
+                            synonym: '',
+                            sinoVietnamese: item.hv || '',
+                            synonymSinoVietnamese: '',
+                            example: '',
+                            exampleMeaning: '',
+                            nuance: '',
+                            pos: item.p ? item.p.join(' ') : '',
+                            level: item.j || '',
+                            accent: item.pi && item.pi.length > 0 ? String(item.pi[0]) : '0',
+                            isShared: false,
+                            isYomitan: true
+                        };
                     }
+                } catch (yErr) {
+                    console.warn('Yomitan local lookup failed, falling back to AI:', yErr);
                 }
 
                 if (fetchedResult) {

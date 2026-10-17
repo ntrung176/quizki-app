@@ -9,7 +9,7 @@ import {
     Home, BookOpen, LogOut, LogIn, Sun, Moon, ChevronRight, ChevronLeft, X,
     List, Repeat2, FileCheck, Languages, Shield, Crown, Bell,
     MessageSquare, HelpCircle, Trophy, Cpu, Zap, Activity, Bot, Timer, Globe, Film,
-    FileText, GitBranch, MoreHorizontal, Layers, Settings, Library, LayoutGrid, TrendingUp, Bookmark
+    FileText, GitBranch, MoreHorizontal, Layers, Settings, Library, LayoutGrid, TrendingUp, Bookmark, Search
 } from 'lucide-react';
 import { SafeAvatarImage } from '../ui';
 import LanguageSelector from '../ui/LanguageSelector';
@@ -480,6 +480,13 @@ const Sidebar = ({
         // 4. Kanji menu is only relevant for Japanese learning
         if (isJapaneseMode) {
             items.push({ id: 'KANJI_STUDY', icon: Languages, label: t('nav.kanji', 'Thư viện Kanji'), route: ROUTES.KANJI_REVIEW, group: 'Học tập' });
+            items.push({
+                id: 'DICTIONARY',
+                icon: Search,
+                label: 'Từ điển',
+                onClick: () => window.dispatchEvent(new CustomEvent('quizki-open-dictionary')),
+                group: 'Học tập'
+            });
         }
 
         const kaiwaLabel = isKoreanMode 
@@ -667,6 +674,17 @@ const Sidebar = ({
                 icon: Bookmark,
                 route: ROUTES.GRAMMAR_CHEATSHEETS,
                 badge: null,
+            });
+            // 4. Từ điển Offline
+            items.push({
+                id: 'dictionary',
+                label: 'Từ điển',
+                icon: Search,
+                onClick: () => {
+                    setIsMobileMenuOpen(false);
+                    window.dispatchEvent(new CustomEvent('quizki-open-dictionary'));
+                },
+                badge: 'Offline',
             });
         } else if (isKoreanMode) {
             items.push({
@@ -1419,9 +1437,13 @@ const Sidebar = ({
                                 )}
                                 <div className="relative group">
                                     <Link
-                                        to={item.disabled ? '#' : item.route}
+                                        to={item.disabled ? '#' : (item.route || '#')}
                                         onClick={(e) => {
                                             if (item.disabled) e.preventDefault();
+                                            if (item.onClick) {
+                                                e.preventDefault();
+                                                item.onClick();
+                                            }
                                         }}
                                         className={`w-full flex items-center justify-between ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3.5 py-2.5 rounded-xl transition-all duration-200 relative ${item.disabled
                                                 ? 'cursor-not-allowed opacity-40 text-slate-400'

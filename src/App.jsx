@@ -21,10 +21,32 @@ import { useAppLogic } from './hooks/useAppLogic';
 import MobileDebugConsole from './components/ui/MobileDebugConsole';
 import ScrollToTop from './components/ui/ScrollToTop';
 import { preloadCoreData } from './utils/dataPreloader';
+import DictionaryModal from './components/dictionary/DictionaryModal';
 
 const AppContent = () => {
     const location = useLocation();
     const appLogic = useAppLogic();
+    const [showDictionaryModal, setShowDictionaryModal] = React.useState(false);
+    const [dictInitialWord, setDictInitialWord] = React.useState('');
+
+    React.useEffect(() => {
+        const handleOpenDict = (e) => {
+            setDictInitialWord(e.detail?.word || '');
+            setShowDictionaryModal(true);
+        };
+        const handleKeyDown = (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'd') {
+                e.preventDefault();
+                setShowDictionaryModal(prev => !prev);
+            }
+        };
+        window.addEventListener('quizki-open-dictionary', handleOpenDict);
+        window.addEventListener('keydown', handleKeyDown);
+        return () => {
+            window.removeEventListener('quizki-open-dictionary', handleOpenDict);
+            window.removeEventListener('keydown', handleKeyDown);
+        };
+    }, []);
 
     const {
         updateAvailable, refreshApp, dismissUpdate, setView, authReady, userId, reviewMode,
@@ -43,7 +65,7 @@ const AppContent = () => {
         handleUpdateParentFolder, handleDeleteParentFolder, handleMoveStudySetToParentFolder,
         dueCounts, memoryStats, calculatedStreak, scrollToCardIdRef, flashcardCards,
         vocabCollectionPath, publicStatsCollectionPath, userHasAdminPrivileges, adminConfig,
-        canUserUseAI, hasPremium, studySets, cardFolders, parentFolders, savedFilters, tourTrigger,
+        canUserUseAI, hasPremium, studySets, cardFolders, parentFolders, activeFolders, savedFilters, tourTrigger,
         activePopup, handleDismissPopup, view
     } = appLogic;
 
@@ -73,6 +95,20 @@ const AppContent = () => {
                 folders={cardFolders}
                 handleAddCard={handleAddCard}
                 isPremiumUnlocked={userHasAdminPrivileges || hasPremium}
+            />
+
+            {/* Offline Yomitan Japanese-Vietnamese Dictionary */}
+            <DictionaryModal
+                isOpen={showDictionaryModal}
+                onClose={() => setShowDictionaryModal(false)}
+                initialWord={dictInitialWord}
+                folders={activeFolders}
+                parentFolders={parentFolders}
+                studySets={studySets}
+                allCards={allCards}
+                onSaveCard={handleAddCard}
+                onGeminiAssist={handleGeminiAssist}
+                canUserUseAI={canUserUseAI}
             />
 
             {/* Version Update Popup */}
