@@ -38,7 +38,7 @@ export const preloadCoreData = () => {
             syncDictionary({ silent: true }).catch(() => {});
 
             hasPreloaded = true;
-            if (process.env.NODE_ENV === 'development') {
+            if (import.meta.env.DEV) {
                 console.log('⚡ [QuizKi Preloader] Core data cached in RAM successfully for 0ms navigation.');
             }
         } catch (err) {

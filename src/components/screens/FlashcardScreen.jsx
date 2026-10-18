@@ -4,7 +4,7 @@ import { RotateCcw, Check, X, Undo2, RefreshCw, Volume2, ArrowLeft, ChevronRight
 import { speakJapanese, preloadAudio } from '../../utils/audio'
 import { playCompletionFanfare, playFlipSound } from '../../utils/soundEffects';
 import { getAuth } from 'firebase/auth';
-import { saveStudyProgress } from '../../utils/studyProgressService';
+import { saveStudyProgress, resetStudyProgress } from '../../utils/studyProgressService';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';

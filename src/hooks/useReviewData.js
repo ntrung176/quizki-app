@@ -11,7 +11,7 @@ import {
 } from '../utils/textProcessing';
 import { flashCorrect, launchFanfare, celebrateCorrectAnswer } from '../utils/celebrations';
 import { playCorrectSound, playIncorrectSound, playFlipSound } from '../utils/soundEffects';
-import { saveStudyProgress } from '../utils/studyProgressService';
+import { saveStudyProgress, resetStudyProgress } from '../utils/studyProgressService';
 import { useTargetLanguage } from '../context/TargetLanguageContext';
 import { normalize, toHiragana as toHira, extractReadings } from '../utils/ankiDiff';
 import { DEFAULT_CARD_SETTINGS, formatMultipleMeanings, splitIgnoringParentheses } from '../components/review/reviewHelpers';

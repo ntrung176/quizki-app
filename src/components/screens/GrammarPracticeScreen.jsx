@@ -349,9 +349,13 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
                     quizzes: updatedQuizzes
                 }));
                 alert(`Đã thêm thành công ${parsed.length} câu hỏi!`);
-                if (type === 'translate') setJsonInputTranslate('');
-                else setJsonInputQuiz('');
-                setShowImportPanel(false);
+                if (type === 'translate') {
+                    setJsonInputTranslate('');
+                    setShowAddExercisePanel(false);
+                } else {
+                    setJsonInputQuiz('');
+                    setShowAddQuizPanel(false);
+                }
             } else {
                 alert("Lỗi khi lưu dữ liệu lên Firestore.");
             }

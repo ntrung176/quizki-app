@@ -85,7 +85,7 @@ export const callKaiwaAI = async (systemPrompt, conversationHistory = [], userMe
         };
 
         try {
-            const response = await fetch(url, options);
+            const response = await fetch(targetUrl, options);
             clearTimeout(timeoutId);
 
             if (response.ok) {

@@ -769,6 +769,8 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         })();
     };
 
+    const saveSessionState = () => { };
+
     const isExitingRef = useRef(false);
 
     const exitReview = (shouldAwardXp = true) => {
