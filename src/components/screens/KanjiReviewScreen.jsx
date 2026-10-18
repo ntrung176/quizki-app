@@ -796,7 +796,8 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             while (attempts < 3 && !success) {
                 try {
                     await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, currentCard.id), newSrs, { merge: true });
-                    const todayDateString = new Date().toISOString().split('T')[0];
+                    const now = new Date();
+                    const todayDateString = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
                     const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
                     await setDoc(activityRef, {
                         reviewsDone: increment(1)
@@ -916,7 +917,8 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                 }
 
                 // Giảm lượt ôn tập trong ngày
-                const todayDateString = new Date().toISOString().split('T')[0];
+                const now = new Date();
+                const todayDateString = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
                 const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
                 await setDoc(activityRef, {
                     reviewsDone: increment(-1)

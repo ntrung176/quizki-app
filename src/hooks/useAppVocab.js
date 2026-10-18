@@ -1,6 +1,10 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
-import { collection, query, onSnapshot, doc, updateDoc, setDoc, deleteDoc, writeBatch } from 'firebase/firestore';
+import { collection, query, onSnapshot, doc, setDoc, deleteDoc, writeBatch, increment } from 'firebase/firestore';
 import { db, appId } from '../config/firebase';
+
+const getLocalDateString = (d = new Date()) => {
+    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+};
 import { showToast } from '../utils/toast';
 import { cleanFirestoreData } from '../utils/firestoreHelpers';
 import { isVocabCardDue, calculateAnkiSRS } from '../utils/srs';
@@ -285,6 +289,13 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
             try {
                 const cardRef = doc(db, vocabCollectionPath, String(cardId));
                 await setDoc(cardRef, cleanFirestoreData(cardData));
+
+                const todayStr = getLocalDateString();
+                const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayStr);
+                setDoc(activityRef, {
+                    newWordsAdded: increment(1),
+                    lastUpdated: Date.now()
+                }, { merge: true }).catch(() => {});
             } catch (err) {
                 console.warn('⚠️ Failed to persist new card to Firestore:', err);
             }
@@ -472,6 +483,19 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
 
         await handleUpdateCard(safeId, newSrsFields);
 
+        // Record individual vocab card review in dailyActivity
+        if (userId && db && appId) {
+            try {
+                const todayStr = getLocalDateString();
+                const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayStr);
+                setDoc(activityRef, {
+                    reviewsDone: increment(1),
+                    cardsReviewed: increment(1),
+                    lastUpdated: Date.now()
+                }, { merge: true }).catch(() => {});
+            } catch (_) {}
+        }
+
         if (typeof callback === 'function') {
             try {
                 callback(true);
@@ -484,14 +508,25 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
         const ratingStr = String(rawRating).toLowerCase();
         const xpReward = POINTS?.SRS_VOCAB?.[ratingStr] || POINTS?.SRS_VOCAB?.good || 4;
         return xpReward;
-    }, [allCards, handleUpdateCard]);
+    }, [allCards, handleUpdateCard, userId]);
 
     const handleRevertVocabSrsRating = useCallback(async (cardId, prevData) => {
         if (!cardId) return;
         if (prevData) {
             await handleUpdateCard(String(cardId), prevData);
+            if (userId && db && appId) {
+                try {
+                    const todayStr = getLocalDateString();
+                    const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayStr);
+                    setDoc(activityRef, {
+                        reviewsDone: increment(-1),
+                        cardsReviewed: increment(-1),
+                        lastUpdated: Date.now()
+                    }, { merge: true }).catch(() => {});
+                } catch (_) {}
+            }
         }
-    }, [handleUpdateCard]);
+    }, [handleUpdateCard, userId]);
 
     const handleSaveCardAudio = useCallback(async (cardId, b64Audio, voiceId) => {
         if (!cardId || !b64Audio) return;

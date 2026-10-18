@@ -288,30 +288,37 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
         const sevenDaysAgo = new Date();
         sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
         sevenDaysAgo.setHours(0, 0, 0, 0);
+        const cutoffStr = `${sevenDaysAgo.getFullYear()}-${String(sevenDaysAgo.getMonth() + 1).padStart(2, '0')}-${String(sevenDaysAgo.getDate()).padStart(2, '0')}`;
 
         const last7DaysLogs = (dailyActivityLogs || []).filter(log => {
-            try {
-                const logDate = new Date(log.id);
-                return logDate >= sevenDaysAgo;
-            } catch (e) {
-                return false;
-            }
+            if (!log || !log.id) return false;
+            return String(log.id) >= cutoffStr;
         });
 
         const addedLast7Days = last7DaysLogs.reduce((s, l) => s + (l.newWordsAdded || 0), 0);
         const kanjiLast7Days = last7DaysLogs.reduce((s, l) => s + (l.newKanjiAdded || 0), 0);
-        const reviewsLast7Days = last7DaysLogs.reduce((s, l) => s + (l.reviewsDone || 0), 0);
-        const activeDaysLast7Days = last7DaysLogs.filter(l => (l.newWordsAdded || 0) > 0 || (l.newKanjiAdded || 0) > 0 || (l.reviewsDone || 0) > 0).length;
+        const reviewsLast7Days = last7DaysLogs.reduce((s, l) => s + (l.reviewsDone || 0) + (l.grammarReviewsDone || 0) + (l.cardsReviewed || 0), 0);
+        const xpGainedLast7Days = last7DaysLogs.reduce((s, l) => s + (l.xpGained || 0), 0);
+        const activeDaysLast7Days = last7DaysLogs.filter(l => 
+            (l.newWordsAdded || 0) > 0 || 
+            (l.newKanjiAdded || 0) > 0 || 
+            (l.reviewsDone || 0) > 0 || 
+            (l.grammarReviewsDone || 0) > 0 || 
+            (l.cardsReviewed || 0) > 0 || 
+            (l.xpGained || 0) > 0
+        ).length;
 
-        // Điểm tuần = lượt ôn tập * 4 + từ mới * 3 + kanji mới * 5 + ngày chuyên cần * 15
-        const weeklyXp = (reviewsLast7Days * 4) + (addedLast7Days * 3) + (kanjiLast7Days * 5) + (activeDaysLast7Days * 15);
+        // Điểm tuần = max(tổng XP tích lũy 7 ngày qua, công thức ôn tập/chuyên cần)
+        const formulaScore = (reviewsLast7Days * 4) + (addedLast7Days * 3) + (kanjiLast7Days * 5) + (activeDaysLast7Days * 15);
+        const weeklyXp = Math.max(xpGainedLast7Days, formulaScore, reviewsLast7Days * 4);
 
         return {
             addedLast7Days,
             kanjiLast7Days,
             reviewsLast7Days,
+            xpGainedLast7Days,
             activeDaysLast7Days,
-            weeklyXp: Math.max(weeklyXp, reviewsLast7Days * 4)
+            weeklyXp
         };
     }, [dailyActivityLogs]);
 
@@ -724,7 +731,7 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
                                         </p>
                                         <div className="mt-1 sm:mt-1.5 text-indigo-600 dark:text-indigo-400 font-bold text-[10px] sm:text-xs flex items-center justify-center gap-0.5 font-mono">
                                             <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-yellow-400 text-yellow-400 shrink-0" />
-                                            <span className="truncate">{formatScore(activeLeaderboardTab === 'weekly' ? (podiumList[1].weeklyScore || podiumList[1].computedScore) : podiumList[1].computedScore)}</span>
+                                            <span className="truncate">{formatScore(activeLeaderboardTab === 'weekly' ? (podiumList[1].weeklyScore || 0) : podiumList[1].computedScore)}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -757,7 +764,7 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
                                         </p>
                                         <div className="mt-1 sm:mt-2 text-yellow-700 dark:text-yellow-300 font-black text-[11px] sm:text-sm flex items-center justify-center gap-0.5 sm:gap-1 font-mono">
                                             <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-yellow-400 text-yellow-400 shrink-0" />
-                                            <span className="truncate">{formatScore(activeLeaderboardTab === 'weekly' ? (podiumList[0].weeklyScore || podiumList[0].computedScore) : podiumList[0].computedScore)}</span>
+                                            <span className="truncate">{formatScore(activeLeaderboardTab === 'weekly' ? (podiumList[0].weeklyScore || 0) : podiumList[0].computedScore)}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -787,7 +794,7 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
                                         </p>
                                         <div className="mt-1 sm:mt-1.5 text-indigo-600 dark:text-indigo-400 font-bold text-[10px] sm:text-xs flex items-center justify-center gap-0.5 font-mono">
                                             <Star className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-yellow-400 text-yellow-400 shrink-0" />
-                                            <span className="truncate">{formatScore(activeLeaderboardTab === 'weekly' ? (podiumList[2].weeklyScore || podiumList[2].computedScore) : podiumList[2].computedScore)}</span>
+                                            <span className="truncate">{formatScore(activeLeaderboardTab === 'weekly' ? (podiumList[2].weeklyScore || 0) : podiumList[2].computedScore)}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -861,7 +868,7 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
                                         : <span className="text-[11px] sm:text-xs font-bold text-slate-400 dark:text-slate-500 w-5 text-center font-mono">#{rank}</span>;
 
                             const scoreValue = activeLeaderboardTab === 'weekly' 
-                                ? (user.weeklyScore || user.computedScore || 0)
+                                ? (user.weeklyScore || 0)
                                 : (user.computedScore || 0);
 
                             return (

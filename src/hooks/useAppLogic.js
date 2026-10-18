@@ -191,15 +191,48 @@ export const useAppLogic = () => {
         handleRestoreFromLocalBackup
     } = vocab;
 
-    // Đồng bộ streak của người dùng vào publicStats để bảng xếp hạng (Leaderboard) hiển thị chuẩn
+    // Đồng bộ số liệu tuần và streak của người dùng vào publicStats theo thời gian thực để bảng xếp hạng (Leaderboard) hiển thị chuẩn
     useEffect(() => {
         if (!userId || !publicStatsCollectionPath || !db) return;
+
+        const sevenDaysAgo = new Date();
+        sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+        sevenDaysAgo.setHours(0, 0, 0, 0);
+        const cutoffStr = `${sevenDaysAgo.getFullYear()}-${String(sevenDaysAgo.getMonth() + 1).padStart(2, '0')}-${String(sevenDaysAgo.getDate()).padStart(2, '0')}`;
+
+        const last7DaysLogs = (dailyActivityLogs || []).filter(log => {
+            if (!log || !log.id) return false;
+            return String(log.id) >= cutoffStr;
+        });
+
+        const addedLast7Days = last7DaysLogs.reduce((s, l) => s + (l.newWordsAdded || 0), 0);
+        const kanjiLast7Days = last7DaysLogs.reduce((s, l) => s + (l.newKanjiAdded || 0), 0);
+        const reviewsLast7Days = last7DaysLogs.reduce((s, l) => s + (l.reviewsDone || 0) + (l.grammarReviewsDone || 0) + (l.cardsReviewed || 0), 0);
+        const xpGainedLast7Days = last7DaysLogs.reduce((s, l) => s + (l.xpGained || 0), 0);
+        const activeDaysLast7Days = last7DaysLogs.filter(l => 
+            (l.newWordsAdded || 0) > 0 || 
+            (l.newKanjiAdded || 0) > 0 || 
+            (l.reviewsDone || 0) > 0 || 
+            (l.grammarReviewsDone || 0) > 0 || 
+            (l.cardsReviewed || 0) > 0 || 
+            (l.xpGained || 0) > 0
+        ).length;
+
+        const formulaScore = (reviewsLast7Days * 4) + (addedLast7Days * 3) + (kanjiLast7Days * 5) + (activeDaysLast7Days * 15);
+        const weeklyScore = Math.max(xpGainedLast7Days, formulaScore, reviewsLast7Days * 4);
+
         const statsRef = doc(db, publicStatsCollectionPath, userId);
         setDoc(statsRef, {
             streak: calculatedStreak || 0,
-            lastActive: Date.now()
+            addedLast7Days,
+            kanjiAddedLast7Days: kanjiLast7Days,
+            reviewsLast7Days,
+            activeDaysLast7Days,
+            weeklyScore,
+            lastActive: Date.now(),
+            updatedAt: Date.now()
         }, { merge: true }).catch(() => { });
-    }, [userId, publicStatsCollectionPath, calculatedStreak]);
+    }, [userId, publicStatsCollectionPath, calculatedStreak, dailyActivityLogs]);
 
     useEffect(() => {
         setAllCardsRef.current = setAllCards;

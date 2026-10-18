@@ -748,10 +748,12 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             while (attempts < 3 && !success) {
                 try {
                     await setDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, currentCard.id), newSrs, { merge: true });
-                    const todayDateString = new Date().toISOString().split('T')[0];
+                    const now = new Date();
+                    const todayDateString = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
                     const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
                     await setDoc(activityRef, {
-                        grammarReviewsDone: increment(1)
+                        grammarReviewsDone: increment(1),
+                        reviewsDone: increment(1)
                     }, { merge: true }).catch(err => console.warn('Lỗi ghi activity Grammar:', err));
                     success = true;
                 } catch (e) {
@@ -854,10 +856,12 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 } else {
                     await deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, cardId));
                 }
-                const todayDateString = new Date().toISOString().split('T')[0];
+                const now = new Date();
+                const todayDateString = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
                 const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
                 await setDoc(activityRef, {
-                    grammarReviewsDone: increment(-1)
+                    grammarReviewsDone: increment(-1),
+                    reviewsDone: increment(-1)
                 }, { merge: true }).catch(err => console.warn('Lỗi revert activity Grammar:', err));
             } catch (e) {
                 console.error('Error reverting Grammar SRS in background:', e);
