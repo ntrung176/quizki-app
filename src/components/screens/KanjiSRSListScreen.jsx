@@ -10,6 +10,7 @@ import { ROUTES } from '../../router';
 import { showToast, showConfirm } from '../../utils/toast';
 import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 import { TopTabBar } from '../ui';
+import LoadingIndicator from '../ui/LoadingIndicator';
 import { KANJI_TABS } from '../../config/tabs';
 import { parseNextReviewMs, isSrsCardDue, normalizeSRSState } from '../../utils/srs';
 
