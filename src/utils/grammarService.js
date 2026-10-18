@@ -1498,6 +1498,9 @@ export const subscribeGrammarSrs = (userId, callback) => {
             cachedUserGrammarSrsData = srs;
             cachedUserIdForGrammarSrs = userId;
             userGrammarSrsPromise = null;
+            try {
+                localStorage.setItem(`quizki_cached_grammar_srs_${userId}`, JSON.stringify(srs));
+            } catch (_) {}
             // Notify all registered subscribers
             grammarSrsListeners.forEach(cb => cb(srs));
         }, (error) => {
@@ -1522,17 +1525,32 @@ export const subscribeGrammarSrs = (userId, callback) => {
 };
 
 export const updateCachedUserGrammarSrs = (userId, grammarId, newSrs) => {
-    if (cachedUserIdForGrammarSrs === userId && cachedUserGrammarSrsData) {
-        if (newSrs === null) {
-            delete cachedUserGrammarSrsData[grammarId];
-        } else {
-            cachedUserGrammarSrsData[grammarId] = newSrs;
-        }
-        // Immediately notify all in-memory subscribers
-        grammarSrsListeners.forEach(cb => {
-            try { cb(cachedUserGrammarSrsData); } catch (_) {}
-        });
+    if (!userId) return;
+    if (!cachedUserGrammarSrsData || cachedUserIdForGrammarSrs !== userId) {
+        try {
+            const localCached = localStorage.getItem(`quizki_cached_grammar_srs_${userId}`);
+            if (localCached) {
+                cachedUserGrammarSrsData = JSON.parse(localCached);
+                cachedUserIdForGrammarSrs = userId;
+            }
+        } catch (_) {}
     }
+    if (!cachedUserGrammarSrsData) {
+        cachedUserGrammarSrsData = {};
+        cachedUserIdForGrammarSrs = userId;
+    }
+    if (newSrs === null) {
+        delete cachedUserGrammarSrsData[grammarId];
+    } else {
+        cachedUserGrammarSrsData[grammarId] = newSrs;
+    }
+    try {
+        localStorage.setItem(`quizki_cached_grammar_srs_${userId}`, JSON.stringify(cachedUserGrammarSrsData));
+    } catch (_) {}
+    // Immediately notify all in-memory subscribers
+    grammarSrsListeners.forEach(cb => {
+        try { cb(cachedUserGrammarSrsData); } catch (_) {}
+    });
     // Dispatch global srs-updated event for instant 0ms badge sync
     try {
         window.dispatchEvent(new Event('srs-updated'));

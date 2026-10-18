@@ -204,13 +204,38 @@ export const isSrsCardDue = (srsOrCard, now = Date.now()) => {
 };
 
 // Check if vocab card is due for review
-export const isVocabCardDue = (card, now = Date.now()) => {
+export const isVocabCardDue = (card, modeOrNow = 'back', maybeNow = Date.now()) => {
     if (!card) return false;
     if (card.srsEnabled === false) return false;
 
-    const nextReviewVal = card.nextReview_back !== undefined 
-        ? card.nextReview_back 
-        : (card.nextReview !== undefined ? card.nextReview : (card.srsData?.nextReview || card.srsData?.nextReview_back));
+    let mode = 'back';
+    let now = Date.now();
+
+    if (typeof modeOrNow === 'number') {
+        now = modeOrNow;
+        mode = 'back';
+    } else if (typeof modeOrNow === 'string') {
+        mode = modeOrNow;
+        if (typeof maybeNow === 'number') {
+            now = maybeNow;
+        }
+    } else if (typeof maybeNow === 'number') {
+        now = maybeNow;
+    }
+
+    let nextReviewVal;
+    if (mode === 'synonym') {
+        nextReviewVal = card.nextReview_synonym !== undefined ? card.nextReview_synonym : (card.nextReview_back !== undefined ? card.nextReview_back : card.nextReview);
+    } else if (mode === 'example') {
+        nextReviewVal = card.nextReview_example !== undefined ? card.nextReview_example : (card.nextReview_back !== undefined ? card.nextReview_back : card.nextReview);
+    } else if (mode === 'dictation') {
+        nextReviewVal = card.nextReview_dictation !== undefined ? card.nextReview_dictation : (card.nextReview_back !== undefined ? card.nextReview_back : card.nextReview);
+    } else {
+        // default / 'back'
+        nextReviewVal = card.nextReview_back !== undefined 
+            ? card.nextReview_back 
+            : (card.nextReview !== undefined ? card.nextReview : (card.srsData?.nextReview || card.srsData?.nextReview_back));
+    }
 
     if (nextReviewVal === undefined || nextReviewVal === null) {
         return true;

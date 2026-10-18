@@ -522,6 +522,9 @@ export const subscribeKanjiSrs = (userId, callback) => {
                 cachedUserSrsData = srs;
                 cachedUserIdForSrs = userId;
                 userSrsPromise = null;
+                try {
+                    localStorage.setItem(`quizki_cached_kanji_srs_${userId}`, JSON.stringify(srs));
+                } catch (_) {}
                 kanjiSrsListeners.forEach(cb => cb(srs));
             } else {
                 const changes = snapshot.docChanges();
@@ -535,6 +538,11 @@ export const subscribeKanjiSrs = (userId, callback) => {
                         updated = true;
                     }
                 });
+                if (updated) {
+                    try {
+                        localStorage.setItem(`quizki_cached_kanji_srs_${userId}`, JSON.stringify(cachedUserSrsData));
+                    } catch (_) {}
+                }
                 // Only notify background subscribers if update is confirmed from server and not a local pending write
                 if (updated && !snapshot.metadata.hasPendingWrites) {
                     kanjiSrsListeners.forEach(cb => cb(cachedUserSrsData));
@@ -562,17 +570,32 @@ export const subscribeKanjiSrs = (userId, callback) => {
 };
 
 export const updateCachedUserSrs = (userId, kanjiId, newSrs) => {
-    if (cachedUserIdForSrs === userId && cachedUserSrsData) {
-        if (newSrs === null) {
-            delete cachedUserSrsData[kanjiId];
-        } else {
-            cachedUserSrsData[kanjiId] = newSrs;
-        }
-        // Immediately notify all in-memory subscribers
-        kanjiSrsListeners.forEach(cb => {
-            try { cb(cachedUserSrsData); } catch (_) {}
-        });
+    if (!userId) return;
+    if (!cachedUserSrsData || cachedUserIdForSrs !== userId) {
+        try {
+            const localCached = localStorage.getItem(`quizki_cached_kanji_srs_${userId}`);
+            if (localCached) {
+                cachedUserSrsData = JSON.parse(localCached);
+                cachedUserIdForSrs = userId;
+            }
+        } catch (_) {}
     }
+    if (!cachedUserSrsData) {
+        cachedUserSrsData = {};
+        cachedUserIdForSrs = userId;
+    }
+    if (newSrs === null) {
+        delete cachedUserSrsData[kanjiId];
+    } else {
+        cachedUserSrsData[kanjiId] = newSrs;
+    }
+    try {
+        localStorage.setItem(`quizki_cached_kanji_srs_${userId}`, JSON.stringify(cachedUserSrsData));
+    } catch (_) {}
+    // Immediately notify all in-memory subscribers
+    kanjiSrsListeners.forEach(cb => {
+        try { cb(cachedUserSrsData); } catch (_) {}
+    });
     // Dispatch global srs-updated event for instant 0ms badge sync
     try {
         window.dispatchEvent(new Event('srs-updated'));

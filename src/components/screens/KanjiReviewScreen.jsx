@@ -116,6 +116,33 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
     const completedCardIds = useRef(new Set());
     const activeReviewCardIds = useRef(new Set());
 
+    // Flush session XP and sync when user leaves app or switches tabs on mobile
+    useEffect(() => {
+        const handleFlushOnLeave = () => {
+            if (sessionXpRef.current > 0 && awardXP) {
+                const xp = sessionXpRef.current;
+                sessionXpRef.current = 0;
+                try {
+                    const p = awardXP(xp);
+                    if (p && typeof p.catch === 'function') p.catch(() => {});
+                } catch (_) {}
+            }
+        };
+
+        window.addEventListener('pagehide', handleFlushOnLeave);
+        const handleVisChange = () => {
+            if (document.visibilityState === 'hidden') {
+                handleFlushOnLeave();
+            }
+        };
+        document.addEventListener('visibilitychange', handleVisChange);
+
+        return () => {
+            window.removeEventListener('pagehide', handleFlushOnLeave);
+            document.removeEventListener('visibilitychange', handleVisChange);
+        };
+    }, [awardXP]);
+
     const [dashboardTick, setDashboardTick] = useState(Date.now());
     useEffect(() => {
         // Refresh dashboard stats every 30 seconds to prevent screen flickering/stuttering

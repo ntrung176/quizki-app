@@ -79,6 +79,33 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         reviewModeRef.current = reviewMode;
     }, [reviewMode]);
 
+    // Flush session XP and sync when user leaves app or switches tabs on mobile
+    useEffect(() => {
+        const handleFlushOnLeave = () => {
+            if (sessionXpRef.current > 0 && awardXP) {
+                const xp = sessionXpRef.current;
+                sessionXpRef.current = 0;
+                try {
+                    const p = awardXP(xp);
+                    if (p && typeof p.catch === 'function') p.catch(() => {});
+                } catch (_) {}
+            }
+        };
+
+        window.addEventListener('pagehide', handleFlushOnLeave);
+        const handleVisChange = () => {
+            if (document.visibilityState === 'hidden') {
+                handleFlushOnLeave();
+            }
+        };
+        document.addEventListener('visibilitychange', handleVisChange);
+
+        return () => {
+            window.removeEventListener('pagehide', handleFlushOnLeave);
+            document.removeEventListener('visibilitychange', handleVisChange);
+        };
+    }, [awardXP]);
+
     const [showLeechManager, setShowLeechManager] = useState(false);
     const leechGrammarItems = useMemo(() => grammarList.filter(g => isLeechCard(srsData[g.id]) || isLeechCard(g)), [grammarList, srsData]);
 

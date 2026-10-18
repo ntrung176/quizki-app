@@ -4,6 +4,7 @@ import { db, appId } from '../config/firebase';
 import { showToast } from '../utils/toast';
 import { cleanFirestoreData } from '../utils/firestoreHelpers';
 import { isVocabCardDue, calculateAnkiSRS } from '../utils/srs';
+import { getCachedVocabSrsMap, updateCachedVocabSrs, mergeCachedVocabSrs } from '../utils/vocabSrsCache';
 import { aiAssistVocab, extractVocabFromImage } from '../utils/aiProvider';
 import { POINTS } from '../utils/scoring';
 
@@ -11,7 +12,11 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
     const [allCards, setAllCards] = useState(() => {
         try {
             const cached = localStorage.getItem('quizki_cached_vocab_list');
-            return cached ? JSON.parse(cached) : [];
+            const initial = cached ? JSON.parse(cached) : [];
+            if (userId && initial.length > 0) {
+                return mergeCachedVocabSrs(userId, initial).mergedCards;
+            }
+            return initial;
         } catch (_) {
             return [];
         }
@@ -42,18 +47,32 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
             snapshot.forEach((docSnap) => {
                 fetchedCards.push({ ...docSnap.data(), id: docSnap.id });
             });
-            setAllCards(fetchedCards);
+            const { mergedCards, pendingSyncCards } = mergeCachedVocabSrs(userId, fetchedCards);
+            setAllCards(mergedCards);
             try {
-                localStorage.setItem('quizki_cached_vocab_list', JSON.stringify(fetchedCards));
+                localStorage.setItem('quizki_cached_vocab_list', JSON.stringify(mergedCards));
             } catch (_) { }
             setIsLoading(false);
+
+            // Re-sync any locally cached reviews to Firestore that haven't reached the server yet
+            if (pendingSyncCards.length > 0 && userId && vocabCollectionPath) {
+                pendingSyncCards.forEach(card => {
+                    try {
+                        const safeCardId = String(card.id);
+                        const cardRef = doc(collection(db, vocabCollectionPath), safeCardId);
+                        const cleanCard = { ...card };
+                        delete cleanCard.id;
+                        setDoc(cardRef, cleanFirestoreData(cleanCard), { merge: true }).catch(() => {});
+                    } catch (_) {}
+                });
+            }
         }, (error) => {
             console.error("Lỗi tải danh sách từ vựng:", error);
             setIsLoading(false);
         });
 
         return () => unsubscribe();
-    }, [authReady, vocabCollectionPath]);
+    }, [authReady, vocabCollectionPath, userId]);
 
     const dueCounts = useMemo(() => {
         const now = Date.now();
@@ -208,13 +227,21 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
             };
         }
 
+        const patchToSave = {
+            ...updatedFields,
+            ...(newMasteryState ? { masteryState: newMasteryState } : {})
+        };
+
+        if (userId) {
+            updateCachedVocabSrs(userId, cardId, patchToSave);
+        }
+
         setAllCards(prevCards => {
             const next = prevCards.map(card => {
                 if (String(card.id) === String(cardId)) {
                     return {
                         ...card,
-                        ...updatedFields,
-                        ...(newMasteryState ? { masteryState: newMasteryState } : {})
+                        ...patchToSave
                     };
                 }
                 return card;
@@ -319,6 +346,10 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
 
         const safeCardId = String(realCardId);
 
+        if (userId) {
+            updateCachedVocabSrs(userId, safeCardId, patchData);
+        }
+
         setAllCards(prevCards => {
             const next = prevCards.map(c => {
                 if (String(c.id) === safeCardId) {
@@ -408,7 +439,10 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
         let newSrsFields = {};
 
         if (typeof ratingOrData === 'object' && ratingOrData !== null) {
-            newSrsFields = ratingOrData;
+            newSrsFields = { ...ratingOrData };
+            if (!newSrsFields.masteryState && newSrsFields.state) {
+                newSrsFields.masteryState = newSrsFields.state === 'REVIEW' ? 'memorized' : 'learning';
+            }
         } else if (targetCard) {
             const rating = ratingOrData;
             const result = calculateAnkiSRS(targetCard, rating);
@@ -429,7 +463,8 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
                 state: result.state,
                 interval: result.interval,
                 ease: result.ease,
-                nextReview: nowTime + nextReviewOffset
+                nextReview: nowTime + nextReviewOffset,
+                masteryState: result.state === 'REVIEW' ? 'memorized' : 'learning'
             };
         } else {
             newSrsFields = { lastReviewed: Date.now() };

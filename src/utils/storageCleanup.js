@@ -38,7 +38,8 @@ export const runStorageSanityCleanup = () => {
                 !k.includes('token') &&
                 !k.includes('auth') &&
                 !k.includes('settings') &&
-                !k.includes('user')
+                !k.includes('user') &&
+                !k.includes('srs')
             ) {
                 keysToRemove.push(k);
             }

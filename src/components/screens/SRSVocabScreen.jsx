@@ -432,6 +432,33 @@ const SRSVocabScreen = ({
         };
     }, [reviewMode, setIsReviewActive]);
 
+    // Flush session XP and sync when user leaves app or switches tabs on mobile
+    useEffect(() => {
+        const handleFlushOnLeave = () => {
+            if (sessionXpRef.current > 0 && awardXP) {
+                const xp = sessionXpRef.current;
+                sessionXpRef.current = 0;
+                try {
+                    const p = awardXP(xp);
+                    if (p && typeof p.catch === 'function') p.catch(() => {});
+                } catch (_) {}
+            }
+        };
+
+        window.addEventListener('pagehide', handleFlushOnLeave);
+        const handleVisChange = () => {
+            if (document.visibilityState === 'hidden') {
+                handleFlushOnLeave();
+            }
+        };
+        document.addEventListener('visibilitychange', handleVisChange);
+
+        return () => {
+            window.removeEventListener('pagehide', handleFlushOnLeave);
+            document.removeEventListener('visibilitychange', handleVisChange);
+        };
+    }, [awardXP]);
+
     useEffect(() => {
         setShowNuancePopup(false);
         setHasCheckedTyping(false);
@@ -971,7 +998,8 @@ const SRSVocabScreen = ({
             state: result.state,
             interval: result.interval,
             ease: result.ease,
-            nextReview: nowTime + nextReviewOffset
+            nextReview: nowTime + nextReviewOffset,
+            masteryState: result.state === 'REVIEW' ? 'memorized' : 'learning'
         };
 
         sessionSrsData.current[card.id] = newSrs;
