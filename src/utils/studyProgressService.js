@@ -1,5 +1,6 @@
 import { db, appId } from '../config/firebase';
 import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
+import { safeSetLocalStorage } from './storageCleanup';
 
 const MODES = ['flashcard', 'study', 'meaning_input', 'dictation', 'example', 'synonym'];
 
@@ -35,8 +36,8 @@ export const saveStudyProgress = async (userId, setId, mode, progressData) => {
 
     // 1. Save to LocalStorage instantly
     try {
-        localStorage.setItem(key, JSON.stringify(cleanProgressData));
-        localStorage.setItem(completedKey, 'false');
+        safeSetLocalStorage(key, JSON.stringify(cleanProgressData));
+        safeSetLocalStorage(completedKey, 'false');
     } catch (e) {
         console.warn('localStorage save progress failed:', e);
     }
@@ -204,11 +205,11 @@ export const syncStudyProgress = async (userId, setId) => {
             if (dbHasData && (!localHasData || dbUpdatedAt >= localTimestamp)) {
                 // DB wins, update local storage
                 if (dbCompleted) {
-                    localStorage.setItem(`study_completed_${setId}_${mode}`, 'true');
+                    safeSetLocalStorage(`study_completed_${setId}_${mode}`, 'true');
                     localStorage.removeItem(`study_progress_${setId}_${mode}`);
                 } else {
-                    localStorage.setItem(`study_completed_${setId}_${mode}`, 'false');
-                    localStorage.setItem(`study_progress_${setId}_${mode}`, dbProgressStr);
+                    safeSetLocalStorage(`study_completed_${setId}_${mode}`, 'false');
+                    safeSetLocalStorage(`study_progress_${setId}_${mode}`, dbProgressStr);
                 }
                 resolvedStates.completed[mode] = dbCompleted;
                 resolvedStates.progress[mode] = dbProgressStr !== null;

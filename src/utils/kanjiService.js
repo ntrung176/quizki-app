@@ -3,6 +3,7 @@ import { collection, getDocs, query, where, doc, setDoc, onSnapshot, limit, star
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { getCacheConfig } from './cacheConfigService';
 import { getJotobaKanjiData } from '../data/jotobaKanjiData';
+import { safeSetLocalStorage } from './storageCleanup';
 
 // In-memory module cache
 let cachedKanjiList = null;
@@ -474,9 +475,7 @@ export const getSharedKanjiSrs = async (userId) => {
             srsSnap.docs.forEach(d => { srs[d.id] = d.data(); });
             cachedUserSrsData = srs;
             cachedUserIdForSrs = userId;
-            try {
-                localStorage.setItem(`quizki_cached_kanji_srs_${userId}`, JSON.stringify(srs));
-            } catch (_) {}
+            safeSetLocalStorage(`quizki_cached_kanji_srs_${userId}`, JSON.stringify(srs));
             return cachedUserSrsData;
         } catch (e) {
             console.warn('Kanji SRS fetch notice:', e.message);
@@ -522,9 +521,7 @@ export const subscribeKanjiSrs = (userId, callback) => {
                 cachedUserSrsData = srs;
                 cachedUserIdForSrs = userId;
                 userSrsPromise = null;
-                try {
-                    localStorage.setItem(`quizki_cached_kanji_srs_${userId}`, JSON.stringify(srs));
-                } catch (_) {}
+                safeSetLocalStorage(`quizki_cached_kanji_srs_${userId}`, JSON.stringify(srs));
                 kanjiSrsListeners.forEach(cb => cb(srs));
             } else {
                 const changes = snapshot.docChanges();
@@ -539,9 +536,7 @@ export const subscribeKanjiSrs = (userId, callback) => {
                     }
                 });
                 if (updated) {
-                    try {
-                        localStorage.setItem(`quizki_cached_kanji_srs_${userId}`, JSON.stringify(cachedUserSrsData));
-                    } catch (_) {}
+                    safeSetLocalStorage(`quizki_cached_kanji_srs_${userId}`, JSON.stringify(cachedUserSrsData));
                 }
                 // Only notify background subscribers if update is confirmed from server and not a local pending write
                 if (updated && !snapshot.metadata.hasPendingWrites) {
@@ -589,9 +584,7 @@ export const updateCachedUserSrs = (userId, kanjiId, newSrs) => {
     } else {
         cachedUserSrsData[kanjiId] = newSrs;
     }
-    try {
-        localStorage.setItem(`quizki_cached_kanji_srs_${userId}`, JSON.stringify(cachedUserSrsData));
-    } catch (_) {}
+    safeSetLocalStorage(`quizki_cached_kanji_srs_${userId}`, JSON.stringify(cachedUserSrsData));
     // Immediately notify all in-memory subscribers
     kanjiSrsListeners.forEach(cb => {
         try { cb(cachedUserSrsData); } catch (_) {}
@@ -652,9 +645,7 @@ export const getSharedKanjiProgress = async (userId) => {
             });
             cachedKanjiProgress = progress;
             cachedUserIdForProgress = userId;
-            try {
-                localStorage.setItem(`quizki_cached_kanji_progress_${userId}`, JSON.stringify(progress));
-            } catch (_) {}
+            safeSetLocalStorage(`quizki_cached_kanji_progress_${userId}`, JSON.stringify(progress));
             return cachedKanjiProgress;
         } catch (e) {
             console.warn('Kanji progress fetch notice:', e.message);
@@ -674,9 +665,7 @@ export const updateCachedKanjiProgress = (userId, level, day, progressData) => {
         } else {
             cachedKanjiProgress[key] = progressData;
         }
-        try {
-            localStorage.setItem(`quizki_cached_kanji_progress_${userId}`, JSON.stringify(cachedKanjiProgress));
-        } catch (_) {}
+        safeSetLocalStorage(`quizki_cached_kanji_progress_${userId}`, JSON.stringify(cachedKanjiProgress));
     }
 };
 

@@ -15,6 +15,7 @@ import { saveStudyProgress, resetStudyProgress } from '../utils/studyProgressSer
 import { useTargetLanguage } from '../context/TargetLanguageContext';
 import { normalize, toHiragana as toHira, extractReadings } from '../utils/ankiDiff';
 import { DEFAULT_CARD_SETTINGS, formatMultipleMeanings, splitIgnoringParentheses } from '../components/review/reviewHelpers';
+import { safeSetLocalStorage } from '../utils/storageCleanup';
 
 export const useReviewData = ({
     cards: initialCards,
@@ -118,7 +119,7 @@ export const useReviewData = ({
     const [showNuancePopup, setShowNuancePopup] = useState(false);
 
     useEffect(() => {
-        localStorage.setItem('quizki_flashcard_settings_v2', JSON.stringify(cardSettings));
+        safeSetLocalStorage('quizki_flashcard_settings_v2', JSON.stringify(cardSettings));
     }, [cardSettings]);
 
     useEffect(() => {
@@ -247,7 +248,7 @@ export const useReviewData = ({
             timestamp: Date.now(),
         };
         const key = `study_progress_${setId}_${reviewMode}`;
-        localStorage.setItem(key, JSON.stringify(progressData));
+        safeSetLocalStorage(key, JSON.stringify(progressData));
         if (setId && reviewMode) {
             const userId = getAuth().currentUser?.uid;
             saveStudyProgress(userId, setId, reviewMode, progressData);

@@ -18,6 +18,7 @@ import {
     findBookByParam,
     findLessonByParam
 } from '../utils/bookSlugHelper';
+import { safeSetLocalStorage } from '../utils/storageCleanup';
 
 export const useBookData = ({
     isAdmin = false,
@@ -296,7 +297,7 @@ export const useBookData = ({
                         const restoredSet = new Set(arr);
                         setPersistedRevealed(restoredSet);
                         setRevealedCards(new Set(restoredSet));
-                        try { localStorage.setItem(lessonPersistKey, JSON.stringify(arr)); } catch (e) {}
+                        safeSetLocalStorage(lessonPersistKey, JSON.stringify(arr));
                         return;
                     }
                 } catch (e) {
@@ -331,9 +332,7 @@ export const useBookData = ({
                 snap.docs.forEach(docSnap => {
                     const data = docSnap.data();
                     if (data && Array.isArray(data.revealed)) {
-                        try {
-                            localStorage.setItem(docSnap.id, JSON.stringify(data.revealed));
-                        } catch (e) {}
+                        safeSetLocalStorage(docSnap.id, JSON.stringify(data.revealed));
                     }
                 });
                 setProgressLoadedNonce(n => n + 1);
@@ -366,7 +365,7 @@ export const useBookData = ({
                 }
                 const arr = [...next];
                 if (lessonPersistKey) {
-                    try { localStorage.setItem(lessonPersistKey, JSON.stringify(arr)); } catch (e) {}
+                    safeSetLocalStorage(lessonPersistKey, JSON.stringify(arr));
                 }
                 if (userId && appId && lessonPersistKey) {
                     if (saveProgressTimerRef.current) clearTimeout(saveProgressTimerRef.current);

@@ -11,6 +11,7 @@ import { shuffleArray } from '../../utils/textProcessing';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { normalize, toHiragana, extractReadings } from '../../utils/ankiDiff';
 import UnifiedStudyCompleteModal from '../review/UnifiedStudyCompleteModal';
+import { safeSetLocalStorage } from '../../utils/storageCleanup';
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -629,6 +630,10 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                 return;
             }
 
+            if (Array.isArray(saved.sessionWrongCardIds)) {
+                sessionWrongCardIdsRef.current = new Set(saved.sessionWrongCardIds);
+            }
+
             const savedBatchIdx = Math.max(0, Math.min(saved.currentBatchIndex || 0, restoredBatches.length - 1));
             setCurrentBatchIndex(savedBatchIdx);
 
@@ -733,11 +738,12 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             writtenQueue: (writtenQueue || []).map(c => c?.id).filter(Boolean),
             writtenIdx,
             writtenWrong: (writtenWrong || []).map(c => c?.id).filter(Boolean),
+            sessionWrongCardIds: Array.from(sessionWrongCardIdsRef.current),
             done: false,
             timestamp: Date.now(),
         };
         const key = `study_progress_${studySessionData.setId}_study`;
-        localStorage.setItem(key, JSON.stringify(progressData));
+        safeSetLocalStorage(key, JSON.stringify(progressData));
         if (studySessionData?.setId) {
             const userId = getAuth().currentUser?.uid;
             saveStudyProgress(userId, studySessionData.setId, 'study', progressData);
@@ -846,12 +852,15 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     const handleWrittenCorrect = useCallback(() => {
         if (awardXP) awardXP(15);
         const cCard = writtenQueue[writtenIdx];
-        if (onUpdateCard && cCard?.id && !sessionWrongCardIdsRef.current.has(cCard.id)) {
-            const initialMastery = initialMasteryRef.current.get(cCard.id);
-            const action = (initialMastery === 'learning' || studySessionData?.customType === 'learning')
-                ? 'study_written_promote'
-                : 'study_written';
-            onUpdateCard(cCard.id, true, 'back', action);
+        if (onUpdateCard && cCard?.id) {
+            const hasMistake = sessionWrongCardIdsRef.current.has(cCard.id);
+            if (!hasMistake) {
+                // Hoàn thành đúng cả trắc nghiệm và tự luận không sai -> nhảy 2 bậc từ chưa học lên đã nhớ
+                onUpdateCard(cCard.id, true, 'back', 'study_written_promote');
+            } else {
+                // Có 1 trong 2 bị sai -> ở mức đang học
+                onUpdateCard(cCard.id, true, 'back', 'study_written');
+            }
         }
         const nextIdx = writtenIdx + 1;
         if (nextIdx >= writtenQueue.length) {
@@ -917,6 +926,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
     }, [currentBatchIndex, batches]);
 
     const handleRestart = useCallback(() => {
+        sessionWrongCardIdsRef.current = new Set();
         if (studySessionData?.setId && !studySessionData?.isCustomSubset) {
             const userId = getAuth().currentUser?.uid;
             resetStudyProgress(userId, studySessionData.setId, 'study');

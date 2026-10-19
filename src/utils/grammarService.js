@@ -3,6 +3,7 @@ import { doc, getDoc, updateDoc, deleteDoc, collection, addDoc, getDocs, onSnaps
 import { db, appId } from '../config/firebase';
 import { getCacheConfig } from './cacheConfigService';
 import { cleanFirestoreData } from './firestoreHelpers';
+import { safeSetLocalStorage } from './storageCleanup';
 
 const sanitizeGrammarPointForFirestore = (data) => {
     if (!data || typeof data !== 'object') return {};
@@ -557,7 +558,7 @@ export const updateEditedGrammarLocalCache = (pointId, data) => {
             id: pointId,
             updatedAt: Date.now()
         };
-        localStorage.setItem(EDITED_GRAMMAR_KEY, JSON.stringify(currentMap));
+        safeSetLocalStorage(EDITED_GRAMMAR_KEY, JSON.stringify(currentMap));
     } catch (e) {
         console.error('Error saving edited grammar local cache:', e);
     }
@@ -586,7 +587,7 @@ export const addStandardizedGrammarIds = (ids) => {
         ids.forEach(id => {
             if (id) current.add(id);
         });
-        localStorage.setItem(STANDARDIZED_GRAMMAR_KEY, JSON.stringify(Array.from(current)));
+        safeSetLocalStorage(STANDARDIZED_GRAMMAR_KEY, JSON.stringify(Array.from(current)));
     } catch (e) {
         console.error('Error saving standardized grammar IDs:', e);
     }
@@ -641,7 +642,7 @@ export const addDeletedGrammarIds = (ids) => {
             if (id) current.add(id);
         });
         const arr = Array.from(current);
-        localStorage.setItem(DELETED_GRAMMAR_KEY, JSON.stringify(arr));
+        safeSetLocalStorage(DELETED_GRAMMAR_KEY, JSON.stringify(arr));
 
         // Background sync to Firestore deleted system collection
         const deletedRef = doc(db, `artifacts/${appId}/system`, 'deletedGrammar');
@@ -672,7 +673,7 @@ export const addDeletedGrammarIds = (ids) => {
                     }
                 });
                 if (changed) {
-                    localStorage.setItem(DELETED_GRAMMAR_KEY, JSON.stringify(Array.from(localSet)));
+                    safeSetLocalStorage(DELETED_GRAMMAR_KEY, JSON.stringify(Array.from(localSet)));
                 }
             }
         }
@@ -1452,9 +1453,7 @@ export const getSharedGrammarSrs = async (userId) => {
             srsSnap.docs.forEach(d => { srs[d.id] = d.data(); });
             cachedUserGrammarSrsData = srs;
             cachedUserIdForGrammarSrs = userId;
-            try {
-                localStorage.setItem(`quizki_cached_grammar_srs_${userId}`, JSON.stringify(srs));
-            } catch (_) {}
+            safeSetLocalStorage(`quizki_cached_grammar_srs_${userId}`, JSON.stringify(srs));
             return cachedUserGrammarSrsData;
         } catch (e) {
             console.warn('Grammar SRS fetch notice:', e.message);
@@ -1498,9 +1497,7 @@ export const subscribeGrammarSrs = (userId, callback) => {
             cachedUserGrammarSrsData = srs;
             cachedUserIdForGrammarSrs = userId;
             userGrammarSrsPromise = null;
-            try {
-                localStorage.setItem(`quizki_cached_grammar_srs_${userId}`, JSON.stringify(srs));
-            } catch (_) {}
+            safeSetLocalStorage(`quizki_cached_grammar_srs_${userId}`, JSON.stringify(srs));
             // Notify all registered subscribers
             grammarSrsListeners.forEach(cb => cb(srs));
         }, (error) => {
@@ -1544,9 +1541,7 @@ export const updateCachedUserGrammarSrs = (userId, grammarId, newSrs) => {
     } else {
         cachedUserGrammarSrsData[grammarId] = newSrs;
     }
-    try {
-        localStorage.setItem(`quizki_cached_grammar_srs_${userId}`, JSON.stringify(cachedUserGrammarSrsData));
-    } catch (_) {}
+    safeSetLocalStorage(`quizki_cached_grammar_srs_${userId}`, JSON.stringify(cachedUserGrammarSrsData));
     // Immediately notify all in-memory subscribers
     grammarSrsListeners.forEach(cb => {
         try { cb(cachedUserGrammarSrsData); } catch (_) {}

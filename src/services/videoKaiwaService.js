@@ -4,6 +4,7 @@ import { db, storage, appId } from '../config/firebase';
 import { SEED_KAIWA_VIDEOS } from '../components/kaiwa/videoKaiwaConstants';
 import { callAI, callKaiwaAI, parseJsonFromAI } from '../utils/aiProvider';
 import { saveVideoBlobToIndexedDb, deleteVideoBlobFromIndexedDb } from '../utils/indexedDbVideoStorage';
+import { safeSetLocalStorage } from '../utils/storageCleanup';
 
 const KAIWA_COLLECTION = `artifacts/${appId}/kaiwaVideos`;
 const CACHE_KEY = 'quizki_kaiwa_videos_cache';
@@ -80,11 +81,7 @@ export const getKaiwaVideos = async () => {
 
         const finalVideos = firestoreVideos;
 
-        try {
-            localStorage.setItem(CACHE_KEY, JSON.stringify(finalVideos));
-        } catch (e) {
-            console.warn('Failed to cache kaiwa videos in localStorage:', e);
-        }
+        safeSetLocalStorage(CACHE_KEY, JSON.stringify(finalVideos));
 
         return finalVideos;
     } catch (error) {
@@ -122,7 +119,7 @@ export const saveKaiwaVideo = async (videoData) => {
         } else {
             list.unshift(videoData);
         }
-        localStorage.setItem(CACHE_KEY, JSON.stringify(list));
+        safeSetLocalStorage(CACHE_KEY, JSON.stringify(list));
     } catch (e) {
         console.warn('Cache update error:', e);
     }
@@ -146,7 +143,7 @@ export const deleteKaiwaVideo = async (videoId) => {
         const cached = localStorage.getItem(CACHE_KEY);
         if (cached) {
             const list = JSON.parse(cached).filter(v => v.id !== videoId);
-            localStorage.setItem(CACHE_KEY, JSON.stringify(list));
+            safeSetLocalStorage(CACHE_KEY, JSON.stringify(list));
         }
     } catch (e) {
         console.warn('Cache delete error:', e);

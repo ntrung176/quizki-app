@@ -16,6 +16,10 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
     const [allCards, setAllCards] = useState(() => {
         try {
             const cached = localStorage.getItem('quizki_cached_vocab_list');
+            if (cached) {
+                // Free up megabytes of localStorage space immediately
+                localStorage.removeItem('quizki_cached_vocab_list');
+            }
             const initial = cached ? JSON.parse(cached) : [];
             if (userId && initial.length > 0) {
                 return mergeCachedVocabSrs(userId, initial).mergedCards;
@@ -53,9 +57,6 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
             });
             const { mergedCards, pendingSyncCards } = mergeCachedVocabSrs(userId, fetchedCards);
             setAllCards(mergedCards);
-            try {
-                localStorage.setItem('quizki_cached_vocab_list', JSON.stringify(mergedCards));
-            } catch (_) { }
             setIsLoading(false);
 
             // Re-sync any locally cached reviews to Firestore that haven't reached the server yet
@@ -194,9 +195,17 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
             const currentMastery = currentCard?.masteryState || 'not_learned';
 
             // 1. Chế độ Học tập (StudyScreen) giữ logic 2 giai đoạn riêng biệt (Trắc nghiệm + Tự luận):
+            // - Đúng cả trắc nghiệm & tự luận không sai -> Nhảy 2 bậc từ chưa học lên đã nhớ (memorized)
+            // - Có 1 trong 2 bị sai (hoặc làm sai trong quá trình học) -> Ở mức đang học (learning)
             if (action === 'study_written_promote') {
                 newMasteryState = 'memorized';
-            } else if (action === 'study_mc' || action === 'study_written') {
+            } else if (action === 'study_mc') {
+                if (!isCorrect) {
+                    newMasteryState = 'learning';
+                } else {
+                    newMasteryState = (currentMastery === 'memorized') ? 'memorized' : 'learning';
+                }
+            } else if (action === 'study_written') {
                 newMasteryState = 'learning';
             } else if (action === 'memorized') {
                 newMasteryState = 'memorized';
@@ -241,7 +250,7 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
         }
 
         setAllCards(prevCards => {
-            const next = prevCards.map(card => {
+            return prevCards.map(card => {
                 if (String(card.id) === String(cardId)) {
                     return {
                         ...card,
@@ -250,10 +259,6 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
                 }
                 return card;
             });
-            try {
-                localStorage.setItem('quizki_cached_vocab_list', JSON.stringify(next));
-            } catch (_) { }
-            return next;
         });
 
         if (userId && vocabCollectionPath) {
@@ -362,16 +367,12 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
         }
 
         setAllCards(prevCards => {
-            const next = prevCards.map(c => {
+            return prevCards.map(c => {
                 if (String(c.id) === safeCardId) {
                     return { ...c, ...patchData, updatedAt: Date.now() };
                 }
                 return c;
             });
-            try {
-                localStorage.setItem('quizki_cached_vocab_list', JSON.stringify(next));
-            } catch (_) { }
-            return next;
         });
 
         if (userId && vocabCollectionPath) {
@@ -415,16 +416,12 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
 
         const safeId = String(targetCardId);
         setAllCards(prevCards => {
-            const next = prevCards.map(c => {
+            return prevCards.map(c => {
                 if (String(c.id) === safeId) {
                     return { ...c, srsEnabled: nextSrsState, updatedAt: Date.now() };
                 }
                 return c;
             });
-            try {
-                localStorage.setItem('quizki_cached_vocab_list', JSON.stringify(next));
-            } catch (_) { }
-            return next;
         });
 
         if (userId && vocabCollectionPath) {

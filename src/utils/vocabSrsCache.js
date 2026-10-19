@@ -4,6 +4,8 @@
  * to prevent loss of review progress when mobile browsers terminate background connections.
  */
 
+import { safeSetLocalStorage } from './storageCleanup';
+
 const SRS_KEYS = [
     'srsInterval', 'srsEase', 'srsLearningStep', 'srsIsLapsed', 'srsReps',
     'srsLapseCount', 'srsPrelapseInterval', 'srsState', 'nextReview_back',
@@ -45,7 +47,7 @@ export const updateCachedVocabSrs = (userId, cardId, srsPatch) => {
                 ...filtered,
                 lastUpdated: Date.now()
             };
-            localStorage.setItem(key, JSON.stringify(map));
+            safeSetLocalStorage(key, JSON.stringify(map));
         }
     } catch (e) {
         console.warn('⚠️ Failed to update cached vocab SRS:', e);
