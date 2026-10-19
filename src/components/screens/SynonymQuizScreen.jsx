@@ -334,7 +334,7 @@ const SynonymQuizScreen = ({ cards, setId, isCustomSubset = false, onUpdateCard,
 
     return (
         <div className="relative w-full flex-1 min-h-0 flex flex-col items-center justify-center px-3 sm:px-4 py-2 sm:py-3.5 overflow-y-auto">
-            <div className="w-full max-w-3xl mx-auto my-auto flex flex-col items-center space-y-3 sm:space-y-4">
+            <div className="w-full max-w-4xl lg:max-w-5xl mx-auto my-auto flex flex-col items-center space-y-3 sm:space-y-4">
                 {onBack && (
                     <div className="w-full flex justify-start mb-1">
                         <button
@@ -347,7 +347,7 @@ const SynonymQuizScreen = ({ cards, setId, isCustomSubset = false, onUpdateCard,
                         </button>
                     </div>
                 )}
-                <div className="w-full flex flex-col space-y-4 p-5 md:p-8 bg-white dark:bg-slate-900 border-2 border-blue-400/30 rounded-3xl shadow-xl">
+                <div className="w-full flex flex-col space-y-4 sm:space-y-5 p-5 sm:p-7 md:p-8 bg-white dark:bg-slate-900 border-2 border-blue-400/30 rounded-3xl shadow-xl">
                     {/* Progress */}
                     <div className="space-y-1">
                         <div className="flex justify-between items-center text-sm font-bold text-sky-500 dark:text-sky-400">
@@ -367,62 +367,67 @@ const SynonymQuizScreen = ({ cards, setId, isCustomSubset = false, onUpdateCard,
                     {/* Question */}
                     {(() => {
                         const wordLen = (currentCard.front || '').length;
-                        let wordSize = 'text-3xl sm:text-4xl font-bold';
-                        if (wordLen > 16) wordSize = 'text-xl sm:text-2xl font-bold';
-                        else if (wordLen > 8) wordSize = 'text-2xl sm:text-3xl font-bold';
+                        let wordSize = 'text-3xl sm:text-4xl md:text-5xl font-bold';
+                        if (wordLen > 16) wordSize = 'text-xl sm:text-2xl md:text-3xl font-bold';
+                        else if (wordLen > 8) wordSize = 'text-2xl sm:text-3xl md:text-4xl font-bold';
 
                         const meaningLen = (currentCard.back || '').length;
-                        let meaningSize = 'text-sm sm:text-base';
+                        let meaningSize = 'text-sm sm:text-base md:text-lg';
                         if (meaningLen > 60) meaningSize = 'text-xs sm:text-sm';
 
                         const maxOptLen = Math.max(...options.map(o => (typeof o === 'string' ? o : (o?.front || '')).length || 0), 0);
-                        let optTextSize = 'text-base sm:text-lg font-bold';
-                        let optPadding = 'p-3.5 sm:p-4';
-                        if (maxOptLen > 20) {
-                            optTextSize = 'text-xs sm:text-sm font-semibold';
-                            optPadding = 'p-2.5 sm:p-3';
-                        } else if (maxOptLen > 10) {
-                            optTextSize = 'text-sm sm:text-base font-bold';
-                            optPadding = 'p-3 sm:p-3.5';
+                        let optTextSize = 'text-xl sm:text-2xl md:text-3xl font-bold';
+                        let optPadding = 'px-4 sm:px-6 py-4 sm:py-5 min-h-[80px] sm:min-h-[92px]';
+                        if (maxOptLen > 24) {
+                            optTextSize = 'text-sm sm:text-base md:text-lg font-semibold';
+                            optPadding = 'px-3.5 sm:px-4 py-3 sm:py-3.5 min-h-[68px] sm:min-h-[76px]';
+                        } else if (maxOptLen > 14) {
+                            optTextSize = 'text-base sm:text-lg md:text-xl font-bold';
+                            optPadding = 'px-4 sm:px-4.5 py-3.5 sm:py-4 min-h-[74px] sm:min-h-[84px]';
                         }
 
                         return (
                             <>
-                                <div className="text-center py-4 sm:py-6">
-                                    <p className="text-xs sm:text-sm text-gray-400 mb-1.5">Từ đồng nghĩa của</p>
+                                <div className="bg-slate-50 dark:bg-slate-800/60 rounded-2xl p-5 sm:p-7 text-center border border-slate-200/80 dark:border-slate-800 shadow-sm min-h-[130px] sm:min-h-[160px] flex flex-col items-center justify-center">
+                                    <p className="text-xs sm:text-sm font-bold text-sky-500 uppercase tracking-widest mb-2">Từ đồng nghĩa của</p>
                                     <h2 className={`text-gray-800 dark:text-white font-japanese break-words ${wordSize}`}>
                                         <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} knownReading={currentCard.reading} forceHide={!synonymFuriganaEnabled} />
                                     </h2>
-                                    {synonymVietnameseEnabled && <p className={`text-gray-500 dark:text-gray-400 mt-1.5 break-words ${meaningSize}`}>{currentCard.back}</p>}
+                                    {synonymVietnameseEnabled && <p className={`text-gray-500 dark:text-gray-400 mt-2 break-words ${meaningSize}`}>{currentCard.back}</p>}
                                 </div>
 
-                                {/* Options */}
-                                <div className="grid grid-cols-1 gap-2.5">
+                                {/* Options - 2x2 Grid: 1 2 on top, 3 4 on bottom */}
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                                     {options.map((option, i) => {
                                         const isCorrect = option === currentCard.synonym;
                                         const isSelected = selectedAnswer === option;
-                                        let cls = `w-full ${optPadding} rounded-xl font-bold text-left border-2 transition-all `;
+                                        let cls = `w-full ${optPadding} rounded-2xl font-bold text-left border-2 transition-all shadow-sm `;
                                         if (!isRevealed) {
-                                            cls += 'bg-gray-50 dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-sky-400 dark:hover:border-sky-500 hover:bg-sky-50 dark:hover:bg-sky-900/20 text-gray-800 dark:text-gray-200 cursor-pointer';
+                                            cls += 'bg-gray-50 dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-sky-400 dark:hover:border-sky-500 hover:bg-sky-50 dark:hover:bg-sky-900/20 text-gray-800 dark:text-gray-200 cursor-pointer hover:shadow-md';
                                         } else if (isCorrect) {
-                                            cls += 'bg-green-50 dark:bg-green-900/20 border-green-400 dark:border-green-600 text-green-700 dark:text-green-400 cursor-default';
+                                            cls += 'bg-green-50 dark:bg-green-900/20 border-green-400 dark:border-green-600 text-green-700 dark:text-green-400 cursor-default shadow-md shadow-emerald-500/10';
                                         } else if (isSelected && !isCorrect) {
-                                            cls += 'bg-red-50 dark:bg-red-900/20 border-red-400 dark:border-red-600 text-red-700 dark:text-red-400 cursor-default';
+                                            cls += 'bg-red-50 dark:bg-red-900/20 border-red-400 dark:border-red-600 text-red-700 dark:text-red-400 cursor-default shadow-md shadow-rose-500/10';
                                         } else {
                                             cls += 'bg-gray-50 dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-400 dark:text-gray-500 opacity-60 cursor-default';
                                         }
                                         return (
                                             <div key={i} onClick={() => { if (!isRevealed) handleSelect(option); }} className={cls}>
-                                                <span className="flex items-center gap-3">
-                                                    <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-gray-200 dark:bg-slate-700 flex items-center justify-center text-xs font-bold text-gray-500 dark:text-gray-400 flex-shrink-0 select-none">{i + 1}</span>
-                                                    <span className={`font-japanese break-words ${optTextSize}`}><FuriganaText text={option} forceHide={!synonymFuriganaEnabled} /></span>
-                                                    {isRevealed && isCorrect && <CheckCircle className="w-5 h-5 text-green-500 ml-auto flex-shrink-0" />}
-                                                    {isRevealed && isSelected && !isCorrect && <XCircle className="w-5 h-5 text-red-500 ml-auto flex-shrink-0" />}
-                                                </span>
+                                                <div className="flex items-center gap-3.5 w-full">
+                                                    <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-gray-200 dark:bg-slate-700 flex items-center justify-center text-xs sm:text-sm font-black text-gray-500 dark:text-gray-400 flex-shrink-0 select-none border border-gray-300/60 dark:border-slate-600">{i + 1}</span>
+                                                    <span className={`font-japanese break-words flex-1 leading-snug ${optTextSize}`}><FuriganaText text={option} forceHide={!synonymFuriganaEnabled} /></span>
+                                                    {isRevealed && isCorrect && <CheckCircle className="w-6 h-6 text-green-500 ml-2 flex-shrink-0" />}
+                                                    {isRevealed && isSelected && !isCorrect && <XCircle className="w-6 h-6 text-red-500 ml-2 flex-shrink-0" />}
+                                                </div>
                                             </div>
                                         );
                                     })}
                                 </div>
+                                {!isRevealed && (
+                                    <p className="text-center text-[10px] sm:text-xs text-gray-400 dark:text-gray-500 mt-1 opacity-70">
+                                        ⌨️ Nhấn phím 1-4 để chọn nhanh
+                                    </p>
+                                )}
                             </>
                         );
                     })()}

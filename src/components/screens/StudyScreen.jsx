@@ -141,65 +141,65 @@ const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furigana
     }, [answered, options, selected, correct, onWrong]);
 
     const promptLen = (card.back || '').length;
-    let promptSize = 'text-2xl md:text-3xl font-bold';
+    let promptSize = 'text-2xl sm:text-3xl md:text-4xl font-bold';
     if (promptLen > 70) promptSize = 'text-base sm:text-lg md:text-xl font-semibold';
-    else if (promptLen > 35) promptSize = 'text-lg sm:text-xl md:text-2xl font-bold';
+    else if (promptLen > 35) promptSize = 'text-xl sm:text-2xl md:text-3xl font-bold';
 
     const maxOptLen = Math.max(...options.map(o => (typeof o === 'string' ? o : (o?.front || '')).length || 0), 0);
-    let optTextSize = 'text-base sm:text-lg font-bold';
-    let optPadding = 'px-4 sm:px-5 py-3.5 sm:py-4';
-    if (maxOptLen > 20) {
-        optTextSize = 'text-xs sm:text-sm font-semibold';
-        optPadding = 'px-3 py-2.5 sm:py-3';
-    } else if (maxOptLen > 10) {
-        optTextSize = 'text-sm sm:text-base font-bold';
-        optPadding = 'px-3.5 sm:px-4 py-3 sm:py-3.5';
+    let optTextSize = 'text-xl sm:text-2xl md:text-3xl font-bold';
+    let optPadding = 'px-4 sm:px-6 py-4 sm:py-5 min-h-[80px] sm:min-h-[92px]';
+    if (maxOptLen > 24) {
+        optTextSize = 'text-sm sm:text-base md:text-lg font-semibold';
+        optPadding = 'px-3.5 sm:px-4 py-3 sm:py-3.5 min-h-[68px] sm:min-h-[76px]';
+    } else if (maxOptLen > 14) {
+        optTextSize = 'text-base sm:text-lg md:text-xl font-bold';
+        optPadding = 'px-4 sm:px-4.5 py-3.5 sm:py-4 min-h-[74px] sm:min-h-[84px]';
     }
 
     return (
-        <div className="space-y-4 animate-fade-in">
+        <div className="space-y-4 sm:space-y-5 animate-fade-in">
             {/* Prompt: show Vietnamese meaning */}
-            <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 md:p-6 text-center border border-slate-200 dark:border-slate-800 shadow-md min-h-[120px] sm:min-h-[140px] flex flex-col items-center justify-center">
-                <p className="text-xs font-bold text-blue-500 uppercase tracking-widest mb-2">Nghĩa tiếng Việt</p>
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-7 md:p-8 text-center border border-slate-200 dark:border-slate-800 shadow-md min-h-[130px] sm:min-h-[160px] flex flex-col items-center justify-center">
+                <p className="text-xs sm:text-sm font-bold text-blue-500 uppercase tracking-widest mb-2.5">Nghĩa tiếng Việt</p>
                 <p className={`text-gray-800 dark:text-white break-words ${promptSize}`}>{card.back}</p>
             </div>
 
-            {/* Options */}
-            <div className="grid grid-cols-1 gap-2.5">
+            {/* Options - 2x2 Grid: 1 2 on top, 3 4 on bottom */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                 {options.map((opt, i) => {
                     const isCorrectOpt = normalize(opt) === normalize(correct);
                     const isSelected = selected === opt;
-                    let cls = `w-full text-left ${optPadding} rounded-xl border-2 font-medium transition-all flex items-center gap-3 shadow-sm `;
+                    let cls = `w-full text-left ${optPadding} rounded-2xl border-2 font-medium transition-all flex items-center gap-3.5 shadow-sm `;
                     if (!answered) {
-                        cls += 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-blue-400 dark:hover:border-blue-500 hover:bg-blue-50/50 dark:hover:bg-blue-950/30 text-slate-800 dark:text-slate-200 cursor-pointer';
+                        cls += 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-blue-400 dark:hover:border-blue-500 hover:bg-blue-50/50 dark:hover:bg-blue-950/30 text-slate-800 dark:text-slate-200 cursor-pointer hover:shadow-md';
                     } else if (isCorrectOpt) {
-                        cls += 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-400 text-emerald-800 dark:text-emerald-300 cursor-default';
+                        cls += 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-400 text-emerald-800 dark:text-emerald-300 cursor-default shadow-md shadow-emerald-500/10';
                     } else if (isSelected && !isCorrectOpt) {
-                        cls += 'bg-rose-50 dark:bg-rose-950/50 border-rose-400 text-rose-800 dark:text-rose-300 cursor-default';
+                        cls += 'bg-rose-50 dark:bg-rose-950/50 border-rose-400 text-rose-800 dark:text-rose-300 cursor-default shadow-md shadow-rose-500/10';
                     } else {
                         cls += 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-400 dark:text-slate-500 opacity-60 cursor-default';
                     }
                     return (
                         <div key={i} onClick={() => { if (!answered) handleSelect(opt); }} className={cls}>
-                            <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-black flex items-center justify-center flex-shrink-0 text-slate-500 dark:text-slate-400 select-none border border-slate-200/60 dark:border-slate-700">
+                            <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-slate-100 dark:bg-slate-800 text-xs sm:text-sm font-black flex items-center justify-center flex-shrink-0 text-slate-500 dark:text-slate-400 select-none border border-slate-200/60 dark:border-slate-700">
                                 {i + 1}
                             </span>
-                            <span className={`font-japanese break-words ${optTextSize}`}>
+                            <span className={`font-japanese break-words flex-1 leading-snug ${optTextSize}`}>
                                 <FuriganaText text={opt} forceHide={!furiganaEnabled} />
                             </span>
-                            {answered && isCorrectOpt && <Check className="ml-auto w-5 h-5 text-emerald-500 flex-shrink-0" />}
-                            {answered && isSelected && !isCorrectOpt && <X className="ml-auto w-5 h-5 text-rose-500 flex-shrink-0" />}
+                            {answered && isCorrectOpt && <Check className="ml-2 w-6 h-6 text-emerald-500 flex-shrink-0" />}
+                            {answered && isSelected && !isCorrectOpt && <X className="ml-2 w-6 h-6 text-rose-500 flex-shrink-0" />}
                         </div>
                     );
                 })}
             </div>
             {!answered && (
-                <p className="text-center text-[10px] text-gray-400 dark:text-gray-500 mt-1 opacity-70">
+                <p className="text-center text-[10px] sm:text-xs text-gray-400 dark:text-gray-500 mt-1 opacity-70">
                     ⌨️ Nhấn phím 1-4 để chọn nhanh
                 </p>
             )}
             {answered && normalize(selected) !== normalize(correct) && (
-                <p className="text-center text-[10px] text-gray-400 dark:text-gray-500 mt-1 opacity-70">
+                <p className="text-center text-[10px] sm:text-xs text-gray-400 dark:text-gray-500 mt-1 opacity-70">
                     ⌨️ Nhấn phím Enter để tiếp tục
                 </p>
             )}
@@ -310,18 +310,18 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
     };
 
     const promptLen = (card.back || '').length;
-    let promptSize = 'text-2xl md:text-3xl font-bold';
+    let promptSize = 'text-2xl sm:text-3xl md:text-4xl font-bold';
     if (promptLen > 70) promptSize = 'text-base sm:text-lg md:text-xl font-semibold';
-    else if (promptLen > 35) promptSize = 'text-lg sm:text-xl md:text-2xl font-bold';
+    else if (promptLen > 35) promptSize = 'text-xl sm:text-2xl md:text-3xl font-bold';
 
     return (
-        <div className="space-y-4 animate-fade-in">
+        <div className="space-y-4 sm:space-y-5 animate-fade-in">
             {/* Prompt */}
-            <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 md:p-6 text-center border border-slate-200 dark:border-slate-800 shadow-md min-h-[120px] sm:min-h-[140px] flex flex-col items-center justify-center">
-                <p className="text-xs font-bold text-blue-500 uppercase tracking-widest mb-2">Nhập từ tiếng Nhật</p>
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-7 md:p-8 text-center border border-slate-200 dark:border-slate-800 shadow-md min-h-[130px] sm:min-h-[160px] flex flex-col items-center justify-center">
+                <p className="text-xs sm:text-sm font-bold text-blue-500 uppercase tracking-widest mb-2.5">Nhập từ tiếng Nhật</p>
                 <p className={`text-gray-800 dark:text-white break-words ${promptSize}`}>{card.back}</p>
                 {card.sinoVietnamese && (
-                    <p className="text-xs sm:text-sm text-yellow-600 dark:text-yellow-400 mt-1.5 font-medium">Hán Việt: {card.sinoVietnamese}</p>
+                    <p className="text-xs sm:text-sm text-yellow-600 dark:text-yellow-400 mt-2 font-medium">Hán Việt: {card.sinoVietnamese}</p>
                 )}
             </div>
 
@@ -343,7 +343,7 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
                 }}
                 disabled={feedback === 'correct'}
                 placeholder={needsRetype ? "Nhập lại đáp án đúng để tiếp tục..." : "Nhập từ vựng tiếng Nhật..."}
-                className={`w-full px-4 sm:px-5 py-3 text-base sm:text-lg font-japanese font-bold rounded-xl border-2 outline-none transition-all shadow-sm focus:ring-4 focus:ring-blue-500/15
+                className={`w-full px-5 sm:px-6 py-3.5 sm:py-4 text-lg sm:text-xl font-japanese font-bold rounded-2xl border-2 outline-none transition-all shadow-sm focus:ring-4 focus:ring-blue-500/15
                     ${feedback === 'correct' ? 'border-emerald-400 bg-emerald-50 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'
                         : needsRetype ? 'border-rose-400 bg-rose-50/50 dark:bg-rose-950/30 text-rose-900 dark:text-rose-100 focus:border-rose-500'
                             : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-900 dark:text-white focus:border-blue-500'}`}
@@ -354,11 +354,11 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
                     <button
                         onClick={check}
                         disabled={!input.trim()}
-                        className="w-full py-3 text-base bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md cursor-pointer active:scale-95"
+                        className="w-full py-3.5 sm:py-4 text-base sm:text-lg bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md cursor-pointer active:scale-95"
                     >
                         Kiểm tra
                     </button>
-                    <p className="text-center text-[10px] text-gray-400 dark:text-gray-500 opacity-70">
+                    <p className="text-center text-[10px] sm:text-xs text-gray-400 dark:text-gray-500 opacity-70">
                         ⌨️ Nhấn Enter để kiểm tra nhanh
                     </p>
                 </div>
@@ -1002,7 +1002,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             ? "fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto w-screen h-screen" 
             : "relative w-full flex-1 min-h-0 flex flex-col items-center justify-center px-3 sm:px-4 py-2 sm:py-3.5 overflow-y-auto animate-fade-in"
         }>
-            <div className="w-full max-w-3xl mx-auto my-auto flex flex-col justify-center items-center space-y-3 sm:space-y-4">
+            <div className="w-full max-w-4xl lg:max-w-5xl mx-auto my-auto flex flex-col justify-center items-center space-y-3 sm:space-y-4">
                 {/* Back Button - outside frame */}
                 {onBack && (
                     <div className="w-full flex justify-start mb-1">
@@ -1017,7 +1017,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                     </div>
                 )}
 
-                <div className="w-full flex flex-col space-y-4 sm:space-y-5 p-4 sm:p-6 md:p-8 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-2 border-blue-400/30 dark:border-blue-500/20 rounded-3xl shadow-xl overflow-hidden">
+                <div className="w-full flex flex-col space-y-4 sm:space-y-5 p-5 sm:p-7 md:p-8 bg-white/85 dark:bg-slate-900/85 backdrop-blur-md border-2 border-blue-400/30 dark:border-blue-500/20 rounded-3xl shadow-xl overflow-hidden">
                     {/* Progress bar inside the box */}
                     {!done && batchPhase !== 'batchComplete' && (
                         <div className="space-y-1.5 w-full flex-shrink-0">

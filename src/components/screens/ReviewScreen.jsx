@@ -99,7 +99,7 @@ const ReviewScreen = ({
             ? "fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md flex items-center justify-center p-4 overflow-y-auto w-screen h-screen"
             : "relative w-full flex-1 min-h-0 flex flex-col items-center justify-center px-3 sm:px-4 py-2 sm:py-3.5 overflow-y-auto"
         }>
-            <div className="w-full max-w-3xl mx-auto my-auto flex flex-col justify-center items-center space-y-3 sm:space-y-4">
+            <div className="w-full max-w-4xl lg:max-w-5xl mx-auto my-auto flex flex-col justify-center items-center space-y-3 sm:space-y-4">
                 {/* Header Section */}
                 <ReviewHeader
                     onBack={onBack}
@@ -114,7 +114,7 @@ const ReviewScreen = ({
                 />
 
                 {/* Main Card Area */}
-                <div className="w-full flex flex-col justify-center items-center space-y-3 sm:space-y-4 p-4 sm:p-5 border-2 border-indigo-400/30 dark:border-indigo-500/20 bg-white/60 dark:bg-slate-900/60 backdrop-blur-md rounded-3xl shadow-xl overflow-hidden">
+                <div className="w-full flex flex-col justify-center items-center space-y-3 sm:space-y-4 p-5 sm:p-7 md:p-8 border-2 border-indigo-400/30 dark:border-indigo-500/20 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md rounded-3xl shadow-xl overflow-hidden">
                     <div className="w-full relative group perspective flex-shrink-0">
                         {reviewMode === 'flashcard' ? (
                             <FlashcardModeView

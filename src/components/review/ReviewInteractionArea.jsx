@@ -42,28 +42,29 @@ const ReviewInteractionArea = ({
             {/* Multiple Choice Options */}
             {isMultipleChoice && (!isRevealed || feedback === 'incorrect') && multipleChoiceOptions.length > 0 && (() => {
                 const maxOptLen = Math.max(...multipleChoiceOptions.map(o => (typeof o === 'string' ? o : (o?.front || '')).length || 0), 0);
-                let optionTextSize = 'text-base sm:text-lg md:text-xl';
-                let optionPadding = 'px-3 py-3.5 sm:py-4';
-                if (maxOptLen > 22) {
-                    optionTextSize = 'text-xs sm:text-sm';
-                    optionPadding = 'px-2.5 py-2 sm:py-2.5';
-                } else if (maxOptLen > 11) {
-                    optionTextSize = 'text-sm sm:text-base';
-                    optionPadding = 'px-3 py-2.5 sm:py-3';
+                let optionTextSize = 'text-xl sm:text-2xl md:text-3xl font-bold';
+                let optionPadding = 'px-4 sm:px-6 py-4 sm:py-5 min-h-[80px] sm:min-h-[92px]';
+                if (maxOptLen > 24) {
+                    optionTextSize = 'text-sm sm:text-base md:text-lg font-semibold';
+                    optionPadding = 'px-3.5 sm:px-4 py-3 sm:py-3.5 min-h-[68px] sm:min-h-[76px]';
+                } else if (maxOptLen > 14) {
+                    optionTextSize = 'text-base sm:text-lg md:text-xl font-bold';
+                    optionPadding = 'px-4 sm:px-4.5 py-3.5 sm:py-4 min-h-[74px] sm:min-h-[84px]';
                 }
 
                 return (
-                    <div className="space-y-2.5">
+                    <div className="space-y-3">
                         <p className="text-sm sm:text-base font-bold text-gray-600 dark:text-gray-300 text-center mb-1">
                             {cardReviewType === 'synonym'
                                 ? <span>Từ đồng nghĩa của "<FuriganaText text={currentCard.synonym} forceHide={!synonymFuriganaEnabled} />" là gì?</span>
                                 : `Điền từ còn thiếu`
                             }
                         </p>
-                        <div className="grid grid-cols-2 gap-2">
+                        {/* Options - 2x2 Grid: 1 2 on top, 3 4 on bottom */}
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                             {multipleChoiceOptions.map((option, index) => {
                                 const isSelected = selectedAnswer === option;
-                                let buttonClass = `${optionPadding} ${optionTextSize} font-extrabold rounded-xl transition-all border-2 text-left flex items-center gap-2.5 `;
+                                let buttonClass = `${optionPadding} rounded-2xl transition-all border-2 text-left flex items-center gap-3.5 shadow-sm `;
 
                                 if (feedback && isSelected && feedback === 'correct') {
                                     buttonClass += "bg-emerald-500 text-white border-emerald-600 shadow-md";
@@ -74,7 +75,7 @@ const ReviewInteractionArea = ({
                                 } else if (isSelected) {
                                     buttonClass += "bg-blue-600 text-white border-blue-700 shadow-md";
                                 } else {
-                                    buttonClass += "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:bg-blue-50/60 dark:hover:bg-blue-950/30 hover:border-blue-400";
+                                    buttonClass += "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:bg-blue-50/60 dark:hover:bg-blue-950/30 hover:border-blue-400 hover:shadow-md";
                                 }
 
                                 if (isRevealed || isProcessing || !!feedback) {
@@ -90,13 +91,13 @@ const ReviewInteractionArea = ({
                                         onClick={() => handleMultipleChoiceClick(option)}
                                         className={buttonClass}
                                     >
-                                        <span className="inline-flex items-center justify-center w-5 h-5 sm:w-6 sm:h-6 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-[10px] sm:text-xs font-bold flex-shrink-0 select-none border border-slate-200/60 dark:border-slate-700">{index + 1}</span>
-                                        <span className="font-japanese truncate-lines-2 break-words"><FuriganaText text={option} forceHide={cardReviewType === 'synonym' ? !synonymFuriganaEnabled : (cardReviewType === 'example' ? !exampleFuriganaEnabled : false)} /></span>
+                                        <span className="inline-flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 text-xs sm:text-sm font-black flex-shrink-0 select-none border border-slate-200/60 dark:border-slate-700">{index + 1}</span>
+                                        <span className={`font-japanese break-words flex-1 leading-snug ${optionTextSize}`}><FuriganaText text={option} forceHide={cardReviewType === 'synonym' ? !synonymFuriganaEnabled : (cardReviewType === 'example' ? !exampleFuriganaEnabled : false)} /></span>
                                     </div>
                                 );
                             })}
                         </div>
-                        <p className="text-[10px] text-gray-400 dark:text-gray-500 text-center mt-0.5 opacity-70">⌨️ Nhấn phím 1-4 để chọn nhanh</p>
+                        <p className="text-[10px] sm:text-xs text-gray-400 dark:text-gray-500 text-center mt-1 opacity-70">⌨️ Nhấn phím 1-4 để chọn nhanh</p>
                     </div>
                 );
             })()}
