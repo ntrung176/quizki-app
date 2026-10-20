@@ -1484,21 +1484,28 @@ export const removePendingGrammarSync = (userId, grammarId) => {
     }
 };
 
+let isSyncingGrammar = false;
+
 export const syncPendingGrammarSrs = async (userId) => {
-    if (!userId || typeof window === 'undefined' || !db || !appId) return;
+    if (!userId || isSyncingGrammar || typeof window === 'undefined' || !db || !appId) return;
     const pendingMap = getPendingGrammarSyncMap(userId);
     const entries = Object.entries(pendingMap);
     if (entries.length === 0) return;
 
-    for (const [id, srs] of entries) {
-        try {
-            const cleanSrs = { ...srs };
-            delete cleanSrs._pendingTime;
-            await setDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, id), cleanSrs, { merge: true });
-            removePendingGrammarSync(userId, id);
-        } catch (err) {
-            console.warn(`⚠️ Retrying pending grammar SRS sync failed for ${id}:`, err);
+    isSyncingGrammar = true;
+    try {
+        for (const [id, srs] of entries) {
+            try {
+                const cleanSrs = { ...srs };
+                delete cleanSrs._pendingTime;
+                await setDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, id), cleanSrs, { merge: true });
+                removePendingGrammarSync(userId, id);
+            } catch (err) {
+                console.warn(`⚠️ Retrying pending grammar SRS sync failed for ${id}:`, err);
+            }
         }
+    } finally {
+        isSyncingGrammar = false;
     }
 };
 
@@ -1516,7 +1523,8 @@ const mergeServerWithLocalGrammarSrs = (userId, serverSrsMap) => {
     const merged = { ...serverSrsMap };
 
     // 1. Pending sync items take highest priority (unconfirmed reviews)
-    for (const [id, pendingItem] of Object.entries(pendingMap)) {
+    for (const [id, pendingItem] of Object.entries(pendingMap || {})) {
+        if (!pendingItem || typeof pendingItem !== 'object') continue;
         const cleanItem = { ...pendingItem };
         delete cleanItem._pendingTime;
         merged[id] = { ...(merged[id] || {}), ...cleanItem };
@@ -1524,7 +1532,8 @@ const mergeServerWithLocalGrammarSrs = (userId, serverSrsMap) => {
 
     // 2. Check existing local cache items (preserve newer reviews)
     for (const [id, localItem] of Object.entries(localMap || {})) {
-        if (pendingMap[id]) continue;
+        if (!localItem || typeof localItem !== 'object') continue;
+        if (pendingMap && pendingMap[id]) continue;
         const serverItem = merged[id];
         if (!serverItem) {
             merged[id] = localItem;
@@ -1542,16 +1551,6 @@ const mergeServerWithLocalGrammarSrs = (userId, serverSrsMap) => {
 
     return merged;
 };
-
-if (typeof window !== 'undefined') {
-    const handleGrammarVisibility = () => {
-        if (document.visibilityState === 'hidden' && cachedUserIdForGrammarSrs) {
-            syncPendingGrammarSrs(cachedUserIdForGrammarSrs);
-        }
-    };
-    window.addEventListener('visibilitychange', handleGrammarVisibility);
-    window.addEventListener('pagehide', handleGrammarVisibility);
-}
 
 export const getSharedGrammarSrs = async (userId) => {
     if (!userId) return {};
@@ -1584,7 +1583,6 @@ export const getSharedGrammarSrs = async (userId) => {
             cachedUserGrammarSrsData = mergedSrs;
             cachedUserIdForGrammarSrs = userId;
             safeSetLocalStorage(`quizki_cached_grammar_srs_${userId}`, JSON.stringify(mergedSrs));
-            syncPendingGrammarSrs(userId);
             return cachedUserGrammarSrsData;
         } catch (e) {
             console.warn('Grammar SRS fetch notice:', e.message);
@@ -1633,15 +1631,14 @@ export const subscribeGrammarSrs = (userId, callback) => {
                 userGrammarSrsPromise = null;
                 safeSetLocalStorage(`quizki_cached_grammar_srs_${userId}`, JSON.stringify(mergedSrs));
                 grammarSrsListeners.forEach(cb => cb(mergedSrs));
-                syncPendingGrammarSrs(userId);
             } else {
                 const changes = snapshot.docChanges();
                 let updated = false;
+                const pendingMap = getPendingGrammarSyncMap(userId);
                 changes.forEach(change => {
                     const docId = change.doc.id;
-                    const pendingMap = getPendingGrammarSyncMap(userId);
                     // Do not let server overwrite an in-flight pending review write
-                    if (pendingMap[docId]) return;
+                    if (pendingMap && pendingMap[docId]) return;
 
                     if (change.type === 'added' || change.type === 'modified') {
                         cachedUserGrammarSrsData[docId] = change.doc.data();

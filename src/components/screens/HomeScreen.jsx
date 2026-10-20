@@ -5,7 +5,7 @@ import { db, appId } from '../../config/firebase';
 import {
     BookOpen, Languages, Target, Flame, Trophy, Clock,
     ArrowRight, Zap, FolderPlus, ListPlus, X, Cpu, Radio, Activity, Repeat2, Lightbulb,
-    MessageSquare, Film, FileCheck
+    MessageSquare, Film, FileCheck, GraduationCap, Layers
 } from 'lucide-react';
 
 const KanaHomeIcon = ({ className = 'w-6 h-6' }) => (
@@ -29,13 +29,78 @@ import { ROUTES } from '../../router';
 import BookVocabSyncChecker from '../ui/BookVocabSyncChecker';
 import StreakCelebration from '../ui/StreakCelebration';
 import { isVocabCardDue, isSrsCardDue, isKanjiMastered, isVocabCardMastered, parseNextReviewMs } from '../../utils/srs';
-import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
-import { getSharedGrammarPointsList, subscribeGrammarSrs } from '../../utils/grammarService';
+import { subscribeKanjiSrs } from '../../utils/kanjiService';
+import { subscribeGrammarSrs } from '../../utils/grammarService';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { isEnglishCard } from '../../utils/englishVocab';
 import { isKoreanCard } from '../../languages/ko';
 import SrsModeSelectModal from '../srs/SrsModeSelectModal';
+
+// Helper to compute Kanji SRS statistics directly from SRS map (0ms synchronous execution)
+const computeKanjiSrsStats = (srsMap) => {
+    let total = 0, learning = 0, mastered = 0, dueCount = 0;
+    const now = Date.now();
+    const actDates = [];
+    const seenChars = new Set();
+    const toDateStr = (ts) => {
+        if (!ts) return null;
+        const d = new Date(ts);
+        if (isNaN(d.getTime())) return null;
+        return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    };
+
+    if (srsMap && typeof srsMap === 'object') {
+        Object.entries(srsMap).forEach(([key, data]) => {
+            if (!data || typeof data !== 'object') return;
+            const charKey = data.character || data.id || key;
+            if (seenChars.has(charKey)) return;
+            seenChars.add(charKey);
+
+            total++;
+            if (isKanjiMastered(data)) mastered++;
+            else learning++;
+            if (isSrsCardDue(data, now)) dueCount++;
+            if (data.lastReview) {
+                const dateStr = toDateStr(data.lastReview);
+                if (dateStr) actDates.push(dateStr);
+            }
+        });
+    }
+    return { total, learning, mastered, dueCount, actDates };
+};
+
+// Helper to compute Grammar SRS statistics directly from SRS map (0ms synchronous execution)
+const computeGrammarSrsStats = (srsMap) => {
+    let total = 0, learning = 0, mastered = 0, dueCount = 0;
+    const now = Date.now();
+    const seenIds = new Set();
+
+    if (srsMap && typeof srsMap === 'object') {
+        Object.entries(srsMap).forEach(([key, data]) => {
+            if (!data || typeof data !== 'object') return;
+            const itemKey = data.id || key;
+            if (seenIds.has(itemKey)) return;
+            seenIds.add(itemKey);
+
+            total++;
+            if (isKanjiMastered(data)) mastered++;
+            else learning++;
+            if (isSrsCardDue(data, now)) dueCount++;
+        });
+    }
+    return { total, learning, mastered, dueCount };
+};
+
+const getCachedJson = (key) => {
+    if (!key || typeof window === 'undefined' || !window.localStorage) return null;
+    try {
+        const raw = localStorage.getItem(key);
+        return raw ? JSON.parse(raw) : null;
+    } catch (_) {
+        return null;
+    }
+};
 
 // HomeScreen Component - Cyber-AI Futuristic Edition
 const HomeScreen = ({
@@ -52,38 +117,48 @@ const HomeScreen = ({
     const { isJapaneseMode, isEnglishMode, isKoreanMode, targetLanguage } = useTargetLanguage();
     const navigate = useNavigate();
 
-    // 1. Instant Summary Cache cho Kanji Stats
+    // 1. Instant Summary Cache cho Kanji Stats (0ms first paint)
     const [kanjiSrsStats, setKanjiSrsStats] = useState(() => {
-        try {
-            const cached = localStorage.getItem('quizki_cached_kanji_srs_stats');
-            if (cached) {
-                const parsed = JSON.parse(cached);
-                return { ...parsed, isInitialLoading: false };
+        const cached = getCachedJson(userId ? `quizki_cached_kanji_srs_stats_${userId}` : null) 
+            || getCachedJson('quizki_cached_kanji_srs_stats');
+        if (cached && typeof cached.total === 'number') {
+            return { ...cached, isInitialLoading: false };
+        }
+        if (userId) {
+            const rawSrs = getCachedJson(`quizki_cached_kanji_srs_${userId}`);
+            if (rawSrs) {
+                const computed = computeKanjiSrsStats(rawSrs);
+                return { ...computed, isInitialLoading: false };
             }
-        } catch (_) {}
+        }
         return { total: null, learning: null, mastered: null, dueCount: null, isInitialLoading: true };
     });
 
-    // 2. Instant Summary Cache cho Vocab Stats & Streak
+    // 2. Instant Summary Cache cho Vocab Stats & Streak (0ms first paint)
     const [cachedVocabStats, setCachedVocabStats] = useState(() => {
-        try {
-            const cached = localStorage.getItem('quizki_cached_home_vocab_stats');
-            return cached ? JSON.parse(cached) : null;
-        } catch (_) {
-            return null;
+        const cached = getCachedJson(userId ? `quizki_cached_home_vocab_stats_${userId}` : null)
+            || getCachedJson('quizki_cached_home_vocab_stats');
+        if (cached && typeof cached.totalCards === 'number') {
+            return cached;
         }
+        return null;
     });
 
-    // 3. Instant Summary Cache cho Grammar Stats
+    // 3. Instant Summary Cache cho Grammar Stats (0ms first paint)
     const [grammarSrsStats, setGrammarSrsStats] = useState(() => {
-        try {
-            const cached = localStorage.getItem('quizki_cached_grammar_srs_stats');
-            if (cached) {
-                const parsed = JSON.parse(cached);
-                return { ...parsed, isInitialLoading: false };
+        const cached = getCachedJson(userId ? `quizki_cached_grammar_srs_stats_${userId}` : null)
+            || getCachedJson('quizki_cached_grammar_srs_stats');
+        if (cached && typeof cached.total === 'number') {
+            return { ...cached, isInitialLoading: false };
+        }
+        if (userId) {
+            const rawSrs = getCachedJson(`quizki_cached_grammar_srs_${userId}`);
+            if (rawSrs) {
+                const computed = computeGrammarSrsStats(rawSrs);
+                return { ...computed, isInitialLoading: false };
             }
-        } catch (_) {}
-        return { total: null, dueCount: null, isInitialLoading: true };
+        }
+        return { total: null, learning: null, mastered: null, dueCount: null, isInitialLoading: true };
     });
 
     const [cachedStreak, setCachedStreak] = useState(() => {
@@ -103,14 +178,40 @@ const HomeScreen = ({
         }
     }, [calculatedStreak]);
 
+    // Keep cached vocab stats permanently in sync whenever allCards updates
+    useEffect(() => {
+        if (!allCards || allCards.length === 0 || !userId) return;
+        const langCards = allCards.filter(card => {
+            if (isEnglishMode) return isEnglishCard(card, true);
+            if (isKoreanMode) return isKoreanCard(card, true);
+            return !isEnglishCard(card, false) && !isKoreanCard(card, false);
+        });
+        const dueCards = langCards.filter(card => isVocabCardDue(card)).length;
+        const newCards = langCards.filter(card => !card.srsEnabled).length;
+        const masteredCards = langCards.filter(card => isVocabCardMastered(card)).length;
+        const currentStreak = calculatedStreak > 0 ? calculatedStreak : (cachedStreak ?? 0);
+        const payload = {
+            dueCards,
+            newCards,
+            masteredCards,
+            streak: currentStreak,
+            totalCards: langCards.length
+        };
+        setCachedVocabStats(payload);
+        try {
+            localStorage.setItem(`quizki_cached_home_vocab_stats_${userId}`, JSON.stringify(payload));
+            localStorage.setItem('quizki_cached_home_vocab_stats', JSON.stringify(payload));
+        } catch (_) {}
+    }, [allCards, userId, isEnglishMode, isKoreanMode, calculatedStreak, cachedStreak]);
+
     const [homeTick, setHomeTick] = useState(Date.now());
     useEffect(() => {
         const handleSrsUpdate = () => setHomeTick(Date.now());
         const handleLogoutReset = () => {
             setCachedStreak(0);
             setCachedVocabStats({ dueCards: 0, newCards: 0, masteredCards: 0, streak: 0, totalCards: 0 });
-            setKanjiSrsStats({ total: 1801, dueCount: 0, mastered: 0, learning: 0, isInitialLoading: false });
-            setGrammarSrsStats({ total: 0, dueCount: 0, isInitialLoading: false });
+            setKanjiSrsStats({ total: 0, dueCount: 0, mastered: 0, learning: 0, isInitialLoading: false });
+            setGrammarSrsStats({ total: 0, dueCount: 0, mastered: 0, learning: 0, isInitialLoading: false });
             setHomeTick(Date.now());
         };
         window.addEventListener('srs-updated', handleSrsUpdate);
@@ -199,99 +300,81 @@ const HomeScreen = ({
         navigate(route, hasDue ? { state: { autoStart: true, reviewType: mode } } : { state: { reviewType: mode } });
     };
 
-    // Fetch kanji SRS stats + activity dates synchronized with Kanji module (deferred for instant 0ms first paint)
+    // Fetch kanji SRS stats + activity dates synchronized with Kanji module (0ms instant display + real-time updates)
     useEffect(() => {
         if (!userId) {
-            setKanjiSrsStats({ total: 1801, learning: 0, mastered: 0, dueCount: 0, isInitialLoading: false });
+            setKanjiSrsStats({ total: 0, learning: 0, mastered: 0, dueCount: 0, isInitialLoading: false });
             setKanjiActivityDates([]);
             return;
         }
         let isMounted = true;
-        let unsub = () => {};
 
-        const timer = setTimeout(() => {
-            getSharedKanjiList().then(kList => {
-                if (!isMounted) return;
-                unsub = subscribeKanjiSrs(userId, (freshSrs) => {
-                    if (!isMounted) return;
-                    let total = 0, learning = 0, mastered = 0, dueCount = 0;
-                    const now = Date.now();
-                    const actDates = [];
-                    const toDateStr = (ts) => {
-                        if (!ts) return null;
-                        const d = new Date(ts);
-                        if (isNaN(d.getTime())) return null;
-                        return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-                    };
+        // Instant synchronous calculation from existing cached SRS data
+        try {
+            const raw = localStorage.getItem(`quizki_cached_kanji_srs_${userId}`);
+            if (raw) {
+                const parsed = JSON.parse(raw);
+                const computed = computeKanjiSrsStats(parsed);
+                if (isMounted) {
+                    setKanjiSrsStats({ ...computed, isInitialLoading: false });
+                    setKanjiActivityDates(computed.actDates || []);
+                }
+            }
+        } catch (_) {}
 
-                    (kList || []).forEach(k => {
-                        const data = freshSrs && (freshSrs[k.id] || freshSrs[k.character]);
-                        if (data) {
-                            total++;
-                            if (isKanjiMastered(data)) mastered++;
-                            else learning++;
-                            if (isSrsCardDue(data, now)) dueCount++;
-                            if (data.lastReview) {
-                                const dateStr = toDateStr(data.lastReview);
-                                if (dateStr) actDates.push(dateStr);
-                            }
-                        }
-                    });
-
-                    setKanjiSrsStats({ total, learning, mastered, dueCount, isInitialLoading: false });
-                    setKanjiActivityDates(actDates);
-                    try {
-                        localStorage.setItem('quizki_cached_kanji_srs_stats', JSON.stringify({ total, learning, mastered, dueCount }));
-                    } catch (_) {}
-                });
-            }).catch(err => {
-                console.error('Error fetching kanji list in HomeScreen:', err);
-            });
-        }, 300);
+        // Real-time SRS subscription
+        const unsub = subscribeKanjiSrs(userId, (freshSrs) => {
+            if (!isMounted) return;
+            const computed = computeKanjiSrsStats(freshSrs);
+            setKanjiSrsStats({ ...computed, isInitialLoading: false });
+            setKanjiActivityDates(computed.actDates || []);
+            try {
+                const serialized = JSON.stringify(computed);
+                localStorage.setItem(`quizki_cached_kanji_srs_stats_${userId}`, serialized);
+                localStorage.setItem('quizki_cached_kanji_srs_stats', serialized);
+            } catch (_) {}
+        });
 
         return () => {
             isMounted = false;
-            clearTimeout(timer);
             unsub();
         };
     }, [userId]);
 
-    // Fetch grammar SRS stats synchronized with Grammar module (deferred for instant 0ms first paint)
+    // Fetch grammar SRS stats synchronized with Grammar module (0ms instant display + real-time updates)
     useEffect(() => {
         if (!userId) {
-            setGrammarSrsStats({ total: 0, dueCount: 0, isInitialLoading: false });
+            setGrammarSrsStats({ total: 0, learning: 0, mastered: 0, dueCount: 0, isInitialLoading: false });
             return;
         }
         let isMounted = true;
-        let unsub = () => {};
 
-        const timer = setTimeout(() => {
-            getSharedGrammarPointsList().then(gList => {
-                if (!isMounted) return;
-                unsub = subscribeGrammarSrs(userId, (freshSrs) => {
-                    if (!isMounted) return;
-                    let total = 0, dueCount = 0;
-                    const now = Date.now();
-                    (gList || []).forEach(g => {
-                        const data = freshSrs && freshSrs[g.id];
-                        if (data) {
-                            total++;
-                            if (isSrsCardDue(data, now)) dueCount++;
-                        }
-                    });
-                    setGrammarSrsStats({ total, dueCount, isInitialLoading: false });
-                    try {
-                        localStorage.setItem('quizki_cached_grammar_srs_stats', JSON.stringify({ total, dueCount }));
-                    } catch (_) {}
-                });
-            }).catch(err => {
-                console.error('Error fetching grammar list in HomeScreen:', err);
-            });
-        }, 400);
+        // Instant synchronous calculation from existing cached SRS data
+        try {
+            const raw = localStorage.getItem(`quizki_cached_grammar_srs_${userId}`);
+            if (raw) {
+                const parsed = JSON.parse(raw);
+                const computed = computeGrammarSrsStats(parsed);
+                if (isMounted) {
+                    setGrammarSrsStats({ ...computed, isInitialLoading: false });
+                }
+            }
+        } catch (_) {}
+
+        // Real-time SRS subscription
+        const unsub = subscribeGrammarSrs(userId, (freshSrs) => {
+            if (!isMounted) return;
+            const computed = computeGrammarSrsStats(freshSrs);
+            setGrammarSrsStats({ ...computed, isInitialLoading: false });
+            try {
+                const serialized = JSON.stringify(computed);
+                localStorage.setItem(`quizki_cached_grammar_srs_stats_${userId}`, serialized);
+                localStorage.setItem('quizki_cached_grammar_srs_stats', serialized);
+            } catch (_) {}
+        });
 
         return () => {
             isMounted = false;
-            clearTimeout(timer);
             unsub();
         };
     }, [userId]);
@@ -622,12 +705,25 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
                                 </span>
                             </div>
                         )}
+                        {!isEnglishMode && (
+                            <div className="flex items-center gap-2 bg-slate-50 dark:bg-slate-800/80 border border-slate-200/90 dark:border-slate-700/70 rounded-xl px-3.5 py-2 text-xs sm:text-sm font-bold shadow-xs">
+                                <GraduationCap className="w-4 h-4 text-indigo-500 shrink-0" />
+                                <span className="text-slate-700 dark:text-slate-200 flex items-center gap-1">
+                                    {grammarSrsStats.isInitialLoading && grammarSrsStats.mastered === null ? (
+                                        <span className="inline-block h-3.5 w-8 bg-slate-200 dark:bg-slate-700 rounded animate-pulse" />
+                                    ) : (
+                                        grammarSrsStats.mastered ?? 0
+                                    )}{' '}
+                                    <span>{t('home.grammarMastered', 'ngữ pháp thuộc')}</span>
+                                </span>
+                            </div>
+                        )}
                     </div>
                 </div>
             </div>
 
             {/* SRS Telemetry Bento Counters */}
-            <div className={`grid grid-cols-2 ${!isJapaneseMode ? 'lg:grid-cols-3' : 'lg:grid-cols-4'} gap-3 sm:gap-4`}>
+            <div className={`grid grid-cols-2 ${!isJapaneseMode ? 'lg:grid-cols-3' : 'lg:grid-cols-3'} gap-3 sm:gap-4`}>
                 {/* Card 1: Vocab Review */}
                 <div 
                     onClick={() => handleTriggerReview('vocab')}
@@ -680,7 +776,26 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
                     </div>
                 )}
 
-                {/* Card 3: Total Cards */}
+                {/* Card 3: Grammar Review (Japanese Mode) */}
+                {isJapaneseMode && (
+                    <div 
+                        onClick={() => handleTriggerReview('grammar')}
+                        className="group bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200 dark:border-slate-800/80 shadow-md flex items-center justify-between gap-3 cursor-pointer select-none hover:scale-[1.02] active:scale-98 transition-all hover:border-violet-500/40 hover:shadow-violet-500/10"
+                    >
+                        <div className="flex items-center gap-3 min-w-0">
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-violet-500/10 border border-violet-500/20 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-violet-500/20 transition-colors">
+                                <GraduationCap className="w-5 h-5 text-violet-500" />
+                            </div>
+                            <div className="min-w-0">
+                                <StatNumber value={grammarSrsStats.dueCount} isLoading={grammarSrsStats.isInitialLoading} />
+                                <div className="text-xs text-slate-500 dark:text-slate-400 font-medium truncate mt-1">{t('home.dueGrammar', 'Ngữ pháp cần ôn')}</div>
+                            </div>
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all shrink-0 hidden sm:block" />
+                    </div>
+                )}
+
+                {/* Card 4: Total Cards */}
                 <div 
                     onClick={() => navigate(ROUTES.VOCAB_REVIEW)}
                     className="group bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200 dark:border-slate-800/80 shadow-md flex items-center justify-between gap-3 cursor-pointer select-none hover:scale-[1.02] active:scale-98 transition-all hover:border-sky-500/40 hover:shadow-sky-500/10"
@@ -697,7 +812,7 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
                     <ArrowRight className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all shrink-0 hidden sm:block" />
                 </div>
 
-                {/* Card 4: Total Kanji */}
+                {/* Card 5: Total Kanji */}
                 {isJapaneseMode && (
                     <div 
                         onClick={() => navigate(ROUTES.KANJI_REVIEW)}
@@ -710,6 +825,25 @@ const StatNumber = ({ value, isLoading = false, fallback = 0, className = "text-
                             <div className="min-w-0">
                                 <StatNumber value={kanjiSrsStats.total} isLoading={kanjiSrsStats.isInitialLoading} />
                                 <div className="text-xs text-slate-500 dark:text-slate-400 font-medium truncate mt-1">{t('home.totalKanji', 'Tổng Kanji')}</div>
+                            </div>
+                        </div>
+                        <ArrowRight className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all shrink-0 hidden sm:block" />
+                    </div>
+                )}
+
+                {/* Card 6: Total Grammar (Japanese Mode) */}
+                {isJapaneseMode && (
+                    <div 
+                        onClick={() => navigate(ROUTES.GRAMMAR_REVIEW)}
+                        className="group bg-white dark:bg-slate-900 rounded-2xl p-4 sm:p-5 border border-slate-200 dark:border-slate-800/80 shadow-md flex items-center justify-between gap-3 cursor-pointer select-none hover:scale-[1.02] active:scale-98 transition-all hover:border-indigo-500/40 hover:shadow-indigo-500/10"
+                    >
+                        <div className="flex items-center gap-3 min-w-0">
+                            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-indigo-500/10 border border-indigo-500/20 rounded-2xl flex items-center justify-center shrink-0 group-hover:bg-indigo-500/20 transition-colors">
+                                <Layers className="w-5 h-5 text-indigo-500" />
+                            </div>
+                            <div className="min-w-0">
+                                <StatNumber value={grammarSrsStats.total} isLoading={grammarSrsStats.isInitialLoading} />
+                                <div className="text-xs text-slate-500 dark:text-slate-400 font-medium truncate mt-1">{t('home.totalGrammar', 'Tổng ngữ pháp')}</div>
                             </div>
                         </div>
                         <ArrowRight className="w-4 h-4 text-slate-400 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all shrink-0 hidden sm:block" />

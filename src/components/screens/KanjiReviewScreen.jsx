@@ -8,7 +8,7 @@ import SrsModeSelectModal from '../srs/SrsModeSelectModal';
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth';
-import { getSharedKanjiList, getSharedKanjiSrs, getCachedKanjiList, getCachedUserSrsData, updateCachedUserSrs, subscribeKanjiSrs, removePendingKanjiSync } from '../../utils/kanjiService';
+import { getSharedKanjiList, getSharedKanjiSrs, getCachedKanjiList, getCachedUserSrsData, updateCachedUserSrs, subscribeKanjiSrs, removePendingKanjiSync, syncPendingKanjiSrs } from '../../utils/kanjiService';
 import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 
 import { logKanjiActivity } from '../../utils/kanjiHistory';
@@ -211,6 +211,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         // Set up real-time listener for SRS data (cross-device sync)
         let unsubSrs = () => { };
         if (userId) {
+            syncPendingKanjiSrs(userId);
             unsubSrs = subscribeKanjiSrs(userId, (freshSrs) => {
                 if (reviewModeRef.current) {
                     // During review: merge fresh data but PRESERVE optimistic updates

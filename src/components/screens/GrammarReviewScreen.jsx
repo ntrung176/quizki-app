@@ -6,7 +6,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGri
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
-import { getSharedGrammarPointsList, getSharedGrammarSrs, getCachedUserGrammarSrsData, updateCachedUserGrammarSrs, subscribeGrammarSrs, removePendingGrammarSync } from '../../utils/grammarService';
+import { getSharedGrammarPointsList, getSharedGrammarSrs, getCachedUserGrammarSrsData, updateCachedUserGrammarSrs, subscribeGrammarSrs, removePendingGrammarSync, syncPendingGrammarSrs } from '../../utils/grammarService';
 import { logGrammarActivity } from '../../utils/grammarHistory';
 import { formatCountdown, getCardState, calculateAnkiSRS, getCardPreviewIntervals, parseNextReviewMs, isSrsCardDue, isLeechCard, getLearnAheadLimitMs, DEFAULT_LEARN_AHEAD_MINS } from '../../utils/srs';
 import SRSForecastChart from '../ui/SRSForecastChart';
@@ -189,6 +189,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         // Set up real-time listener for SRS data (cross-device sync)
         let unsubSrs = () => { };
         if (userId) {
+            syncPendingGrammarSrs(userId);
             unsubSrs = subscribeGrammarSrs(userId, (freshSrs) => {
                 if (reviewModeRef.current) {
                     // During review: merge fresh data but PRESERVE optimistic updates

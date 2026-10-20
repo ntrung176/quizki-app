@@ -55,26 +55,9 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
             snapshot.forEach((docSnap) => {
                 fetchedCards.push({ ...docSnap.data(), id: docSnap.id });
             });
-            const { mergedCards, pendingSyncCards } = mergeCachedVocabSrs(userId, fetchedCards);
+            const { mergedCards } = mergeCachedVocabSrs(userId, fetchedCards);
             setAllCards(mergedCards);
             setIsLoading(false);
-
-            // Re-sync any locally cached reviews to Firestore that haven't reached the server yet
-            if (pendingSyncCards.length > 0 && userId && vocabCollectionPath) {
-                pendingSyncCards.forEach(card => {
-                    try {
-                        const safeCardId = String(card.id);
-                        const cardRef = doc(collection(db, vocabCollectionPath), safeCardId);
-                        const cleanCard = { ...card };
-                        delete cleanCard.id;
-                        setDoc(cardRef, cleanFirestoreData({ ...cleanCard, updatedAt: Date.now() }), { merge: true })
-                            .then(() => {
-                                removePendingVocabSync(userId, safeCardId);
-                            })
-                            .catch(() => {});
-                    } catch (_) {}
-                });
-            }
         }, (error) => {
             console.error("Lỗi tải danh sách từ vựng:", error);
             setIsLoading(false);
@@ -82,6 +65,30 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
 
         return () => unsubscribe();
     }, [authReady, vocabCollectionPath, userId]);
+
+    // One-time flush of any leftover pending review items from previous session
+    const hasFlushedPendingRef = useRef(false);
+    useEffect(() => {
+        if (!authReady || !userId || !vocabCollectionPath || hasFlushedPendingRef.current) return;
+        hasFlushedPendingRef.current = true;
+
+        const pendingMap = getPendingVocabSyncMap(userId);
+        const pendingIds = Object.keys(pendingMap);
+        if (pendingIds.length > 0) {
+            pendingIds.forEach(async (id) => {
+                try {
+                    const patch = pendingMap[id];
+                    if (patch) {
+                        const cleanPatch = { ...patch };
+                        delete cleanPatch._pendingTime;
+                        const cardRef = doc(collection(db, vocabCollectionPath), id);
+                        await setDoc(cardRef, cleanFirestoreData({ ...cleanPatch, updatedAt: Date.now() }), { merge: true });
+                        removePendingVocabSync(userId, id);
+                    }
+                } catch (_) {}
+            });
+        }
+    }, [authReady, userId, vocabCollectionPath]);
 
     // Mobile lifecycle safety: when app is minimized or hidden, immediately flush any pending updates
     useEffect(() => {

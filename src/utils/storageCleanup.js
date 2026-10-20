@@ -42,6 +42,13 @@ export const runStorageSanityCleanup = (force = false) => {
             const isProtected = 
                 key.startsWith('firebase:authUser') ||
                 key.startsWith('quizki_pending_') ||
+                key.startsWith('quizki_cached_kanji_srs_') ||
+                key.startsWith('quizki_cached_grammar_srs_') ||
+                key.startsWith('quizki_cached_vocab_srs_') ||
+                key.startsWith('quizki_cached_kanji_srs_stats') ||
+                key.startsWith('quizki_cached_grammar_srs_stats') ||
+                key.startsWith('quizki_cached_home_vocab_stats') ||
+                key === 'quizki_cached_user_streak' ||
                 key.includes('token') ||
                 key === 'quizki-settings' ||
                 key === 'darkMode';
@@ -60,7 +67,24 @@ export const runStorageSanityCleanup = (force = false) => {
             
             for (let i = localStorage.length - 1; i >= 0; i--) {
                 const k = localStorage.key(i);
-                if (!k || k.startsWith('quizki_pending_')) continue;
+                if (!k) continue;
+
+                const isProtected = 
+                    k.startsWith('firebase:authUser') ||
+                    k.startsWith('quizki_pending_') ||
+                    k.startsWith('quizki_cached_kanji_srs_') ||
+                    k.startsWith('quizki_cached_grammar_srs_') ||
+                    k.startsWith('quizki_cached_vocab_srs_') ||
+                    k.startsWith('quizki_cached_kanji_srs_stats') ||
+                    k.startsWith('quizki_cached_grammar_srs_stats') ||
+                    k.startsWith('quizki_cached_home_vocab_stats') ||
+                    k === 'quizki_cached_user_streak' ||
+                    k.includes('token') ||
+                    k === 'quizki-settings' ||
+                    k === 'darkMode';
+
+                if (isProtected) continue;
+
                 if (
                     k.startsWith('quizki_cached_kanji_') ||
                     k.startsWith('quizki_cached_grammar_') ||
