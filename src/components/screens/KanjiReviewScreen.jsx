@@ -8,7 +8,7 @@ import SrsModeSelectModal from '../srs/SrsModeSelectModal';
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth';
-import { getSharedKanjiList, getSharedKanjiSrs, getCachedKanjiList, getCachedUserSrsData, updateCachedUserSrs, subscribeKanjiSrs } from '../../utils/kanjiService';
+import { getSharedKanjiList, getSharedKanjiSrs, getCachedKanjiList, getCachedUserSrsData, updateCachedUserSrs, subscribeKanjiSrs, removePendingKanjiSync } from '../../utils/kanjiService';
 import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 
 import { logKanjiActivity } from '../../utils/kanjiHistory';
@@ -803,6 +803,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                         reviewsDone: increment(1)
                     }, { merge: true }).catch(err => console.warn('Lỗi ghi activity Kanji:', err));
                     success = true;
+                    removePendingKanjiSync(userId, currentCard.id);
                 } catch (e) {
                     attempts++;
                     console.error(`Error updating Kanji SRS in background (attempt ${attempts}):`, e);

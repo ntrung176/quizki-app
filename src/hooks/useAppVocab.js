@@ -8,7 +8,7 @@ const getLocalDateString = (d = new Date()) => {
 import { showToast } from '../utils/toast';
 import { cleanFirestoreData } from '../utils/firestoreHelpers';
 import { isVocabCardDue, calculateAnkiSRS } from '../utils/srs';
-import { getCachedVocabSrsMap, updateCachedVocabSrs, mergeCachedVocabSrs } from '../utils/vocabSrsCache';
+import { getCachedVocabSrsMap, updateCachedVocabSrs, mergeCachedVocabSrs, recordPendingVocabSync, removePendingVocabSync, getPendingVocabSyncMap } from '../utils/vocabSrsCache';
 import { aiAssistVocab, extractVocabFromImage } from '../utils/aiProvider';
 import { POINTS } from '../utils/scoring';
 
@@ -67,7 +67,11 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
                         const cardRef = doc(collection(db, vocabCollectionPath), safeCardId);
                         const cleanCard = { ...card };
                         delete cleanCard.id;
-                        setDoc(cardRef, cleanFirestoreData(cleanCard), { merge: true }).catch(() => {});
+                        setDoc(cardRef, cleanFirestoreData({ ...cleanCard, updatedAt: Date.now() }), { merge: true })
+                            .then(() => {
+                                removePendingVocabSync(userId, safeCardId);
+                            })
+                            .catch(() => {});
                     } catch (_) {}
                 });
             }
@@ -78,6 +82,40 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
 
         return () => unsubscribe();
     }, [authReady, vocabCollectionPath, userId]);
+
+    // Mobile lifecycle safety: when app is minimized or hidden, immediately flush any pending updates
+    useEffect(() => {
+        if (!userId || !vocabCollectionPath) return;
+
+        const handleVisibilityChange = () => {
+            if (document.visibilityState === 'hidden') {
+                const pendingMap = getPendingVocabSyncMap(userId);
+                const pendingIds = Object.keys(pendingMap);
+                if (pendingIds.length > 0) {
+                    pendingIds.forEach(id => {
+                        try {
+                            const patch = pendingMap[id];
+                            if (patch) {
+                                const cleanPatch = { ...patch };
+                                delete cleanPatch._pendingTime;
+                                const cardRef = doc(collection(db, vocabCollectionPath), id);
+                                setDoc(cardRef, cleanFirestoreData({ ...cleanPatch, updatedAt: Date.now() }), { merge: true })
+                                    .then(() => removePendingVocabSync(userId, id))
+                                    .catch(() => {});
+                            }
+                        } catch (_) {}
+                    });
+                }
+            }
+        };
+
+        window.addEventListener('visibilitychange', handleVisibilityChange);
+        window.addEventListener('pagehide', handleVisibilityChange);
+        return () => {
+            window.removeEventListener('visibilitychange', handleVisibilityChange);
+            window.removeEventListener('pagehide', handleVisibilityChange);
+        };
+    }, [userId, vocabCollectionPath]);
 
     const dueCounts = useMemo(() => {
         const now = Date.now();
@@ -245,13 +283,15 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
             ...(newMasteryState ? { masteryState: newMasteryState } : {})
         };
 
+        const safeCardId = String(cardId);
         if (userId) {
-            updateCachedVocabSrs(userId, cardId, patchToSave);
+            updateCachedVocabSrs(userId, safeCardId, patchToSave);
+            recordPendingVocabSync(userId, safeCardId, patchToSave);
         }
 
         setAllCards(prevCards => {
             return prevCards.map(card => {
-                if (String(card.id) === String(cardId)) {
+                if (String(card.id) === safeCardId) {
                     return {
                         ...card,
                         ...patchToSave
@@ -263,7 +303,6 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
 
         if (userId && vocabCollectionPath) {
             try {
-                const safeCardId = String(cardId);
                 const cardRef = doc(collection(db, vocabCollectionPath), safeCardId);
                 const firestoreData = cleanFirestoreData({
                     ...updatedFields,
@@ -271,6 +310,9 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
                     updatedAt: Date.now()
                 });
                 await setDoc(cardRef, firestoreData, { merge: true });
+                if (userId) {
+                    removePendingVocabSync(userId, safeCardId);
+                }
             } catch (err) {
                 console.warn('⚠️ Failed to persist card mastery state to Firestore:', err);
             }
@@ -364,6 +406,7 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
 
         if (userId) {
             updateCachedVocabSrs(userId, safeCardId, patchData);
+            recordPendingVocabSync(userId, safeCardId, patchData);
         }
 
         setAllCards(prevCards => {
@@ -379,6 +422,9 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
             try {
                 const cardRef = doc(collection(db, vocabCollectionPath), safeCardId);
                 await setDoc(cardRef, cleanFirestoreData({ ...patchData, updatedAt: Date.now() }), { merge: true });
+                if (userId) {
+                    removePendingVocabSync(userId, safeCardId);
+                }
             } catch (err) {
                 console.warn('⚠️ Failed to persist card changes to Firestore:', err);
             }

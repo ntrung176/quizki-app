@@ -1422,7 +1422,136 @@ let userGrammarSrsPromise = null;
 let grammarSrsUnsubscribe = null;
 let grammarSrsListeners = new Set();
 
-export const getCachedUserGrammarSrsData = () => cachedUserGrammarSrsData;
+export const getCachedUserGrammarSrsData = (userId) => {
+    if (cachedUserGrammarSrsData && (!userId || cachedUserIdForGrammarSrs === userId)) {
+        return cachedUserGrammarSrsData;
+    }
+    if (userId && typeof window !== 'undefined' && window.localStorage) {
+        try {
+            const raw = localStorage.getItem(`quizki_cached_grammar_srs_${userId}`);
+            if (raw) {
+                cachedUserGrammarSrsData = JSON.parse(raw);
+                cachedUserIdForGrammarSrs = userId;
+                return cachedUserGrammarSrsData;
+            }
+        } catch (_) {}
+    }
+    return cachedUserGrammarSrsData || {};
+};
+
+export const getPendingGrammarSyncMap = (userId) => {
+    if (!userId || typeof window === 'undefined' || !window.localStorage) return {};
+    try {
+        const raw = localStorage.getItem(`quizki_pending_grammar_sync_${userId}`);
+        return raw ? JSON.parse(raw) : {};
+    } catch (_) {
+        return {};
+    }
+};
+
+export const recordPendingGrammarSync = (userId, grammarId, srsData) => {
+    if (!userId || !grammarId || !srsData || typeof window === 'undefined' || !window.localStorage) return;
+    try {
+        const key = `quizki_pending_grammar_sync_${userId}`;
+        const map = getPendingGrammarSyncMap(userId);
+        map[String(grammarId)] = {
+            ...(map[String(grammarId)] || {}),
+            ...srsData,
+            _pendingTime: Date.now()
+        };
+        safeSetLocalStorage(key, JSON.stringify(map));
+    } catch (e) {
+        console.warn('⚠️ Failed to record pending grammar sync:', e);
+    }
+};
+
+export const removePendingGrammarSync = (userId, grammarId) => {
+    if (!userId || !grammarId || typeof window === 'undefined' || !window.localStorage) return;
+    try {
+        const key = `quizki_pending_grammar_sync_${userId}`;
+        const map = getPendingGrammarSyncMap(userId);
+        const safeId = String(grammarId);
+        if (map[safeId]) {
+            delete map[safeId];
+            if (Object.keys(map).length === 0) {
+                localStorage.removeItem(key);
+            } else {
+                safeSetLocalStorage(key, JSON.stringify(map));
+            }
+        }
+    } catch (e) {
+        console.warn('⚠️ Failed to remove pending grammar sync:', e);
+    }
+};
+
+export const syncPendingGrammarSrs = async (userId) => {
+    if (!userId || typeof window === 'undefined' || !db || !appId) return;
+    const pendingMap = getPendingGrammarSyncMap(userId);
+    const entries = Object.entries(pendingMap);
+    if (entries.length === 0) return;
+
+    for (const [id, srs] of entries) {
+        try {
+            const cleanSrs = { ...srs };
+            delete cleanSrs._pendingTime;
+            await setDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, id), cleanSrs, { merge: true });
+            removePendingGrammarSync(userId, id);
+        } catch (err) {
+            console.warn(`⚠️ Retrying pending grammar SRS sync failed for ${id}:`, err);
+        }
+    }
+};
+
+const mergeServerWithLocalGrammarSrs = (userId, serverSrsMap) => {
+    let localMap = cachedUserGrammarSrsData;
+    if (!localMap) {
+        try {
+            const localCached = localStorage.getItem(`quizki_cached_grammar_srs_${userId}`);
+            localMap = localCached ? JSON.parse(localCached) : {};
+        } catch (_) {
+            localMap = {};
+        }
+    }
+    const pendingMap = getPendingGrammarSyncMap(userId);
+    const merged = { ...serverSrsMap };
+
+    // 1. Pending sync items take highest priority (unconfirmed reviews)
+    for (const [id, pendingItem] of Object.entries(pendingMap)) {
+        const cleanItem = { ...pendingItem };
+        delete cleanItem._pendingTime;
+        merged[id] = { ...(merged[id] || {}), ...cleanItem };
+    }
+
+    // 2. Check existing local cache items (preserve newer reviews)
+    for (const [id, localItem] of Object.entries(localMap || {})) {
+        if (pendingMap[id]) continue;
+        const serverItem = merged[id];
+        if (!serverItem) {
+            merged[id] = localItem;
+            continue;
+        }
+        const localReviewTime = localItem.lastReview || localItem.lastReviewed || 0;
+        const serverReviewTime = serverItem.lastReview || serverItem.lastReviewed || 0;
+        const localNext = localItem.nextReview || 0;
+        const serverNext = serverItem.nextReview || 0;
+
+        if (localReviewTime > serverReviewTime || (localNext > serverNext && localNext > Date.now() - 86400000)) {
+            merged[id] = { ...serverItem, ...localItem };
+        }
+    }
+
+    return merged;
+};
+
+if (typeof window !== 'undefined') {
+    const handleGrammarVisibility = () => {
+        if (document.visibilityState === 'hidden' && cachedUserIdForGrammarSrs) {
+            syncPendingGrammarSrs(cachedUserIdForGrammarSrs);
+        }
+    };
+    window.addEventListener('visibilitychange', handleGrammarVisibility);
+    window.addEventListener('pagehide', handleGrammarVisibility);
+}
 
 export const getSharedGrammarSrs = async (userId) => {
     if (!userId) return {};
@@ -1451,9 +1580,11 @@ export const getSharedGrammarSrs = async (userId) => {
             const srsSnap = await Promise.race([fetchPromise, timeoutPromise]);
             const srs = {};
             srsSnap.docs.forEach(d => { srs[d.id] = d.data(); });
-            cachedUserGrammarSrsData = srs;
+            const mergedSrs = mergeServerWithLocalGrammarSrs(userId, srs);
+            cachedUserGrammarSrsData = mergedSrs;
             cachedUserIdForGrammarSrs = userId;
-            safeSetLocalStorage(`quizki_cached_grammar_srs_${userId}`, JSON.stringify(srs));
+            safeSetLocalStorage(`quizki_cached_grammar_srs_${userId}`, JSON.stringify(mergedSrs));
+            syncPendingGrammarSrs(userId);
             return cachedUserGrammarSrsData;
         } catch (e) {
             console.warn('Grammar SRS fetch notice:', e.message);
@@ -1492,14 +1623,42 @@ export const subscribeGrammarSrs = (userId, callback) => {
     if (!grammarSrsUnsubscribe) {
         const colRef = collection(db, `artifacts/${appId}/users/${userId}/grammarSRS`);
         grammarSrsUnsubscribe = onSnapshot(colRef, (snapshot) => {
-            const srs = {};
-            snapshot.docs.forEach(d => { srs[d.id] = d.data(); });
-            cachedUserGrammarSrsData = srs;
-            cachedUserIdForGrammarSrs = userId;
-            userGrammarSrsPromise = null;
-            safeSetLocalStorage(`quizki_cached_grammar_srs_${userId}`, JSON.stringify(srs));
-            // Notify all registered subscribers
-            grammarSrsListeners.forEach(cb => cb(srs));
+            const isInitial = !cachedUserGrammarSrsData;
+            if (isInitial) {
+                const srs = {};
+                snapshot.docs.forEach(d => { srs[d.id] = d.data(); });
+                const mergedSrs = mergeServerWithLocalGrammarSrs(userId, srs);
+                cachedUserGrammarSrsData = mergedSrs;
+                cachedUserIdForGrammarSrs = userId;
+                userGrammarSrsPromise = null;
+                safeSetLocalStorage(`quizki_cached_grammar_srs_${userId}`, JSON.stringify(mergedSrs));
+                grammarSrsListeners.forEach(cb => cb(mergedSrs));
+                syncPendingGrammarSrs(userId);
+            } else {
+                const changes = snapshot.docChanges();
+                let updated = false;
+                changes.forEach(change => {
+                    const docId = change.doc.id;
+                    const pendingMap = getPendingGrammarSyncMap(userId);
+                    // Do not let server overwrite an in-flight pending review write
+                    if (pendingMap[docId]) return;
+
+                    if (change.type === 'added' || change.type === 'modified') {
+                        cachedUserGrammarSrsData[docId] = change.doc.data();
+                        updated = true;
+                    } else if (change.type === 'removed') {
+                        delete cachedUserGrammarSrsData[docId];
+                        updated = true;
+                    }
+                });
+                if (updated) {
+                    safeSetLocalStorage(`quizki_cached_grammar_srs_${userId}`, JSON.stringify(cachedUserGrammarSrsData));
+                }
+                // Only notify background subscribers if update is confirmed from server and not a local pending write
+                if (updated && !snapshot.metadata.hasPendingWrites) {
+                    grammarSrsListeners.forEach(cb => cb(cachedUserGrammarSrsData));
+                }
+            }
         }, (error) => {
             console.error('Grammar SRS onSnapshot error:', error);
         });
@@ -1538,8 +1697,10 @@ export const updateCachedUserGrammarSrs = (userId, grammarId, newSrs) => {
     }
     if (newSrs === null) {
         delete cachedUserGrammarSrsData[grammarId];
+        removePendingGrammarSync(userId, grammarId);
     } else {
         cachedUserGrammarSrsData[grammarId] = newSrs;
+        recordPendingGrammarSync(userId, grammarId, newSrs);
     }
     safeSetLocalStorage(`quizki_cached_grammar_srs_${userId}`, JSON.stringify(cachedUserGrammarSrsData));
     // Immediately notify all in-memory subscribers

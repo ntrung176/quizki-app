@@ -12,8 +12,55 @@ const SRS_KEYS = [
     'lastReviewed_back', 'lastReviewed', 'state', 'interval', 'ease',
     'nextReview', 'masteryState', 'intervalIndex_back', 'correctStreak_back',
     'nextReview_synonym', 'nextReview_example', 'nextReview_dictation',
-    'lastReviewed_synonym', 'lastReviewed_example', 'lastReviewed_dictation'
+    'lastReviewed_synonym', 'lastReviewed_example', 'lastReviewed_dictation',
+    'lastStudied', 'rating', 'userMnemonic', 'mnemonic', 'customMnemonic'
 ];
+
+export const getPendingVocabSyncMap = (userId) => {
+    if (!userId || typeof window === 'undefined' || !window.localStorage) return {};
+    try {
+        const raw = localStorage.getItem(`quizki_pending_vocab_sync_${userId}`);
+        return raw ? JSON.parse(raw) : {};
+    } catch (_) {
+        return {};
+    }
+};
+
+export const recordPendingVocabSync = (userId, cardId, patch) => {
+    if (!userId || !cardId || !patch || typeof window === 'undefined' || !window.localStorage) return;
+    try {
+        const key = `quizki_pending_vocab_sync_${userId}`;
+        const map = getPendingVocabSyncMap(userId);
+        const safeId = String(cardId);
+        map[safeId] = {
+            ...(map[safeId] || {}),
+            ...patch,
+            _pendingTime: Date.now()
+        };
+        safeSetLocalStorage(key, JSON.stringify(map));
+    } catch (e) {
+        console.warn('⚠️ Failed to record pending vocab sync:', e);
+    }
+};
+
+export const removePendingVocabSync = (userId, cardId) => {
+    if (!userId || !cardId || typeof window === 'undefined' || !window.localStorage) return;
+    try {
+        const key = `quizki_pending_vocab_sync_${userId}`;
+        const map = getPendingVocabSyncMap(userId);
+        const safeId = String(cardId);
+        if (map[safeId]) {
+            delete map[safeId];
+            if (Object.keys(map).length === 0) {
+                localStorage.removeItem(key);
+            } else {
+                safeSetLocalStorage(key, JSON.stringify(map));
+            }
+        }
+    } catch (e) {
+        console.warn('⚠️ Failed to remove pending vocab sync:', e);
+    }
+};
 
 export const getCachedVocabSrsMap = (userId) => {
     if (!userId || typeof window === 'undefined' || !window.localStorage) return {};
@@ -59,22 +106,57 @@ export const mergeCachedVocabSrs = (userId, cards = []) => {
         return { mergedCards: cards, pendingSyncCards: [] };
     }
 
+    const pendingSyncMap = getPendingVocabSyncMap(userId);
     const srsMap = getCachedVocabSrsMap(userId);
-    if (!srsMap || Object.keys(srsMap).length === 0) {
+    const hasPending = pendingSyncMap && Object.keys(pendingSyncMap).length > 0;
+    const hasSrs = srsMap && Object.keys(srsMap).length > 0;
+
+    if (!hasPending && !hasSrs) {
         return { mergedCards: cards, pendingSyncCards: [] };
     }
 
     const pendingSyncCards = [];
     const mergedCards = cards.map(card => {
         const safeId = String(card.id);
-        const cached = srsMap[safeId];
+
+        // Priority 1: Unconfirmed write from pending sync queue (highest authority)
+        if (hasPending && pendingSyncMap[safeId]) {
+            const pendingData = { ...pendingSyncMap[safeId] };
+            delete pendingData._pendingTime;
+            const merged = { ...card, ...pendingData };
+            pendingSyncCards.push(merged);
+            return merged;
+        }
+
+        // Priority 2: General local SRS cache
+        const cached = hasSrs ? srsMap[safeId] : null;
         if (!cached) return card;
 
-        const cachedReviewTime = cached.lastReviewed || cached.lastReviewed_back || cached.lastUpdated || 0;
-        const serverReviewTime = card.lastReviewed || card.lastReviewed_back || (card.updatedAt ? (typeof card.updatedAt === 'number' ? card.updatedAt : card.updatedAt.toMillis?.() || 0) : 0);
+        // Actual review timestamps (never use card.updatedAt which tracks doc metadata)
+        const cachedReviewTime = Math.max(
+            cached.lastReviewed || 0,
+            cached.lastReviewed_back || 0,
+            cached.lastStudied || 0,
+            cached.lastUpdated || 0
+        );
+        const serverReviewTime = Math.max(
+            card.lastReviewed || 0,
+            card.lastReviewed_back || 0,
+            card.lastStudied || 0
+        );
 
-        // If local SRS cache has a newer review than server, apply optimistic local SRS
-        if (cachedReviewTime > serverReviewTime) {
+        // Next review scheduled offsets
+        const cachedNext = Math.max(
+            cached.nextReview_back || 0,
+            cached.nextReview || 0
+        );
+        const serverNext = Math.max(
+            card.nextReview_back || 0,
+            card.nextReview || 0
+        );
+
+        // If local review is newer OR if local has pushed the next review forward
+        if (cachedReviewTime > serverReviewTime || (cachedNext > serverNext && cachedNext > Date.now() - 86400000)) {
             const merged = { ...card, ...cached };
             pendingSyncCards.push(merged);
             return merged;

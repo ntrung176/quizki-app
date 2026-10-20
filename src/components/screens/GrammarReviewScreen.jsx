@@ -6,7 +6,7 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGri
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
-import { getSharedGrammarPointsList, getSharedGrammarSrs, getCachedUserGrammarSrsData, updateCachedUserGrammarSrs, subscribeGrammarSrs } from '../../utils/grammarService';
+import { getSharedGrammarPointsList, getSharedGrammarSrs, getCachedUserGrammarSrsData, updateCachedUserGrammarSrs, subscribeGrammarSrs, removePendingGrammarSync } from '../../utils/grammarService';
 import { logGrammarActivity } from '../../utils/grammarHistory';
 import { formatCountdown, getCardState, calculateAnkiSRS, getCardPreviewIntervals, parseNextReviewMs, isSrsCardDue, isLeechCard, getLearnAheadLimitMs, DEFAULT_LEARN_AHEAD_MINS } from '../../utils/srs';
 import SRSForecastChart from '../ui/SRSForecastChart';
@@ -756,6 +756,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         reviewsDone: increment(1)
                     }, { merge: true }).catch(err => console.warn('Lỗi ghi activity Grammar:', err));
                     success = true;
+                    removePendingGrammarSync(userId, currentCard.id);
                 } catch (e) {
                     attempts++;
                     console.error(`Error updating Grammar SRS in background (attempt ${attempts}):`, e);

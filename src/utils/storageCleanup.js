@@ -41,6 +41,7 @@ export const runStorageSanityCleanup = (force = false) => {
         items.forEach(({ key, size }) => {
             const isProtected = 
                 key.startsWith('firebase:authUser') ||
+                key.startsWith('quizki_pending_') ||
                 key.includes('token') ||
                 key === 'quizki-settings' ||
                 key === 'darkMode';
@@ -59,7 +60,7 @@ export const runStorageSanityCleanup = (force = false) => {
             
             for (let i = localStorage.length - 1; i >= 0; i--) {
                 const k = localStorage.key(i);
-                if (!k) continue;
+                if (!k || k.startsWith('quizki_pending_')) continue;
                 if (
                     k.startsWith('quizki_cached_kanji_') ||
                     k.startsWith('quizki_cached_grammar_') ||
