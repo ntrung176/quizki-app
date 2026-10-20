@@ -648,7 +648,10 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         const srs = srsData[currentCard.id] || currentCard.srsData || currentCard;
         const result = calculateAnkiSRS(srs, rating);
         const nextReviewOffset = result.nextReviewOffsetMs !== undefined ? result.nextReviewOffsetMs : (result.interval * 60000);
+        const char = currentCard.character || currentCard.kanji || currentCard.literal || (currentCard.id?.length === 1 ? currentCard.id : '');
         const newSrs = {
+            id: currentCard.id,
+            character: char,
             interval: result.interval,
             ease: result.ease,
             nextReview: now + nextReviewOffset,
@@ -709,9 +712,20 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         // Update local states immediately (optimistic UI)
         if (intervalCacheRef.current) {
             delete intervalCacheRef.current[currentCard.id];
+            if (char) {
+                delete intervalCacheRef.current[char];
+                delete intervalCacheRef.current[`kanji_${char}`];
+            }
         }
-        setSrsData(prev => ({ ...prev, [currentCard.id]: newSrs }));
-        updateCachedUserSrs(userId, currentCard.id, newSrs);
+        setSrsData(prev => {
+            const next = { ...prev, [currentCard.id]: newSrs };
+            if (char) {
+                next[char] = newSrs;
+                next[`kanji_${char}`] = newSrs;
+            }
+            return next;
+        });
+        updateCachedUserSrs(userId, currentCard.id, newSrs, char);
         if (currentReviewIndex + 1 < updatedQueue.length) {
             saveSessionState(updatedQueue, currentReviewIndex + 1);
 
@@ -791,12 +805,23 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
 
         // 2. Perform Firestore writes asynchronously in the background with retry
         pendingWriteIds.current.add(currentCard.id);
+        if (char) {
+            pendingWriteIds.current.add(char);
+            pendingWriteIds.current.add(`kanji_${char}`);
+        }
         (async () => {
             let attempts = 0;
             let success = false;
             while (attempts < 3 && !success) {
                 try {
                     await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, currentCard.id), newSrs, { merge: true });
+                    // Keep shadow/alias documents in sync so stale keys don't linger in Firestore
+                    if (char && char !== currentCard.id && srsData[char]) {
+                        await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, char), newSrs, { merge: true }).catch(() => {});
+                    }
+                    if (char && `kanji_${char}` !== currentCard.id && srsData[`kanji_${char}`]) {
+                        await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, `kanji_${char}`), newSrs, { merge: true }).catch(() => {});
+                    }
                     const now = new Date();
                     const todayDateString = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
                     const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
@@ -805,6 +830,10 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                     }, { merge: true }).catch(err => console.warn('Lỗi ghi activity Kanji:', err));
                     success = true;
                     removePendingKanjiSync(userId, currentCard.id);
+                    if (char) {
+                        removePendingKanjiSync(userId, char);
+                        removePendingKanjiSync(userId, `kanji_${char}`);
+                    }
                 } catch (e) {
                     attempts++;
                     console.error(`Error updating Kanji SRS in background (attempt ${attempts}):`, e);
@@ -814,6 +843,10 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                 } finally {
                     if (success || attempts >= 3) {
                         pendingWriteIds.current.delete(currentCard.id);
+                        if (char) {
+                            pendingWriteIds.current.delete(char);
+                            pendingWriteIds.current.delete(`kanji_${char}`);
+                        }
                     }
                 }
             }

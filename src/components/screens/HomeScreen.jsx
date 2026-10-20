@@ -29,68 +29,13 @@ import { ROUTES } from '../../router';
 import BookVocabSyncChecker from '../ui/BookVocabSyncChecker';
 import StreakCelebration from '../ui/StreakCelebration';
 import { isVocabCardDue, isSrsCardDue, isKanjiMastered, isVocabCardMastered, parseNextReviewMs } from '../../utils/srs';
-import { subscribeKanjiSrs } from '../../utils/kanjiService';
-import { subscribeGrammarSrs } from '../../utils/grammarService';
+import { subscribeKanjiSrs, computeKanjiSrsStats } from '../../utils/kanjiService';
+import { subscribeGrammarSrs, computeGrammarSrsStats } from '../../utils/grammarService';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { isEnglishCard } from '../../utils/englishVocab';
 import { isKoreanCard } from '../../languages/ko';
 import SrsModeSelectModal from '../srs/SrsModeSelectModal';
-
-// Helper to compute Kanji SRS statistics directly from SRS map (0ms synchronous execution)
-const computeKanjiSrsStats = (srsMap) => {
-    let total = 0, learning = 0, mastered = 0, dueCount = 0;
-    const now = Date.now();
-    const actDates = [];
-    const seenChars = new Set();
-    const toDateStr = (ts) => {
-        if (!ts) return null;
-        const d = new Date(ts);
-        if (isNaN(d.getTime())) return null;
-        return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-    };
-
-    if (srsMap && typeof srsMap === 'object') {
-        Object.entries(srsMap).forEach(([key, data]) => {
-            if (!data || typeof data !== 'object') return;
-            const charKey = data.character || data.id || key;
-            if (seenChars.has(charKey)) return;
-            seenChars.add(charKey);
-
-            total++;
-            if (isKanjiMastered(data)) mastered++;
-            else learning++;
-            if (isSrsCardDue(data, now)) dueCount++;
-            if (data.lastReview) {
-                const dateStr = toDateStr(data.lastReview);
-                if (dateStr) actDates.push(dateStr);
-            }
-        });
-    }
-    return { total, learning, mastered, dueCount, actDates };
-};
-
-// Helper to compute Grammar SRS statistics directly from SRS map (0ms synchronous execution)
-const computeGrammarSrsStats = (srsMap) => {
-    let total = 0, learning = 0, mastered = 0, dueCount = 0;
-    const now = Date.now();
-    const seenIds = new Set();
-
-    if (srsMap && typeof srsMap === 'object') {
-        Object.entries(srsMap).forEach(([key, data]) => {
-            if (!data || typeof data !== 'object') return;
-            const itemKey = data.id || key;
-            if (seenIds.has(itemKey)) return;
-            seenIds.add(itemKey);
-
-            total++;
-            if (isKanjiMastered(data)) mastered++;
-            else learning++;
-            if (isSrsCardDue(data, now)) dueCount++;
-        });
-    }
-    return { total, learning, mastered, dueCount };
-};
 
 const getCachedJson = (key) => {
     if (!key || typeof window === 'undefined' || !window.localStorage) return null;
@@ -206,7 +151,26 @@ const HomeScreen = ({
 
     const [homeTick, setHomeTick] = useState(Date.now());
     useEffect(() => {
-        const handleSrsUpdate = () => setHomeTick(Date.now());
+        const handleSrsUpdate = () => {
+            setHomeTick(Date.now());
+            if (userId) {
+                try {
+                    const rawKanji = localStorage.getItem(`quizki_cached_kanji_srs_${userId}`);
+                    if (rawKanji) {
+                        const computed = computeKanjiSrsStats(JSON.parse(rawKanji));
+                        setKanjiSrsStats({ ...computed, isInitialLoading: false });
+                        setKanjiActivityDates(computed.actDates || []);
+                    }
+                } catch (_) {}
+                try {
+                    const rawGrammar = localStorage.getItem(`quizki_cached_grammar_srs_${userId}`);
+                    if (rawGrammar) {
+                        const computed = computeGrammarSrsStats(JSON.parse(rawGrammar));
+                        setGrammarSrsStats({ ...computed, isInitialLoading: false });
+                    }
+                } catch (_) {}
+            }
+        };
         const handleLogoutReset = () => {
             setCachedStreak(0);
             setCachedVocabStats({ dueCards: 0, newCards: 0, masteredCards: 0, streak: 0, totalCards: 0 });
@@ -220,7 +184,7 @@ const HomeScreen = ({
             window.removeEventListener('srs-updated', handleSrsUpdate);
             window.removeEventListener('quizki-user-logged-out', handleLogoutReset);
         };
-    }, []);
+    }, [userId]);
 
     const [kanjiActivityDates, setKanjiActivityDates] = useState([]);
     const [showAddOptions, setShowAddOptions] = useState(false);
@@ -339,7 +303,7 @@ const HomeScreen = ({
             isMounted = false;
             unsub();
         };
-    }, [userId]);
+    }, [userId, homeTick]);
 
     // Fetch grammar SRS stats synchronized with Grammar module (0ms instant display + real-time updates)
     useEffect(() => {
@@ -377,7 +341,7 @@ const HomeScreen = ({
             isMounted = false;
             unsub();
         };
-    }, [userId]);
+    }, [userId, homeTick]);
 
     // Calculate stats with instant fallback cache
     const stats = useMemo(() => {

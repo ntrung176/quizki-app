@@ -4,6 +4,7 @@ import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { getCacheConfig } from './cacheConfigService';
 import { getJotobaKanjiData } from '../data/jotobaKanjiData';
 import { safeSetLocalStorage } from './storageCleanup';
+import { isSrsCardDue, isKanjiMastered } from './srs';
 
 // In-memory module cache
 let cachedKanjiList = null;
@@ -652,6 +653,12 @@ export const subscribeKanjiSrs = (userId, callback) => {
                 cachedUserIdForSrs = userId;
                 userSrsPromise = null;
                 safeSetLocalStorage(`quizki_cached_kanji_srs_${userId}`, JSON.stringify(mergedSrs));
+                try {
+                    const computed = computeKanjiSrsStats(mergedSrs);
+                    const serialized = JSON.stringify(computed);
+                    localStorage.setItem(`quizki_cached_kanji_srs_stats_${userId}`, serialized);
+                    localStorage.setItem('quizki_cached_kanji_srs_stats', serialized);
+                } catch (_) {}
                 kanjiSrsListeners.forEach(cb => cb(mergedSrs));
             } else {
                 const changes = snapshot.docChanges();
@@ -672,6 +679,12 @@ export const subscribeKanjiSrs = (userId, callback) => {
                 });
                 if (updated) {
                     safeSetLocalStorage(`quizki_cached_kanji_srs_${userId}`, JSON.stringify(cachedUserSrsData));
+                    try {
+                        const computed = computeKanjiSrsStats(cachedUserSrsData);
+                        const serialized = JSON.stringify(computed);
+                        localStorage.setItem(`quizki_cached_kanji_srs_stats_${userId}`, serialized);
+                        localStorage.setItem('quizki_cached_kanji_srs_stats', serialized);
+                    } catch (_) {}
                 }
                 // Only notify background subscribers if update is confirmed from server and not a local pending write
                 if (updated && !snapshot.metadata.hasPendingWrites) {
@@ -699,7 +712,80 @@ export const subscribeKanjiSrs = (userId, callback) => {
     };
 };
 
-export const updateCachedUserSrs = (userId, kanjiId, newSrs) => {
+// Compute Kanji SRS statistics with canonical character deduplication and future-review priority
+export const computeKanjiSrsStats = (srsMap) => {
+    let total = 0, learning = 0, mastered = 0, dueCount = 0;
+    const now = Date.now();
+    const actDates = [];
+    const toDateStr = (ts) => {
+        if (!ts) return null;
+        const d = new Date(ts);
+        if (isNaN(d.getTime())) return null;
+        return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    };
+
+    if (srsMap && typeof srsMap === 'object') {
+        const kanjiList = getCachedKanjiList() || [];
+        const kanjiMap = new Map();
+        kanjiList.forEach(k => {
+            if (k.id) kanjiMap.set(k.id, k);
+            if (k.character) kanjiMap.set(k.character, k);
+        });
+
+        const canonicalItems = new Map();
+
+        Object.entries(srsMap).forEach(([key, data]) => {
+            if (!data || typeof data !== 'object') return;
+            const doc = kanjiMap.get(key) || (data.id ? kanjiMap.get(data.id) : null);
+            const char = data.character 
+                || doc?.character 
+                || (key.length === 1 ? key : (key.startsWith('kanji_') ? key.replace('kanji_', '') : null));
+            
+            // Only count valid kanji characters (matches KanjiReviewScreen)
+            if (!char) return;
+
+            const existing = canonicalItems.get(char);
+            if (!existing) {
+                canonicalItems.set(char, { ...data, character: char });
+            } else {
+                // If either has a future review date, the reviewed state wins over stale past review
+                const existingNext = existing.nextReview || 0;
+                const dataNext = data.nextReview || 0;
+                const existingLast = existing.lastReview || 0;
+                const dataLast = data.lastReview || 0;
+
+                const nextReview = Math.max(existingNext, dataNext);
+                const lastReview = Math.max(existingLast, dataLast);
+                const reps = Math.max(existing.reps || 0, data.reps || 0);
+                const state = (existing.state === 'REVIEW' || data.state === 'REVIEW') ? 'REVIEW' : (data.state || existing.state);
+
+                canonicalItems.set(char, {
+                    ...existing,
+                    ...data,
+                    character: char,
+                    nextReview,
+                    lastReview,
+                    reps,
+                    state
+                });
+            }
+        });
+
+        canonicalItems.forEach((data) => {
+            total++;
+            if (isKanjiMastered(data)) mastered++;
+            else learning++;
+            if (isSrsCardDue(data, now)) dueCount++;
+            if (data.lastReview) {
+                const dateStr = toDateStr(data.lastReview);
+                if (dateStr) actDates.push(dateStr);
+            }
+        });
+    }
+    return { total, learning, mastered, dueCount, actDates };
+};
+
+export const updateCachedUserSrs = (userId, kanjiId, newSrs, kanjiChar = null) => {
     if (!userId) return;
     if (!cachedUserSrsData || cachedUserIdForSrs !== userId) {
         try {
@@ -714,14 +800,39 @@ export const updateCachedUserSrs = (userId, kanjiId, newSrs) => {
         cachedUserSrsData = {};
         cachedUserIdForSrs = userId;
     }
+
+    const char = kanjiChar || newSrs?.character || (kanjiId && kanjiId.length === 1 ? kanjiId : null);
+
     if (newSrs === null) {
         delete cachedUserSrsData[kanjiId];
         removePendingKanjiSync(userId, kanjiId);
+        if (char) {
+            delete cachedUserSrsData[char];
+            delete cachedUserSrsData[`kanji_${char}`];
+            removePendingKanjiSync(userId, char);
+            removePendingKanjiSync(userId, `kanji_${char}`);
+        }
     } else {
-        cachedUserSrsData[kanjiId] = newSrs;
-        recordPendingKanjiSync(userId, kanjiId, newSrs);
+        const enrichedSrs = char ? { ...newSrs, character: char } : newSrs;
+        cachedUserSrsData[kanjiId] = enrichedSrs;
+        recordPendingKanjiSync(userId, kanjiId, enrichedSrs);
+        if (char) {
+            cachedUserSrsData[char] = enrichedSrs;
+            if (cachedUserSrsData[`kanji_${char}`]) {
+                cachedUserSrsData[`kanji_${char}`] = enrichedSrs;
+            }
+        }
     }
     safeSetLocalStorage(`quizki_cached_kanji_srs_${userId}`, JSON.stringify(cachedUserSrsData));
+
+    // Instant summary stats cache update so HomeScreen always sees 100% synchronized due count
+    try {
+        const computed = computeKanjiSrsStats(cachedUserSrsData);
+        const serialized = JSON.stringify(computed);
+        localStorage.setItem(`quizki_cached_kanji_srs_stats_${userId}`, serialized);
+        localStorage.setItem('quizki_cached_kanji_srs_stats', serialized);
+    } catch (_) {}
+
     // Immediately notify all in-memory subscribers
     kanjiSrsListeners.forEach(cb => {
         try { cb(cachedUserSrsData); } catch (_) {}

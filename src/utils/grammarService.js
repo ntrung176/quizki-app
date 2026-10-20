@@ -4,6 +4,7 @@ import { db, appId } from '../config/firebase';
 import { getCacheConfig } from './cacheConfigService';
 import { cleanFirestoreData } from './firestoreHelpers';
 import { safeSetLocalStorage } from './storageCleanup';
+import { isSrsCardDue, isKanjiMastered } from './srs';
 
 const sanitizeGrammarPointForFirestore = (data) => {
     if (!data || typeof data !== 'object') return {};
@@ -1630,6 +1631,12 @@ export const subscribeGrammarSrs = (userId, callback) => {
                 cachedUserIdForGrammarSrs = userId;
                 userGrammarSrsPromise = null;
                 safeSetLocalStorage(`quizki_cached_grammar_srs_${userId}`, JSON.stringify(mergedSrs));
+                try {
+                    const computed = computeGrammarSrsStats(mergedSrs);
+                    const serialized = JSON.stringify(computed);
+                    localStorage.setItem(`quizki_cached_grammar_srs_stats_${userId}`, serialized);
+                    localStorage.setItem('quizki_cached_grammar_srs_stats', serialized);
+                } catch (_) {}
                 grammarSrsListeners.forEach(cb => cb(mergedSrs));
             } else {
                 const changes = snapshot.docChanges();
@@ -1650,6 +1657,12 @@ export const subscribeGrammarSrs = (userId, callback) => {
                 });
                 if (updated) {
                     safeSetLocalStorage(`quizki_cached_grammar_srs_${userId}`, JSON.stringify(cachedUserGrammarSrsData));
+                    try {
+                        const computed = computeGrammarSrsStats(cachedUserGrammarSrsData);
+                        const serialized = JSON.stringify(computed);
+                        localStorage.setItem(`quizki_cached_grammar_srs_stats_${userId}`, serialized);
+                        localStorage.setItem('quizki_cached_grammar_srs_stats', serialized);
+                    } catch (_) {}
                 }
                 // Only notify background subscribers if update is confirmed from server and not a local pending write
                 if (updated && !snapshot.metadata.hasPendingWrites) {
@@ -1677,6 +1690,27 @@ export const subscribeGrammarSrs = (userId, callback) => {
     };
 };
 
+export const computeGrammarSrsStats = (srsMap) => {
+    let total = 0, learning = 0, mastered = 0, dueCount = 0;
+    const now = Date.now();
+    const seenIds = new Set();
+
+    if (srsMap && typeof srsMap === 'object') {
+        Object.entries(srsMap).forEach(([key, data]) => {
+            if (!data || typeof data !== 'object') return;
+            const itemKey = data.id || key;
+            if (seenIds.has(itemKey)) return;
+            seenIds.add(itemKey);
+
+            total++;
+            if (isKanjiMastered(data)) mastered++;
+            else learning++;
+            if (isSrsCardDue(data, now)) dueCount++;
+        });
+    }
+    return { total, learning, mastered, dueCount };
+};
+
 export const updateCachedUserGrammarSrs = (userId, grammarId, newSrs) => {
     if (!userId) return;
     if (!cachedUserGrammarSrsData || cachedUserIdForGrammarSrs !== userId) {
@@ -1700,6 +1734,15 @@ export const updateCachedUserGrammarSrs = (userId, grammarId, newSrs) => {
         recordPendingGrammarSync(userId, grammarId, newSrs);
     }
     safeSetLocalStorage(`quizki_cached_grammar_srs_${userId}`, JSON.stringify(cachedUserGrammarSrsData));
+
+    // Instant summary stats cache update so HomeScreen always sees fresh data
+    try {
+        const computed = computeGrammarSrsStats(cachedUserGrammarSrsData);
+        const serialized = JSON.stringify(computed);
+        localStorage.setItem(`quizki_cached_grammar_srs_stats_${userId}`, serialized);
+        localStorage.setItem('quizki_cached_grammar_srs_stats', serialized);
+    } catch (_) {}
+
     // Immediately notify all in-memory subscribers
     grammarSrsListeners.forEach(cb => {
         try { cb(cachedUserGrammarSrsData); } catch (_) {}
