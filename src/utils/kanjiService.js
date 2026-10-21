@@ -3,8 +3,8 @@ import { collection, getDocs, query, where, doc, setDoc, onSnapshot, limit, star
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { getCacheConfig } from './cacheConfigService';
 import { getJotobaKanjiData } from '../data/jotobaKanjiData';
+import { isSrsCardDue, isKanjiMastered, getLearnAheadLimitMs } from './srs';
 import { safeSetLocalStorage } from './storageCleanup';
-import { isSrsCardDue, isKanjiMastered } from './srs';
 
 // In-memory module cache
 let cachedKanjiList = null;
@@ -716,6 +716,8 @@ export const subscribeKanjiSrs = (userId, callback) => {
 export const computeKanjiSrsStats = (srsMap) => {
     let total = 0, learning = 0, mastered = 0, dueCount = 0;
     const now = Date.now();
+    const learnAheadMs = getLearnAheadLimitMs();
+    const threshold = now + learnAheadMs;
     const actDates = [];
     const toDateStr = (ts) => {
         if (!ts) return null;
@@ -775,7 +777,7 @@ export const computeKanjiSrsStats = (srsMap) => {
             total++;
             if (isKanjiMastered(data)) mastered++;
             else learning++;
-            if (isSrsCardDue(data, now)) dueCount++;
+            if (isSrsCardDue(data, threshold)) dueCount++;
             if (data.lastReview) {
                 const dateStr = toDateStr(data.lastReview);
                 if (dateStr) actDates.push(dateStr);

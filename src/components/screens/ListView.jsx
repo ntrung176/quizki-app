@@ -10,7 +10,7 @@ import { showToast } from '../../utils/toast';
 import FuriganaText from '../ui/FuriganaText';
 import { VOCAB_TABS } from '../../config/tabs';
 import EditCardModal from '../cards/EditCardModal';
-import { isVocabCardDue } from '../../utils/srs';
+import { isVocabCardDue, getLearnAheadLimitMs } from '../../utils/srs';
 // ==================== Folder Management Modal ====================
 const FolderManagerModal = ({ folders, onClose, onCreateFolder, onRenameFolder, onDeleteFolder }) => {
     const [newFolderName, setNewFolderName] = useState('');
@@ -522,7 +522,8 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
     const stats = useMemo(() => {
         const total = allCards.length;
         const now = Date.now();
-        const dueCards = allCards.filter(c => isVocabCardDue(c, now)).length;
+        const threshold = now + getLearnAheadLimitMs();
+        const dueCards = allCards.filter(c => isVocabCardDue(c, threshold)).length;
         const newCards = allCards.filter(c => c.intervalIndex_back === -1 || c.intervalIndex_back === undefined).length;
         return { total, dueCards, newCards };
     }, [allCards]);

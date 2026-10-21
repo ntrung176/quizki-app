@@ -12,7 +12,7 @@ import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 import { TopTabBar } from '../ui';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { KANJI_TABS } from '../../config/tabs';
-import { parseNextReviewMs, isSrsCardDue, normalizeSRSState } from '../../utils/srs';
+import { parseNextReviewMs, isSrsCardDue, normalizeSRSState, getLearnAheadLimitMs } from '../../utils/srs';
 
 const JLPT_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
 
@@ -739,7 +739,8 @@ const KanjiSRSListScreen = () => {
     const recommendation = useMemo(() => {
         // 1. Check due cards
         const now = Date.now();
-        const dueCount = kanjiWithSRS.filter(k => isSrsCardDue(k.srs, now)).length;
+        const threshold = now + getLearnAheadLimitMs();
+        const dueCount = kanjiWithSRS.filter(k => isSrsCardDue(k.srs, threshold)).length;
         if (dueCount > 0) {
             return {
                 tag: 'Cần ôn tập',

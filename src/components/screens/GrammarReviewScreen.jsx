@@ -216,10 +216,11 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
     const dueGrammar = useMemo(() => {
         const now = dashboardTick;
+        const threshold = now + getLearnAheadLimitMs();
         return grammarList.filter(g => {
             const srs = srsData[g.id];
             if (!srs) return false;
-            return isSrsCardDue(srs, now);
+            return isSrsCardDue(srs, threshold);
         });
     }, [grammarList, srsData, dashboardTick]);
 
@@ -330,7 +331,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             reps: srsData[g.id]?.reps || 0,
             interval: srsData[g.id]?.interval || 0,
             learningStep: srsData[g.id]?.learningStep,
-            isDue: srsData[g.id] ? isSrsCardDue(srsData[g.id], dashboardTick) : false
+            isDue: srsData[g.id] ? isSrsCardDue(srsData[g.id], dashboardTick + getLearnAheadLimitMs()) : false
         }));
     }, [grammarList, srsData, dashboardTick]);
 
@@ -1171,7 +1172,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         </h2>
                         <p className="text-sm text-slate-600 dark:text-slate-300 max-w-sm">
                             {newlyDueGrammar.length > 0
-                                ? `Hiện tại có thêm ${newlyDueGrammar.length} mẫu ngữ pháp đến hạn / sắp đến hạn (trong vòng 20 phút). Bạn có muốn ôn tiếp dứt điểm không?`
+                                ? `Hiện tại có thêm ${newlyDueGrammar.length} mẫu ngữ pháp đến hạn / sắp đến hạn (trong vòng ${Math.round(learnAheadMs / 60000)} phút). Bạn có muốn ôn tiếp dứt điểm không?`
                                 : "Chúc mừng! Bạn đã hoàn thành tất cả các thẻ ngữ pháp trong phiên ôn tập này."}
                         </p>
                     </div>

@@ -28,7 +28,7 @@ const IpaHomeIcon = ({ className = 'w-6 h-6' }) => (
 import { ROUTES } from '../../router';
 import BookVocabSyncChecker from '../ui/BookVocabSyncChecker';
 import StreakCelebration from '../ui/StreakCelebration';
-import { isVocabCardDue, isSrsCardDue, isKanjiMastered, isVocabCardMastered, parseNextReviewMs } from '../../utils/srs';
+import { isVocabCardDue, isSrsCardDue, isKanjiMastered, isVocabCardMastered, parseNextReviewMs, getLearnAheadLimitMs } from '../../utils/srs';
 import { subscribeKanjiSrs, computeKanjiSrsStats } from '../../utils/kanjiService';
 import { subscribeGrammarSrs, computeGrammarSrsStats } from '../../utils/grammarService';
 import { useLanguage } from '../../context/LanguageContext';
@@ -131,7 +131,8 @@ const HomeScreen = ({
             if (isKoreanMode) return isKoreanCard(card, true);
             return !isEnglishCard(card, false) && !isKoreanCard(card, false);
         });
-        const dueCards = langCards.filter(card => isVocabCardDue(card)).length;
+        const threshold = Date.now() + getLearnAheadLimitMs();
+        const dueCards = langCards.filter(card => isVocabCardDue(card, threshold)).length;
         const newCards = langCards.filter(card => !card.srsEnabled).length;
         const masteredCards = langCards.filter(card => isVocabCardMastered(card)).length;
         const currentStreak = calculatedStreak > 0 ? calculatedStreak : (cachedStreak ?? 0);
@@ -386,7 +387,8 @@ const HomeScreen = ({
             if (isKoreanMode) return isKoreanCard(card, true);
             return !isEnglishCard(card, false) && !isKoreanCard(card, false);
         });
-        const dueCards = langCards.filter(card => isVocabCardDue(card)).length;
+        const threshold = Date.now() + getLearnAheadLimitMs();
+        const dueCards = langCards.filter(card => isVocabCardDue(card, threshold)).length;
         const newCards = langCards.filter(card => !card.srsEnabled).length;
         const masteredCards = langCards.filter(card => isVocabCardMastered(card)).length;
         const result = {

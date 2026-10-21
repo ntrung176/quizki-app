@@ -7,7 +7,7 @@ const getLocalDateString = (d = new Date()) => {
 };
 import { showToast } from '../utils/toast';
 import { cleanFirestoreData } from '../utils/firestoreHelpers';
-import { isVocabCardDue, calculateAnkiSRS } from '../utils/srs';
+import { isVocabCardDue, calculateAnkiSRS, getLearnAheadLimitMs } from '../utils/srs';
 import { getCachedVocabSrsMap, updateCachedVocabSrs, mergeCachedVocabSrs, recordPendingVocabSync, removePendingVocabSync, getPendingVocabSyncMap } from '../utils/vocabSrsCache';
 import { aiAssistVocab, extractVocabFromImage } from '../utils/aiProvider';
 import { POINTS } from '../utils/scoring';
@@ -126,12 +126,13 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
 
     const dueCounts = useMemo(() => {
         const now = Date.now();
+        const threshold = now + getLearnAheadLimitMs();
         let back = 0, synonym = 0, example = 0, dictation = 0;
         allCards.forEach(c => {
-            if (isVocabCardDue(c, 'back', now)) back++;
-            if (isVocabCardDue(c, 'synonym', now)) synonym++;
-            if (isVocabCardDue(c, 'example', now)) example++;
-            if (isVocabCardDue(c, 'dictation', now)) dictation++;
+            if (isVocabCardDue(c, 'back', threshold)) back++;
+            if (isVocabCardDue(c, 'synonym', threshold)) synonym++;
+            if (isVocabCardDue(c, 'example', threshold)) example++;
+            if (isVocabCardDue(c, 'dictation', threshold)) dictation++;
         });
         return { back, synonym, example, dictation, total: back + synonym + example + dictation };
     }, [allCards]);

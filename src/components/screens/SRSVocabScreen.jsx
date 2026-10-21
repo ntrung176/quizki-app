@@ -482,9 +482,10 @@ const SRSVocabScreen = ({
         });
     }, [currentReviewIndex, reviewQueue]);
 
-    // Safely determine if a card is due
-    const isDue = (card, now = dashboardTick) => {
+    // Safely determine if a card is due (honoring Learn Ahead Limit by default)
+    const isDue = (card, targetNow = null) => {
         if (!card || card.srsEnabled === false) return false;
+        const now = targetNow !== null ? targetNow : (dashboardTick + getLearnAheadLimitMs());
         // Merge with local session SRS data if available
         const localSrs = sessionSrsData.current[card.id];
         if (localSrs) {
@@ -1880,7 +1881,7 @@ const SRSVocabScreen = ({
                         </h2>
                         <p className="text-sm text-slate-600 dark:text-slate-300 max-w-sm">
                             {newlyDueCards.length > 0
-                                ? `Hiện tại có thêm ${newlyDueCards.length} thẻ từ vựng đến hạn / sắp đến hạn (trong vòng 20 phút). Bạn có muốn ôn tiếp dứt điểm không?`
+                                ? `Hiện tại có thêm ${newlyDueCards.length} thẻ từ vựng đến hạn / sắp đến hạn (trong vòng ${Math.round(learnAheadMs / 60000)} phút). Bạn có muốn ôn tiếp dứt điểm không?`
                                 : "Chúc mừng! Bạn đã hoàn thành xuất sắc tất cả các thẻ từ vựng trong phiên ôn tập này."}
                         </p>
                     </div>

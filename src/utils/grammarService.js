@@ -4,7 +4,7 @@ import { db, appId } from '../config/firebase';
 import { getCacheConfig } from './cacheConfigService';
 import { cleanFirestoreData } from './firestoreHelpers';
 import { safeSetLocalStorage } from './storageCleanup';
-import { isSrsCardDue, isKanjiMastered } from './srs';
+import { isSrsCardDue, isKanjiMastered, getLearnAheadLimitMs } from './srs';
 
 const sanitizeGrammarPointForFirestore = (data) => {
     if (!data || typeof data !== 'object') return {};
@@ -1693,6 +1693,7 @@ export const subscribeGrammarSrs = (userId, callback) => {
 export const computeGrammarSrsStats = (srsMap) => {
     let total = 0, learning = 0, mastered = 0, dueCount = 0;
     const now = Date.now();
+    const threshold = now + getLearnAheadLimitMs();
     const seenIds = new Set();
 
     if (srsMap && typeof srsMap === 'object') {
@@ -1705,7 +1706,7 @@ export const computeGrammarSrsStats = (srsMap) => {
             total++;
             if (isKanjiMastered(data)) mastered++;
             else learning++;
-            if (isSrsCardDue(data, now)) dueCount++;
+            if (isSrsCardDue(data, threshold)) dueCount++;
         });
     }
     return { total, learning, mastered, dueCount };

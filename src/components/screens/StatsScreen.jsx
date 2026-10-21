@@ -4,7 +4,7 @@ import { collection, query, onSnapshot, doc, setDoc, serverTimestamp } from 'fir
 import { auth, db } from '../../config/firebase';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { SafeAvatarImage } from '../ui';
-import { isKanjiMastered, isSrsCardDue, isVocabCardMastered } from '../../utils/srs';
+import { isKanjiMastered, isSrsCardDue, isVocabCardMastered, getLearnAheadLimitMs } from '../../utils/srs';
 import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
 import { getLevelFromXp, getLevelTitle, formatScore } from '../../utils/scoring';
 import { formatLastActive, isUserOnline } from '../../utils/userActivityHelper';
@@ -143,12 +143,13 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
                 if (!isMounted) return;
                 let total = 0, learning = 0, mastered = 0, dueToday = 0;
                 const now = Date.now();
+                const threshold = now + getLearnAheadLimitMs();
                 Object.entries(freshSrs || {}).forEach(([id, data]) => {
                     if (validKanjiIds.size > 0 && !validKanjiIds.has(id)) return;
                     total++;
                     if (isKanjiMastered(data)) mastered++;
                     else learning++;
-                    if (isSrsCardDue(data, now)) dueToday++;
+                    if (isSrsCardDue(data, threshold)) dueToday++;
                 });
                 setKanjiSrsStats({ total, learning, mastered, dueToday });
             });

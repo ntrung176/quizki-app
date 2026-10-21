@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback, useRef } from 'react';
 import { collection, onSnapshot, query, doc, setDoc } from 'firebase/firestore';
 import { db, appId } from '../config/firebase';
 import { useTargetLanguage } from '../context/TargetLanguageContext';
-import { isVocabCardDue } from '../utils/srs';
+import { isVocabCardDue, getLearnAheadLimitMs } from '../utils/srs';
 import { shuffleArray } from '../utils/textProcessing';
 import { initConsoleProtection } from '../utils/security';
 import useVersionCheck from './useVersionCheck';
@@ -266,10 +266,11 @@ export const useAppLogic = () => {
         setReviewMode(mode);
         const cardList = targetCards || allCards;
         const now = Date.now();
+        const threshold = now + getLearnAheadLimitMs();
 
         const filteredCards = cardList.filter(card => {
             if (setId && card.folderId !== setId) return false;
-            return isVocabCardDue(card, mode, now);
+            return isVocabCardDue(card, mode, threshold);
         });
 
         if (filteredCards.length === 0) {

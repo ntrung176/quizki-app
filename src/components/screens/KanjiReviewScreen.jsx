@@ -248,11 +248,12 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
 
     const dueKanji = useMemo(() => {
         const now = dashboardTick;
+        const threshold = now + getLearnAheadLimitMs();
         const dueList = [];
         const seenIds = new Set();
 
         Object.entries(srsData || {}).forEach(([id, srs]) => {
-            if (!srs || !isSrsCardDue(srs, now)) return;
+            if (!srs || !isSrsCardDue(srs, threshold)) return;
             const doc = kanjiMap.get(id);
             const char = doc?.character || (id.length === 1 ? id : (id.startsWith('kanji_') ? id.replace('kanji_', '') : null));
             if (!char) return;
@@ -278,7 +279,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
 
         (kanjiList || []).forEach(k => {
             const srs = srsData[k.id] || srsData[k.character];
-            if (!srs || !isSrsCardDue(srs, now)) return;
+            if (!srs || !isSrsCardDue(srs, threshold)) return;
             if (!seenIds.has(k.id) && !seenIds.has(k.character)) {
                 seenIds.add(k.id);
                 if (k.character) seenIds.add(k.character);
@@ -378,7 +379,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             reps: srsData[k.id]?.reps || 0,
             interval: srsData[k.id]?.interval || 0,
             learningStep: srsData[k.id]?.learningStep,
-            isDue: srsData[k.id] ? isSrsCardDue(srsData[k.id], dashboardTick) : false
+            isDue: srsData[k.id] ? isSrsCardDue(srsData[k.id], dashboardTick + getLearnAheadLimitMs()) : false
         }));
     }, [kanjiList, srsData, dashboardTick]);
 
@@ -1432,7 +1433,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                         </h2>
                         <p className="text-sm text-slate-600 dark:text-slate-300 max-w-sm">
                             {newlyDueKanji.length > 0
-                                ? `Hiện tại có thêm ${newlyDueKanji.length} chữ Kanji đến hạn / sắp đến hạn (trong vòng 20 phút). Bạn có muốn ôn tiếp dứt điểm không?`
+                                ? `Hiện tại có thêm ${newlyDueKanji.length} chữ Kanji đến hạn / sắp đến hạn (trong vòng ${Math.round(learnAheadMs / 60000)} phút). Bạn có muốn ôn tiếp dứt điểm không?`
                                 : "Chúc mừng! Bạn đã hoàn thành tất cả các thẻ Kanji trong phiên ôn tập này."}
                         </p>
                     </div>

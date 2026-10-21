@@ -16,7 +16,7 @@ import LanguageSelector from '../ui/LanguageSelector';
 import TargetLanguageSelector from '../ui/TargetLanguageSelector';
 import IosLanguageWheelModal from '../ui/IosLanguageWheelModal';
 import FloatingFocusWidget from '../ui/FloatingFocusWidget';
-import { isVocabCardDue, isSrsCardDue } from '../../utils/srs';
+import { isVocabCardDue, isSrsCardDue, getLearnAheadLimitMs } from '../../utils/srs';
 import { isEnglishCard } from '../../utils/englishVocab';
 import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
 import { getSharedGrammarPointsList, subscribeGrammarSrs } from '../../utils/grammarService';
@@ -294,10 +294,11 @@ const Sidebar = ({
             return;
         }
         const now = Date.now();
+        const threshold = now + getLearnAheadLimitMs();
         const dueCount = (kanjiListRef.current || []).filter(k => {
             const srs = kanjiSrsRef.current[k.id];
             if (!srs) return false;
-            return isSrsCardDue(srs, now);
+            return isSrsCardDue(srs, threshold);
         }).length;
         setKanjiDueCount(dueCount);
     }, [userId]);
@@ -308,10 +309,11 @@ const Sidebar = ({
             return;
         }
         const now = Date.now();
+        const threshold = now + getLearnAheadLimitMs();
         const dueCount = (grammarListRef.current || []).filter(g => {
             const srs = grammarSrsRef.current[g.id];
             if (!srs) return false;
-            return isSrsCardDue(srs, now);
+            return isSrsCardDue(srs, threshold);
         }).length;
         setGrammarDueCount(dueCount);
     }, [userId]);
@@ -402,11 +404,12 @@ const Sidebar = ({
     // Calculate due SRS vocab count filtered by active target language & ticker
     const dueVocabCount = useMemo(() => {
         const now = sidebarTick;
+        const threshold = now + getLearnAheadLimitMs();
         return (allCards || []).filter(card => {
             if (card.srsEnabled === false) return false;
             const lang = card.targetLanguage || (isEnglishCard(card, isEnglishMode) ? 'en' : 'ja');
             if (lang !== targetLanguage) return false;
-            return isVocabCardDue(card, now);
+            return isVocabCardDue(card, threshold);
         }).length;
     }, [allCards, targetLanguage, isEnglishMode, sidebarTick]);
     const [lastSeenDueCount, setLastSeenDueCount] = useState(() => {
