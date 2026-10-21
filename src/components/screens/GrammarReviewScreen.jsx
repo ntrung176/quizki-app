@@ -366,38 +366,40 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
     const [lastTick, setLastTick] = useState(Date.now());
 
-    const getLearningCardsWaiting = () => {
+    const getLearningCardsWaiting = useCallback(() => {
         const now = Date.now();
         const learnAheadMs = getLearnAheadLimitMs();
+        const waitingList = [];
 
-        return Object.entries(srsData || {})
-            .filter(([id, srs]) => {
-                if (!srs) return false;
+        const upcomingIds = new Set(
+            (reviewQueue || []).slice(currentReviewIndex).map(c => String(c.id))
+        );
 
-                const stateStr = (srs.state || srs.srsState || '').toUpperCase();
-                if (stateStr === 'REVIEW') return false;
-                if (completedCardIds.current.has(id)) return false;
+        Object.entries(srsData || {}).forEach(([id, srs]) => {
+            if (!srs) return;
 
-                const nextReviewVal = srs.nextReview || srs.nextReview_back;
-                if (!nextReviewVal) return false;
-                const reviewTime = parseNextReviewMs(nextReviewVal);
-                if (reviewTime === 0) return false;
+            const idStr = String(id);
+            const stateStr = (srs.state || srs.srsState || '').toUpperCase();
+            if (stateStr === 'REVIEW') return;
+            if (completedCardIds.current.has(idStr)) return;
+            if (upcomingIds.has(idStr)) return;
 
-                const diff = reviewTime - now;
-                if (activeReviewCardIds.current.has(id)) {
-                    return diff <= 12 * 60 * 60 * 1000;
-                }
-                return diff <= learnAheadMs && diff >= -7 * 24 * 60 * 60 * 1000;
-            })
-            .map(([id, srs]) => {
-                const nextReviewVal = srs.nextReview || srs.nextReview_back;
-                const reviewTime = parseNextReviewMs(nextReviewVal);
-                return {
-                    id,
-                    nextReview: reviewTime > 0 ? reviewTime : Date.now()
-                };
-            });
-    };
+            const nextReviewVal = srs.nextReview || srs.nextReview_back;
+            if (!nextReviewVal) return;
+            const reviewTime = parseNextReviewMs(nextReviewVal);
+            if (reviewTime === 0) return;
+
+            const diff = reviewTime - now;
+            if (diff <= learnAheadMs && diff >= -7 * 24 * 60 * 60 * 1000) {
+                waitingList.push({
+                    id: idStr,
+                    nextReview: reviewTime
+                });
+            }
+        });
+
+        return waitingList;
+    }, [srsData, reviewQueue, currentReviewIndex]);
 
     const createGrammarCardFromWaiting = useCallback((itemId) => {
         const fullCard = grammarList.find(c => c.id === itemId);
@@ -444,7 +446,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 setIsAnimatingFlip(true);
             });
         });
-    }, [createGrammarCardFromWaiting, currentReviewIndex]);
+    }, [createGrammarCardFromWaiting, currentReviewIndex, getLearningCardsWaiting]);
 
     useEffect(() => {
         if (!reviewMode) return;
@@ -455,22 +457,20 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             const waiting = getLearningCardsWaiting();
             if (waiting.length === 0) return;
 
-            // Learn Ahead Limit: khi ở màn hình chờ, nếu thẻ có thời gian chờ <= giới hạn thì tự động lấy ra học luôn
-            const learnAheadMs = getLearnAheadLimitMs();
-            const isOnWaitingScreen = currentReviewIndex >= reviewQueue.length;
-            const threshold = isOnWaitingScreen ? (now + learnAheadMs) : now;
-
-            const dueNow = waiting.filter(w => w.nextReview <= threshold);
+            // Only cards whose countdown timer has genuinely reached 0 are due to be re-injected!
+            const dueNow = waiting.filter(w => w.nextReview <= now);
             if (dueNow.length > 0) {
                 setReviewQueue(prevQueue => {
                     const nextQueue = [...prevQueue];
-                    const upcomingIds = new Set(nextQueue.slice(currentReviewIndex + 1).map(c => c.id));
+                    const upcomingIds = new Set(nextQueue.slice(currentReviewIndex).map(c => String(c.id)));
                     const cardsToInject = [];
                     dueNow.forEach(item => {
-                        if (!upcomingIds.has(item.id) && (currentReviewIndex >= nextQueue.length || nextQueue[currentReviewIndex].id !== item.id)) {
+                        const idStr = String(item.id);
+                        if (!upcomingIds.has(idStr) && !completedCardIds.current.has(idStr)) {
                             const cardObj = createGrammarCardFromWaiting(item.id);
                             if (cardObj) {
-                                activeReviewCardIds.current.add(String(item.id));
+                                upcomingIds.add(idStr);
+                                activeReviewCardIds.current.add(idStr);
                                 cardsToInject.push(cardObj);
                             }
                         }
@@ -486,7 +486,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             }
         }, 1000);
         return () => clearInterval(intervalId);
-    }, [reviewMode, currentReviewIndex, reviewQueue.length, createGrammarCardFromWaiting]);
+    }, [reviewMode, currentReviewIndex, reviewQueue.length, createGrammarCardFromWaiting, getLearningCardsWaiting]);
 
     const runStartReview = (customList = null) => {
         const validList = Array.isArray(customList) && customList.length > 0
@@ -672,43 +672,41 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 }, 20);
             }, 70);
         } else {
+            const nowTime = Date.now();
             const waiting = getLearningCardsWaiting();
-            if (waiting.length > 0) {
-                // 🎯 Learn Ahead Limit (Anki Standard: 20 mins): nếu thẻ có countdown <= limit thì lấy lên học luôn
-                const learnAheadMs = getLearnAheadLimitMs();
-                const nowTime = Date.now();
-                const sortedWaiting = [...waiting].sort((a, b) => a.nextReview - b.nextReview);
-                const earliestRemainingMs = sortedWaiting[0].nextReview - nowTime;
+            const dueNow = waiting.filter(w => w.nextReview <= nowTime);
 
-                if (earliestRemainingMs <= learnAheadMs) {
-                    const upcomingQueueIds = new Set(updatedQueue.slice(currentReviewIndex + 1).map(c => String(c.id)));
-                    const cardsToPull = sortedWaiting
-                        .filter(w => (w.nextReview - nowTime) <= learnAheadMs && !upcomingQueueIds.has(String(w.id)))
-                        .map(w => createGrammarCardFromWaiting(w.id))
-                        .filter(Boolean);
+            if (dueNow.length > 0) {
+                const upcomingQueueIds = new Set(updatedQueue.slice(currentReviewIndex + 1).map(c => String(c.id)));
+                const cardsToPull = dueNow
+                    .filter(w => !upcomingQueueIds.has(String(w.id)))
+                    .map(w => createGrammarCardFromWaiting(w.id))
+                    .filter(Boolean);
 
-                    if (cardsToPull.length > 0) {
-                        cardsToPull.forEach(c => activeReviewCardIds.current.add(String(c.id)));
-                        updatedQueue.push(...cardsToPull);
-                        setReviewQueue(updatedQueue);
-                        saveSessionState(updatedQueue, currentReviewIndex + 1);
-                        setIsAnimatingFlip(false);
-                        setSlideDirection('left');
+                if (cardsToPull.length > 0) {
+                    cardsToPull.forEach(c => activeReviewCardIds.current.add(String(c.id)));
+                    updatedQueue.push(...cardsToPull);
+                    setReviewQueue(updatedQueue);
+                    saveSessionState(updatedQueue, currentReviewIndex + 1);
+                    setIsAnimatingFlip(false);
+                    setSlideDirection('left');
+                    setTimeout(() => {
+                        setIsFlipped(false);
+                        setCurrentReviewIndex(prev => prev + 1);
+                        setSlideDirection('right');
                         setTimeout(() => {
-                            setIsFlipped(false);
-                            setCurrentReviewIndex(prev => prev + 1);
-                            setSlideDirection('right');
+                            setSlideDirection('');
                             setTimeout(() => {
-                                setSlideDirection('');
-                                setTimeout(() => {
-                                    setIsAnimatingFlip(true);
-                                }, 110);
-                            }, 20);
-                        }, 70);
-                        return;
-                    }
+                                setIsAnimatingFlip(true);
+                            }, 110);
+                        }, 20);
+                    }, 70);
+                    return;
                 }
+            }
 
+            if (waiting.length > 0) {
+                setReviewQueue(updatedQueue);
                 setIsAnimatingFlip(false);
                 setSlideDirection('left');
                 setTimeout(() => {
@@ -722,6 +720,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         }, 110);
                     }, 20);
                 }, 70);
+                return;
             } else {
                 launchFanfare();
                 logGrammarActivity(userId, {

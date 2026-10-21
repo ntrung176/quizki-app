@@ -749,17 +749,22 @@ const SRSVocabScreen = ({
         const now = Date.now();
         const learnAheadMs = getLearnAheadLimitMs();
 
+        const upcomingIds = new Set(
+            (reviewQueue || []).slice(currentReviewIndex).map(c => String(c.id))
+        );
+
         // 1. Thẻ đã được chấm điểm trong phiên hiện tại (sessionSrsData)
         Object.entries(sessionSrsData.current).forEach(([id, srs]) => {
             const idStr = String(id);
             if (completedCardIds.current.has(idStr)) return;
+            if (upcomingIds.has(idStr)) return;
             const stateStr = (srs.state || srs.srsState || '').toUpperCase();
             if (stateStr === 'REVIEW') return;
 
             const nextReviewVal = srs.nextReview_back || srs.nextReview;
             if (nextReviewVal) {
                 const reviewTime = parseNextReviewMs(nextReviewVal);
-                if (reviewTime > 0 && reviewTime - now <= 12 * 60 * 60 * 1000) {
+                if (reviewTime > 0 && reviewTime - now <= learnAheadMs && reviewTime - now >= -7 * 24 * 60 * 60 * 1000) {
                     waitingMap.set(idStr, {
                         id: idStr,
                         nextReview: reviewTime
@@ -781,6 +786,7 @@ const SRSVocabScreen = ({
             const cId = String(c.id);
             if (c.srsEnabled === false) return;
             if (completedCardIds.current.has(cId)) return;
+            if (upcomingIds.has(cId)) return;
             if (waitingMap.has(cId)) return;
 
             const localSrs = sessionSrsData.current[c.id];
@@ -807,7 +813,7 @@ const SRSVocabScreen = ({
         });
 
         return Array.from(waitingMap.values());
-    }, [filteredCards, cardFolders]);
+    }, [filteredCards, cardFolders, reviewQueue, currentReviewIndex]);
 
     const createCardFromWaiting = useCallback((itemId) => {
         const itemIdStr = String(itemId);
@@ -860,7 +866,7 @@ const SRSVocabScreen = ({
                 setIsAnimatingFlip(true);
             });
         });
-    }, [createCardFromWaiting, currentReviewIndex]);
+    }, [createCardFromWaiting, currentReviewIndex, getLearningCardsWaiting]);
 
     useEffect(() => {
         if (!reviewMode) return;
@@ -870,12 +876,8 @@ const SRSVocabScreen = ({
             const waiting = getLearningCardsWaiting();
             if (waiting.length === 0) return;
 
-            // Learn Ahead Limit: khi ở màn hình chờ, nếu thẻ có thời gian chờ <= giới hạn thì tự động lấy ra học luôn
-            const learnAheadMs = getLearnAheadLimitMs();
-            const isOnWaitingScreen = currentReviewIndex >= reviewQueue.length;
-            const threshold = isOnWaitingScreen ? (now + learnAheadMs) : now;
-
-            const dueNow = waiting.filter(w => w.nextReview <= threshold);
+            // Only cards whose countdown timer has genuinely reached 0 are due to be re-injected!
+            const dueNow = waiting.filter(w => w.nextReview <= now);
             if (dueNow.length > 0) {
                 setReviewQueue(prevQueue => {
                     const nextQueue = [...prevQueue];
@@ -886,6 +888,7 @@ const SRSVocabScreen = ({
                         if (!upcomingQueueIds.has(itemIdStr) && !completedCardIds.current.has(itemIdStr)) {
                             const cardObj = createCardFromWaiting(item.id);
                             if (cardObj) {
+                                upcomingQueueIds.add(itemIdStr);
                                 activeReviewCardIds.current.add(itemIdStr);
                                 if (!intervalCacheRef.current[cardObj.id]) {
                                     intervalCacheRef.current[cardObj.id] = getPreviewIntervals(cardObj, sessionSrsData.current[cardObj.id] || null);
@@ -905,7 +908,7 @@ const SRSVocabScreen = ({
             }
         }, 1000);
         return () => clearInterval(intervalId);
-    }, [reviewMode, currentReviewIndex, reviewQueue.length, createCardFromWaiting]);
+    }, [reviewMode, currentReviewIndex, reviewQueue.length, createCardFromWaiting, getLearningCardsWaiting]);
 
     // 60fps keep-alive ticker for Mobile Safari to prevent timer throttling on mobile browsers
     useEffect(() => {
@@ -1049,43 +1052,39 @@ const SRSVocabScreen = ({
             });
         } else {
             const waiting = getLearningCardsWaiting();
-            if (waiting.length > 0) {
-                // 🎯 Learn Ahead Limit (Anki Standard: 20 mins): nếu thẻ có countdown <= limit thì lấy lên học luôn
-                const learnAheadMs = getLearnAheadLimitMs();
-                const sortedWaiting = [...waiting].sort((a, b) => a.nextReview - b.nextReview);
-                const earliestRemainingMs = sortedWaiting[0].nextReview - nowTime;
+            const dueNow = waiting.filter(w => w.nextReview <= nowTime);
 
-                if (earliestRemainingMs <= learnAheadMs) {
-                    const upcomingQueueIds = new Set(updatedQueue.slice(currentReviewIndex + 1).map(c => String(c.id)));
-                    const cardsToPull = sortedWaiting
-                        .filter(w => (w.nextReview - nowTime) <= learnAheadMs && !upcomingQueueIds.has(String(w.id)))
-                        .map(w => createCardFromWaiting(w.id))
-                        .filter(Boolean);
+            if (dueNow.length > 0) {
+                const upcomingQueueIds = new Set(updatedQueue.slice(currentReviewIndex + 1).map(c => String(c.id)));
+                const cardsToPull = dueNow
+                    .filter(w => !upcomingQueueIds.has(String(w.id)))
+                    .map(w => createCardFromWaiting(w.id))
+                    .filter(Boolean);
 
-                    if (cardsToPull.length > 0) {
-                        cardsToPull.forEach(c => {
-                            activeReviewCardIds.current.add(String(c.id));
-                            if (!intervalCacheRef.current[c.id]) {
-                                intervalCacheRef.current[c.id] = getPreviewIntervals(c, sessionSrsData.current[c.id] || null);
-                            }
-                        });
-                        updatedQueue.push(...cardsToPull);
-                        setReviewQueue(updatedQueue);
-                        setHasCheckedTyping(false);
-                        setIsAnimatingFlip(false);
-                        setIsFlipped(false);
-                        setCurrentReviewIndex(prev => prev + 1);
+                if (cardsToPull.length > 0) {
+                    cardsToPull.forEach(c => {
+                        activeReviewCardIds.current.add(String(c.id));
+                        if (!intervalCacheRef.current[c.id]) {
+                            intervalCacheRef.current[c.id] = getPreviewIntervals(c, sessionSrsData.current[c.id] || null);
+                        }
+                    });
+                    updatedQueue.push(...cardsToPull);
+                    setReviewQueue(updatedQueue);
+                    setHasCheckedTyping(false);
+                    setIsAnimatingFlip(false);
+                    setIsFlipped(false);
+                    setCurrentReviewIndex(prev => prev + 1);
+                    requestAnimationFrame(() => {
                         requestAnimationFrame(() => {
-                            requestAnimationFrame(() => {
-                                setIsAnimatingFlip(true);
-                            });
+                            setIsAnimatingFlip(true);
                         });
-                        console.timeEnd('⚡ SRS_RATING_VOCAB');
-                        return;
-                    }
+                    });
+                    console.timeEnd('⚡ SRS_RATING_VOCAB');
+                    return;
                 }
+            }
 
-                // Nếu thời gian chờ còn lại > Giới hạn học trước: Hiển thị màn hình chờ đếm ngược
+            if (waiting.length > 0) {
                 setReviewQueue(updatedQueue);
                 setHasCheckedTyping(false);
                 setIsAnimatingFlip(false);

@@ -414,43 +414,66 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
 
     const [lastTick, setLastTick] = useState(Date.now());
 
-    const getLearningCardsWaiting = () => {
+    const getLearningCardsWaiting = useCallback(() => {
         const now = Date.now();
         const learnAheadMs = getLearnAheadLimitMs();
+        const seenChars = new Set();
+        const waitingList = [];
 
-        return Object.entries(srsData || {})
-            .filter(([id, srs]) => {
-                if (!srs) return false;
+        // Identify all cards currently present in the queue from currentReviewIndex onwards
+        const upcomingKeys = new Set();
+        (reviewQueue || []).slice(currentReviewIndex).forEach(c => {
+            if (c.character) upcomingKeys.add(c.character);
+            if (c.id) upcomingKeys.add(String(c.id));
+        });
 
-                const stateStr = (srs.state || srs.srsState || '').toUpperCase();
-                if (stateStr === 'REVIEW') return false;
-                if (completedCardIds.current.has(id)) return false;
+        Object.entries(srsData || {}).forEach(([key, srs]) => {
+            if (!srs) return;
 
-                const nextReviewVal = srs.nextReview || srs.nextReview_back;
-                if (!nextReviewVal) return false;
-                const reviewTime = parseNextReviewMs(nextReviewVal);
-                if (reviewTime === 0) return false;
+            const doc = kanjiMap.get(key);
+            const char = doc?.character || (key.length === 1 ? key : (key.startsWith('kanji_') ? key.replace('kanji_', '') : null));
+            if (!char) return;
 
-                const diff = reviewTime - now;
-                if (activeReviewCardIds.current.has(id)) {
-                    return diff <= 12 * 60 * 60 * 1000;
-                }
-                return diff <= learnAheadMs && diff >= -7 * 24 * 60 * 60 * 1000;
-            })
-            .map(([id, srs]) => {
-                const nextReviewVal = srs.nextReview || srs.nextReview_back;
-                const reviewTime = parseNextReviewMs(nextReviewVal);
-                return {
-                    id,
-                    nextReview: reviewTime > 0 ? reviewTime : Date.now()
-                };
-            });
-    };
+            // Canonical character deduplication: each Kanji character can only appear once in waiting list
+            if (seenChars.has(char)) return;
+            seenChars.add(char);
+
+            const stateStr = (srs.state || srs.srsState || '').toUpperCase();
+            if (stateStr === 'REVIEW') return;
+
+            // Check completed cards by char, doc id, or key
+            if (completedCardIds.current.has(char) || (doc?.id && completedCardIds.current.has(String(doc.id))) || completedCardIds.current.has(key)) {
+                return;
+            }
+
+            // Exclude cards already in the upcoming review queue!
+            if (upcomingKeys.has(char) || (doc?.id && upcomingKeys.has(String(doc.id))) || upcomingKeys.has(key)) {
+                return;
+            }
+
+            const nextReviewVal = srs.nextReview || srs.nextReview_back;
+            if (!nextReviewVal) return;
+            const reviewTime = parseNextReviewMs(nextReviewVal);
+            if (reviewTime === 0) return;
+
+            const diff = reviewTime - now;
+            // Cards due now (diff <= 0) or within learn ahead window
+            if (diff <= learnAheadMs && diff >= -7 * 24 * 60 * 60 * 1000) {
+                waitingList.push({
+                    id: doc?.id || key,
+                    character: char,
+                    nextReview: reviewTime
+                });
+            }
+        });
+
+        return waitingList;
+    }, [srsData, kanjiMap, reviewQueue, currentReviewIndex]);
 
     const createKanjiCardFromWaiting = useCallback((itemId) => {
         const fullCard = kanjiMap.get(itemId);
         if (!fullCard) return null;
-        const localSrs = srsData[itemId];
+        const localSrs = srsData[itemId] || (fullCard.character ? srsData[fullCard.character] : null) || (fullCard.id ? srsData[fullCard.id] : null);
         return {
             ...fullCard,
             userMnemonic: localSrs?.userMnemonic || localSrs?.mnemonic || fullCard.userMnemonic || fullCard.mnemonic || '',
@@ -473,16 +496,23 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         if (waiting.length === 0) return;
         const sortedWaiting = [...waiting].sort((a, b) => a.nextReview - b.nextReview);
         const cardsToPull = sortedWaiting
-            .map(w => createKanjiCardFromWaiting(w.id))
+            .map(w => createKanjiCardFromWaiting(w.id || w.character))
             .filter(Boolean);
 
         if (cardsToPull.length === 0) return;
 
         setReviewQueue(prevQueue => {
-            const upcomingQueueIds = new Set(prevQueue.slice(currentReviewIndex).map(c => String(c.id)));
-            const newCards = cardsToPull.filter(c => !upcomingQueueIds.has(String(c.id)));
+            const upcomingKeys = new Set();
+            prevQueue.slice(currentReviewIndex).forEach(c => {
+                if (c.id) upcomingKeys.add(String(c.id));
+                if (c.character) upcomingKeys.add(c.character);
+            });
+            const newCards = cardsToPull.filter(c => !upcomingKeys.has(String(c.id)) && !upcomingKeys.has(c.character));
             if (newCards.length === 0) return prevQueue;
-            newCards.forEach(c => activeReviewCardIds.current.add(String(c.id)));
+            newCards.forEach(c => {
+                if (c.id) activeReviewCardIds.current.add(String(c.id));
+                if (c.character) activeReviewCardIds.current.add(c.character);
+            });
             return [...prevQueue, ...newCards];
         });
 
@@ -494,9 +524,9 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                 setIsAnimatingFlip(true);
             });
         });
-    }, [createKanjiCardFromWaiting, currentReviewIndex]);
+    }, [createKanjiCardFromWaiting, currentReviewIndex, getLearningCardsWaiting]);
 
-    // Inject due learning cards into review queue when cards are rated
+    // Inject due learning cards into review queue ONLY when their actual due time has elapsed (nextReview <= now)
     useEffect(() => {
         if (!reviewMode) return;
         const intervalId = setInterval(() => {
@@ -505,23 +535,31 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             const waiting = getLearningCardsWaiting();
             if (waiting.length === 0) return;
 
-            // Learn Ahead Limit: khi ở màn hình chờ, nếu thẻ có thời gian chờ <= giới hạn thì tự động lấy ra học luôn
-            const learnAheadMs = getLearnAheadLimitMs();
-            const isOnWaitingScreen = currentReviewIndex >= reviewQueue.length;
-            const threshold = isOnWaitingScreen ? (now + learnAheadMs) : now;
-
-            const dueNow = waiting.filter(w => w.nextReview <= threshold);
+            // Only cards whose countdown timer has genuinely reached 0 are due to be re-injected!
+            // Future cards (nextReview > now) must NOT be automatically injected in the background.
+            const dueNow = waiting.filter(w => w.nextReview <= now);
             if (dueNow.length > 0) {
                 setReviewQueue(prevQueue => {
                     const nextQueue = [...prevQueue];
-                    const upcomingQueueIds = new Set(nextQueue.slice(currentReviewIndex).map(c => String(c.id)));
+                    const upcomingKeys = new Set();
+                    nextQueue.slice(currentReviewIndex).forEach(c => {
+                        if (c.id) upcomingKeys.add(String(c.id));
+                        if (c.character) upcomingKeys.add(c.character);
+                    });
+
                     const cardsToInject = [];
                     dueNow.forEach(item => {
-                        const itemIdStr = String(item.id);
-                        if (!upcomingQueueIds.has(itemIdStr) && !completedCardIds.current.has(itemIdStr)) {
-                            const cardObj = createKanjiCardFromWaiting(item.id);
+                        const charKey = item.character;
+                        const idKey = String(item.id);
+                        if (!upcomingKeys.has(charKey) && !upcomingKeys.has(idKey)) {
+                            const cardObj = createKanjiCardFromWaiting(item.id || item.character);
                             if (cardObj) {
-                                activeReviewCardIds.current.add(itemIdStr);
+                                const cardChar = cardObj.character || charKey;
+                                const cardId = String(cardObj.id || idKey);
+                                upcomingKeys.add(cardChar);
+                                upcomingKeys.add(cardId);
+                                activeReviewCardIds.current.add(cardId);
+                                if (cardChar) activeReviewCardIds.current.add(cardChar);
                                 cardsToInject.push(cardObj);
                             }
                         }
@@ -537,7 +575,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             }
         }, 1000);
         return () => clearInterval(intervalId);
-    }, [reviewMode, currentReviewIndex, reviewQueue.length, createKanjiCardFromWaiting]);
+    }, [reviewMode, currentReviewIndex, reviewQueue.length, createKanjiCardFromWaiting, getLearningCardsWaiting]);
 
     const [isPreparingSession, setIsPreparingSession] = useState(false);
 
@@ -703,7 +741,11 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         // 1. Determine if card graduated/completed in this session or needs waiting for next review
         let updatedQueue = [...reviewQueue];
         if (result.state === 'REVIEW') {
-            completedCardIds.current.add(currentCard.id);
+            completedCardIds.current.add(String(currentCard.id));
+            if (char) {
+                completedCardIds.current.add(char);
+                completedCardIds.current.add(`kanji_${char}`);
+            }
         }
         // Thẻ Kanji có chu kỳ ngắn (1, 5, 10 phút) sẽ ở trạng thái chờ và được tự động chèn ngay sau thẻ hiện tại khi đúng thời gian hẹn
 
@@ -739,40 +781,59 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                 });
             });
         } else {
+            // End of current review queue reached!
+            const nowTime = Date.now();
             const waiting = getLearningCardsWaiting();
-            if (waiting.length > 0) {
-                // 🎯 Learn Ahead Limit (Anki Standard: 20 mins): nếu thẻ có countdown <= limit thì lấy lên học luôn
-                const learnAheadMs = getLearnAheadLimitMs();
-                const nowTime = Date.now();
-                const sortedWaiting = [...waiting].sort((a, b) => a.nextReview - b.nextReview);
-                const earliestRemainingMs = sortedWaiting[0].nextReview - nowTime;
 
-                if (earliestRemainingMs <= learnAheadMs) {
-                    const upcomingQueueIds = new Set(updatedQueue.slice(currentReviewIndex + 1).map(c => String(c.id)));
-                    const cardsToPull = sortedWaiting
-                        .filter(w => (w.nextReview - nowTime) <= learnAheadMs && !upcomingQueueIds.has(String(w.id)))
-                        .map(w => createKanjiCardFromWaiting(w.id))
-                        .filter(Boolean);
+            // 1. Check if any learning cards are genuinely DUE NOW (nextReview <= nowTime)
+            // (e.g. 1-minute step that expired while reviewing other cards in this session)
+            const dueNow = waiting.filter(w => w.nextReview <= nowTime);
+            if (dueNow.length > 0) {
+                const upcomingKeys = new Set();
+                updatedQueue.slice(currentReviewIndex + 1).forEach(c => {
+                    if (c.id) upcomingKeys.add(String(c.id));
+                    if (c.character) upcomingKeys.add(c.character);
+                });
 
-                    if (cardsToPull.length > 0) {
-                        cardsToPull.forEach(c => activeReviewCardIds.current.add(String(c.id)));
-                        updatedQueue.push(...cardsToPull);
-                        setReviewQueue(updatedQueue);
-                        saveSessionState(updatedQueue, currentReviewIndex + 1);
-                        setHasCheckedTyping(false);
-                        setIsAnimatingFlip(false);
-                        setIsFlipped(false);
-                        setCurrentReviewIndex(prev => prev + 1);
-                        requestAnimationFrame(() => {
-                            requestAnimationFrame(() => {
-                                setIsAnimatingFlip(true);
-                            });
-                        });
-                        return;
+                const cardsToInject = [];
+                dueNow.forEach(item => {
+                    const charKey = item.character;
+                    const idKey = String(item.id);
+                    if (!upcomingKeys.has(charKey) && !upcomingKeys.has(idKey)) {
+                        const cardObj = createKanjiCardFromWaiting(item.id || item.character);
+                        if (cardObj) {
+                            const cardChar = cardObj.character || charKey;
+                            const cardId = String(cardObj.id || idKey);
+                            upcomingKeys.add(cardChar);
+                            upcomingKeys.add(cardId);
+                            activeReviewCardIds.current.add(cardId);
+                            if (cardChar) activeReviewCardIds.current.add(cardChar);
+                            cardsToInject.push(cardObj);
+                        }
                     }
-                }
+                });
 
-                // Show waiting screen (by advancing index to updatedQueue.length)
+                if (cardsToInject.length > 0) {
+                    updatedQueue.push(...cardsToInject);
+                    setReviewQueue(updatedQueue);
+                    saveSessionState(updatedQueue, currentReviewIndex + 1);
+                    setHasCheckedTyping(false);
+                    setIsAnimatingFlip(false);
+                    setIsFlipped(false);
+                    setCurrentReviewIndex(prev => prev + 1);
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            setIsAnimatingFlip(true);
+                        });
+                    });
+                    return;
+                }
+            }
+
+            // 2. If cards are still waiting for their interval (nextReview > nowTime):
+            // Show WAITING SCREEN with the countdown timer! Do NOT loop infinitely!
+            if (waiting.length > 0) {
+                setReviewQueue(updatedQueue);
                 setHasCheckedTyping(false);
                 setIsAnimatingFlip(false);
                 setIsFlipped(false);
@@ -782,22 +843,19 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                         setIsAnimatingFlip(true);
                     });
                 });
-            } else {
-                launchFanfare();
-                logKanjiActivity(userId, {
-                    type: 'review',
-                    title: `Đã ôn tập ${updatedQueue.length} chữ Kanji`,
-                    details: `Hoàn thành phiên ôn tập SRS`
-                });
-                setIsAnimatingFlip(false);
-                setIsFlipped(false);
-                setCurrentReviewIndex(updatedQueue.length);
-                requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        setIsAnimatingFlip(true);
-                    });
-                });
+                return;
             }
+
+            // 3. 0 cards waiting (all cards graduated to REVIEW): Session completed!
+            launchFanfare();
+            logKanjiActivity(userId, {
+                type: 'review',
+                title: `Đã ôn tập ${updatedQueue.length} chữ Kanji`,
+                details: `Hoàn thành phiên ôn tập SRS`
+            });
+            setIsAnimatingFlip(false);
+            setIsFlipped(false);
+            setCurrentReviewIndex(updatedQueue.length);
         }
 
         // Accumulate session XP
