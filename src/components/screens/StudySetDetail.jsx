@@ -12,7 +12,7 @@ import { syncStudyProgress, resetStudyProgress } from '../../utils/studyProgress
 import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { showToast } from '../../utils/toast';
 import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitchAccent';
-import { getSharedKanjiList } from '../../utils/kanjiService';
+import { getSharedKanjiList, updateCachedUserSrs } from '../../utils/kanjiService';
 import { getSharedBookGroups } from '../../utils/bookService';
 import EditCardModal from '../cards/EditCardModal';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
@@ -444,7 +444,7 @@ const StudySetDetail = ({
             
             selectedKanji.forEach(k => {
                 const ref = doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, k.id);
-                batch.set(ref, {
+                const srsPayload = {
                     interval: 0,
                     ease: 2.5,
                     nextReview: now,
@@ -454,7 +454,10 @@ const StudySetDetail = ({
                     isLapsed: false,
                     lapseCount: 0,
                     prelapseInterval: null,
-                }, { merge: true });
+                    state: 'NEW'
+                };
+                batch.set(ref, srsPayload, { merge: true });
+                updateCachedUserSrs(userId, k.id, srsPayload, k.character);
             });
             await batch.commit();
 

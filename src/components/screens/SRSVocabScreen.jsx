@@ -41,8 +41,13 @@ const formatInterval = (minutes) => {
         const days = minutes / 1440;
         return days < 2 ? `${Number(days.toFixed(1))} ngày` : `${Math.round(days)} ngày`;
     }
-    const months = minutes / 43200;
-    return months < 2 ? `${Number(months.toFixed(1))} tháng` : `${Math.round(months)} tháng`;
+    const days = minutes / 1440;
+    const months = days / 30;
+    if (months < 12) {
+        return `${Number(months.toFixed(1))} tháng`;
+    }
+    const years = days / 365;
+    return `${Number(years.toFixed(1))} năm`;
 };
 
 // Helper to preview intervals based on SRS state
@@ -1053,11 +1058,18 @@ const SRSVocabScreen = ({
             });
         } else {
             const waiting = getLearningCardsWaiting();
-            const dueNow = waiting.filter(w => w.nextReview <= nowTime);
+            const learnAheadMs = getLearnAheadLimitMs();
 
-            if (dueNow.length > 0) {
+            // 1. When Learn Ahead Limit is ON (learnAheadMs > 0), all cards in waiting (diff <= learnAheadMs) are eligible!
+            // When Learn Ahead Limit is OFF (learnAheadMs === 0), only cards whose actual time has expired (<= nowTime) are eligible.
+            const eligibleWaiting = learnAheadMs > 0
+                ? waiting
+                : waiting.filter(w => w.nextReview <= nowTime);
+
+            if (eligibleWaiting.length > 0) {
                 const upcomingQueueIds = new Set(updatedQueue.slice(currentReviewIndex + 1).map(c => String(c.id)));
-                const cardsToPull = dueNow
+                const sortedWaiting = [...eligibleWaiting].sort((a, b) => a.nextReview - b.nextReview);
+                const cardsToPull = sortedWaiting
                     .filter(w => !upcomingQueueIds.has(String(w.id)))
                     .map(w => createCardFromWaiting(w.id))
                     .filter(Boolean);
@@ -1085,6 +1097,8 @@ const SRSVocabScreen = ({
                 }
             }
 
+            // 2. If Learn Ahead Limit is OFF and cards are waiting for their countdown timer:
+            // Show WAITING SCREEN with countdown timer and manual options!
             if (waiting.length > 0) {
                 setReviewQueue(updatedQueue);
                 setHasCheckedTyping(false);
@@ -1096,21 +1110,70 @@ const SRSVocabScreen = ({
                         setIsAnimatingFlip(true);
                     });
                 });
-            } else {
-                setReviewQueue(updatedQueue);
-                try {
-                    playCompletionFanfare();
-                    launchFanfare();
-                } catch (e) { }
-                setIsAnimatingFlip(false);
-                setIsFlipped(false);
-                setCurrentReviewIndex(updatedQueue.length);
-                requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        setIsAnimatingFlip(true);
-                    });
-                });
+                return;
             }
+
+            // 3. When 0 learning cards are waiting: check if any cards in current scope became newly due/learn-ahead
+            const fId = activeFolderIdRef.current;
+            const candidateCards = (!fId || fId === 'global')
+                ? (filteredCards || [])
+                : (filteredCards || []).filter(c => {
+                    const cFolderId = cardFolders[c.id] || c.folderId || 'unfiled';
+                    return cFolderId === fId;
+                });
+
+            const newlyDueCards = candidateCards.filter(c => {
+                if (c.srsEnabled === false) return false;
+                const localSrs = sessionSrsData.current[c.id];
+                if (localSrs && (localSrs.state || '').toUpperCase() === 'REVIEW') return false;
+                if (completedCardIds.current.has(String(c.id))) return false;
+
+                const nextReviewVal = localSrs ? (localSrs.nextReview_back || localSrs.nextReview) : (c.nextReview_back || c.nextReview);
+                if (!nextReviewVal) return false;
+                const reviewTime = parseNextReviewMs(nextReviewVal);
+                return reviewTime > 0 && reviewTime <= (nowTime + learnAheadMs);
+            });
+
+            if (learnAheadMs > 0 && newlyDueCards.length > 0) {
+                const upcomingQueueIds = new Set(updatedQueue.map(c => String(c.id)));
+                const cardsToPull = newlyDueCards.filter(c => !upcomingQueueIds.has(String(c.id)));
+                if (cardsToPull.length > 0) {
+                    cardsToPull.forEach(c => {
+                        activeReviewCardIds.current.add(String(c.id));
+                        if (!intervalCacheRef.current[c.id]) {
+                            intervalCacheRef.current[c.id] = getPreviewIntervals(c, sessionSrsData.current[c.id] || null);
+                        }
+                    });
+                    updatedQueue.push(...cardsToPull);
+                    setReviewQueue(updatedQueue);
+                    setHasCheckedTyping(false);
+                    setIsAnimatingFlip(false);
+                    setIsFlipped(false);
+                    setCurrentReviewIndex(prev => prev + 1);
+                    requestAnimationFrame(() => {
+                        requestAnimationFrame(() => {
+                            setIsAnimatingFlip(true);
+                        });
+                    });
+                    console.timeEnd('⚡ SRS_RATING_VOCAB');
+                    return;
+                }
+            }
+
+            // 4. Truly completed session!
+            setReviewQueue(updatedQueue);
+            try {
+                playCompletionFanfare();
+                launchFanfare();
+            } catch (e) { }
+            setIsAnimatingFlip(false);
+            setIsFlipped(false);
+            setCurrentReviewIndex(updatedQueue.length);
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    setIsAnimatingFlip(true);
+                });
+            });
         }
         console.timeEnd('⚡ SRS_RATING_VOCAB');
     };
@@ -1848,6 +1911,7 @@ const SRSVocabScreen = ({
 
         // Check for any newly due cards or cards within Learn Ahead Limit while staying on the completion screen
         const learnAheadMs = getLearnAheadLimitMs();
+        const checkWindow = learnAheadMs > 0 ? learnAheadMs : (20 * 60 * 1000);
         const fId = activeFolderIdRef.current;
         const candidateCards = (!fId || fId === 'global')
             ? (filteredCards || [])
@@ -1865,7 +1929,7 @@ const SRSVocabScreen = ({
             const nextReviewVal = localSrs ? (localSrs.nextReview_back || localSrs.nextReview) : (c.nextReview_back || c.nextReview);
             if (!nextReviewVal) return false;
             const reviewTime = parseNextReviewMs(nextReviewVal);
-            return reviewTime > 0 && reviewTime <= (lastTick + learnAheadMs);
+            return reviewTime > 0 && reviewTime <= (lastTick + checkWindow);
         });
 
         // When 0 cards are waiting (session 100% completed) -> Render Completion Congratulation Screen

@@ -35,8 +35,13 @@ const formatInterval = (minutes) => {
         const days = minutes / 1440;
         return days < 2 ? `${Number(days.toFixed(1))} ngày` : `${Math.round(days)} ngày`;
     }
-    const months = minutes / 43200;
-    return months < 2 ? `${Number(months.toFixed(1))} tháng` : `${Math.round(months)} tháng`;
+    const days = minutes / 1440;
+    const months = days / 30;
+    if (months < 12) {
+        return `${Number(months.toFixed(1))} tháng`;
+    }
+    const years = days / 365;
+    return `${Number(years.toFixed(1))} năm`;
 };
 
 const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
@@ -675,11 +680,18 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         } else {
             const nowTime = Date.now();
             const waiting = getLearningCardsWaiting();
-            const dueNow = waiting.filter(w => w.nextReview <= nowTime);
+            const learnAheadMs = getLearnAheadLimitMs();
 
-            if (dueNow.length > 0) {
+            // 1. When Learn Ahead Limit is ON (learnAheadMs > 0), all cards in waiting (diff <= learnAheadMs) are eligible!
+            // When Learn Ahead Limit is OFF (learnAheadMs === 0), only cards whose actual time has expired (<= nowTime) are eligible.
+            const eligibleWaiting = learnAheadMs > 0
+                ? waiting
+                : waiting.filter(w => w.nextReview <= nowTime);
+
+            if (eligibleWaiting.length > 0) {
                 const upcomingQueueIds = new Set(updatedQueue.slice(currentReviewIndex + 1).map(c => String(c.id)));
-                const cardsToPull = dueNow
+                const sortedWaiting = [...eligibleWaiting].sort((a, b) => a.nextReview - b.nextReview);
+                const cardsToPull = sortedWaiting
                     .filter(w => !upcomingQueueIds.has(String(w.id)))
                     .map(w => createGrammarCardFromWaiting(w.id))
                     .filter(Boolean);
@@ -706,6 +718,8 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 }
             }
 
+            // 2. If Learn Ahead Limit is OFF and cards are waiting for countdown timer:
+            // Show WAITING SCREEN with countdown timer and manual options!
             if (waiting.length > 0) {
                 setReviewQueue(updatedQueue);
                 setIsAnimatingFlip(false);
@@ -722,22 +736,59 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                     }, 20);
                 }, 70);
                 return;
-            } else {
-                launchFanfare();
-                logGrammarActivity(userId, {
-                    type: 'review',
-                    title: `Đã ôn tập ${updatedQueue.length} mẫu ngữ pháp`,
-                    details: `Hoàn thành phiên ôn tập SRS`
-                });
-                setIsAnimatingFlip(false);
-                setIsFlipped(false);
-                setCurrentReviewIndex(updatedQueue.length);
-                requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        setIsAnimatingFlip(true);
-                    });
-                });
             }
+
+            // 3. When 0 learning cards waiting: check if any other grammar point became newly due/learn-ahead
+            const newlyDueGrammar = (grammarList || []).filter(g => {
+                const srs = srsData[g.id];
+                if (!srs) return false;
+                if (completedCardIds.current.has(g.id)) return false;
+                const nextReviewVal = srs.nextReview || srs.nextReview_back;
+                if (!nextReviewVal) return false;
+                const reviewTime = parseNextReviewMs(nextReviewVal);
+                return reviewTime > 0 && reviewTime <= (nowTime + learnAheadMs);
+            });
+
+            if (learnAheadMs > 0 && newlyDueGrammar.length > 0) {
+                const upcomingQueueIds = new Set(updatedQueue.map(c => String(c.id)));
+                const cardsToPull = newlyDueGrammar.filter(g => !upcomingQueueIds.has(String(g.id)));
+                if (cardsToPull.length > 0) {
+                    cardsToPull.forEach(c => activeReviewCardIds.current.add(String(c.id)));
+                    updatedQueue.push(...cardsToPull);
+                    setReviewQueue(updatedQueue);
+                    saveSessionState(updatedQueue, currentReviewIndex + 1);
+                    setIsAnimatingFlip(false);
+                    setSlideDirection('left');
+                    setTimeout(() => {
+                        setIsFlipped(false);
+                        setCurrentReviewIndex(prev => prev + 1);
+                        setSlideDirection('right');
+                        setTimeout(() => {
+                            setSlideDirection('');
+                            setTimeout(() => {
+                                setIsAnimatingFlip(true);
+                            }, 110);
+                        }, 20);
+                    }, 70);
+                    return;
+                }
+            }
+
+            // 4. Truly completed session!
+            launchFanfare();
+            logGrammarActivity(userId, {
+                type: 'review',
+                title: `Đã ôn tập ${updatedQueue.length} mẫu ngữ pháp`,
+                details: `Hoàn thành phiên ôn tập SRS`
+            });
+            setIsAnimatingFlip(false);
+            setIsFlipped(false);
+            setCurrentReviewIndex(updatedQueue.length);
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    setIsAnimatingFlip(true);
+                });
+            });
         }
 
         sessionXpRef.current += totalXp;
@@ -1149,6 +1200,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
         // Check for any newly due or learn-ahead grammar points while staying on the completion screen
         const learnAheadMs = getLearnAheadLimitMs();
+        const checkWindow = learnAheadMs > 0 ? learnAheadMs : (20 * 60 * 1000);
         const newlyDueGrammar = (grammarList || []).filter(g => {
             const srs = srsData[g.id];
             if (!srs) return false;
@@ -1156,7 +1208,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             const nextReviewVal = srs.nextReview || srs.nextReview_back;
             if (!nextReviewVal) return false;
             const reviewTime = parseNextReviewMs(nextReviewVal);
-            return reviewTime > 0 && reviewTime <= (reviewTick + learnAheadMs);
+            return reviewTime > 0 && reviewTime <= (reviewTick + checkWindow);
         });
 
         // When 0 cards are waiting -> Render Completion Screen

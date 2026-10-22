@@ -96,7 +96,7 @@ export const normalizeSRSState = (srs) => {
     // and should be converted to days by dividing by 1440.
     let resolvedState = state;
     if (!resolvedState) {
-        if (reps === 0 && !srs?.lastReview && !srs?.srsLastReview && !srs?.lastReviewed_back) {
+        if (reps === 0 && (interval === 0 || (!srs?.lastReview && !srs?.srsLastReview && !srs?.lastReviewed_back))) {
             resolvedState = 'NEW';
         } else if (reps > 0) {
             resolvedState = 'REVIEW';
@@ -387,11 +387,11 @@ export const calculateAnkiSRS = (srs, rating, customSeed = null) => {
                 break;
             case 'hard':
                 nextState = 'LEARNING';
-                if (learningStep === 0 && LEARNING_STEPS.length > 1) {
+                if ((learningStep === 0 || learningStep === null || learningStep === undefined) && LEARNING_STEPS.length > 1) {
                     newInterval = 5; // Đổi thành 5 phút theo yêu cầu để phân biệt với Good (10 phút)
                 } else {
                     // Anki: Hard ở bước khác = lặp lại bước hiện tại
-                    newInterval = LEARNING_STEPS[learningStep] || currentInterval;
+                    newInterval = LEARNING_STEPS[learningStep] || currentInterval || 5;
                 }
                 // learningStep stays the same
                 break;

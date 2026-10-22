@@ -1170,7 +1170,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                                 </div>
                                             )}
                                             {/* Hover action buttons */}
-                                            <div 
+                                            <div
                                                 onClick={(e) => e.stopPropagation()}
                                                 className="opacity-0 group-hover:opacity-100 absolute top-1 right-1 flex gap-0.5 transition-all bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg p-0.5 shadow-sm"
                                             >

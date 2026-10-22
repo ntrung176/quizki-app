@@ -37,8 +37,13 @@ const formatInterval = (minutes) => {
         const days = minutes / 1440;
         return days < 2 ? `${Number(days.toFixed(1))} ngày` : `${Math.round(days)} ngày`;
     }
-    const months = minutes / 43200;
-    return months < 2 ? `${Number(months.toFixed(1))} tháng` : `${Math.round(months)} tháng`;
+    const days = minutes / 1440;
+    const months = days / 30;
+    if (months < 12) {
+        return `${Number(months.toFixed(1))} tháng`;
+    }
+    const years = days / 365;
+    return `${Number(years.toFixed(1))} năm`;
 };
 
 // ==================== MAIN COMPONENT ====================
@@ -785,11 +790,15 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             // End of current review queue reached!
             const nowTime = Date.now();
             const waiting = getLearningCardsWaiting();
+            const learnAheadMs = getLearnAheadLimitMs();
 
-            // 1. Check if any learning cards are genuinely DUE NOW (nextReview <= nowTime)
-            // (e.g. 1-minute step that expired while reviewing other cards in this session)
-            const dueNow = waiting.filter(w => w.nextReview <= nowTime);
-            if (dueNow.length > 0) {
+            // 1. When Learn Ahead Limit is ON (learnAheadMs > 0), all cards in waiting (diff <= learnAheadMs) are eligible!
+            // When Learn Ahead Limit is OFF (learnAheadMs === 0), only cards whose actual time has expired (<= nowTime) are eligible.
+            const eligibleWaiting = learnAheadMs > 0
+                ? waiting
+                : waiting.filter(w => w.nextReview <= nowTime);
+
+            if (eligibleWaiting.length > 0) {
                 const upcomingKeys = new Set();
                 updatedQueue.slice(currentReviewIndex + 1).forEach(c => {
                     if (c.id) upcomingKeys.add(String(c.id));
@@ -797,7 +806,8 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                 });
 
                 const cardsToInject = [];
-                dueNow.forEach(item => {
+                const sortedWaiting = [...eligibleWaiting].sort((a, b) => a.nextReview - b.nextReview);
+                sortedWaiting.forEach(item => {
                     const charKey = item.character;
                     const idKey = String(item.id);
                     if (!upcomingKeys.has(charKey) && !upcomingKeys.has(idKey)) {
@@ -831,8 +841,8 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                 }
             }
 
-            // 2. If cards are still waiting for their interval (nextReview > nowTime):
-            // Show WAITING SCREEN with the countdown timer! Do NOT loop infinitely!
+            // 2. If Learn Ahead Limit is OFF and cards are waiting for their countdown timer:
+            // Show WAITING SCREEN with the countdown timer and manual options!
             if (waiting.length > 0) {
                 setReviewQueue(updatedQueue);
                 setHasCheckedTyping(false);
@@ -847,7 +857,48 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                 return;
             }
 
-            // 3. 0 cards waiting (all cards graduated to REVIEW): Session completed!
+            // 3. When 0 learning cards are waiting: check if any other Kanji became newly due/learn-ahead
+            const newlyDueKanji = (kanjiList || []).filter(k => {
+                const srs = srsData[k.id] || k.srsData;
+                if (!srs) return false;
+                if (completedCardIds.current.has(k.id) || (k.character && completedCardIds.current.has(k.character))) return false;
+                const nextReviewVal = srs.nextReview || srs.nextReview_back;
+                if (!nextReviewVal) return false;
+                const reviewTime = parseNextReviewMs(nextReviewVal);
+                return reviewTime > 0 && reviewTime <= (nowTime + learnAheadMs);
+            });
+
+            if (learnAheadMs > 0 && newlyDueKanji.length > 0) {
+                const mappedNew = newlyDueKanji.map(c => {
+                    const srs = srsData[c.id || c.character];
+                    return {
+                        ...c,
+                        userMnemonic: srs?.userMnemonic || srs?.mnemonic || c.userMnemonic || c.mnemonic || '',
+                        mnemonic: srs?.mnemonic || srs?.userMnemonic || c.mnemonic || c.userMnemonic || '',
+                        lapseCount: srs?.lapseCount || c.lapseCount || 0
+                    };
+                });
+                const uniqueNew = Array.from(new Map(mappedNew.map(c => [String(c.id || c.character), c])).values());
+                uniqueNew.forEach(c => {
+                    if (c.id) activeReviewCardIds.current.add(String(c.id));
+                    if (c.character) activeReviewCardIds.current.add(c.character);
+                });
+                updatedQueue.push(...uniqueNew);
+                setReviewQueue(updatedQueue);
+                saveSessionState(updatedQueue, currentReviewIndex + 1);
+                setHasCheckedTyping(false);
+                setIsAnimatingFlip(false);
+                setIsFlipped(false);
+                setCurrentReviewIndex(prev => prev + 1);
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        setIsAnimatingFlip(true);
+                    });
+                });
+                return;
+            }
+
+            // 4. Truly completed session!
             launchFanfare();
             logKanjiActivity(userId, {
                 type: 'review',
@@ -1410,14 +1461,15 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
 
         // Check for any newly due or learn-ahead kanji while staying on the completion screen
         const learnAheadMs = getLearnAheadLimitMs();
+        const checkWindow = learnAheadMs > 0 ? learnAheadMs : (20 * 60 * 1000);
         const newlyDueKanji = (kanjiList || []).filter(k => {
             const srs = srsData[k.id] || k.srsData;
             if (!srs) return false;
-            if (completedCardIds.current.has(k.id)) return false;
+            if (completedCardIds.current.has(k.id) || (k.character && completedCardIds.current.has(k.character))) return false;
             const nextReviewVal = srs.nextReview || srs.nextReview_back;
             if (!nextReviewVal) return false;
             const reviewTime = parseNextReviewMs(nextReviewVal);
-            return reviewTime > 0 && reviewTime <= (lastTick + learnAheadMs);
+            return reviewTime > 0 && reviewTime <= (lastTick + checkWindow);
         });
 
         // When 0 cards are waiting -> Render Completion Screen

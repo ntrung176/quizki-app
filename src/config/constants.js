@@ -267,8 +267,17 @@ export const getLevelColor = (levelValue) => {
 export const formatIntervalMinutes = (minutes) => {
     if (minutes < 60) return `${minutes} phút`;
     if (minutes < 1440) return `${Math.round(minutes / 60)} giờ`;
-    if (minutes < 43200) return `${Math.round(minutes / 1440)} ngày`;
-    return `${Math.round(minutes / 43200)} tháng`;
+    if (minutes < 43200) {
+        const days = minutes / 1440;
+        return days < 2 ? `${Number(days.toFixed(1))} ngày` : `${Math.round(days)} ngày`;
+    }
+    const days = minutes / 1440;
+    const months = days / 30;
+    if (months < 12) {
+        return `${Number(months.toFixed(1))} tháng`;
+    }
+    const years = days / 365;
+    return `${Number(years.toFixed(1))} năm`;
 };
 
 // Danh sách hậu tố ngữ pháp cho động từ (ưu tiên từ dài đến ngắn)
