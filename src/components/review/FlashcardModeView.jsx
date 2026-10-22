@@ -37,6 +37,7 @@ const FlashcardModeView = ({
                 }}
             >
                 <Flashcard
+                    key={currentCard.id}
                     card={currentCard}
                     cardSettings={{ ...cardSettings, reviewType: 'flashcard' }}
                     isFlipped={isFlipped}

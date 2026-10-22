@@ -125,7 +125,8 @@ const FlashcardScreen = ({ cards: initialCards, setId, isCustomSubset = false, o
                 reading: false,
                 exampleFurigana: true,
                 exampleMeaning: true,
-                synonymFurigana: true
+                synonymFurigana: true,
+                image: true
             },
             swapSides: false,
             autoPlayAudio: true,
@@ -676,6 +677,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, isCustomSubset = false, o
                                 }}
                             >
                                 <Flashcard
+                                    key={currentCard.id}
                                     card={currentCard}
                                     cardSettings={{ ...cardSettings, reviewType: 'flashcard' }}
                                     isFlipped={isFlipped}
@@ -851,6 +853,10 @@ const FlashcardScreen = ({ cards: initialCards, setId, isCustomSubset = false, o
                                                     </label>
                                                 </div>
                                             )}
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" />
+                                                <span>Hình ảnh minh họa</span>
+                                            </label>
                                         </div>
                                     </div>
                                 </>
@@ -904,6 +910,10 @@ const FlashcardScreen = ({ cards: initialCards, setId, isCustomSubset = false, o
                                                     </label>
                                                 </div>
                                             )}
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" />
+                                                <span>Hình ảnh minh họa</span>
+                                            </label>
                                         </div>
                                     </div>
                                 </>
@@ -937,6 +947,7 @@ const FlashcardScreen = ({ cards: initialCards, setId, isCustomSubset = false, o
                                                     <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span></label>
                                                 </div>
                                             )}
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-blue-600 dark:text-blue-400 focus:ring-blue-500 w-4 h-4" /><span>Hình ảnh minh họa</span></label>
                                         </div>
                                     </div>
                                 </>

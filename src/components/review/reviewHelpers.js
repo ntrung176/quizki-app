@@ -16,7 +16,8 @@ export const DEFAULT_CARD_SETTINGS = {
         exampleFurigana: true,
         exampleMeaning: true,
         synonymFurigana: true,
-        nuance: false
+        nuance: false,
+        image: true
     },
     swapSides: false,
     autoPlayAudio: true,

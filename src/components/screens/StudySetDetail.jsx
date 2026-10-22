@@ -252,6 +252,7 @@ const FlashcardPlayerSection = ({
                 }}
             >
                 <Flashcard
+                    key={activeCard.id}
                     card={activeCard}
                     cardSettings={{ ...cardSettings, reviewType: 'flashcard' }}
                     isFlipped={isCardFlipped}
@@ -517,6 +518,7 @@ const StudySetDetail = ({
                 hanviet: true,
                 synonym: false,
                 example: false,
+                image: true,
                 word: false,
                 furigana: false,
                 reading: false,
@@ -1992,6 +1994,10 @@ const StudySetDetail = ({
                                                 <span>Từ đồng nghĩa / Trái nghĩa</span>
                                             </label>
                                             <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-500 w-4 h-4" />
+                                                <span>Hình ảnh minh họa</span>
+                                            </label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
                                                 <input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-500 w-4 h-4" />
                                                 <span>Câu ví dụ</span>
                                             </label>
@@ -2045,6 +2051,10 @@ const StudySetDetail = ({
                                                 <span>Từ đồng nghĩa / Trái nghĩa</span>
                                             </label>
                                             <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-500 w-4 h-4" />
+                                                <span>Hình ảnh minh họa</span>
+                                            </label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
                                                 <input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-500 w-4 h-4" />
                                                 <span>Câu ví dụ</span>
                                             </label>
@@ -2083,6 +2093,7 @@ const StudySetDetail = ({
                                                     <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonymFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonymFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Furigana đồng nghĩa</span></label>
                                                 </div>
                                             )}
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-500 w-4 h-4" /><span>Hình ảnh minh họa</span></label>
                                             <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-500 w-4 h-4" /><span>Ví dụ</span></label>
                                             {cardSettings.back.example && (
                                                 <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">

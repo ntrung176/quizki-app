@@ -10,6 +10,7 @@ import useMenuTransition from '../../hooks/useMenuTransition';
 import { ROUTES } from '../../router';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
+import { preloadKuroshiro } from '../../utils/furiganaHelper';
 import { calculateAnkiSRS, parseNextReviewMs, isVocabCardDue, isLeechCard, getCardPreviewIntervals, getLearnAheadLimitMs, DEFAULT_LEARN_AHEAD_MINS } from '../../utils/srs';
 import SRSForecastChart from '../ui/SRSForecastChart';
 import LeechManagerModal from '../ui/LeechManagerModal';
@@ -647,6 +648,20 @@ const SRSVocabScreen = ({
         setIsFlipped(false);
         setReviewHistory([]);
 
+        // Re-sync freshest card settings from localStorage so Card #1 always applies latest user settings
+        try {
+            const saved = localStorage.getItem('quizki_flashcard_settings_v2');
+            if (saved) {
+                const parsed = JSON.parse(saved);
+                setCardSettings(prev => ({
+                    ...prev,
+                    ...parsed,
+                    front: { ...prev.front, ...parsed.front },
+                    back: { ...prev.back, ...parsed.back }
+                }));
+            }
+        } catch (_) { }
+
         // Pre-calculate preview intervals & fuzz factors for all queue cards during prewarming screen
         intervalCacheRef.current = {};
         uniqueDueCards.forEach(c => {
@@ -656,8 +671,9 @@ const SRSVocabScreen = ({
         // Show calculating & prewarming screen before Card #1
         setIsPreparingSession(true);
 
-        // Pre-warm WebKit AudioContext and SpeechSynthesis
+        // Pre-warm Kuroshiro dictionary and WebKit AudioContext
         try {
+            preloadKuroshiro();
             if (typeof window !== 'undefined') {
                 if (window.speechSynthesis) window.speechSynthesis.getVoices();
                 const AudioCtxClass = window.AudioContext || window.webkitAudioContext;
@@ -1484,6 +1500,7 @@ const SRSVocabScreen = ({
                                 }}
                             >
                                 <Flashcard
+                                    key={`${currentCard.id}_${currentReviewIndex}_${cardSettings.reviewType}_${cardSettings.swapSides ? 'rev' : 'fwd'}`}
                                     card={currentCard}
                                     cardSettings={cardSettings}
                                     isFlipped={isFlipped}
@@ -1779,6 +1796,10 @@ const SRSVocabScreen = ({
                                                     </label>
                                                 </div>
                                             )}
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
+                                                <span>Hình ảnh minh họa</span>
+                                            </label>
                                         </div>
                                     </div>
                                 ) : isEnglishMode ? (
@@ -1813,6 +1834,10 @@ const SRSVocabScreen = ({
                                                     </label>
                                                 </div>
                                             )}
+                                            <label className="flex items-center gap-2.5 cursor-pointer">
+                                                <input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
+                                                <span>Hình ảnh minh họa</span>
+                                            </label>
                                         </div>
                                     </div>
                                 ) : (
@@ -1836,6 +1861,7 @@ const SRSVocabScreen = ({
                                                     <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span></label>
                                                 </div>
                                             )}
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Hình ảnh minh họa</span></label>
                                         </div>
                                     </div>
                                 )}
@@ -2430,6 +2456,10 @@ const SRSVocabScreen = ({
                                                 </label>
                                             </div>
                                         )}
+                                        <label className="flex items-center gap-2.5 cursor-pointer">
+                                            <input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
+                                            <span>Hình ảnh minh họa</span>
+                                        </label>
                                     </div>
                                 </div>
                             ) : isEnglishMode ? (
@@ -2451,6 +2481,10 @@ const SRSVocabScreen = ({
                                         <label className="flex items-center gap-2.5 cursor-pointer">
                                             <input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
                                             <span>Từ đồng nghĩa / Trái nghĩa</span>
+                                        </label>
+                                        <label className="flex items-center gap-2.5 cursor-pointer">
+                                            <input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
+                                            <span>Hình ảnh minh họa</span>
                                         </label>
                                         <label className="flex items-center gap-2.5 cursor-pointer">
                                             <input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
@@ -2480,6 +2514,7 @@ const SRSVocabScreen = ({
                                                 <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonymFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonymFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Furigana đồng nghĩa</span></label>
                                             </div>
                                         )}
+                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Hình ảnh minh họa</span></label>
                                         <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Ví dụ</span></label>
                                         {cardSettings.back.example && (
                                             <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">

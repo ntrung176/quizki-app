@@ -225,6 +225,20 @@ const parseFuriganaText = (text) => {
     return parts;
 };
 
+const getInitialProcessedText = (txt, reading) => {
+    if (!txt) return '';
+    const trimmed = String(txt).trim();
+    if (reading && String(reading).trim()) {
+        const rawWord = trimmed.split('（')[0].split('(')[0].split('[')[0].trim();
+        const hasKanji = /[\u4E00-\u9FAF\u3400-\u4DBF]/.test(rawWord);
+        if (hasKanji) {
+            return `${rawWord}（${String(reading).trim()}）`;
+        }
+        return rawWord;
+    }
+    return trimmed;
+};
+
 /**
  * FuriganaText - Renders Japanese text with ruby (furigana) annotations
  * 
@@ -232,7 +246,7 @@ const parseFuriganaText = (text) => {
  * @param {string} className - Optional CSS class for the container
  */
 const FuriganaText = ({ text, knownReading = '', className = '', forceHide = false, showReadingOnly = false, compact = false }) => {
-    const [processedText, setProcessedText] = useState(text || '');
+    const [processedText, setProcessedText] = useState(() => getInitialProcessedText(text, knownReading));
     const [furiganaColor, setFuriganaColor] = useState(() => {
         try {
             const saved = localStorage.getItem('quizki-settings');

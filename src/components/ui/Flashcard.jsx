@@ -8,7 +8,7 @@ import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { formatIPA, isEnglishCard as checkIsEnglishCard } from '../../utils/englishVocab';
 import { isKoreanCard as checkIsKoreanCard, formatRomaja } from '../../languages';
 import InlineMnemonicEditor from './InlineMnemonicEditor';
-import { Volume2, Maximize2, X } from 'lucide-react';
+import { Volume2, Maximize2, X, Lightbulb } from 'lucide-react';
 import { speakExampleSentence } from '../../utils/audio';
 
 const getCardScaleStyles = (card, settings) => {
@@ -57,18 +57,19 @@ const getCardScaleStyles = (card, settings) => {
     const exampleLines = showExamples ? card.example.split('\n').filter(e => e.trim()).length : 0;
     const exampleLength = showExamples ? card.example.length : 0;
 
-    const hasImage = Boolean(card.imageUrl || card.imageBase64);
+    const hasImage = Boolean((card.imageUrl || card.imageBase64) && settings?.back?.image !== false);
     const hasSinoViet = Boolean(card.sinoVietnamese && settings?.back?.hanviet !== false);
     const hasSynonym = Boolean(card.synonym && settings?.back?.synonym !== false);
-    const hasMnemonic = Boolean(card.userMnemonic || card.customMnemonic || card.mnemonic || isLeechCard(card));
     const showMeaning = !isSwap && Boolean(settings?.back?.meaning !== false && card.back);
 
     // Tính điểm mật độ chữ cho Typography (Text Density Score for font-sizes)
     let textDensityScore = 0;
 
-    if (exampleLines >= 3 || exampleLength > 140) textDensityScore += 3;
-    else if (exampleLines === 2 || exampleLength > 70) textDensityScore += 2;
-    else if (exampleLines === 1) textDensityScore += 1;
+    // Chỉ tăng mật độ dựa vào độ dài thực tế của câu ví dụ chứ không phạt thẻ có nhiều ví dụ ngắn
+    if (exampleLength > 160 || (exampleLines >= 4 && exampleLength > 110)) textDensityScore += 3;
+    else if (exampleLength > 90 || (exampleLines >= 3 && exampleLength > 60)) textDensityScore += 2;
+    else if (exampleLines >= 2 || exampleLength > 35) textDensityScore += 1;
+    else if (exampleLines === 1) textDensityScore += 0.5;
 
     if (showMeaning) {
         if (meaningLength > 140 || meaningLines >= 4) textDensityScore += 3.5;
@@ -79,74 +80,70 @@ const getCardScaleStyles = (card, settings) => {
     if (readingLength > 16) textDensityScore += 2;
     else if (readingLength > 8) textDensityScore += 1;
 
-    if (hasImage) textDensityScore += 1.5;
-    if (hasMnemonic) textDensityScore += 1;
-    if (hasSinoViet && hasSynonym) textDensityScore += 1;
-
     // 3. Phân cấp kích thước font chữ & khoảng cách dựa trên textDensityScore
     let wordSize = "text-3xl sm:text-4xl md:text-5xl font-black leading-snug";
-    let meaningSize = "text-xl sm:text-2xl md:text-3xl font-bold mt-1.5 leading-snug";
+    let meaningSize = "text-xl sm:text-2xl md:text-3xl font-bold mt-1 leading-snug";
     let hanvietSize = "text-[13px] md:text-sm font-bold";
-    let exampleBoxPadding = "p-3 sm:p-3.5 md:p-4";
-    let exampleItemGap = "space-y-1.5 sm:space-y-2";
+    // Tối ưu khoảng trắng padding khung ví dụ và khoảng cách giữa các ví dụ
+    let exampleBoxPadding = "pt-1.5 pb-1.5 px-3 sm:pt-2 sm:pb-2 sm:px-3.5";
+    let exampleItemGap = "space-y-1 sm:space-y-1.5";
     let exampleTitleSize = "text-[12px]";
-    let exampleTextSize = "text-[14px] sm:text-[16px] md:text-[17.5px] leading-relaxed font-bold";
-    let exampleMeaningSize = "text-[12px] sm:text-[13px] md:text-[14px] font-sans mt-0.5 leading-relaxed";
-    let cardPadding = "p-4 sm:p-5 md:p-6";
-    let contentGap = "space-y-2 sm:space-y-2.5";
+    let exampleTextSize = "text-[16px] sm:text-[18px] md:text-[19px] leading-snug sm:leading-relaxed font-bold";
+    let exampleMeaningSize = "text-[11px] sm:text-[11.5px] md:text-[12px] font-sans mt-0.5 leading-snug";
+    let cardPadding = "p-3.5 sm:p-4 md:p-5";
+    let contentGap = "space-y-1 sm:space-y-1.5";
     let imageMobileSize = "w-16 h-16 sm:w-20 sm:h-20";
 
-    if (textDensityScore >= 5.5) {
-        // Tầng 4: Siêu thu gọn (Nhiều nội dung đồng thời)
+    if (textDensityScore >= 6.5) {
+        // Tầng 4: Siêu thu gọn (Nhiều nội dung đồng thời cực dài)
         wordSize = "text-base sm:text-lg md:text-xl font-bold leading-tight";
         meaningSize = "text-sm sm:text-base md:text-lg font-semibold mt-0.5 leading-snug";
         hanvietSize = "text-[11px] sm:text-xs font-semibold";
-        exampleBoxPadding = "p-2 sm:p-2.5";
-        exampleItemGap = "space-y-1";
+        exampleBoxPadding = "pt-1 pb-1 px-2 sm:pt-1.5 sm:pb-1.5 sm:px-2.5";
+        exampleItemGap = "space-y-0.5";
         exampleTitleSize = "text-[9.5px]";
-        exampleTextSize = "text-[11.5px] sm:text-[12.5px] leading-snug font-medium";
-        exampleMeaningSize = "text-[10px] sm:text-[11px] font-sans leading-tight mt-0.5";
+        exampleTextSize = "text-[14px] sm:text-[15px] md:text-[16px] leading-snug sm:leading-relaxed font-semibold";
+        exampleMeaningSize = "text-[9.5px] sm:text-[10px] md:text-[10.5px] font-sans leading-tight mt-0.5";
         cardPadding = "p-3 sm:p-3.5";
-        contentGap = "space-y-1 sm:space-y-1.5";
+        contentGap = "space-y-0.5 sm:space-y-1";
         imageMobileSize = "w-12 h-12 sm:w-14 sm:h-14";
-    } else if (textDensityScore >= 3.5) {
-        // Tầng 3: Thu gọn vừa (2 ví dụ hoặc nghĩa dài)
+    } else if (textDensityScore >= 4.0) {
+        // Tầng 3: Thu gọn vừa (Nhiều ví dụ dài hoặc nghĩa dài)
         wordSize = "text-lg sm:text-xl md:text-2xl font-extrabold leading-snug";
         meaningSize = "text-base sm:text-lg md:text-xl font-bold mt-0.5 leading-snug";
         hanvietSize = "text-xs sm:text-[12.5px] font-semibold";
-        exampleBoxPadding = "p-2.5 sm:p-3";
-        exampleItemGap = "space-y-1.5";
+        exampleBoxPadding = "pt-1 pb-1 px-2.5 sm:pt-1.5 sm:pb-1.5 sm:px-3";
+        exampleItemGap = "space-y-0.5 sm:space-y-1";
         exampleTitleSize = "text-[10.5px]";
-        exampleTextSize = "text-[13px] sm:text-[14px] leading-snug font-semibold";
-        exampleMeaningSize = "text-[11px] sm:text-[12px] font-sans leading-snug mt-0.5";
-        cardPadding = "p-3.5 sm:p-4";
-        contentGap = "space-y-1.5 sm:space-y-2";
+        exampleTextSize = "text-[14.5px] sm:text-[16px] md:text-[17px] leading-snug sm:leading-relaxed font-semibold";
+        exampleMeaningSize = "text-[10px] sm:text-[10.5px] md:text-[11px] font-sans leading-snug mt-0.5";
+        cardPadding = "p-3 sm:p-3.5 sm:p-4";
+        contentGap = "space-y-1 sm:space-y-1.5";
         imageMobileSize = "w-14 h-14 sm:w-16 sm:h-16";
     } else if (textDensityScore >= 2) {
-        // Tầng 2: Trung bình (1 ví dụ hoặc nghĩa vừa phải)
+        // Tầng 2: Trung bình (1-3 ví dụ ngắn hoặc nghĩa vừa phải)
         wordSize = "text-xl sm:text-2xl md:text-3xl font-extrabold leading-snug";
-        meaningSize = "text-lg sm:text-xl md:text-2xl font-bold mt-1 leading-snug";
+        meaningSize = "text-lg sm:text-xl md:text-2xl font-bold mt-0.5 leading-snug";
         hanvietSize = "text-[12.5px] sm:text-[13px] md:text-sm font-bold";
-        exampleBoxPadding = "p-3 sm:p-3.5";
-        exampleItemGap = "space-y-1.5";
+        exampleBoxPadding = "pt-1 pb-1 px-2.5 sm:pt-1.5 sm:pb-1.5 sm:px-3";
+        exampleItemGap = "space-y-0.5 sm:space-y-1";
         exampleTitleSize = "text-[11.5px]";
-        exampleTextSize = "text-[13.5px] sm:text-[15px] md:text-[16.5px] leading-relaxed font-bold";
-        exampleMeaningSize = "text-[11.5px] sm:text-[12.5px] font-sans leading-snug mt-0.5";
-        cardPadding = "p-4 sm:p-5";
-        contentGap = "space-y-1.5 sm:space-y-2";
+        exampleTextSize = "text-[15.5px] sm:text-[17px] md:text-[18px] leading-snug sm:leading-relaxed font-bold";
+        exampleMeaningSize = "text-[10.5px] sm:text-[11px] md:text-[11.5px] font-sans leading-snug mt-0.5";
+        cardPadding = "p-3.5 sm:p-4";
+        contentGap = "space-y-1 sm:space-y-1.5";
         imageMobileSize = "w-16 h-16 sm:w-20 sm:h-20";
     } else {
-        // Tầng 1: Tiêu chuẩn / Lớn (Từ ngắn, không có ví dụ)
+        // Tầng 1: Tiêu chuẩn / Lớn (Từ ngắn, không có ví dụ hoặc ít ví dụ)
         if (readingLength > 8 || frontLength > 8) {
             wordSize = "text-2xl sm:text-3xl md:text-4xl font-extrabold leading-snug";
         }
         if (meaningLength > 30) {
-            meaningSize = "text-lg sm:text-xl md:text-2xl font-bold mt-1 leading-snug";
+            meaningSize = "text-lg sm:text-xl md:text-2xl font-bold mt-0.5 leading-snug";
         }
     }
 
     // 4. Tính toán không gian thực tế còn lại cho khung ví dụ (Dynamic Example Max Height)
-    // Ước lượng mức chiếm dụng chiều cao của các thành phần phi ví dụ (Reading, Meaning, Hán Việt, Đồng nghĩa, Mẹo nhớ, Ảnh mobile)
     let nonExampleOccupancy = 0;
 
     // Header đọc/kanji
@@ -164,9 +161,6 @@ const getCardScaleStyles = (card, settings) => {
     // Hán Việt & Đồng nghĩa
     if (hasSinoViet && hasSynonym) nonExampleOccupancy += 1.2;
     else if (hasSinoViet || hasSynonym) nonExampleOccupancy += 0.7;
-
-    // Mẹo nhớ cá nhân / Thẻ leech
-    if (hasMnemonic) nonExampleOccupancy += 2.0;
 
     // Ảnh mobile trong dòng
     if (hasImage) nonExampleOccupancy += 1.8;
@@ -233,10 +227,12 @@ const Flashcard = ({
 }) => {
     const [pitchData, setPitchData] = useState(null);
     const [isEditingMnemonic, setIsEditingMnemonic] = useState(false);
+    const [showMnemonicView, setShowMnemonicView] = useState(false);
     const [showImageZoom, setShowImageZoom] = useState(false);
 
     useEffect(() => {
         setIsEditingMnemonic(false);
+        setShowMnemonicView(false);
     }, [card]);
 
     useEffect(() => {
@@ -291,6 +287,13 @@ const Flashcard = ({
 
     const isTypingMode = cardSettings?.reviewType === 'typing' && hasCheckedTyping !== undefined;
     const isTypingBlocked = isTypingMode && hasCheckedTyping === false;
+
+    const showExample = Boolean(cardSettings?.back?.example);
+    const hasExamples = Boolean(showExample && card?.example && card.example.trim());
+    const hasImage = Boolean((card?.imageUrl || card?.imageBase64) && cardSettings?.back?.image !== false);
+    const isLeech = isLeechCard(card) || Boolean(card?.isLeech) || (card?.srsLapseCount >= 3) || (card?.lapseCount >= 3);
+    const mnemonicText = card?.userMnemonic || card?.customMnemonic || card?.mnemonic || '';
+    const hasMnemonic = Boolean(mnemonicText);
 
     const renderFrontContent = () => {
         let wordColorClass = "text-slate-800 dark:text-white";
@@ -422,7 +425,7 @@ const Flashcard = ({
                                 )}
                             </>
                         ) : (
-                            <FuriganaText text={card.frontWithFurigana || card.front} knownReading={card.reading} forceHide={!cardSettings.front.furigana} className="break-words whitespace-normal text-center" />
+                            <FuriganaText text={card.frontWithFurigana || card.front} knownReading={card.reading} forceHide={!cardSettings?.front?.furigana} className="break-words whitespace-normal text-center" />
                         )}
                     </div>
                 )}
@@ -447,8 +450,8 @@ const Flashcard = ({
         let readingColorClass = "text-slate-800 dark:text-white";
         let hanvietColorClass = "text-slate-600 dark:text-slate-400";
         let exampleBoxClass = "bg-slate-50/60 dark:bg-slate-900/40 border border-slate-200/70 dark:border-slate-800";
-        let exampleTextClass = "text-slate-700 dark:text-slate-300";
-        let exampleMeaningClass = `${scale.exampleMeaningSize} text-slate-500 dark:text-slate-400 font-sans mt-0.5`;
+        let exampleTextClass = "text-slate-850 dark:text-slate-100 font-medium";
+        let exampleMeaningClass = `${scale.exampleMeaningSize} text-slate-500 dark:text-slate-400 font-sans mt-0.5 leading-snug`;
         let meaningColorClass = "text-slate-800 dark:text-white font-extrabold";
 
         if (variant === 'review' || variant === 'emerald') {
@@ -543,10 +546,207 @@ const Flashcard = ({
             }
         };
 
+        const exampleLines = hasExamples ? card.example.split('\n').map(e => e.trim()).filter(Boolean) : [];
+        const exampleLength = (card.example || '').length;
+
+        // RENDER GIAO DIỆN KHI THẺ CÓ CÂU VÍ DỤ (Zone 1: Header gọn gàng chứa ảnh; Zone 2: Khung ví dụ kéo dài sát đáy)
+        if (hasExamples) {
+            return (
+                <div className="flex-1 flex flex-col items-center w-full h-full min-h-0 relative justify-between">
+                    {/* ZONE 1: Header (Image + Word info + Meaning + HanViet) */}
+                    <div className={`w-full flex-1 min-h-[96px] md:min-h-[104px] relative flex flex-col items-center justify-center text-center ${scale.contentGap || 'space-y-1 sm:space-y-1.5'} pt-0.5 pb-0.5`}>
+                        {/* Desktop & Tablet: Corner Thumbnail Badge ở góc trên bên trái trong Header */}
+                        {hasImage && (
+                            <div
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setShowImageZoom(true);
+                                }}
+                                className="hidden sm:flex absolute left-0 top-1 bottom-1 sm:top-1 sm:bottom-1 z-20 group/img cursor-pointer items-center justify-center"
+                                title="Nhấn để xem ảnh phóng to"
+                            >
+                                <div className="relative h-full aspect-square max-h-[145px] overflow-hidden rounded-2xl sm:rounded-3xl border-2 border-white/90 dark:border-slate-700/90 shadow-md transition-all duration-200 group-hover/img:scale-105 group-hover/img:shadow-xl bg-white dark:bg-slate-800 shrink-0">
+                                    <img
+                                        src={card.imageUrl || card.imageBase64}
+                                        alt={card.front}
+                                        className="w-full h-full object-cover"
+                                    />
+                                    <div className="absolute inset-0 bg-black/0 group-hover/img:bg-black/15 transition-colors flex items-center justify-center opacity-0 group-hover/img:opacity-100">
+                                        <Maximize2 className="w-4 h-4 sm:w-5 sm:h-5 text-white drop-shadow" />
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Mobile: Top Centered Thumbnail in-flow */}
+                        {hasImage && (
+                            <div
+                                onClick={(e) => {
+                                    e.stopPropagation();
+                                    setShowImageZoom(true);
+                                }}
+                                className="sm:hidden mb-1 shrink-0 group/img cursor-pointer active:scale-95 transition-transform"
+                                title="Chạm để xem ảnh phóng to"
+                            >
+                                <div className="relative overflow-hidden rounded-2xl border-2 border-white/90 dark:border-slate-700/90 shadow-md bg-white dark:bg-slate-800">
+                                    <img
+                                        src={card.imageUrl || card.imageBase64}
+                                        alt={card.front}
+                                        className={`${scale.imageMobileSize || 'w-14 h-14 sm:w-16 sm:h-16'} object-cover`}
+                                    />
+                                    <div className="absolute bottom-1 right-1 bg-black/40 backdrop-blur-xs rounded-full p-1 text-white">
+                                        <Maximize2 className="w-3 h-3" />
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+
+                        {/* Main Word Details (centered, with padding clearance for image on sm+) */}
+                        <div className={`w-full flex flex-col items-center justify-center text-center ${hasImage ? 'sm:px-28 md:px-36' : 'px-1'} ${scale.contentGap || 'space-y-1 sm:space-y-1.5'}`}>
+                            {/* Hiển thị từ vựng Kanji/Furigana ở mặt đáp án khi swapSides hoặc khi bật cardSettings.back.word */}
+                            {(cardSettings?.swapSides || cardSettings.back?.word) && (
+                                <div className={`${scale.wordSize || 'text-3xl font-extrabold'} shrink-0 font-bold ${wordColorClass} select-none leading-relaxed mb-0.5 flex items-center justify-center gap-2 flex-wrap max-w-full w-full text-center px-2 break-words`}>
+                                    {isKoreanCard || isEnglishCard ? (
+                                        <span>{card.front}</span>
+                                    ) : (
+                                        <FuriganaText text={card.frontWithFurigana || card.front} knownReading={card.reading} forceHide={cardSettings.back?.furigana === false} className="break-words whitespace-normal text-center" />
+                                    )}
+                                </div>
+                            )}
+                            {isKoreanCard ? (
+                                ((card.reading && cardSettings.back?.reading !== false) || card.pos) && (
+                                    <div className="flex items-center justify-center gap-2 flex-wrap mb-0.5 shrink-0">
+                                        {card.reading && (cardSettings.back?.reading !== false) && (
+                                            <span className="text-base sm:text-lg font-mono font-semibold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-3 py-0.5 rounded-full border border-emerald-200/60 dark:border-emerald-800/60">
+                                                {card.reading}
+                                            </span>
+                                        )}
+                                        {card.pos && (cardSettings.back?.pos !== false) && (
+                                            <span className={variant === 'review' || variant === 'emerald' ?
+                                                "inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full font-sans" :
+                                                "inline-block px-2.5 py-0.5 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 rounded-full text-xs font-semibold text-slate-500 dark:text-slate-400 font-sans"
+                                            }>
+                                                {getPosLabel(card.pos)}
+                                            </span>
+                                        )}
+                                    </div>
+                                )
+                            ) : isEnglishCard ? (
+                                (formatIPA(card.ipa, card.front) || card.pos) && (
+                                    <div className="flex items-center justify-center gap-2 flex-wrap mb-0.5 shrink-0">
+                                        {formatIPA(card.ipa, card.front) && (cardSettings.back?.ipa !== false) && (
+                                            <span className="text-base sm:text-lg font-mono font-semibold text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/60 px-3 py-0.5 rounded-full border border-blue-200/60 dark:border-blue-800/60">
+                                                {formatIPA(card.ipa, card.front)}
+                                            </span>
+                                        )}
+                                        {card.pos && (cardSettings.back?.pos !== false) && (
+                                            <span className={variant === 'review' || variant === 'emerald' ?
+                                                "inline-block px-2.5 py-0.5 bg-white/20 backdrop-blur-sm text-white text-xs font-semibold rounded-full font-sans" :
+                                                "inline-block px-2.5 py-0.5 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 rounded-full text-xs font-semibold text-slate-500 dark:text-slate-400 font-sans"
+                                            }>
+                                                {getPosLabel(card.pos)}
+                                            </span>
+                                        )}
+                                    </div>
+                                )
+                            ) : (
+                                showReading && (
+                                    <div className={`${scale.wordSize || 'text-3xl font-extrabold'} shrink-0 font-bold ${readingColorClass} font-japanese select-none leading-relaxed mb-0.5 flex items-center justify-center gap-2 flex-wrap max-w-full w-full text-center px-2 break-words`}>
+                                        {renderReadingWithPitchAccent()}
+                                        {card.pos && (
+                                            <span className={variant === 'review' || variant === 'emerald' ?
+                                                "inline-block px-2 py-0.5 bg-white/20 backdrop-blur-sm text-white text-[10px] font-semibold rounded-full font-sans" :
+                                                "inline-block px-2 py-0.5 bg-slate-100 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 rounded-full text-[10px] font-semibold text-slate-500 dark:text-slate-400 font-sans"
+                                            }>
+                                                {getPosLabel(card.pos)}
+                                            </span>
+                                        )}
+                                    </div>
+                                )
+                            )}
+                            {showMeaning && (
+                                <div className={`${scale.meaningSize} shrink-0 font-bold ${meaningColorClass} break-words whitespace-pre-line leading-relaxed max-w-full px-2`}>
+                                    {card.back}
+                                </div>
+                            )}
+                            {((!isEnglishCard && showHanviet && card.sinoVietnamese) || (showSynonym && card.synonym)) && (
+                                <div className={`flex items-baseline justify-center gap-2 sm:gap-3 ${scale.hanvietSize || 'text-[13px] md:text-[14px]'} shrink-0 font-bold mt-0.5 flex-wrap`}>
+                                    {!isEnglishCard && showHanviet && card.sinoVietnamese && (
+                                        <span className={`inline-flex items-baseline ${variant === 'review' || variant === 'emerald' ? 'text-yellow-300' : 'text-slate-700 dark:text-slate-300'}`}>
+                                            <span className={variant === 'review' || variant === 'emerald' ? "text-emerald-100 font-normal mr-1" : "text-slate-400 dark:text-slate-500 font-normal mr-1"}>
+                                                {isKoreanCard ? 'Hán Hàn:' : 'Hán Việt:'}
+                                            </span>
+                                            {card.sinoVietnamese}
+                                        </span>
+                                    )}
+                                    {!isEnglishCard && showHanviet && card.sinoVietnamese && showSynonym && card.synonym && (
+                                        <span className={`inline-block ${variant === 'review' || variant === 'emerald' ? 'text-white/25' : 'text-slate-200 dark:text-slate-700'}`}>|</span>
+                                    )}
+                                    {showSynonym && card.synonym && (
+                                        <span className={`inline-flex items-baseline gap-1 ${variant === 'review' || variant === 'emerald' ? 'text-emerald-105' : 'text-slate-800 dark:text-slate-300'}`}>
+                                            <span className={variant === 'review' || variant === 'emerald' ? "text-emerald-100 font-normal shrink-0" : "text-slate-400 dark:text-slate-500 font-normal shrink-0"}>Đồng nghĩa: </span>
+                                            {isEnglishCard || isKoreanCard ? (
+                                                <span className={`font-semibold ${variant === 'review' || variant === 'emerald' ? 'text-white' : 'text-slate-800 dark:text-slate-200'}`}>{card.synonym}</span>
+                                            ) : (
+                                                <FuriganaText text={card.synonym} forceHide={showSynonymFurigana === false} className={`font-japanese font-semibold ${variant === 'review' || variant === 'emerald' ? 'text-white' : 'text-slate-800 dark:text-slate-200'}`} />
+                                            )}
+                                        </span>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* ZONE 2: Khung câu ví dụ ôm sát nội dung hoặc mở rộng tối đa theo nội dung */}
+                    <div
+                        className={`mt-0.5 sm:mt-1 w-full max-w-full ${scale.exampleBoxPadding || 'pt-1.5 pb-1.5 px-3'} ${exampleBoxClass} rounded-2xl overflow-y-auto no-scrollbar cursor-default flex flex-col justify-start max-h-[65%] shrink-0`}
+                        onTouchStart={(e) => e.stopPropagation()}
+                        onTouchMove={(e) => e.stopPropagation()}
+                        onTouchEnd={(e) => e.stopPropagation()}
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <div className={`w-full ${scale.exampleItemGap || 'space-y-1 sm:space-y-1.5'}`}>
+                            {exampleLines.map((ex, idx) => {
+                                const meaning = (card.exampleMeaning || '').split('\n')[idx]?.trim();
+                                return (
+                                    <div key={idx} className={`relative group/ex border-l-2 ${variant === 'review' || variant === 'emerald' ? 'border-white/30' : 'border-blue-500/30'} pl-2.5 sm:pl-3 pr-10 sm:pr-12 flex flex-col justify-center py-0.5`}>
+                                        <div className={`${scale.exampleTextSize} ${exampleTextClass} ${(isEnglishCard || isKoreanCard) ? 'font-sans' : 'font-japanese'} leading-snug sm:leading-relaxed select-text`}>
+                                            {(isEnglishCard || isKoreanCard) ? ex : <FuriganaText text={ex} forceHide={showExampleFurigana === false} />}
+                                        </div>
+                                        {meaning && showExampleMeaning !== false && (
+                                            <p className={exampleMeaningClass}>{meaning}</p>
+                                        )}
+                                        <button
+                                            type="button"
+                                            onClick={(e) => {
+                                                e.stopPropagation();
+                                                speakExampleSentence(ex);
+                                            }}
+                                            onTouchStart={(e) => e.stopPropagation()}
+                                            onTouchEnd={(e) => e.stopPropagation()}
+                                            className={`absolute right-0 top-1/2 -translate-y-1/2 p-1.5 sm:p-2 min-w-[34px] min-h-[34px] sm:min-w-[38px] sm:min-h-[38px] rounded-xl transition-all flex items-center justify-center z-30 cursor-pointer active:scale-90 touch-manipulation shadow-xs ${variant === 'review' || variant === 'emerald'
+                                                    ? 'text-white/80 hover:text-white bg-white/15 hover:bg-white/25 active:bg-white/35'
+                                                    : 'text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 bg-slate-100/95 hover:bg-slate-200 dark:bg-slate-800/95 dark:hover:bg-slate-700 active:bg-blue-100 dark:active:bg-blue-900/50'
+                                                }`}
+                                            title="Nghe câu ví dụ"
+                                            aria-label="Phát âm câu ví dụ"
+                                        >
+                                            <Volume2 className="w-4 h-4 shrink-0" />
+                                        </button>
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+            );
+        }
+
+        // RENDER GIAO DIỆN KHI THẺ KHÔNG CÓ CÂU VÍ DỤ (Căn giữa hoàn hảo trên toàn thẻ)
         return (
-            <div className="flex-1 flex flex-col items-center justify-center text-center w-full h-full min-h-0 relative">
+            <div className="flex-1 flex flex-col items-center justify-center text-center w-full h-full min-h-0 relative my-auto">
                 {/* Desktop & Tablet: Corner Thumbnail Badge ở góc trên bên trái */}
-                {(card.imageUrl || card.imageBase64) && (
+                {hasImage && (
                     <div
                         onClick={(e) => {
                             e.stopPropagation();
@@ -570,7 +770,7 @@ const Flashcard = ({
 
                 <div className={`flex flex-col items-center justify-center text-center min-w-0 ${scale.contentGap || 'space-y-1.5 sm:space-y-2.5'} w-full my-auto py-1 overflow-y-auto no-scrollbar max-h-full px-1`}>
                     {/* Mobile: Top Centered Thumbnail in-flow (không che lấp từ vựng & nghĩa) */}
-                    {(card.imageUrl || card.imageBase64) && (
+                    {hasImage && (
                         <div
                             onClick={(e) => {
                                 e.stopPropagation();
@@ -683,99 +883,6 @@ const Flashcard = ({
                             )}
                         </div>
                     )}
-                    {(() => {
-                        const isLeech = isLeechCard(card) || card.isLeech || (card.srsLapseCount >= 3) || (card.lapseCount >= 3);
-                        const hasCustomMnemonic = !!(card.userMnemonic || card.customMnemonic);
-
-                        if (isEditingMnemonic) {
-                            return (
-                                <InlineMnemonicEditor
-                                    initialText={card.userMnemonic || card.customMnemonic || card.mnemonic || ''}
-                                    card={card}
-                                    onSave={async (newText) => {
-                                        card.userMnemonic = newText;
-                                        card.customMnemonic = newText;
-                                        card.mnemonic = newText;
-                                        setIsEditingMnemonic(false);
-                                        if (onSaveMnemonic) await onSaveMnemonic(card, newText);
-                                        else if (onEditMnemonic) await onEditMnemonic(card, newText);
-                                    }}
-                                    onCancel={() => setIsEditingMnemonic(false)}
-                                    onGeminiAssist={onGeminiAssist}
-                                />
-                            );
-                        }
-
-                        if (isLeech || hasCustomMnemonic) {
-                            return (
-                                <div className="w-full text-left mt-1.5 shrink-0">
-                                    {(card.userMnemonic || card.customMnemonic || card.mnemonic) ? (
-                                        <div className="text-xs text-amber-950 dark:text-amber-100 bg-amber-500/15 border border-amber-500/30 rounded-2xl p-2.5 max-w-full font-medium leading-relaxed flex items-start justify-between gap-2 shadow-sm">
-                                            <div className="flex-1">
-                                                <span className="font-bold text-amber-800 dark:text-amber-300 block mb-0.5">💡 Mẹo nhớ cá nhân:</span>
-                                                <span className="whitespace-pre-line">{card.userMnemonic || card.customMnemonic || card.mnemonic}</span>
-                                            </div>
-                                            <button
-                                                onClick={(e) => { e.stopPropagation(); setIsEditingMnemonic(true); }}
-                                                className="text-[11px] font-bold text-amber-700 dark:text-amber-300 underline hover:opacity-80 shrink-0 cursor-pointer"
-                                            >
-                                                Sửa
-                                            </button>
-                                        </div>
-                                    ) : (
-                                        <button
-                                            onClick={(e) => { e.stopPropagation(); setIsEditingMnemonic(true); }}
-                                            className="w-full py-1.5 px-3 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-700 dark:text-amber-300 border border-amber-500/30 text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer"
-                                        >
-                                            💡 + Thêm mẹo nhớ cá nhân
-                                        </button>
-                                    )}
-                                </div>
-                            );
-                        }
-
-                        return null;
-                    })()}
-                    {showExample && card.example && (
-                        <div
-                            className={`mt-1 ${scale.exampleItemGap} text-left w-full max-w-full ${scale.exampleBoxPadding} ${exampleBoxClass} rounded-2xl overflow-y-auto ${scale.exampleMaxHeight || 'max-h-[250px] sm:max-h-[280px]'} no-scrollbar cursor-default`}
-                            onTouchStart={(e) => e.stopPropagation()}
-                            onTouchMove={(e) => e.stopPropagation()}
-                            onTouchEnd={(e) => e.stopPropagation()}
-                            onClick={(e) => e.stopPropagation()}
-                        >
-                            {card.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
-                                const meaning = (card.exampleMeaning || '').split('\n')[idx]?.trim();
-                                return (
-                                    <div key={idx} className={`relative group/ex border-l-2 ${variant === 'review' || variant === 'emerald' ? 'border-white/30' : 'border-blue-500/30'} pl-3 pr-12 min-h-[38px] flex flex-col justify-center`}>
-                                        <div className={`${scale.exampleTextSize} ${exampleTextClass} ${(isEnglishCard || isKoreanCard) ? 'font-sans' : 'font-japanese'} leading-relaxed select-text`}>
-                                            {(isEnglishCard || isKoreanCard) ? ex : <FuriganaText text={ex} forceHide={showExampleFurigana === false} />}
-                                        </div>
-                                        {meaning && showExampleMeaning !== false && (
-                                            <p className={exampleMeaningClass}>{meaning}</p>
-                                        )}
-                                        <button
-                                            type="button"
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                speakExampleSentence(ex);
-                                            }}
-                                            onTouchStart={(e) => e.stopPropagation()}
-                                            onTouchEnd={(e) => e.stopPropagation()}
-                                            className={`absolute right-0 top-1/2 -translate-y-1/2 p-2 min-w-[40px] min-h-[40px] rounded-xl transition-all flex items-center justify-center z-30 cursor-pointer active:scale-90 touch-manipulation shadow-sm ${variant === 'review' || variant === 'emerald'
-                                                    ? 'text-white/80 hover:text-white bg-white/15 hover:bg-white/25 active:bg-white/35'
-                                                    : 'text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 bg-slate-100/95 hover:bg-slate-200 dark:bg-slate-800/95 dark:hover:bg-slate-700 active:bg-blue-100 dark:active:bg-blue-900/50'
-                                                }`}
-                                            title="Nghe câu ví dụ"
-                                            aria-label="Phát âm câu ví dụ"
-                                        >
-                                            <Volume2 className="w-4 h-4 shrink-0" />
-                                        </button>
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    )}
                 </div>
             </div>
         );
@@ -821,9 +928,102 @@ const Flashcard = ({
 
                 {/* Back Side */}
                 <div className={backCardClass}>
-                    <div className="flex flex-col items-center justify-center min-h-full w-full relative h-full my-auto">
+                    <div className={`flex flex-col items-center w-full h-full min-h-0 relative ${hasExamples ? '' : 'justify-center min-h-full my-auto'}`}>
                         {renderBackContent()}
                     </div>
+
+                    {/* Top-Right Mnemonic Icon Button */}
+                    <button
+                        type="button"
+                        onClick={(e) => {
+                            e.stopPropagation();
+                            if (hasMnemonic) {
+                                setShowMnemonicView(true);
+                            } else {
+                                setIsEditingMnemonic(true);
+                            }
+                        }}
+                        className={`absolute top-2.5 right-2.5 sm:top-3 sm:right-3 z-30 flex items-center gap-1 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-xl transition-all cursor-pointer active:scale-95 shadow-xs ${
+                            hasMnemonic
+                                ? (variant === 'review' || variant === 'emerald'
+                                    ? 'bg-amber-400 text-amber-950 font-bold border border-amber-300 shadow-amber-400/30'
+                                    : 'bg-amber-500 hover:bg-amber-600 text-white font-bold shadow-amber-500/20')
+                                : isLeech
+                                    ? (variant === 'review' || variant === 'emerald'
+                                        ? 'bg-amber-400/25 text-amber-100 border border-amber-300/40 animate-pulse font-medium'
+                                        : 'bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-300 dark:border-amber-700 ring-2 ring-amber-400/30 animate-pulse font-medium')
+                                    : (variant === 'review' || variant === 'emerald'
+                                        ? 'bg-white/15 hover:bg-white/25 text-white/90 border border-white/20 font-medium'
+                                        : 'bg-slate-100/90 hover:bg-amber-50 dark:bg-slate-800/90 dark:hover:bg-amber-950/40 text-slate-600 hover:text-amber-700 dark:text-slate-300 dark:hover:text-amber-300 border border-slate-200/80 dark:border-slate-700 font-medium')
+                        }`}
+                        title={hasMnemonic ? `Mẹo nhớ: ${mnemonicText}` : "Thêm mẹo nhớ cá nhân"}
+                    >
+                        <Lightbulb className={`w-3.5 h-3.5 ${hasMnemonic && (variant !== 'review' && variant !== 'emerald') ? 'text-white' : 'text-amber-500 dark:text-amber-400'} shrink-0`} />
+                        <span className="text-[10.5px] sm:text-xs">
+                            {hasMnemonic ? 'Mẹo nhớ' : '+ Mẹo'}
+                        </span>
+                    </button>
+
+                    {/* Mnemonic View Popup Overlay */}
+                    {showMnemonicView && !isEditingMnemonic && (
+                        <div
+                            className="absolute inset-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-[32px] p-4 sm:p-5 flex flex-col justify-between animate-fade-in text-left shadow-2xl border border-amber-200/60 dark:border-amber-800/60"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <div className="flex items-center justify-between border-b border-amber-200 dark:border-amber-800/60 pb-2">
+                                <span className="text-xs sm:text-sm font-bold text-amber-800 dark:text-amber-300 flex items-center gap-1.5">
+                                    <Lightbulb className="w-4 h-4 text-amber-500" />
+                                    Mẹo nhớ cá nhân
+                                </span>
+                                <button
+                                    type="button"
+                                    onClick={() => setShowMnemonicView(false)}
+                                    className="p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-lg cursor-pointer"
+                                    title="Đóng"
+                                >
+                                    <X className="w-4 h-4" />
+                                </button>
+                            </div>
+                            <div className="flex-1 overflow-y-auto no-scrollbar py-3 text-xs sm:text-sm text-slate-800 dark:text-slate-100 font-medium leading-relaxed whitespace-pre-line">
+                                {mnemonicText}
+                            </div>
+                            <div className="flex items-center justify-end gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        setShowMnemonicView(false);
+                                        setIsEditingMnemonic(true);
+                                    }}
+                                    className="px-3.5 py-1.5 bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold rounded-xl transition-all shadow-xs cursor-pointer"
+                                >
+                                    Chỉnh sửa
+                                </button>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Inline Mnemonic Editor Overlay */}
+                    {isEditingMnemonic && (
+                        <div
+                            className="absolute inset-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-[32px] p-3 sm:p-4 flex flex-col justify-center animate-fade-in text-left shadow-2xl border border-amber-200/60 dark:border-amber-800/60"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <InlineMnemonicEditor
+                                initialText={mnemonicText}
+                                card={card}
+                                onSave={async (newText) => {
+                                    card.userMnemonic = newText;
+                                    card.customMnemonic = newText;
+                                    card.mnemonic = newText;
+                                    setIsEditingMnemonic(false);
+                                    if (onSaveMnemonic) await onSaveMnemonic(card, newText);
+                                    else if (onEditMnemonic) await onEditMnemonic(card, newText);
+                                }}
+                                onCancel={() => setIsEditingMnemonic(false)}
+                                onGeminiAssist={onGeminiAssist}
+                            />
+                        </div>
+                    )}
                 </div>
             </div>
 
@@ -840,7 +1040,7 @@ const Flashcard = ({
             )}
 
             {/* Image Zoom Lightbox Modal */}
-            {showImageZoom && (card.imageUrl || card.imageBase64) && typeof document !== 'undefined' && createPortal(
+            {showImageZoom && hasImage && typeof document !== 'undefined' && createPortal(
                 <div
                     onClick={(e) => {
                         e.stopPropagation();
