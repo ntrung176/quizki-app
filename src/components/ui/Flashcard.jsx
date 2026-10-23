@@ -65,10 +65,10 @@ const getCardScaleStyles = (card, settings) => {
     // Tính điểm mật độ chữ cho Typography (Text Density Score for font-sizes)
     let textDensityScore = 0;
 
-    // Chỉ tăng mật độ dựa vào độ dài thực tế của câu ví dụ chứ không phạt thẻ có nhiều ví dụ ngắn
-    if (exampleLength > 160 || (exampleLines >= 4 && exampleLength > 110)) textDensityScore += 3;
-    else if (exampleLength > 90 || (exampleLines >= 3 && exampleLength > 60)) textDensityScore += 2;
-    else if (exampleLines >= 2 || exampleLength > 35) textDensityScore += 1;
+    // Phân loại điểm câu ví dụ: mỗi câu ví dụ kèm dịch + nút phát âm chiếm ít nhất 40-50px chiều cao
+    if (exampleLines >= 4 || exampleLength > 160) textDensityScore += 3.5;
+    else if (exampleLines === 3 || exampleLength > 85) textDensityScore += 2.5;
+    else if (exampleLines === 2 || exampleLength > 35) textDensityScore += 1.5;
     else if (exampleLines === 1) textDensityScore += 0.5;
 
     if (showMeaning) {
@@ -79,6 +79,11 @@ const getCardScaleStyles = (card, settings) => {
 
     if (readingLength > 16) textDensityScore += 2;
     else if (readingLength > 8) textDensityScore += 1;
+
+    // Thêm điểm nếu có ảnh kết hợp câu ví dụ (chiếm diện tích chiều cao trên mobile)
+    if (hasImage && showExamples) textDensityScore += 1.2;
+    // Thêm điểm nếu có đồng thời cả Hán tự/Hán Việt và Từ đồng nghĩa
+    if (hasSinoViet && hasSynonym) textDensityScore += 0.8;
 
     // 3. Phân cấp kích thước font chữ & khoảng cách dựa trên textDensityScore
     let wordSize = "text-3xl sm:text-4xl md:text-5xl font-black leading-snug";
@@ -92,7 +97,7 @@ const getCardScaleStyles = (card, settings) => {
     let exampleMeaningSize = "text-[11px] sm:text-[11.5px] md:text-[12px] font-sans mt-0.5 leading-snug";
     let cardPadding = "p-3.5 sm:p-4 md:p-5";
     let contentGap = "space-y-1 sm:space-y-1.5";
-    let imageMobileSize = "w-16 h-16 sm:w-20 sm:h-20";
+    let imageMobileSize = showExamples ? "w-13 h-13 sm:w-16 sm:h-16" : "w-16 h-16 sm:w-20 sm:h-20";
 
     if (textDensityScore >= 6.5) {
         // Tầng 4: Siêu thu gọn (Nhiều nội dung đồng thời cực dài)
@@ -106,7 +111,7 @@ const getCardScaleStyles = (card, settings) => {
         exampleMeaningSize = "text-[9.5px] sm:text-[10px] md:text-[10.5px] font-sans leading-tight mt-0.5";
         cardPadding = "p-3 sm:p-3.5";
         contentGap = "space-y-0.5 sm:space-y-1";
-        imageMobileSize = "w-12 h-12 sm:w-14 sm:h-14";
+        imageMobileSize = "w-9 h-9 sm:w-11 sm:h-11";
     } else if (textDensityScore >= 4.0) {
         // Tầng 3: Thu gọn vừa (Nhiều ví dụ dài hoặc nghĩa dài)
         wordSize = "text-lg sm:text-xl md:text-2xl font-extrabold leading-snug";
@@ -119,7 +124,7 @@ const getCardScaleStyles = (card, settings) => {
         exampleMeaningSize = "text-[10px] sm:text-[10.5px] md:text-[11px] font-sans leading-snug mt-0.5";
         cardPadding = "p-3 sm:p-3.5 sm:p-4";
         contentGap = "space-y-1 sm:space-y-1.5";
-        imageMobileSize = "w-14 h-14 sm:w-16 sm:h-16";
+        imageMobileSize = "w-10 h-10 sm:w-13 sm:h-13";
     } else if (textDensityScore >= 2) {
         // Tầng 2: Trung bình (1-3 ví dụ ngắn hoặc nghĩa vừa phải)
         wordSize = "text-xl sm:text-2xl md:text-3xl font-extrabold leading-snug";
@@ -132,7 +137,7 @@ const getCardScaleStyles = (card, settings) => {
         exampleMeaningSize = "text-[10.5px] sm:text-[11px] md:text-[11.5px] font-sans leading-snug mt-0.5";
         cardPadding = "p-3.5 sm:p-4";
         contentGap = "space-y-1 sm:space-y-1.5";
-        imageMobileSize = "w-16 h-16 sm:w-20 sm:h-20";
+        imageMobileSize = "w-12 h-12 sm:w-15 sm:h-15";
     } else {
         // Tầng 1: Tiêu chuẩn / Lớn (Từ ngắn, không có ví dụ hoặc ít ví dụ)
         if (readingLength > 8 || frontLength > 8) {
@@ -552,9 +557,9 @@ const Flashcard = ({
         // RENDER GIAO DIỆN KHI THẺ CÓ CÂU VÍ DỤ (Zone 1: Header gọn gàng chứa ảnh; Zone 2: Khung ví dụ kéo dài sát đáy)
         if (hasExamples) {
             return (
-                <div className="flex-1 flex flex-col items-center w-full h-full min-h-0 relative justify-between">
-                    {/* ZONE 1: Header (Image + Word info + Meaning + HanViet) */}
-                    <div className={`w-full flex-1 min-h-[96px] md:min-h-[104px] relative flex flex-col items-center justify-center text-center ${scale.contentGap || 'space-y-1 sm:space-y-1.5'} pt-0.5 pb-0.5`}>
+                <div className="flex-1 flex flex-col items-center w-full h-full min-h-0 relative">
+                    {/* ZONE 1: Header (Image + Word info + Meaning + HanViet) - shrink-0 to prevent being overlapped */}
+                    <div className={`w-full shrink-0 sm:min-h-[105px] md:min-h-[115px] relative flex flex-col items-center justify-center text-center ${scale.contentGap || 'space-y-1 sm:space-y-1.5'} pt-0.5 pb-0.5`}>
                         {/* Desktop & Tablet: Corner Thumbnail Badge ở góc trên bên trái trong Header */}
                         {hasImage && (
                             <div
@@ -592,7 +597,7 @@ const Flashcard = ({
                                     <img
                                         src={card.imageUrl || card.imageBase64}
                                         alt={card.front}
-                                        className={`${scale.imageMobileSize || 'w-14 h-14 sm:w-16 sm:h-16'} object-cover`}
+                                        className={`${scale.imageMobileSize || 'w-13 h-13 sm:w-16 sm:h-16'} object-cover`}
                                     />
                                     <div className="absolute bottom-1 right-1 bg-black/40 backdrop-blur-xs rounded-full p-1 text-white">
                                         <Maximize2 className="w-3 h-3" />
@@ -697,45 +702,47 @@ const Flashcard = ({
                         </div>
                     </div>
 
-                    {/* ZONE 2: Khung câu ví dụ ôm sát nội dung hoặc mở rộng tối đa theo nội dung */}
-                    <div
-                        className={`mt-0.5 sm:mt-1 w-full max-w-full ${scale.exampleBoxPadding || 'pt-1.5 pb-1.5 px-3'} ${exampleBoxClass} rounded-2xl overflow-y-auto no-scrollbar cursor-default flex flex-col justify-start max-h-[65%] shrink-0`}
-                        onTouchStart={(e) => e.stopPropagation()}
-                        onTouchMove={(e) => e.stopPropagation()}
-                        onTouchEnd={(e) => e.stopPropagation()}
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        <div className={`w-full ${scale.exampleItemGap || 'space-y-1 sm:space-y-1.5'}`}>
-                            {exampleLines.map((ex, idx) => {
-                                const meaning = (card.exampleMeaning || '').split('\n')[idx]?.trim();
-                                return (
-                                    <div key={idx} className={`relative group/ex border-l-2 ${variant === 'review' || variant === 'emerald' ? 'border-white/30' : 'border-blue-500/30'} pl-2.5 sm:pl-3 pr-10 sm:pr-12 flex flex-col justify-center py-0.5`}>
-                                        <div className={`${scale.exampleTextSize} ${exampleTextClass} ${(isEnglishCard || isKoreanCard) ? 'font-sans' : 'font-japanese'} leading-snug sm:leading-relaxed select-text`}>
-                                            {(isEnglishCard || isKoreanCard) ? ex : <FuriganaText text={ex} forceHide={showExampleFurigana === false} />}
+                    {/* ZONE 2 WRAPPER: Takes remaining space without ever overlapping Zone 1 */}
+                    <div className="w-full flex-1 min-h-0 flex flex-col justify-end mt-0.5 sm:mt-1">
+                        <div
+                            className={`w-full max-w-full ${scale.exampleBoxPadding || 'pt-1.5 pb-1.5 px-3'} ${exampleBoxClass} rounded-2xl overflow-y-auto no-scrollbar cursor-default flex flex-col justify-start max-h-full`}
+                            onTouchStart={(e) => e.stopPropagation()}
+                            onTouchMove={(e) => e.stopPropagation()}
+                            onTouchEnd={(e) => e.stopPropagation()}
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <div className={`w-full ${scale.exampleItemGap || 'space-y-1 sm:space-y-1.5'}`}>
+                                {exampleLines.map((ex, idx) => {
+                                    const meaning = (card.exampleMeaning || '').split('\n')[idx]?.trim();
+                                    return (
+                                        <div key={idx} className={`relative group/ex border-l-2 ${variant === 'review' || variant === 'emerald' ? 'border-white/30' : 'border-blue-500/30'} pl-2.5 sm:pl-3 pr-10 sm:pr-12 flex flex-col justify-center py-0.5`}>
+                                            <div className={`${scale.exampleTextSize} ${exampleTextClass} ${(isEnglishCard || isKoreanCard) ? 'font-sans' : 'font-japanese'} leading-snug sm:leading-relaxed select-text`}>
+                                                {(isEnglishCard || isKoreanCard) ? ex : <FuriganaText text={ex} forceHide={showExampleFurigana === false} />}
+                                            </div>
+                                            {meaning && showExampleMeaning !== false && (
+                                                <p className={exampleMeaningClass}>{meaning}</p>
+                                            )}
+                                            <button
+                                                type="button"
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    speakExampleSentence(ex);
+                                                }}
+                                                onTouchStart={(e) => e.stopPropagation()}
+                                                onTouchEnd={(e) => e.stopPropagation()}
+                                                className={`absolute right-0 top-1/2 -translate-y-1/2 p-1.5 sm:p-2 min-w-[34px] min-h-[34px] sm:min-w-[38px] sm:min-h-[38px] rounded-xl transition-all flex items-center justify-center z-30 cursor-pointer active:scale-90 touch-manipulation shadow-xs ${variant === 'review' || variant === 'emerald'
+                                                        ? 'text-white/80 hover:text-white bg-white/15 hover:bg-white/25 active:bg-white/35'
+                                                        : 'text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 bg-slate-100/95 hover:bg-slate-200 dark:bg-slate-800/95 dark:hover:bg-slate-700 active:bg-blue-100 dark:active:bg-blue-900/50'
+                                                    }`}
+                                                title="Nghe câu ví dụ"
+                                                aria-label="Phát âm câu ví dụ"
+                                            >
+                                                <Volume2 className="w-4 h-4 shrink-0" />
+                                            </button>
                                         </div>
-                                        {meaning && showExampleMeaning !== false && (
-                                            <p className={exampleMeaningClass}>{meaning}</p>
-                                        )}
-                                        <button
-                                            type="button"
-                                            onClick={(e) => {
-                                                e.stopPropagation();
-                                                speakExampleSentence(ex);
-                                            }}
-                                            onTouchStart={(e) => e.stopPropagation()}
-                                            onTouchEnd={(e) => e.stopPropagation()}
-                                            className={`absolute right-0 top-1/2 -translate-y-1/2 p-1.5 sm:p-2 min-w-[34px] min-h-[34px] sm:min-w-[38px] sm:min-h-[38px] rounded-xl transition-all flex items-center justify-center z-30 cursor-pointer active:scale-90 touch-manipulation shadow-xs ${variant === 'review' || variant === 'emerald'
-                                                    ? 'text-white/80 hover:text-white bg-white/15 hover:bg-white/25 active:bg-white/35'
-                                                    : 'text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 bg-slate-100/95 hover:bg-slate-200 dark:bg-slate-800/95 dark:hover:bg-slate-700 active:bg-blue-100 dark:active:bg-blue-900/50'
-                                                }`}
-                                            title="Nghe câu ví dụ"
-                                            aria-label="Phát âm câu ví dụ"
-                                        >
-                                            <Volume2 className="w-4 h-4 shrink-0" />
-                                        </button>
-                                    </div>
-                                );
-                            })}
+                                    );
+                                })}
+                            </div>
                         </div>
                     </div>
                 </div>
