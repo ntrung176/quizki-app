@@ -575,59 +575,101 @@ export const useReviewData = ({
                 const raw = c.frontWithFurigana || c.front || '';
                 if (c.reading && c.reading.trim()) {
                     const base = raw.split('（')[0].trim();
-                    return `${base}（${c.reading.trim()}）`;
+                    if (base !== c.reading.trim()) {
+                        return `${base}（${c.reading.trim()}）`;
+                    }
                 }
                 return raw;
             };
 
             const correctAnswer = formatCardOption(currentCard);
             const currentPos = currentCard.pos;
+            const targetLang = currentCard.targetLanguage || 'ja';
+            const normalizedCorrect = normalizeAnswer(correctAnswer);
+            const normalizedCorrectFront = normalizeAnswer(currentCard.front || '');
+            const normalizedCorrectBack = normalizeAnswer(currentCard.back || '');
 
-            const allValidCards = (allCards || cards)
-                .filter(card =>
-                    card.id !== currentCard.id &&
-                    card.front &&
-                    card.front.trim() !== '' &&
-                    normalizeAnswer(card.front) !== normalizeAnswer(correctAnswer)
-                );
+            const isValidCandidate = (card) => {
+                if (!card || card.id === currentCard.id) return false;
+                if ((card.targetLanguage || 'ja') !== targetLang) return false;
+                const formatted = formatCardOption(card);
+                if (!formatted || !formatted.trim()) return false;
+                if (normalizeAnswer(card.front) === normalizedCorrectFront) return false;
+                if (normalizeAnswer(formatted) === normalizedCorrect) return false;
+                if (card.back && normalizedCorrectBack && normalizeAnswer(card.back) === normalizedCorrectBack) return false;
+                return true;
+            };
 
-            const samePosCards = currentPos
-                ? allValidCards.filter(card => card.pos === currentPos)
+            const wrongOptions = [];
+            const seenOptions = new Set([normalizedCorrect]);
+
+            const tryAddCandidate = (card) => {
+                const formatted = formatCardOption(card);
+                const norm = normalizeAnswer(formatted);
+                if (!norm || seenOptions.has(norm)) return false;
+                seenOptions.add(norm);
+                wrongOptions.push(formatted);
+                return true;
+            };
+
+            // 1. ƯU TIÊN 1: Lấy từ các thẻ trong học phần hiện tại (cards / initialCards)
+            const currentDeckCards = (cards || initialCards || []).filter(isValidCandidate);
+            const samePosInDeck = currentPos
+                ? currentDeckCards.filter(card => card.pos === currentPos)
                 : [];
-
             const correctLength = correctAnswer.length;
-            const similarLengthCards = allValidCards.filter(card =>
-                Math.abs(card.front.length - correctLength) <= 2
+            const similarLengthInDeck = currentDeckCards.filter(card =>
+                Math.abs((card.front || '').length - correctLength) <= 2
             );
 
-            let candidates = [];
-
-            if (samePosCards.length > 0) {
-                candidates.push(...samePosCards.slice(0, 3));
+            let deckCandidates = [];
+            if (samePosInDeck.length > 0) {
+                deckCandidates.push(...shuffleArray(samePosInDeck));
+            }
+            if (deckCandidates.length < 3) {
+                const remaining = similarLengthInDeck.filter(card => !deckCandidates.some(c => c.id === card.id));
+                deckCandidates.push(...shuffleArray(remaining));
+            }
+            if (deckCandidates.length < 3) {
+                const remaining = currentDeckCards.filter(card => !deckCandidates.some(c => c.id === card.id));
+                deckCandidates.push(...shuffleArray(remaining));
             }
 
-            if (candidates.length < 3) {
-                const remaining = similarLengthCards.filter(card =>
-                    !candidates.find(c => c.id === card.id)
-                );
-                candidates.push(...remaining.slice(0, 3 - candidates.length));
+            for (const c of deckCandidates) {
+                tryAddCandidate(c);
+                if (wrongOptions.length >= 3) break;
             }
 
-            if (candidates.length < 3) {
-                const remaining = allValidCards.filter(card =>
-                    !candidates.find(c => c.id === card.id)
-                );
-                candidates.push(...remaining.slice(0, 3 - candidates.length));
-            }
+            // 2. ƯU TIÊN 2: Nếu học phần hiện tại không đủ 3 lựa chọn sai, gom thêm từ allCards (học phần khác)
+            if (wrongOptions.length < 3 && allCards && allCards.length > 0) {
+                const deckIds = new Set((cards || initialCards || []).map(c => c.id));
+                const globalValid = allCards.filter(c => isValidCandidate(c) && !deckIds.has(c.id));
 
-            const shuffledCandidates = shuffleArray(candidates);
-            const wrongOptions = shuffledCandidates
-                .slice(0, 3)
-                .map(card => formatCardOption(card))
-                .filter((front, index, self) =>
-                    self.findIndex(f => normalizeAnswer(f) === normalizeAnswer(front)) === index
-                    && normalizeAnswer(front) !== normalizeAnswer(correctAnswer)
+                const samePosGlobal = currentPos
+                    ? globalValid.filter(card => card.pos === currentPos)
+                    : [];
+                const similarLengthGlobal = globalValid.filter(card =>
+                    Math.abs((card.front || '').length - correctLength) <= 2
                 );
+
+                let globalCandidates = [];
+                if (samePosGlobal.length > 0) {
+                    globalCandidates.push(...shuffleArray(samePosGlobal));
+                }
+                if (globalCandidates.length < 3) {
+                    const remaining = similarLengthGlobal.filter(card => !globalCandidates.some(c => c.id === card.id));
+                    globalCandidates.push(...shuffleArray(remaining));
+                }
+                if (globalCandidates.length < 3) {
+                    const remaining = globalValid.filter(card => !globalCandidates.some(c => c.id === card.id));
+                    globalCandidates.push(...shuffleArray(remaining));
+                }
+
+                for (const c of globalCandidates) {
+                    tryAddCandidate(c);
+                    if (wrongOptions.length >= 3) break;
+                }
+            }
 
             while (wrongOptions.length < 3) {
                 wrongOptions.push(`(Lựa chọn ${wrongOptions.length + 1})`);
@@ -639,7 +681,7 @@ export const useReviewData = ({
         }
 
         setMultipleChoiceOptions(optionsRef.current[currentCardId] || []);
-    }, [currentCardId, isMultipleChoice, currentCard, allCards, cards, normalizeAnswer, reviewTestFormat]);
+    }, [currentCardId, isMultipleChoice, currentCard, allCards, cards, initialCards, normalizeAnswer, reviewTestFormat]);
 
     useEffect(() => {
         if (cards.length > 0 && currentIndex >= cards.length && !isCompletingRef.current && !showComplete) {

@@ -63,31 +63,99 @@ const formatCardForOption = (c) => {
     if (!c) return '';
     const rawFront = (c.front || c.vocabulary || c.word || '').split('（')[0].split('(')[0].split('[')[0].trim();
     const reading = (c.reading || c.kana || c.reading_hiragana || '').trim();
-    if (rawFront && reading) {
+    if (rawFront && reading && reading !== rawFront) {
         return `${rawFront}（${reading}）`;
     }
     return c.frontWithFurigana || c.front || '';
 };
 
-// Build 4 MC options: 1 correct + 3 distractors from same language pool
-const buildOptions = (correctCard, allCards) => {
+// Build 4 MC options: 1 correct + 3 distractors
+// ƯU TIÊN: Gom từ vựng từ học phần hiện tại trước (currentSetCards), nếu không đủ mới lấy từ học phần khác (allCards)
+const buildOptions = (correctCard, currentSetCards = [], allCards = []) => {
     const targetLang = correctCard.targetLanguage || 'ja';
     const correct = formatCardForOption(correctCard);
-    const sameLangCards = (allCards || []).filter(c => (c.targetLanguage || 'ja') === targetLang);
-    const distractors = shuffleArray(
-        sameLangCards
-            .filter(c => c.id !== correctCard.id)
-            .map(c => formatCardForOption(c))
-            .filter((v, i, arr) => arr.indexOf(v) === i && normalize(v) !== normalize(correct))
-    ).slice(0, 3);
-    while (distractors.length < 3) distractors.push(`(lựa chọn ${distractors.length + 1})`);
-    return shuffleArray([correct, ...distractors]);
+    const normalizedCorrect = normalize(correct);
+    const normalizedCorrectFront = normalize(correctCard.front || '');
+    const normalizedCorrectBack = normalize(correctCard.back || '');
+
+    const isValidDistractor = (c) => {
+        if (!c || c.id === correctCard.id) return false;
+        if ((c.targetLanguage || 'ja') !== targetLang) return false;
+        const optText = formatCardForOption(c);
+        if (!optText || !optText.trim()) return false;
+        if (normalize(optText) === normalizedCorrect) return false;
+        if (c.front && normalize(c.front) === normalizedCorrectFront) return false;
+        // Tránh chọn các từ có nghĩa tiếng Việt giống hệt đáp án đúng
+        if (c.back && normalizedCorrectBack && normalize(c.back) === normalizedCorrectBack) return false;
+        return true;
+    };
+
+    const distractorOptions = [];
+    const seenTexts = new Set([normalizedCorrect]);
+
+    const tryAddCard = (c) => {
+        const text = formatCardForOption(c);
+        const norm = normalize(text);
+        if (!norm || seenTexts.has(norm)) return false;
+        seenTexts.add(norm);
+        distractorOptions.push(text);
+        return true;
+    };
+
+    // 1. Ưu tiên 1: Lấy từ các thẻ trong học phần hiện đang học (currentSetCards)
+    const validCurrentSet = (currentSetCards || []).filter(isValidDistractor);
+    const samePosInSet = correctCard.pos
+        ? validCurrentSet.filter(c => c.pos === correctCard.pos)
+        : [];
+    const diffPosInSet = correctCard.pos
+        ? validCurrentSet.filter(c => c.pos !== correctCard.pos)
+        : validCurrentSet;
+
+    const setCandidates = [
+        ...shuffleArray(samePosInSet),
+        ...shuffleArray(diffPosInSet)
+    ];
+
+    for (const c of setCandidates) {
+        tryAddCard(c);
+        if (distractorOptions.length >= 3) break;
+    }
+
+    // 2. Ưu tiên 2: Nếu học phần hiện tại không đủ 3 lựa chọn sai, gom thêm từ allCards (học phần khác)
+    if (distractorOptions.length < 3 && allCards && allCards.length > 0) {
+        const currentSetIds = new Set((currentSetCards || []).map(c => c.id));
+        const validGlobal = allCards.filter(c => isValidDistractor(c) && !currentSetIds.has(c.id));
+
+        const samePosGlobal = correctCard.pos
+            ? validGlobal.filter(c => c.pos === correctCard.pos)
+            : [];
+        const diffPosGlobal = correctCard.pos
+            ? validGlobal.filter(c => c.pos !== correctCard.pos)
+            : validGlobal;
+
+        const globalCandidates = [
+            ...shuffleArray(samePosGlobal),
+            ...shuffleArray(diffPosGlobal)
+        ];
+
+        for (const c of globalCandidates) {
+            tryAddCard(c);
+            if (distractorOptions.length >= 3) break;
+        }
+    }
+
+    // 3. Fallback nếu vẫn không đủ 3 lựa chọn sai
+    while (distractorOptions.length < 3) {
+        distractorOptions.push(`(lựa chọn ${distractorOptions.length + 1})`);
+    }
+
+    return shuffleArray([correct, ...distractorOptions]);
 };
 
 // ─── Phase: Multiple Choice ────────────────────────────────────────────────
 
-const MCPhase = ({ card, allCards, onCorrect, onWrong, onSaveCardAudio, furiganaEnabled, audioEnabled }) => {
-    const [options] = useState(() => buildOptions(card, allCards));
+const MCPhase = ({ card, currentSetCards, allCards, onCorrect, onWrong, onSaveCardAudio, furiganaEnabled, audioEnabled }) => {
+    const [options] = useState(() => buildOptions(card, currentSetCards, allCards));
     const [selected, setSelected] = useState(null);
     const [answered, setAnswered] = useState(false);
     const correct = formatCardForOption(card);
@@ -1084,7 +1152,8 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                 <MCPhase
                                     key={currentCard.id + '-mc-' + mcIdx}
                                     card={currentCard}
-                                    allCards={allCards?.length > 1 ? allCards : originalCards}
+                                    currentSetCards={originalCards}
+                                    allCards={allCards}
                                     onCorrect={handleMCCorrect}
                                     onWrong={handleMCWrong}
                                     onSaveCardAudio={onSaveCardAudio}
