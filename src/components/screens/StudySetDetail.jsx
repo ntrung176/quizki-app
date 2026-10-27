@@ -702,7 +702,20 @@ const StudySetDetail = ({
 
                 if (existingCard) {
                     const cardDocRef = doc(db, `artifacts/${appId}/users/${currentUserId}/vocabulary`, existingCard.id);
-                    batch.update(cardDocRef, { folderId: folderId });
+                    const updatePayload = { folderId: folderId };
+                    const vEx = (v.example || '').trim();
+                    const cEx = (existingCard.example || '').trim();
+                    if (vEx && (cEx !== vEx || !cEx)) {
+                        updatePayload.example = vEx;
+                        updatePayload.exampleMeaning = (v.exampleMeaning || '').trim();
+                        if (v.exampleAudioBase64) updatePayload.exampleAudioBase64 = v.exampleAudioBase64;
+                        if (existingCard.intervalIndex_example === -999 || existingCard.intervalIndex_example === undefined) {
+                            updatePayload.intervalIndex_example = -1;
+                            updatePayload.nextReview_example = new Date();
+                            updatePayload.correctStreak_example = 0;
+                        }
+                    }
+                    batch.update(cardDocRef, updatePayload);
                     count++;
                 } else {
                     const cardDocRef = doc(vocabColRef);

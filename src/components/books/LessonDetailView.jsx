@@ -24,6 +24,9 @@ const LessonDetailView = ({
     parentFolders,
     syncStatus,
     handleSyncVocabWithStudySet,
+    exampleUpdateStatus,
+    handleUpdateLessonExamples,
+    isUpdatingExamples,
     creationLoading,
     navigate,
     handleUnlinkStudySet,
@@ -427,6 +430,17 @@ const LessonDetailView = ({
                                 )}
                             </div>
                             <div className="flex items-center gap-2 flex-wrap">
+                                {exampleUpdateStatus && exampleUpdateStatus.needsUpdate && (
+                                    <button
+                                        onClick={handleUpdateLessonExamples}
+                                        disabled={isUpdatingExamples}
+                                        className="flex items-center gap-1.5 px-3.5 py-2 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 disabled:opacity-50 text-white rounded-xl text-xs font-bold transition-all shadow-md hover:shadow-lg cursor-pointer"
+                                        title={`Có ${exampleUpdateStatus.count} từ vựng đã được bổ sung câu ví dụ mới trong bài học. Nhấn để cập nhật vào học phần.`}
+                                    >
+                                        <Sparkles className={`w-3.5 h-3.5 ${isUpdatingExamples ? 'animate-spin' : ''}`} />
+                                        <span>{isUpdatingExamples ? 'Đang cập nhật ví dụ...' : `Cập nhật câu ví dụ (${exampleUpdateStatus.count} từ)`}</span>
+                                    </button>
+                                )}
                                 {syncStatus && !syncStatus.isSynced && (
                                     <button
                                         onClick={handleSyncVocabWithStudySet}
@@ -473,7 +487,18 @@ const LessonDetailView = ({
                                     Tạo học phần mới hoặc liên kết bài học này với một học phần đã có để lưu trữ và học tập.
                                 </p>
                             </div>
-                            <div className="flex items-center gap-2 shrink-0">
+                            <div className="flex items-center gap-2 shrink-0 flex-wrap">
+                                {exampleUpdateStatus && exampleUpdateStatus.needsUpdate && (
+                                    <button
+                                        onClick={handleUpdateLessonExamples}
+                                        disabled={isUpdatingExamples}
+                                        className="flex items-center gap-1.5 px-3.5 py-2 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 disabled:opacity-50 text-white rounded-xl text-xs font-bold transition-all shadow-md hover:shadow-lg cursor-pointer"
+                                        title={`Có ${exampleUpdateStatus.count} từ vựng bạn đã lưu trước đây có câu ví dụ mới. Nhấn để cập nhật.`}
+                                    >
+                                        <Sparkles className={`w-3.5 h-3.5 ${isUpdatingExamples ? 'animate-spin' : ''}`} />
+                                        <span>{isUpdatingExamples ? 'Đang cập nhật ví dụ...' : `Cập nhật ví dụ (${exampleUpdateStatus.count} từ)`}</span>
+                                    </button>
+                                )}
                                 <button
                                     onClick={() => {
                                         setStudySetName(`${currentBook?.name || ''} - ${currentLesson?.name || ''}`);

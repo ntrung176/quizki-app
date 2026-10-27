@@ -65,6 +65,7 @@ const BookScreen = ({
         getLessonProgressInfo, showTOC, editingNameItem, setEditingNameItem, editingNameValue, setEditingNameValue,
         handleSaveEditName,
         linkedStudySet, syncStatus, handleSyncVocabWithStudySet, creationLoading, navigate,
+        exampleUpdateStatus, handleUpdateLessonExamples, isUpdatingExamples,
         handleUnlinkStudySet, handleDeleteStudySet, setStudySetName, setStudySetDesc, setSelectedParentFolderId,
         setIsCreatingNewParentFolder, setNewParentFolderName, setSelectedVocabIndices, setShowCreateStudySetModal,
         showCreateStudySetModal, handleCreateStudySetFromLesson, studySetName, studySetDesc, selectedParentFolderId,
@@ -139,6 +140,9 @@ const BookScreen = ({
                     parentFolders={parentFolders}
                     syncStatus={syncStatus}
                     handleSyncVocabWithStudySet={handleSyncVocabWithStudySet}
+                    exampleUpdateStatus={exampleUpdateStatus}
+                    handleUpdateLessonExamples={handleUpdateLessonExamples}
+                    isUpdatingExamples={isUpdatingExamples}
                     creationLoading={creationLoading}
                     navigate={navigate}
                     handleUnlinkStudySet={handleUnlinkStudySet}

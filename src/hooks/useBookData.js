@@ -221,13 +221,48 @@ export const useBookData = ({
     }, [currentLesson, lessonAudioMap]);
 
     const linkedStudySet = useMemo(() => {
-        if (!groupId || !bookId || !chapterId || !lessonId) return null;
-        return folders.find(f => {
+        if (!groupId || !bookId || !chapterId || !lessonId || !folders) return null;
+        // 1. Khớp chính xác theo sourceLesson
+        const bySource = folders.find(f => {
             if (f.type === 'folder') return false;
             const sl = f.sourceLesson;
             return sl && sl.groupId === groupId && sl.bookId === bookId && sl.chapterId === chapterId && sl.lessonId === lessonId;
         });
-    }, [groupId, bookId, chapterId, lessonId, folders]);
+        if (bySource) return bySource;
+
+        // 2. Khớp theo định dạng tên mặc định "Tên sách - Tên bài"
+        const expectedName = `${currentBook?.name || ''} - ${currentLesson?.name || ''}`.toLowerCase().trim();
+        const byName = folders.find(f => {
+            if (f.type === 'folder') return false;
+            return f.name && f.name.toLowerCase().trim() === expectedName;
+        });
+        if (byName) return byName;
+
+        // 3. Khớp theo học phần chứa nhiều từ vựng của bài học này nhất
+        if (vocabWithAudio && vocabWithAudio.length > 0 && allUserCards && allUserCards.length > 0) {
+            const lessonWords = new Set(vocabWithAudio.map(v => (v.word || v.front || '').split('（')[0].split('(')[0].trim()).filter(Boolean));
+            const folderCounts = {};
+            allUserCards.forEach(c => {
+                if (!c.folderId) return;
+                const cw = (c.front || '').split('（')[0].split('(')[0].trim();
+                if (lessonWords.has(cw)) {
+                    folderCounts[c.folderId] = (folderCounts[c.folderId] || 0) + 1;
+                }
+            });
+            let bestFId = null;
+            let maxCount = 0;
+            Object.entries(folderCounts).forEach(([fId, count]) => {
+                if (count > maxCount && count >= Math.min(3, lessonWords.size)) {
+                    maxCount = count;
+                    bestFId = fId;
+                }
+            });
+            if (bestFId) {
+                return folders.find(f => f.id === bestFId) || null;
+            }
+        }
+        return null;
+    }, [groupId, bookId, chapterId, lessonId, folders, currentBook, currentLesson, vocabWithAudio, allUserCards]);
 
     const syncStatus = useMemo(() => {
         if (!linkedStudySet) return { isSynced: true, missingCount: 0 };
@@ -240,6 +275,80 @@ export const useBookData = ({
         });
         return { isSynced: missing === 0, missingCount: missing };
     }, [linkedStudySet, allUserCards, vocabWithAudio]);
+
+    // Trạng thái cần cập nhật câu ví dụ (dành cho người dùng lưu phiên bản cũ lúc chưa điền đủ ví dụ)
+    const exampleUpdateStatus = useMemo(() => {
+        if (!lessonId || !vocabWithAudio || vocabWithAudio.length === 0 || !allUserCards || allUserCards.length === 0) {
+            return { needsUpdate: false, count: 0, cardsToUpdate: [] };
+        }
+
+        // 1. Xác định danh sách thẻ của học viên thuộc bài học này:
+        let targetCards = [];
+        if (linkedStudySet) {
+            targetCards = allUserCards.filter(c => c.folderId === linkedStudySet.id);
+        }
+        // Nếu không có linkedStudySet hoặc chưa tìm thấy thẻ trong folder đó, tìm tất cả thẻ của user khớp với từ trong bài học
+        if (!targetCards.length) {
+            const lessonWordsSet = new Set(
+                vocabWithAudio.map(v => (v.word || v.front || '').split('（')[0].split('(')[0].trim()).filter(Boolean)
+            );
+            targetCards = allUserCards.filter(c => {
+                const cw = (c.front || '').split('（')[0].split('(')[0].trim();
+                return lessonWordsSet.has(cw);
+            });
+        }
+
+        if (!targetCards.length) {
+            return { needsUpdate: false, count: 0, cardsToUpdate: [] };
+        }
+
+        const cardsToUpdate = [];
+
+        vocabWithAudio.forEach(v => {
+            const vWord = (v.word || v.front || '').split('（')[0].split('(')[0].trim();
+            const vEx = (v.example || '').trim();
+            const vExMeaning = (v.exampleMeaning || '').trim();
+            const vExAudio = v.exampleAudioBase64 || null;
+
+            // Nếu bài học chưa có câu ví dụ thì không có gì để cập nhật cho từ này
+            if (!vEx) return;
+
+            // Tìm thẻ tương ứng của học viên
+            const userCard = targetCards.find(c => (c.front || '').split('（')[0].split('(')[0].trim() === vWord);
+            if (!userCard) return;
+
+            const cEx = (userCard.example || '').trim();
+            const cExMeaning = (userCard.exampleMeaning || '').trim();
+            const cExAudio = userCard.exampleAudioBase64 || null;
+
+            // Thẻ cần cập nhật nếu:
+            // 1. Thẻ hoàn toàn chưa có ví dụ (lưu bản cũ lúc ví dụ chưa điền)
+            const isMissingExample = !cEx;
+            // 2. Thẻ có ví dụ nhưng khác với câu ví dụ chuẩn hiện tại của bài học (đã sửa đủ/thêm ví dụ)
+            const isExampleDifferent = cEx !== vEx;
+            // 3. Bài học có nghĩa tiếng Việt của ví dụ mà thẻ chưa có
+            const isMissingMeaning = Boolean(vExMeaning && !cExMeaning);
+            // 4. Bài học có audio ví dụ mà thẻ chưa có
+            const isMissingAudio = Boolean(vExAudio && !cExAudio);
+
+            if (isMissingExample || isExampleDifferent || isMissingMeaning || isMissingAudio) {
+                cardsToUpdate.push({
+                    cardId: userCard.id,
+                    userCard,
+                    word: vWord,
+                    newExample: vEx,
+                    newExampleMeaning: vExMeaning,
+                    newExampleAudio: vExAudio
+                });
+            }
+        });
+
+        return {
+            needsUpdate: cardsToUpdate.length > 0,
+            count: cardsToUpdate.length,
+            cardsToUpdate
+        };
+    }, [linkedStudySet, allUserCards, vocabWithAudio, lessonId]);
 
     const loadAllData = async (silent = false, forceRefresh = false) => {
         if (!silent) setLoading(true);
@@ -1205,9 +1314,26 @@ export const useBookData = ({
                 const displayWord = word.split('（')[0].split('(')[0].trim();
                 const existingCard = allUserCards.find(c => c.front.split('（')[0].split('(')[0].trim() === displayWord);
                 if (existingCard) {
+                    const cardDocRef = doc(db, `artifacts/${appId}/users/${userId}/vocabulary`, existingCard.id);
+                    const updatePayload = {};
                     if (existingCard.folderId !== linkedStudySet.id) {
-                        const cardDocRef = doc(db, `artifacts/${appId}/users/${userId}/vocabulary`, existingCard.id);
-                        batch.update(cardDocRef, { folderId: linkedStudySet.id });
+                        updatePayload.folderId = linkedStudySet.id;
+                    }
+                    // Cập nhật câu ví dụ nếu thẻ cũ thiếu hoặc khác câu ví dụ mới
+                    const vEx = (v.example || '').trim();
+                    const cEx = (existingCard.example || '').trim();
+                    if (vEx && (cEx !== vEx || !cEx)) {
+                        updatePayload.example = vEx;
+                        updatePayload.exampleMeaning = (v.exampleMeaning || '').trim();
+                        if (v.exampleAudioBase64) updatePayload.exampleAudioBase64 = v.exampleAudioBase64;
+                        if (existingCard.intervalIndex_example === -999 || existingCard.intervalIndex_example === undefined) {
+                            updatePayload.intervalIndex_example = -1;
+                            updatePayload.nextReview_example = new Date();
+                            updatePayload.correctStreak_example = 0;
+                        }
+                    }
+                    if (Object.keys(updatePayload).length > 0) {
+                        batch.update(cardDocRef, updatePayload);
                         updatedCount++;
                     }
                 } else {
@@ -1262,6 +1388,62 @@ export const useBookData = ({
             showToast("Lỗi: " + err.message, "error");
         } finally {
             setCreationLoading(false);
+        }
+    };
+
+    const [isUpdatingExamples, setIsUpdatingExamples] = useState(false);
+
+    // Cập nhật câu ví dụ đã sửa đủ vào các thẻ học phần của người dùng
+    const handleUpdateLessonExamples = async () => {
+        if (!userId || !exampleUpdateStatus.needsUpdate || exampleUpdateStatus.cardsToUpdate.length === 0) return;
+
+        const count = exampleUpdateStatus.count;
+        const confirmMsg = linkedStudySet
+            ? `Cập nhật câu ví dụ đã sửa đủ cho ${count} từ vựng trong học phần "${linkedStudySet.name}"?`
+            : `Cập nhật câu ví dụ đã sửa đủ cho ${count} từ vựng bạn đã lưu từ bài học này?`;
+
+        const confirmed = await showConfirm(confirmMsg, {
+            type: 'info',
+            confirmText: 'Cập nhật ngay',
+            cancelText: 'Để sau'
+        });
+        if (!confirmed) return;
+
+        setIsUpdatingExamples(true);
+        try {
+            const cards = exampleUpdateStatus.cardsToUpdate;
+            const chunkSize = 450;
+            for (let i = 0; i < cards.length; i += chunkSize) {
+                const chunk = cards.slice(i, i + chunkSize);
+                const batch = writeBatch(db);
+
+                for (const item of chunk) {
+                    const cardDocRef = doc(db, `artifacts/${appId}/users/${userId}/vocabulary`, item.cardId);
+                    const updatePayload = {
+                        example: item.newExample,
+                        exampleMeaning: item.newExampleMeaning || '',
+                    };
+                    if (item.newExampleAudio) {
+                        updatePayload.exampleAudioBase64 = item.newExampleAudio;
+                    }
+                    if (item.userCard?.intervalIndex_example === -999 || item.userCard?.intervalIndex_example === undefined) {
+                        updatePayload.intervalIndex_example = -1;
+                        updatePayload.nextReview_example = new Date();
+                        updatePayload.correctStreak_example = 0;
+                    }
+                    batch.update(cardDocRef, updatePayload);
+                }
+
+                await batch.commit();
+            }
+
+            showToast(`Đã cập nhật câu ví dụ cho ${count} từ vựng thành công!`, 'success');
+            window.dispatchEvent(new Event('study_sets_updated'));
+        } catch (err) {
+            console.error('Lỗi cập nhật câu ví dụ bài học:', err);
+            showToast('Lỗi khi cập nhật ví dụ: ' + err.message, 'error');
+        } finally {
+            setIsUpdatingExamples(false);
         }
     };
 
@@ -1446,6 +1628,7 @@ export const useBookData = ({
         activeBookGroups, filteredGroups,
         currentGroup, currentBook, currentChapter, currentLesson, vocabWithAudio,
         linkedStudySet, syncStatus,
+        exampleUpdateStatus, handleUpdateLessonExamples, isUpdatingExamples,
         loadAllData, loadLessonAudio, revealCard, handleReBlurAll, handleResetProgress,
         navigateTo, goBack, resetForm,
         handleAddGroup, handleAddBook, handleAddChapter, handleAddLesson,
