@@ -119,7 +119,7 @@ const BookView = ({
                                             title="Chỉnh sửa sách">
                                             <Edit className="w-3.5 h-3.5" />
                                         </button>
-                                        <button onClick={(e) => { e.stopPropagation(); handleDeleteBook(book.id); }}
+                                        <button onClick={(e) => { e.stopPropagation(); handleDeleteBook(book.id, groupId); }}
                                             className="p-1.5 text-red-300 hover:text-red-200 hover:bg-white/20 rounded-lg cursor-pointer"
                                             title="Xoá sách">
                                             <Trash2 className="w-3.5 h-3.5" />
@@ -226,7 +226,7 @@ const BookView = ({
                                             className="p-1.5 text-gray-400 hover:text-sky-500 transition-colors cursor-pointer" title="Thêm bài">
                                             <Plus className="w-3.5 h-3.5" />
                                         </button>
-                                        <button onClick={() => handleDeleteChapter(chapter.id)}
+                                        <button onClick={() => handleDeleteChapter(chapter.id, bookId, groupId)}
                                             className="p-1.5 text-gray-400 hover:text-red-500 transition-colors cursor-pointer" title="Xóa chương">
                                             <Trash2 className="w-3.5 h-3.5" />
                                         </button>
@@ -292,7 +292,7 @@ const BookView = ({
                                                         className={`p-0.5 rounded cursor-pointer ${li === chapter.lessons.length - 1 ? 'text-gray-250 dark:text-gray-600' : 'text-gray-300 hover:text-sky-500'}`}>
                                                         <ChevronDown className="w-3 h-3" />
                                                     </button>
-                                                    <button onClick={(e) => { e.stopPropagation(); handleDeleteLesson(lesson.id); }}
+                                                    <button onClick={(e) => { e.stopPropagation(); handleDeleteLesson(lesson.id, chapter.id, bookId, groupId); }}
                                                         className="p-1 text-gray-300 hover:text-red-500 transition-colors cursor-pointer">
                                                         <Trash2 className="w-3 h-3" />
                                                     </button>

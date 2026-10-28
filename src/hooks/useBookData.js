@@ -712,48 +712,124 @@ export const useBookData = ({
         }
     };
 
-    const handleDeleteBook = async (bId) => {
+    const handleDeleteBook = async (bId, targetGroupId = null) => {
         if (!await showConfirm('Xóa sách này?', { type: 'danger', confirmText: 'Xóa' })) return;
         try {
-            await deleteDoc(doc(db, COLLECTION, groupId, 'books', bId));
-            setBookGroups(prev => prev.map(g => g.id === groupId ? { ...g, books: g.books.filter(b => b.id !== bId) } : g));
+            let activeGroupId = targetGroupId || groupId || currentGroup?.id;
+            if (!activeGroupId) {
+                const foundG = activeBookGroups.find(g => (g.books || []).some(b => b.id === bId));
+                if (foundG) activeGroupId = foundG.id;
+            }
+
+            if (!activeGroupId || !bId) {
+                console.warn('handleDeleteBook missing IDs:', { activeGroupId, bId });
+                showToast('Không xác định được đường dẫn sách để xóa', 'error');
+                return;
+            }
+
+            await deleteDoc(doc(db, COLLECTION, activeGroupId, 'books', bId));
+            setBookGroups(prev => prev.map(g => g.id === activeGroupId ? {
+                ...g,
+                books: (g.books || []).filter(b => b.id !== bId)
+            } : g));
             showToast('Đã xóa sách thành công!', 'success');
-            if (bookId === bId) navigateTo({ group: groupId });
+            if (bookId === bId) navigateTo({ group: activeGroupId });
         } catch (e) {
             console.error('Lỗi khi xóa sách:', e);
             showToast('Lỗi khi xóa sách: ' + e.message, 'error');
         }
     };
 
-    const handleDeleteChapter = async (cId) => {
+    const handleDeleteChapter = async (cId, targetBookId = null, targetGroupId = null) => {
         if (!await showConfirm('Xóa chương này?', { type: 'danger', confirmText: 'Xóa' })) return;
         try {
-            await deleteDoc(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', cId));
-            setBookGroups(prev => prev.map(g => g.id === groupId ? {
+            let activeGroupId = targetGroupId || groupId || currentGroup?.id;
+            let activeBookId = targetBookId || bookId || currentBook?.id;
+
+            if (!activeBookId || !activeGroupId) {
+                for (const g of activeBookGroups) {
+                    const foundBook = (g.books || []).find(b => (b.chapters || []).some(c => c.id === cId));
+                    if (foundBook) {
+                        activeBookId = activeBookId || foundBook.id;
+                        activeGroupId = activeGroupId || g.id;
+                        break;
+                    }
+                }
+            }
+
+            if (!activeGroupId || !activeBookId || !cId) {
+                console.warn('handleDeleteChapter missing IDs:', { activeGroupId, activeBookId, cId });
+                showToast('Không xác định được đường dẫn chương để xóa', 'error');
+                return;
+            }
+
+            await deleteDoc(doc(db, COLLECTION, activeGroupId, 'books', activeBookId, 'chapters', cId));
+            setBookGroups(prev => prev.map(g => g.id === activeGroupId ? {
                 ...g,
-                books: g.books.map(b => b.id === bookId ? { ...b, chapters: b.chapters.filter(c => c.id !== cId) } : b)
+                books: (g.books || []).map(b => b.id === activeBookId ? {
+                    ...b,
+                    chapters: (b.chapters || []).filter(c => c.id !== cId)
+                } : b)
             } : g));
             showToast('Đã xóa chương thành công!', 'success');
-            if (chapterId === cId) navigateTo({ group: groupId, book: bookId });
+            if (chapterId === cId) navigateTo({ group: activeGroupId, book: activeBookId });
         } catch (e) {
             console.error('Lỗi khi xóa chương:', e);
             showToast('Lỗi khi xóa chương: ' + e.message, 'error');
         }
     };
 
-    const handleDeleteLesson = async (lId) => {
+    const handleDeleteLesson = async (lId, targetChapterId = null, targetBookId = null, targetGroupId = null) => {
         if (!await showConfirm('Xóa bài học này?', { type: 'danger', confirmText: 'Xóa' })) return;
         try {
-            await deleteDoc(doc(db, COLLECTION, groupId, 'books', bookId, 'chapters', chapterId, 'lessons', lId));
-            setBookGroups(prev => prev.map(g => g.id === groupId ? {
+            let activeGroupId = targetGroupId || groupId || currentGroup?.id;
+            let activeBookId = targetBookId || bookId || currentBook?.id;
+            let activeChapterId = targetChapterId || chapterId || currentChapter?.id;
+
+            // 1. Check if activeChapterId can be found in currentBook or target book
+            if (!activeChapterId) {
+                const bookToSearch = currentBook || (activeBookGroups.find(g => g.id === activeGroupId)?.books || []).find(b => b.id === activeBookId);
+                if (bookToSearch?.chapters) {
+                    const parentCh = bookToSearch.chapters.find(c => (c.lessons || []).some(l => l.id === lId));
+                    if (parentCh) activeChapterId = parentCh.id;
+                }
+            }
+
+            // 2. Fallback search across all activeBookGroups if any ID is still missing
+            if (!activeChapterId || !activeBookId || !activeGroupId) {
+                for (const g of activeBookGroups) {
+                    for (const b of (g.books || [])) {
+                        const foundCh = (b.chapters || []).find(c => (c.lessons || []).some(l => l.id === lId));
+                        if (foundCh) {
+                            activeChapterId = activeChapterId || foundCh.id;
+                            activeBookId = activeBookId || b.id;
+                            activeGroupId = activeGroupId || g.id;
+                            break;
+                        }
+                    }
+                    if (activeChapterId && activeBookId && activeGroupId) break;
+                }
+            }
+
+            if (!activeGroupId || !activeBookId || !activeChapterId || !lId) {
+                console.warn('handleDeleteLesson missing IDs:', { activeGroupId, activeBookId, activeChapterId, lId });
+                showToast('Không xác định được đường dẫn bài học để xóa', 'error');
+                return;
+            }
+
+            await deleteDoc(doc(db, COLLECTION, activeGroupId, 'books', activeBookId, 'chapters', activeChapterId, 'lessons', lId));
+            setBookGroups(prev => prev.map(g => g.id === activeGroupId ? {
                 ...g,
-                books: g.books.map(b => b.id === bookId ? {
+                books: (g.books || []).map(b => b.id === activeBookId ? {
                     ...b,
-                    chapters: b.chapters.map(c => c.id === chapterId ? { ...c, lessons: c.lessons.filter(l => l.id !== lId) } : c)
+                    chapters: (b.chapters || []).map(c => c.id === activeChapterId ? {
+                        ...c,
+                        lessons: (c.lessons || []).filter(l => l.id !== lId)
+                    } : c)
                 } : b)
             } : g));
             showToast('Đã xóa bài học thành công!', 'success');
-            if (lessonId === lId) navigateTo({ group: groupId, book: bookId, chapter: chapterId });
+            if (lessonId === lId) navigateTo({ group: activeGroupId, book: activeBookId, chapter: activeChapterId });
         } catch (e) {
             console.error('Lỗi khi xóa bài học:', e);
             showToast('Lỗi khi xóa bài học: ' + e.message, 'error');
