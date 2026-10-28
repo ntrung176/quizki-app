@@ -251,20 +251,57 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         return map;
     }, [kanjiList]);
 
+    // Canonicalize SRS data: group all aliases by kanji character and resolve the latest review
+    const canonicalSrsMap = useMemo(() => {
+        const charMap = new Map();
+        Object.entries(srsData || {}).forEach(([key, srs]) => {
+            if (!srs || typeof srs !== 'object') return;
+            const doc = kanjiMap.get(key) || (srs.id ? kanjiMap.get(srs.id) : null);
+            const char = srs.character 
+                || doc?.character 
+                || (key.length === 1 ? key : (key.startsWith('kanji_') ? key.replace('kanji_', '') : null));
+            if (!char) return;
+
+            const existing = charMap.get(char);
+            if (!existing) {
+                charMap.set(char, { ...srs, character: char, _sourceKey: key, _docId: doc?.id || srs.id || key });
+            } else {
+                const nextReview = Math.max(existing.nextReview || 0, srs.nextReview || 0, existing.nextReview_back || 0, srs.nextReview_back || 0);
+                const lastReview = Math.max(existing.lastReview || 0, srs.lastReview || 0, existing.lastReviewed || 0, srs.lastReviewed || 0);
+                const reps = Math.max(existing.reps || 0, srs.reps || 0);
+                const state = (existing.state === 'REVIEW' || srs.state === 'REVIEW') ? 'REVIEW' : (srs.state || existing.state);
+                const primary = (srs.lastReview || 0) >= (existing.lastReview || 0) ? srs : existing;
+                charMap.set(char, {
+                    ...existing,
+                    ...primary,
+                    character: char,
+                    nextReview,
+                    lastReview,
+                    reps,
+                    state,
+                    _sourceKey: primary._sourceKey || key,
+                    _docId: doc?.id || existing._docId || srs.id || key
+                });
+            }
+        });
+        return charMap;
+    }, [srsData, kanjiMap]);
+
     const dueKanji = useMemo(() => {
         const now = dashboardTick;
         const threshold = now + getLearnAheadLimitMs();
         const dueList = [];
-        const seenIds = new Set();
+        const seenChars = new Set();
 
-        Object.entries(srsData || {}).forEach(([id, srs]) => {
+        canonicalSrsMap.forEach((srs, char) => {
             if (!srs || !isSrsCardDue(srs, threshold)) return;
-            const doc = kanjiMap.get(id);
-            const char = doc?.character || (id.length === 1 ? id : (id.startsWith('kanji_') ? id.replace('kanji_', '') : null));
-            if (!char) return;
+            if (seenChars.has(char)) return;
+            seenChars.add(char);
+
+            const doc = kanjiMap.get(char) || kanjiMap.get(srs._sourceKey) || kanjiMap.get(srs._docId);
             const jData = getJotobaKanjiData(char);
             const cardItem = {
-                id: doc?.id || id,
+                id: doc?.id || srs._docId || srs._sourceKey || char,
                 character: char,
                 sinoViet: doc?.sinoViet || jData?.sinoViet || '',
                 meaning: doc?.meaning || jData?.meaningVi || (jData?.meanings || []).join(', ') || '',
@@ -275,30 +312,25 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                 strokeCount: doc?.strokeCount || jData?.stroke_count || 0,
                 ...(doc || {})
             };
-            if (!seenIds.has(cardItem.id) && !seenIds.has(cardItem.character)) {
-                seenIds.add(cardItem.id);
-                if (cardItem.character) seenIds.add(cardItem.character);
-                dueList.push(cardItem);
-            }
+            dueList.push(cardItem);
         });
 
         (kanjiList || []).forEach(k => {
-            const srs = srsData[k.id] || srsData[k.character];
+            const char = k.character || k.literal;
+            if (!char || seenChars.has(char)) return;
+            const srs = canonicalSrsMap.get(char) || canonicalSrsMap.get(k.id);
             if (!srs || !isSrsCardDue(srs, threshold)) return;
-            if (!seenIds.has(k.id) && !seenIds.has(k.character)) {
-                seenIds.add(k.id);
-                if (k.character) seenIds.add(k.character);
-                dueList.push(k);
-            }
+            seenChars.add(char);
+            dueList.push(k);
         });
 
         return dueList;
-    }, [kanjiList, kanjiMap, srsData, dashboardTick]);
+    }, [kanjiList, kanjiMap, canonicalSrsMap, dashboardTick]);
 
     const nextDueKanjiInfo = useMemo(() => {
         let earliest = Infinity;
         const now = dashboardTick;
-        Object.values(srsData || {}).forEach(srs => {
+        canonicalSrsMap.forEach(srs => {
             if (!srs) return;
             const next = parseNextReviewMs(srs.nextReview || srs.nextReview_back || srs.lastReviewed);
             if (next > now && next < earliest) {
@@ -306,22 +338,17 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             }
         });
         return earliest === Infinity ? 0 : earliest;
-    }, [srsData, dashboardTick]);
+    }, [canonicalSrsMap, dashboardTick]);
 
     const savedSessionInfo = null;
 
     const stats = useMemo(() => {
-        const now = Date.now();
         let hasNoSRS = 0, learning = 0, shortTerm = 0, longTerm = 0, expert = 0;
         let totalReps = 0;
         const reviewDays = new Set();
 
-        Object.entries(srsData).forEach(([id, srs]) => {
+        canonicalSrsMap.forEach(srs => {
             if (!srs) return;
-            const kanjiDoc = kanjiMap.get(id);
-            const char = kanjiDoc?.character || (id.length === 1 ? id : '?');
-            if (char === '?') return;
-
             const interval = srs.interval || 0;
             const reps = srs.reps || 0;
             const state = getCardState(srs);
@@ -370,23 +397,27 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
 
         return {
             dueToday: dueKanji.length, newCards: hasNoSRS, learning, shortTerm, longTerm, expert,
-            totalReps, totalReviewed: Object.keys(srsData).length - hasNoSRS,
-            daysStudied: reviewDays.size, kanjiLearned: Object.keys(srsData).length, streak,
+            totalReps, totalReviewed: canonicalSrsMap.size - hasNoSRS,
+            daysStudied: reviewDays.size, kanjiLearned: canonicalSrsMap.size, streak,
         };
-    }, [kanjiMap, srsData, dueKanji]);
+    }, [canonicalSrsMap, dueKanji]);
 
     const forecastItems = useMemo(() => {
-        return (kanjiList || []).map(k => ({
-            id: k.id,
-            state: srsData[k.id]?.state,
-            nextReview: srsData[k.id]?.nextReview || srsData[k.id]?.nextReview_back || 0,
-            nextReview_back: srsData[k.id]?.nextReview_back || srsData[k.id]?.nextReview || 0,
-            reps: srsData[k.id]?.reps || 0,
-            interval: srsData[k.id]?.interval || 0,
-            learningStep: srsData[k.id]?.learningStep,
-            isDue: srsData[k.id] ? isSrsCardDue(srsData[k.id], dashboardTick + getLearnAheadLimitMs()) : false
-        }));
-    }, [kanjiList, srsData, dashboardTick]);
+        return (kanjiList || []).map(k => {
+            const char = k.character || k.literal;
+            const srs = canonicalSrsMap.get(char) || canonicalSrsMap.get(k.id) || srsData[k.id];
+            return {
+                id: k.id,
+                state: srs?.state,
+                nextReview: srs?.nextReview || srs?.nextReview_back || 0,
+                nextReview_back: srs?.nextReview_back || srs?.nextReview || 0,
+                reps: srs?.reps || 0,
+                interval: srs?.interval || 0,
+                learningStep: srs?.learningStep,
+                isDue: srs ? isSrsCardDue(srs, dashboardTick + getLearnAheadLimitMs()) : false
+            };
+        });
+    }, [kanjiList, canonicalSrsMap, srsData, dashboardTick]);
 
     const [nextReviewText, setNextReviewText] = useState(null);
     const [isNextReviewCountdown, setIsNextReviewCountdown] = useState(false);
@@ -925,12 +956,12 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             while (attempts < 3 && !success) {
                 try {
                     await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, currentCard.id), newSrs, { merge: true });
-                    // Keep shadow/alias documents in sync so stale keys don't linger in Firestore
-                    if (char && char !== currentCard.id && srsData[char]) {
+                    // Keep shadow/alias documents in sync unconditionally so stale keys don't linger in Firestore
+                    if (char && char !== currentCard.id) {
                         await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, char), newSrs, { merge: true }).catch(() => {});
                     }
                     if (char && `kanji_${char}` !== currentCard.id && srsData[`kanji_${char}`]) {
-                        await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, `kanji_${char}`), newSrs, { merge: true }).catch(() => {});
+                        await deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, `kanji_${char}`)).catch(() => {});
                     }
                     const now = new Date();
                     const todayDateString = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;

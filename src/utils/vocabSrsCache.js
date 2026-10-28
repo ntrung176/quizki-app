@@ -155,8 +155,8 @@ export const mergeCachedVocabSrs = (userId, cards = []) => {
             card.nextReview || 0
         );
 
-        // If local review is newer OR if local has pushed the next review forward
-        if (cachedReviewTime > serverReviewTime || (cachedNext > serverNext && cachedNext > Date.now() - 86400000)) {
+        // If local review is genuinely newer than server review
+        if (cachedReviewTime > serverReviewTime) {
             return { ...card, ...cached };
         }
 

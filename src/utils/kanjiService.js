@@ -532,20 +532,73 @@ export const syncPendingKanjiSrs = async (userId) => {
     }
 };
 
-const mergeServerWithLocalKanjiSrs = (userId, serverSrsMap) => {
-    let localMap = cachedUserSrsData;
-    if (!localMap) {
-        try {
-            const localCached = localStorage.getItem(`quizki_cached_kanji_srs_${userId}`);
-            localMap = localCached ? JSON.parse(localCached) : {};
-        } catch (_) {
-            localMap = {};
+/**
+ * Harmonize Kanji SRS map across different alias keys (doc.id vs character vs kanji_${char}).
+ * If any alias key was reviewed with a future nextReview date, that latest review status
+ * is propagated to all aliases for that character, preventing phantom due cards across devices.
+ */
+export const harmonizeKanjiSrsMap = (srsMap) => {
+    if (!srsMap || typeof srsMap !== 'object') return srsMap || {};
+    const kanjiList = getCachedKanjiList() || [];
+    const kanjiMap = new Map();
+    kanjiList.forEach(k => {
+        if (k.id) kanjiMap.set(k.id, k);
+        if (k.character) kanjiMap.set(k.character, k);
+    });
+
+    const charToBestSrs = new Map();
+    const charToDocIds = new Map();
+
+    Object.entries(srsMap).forEach(([key, data]) => {
+        if (!data || typeof data !== 'object') return;
+        const doc = kanjiMap.get(key) || (data.id ? kanjiMap.get(data.id) : null);
+        const char = data.character 
+            || doc?.character 
+            || (key.length === 1 ? key : (key.startsWith('kanji_') ? key.replace('kanji_', '') : null));
+        
+        if (!char) return;
+
+        if (!charToDocIds.has(char)) charToDocIds.set(char, []);
+        charToDocIds.get(char).push(key);
+
+        const existing = charToBestSrs.get(char);
+        if (!existing) {
+            charToBestSrs.set(char, { ...data, character: char });
+        } else {
+            const nextReview = Math.max(existing.nextReview || 0, data.nextReview || 0, existing.nextReview_back || 0, data.nextReview_back || 0);
+            const lastReview = Math.max(existing.lastReview || 0, data.lastReview || 0, existing.lastReviewed || 0, data.lastReviewed || 0);
+            const reps = Math.max(existing.reps || 0, data.reps || 0);
+            const state = (existing.state === 'REVIEW' || data.state === 'REVIEW') ? 'REVIEW' : (data.state || existing.state);
+            const primary = (data.lastReview || 0) >= (existing.lastReview || 0) ? data : existing;
+
+            charToBestSrs.set(char, {
+                ...primary,
+                character: char,
+                nextReview,
+                lastReview,
+                reps,
+                state
+            });
         }
-    }
+    });
+
+    const harmonized = { ...srsMap };
+    charToDocIds.forEach((keys, char) => {
+        const best = charToBestSrs.get(char);
+        if (!best) return;
+        keys.forEach(k => {
+            harmonized[k] = { ...harmonized[k], ...best };
+        });
+    });
+
+    return harmonized;
+};
+
+const mergeServerWithLocalKanjiSrs = (userId, serverSrsMap) => {
     const pendingMap = getPendingKanjiSyncMap(userId);
     const merged = { ...serverSrsMap };
 
-    // 1. Pending sync items take highest priority (unconfirmed reviews)
+    // 1. Pending sync items take highest priority (unconfirmed reviews on THIS device)
     for (const [id, pendingItem] of Object.entries(pendingMap || {})) {
         if (!pendingItem || typeof pendingItem !== 'object') continue;
         const cleanItem = { ...pendingItem };
@@ -553,44 +606,27 @@ const mergeServerWithLocalKanjiSrs = (userId, serverSrsMap) => {
         merged[id] = { ...(merged[id] || {}), ...cleanItem };
     }
 
-    // 2. Check existing local cache items (preserve newer reviews)
-    for (const [id, localItem] of Object.entries(localMap || {})) {
-        if (!localItem || typeof localItem !== 'object') continue;
-        if (pendingMap && pendingMap[id]) continue;
-        const serverItem = merged[id];
-        if (!serverItem) {
-            merged[id] = localItem;
-            continue;
-        }
-        const localReviewTime = localItem.lastReview || localItem.lastReviewed || 0;
-        const serverReviewTime = serverItem.lastReview || serverItem.lastReviewed || 0;
-        const localNext = localItem.nextReview || 0;
-        const serverNext = serverItem.nextReview || 0;
-
-        if (localReviewTime > serverReviewTime || (localNext > serverNext && localNext > Date.now() - 86400000)) {
-            merged[id] = { ...serverItem, ...localItem };
-        }
-    }
-
-    return merged;
+    return harmonizeKanjiSrsMap(merged);
 };
 
-export const getSharedKanjiSrs = async (userId) => {
+let hasFetchedServerKanjiSrs = false;
+
+export const getSharedKanjiSrs = async (userId, forceRefresh = false) => {
     if (!userId) return {};
     if (cachedUserIdForSrs !== userId) {
         clearUserSrsCache();
-    }
-    if (cachedUserIdForSrs === userId && cachedUserSrsData) {
-        return cachedUserSrsData;
     }
     if (!cachedUserSrsData) {
         try {
             const localCached = localStorage.getItem(`quizki_cached_kanji_srs_${userId}`);
             if (localCached) {
-                cachedUserSrsData = JSON.parse(localCached);
+                cachedUserSrsData = harmonizeKanjiSrsMap(JSON.parse(localCached));
                 cachedUserIdForSrs = userId;
             }
         } catch (_) {}
+    }
+    if (!forceRefresh && hasFetchedServerKanjiSrs && cachedUserSrsData) {
+        return cachedUserSrsData;
     }
     if (userSrsPromise) return userSrsPromise;
 
@@ -598,14 +634,23 @@ export const getSharedKanjiSrs = async (userId) => {
         try {
             console.log('Fetching user Kanji SRS data from Firestore...');
             const fetchPromise = getDocs(collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`));
-            const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error('Kanji SRS fetch timeout')), 3500));
+            const timeoutPromise = new Promise((_, reject) => setTimeout(() => reject(new Error('Kanji SRS fetch timeout')), 5000));
             const srsSnap = await Promise.race([fetchPromise, timeoutPromise]);
             const srs = {};
             srsSnap.docs.forEach(d => { srs[d.id] = d.data(); });
             const mergedSrs = mergeServerWithLocalKanjiSrs(userId, srs);
             cachedUserSrsData = mergedSrs;
             cachedUserIdForSrs = userId;
+            hasFetchedServerKanjiSrs = true;
+            userSrsPromise = null;
             safeSetLocalStorage(`quizki_cached_kanji_srs_${userId}`, JSON.stringify(mergedSrs));
+            try {
+                const computed = computeKanjiSrsStats(mergedSrs);
+                const serialized = JSON.stringify(computed);
+                localStorage.setItem(`quizki_cached_kanji_srs_stats_${userId}`, serialized);
+                localStorage.setItem('quizki_cached_kanji_srs_stats', serialized);
+            } catch (_) {}
+            kanjiSrsListeners.forEach(cb => { try { cb(mergedSrs); } catch (_) {} });
             return cachedUserSrsData;
         } catch (e) {
             console.warn('Kanji SRS fetch notice:', e.message);
@@ -635,6 +680,7 @@ export const subscribeKanjiSrs = (userId, callback) => {
         cachedUserSrsData = null;
         cachedUserIdForSrs = null;
         userSrsPromise = null;
+        hasFetchedServerKanjiSrs = false;
     }
 
     // Register this callback
@@ -651,6 +697,7 @@ export const subscribeKanjiSrs = (userId, callback) => {
                 const mergedSrs = mergeServerWithLocalKanjiSrs(userId, srs);
                 cachedUserSrsData = mergedSrs;
                 cachedUserIdForSrs = userId;
+                hasFetchedServerKanjiSrs = true;
                 userSrsPromise = null;
                 safeSetLocalStorage(`quizki_cached_kanji_srs_${userId}`, JSON.stringify(mergedSrs));
                 try {
@@ -659,28 +706,32 @@ export const subscribeKanjiSrs = (userId, callback) => {
                     localStorage.setItem(`quizki_cached_kanji_srs_stats_${userId}`, serialized);
                     localStorage.setItem('quizki_cached_kanji_srs_stats', serialized);
                 } catch (_) {}
-                kanjiSrsListeners.forEach(cb => cb(mergedSrs));
+                kanjiSrsListeners.forEach(cb => { try { cb(mergedSrs); } catch (_) {} });
             } else {
                 const changes = snapshot.docChanges();
                 let updated = false;
                 const pendingMap = getPendingKanjiSyncMap(userId);
+                // Create immutable copy so React state setter triggers re-renders reliably
+                const nextSrsData = { ...cachedUserSrsData };
                 changes.forEach(change => {
                     const docId = change.doc.id;
                     // Do not let server overwrite an in-flight pending review write
                     if (pendingMap && pendingMap[docId]) return;
 
                     if (change.type === 'added' || change.type === 'modified') {
-                        cachedUserSrsData[docId] = change.doc.data();
+                        nextSrsData[docId] = change.doc.data();
                         updated = true;
                     } else if (change.type === 'removed') {
-                        delete cachedUserSrsData[docId];
+                        delete nextSrsData[docId];
                         updated = true;
                     }
                 });
                 if (updated) {
-                    safeSetLocalStorage(`quizki_cached_kanji_srs_${userId}`, JSON.stringify(cachedUserSrsData));
+                    const harmonized = harmonizeKanjiSrsMap(nextSrsData);
+                    cachedUserSrsData = harmonized;
+                    safeSetLocalStorage(`quizki_cached_kanji_srs_${userId}`, JSON.stringify(harmonized));
                     try {
-                        const computed = computeKanjiSrsStats(cachedUserSrsData);
+                        const computed = computeKanjiSrsStats(harmonized);
                         const serialized = JSON.stringify(computed);
                         localStorage.setItem(`quizki_cached_kanji_srs_stats_${userId}`, serialized);
                         localStorage.setItem('quizki_cached_kanji_srs_stats', serialized);
@@ -688,7 +739,7 @@ export const subscribeKanjiSrs = (userId, callback) => {
                 }
                 // Only notify background subscribers if update is confirmed from server and not a local pending write
                 if (updated && !snapshot.metadata.hasPendingWrites) {
-                    kanjiSrsListeners.forEach(cb => cb(cachedUserSrsData));
+                    kanjiSrsListeners.forEach(cb => { try { cb(cachedUserSrsData); } catch (_) {} });
                 }
             }
         }, (error) => {
@@ -708,6 +759,7 @@ export const subscribeKanjiSrs = (userId, callback) => {
             kanjiSrsUnsubscribe = null;
             cachedUserSrsData = null;
             userSrsPromise = null;
+            hasFetchedServerKanjiSrs = false;
         }
     };
 };
