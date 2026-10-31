@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { Flame } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 const StreakCelebration = ({ dailyActivityLogs = [], currentCalculatedStreak = 0 }) => {
+    const { t } = useLanguage();
     const [show, setShow] = useState(false);
     const [displayStreak, setDisplayStreak] = useState(0);
     const [isAnimating, setIsAnimating] = useState(false);
@@ -215,13 +217,13 @@ const StreakCelebration = ({ dailyActivityLogs = [], currentCalculatedStreak = 0
                 <div className="space-y-1.5 sm:space-y-2 mb-5 sm:mb-6">
                     <div className="flex items-center justify-center gap-1.5 text-orange-400 font-extrabold tracking-widest text-[11px] sm:text-xs uppercase">
                         <Flame className="w-3.5 h-3.5 fill-orange-400" />
-                        Streak Luyện Tập!
+                        {t('home.studyStreak', 'Streak Luyện Tập!')}
                     </div>
                     <h2 className="text-xl sm:text-2xl font-black text-white leading-tight">
-                        {displayStreak} Ngày Liên Tiếp!
+                        {t('home.daysConsecutive', '{days} Ngày Liên Tiếp!').replace('{days}', displayStreak)}
                     </h2>
                     <p className="text-slate-400 text-xs font-medium px-2 sm:px-4 leading-relaxed">
-                        Bạn đang học tập cực kỳ chăm chỉ. Hãy tiếp tục duy trì ngọn lửa học tập này nhé!
+                        {t('home.streakEncourage', 'Bạn đang học tập cực kỳ chăm chỉ. Hãy tiếp tục duy trì ngọn lửa học tập này nhé!')}
                     </p>
                 </div>
 
@@ -230,7 +232,7 @@ const StreakCelebration = ({ dailyActivityLogs = [], currentCalculatedStreak = 0
                     onClick={() => setShow(false)}
                     className="w-full py-3.5 px-6 min-h-[52px] rounded-2xl bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 active:scale-[0.98] text-white text-xs sm:text-sm font-black shadow-lg shadow-orange-500/25 border-b-4 border-orange-700 hover:border-orange-800 transition-all cursor-pointer uppercase tracking-wider select-none flex items-center justify-center"
                 >
-                    Tiếp tục học
+                    {t('home.continueLearning', 'Tiếp tục học')}
                 </button>
             </div>
         </div>

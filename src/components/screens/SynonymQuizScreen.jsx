@@ -7,6 +7,7 @@ import FuriganaText from '../ui/FuriganaText';
 import { playCorrectSound, playIncorrectSound, playCompletionFanfare } from '../../utils/soundEffects';
 import { speakJapanese } from '../../utils/audio';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
+import { useLanguage } from '../../context/LanguageContext';
 
 const shuffleArr = (arr) => {
     const a = [...arr];
@@ -15,6 +16,7 @@ const shuffleArr = (arr) => {
 };
 
 const SynonymQuizScreen = ({ cards, setId, isCustomSubset = false, onUpdateCard, onBack, onComplete }) => {
+    const { t } = useLanguage();
     const { isEnglishMode } = useTargetLanguage();
     // Load saved progress from localStorage
     const getSavedProgress = () => {
@@ -133,7 +135,7 @@ const SynonymQuizScreen = ({ cards, setId, isCustomSubset = false, onUpdateCard,
 
         // Just in case we still don't have 4 options, create dummy ones or duplicate
         while (allOptions.length < 4) {
-            allOptions.push(`Lựa chọn ${allOptions.length + 1}`);
+            allOptions.push(t('studyModes.optionPlaceholder', 'Option {number}').replace('{number}', allOptions.length + 1));
         }
 
         return shuffleArr(allOptions);
@@ -280,9 +282,9 @@ const SynonymQuizScreen = ({ cards, setId, isCustomSubset = false, onUpdateCard,
         return (
             <div className="relative w-full h-full flex flex-col items-center justify-center p-8">
                 <Users className="w-16 h-16 text-gray-300 dark:text-gray-600 mb-4" />
-                <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-2">Không đủ dữ liệu</h2>
-                <p className="text-gray-500 dark:text-gray-400 text-center mb-6">Các từ vựng trong học phần này chưa có trường đồng nghĩa (synonym). Hãy thêm synonym cho từ vựng trước.</p>
-                <button onClick={onBack} className="px-6 py-3 bg-blue-600 text-white rounded-xl font-bold hover:bg-blue-700 transition-colors cursor-pointer">Trở lại</button>
+                <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-2">{t('studyModes.notEnoughData', 'Không đủ dữ liệu')}</h2>
+                <p className="text-gray-500 dark:text-gray-400 text-center mb-6">{t('studyModes.notEnoughSynonymsDesc', 'Các từ vựng trong học phần này chưa có trường đồng nghĩa (synonym). Hãy thêm synonym cho từ vựng trước.')}</p>
+                <button onClick={onBack} className="px-6 py-3 bg-sky-500 hover:bg-sky-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-sky-700 text-white font-black uppercase tracking-wider rounded-2xl text-xs transition-all cursor-pointer">{t('common.back', 'Trở lại')}</button>
             </div>
         );
     }
@@ -294,33 +296,33 @@ const SynonymQuizScreen = ({ cards, setId, isCustomSubset = false, onUpdateCard,
                 <div className="w-[600px] max-w-[95vw] mx-auto my-auto flex flex-col items-center space-y-6 p-6 sm:p-8 bg-white dark:bg-slate-900 border-2 border-blue-400/30 rounded-3xl shadow-xl">
                     <div className="text-6xl mb-2">🎉</div>
                     <div>
-                        <h2 className="text-3xl font-black text-gray-800 dark:text-white mb-2">Xuất sắc!</h2>
+                        <h2 className="text-3xl font-black text-gray-800 dark:text-white mb-2">{t('studyModes.excellent', 'Xuất sắc!')}</h2>
                         <p className="text-gray-500 dark:text-gray-400 text-lg">
-                            Bạn đã hoàn thành trò chơi đồng nghĩa.
+                            {t('studyModes.synonymQuizFinished', 'Bạn đã hoàn thành trò chơi đồng nghĩa.')}
                         </p>
                     </div>
                     <div className="w-full max-w-xs bg-slate-50 dark:bg-slate-950 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 shadow-md">
                         <div className="flex flex-col items-center justify-center gap-1">
                             <div className="flex items-center gap-2 text-emerald-700 dark:text-emerald-300 font-bold text-lg">
                                 <Zap className="w-5 h-5" />
-                                <span>Chính xác: {pct}%</span>
+                                <span>{t('studyModes.accuracy', 'Chính xác: {percent}%').replace('{percent}', pct)}</span>
                             </div>
-                            <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">Đúng {score.correct} / {quizCards.length} câu</span>
+                            <span className="text-xs text-gray-500 dark:text-gray-400 font-medium">{t('studyModes.correctCount', 'Đúng {correct} / {total} câu').replace('{correct}', score.correct).replace('{total}', quizCards.length)}</span>
                         </div>
                     </div>
                     <div className="flex gap-3 w-full max-w-xs pt-2">
                         <button
                             onClick={handleReset}
-                            className="flex-1 py-3 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold rounded-xl hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-all flex items-center justify-center gap-1 cursor-pointer"
+                            className="flex-1 py-3.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold rounded-2xl border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 uppercase tracking-wider text-xs transition-all flex items-center justify-center gap-1 cursor-pointer select-none"
                         >
-                            <RotateCcw className="w-4 h-4" /> Làm lại
+                            <RotateCcw className="w-4 h-4" /> {t('studyModes.tryAgain', 'Làm lại')}
                         </button>
                         <button
                             onClick={() => {
                                 if (onComplete) onComplete();
                                 else if (onBack) onBack();
                             }}
-                            className="flex-1 py-3 bg-gradient-to-r from-blue-600 to-sky-500 text-white font-bold rounded-xl shadow-md transition-all hover:-translate-y-0.5 flex items-center justify-center gap-1 cursor-pointer"
+                            className="flex-1 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-white font-black rounded-2xl border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 uppercase tracking-wider text-xs transition-all flex items-center justify-center gap-1 cursor-pointer select-none"
                         >
                             Xong <ChevronRight className="w-4 h-4" />
                         </button>
@@ -340,10 +342,10 @@ const SynonymQuizScreen = ({ cards, setId, isCustomSubset = false, onUpdateCard,
                         <button
                             onClick={onBack}
                             className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105"
-                            title="Trở lại"
+                            title={t('common.back', 'Trở lại')}
                         >
                             <ArrowLeft className="w-5 h-5" />
-                            <span className="text-sm font-medium ml-1">Trở lại</span>
+                            <span className="text-sm font-medium ml-1">{t('common.back', 'Trở lại')}</span>
                         </button>
                     </div>
                 )}
@@ -351,10 +353,10 @@ const SynonymQuizScreen = ({ cards, setId, isCustomSubset = false, onUpdateCard,
                     {/* Progress */}
                     <div className="space-y-1">
                         <div className="flex justify-between items-center text-sm font-bold text-sky-500 dark:text-sky-400">
-                            <span className="flex items-center gap-2"><Users className="w-4 h-4" /> ĐỒNG NGHĨA</span>
+                            <span className="flex items-center gap-2"><Users className="w-4 h-4" /> {t('studyModes.synonymQuiz', 'ĐỒNG NGHĨA')}</span>
                             <div className="flex items-center gap-2">
                                 <span className="text-gray-500">{currentIndex + 1} / {quizQueue.length}</span>
-                                <button onClick={() => setShowSettings(true)} className="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-all text-gray-500 hover:text-sky-600" title="Cài đặt">
+                                <button onClick={() => setShowSettings(true)} className="p-1 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-800 transition-all text-gray-500 hover:text-sky-600" title={t('common.settings', 'Cài đặt')}>
                                     <Settings className="w-4 h-4" />
                                 </button>
                             </div>
@@ -389,7 +391,7 @@ const SynonymQuizScreen = ({ cards, setId, isCustomSubset = false, onUpdateCard,
                         return (
                             <>
                                 <div className="bg-slate-50 dark:bg-slate-800/60 rounded-2xl p-5 sm:p-7 text-center border border-slate-200/80 dark:border-slate-800 shadow-sm min-h-[130px] sm:min-h-[160px] flex flex-col items-center justify-center">
-                                    <p className="text-xs sm:text-sm font-bold text-sky-500 uppercase tracking-widest mb-2">Từ đồng nghĩa của</p>
+                                    <p className="text-xs sm:text-sm font-bold text-sky-500 uppercase tracking-widest mb-2">{t('studyModes.synonymOf', 'Từ đồng nghĩa của')}</p>
                                     <h2 className={`text-gray-800 dark:text-white font-japanese break-words ${wordSize}`}>
                                         <FuriganaText text={currentCard.frontWithFurigana || currentCard.front} knownReading={currentCard.reading} forceHide={!synonymFuriganaEnabled} />
                                     </h2>
@@ -401,15 +403,15 @@ const SynonymQuizScreen = ({ cards, setId, isCustomSubset = false, onUpdateCard,
                                     {options.map((option, i) => {
                                         const isCorrect = option === currentCard.synonym;
                                         const isSelected = selectedAnswer === option;
-                                        let cls = `w-full ${optPadding} rounded-2xl font-bold text-left border-2 transition-all shadow-sm `;
+                                        let cls = `w-full ${optPadding} rounded-2xl font-bold text-left border-2 border-b-4 transition-all select-none `;
                                         if (!isRevealed) {
-                                            cls += 'bg-gray-50 dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-sky-400 dark:hover:border-sky-500 hover:bg-sky-50 dark:hover:bg-sky-900/20 text-gray-800 dark:text-gray-200 cursor-pointer hover:shadow-md';
+                                            cls += 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 active:translate-y-0.5 active:border-b-2 text-slate-800 dark:text-slate-100 cursor-pointer';
                                         } else if (isCorrect) {
-                                            cls += 'bg-green-50 dark:bg-green-900/20 border-green-400 dark:border-green-600 text-green-700 dark:text-green-400 cursor-default shadow-md shadow-emerald-500/10';
+                                            cls += 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-400 dark:border-emerald-600 text-emerald-700 dark:text-emerald-300 cursor-default';
                                         } else if (isSelected && !isCorrect) {
-                                            cls += 'bg-red-50 dark:bg-red-900/20 border-red-400 dark:border-red-600 text-red-700 dark:text-red-400 cursor-default shadow-md shadow-rose-500/10';
+                                            cls += 'bg-rose-50 dark:bg-rose-950/40 border-rose-400 dark:border-rose-600 text-rose-700 dark:text-rose-300 cursor-default';
                                         } else {
-                                            cls += 'bg-gray-50 dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-400 dark:text-gray-500 opacity-60 cursor-default';
+                                            cls += 'bg-slate-50 dark:bg-slate-850 border-slate-200/60 dark:border-slate-800 text-slate-400 dark:text-slate-500 opacity-60 cursor-default';
                                         }
                                         return (
                                             <div key={i} onClick={() => { if (!isRevealed) handleSelect(option); }} className={cls}>
@@ -425,7 +427,7 @@ const SynonymQuizScreen = ({ cards, setId, isCustomSubset = false, onUpdateCard,
                                 </div>
                                 {!isRevealed && (
                                     <p className="text-center text-[10px] sm:text-xs text-gray-400 dark:text-gray-500 mt-1 opacity-70">
-                                        ⌨️ Nhấn phím 1-4 để chọn nhanh
+                                        {t('studyModes.press14ToSelect', '⌨️ Nhấn phím 1-4 để chọn nhanh')}
                                     </p>
                                 )}
                             </>
@@ -439,14 +441,14 @@ const SynonymQuizScreen = ({ cards, setId, isCustomSubset = false, onUpdateCard,
                                 <div className="w-5 h-5 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0">
                                     <XCircle className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400 stroke-[2.5]" />
                                 </div>
-                                <span className="font-extrabold text-xs sm:text-sm text-rose-700 dark:text-rose-300 whitespace-nowrap">Chưa đúng</span>
+                                <span className="font-extrabold text-xs sm:text-sm text-rose-700 dark:text-rose-300 whitespace-nowrap">{t('studyModes.notQuiteRight', 'Chưa đúng')}</span>
                             </div>
 
                             <div className="flex flex-wrap items-center gap-2 sm:gap-3 min-w-0 flex-1 text-xs sm:text-sm">
                                 {selectedAnswer && (
                                     <div className="flex items-center gap-1.5 shrink-0 max-w-full">
                                         <span className="text-rose-700/80 dark:text-rose-300/80 font-medium text-[11px] sm:text-xs shrink-0">
-                                            Đã chọn:
+                                            {t('studyModes.selected', 'Đã chọn:')}
                                         </span>
                                         <span className="font-bold font-japanese px-2 py-0.5 rounded bg-rose-500/15 text-rose-700 dark:text-rose-300 line-through border border-rose-500/25 max-w-[180px] sm:max-w-none truncate" title={selectedAnswer}>
                                             {selectedAnswer}
@@ -456,7 +458,7 @@ const SynonymQuizScreen = ({ cards, setId, isCustomSubset = false, onUpdateCard,
                                 )}
                                 <div className="flex items-center gap-1.5 min-w-0 flex-wrap">
                                     <span className="text-slate-500 dark:text-slate-400 font-medium text-[11px] sm:text-xs shrink-0">
-                                        Đồng nghĩa:
+                                        {t('common.synonyms', 'Đồng nghĩa:')}
                                     </span>
                                     <span className="inline-flex items-center font-bold font-japanese px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-800 dark:text-emerald-200 border border-emerald-500/30 text-xs sm:text-sm shadow-xs" title={currentCard?.synonym}>
                                         <FuriganaText text={currentCard?.synonym} forceHide={!synonymFuriganaEnabled} compact={true} />
@@ -467,15 +469,15 @@ const SynonymQuizScreen = ({ cards, setId, isCustomSubset = false, onUpdateCard,
                             <button 
                                 onClick={() => handleNext(false)} 
                                 disabled={isTransitioning}
-                                className={`px-3 sm:px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm shadow-sm transition-all flex items-center gap-1 shrink-0 self-end sm:self-auto cursor-pointer ${isTransitioning ? 'opacity-70 cursor-not-allowed' : ''}`}
+                                className={`px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-2 border-emerald-700 text-white font-black text-xs uppercase tracking-wider transition-all flex items-center gap-1 shrink-0 self-end sm:self-auto cursor-pointer select-none ${isTransitioning ? 'opacity-70 cursor-not-allowed' : ''}`}
                             >
-                                {isTransitioning ? 'Đang tải...' : (currentIndex < quizQueue.length - 1 ? <><span>Tiếp tục</span><ChevronRight className="w-3.5 h-3.5" /></> : <span>Xong 🎉</span>)}
+                                {isTransitioning ? t('common.loading', 'Đang tải...') : (currentIndex < quizQueue.length - 1 ? <><span>{t('studyModes.continue', 'Tiếp tục')}</span><ChevronRight className="w-3.5 h-3.5" /></> : <span>{t('common.done', 'Xong 🎉')}</span>)}
                             </button>
                         </div>
                     )}
 
                     <p className="text-center text-[10px] text-gray-400 dark:text-gray-500 mt-1 opacity-70">
-                        ⌨️ Phím tắt: Phím 1-4 để chọn | Enter để tiếp tục
+                        {t('studyModes.shortcutsHelp', '⌨️ Phím tắt: Phím 1-4 để chọn | Enter để tiếp tục')}
                     </p>
                 </div>
             </div>
@@ -490,7 +492,7 @@ const SynonymQuizScreen = ({ cards, setId, isCustomSubset = false, onUpdateCard,
                         <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2">
                                 <Settings className="w-5 h-5 text-blue-500" />
-                                <h3 className="font-bold text-lg text-gray-800 dark:text-white">Cài đặt ôn tập</h3>
+                                <h3 className="font-bold text-lg text-gray-800 dark:text-white">{t('studyModes.studySettings', 'Cài đặt ôn tập')}</h3>
                             </div>
                             <button onClick={() => setShowSettings(false)} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition-all cursor-pointer">
                                 <X className="w-5 h-5 text-gray-400" />
@@ -499,7 +501,7 @@ const SynonymQuizScreen = ({ cards, setId, isCustomSubset = false, onUpdateCard,
 
                         <div className="space-y-4">
                             <div className="flex items-center justify-between">
-                                <span className="text-sm font-bold text-gray-600 dark:text-gray-300">{isEnglishMode ? 'Hiện phiên âm IPA' : 'Bật Furigana'}</span>
+                                <span className="text-sm font-bold text-gray-600 dark:text-gray-300">{isEnglishMode ? t('studyModes.showIpa', 'Hiện phiên âm IPA') : t('studyModes.showFurigana', 'Bật Furigana')}</span>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input
                                         type="checkbox"
@@ -515,7 +517,7 @@ const SynonymQuizScreen = ({ cards, setId, isCustomSubset = false, onUpdateCard,
                             </div>
 
                             <div className="flex items-center justify-between border-t border-gray-100 dark:border-slate-700 pt-3">
-                                <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Hiện nghĩa tiếng Việt</span>
+                                <span className="text-sm font-bold text-gray-600 dark:text-gray-300">{t('studyModes.showMeaning', 'Hiện nghĩa')}</span>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input
                                         type="checkbox"
@@ -531,7 +533,7 @@ const SynonymQuizScreen = ({ cards, setId, isCustomSubset = false, onUpdateCard,
                             </div>
 
                             <div className="flex items-center justify-between border-t border-gray-100 dark:border-slate-700 pt-3">
-                                <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Phát âm thanh từ vựng</span>
+                                <span className="text-sm font-bold text-gray-600 dark:text-gray-300">{t('studyModes.playVocabAudio', 'Phát âm thanh từ vựng')}</span>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input
                                         type="checkbox"
@@ -550,7 +552,7 @@ const SynonymQuizScreen = ({ cards, setId, isCustomSubset = false, onUpdateCard,
                         {/* Close button */}
                         <button
                             onClick={() => setShowSettings(false)}
-                            className="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all text-sm cursor-pointer"
+                            className="w-full py-3 bg-sky-500 hover:bg-sky-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-sky-700 text-white font-black uppercase tracking-wider rounded-2xl transition-all text-xs cursor-pointer"
                         >
                             Xong
                         </button>

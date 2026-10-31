@@ -1,6 +1,7 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
 import { Layers, Keyboard, X, ChevronRight } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 const SrsModeSelectModal = ({
     isOpen,
@@ -10,12 +11,16 @@ const SrsModeSelectModal = ({
     title = 'Chọn chế độ ôn tập',
     subtitle = 'Lựa chọn phương pháp ôn tập phù hợp với bạn'
 }) => {
+    const { t } = useLanguage();
     if (!isOpen) return null;
 
     const handleSelect = (mode) => {
         onSelectMode(mode);
         onClose();
     };
+
+    const modalTitle = title === 'Chọn chế độ ôn tập' ? t('srs.selectModeTitle', 'Chọn chế độ ôn tập') : title;
+    const modalSubtitle = subtitle === 'Lựa chọn phương pháp ôn tập phù hợp với bạn' ? t('srs.selectModeSubtitle', 'Lựa chọn phương pháp ôn tập phù hợp với bạn') : subtitle;
 
     return createPortal(
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={onClose}>
@@ -31,10 +36,10 @@ const SrsModeSelectModal = ({
                 <div className="flex items-start justify-between">
                     <div>
                         <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 dark:text-white">
-                            {title}
+                            {modalTitle}
                         </h3>
                         <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1.5 font-medium">
-                            {subtitle} {cardCount > 0 && <span className="font-bold text-blue-600 dark:text-blue-400">({cardCount} thẻ)</span>}
+                            {modalSubtitle} {cardCount > 0 && <span className="font-bold text-blue-600 dark:text-blue-400">{(t('srs.cardsCount', '({count} thẻ)') || '').replace('{count}', cardCount)}</span>}
                         </p>
                     </div>
                     <button
@@ -58,14 +63,14 @@ const SrsModeSelectModal = ({
                         <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2">
                                 <span className="font-extrabold text-sm sm:text-base text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                                    Lật thẻ ghi nhớ
+                                    {t('srs.modeFlip', 'Lật thẻ ghi nhớ')}
                                 </span>
                                 <span className="shrink-0 whitespace-nowrap px-2 py-0.5 rounded-full text-[10px] font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400">
-                                    Nhanh gọn
+                                    {t('srs.modeFlipSub', 'Nhanh gọn')}
                                 </span>
                             </div>
                             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed line-clamp-2">
-                                Xem câu hỏi, tự nhẩm và lật mặt sau thẻ để đối chiếu đáp án.
+                                {t('srs.modeFlipDesc', 'Xem câu hỏi, tự nhẩm và lật mặt sau thẻ để đối chiếu đáp án.')}
                             </p>
                         </div>
                         <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors shrink-0" />
@@ -82,14 +87,14 @@ const SrsModeSelectModal = ({
                         <div className="flex-1 min-w-0">
                             <div className="flex items-center gap-2">
                                 <span className="font-extrabold text-sm sm:text-base text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                                    Gõ câu trả lời (Typing)
+                                    {t('srs.modeTyping', 'Gõ câu trả lời (Typing)')}
                                 </span>
                                 <span className="shrink-0 whitespace-nowrap px-2 py-0.5 rounded-full text-[10px] font-bold bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">
-                                    Nhớ sâu
+                                    {t('srs.modeTypingSub', 'Nhớ sâu')}
                                 </span>
                             </div>
                             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed line-clamp-2">
-                                Nhìn nghĩa tiếng Việt, gõ từ (chấp nhận cả Kanji & Hiragana) và so sánh diff từng ký tự.
+                                {t('srs.modeTypingDesc', 'Nhìn nghĩa, gõ từ và so sánh kết quả từng ký tự.')}
                             </p>
                         </div>
                         <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors shrink-0" />

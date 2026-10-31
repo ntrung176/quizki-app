@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useNavigate } from 'react-router-dom';
 import { ChevronLeft, ChevronRight, BookOpen, CheckCircle, Zap, Cpu } from 'lucide-react'
@@ -13,17 +14,18 @@ import { KANJI_TABS } from '../../config/tabs';
 import useMenuTransition from '../../hooks/useMenuTransition';
 // JLPT Levels configuration
 const JLPT_CONFIG = {
-    N5: { label: 'N5', sublabel: 'Cơ bản', color: 'emerald', totalDays: 12, kanjiPerDay: 10, gradient: 'from-emerald-500 to-teal-500', bg: 'bg-emerald-500', light: 'bg-emerald-50 dark:bg-emerald-900/20', text: 'text-emerald-600 dark:text-emerald-400', border: 'border-emerald-300 dark:border-emerald-700' },
-    N4: { label: 'N4', sublabel: 'Sơ cấp', color: 'blue', totalDays: 21, kanjiPerDay: 10, gradient: 'from-blue-500 to-cyan-500', bg: 'bg-blue-500', light: 'bg-blue-50 dark:bg-blue-900/20', text: 'text-blue-600 dark:text-blue-400', border: 'border-blue-300 dark:border-blue-700' },
-    N3: { label: 'N3', sublabel: 'Trung cấp', color: 'sky', totalDays: 38, kanjiPerDay: 10, gradient: 'from-sky-500 to-indigo-500', bg: 'bg-sky-500', light: 'bg-sky-50 dark:bg-sky-900/20', text: 'text-sky-600 dark:text-sky-400', border: 'border-sky-300 dark:border-sky-700' },
-    N2: { label: 'N2', sublabel: 'Cao cấp', color: 'orange', totalDays: 51, kanjiPerDay: 10, gradient: 'from-orange-500 to-amber-500', bg: 'bg-orange-500', light: 'bg-orange-50 dark:bg-orange-900/20', text: 'text-orange-600 dark:text-orange-400', border: 'border-orange-300 dark:border-orange-700' },
-    N1: { label: 'N1', sublabel: 'Thành thạo', color: 'red', totalDays: 131, kanjiPerDay: 10, gradient: 'from-rose-500 to-pink-500', bg: 'bg-rose-500', light: 'bg-rose-50 dark:bg-rose-900/20', text: 'text-rose-600 dark:text-rose-400', border: 'border-rose-300 dark:border-rose-700' },
+    N5: { label: 'N5', sublabel: 'Basic', color: 'emerald', totalDays: 12, kanjiPerDay: 10, gradient: 'from-emerald-500 to-teal-500', bg: 'bg-emerald-500', light: 'bg-emerald-50 dark:bg-emerald-900/20', text: 'text-emerald-600 dark:text-emerald-400', border: 'border-emerald-300 dark:border-emerald-700' },
+    N4: { label: 'N4', sublabel: 'Elementary', color: 'blue', totalDays: 21, kanjiPerDay: 10, gradient: 'from-blue-500 to-cyan-500', bg: 'bg-blue-500', light: 'bg-blue-50 dark:bg-blue-900/20', text: 'text-blue-600 dark:text-blue-400', border: 'border-blue-300 dark:border-blue-700' },
+    N3: { label: 'N3', sublabel: 'Intermediate', color: 'sky', totalDays: 38, kanjiPerDay: 10, gradient: 'from-sky-500 to-indigo-500', bg: 'bg-sky-500', light: 'bg-sky-50 dark:bg-sky-900/20', text: 'text-sky-600 dark:text-sky-400', border: 'border-sky-300 dark:border-sky-700' },
+    N2: { label: 'N2', sublabel: 'Advanced', color: 'orange', totalDays: 51, kanjiPerDay: 10, gradient: 'from-orange-500 to-amber-500', bg: 'bg-orange-500', light: 'bg-orange-50 dark:bg-orange-900/20', text: 'text-orange-600 dark:text-orange-400', border: 'border-orange-300 dark:border-orange-700' },
+    N1: { label: 'N1', sublabel: 'Fluent', color: 'red', totalDays: 131, kanjiPerDay: 10, gradient: 'from-rose-500 to-pink-500', bg: 'bg-rose-500', light: 'bg-rose-50 dark:bg-rose-900/20', text: 'text-rose-600 dark:text-rose-400', border: 'border-rose-300 dark:border-rose-700' },
 };
 const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
+    const { t } = useLanguage();
     const fadeWholePage = useMenuTransition();
     const navigate = useNavigate();
     const [showPremiumModal, setShowPremiumModal] = useState(false);
-    const [lockedPkgName, setLockedPkgName] = useState('Thư viện Kanji Zen');
+    const [lockedPkgName, setLockedPkgName] = useState('Kanji Zen');
     const [selectedLevel, setSelectedLevel] = useState('N5');
     
     const [kanjiList, setKanjiList] = useState(() => getCachedKanjiList() || []);
@@ -192,7 +194,7 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
 
     const handleStartStudy = () => {
         if (selectedLevel !== 'N5' && !hasKanjiAccess) {
-            setLockedPkgName('Thư viện Kanji Zen');
+            setLockedPkgName('Kanji Zen');
             setShowPremiumModal(true);
             return;
         }
@@ -211,7 +213,7 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
             <div className="w-full pb-8">
                 <TopTabBar tabs={KANJI_TABS} />
                 <div className="animate-fade-in">
-                    <LoadingIndicator text="Đang tải lộ trình học..." />
+                    <LoadingIndicator text={t('kanji.loadingRoadmap', 'Đang tải lộ trình học...')} />
                 </div>
             </div>
         );
@@ -227,28 +229,28 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
                         <div className="space-y-1.5 text-center md:text-left flex-1 w-full md:w-auto">
                             <h1 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
-                                Chinh Phục Chữ Hán Kanji
+                                {t('kanji.conquerKanji', 'Chinh Phục Chữ Hán Kanji')}
                             </h1>
 
                             <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-md font-medium leading-relaxed">
-                                {config.sublabel} • 10 chữ mỗi ngày • Tổng {levelKanji.length} chữ ({totalDays} ngày học).
+                                {t('kanji.roadmapSummary', '{sublabel} • 10 characters/day • Total {total} characters ({days} days).').replace('{sublabel}', t('kanji.level_' + selectedLevel, config.sublabel)).replace('{total}', levelKanji.length).replace('{days}', totalDays)}
                             </p>
 
-                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 pt-1">
+                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5 pt-2">
                                 <button
                                     onClick={handleStartStudy}
-                                    className="px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-xs rounded-xl transition-all shadow-md active:scale-95 flex items-center gap-1.5 cursor-pointer min-h-[40px]"
+                                    className="px-6 py-2.5 bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white font-black text-xs uppercase tracking-wider rounded-2xl transition-all shadow-sm flex items-center gap-1.5 cursor-pointer min-h-[42px] select-none"
                                 >
-                                    <span>TIẾP TỤC HỌC</span>
+                                    <span>{t('kanji.continueLearning', 'TIẾP TỤC HỌC')}</span>
                                 </button>
                                 <button
                                     onClick={() => {
                                         const el = document.getElementById('lesson-panel');
                                         if (el) el.scrollIntoView({ behavior: 'smooth' });
                                     }}
-                                    className="px-5 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 font-bold text-xs rounded-xl transition-all cursor-pointer min-h-[40px]"
+                                    className="px-5 py-2.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 font-bold text-xs uppercase tracking-wider rounded-2xl transition-all cursor-pointer min-h-[42px] select-none"
                                 >
-                                    <span>XEM CHI TIẾT</span>
+                                    <span>{t('kanji.viewDetails', 'XEM CHI TIẾT')}</span>
                                 </button>
                             </div>
                         </div>
@@ -263,7 +265,7 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                             </svg>
                             <div className="absolute inset-0 flex flex-col items-center justify-center">
                                 <span className="text-lg sm:text-xl font-black font-mono text-slate-900 dark:text-white">{stats.progressPercent}%</span>
-                                <span className="text-[8px] sm:text-[9px] text-emerald-600 dark:text-emerald-400 font-bold uppercase tracking-wider">Tiến độ</span>
+                                <span className="text-[8px] sm:text-[9px] text-emerald-600 dark:text-emerald-400 font-bold uppercase tracking-wider">{t('kanji.progress', 'Tiến độ')}</span>
                             </div>
                         </div>
                     </div>
@@ -279,7 +281,7 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                                 key={level}
                                 onClick={() => {
                                     if (isLocked) {
-                                        setLockedPkgName('Thư viện Kanji Zen');
+                                        setLockedPkgName('Kanji Zen');
                                         setShowPremiumModal(true);
                                     } else {
                                         setSelectedLevel(level);
@@ -315,7 +317,7 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                                         ? `${cfg.text} bg-${cfg.color}-50 dark:bg-${cfg.color}-950/30 px-2 py-0.5 rounded-full`
                                         : 'text-slate-400 dark:text-slate-500'
                                     }`}>
-                                    {cfg.sublabel}
+                                    {t('kanji.level_' + level, cfg.sublabel)}
                                 </span>
                             </button>
                         );
@@ -328,23 +330,23 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                         <div className="space-y-2">
                             <div className="flex items-center justify-between">
                                 <span className="text-[10px] font-extrabold text-indigo-600 dark:text-cyan-400 uppercase tracking-widest">
-                                    Tiến trình học tập
+                                    {t('kanji.studyProgress', 'Tiến trình học tập')}
                                 </span>
                                 <span className="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
-                                    {stats.daysProgress} Ngày học
+                                    {t('kanji.daysCount', '{days} Ngày học').replace('{days}', stats.daysProgress)}
                                 </span>
                             </div>
                             <h3 className="text-xl font-bold text-slate-800 dark:text-white">
-                                Bạn đã hoàn thành {stats.daysProgress} ngày học
+                                {t('kanji.completedDaysSub', 'Bạn đã hoàn thành {days} ngày học').replace('{days}', stats.daysProgress)}
                             </h3>
                             <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
-                                Hãy tiếp tục duy trì thói quen học tập hàng ngày để nắm vững toàn bộ {stats.totalKanji} chữ Kanji cấp độ {selectedLevel}.
+                                {t('kanji.motivationalText', 'Hãy tiếp tục duy trì thói quen học tập hàng ngày để nắm vững toàn bộ {total} chữ Kanji cấp độ {level}.').replace('{total}', stats.totalKanji).replace('{level}', selectedLevel)}
                             </p>
                         </div>
                         <div className="space-y-2">
                             <div className="flex items-center justify-between text-xs font-bold text-slate-600 dark:text-slate-350">
-                                <span>Tiến độ ngày {currentDay}</span>
-                                <span>{isDayCompleted(selectedLevel, currentDay) ? 'Đã hoàn thành' : 'Chưa hoàn thành'}</span>
+                                <span>{t('kanji.dayProgress', 'Tiến độ ngày {day}').replace('{day}', currentDay)}</span>
+                                <span>{isDayCompleted(selectedLevel, currentDay) ? t('common.completed', 'Đã hoàn thành') : t('common.notStarted', 'Chưa hoàn thành')}</span>
                             </div>
                             <div className="h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
                                 <div
@@ -358,7 +360,7 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                     <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-md flex flex-col justify-between">
                         <div className="flex items-center justify-between mb-4">
                             <span className="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
-                                CHỌN NGÀY HỌC
+                                {t('kanji.selectDay', 'CHỌN NGÀY HỌC')}
                             </span>
                             <div className="flex items-center gap-1.5">
                                 <button
@@ -381,33 +383,33 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                             <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${config.gradient} flex items-center justify-center shadow-lg shadow-${config.color}-500/20 text-white text-xl font-bold`}>
                                 {currentDay}
                             </div>
-                            <span className="text-sm font-bold text-slate-800 dark:text-white mt-3">Ngày {currentDay}</span>
+                            <span className="text-sm font-bold text-slate-800 dark:text-white mt-3">{t('kanji.dayNumber', 'Ngày {day}').replace('{day}', currentDay)}</span>
                             <span className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-bold">JLPT {selectedLevel}</span>
                         </div>
                         {/* Progress display */}
                         <div className="text-center text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider pt-2 border-t border-slate-50 dark:border-slate-700/40">
-                            Ngày {currentDay} / {totalDays}
+                            {t('kanji.dayNumberProgress', 'Ngày {current} / {total}').replace('{current}', currentDay).replace('{total}', totalDays)}
                         </div>
                     </div>
                 </div>
                 {/* 4. "Kanji Hôm Nay" Daily Lesson Panel */}
-                <div id="lesson-panel" className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-md space-y-6">
-                    <div className="flex items-center justify-between border-b border-slate-50 dark:border-slate-700/40 pb-4">
+                <div id="lesson-panel" className="bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-sm space-y-6">
+                    <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4">
                         <div className="flex items-center gap-3">
-                            <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${config.gradient} flex items-center justify-center shadow-md shadow-${config.color}-500/25`}>
-                                <BookOpen className="w-5 h-5 text-white" />
+                            <div className="w-10 h-10 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center">
+                                <BookOpen className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                             </div>
                             <div>
-                                <h3 className="text-sm font-bold text-slate-800 dark:text-white">Kanji ngày {currentDay}</h3>
-                                <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Danh sách {todayKanji.length} chữ của bài học</p>
+                                <h3 className="text-base font-bold text-slate-800 dark:text-white">{t('kanji.kanjiOfDay', 'Kanji ngày {day}').replace('{day}', currentDay)}</h3>
+                                <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t('kanji.lessonKanjiList', 'Danh sách {count} chữ của bài học').replace('{count}', todayKanji.length)}</p>
                             </div>
                         </div>
                         <button
                             onClick={handleStartStudy}
-                            className={`flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r ${config.gradient} hover:shadow-lg hover:shadow-${config.color}-500/30 text-white text-xs font-bold tracking-wider uppercase rounded-xl transition-all duration-300 hover:scale-105 active:scale-95`}
+                            className="flex items-center gap-2 px-6 py-2.5 bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white text-xs font-black tracking-wider uppercase rounded-2xl transition-all shadow-sm cursor-pointer select-none"
                         >
-                            <Zap className="w-4 h-4" />
-                            Học ngay
+                            <Zap className="w-4 h-4 fill-current text-white" />
+                            {t('kanji.learnNow', 'Học ngay')}
                         </button>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -433,7 +435,7 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                                         </div>
                                         <div className="flex items-center gap-2.5">
                                             <span className="text-[10px] bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 px-2 py-0.5 rounded font-bold font-mono">
-                                                {jData?.stroke_count || kanji.strokeCount || 8} nét
+                                                {t('kanji.strokesCount', '{count} nét').replace('{count}', jData?.stroke_count || kanji.strokeCount || 8)}
                                             </span>
                                             {isCompleted && (
                                                 <CheckCircle className="w-4 h-4 text-emerald-500" />

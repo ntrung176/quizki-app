@@ -7,6 +7,8 @@ import { getAuth } from 'firebase/auth';
 import { saveStudyCompletion } from '../utils/studyProgressService';
 import UpgradeScreen from './ui/AiCreditShop';
 import { shuffleArray } from '../utils/textProcessing';
+import { useLanguage } from '../context/LanguageContext';
+import OnboardingSurveyScreen from './onboarding/OnboardingSurveyScreen';
 
 
 import {
@@ -186,7 +188,7 @@ const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards,
             .map(card => ({ ...card, reviewType: 'example' }));
         
         if (exampleCards.length === 0) {
-            alert('Không có từ vựng nào trong bộ này có câu ví dụ!');
+            alert(t('common.noExampleSentences', 'Không có từ vựng nào trong bộ này có câu ví dụ!'));
             return;
         }
         setReviewCards(shuffleArray(exampleCards));
@@ -296,19 +298,13 @@ const ZenProtectedRoute = ({ children, packageId, profile, isAdmin }) => {
     }, [profile, isAdmin, packageId]);
 
     const navigate = useNavigate();
+    const { t } = useLanguage();
 
     if (isUnlocked) {
         return children;
     }
 
-    const packageNames = {
-        vocab_zen: 'Từ vựng chuyên sâu Zen',
-        grammar_zen: 'Ngữ pháp chuyên sâu Zen',
-        kanji_zen: 'Thư viện Kanji Zen',
-        jlpt_prep: 'Luyện đề thi thử JLPT'
-    };
-
-    const pkgName = packageNames[packageId] || packageId;
+    const pkgName = t(`premium.packages.${packageId}`, packageId);
 
     return (
         <div className="w-full min-h-[70vh] flex flex-col items-center justify-center px-4 py-12 relative overflow-hidden bg-slate-50/50 dark:bg-slate-900/30 rounded-3xl border border-dashed border-slate-200 dark:border-slate-800">
@@ -318,9 +314,9 @@ const ZenProtectedRoute = ({ children, packageId, profile, isAdmin }) => {
                     <span className="text-3xl">🔒</span>
                 </div>
                 <div className="space-y-2">
-                    <h2 className="text-xl font-bold text-gray-900 dark:text-white">Tính năng Premium</h2>
+                    <h2 className="text-xl font-bold text-gray-900 dark:text-white">{t('premium.title', 'Tính năng Premium')}</h2>
                     <p className="text-sm text-gray-500 dark:text-slate-400">
-                        Vui lòng nâng cấp gói <strong>{pkgName}</strong> để học tập đầy đủ các kiến thức và làm bài luyện tập nâng cao.
+                        {(t('premium.upgradePrompt', 'Vui lòng nâng cấp gói {pkg} để học tập đầy đủ các kiến thức và làm bài luyện tập nâng cao.') || '').replace('{pkg}', pkgName)}
                     </p>
                 </div>
                 <div className="flex flex-col gap-3">
@@ -328,13 +324,13 @@ const ZenProtectedRoute = ({ children, packageId, profile, isAdmin }) => {
                         onClick={() => navigate(ROUTES.UPGRADE)}
                         className="w-full py-3 bg-gradient-to-r from-indigo-600 to-sky-500 hover:from-indigo-700 hover:to-sky-600 text-white font-bold rounded-xl transition-all shadow-lg shadow-indigo-200 dark:shadow-none cursor-pointer text-sm"
                     >
-                        Mở khóa ngay
+                        {t('premium.unlockNow', 'Mở khóa ngay')}
                     </button>
                     <button
                         onClick={() => navigate(ROUTES.HOME)}
                         className="w-full py-3 bg-slate-100 hover:bg-slate-200 dark:bg-slate-850 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-semibold rounded-xl transition-all cursor-pointer text-sm"
                     >
-                        Quay lại Trang chủ
+                        {t('common.backToHome', 'Quay lại Trang chủ')}
                     </button>
                 </div>
             </div>
@@ -451,6 +447,7 @@ const AppRoutes = ({
 }) => {
     const navigate = useNavigate();
     const location = useLocation();
+    const { t, language } = useLanguage();
     const aiCreditsRemaining = profile?.aiCreditsRemaining;
 
     const [flashcardSetId, setFlashcardSetId] = React.useState(null);
@@ -461,96 +458,99 @@ const AppRoutes = ({
     // Dynamically update document title based on current path
     React.useEffect(() => {
         const path = location.pathname;
-        let title = 'QUIZKI - HỌC TẬP HIỆN ĐẠI';
+        const isEn = language === 'en';
+        const brand = isEn ? 'QUIZKI - Modern Learning' : 'QUIZKI - HỌC TẬP HIỆN ĐẠI';
+
+        let title = brand;
 
         if (path === '/') {
-            title = 'QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = brand;
         } else if (path === '/login') {
-            title = 'Đăng nhập | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Login | ${brand}` : 'Đăng nhập | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/account') {
-            title = 'Tài khoản | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Account | ${brand}` : 'Tài khoản | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/help') {
-            title = 'Trợ giúp & Hướng dẫn | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Help & Guides | ${brand}` : 'Trợ giúp & Hướng dẫn | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/privacy') {
-            title = 'Chính sách bảo mật | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Privacy Policy | ${brand}` : 'Chính sách bảo mật | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/terms') {
-            title = 'Điều khoản dịch vụ | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Terms of Service | ${brand}` : 'Điều khoản dịch vụ | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/vocab/review') {
-            title = 'Ôn tập Từ vựng | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Vocabulary Review | ${brand}` : 'Ôn tập Từ vựng | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/vocab/list') {
-            title = 'Thư viện Từ vựng | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Vocabulary Library | ${brand}` : 'Thư viện Từ vựng | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path.startsWith('/vocab/set/')) {
-            title = 'Chi tiết Học phần | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Study Set Details | ${brand}` : 'Chi tiết Học phần | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/vocab/add') {
-            title = 'Thêm Từ vựng | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Add Vocabulary | ${brand}` : 'Thêm Từ vựng | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path.startsWith('/vocab/edit-set/')) {
-            title = 'Sửa Học phần | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Edit Study Set | ${brand}` : 'Sửa Học phần | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path.startsWith('/vocab/edit/')) {
-            title = 'Sửa Từ vựng | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Edit Vocabulary | ${brand}` : 'Sửa Từ vựng | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/kanji/study') {
-            title = 'Lộ trình học Kanji | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Kanji Roadmap | ${brand}` : 'Lộ trình học Kanji | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/kanji/study/lesson') {
-            title = 'Bài học Kanji | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Kanji Lesson | ${brand}` : 'Bài học Kanji | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/kanji/review') {
-            title = 'Ôn tập Kanji | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Kanji Review | ${brand}` : 'Ôn tập Kanji | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/kanji/saved') {
-            title = 'Thư viện Kanji | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Saved Kanji | ${brand}` : 'Thư viện Kanji | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/kanji/list') {
-            title = 'Tra cứu Kanji | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Kanji Lookup | ${brand}` : 'Tra cứu Kanji | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/vocab/review/quiz') {
-            title = 'Trắc nghiệm Từ vựng | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Vocabulary Quiz | ${brand}` : 'Trắc nghiệm Từ vựng | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/vocab/review/flashcard') {
-            title = 'Flashcard | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Flashcards | ${brand}` : 'Flashcard | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/vocab/review/study') {
-            title = 'Học từ mới | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Study New Words | ${brand}` : 'Học từ mới | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/vocab/review/synonym') {
-            title = 'Trắc nghiệm Đồng nghĩa | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Synonyms Quiz | ${brand}` : 'Trắc nghiệm Đồng nghĩa | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/vocab/review/test') {
-            title = 'Kiểm tra Từ vựng | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Vocabulary Test | ${brand}` : 'Kiểm tra Từ vựng | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/jlpt/test') {
-            title = 'Luyện thi JLPT | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `JLPT Exam Prep | ${brand}` : 'Luyện thi JLPT | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/jlpt/admin') {
-            title = 'Quản trị JLPT | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `JLPT Admin | ${brand}` : 'Quản trị JLPT | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/grammar') {
-            title = 'Ngữ pháp Tiếng Nhật | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Japanese Grammar | ${brand}` : 'Ngữ pháp Tiếng Nhật | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/grammar/review') {
-            title = 'Ôn tập Ngữ pháp | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Grammar Review | ${brand}` : 'Ôn tập Ngữ pháp | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/grammar/saved') {
-            title = 'Thư viện Ngữ pháp | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Saved Grammar | ${brand}` : 'Thư viện Ngữ pháp | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/grammar/list') {
-            title = 'Tra cứu Ngữ pháp | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Grammar Lookup | ${brand}` : 'Tra cứu Ngữ pháp | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path.startsWith('/grammar/textbook/')) {
             if (path.includes('/lesson/')) {
-                title = 'Bài học Ngữ pháp | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+                title = isEn ? `Grammar Lesson | ${brand}` : 'Bài học Ngữ pháp | QUIZKI - HỌC TẬP HIỆN ĐẠI';
             } else {
-                title = 'Giáo trình Ngữ pháp | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+                title = isEn ? `Grammar Textbook | ${brand}` : 'Giáo trình Ngữ pháp | QUIZKI - HỌC TẬP HIỆN ĐẠI';
             }
         } else if (path.startsWith('/grammar/detail/')) {
-            title = 'Chi tiết mẫu câu | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Grammar Detail | ${brand}` : 'Chi tiết mẫu câu | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path.startsWith('/grammar/practice/')) {
-            title = 'Luyện tập Ngữ pháp | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Grammar Practice | ${brand}` : 'Luyện tập Ngữ pháp | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/hub') {
-            title = 'Trung tâm Cộng đồng | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Community Hub | ${brand}` : 'Trung tâm Cộng đồng | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/forum') {
-            title = 'Diễn đàn thảo luận | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Discussion Forum | ${brand}` : 'Diễn đàn thảo luận | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path.startsWith('/profile/')) {
-            title = 'Trang cá nhân | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `User Profile | ${brand}` : 'Trang cá nhân | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/import') {
-            title = 'Nhập dữ liệu | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Data Import | ${brand}` : 'Nhập dữ liệu | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/admin') {
-            title = 'Quản trị viên | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Administrator | ${brand}` : 'Quản trị viên | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/books') {
-            title = 'Kho sách | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Book Library | ${brand}` : 'Kho sách | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/settings') {
-            title = 'Cài đặt | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Settings | ${brand}` : 'Cài đặt | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/feedback') {
-            title = 'Góp ý & Báo lỗi | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Feedback & Bug Report | ${brand}` : 'Góp ý & Báo lỗi | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/upgrade') {
-            title = 'Nâng cấp Premium | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `Upgrade Premium | ${brand}` : 'Nâng cấp Premium | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         }
 
         document.title = title;
-    }, [location.pathname]);
+    }, [location.pathname, language]);
 
     const handleStudySet = (setId, customCards, options = {}) => {
         const setCards = customCards || (setId === 'unfiled' 
@@ -617,9 +617,25 @@ const AppRoutes = ({
         }
     }, [navigate]);
 
+    // Redirect unauthenticated visitors trying to access tool routes to Home (Landing Page)
+    const isPublicPath = [
+        ROUTES.HOME,
+        ROUTES.LOGIN,
+        ROUTES.ONBOARDING,
+        ROUTES.TERMS,
+        ROUTES.PRIVACY,
+        ROUTES.HELP,
+        ROUTES.AUTH_ACTION,
+        ROUTES.AUTH_ACTION_FIREBASE_DEFAULT
+    ].includes(location.pathname) || location.pathname.startsWith('/auth');
+
+    if (authReady && !isAuthenticated && !isPublicPath) {
+        return <Navigate to={ROUTES.HOME} replace />;
+    }
+
     return (
-        <React.Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900"><LoadingIndicator text="Đang nạp tính năng..." /></div>}>
-            <SectionErrorBoundary name="Màn hình ứng dụng" resetKeys={[location.pathname, location.search]}>
+        <React.Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900"><LoadingIndicator text={t('common.loadingFeatures', 'Đang nạp tính năng...')} /></div>}>
+            <SectionErrorBoundary name={t('common.appScreen', 'Màn hình ứng dụng')} resetKeys={[location.pathname, location.search]}>
                 <Routes>
                     {/* Public routes */}
                     <Route
@@ -631,9 +647,13 @@ const AppRoutes = ({
                         }
                     />
 
-                {/* Legal public routes */}
+                {/* Duolingo-styled Onboarding Survey */}
+                <Route path={ROUTES.ONBOARDING} element={<OnboardingSurveyScreen />} />
+
+                {/* Legal & Help public routes (accessible without login) */}
                 <Route path={ROUTES.PRIVACY} element={<PrivacyScreen />} />
                 <Route path={ROUTES.TERMS} element={<TermsScreen />} />
+                <Route path={ROUTES.HELP} element={<HelpScreen />} />
 
                 {/* Firebase Auth action handler (email verification, password reset) */}
                 <Route path={ROUTES.AUTH_ACTION} element={<AuthActionScreen />} />
@@ -646,7 +666,7 @@ const AppRoutes = ({
                     path={ROUTES.HOME}
                     element={
                         !authReady ? (
-                            <LoadingIndicator fullScreen message="Đang kiểm tra đăng nhập..." />
+                            <LoadingIndicator fullScreen message={t('common.checkingLogin', 'Đang kiểm tra đăng nhập...')} />
                         ) : (
                             <HomeScreen
                                 displayName={profile?.displayName}
@@ -657,6 +677,7 @@ const AppRoutes = ({
                                 dailyActivityLogs={dailyActivityLogs}
                                 calculatedStreak={calculatedStreak}
                                 isActivityLogsLoaded={isActivityLogsLoaded}
+                                awardXP={awardXP}
                             />
                         )
                     }
@@ -1069,17 +1090,7 @@ const AppRoutes = ({
                     }
                 />
 
-                <Route
-                    path={ROUTES.HELP}
-                    element={
-                        <ProtectedRoute isAuthenticated={isAuthenticated} authReady={authReady}>
-                            <HelpScreen
-                                isFirstTime={false}
-                                onBack={() => setView('HOME')}
-                            />
-                        </ProtectedRoute>
-                    }
-                />
+
 
                 <Route
                     path={ROUTES.IMPORT}

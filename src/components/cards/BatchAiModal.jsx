@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Cpu, Upload, Image as ImageIcon, X, Play, StopCircle, Loader2, CheckCircle, AlertTriangle, Camera, FileText } from 'lucide-react';
 import PremiumLockedModal from '../ui/PremiumLockedModal';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
+import { useLanguage } from '../../context/LanguageContext';
 import { getLanguageService } from '../../languages';
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
@@ -17,6 +18,7 @@ const BatchAiModal = ({
     existingCards = []
 }) => {
     const { isEnglishMode, isKoreanMode } = useTargetLanguage();
+    const { t, language } = useLanguage();
     const [activeTab, setActiveTab] = useState(initialTab); // 'text' | 'image'
 
     // Text input state
@@ -64,7 +66,7 @@ const BatchAiModal = ({
         if (file && file.type.startsWith('image/')) {
             await processSelectedFile(file);
         } else {
-            showToast('Chỉ hỗ trợ file hình ảnh!', 'error');
+            showToast(t('batchAi.imageOnlyError', 'Chỉ hỗ trợ file hình ảnh!'), 'error');
         }
     };
 
@@ -82,7 +84,7 @@ const BatchAiModal = ({
             setImagePreview(compressed);
         } catch (error) {
             console.error('Lỗi nén ảnh:', error);
-            showToast('Không thể nén ảnh này. Vui lòng chọn ảnh khác.', 'error');
+            showToast(language === 'vi' ? 'Không thể nén ảnh này. Vui lòng chọn ảnh khác.' : 'Cannot compress this image. Please select another image.', 'error');
         }
     };
 
@@ -104,15 +106,15 @@ const BatchAiModal = ({
                     const cleanPrev = prev.trim();
                     return cleanPrev ? `${cleanPrev}\n${newText}` : newText;
                 });
-                showToast(`Đã nhận diện thành công ${extractedWords.length} từ vựng!`, 'success');
+                showToast(t('batchAi.ocrSuccess', 'Đã nhận diện thành công {count} từ vựng!').replace('{count}', extractedWords.length), 'success');
                 // Switch back to text tab to verify
                 setActiveTab('text');
             } else {
-                showToast('Không nhận diện được từ vựng tiếng Nhật nào trong ảnh.', 'warning');
+                showToast(t('batchAi.ocrNoWords', 'Không nhận diện được từ vựng nào trong ảnh.'), 'warning');
             }
         } catch (error) {
             console.error('OCR Error:', error);
-            showToast('Có lỗi xảy ra khi nhận diện chữ từ ảnh chụp.', 'error');
+            showToast(t('batchAi.ocrError', 'Có lỗi xảy ra khi nhận diện chữ từ ảnh chụp.'), 'error');
         } finally {
             setIsOcrLoading(false);
             setSelectedImage(null);
@@ -128,12 +130,12 @@ const BatchAiModal = ({
             .filter(Boolean);
 
         if (words.length === 0) {
-            showToast('Vui lòng nhập ít nhất một từ vựng!', 'error');
+            showToast(t('batchAi.enterAtLeastOneError', 'Vui lòng nhập ít nhất một từ vựng!'), 'error');
             return;
         }
 
         if (words.length > 20) {
-            showToast('Chỉ hỗ trợ tạo tối đa 20 từ cùng một lúc để tránh quá tải.', 'warning');
+            showToast(t('batchAi.maxTwentyWordsWarning', 'Chỉ hỗ trợ tạo tối đa 20 từ cùng một lúc để tránh quá tải.'), 'warning');
             return;
         }
 
@@ -147,7 +149,7 @@ const BatchAiModal = ({
 
         for (let i = 0; i < words.length; i++) {
             if (isCancelledRef.current) {
-                showToast('Đã dừng tiến trình tạo thẻ.', 'warning');
+                showToast(t('batchAi.stoppedWarning', 'Đã dừng tiến trình tạo thẻ.'), 'warning');
                 break;
             }
 
@@ -259,9 +261,9 @@ const BatchAiModal = ({
         onClose();
 
         if (skippedCount > 0) {
-            showToast(`Đã tạo ${generatedCards.length} thẻ. Bỏ qua ${skippedCount} từ đã có trong học phần.`, 'warning');
+            showToast(t('batchAi.batchAiSuccessWithSkipped', 'Đã tạo {count} thẻ. Bỏ qua {skippedCount} từ đã có trong học phần.').replace('{count}', generatedCards.length).replace('{skippedCount}', skippedCount), 'warning');
         } else {
-            showToast(`Đã tạo thành công ${generatedCards.length} thẻ bằng AI!`, 'success');
+            showToast(t('batchAi.batchAiSuccess', 'Đã tạo thành công {count} thẻ bằng AI!').replace('{count}', generatedCards.length), 'success');
         }
     };
 
@@ -283,10 +285,12 @@ const BatchAiModal = ({
                         </div>
                         <div>
                             <h3 className="font-bold text-slate-800 dark:text-white text-lg">
-                                {activeTab === 'image' ? 'Quét từ vựng từ ảnh chụp' : 'Tạo bằng AI hàng loạt'}
+                                {activeTab === 'image' ? t('batchAi.titleOcr', 'Quét từ vựng từ ảnh chụp') : t('batchAi.titleText', 'Tạo bằng AI hàng loạt')}
                             </h3>
                             <p className="text-xs text-slate-500 dark:text-slate-400">
-                                {activeTab === 'image' ? (isKoreanMode ? 'Trích xuất từ vựng tiếng Hàn từ hình ảnh tài liệu' : isEnglishMode ? 'Trích xuất từ vựng tiếng Anh từ hình ảnh tài liệu' : 'Trích xuất từ vựng tiếng Nhật từ hình ảnh tài liệu') : 'Tạo nhiều thẻ từ vựng đầy đủ thông tin cùng lúc'}
+                                {activeTab === 'image'
+                                    ? (isKoreanMode ? t('batchAi.subtitleOcrKo', 'Trích xuất từ vựng tiếng Hàn từ hình ảnh tài liệu') : isEnglishMode ? t('batchAi.subtitleOcrEn', 'Trích xuất từ vựng tiếng Anh từ hình ảnh tài liệu') : t('batchAi.subtitleOcrJa', 'Trích xuất từ vựng tiếng Nhật từ hình ảnh tài liệu'))
+                                    : (isKoreanMode ? t('batchAi.subtitleTextKo', 'AI sẽ tự tra cứu từ điển và tự động điền đầy đủ dữ liệu cho tiếng Hàn') : isEnglishMode ? t('batchAi.subtitleTextEn', 'AI sẽ tự tra cứu từ điển và tự động điền đầy đủ dữ liệu cho tiếng Anh') : t('batchAi.subtitleTextJa', 'Tạo nhiều thẻ từ vựng đầy đủ thông tin cùng lúc'))}
                             </p>
                         </div>
                     </div>
@@ -308,7 +312,7 @@ const BatchAiModal = ({
                             <div className="flex items-center justify-between text-sm">
                                 <span className="font-bold text-blue-600 dark:text-blue-400 flex items-center gap-1.5">
                                     <Loader2 className="w-4 h-4 animate-spin animate-infinite" />
-                                    Đang phân tích từ vựng...
+                                    {t('batchAi.analyzingImage', 'Đang phân tích từ vựng...')}
                                 </span>
                                 <span className="text-slate-500 font-mono">
                                     {progress.current} / {progress.total}
@@ -326,14 +330,14 @@ const BatchAiModal = ({
                             {/* Current word display */}
                             <div className="p-4 bg-slate-50 dark:bg-slate-900/40 rounded-xl border border-slate-200/60 dark:border-slate-700/60 flex items-center justify-between">
                                 <div>
-                                    <p className="text-xs text-slate-400 font-medium">TỪ ĐANG PHÂN TÍCH</p>
+                                    <p className="text-xs text-slate-400 font-medium">{t('batchAi.analyzingWord', 'TỪ ĐANG PHÂN TÍCH')}</p>
                                     <p className="text-xl font-black text-slate-800 dark:text-white mt-1 font-mono tracking-wide">{progress.currentWord}</p>
                                 </div>
                                 <button
                                     onClick={handleStopGeneration}
                                     className="px-4 py-2 bg-rose-50 dark:bg-rose-950/30 hover:bg-rose-100 dark:hover:bg-rose-900/50 text-rose-600 dark:text-rose-400 text-xs font-bold rounded-lg transition-all flex items-center gap-1 border border-rose-100 dark:border-rose-900/30"
                                 >
-                                    <StopCircle className="w-4 h-4" /> Dừng lại
+                                    <StopCircle className="w-4 h-4" /> {t('batchAi.stop', 'Dừng lại')}
                                 </button>
                             </div>
 
@@ -344,15 +348,15 @@ const BatchAiModal = ({
                                         <span className="font-semibold text-slate-700 dark:text-slate-300 font-mono">{item.word}</span>
                                         {item.status === 'success' ? (
                                             <span className="text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
-                                                <CheckCircle className="w-3.5 h-3.5" /> Thành công
+                                                <CheckCircle className="w-3.5 h-3.5" /> {t('batchAi.successStatus', 'Thành công')}
                                             </span>
                                         ) : item.status === 'exists' ? (
                                             <span className="text-amber-600 dark:text-amber-400 font-bold flex items-center gap-1">
-                                                <AlertTriangle className="w-3.5 h-3.5" /> Đã có trong học phần
+                                                <AlertTriangle className="w-3.5 h-3.5" /> {t('batchAi.alreadyInSetStatus', 'Đã có trong học phần')}
                                             </span>
                                         ) : (
                                             <span className="text-amber-600 dark:text-amber-400 font-bold flex items-center gap-1">
-                                                <AlertTriangle className="w-3.5 h-3.5" /> Fallback (Rỗng)
+                                                <AlertTriangle className="w-3.5 h-3.5" /> {t('batchAi.fallbackStatus', 'Fallback (Rỗng)')}
                                             </span>
                                         )}
                                     </div>
@@ -373,7 +377,7 @@ const BatchAiModal = ({
                                     }`}
                                 >
                                     <FileText className="w-3.5 h-3.5" />
-                                    Tạo bằng văn bản
+                                    {t('batchAi.textTab', 'Tạo bằng văn bản')}
                                 </button>
                                 <button
                                     type="button"
@@ -385,7 +389,7 @@ const BatchAiModal = ({
                                     }`}
                                 >
                                     <Camera className="w-3.5 h-3.5" />
-                                    Quét từ vựng từ ảnh (OCR)
+                                    {t('batchAi.ocrTab', 'Quét từ vựng từ ảnh (OCR)')}
                                 </button>
                             </div>
 
@@ -394,13 +398,13 @@ const BatchAiModal = ({
                                 <div className="space-y-4">
                                     <div>
                                         <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">
-                                            Danh sách từ vựng (mỗi từ một dòng)
+                                            {t('batchAi.wordListLabel', 'Danh sách từ vựng (mỗi từ một dòng)')}
                                         </label>
                                         <textarea
                                             rows={6}
                                             value={textInput}
                                             onChange={(e) => setTextInput(e.target.value)}
-                                            placeholder={isKoreanMode ? "Ví dụ:\n학교\n도서관\n맛있다" : isEnglishMode ? "Ví dụ:\nIntelligence\nLibrary\nDelicious" : "Ví dụ:\n食べる\n図書館\n美味しい"}
+                                            placeholder={isKoreanMode ? (language === 'vi' ? "Ví dụ:\n학교\n도서관\n맛있다" : "e.g.:\n학교\n도서관\n맛있다") : isEnglishMode ? (language === 'vi' ? "Ví dụ:\nIntelligence\nLibrary\nDelicious" : "e.g.:\nIntelligence\nLibrary\nDelicious") : (language === 'vi' ? "Ví dụ:\n食べる\n図書館\n美味しい" : "e.g.:\n食べる\n図書館\n美味しい")}
                                             className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-xl outline-none text-sm dark:text-white focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-mono leading-relaxed"
                                         />
                                     </div>
@@ -409,10 +413,10 @@ const BatchAiModal = ({
                                     <div className="bg-blue-50/50 dark:bg-blue-950/20 border border-blue-100 dark:border-blue-900/30 rounded-xl p-3.5 text-xs text-blue-700 dark:text-blue-300 space-y-1.5">
                                         <div className="flex items-center gap-1.5 font-bold">
                                             <Cpu className="w-3.5 h-3.5 text-blue-500" />
-                                            Cơ chế hoạt động của AI
+                                            {t('batchAi.aiMechanismTitle', 'Cơ chế hoạt động của AI')}
                                         </div>
                                         <p className="leading-relaxed">
-                                            {isKoreanMode ? 'Hệ thống sẽ tự động tra cứu từ điển và dùng AI để điền đầy đủ các thông tin cho thẻ từ vựng: phiên âm Romaja, từ loại, cấp độ TOPIK, âm Hán Hàn, câu ví dụ kèm dịch nghĩa,...' : isEnglishMode ? 'Hệ thống sẽ tự động tra cứu từ điển và dùng AI để điền đầy đủ các thông tin cho thẻ từ vựng: phiên âm IPA, từ loại, cấp độ CEFR, câu ví dụ kèm dịch nghĩa,...' : 'Hệ thống sẽ tự động tra cứu từ điển và dùng AI để điền đầy đủ các thông tin cho thẻ từ vựng: phiên âm, từ loại, cấp độ JLPT, âm Hán Việt, câu ví dụ kèm dịch nghĩa,...'}
+                                            {isKoreanMode ? t('batchAi.aiMechanismDescKo') : isEnglishMode ? t('batchAi.aiMechanismDescEn') : t('batchAi.aiMechanismDescJa')}
                                         </p>
                                     </div>
                                 </div>
@@ -424,8 +428,8 @@ const BatchAiModal = ({
                                     {isOcrLoading ? (
                                         <div className="border-2 border-dashed border-blue-200 dark:border-blue-800 rounded-2xl p-10 text-center bg-slate-50 dark:bg-slate-900/30">
                                             <Loader2 className="w-10 h-10 animate-spin mx-auto text-blue-600 mb-3" />
-                                            <p className="text-sm font-bold text-slate-700 dark:text-slate-300">Đang phân tích chữ trong hình ảnh...</p>
-                                            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Quá trình này có thể mất vài giây. Vui lòng chờ.</p>
+                                            <p className="text-sm font-bold text-slate-700 dark:text-slate-300">{t('batchAi.analyzingImage', 'Đang phân tích chữ trong hình ảnh...')}</p>
+                                            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('batchAi.analyzingImageSub', 'Quá trình này có thể mất vài giây. Vui lòng chờ...')}</p>
                                         </div>
                                     ) : imagePreview ? (
                                         <div className="space-y-4">
@@ -443,7 +447,7 @@ const BatchAiModal = ({
                                                 className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2"
                                             >
                                                 <Cpu className="w-4 h-4" />
-                                                Bắt đầu quét & trích xuất từ ảnh
+                                                {t('batchAi.startOcrBtn', 'Bắt đầu quét & trích xuất từ ảnh')}
                                             </button>
                                         </div>
                                     ) : (
@@ -454,10 +458,10 @@ const BatchAiModal = ({
                                         >
                                             <Upload className="w-8 h-8 mx-auto text-slate-400 dark:text-slate-500 mb-3" />
                                             <p className="text-sm font-bold text-slate-700 dark:text-slate-300">
-                                                Kéo thả ảnh chụp tài liệu vào đây
+                                                {t('batchAi.dragDropText', 'Kéo thả ảnh chụp tài liệu vào đây')}
                                             </p>
                                             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 mb-4">
-                                                Hỗ trợ các file định dạng JPG, PNG
+                                                {t('batchAi.dragDropSub', 'Hỗ trợ các file định dạng JPG, PNG')}
                                             </p>
 
                                             <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-sm mx-auto">
@@ -467,7 +471,7 @@ const BatchAiModal = ({
                                                     className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-xl shadow-sm hover:shadow-md transition-all"
                                                 >
                                                     <Camera className="w-4 h-4" />
-                                                    Chụp ảnh bằng Camera
+                                                    {t('batchAi.captureCamera', 'Chụp ảnh bằng Camera')}
                                                 </button>
                                                 <button
                                                     type="button"
@@ -475,7 +479,7 @@ const BatchAiModal = ({
                                                     className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/60 text-xs font-bold rounded-xl shadow-sm transition-all"
                                                 >
                                                     <Upload className="w-4 h-4" />
-                                                    Chọn từ thiết bị
+                                                    {t('batchAi.chooseFile', 'Chọn từ thiết bị')}
                                                 </button>
                                             </div>
 
@@ -501,10 +505,10 @@ const BatchAiModal = ({
                                     <div className="bg-amber-50/60 dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/30 rounded-xl p-3.5 text-xs text-amber-700 dark:text-amber-300 space-y-1">
                                         <div className="flex items-center gap-1.5 font-bold">
                                             <AlertTriangle className="w-3.5 h-3.5 text-amber-500" />
-                                            Lưu ý quét ảnh
+                                            {t('batchAi.ocrTipTitle', 'Lưu ý quét ảnh')}
                                         </div>
                                         <p className="leading-relaxed">
-                                            Các từ sau khi trích xuất từ ảnh chụp sẽ tự động xuất hiện ở tab <strong>Tạo bằng văn bản</strong> để bạn có thể xem lại trước khi tạo thẻ bằng AI.
+                                            {t('batchAi.ocrTipDesc')}
                                         </p>
                                     </div>
                                 </div>
@@ -521,7 +525,7 @@ const BatchAiModal = ({
                             disabled={isOcrLoading}
                             className="px-4 py-2.5 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 text-sm font-bold rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-all disabled:opacity-50"
                         >
-                            Hủy bỏ
+                            {t('common.cancel', 'Hủy bỏ')}
                         </button>
                         {activeTab === 'text' && (
                             <button
@@ -530,7 +534,7 @@ const BatchAiModal = ({
                                 className="px-5 py-2.5 bg-[#204051] hover:bg-[#162e3b] dark:bg-slate-700 dark:hover:bg-slate-600 disabled:opacity-50 text-white text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 disabled:shadow-none cursor-pointer"
                             >
                                 <Play className="w-4 h-4 fill-current" />
-                                Bắt đầu tạo bằng AI
+                                {t('batchAi.startAiBtn', 'Bắt đầu tạo bằng AI')}
                             </button>
                         )}
                     </div>

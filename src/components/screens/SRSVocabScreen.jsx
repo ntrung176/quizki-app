@@ -4,6 +4,7 @@ import { Layers, ArrowRight, CheckCircle2, RotateCw, RotateCcw, BookOpen, Calend
 import { TopTabBar, SrsPrewarmLoader, PersonalMnemonicModal, SrsCountdownTimer } from '../ui';
 import SrsTypingInput from '../srs/SrsTypingInput';
 import SrsModeSelectModal from '../srs/SrsModeSelectModal';
+import VocabCardSettingsModal from '../srs/VocabCardSettingsModal';
 import { VOCAB_TABS } from '../../config/tabs';
 import { useNavigate, useLocation } from 'react-router-dom';
 import useMenuTransition from '../../hooks/useMenuTransition';
@@ -34,21 +35,33 @@ const shuffleArray = (array) => {
 };
 
 // Helper to format intervals for display
-const formatInterval = (minutes) => {
-    if (minutes === 0) return 'ngay lập tức';
-    if (minutes < 60) return `${minutes} phút`;
-    if (minutes < 1440) return `${Math.round(minutes / 60)} giờ`;
-    if (minutes < 43200) {
-        const days = minutes / 1440;
-        return days < 2 ? `${Number(days.toFixed(1))} ngày` : `${Math.round(days)} ngày`;
+const formatInterval = (minutes, t = (k, f) => f) => {
+    if (!t) return `${minutes}m`;
+    if (minutes === 0) return t('intervals.now', t('intervals.rightNow', 'ngay lập tức'));
+    if (minutes < 60) {
+        const pattern = t('intervals.minutes', '{n} phút');
+        return pattern.includes('{n}') ? pattern.replace('{n}', minutes) : `${minutes} ${t('common.minutes', 'phút')}`;
+    }
+    if (minutes < 1440) {
+        const hrs = Math.round(minutes / 60);
+        const pattern = t('intervals.hours', '{n} giờ');
+        return pattern.includes('{n}') ? pattern.replace('{n}', hrs) : `${hrs} ${t('common.hours', 'giờ')}`;
     }
     const days = minutes / 1440;
+    if (minutes < 43200) {
+        const dStr = days < 2 ? Number(days.toFixed(1)) : Math.round(days);
+        const pattern = t('intervals.days', '{n} ngày');
+        return pattern.includes('{n}') ? pattern.replace('{n}', dStr) : `${dStr} ${t('common.days', 'ngày')}`;
+    }
     const months = days / 30;
     if (months < 12) {
-        return `${Number(months.toFixed(1))} tháng`;
+        const mStr = Number(months.toFixed(1));
+        const pattern = t('intervals.months', '{n} tháng');
+        return pattern.includes('{n}') ? pattern.replace('{n}', mStr) : `${mStr} tháng`;
     }
-    const years = days / 365;
-    return `${Number(years.toFixed(1))} năm`;
+    const yStr = Number((days / 365).toFixed(1));
+    const pattern = t('intervals.years', '{n} năm');
+    return pattern.includes('{n}') ? pattern.replace('{n}', yStr) : `${yStr} năm`;
 };
 
 // Helper to preview intervals based on SRS state
@@ -214,17 +227,17 @@ const SRSVocabScreen = ({
         isOpen: false,
         cards: [],
         folderId: 'global',
-        title: 'Chọn chế độ ôn tập',
+        title: '',
         count: 0
     });
 
-    const requestStartReview = (cards, folderId = 'global', title = 'Chọn chế độ ôn tập') => {
+    const requestStartReview = (cards, folderId = 'global', title = '') => {
         if (!cards || cards.length === 0) return;
         setSrsModeModalData({
             isOpen: true,
             cards,
             folderId,
-            title,
+            title: title || t('srs.selectModeTitle', 'Chọn chế độ ôn tập'),
             count: cards.length
         });
     };
@@ -233,7 +246,7 @@ const SRSVocabScreen = ({
 
     const handleStartLeechReview = (items) => {
         if (!items || items.length === 0) return;
-        requestStartReview(items, 'leech', 'Ôn tập thẻ khó nhớ');
+        requestStartReview(items, 'leech', t('vocab.reviewLeechCardsTitle', 'Ôn tập thẻ khó nhớ'));
     };
 
     const handleResetLeech = (item) => {
@@ -367,7 +380,7 @@ const SRSVocabScreen = ({
                     const count = allCards.filter(c => !cardFolders[c.id]).length;
                     return {
                         id: 'unfiled',
-                        name: 'Từ vựng lẻ',
+                        name: t('vocab.unfiled', 'Từ vựng lẻ'),
                         count,
                         timestamp: item.timestamp
                     };
@@ -392,14 +405,15 @@ const SRSVocabScreen = ({
     }, [folders, allCards, cardFolders]);
 
     const formatTimeAgo = (timestamp) => {
+        if (!timestamp) return '';
         const diffMs = Date.now() - timestamp;
-        if (diffMs < 60000) return 'Vừa xong';
+        if (diffMs < 60000) return t('vocab.timeAgo.justNow', 'Vừa xong');
         const diffMins = Math.floor(diffMs / 60000);
-        if (diffMins < 60) return `${diffMins} phút trước`;
+        if (diffMins < 60) return (t('vocab.timeAgo.minutesAgo', '{count} phút trước') || '').replace('{count}', diffMins);
         const diffHours = Math.floor(diffMins / 60);
-        if (diffHours < 24) return `${diffHours} giờ trước`;
+        if (diffHours < 24) return (t('vocab.timeAgo.hoursAgo', '{count} giờ trước') || '').replace('{count}', diffHours);
         const diffDays = Math.floor(diffHours / 24);
-        return `${diffDays} ngày trước`;
+        return (t('vocab.timeAgo.daysAgo', '{count} ngày trước') || '').replace('{count}', diffDays);
     };
 
     const mistakeCards = useMemo(() => {
@@ -513,7 +527,7 @@ const SRSVocabScreen = ({
         });
 
         // Unfiled folder
-        stats['unfiled'] = { id: 'unfiled', name: 'Từ vựng lẻ', newCards: [], dueCards: [], allCards: [], total: 0, masteredCount: 0, createdAt: null };
+        stats['unfiled'] = { id: 'unfiled', name: t('vocab.unfiledFolder', 'Từ vựng lẻ'), newCards: [], dueCards: [], allCards: [], total: 0, masteredCount: 0, createdAt: null };
 
         filteredCards.forEach(card => {
             const fId = cardFolders[card.id] || card.folderId || 'unfiled';
@@ -551,7 +565,7 @@ const SRSVocabScreen = ({
                 else if (nameLower.includes('n3')) levelBadge = 'N3 LEVEL';
                 else if (nameLower.includes('n4')) levelBadge = 'N4 LEVEL';
                 else if (nameLower.includes('n5')) levelBadge = 'N5 LEVEL';
-                else if (nameLower.includes('giao tiếp') || nameLower.includes('daily')) levelBadge = 'COMMUNICATION';
+                else if (nameLower.includes('giao tiếp') || nameLower.includes('daily') || nameLower.includes('conversation') || nameLower.includes('communication')) levelBadge = 'COMMUNICATION';
                 else if (nameLower.includes('kinh doanh') || nameLower.includes('business')) levelBadge = 'BUSINESS';
 
                 return {
@@ -704,7 +718,9 @@ const SRSVocabScreen = ({
                 break;
             case 'due': {
                 const folderObj = folders.find(f => f.id === folderId);
-                const folderTitle = folderObj ? `Ôn tập học phần: ${folderObj.name}` : 'Ôn tập học phần';
+                const folderTitle = folderObj
+                    ? (t('vocab.reviewStudySetTitle', 'Ôn tập học phần: {name}') || '').replace('{name}', folderObj.name)
+                    : t('vocab.dueSetsTitle', 'Ôn tập học phần');
                 requestStartReview(cards, folderId || 'unfiled', folderTitle);
                 break;
             }
@@ -715,7 +731,7 @@ const SRSVocabScreen = ({
     const handleResumeGlobal = () => {
         const allAvailable = folderStats.flatMap(f => f.dueCards);
         if (allAvailable.length > 0) {
-            requestStartReview(allAvailable, 'global', 'Ôn tập từ vựng ngắt quãng');
+            requestStartReview(allAvailable, 'global', t('vocab.reviewSpacedTitle', 'Ôn tập từ vựng ngắt quãng'));
         } else {
             // Check if there are cards in Learn Ahead window
             const learnAheadMs = getLearnAheadLimitMs();
@@ -729,12 +745,15 @@ const SRSVocabScreen = ({
             });
 
             if (learnAheadCards.length > 0) {
-                requestStartReview(learnAheadCards, 'global', `Ôn tập học trước (${learnAheadCards.length} thẻ trong ${Math.round(learnAheadMs / 60000)} phút)`);
+                const aheadTitle = (t('vocab.studyAheadTitle', 'Ôn tập học trước ({count} thẻ trong {mins} phút)') || '')
+                    .replace('{count}', learnAheadCards.length)
+                    .replace('{mins}', Math.round(learnAheadMs / 60000));
+                requestStartReview(learnAheadCards, 'global', aheadTitle);
                 return;
             }
 
             if (setNotification) {
-                setNotification("Không có thẻ nào cần ôn tập ngắt quãng lúc này.");
+                setNotification(t('vocab.noCardsDue', 'Không có thẻ nào cần ôn tập ngắt quãng lúc này.'));
             }
         }
     };
@@ -1374,7 +1393,7 @@ const SRSVocabScreen = ({
     }, [reviewMode, currentReviewIndex, isFlipped, cardSettings.autoPlayAudio, cardSettings.audioEnabled, reviewQueue]);
 
     if (isPreparingSession) {
-        return <SrsPrewarmLoader title="Từ Vựng" count={reviewQueue.length} />;
+        return <SrsPrewarmLoader title={t('vocab.title', 'Từ Vựng')} count={reviewQueue.length} />;
     }
 
     // ==================== LOCAL SRS REVIEW MODE ====================
@@ -1386,10 +1405,10 @@ const SRSVocabScreen = ({
         }
         const previewIntv = intervalCacheRef.current[currentCard.id];
         const intervals = {
-            again: formatInterval(previewIntv.again),
-            hard: formatInterval(previewIntv.hard),
-            good: formatInterval(previewIntv.good),
-            easy: formatInterval(previewIntv.easy),
+            again: formatInterval(previewIntv.again, t),
+            hard: formatInterval(previewIntv.hard, t),
+            good: formatInterval(previewIntv.good, t),
+            easy: formatInterval(previewIntv.easy, t),
         };
 
         const progress = reviewQueue.length > 0 ? Math.min(100, Math.round((currentReviewIndex / reviewQueue.length) * 100)) : 100;
@@ -1400,28 +1419,32 @@ const SRSVocabScreen = ({
                     <div className="w-full flex justify-between items-center gap-2">
                         <button
                             onClick={(e) => { e.stopPropagation(); exitReview(true); }}
-                            className="flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors cursor-pointer select-none active:scale-95 touch-manipulation"
+                            className="flex items-center gap-1.5 px-3.5 py-2 min-h-[40px] rounded-2xl text-xs sm:text-sm font-bold bg-white dark:bg-slate-800 border-2 border-b-4 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer select-none"
                         >
-                            <ChevronLeft className="w-4 h-4" /> Thoát ôn tập
+                            <ChevronLeft className="w-4 h-4" /> {t('vocab.exitReview', 'Thoát ôn tập')}
                         </button>
                         {reviewHistory.length > 0 ? (
                             <button
                                 onClick={handleUndo}
-                                className="flex items-center gap-1.5 px-3 py-2 min-h-[44px] rounded-xl text-xs sm:text-sm font-bold text-indigo-500 dark:text-indigo-400 hover:text-indigo-650 dark:hover:text-indigo-300 transition-colors cursor-pointer select-none active:scale-95"
+                                className="flex items-center gap-1.5 px-3.5 py-2 min-h-[40px] rounded-2xl text-xs sm:text-sm font-bold bg-white dark:bg-slate-800 border-2 border-b-4 border-slate-200 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer select-none"
                             >
-                                <RotateCcw className="w-4 h-4" /> Quay lại thẻ trước
+                                <RotateCcw className="w-4 h-4" /> {t('vocab.previousCard', 'Quay lại thẻ trước')}
                             </button>
                         ) : (
-                            <span className="text-[10px] sm:text-xs font-semibold text-slate-400 dark:text-slate-500 font-mono">ÔN TẬP TỪ VỰNG NGẮT QUÃNG</span>
+                            <span className="text-[10px] sm:text-xs font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">{t('vocab.srsTitleBanner', 'ÔN TẬP TỪ VỰNG NGẮT QUÃNG')}</span>
                         )}
                     </div>
 
                     {/* Progress Header with Action Buttons OUTSIDE Flashcard */}
                     <div className="w-full space-y-2">
-                        <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
-                            <span className="flex items-center gap-1.5"><Target className="w-3.5 h-3.5 text-indigo-500" /> Tiến độ</span>
+                        <div className="flex justify-between items-center text-xs font-bold text-slate-500 dark:text-slate-400">
+                            <span className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-bold uppercase tracking-wide">
+                                <Target className="w-3.5 h-3.5" /> {t('vocab.progress', 'Tiến độ')}
+                            </span>
                             <div className="flex items-center gap-3">
-                                <span className="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 px-2 py-0.5 rounded-full font-bold">{Math.min(currentReviewIndex + 1, reviewQueue.length)} / {reviewQueue.length}</span>
+                                <span className="bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 px-2.5 py-0.5 rounded-full font-mono font-black text-xs">
+                                    {Math.min(currentReviewIndex + 1, reviewQueue.length)} / {reviewQueue.length}
+                                </span>
 
                                 {/* Action Buttons Toolbar OUTSIDE Flashcard */}
                                 <div className="flex items-center gap-1.5 z-30">
@@ -1430,11 +1453,11 @@ const SRSVocabScreen = ({
                                             e.stopPropagation();
                                             setShowNuancePopup(prev => !prev);
                                         }}
-                                        className={`p-2 min-h-[44px] min-w-[44px] rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-sm border ${currentCard.nuance
+                                        className={`p-2 min-h-[40px] min-w-[40px] rounded-2xl flex items-center justify-center transition-all active:translate-y-0.5 active:border-b-2 shadow-xs border-2 border-b-4 ${currentCard.nuance
                                             ? 'bg-amber-100 dark:bg-amber-950/60 border-amber-300 dark:border-amber-800 text-amber-700 dark:text-amber-300'
-                                            : 'bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700'
+                                            : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700'
                                             }`}
-                                        title="Sắc thái từ vựng"
+                                        title={t('vocab.nuanceTitle', 'Sắc thái từ vựng')}
                                     >
                                         <Lightbulb className="w-4 h-4" />
                                     </button>
@@ -1451,8 +1474,8 @@ const SRSVocabScreen = ({
                                                 }
                                             }}
                                             data-tour-id="FLASHCARD_SPEAKER"
-                                            className="p-2 min-h-[44px] min-w-[44px] bg-white/90 dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-sm border border-slate-200 dark:border-slate-700 cursor-pointer"
-                                            title="Phát âm"
+                                            className="p-2 min-h-[40px] min-w-[40px] bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-2xl flex items-center justify-center transition-all active:translate-y-0.5 active:border-b-2 shadow-xs border-2 border-b-4 border-slate-200 dark:border-slate-700 cursor-pointer"
+                                            title={t('vocab.pronounce', 'Phát âm')}
                                         >
                                             <Volume2 className="w-4 h-4" />
                                         </button>
@@ -1466,26 +1489,26 @@ const SRSVocabScreen = ({
                                                 swapSides: !prev.swapSides
                                             }));
                                         }}
-                                        className={`p-2 min-h-[44px] min-w-[44px] rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-sm border cursor-pointer ${cardSettings.swapSides
-                                            ? 'bg-amber-500/20 text-amber-600 dark:text-amber-400 border-amber-500/30'
-                                            : 'bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700'
+                                        className={`p-2 min-h-[40px] min-w-[40px] rounded-2xl flex items-center justify-center transition-all active:translate-y-0.5 active:border-b-2 shadow-xs border-2 border-b-4 cursor-pointer ${cardSettings.swapSides
+                                            ? 'bg-amber-500/10 text-amber-600 dark:text-amber-400 border-amber-400 dark:border-amber-600'
+                                            : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700'
                                             }`}
-                                        title={cardSettings.swapSides ? "Đang hiện Nghĩa tiếng Việt trước. Nhấn để đổi sang hiện Tiếng Nhật trước" : "Đang hiện Tiếng Nhật trước. Nhấn để đổi sang hiện Nghĩa tiếng Việt trước"}
+                                        title={cardSettings.swapSides ? t('vocab.swapSidesPromptToBack', 'Đang hiện Nghĩa tiếng Việt trước. Nhấn để đổi sang hiện Tiếng Nhật trước') : t('vocab.swapSidesPromptToFront', 'Đang hiện Tiếng Nhật trước. Nhấn để đổi sang hiện Nghĩa tiếng Việt trước')}
                                     >
                                         <RotateCw className="w-4 h-4" />
                                     </button>
                                     <button
                                         onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
-                                        className="p-2 min-h-[44px] min-w-[44px] bg-white/90 dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-full flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-sm border border-slate-200 dark:border-slate-700 cursor-pointer"
-                                        title="Cấu hình hiển thị"
+                                        className="p-2 min-h-[40px] min-w-[40px] bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-2xl flex items-center justify-center transition-all active:translate-y-0.5 active:border-b-2 shadow-xs border-2 border-b-4 border-slate-200 dark:border-slate-700 cursor-pointer"
+                                        title={t('vocab.cardSettingsBtn', 'Cấu hình hiển thị')}
                                     >
                                         <Settings className="w-4 h-4" />
                                     </button>
                                 </div>
                             </div>
                         </div>
-                        <div className="h-2 w-full bg-gray-200 dark:bg-slate-700 rounded-full overflow-hidden">
-                            <div className="h-full bg-gradient-to-r from-indigo-500 to-sky-500 rounded-full transition-all duration-700 ease-out" style={{ width: `${progress}%` }}></div>
+                        <div className="h-3.5 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden p-0.5 border border-slate-300/40 dark:border-slate-700">
+                            <div className="h-full bg-emerald-500 rounded-full transition-all duration-500 ease-out shadow-xs" style={{ width: `${progress}%` }}></div>
                         </div>
                     </div>
 
@@ -1526,17 +1549,17 @@ const SRSVocabScreen = ({
                                     <div className="flex items-center justify-between border-b border-amber-200/50 dark:border-amber-900/40 pb-2 mb-2">
                                         <div className="flex items-center gap-1.5 text-amber-700 dark:text-amber-400 font-extrabold text-sm">
                                             <Lightbulb className="w-4 h-4 fill-amber-300 animate-pulse" />
-                                            <span>Sắc thái từ vựng</span>
+                                            <span>{t('vocab.nuanceTitle', 'Sắc thái từ vựng')}</span>
                                         </div>
                                         <button
                                             onClick={(e) => { e.stopPropagation(); setShowNuancePopup(false); }}
                                             className="text-amber-600 hover:text-amber-800 dark:text-amber-400 dark:hover:text-amber-300 text-xs font-bold px-2.5 py-1.5 hover:bg-amber-100/50 dark:hover:bg-amber-900/30 rounded-lg transition-colors cursor-pointer min-h-[44px]"
                                         >
-                                            Đóng
+                                            {t('common.close', 'Đóng')}
                                         </button>
                                     </div>
                                     <p className="text-xs md:text-sm leading-relaxed whitespace-pre-wrap font-semibold">
-                                        {currentCard.nuance || "Chưa có thông tin sắc thái cho từ vựng này."}
+                                        {currentCard.nuance || t('vocab.noNuance', 'Chưa có thông tin sắc thái cho từ vựng này.')}
                                     </p>
                                 </div>
                             )}
@@ -1564,7 +1587,7 @@ const SRSVocabScreen = ({
                                     playFlipSound();
                                 }}
                                 onQuickRate={(rating) => handleRating(rating)}
-                                placeholder={cardSettings.swapSides ? (isKoreanMode ? "Nhập từ tiếng Hàn (Hangul)..." : isEnglishMode ? "Nhập từ tiếng Anh..." : "Nhập từ tiếng Nhật (Kanji hoặc Hiragana)...") : "Nhập nghĩa tiếng Việt..."}
+                                placeholder={cardSettings.swapSides ? (isKoreanMode ? t('vocab.typeKoreanPlaceholder', 'Nhập từ tiếng Hàn (Hangul)...') : isEnglishMode ? t('vocab.typeEnglishPlaceholder', 'Nhập từ tiếng Anh...') : t('vocab.typeJapanesePlaceholder', 'Nhập từ tiếng Nhật (Kanji hoặc Hiragana)...')) : t('vocab.typeVietnamesePlaceholder', 'Nhập nghĩa tiếng Việt...')}
                             />
                         </div>
                     )}
@@ -1574,307 +1597,40 @@ const SRSVocabScreen = ({
                         <div className="w-full space-y-2 sm:space-y-3 animate-fade-in mt-2 sm:mt-3.5">
                             <div className="grid grid-cols-4 gap-1.5 sm:gap-3.5 w-full" data-tour-id="RATING_PANEL">
                                 {[
-                                    { key: 'again', num: '1', label: 'Quên rồi', interval: intervals.again, gradient: 'from-rose-500/10 to-rose-600/5', border: 'border-rose-500/30 hover:border-rose-500/60', text: 'text-rose-600 dark:text-rose-400', badge: 'bg-rose-500/10 text-rose-500', shadow: 'shadow-rose-500/5' },
-                                    { key: 'hard', num: '2', label: 'Khó', interval: intervals.hard, gradient: 'from-amber-500/10 to-orange-600/5', border: 'border-amber-500/30 hover:border-amber-500/60', text: 'text-amber-600 dark:text-amber-400', badge: 'bg-amber-500/10 text-amber-500', shadow: 'shadow-amber-500/5' },
-                                    { key: 'good', num: '3', label: 'Tốt', interval: intervals.good, gradient: 'from-emerald-500/10 to-teal-600/5', border: 'border-emerald-500/30 hover:border-emerald-500/60', text: 'text-emerald-600 dark:text-emerald-400', badge: 'bg-emerald-500/10 text-emerald-500', shadow: 'shadow-emerald-500/5' },
-                                    { key: 'easy', num: '4', label: 'Dễ', interval: intervals.easy, gradient: 'from-sky-500/10 to-blue-600/5', border: 'border-sky-500/30 hover:border-sky-500/60', text: 'text-sky-600 dark:text-sky-400', badge: 'bg-sky-500/10 text-sky-500', shadow: 'shadow-sky-500/5' },
+                                    { key: 'again', num: '1', label: t('studyModes.again', 'Quên rồi'), interval: intervals.again, bg: 'bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 border-2 border-b-4 border-rose-300 dark:border-rose-800' },
+                                    { key: 'hard', num: '2', label: t('studyModes.hard', 'Khó'), interval: intervals.hard, bg: 'bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 border-2 border-b-4 border-amber-300 dark:border-amber-800' },
+                                    { key: 'good', num: '3', label: t('studyModes.good', 'Tốt'), interval: intervals.good, bg: 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border-2 border-b-4 border-emerald-400 dark:border-emerald-700' },
+                                    { key: 'easy', num: '4', label: t('studyModes.easy', 'Dễ'), interval: intervals.easy, bg: 'bg-sky-50 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400 border-2 border-b-4 border-sky-300 dark:border-sky-800' },
                                 ].map(btn => (
                                     <button key={btn.key} onClick={(e) => { e.stopPropagation(); handleRating(btn.key); }}
-                                        className={`relative flex flex-col justify-center items-center py-2 sm:py-3 md:py-3.5 px-1.5 sm:px-2 min-h-[50px] sm:min-h-[58px] md:min-h-[64px] rounded-xl sm:rounded-2xl bg-gradient-to-b ${btn.gradient} bg-white dark:bg-slate-900 border ${btn.border} text-center transition-all duration-300 hover:scale-[1.02] hover:shadow-lg active:scale-95 cursor-pointer select-none ${btn.shadow}`}>
-                                        <span className="absolute top-1 sm:top-1.5 right-1.5 sm:right-2 px-1 py-0.2 rounded-md bg-slate-100 dark:bg-slate-800 text-[8px] sm:text-[9px] font-mono font-bold text-slate-400 dark:text-slate-500 hidden sm:block">
+                                        className={`relative flex flex-col justify-center items-center py-2 sm:py-3 px-1.5 sm:px-2 min-h-[50px] sm:min-h-[58px] rounded-2xl ${btn.bg} text-center transition-all active:translate-y-0.5 active:border-b-2 cursor-pointer select-none`}>
+                                        <span className="absolute top-1 sm:top-1.5 right-1.5 sm:right-2 px-1 py-0.2 rounded-md bg-white/60 dark:bg-slate-800/60 text-[8px] sm:text-[9px] font-mono font-bold opacity-75 hidden sm:block">
                                             {btn.num}
                                         </span>
-                                        <div className={`font-black ${btn.text} text-[11px] sm:text-sm md:text-base leading-tight`}>{btn.label}</div>
-                                        <div className={`text-[9px] sm:text-[10px] md:text-xs font-semibold ${btn.text} opacity-80 mt-0.5 leading-none font-mono`}>{btn.interval}</div>
+                                        <div className="font-black text-[11px] sm:text-sm md:text-base leading-tight">{btn.label}</div>
+                                        <div className="text-[9px] sm:text-[10px] md:text-xs font-semibold opacity-80 mt-0.5 leading-none font-mono">{btn.interval}</div>
                                     </button>
                                 ))}
                             </div>
 
                             {/* Keyboard Hint */}
                             <div className="text-center text-[10px] text-gray-400 dark:text-gray-500">
-                                <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-800 rounded text-[10px] mx-0.5">Space</kbd> lật thẻ •
-                                <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-800 rounded text-[10px] mx-0.5">1-4</kbd> đánh giá
+                                <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-800 rounded text-[10px] mx-0.5">Space</kbd> {t('studyModes.spaceFlipHint', 'lật thẻ')} •
+                                <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-800 rounded text-[10px] mx-0.5">1-4</kbd> {t('studyModes.numberRateHint', 'đánh giá')}
                             </div>
                         </div>
                     )}
                 </div>
 
                 {/* Flashcard Settings Modal */}
-                {showSettingsMenu && createPortal(
-                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={() => setShowSettingsMenu(false)}>
-                        <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
-                        <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-sm p-6 space-y-4 border border-gray-200 dark:border-slate-700/80 animate-fade-in text-slate-850 dark:text-slate-200" onClick={e => e.stopPropagation()}>
-                            <h4 className="font-extrabold text-lg border-b border-gray-150 dark:border-slate-700 pb-2.5 mb-3">Cấu hình thẻ ghi nhớ</h4>
-                            <div className="space-y-4 text-xs font-semibold text-slate-700 dark:text-slate-350">
-                                <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                                    <div>
-                                        <span className="text-indigo-600 dark:text-indigo-400 font-bold block">Chế độ gõ câu trả lời (Typing)</span>
-                                        <span className="text-[11px] text-gray-400 dark:text-gray-500 font-normal">Gõ đáp án và so sánh kết quả từng ký tự</span>
-                                    </div>
-                                    <label className="relative inline-flex items-center cursor-pointer">
-                                        <input type="checkbox" checked={cardSettings.reviewType === 'typing'} onChange={(e) => setCardSettings(prev => ({ ...prev, reviewType: e.target.checked ? 'typing' : 'flashcard' }))} className="sr-only peer" />
-                                        <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
-                                    </label>
-                                </div>
-                                <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                                    <span className="text-indigo-600 dark:text-indigo-400 font-bold">Đổi mặt trước/mặt sau</span>
-                                    <label className="relative inline-flex items-center cursor-pointer">
-                                        <input type="checkbox" checked={cardSettings.swapSides} onChange={(e) => setCardSettings(prev => ({ ...prev, swapSides: e.target.checked }))} className="sr-only peer" />
-                                        <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
-                                    </label>
-                                </div>
-                                <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                                    <span className="text-indigo-600 dark:text-indigo-400 font-bold">Phát âm thanh từ vựng</span>
-                                    <label className="relative inline-flex items-center cursor-pointer">
-                                        <input type="checkbox" checked={cardSettings.audioEnabled !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, audioEnabled: e.target.checked }))} className="sr-only peer" />
-                                        <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
-                                    </label>
-                                </div>
-                                <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                                    <span className="text-indigo-600 dark:text-indigo-400 font-bold">Tự động phát âm thanh khi lật</span>
-                                    <label className="relative inline-flex items-center cursor-pointer">
-                                        <input type="checkbox" checked={cardSettings.autoPlayAudio} onChange={(e) => setCardSettings(prev => ({ ...prev, autoPlayAudio: e.target.checked }))} className="sr-only peer" />
-                                        <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
-                                    </label>
-                                </div>
-                                {cardSettings.reviewType === 'typing' ? (
-                                    isKoreanMode ? (
-                                        <>
-                                            <div className="bg-indigo-50/80 dark:bg-indigo-950/40 border border-indigo-200/60 dark:border-indigo-800/60 rounded-2xl p-3 text-xs text-indigo-800 dark:text-indigo-300 leading-relaxed space-y-1 mb-2">
-                                                <p className="font-bold flex items-center gap-1.5 text-indigo-900 dark:text-indigo-200">
-                                                    <span>⌨️</span> Chế độ gõ từ (Typing):
-                                                </p>
-                                                <p className="text-[11.5px] opacity-90">
-                                                    • Bạn có thể chọn hiển thị <strong>Phiên âm Romaja</strong>, <strong>Âm Hán Hàn</strong> hoặc <strong>Từ loại</strong> ở mặt câu hỏi để làm gợi ý khi gõ từ tiếng Hàn.
-                                                </p>
-                                            </div>
-                                            <div>
-                                                <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Gợi ý mặt câu hỏi:</p>
-                                                <div className="space-y-2.5 pl-1 text-[13px]">
-                                                    <label className="flex items-center gap-2.5 cursor-pointer">
-                                                        <input type="checkbox" checked={cardSettings.front.reading !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                        <span>Phiên âm Romaja (gợi ý)</span>
-                                                    </label>
-                                                    <label className="flex items-center gap-2.5 cursor-pointer">
-                                                        <input type="checkbox" checked={cardSettings.front.hanviet !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                        <span>Âm Hán Hàn (gợi ý)</span>
-                                                    </label>
-                                                    <label className="flex items-center gap-2.5 cursor-pointer">
-                                                        <input type="checkbox" checked={cardSettings.front.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                        <span>Từ loại (Danh từ, Động từ...) (gợi ý)</span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </>
-                                    ) : isEnglishMode ? (
-                                        <>
-                                            <div className="bg-indigo-50/80 dark:bg-indigo-950/40 border border-indigo-200/60 dark:border-indigo-800/60 rounded-2xl p-3 text-xs text-indigo-800 dark:text-indigo-300 leading-relaxed space-y-1 mb-2">
-                                                <p className="font-bold flex items-center gap-1.5 text-indigo-900 dark:text-indigo-200">
-                                                    <span>⌨️</span> Chế độ gõ từ (Typing):
-                                                </p>
-                                                <p className="text-[11.5px] opacity-90">
-                                                    • Bạn có thể chọn hiển thị <strong>Phiên âm IPA</strong> hoặc <strong>Từ loại</strong> ở mặt câu hỏi để làm gợi ý khi gõ từ tiếng Anh.
-                                                </p>
-                                            </div>
-                                            <div>
-                                                <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Gợi ý mặt câu hỏi:</p>
-                                                <div className="space-y-2.5 pl-1 text-[13px]">
-                                                    <label className="flex items-center gap-2.5 cursor-pointer">
-                                                        <input type="checkbox" checked={cardSettings.front.ipa !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, ipa: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                        <span>Phiên âm IPA (gợi ý)</span>
-                                                    </label>
-                                                    <label className="flex items-center gap-2.5 cursor-pointer">
-                                                        <input type="checkbox" checked={cardSettings.front.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                        <span>Từ loại (Noun, Verb...) (gợi ý)</span>
-                                                    </label>
-                                                </div>
-                                            </div>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <div className="bg-indigo-50/80 dark:bg-indigo-950/40 border border-indigo-200/60 dark:border-indigo-800/60 rounded-2xl p-3 text-xs text-indigo-800 dark:text-indigo-300 leading-relaxed space-y-1 mb-2">
-                                                <p className="font-bold flex items-center gap-1.5 text-indigo-900 dark:text-indigo-200">
-                                                    <span>⌨️</span> Chế độ gõ từ (Typing):
-                                                </p>
-                                                <p className="text-[11.5px] opacity-90">
-                                                    • Bạn có thể tích chọn <strong>Âm Hán Việt</strong> ở mặt câu hỏi để làm gợi ý khi gõ đáp án.
-                                                </p>
-                                            </div>
-                                            <div>
-                                                <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Gợi ý mặt câu hỏi:</p>
-                                                <div className="space-y-2.5 pl-1 text-[13px]">
-                                                    <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Âm Hán Việt (gợi ý)</span></label>
-                                                </div>
-                                            </div>
-                                        </>
-                                    )
-                                ) : (
-                                    isKoreanMode ? (
-                                        <div>
-                                            <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Hàn hiển thị:</p>
-                                            <div className="space-y-2.5 pl-1 text-[13px]">
-                                                <label className="flex items-center gap-2.5 cursor-pointer">
-                                                    <input type="checkbox" checked={cardSettings.front.word !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                    <span>Từ vựng tiếng Hàn (Hangul)</span>
-                                                </label>
-                                                <label className="flex items-center gap-2.5 cursor-pointer">
-                                                    <input type="checkbox" checked={cardSettings.front.reading !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                    <span>Phiên âm Romaja</span>
-                                                </label>
-                                                <label className="flex items-center gap-2.5 cursor-pointer">
-                                                    <input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                    <span>Âm Hán Hàn</span>
-                                                </label>
-                                                <label className="flex items-center gap-2.5 cursor-pointer">
-                                                    <input type="checkbox" checked={cardSettings.front.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                    <span>Từ loại (Danh từ, Động từ...)</span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    ) : isEnglishMode ? (
-                                        <div>
-                                            <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Anh hiển thị:</p>
-                                            <div className="space-y-2.5 pl-1 text-[13px]">
-                                                <label className="flex items-center gap-2.5 cursor-pointer">
-                                                    <input type="checkbox" checked={cardSettings.front.word !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                    <span>Từ vựng tiếng Anh</span>
-                                                </label>
-                                                <label className="flex items-center gap-2.5 cursor-pointer">
-                                                    <input type="checkbox" checked={cardSettings.front.ipa !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, ipa: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                    <span>Phiên âm quốc tế IPA</span>
-                                                </label>
-                                                <label className="flex items-center gap-2.5 cursor-pointer">
-                                                    <input type="checkbox" checked={cardSettings.front.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                    <span>Từ loại (Noun, Verb...)</span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    ) : (
-                                        <div>
-                                            <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Nhật hiển thị:</p>
-                                            <div className="space-y-2.5 pl-1 text-[13px]">
-                                                <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.word} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Chữ Hán / Từ vựng</span></label>
-                                                <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.furigana} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, furigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Phiên âm Furigana</span></label>
-                                                <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Âm Hán Việt</span></label>
-                                            </div>
-                                        </div>
-                                    )
-                                )}
-                                {isKoreanMode ? (
-                                    <div>
-                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
-                                        <div className="space-y-2.5 pl-1 text-[13px]">
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.meaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                <span>Nghĩa tiếng Việt</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.reading !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                <span>Phiên âm Romaja</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                <span>Âm Hán Hàn</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                <span>Từ loại (Danh từ, Động từ...)</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                <span>Từ đồng nghĩa / Trái nghĩa</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                <span>Câu ví dụ</span>
-                                            </label>
-                                            {cardSettings.back.example && (
-                                                <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
-                                                    <label className="flex items-center gap-2 cursor-pointer">
-                                                        <input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                        <span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span>
-                                                    </label>
-                                                </div>
-                                            )}
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                <span>Hình ảnh minh họa</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                ) : isEnglishMode ? (
-                                    <div>
-                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
-                                        <div className="space-y-2.5 pl-1 text-[13px]">
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.meaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                <span>Nghĩa tiếng Việt</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.ipa !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, ipa: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                <span>Phiên âm quốc tế IPA</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                <span>Từ loại (Noun, Verb...)</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                <span>Từ đồng nghĩa / Trái nghĩa</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                <span>Câu ví dụ</span>
-                                            </label>
-                                            {cardSettings.back.example && (
-                                                <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
-                                                    <label className="flex items-center gap-2 cursor-pointer">
-                                                        <input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                        <span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span>
-                                                    </label>
-                                                </div>
-                                            )}
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                <span>Hình ảnh minh họa</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <div>
-                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
-                                        <div className="space-y-2.5 pl-1 text-[13px]">
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.meaning} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Nghĩa tiếng Việt</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.furigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, furigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Phiên âm Furigana</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.reading} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Cách đọc (Hiragana)</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Âm Hán Việt</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Đồng nghĩa</span></label>
-                                            {cardSettings.back.synonym && (
-                                                <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
-                                                    <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonymFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonymFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Furigana đồng nghĩa</span></label>
-                                                </div>
-                                            )}
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Ví dụ</span></label>
-                                            {cardSettings.back.example && (
-                                                <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
-                                                    <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Furigana ví dụ</span></label>
-                                                    <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span></label>
-                                                </div>
-                                            )}
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Hình ảnh minh họa</span></label>
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
-                            <div className="pt-3">
-                                <button onClick={() => setShowSettingsMenu(false)} className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all shadow-md active:scale-95 text-sm">
-                                    Đóng
-                                </button>
-                            </div>
-                        </div>
-                    </div>,
-                    document.body
-                )}
+                <VocabCardSettingsModal
+                    isOpen={showSettingsMenu}
+                    onClose={() => setShowSettingsMenu(false)}
+                    cardSettings={cardSettings}
+                    setCardSettings={setCardSettings}
+                    isKoreanMode={isKoreanMode}
+                    isEnglishMode={isEnglishMode}
+                />
             </div>
         );
     }
@@ -1902,32 +1658,32 @@ const SRSVocabScreen = ({
                                 <Clock className="w-8 h-8 text-cyan-600 dark:text-cyan-400 animate-spin-slow" />
                             </div>
                             <h2 className="text-xl font-black text-slate-900 dark:text-white">
-                                Đang đợi thẻ từ vựng tiếp theo...
+                                {t('vocab.waitingTitle', 'Đang đợi thẻ từ vựng tiếp theo...')}
                             </h2>
                             <p className="text-sm text-slate-600 dark:text-slate-300 max-w-sm">
-                                Bạn đã hoàn thành các thẻ từ vựng đến hạn hiện tại. Có <span className="font-bold text-cyan-600 dark:text-cyan-400 font-mono">{waiting.length}</span> thẻ đang chờ ôn lại theo chu kỳ.
+                                {(t('vocab.waitingDesc', 'Bạn đã hoàn thành các thẻ từ vựng đến hạn hiện tại. Có {count} thẻ đang chờ ôn lại theo chu kỳ.') || '').replace('{count}', waiting.length)}
                             </p>
                         </div>
 
-                        <div className="px-6 py-3 bg-gradient-to-r from-cyan-500 via-indigo-600 to-sky-500 text-white rounded-2xl shadow-lg flex items-center gap-2.5 font-mono">
-                            <Clock className="w-4 h-4 animate-spin-slow shrink-0" />
-                            <span className="text-xs font-semibold uppercase tracking-wider">TIẾP SAU:</span>
+                        <div className="px-6 py-3 bg-slate-900 dark:bg-slate-800 text-white rounded-2xl border-2 border-slate-700 flex items-center gap-2.5 font-mono">
+                            <Clock className="w-4 h-4 animate-spin-slow shrink-0 text-amber-400" />
+                            <span className="text-xs font-semibold uppercase tracking-wider">{t('common.nextAfter', 'TIẾP SAU:')}</span>
                             <span className="text-xl font-black tracking-widest">{formattedCountdown}</span>
                         </div>
 
                         <div className="flex flex-col sm:flex-row items-center gap-3 w-full">
                             <button
                                 onClick={(e) => { e.stopPropagation(); handleStudyAhead(); }}
-                                className="flex-1 w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-cyan-500 via-indigo-600 to-sky-500 hover:from-cyan-600 hover:to-indigo-700 text-white font-black text-xs sm:text-sm shadow-[0_8px_20px_rgba(14,165,233,0.4)] hover:shadow-[0_12px_28px_rgba(14,165,233,0.6)] transition-all duration-300 transform hover:scale-[1.02] active:scale-95 cursor-pointer text-center flex items-center justify-center gap-2 touch-manipulation"
+                                className="flex-1 w-full py-3.5 px-6 rounded-2xl bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white font-black text-xs uppercase tracking-wider transition-all cursor-pointer text-center flex items-center justify-center gap-2 select-none touch-manipulation"
                             >
-                                <Zap className="w-4 h-4 fill-current text-amber-300" />
-                                <span>Học trước ngay ({waiting.length} thẻ)</span>
+                                <Zap className="w-4 h-4 fill-current text-white" />
+                                <span>{(t('vocab.studyAheadNow', 'Học trước ngay ({count} thẻ)') || '').replace('{count}', waiting.length)}</span>
                             </button>
                             <button
                                 onClick={(e) => { e.stopPropagation(); exitReview(true); }}
-                                className="w-full sm:w-auto py-3.5 px-6 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 active:scale-95 text-slate-700 dark:text-slate-200 font-bold text-xs sm:text-sm rounded-full transition-all border border-slate-200 dark:border-slate-700 cursor-pointer text-center relative z-30 touch-manipulation"
+                                className="w-full sm:w-auto py-3.5 px-6 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 border-b-4 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs uppercase tracking-wider rounded-2xl transition-all cursor-pointer text-center relative z-30 touch-manipulation select-none"
                             >
-                                Kết thúc phiên ôn tập
+                                {t('vocab.finishReviewSession', 'Kết thúc phiên ôn tập')}
                             </button>
                         </div>
                     </div>
@@ -1967,12 +1723,12 @@ const SRSVocabScreen = ({
                             🎉
                         </div>
                         <h2 className="text-2xl font-black text-slate-900 dark:text-white">
-                            Hoàn thành phiên ôn tập!
+                            {t('vocab.completedTitle', 'Hoàn thành phiên ôn tập!')}
                         </h2>
                         <p className="text-sm text-slate-600 dark:text-slate-300 max-w-sm">
                             {newlyDueCards.length > 0
-                                ? `Hiện tại có thêm ${newlyDueCards.length} thẻ từ vựng đến hạn / sắp đến hạn (trong vòng ${Math.round(learnAheadMs / 60000)} phút). Bạn có muốn ôn tiếp dứt điểm không?`
-                                : "Chúc mừng! Bạn đã hoàn thành xuất sắc tất cả các thẻ từ vựng trong phiên ôn tập này."}
+                                ? (t('vocab.completedDescMore', 'Hiện tại có thêm {count} thẻ đến hạn (trong vòng {mins} phút). Bạn có muốn ôn tiếp không?').replace('{count}', newlyDueCards.length).replace('{mins}', Math.round(learnAheadMs / 60000)))
+                                : t('vocab.completedDescAll', 'Chúc mừng! Bạn đã hoàn thành xuất sắc tất cả các thẻ từ vựng trong phiên ôn tập này.')}
                         </p>
                     </div>
 
@@ -1984,25 +1740,25 @@ const SRSVocabScreen = ({
                                         e.stopPropagation();
                                         startFolderReview(newlyDueCards, activeFolderIdRef.current || 'global');
                                     }}
-                                    className="flex-1 w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-emerald-500 via-teal-600 to-emerald-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black text-xs sm:text-sm shadow-[0_8px_20px_rgba(16,185,129,0.45)] hover:shadow-[0_12px_28px_rgba(16,185,129,0.75)] transition-all duration-300 transform hover:scale-[1.03] active:scale-95 cursor-pointer text-center flex items-center justify-center gap-2"
+                                    className="flex-1 w-full py-3.5 px-6 rounded-2xl bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white font-black text-xs uppercase tracking-wider transition-all cursor-pointer text-center flex items-center justify-center gap-2 select-none"
                                 >
                                     <Repeat2 className="w-4 h-4" />
-                                    <span>Tiếp tục ôn tập ({newlyDueCards.length} thẻ)</span>
+                                    <span>{(t('vocab.continueReviewing', 'Tiếp tục ôn tập ({count} thẻ)') || '').replace('{count}', newlyDueCards.length)}</span>
                                 </button>
                                 <button
                                     onClick={(e) => { e.stopPropagation(); exitReview(true); }}
-                                    className="w-full sm:w-auto py-3.5 px-6 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs sm:text-sm transition-all border border-slate-200 dark:border-slate-700 active:scale-95 cursor-pointer text-center"
+                                    className="w-full sm:w-auto py-3.5 px-6 rounded-2xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs uppercase tracking-wider transition-all border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 cursor-pointer text-center select-none"
                                 >
-                                    Kết thúc
+                                    {t('common.finish', 'Kết thúc')}
                                 </button>
                             </div>
                         ) : (
                             <div className="flex justify-center w-full">
                                 <button
                                     onClick={(e) => { e.stopPropagation(); exitReview(true); }}
-                                    className="w-full py-3.5 px-6 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-[0_8px_20px_rgba(16,185,129,0.35)] hover:shadow-[0_12px_28px_rgba(16,185,129,0.6)] transition-all transform hover:scale-[1.02] active:scale-95 cursor-pointer text-center relative z-30 touch-manipulation"
+                                    className="w-full py-3.5 px-6 rounded-2xl bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white font-black text-xs uppercase tracking-wider transition-all cursor-pointer text-center relative z-30 touch-manipulation select-none"
                                 >
-                                    Kết thúc phiên ôn tập
+                                    {t('vocab.finishReviewSession', 'Kết thúc phiên ôn tập')}
                                 </button>
                             </div>
                         )}
@@ -2021,9 +1777,7 @@ const SRSVocabScreen = ({
 
 
                 {/* Unified Hero Banner */}
-                <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 p-4 sm:p-5 md:p-6 text-slate-800 dark:text-slate-100 shadow-sm dark:shadow-xl group">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 dark:bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
+                <div className="relative overflow-hidden rounded-3xl bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 p-5 sm:p-6 text-slate-800 dark:text-slate-100 shadow-sm group">
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
                         <div className="space-y-1.5 text-center md:text-left max-w-lg flex-1">
                             <div className="flex items-center justify-center md:justify-start gap-2.5">
@@ -2044,17 +1798,17 @@ const SRSVocabScreen = ({
                             </p>
                         </div>
 
-                        <div className="flex flex-row md:flex-col items-center justify-between bg-slate-50 dark:bg-slate-950/80 rounded-2xl p-3.5 sm:p-4 border border-slate-200/90 dark:border-slate-800 text-center w-full md:w-60 shrink-0 shadow-xs gap-3">
+                        <div className="flex flex-row md:flex-col items-center justify-between bg-slate-50 dark:bg-slate-950/80 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 text-center w-full md:w-64 shrink-0 gap-3">
                             <div className="flex flex-col items-start md:items-center text-left md:text-center">
                                 <span className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight font-mono leading-none">
                                     {savedSessionInfo ? savedSessionInfo.remaining : globalStats.due}
                                 </span>
-                                <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mt-0.5">{t('vocab.dueWordsLabel', 'TỪ VỰNG ĐẾN HẠN ÔN')}</span>
+                                <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mt-1">{t('vocab.dueWordsLabel', 'TỪ VỰNG ĐẾN HẠN ÔN')}</span>
                             </div>
                             {savedSessionInfo ? (
                                 <button
                                     onClick={handleResumeSavedSession}
-                                    className="md:mt-3 px-5 py-2.5 md:w-full rounded-full text-xs font-black tracking-wide uppercase transition-all duration-300 shadow-md hover:shadow-lg transform hover:scale-[1.03] bg-amber-500 hover:bg-amber-600 text-white active:scale-95 flex items-center justify-center gap-2 cursor-pointer shrink-0 min-h-[42px]"
+                                    className="md:mt-2 px-5 py-3 md:w-full rounded-2xl text-xs font-black tracking-wider uppercase transition-all bg-amber-500 hover:bg-amber-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-amber-700 text-white flex items-center justify-center gap-2 cursor-pointer shrink-0 min-h-[44px] select-none shadow-sm"
                                 >
                                     <Play className="w-4 h-4 fill-white text-white ml-0.5 shrink-0" />
                                     <span>{t('vocab.resumeReviewBtn', 'TIẾP TỤC ÔN TẬP')}</span>
@@ -2062,7 +1816,7 @@ const SRSVocabScreen = ({
                             ) : globalStats.due > 0 ? (
                                 <button
                                     onClick={handleResumeGlobal}
-                                    className="md:mt-3 px-5 py-2.5 md:w-full rounded-full text-xs font-black tracking-wide uppercase transition-all duration-300 shadow-md shadow-blue-500/25 hover:shadow-lg transform hover:scale-[1.03] bg-blue-600 hover:bg-blue-700 text-white active:scale-95 flex items-center justify-center gap-2 cursor-pointer shrink-0 min-h-[42px]"
+                                    className="md:mt-2 px-5 py-3 md:w-full rounded-2xl text-xs font-black tracking-wider uppercase transition-all bg-sky-500 hover:bg-sky-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-sky-700 text-white flex items-center justify-center gap-2 cursor-pointer shrink-0 min-h-[44px] select-none shadow-sm"
                                 >
                                     <Play className="w-4 h-4 fill-white text-white ml-0.5 shrink-0" />
                                     <span>{t('vocab.startReviewBtn', 'BẮT ĐẦU ÔN TẬP')}</span>
@@ -2072,7 +1826,7 @@ const SRSVocabScreen = ({
                             ) : (
                                 <button
                                     disabled
-                                    className="md:mt-3 px-5 py-2.5 md:w-full rounded-full text-xs font-black tracking-wide uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed flex items-center justify-center gap-2 shrink-0 min-h-[42px]"
+                                    className="md:mt-2 px-5 py-3 md:w-full rounded-2xl text-xs font-black tracking-wider uppercase transition-all bg-slate-100 dark:bg-slate-800 border-b-4 border-slate-200 dark:border-slate-700 text-slate-400 dark:text-slate-500 cursor-not-allowed flex items-center justify-center gap-2 shrink-0 min-h-[44px] select-none"
                                 >
                                     <span>{t('vocab.allReviewed', 'HẾT THẺ ÔN TẬP')}</span>
                                 </button>
@@ -2111,15 +1865,18 @@ const SRSVocabScreen = ({
                             <div className="w-16 h-16 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <CheckCircle2 className="w-8 h-8 text-emerald-500" />
                             </div>
-                            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">Tuyệt vời!</h3>
+                            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">{t('vocab.allDoneGreat', 'Tuyệt vời!')}</h3>
                             <p className="text-slate-500 dark:text-slate-400 text-sm">
                                 {allCards.length > 0
-                                    ? "Bạn đã ôn tập hết các từ vựng cần học hôm nay. Hãy học thêm bài mới nhé!"
-                                    : "Bạn chưa có thẻ từ vựng nào trong thư viện."}
+                                    ? t('vocab.allDoneDesc', 'Bạn đã ôn tập hết các từ vựng cần học hôm nay. Hãy học thêm bài mới nhé!')
+                                    : t('vocab.noCardsInLibrary', 'Bạn chưa có thẻ từ vựng nào trong thư viện.')}
                             </p>
                             {allCards.length === 0 && (
-                                <button onClick={() => navigate(ROUTES.BOOKS)} className="mt-6 px-6 py-2.5 bg-gradient-to-r from-cyan-500 to-indigo-600 text-white font-bold rounded-xl hover:opacity-95 transition-all text-xs cursor-pointer shadow-md">
-                                    Đến Thư viện Sách
+                                <button
+                                    onClick={() => navigate(ROUTES.BOOKS)}
+                                    className="mt-6 px-6 py-3 bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white font-black rounded-2xl transition-all text-xs uppercase tracking-wider cursor-pointer select-none"
+                                >
+                                    {t('vocab.goToBookLibrary', 'Đến Thư viện Sách')}
                                 </button>
                             )}
                         </div>
@@ -2148,7 +1905,7 @@ const SRSVocabScreen = ({
                                     disabled={vocabSetStartIndex === 0}
                                     onClick={handlePrev}
                                     className="hidden sm:flex absolute -left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 hover:scale-105 transition-all disabled:opacity-30 disabled:pointer-events-none active:scale-95 cursor-pointer z-30 shadow-md"
-                                    title="Trang trước"
+                                    title={t('vocab.prevPage', 'Trang trước')}
                                 >
                                     <ChevronLeft className="w-5 h-5" />
                                 </button>
@@ -2183,13 +1940,13 @@ const SRSVocabScreen = ({
                                                     e.stopPropagation();
                                                     requestStartReview(folder.dueCards, folder.id, `${t('vocab.dueSetsTitle', 'Ôn tập học phần')}: ${folder.name}`);
                                                 }}
-                                                className="w-full flex items-center justify-between px-2.5 py-2 sm:px-3.5 sm:py-2.5 rounded-xl bg-orange-50 dark:bg-orange-950/40 hover:bg-orange-100 dark:hover:bg-orange-900/60 text-orange-700 dark:text-orange-400 transition-colors border border-orange-200 dark:border-orange-800/50 group cursor-pointer min-h-[44px]"
+                                                className="w-full flex items-center justify-between px-3 py-2.5 rounded-2xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 border-b-4 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 transition-all cursor-pointer min-h-[44px] select-none"
                                             >
                                                 <div className="flex items-center gap-1.5 sm:gap-2 min-w-0">
-                                                    <RotateCw className="w-3.5 h-3.5 text-orange-500 shrink-0" />
-                                                    <span className="font-bold text-[11px] sm:text-xs truncate">{t('vocab.srsReviewBtn', 'Ôn ngắt quãng')}</span>
+                                                    <RotateCw className="w-3.5 h-3.5 text-sky-500 shrink-0" />
+                                                    <span className="font-bold text-xs truncate">{t('vocab.srsReviewBtn', 'Ôn ngắt quãng')}</span>
                                                 </div>
-                                                <span className="bg-orange-200 dark:bg-orange-900 px-1.5 py-0.5 sm:px-2 sm:py-0.5 rounded-full text-[9px] sm:text-[10px] font-black font-mono text-orange-800 dark:text-orange-200 shrink-0">{folder.dueCards.length}</span>
+                                                <span className="bg-sky-500 text-white px-2 py-0.5 rounded-full text-[10px] font-black font-mono shrink-0">{folder.dueCards.length}</span>
                                             </button>
                                         </div>
                                     </div>
@@ -2202,7 +1959,7 @@ const SRSVocabScreen = ({
                                     disabled={vocabSetStartIndex + 3 >= folderStats.length}
                                     onClick={handleNext}
                                     className="absolute -right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-white dark:bg-slate-800 border border-gray-200/60 dark:border-slate-700 flex items-center justify-center text-gray-600 dark:text-gray-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:scale-105 transition-all disabled:opacity-30 disabled:pointer-events-none active:scale-95 cursor-pointer z-30"
-                                    title="Trang sau"
+                                    title={t('vocab.nextPage', 'Trang sau')}
                                 >
                                     <ChevronRight className="w-5 h-5" />
                                 </button>
@@ -2222,7 +1979,7 @@ const SRSVocabScreen = ({
                     <div className="divide-y divide-slate-100 dark:divide-slate-800">
                         {recentSets.length === 0 ? (
                             <p className="text-xs text-slate-400 dark:text-slate-500 py-2 italic">
-                                Chưa có học phần nào được học gần đây.
+                                {t('vocab.noRecentSets', 'Chưa có học phần nào được học gần đây.')}
                             </p>
                         ) : (
                             recentSets.map(set => (
@@ -2240,7 +1997,7 @@ const SRSVocabScreen = ({
                                                 {set.name}
                                             </p>
                                             <p className="text-xs text-slate-500 dark:text-slate-400">
-                                                Học phần • {set.count} từ vựng
+                                                {t('vocab.setUnit', 'Học phần')} • {set.count} {t('vocab.cardsUnit', 'từ vựng')}
                                             </p>
                                         </div>
                                     </div>
@@ -2252,7 +2009,7 @@ const SRSVocabScreen = ({
                                                     navigate(`/vocab/edit-set/${set.id}`);
                                                 }}
                                                 className="p-1.5 rounded-lg hover:bg-cyan-50 dark:hover:bg-cyan-950/50 text-slate-400 hover:text-cyan-600 transition-colors opacity-0 group-hover:opacity-100 focus:opacity-100 shrink-0"
-                                                title="Thêm từ vựng nhanh vào học phần này"
+                                                title={t('vocab.quickAddWordsToSet', 'Thêm từ vựng nhanh vào học phần này')}
                                             >
                                                 <Plus className="w-4 h-4" />
                                             </button>
@@ -2270,281 +2027,24 @@ const SRSVocabScreen = ({
             </div>
 
             {/* Flashcard Settings Modal */}
-            {showSettingsMenu && createPortal(
-                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={() => setShowSettingsMenu(false)}>
-                    <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
-                    <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-sm p-6 space-y-4 border border-gray-200 dark:border-slate-700/80 animate-fade-in text-slate-850 dark:text-slate-200" onClick={e => e.stopPropagation()}>
-                        <h4 className="font-extrabold text-lg border-b border-gray-150 dark:border-slate-700 pb-2.5 mb-3">Cấu hình thẻ ghi nhớ</h4>
-                        <div className="space-y-4 text-xs font-semibold text-slate-600 dark:text-slate-300">
-                            <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                                <span className="text-indigo-650 dark:text-indigo-400 font-bold">Đổi mặt trước/mặt sau</span>
-                                <label className="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" checked={cardSettings.swapSides} onChange={(e) => setCardSettings(prev => ({ ...prev, swapSides: e.target.checked }))} className="sr-only peer" />
-                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
-                                </label>
-                            </div>
-                            <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                                <span className="text-indigo-650 dark:text-indigo-400 font-bold">Phát âm thanh từ vựng</span>
-                                <label className="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" checked={cardSettings.audioEnabled !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, audioEnabled: e.target.checked }))} className="sr-only peer" />
-                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
-                                </label>
-                            </div>
-                            <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                                <span className="text-indigo-650 dark:text-indigo-400 font-bold">Tự động phát âm thanh khi lật</span>
-                                <label className="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" checked={cardSettings.autoPlayAudio} onChange={(e) => setCardSettings(prev => ({ ...prev, autoPlayAudio: e.target.checked }))} className="sr-only peer" />
-                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
-                                </label>
-                            </div>
-                            {cardSettings.reviewType === 'typing' ? (
-                                isKoreanMode ? (
-                                    <>
-                                        <div className="bg-indigo-50/80 dark:bg-indigo-950/40 border border-indigo-200/60 dark:border-indigo-800/60 rounded-2xl p-3 text-xs text-indigo-800 dark:text-indigo-300 leading-relaxed space-y-1 mb-2">
-                                            <p className="font-bold flex items-center gap-1.5 text-indigo-900 dark:text-indigo-200">
-                                                <span>⌨️</span> Chế độ gõ từ (Typing):
-                                            </p>
-                                            <p className="text-[11.5px] opacity-90">
-                                                • Bạn có thể chọn hiển thị <strong>Phiên âm Romaja</strong>, <strong>Âm Hán Hàn</strong> hoặc <strong>Từ loại</strong> ở mặt câu hỏi để làm gợi ý khi gõ từ tiếng Hàn.
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Gợi ý mặt câu hỏi:</p>
-                                            <div className="space-y-2.5 pl-1 text-[13px]">
-                                                <label className="flex items-center gap-2.5 cursor-pointer">
-                                                    <input type="checkbox" checked={cardSettings.front.reading !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                    <span>Phiên âm Romaja (gợi ý)</span>
-                                                </label>
-                                                <label className="flex items-center gap-2.5 cursor-pointer">
-                                                    <input type="checkbox" checked={cardSettings.front.hanviet !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                    <span>Âm Hán Hàn (gợi ý)</span>
-                                                </label>
-                                                <label className="flex items-center gap-2.5 cursor-pointer">
-                                                    <input type="checkbox" checked={cardSettings.front.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                    <span>Từ loại (Danh từ, Động từ...) (gợi ý)</span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </>
-                                ) : isEnglishMode ? (
-                                    <>
-                                        <div className="bg-indigo-50/80 dark:bg-indigo-950/40 border border-indigo-200/60 dark:border-indigo-800/60 rounded-2xl p-3 text-xs text-indigo-800 dark:text-indigo-300 leading-relaxed space-y-1 mb-2">
-                                            <p className="font-bold flex items-center gap-1.5 text-indigo-900 dark:text-indigo-200">
-                                                <span>⌨️</span> Chế độ gõ từ (Typing):
-                                            </p>
-                                            <p className="text-[11.5px] opacity-90">
-                                                • Bạn có thể chọn hiển thị <strong>Phiên âm IPA</strong> hoặc <strong>Từ loại</strong> ở mặt câu hỏi để làm gợi ý khi gõ từ tiếng Anh.
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Gợi ý mặt câu hỏi:</p>
-                                            <div className="space-y-2.5 pl-1 text-[13px]">
-                                                <label className="flex items-center gap-2.5 cursor-pointer">
-                                                    <input type="checkbox" checked={cardSettings.front.ipa !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, ipa: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                    <span>Phiên âm IPA (gợi ý)</span>
-                                                </label>
-                                                <label className="flex items-center gap-2.5 cursor-pointer">
-                                                    <input type="checkbox" checked={cardSettings.front.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                    <span>Từ loại (Noun, Verb...) (gợi ý)</span>
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </>
-                                ) : (
-                                    <>
-                                        <div className="bg-indigo-50/80 dark:bg-indigo-950/40 border border-indigo-200/60 dark:border-indigo-800/60 rounded-2xl p-3 text-xs text-indigo-800 dark:text-indigo-300 leading-relaxed space-y-1 mb-2">
-                                            <p className="font-bold flex items-center gap-1.5 text-indigo-900 dark:text-indigo-200">
-                                                <span>⌨️</span> Chế độ gõ từ (Typing):
-                                            </p>
-                                            <p className="text-[11.5px] opacity-90">
-                                                • Bạn có thể tích chọn <strong>Âm Hán Việt</strong> ở mặt câu hỏi để làm gợi ý khi gõ đáp án.
-                                            </p>
-                                        </div>
-                                        <div>
-                                            <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Gợi ý mặt câu hỏi:</p>
-                                            <div className="space-y-2.5 pl-1 text-[13px]">
-                                                <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Âm Hán Việt (gợi ý)</span></label>
-                                            </div>
-                                        </div>
-                                    </>
-                                )
-                            ) : (
-                                isKoreanMode ? (
-                                    <div>
-                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Hàn hiển thị:</p>
-                                        <div className="space-y-2.5 pl-1 text-[13px]">
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.front.word !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                <span>Từ vựng tiếng Hàn (Hangul)</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.front.reading !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                <span>Phiên âm Romaja</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                <span>Âm Hán Hàn</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.front.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                <span>Từ loại (Danh từ, Động từ...)</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                ) : isEnglishMode ? (
-                                    <div>
-                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Anh hiển thị:</p>
-                                        <div className="space-y-2.5 pl-1 text-[13px]">
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.front.word !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                <span>Từ vựng tiếng Anh</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.front.ipa !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, ipa: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                <span>Phiên âm quốc tế IPA</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.front.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                <span>Từ loại (Noun, Verb...)</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <div>
-                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Nhật hiển thị:</p>
-                                        <div className="space-y-2.5 pl-1 text-[13px]">
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.word} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Chữ Hán / Từ vựng</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.furigana} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, furigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Phiên âm Furigana</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Âm Hán Việt</span></label>
-                                        </div>
-                                    </div>
-                                )
-                            )}
-                            {isKoreanMode ? (
-                                <div>
-                                    <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
-                                    <div className="space-y-2.5 pl-1 text-[13px]">
-                                        <label className="flex items-center gap-2.5 cursor-pointer">
-                                            <input type="checkbox" checked={cardSettings.back.meaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                            <span>Nghĩa tiếng Việt</span>
-                                        </label>
-                                        <label className="flex items-center gap-2.5 cursor-pointer">
-                                            <input type="checkbox" checked={cardSettings.back.reading !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                            <span>Phiên âm Romaja</span>
-                                        </label>
-                                        <label className="flex items-center gap-2.5 cursor-pointer">
-                                            <input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                            <span>Âm Hán Hàn</span>
-                                        </label>
-                                        <label className="flex items-center gap-2.5 cursor-pointer">
-                                            <input type="checkbox" checked={cardSettings.back.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                            <span>Từ loại (Danh từ, Động từ...)</span>
-                                        </label>
-                                        <label className="flex items-center gap-2.5 cursor-pointer">
-                                            <input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                            <span>Từ đồng nghĩa / Trái nghĩa</span>
-                                        </label>
-                                        <label className="flex items-center gap-2.5 cursor-pointer">
-                                            <input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                            <span>Câu ví dụ</span>
-                                        </label>
-                                        {cardSettings.back.example && (
-                                            <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
-                                                <label className="flex items-center gap-2 cursor-pointer">
-                                                    <input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                    <span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span>
-                                                </label>
-                                            </div>
-                                        )}
-                                        <label className="flex items-center gap-2.5 cursor-pointer">
-                                            <input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                            <span>Hình ảnh minh họa</span>
-                                        </label>
-                                    </div>
-                                </div>
-                            ) : isEnglishMode ? (
-                                <div>
-                                    <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
-                                    <div className="space-y-2.5 pl-1 text-[13px]">
-                                        <label className="flex items-center gap-2.5 cursor-pointer">
-                                            <input type="checkbox" checked={cardSettings.back.meaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                            <span>Nghĩa tiếng Việt</span>
-                                        </label>
-                                        <label className="flex items-center gap-2.5 cursor-pointer">
-                                            <input type="checkbox" checked={cardSettings.back.ipa !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, ipa: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                            <span>Phiên âm quốc tế IPA</span>
-                                        </label>
-                                        <label className="flex items-center gap-2.5 cursor-pointer">
-                                            <input type="checkbox" checked={cardSettings.back.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                            <span>Từ loại (Noun, Verb...)</span>
-                                        </label>
-                                        <label className="flex items-center gap-2.5 cursor-pointer">
-                                            <input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                            <span>Từ đồng nghĩa / Trái nghĩa</span>
-                                        </label>
-                                        <label className="flex items-center gap-2.5 cursor-pointer">
-                                            <input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                            <span>Hình ảnh minh họa</span>
-                                        </label>
-                                        <label className="flex items-center gap-2.5 cursor-pointer">
-                                            <input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                            <span>Câu ví dụ</span>
-                                        </label>
-                                        {cardSettings.back.example && (
-                                            <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
-                                                <label className="flex items-center gap-2 cursor-pointer">
-                                                    <input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" />
-                                                    <span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span>
-                                                </label>
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            ) : (
-                                <div>
-                                    <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
-                                    <div className="space-y-2.5 pl-1 text-[13px]">
-                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.meaning} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Nghĩa tiếng Việt</span></label>
-                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.furigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, furigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Phiên âm Furigana</span></label>
-                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.reading} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Cách đọc (Hiragana)</span></label>
-                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Âm Hán Việt</span></label>
-                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Đồng nghĩa</span></label>
-                                        {cardSettings.back.synonym && (
-                                            <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
-                                                <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonymFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonymFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Furigana đồng nghĩa</span></label>
-                                            </div>
-                                        )}
-                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4" /><span>Hình ảnh minh họa</span></label>
-                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Ví dụ</span></label>
-                                        {cardSettings.back.example && (
-                                            <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
-                                                <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Furigana ví dụ</span></label>
-                                                <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span></label>
-                                            </div>
-                                        )}
-                                    </div>
-                                </div>
-                            )}
-                        </div>
-                        <div className="pt-3">
-                            <button onClick={() => setShowSettingsMenu(false)} className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all shadow-md active:scale-95 text-sm cursor-pointer">
-                                Đóng
-                            </button>
-                        </div>
-                    </div>
-                </div>,
-                document.body
-            )}
+            <VocabCardSettingsModal
+                isOpen={showSettingsMenu}
+                onClose={() => setShowSettingsMenu(false)}
+                cardSettings={cardSettings}
+                setCardSettings={setCardSettings}
+                isKoreanMode={isKoreanMode}
+                isEnglishMode={isEnglishMode}
+            />
 
             {showMistakeModal && createPortal(
                 <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={() => setShowMistakeModal(false)}>
                     <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
                     <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-sm p-6 space-y-4 border border-gray-200 dark:border-slate-700/80 animate-fade-in text-slate-850 dark:text-slate-200" onClick={e => e.stopPropagation()}>
                         <h4 className="font-extrabold text-lg border-b border-gray-150 dark:border-slate-700 pb-2.5 mb-3">
-                            Chọn chế độ ôn tập
+                            {t('srs.selectModeTitle', 'Chọn chế độ ôn tập')}
                         </h4>
                         <p className="text-xs text-gray-500 dark:text-gray-400 font-semibold mb-2">
-                            Bạn đang ôn tập nhóm: <span className="font-black text-red-650 dark:text-red-400">Từ vựng lỗi sai</span> ({mistakeCards.length} từ)
+                            {t('vocab.reviewingGroup', 'Bạn đang ôn tập nhóm:')} <span className="font-black text-red-650 dark:text-red-400">{t('vocab.reviewMistakesGroup', 'Từ vựng lỗi sai')}</span> ({mistakeCards.length} {t('vocab.wordsUnit', 'từ')})
                         </p>
 
                         <div className="grid grid-cols-2 gap-3">
@@ -2553,7 +2053,7 @@ const SRSVocabScreen = ({
                                 className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMistakeMode === 'flashcard' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-700 text-gray-700 dark:text-gray-300'}`}
                             >
                                 <Layers className="w-6 h-6" />
-                                <span className="font-bold text-xs">Thẻ ghi nhớ</span>
+                                <span className="font-bold text-xs">{t('vocab.flashcardMode', 'Thẻ ghi nhớ')}</span>
                             </button>
 
                             <button
@@ -2561,7 +2061,7 @@ const SRSVocabScreen = ({
                                 className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMistakeMode === 'study' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-700 text-gray-700 dark:text-gray-300'}`}
                             >
                                 <BookOpen className="w-6 h-6" />
-                                <span className="font-bold text-xs">Học tập</span>
+                                <span className="font-bold text-xs">{t('vocab.studyMode', 'Học tập')}</span>
                             </button>
 
                             <button
@@ -2569,7 +2069,7 @@ const SRSVocabScreen = ({
                                 className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMistakeMode === 'meaning' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-700 text-gray-700 dark:text-gray-300'}`}
                             >
                                 <Edit2 className="w-6 h-6" />
-                                <span className="font-bold text-xs">Nhập ý nghĩa</span>
+                                <span className="font-bold text-xs">{t('vocab.meaningMode', 'Nhập ý nghĩa')}</span>
                             </button>
 
                             <button
@@ -2577,7 +2077,7 @@ const SRSVocabScreen = ({
                                 className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMistakeMode === 'dictation' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-700 text-gray-700 dark:text-gray-300'}`}
                             >
                                 <Headphones className="w-6 h-6" />
-                                <span className="font-bold text-xs">Nghe Chép</span>
+                                <span className="font-bold text-xs">{t('vocab.dictationMode', 'Nghe Chép')}</span>
                             </button>
                         </div>
 
@@ -2586,7 +2086,7 @@ const SRSVocabScreen = ({
                                 onClick={() => setShowMistakeModal(false)}
                                 className="flex-1 py-2.5 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors text-sm cursor-pointer"
                             >
-                                Huỷ
+                                {t('common.cancel', 'Huỷ')}
                             </button>
                             <button
                                 onClick={() => {
@@ -2603,7 +2103,7 @@ const SRSVocabScreen = ({
                                 }}
                                 className="flex-1 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-colors text-sm shadow-md cursor-pointer"
                             >
-                                Bắt đầu ôn
+                                {t('vocab.startReview', 'Bắt đầu ôn')}
                             </button>
                         </div>
                     </div>

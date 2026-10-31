@@ -64,18 +64,18 @@ const ReviewInteractionArea = ({
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                             {multipleChoiceOptions.map((option, index) => {
                                 const isSelected = selectedAnswer === option;
-                                let buttonClass = `${optionPadding} rounded-2xl transition-all border-2 text-left flex items-center gap-3.5 shadow-sm `;
+                                let buttonClass = `${optionPadding} rounded-2xl transition-all border-2 border-b-4 text-left flex items-center gap-3.5 shadow-xs `;
 
                                 if (feedback && isSelected && feedback === 'correct') {
-                                    buttonClass += "bg-emerald-500 text-white border-emerald-600 shadow-md";
+                                    buttonClass += "bg-emerald-500 text-white border-emerald-700 shadow-xs";
                                 } else if (feedback && isSelected && feedback === 'incorrect') {
-                                    buttonClass += "bg-rose-500 text-white border-rose-600 shadow-md";
+                                    buttonClass += "bg-rose-500 text-white border-rose-700 shadow-xs";
                                 } else if (feedback && (option === (currentCard.frontWithFurigana || currentCard.front) || option === `${(currentCard.frontWithFurigana || currentCard.front || '').split('（')[0].trim()}（${(currentCard.reading || '').trim()}）`)) {
-                                    buttonClass += "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-500";
+                                    buttonClass += "bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-500 border-b-4";
                                 } else if (isSelected) {
-                                    buttonClass += "bg-blue-600 text-white border-blue-700 shadow-md";
+                                    buttonClass += "bg-emerald-600 text-white border-emerald-800 shadow-xs";
                                 } else {
-                                    buttonClass += "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:bg-blue-50/60 dark:hover:bg-blue-950/30 hover:border-blue-400 hover:shadow-md";
+                                    buttonClass += "bg-white dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-800 hover:bg-emerald-50/40 dark:hover:bg-emerald-950/20 hover:border-emerald-400 active:translate-y-0.5 active:border-b-2";
                                 }
 
                                 if (isRevealed || isProcessing || !!feedback) {
@@ -109,9 +109,9 @@ const ReviewInteractionArea = ({
                         <button
                             onClick={moveToPreviousCard}
                             disabled={isProcessing || currentIndex === 0}
-                            className={`px-3 md:px-4 py-2 md:py-3 text-sm md:text-base font-bold rounded-xl transition-all shadow-sm cursor-pointer ${isProcessing || currentIndex === 0
-                                ? 'bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-600 cursor-not-allowed'
-                                : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 active:scale-95'
+                            className={`px-4 md:px-5 py-2.5 md:py-3.5 text-sm md:text-base font-bold rounded-2xl transition-all shadow-xs cursor-pointer border-2 border-b-4 active:translate-y-0.5 active:border-b-2 select-none ${isProcessing || currentIndex === 0
+                                ? 'bg-slate-100 dark:bg-slate-800 text-slate-400 dark:text-slate-600 border-slate-200 dark:border-slate-800 cursor-not-allowed'
+                                : 'bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700'
                                 }`}
                             title="Thẻ trước (←)"
                         >
@@ -138,9 +138,9 @@ const ReviewInteractionArea = ({
                                 }
                             }}
                             disabled={isProcessing}
-                            className={`flex-1 px-4 md:px-6 py-2 md:py-3 text-sm md:text-base font-bold rounded-xl transition-all shadow-md cursor-pointer ${isProcessing
-                                ? 'bg-slate-200 dark:bg-slate-800 text-slate-400 cursor-not-allowed'
-                                : 'bg-blue-600 hover:bg-blue-700 text-white active:scale-95'
+                            className={`flex-1 px-4 md:px-6 py-2.5 md:py-3.5 text-sm md:text-base font-black uppercase tracking-wider rounded-2xl transition-all shadow-xs cursor-pointer border-b-4 active:translate-y-0.5 active:border-b-0 select-none ${isProcessing
+                                ? 'bg-slate-200 dark:bg-slate-800 text-slate-400 border-slate-300 dark:border-slate-700 cursor-not-allowed'
+                                : 'bg-emerald-500 hover:bg-emerald-400 text-white border-emerald-700'
                                 }`}
                             title="Thẻ tiếp theo (→)"
                         >
@@ -198,15 +198,15 @@ const ReviewInteractionArea = ({
                             }
                         }}
                         disabled={feedback === 'correct' && !needsRetype}
-                        className={`w-full px-4 sm:px-5 py-3 text-base sm:text-lg rounded-xl border-2 transition-all outline-none shadow-sm focus:ring-4 focus:ring-blue-500/15
+                        className={`w-full px-4 sm:px-5 py-3 text-base sm:text-lg rounded-2xl border-2 border-b-4 transition-all outline-none shadow-xs focus:ring-4 focus:ring-emerald-500/15 caret-emerald-600
                     ${(inputMode === 'reading' || cardReviewType === 'dictation' || cardReviewType === 'example') ? 'font-japanese font-bold' : 'font-semibold'}
                     ${needsRetype
                                 ? 'border-rose-400 bg-rose-50/50 dark:bg-rose-950/30 text-rose-900 dark:text-rose-100 focus:border-rose-500'
                                 : feedback === 'correct'
-                                    ? 'border-emerald-400 bg-emerald-50/50 dark:bg-emerald-950/30 text-emerald-900 dark:text-emerald-100'
+                                    ? 'border-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/30 text-emerald-900 dark:text-emerald-100'
                                     : feedback === 'incorrect'
                                         ? 'border-rose-400 bg-rose-50/50 dark:bg-rose-950/30 text-rose-900 dark:text-rose-100'
-                                        : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-850 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:border-blue-500 dark:focus:border-blue-400'}`}
+                                        : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-slate-850 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:border-emerald-500 dark:focus:border-emerald-400'}`}
                         placeholder={needsRetype ? 'Nhập lại đáp án đúng để tiếp tục...' : (cardReviewType === 'example' ? 'Nhập từ còn thiếu bằng tiếng Nhật...' : (cardReviewType === 'dictation' ? 'Nhập từ vựng bạn nghe được...' : (inputMode === 'reading' ? 'Nhập từ vựng tiếng Nhật...' : 'Nhập ý nghĩa tiếng Việt...')))}
                     />
 
@@ -217,9 +217,9 @@ const ReviewInteractionArea = ({
                             <button
                                 onClick={handleRetypeSubmit}
                                 disabled={!inputValue.trim() || isProcessing}
-                                className="w-full h-11 flex items-center justify-center gap-2 px-5 text-sm sm:text-base bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold shadow-md disabled:opacity-40 disabled:cursor-not-allowed transition-all active:scale-[0.98] cursor-pointer"
+                                className="w-full py-3 flex items-center justify-center gap-2 px-5 text-sm sm:text-base bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 text-white rounded-2xl font-black uppercase tracking-wider shadow-xs disabled:opacity-40 disabled:cursor-not-allowed transition-all active:translate-y-0.5 active:border-b-0 cursor-pointer select-none"
                             >
-                                <Check className="w-4 h-4" />
+                                <Check className="w-4 h-4 stroke-[3]" />
                                 <span>Xác nhận đáp án đúng</span>
                             </button>
                             <p className="text-[10px] text-gray-400 dark:text-gray-500 text-center opacity-70">⌨️ Nhấn Enter để xác nhận nhanh</p>
@@ -243,7 +243,7 @@ const ReviewInteractionArea = ({
                                             const maxHint = Math.ceil(reading.length / 2);
                                             return hintCount >= maxHint;
                                         })()}
-                                        className="h-11 px-3 sm:px-4 flex items-center justify-center gap-1.5 text-xs sm:text-sm bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700 rounded-xl font-medium disabled:opacity-40 disabled:cursor-not-allowed transition-all active:scale-95 cursor-pointer whitespace-nowrap shadow-sm"
+                                        className="py-3 px-3.5 sm:px-4 flex items-center justify-center gap-1.5 text-xs sm:text-sm bg-white hover:bg-slate-50 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border-2 border-b-4 border-slate-200 dark:border-slate-700 rounded-2xl font-bold disabled:opacity-40 disabled:cursor-not-allowed transition-all active:translate-y-0.5 active:border-b-2 cursor-pointer whitespace-nowrap shadow-xs select-none"
                                         title="Hiển thị thêm chữ cái gợi ý"
                                     >
                                         <Lightbulb className="w-3.5 h-3.5 text-amber-500 dark:text-amber-400 flex-shrink-0" />
@@ -257,9 +257,9 @@ const ReviewInteractionArea = ({
                                 <button
                                     onClick={checkAnswer}
                                     disabled={!inputValue.trim() || isProcessing}
-                                    className="flex-1 h-11 flex items-center justify-center gap-2 px-5 text-sm sm:text-base bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold shadow-md disabled:opacity-40 disabled:cursor-not-allowed transition-all active:scale-[0.98] cursor-pointer"
+                                    className="flex-1 py-3 px-5 flex items-center justify-center gap-2 rounded-2xl font-black text-sm sm:text-base uppercase tracking-wider text-white bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 shadow-xs disabled:opacity-40 disabled:cursor-not-allowed disabled:active:translate-y-0 disabled:border-b-4 transition-all cursor-pointer select-none"
                                 >
-                                    <Check className="w-4 h-4" />
+                                    <Check className="w-4 h-4 stroke-[3]" />
                                     <span>Kiểm tra</span>
                                 </button>
                             </div>
@@ -314,7 +314,7 @@ const ReviewInteractionArea = ({
                                 <button
                                     onClick={handleNext}
                                     disabled={isProcessing}
-                                    className="px-3 sm:px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm shadow-sm transition-all active:scale-95 flex items-center gap-1 shrink-0 self-end sm:self-auto cursor-pointer"
+                                    className="px-4 py-2 rounded-2xl bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 text-white font-black uppercase tracking-wider text-xs sm:text-sm shadow-xs transition-all active:translate-y-0.5 active:border-b-0 flex items-center gap-1.5 shrink-0 self-end sm:self-auto cursor-pointer select-none"
                                 >
                                     <span>Tiếp tục</span>
                                     <span className="hidden sm:inline opacity-75 font-normal text-[10px]">(Enter)</span>

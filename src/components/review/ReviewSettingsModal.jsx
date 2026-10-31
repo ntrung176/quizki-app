@@ -2,6 +2,7 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 import { Settings, X } from 'lucide-react';
 import { useTargetLanguage } from '../../contexts/TargetLanguageContext';
+import { useLanguage } from '../../context/LanguageContext';
 
 const ReviewSettingsModal = ({
     showSettings,
@@ -36,6 +37,7 @@ const ReviewSettingsModal = ({
     setInputValue,
     setHintCount
 }) => {
+    const { t } = useLanguage();
     let contextIsEnglish = false;
     let contextIsKorean = false;
     try {
@@ -58,7 +60,7 @@ const ReviewSettingsModal = ({
                         <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2">
                                 <Settings className="w-5 h-5 text-indigo-500" />
-                                <h3 className="font-bold text-lg text-gray-800 dark:text-white">Cài đặt ôn tập</h3>
+                                <h3 className="font-bold text-lg text-gray-800 dark:text-white">{t('reviewSettings.modalTitle', 'Cài đặt ôn tập')}</h3>
                             </div>
                             <button onClick={() => setShowSettings(false)} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition-all cursor-pointer">
                                 <X className="w-5 h-5 text-gray-400" />
@@ -69,7 +71,7 @@ const ReviewSettingsModal = ({
                         {reviewMode === 'meaning_input' && (
                             <div className="space-y-4">
                                 <div>
-                                    <label className="text-sm font-bold text-gray-600 dark:text-gray-300 block mb-3">Ngôn ngữ câu trả lời</label>
+                                    <label className="text-sm font-bold text-gray-600 dark:text-gray-300 block mb-3">{t('reviewSettings.answerLanguage', 'Ngôn ngữ câu trả lời')}</label>
                                     <div className="grid grid-cols-2 gap-3">
                                         <button
                                             onClick={() => {
@@ -78,12 +80,12 @@ const ReviewSettingsModal = ({
                                                 setInputValue('');
                                                 setHintCount(0);
                                             }}
-                                            className={`py-3 rounded-xl text-sm font-bold transition-all border-2 cursor-pointer ${inputMode === 'meaning'
-                                                ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-400'
-                                                : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-650 hover:border-gray-300 dark:hover:border-slate-500'
+                                            className={`py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all border-2 border-b-4 active:translate-y-0.5 active:border-b-2 cursor-pointer ${inputMode === 'meaning'
+                                                ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-500'
+                                                : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'
                                                 }`}
                                         >
-                                            🇻🇳 Tiếng Việt
+                                            {t('reviewSettings.vietnamese', '🇻🇳 Tiếng Việt')}
                                         </button>
                                         <button
                                             onClick={() => {
@@ -92,18 +94,18 @@ const ReviewSettingsModal = ({
                                                 setInputValue('');
                                                 setHintCount(0);
                                             }}
-                                            className={`py-3 rounded-xl text-sm font-bold transition-all border-2 cursor-pointer ${inputMode === 'reading'
-                                                ? 'bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 border-indigo-400'
-                                                : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-650 hover:border-gray-300 dark:hover:border-slate-500'
+                                            className={`py-3 rounded-2xl text-xs sm:text-sm font-bold transition-all border-2 border-b-4 active:translate-y-0.5 active:border-b-2 cursor-pointer ${inputMode === 'reading'
+                                                ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-500'
+                                                : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'
                                                 }`}
                                         >
-                                            {isKoreanMode ? '🇰🇷 Tiếng Hàn' : isEnglishMode ? '🇺🇸 Tiếng Anh' : '🇯🇵 Tiếng Nhật'}
+                                            {isKoreanMode ? t('reviewSettings.korean', '🇰🇷 Tiếng Hàn') : isEnglishMode ? t('reviewSettings.english', '🇺🇸 Tiếng Anh') : t('reviewSettings.japanese', '🇯🇵 Tiếng Nhật')}
                                         </button>
                                     </div>
                                 </div>
 
                                 <div className="flex items-center justify-between border-t border-gray-100 dark:border-slate-700 pt-3">
-                                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">{isKoreanMode ? 'Hiện phiên âm Romaja' : isEnglishMode ? 'Hiện phiên âm IPA' : 'Bật Furigana'}</span>
+                                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">{isKoreanMode ? t('reviewSettings.showRomaja', 'Hiện phiên âm Romaja') : isEnglishMode ? t('reviewSettings.showIpa', 'Hiện phiên âm IPA') : t('reviewSettings.showFurigana', 'Bật Furigana')}</span>
                                     <label className="relative inline-flex items-center cursor-pointer">
                                         <input
                                             type="checkbox"
@@ -119,7 +121,7 @@ const ReviewSettingsModal = ({
                                 </div>
 
                                 <div className="flex items-center justify-between border-t border-gray-100 dark:border-slate-700 pt-3">
-                                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">{isKoreanMode ? 'Hiện âm Hán Hàn' : isEnglishMode ? 'Hiện từ loại (POS)' : 'Hiện âm Hán Việt'}</span>
+                                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">{isKoreanMode ? t('reviewSettings.showHanja', 'Hiện âm Hán Hàn') : isEnglishMode ? t('reviewSettings.showPos', 'Hiện từ loại (POS)') : t('reviewSettings.showHanviet', 'Hiện âm Hán Việt')}</span>
                                     <label className="relative inline-flex items-center cursor-pointer">
                                         <input
                                             type="checkbox"
@@ -139,7 +141,7 @@ const ReviewSettingsModal = ({
                         {cardReviewType === 'synonym' && (
                             <div className="space-y-4">
                                 <div className="flex items-center justify-between">
-                                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Bật Furigana</span>
+                                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">{t('reviewSettings.showFurigana', 'Bật Furigana')}</span>
                                     <label className="relative inline-flex items-center cursor-pointer">
                                         <input
                                             type="checkbox"
@@ -155,7 +157,7 @@ const ReviewSettingsModal = ({
                                 </div>
 
                                 <div className="flex items-center justify-between border-t border-gray-100 dark:border-slate-700 pt-3">
-                                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Hiện nghĩa tiếng Việt</span>
+                                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">{t('reviewSettings.showMeaningVi', 'Hiện nghĩa tiếng Việt')}</span>
                                     <label className="relative inline-flex items-center cursor-pointer">
                                         <input
                                             type="checkbox"
@@ -175,7 +177,7 @@ const ReviewSettingsModal = ({
                         {cardReviewType === 'example' && (
                             <div className="space-y-4">
                                 <div>
-                                    <label className="text-sm font-bold text-gray-600 dark:text-gray-300 block mb-3">Hình thức kiểm tra</label>
+                                    <label className="text-sm font-bold text-gray-600 dark:text-gray-300 block mb-3">{t('reviewSettings.testFormat', 'Hình thức kiểm tra')}</label>
                                     <div className="grid grid-cols-2 gap-3">
                                         <button
                                             onClick={() => {
@@ -187,7 +189,7 @@ const ReviewSettingsModal = ({
                                                 : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-650 hover:border-gray-300 dark:hover:border-slate-500'
                                                 }`}
                                         >
-                                            📝 Trắc nghiệm
+                                            {t('reviewSettings.multipleChoice', '📝 Trắc nghiệm')}
                                         </button>
                                         <button
                                             onClick={() => {
@@ -199,13 +201,13 @@ const ReviewSettingsModal = ({
                                                 : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-650 hover:border-gray-300 dark:hover:border-slate-500'
                                                 }`}
                                         >
-                                            ✏️ Tự luận
+                                            {t('reviewSettings.written', '✏️ Tự luận')}
                                         </button>
                                     </div>
                                 </div>
 
                                 <div className="flex items-center justify-between border-t border-gray-100 dark:border-slate-700 pt-3">
-                                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Bật Furigana</span>
+                                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">{t('reviewSettings.showFurigana', 'Bật Furigana')}</span>
                                     <label className="relative inline-flex items-center cursor-pointer">
                                         <input
                                             type="checkbox"
@@ -221,7 +223,7 @@ const ReviewSettingsModal = ({
                                 </div>
 
                                 <div className="flex items-center justify-between border-t border-gray-100 dark:border-slate-700 pt-3">
-                                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Hiện câu tiếng Việt</span>
+                                    <span className="text-sm font-bold text-gray-600 dark:text-gray-300">{t('reviewSettings.showSentenceVi', 'Hiện câu tiếng Việt')}</span>
                                     <label className="relative inline-flex items-center cursor-pointer">
                                         <input
                                             type="checkbox"
@@ -240,7 +242,7 @@ const ReviewSettingsModal = ({
 
                         {!['synonym', 'example'].includes(cardReviewType) && reviewMode !== 'meaning_input' && (
                             <div>
-                                <label className="text-sm font-bold text-gray-600 dark:text-gray-300 block mb-3">Hình thức kiểm tra ý nghĩa</label>
+                                <label className="text-sm font-bold text-gray-600 dark:text-gray-300 block mb-3">{t('reviewSettings.meaningTestFormat', 'Hình thức kiểm tra ý nghĩa')}</label>
                                 <div className="grid grid-cols-2 gap-3">
                                     <button
                                         onClick={() => { setReviewTestFormat('multipleChoice'); localStorage.setItem('review_test_format', 'multipleChoice'); }}
@@ -249,7 +251,7 @@ const ReviewSettingsModal = ({
                                             : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-650 hover:border-gray-300 dark:hover:border-slate-500'
                                             }`}
                                     >
-                                        📝 Trắc nghiệm
+                                        {t('reviewSettings.multipleChoice', '📝 Trắc nghiệm')}
                                     </button>
                                     <button
                                         onClick={() => { setReviewTestFormat('written'); localStorage.setItem('review_test_format', 'written'); }}
@@ -258,7 +260,7 @@ const ReviewSettingsModal = ({
                                             : 'bg-gray-50 dark:bg-slate-700 text-gray-500 dark:text-gray-400 border-gray-200 dark:border-slate-650 hover:border-gray-300 dark:hover:border-slate-500'
                                             }`}
                                     >
-                                        ✏️ Tự luận
+                                        {t('reviewSettings.written', '✏️ Tự luận')}
                                     </button>
                                 </div>
                             </div>
@@ -266,7 +268,7 @@ const ReviewSettingsModal = ({
 
                         {/* Global audio toggle */}
                         <div className="flex items-center justify-between border-t border-gray-100 dark:border-slate-700 pt-3">
-                            <span className="text-sm font-bold text-gray-600 dark:text-gray-300">Phát âm thanh từ vựng</span>
+                            <span className="text-sm font-bold text-gray-600 dark:text-gray-300">{t('reviewSettings.playVocabAudio', 'Phát âm thanh từ vựng')}</span>
                             <label className="relative inline-flex items-center cursor-pointer">
                                 <input
                                     type="checkbox"
@@ -284,7 +286,7 @@ const ReviewSettingsModal = ({
                         {/* Close button */}
                         <button
                             onClick={() => setShowSettings(false)}
-                            className="w-full py-2.5 bg-indigo-500 hover:bg-indigo-600 text-white font-bold rounded-xl transition-all text-sm mt-2 cursor-pointer"
+                            className="w-full py-3 bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white font-black uppercase tracking-wider rounded-2xl transition-all text-xs cursor-pointer select-none"
                         >
                             Xong
                         </button>
@@ -298,24 +300,24 @@ const ReviewSettingsModal = ({
                 <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={() => setShowSettingsMenu(false)}>
                     <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
                     <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-sm p-6 space-y-4 border border-gray-200 dark:border-slate-700/80 animate-fade-in text-slate-850 dark:text-slate-200" onClick={e => e.stopPropagation()}>
-                        <h4 className="font-extrabold text-lg border-b border-gray-150 dark:border-slate-700 pb-2.5 mb-3">Cấu hình thẻ ghi nhớ</h4>
+                        <h4 className="font-extrabold text-lg border-b border-gray-150 dark:border-slate-700 pb-2.5 mb-3">{t('reviewSettings.flashcardConfig', 'Cấu hình thẻ ghi nhớ')}</h4>
                         <div className="space-y-4 text-xs font-semibold text-slate-600 dark:text-slate-300">
                             <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                                <span className="text-indigo-650 dark:text-indigo-400 font-bold">Đổi mặt trước/mặt sau</span>
+                                <span className="text-indigo-650 dark:text-indigo-400 font-bold">{t('reviewSettings.swapSides', 'Đổi mặt trước/mặt sau')}</span>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" checked={cardSettings.swapSides} onChange={(e) => setCardSettings(prev => ({ ...prev, swapSides: e.target.checked }))} className="sr-only peer" />
                                     <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
                                 </label>
                             </div>
                             <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                                <span className="text-indigo-650 dark:text-indigo-400 font-bold">Phát âm thanh từ vựng</span>
+                                <span className="text-indigo-650 dark:text-indigo-400 font-bold">{t('reviewSettings.autoPlayAudio', 'Phát âm thanh từ vựng')}</span>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" checked={cardSettings.audioEnabled !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, audioEnabled: e.target.checked }))} className="sr-only peer" />
                                     <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
                                 </label>
                             </div>
                             <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                                <span className="text-indigo-650 dark:text-indigo-400 font-bold">Tự động phát âm thanh khi lật</span>
+                                <span className="text-indigo-650 dark:text-indigo-400 font-bold">{t('reviewSettings.autoPlayOnFlip', 'Tự động phát âm thanh khi lật')}</span>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input type="checkbox" checked={cardSettings.autoPlayAudio} onChange={(e) => setCardSettings(prev => ({ ...prev, autoPlayAudio: e.target.checked }))} className="sr-only peer" />
                                     <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
@@ -326,26 +328,26 @@ const ReviewSettingsModal = ({
                                     <>
                                         <div className="bg-indigo-50/80 dark:bg-indigo-950/40 border border-indigo-200/60 dark:border-indigo-800/60 rounded-2xl p-3 text-xs text-indigo-800 dark:text-indigo-300 leading-relaxed space-y-1 mb-2">
                                             <p className="font-bold flex items-center gap-1.5 text-indigo-900 dark:text-indigo-200">
-                                                <span>⌨️</span> Chế độ gõ từ (Typing):
+                                                <span>⌨️</span> {t('reviewSettings.typingMode', 'Chế độ gõ từ (Typing):')}
                                             </p>
                                             <p className="text-[11.5px] opacity-90">
-                                                • Bạn có thể chọn hiển thị <strong>Phiên âm Romaja</strong>, <strong>Âm Hán Hàn</strong> hoặc <strong>Từ loại</strong> ở mặt câu hỏi để làm gợi ý khi gõ từ tiếng Hàn.
+                                                {t('reviewSettings.typingModeKoreanDesc')}
                                             </p>
                                         </div>
                                         <div>
-                                            <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Gợi ý mặt câu hỏi:</p>
+                                            <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">{t('reviewSettings.questionSideHints', 'Gợi ý mặt câu hỏi:')}</p>
                                             <div className="space-y-2.5 pl-1 text-[13px]">
                                                 <label className="flex items-center gap-2.5 cursor-pointer">
                                                     <input type="checkbox" checked={cardSettings.front.reading !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                                    <span>Phiên âm Romaja (gợi ý)</span>
+                                                    <span>{t('reviewSettings.romajaHint', 'Phiên âm Romaja (gợi ý)')}</span>
                                                 </label>
                                                 <label className="flex items-center gap-2.5 cursor-pointer">
                                                     <input type="checkbox" checked={cardSettings.front.hanviet !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                                    <span>Âm Hán Hàn (gợi ý)</span>
+                                                    <span>{t('reviewSettings.hanjaHint', 'Âm Hán Hàn (gợi ý)')}</span>
                                                 </label>
                                                 <label className="flex items-center gap-2.5 cursor-pointer">
                                                     <input type="checkbox" checked={cardSettings.front.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                                    <span>Từ loại (Danh từ, Động từ...) (gợi ý)</span>
+                                                    <span>{t('reviewSettings.posHint', 'Từ loại (Danh từ, Động từ...) (gợi ý)')}</span>
                                                 </label>
                                             </div>
                                         </div>
@@ -354,22 +356,22 @@ const ReviewSettingsModal = ({
                                     <>
                                         <div className="bg-indigo-50/80 dark:bg-indigo-950/40 border border-indigo-200/60 dark:border-indigo-800/60 rounded-2xl p-3 text-xs text-indigo-800 dark:text-indigo-300 leading-relaxed space-y-1 mb-2">
                                             <p className="font-bold flex items-center gap-1.5 text-indigo-900 dark:text-indigo-200">
-                                                <span>⌨️</span> Chế độ gõ từ (Typing):
+                                                <span>⌨️</span> {t('reviewSettings.typingMode', 'Chế độ gõ từ (Typing):')}
                                             </p>
                                             <p className="text-[11.5px] opacity-90">
-                                                • Bạn có thể chọn hiển thị <strong>Phiên âm IPA</strong> hoặc <strong>Từ loại</strong> ở mặt câu hỏi để làm gợi ý khi gõ từ tiếng Anh.
+                                                {t('reviewSettings.typingModeEnglishDesc')}
                                             </p>
                                         </div>
                                         <div>
-                                            <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Gợi ý mặt câu hỏi:</p>
+                                            <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">{t('reviewSettings.questionSideHints', 'Gợi ý mặt câu hỏi:')}</p>
                                             <div className="space-y-2.5 pl-1 text-[13px]">
                                                 <label className="flex items-center gap-2.5 cursor-pointer">
                                                     <input type="checkbox" checked={cardSettings.front.ipa !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, ipa: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                                    <span>Phiên âm IPA (gợi ý)</span>
+                                                    <span>{t('reviewSettings.ipaHint', 'Phiên âm IPA (gợi ý)')}</span>
                                                 </label>
                                                 <label className="flex items-center gap-2.5 cursor-pointer">
                                                     <input type="checkbox" checked={cardSettings.front.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                                    <span>Từ loại (Noun, Verb...) (gợi ý)</span>
+                                                    <span>{t('reviewSettings.posHint', 'Từ loại (Noun, Verb...) (gợi ý)')}</span>
                                                 </label>
                                             </div>
                                         </div>
@@ -378,16 +380,16 @@ const ReviewSettingsModal = ({
                                     <>
                                         <div className="bg-indigo-50/80 dark:bg-indigo-950/40 border border-indigo-200/60 dark:border-indigo-800/60 rounded-2xl p-3 text-xs text-indigo-800 dark:text-indigo-300 leading-relaxed space-y-1 mb-2">
                                             <p className="font-bold flex items-center gap-1.5 text-indigo-900 dark:text-indigo-200">
-                                                <span>⌨️</span> Chế độ gõ từ (Typing):
+                                                <span>⌨️</span> {t('reviewSettings.typingMode', 'Chế độ gõ từ (Typing):')}
                                             </p>
                                             <p className="text-[11.5px] opacity-90">
-                                                • Bạn có thể tích chọn <strong>Âm Hán Việt</strong> ở mặt câu hỏi để làm gợi ý khi gõ đáp án.
+                                                {t('reviewSettings.typingModeJapaneseDesc')}
                                             </p>
                                         </div>
                                         <div>
-                                            <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Gợi ý mặt câu hỏi:</p>
+                                            <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">{t('reviewSettings.questionSideHints', 'Gợi ý mặt câu hỏi:')}</p>
                                             <div className="space-y-2.5 pl-1 text-[13px]">
-                                                <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Âm Hán Việt (gợi ý)</span></label>
+                                                <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>{t('reviewSettings.hanvietHint', 'Âm Hán Việt (gợi ý)')}</span></label>
                                             </div>
                                         </div>
                                     </>
@@ -395,164 +397,164 @@ const ReviewSettingsModal = ({
                             ) : (
                                 isKoreanMode ? (
                                     <div>
-                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Hàn hiển thị:</p>
+                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">{t('reviewSettings.koreanSideDisplay', 'Mặt tiếng Hàn hiển thị:')}</p>
                                         <div className="space-y-2.5 pl-1 text-[13px]">
                                             <label className="flex items-center gap-2.5 cursor-pointer">
                                                 <input type="checkbox" checked={cardSettings.front.word !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                                <span>Từ vựng tiếng Hàn (Hangul)</span>
+                                                <span>{t('reviewSettings.koreanWord', 'Từ vựng tiếng Hàn (Hangul)')}</span>
                                             </label>
                                             <label className="flex items-center gap-2.5 cursor-pointer">
                                                 <input type="checkbox" checked={cardSettings.front.reading !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                                <span>Phiên âm Romaja</span>
+                                                <span>{t('reviewSettings.romajaReading', 'Phiên âm Romaja')}</span>
                                             </label>
                                             <label className="flex items-center gap-2.5 cursor-pointer">
                                                 <input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                                <span>Âm Hán Hàn</span>
+                                                <span>{t('reviewSettings.sinoKorean', 'Âm Hán Hàn')}</span>
                                             </label>
                                             <label className="flex items-center gap-2.5 cursor-pointer">
                                                 <input type="checkbox" checked={cardSettings.front.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                                <span>Từ loại (Danh từ, Động từ...)</span>
+                                                <span>{t('reviewSettings.posLabel', 'Từ loại (Danh từ, Động từ...)')}</span>
                                             </label>
                                         </div>
                                     </div>
                                 ) : isEnglishMode ? (
                                     <div>
-                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Anh hiển thị:</p>
+                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">{t('reviewSettings.englishSideDisplay', 'Mặt tiếng Anh hiển thị:')}</p>
                                         <div className="space-y-2.5 pl-1 text-[13px]">
                                             <label className="flex items-center gap-2.5 cursor-pointer">
                                                 <input type="checkbox" checked={cardSettings.front.word !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                                <span>Từ vựng tiếng Anh</span>
+                                                <span>{t('reviewSettings.englishWord', 'Từ vựng tiếng Anh')}</span>
                                             </label>
                                             <label className="flex items-center gap-2.5 cursor-pointer">
                                                 <input type="checkbox" checked={cardSettings.front.ipa !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, ipa: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                                <span>Phiên âm quốc tế IPA</span>
+                                                <span>{t('reviewSettings.ipaPronunciation', 'Phiên âm quốc tế IPA')}</span>
                                             </label>
                                             <label className="flex items-center gap-2.5 cursor-pointer">
                                                 <input type="checkbox" checked={cardSettings.front.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                                <span>Từ loại (Noun, Verb...)</span>
+                                                <span>{t('reviewSettings.posLabel', 'Từ loại (Noun, Verb...)')}</span>
                                             </label>
                                         </div>
                                     </div>
                                 ) : (
                                     <div>
-                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Nhật hiển thị:</p>
+                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">{t('reviewSettings.japaneseSideDisplay', 'Mặt tiếng Nhật hiển thị:')}</p>
                                         <div className="space-y-2.5 pl-1 text-[13px]">
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.word} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Chữ Hán / Từ vựng</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.furigana} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, furigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Phiên âm Furigana</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Âm Hán Việt</span></label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.word} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>{t('reviewSettings.kanjiWord', 'Chữ Hán / Từ vựng')}</span></label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.furigana} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, furigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>{t('reviewSettings.furiganaReading', 'Phiên âm Furigana')}</span></label>
+                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>{t('reviewSettings.sinoVietnamese', 'Âm Hán Việt')}</span></label>
                                         </div>
                                     </div>
                                 )
                             )}
                             {isKoreanMode ? (
                                 <div>
-                                    <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
+                                    <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">{t('reviewSettings.translatedSideDisplay', 'Mặt nghĩa dịch hiển thị:')}</p>
                                     <div className="space-y-2.5 pl-1 text-[13px]">
                                         <label className="flex items-center gap-2.5 cursor-pointer">
                                             <input type="checkbox" checked={cardSettings.back.meaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                            <span>Nghĩa tiếng Việt</span>
+                                            <span>{t('reviewSettings.vietnameseMeaning', 'Nghĩa tiếng Việt')}</span>
                                         </label>
                                         <label className="flex items-center gap-2.5 cursor-pointer">
                                             <input type="checkbox" checked={cardSettings.back.reading !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                            <span>Phiên âm Romaja</span>
+                                            <span>{t('reviewSettings.romajaReading', 'Phiên âm Romaja')}</span>
                                         </label>
                                         <label className="flex items-center gap-2.5 cursor-pointer">
                                             <input type="checkbox" checked={cardSettings.back.hanviet !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                            <span>Âm Hán Hàn</span>
+                                            <span>{t('reviewSettings.sinoKorean', 'Âm Hán Hàn')}</span>
                                         </label>
                                         <label className="flex items-center gap-2.5 cursor-pointer">
                                             <input type="checkbox" checked={cardSettings.back.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                            <span>Từ loại (Danh từ, Động từ...)</span>
+                                            <span>{t('reviewSettings.posLabel', 'Từ loại (Danh từ, Động từ...)')}</span>
                                         </label>
                                         <label className="flex items-center gap-2.5 cursor-pointer">
                                             <input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                            <span>Từ đồng nghĩa</span>
+                                            <span>{t('reviewSettings.synonym', 'Từ đồng nghĩa')}</span>
                                         </label>
                                         <label className="flex items-center gap-2.5 cursor-pointer">
                                             <input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                            <span>Câu ví dụ</span>
+                                            <span>{t('reviewSettings.exampleSentence', 'Câu ví dụ')}</span>
                                         </label>
                                         {cardSettings.back.example && (
                                             <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
                                                 <label className="flex items-center gap-2 cursor-pointer">
                                                     <input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                                    <span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span>
+                                                    <span className="text-gray-500 dark:text-gray-400">{t('reviewSettings.translateExample', 'Dịch câu ví dụ')}</span>
                                                 </label>
                                             </div>
                                         )}
                                         <label className="flex items-center gap-2.5 cursor-pointer">
                                             <input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                            <span>Hình ảnh minh họa</span>
+                                            <span>{t('reviewSettings.imageIllustration', 'Hình ảnh minh họa')}</span>
                                         </label>
                                     </div>
                                 </div>
                             ) : isEnglishMode ? (
                                 <div>
-                                    <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
+                                    <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">{t('reviewSettings.translatedSideDisplay', 'Mặt nghĩa dịch hiển thị:')}</p>
                                     <div className="space-y-2.5 pl-1 text-[13px]">
                                         <label className="flex items-center gap-2.5 cursor-pointer">
                                             <input type="checkbox" checked={cardSettings.back.meaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                            <span>Nghĩa tiếng Việt</span>
+                                            <span>{t('reviewSettings.vietnameseMeaning', 'Nghĩa tiếng Việt')}</span>
                                         </label>
                                         <label className="flex items-center gap-2.5 cursor-pointer">
                                             <input type="checkbox" checked={cardSettings.back.ipa !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, ipa: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                            <span>Phiên âm quốc tế IPA</span>
+                                            <span>{t('reviewSettings.ipaPronunciation', 'Phiên âm quốc tế IPA')}</span>
                                         </label>
                                         <label className="flex items-center gap-2.5 cursor-pointer">
                                             <input type="checkbox" checked={cardSettings.back.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                            <span>Từ loại (Noun, Verb...)</span>
+                                            <span>{t('reviewSettings.posLabel', 'Từ loại (Noun, Verb...)')}</span>
                                         </label>
                                         <label className="flex items-center gap-2.5 cursor-pointer">
                                             <input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                            <span>Từ đồng nghĩa / Trái nghĩa</span>
+                                            <span>{t('reviewSettings.synonymAntonym', 'Từ đồng nghĩa / Trái nghĩa')}</span>
                                         </label>
                                         <label className="flex items-center gap-2.5 cursor-pointer">
                                             <input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                            <span>Câu ví dụ</span>
+                                            <span>{t('reviewSettings.exampleSentence', 'Câu ví dụ')}</span>
                                         </label>
                                         {cardSettings.back.example && (
                                             <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
                                                 <label className="flex items-center gap-2 cursor-pointer">
                                                     <input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                                    <span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span>
+                                                    <span className="text-gray-500 dark:text-gray-400">{t('reviewSettings.translateExample', 'Dịch câu ví dụ')}</span>
                                                 </label>
                                             </div>
                                         )}
                                         <label className="flex items-center gap-2.5 cursor-pointer">
                                             <input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" />
-                                            <span>Hình ảnh minh họa</span>
+                                            <span>{t('reviewSettings.imageIllustration', 'Hình ảnh minh họa')}</span>
                                         </label>
                                     </div>
                                 </div>
                             ) : (
                                 <div>
-                                    <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
+                                    <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">{t('reviewSettings.translatedSideDisplay', 'Mặt nghĩa dịch hiển thị:')}</p>
                                     <div className="space-y-2.5 pl-1 text-[13px]">
-                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.meaning} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Nghĩa tiếng Việt</span></label>
-                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.furigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, furigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Phiên âm Furigana</span></label>
-                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.reading} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Cách đọc (Hiragana)</span></label>
-                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Âm Hán Việt</span></label>
-                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Đồng nghĩa</span></label>
+                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.meaning} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>{t('reviewSettings.vietnameseMeaning', 'Nghĩa tiếng Việt')}</span></label>
+                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.furigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, furigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>{t('reviewSettings.furiganaReading', 'Phiên âm Furigana')}</span></label>
+                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.reading} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>{t('reviewSettings.hiraganaReading', 'Cách đọc (Hiragana)')}</span></label>
+                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>{t('reviewSettings.sinoVietnamese', 'Âm Hán Việt')}</span></label>
+                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>{t('reviewSettings.synonym', 'Đồng nghĩa')}</span></label>
                                         {cardSettings.back.synonym && (
                                             <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
-                                                <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonymFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonymFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Furigana đồng nghĩa</span></label>
+                                                <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonymFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonymFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">{t('reviewSettings.synonymFurigana', 'Furigana đồng nghĩa')}</span></label>
                                             </div>
                                         )}
-                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Ví dụ</span></label>
+                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>{t('reviewSettings.exampleSentence', 'Ví dụ')}</span></label>
                                         {cardSettings.back.example && (
                                             <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
-                                                <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Furigana ví dụ</span></label>
-                                                <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span></label>
+                                                <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">{t('reviewSettings.exampleFurigana', 'Furigana ví dụ')}</span></label>
+                                                <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">{t('reviewSettings.translateExample', 'Dịch câu ví dụ')}</span></label>
                                             </div>
                                         )}
-                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>Hình ảnh minh họa</span></label>
+                                        <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-650 text-indigo-650 dark:text-indigo-400 focus:ring-indigo-550 w-4 h-4" /><span>{t('reviewSettings.imageIllustration', 'Hình ảnh minh họa')}</span></label>
                                     </div>
                                 </div>
                             )}
                         </div>
                         <div className="pt-3">
-                            <button onClick={() => setShowSettingsMenu(false)} className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all shadow-md active:scale-95 text-sm cursor-pointer">
-                                Đóng
+                            <button onClick={() => setShowSettingsMenu(false)} className="w-full py-3 bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white font-black uppercase tracking-wider rounded-2xl transition-all shadow-xs text-xs cursor-pointer select-none">
+                                {t('reviewSettings.close', 'Đóng')}
                             </button>
                         </div>
                     </div>

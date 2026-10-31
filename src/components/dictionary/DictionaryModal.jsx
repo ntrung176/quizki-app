@@ -11,6 +11,7 @@ import {
     searchDictionary 
 } from '../../services/dictionaryService';
 import { showToast } from '../../utils/toast';
+import { useLanguage } from '../../context/LanguageContext';
 
 const getCleanWord = (text) => {
     if (!text) return '';
@@ -29,6 +30,7 @@ const DictionaryModal = ({
     onGeminiAssist,
     canUserUseAI = true
 }) => {
+    const { t, language } = useLanguage();
     const [query, setQuery] = useState(initialWord || '');
     const [results, setResults] = useState([]);
     const [isSearching, setIsSearching] = useState(false);
@@ -74,7 +76,7 @@ const DictionaryModal = ({
                 // First-time download for a fresh browser
                 syncDictionary().catch((err) => {
                     console.error('Failed to install dictionary:', err);
-                    showToast('Lỗi tải dữ liệu từ điển: ' + err.message, 'error');
+                    showToast(t('dictionary.downloadError', 'Lỗi tải dữ liệu từ điển: {error}').replace('{error}', err.message), 'error');
                 });
             } else if (!isDictionaryUpToDate() && !isDictionarySyncing()) {
                 // Has existing data: silently update in the background, NEVER blocking search
@@ -154,11 +156,11 @@ const DictionaryModal = ({
             await onSaveCard(cardData);
             setSavedWords(prev => new Set([...prev, entry.w || entry.r]));
             const targetFolder = (folders || []).find(f => f.id === folderId);
-            const folderName = targetFolder ? (targetFolder.name || targetFolder.title) : (folderId === 'unfiled' ? 'Chưa phân loại' : 'học phần');
-            showToast(`Đã lưu "${entry.w || entry.r}" vào ${folderName}!`, 'success');
+            const folderName = targetFolder ? (targetFolder.name || targetFolder.title) : (folderId === 'unfiled' ? t('dictionary.uncategorized', 'Chưa phân loại') : t('dictionary.defaultStudySet', 'học phần'));
+            showToast(t('dictionary.savedToFolder', 'Đã lưu "{word}" vào {folder}!').replace('{word}', entry.w || entry.r).replace('{folder}', folderName), 'success');
         } catch (err) {
             console.error('Error saving quick card:', err);
-            showToast('Lỗi lưu thẻ: ' + err.message, 'error');
+            showToast(t('dictionary.saveCardError', 'Lỗi lưu thẻ: {error}').replace('{error}', err.message), 'error');
         }
     };
 
@@ -225,8 +227,8 @@ Yêu cầu trả về JSON chuẩn theo format sau (chỉ trả về JSON thuầ
             await onSaveCard(cardToSave);
             setSavedWords(prev => new Set([...prev, entry.w || entry.r]));
             const targetFolder = (folders || []).find(f => f.id === folderId);
-            const folderName = targetFolder ? (targetFolder.name || targetFolder.title) : (folderId === 'unfiled' ? 'Chưa phân loại' : 'học phần');
-            showToast(`Đã dùng AI tạo và lưu "${entry.w}" vào ${folderName}!`, 'success');
+            const folderName = targetFolder ? (targetFolder.name || targetFolder.title) : (folderId === 'unfiled' ? t('dictionary.uncategorized', 'Chưa phân loại') : t('dictionary.defaultStudySet', 'học phần'));
+            showToast(t('dictionary.aiSavedToFolder', 'Đã dùng AI tạo và lưu "{word}" vào {folder}!').replace('{word}', entry.w).replace('{folder}', folderName), 'success');
         } catch (err) {
             console.error('AI Card creation error:', err);
             executeSave(entry, folderId);
@@ -335,9 +337,9 @@ Yêu cầu trả về JSON chuẩn theo format sau (chỉ trả về JSON thuầ
     // Name of currently selected folder
     const selectedFolderName = useMemo(() => {
         if (!selectedFolderId) return '';
-        if (selectedFolderId === 'unfiled') return 'Chưa phân loại';
+        if (selectedFolderId === 'unfiled') return t('dictionary.uncategorized', 'Chưa phân loại');
         const found = resolvedStudySets.find(f => f.id === selectedFolderId) || (folders || []).find(f => f.id === selectedFolderId);
-        return found ? (found.name || found.title || 'Học phần') : 'Chưa phân loại';
+        return found ? (found.name || found.title || t('dictionary.defaultStudySet', 'Học phần')) : t('dictionary.uncategorized', 'Chưa phân loại');
     }, [resolvedStudySets, folders, selectedFolderId]);
 
     // Helper to get parent folder name
@@ -361,11 +363,11 @@ Yêu cầu trả về JSON chuẩn theo format sau (chỉ trả về JSON thuầ
                     <div className="min-w-0">
                         <div className="flex items-center gap-2">
                             <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white">
-                                Từ điển tiếng Nhật
+                                {t('dictionary.title', 'Từ điển tiếng Nhật')}
                             </h2>
                         </div>
                         <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate">
-                            266.000+ từ vựng • Cấp độ JLPT • Trọng âm Pitch Accent
+                            {t('dictionary.subtitle', '266.000+ từ vựng • Cấp độ JLPT • Trọng âm Pitch Accent')}
                         </p>
                     </div>
 
@@ -373,7 +375,7 @@ Yêu cầu trả về JSON chuẩn theo format sau (chỉ trả về JSON thuầ
                         type="button"
                         onClick={onClose}
                         className="p-2 rounded-xl text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer shrink-0"
-                        title="Đóng (ESC)"
+                        title={t('common.close', 'Đóng') + ' (ESC)'}
                     >
                         <X className="w-5 h-5" />
                     </button>
@@ -388,7 +390,7 @@ Yêu cầu trả về JSON chuẩn theo format sau (chỉ trả về JSON thuầ
                             type="text"
                             value={query}
                             onChange={(e) => setQuery(e.target.value)}
-                            placeholder="Tra từ tiếng Nhật (Kanji, Hiragana, Romaji, Hán Việt)..."
+                            placeholder={t('dictionary.searchPlaceholder', 'Tra từ tiếng Nhật (Kanji, Hiragana, Romaji, Hán Việt)...')}
                             className="w-full pl-11 pr-10 py-3 text-sm bg-slate-50 dark:bg-slate-800/80 rounded-2xl border border-slate-200 dark:border-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 text-slate-900 dark:text-white placeholder:text-slate-400 transition-all font-medium"
                         />
                         {query && (
@@ -426,7 +428,7 @@ Yêu cầu trả về JSON chuẩn theo format sau (chỉ trả về JSON thuầ
                     {isSearching ? (
                         <div className="py-12 flex flex-col items-center justify-center gap-3 text-slate-400">
                             <Loader2 className="w-6 h-6 animate-spin text-blue-600" />
-                            <span className="text-xs font-medium">Đang tìm kiếm trong 266.000+ từ...</span>
+                            <span className="text-xs font-medium">{t('dictionary.searching', 'Đang tìm kiếm trong 266.000+ từ...')}</span>
                         </div>
                     ) : results.length > 0 ? (
                         results.map((entry) => {
@@ -445,13 +447,13 @@ Yêu cầu trả về JSON chuẩn theo format sau (chỉ trả về JSON thuầ
                         })
                     ) : query.trim() ? (
                         <div className="py-12 text-center text-slate-400">
-                            <p className="text-sm font-medium text-slate-600 dark:text-slate-300">Không tìm thấy từ "{query}" trong từ điển.</p>
-                            <p className="text-xs text-slate-400 mt-1">Hãy thử gõ chữ Kanji, Hiragana, hoặc Romaji.</p>
+                            <p className="text-sm font-medium text-slate-600 dark:text-slate-300">{t('dictionary.noResults', 'Không tìm thấy từ "{query}" trong từ điển.').replace('{query}', query)}</p>
+                            <p className="text-xs text-slate-400 mt-1">{t('dictionary.searchTip', 'Hãy thử gõ chữ Kanji, Hiragana, hoặc Romaji.')}</p>
                         </div>
                     ) : (
                         <div className="py-10 text-center text-slate-400 space-y-3">
                             <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">
-                                Nhập từ tiếng Nhật hoặc Hán Việt để tra cứu
+                                {t('dictionary.initialPrompt', 'Nhập từ tiếng Nhật hoặc Hán Việt để tra cứu')}
                             </p>
                             <div className="flex flex-wrap justify-center gap-2 pt-1">
                                 {['開始', '食べる', '勉強', '犬', '簡単', 'KHAI THỦY', 'arigatou'].map((sample) => (
@@ -473,12 +475,12 @@ Yêu cầu trả về JSON chuẩn theo format sau (chỉ trả về JSON thuầ
                 <div className="px-4 py-2 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 text-[11px] text-slate-500 dark:text-slate-400 flex items-center justify-between">
                     <div className="flex items-center gap-2.5 min-w-0">
                         <span>
-                            {results.length > 0 ? `Tìm thấy ${results.length} kết quả` : 'Sẵn sàng tra cứu'}
+                            {results.length > 0 ? t('dictionary.foundResults', 'Tìm thấy {count} kết quả').replace('{count}', results.length) : t('dictionary.readyToSearch', 'Sẵn sàng tra cứu')}
                         </span>
                         {installProgress && isReady && (
                             <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/50 text-blue-600 dark:text-blue-400 text-[10px] font-medium border border-blue-100 dark:border-blue-900/40">
                                 <Loader2 className="w-2.5 h-2.5 animate-spin" />
-                                Đang đồng bộ dữ liệu ngầm ({installProgress.percent}%)
+                                {t('dictionary.syncingBackground', 'Đang đồng bộ dữ liệu ngầm ({percent}%)').replace('{percent}', installProgress.percent)}
                             </span>
                         )}
                     </div>
@@ -507,17 +509,17 @@ Yêu cầu trả về JSON chuẩn theo format sau (chỉ trả về JSON thuầ
                                 <div className="min-w-0">
                                     <h3 className="text-base font-bold text-slate-900 dark:text-white leading-tight truncate">
                                         {folderSearchQuery.trim()
-                                            ? 'Tìm kiếm học phần'
+                                            ? t('dictionary.picker.searchSetsTitle', 'Tìm kiếm học phần')
                                             : (selectedModalFolderId 
-                                                ? `Thư mục: ${activeFolder?.name || activeFolder?.title || 'Thư mục'}` 
-                                                : 'Chọn thư mục lưu từ vựng')}
+                                                ? t('dictionary.picker.folderTitle', 'Thư mục: {name}').replace('{name}', activeFolder?.name || activeFolder?.title || t('dictionary.defaultFolder', 'Thư mục')) 
+                                                : t('dictionary.picker.chooseFolderTitle', 'Chọn thư mục lưu từ vựng'))}
                                     </h3>
                                     <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate">
                                         {folderSearchQuery.trim()
-                                            ? `Tìm thấy ${searchedStudySets.length} học phần phù hợp`
+                                            ? t('dictionary.picker.searchSetsSub', 'Tìm thấy {count} học phần phù hợp').replace('{count}', searchedStudySets.length)
                                             : (selectedModalFolderId 
-                                                ? 'Chọn một học phần bên trong thư mục này để lưu' 
-                                                : 'Nhấp vào một thư mục để xem các học phần bên trong')}
+                                                ? t('dictionary.picker.folderSub', 'Chọn một học phần bên trong thư mục này để lưu') 
+                                                : t('dictionary.picker.rootSub', 'Nhấp vào một thư mục để xem các học phần bên trong'))}
                                     </p>
                                 </div>
                             </div>
@@ -556,7 +558,7 @@ Yêu cầu trả về JSON chuẩn theo format sau (chỉ trả về JSON thuầ
                                 type="text"
                                 value={folderSearchQuery}
                                 onChange={(e) => setFolderSearchQuery(e.target.value)}
-                                placeholder="Tìm nhanh học phần theo tên..."
+                                placeholder={t('dictionary.picker.searchPlaceholder', 'Tìm nhanh học phần theo tên...')}
                                 className="w-full pl-9 pr-7 py-2 text-xs bg-slate-50 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700 text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500"
                             />
                             {folderSearchQuery && (
@@ -576,7 +578,7 @@ Yêu cầu trả về JSON chuẩn theo format sau (chỉ trả về JSON thuầ
                             {folderSearchQuery.trim() ? (
                                 searchedStudySets.length === 0 ? (
                                     <p className="text-center text-xs text-slate-400 py-8">
-                                        Không tìm thấy học phần nào khớp với từ khóa "{folderSearchQuery}".
+                                        {t('dictionary.picker.noSetsFound', 'Không tìm thấy học phần nào khớp với từ khóa "{query}".').replace('{query}', folderSearchQuery)}
                                     </p>
                                 ) : (
                                     searchedStudySets.map((item) => {
@@ -611,11 +613,11 @@ Yêu cầu trả về JSON chuẩn theo format sau (chỉ trả về JSON thuầ
                                                     </span>
                                                     <div className="min-w-0">
                                                         <div className="text-xs font-bold text-slate-900 dark:text-white truncate">
-                                                            {item.name || item.title || 'Học phần'}
+                                                            {item.name || item.title || t('dictionary.defaultStudySet', 'Học phần')}
                                                         </div>
                                                         <div className="flex items-center gap-2 mt-0.5 flex-wrap">
                                                             <span className="text-[10px] text-slate-400">
-                                                                {cardCount} từ
+                                                                {t('dictionary.picker.wordsCount', '{count} từ').replace('{count}', cardCount)}
                                                             </span>
                                                             {parentName && (
                                                                 <span className="text-[9px] font-medium text-slate-500 dark:text-slate-400">
@@ -624,7 +626,7 @@ Yêu cầu trả về JSON chuẩn theo format sau (chỉ trả về JSON thuầ
                                                             )}
                                                             {isDup && (
                                                                 <span className="text-[9px] font-bold px-1.5 py-0.2 rounded bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-300">
-                                                                    Đã có từ này
+                                                                    {t('dictionary.picker.alreadyExists', 'Đã có từ này')}
                                                                 </span>
                                                             )}
                                                         </div>
@@ -650,22 +652,22 @@ Yêu cầu trả về JSON chuẩn theo format sau (chỉ trả về JSON thuầ
                                         className="w-full text-left p-2.5 px-3 rounded-xl border border-dashed border-slate-300 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 text-blue-600 dark:text-blue-400 hover:text-blue-700 transition-all flex items-center gap-2 mb-2 font-bold text-xs cursor-pointer"
                                     >
                                         <ArrowLeft className="w-4 h-4 shrink-0" />
-                                        <span>Quay lại danh sách thư mục</span>
+                                        <span>{t('dictionary.picker.backToFolders', 'Quay lại danh sách thư mục')}</span>
                                     </button>
 
                                     <div className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider px-1 pt-1 mb-1.5 flex items-center justify-between">
-                                        <span>Học phần trong thư mục ({studySetsInActiveFolder.length})</span>
-                                        <span className="text-[10px] text-slate-400 font-normal">Nhấp để chọn</span>
+                                        <span>{t('dictionary.picker.setsInFolder', 'Học phần trong thư mục ({count})').replace('{count}', studySetsInActiveFolder.length)}</span>
+                                        <span className="text-[10px] text-slate-400 font-normal">{t('dictionary.picker.clickToSelect', 'Nhấp để chọn')}</span>
                                     </div>
 
                                     {studySetsInActiveFolder.length === 0 ? (
                                         <div className="p-6 text-center bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-200/80 dark:border-slate-800 my-2">
                                             <BookOpen className="w-7 h-7 text-slate-300 dark:text-slate-600 mx-auto mb-1.5" />
                                             <p className="text-xs font-bold text-slate-600 dark:text-slate-300">
-                                                Thư mục này chưa có học phần nào
+                                                {t('dictionary.picker.emptyFolder', 'Thư mục này chưa có học phần nào')}
                                             </p>
                                             <p className="text-[10px] text-slate-400 mt-0.5">
-                                                Bạn có thể quay lại để chọn thư mục khác.
+                                                {t('dictionary.picker.emptyFolderTip', 'Bạn có thể quay lại để chọn thư mục khác.')}
                                             </p>
                                         </div>
                                     ) : (
@@ -700,15 +702,15 @@ Yêu cầu trả về JSON chuẩn theo format sau (chỉ trả về JSON thuầ
                                                         </span>
                                                         <div className="min-w-0">
                                                             <div className="text-xs font-bold text-slate-900 dark:text-white truncate">
-                                                                {item.name || item.title || 'Học phần'}
+                                                                {item.name || item.title || t('dictionary.defaultStudySet', 'Học phần')}
                                                             </div>
                                                             <div className="flex items-center gap-2 mt-0.5 flex-wrap">
                                                                 <span className="text-[10px] text-slate-400">
-                                                                    {cardCount} từ vựng
+                                                                    {t('dictionary.picker.wordsCount', '{count} từ').replace('{count}', cardCount)}
                                                                 </span>
                                                                 {isDup && (
                                                                     <span className="text-[9px] font-bold px-1.5 py-0.2 rounded bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-300">
-                                                                        ⚠️ Đã có từ này (Trùng)
+                                                                        {t('dictionary.picker.duplicateWarningBadge', '⚠️ Đã có từ này (Trùng)')}
                                                                     </span>
                                                                 )}
                                                             </div>
@@ -729,13 +731,13 @@ Yêu cầu trả về JSON chuẩn theo format sau (chỉ trả về JSON thuầ
                                     {/* 1. THƯ MỤC SECTION */}
                                     <div>
                                         <div className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider px-1 mb-2 flex items-center justify-between">
-                                            <span>📁 Danh sách thư mục ({resolvedParentFolders.length})</span>
-                                            <span className="text-[10px] text-slate-400 font-normal">Nhấp để mở</span>
+                                            <span>{t('dictionary.picker.folderList', '📁 Danh sách thư mục ({count})').replace('{count}', resolvedParentFolders.length)}</span>
+                                            <span className="text-[10px] text-slate-400 font-normal">{t('dictionary.picker.clickToOpen', 'Nhấp để mở')}</span>
                                         </div>
 
                                         {resolvedParentFolders.length === 0 ? (
                                             <p className="text-xs text-slate-400 italic py-2 px-1">
-                                                Chưa có thư mục nào. Bạn có thể chọn học phần bên dưới hoặc tạo thư mục trong Thư viện.
+                                                {t('dictionary.picker.noFolders', 'Chưa có thư mục nào. Bạn có thể chọn học phần bên dưới hoặc tạo thư mục trong Thư viện.')}
                                             </p>
                                         ) : (
                                             <div className="space-y-2">
@@ -764,22 +766,22 @@ Yêu cầu trả về JSON chuẩn theo format sau (chỉ trả về JSON thuầ
                                                                 </span>
                                                                 <div className="min-w-0">
                                                                     <div className="text-xs sm:text-sm font-bold text-slate-900 dark:text-white truncate group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                                                                        {folder.name || folder.title || 'Thư mục'}
+                                                                        {folder.name || folder.title || t('dictionary.defaultFolder', 'Thư mục')}
                                                                     </div>
                                                                     <div className="flex items-center gap-2 mt-0.5">
                                                                         <span className="text-[11px] text-slate-500 dark:text-slate-400">
-                                                                            {setsInFolder.length} học phần bên trong
+                                                                            {t('dictionary.picker.setsInside', '{count} học phần bên trong').replace('{count}', setsInFolder.length)}
                                                                         </span>
                                                                         {hasDupInFolder && (
                                                                             <span className="text-[9px] font-semibold px-1.5 py-0.2 rounded bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-300">
-                                                                                Có học phần trùng từ này
+                                                                                {t('dictionary.picker.hasDuplicate', 'Có học phần trùng từ này')}
                                                                             </span>
                                                                         )}
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div className="flex items-center gap-1.5 text-slate-400 group-hover:text-blue-600 shrink-0">
-                                                                <span className="text-xs font-semibold hidden sm:inline">Mở</span>
+                                                                <span className="text-xs font-semibold hidden sm:inline">{t('dictionary.picker.open', 'Mở')}</span>
                                                                 <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                                                             </div>
                                                         </button>
@@ -793,7 +795,7 @@ Yêu cầu trả về JSON chuẩn theo format sau (chỉ trả về JSON thuầ
                                     {rootStudySets.length > 0 && (
                                         <div className="pt-2 border-t border-slate-100 dark:border-slate-800">
                                             <div className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider px-1 mb-2">
-                                                📚 Học phần chưa phân thư mục ({rootStudySets.length})
+                                                {t('dictionary.picker.rootSets', '📚 Học phần chưa phân thư mục ({count})').replace('{count}', rootStudySets.length)}
                                             </div>
                                             <div className="space-y-1.5">
                                                 {rootStudySets.map((item) => {
@@ -827,15 +829,15 @@ Yêu cầu trả về JSON chuẩn theo format sau (chỉ trả về JSON thuầ
                                                                 </span>
                                                                 <div className="min-w-0">
                                                                     <div className="text-xs font-bold text-slate-900 dark:text-white truncate">
-                                                                        {item.name || item.title || 'Học phần'}
+                                                                        {item.name || item.title || t('dictionary.defaultStudySet', 'Học phần')}
                                                                     </div>
                                                                     <div className="flex items-center gap-2 mt-0.5 flex-wrap">
                                                                         <span className="text-[10px] text-slate-400">
-                                                                            {cardCount} từ
+                                                                            {t('dictionary.picker.wordsCount', '{count} từ').replace('{count}', cardCount)}
                                                                         </span>
                                                                         {isDup && (
                                                                             <span className="text-[9px] font-bold px-1.5 py-0.2 rounded bg-amber-100 text-amber-700 dark:bg-amber-900/50 dark:text-amber-300">
-                                                                                Đã có từ này
+                                                                                {t('dictionary.picker.alreadyExists', 'Đã có từ này')}
                                                                             </span>
                                                                         )}
                                                                     </div>
@@ -860,9 +862,9 @@ Yêu cầu trả về JSON chuẩn theo format sau (chỉ trả về JSON thuầ
                             <div className="mt-3 p-2.5 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800 flex items-start gap-2 text-xs text-amber-800 dark:text-amber-200 shrink-0">
                                 <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
                                 <div className="min-w-0">
-                                    <span className="font-bold">Từ này đã có trong học phần "{selectedFolderName}"!</span>
+                                    <span className="font-bold">{t('dictionary.picker.alreadyInSetBanner', 'Từ này đã có trong học phần "{name}"!').replace('{name}', selectedFolderName)}</span>
                                     <p className="text-[11px] text-amber-700 dark:text-amber-300 mt-0.5">
-                                        Nếu tiếp tục, hệ thống sẽ tạo thêm một thẻ trùng cho từ này.
+                                        {t('dictionary.picker.alreadyInSetDesc', 'Nếu tiếp tục, hệ thống sẽ tạo thêm một thẻ trùng cho từ này.')}
                                     </p>
                                 </div>
                             </div>
@@ -875,7 +877,7 @@ Yêu cầu trả về JSON chuẩn theo format sau (chỉ trả về JSON thuầ
                                 onClick={() => setSaveTarget(null)}
                                 className="px-4 py-2 rounded-xl text-xs font-semibold text-slate-700 dark:text-slate-300 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 transition-colors cursor-pointer"
                             >
-                                Hủy
+                                {t('common.cancel', 'Hủy')}
                             </button>
                             <button
                                 type="button"
@@ -886,16 +888,16 @@ Yêu cầu trả về JSON chuẩn theo format sau (chỉ trả về JSON thuầ
                                 {isSaving ? (
                                     <>
                                         <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                                        <span>Đang lưu...</span>
+                                        <span>{t('dictionary.picker.saving', 'Đang lưu...')}</span>
                                     </>
                                 ) : !selectedFolderId ? (
-                                    <span>Chọn học phần để lưu</span>
+                                    <span>{t('dictionary.picker.selectSetPrompt', 'Chọn học phần để lưu')}</span>
                                 ) : isDuplicateInSelectedFolder ? (
-                                    <span>Vẫn lưu (Thêm thẻ trùng)</span>
+                                    <span>{t('dictionary.picker.saveDuplicate', 'Vẫn lưu (Thêm thẻ trùng)')}</span>
                                 ) : saveTarget.isAiAction ? (
-                                    <span>Tạo thẻ AI & Lưu</span>
+                                    <span>{t('dictionary.picker.aiSaveBtn', 'Tạo thẻ AI & Lưu')}</span>
                                 ) : (
-                                    <span>Lưu vào học phần</span>
+                                    <span>{t('dictionary.picker.saveBtn', 'Lưu vào học phần')}</span>
                                 )}
                             </button>
                         </div>

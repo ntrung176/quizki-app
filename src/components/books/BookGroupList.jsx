@@ -2,9 +2,10 @@ import React from 'react';
 import { BookOpen, Search, Plus, Edit, Trash2, Sparkles, FileText } from 'lucide-react';
 import { getGroupCategory } from './bookConstants';
 import BookThumbnail from './BookThumbnail';
+import { useLanguage } from '../../context/LanguageContext';
 
 const BookGroupList = ({
-    t,
+    t: propT,
     isEnglishMode,
     activeFilter,
     setActiveFilter,
@@ -22,6 +23,8 @@ const BookGroupList = ({
     setShowBlankFillerModal,
     setShowAiPdfModal
 }) => {
+    const { t: langT } = useLanguage();
+    const t = propT || langT;
     return (
         <div className="space-y-6">
             {/* Admin Quick Action Toolbar */}

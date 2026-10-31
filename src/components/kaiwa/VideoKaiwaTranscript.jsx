@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import FuriganaRenderer from './FuriganaRenderer';
 import { enrichVideoKeywordsAndGrammarWithAI, enrichSingleSubtitleWithAI } from '../../services/videoKaiwaService';
+import { useLanguage } from '../../context/LanguageContext';
 
 // Memoized Single Dialogue Card Component with Admin Inline Editing
 const TranscriptDialogueItem = memo(({
@@ -31,6 +32,7 @@ const TranscriptDialogueItem = memo(({
     isEnrichingSingle,
     itemRef
 }) => {
+    const { t } = useLanguage();
     // Local edit state
     const [editJa, setEditJa] = useState(sub.ja || '');
     const [editFurigana, setEditFurigana] = useState(sub.furigana || sub.ja || '');
@@ -70,7 +72,7 @@ const TranscriptDialogueItem = memo(({
             >
                 <div className="flex items-center justify-between border-b border-indigo-200 dark:border-indigo-900/60 pb-2">
                     <span className="text-xs font-black text-indigo-700 dark:text-indigo-300 flex items-center gap-1.5">
-                        <Edit2 className="w-3.5 h-3.5" /> Chỉnh sửa câu #{actualIndex + 1}
+                        <Edit2 className="w-3.5 h-3.5" /> {t('videoKaiwa.editLineTitle', 'Chỉnh sửa câu #{num}').replace('{num}', actualIndex + 1)}
                     </span>
                     <div className="flex items-center gap-1.5">
                         <button
@@ -78,7 +80,7 @@ const TranscriptDialogueItem = memo(({
                             onClick={handleSave}
                             className="px-2.5 py-1 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1 shadow-sm transition cursor-pointer"
                         >
-                            <Save className="w-3 h-3" /> Lưu
+                            <Save className="w-3 h-3" /> {t('common.save', 'Lưu')}
                         </button>
                         <button
                             type="button"
@@ -87,7 +89,7 @@ const TranscriptDialogueItem = memo(({
                                 onCancelEdit?.();
                             }}
                             className="p-1 rounded-xl bg-slate-200 hover:bg-slate-300 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition cursor-pointer"
-                            title="Hủy"
+                            title={t('common.cancel', 'Hủy')}
                         >
                             <X className="w-3.5 h-3.5" />
                         </button>
@@ -98,7 +100,7 @@ const TranscriptDialogueItem = memo(({
                 <div className="space-y-2 text-xs">
                     <div>
                         <label className="block text-[10px] font-bold text-slate-500 dark:text-slate-400 mb-0.5">
-                            Tiếng Nhật (Kanji/Kana):
+                            {t('videoKaiwa.kanjiKanaLabel', 'Tiếng Nhật (Kanji/Kana):')}
                         </label>
                         <textarea
                             value={editJa}
@@ -115,7 +117,7 @@ const TranscriptDialogueItem = memo(({
 
                     <div>
                         <label className="block text-[10px] font-bold text-slate-500 dark:text-slate-400 mb-0.5">
-                            Furigana (ví dụ: 私[わたし]も、英語[えいご]の):
+                            {t('videoKaiwa.furiganaLabel', 'Furigana (ví dụ: 私[わたし]も、英語[えいご]の):')}
                         </label>
                         <input
                             type="text"
@@ -127,7 +129,7 @@ const TranscriptDialogueItem = memo(({
 
                     <div>
                         <label className="block text-[10px] font-bold text-slate-500 dark:text-slate-400 mb-0.5">
-                            Bản dịch Tiếng Việt:
+                            {t('videoKaiwa.vietnameseTranslationLabel', 'Bản dịch Tiếng Việt:')}
                         </label>
                         <textarea
                             value={editVi}
@@ -141,7 +143,7 @@ const TranscriptDialogueItem = memo(({
                     <div className="grid grid-cols-2 gap-2">
                         <div>
                             <label className="block text-[10px] font-bold text-slate-500 dark:text-slate-400 mb-0.5">
-                                Bắt đầu (giây):
+                                {t('videoKaiwa.startSecLabel', 'Bắt đầu (giây):')}
                             </label>
                             <input
                                 type="number"
@@ -153,7 +155,7 @@ const TranscriptDialogueItem = memo(({
                         </div>
                         <div>
                             <label className="block text-[10px] font-bold text-slate-500 dark:text-slate-400 mb-0.5">
-                                Kết thúc (giây):
+                                {t('videoKaiwa.endSecLabel', 'Kết thúc (giây):')}
                             </label>
                             <input
                                 type="number"
@@ -172,13 +174,13 @@ const TranscriptDialogueItem = memo(({
                         type="button"
                         onClick={(e) => {
                             e.stopPropagation();
-                            if (window.confirm(`Bạn có chắc chắn muốn xóa câu thoại #${actualIndex + 1}?`)) {
+                            if (window.confirm(t('videoKaiwa.confirmDeleteLine', 'Bạn có chắc chắn muốn xóa câu thoại #{num}?').replace('{num}', actualIndex + 1))) {
                                 onDeleteSub?.(actualIndex);
                             }
                         }}
                         className="px-2 py-1 rounded-lg text-rose-600 dark:text-rose-400 hover:bg-rose-100 dark:hover:bg-rose-950/50 flex items-center gap-1 font-bold transition cursor-pointer"
                     >
-                        <Trash2 className="w-3.5 h-3.5" /> Xóa câu này
+                        <Trash2 className="w-3.5 h-3.5" /> {t('videoKaiwa.deleteThisLine', 'Xóa câu này')}
                     </button>
 
                     <button
@@ -189,7 +191,7 @@ const TranscriptDialogueItem = memo(({
                         }}
                         className="px-2 py-1 rounded-lg text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-950/50 flex items-center gap-1 font-bold transition cursor-pointer"
                     >
-                        <Plus className="w-3.5 h-3.5" /> Thêm câu sau
+                        <Plus className="w-3.5 h-3.5" /> {t('videoKaiwa.insertLineAfter', 'Thêm câu sau')}
                     </button>
                 </div>
             </div>
@@ -260,7 +262,7 @@ const TranscriptDialogueItem = memo(({
                         onEnrichSingleSub?.(actualIndex);
                     }}
                     disabled={isEnrichingSingle}
-                    title="AI Bổ sung phân tích từ vựng & ngữ pháp cho câu này"
+                    title={t('videoKaiwa.aiEnrichLineTooltip', 'AI Bổ sung phân tích từ vựng & ngữ pháp cho câu này')}
                     className="p-1.5 rounded-xl text-slate-400 hover:text-amber-500 dark:hover:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/40 transition-colors shrink-0 opacity-70 group-hover:opacity-100 cursor-pointer disabled:opacity-50"
                 >
                     {isEnrichingSingle ? (
@@ -276,7 +278,7 @@ const TranscriptDialogueItem = memo(({
                             e.stopPropagation();
                             onStartEdit?.(actualIndex);
                         }}
-                        title="Chỉnh sửa câu này (Admin)"
+                        title={t('videoKaiwa.editLineTooltip', 'Chỉnh sửa câu này (Admin)')}
                         className="p-1.5 rounded-xl text-slate-400 hover:text-[#db2777] dark:hover:text-[#f494bc] hover:bg-pink-50 dark:hover:bg-pink-950/40 transition-colors cursor-pointer opacity-70 group-hover:opacity-100"
                     >
                         <Edit2 className="w-3.5 h-3.5" />
@@ -289,7 +291,7 @@ const TranscriptDialogueItem = memo(({
                             e.stopPropagation();
                             onOpenShadowing(sub);
                         }}
-                        title="Luyện nói câu này"
+                        title={t('videoKaiwa.practiceShadowingLine', 'Luyện nói câu này')}
                         className="p-1.5 rounded-xl text-slate-400 hover:text-[#db2777] dark:hover:text-[#f494bc] hover:bg-pink-50 dark:hover:bg-pink-950/40 transition-colors shrink-0 opacity-0 group-hover:opacity-100 cursor-pointer"
                     >
                         <Mic className="w-4 h-4" />
@@ -313,6 +315,7 @@ const VideoKaiwaTranscript = ({
     showVietnamese,
     onSaveToFlashcard
 }) => {
+    const { t } = useLanguage();
     const [activeTab, setActiveTab] = useState('transcript'); // 'transcript' | 'analysis' | 'playlist'
     const [filterQuery, setFilterQuery] = useState('');
     const [editingSubIndex, setEditingSubIndex] = useState(null);
@@ -417,9 +420,9 @@ const VideoKaiwaTranscript = ({
             id: Date.now(),
             start: newStart,
             end: newEnd,
-            ja: 'Câu mới',
-            furigana: 'Câu mới',
-            vi: 'Bản dịch mới',
+            ja: '新しい文',
+            furigana: '新しい文',
+            vi: '',
             keywords: [],
             grammar: []
         };
@@ -533,7 +536,7 @@ const VideoKaiwaTranscript = ({
                             : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                     }`}
                 >
-                    Hội thoại ({subtitles.length})
+                    {t('videoKaiwa.dialogueTab', 'Hội thoại')} ({subtitles.length})
                 </button>
 
                 <button
@@ -544,7 +547,7 @@ const VideoKaiwaTranscript = ({
                             : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                     }`}
                 >
-                    Phân tích ({allKeywords.length})
+                    {t('videoKaiwa.analysisTab', 'Phân tích')} ({allKeywords.length})
                 </button>
 
                 <button
@@ -555,7 +558,7 @@ const VideoKaiwaTranscript = ({
                             : 'text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                     }`}
                 >
-                    Video khác ({allVideos.length})
+                    {t('videoKaiwa.otherVideosTab', 'Video khác')} ({allVideos.length})
                 </button>
             </div>
 
@@ -570,7 +573,7 @@ const VideoKaiwaTranscript = ({
                                 <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500" />
                                 <input
                                     type="text"
-                                    placeholder="Tìm câu trong video..."
+                                    placeholder={t('videoKaiwa.searchInVideoPlaceholder', 'Tìm câu trong video...')}
                                     value={filterQuery}
                                     onChange={(e) => setFilterQuery(e.target.value)}
                                     className="w-full pl-8 pr-3 py-1.5 bg-white dark:bg-slate-900/90 rounded-2xl text-xs text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-1 focus:ring-[#f494bc] border border-slate-200 dark:border-slate-800 font-sans shadow-xs"
@@ -620,7 +623,7 @@ const VideoKaiwaTranscript = ({
                                 })
                             ) : (
                                 <div className="p-8 text-center text-slate-400 dark:text-slate-500 text-xs">
-                                    Không tìm thấy câu nào phù hợp với từ khóa.
+                                    {t('videoKaiwa.noLinesFound', 'Không tìm thấy câu nào phù hợp với từ khóa.')}
                                 </div>
                             )}
                         </div>
@@ -636,10 +639,10 @@ const VideoKaiwaTranscript = ({
                                 <div className="space-y-1">
                                     <div className="flex items-center gap-1.5 font-black text-xs text-amber-700 dark:text-amber-300">
                                         <Wand2 className="w-4 h-4 text-amber-500 animate-pulse" />
-                                        <span>AI Trích xuất toàn diện Từ vựng & Ngữ pháp</span>
+                                        <span>{t('videoKaiwa.aiExtractionTitle', 'AI Trích xuất toàn diện Từ vựng & Ngữ pháp')}</span>
                                     </div>
                                     <p className="text-[11px] text-slate-600 dark:text-slate-300 leading-relaxed">
-                                        Bóc tách 100% từ vựng (danh từ, động từ, tính từ, phó từ) và các cấu trúc ngữ pháp để rê chuột vào bất kỳ từ nào cũng hiển thị nghĩa tiếng Việt.
+                                        {t('videoKaiwa.aiExtractionDesc', 'Bóc tách 100% từ vựng (danh từ, động từ, tính từ, phó từ) và các cấu trúc ngữ pháp để rê chuột vào bất kỳ từ nào cũng hiển thị nghĩa tiếng Việt.')}
                                     </p>
                                 </div>
                             </div>
@@ -649,7 +652,7 @@ const VideoKaiwaTranscript = ({
                                     <div className="flex items-center justify-between text-xs font-bold text-slate-800 dark:text-slate-200">
                                         <span className="flex items-center gap-1.5 text-amber-600 dark:text-amber-400">
                                             <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                                            Đang phân tích câu {enrichProgress?.current || 0} / {enrichProgress?.total || subtitles.length}...
+                                            {t('videoKaiwa.analyzingLine', 'Đang phân tích câu {current} / {total}...').replace('{current}', enrichProgress?.current || 0).replace('{total}', enrichProgress?.total || subtitles.length)}
                                         </span>
                                         <span className="font-mono text-amber-600 dark:text-amber-400">{enrichProgress?.percent || 0}%</span>
                                     </div>
@@ -665,7 +668,7 @@ const VideoKaiwaTranscript = ({
                                             onClick={handleCancelAiEnrichment}
                                             className="text-[11px] text-slate-500 hover:text-rose-600 dark:text-slate-400 dark:hover:text-rose-400 font-bold transition cursor-pointer"
                                         >
-                                            Hủy dừng
+                                            {t('videoKaiwa.cancelStop', 'Hủy dừng')}
                                         </button>
                                     </div>
                                 </div>
@@ -677,7 +680,7 @@ const VideoKaiwaTranscript = ({
                                     className="w-full py-2 px-3 rounded-xl bg-gradient-to-r from-amber-500 via-pink-500 to-rose-500 hover:from-amber-600 hover:via-pink-600 hover:to-rose-600 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition transform active:scale-98 cursor-pointer disabled:opacity-50"
                                 >
                                     <Wand2 className="w-4 h-4" />
-                                    <span>{allKeywords.length > 0 ? 'Bổ sung / Phân tích lại toàn bộ với AI' : 'Bắt đầu phân tích AI cho cả bài'}</span>
+                                    <span>{allKeywords.length > 0 ? t('videoKaiwa.reAnalyzeWithAi', 'Bổ sung / Phân tích lại toàn bộ với AI') : t('videoKaiwa.startAiAnalysis', 'Bắt đầu phân tích AI cho cả bài')}</span>
                                 </button>
                             )}
                         </div>
@@ -686,7 +689,7 @@ const VideoKaiwaTranscript = ({
                         {currentSub?.keywords && currentSub.keywords.length > 0 && (
                             <div className="p-3.5 bg-pink-50/20 dark:bg-slate-900/90 border-2 border-[#f494bc] dark:border-[#f494bc]/80 rounded-2xl space-y-2.5 shadow-xs">
                                 <span className="text-[10px] font-black text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
-                                    <BookOpen className="w-3.5 h-3.5 text-[#db2777] dark:text-[#f494bc]" /> Từ vựng trong câu đang phát
+                                    <BookOpen className="w-3.5 h-3.5 text-[#db2777] dark:text-[#f494bc]" /> {t('videoKaiwa.currentLineVocab', 'Từ vựng trong câu đang phát')}
                                 </span>
                                 <div className="space-y-2">
                                     {currentSub.keywords.map((kw, i) => {
@@ -711,7 +714,7 @@ const VideoKaiwaTranscript = ({
                                                 {onSaveToFlashcard && typeof kw === 'object' && (
                                                     <button
                                                         onClick={() => onSaveToFlashcard(kw)}
-                                                        title="Lưu vào Flashcard"
+                                                        title={t('videoKaiwa.saveToFlashcard', 'Lưu vào Flashcard')}
                                                         className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-colors cursor-pointer"
                                                     >
                                                         <Bookmark className="w-3.5 h-3.5" />
@@ -728,7 +731,7 @@ const VideoKaiwaTranscript = ({
                         {currentSub?.grammar && currentSub.grammar.length > 0 && (
                             <div className="p-3.5 bg-indigo-50/20 dark:bg-slate-900/90 border-2 border-indigo-400 dark:border-indigo-500/80 rounded-2xl space-y-2.5 shadow-xs">
                                 <span className="text-[10px] font-black text-slate-900 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
-                                    <Languages className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" /> Ngữ pháp trong câu đang phát
+                                    <Languages className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" /> {t('videoKaiwa.currentLineGrammar', 'Ngữ pháp trong câu đang phát')}
                                 </span>
                                 <div className="space-y-1.5">
                                     {currentSub.grammar.map((g, i) => {
@@ -760,7 +763,7 @@ const VideoKaiwaTranscript = ({
                         {/* All Vocabulary in Video */}
                         <div className="space-y-2">
                             <span className="text-[10px] font-black text-slate-900 dark:text-white uppercase tracking-wider block">
-                                Tất cả từ vựng trong video ({allKeywords.length})
+                                {t('videoKaiwa.allVocabInVideo', 'Tất cả từ vựng trong video')} ({allKeywords.length})
                             </span>
                             <div className="space-y-2">
                                 {allKeywords.map((kw, i) => {
@@ -791,7 +794,7 @@ const VideoKaiwaTranscript = ({
                                             {onSaveToFlashcard && typeof kw === 'object' && (
                                                 <button
                                                     onClick={() => onSaveToFlashcard(kw)}
-                                                    title="Lưu vào Flashcard"
+                                                    title={t('videoKaiwa.saveToFlashcard', 'Lưu vào Flashcard')}
                                                     className="p-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-colors cursor-pointer shadow-xs"
                                                 >
                                                     <Bookmark className="w-3.5 h-3.5" />
@@ -807,7 +810,7 @@ const VideoKaiwaTranscript = ({
                         {allGrammar.length > 0 && (
                             <div className="space-y-2 pt-2 border-t border-slate-200 dark:border-slate-800">
                                 <span className="text-[10px] font-black text-slate-900 dark:text-white uppercase tracking-wider block">
-                                    Mẫu ngữ pháp trọng tâm ({allGrammar.length})
+                                    {t('videoKaiwa.keyGrammarInVideo', 'Mẫu ngữ pháp trọng tâm')} ({allGrammar.length})
                                 </span>
                                 <div className="space-y-1.5">
                                     {allGrammar.map((g, i) => {
@@ -877,7 +880,7 @@ const VideoKaiwaTranscript = ({
                                             </span>
                                             {isCurrent && (
                                                 <span className="text-[8px] font-black text-[#db2777] dark:text-[#f494bc] uppercase">
-                                                    ● Đang phát
+                                                    {t('videoKaiwa.nowPlayingDot', '● Đang phát')}
                                                 </span>
                                             )}
                                         </div>
@@ -885,7 +888,7 @@ const VideoKaiwaTranscript = ({
                                             {v.title}
                                         </p>
                                         <p className="text-[10px] text-slate-500 dark:text-slate-400 truncate mt-0.5">
-                                            {v.subtitles?.length || 0} câu thoại
+                                            {t('videoKaiwa.dialogueCount', '{count} câu thoại').replace('{count}', v.subtitles?.length || 0)}
                                         </p>
                                     </div>
                                 </div>

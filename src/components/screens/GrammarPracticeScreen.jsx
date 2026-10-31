@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { ArrowLeft, CheckCircle, Eye, Lightbulb, Bot, X, Loader2, Award, ClipboardCheck, Save, Trash2, Edit2, FileJson, Plus, ChevronLeft } from 'lucide-react';
 import { fetchGrammarPointById, updateGrammarPoint } from '../../utils/grammarService';
@@ -57,6 +58,7 @@ const formatExplanation = (text) => {
 };
 
 const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
+    const { t } = useLanguage();
     const { grammarId } = useParams();
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
@@ -250,7 +252,7 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
         return (
             <div className="w-full pb-8">
                 <TopTabBar tabs={GRAMMAR_TABS} />
-                <div className="animate-fade-in text-center p-8 text-slate-500">Đang tải...</div>
+                <div className="animate-fade-in text-center p-8 text-slate-500">{t('grammar.loading', 'Đang tải...')}</div>
             </div>
         );
     }
@@ -258,7 +260,7 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
         return (
             <div className="w-full pb-8">
                 <TopTabBar tabs={GRAMMAR_TABS} />
-                <div className="animate-fade-in text-center p-8 text-slate-500">Không tìm thấy ngữ pháp.</div>
+                <div className="animate-fade-in text-center p-8 text-slate-500">{t('grammar.notFound', 'Không tìm thấy ngữ pháp.')}</div>
             </div>
         );
     }
@@ -557,7 +559,7 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
                                 {gp.pattern}
                             </h1>
                             <p className="text-xs md:text-sm text-slate-500 dark:text-slate-400 mt-1 font-medium">
-                                {gp.meaningShort || gp.meaning || 'Luyện tập ngữ pháp'}
+                                {gp.meaningShort || gp.meaning || t('grammar.practiceGrammar', 'Luyện tập ngữ pháp')}
                             </p>
                         </div>
                     </div>
@@ -802,19 +804,19 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
 
                                             {ex.hint && (
                                                 <button onClick={() => setShowTranslateHint(p => ({ ...p, [id]: !p[id] }))} className="flex items-center gap-1 text-xs text-amber-600 font-medium hover:underline mb-2">
-                                                    <Lightbulb className="w-3.5 h-3.5" /> {showTranslateHint[id] ? 'Ẩn gợi ý' : 'Hiện gợi ý'}
+                                                    <Lightbulb className="w-3.5 h-3.5" /> {showTranslateHint[id] ? t('grammar.hideHint', 'Ẩn gợi ý') : t('grammar.showHint', 'Hiện gợi ý')}
                                                 </button>
                                             )}
                                             {showTranslateHint[id] && <div className="mb-3 px-3 py-2 bg-amber-50 dark:bg-amber-900/10 border border-amber-200 dark:border-amber-800/30 rounded-lg text-xs text-amber-700 font-medium">💡 {ex.hint}</div>}
 
-                                            <p className="text-[10px] font-bold text-slate-400 uppercase mb-1.5">Bản dịch của bạn (日本語)</p>
+                                            <p className="text-[10px] font-bold text-slate-400 uppercase mb-1.5">{t('grammar.yourTranslation', 'Bản dịch của bạn (日本語)')}</p>
                                             <input ref={idx === 0 ? inputRef : null} type="text" value={translateAnswers[id] || ''} onChange={e => setTranslateAnswers(p => ({ ...p, [id]: e.target.value }))}
-                                                onKeyDown={e => { if (e.key === 'Enter') handleAiCheck(id); }} placeholder="Gõ bản dịch tiếng Nhật..." disabled={r === 'correct'}
+                                                onKeyDown={e => { if (e.key === 'Enter') handleAiCheck(id); }} placeholder={t('grammar.typeTranslationPlaceholder', 'Gõ bản dịch tiếng Nhật...')} disabled={r === 'correct'}
                                                 className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none focus:ring-2 focus:ring-indigo-500/20 disabled:opacity-60 font-medium" />
 
                                             {showTranslateAnswer[id] && (
                                                 <div className="mt-3 px-4 py-3 bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800/40 rounded-xl">
-                                                    <p className="text-[10px] font-bold text-indigo-500 uppercase mb-1">Đáp án mẫu:</p>
+                                                    <p className="text-[10px] font-bold text-indigo-500 uppercase mb-1">{t('grammar.sampleAnswer', 'Đáp án mẫu:')}</p>
                                                     {ex.answers?.map((a, i) => <p key={i} className="text-sm font-bold text-slate-800 dark:text-white">{a}</p>)}
                                                 </div>
                                             )}
@@ -824,7 +826,7 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
                                                 <div className={`mt-3 px-4 py-3.5 rounded-xl border transition-all ${ai.isCorrect ? 'bg-emerald-50/50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800/40 text-emerald-900 dark:text-emerald-200' : 'bg-amber-50/60 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800/40 text-amber-900 dark:text-amber-200'}`}>
                                                     <div className="flex items-center gap-2 mb-2 pb-1.5 border-b border-slate-200/40 dark:border-slate-700/40">
                                                         <Bot className="w-4 h-4 text-indigo-500" />
-                                                        <span className="text-xs font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">AI Đánh Giá Chi Tiết</span>
+                                                        <span className="text-xs font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">{t('grammar.aiEvaluationTitle', 'AI Đánh Giá Chi Tiết')}</span>
                                                         <span className={`ml-auto text-sm font-black px-2 py-0.5 rounded-full ${ai.score >= 80 ? 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300' : ai.score >= 50 ? 'bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300' : 'bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300'}`}>{ai.score}/100</span>
                                                     </div>
 
@@ -832,7 +834,7 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
 
                                                     {ai.errors && ai.errors.length > 0 && (
                                                         <div className="mt-2.5">
-                                                            <p className="text-[10px] font-bold text-red-500 dark:text-red-400 uppercase tracking-wider mb-1">Các lỗi sai phát hiện:</p>
+                                                            <p className="text-[10px] font-bold text-red-500 dark:text-red-400 uppercase tracking-wider mb-1">{t('grammar.detectedErrors', 'Các lỗi sai phát hiện:')}</p>
                                                             <ul className="list-disc pl-4 text-xs text-slate-700 dark:text-slate-300 space-y-1">
                                                                 {ai.errors.map((err, i) => <li key={i}>{err}</li>)}
                                                             </ul>
@@ -841,21 +843,21 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
 
                                                     {ai.explanation && (
                                                         <div className="mt-2.5">
-                                                            <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-0.5">Phân tích chuyên sâu:</p>
+                                                            <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-0.5">{t('grammar.inDepthAnalysis', 'Phân tích chuyên sâu:')}</p>
                                                             <div className="space-y-0.5">{formatExplanation(ai.explanation)}</div>
                                                         </div>
                                                     )}
 
                                                     {ai.correction && (
                                                         <div className="mt-2.5 pt-2 border-t border-slate-200/40 dark:border-slate-700/40">
-                                                            <p className="text-[10px] font-bold text-indigo-500 dark:text-indigo-400 uppercase tracking-wider mb-0.5">Bản dịch gợi ý tốt nhất:</p>
+                                                            <p className="text-[10px] font-bold text-indigo-500 dark:text-indigo-400 uppercase tracking-wider mb-0.5">{t('grammar.suggestedBestTranslation', 'Bản dịch gợi ý tốt nhất:')}</p>
                                                             <p className="text-sm font-bold text-slate-800 dark:text-white select-all">{ai.correction}</p>
                                                         </div>
                                                     )}
 
                                                     {ai.grammarUsed === false && (
                                                         <p className="text-xs text-amber-600 dark:text-amber-400 font-semibold mt-2.5 flex items-center gap-1">
-                                                            ⚠️ Chưa sử dụng mẫu ngữ pháp: <span className="font-bold underline">{gp.pattern}</span>
+                                                            ⚠️ {t('grammar.missingGrammarPattern', 'Chưa sử dụng mẫu ngữ pháp: {pattern}').replace('{pattern}', gp.pattern)}
                                                         </p>
                                                     )}
                                                 </div>
@@ -863,12 +865,12 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
 
                                             <div className="flex flex-wrap items-center gap-2.5 mt-4">
                                                 <button onClick={() => handleAiCheck(id)} disabled={!translateAnswers[id]?.trim() || isAiLoading}
-                                                    className="px-4 py-2 bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-600 text-white text-sm font-bold rounded-xl disabled:opacity-40 flex items-center gap-1.5">
-                                                    {isAiLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Bot className="w-4 h-4" />} AI đánh giá
+                                                    className="px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 border-b-4 border-indigo-800 active:translate-y-0.5 active:border-b-0 text-white text-xs font-black uppercase tracking-wider rounded-2xl disabled:opacity-40 transition-all flex items-center gap-1.5 cursor-pointer">
+                                                    {isAiLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Bot className="w-4 h-4" />} {t('grammar.aiEvaluateBtn', 'AI đánh giá')}
                                                 </button>
                                                 <button onClick={() => setShowTranslateAnswer(p => ({ ...p, [id]: true }))}
-                                                    className="px-4 py-2 bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300 text-sm font-bold rounded-xl hover:bg-slate-50 flex items-center gap-1.5">
-                                                    <Eye className="w-4 h-4" /> Xem đáp án
+                                                    className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 text-slate-700 dark:text-slate-200 text-xs font-black uppercase tracking-wider rounded-2xl transition-all flex items-center gap-1.5 cursor-pointer">
+                                                    <Eye className="w-4 h-4" /> {t('grammar.viewAnswerBtn', 'Xem đáp án')}
                                                 </button>
                                             </div>
                                         </div>
@@ -883,7 +885,7 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
                         <div className="space-y-5">
                             <div className="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl p-4">
                                 <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                                    Chọn đáp án chính xác để hoàn thành câu dưới đây.
+                                    {t('grammar.practiceQuizSub', 'Chọn đáp án chính xác để hoàn thành câu dưới đây.')}
                                 </p>
                             </div>
 
@@ -955,9 +957,9 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
                                                 <span className="w-8 h-8 flex items-center justify-center rounded-full bg-sky-100 dark:bg-sky-900/40 text-sky-700 dark:text-sky-300 text-sm font-black">{qIdx + 1}</span>
                                                 {isAnswered && (
                                                     isCorrect ? (
-                                                        <span className="text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-2.5 py-1 rounded-lg mr-8">Chính xác</span>
+                                                        <span className="text-xs font-bold text-emerald-600 bg-emerald-50 dark:bg-emerald-900/20 px-2.5 py-1 rounded-lg mr-8">{t('grammar.correctBadge', 'Chính xác')}</span>
                                                     ) : (
-                                                        <span className="text-xs font-bold text-red-600 bg-red-50 dark:bg-red-900/20 px-2.5 py-1 rounded-lg mr-8">Chưa đúng</span>
+                                                        <span className="text-xs font-bold text-red-600 bg-red-50 dark:bg-red-900/20 px-2.5 py-1 rounded-lg mr-8">{t('grammar.incorrectBadge', 'Chưa đúng')}</span>
                                                     )
                                                 )}
                                             </div>
@@ -970,24 +972,24 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
                                                     const isSelectedOpt = selected === opt;
                                                     const isCorrectOpt = quiz.answer === opt;
 
-                                                    let btnClass = "border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50 text-slate-700 dark:text-slate-200 cursor-pointer";
+                                                    let btnClass = "border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:border-indigo-400 dark:hover:border-indigo-500 hover:bg-indigo-50/40 text-slate-700 dark:text-slate-200 active:translate-y-0.5 active:border-b-2 cursor-pointer";
                                                     let iconBg = "bg-slate-100 dark:bg-slate-700 text-slate-500";
 
                                                     if (isAnswered) {
                                                         if (isCorrectOpt) {
-                                                            btnClass = "border-emerald-500 bg-emerald-50 dark:bg-emerald-950/20 text-emerald-800 dark:text-emerald-300 font-extrabold ring-2 ring-emerald-500/20 cursor-default";
+                                                            btnClass = "border-2 border-b-4 border-emerald-500 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-800 dark:text-emerald-300 font-extrabold cursor-default";
                                                             iconBg = "bg-emerald-500 text-white";
                                                         } else if (isSelectedOpt) {
-                                                            btnClass = "border-red-500 bg-red-50 dark:bg-red-950/20 text-red-800 dark:text-red-300 font-extrabold ring-2 ring-red-500/20 cursor-default";
-                                                            iconBg = "bg-red-500 text-white";
+                                                            btnClass = "border-2 border-b-4 border-rose-500 bg-rose-50 dark:bg-rose-950/40 text-rose-800 dark:text-rose-300 font-extrabold cursor-default";
+                                                            iconBg = "bg-rose-500 text-white";
                                                         } else {
-                                                            btnClass = "opacity-50 border-slate-200 dark:border-slate-700 text-slate-400 cursor-default";
+                                                            btnClass = "border-2 border-b-2 opacity-50 border-slate-200 dark:border-slate-700 text-slate-400 cursor-default";
                                                         }
                                                     }
 
                                                     return (
                                                         <div key={optIdx} onClick={() => { if (!isAnswered) handleSelectQuiz(qIdx, opt, quiz); }}
-                                                            className={`flex items-center gap-3 p-3.5 border rounded-xl text-left text-sm transition-all duration-200 ${btnClass}`}>
+                                                            className={`flex items-center gap-3 p-3.5 rounded-2xl text-left text-sm transition-all duration-200 ${btnClass}`}>
                                                             <span className={`w-6 h-6 flex items-center justify-center rounded-lg text-xs font-black shrink-0 select-none ${iconBg}`}>{optionLetter}</span>
                                                             <span className="font-medium">{opt}</span>
                                                         </div>
@@ -997,7 +999,7 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
 
                                             {quiz.explanation && isAnswered && (
                                                 <div className="mt-4 p-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
-                                                    💡 <strong>Giải thích:</strong> {quiz.explanation}
+                                                    💡 <strong>{t('grammar.explanationLabel', 'Giải thích:')}</strong> {quiz.explanation}
                                                 </div>
                                             )}
                                         </div>
@@ -1010,7 +1012,7 @@ const GrammarPracticeScreen = ({ isAdmin, profile = null }) => {
                     {/* PROGRESS BAR */}
                     <div className="sticky bottom-4 bg-white/95 dark:bg-slate-800/95 backdrop-blur-md border border-slate-200 dark:border-slate-700 rounded-2xl px-5 py-3 shadow-lg flex items-center justify-between">
                         <div className="flex items-center gap-3 flex-1 min-w-0">
-                            <span className="text-xs font-bold text-slate-500 shrink-0">Tiến độ</span>
+                            <span className="text-xs font-bold text-slate-500 shrink-0">{t('grammar.progressLabel', 'Tiến độ')}</span>
                             <div className="flex-1 h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
                                 <div className="h-full bg-indigo-600 rounded-full transition-all duration-500" style={{ width: `${pct}%` }} />
                             </div>

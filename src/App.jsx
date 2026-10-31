@@ -15,7 +15,8 @@ import GlobalModalsContainer from './components/containers/GlobalModalsContainer
 import VocabularySelectionLookup from './components/ui/VocabularySelectionLookup';
 import FeedbackChatbox from './components/ui/FeedbackChatbox';
 import AdminFloatingSupportChatbox from './components/ui/AdminFloatingSupportChatbox';
-import CyberTechBackground from './components/ui/CyberTechBackground';
+import AppBackground from './components/ui/AppBackground';
+import BackgroundSelectModal from './components/ui/BackgroundSelectModal';
 import LevelUpModal from './components/ui/LevelUpModal';
 import { useAppLogic } from './hooks/useAppLogic';
 import MobileDebugConsole from './components/ui/MobileDebugConsole';
@@ -28,6 +29,13 @@ const AppContent = () => {
     const appLogic = useAppLogic();
     const [showDictionaryModal, setShowDictionaryModal] = React.useState(false);
     const [dictInitialWord, setDictInitialWord] = React.useState('');
+    const [showBackgroundModal, setShowBackgroundModal] = React.useState(false);
+
+    React.useEffect(() => {
+        const handleOpenBg = () => setShowBackgroundModal(true);
+        window.addEventListener('quizki-open-background-picker', handleOpenBg);
+        return () => window.removeEventListener('quizki-open-background-picker', handleOpenBg);
+    }, []);
 
     React.useEffect(() => {
         const handleOpenDict = (e) => {
@@ -76,7 +84,15 @@ const AppContent = () => {
         }
     }, [authReady]);
 
-    const isAuthPage = location.pathname === '/login' || location.pathname.startsWith('/auth');
+    const isAuthPage = location.pathname === '/login' || location.pathname === '/onboarding' || location.pathname.startsWith('/auth');
+    const isStaticInfoPage = ['/terms', '/privacy', '/help'].includes(location.pathname);
+    const isGuestActive = !userId && (
+        (typeof window !== 'undefined' && (
+            localStorage.getItem('quizki_guest_mode') === 'true' ||
+            !!localStorage.getItem('quizki_user_roadmap')
+        )) || location.state?.isGuest
+    );
+    const isPublicWithoutAppChrome = (!userId && !isGuestActive) || isAuthPage || isStaticInfoPage;
 
     return (
         <div className={`min-h-screen font-sans ${isDarkMode ? 'dark text-slate-100' : 'text-slate-900'} relative transition-colors duration-200`}>
@@ -86,16 +102,25 @@ const AppContent = () => {
             {/* Automatic Eruda DevTools Mobile Debug Console for Admin (when enabled) */}
             <MobileDebugConsole isAdmin={userHasAdminPrivileges} />
 
-            {/* Cyberpunk tech grid background animation */}
-            <CyberTechBackground isDarkMode={isDarkMode} />
+            {/* Japanese Vermilion Torii Gate / Cyber Matrix / Minimal Background */}
+            <AppBackground isDarkMode={isDarkMode} />
+
+            {/* Background Theme Selector Modal */}
+            <BackgroundSelectModal
+                isOpen={showBackgroundModal}
+                onClose={() => setShowBackgroundModal(false)}
+                isDarkMode={isDarkMode}
+            />
 
             {/* Selection text lookup popup for instant dictionary search */}
-            <VocabularySelectionLookup
-                allCards={flashcardCards}
-                folders={cardFolders}
-                handleAddCard={handleAddCard}
-                isPremiumUnlocked={userHasAdminPrivileges || hasPremium}
-            />
+            {userId && (
+                <VocabularySelectionLookup
+                    allCards={flashcardCards}
+                    folders={cardFolders}
+                    handleAddCard={handleAddCard}
+                    isPremiumUnlocked={userHasAdminPrivileges || hasPremium}
+                />
+            )}
 
             {/* Offline Yomitan Japanese-Vietnamese Dictionary */}
             <DictionaryModal
@@ -117,7 +142,7 @@ const AppContent = () => {
             )}
 
             {/* Onboarding Tour */}
-            <OnboardingTour trigger={tourTrigger} />
+            {userId && <OnboardingTour trigger={tourTrigger} />}
 
             {/* Global Modals */}
             <GlobalModalsContainer
@@ -125,8 +150,8 @@ const AppContent = () => {
                 handleDismissPopup={handleDismissPopup}
             />
 
-            {/* Global Sidebar (available for both authenticated users and guests, hidden on login screen) */}
-            {!isAuthPage && (
+            {/* Global Sidebar (only rendered when user is authenticated, hidden on login, landing page, and legal/help pages) */}
+            {!isPublicWithoutAppChrome && (
                 <Sidebar
                     currentView={view}
                     setView={setView}
@@ -145,7 +170,7 @@ const AppContent = () => {
             )}
 
             {/* Main view container */}
-            <main className={`min-h-screen flex flex-col w-full max-w-full min-w-0 overflow-x-clip transition-[padding,margin] duration-200 ease-out ${isAuthPage ? 'p-0' : ((isReviewActive || isReviewSessionPage) ? (isSidebarCollapsed ? 'p-0 lg:pl-20' : 'p-0 lg:pl-64') : (isSidebarCollapsed ? 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-0 lg:pl-20' : 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-0 lg:pl-64'))}`}>
+            <main className={`min-h-screen flex flex-col w-full max-w-full min-w-0 overflow-x-clip transition-[padding,margin] duration-200 ease-out ${isPublicWithoutAppChrome ? 'p-0' : ((isReviewActive || isReviewSessionPage) ? (isSidebarCollapsed ? 'p-0 lg:pl-20' : 'p-0 lg:pl-64') : (isSidebarCollapsed ? 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-0 lg:pl-20' : 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-0 lg:pl-64'))}`}>
                 {/* Admin Test Mode Banner */}
                 {profile?.trialPricingTier && (
                     <div className="bg-indigo-600 text-white text-xs font-semibold px-4 py-2.5 flex items-center justify-between shadow-md relative z-40">
@@ -169,7 +194,7 @@ const AppContent = () => {
                     </div>
                 )}
 
-                <div className={`${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'VOCAB_QUICK_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN', 'VIDEO_KAIWA'].includes(view) || location.pathname.startsWith('/books') || location.pathname.startsWith('/vocab') || location.pathname.startsWith('/kanji') || location.pathname.startsWith('/jlpt') || location.pathname.startsWith('/grammar') || location.pathname.startsWith('/kaiwa') ? 'w-full max-w-full min-w-0 flex-1 flex flex-col p-0' : 'w-full max-w-6xl mx-auto px-3 md:px-4 py-4 md:py-6 flex-1 flex flex-col'}`}>
+                <div className={`${isPublicWithoutAppChrome || isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'VOCAB_QUICK_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN', 'VIDEO_KAIWA'].includes(view) || location.pathname.startsWith('/books') || location.pathname.startsWith('/vocab') || location.pathname.startsWith('/kanji') || location.pathname.startsWith('/jlpt') || location.pathname.startsWith('/grammar') || location.pathname.startsWith('/kaiwa') ? 'w-full max-w-full min-w-0 flex-1 flex flex-col p-0' : 'w-full max-w-6xl mx-auto px-3 md:px-4 py-4 md:py-6 flex-1 flex flex-col'}`}>
                     <div className={`w-full max-w-full min-w-0 flex-1 flex flex-col ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'VOCAB_QUICK_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN', 'VIDEO_KAIWA'].includes(view) || location.pathname.startsWith('/books') || location.pathname.startsWith('/vocab') || location.pathname.startsWith('/kanji') || location.pathname.startsWith('/jlpt') || location.pathname.startsWith('/grammar') || location.pathname.startsWith('/kaiwa') ? 'bg-transparent' : ''}`}>
                         <div className={`w-full max-w-full min-w-0 flex-1 flex flex-col ${isReviewSessionPage || ['KANJI', 'KANJI_STUDY', 'KANJI_REVIEW', 'KANJI_SAVED', 'VOCAB_REVIEW', 'VOCAB_LIST', 'VOCAB_ADD', 'VOCAB_QUICK_ADD', 'BOOKS', 'JLPT_TEST', 'JLPT_ADMIN', 'VIDEO_KAIWA'].includes(view) || location.pathname.startsWith('/books') || location.pathname.startsWith('/vocab') || location.pathname.startsWith('/kanji') || location.pathname.startsWith('/jlpt') || location.pathname.startsWith('/grammar') || location.pathname.startsWith('/kaiwa') ? 'bg-transparent' : ''}`}>
                             <AppRoutes

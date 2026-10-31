@@ -114,7 +114,7 @@ const ReviewScreen = ({
                 />
 
                 {/* Main Card Area */}
-                <div className="w-full flex flex-col justify-center items-center space-y-3 sm:space-y-4 p-5 sm:p-7 md:p-8 border-2 border-indigo-400/30 dark:border-indigo-500/20 bg-white/70 dark:bg-slate-900/70 backdrop-blur-md rounded-3xl shadow-xl overflow-hidden">
+                <div className="w-full flex flex-col justify-center items-center space-y-3 sm:space-y-4 p-5 sm:p-7 md:p-8 border-2 border-b-4 border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md rounded-3xl shadow-xl overflow-hidden">
                     <div className="w-full relative group perspective flex-shrink-0">
                         {reviewMode === 'flashcard' ? (
                             <FlashcardModeView

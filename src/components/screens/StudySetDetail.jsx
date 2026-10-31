@@ -16,6 +16,8 @@ import { getSharedKanjiList, updateCachedUserSrs } from '../../utils/kanjiServic
 import { getSharedBookGroups } from '../../utils/bookService';
 import EditCardModal from '../cards/EditCardModal';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
+import { useLanguage } from '../../context/LanguageContext';
+import VocabCardSettingsModal from '../srs/VocabCardSettingsModal';
 import { POS_TYPES, getPosLabel } from '../../config/constants';
 import { formatIPA, isEnglishCard as checkIsEnglishCard, shouldRunJapaneseFeatures } from '../../utils/englishVocab';
 import { isKoreanCard as checkIsKoreanCard } from '../../languages/ko/hangul';
@@ -39,27 +41,28 @@ const parseWordAndReading = (text) => {
 const hasKanji = (str) => /[\u4e00-\u9faf]/.test(str);
 
 // Helper: derive human-readable SRS cycle stage from vocab SM-2 fields
-const getSrsCycleLabel = (card) => {
+const getSrsCycleLabel = (card, t) => {
     if (card.srsEnabled === false) return null;
     const normalized = normalizeSRSState(card);
     const hasBeenReviewed = !!(card.lastReview || card.srsLastReview || card.lastReviewed_back || normalized.reps > 0 || (card.intervalIndex_back !== undefined && card.intervalIndex_back >= 0));
 
     if (!hasBeenReviewed || normalized.state === 'NEW') {
-        return 'Mới';
+        return t ? t('srs.newCard') : 'Mới';
     }
 
-    if (normalized.state === 'RELEARNING') return 'Học lại';
+    if (normalized.state === 'RELEARNING') return t ? t('srs.relearning') : 'Học lại';
     if (normalized.state === 'LEARNING') {
-        return normalized.learningStep === 0 ? '1 phút' : '10 phút';
+        return normalized.learningStep === 0 ? (t ? t('intervals.1m') : '1 phút') : (t ? t('intervals.10m') : '10 phút');
     }
 
     // REVIEW state - interval is in days
     const days = normalized.interval || 1;
-    if (days < 30) return `${days} ngày`;
-    return `${Math.round(days / 30)} tháng`;
+    if (days < 30) return t ? `${days} ${t('intervals.days')}` : `${days} ngày`;
+    return t ? `${Math.round(days / 30)} ${t('intervals.months')}` : `${Math.round(days / 30)} tháng`;
 };
 
 const InlineEditCell = ({ value, onSave, className = '', isJapanese = false, placeholder = '' }) => {
+    const { t } = useLanguage();
     const [editing, setEditing] = useState(false);
     const [draft, setDraft] = useState(value);
 
@@ -87,12 +90,12 @@ const InlineEditCell = ({ value, onSave, className = '', isJapanese = false, pla
         <div
             onClick={(e) => { e.stopPropagation(); startEdit(); }}
             className={`cursor-pointer rounded-lg px-3 py-1 -mx-3 hover:bg-slate-100/80 dark:hover:bg-slate-800/60 transition-colors border-2 border-transparent hover:border-blue-300 dark:hover:border-blue-700/60 ${className}`}
-            title="Bấm để sửa"
+            title={t('common.clickToEdit')}
         >
             {isJapanese ? (
-                value ? <FuriganaText text={value} forceHide={true} /> : <span className="text-slate-400 dark:text-slate-500 italic text-sm">{placeholder || 'Trống'}</span>
+                value ? <FuriganaText text={value} forceHide={true} /> : <span className="text-slate-400 dark:text-slate-500 italic text-sm">{placeholder || t('common.empty')}</span>
             ) : (
-                value || <span className="text-slate-400 dark:text-slate-500 italic text-sm">{placeholder || 'Trống'}</span>
+                value || <span className="text-slate-400 dark:text-slate-500 italic text-sm">{placeholder || t('common.empty')}</span>
             )}
         </div>
     );
@@ -106,6 +109,7 @@ const FlashcardPlayerSection = ({
     onUpdateCard,
     onSaveChanges
 }) => {
+    const { t } = useLanguage();
     const [currentCardIndex, setCurrentCardIndex] = useState(0);
     const [isCardFlipped, setIsCardFlipped] = useState(false);
     const [isAnimatingFlip, setIsAnimatingFlip] = useState(true);
@@ -286,7 +290,7 @@ const FlashcardPlayerSection = ({
                                 speakJapanese(activeCard, null, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(activeCard.id, b64, vid) : null);
                             }}
                             className="p-2 bg-white/90 dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm border border-slate-200 dark:border-slate-700"
-                            title="Phát âm"
+                            title={t('common.pronounce')}
                         >
                             <Volume2 className="w-4 h-4" />
                         </button>
@@ -294,7 +298,7 @@ const FlashcardPlayerSection = ({
                     <button
                         onClick={(e) => { e.stopPropagation(); setShowSettingsMenu(true); }}
                         className="p-2 bg-white/90 dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-500 dark:text-slate-300 rounded-full transition-all hover:scale-105 active:scale-95 shadow-sm border border-slate-200 dark:border-slate-700"
-                        title="Cấu hình hiển thị"
+                        title={t('common.cardSettings')}
                     >
                         <Settings className="w-4 h-4" />
                     </button>
@@ -331,7 +335,7 @@ const FlashcardPlayerSection = ({
                     className={`w-10 h-10 rounded-full shadow border flex items-center justify-center transition-all hover:scale-105 ${isShuffled
                             ? 'bg-blue-600 border-blue-600 text-white hover:bg-blue-700' : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700'
                         }`}
-                    title={isShuffled ? "Tắt trộn thẻ" : "Trộn thẻ"}
+                    title={isShuffled ? t('studyModes.unshuffle') : t('studyModes.shuffle')}
                 >
                     <Shuffle className="w-4.5 h-4.5" />
                 </button>
@@ -347,6 +351,7 @@ const StudySetDetail = ({
     onDeleteCards, onDeleteCard, onToggleSrs, onGeminiAssist, canUserUseAI, onUpdateCard
 }) => {
     const { isEnglishMode, isKoreanMode } = useTargetLanguage();
+    const { t, language } = useLanguage();
     const [expandedCardIds, setExpandedCardIds] = useState(new Set());
     const [isAddingKanji, setIsAddingKanji] = useState(false);
     const [editingCard, setEditingCard] = useState(null);
@@ -357,7 +362,7 @@ const StudySetDetail = ({
         
         const userId = getAuth().currentUser?.uid;
         if (!userId) {
-            showToast('Bạn cần đăng nhập để sử dụng tính năng này!', 'error');
+            showToast(language === 'vi' ? 'Bạn cần đăng nhập để sử dụng tính năng này!' : 'You need to be signed in to use this feature!', 'error');
             return;
         }
 
@@ -371,7 +376,7 @@ const StudySetDetail = ({
             });
 
             if (kanjiChars.size === 0) {
-                showToast('Học phần này không chứa chữ Kanji nào!', 'warning');
+                showToast(language === 'vi' ? 'Học phần này không chứa chữ Kanji nào!' : 'This set does not contain any Kanji characters!', 'warning');
                 setIsAddingKanji(false);
                 return;
             }
@@ -397,7 +402,7 @@ const StudySetDetail = ({
             });
 
             if (matchingKanji.length === 0) {
-                showToast('Không tìm thấy chữ Kanji tương ứng trong hệ thống để thêm!', 'warning');
+                showToast(language === 'vi' ? 'Không tìm thấy chữ Kanji tương ứng trong hệ thống để thêm!' : 'No matching Kanji characters found in system to add!', 'warning');
                 setIsAddingKanji(false);
                 return;
             }
@@ -410,7 +415,7 @@ const StudySetDetail = ({
             const newKanjiToInitialize = matchingKanji.filter(k => !existingKanjiIds.has(k.id));
 
             if (newKanjiToInitialize.length === 0) {
-                showToast('Tất cả Kanji trong học phần này đã có trong danh sách học của bạn rồi!', 'info');
+                showToast(language === 'vi' ? 'Tất cả Kanji trong học phần này đã có trong danh sách học của bạn rồi!' : 'All Kanji in this set are already in your study list!', 'info');
                 setIsAddingKanji(false);
                 return;
             }
@@ -425,7 +430,7 @@ const StudySetDetail = ({
             });
         } catch (e) {
             console.error('Error preparing Kanji:', e);
-            showToast('Đã xảy ra lỗi khi chuẩn bị danh sách Kanji: ' + e.message, 'error');
+            showToast((language === 'vi' ? 'Đã xảy ra lỗi khi chuẩn bị danh sách Kanji: ' : 'Error preparing Kanji list: ') + e.message, 'error');
         } finally {
             setIsAddingKanji(false);
         }
@@ -465,15 +470,15 @@ const StudySetDetail = ({
             // Log activity
             await logKanjiActivity(userId, {
                 type: 'save',
-                title: `Thêm ${selectedKanji.length} Kanji từ học phần`,
-                details: `Thêm từ học phần: ${folder.name || 'Từ vựng lẻ'}`
+                title: language === 'vi' ? `Thêm ${selectedKanji.length} Kanji từ học phần` : `Added ${selectedKanji.length} Kanji from study set`,
+                details: (language === 'vi' ? 'Thêm từ học phần: ' : 'Added from set: ') + (folder.name || t('vocab.unfiled'))
             });
 
-            showToast(`Đã thêm thành công ${selectedKanji.length} chữ Kanji mới vào danh sách học!`, 'success');
+            showToast(language === 'vi' ? `Đã thêm thành công ${selectedKanji.length} chữ Kanji mới vào danh sách học!` : `Successfully added ${selectedKanji.length} new Kanji characters to study list!`, 'success');
             setKanjiPreviewModal(prev => ({ ...prev, isOpen: false }));
         } catch (e) {
             console.error('Error adding Kanji to SRS:', e);
-            showToast('Đã xảy ra lỗi khi thêm Kanji vào danh sách: ' + e.message, 'error');
+            showToast((language === 'vi' ? 'Đã xảy ra lỗi khi thêm Kanji vào danh sách: ' : 'Error adding Kanji to study list: ') + e.message, 'error');
         } finally {
             setIsAddingKanji(false);
         }
@@ -623,8 +628,8 @@ const StudySetDetail = ({
     }, [folderId]);
 
     const folder = useMemo(() => {
-        if (folderId === 'unfiled') return { id: 'unfiled', name: 'Từ vựng lẻ', description: 'Các từ vựng chưa được phân loại vào học phần nào.' };
-        return folders.find(f => f.id === folderId) || { name: 'Học phần không xác định' };
+        if (folderId === 'unfiled') return { id: 'unfiled', name: t('vocab.unfiled'), description: t('vocab.unfiledDesc') };
+        return folders.find(f => f.id === folderId) || { name: t('vocab.unknownSet') };
     }, [folderId, folders]);
 
     const setCards = useMemo(() => {
@@ -685,7 +690,7 @@ const StudySetDetail = ({
             }
 
             if (!targetLesson || !targetLesson.vocabulary || targetLesson.vocabulary.length === 0) {
-                showToast('Không tìm thấy bài học tương ứng trong Thư viện Sách', 'warning');
+                showToast(language === 'vi' ? 'Không tìm thấy bài học tương ứng trong Thư viện Sách' : 'No matching lesson found in Book Library', 'warning');
                 return;
             }
 
@@ -754,10 +759,10 @@ const StudySetDetail = ({
             }
 
             await batch.commit();
-            showToast(`🎉 Đã đồng bộ thành công ${count} từ vựng từ sách vào học phần!`, 'success');
+            showToast(language === 'vi' ? `🎉 Đã đồng bộ thành công ${count} từ vựng từ sách vào học phần!` : `🎉 Successfully synced ${count} vocabulary words from book into set!`, 'success');
         } catch (err) {
             console.error('Lỗi đồng bộ từ sách:', err);
-            showToast('Lỗi khi đồng bộ từ sách', 'error');
+            showToast(language === 'vi' ? 'Lỗi khi đồng bộ từ sách' : 'Error syncing from book', 'error');
         } finally {
             setIsSyncingFromLesson(false);
         }
@@ -1079,7 +1084,7 @@ const StudySetDetail = ({
                 <div className="sticky top-0 z-30 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-md">
                     <div className="max-w-6xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
                         <button onClick={onBack} className="flex items-center gap-1 text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-600 font-medium transition-colors">
-                            <ChevronLeft className="w-5 h-5" /> Trở về Thư viện
+                            <ChevronLeft className="w-5 h-5" /> {t('library.backToLibrary')}
                         </button>
                         <div className="flex items-center gap-4">
                             {!isEnglishMode && (
@@ -1087,25 +1092,25 @@ const StudySetDetail = ({
                                     onClick={handleAddKanjiToSrs} 
                                     disabled={isAddingKanji}
                                     className="flex items-center gap-1 text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-600 transition-colors text-sm font-medium disabled:opacity-50"
-                                    title="Thêm các chữ Kanji trong học phần vào danh sách Kanji để học"
+                                    title={t('studyModes.addKanjiTooltip')}
                                 >
-                                    <BookOpen className="w-4 h-4" /> {isAddingKanji ? 'Đang thêm...' : 'Thêm Kanji học'}
+                                    <BookOpen className="w-4 h-4" /> {isAddingKanji ? t('common.adding') : t('studyModes.addKanjiToStudy')}
                                 </button>
                             )}
                             <button onClick={() => onEditSet && onEditSet(folderId)} className="flex items-center gap-1 text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-600 transition-colors text-sm font-medium">
-                                <Plus className="w-4 h-4" /> Thêm từ vựng
+                                <Plus className="w-4 h-4" /> {t('vocab.addVocab')}
                             </button>
                             {/* Folder delete — or unfiled bulk delete */}
                             {folderId === 'unfiled' ? (
                                 onDeleteCards && setCards.length > 0 && (
                                     <button onClick={() => setShowDeleteConfirm(true)} className="flex items-center gap-1 text-gray-400 hover:text-red-500 transition-colors text-sm">
-                                        <Trash2 className="w-4 h-4" /> Xoá tất cả từ lẻ
+                                        <Trash2 className="w-4 h-4" /> {t('vocab.deleteAllUnfiled')}
                                     </button>
                                 )
                             ) : (
                                 onDeleteFolder && (
                                     <button onClick={() => setShowDeleteConfirm(true)} className="flex items-center gap-1 text-gray-400 hover:text-red-500 transition-colors text-sm">
-                                        <Trash2 className="w-4 h-4" /> Xoá học phần
+                                        <Trash2 className="w-4 h-4" /> {t('library.deleteSet')}
                                     </button>
                                 )
                             )}
@@ -1128,25 +1133,25 @@ const StudySetDetail = ({
                             <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-md space-y-6">
                                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                                     <div>
-                                        <h3 className="text-lg font-bold text-gray-800 dark:text-white">Trạng thái từ vựng</h3>
-                                        <p className="text-xs text-gray-500 dark:text-gray-400">Theo dõi mức độ ghi nhớ của các từ vựng trong học phần này</p>
+                                        <h3 className="text-lg font-bold text-gray-800 dark:text-white">{t('vocab.vocabStatus')}</h3>
+                                        <p className="text-xs text-gray-500 dark:text-gray-400">{t('vocab.vocabStatusSub')}</p>
                                     </div>
                                     {/* Consolidated multi-segment progress bar */}
                                     <div className="flex-1 max-w-md bg-gray-100 dark:bg-gray-700 h-4 rounded-full overflow-hidden flex shadow-inner">
                                         <div
                                             style={{ width: `${masteryStats.memorizedPct}%` }}
                                             className="h-full bg-emerald-500 transition-all duration-500"
-                                            title={`Đã nhớ: ${masteryStats.memorizedPct}%`}
+                                            title={`${t('vocab.memorized')}: ${masteryStats.memorizedPct}%`}
                                         />
                                         <div
                                             style={{ width: `${masteryStats.learningPct}%` }}
                                             className="h-full bg-amber-500 transition-all duration-500"
-                                            title={`Đang học: ${masteryStats.learningPct}%`}
+                                            title={`${t('vocab.learning')}: ${masteryStats.learningPct}%`}
                                         />
                                         <div
                                             style={{ width: `${masteryStats.notLearnedPct}%` }}
                                             className="h-full bg-slate-400 dark:bg-slate-600 transition-all duration-500"
-                                            title={`Chưa học: ${masteryStats.notLearnedPct}%`}
+                                            title={`${t('vocab.notLearned')}: ${masteryStats.notLearnedPct}%`}
                                         />
                                     </div>
                                 </div>
@@ -1157,17 +1162,17 @@ const StudySetDetail = ({
                                         <div>
                                             <div className="flex items-center gap-2">
                                                 <span className="w-2.5 h-2.5 rounded-full bg-slate-400 dark:bg-slate-600" />
-                                                <span className="text-sm font-bold text-gray-700 dark:text-gray-300">Chưa học</span>
+                                                <span className="text-sm font-bold text-gray-700 dark:text-gray-300">{t('vocab.notLearned')}</span>
                                             </div>
                                             <p className="text-2xl font-black text-slate-700 dark:text-slate-300 mt-1">
-                                                {masteryStats.notLearned} <span className="text-xs font-normal text-gray-400">từ</span>
+                                                {masteryStats.notLearned} <span className="text-xs font-normal text-gray-400">{t('common.wordsUnit')}</span>
                                             </p>
                                         </div>
                                         <button
                                             disabled={masteryStats.notLearned === 0}
                                             onClick={() => openMasteryTest('not_learned', notLearnedCards)}
                                             className="p-2.5 bg-white dark:bg-slate-800 rounded-xl shadow border border-slate-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all hover:scale-105"
-                                            title="Kiểm tra lại nhóm từ Chưa học"
+                                            title={t('studyModes.reviewUnlearnedGroup', { defaultValue: 'Review unlearned cards' })}
                                         >
                                             <PlayCircle className="w-5 h-5 text-blue-600" />
                                         </button>
@@ -1178,17 +1183,17 @@ const StudySetDetail = ({
                                         <div>
                                             <div className="flex items-center gap-2">
                                                 <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
-                                                <span className="text-sm font-bold text-amber-700 dark:text-amber-400">Đang học</span>
+                                                <span className="text-sm font-bold text-amber-700 dark:text-amber-400">{t('vocab.learning')}</span>
                                             </div>
                                             <p className="text-2xl font-black text-amber-605 dark:text-amber-450 mt-1">
-                                                {masteryStats.learning} <span className="text-xs font-normal text-gray-400">từ</span>
+                                                {masteryStats.learning} <span className="text-xs font-normal text-gray-400">{t('common.wordsUnit')}</span>
                                             </p>
                                         </div>
                                         <button
                                             disabled={masteryStats.learning === 0}
                                             onClick={() => openMasteryTest('learning', learningCards)}
                                             className="p-2.5 bg-white dark:bg-slate-800 rounded-xl shadow border border-amber-250/30 dark:border-amber-900/30 hover:border-amber-400 hover:text-amber-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all hover:scale-105"
-                                            title="Kiểm tra lại nhóm từ Đang học"
+                                            title={t('studyModes.reviewLearningGroup', { defaultValue: 'Review learning cards' })}
                                         >
                                             <PlayCircle className="w-5 h-5 text-amber-500" />
                                         </button>
@@ -1199,17 +1204,17 @@ const StudySetDetail = ({
                                         <div>
                                             <div className="flex items-center gap-2">
                                                 <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-                                                <span className="text-sm font-bold text-emerald-700 dark:text-emerald-400">Đã nhớ</span>
+                                                <span className="text-sm font-bold text-emerald-700 dark:text-emerald-400">{t('vocab.memorized')}</span>
                                             </div>
                                             <p className="text-2xl font-black text-emerald-600 dark:text-emerald-450 mt-1">
-                                                {masteryStats.memorized} <span className="text-xs font-normal text-gray-400">từ</span>
+                                                {masteryStats.memorized} <span className="text-xs font-normal text-gray-400">{t('common.wordsUnit')}</span>
                                             </p>
                                         </div>
                                         <button
                                             disabled={masteryStats.memorized === 0}
                                             onClick={() => openMasteryTest('memorized', memorizedCards)}
                                             className="p-2.5 bg-white dark:bg-slate-800 rounded-xl shadow border border-emerald-250/30 dark:border-emerald-900/30 hover:border-emerald-400 hover:text-emerald-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all hover:scale-105"
-                                            title="Kiểm tra lại nhóm từ Đã nhớ"
+                                            title={t('studyModes.reviewMasteredGroup', { defaultValue: 'Review mastered cards' })}
                                         >
                                             <PlayCircle className="w-5 h-5 text-emerald-500" />
                                         </button>
@@ -1221,13 +1226,13 @@ const StudySetDetail = ({
                             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
                                 {/* Chế độ 1: Thẻ ghi nhớ */}
                                 {completedStates.flashcard ? (
-                                    <div className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-green-500/20 dark:border-green-500/10 shadow-sm relative overflow-hidden group">
-                                        <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-green-500 flex items-center justify-center shadow-sm">
-                                            <Check className="w-2.5 h-2.5 text-white" strokeWidth={4} />
+                                    <div className="flex flex-col items-center justify-center p-5 bg-slate-50 dark:bg-slate-900/60 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 shadow-xs relative overflow-hidden group select-none">
+                                        <div className="absolute top-2.5 right-2.5 w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center shadow-xs">
+                                            <Check className="w-3 h-3 text-white" strokeWidth={3} />
                                         </div>
-                                        <div className="w-11 h-11 rounded-full bg-green-50 dark:bg-green-900/30 flex items-center justify-center mb-2 opacity-55"><Layers className="w-5 h-5 text-green-500" /></div>
-                                        <span className="font-bold text-sm text-gray-400 dark:text-gray-500 text-center">Thẻ ghi nhớ</span>
-                                        <span className="text-[11px] text-green-650 dark:text-green-400 mt-0.5 font-semibold text-center">Đã hoàn thành</span>
+                                        <div className="w-12 h-12 rounded-2xl bg-sky-50 dark:bg-sky-950/40 flex items-center justify-center mb-2"><Layers className="w-6 h-6 text-sky-500" /></div>
+                                        <span className="font-bold text-sm text-slate-400 dark:text-slate-500 text-center">{t('studyModes.flashcards')}</span>
+                                        <span className="text-[11px] text-emerald-600 dark:text-emerald-400 mt-0.5 font-bold text-center">{t('common.completed')}</span>
                                         <button
                                             onClick={async (e) => {
                                                 e.stopPropagation();
@@ -1236,33 +1241,32 @@ const StudySetDetail = ({
                                                 setCompletedStates(prev => ({ ...prev, flashcard: false }));
                                                 setProgressStates(prev => ({ ...prev, flashcard: false }));
                                             }}
-                                            className="mt-3 text-[11px] bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/40 dark:hover:bg-blue-900/60 text-blue-600 dark:text-blue-400 px-3 py-1.5 rounded-xl border border-blue-200 dark:border-blue-800/80 flex items-center gap-1 font-bold transition-all shadow-xs active:scale-95 cursor-pointer"
+                                            className="mt-3 text-[11px] bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-1.5 rounded-2xl border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 flex items-center gap-1 font-bold transition-all cursor-pointer"
                                         >
-                                            <RotateCcw className="w-3 h-3" /> Làm lại
+                                            <RotateCcw className="w-3 h-3" /> {t('common.redo')}
                                         </button>
                                     </div>
                                 ) : (
-                                    <button onClick={() => onFlashcardSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-blue-400 dark:hover:border-blue-600 shadow-sm hover:shadow-lg transition-all group relative">
+                                    <button onClick={() => onFlashcardSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 hover:border-sky-300 dark:hover:border-sky-700 active:translate-y-0.5 active:border-b-2 shadow-xs transition-all group relative cursor-pointer select-none">
                                         {progressStates.flashcard && (
-                                            <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-blue-500 text-[9px] text-white font-bold uppercase tracking-wider animate-pulse">
-                                                Đang học
-                                            </div>
+                                            <div className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-sky-500 text-[9px] text-white font-bold uppercase tracking-wider">
+                                                {t('vocab.learning')}</div>
                                         )}
-                                        <div className="w-11 h-11 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Layers className="w-5 h-5 text-blue-500" /></div>
-                                        <span className="font-bold text-sm text-gray-800 dark:text-white text-center">Thẻ ghi nhớ</span>
-                                        <span className="text-[11px] text-gray-500 mt-0.5 text-center">Lướt thẻ nhanh</span>
+                                        <div className="w-12 h-12 rounded-2xl bg-sky-50 dark:bg-sky-950/40 border border-sky-100 dark:border-sky-800/40 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform"><Layers className="w-6 h-6 text-sky-500" /></div>
+                                        <span className="font-extrabold text-sm text-slate-900 dark:text-white text-center">{t('studyModes.flashcards')}</span>
+                                        <span className="text-[11px] text-slate-400 mt-0.5 text-center">{t('studyModes.flashcardSub')}</span>
                                     </button>
                                 )}
 
                                 {/* Chế độ 2: Học tập */}
                                 {completedStates.study ? (
-                                    <div className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-green-500/20 dark:border-green-500/10 shadow-sm relative overflow-hidden group">
-                                        <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-green-500 flex items-center justify-center shadow-sm">
-                                            <Check className="w-2.5 h-2.5 text-white" strokeWidth={4} />
+                                    <div className="flex flex-col items-center justify-center p-5 bg-slate-50 dark:bg-slate-900/60 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 shadow-xs relative overflow-hidden group select-none">
+                                        <div className="absolute top-2.5 right-2.5 w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center shadow-xs">
+                                            <Check className="w-3 h-3 text-white" strokeWidth={3} />
                                         </div>
-                                        <div className="w-11 h-11 rounded-full bg-green-50 dark:bg-green-900/30 flex items-center justify-center mb-2 opacity-55"><BookOpen className="w-5 h-5 text-green-500" /></div>
-                                        <span className="font-bold text-sm text-gray-400 dark:text-gray-500 text-center">Học tập</span>
-                                        <span className="text-[11px] text-green-650 dark:text-green-400 mt-0.5 font-semibold text-center">Đã hoàn thành</span>
+                                        <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center mb-2"><BookOpen className="w-6 h-6 text-emerald-500" /></div>
+                                        <span className="font-bold text-sm text-slate-400 dark:text-slate-500 text-center">{t('studyModes.learn')}</span>
+                                        <span className="text-[11px] text-emerald-600 dark:text-emerald-400 mt-0.5 font-bold text-center">{t('common.completed')}</span>
                                         <button
                                             onClick={async (e) => {
                                                 e.stopPropagation();
@@ -1271,33 +1275,32 @@ const StudySetDetail = ({
                                                 setCompletedStates(prev => ({ ...prev, study: false }));
                                                 setProgressStates(prev => ({ ...prev, study: false }));
                                             }}
-                                            className="mt-3 text-[11px] bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/40 dark:hover:bg-blue-900/60 text-blue-600 dark:text-blue-400 px-3 py-1.5 rounded-xl border border-blue-200 dark:border-blue-800/80 flex items-center gap-1 font-bold transition-all shadow-xs active:scale-95 cursor-pointer"
+                                            className="mt-3 text-[11px] bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-1.5 rounded-2xl border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 flex items-center gap-1 font-bold transition-all cursor-pointer"
                                         >
-                                            <RotateCcw className="w-3 h-3" /> Làm lại
+                                            <RotateCcw className="w-3 h-3" /> {t('common.redo')}
                                         </button>
                                     </div>
                                 ) : (
-                                    <button onClick={() => onStudySet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-emerald-400 dark:hover:border-emerald-600 shadow-sm hover:shadow-lg transition-all group relative">
+                                    <button onClick={() => onStudySet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 hover:border-emerald-300 dark:hover:border-emerald-700 active:translate-y-0.5 active:border-b-2 shadow-xs transition-all group relative cursor-pointer select-none">
                                         {progressStates.study && (
-                                            <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-emerald-500 text-[9px] text-white font-bold uppercase tracking-wider animate-pulse">
-                                                Đang học
-                                            </div>
+                                            <div className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-emerald-500 text-[9px] text-white font-bold uppercase tracking-wider">
+                                                {t('vocab.learning')}</div>
                                         )}
-                                        <div className="w-11 h-11 rounded-full bg-emerald-50 dark:bg-emerald-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><BookOpen className="w-5 h-5 text-emerald-500" /></div>
-                                        <span className="font-bold text-sm text-gray-800 dark:text-white text-center">Học tập</span>
-                                        <span className="text-[11px] text-gray-500 mt-0.5 text-center">Trắc nghiệm + Tự luận</span>
+                                        <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform"><BookOpen className="w-6 h-6 text-emerald-500" /></div>
+                                        <span className="font-extrabold text-sm text-slate-900 dark:text-white text-center">{t('studyModes.learn')}</span>
+                                        <span className="text-[11px] text-slate-400 mt-0.5 text-center">{t('studyModes.learnSub')}</span>
                                     </button>
                                 )}
 
                                 {/* Chế độ 3: Nhập ý nghĩa */}
                                 {completedStates.meaning_input ? (
-                                    <div className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-green-500/20 dark:border-green-500/10 shadow-sm relative overflow-hidden group">
-                                        <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-green-500 flex items-center justify-center shadow-sm">
-                                            <Check className="w-2.5 h-2.5 text-white" strokeWidth={4} />
+                                    <div className="flex flex-col items-center justify-center p-5 bg-slate-50 dark:bg-slate-900/60 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 shadow-xs relative overflow-hidden group select-none">
+                                        <div className="absolute top-2.5 right-2.5 w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center shadow-xs">
+                                            <Check className="w-3 h-3 text-white" strokeWidth={3} />
                                         </div>
-                                        <div className="w-11 h-11 rounded-full bg-green-50 dark:bg-green-900/30 flex items-center justify-center mb-2 opacity-55"><Edit2 className="w-5 h-5 text-green-500" /></div>
-                                        <span className="font-bold text-sm text-gray-400 dark:text-gray-500 text-center">Nhập ý nghĩa</span>
-                                        <span className="text-[11px] text-green-650 dark:text-green-400 mt-0.5 font-semibold text-center">Đã hoàn thành</span>
+                                        <div className="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 flex items-center justify-center mb-2"><Edit2 className="w-6 h-6 text-indigo-500" /></div>
+                                        <span className="font-bold text-sm text-slate-400 dark:text-slate-500 text-center">{t('studyModes.meaning')}</span>
+                                        <span className="text-[11px] text-emerald-600 dark:text-emerald-400 mt-0.5 font-bold text-center">{t('common.completed')}</span>
                                         <button
                                             onClick={async (e) => {
                                                 e.stopPropagation();
@@ -1306,33 +1309,32 @@ const StudySetDetail = ({
                                                 setCompletedStates(prev => ({ ...prev, meaning_input: false }));
                                                 setProgressStates(prev => ({ ...prev, meaning_input: false }));
                                             }}
-                                            className="mt-3 text-[11px] bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/40 dark:hover:bg-blue-900/60 text-blue-600 dark:text-blue-400 px-3 py-1.5 rounded-xl border border-blue-200 dark:border-blue-800/80 flex items-center gap-1 font-bold transition-all shadow-xs active:scale-95 cursor-pointer"
+                                            className="mt-3 text-[11px] bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-1.5 rounded-2xl border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 flex items-center gap-1 font-bold transition-all cursor-pointer"
                                         >
-                                            <RotateCcw className="w-3 h-3" /> Làm lại
+                                            <RotateCcw className="w-3 h-3" /> {t('common.redo')}
                                         </button>
                                     </div>
                                 ) : (
-                                    <button onClick={() => onMeaningSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-pink-400 dark:hover:border-pink-600 shadow-sm hover:shadow-lg transition-all group relative">
+                                    <button onClick={() => onMeaningSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 hover:border-indigo-300 dark:hover:border-indigo-700 active:translate-y-0.5 active:border-b-2 shadow-xs transition-all group relative cursor-pointer select-none">
                                         {progressStates.meaning_input && (
-                                            <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-pink-500 text-[9px] text-white font-bold uppercase tracking-wider animate-pulse">
-                                                Đang học
-                                            </div>
+                                            <div className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-indigo-500 text-[9px] text-white font-bold uppercase tracking-wider">
+                                                {t('vocab.learning')}</div>
                                         )}
-                                        <div className="w-11 h-11 rounded-full bg-pink-50 dark:bg-pink-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Edit2 className="w-5 h-5 text-pink-500" /></div>
-                                        <span className="font-bold text-sm text-gray-800 dark:text-white text-center">Nhập ý nghĩa</span>
-                                        <span className="text-[11px] text-gray-500 mt-0.5 text-center">Tự luận dịch nghĩa</span>
+                                        <div className="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-800/40 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform"><Edit2 className="w-6 h-6 text-indigo-500" /></div>
+                                        <span className="font-extrabold text-sm text-slate-900 dark:text-white text-center">{t('studyModes.meaning')}</span>
+                                        <span className="text-[11px] text-slate-400 mt-0.5 text-center">{t('studyModes.meaningSub')}</span>
                                     </button>
                                 )}
 
                                 {/* Chế độ 4: Nghe Chép */}
                                 {completedStates.dictation ? (
-                                    <div className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-green-500/20 dark:border-green-500/10 shadow-sm relative overflow-hidden group">
-                                        <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-green-500 flex items-center justify-center shadow-sm">
-                                            <Check className="w-2.5 h-2.5 text-white" strokeWidth={4} />
+                                    <div className="flex flex-col items-center justify-center p-5 bg-slate-50 dark:bg-slate-900/60 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 shadow-xs relative overflow-hidden group select-none">
+                                        <div className="absolute top-2.5 right-2.5 w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center shadow-xs">
+                                            <Check className="w-3 h-3 text-white" strokeWidth={3} />
                                         </div>
-                                        <div className="w-11 h-11 rounded-full bg-green-50 dark:bg-green-900/30 flex items-center justify-center mb-2 opacity-55"><Headphones className="w-5 h-5 text-green-500" /></div>
-                                        <span className="font-bold text-sm text-gray-400 dark:text-gray-500 text-center">Nghe Chép</span>
-                                        <span className="text-[11px] text-green-650 dark:text-green-400 mt-0.5 font-semibold text-center">Đã hoàn thành</span>
+                                        <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/40 flex items-center justify-center mb-2"><Headphones className="w-6 h-6 text-amber-500" /></div>
+                                        <span className="font-bold text-sm text-slate-400 dark:text-slate-500 text-center">{t('studyModes.dictation')}</span>
+                                        <span className="text-[11px] text-emerald-600 dark:text-emerald-400 mt-0.5 font-bold text-center">{t('common.completed')}</span>
                                         <button
                                             onClick={async (e) => {
                                                 e.stopPropagation();
@@ -1341,33 +1343,32 @@ const StudySetDetail = ({
                                                 setCompletedStates(prev => ({ ...prev, dictation: false }));
                                                 setProgressStates(prev => ({ ...prev, dictation: false }));
                                             }}
-                                            className="mt-3 text-[11px] bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/40 dark:hover:bg-blue-900/60 text-blue-600 dark:text-blue-400 px-3 py-1.5 rounded-xl border border-blue-200 dark:border-blue-800/80 flex items-center gap-1 font-bold transition-all shadow-xs active:scale-95 cursor-pointer"
+                                            className="mt-3 text-[11px] bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-1.5 rounded-2xl border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 flex items-center gap-1 font-bold transition-all cursor-pointer"
                                         >
-                                            <RotateCcw className="w-3 h-3" /> Làm lại
+                                            <RotateCcw className="w-3 h-3" /> {t('common.redo')}
                                         </button>
                                     </div>
                                 ) : (
-                                    <button onClick={() => onDictationSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-blue-400 dark:hover:border-blue-600 shadow-sm hover:shadow-lg transition-all group relative">
+                                    <button onClick={() => onDictationSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 hover:border-amber-300 dark:hover:border-amber-700 active:translate-y-0.5 active:border-b-2 shadow-xs transition-all group relative cursor-pointer select-none">
                                         {progressStates.dictation && (
-                                            <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-blue-500 text-[9px] text-white font-bold uppercase tracking-wider animate-pulse">
-                                                Đang học
-                                            </div>
+                                            <div className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-amber-500 text-[9px] text-white font-bold uppercase tracking-wider">
+                                                {t('vocab.learning')}</div>
                                         )}
-                                        <div className="w-11 h-11 rounded-full bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Headphones className="w-5 h-5 text-blue-500" /></div>
-                                        <span className="font-bold text-sm text-gray-800 dark:text-white text-center">Nghe Chép</span>
-                                        <span className="text-[11px] text-gray-500 mt-0.5 text-center">Nghe và viết lại</span>
+                                        <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-100 dark:border-amber-800/40 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform"><Headphones className="w-6 h-6 text-amber-500" /></div>
+                                        <span className="font-extrabold text-sm text-slate-900 dark:text-white text-center">{t('studyModes.dictation')}</span>
+                                        <span className="text-[11px] text-slate-400 mt-0.5 text-center">{t('studyModes.dictationSub')}</span>
                                     </button>
                                 )}
 
                                 {/* Chế độ 5: Câu ví dụ */}
                                 {completedStates.example ? (
-                                    <div className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-green-500/20 dark:border-green-500/10 shadow-sm relative overflow-hidden group">
-                                        <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-green-500 flex items-center justify-center shadow-sm">
-                                            <Check className="w-2.5 h-2.5 text-white" strokeWidth={4} />
+                                    <div className="flex flex-col items-center justify-center p-5 bg-slate-50 dark:bg-slate-900/60 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 shadow-xs relative overflow-hidden group select-none">
+                                        <div className="absolute top-2.5 right-2.5 w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center shadow-xs">
+                                            <Check className="w-3 h-3 text-white" strokeWidth={3} />
                                         </div>
-                                        <div className="w-11 h-11 rounded-full bg-green-50 dark:bg-green-900/30 flex items-center justify-center mb-2 opacity-55"><FileText className="w-5 h-5 text-green-500" /></div>
-                                        <span className="font-bold text-sm text-gray-400 dark:text-gray-500 text-center">Câu ví dụ</span>
-                                        <span className="text-[11px] text-green-650 dark:text-green-400 mt-0.5 font-semibold text-center">Đã hoàn thành</span>
+                                        <div className="w-12 h-12 rounded-2xl bg-cyan-50 dark:bg-cyan-950/40 flex items-center justify-center mb-2"><FileText className="w-6 h-6 text-cyan-500" /></div>
+                                        <span className="font-bold text-sm text-slate-400 dark:text-slate-500 text-center">{t('studyModes.example')}</span>
+                                        <span className="text-[11px] text-emerald-600 dark:text-emerald-400 mt-0.5 font-bold text-center">{t('common.completed')}</span>
                                         <button
                                             onClick={async (e) => {
                                                 e.stopPropagation();
@@ -1376,33 +1377,32 @@ const StudySetDetail = ({
                                                 setCompletedStates(prev => ({ ...prev, example: false }));
                                                 setProgressStates(prev => ({ ...prev, example: false }));
                                             }}
-                                            className="mt-3 text-[11px] bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/40 dark:hover:bg-blue-900/60 text-blue-600 dark:text-blue-400 px-3 py-1.5 rounded-xl border border-blue-200 dark:border-blue-800/80 flex items-center gap-1 font-bold transition-all shadow-xs active:scale-95 cursor-pointer"
+                                            className="mt-3 text-[11px] bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-1.5 rounded-2xl border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 flex items-center gap-1 font-bold transition-all cursor-pointer"
                                         >
-                                            <RotateCcw className="w-3 h-3" /> Làm lại
+                                            <RotateCcw className="w-3 h-3" /> {t('common.redo')}
                                         </button>
                                     </div>
                                 ) : (
-                                    <button onClick={() => onExampleSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-amber-400 dark:hover:border-amber-600 shadow-sm hover:shadow-lg transition-all group relative">
+                                    <button onClick={() => onExampleSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 hover:border-cyan-300 dark:hover:border-cyan-700 active:translate-y-0.5 active:border-b-2 shadow-xs transition-all group relative cursor-pointer select-none">
                                         {progressStates.example && (
-                                            <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-amber-500 text-[9px] text-white font-bold uppercase tracking-wider animate-pulse">
-                                                Đang học
-                                            </div>
+                                            <div className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-cyan-500 text-[9px] text-white font-bold uppercase tracking-wider">
+                                                {t('vocab.learning')}</div>
                                         )}
-                                        <div className="w-11 h-11 rounded-full bg-amber-50 dark:bg-amber-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><FileText className="w-5 h-5 text-amber-500" /></div>
-                                        <span className="font-bold text-sm text-gray-800 dark:text-white text-center">Câu ví dụ</span>
-                                        <span className="text-[11px] text-gray-500 mt-0.5 text-center">Điền từ vào câu</span>
+                                        <div className="w-12 h-12 rounded-2xl bg-cyan-50 dark:bg-cyan-950/40 border border-cyan-100 dark:border-cyan-800/40 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform"><FileText className="w-6 h-6 text-cyan-500" /></div>
+                                        <span className="font-extrabold text-sm text-slate-900 dark:text-white text-center">{t('studyModes.example')}</span>
+                                        <span className="text-[11px] text-slate-400 mt-0.5 text-center">{t('studyModes.exampleSub')}</span>
                                     </button>
                                 )}
 
                                 {/* Chế độ 6: Đồng nghĩa */}
                                 {completedStates.synonym ? (
-                                    <div className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-green-500/20 dark:border-green-500/10 shadow-sm relative overflow-hidden group">
-                                        <div className="absolute top-2 right-2 w-4 h-4 rounded-full bg-green-500 flex items-center justify-center shadow-sm">
-                                            <Check className="w-2.5 h-2.5 text-white" strokeWidth={4} />
+                                    <div className="flex flex-col items-center justify-center p-5 bg-slate-50 dark:bg-slate-900/60 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 shadow-xs relative overflow-hidden group select-none">
+                                        <div className="absolute top-2.5 right-2.5 w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center shadow-xs">
+                                            <Check className="w-3 h-3 text-white" strokeWidth={3} />
                                         </div>
-                                        <div className="w-11 h-11 rounded-full bg-green-50 dark:bg-green-900/30 flex items-center justify-center mb-2 opacity-55"><Users className="w-5 h-5 text-green-500" /></div>
-                                        <span className="font-bold text-sm text-gray-400 dark:text-gray-500 text-center">Đồng nghĩa</span>
-                                        <span className="text-[11px] text-green-650 dark:text-green-400 mt-0.5 font-semibold text-center">Đã hoàn thành</span>
+                                        <div className="w-12 h-12 rounded-2xl bg-rose-50 dark:bg-rose-950/40 flex items-center justify-center mb-2"><Users className="w-6 h-6 text-rose-500" /></div>
+                                        <span className="font-bold text-sm text-slate-400 dark:text-slate-500 text-center">{t('studyModes.synonymQuiz')}</span>
+                                        <span className="text-[11px] text-emerald-600 dark:text-emerald-400 mt-0.5 font-bold text-center">{t('common.completed')}</span>
                                         <button
                                             onClick={async (e) => {
                                                 e.stopPropagation();
@@ -1411,21 +1411,20 @@ const StudySetDetail = ({
                                                 setCompletedStates(prev => ({ ...prev, synonym: false }));
                                                 setProgressStates(prev => ({ ...prev, synonym: false }));
                                             }}
-                                            className="mt-3 text-[11px] bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/40 dark:hover:bg-blue-900/60 text-blue-600 dark:text-blue-400 px-3 py-1.5 rounded-xl border border-blue-200 dark:border-blue-800/80 flex items-center gap-1 font-bold transition-all shadow-xs active:scale-95 cursor-pointer"
+                                            className="mt-3 text-[11px] bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-1.5 rounded-2xl border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 flex items-center gap-1 font-bold transition-all cursor-pointer"
                                         >
-                                            <RotateCcw className="w-3 h-3" /> Làm lại
+                                            <RotateCcw className="w-3 h-3" /> {t('common.redo')}
                                         </button>
                                     </div>
                                 ) : (
-                                    <button onClick={() => onSynonymQuiz && onSynonymQuiz(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-gray-800 rounded-2xl border-2 border-transparent hover:border-sky-400 dark:hover:border-sky-600 shadow-sm hover:shadow-lg transition-all group relative">
+                                    <button onClick={() => onSynonymQuiz && onSynonymQuiz(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 hover:border-rose-300 dark:hover:border-rose-700 active:translate-y-0.5 active:border-b-2 shadow-xs transition-all group relative cursor-pointer select-none">
                                         {progressStates.synonym && (
-                                            <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded bg-sky-500 text-[9px] text-white font-bold uppercase tracking-wider animate-pulse">
-                                                Đang học
-                                            </div>
+                                            <div className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-rose-500 text-[9px] text-white font-bold uppercase tracking-wider">
+                                                {t('vocab.learning')}</div>
                                         )}
-                                        <div className="w-11 h-11 rounded-full bg-sky-50 dark:bg-sky-900/30 flex items-center justify-center mb-2 group-hover:scale-110 transition-transform"><Users className="w-5 h-5 text-sky-500" /></div>
-                                        <span className="font-bold text-sm text-gray-800 dark:text-white text-center">Đồng nghĩa</span>
-                                        <span className="text-[11px] text-gray-500 mt-0.5 text-center">Trắc nghiệm đồng nghĩa</span>
+                                        <div className="w-12 h-12 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-100 dark:border-rose-800/40 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform"><Users className="w-6 h-6 text-rose-500" /></div>
+                                        <span className="font-extrabold text-sm text-slate-900 dark:text-white text-center">{t('studyModes.synonymQuiz')}</span>
+                                        <span className="text-[11px] text-slate-400 mt-0.5 text-center">{t('studyModes.synonymQuizSub')}</span>
                                     </button>
                                 )}
                             </div>
@@ -1435,16 +1434,16 @@ const StudySetDetail = ({
                                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
                                     <div>
                                         <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-                                            Thuật ngữ ({filteredCards.length} / {setCards.length})
+                                            {t('studyModes.terms')} ({filteredCards.length} / {setCards.length})
                                         </h2>
-                                        <p className="text-xs text-gray-400 dark:text-gray-500 italic mt-0.5">Bấm vào từ để sửa trực tiếp</p>
+                                        <p className="text-xs text-gray-400 dark:text-gray-500 italic mt-0.5">{t('studyModes.clickToEdit')}</p>
                                     </div>
 
                                     {setCards.length > 5 && (
                                         <div className="relative w-full md:w-72">
                                             <input
                                                 type="text"
-                                                placeholder="Tìm kiếm từ vựng..."
+                                                placeholder={t('common.searchVocabPlaceholder')}
                                                 value={searchQuery}
                                                 onChange={(e) => setSearchQuery(e.target.value)}
                                                 className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl pl-9 pr-4 py-2 text-sm outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-gray-800 dark:text-white transition-all shadow-sm"
@@ -1457,7 +1456,9 @@ const StudySetDetail = ({
                                 {filteredCards.length === 0 && searchQuery ? (
                                     <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-2xl border border-gray-150 dark:border-gray-700">
                                         <Search className="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto mb-3" />
-                                        <p className="text-gray-500 dark:text-gray-400 text-sm">Không tìm thấy từ vựng nào khớp với "{searchQuery}"</p>
+                                        <p className="text-gray-500 dark:text-gray-400 text-sm">
+                                            {language === 'vi' ? `Không tìm thấy từ vựng nào khớp với "${searchQuery}"` : `No vocabulary found matching "${searchQuery}"`}
+                                        </p>
                                     </div>
                                 ) : (
                                     <div className="space-y-3">
@@ -1485,7 +1486,7 @@ const StudySetDetail = ({
                                                                         <div className="inline-flex items-center gap-1">
                                                                             <InlineEditCell
                                                                                 value={card.reading}
-                                                                                placeholder="[Thêm Romaja]"
+                                                                                placeholder={t('vocab.addRomaja')}
                                                                                 onSave={(v) => handleInlineSave(card, 'reading', v)}
                                                                                 className="text-xs font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50 px-2 py-0.5 rounded-md border border-blue-200 dark:border-blue-800/60 inline-block min-w-[70px]"
                                                                             />
@@ -1495,7 +1496,7 @@ const StudySetDetail = ({
                                                                     <div className="inline-flex items-center gap-1">
                                                                         <InlineEditCell
                                                                             value={formatIPA(card.ipa)}
-                                                                            placeholder="[Thêm IPA]"
+                                                                            placeholder={t('vocab.addIpa')}
                                                                             onSave={(v) => handleInlineSave(card, 'ipa', v)}
                                                                             className="text-xs font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50 px-2 py-0.5 rounded-md border border-blue-200 dark:border-blue-800/60 inline-block min-w-[70px]"
                                                                         />
@@ -1508,7 +1509,7 @@ const StudySetDetail = ({
                                                                 <div className="text-yellow-600 dark:text-yellow-500 text-sm mt-1 font-medium min-h-[1.5rem] flex items-center">
                                                                     <InlineEditCell
                                                                         value={card.sinoVietnamese || ''}
-                                                                        placeholder="[Thêm Hán Hàn]"
+                                                                        placeholder={t('vocab.addHanhan')}
                                                                         onSave={(v) => handleInlineSave(card, 'sinoVietnamese', v)}
                                                                         className="text-sm font-medium inline-block min-w-[100px]"
                                                                     />
@@ -1517,7 +1518,7 @@ const StudySetDetail = ({
                                                                 <div className="text-yellow-600 dark:text-yellow-500 text-sm mt-1 font-medium min-h-[1.5rem] flex items-center">
                                                                     <InlineEditCell
                                                                         value={card.sinoVietnamese || ''}
-                                                                        placeholder="[Thêm Hán Việt]"
+                                                                        placeholder={t('vocab.addHanviet')}
                                                                         onSave={(v) => handleInlineSave(card, 'sinoVietnamese', v)}
                                                                         className="text-sm font-medium inline-block min-w-[100px]"
                                                                     />
@@ -1549,7 +1550,7 @@ const StudySetDetail = ({
                                                                 <button
                                                                     onClick={(e) => { e.stopPropagation(); setEditingCard(card); }}
                                                                     className="p-2.5 text-slate-500 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950/40 rounded-full transition-colors flex-shrink-0 cursor-pointer"
-                                                                    title="Sửa từ vựng"
+                                                                    title={t('vocab.editCard')}
                                                                 >
                                                                     <Edit className="w-5 h-5" />
                                                                 </button>
@@ -1560,7 +1561,7 @@ const StudySetDetail = ({
                                                                             setCardToDelete(card);
                                                                         }}
                                                                         className="p-2.5 text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-full transition-colors flex-shrink-0"
-                                                                        title="Xóa từ vựng"
+                                                                        title={t('vocab.deleteCard')}
                                                                     >
                                                                         <Trash2 className="w-5 h-5" />
                                                                     </button>
@@ -1574,19 +1575,19 @@ const StudySetDetail = ({
                                                         <div className="mt-2 border-t border-gray-100 dark:border-gray-700/40 pt-3 space-y-3" onClick={(e) => e.stopPropagation()}>
                                                             {card.synonym && (
                                                                 <div className="flex items-start gap-1.5 text-xs text-slate-600 dark:text-slate-300">
-                                                                    <span className="font-semibold text-blue-600 shrink-0">Đồng nghĩa:</span>
+                                                                    <span className="font-semibold text-blue-600 shrink-0">{t('vocab.synonym')}:</span>
                                                                     <span className="font-japanese font-medium"><FuriganaText text={card.synonym} /></span>
                                                                 </div>
                                                             )}
                                                             {card.nuance && (
                                                                 <div className="flex items-start gap-1.5 text-xs text-slate-600 dark:text-slate-300 bg-amber-500/5 dark:bg-amber-500/10 border border-amber-500/20 rounded-xl p-2.5">
-                                                                    <span className="text-amber-600 dark:text-amber-400 font-bold shrink-0">💡 Sắc thái/Ngữ cảnh:</span>
+                                                                    <span className="text-amber-600 dark:text-amber-400 font-bold shrink-0">💡 {t('vocab.nuance')}:</span>
                                                                     <span className="leading-relaxed">{card.nuance}</span>
                                                                 </div>
                                                             )}
                                                             {(card.example || card.exampleMeaning) && (
                                                                 <div className="space-y-2 mt-1">
-                                                                    <div className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">Ví dụ minh họa:</div>
+                                                                    <div className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">{t('vocab.exampleSentences')}:</div>
                                                                     <div className="bg-slate-50 dark:bg-slate-900/40 rounded-xl p-3 border border-slate-100 dark:border-slate-800 space-y-2.5">
                                                                         {card.example ? (
                                                                             card.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
@@ -1606,7 +1607,7 @@ const StudySetDetail = ({
                                                                                                 speakExampleSentence(ex);
                                                                                             }}
                                                                                             className="absolute right-0 top-1/2 -translate-y-1/2 p-1.5 rounded-lg text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition-colors cursor-pointer"
-                                                                                            title="Nghe câu ví dụ"
+                                                                                            title={language === 'vi' ? 'Nghe câu ví dụ' : 'Play example sentence audio'}
                                                                                         >
                                                                                             <Volume2 className="w-3.5 h-3.5" />
                                                                                         </button>
@@ -1631,12 +1632,12 @@ const StudySetDetail = ({
                                                                 <div className="flex items-center gap-1.5">
                                                                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse flex-shrink-0"></span>
                                                                     <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
-                                                                        Ngắt quãng · {getSrsCycleLabel(card)}
+                                                                        {t('srs.title')} · {getSrsCycleLabel(card, t)}
                                                                     </span>
                                                                 </div>
                                                             ) : (
                                                                 <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">
-                                                                    Ôn tập ngắt quãng
+                                                                    {t('srs.title')}
                                                                 </span>
                                                             )}
                                                             {/* Toggle switch */}
@@ -1658,9 +1659,9 @@ const StudySetDetail = ({
                                                             className="flex items-center gap-1 text-xs font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
                                                         >
                                                             {isExpanded ? (
-                                                                <>Thu gọn <ChevronUp className="w-3.5 h-3.5" /></>
+                                                                <>{t('common.collapse')} <ChevronUp className="w-3.5 h-3.5" /></>
                                                             ) : (
-                                                                <>Xem chi tiết <ChevronDown className="w-3.5 h-3.5" /></>
+                                                                <>{t('common.viewDetails')} <ChevronDown className="w-3.5 h-3.5" /></>
                                                             )}
                                                         </button>
                                                     </div>
@@ -1676,7 +1677,7 @@ const StudySetDetail = ({
                                             onClick={() => setVisibleCount(prev => prev + 30)}
                                             className="px-6 py-2.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-500 text-blue-600 dark:text-blue-600 hover:text-blue-600 dark:hover:text-blue-600 font-bold rounded-xl transition-all shadow-sm hover:shadow-md cursor-pointer inline-flex items-center gap-2 text-sm"
                                         >
-                                            Xem thêm từ vựng ({filteredCards.length - visibleCount} từ ẩn)
+                                            {t('vocab.loadMoreCards', { count: filteredCards.length - visibleCount })}
                                             <ChevronDown className="w-4 h-4" />
                                         </button>
                                     </div>
@@ -1686,21 +1687,21 @@ const StudySetDetail = ({
                     ) : (
                         <div className="text-center py-20 bg-white dark:bg-gray-800 rounded-3xl border border-gray-200 dark:border-gray-700">
                             <Search className="w-16 h-16 text-gray-300 dark:text-gray-600 mx-auto mb-4" />
-                            <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-2">Học phần này trống</h2>
-                            <p className="text-gray-500 dark:text-gray-400 mb-6">Chưa có từ vựng nào trong học phần này.</p>
+                            <h2 className="text-xl font-bold text-gray-800 dark:text-white mb-2">{t('vocab.emptySet')}</h2>
+                            <p className="text-gray-500 dark:text-gray-400 mb-6">{t('vocab.emptySetSub')}</p>
                             <div className="flex items-center justify-center gap-3 flex-wrap">
                                 {folderId !== 'unfiled' && (
                                     <button 
                                         onClick={handleSyncFromSourceLesson} 
                                         disabled={isSyncingFromLesson}
-                                        className="px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl font-bold flex items-center gap-2 hover:shadow-lg transition-all cursor-pointer shadow-md disabled:opacity-50"
+                                        className="px-6 py-3 bg-amber-500 hover:bg-amber-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-amber-700 text-white rounded-2xl font-black text-xs uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer select-none disabled:opacity-50"
                                     >
-                                        <RefreshCw className={`w-5 h-5 ${isSyncingFromLesson ? 'animate-spin' : ''}`} /> 
-                                        {isSyncingFromLesson ? 'Đang nạp từ vựng...' : 'Đồng bộ từ vựng từ Sách'}
+                                        <RefreshCw className={`w-4 h-4 ${isSyncingFromLesson ? 'animate-spin' : ''}`} /> 
+                                        {isSyncingFromLesson ? t('common.loading') : t('books.syncFromBook')}
                                     </button>
                                 )}
-                                <button onClick={folderId !== 'unfiled' ? () => onEditSet(folderId) : onNavigateToAdd} className="px-6 py-3 bg-blue-600 text-white rounded-xl font-bold flex items-center gap-2 hover:bg-blue-700 transition-colors cursor-pointer">
-                                    <Plus className="w-5 h-5" /> {folderId !== 'unfiled' ? 'Thêm từ vựng ngay' : 'Tạo học phần mới'}
+                                <button onClick={folderId !== 'unfiled' ? () => onEditSet(folderId) : onNavigateToAdd} className="px-6 py-3 bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white rounded-2xl font-black text-xs uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer select-none">
+                                    <Plus className="w-4 h-4" /> {folderId !== 'unfiled' ? t('vocab.addVocabNow') : t('library.newSet')}
                                 </button>
                             </div>
                         </div>
@@ -1714,13 +1715,13 @@ const StudySetDetail = ({
                     <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-md p-6 space-y-6 border border-gray-200 dark:border-slate-700 animate-scale-in" onClick={e => e.stopPropagation()}>
                         <div className="text-center">
                             <h3 className="font-extrabold text-xl text-gray-905 dark:text-white">
-                                Chọn chế độ ôn tập
+                                {t('studyModes.selectReviewMode')}
                             </h3>
                             <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
-                                Ôn tập {showMasteryModal.cards.length} từ ở trạng thái <span className="font-bold text-blue-600 dark:text-blue-400">
-                                    {showMasteryModal.status === 'not_learned' ? 'Chưa học' :
-                                        showMasteryModal.status === 'learning' ? 'Đang học' :
-                                            showMasteryModal.status === 'memorized' ? 'Đã nhớ' : 'Chưa học & Đang học'}
+                                {language === 'vi' ? 'Ôn tập' : 'Review'} {showMasteryModal.cards.length} {language === 'vi' ? 'từ ở trạng thái' : 'cards in state'} <span className="font-bold text-blue-600 dark:text-blue-400">
+                                    {showMasteryModal.status === 'not_learned' ? t('vocab.notLearned') :
+                                        showMasteryModal.status === 'learning' ? t('vocab.learning') :
+                                            showMasteryModal.status === 'memorized' ? t('vocab.memorized') : (t('vocab.notLearned') + ' & ' + t('vocab.learning'))}
                                 </span>
                             </p>
                         </div>
@@ -1732,7 +1733,7 @@ const StudySetDetail = ({
                                 className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMasteryMode === 'flashcard' ? 'border-blue-500 bg-blue-50/40 dark:bg-blue-950/20 text-blue-600 dark:text-blue-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-600 text-gray-700 dark:text-gray-300'}`}
                             >
                                 <Layers className="w-6 h-6" />
-                                <span className="font-bold text-xs">Thẻ ghi nhớ</span>
+                                <span className="font-bold text-xs">{t('studyModes.flashcards')}</span>
                             </button>
 
                             <button
@@ -1740,7 +1741,7 @@ const StudySetDetail = ({
                                 className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMasteryMode === 'study' ? 'border-blue-500 bg-blue-50/40 dark:bg-blue-950/20 text-blue-600 dark:text-blue-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-600 text-gray-700 dark:text-gray-300'}`}
                             >
                                 <BookOpen className="w-6 h-6" />
-                                <span className="font-bold text-xs">Học tập</span>
+                                <span className="font-bold text-xs">{t('studyModes.learn')}</span>
                             </button>
 
                             <button
@@ -1748,7 +1749,7 @@ const StudySetDetail = ({
                                 className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMasteryMode === 'meaning' ? 'border-blue-500 bg-blue-50/40 dark:bg-blue-950/20 text-blue-600 dark:text-blue-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-600 text-gray-700 dark:text-gray-300'}`}
                             >
                                 <Edit2 className="w-6 h-6" />
-                                <span className="font-bold text-xs">Nhập ý nghĩa</span>
+                                <span className="font-bold text-xs">{t('studyModes.meaning')}</span>
                             </button>
 
                             <button
@@ -1756,7 +1757,7 @@ const StudySetDetail = ({
                                 className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMasteryMode === 'dictation' ? 'border-blue-500 bg-blue-50/40 dark:bg-blue-950/20 text-blue-600 dark:text-blue-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-600 text-gray-700 dark:text-gray-300'}`}
                             >
                                 <Headphones className="w-6 h-6" />
-                                <span className="font-bold text-xs">Nghe Chép</span>
+                                <span className="font-bold text-xs">{t('studyModes.dictation')}</span>
                             </button>
                         </div>
 
@@ -1765,13 +1766,13 @@ const StudySetDetail = ({
                                 onClick={() => setShowMasteryModal(prev => ({ ...prev, isOpen: false }))}
                                 className="flex-1 py-2.5 bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors text-sm cursor-pointer"
                             >
-                                Huỷ
+                                {t('common.cancel')}
                             </button>
                             <button
                                 onClick={handleStartMasteryTest}
                                 className="flex-1 py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-colors text-sm shadow-md cursor-pointer"
                             >
-                                Bắt đầu ôn
+                                {t('studyModes.startReview')}
                             </button>
                         </div>
                     </div>
@@ -1787,23 +1788,23 @@ const StudySetDetail = ({
                             <div className="w-10 h-10 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center flex-shrink-0"><Trash2 className="w-5 h-5 text-red-500" /></div>
                             <div>
                                 <h3 className="font-bold text-lg text-gray-800 dark:text-white">
-                                    {folderId === 'unfiled' ? 'Xoá tất cả từ vựng lẻ' : 'Xoá học phần'}
+                                    {folderId === 'unfiled' ? t('vocab.deleteAllUnfiled') : t('library.deleteSet')}
                                 </h3>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">Không thể hoàn tác.</p>
+                                <p className="text-sm text-gray-500 dark:text-gray-400">{t('common.cannotUndo')}</p>
                             </div>
                         </div>
                         <p className="text-gray-600 dark:text-gray-300">
                             {folderId === 'unfiled'
-                                ? <>Xoá vĩnh viễn <strong className="text-red-500">{setCards.length} từ vựng lẻ</strong>? Thao tác này không thể hoàn tác.</>
-                                : <>Xoá <strong>"{folder.name}"</strong>? Toàn bộ từ vựng trong học phần này cũng sẽ bị xoá vĩnh viễn.</>
+                                ? (language === 'vi' ? <>Xoá vĩnh viễn <strong className="text-red-500">{setCards.length} từ vựng lẻ</strong>? Thao tác này không thể hoàn tác.</> : <>Permanently delete <strong className="text-red-500">{setCards.length} unfiled cards</strong>? This cannot be undone.</>)
+                                : (language === 'vi' ? <>Xoá <strong>"{folder.name}"</strong>? Toàn bộ từ vựng trong học phần này cũng sẽ bị xoá vĩnh viễn.</> : <>Delete <strong>"{folder.name}"</strong>? All cards in this set will be permanently removed.</>)
                             }
                         </p>
                         <div className="flex gap-3">
-                            <button onClick={() => setShowDeleteConfirm(false)} className="flex-1 py-2.5 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors">Huỷ</button>
+                            <button onClick={() => setShowDeleteConfirm(false)} className="flex-1 py-2.5 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors">{t('common.cancel')}</button>
                             <button
                                 onClick={folderId === 'unfiled' ? handleDeleteUnfiledCards : handleDeleteFolder}
                                 className="flex-1 py-2.5 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl transition-colors"
-                            >Xoá</button>
+                            >{t('common.delete')}</button>
                         </div>
                     </div>
                 </div>
@@ -1817,23 +1818,23 @@ const StudySetDetail = ({
                             <div className="w-10 h-10 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center flex-shrink-0"><Trash2 className="w-5 h-5 text-red-500" /></div>
                             <div>
                                 <h3 className="font-bold text-lg text-gray-800 dark:text-white">
-                                    Xoá từ vựng
+                                    {t('vocab.deleteCard')}
                                 </h3>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">Không thể hoàn tác.</p>
+                                <p className="text-sm text-gray-500 dark:text-gray-400">{t('common.cannotUndo')}</p>
                             </div>
                         </div>
                         <p className="text-gray-600 dark:text-gray-300">
-                            Bạn có chắc chắn muốn xoá từ vựng <strong className="text-red-500">"{cardToDelete.front}"</strong> khỏi học phần này?
+                            {language === 'vi' ? <>Bạn có chắc chắn muốn xoá từ vựng <strong className="text-red-500">"{cardToDelete.front}"</strong> khỏi học phần này?</> : <>Are you sure you want to delete <strong className="text-red-500">"{cardToDelete.front}"</strong> from this set?</>}
                         </p>
                         <div className="flex gap-3">
-                            <button onClick={() => setCardToDelete(null)} className="flex-1 py-2.5 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors">Huỷ</button>
+                            <button onClick={() => setCardToDelete(null)} className="flex-1 py-2.5 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors">{t('common.cancel')}</button>
                             <button
                                 onClick={() => {
                                     onDeleteCard(cardToDelete.id, cardToDelete.front);
                                     setCardToDelete(null);
                                 }}
                                 className="flex-1 py-2.5 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl transition-colors"
-                            >Xoá</button>
+                            >{t('common.delete')}</button>
                         </div>
                     </div>
                 </div>
@@ -1850,10 +1851,10 @@ const StudySetDetail = ({
                             </div>
                             <div>
                                 <h3 className="font-bold text-base text-gray-800 dark:text-white">
-                                    Thêm Kanji vào ôn tập
+                                    {t('kanji.addKanjiToReview')}
                                 </h3>
                                 <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
-                                    Học phần: {folder.name}
+                                    {t('library.studySet')}: {folder.name}
                                 </p>
                             </div>
                         </div>
@@ -1861,19 +1862,19 @@ const StudySetDetail = ({
                         <div className="space-y-4">
                             <div className="grid grid-cols-2 gap-3 text-xs">
                                 <div className="p-3 bg-gray-50 dark:bg-slate-800/30 rounded-2xl border border-gray-100 dark:border-slate-700/50">
-                                    <span className="block text-gray-400 dark:text-gray-500 font-semibold mb-0.5">Tổng số Kanji</span>
-                                    <span className="text-base font-extrabold text-slate-700 dark:text-white">{kanjiPreviewModal.allExtractedCount} chữ</span>
+                                    <span className="block text-gray-400 dark:text-gray-500 font-semibold mb-0.5">{t('kanji.totalKanji')}</span>
+                                    <span className="text-base font-extrabold text-slate-700 dark:text-white">{kanjiPreviewModal.allExtractedCount} {t('kanji.charactersUnit')}</span>
                                 </div>
                                 <div className="p-3 bg-gray-50 dark:bg-slate-800/30 rounded-2xl border border-gray-150 dark:border-slate-700/50">
-                                    <span className="block text-gray-400 dark:text-gray-500 font-semibold mb-0.5">Đã học (Bỏ qua)</span>
-                                    <span className="text-base font-extrabold text-emerald-600 dark:text-emerald-450">{kanjiPreviewModal.existingCount} chữ</span>
+                                    <span className="block text-gray-400 dark:text-gray-500 font-semibold mb-0.5">{t('kanji.alreadyLearned')}</span>
+                                    <span className="text-base font-extrabold text-emerald-600 dark:text-emerald-450">{kanjiPreviewModal.existingCount} {t('kanji.charactersUnit')}</span>
                                 </div>
                             </div>
 
                             <div className="space-y-2">
                                 <div className="flex justify-between items-center text-xs">
                                     <span className="font-bold text-gray-550 dark:text-gray-400">
-                                        Chọn các chữ muốn thêm ({kanjiPreviewModal.selectedIds.size}/{kanjiPreviewModal.newKanji.length} chữ):
+                                        {t('kanji.selectCharactersToAdd')} ({kanjiPreviewModal.selectedIds.size}/{kanjiPreviewModal.newKanji.length} {t('kanji.charactersUnit')}):
                                     </span>
                                     <button 
                                         type="button"
@@ -1888,7 +1889,7 @@ const StudySetDetail = ({
                                         }}
                                         className="text-blue-600 dark:text-blue-400 hover:underline font-semibold cursor-pointer"
                                     >
-                                        {kanjiPreviewModal.selectedIds.size === kanjiPreviewModal.newKanji.length ? 'Bỏ chọn tất cả' : 'Chọn tất cả'}
+                                        {kanjiPreviewModal.selectedIds.size === kanjiPreviewModal.newKanji.length ? t('common.deselectAll') : t('common.selectAll')}
                                     </button>
                                 </div>
                                 <div className="flex flex-wrap gap-2.5 max-h-48 overflow-y-auto p-3.5 bg-slate-50 dark:bg-slate-900/40 rounded-2xl border border-gray-150 dark:border-slate-700/80 no-scrollbar">
@@ -1904,7 +1905,7 @@ const StudySetDetail = ({
                                                         ? 'bg-blue-50 border-blue-500 text-blue-600 dark:bg-blue-950/50 dark:border-blue-500 dark:text-blue-400 scale-100 ring-2 ring-blue-500/15'
                                                         : 'bg-white border-gray-200 text-gray-400 dark:bg-slate-800/60 dark:border-slate-700/60 opacity-40 line-through'
                                                 }`}
-                                                title={isSelected ? 'Click để bỏ chọn' : 'Click để chọn'}
+                                                title={isSelected ? t('kanji.clickToDeselect') : t('kanji.clickToSelect')}
                                             >
                                                 {k.character}
                                             </button>
@@ -1919,215 +1920,28 @@ const StudySetDetail = ({
                                 onClick={() => setKanjiPreviewModal(prev => ({ ...prev, isOpen: false }))} 
                                 className="flex-1 py-3 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-bold rounded-2xl hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors text-sm cursor-pointer"
                             >
-                                Huỷ
+                                {t('common.cancel')}
                             </button>
                             <button
                                 onClick={handleConfirmAddKanji}
                                 disabled={isAddingKanji || kanjiPreviewModal.selectedIds.size === 0}
                                 className="flex-1 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm shadow-md cursor-pointer"
                             >
-                                {isAddingKanji ? 'Đang lưu...' : `Xác nhận Lưu (${kanjiPreviewModal.selectedIds.size})`}
+                                {isAddingKanji ? t('common.saving') : `${t('common.confirmSave')} (${kanjiPreviewModal.selectedIds.size})`}
                             </button>
                         </div>
                     </div>
                 </div>
             )}
             {/* Flashcard Settings Modal */}
-            {showSettingsMenu && createPortal(
-                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4" onClick={() => setShowSettingsMenu(false)}>
-                    <div className="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
-                    <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl w-full max-w-sm p-6 space-y-4 border border-gray-200 dark:border-slate-700/80 animate-fade-in text-slate-850 dark:text-slate-200" onClick={e => e.stopPropagation()}>
-                        <h4 className="font-extrabold text-lg border-b border-gray-150 dark:border-slate-700 pb-2.5 mb-3">Cấu hình thẻ ghi nhớ</h4>
-                        <div className="space-y-4 text-xs font-semibold text-slate-600 dark:text-slate-300">
-                            <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                                <span className="text-blue-600 dark:text-blue-600 font-bold">Đổi mặt trước/mặt sau</span>
-                                <label className="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" checked={cardSettings.swapSides} onChange={(e) => setCardSettings(prev => ({ ...prev, swapSides: e.target.checked }))} className="sr-only peer" />
-                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
-                                </label>
-                            </div>
-                            <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                                <span className="text-blue-600 dark:text-blue-600 font-bold">Phát âm thanh từ vựng</span>
-                                <label className="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" checked={cardSettings.audioEnabled !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, audioEnabled: e.target.checked }))} className="sr-only peer" />
-                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
-                                </label>
-                            </div>
-                            <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                                <span className="text-blue-600 dark:text-blue-600 font-bold">Tự động phát âm thanh khi lật</span>
-                                <label className="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" checked={cardSettings.autoPlayAudio} onChange={(e) => setCardSettings(prev => ({ ...prev, autoPlayAudio: e.target.checked }))} className="sr-only peer" />
-                                    <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-blue-600"></div>
-                                </label>
-                            </div>
-                            {isKoreanMode ? (
-                                <>
-                                    <div>
-                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Hàn hiển thị:</p>
-                                        <div className="space-y-2.5 pl-1 text-[13px]">
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.front.word !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" />
-                                                <span>Từ vựng tiếng Hàn (Hangul)</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.front.reading !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" />
-                                                <span>Phiên âm Romaja</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" />
-                                                <span>Âm Hán Hàn</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.front.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" />
-                                                <span>Từ loại (Danh từ, Động từ...)</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
-                                        <div className="space-y-2.5 pl-1 text-[13px]">
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.meaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" />
-                                                <span>Nghĩa tiếng Việt</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.reading !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" />
-                                                <span>Phiên âm Romaja</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" />
-                                                <span>Âm Hán Hàn</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" />
-                                                <span>Từ loại (Danh từ, Động từ...)</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-500 w-4 h-4" />
-                                                <span>Từ đồng nghĩa / Trái nghĩa</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-500 w-4 h-4" />
-                                                <span>Hình ảnh minh họa</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-500 w-4 h-4" />
-                                                <span>Câu ví dụ</span>
-                                            </label>
-                                            {cardSettings.back.example && (
-                                                <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
-                                                    <label className="flex items-center gap-2 cursor-pointer">
-                                                        <input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-500 w-4 h-4" />
-                                                        <span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span>
-                                                    </label>
-                                                </div>
-                                            )}
-                                        </div>
-                                    </div>
-                                </>
-                            ) : isEnglishMode ? (
-                                <>
-                                    <div>
-                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Anh hiển thị:</p>
-                                        <div className="space-y-2.5 pl-1 text-[13px]">
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.front.word !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" />
-                                                <span>Từ vựng tiếng Anh</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.front.ipa !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, ipa: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" />
-                                                <span>Phiên âm quốc tế IPA</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.front.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" />
-                                                <span>Từ loại (Noun, Verb...)</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
-                                        <div className="space-y-2.5 pl-1 text-[13px]">
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.meaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" />
-                                                <span>Nghĩa tiếng Việt</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.ipa !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, ipa: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" />
-                                                <span>Phiên âm quốc tế IPA</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.pos !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, pos: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" />
-                                                <span>Từ loại (Noun, Verb...)</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-500 w-4 h-4" />
-                                                <span>Từ đồng nghĩa / Trái nghĩa</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-500 w-4 h-4" />
-                                                <span>Hình ảnh minh họa</span>
-                                            </label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer">
-                                                <input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-500 w-4 h-4" />
-                                                <span>Câu ví dụ</span>
-                                            </label>
-                                            {cardSettings.back.example && (
-                                                <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
-                                                    <label className="flex items-center gap-2 cursor-pointer">
-                                                        <input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-500 w-4 h-4" />
-                                                        <span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span>
-                                                    </label>
-                                                </div>
-                                            )}
-                                        </div>
-                                    </div>
-                                </>
-                            ) : (
-                                <>
-                                    <div>
-                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt tiếng Nhật hiển thị:</p>
-                                        <div className="space-y-2.5 pl-1 text-[13px]">
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.word} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" /><span>Chữ Hán / Từ vựng</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.furigana} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, furigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" /><span>Phiên âm Furigana</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.front.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" /><span>Âm Hán Việt</span></label>
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <p className="text-gray-400 dark:text-gray-500 uppercase tracking-wider mb-2 text-[10px]">Mặt nghĩa dịch hiển thị:</p>
-                                        <div className="space-y-2.5 pl-1 text-[13px]">
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.meaning} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" /><span>Nghĩa tiếng Việt</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.furigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, furigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" /><span>Phiên âm Furigana</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.reading} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" /><span>Cách đọc (Hiragana)</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.pitchAccent !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, pitchAccent: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" /><span>Hiển thị cao độ (Pitch Accent)</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.hanviet} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" /><span>Âm Hán Việt</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonym} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-500 w-4 h-4" /><span>Đồng nghĩa</span></label>
-                                            {cardSettings.back.synonym && (
-                                                <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
-                                                    <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.synonymFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonymFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-600 focus:ring-blue-500 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Furigana đồng nghĩa</span></label>
-                                                </div>
-                                            )}
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.image !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-500 w-4 h-4" /><span>Hình ảnh minh họa</span></label>
-                                            <label className="flex items-center gap-2.5 cursor-pointer"><input type="checkbox" checked={cardSettings.back.example} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-500 w-4 h-4" /><span>Ví dụ</span></label>
-                                            {cardSettings.back.example && (
-                                                <div className="pl-6 space-y-2 border-l border-gray-200 dark:border-slate-700 mt-1">
-                                                    <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleFurigana !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleFurigana: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-500 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Furigana ví dụ</span></label>
-                                                    <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={cardSettings.back.exampleMeaning !== false} onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))} className="rounded border-gray-300 dark:border-slate-700 text-blue-600 dark:text-blue-500 w-4 h-4" /><span className="text-gray-500 dark:text-gray-400">Dịch câu ví dụ</span></label>
-                                                </div>
-                                            )}
-                                        </div>
-                                    </div>
-                                </>
-                            )}
-                        </div>
-                        <div className="pt-3">
-                            <button onClick={() => setShowSettingsMenu(false)} className="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all shadow-md active:scale-95 text-sm">
-                                Đóng
-                            </button>
-                        </div>
-                    </div>
-                </div>,
-                document.body
-            )}
+            <VocabCardSettingsModal
+                isOpen={showSettingsMenu}
+                onClose={() => setShowSettingsMenu(false)}
+                cardSettings={cardSettings}
+                setCardSettings={setCardSettings}
+                isKoreanMode={isKoreanMode}
+                isEnglishMode={isEnglishMode}
+            />
 
             {editingCard && (
                 <EditCardModal

@@ -251,7 +251,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
         return (
             <div className="w-full pb-8">
                 <TopTabBar tabs={GRAMMAR_TABS} />
-                <div className="animate-fade-in text-center p-8 text-slate-500">Đang tải...</div>
+                <div className="animate-fade-in text-center p-8 text-slate-500">{t('grammar.loading', 'Đang tải...')}</div>
             </div>
         );
     }
@@ -259,7 +259,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
         return (
             <div className="w-full pb-8">
                 <TopTabBar tabs={GRAMMAR_TABS} />
-                <div className="animate-fade-in text-center p-8 text-slate-500">Không tìm thấy ngữ pháp.</div>
+                <div className="animate-fade-in text-center p-8 text-slate-500">{t('grammar.notFound', 'Không tìm thấy ngữ pháp.')}</div>
             </div>
         );
     }
@@ -790,7 +790,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                         <span className="w-7 h-7 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200/70 dark:border-indigo-800/70 flex items-center justify-center shrink-0 shadow-2xs">
                                             <Layers className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
                                         </span>
-                                        <span>Cấu trúc</span>
+                                        <span>{t('grammar.structure', 'Cấu trúc')}</span>
                                     </h2>
                                     <button
                                         type="button"
@@ -818,7 +818,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                     <span className="w-7 h-7 rounded-xl bg-sky-50 dark:bg-sky-950/60 border border-sky-200/70 dark:border-sky-800/70 flex items-center justify-center shrink-0 shadow-2xs">
                                         <BookOpen className="w-3.5 h-3.5 text-[#1d70b8] dark:text-sky-400" />
                                     </span>
-                                    <span>Giải thích</span>
+                                    <span>{t('grammar.explanation', 'Giải thích')}</span>
                                 </h2>
                                 <div className="space-y-3 pl-0.5 text-slate-700 dark:text-slate-200 text-sm md:text-[15px] leading-relaxed">
                                     {gp.meaningFull.split(/\n\s*\n/).filter(Boolean).map((para, pIdx) => {
@@ -845,7 +845,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                     <span className="w-7 h-7 rounded-xl bg-amber-50 dark:bg-amber-950/60 border border-amber-200/70 dark:border-amber-800/70 flex items-center justify-center shrink-0 shadow-2xs">
                                         <Lightbulb className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
                                     </span>
-                                    <span>Chú ý</span>
+                                    <span>{t('grammar.notes', 'Chú ý')}</span>
                                 </h2>
                                 <div className="space-y-2.5 w-full pl-0.5">
                                     {validTips.map((tip, idx) => (
@@ -865,7 +865,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                     <span className="w-7 h-7 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/70 dark:border-emerald-800/70 flex items-center justify-center shrink-0 shadow-2xs">
                                         <MessageSquare className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                                     </span>
-                                    <span>Ví dụ</span>
+                                    <span>{t('grammar.examples', 'Ví dụ')}</span>
                                 </h2>
                                 <div className="space-y-2.5 w-full">
                                     {normalizedExamples.map((ex, i) => (
@@ -943,7 +943,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                 onClick={handleNextClick}
                                 className="bg-[#1d70b8] hover:bg-[#155b96] text-white font-bold rounded-2xl px-10 py-3.5 shadow-md flex items-center justify-center gap-2 cursor-pointer transition-all hover:scale-[1.02] active:scale-[0.98] text-sm"
                             >
-                                {nextGp ? 'HOÀN THÀNH & TIẾP TỤC' : 'HOÀN THÀNH BÀI HỌC'}
+                                {nextGp ? t('grammar.finishAndContinue', 'HOÀN THÀNH & TIẾP TỤC') : t('grammar.finishLesson', 'HOÀN THÀNH BÀI HỌC')}
                                 <ChevronRight className="w-4 h-4" />
                             </button>
                         </div>
@@ -961,9 +961,9 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                         </div>
 
                         <div className="space-y-2">
-                            <h2 className="text-2xl font-bold text-slate-800 dark:text-white">Tuyệt vời! 🎉</h2>
+                            <h2 className="text-2xl font-bold text-slate-800 dark:text-white">{t('grammar.awesome', 'Tuyệt vời! 🎉')}</h2>
                             <p className="text-sm text-slate-500 dark:text-slate-400">
-                                Bạn đã hoàn thành việc học toàn bộ mẫu câu ngữ pháp trong bài học này!
+                                {t('grammar.completedAllLessonPatterns', 'Bạn đã hoàn thành việc học toàn bộ mẫu câu ngữ pháp trong bài học này!')}
                             </p>
                         </div>
 
@@ -984,7 +984,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                     }}
                                     className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl flex items-center justify-center gap-2 cursor-pointer transition-colors shadow-sm text-sm"
                                 >
-                                    <PenTool className="w-4 h-4" /> Luyện tập bài tập ({totalExercises} câu)
+                                    <PenTool className="w-4 h-4" /> {t('grammar.practiceExercisesCount', 'Luyện tập bài tập ({count} câu)').replace('{count}', totalExercises)}
                                 </button>
                             ) : (
                                 <button
@@ -994,7 +994,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                     }}
                                     className="w-full py-3 bg-indigo-655 hover:bg-indigo-755 text-white font-bold rounded-xl flex items-center justify-center gap-2 cursor-pointer transition-colors shadow-sm text-sm"
                                 >
-                                    <PenTool className="w-4 h-4" /> Luyện tập bài tập ngay
+                                    <PenTool className="w-4 h-4" /> {t('grammar.practiceExercisesNow', 'Luyện tập bài tập ngay')}
                                 </button>
                             )}
 

@@ -146,17 +146,17 @@ export const getNextReviewDate = (intervalIndex) => {
 };
 
 // Get SRS progress text - with ease info
-export const getSrsProgressText = (intervalIndex, ease, currentInterval, state) => {
+export const getSrsProgressText = (intervalIndex, ease, currentInterval, state, t) => {
     const resolvedState = state || (intervalIndex === -1 ? 'NEW' : (intervalIndex >= 2 ? 'REVIEW' : 'LEARNING'));
 
-    if (resolvedState === 'NEW') return 'Mới';
-    if (resolvedState === 'LEARNING') return 'Đang học';
-    if (resolvedState === 'RELEARNING') return 'Học lại';
+    if (resolvedState === 'NEW') return t ? t('srs.new', 'Mới') : 'Mới';
+    if (resolvedState === 'LEARNING') return t ? t('srs.learning', 'Đang học') : 'Đang học';
+    if (resolvedState === 'RELEARNING') return t ? t('srs.relearning', 'Học lại') : 'Học lại';
 
     // REVIEW state
     const days = currentInterval || 1;
-    if (days >= 21) return 'Thuộc'; // Mastered threshold
-    return `${days} ngày`;
+    if (days >= 21) return t ? t('srs.mastered', 'Thuộc') : 'Thuộc';
+    return t ? `${days} ${t('common.daysUnit', 'ngày')}` : `${days} ngày`;
 };
 
 // Safely parse nextReview timestamp to milliseconds since epoch
@@ -294,7 +294,7 @@ const getSrsBadgeColor = (intervalIndex, currentInterval, state) => {
 };
 
 // Format countdown: if < 24 hours show HH:MM:SS, if >= 1 day show "X days"
-export const formatCountdown = (targetTimestamp) => {
+export const formatCountdown = (targetTimestamp, t) => {
     const diff = targetTimestamp - Date.now();
     if (diff <= 0) return null;
 
@@ -302,7 +302,7 @@ export const formatCountdown = (targetTimestamp) => {
     const days = Math.floor(totalSeconds / 86400);
 
     if (days >= 1) {
-        return { text: `${days} ngày`, isCountdown: false };
+        return { text: t ? `${days} ${t('common.daysUnit', 'ngày')}` : `${days} ngày`, isCountdown: false };
     }
 
     const hours = Math.floor(totalSeconds / 3600);
@@ -786,6 +786,7 @@ export const calculateSrsForecast = (itemsList = [], daysCount = 14, nowMs = Dat
         const dateString = `${targetDate.getDate()}/${targetDate.getMonth() + 1}`;
         return {
             dayOffset: i,
+            dayIndex: targetDate.getDay(),
             dayLabel,
             dateString,
             count: 0,

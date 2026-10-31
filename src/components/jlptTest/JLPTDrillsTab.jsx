@@ -173,7 +173,7 @@ const JLPTDrillsTab = ({
                                 <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
                                     61 bài phản xạ ngữ pháp
                                 </span>
-                                <span className="px-3 py-1 rounded-xl bg-[#f494bc] group-hover:bg-[#f6a0c5] text-slate-950 font-black text-xs flex items-center gap-1 shadow-[0_3px_10px_rgba(244,148,188,0.35)] transition-all">
+                                <span className="px-3 py-1.5 rounded-2xl bg-emerald-500 group-hover:bg-emerald-400 border-b-2 border-emerald-700 text-white font-black text-xs uppercase tracking-wider flex items-center gap-1 transition-all select-none">
                                     <span>Luyện phản xạ</span>
                                     <ArrowRight className="w-3.5 h-3.5" />
                                 </span>
@@ -189,7 +189,7 @@ const JLPTDrillsTab = ({
                     <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl max-w-xl w-full shadow-2xl overflow-hidden flex flex-col max-h-[92vh]">
                         
                         {/* Modal Header */}
-                        <div className="p-4 sm:p-5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-gradient-to-r from-amber-50/70 via-white to-orange-50/70 dark:from-slate-900 dark:to-slate-900">
+                        <div className="p-4 sm:p-5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-slate-50 dark:bg-slate-900">
                             <div>
                                 <div className="flex items-center gap-2">
                                     <span className="px-2.5 py-0.5 rounded-lg text-[10px] font-black uppercase bg-amber-100 text-amber-700 dark:bg-amber-950/60 dark:text-amber-400">
@@ -217,9 +217,9 @@ const JLPTDrillsTab = ({
                         <div className="flex items-center gap-2 px-5 py-2 border-b border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-950/30">
                             <button
                                 onClick={() => setModalTab('cards')}
-                                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+                                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer select-none ${
                                     modalTab === 'cards'
-                                        ? 'bg-[#f494bc] text-slate-950 font-black shadow-xs'
+                                        ? 'bg-emerald-500 text-white font-black border-b-2 border-emerald-700'
                                         : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'
                                 }`}
                             >
@@ -230,9 +230,9 @@ const JLPTDrillsTab = ({
                             {activeDrillModal.know && activeDrillModal.know.length > 0 && (
                                 <button
                                     onClick={() => setModalTab('know')}
-                                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
+                                    className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer select-none ${
                                         modalTab === 'know'
-                                            ? 'bg-[#f494bc] text-slate-950 font-black shadow-xs'
+                                            ? 'bg-emerald-500 text-white font-black border-b-2 border-emerald-700'
                                             : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-800'
                                     }`}
                                 >

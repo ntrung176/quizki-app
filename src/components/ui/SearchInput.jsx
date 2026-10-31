@@ -1,8 +1,10 @@
 import React, { useRef, useCallback, useEffect } from 'react';
 import { Search } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
 // SearchInput - Uncontrolled input to prevent re-renders
 const SearchInput = React.memo(({ defaultValue, onSearchChange, placeholder }) => {
+    const { t } = useLanguage();
     const inputRef = useRef(null);
     const lastDefaultValueRef = useRef(defaultValue);
 
@@ -37,7 +39,7 @@ const SearchInput = React.memo(({ defaultValue, onSearchChange, placeholder }) =
             <input
                 ref={inputRef}
                 type="text"
-                placeholder={placeholder || "Tìm kiếm từ vựng (Enter để tìm)..."}
+                placeholder={placeholder || t('common.searchVocabPlaceholder', 'Tìm kiếm từ vựng (Enter để tìm)...')}
                 defaultValue={defaultValue}
                 onKeyDown={handleKeyDown}
                 className="w-full pl-10 pr-4 py-2 md:py-2.5 text-sm md:text-base border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-transparent bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"

@@ -434,7 +434,7 @@ const LessonDetailView = ({
                                     <button
                                         onClick={handleUpdateLessonExamples}
                                         disabled={isUpdatingExamples}
-                                        className="flex items-center gap-1.5 px-3.5 py-2 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 disabled:opacity-50 text-white rounded-xl text-xs font-bold transition-all shadow-md hover:shadow-lg cursor-pointer"
+                                        className="flex items-center gap-1.5 px-3.5 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border-b-2 border-slate-300 dark:border-slate-700 disabled:opacity-50 rounded-xl text-xs font-bold transition-all cursor-pointer"
                                         title={`Có ${exampleUpdateStatus.count} từ vựng đã được bổ sung câu ví dụ mới trong bài học. Nhấn để cập nhật vào học phần.`}
                                     >
                                         <Sparkles className={`w-3.5 h-3.5 ${isUpdatingExamples ? 'animate-spin' : ''}`} />
@@ -454,9 +454,10 @@ const LessonDetailView = ({
                                 )}
                                 <button
                                     onClick={() => navigate(`/vocab/set/${linkedStudySet.id}`)}
-                                    className="flex items-center gap-1.5 px-4 py-2 bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-600 text-white rounded-xl text-xs font-extrabold transition-all shadow-md hover:shadow-lg cursor-pointer"
+                                    className="flex items-center gap-2 px-5 py-2.5 bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white rounded-2xl text-xs font-black uppercase tracking-wider transition-all shadow-xs cursor-pointer select-none"
                                 >
-                                    Học Ngay 🚀
+                                    <span>Học ngay</span>
+                                    <ArrowRight className="w-4 h-4 stroke-[2.5]" />
                                 </button>
                                 <div className="relative group">
                                     <button className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all border border-slate-200 dark:border-slate-700 cursor-pointer">
@@ -492,7 +493,7 @@ const LessonDetailView = ({
                                     <button
                                         onClick={handleUpdateLessonExamples}
                                         disabled={isUpdatingExamples}
-                                        className="flex items-center gap-1.5 px-3.5 py-2 bg-gradient-to-r from-emerald-500 to-teal-500 hover:from-emerald-600 hover:to-teal-600 disabled:opacity-50 text-white rounded-xl text-xs font-bold transition-all shadow-md hover:shadow-lg cursor-pointer"
+                                        className="flex items-center gap-1.5 px-3.5 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border-b-2 border-slate-300 dark:border-slate-700 disabled:opacity-50 rounded-xl text-xs font-bold transition-all cursor-pointer"
                                         title={`Có ${exampleUpdateStatus.count} từ vựng bạn đã lưu trước đây có câu ví dụ mới. Nhấn để cập nhật.`}
                                     >
                                         <Sparkles className={`w-3.5 h-3.5 ${isUpdatingExamples ? 'animate-spin' : ''}`} />
@@ -509,9 +510,9 @@ const LessonDetailView = ({
                                         setSelectedVocabIndices(new Set(vocab.map((_, i) => i)));
                                         setShowCreateStudySetModal(true);
                                     }}
-                                    className="flex items-center gap-1.5 px-4 py-2 bg-sky-500 hover:bg-sky-600 text-white rounded-xl text-xs font-bold transition-all shadow-md cursor-pointer"
+                                    className="flex items-center gap-1.5 px-4 py-2.5 bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white rounded-2xl text-xs font-black uppercase tracking-wider transition-all shadow-xs cursor-pointer select-none"
                                 >
-                                    <Plus className="w-3.5 h-3.5" /> Tạo học phần mới
+                                    <Plus className="w-3.5 h-3.5 stroke-[3]" /> Tạo học phần mới
                                 </button>
                                 <button
                                     onClick={() => {

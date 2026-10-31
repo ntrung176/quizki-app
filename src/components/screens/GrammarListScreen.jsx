@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { Search, Filter, Heart, BookOpen, ExternalLink, Trash2, CheckSquare, Square, ListChecks, X, Check, FileJson, Plus, Loader2 } from 'lucide-react';
@@ -127,6 +128,7 @@ const LEVEL_BORDER_COLORS = {
 };
 
 const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
+    const { t } = useLanguage();
     const user = getAuth().currentUser;
     const userId = user?.uid;
     const navigate = useNavigate();
@@ -512,7 +514,7 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
                 <div className="bg-white dark:bg-slate-800 rounded-3xl p-4 sm:p-6 shadow-sm border border-gray-200/60 dark:border-slate-700/60 flex flex-col md:flex-row items-center justify-between gap-4">
                     <div className="space-y-1 text-center md:text-left w-full md:w-auto">
                         <h2 className="text-base sm:text-lg font-extrabold text-gray-800 dark:text-white flex items-center justify-center md:justify-start gap-2 flex-wrap">
-                            <span>Tra cứu cấu trúc Ngữ pháp</span>
+                            <span>{t('grammar.lookupTitle', 'Tra cứu cấu trúc Ngữ pháp')}</span>
                             {isAdmin && (
                                 <div className="flex items-center gap-2">
                                     <button
@@ -543,7 +545,7 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
                             )}
                         </h2>
                         <p className="text-xs text-gray-400 dark:text-gray-500">
-                            Tìm kiếm qua các mẫu câu, dịch nghĩa hoặc cấu trúc trên toàn bộ các cấp độ JLPT.
+                            {t('grammar.lookupSubtitle', 'Tìm kiếm qua các mẫu câu, dịch nghĩa hoặc cấu trúc trên toàn bộ các cấp độ JLPT.')}
                         </p>
                     </div>
 
@@ -553,7 +555,7 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
                             type="text"
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
-                            placeholder="Nhập mẫu câu hoặc nghĩa..."
+                            placeholder={t('grammar.searchPlaceholder', 'Nhập mẫu câu hoặc nghĩa...')}
                             className="w-full pl-10 pr-10 py-2.5 sm:py-3 text-xs sm:text-sm bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-750 rounded-2xl outline-none text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all shadow-xs"
                         />
                         {searchQuery && (
@@ -578,11 +580,11 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
                                 className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-indigo-800 hover:bg-indigo-700 text-xs text-indigo-100 border border-indigo-600 transition-colors"
                             >
                                 {selectedGrammarIds.size === filteredGrammar.length ? <CheckSquare className="w-4 h-4 text-cyan-400" /> : <Square className="w-4 h-4" />}
-                                <span>{selectedGrammarIds.size === filteredGrammar.length ? 'Bỏ chọn tất cả' : 'Chọn tất cả trong trang'}</span>
+                                <span>{selectedGrammarIds.size === filteredGrammar.length ? t('grammar.deselectAll', 'Bỏ chọn tất cả') : t('grammar.selectAll', 'Chọn tất cả trong trang')}</span>
                             </button>
 
                             <span className="text-xs text-indigo-200">
-                                Đã chọn <strong className="text-white text-sm font-black font-mono">{selectedGrammarIds.size}</strong> / {filteredGrammar.length} mục
+                                {t('grammar.selectedCount', 'Đã chọn {count} / {total} mục').replace('{count}', selectedGrammarIds.size).replace('{total}', filteredGrammar.length)}
                             </span>
                         </div>
 
@@ -593,7 +595,7 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
                                 className="px-4 py-2 bg-rose-600 hover:bg-rose-500 disabled:opacity-50 text-white text-xs font-black rounded-xl flex items-center gap-1.5 shadow-md transition-all cursor-pointer"
                             >
                                 <Trash2 className="w-4 h-4" />
-                                <span>Xóa {selectedGrammarIds.size > 0 ? `${selectedGrammarIds.size} mục đã chọn` : 'mục đã chọn'}</span>
+                                <span>{t('grammar.deleteSelected', 'Xóa {count} mục đã chọn').replace('{count}', selectedGrammarIds.size > 0 ? selectedGrammarIds.size : '')}</span>
                             </button>
 
                             <button
@@ -686,7 +688,7 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
                                                     <button
                                                         onClick={(e) => toggleBookmark(e, gp)}
                                                         className={`p-2 rounded-xl border transition-all duration-200 active:scale-95 ${isBookmarked ? 'bg-pink-50 dark:bg-pink-950/40 border-pink-200/60 text-pink-500 dark:text-pink-400' : 'bg-slate-50 dark:bg-slate-900 border-slate-200/80 dark:border-slate-750 text-slate-400 hover:text-pink-500'}`}
-                                                        title="Lưu ôn tập (SRS)"
+                                                        title={t('grammar.saveSrs', 'Lưu ôn tập (SRS)')}
                                                     >
                                                         <Heart className={`w-4 h-4 ${isBookmarked ? 'fill-pink-500 text-pink-500' : ''}`} />
                                                     </button>
@@ -704,7 +706,7 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
                                                 </span>
                                                 <div className="flex items-center gap-1.5 text-[10px] text-slate-400 dark:text-slate-400 font-bold uppercase tracking-wider">
                                                     <BookOpen className="w-3.5 h-3.5 text-indigo-500" />
-                                                    <span className="truncate max-w-[140px] sm:max-w-[200px]">{gp.textbookTitle || 'Kho ngữ pháp gốc'}</span>
+                                                    <span className="truncate max-w-[140px] sm:max-w-[200px]">{gp.textbookTitle || t('grammar.defaultKho', 'Kho ngữ pháp gốc')}</span>
                                                 </div>
                                             </div>
 
@@ -729,10 +731,10 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
                                     onClick={() => setVisibleCount(prev => prev + 36)}
                                     className="px-6 py-2.5 rounded-2xl bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 text-indigo-600 dark:text-indigo-400 font-bold text-xs sm:text-sm border border-indigo-200 dark:border-indigo-800 transition-all shadow-sm active:scale-95 cursor-pointer"
                                 >
-                                    Hiển thị thêm {Math.min(36, filteredGrammar.length - visibleCount)} / {filteredGrammar.length - visibleCount} mẫu ngữ pháp còn lại
+                                    {t('grammar.loadMore', 'Hiển thị thêm {count} / {remaining} mẫu ngữ pháp còn lại').replace('{count}', Math.min(36, filteredGrammar.length - visibleCount)).replace('{remaining}', filteredGrammar.length - visibleCount)}
                                 </button>
                                 <span className="text-[11px] text-slate-400 font-medium">
-                                    Đang hiển thị {visibleGrammar.length} trên tổng số {filteredGrammar.length} kết quả
+                                    {t('grammar.showingResults', 'Đang hiển thị {visible} trên tổng số {total} kết quả').replace('{visible}', visibleGrammar.length).replace('{total}', filteredGrammar.length)}
                                 </span>
                             </div>
                         )}
@@ -741,9 +743,9 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
                     <div className="bg-white dark:bg-slate-800 rounded-3xl p-16 shadow-sm border border-gray-200/60 dark:border-slate-700/60 text-center space-y-4">
                         <Heart className="w-12 h-12 text-slate-300 dark:text-slate-600 mx-auto" />
                         <div className="space-y-1">
-                            <h3 className="font-extrabold text-slate-700 dark:text-slate-300 text-base">Không tìm thấy mẫu ngữ pháp nào</h3>
+                            <h3 className="font-extrabold text-slate-700 dark:text-slate-300 text-base">{t('grammar.noResultsTitle', 'Không tìm thấy mẫu ngữ pháp nào')}</h3>
                             <p className="text-xs text-slate-400 max-w-sm mx-auto leading-relaxed">
-                                Hãy thử tìm kiếm bằng một từ khoá khác hoặc lọc các cấp độ JLPT khác.
+                                {t('grammar.noResultsSubtitle', 'Hãy thử tìm kiếm bằng một từ khoá khác hoặc lọc các cấp độ JLPT khác.')}
                             </p>
                         </div>
                     </div>
@@ -887,7 +889,7 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
             <PremiumLockedModal
                 isOpen={showPremiumModal}
                 onClose={() => setShowPremiumModal(false)}
-                packageName="Thư viện Ngữ pháp Chuyên sâu"
+                packageName={t('grammar.zenPackageName', 'Thư viện Ngữ pháp Chuyên sâu')}
             />
         </div>
     );

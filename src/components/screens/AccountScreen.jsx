@@ -5,8 +5,10 @@ import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../router';
 import { XpTestingPanelModal } from '../ui';
 import { showToast } from '../../utils/toast';
+import { useLanguage } from '../../context/LanguageContext';
 
 const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword, onBack, publicStatsPath, currentUserId, isAdmin = false }) => {
+    const { t } = useLanguage();
     const [showXpTestModal, setShowXpTestModal] = useState(false);
     const navigate = useNavigate();
     const isPremiumUser = (profile?.unlockedSpecializedPackages && (
@@ -21,18 +23,18 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
     )) || false;
 
     const getActivePackageName = () => {
-        if (!profile?.isPremiumUnlocked) return 'Thành viên Free';
+        if (!profile?.isPremiumUnlocked) return t('account.freeMember', 'Free Member');
         const packages = profile.unlockedSpecializedPackages || [];
-        if (packages.includes('premium_3y')) return 'Premium 3 Năm';
-        if (packages.includes('premium_1y')) return 'Premium 1 Năm';
-        if (packages.includes('premium_1m')) return 'Premium 1 Tháng';
+        if (packages.includes('premium_3y')) return t('account.premium3y', 'Premium 3 Năm');
+        if (packages.includes('premium_1y')) return t('account.premium1y', 'Premium 1 Năm');
+        if (packages.includes('premium_1m')) return t('account.premium1m', 'Premium 1 Tháng');
         if (packages.includes('premium')) return 'Premium';
         
         const zenPkgs = [];
-        if (packages.includes('vocab_zen')) zenPkgs.push('Từ vựng Zen');
-        if (packages.includes('grammar_zen')) zenPkgs.push('Ngữ pháp Zen');
-        if (packages.includes('kanji_zen')) zenPkgs.push('Kanji Zen');
-        if (packages.includes('jlpt_prep')) zenPkgs.push('Luyện thi JLPT');
+        if (packages.includes('vocab_zen')) zenPkgs.push(t('account.vocabZen', 'Từ vựng Zen'));
+        if (packages.includes('grammar_zen')) zenPkgs.push(t('account.grammarZen', 'Ngữ pháp Zen'));
+        if (packages.includes('kanji_zen')) zenPkgs.push(t('account.kanjiZen', 'Kanji Zen'));
+        if (packages.includes('jlpt_prep')) zenPkgs.push(t('account.jlptPrep', 'Luyện thi JLPT'));
         if (zenPkgs.length > 0) return `Zen (${zenPkgs.join(', ')})`;
         return 'Premium';
     };
@@ -94,7 +96,7 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
         setError('');
         setMessage('');
         if (!newDisplayName.trim()) {
-            setError('Tên hiển thị không được để trống.');
+            setError(t('account.nameEmpty', 'Tên hiển thị không được để trống.'));
             return;
         }
         try {
@@ -109,7 +111,7 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                     if (!snap.empty) {
                         const conflict = snap.docs.find(d => d.id !== currentUserId);
                         if (conflict) {
-                            setError('Tên hiển thị này đã được sử dụng. Vui lòng chọn tên khác.');
+                            setError(t('account.nameTaken', 'Tên hiển thị này đã được sử dụng. Vui lòng chọn tên khác.'));
                             return;
                         }
                     }
@@ -119,10 +121,10 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
             }
 
             await onUpdateProfileName(newDisplayName.trim());
-            setMessage('Đã cập nhật tên hiển thị.');
+            setMessage(t('account.nameUpdated', 'Đã cập nhật tên hiển thị.'));
         } catch (e) {
             console.error('Lỗi cập nhật tên:', e);
-            setError('Không thể cập nhật tên hiển thị. Vui lòng thử lại.');
+            setError(t('account.nameUpdateFailed', 'Không thể cập nhật tên hiển thị. Vui lòng thử lại.'));
         }
     };
 
@@ -130,27 +132,27 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
         setError('');
         setMessage('');
         if (!newPassword || newPassword.length < 6) {
-            setError('Mật khẩu mới phải có ít nhất 6 ký tự.');
+            setError(t('account.passwordMin6', 'Mật khẩu mới phải có ít nhất 6 ký tự.'));
             return;
         }
         if (newPassword !== confirmNewPassword) {
-            setError('Mật khẩu xác nhận không khớp.');
+            setError(t('account.passwordMismatch', 'Mật khẩu xác nhận không khớp.'));
             return;
         }
         try {
             await onChangePassword(currentPassword, newPassword);
-            setMessage('Đã cập nhật mật khẩu. Lần sau hãy dùng mật khẩu mới để đăng nhập.');
+            setMessage(t('account.passwordUpdated', 'Đã cập nhật mật khẩu. Lần sau hãy dùng mật khẩu mới để đăng nhập.'));
             setCurrentPassword('');
             setNewPassword('');
             setConfirmNewPassword('');
         } catch (e) {
             console.error('Lỗi đổi mật khẩu:', e);
             if (e.code === 'auth/wrong-password' || e.code === 'auth/invalid-credential') {
-                setError('Mật khẩu hiện tại không đúng.');
+                setError(t('account.passwordIncorrect', 'Mật khẩu hiện tại không đúng.'));
             } else if (e.code === 'auth/requires-recent-login') {
-                setError('Vì lý do bảo mật, bạn cần đăng xuất và đăng nhập lại trước khi tạo/đổi mật khẩu.');
+                setError(t('account.passwordReauthRequired', 'Vì lý do bảo mật, bạn cần đăng xuất và đăng nhập lại trước khi tạo/đổi mật khẩu.'));
             } else {
-                setError('Không thể đổi mật khẩu: ' + (e.message || 'Lỗi không xác định'));
+                setError(t('account.passwordUpdateFailed', 'Could not change password: ') + (e.message || ''));
             }
         }
     };
@@ -172,17 +174,17 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
             const { submitReferralCode } = await import('../../utils/referralService');
             const res = await submitReferralCode(currentUserId, profile?.displayName, enteredCode);
             if (res.success) {
-                setSuccessMsg(`Nhập mã giới thiệu thành công! Bạn đã được nhận ngay 1 tháng Premium miễn phí.`);
+                setSuccessMsg(t('account.referralSuccess', 'Nhập mã giới thiệu thành công! Bạn đã được nhận ngay 1 tháng Premium miễn phí.'));
                 setEnteredCode('');
                 // Fetch stats again
                 const { getReferralStats } = await import('../../utils/referralService');
                 const stats = await getReferralStats(currentUserId);
                 setRefStats(stats);
             } else {
-                setErrorMsg(res.error || 'Có lỗi xảy ra.');
+                setErrorMsg(res.error || t('common.error', 'Error'));
             }
         } catch (e) {
-            setErrorMsg(e.message || 'Lỗi kết nối khi gửi mã.');
+            setErrorMsg(e.message || t('common.error', 'Error'));
         } finally {
             setSubmitLoading(false);
         }
@@ -192,16 +194,16 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
         <div className="space-y-8 pb-12">
             <div className="flex items-center justify-between pb-4 border-b border-gray-100 dark:border-gray-700">
                 <div>
-                    <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">Tài khoản của bạn</h2>
-                    <p className="text-gray-500 dark:text-gray-400 text-sm">Quản lý thông tin cá nhân và bảo mật</p>
+                    <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">{t('account.title', 'Tài khoản của bạn')}</h2>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">{t('account.subtitle', 'Quản lý thông tin cá nhân và bảo mật')}</p>
                 </div>
                 <div className="flex items-center gap-2">
                     {isAdmin && (
                         <button
                             onClick={() => setShowXpTestModal(true)}
-                            className="flex items-center gap-1.5 px-3 py-2 bg-gradient-to-r from-amber-500 to-indigo-600 hover:from-amber-600 hover:to-indigo-700 text-white font-bold rounded-xl text-xs shadow-md transition-all active:scale-95 cursor-pointer"
+                            className="flex items-center gap-1.5 px-3 py-2 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl text-xs transition-all active:scale-95 cursor-pointer"
                         >
-                            🧪 Bảng Test XP
+                            {t('account.xpTestPanel', '🧪 Bảng Test XP')}
                         </button>
                     )}
                     <div className="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
@@ -223,7 +225,7 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                     <div className="space-y-3">
                         <div>
-                            <h3 className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider font-semibold">Thông tin gói học tập</h3>
+                            <h3 className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider font-semibold">{t('account.packageInfo', 'Thông tin gói học tập')}</h3>
                             <div className="flex items-center gap-2 mt-1.5">
                                 {profile?.isPremiumUnlocked ? (
                                     <>
@@ -240,7 +242,7 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                                             FREE
                                         </span>
                                         <span className="font-extrabold text-lg text-gray-800 dark:text-white">
-                                            Thành viên Miễn phí
+                                            {t('account.freeMember', 'Free Member')}
                                         </span>
                                     </>
                                 )}
@@ -252,23 +254,23 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                                 <>
                                     <div className="flex items-center gap-1 text-gray-500 dark:text-gray-400">
                                         <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                                        <span>Trạng thái: <strong className="text-emerald-600 dark:text-emerald-450">Đang hoạt động</strong></span>
+                                        <span>{t('account.status', 'Trạng thái:')} <strong className="text-emerald-600 dark:text-emerald-450">{t('account.active', 'Đang hoạt động')}</strong></span>
                                     </div>
                                     <div className="flex items-center gap-1 text-gray-500 dark:text-gray-400">
                                         <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-                                        <span>Hạn dùng: <strong className="text-indigo-650 dark:text-indigo-400">
+                                        <span>{t('account.expiry', 'Hạn dùng:')} <strong className="text-indigo-650 dark:text-indigo-400">
                                             {profile.premiumExpiresAt ? (
                                                 (() => {
                                                     const date = profile.premiumExpiresAt.toDate ? profile.premiumExpiresAt.toDate() : new Date(profile.premiumExpiresAt);
                                                     return `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
                                                 })()
-                                            ) : 'Vĩnh viễn'}
+                                            ) : t('account.lifetime', 'Vĩnh viễn')}
                                         </strong></span>
                                     </div>
                                 </>
                             ) : (
                                 <div className="text-gray-500 dark:text-gray-400">
-                                    Nâng cấp Premium để mở khóa không giới hạn AI, Từ vựng, Ngữ pháp và Kanji Zen.
+                                    {t('account.upgradeHint', 'Nâng cấp Premium để mở khóa không giới hạn AI, Từ vựng, Ngữ pháp và Kanji Zen.')}
                                 </div>
                             )}
                         </div>
@@ -277,16 +279,16 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                     {!profile?.isPremiumUnlocked ? (
                         <button
                             onClick={() => navigate(ROUTES.UPGRADE)}
-                            className="w-full md:w-auto px-6 py-3 text-sm font-bold bg-gradient-to-r from-indigo-600 to-sky-500 hover:from-indigo-700 hover:to-sky-600 text-white rounded-xl shadow-md transition-all hover:scale-[1.02] cursor-pointer"
+                            className="w-full md:w-auto px-6 py-3 text-xs font-black uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white rounded-2xl shadow-xs transition-all cursor-pointer"
                         >
-                            Nâng cấp Premium ngay
+                            {t('account.upgradeNow', 'Nâng cấp Premium ngay')}
                         </button>
                     ) : (
                         <button
                             onClick={() => navigate(ROUTES.UPGRADE)}
                             className="w-full md:w-auto px-5 py-2.5 text-xs font-bold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 border border-indigo-200 dark:border-indigo-900/60 bg-white dark:bg-slate-800 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm transition-all cursor-pointer"
                         >
-                            Gia hạn / Mua thêm gói
+                            {t('account.renewPackage', 'Gia hạn / Mua thêm gói')}
                         </button>
                     )}
                 </div>
@@ -294,7 +296,7 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
-                    <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100">Thông tin cá nhân</h3>
+                    <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100">{t('account.personalInfo', 'Thông tin cá nhân')}</h3>
                     <div className="space-y-3">
                         <div>
                             <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Email</label>
@@ -306,13 +308,13 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                             />
                         </div>
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Tên hiển thị</label>
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">{t('account.displayName', 'Tên hiển thị')}</label>
                             <input
                                 type="text"
                                 value={newDisplayName}
                                 onChange={(e) => setNewDisplayName(e.target.value)}
                                 className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-100 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 text-sm outline-none text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
-                                placeholder="Tên sẽ hiển thị trong app"
+                                placeholder={t('account.displayNamePlaceholder', 'Tên sẽ hiển thị trong app')}
                             />
                         </div>
                         <button
@@ -320,18 +322,18 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                             onClick={handleSaveProfile}
                             className="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-xl bg-indigo-600 dark:bg-indigo-50 text-white hover:bg-indigo-700 dark:hover:bg-indigo-600 shadow-sm transition-colors"
                         >
-                            <Save className="w-4 h-4 mr-1" /> Lưu thay đổi
+                            <Save className="w-4 h-4 mr-1" /> {t('account.saveChanges', 'Lưu thay đổi')}
                         </button>
                     </div>
                 </div>
 
                 <div className="bg-white dark:bg-gray-800 p-5 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-4">
                     <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 flex items-center gap-2">
-                        <Lock className="w-5 h-5 text-rose-500 dark:text-rose-400" /> Bảo mật & mật khẩu
+                        <Lock className="w-5 h-5 text-rose-500 dark:text-rose-400" /> {t('account.securityPassword', 'Bảo mật & mật khẩu')}
                     </h3>
                     <div className="space-y-3">
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Mật khẩu hiện tại</label>
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">{t('account.currentPassword', 'Mật khẩu hiện tại')}</label>
                             <div className="relative">
                                 <input
                                     type={showCurrent ? 'text' : 'password'}
@@ -350,14 +352,14 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                             </div>
                         </div>
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Mật khẩu mới</label>
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">{t('account.newPassword', 'Mật khẩu mới')}</label>
                             <div className="relative">
                                 <input
                                     type={showNew ? 'text' : 'password'}
                                     value={newPassword}
                                     onChange={(e) => setNewPassword(e.target.value)}
                                     className="w-full px-4 py-2.5 pr-10 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-100 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 text-sm outline-none text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
-                                    placeholder="Tối thiểu 6 ký tự"
+                                    placeholder={t('account.newPasswordPlaceholder', 'Tối thiểu 6 ký tự')}
                                 />
                                 <button
                                     type="button"
@@ -370,7 +372,7 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                             </div>
                         </div>
                         <div>
-                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">Xác nhận mật khẩu mới</label>
+                            <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300 mb-1">{t('account.confirmNewPassword', 'Xác nhận mật khẩu mới')}</label>
                             <div className="relative">
                                 <input
                                     type={showConfirmNew ? 'text' : 'password'}
@@ -393,7 +395,7 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                             onClick={handleChangePassword}
                             className="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-xl bg-rose-500 dark:bg-rose-600 text-white hover:bg-rose-600 dark:hover:bg-rose-700 shadow-sm transition-colors"
                         >
-                            <Save className="w-4 h-4 mr-1" /> Đổi mật khẩu
+                            <Save className="w-4 h-4 mr-1" /> {t('account.changePassword', 'Đổi mật khẩu')}
                         </button>
                     </div>
                 </div>
@@ -407,13 +409,13 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                     </div>
                     <div>
                         <h3 className="text-lg font-bold text-gray-800 dark:text-gray-100 flex items-center gap-1.5">
-                            Giới thiệu bạn bè & Nhận quà lũy tiến
+                            {t('account.referralProgram', 'Giới thiệu bạn bè & Nhận quà lũy tiến')}
                             <span className="bg-sky-100 text-sky-700 dark:bg-sky-900/40 dark:text-sky-300 text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider">
                                 hot
                             </span>
                         </h3>
                         <p className="text-gray-500 dark:text-slate-400 text-xs mt-0.5">
-                            Chia sẻ link giới thiệu của bạn cho bạn bè. Bạn bè nhận ngay 15 ngày Premium dùng thử khi đăng ký, và bạn sẽ nhận thêm ngày Premium lũy tiến khi họ nâng cấp gói Premium!
+                            {t('account.referralSub', 'Chia sẻ link giới thiệu của bạn cho bạn bè...')}
                         </p>
                     </div>
                 </div>
@@ -425,9 +427,9 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                                 <Crown className="w-6 h-6 text-white fill-white/10" />
                             </div>
                             <div>
-                                <h4 className="text-sm font-extrabold text-gray-900 dark:text-white">Tài khoản của bạn chưa nâng cấp Premium</h4>
+                                <h4 className="text-sm font-extrabold text-gray-900 dark:text-white">{t('account.notPremiumYet', 'Tài khoản của bạn chưa nâng cấp Premium')}</h4>
                                 <p className="text-gray-500 dark:text-slate-450 text-xs mt-0.5 leading-relaxed">
-                                    Nâng cấp gói Premium ngay hôm nay để học không giới hạn, hoặc **chia sẻ link giới thiệu bên dưới** cho bạn bè để nhận ngày Premium tích lũy!
+                                    {t('account.notPremiumSub', 'Nâng cấp gói Premium ngay hôm nay...')}
                                 </p>
                             </div>
                         </div>
@@ -436,7 +438,7 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                             onClick={() => navigate(ROUTES.UPGRADE)}
                             className="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white text-xs font-bold rounded-xl hover:shadow-md hover:scale-[1.02] transition-all flex items-center gap-1.5 shadow-sm shadow-amber-100 dark:shadow-none whitespace-nowrap cursor-pointer"
                         >
-                            <Crown className="w-3.5 h-3.5" /> Nâng cấp Premium
+                            <Crown className="w-3.5 h-3.5" /> {t('account.upgradeNow', 'Nâng cấp Premium')}
                         </button>
                     </div>
                 )}
@@ -445,33 +447,33 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                     {/* Panel 1: Share Link */}
                     <div className="bg-gradient-to-r from-indigo-50 to-sky-50 dark:from-slate-900/40 dark:to-slate-800/40 p-5 rounded-2xl border border-indigo-100/40 dark:border-slate-800 flex flex-col justify-between space-y-4 font-sans">
                         <div>
-                            <h4 className="text-xs font-bold text-indigo-700 dark:text-indigo-400 uppercase tracking-wider mb-2">Link giới thiệu của bạn</h4>
+                            <h4 className="text-xs font-bold text-indigo-700 dark:text-indigo-400 uppercase tracking-wider mb-2">{t('account.yourReferralLink', 'Link giới thiệu của bạn')}</h4>
                             <p className="text-gray-500 dark:text-slate-450 text-[11px] leading-relaxed">
-                                Sao chép link này gửi cho bạn bè. Khi họ click link đăng ký tài khoản, hệ thống sẽ tự động kích hoạt **15 ngày Premium dùng thử miễn phí**!
+                                {t('account.copyReferralLinkDesc', 'Sao chép link này gửi cho bạn bè...')}
                             </p>
                         </div>
                         <div className="space-y-2">
                             <div className="w-full flex items-center justify-between bg-white dark:bg-slate-850 px-3 py-2 rounded-xl border border-indigo-150/40 dark:border-slate-700 font-mono text-xs font-semibold text-indigo-650 dark:text-indigo-400 shadow-sm relative overflow-hidden break-all select-all">
-                                <span>{profile?.referralCode ? `${window.location.origin}/?ref=${profile.referralCode}` : 'ĐANG KHỞI TẠO...'}</span>
+                                <span>{profile?.referralCode ? `${window.location.origin}/?ref=${profile.referralCode}` : t('account.initializing', 'ĐANG KHỞI TẠO...')}</span>
                                 <button
                                     type="button"
                                     onClick={handleCopyCode}
                                     className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg text-gray-500 hover:text-indigo-600 transition-colors flex-shrink-0 ml-1"
-                                    title="Copy link giới thiệu"
+                                    title={t('settings.referral.copyCode', 'Copy link')}
                                 >
                                     {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
                                 </button>
                             </div>
-                            {copied && <p className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 text-center">✓ Đã copy link vào Clipboard!</p>}
+                            {copied && <p className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 text-center">{t('account.linkCopied', '✓ Đã copy link vào Clipboard!')}</p>}
                         </div>
                     </div>
 
                     {/* Panel 2: Enter code */}
                     <div className="p-5 rounded-2xl border border-gray-150/50 dark:border-gray-700 bg-gray-50/20 dark:bg-slate-900/10 flex flex-col justify-between space-y-4">
                         <div>
-                            <h4 className="text-xs font-bold text-gray-700 dark:text-slate-350 uppercase tracking-wider mb-2">Nhập mã giới thiệu của bạn bè</h4>
+                            <h4 className="text-xs font-bold text-gray-700 dark:text-slate-350 uppercase tracking-wider mb-2">{t('account.enterFriendCode', 'Nhập mã giới thiệu của bạn bè')}</h4>
                             <p className="text-gray-500 dark:text-slate-450 text-[11px] leading-relaxed">
-                                Nếu link giới thiệu không tự động nhận diện, bạn có thể nhập thủ công mã giới thiệu của bạn bè tại đây để nhận **15 ngày Premium** dùng thử.
+                                {t('account.enterFriendCodeDesc', 'Nếu link giới thiệu không tự động nhận diện...')}
                             </p>
                         </div>
 
@@ -481,8 +483,8 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                                     <Check className="w-4 h-4" />
                                 </div>
                                 <div className="text-xs">
-                                    <p className="font-semibold text-emerald-800 dark:text-emerald-450">Đã nhập mã giới thiệu</p>
-                                    <p className="text-gray-500 dark:text-slate-400 text-[10px]">Bởi: <span className="font-bold">{profile.referredBy.name}</span></p>
+                                    <p className="font-semibold text-emerald-800 dark:text-emerald-450">{t('account.codeEntered', 'Đã nhập mã giới thiệu')}</p>
+                                    <p className="text-gray-500 dark:text-slate-400 text-[10px]">{t('account.referredBy', 'Bởi: {name}').replace('{name}', profile.referredBy.name)}</p>
                                 </div>
                             </div>
                         ) : (
@@ -490,7 +492,7 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                                 <div className="flex gap-2">
                                     <input
                                         type="text"
-                                        placeholder="Nhập mã ví dụ: QKXXXXXX"
+                                        placeholder={t('account.codePlaceholder', 'Nhập mã ví dụ: QKXXXXXX')}
                                         value={enteredCode}
                                         onChange={(e) => setEnteredCode(e.target.value.toUpperCase())}
                                         className="flex-1 px-3 py-2 text-sm bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-650 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-900/40 text-gray-900 dark:text-white font-mono uppercase"
@@ -501,7 +503,7 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                                         disabled={submitLoading || !enteredCode.trim()}
                                         className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-bold text-xs rounded-xl shadow cursor-pointer transition-all flex items-center justify-center"
                                     >
-                                        {submitLoading ? '...' : 'Gửi'}
+                                        {submitLoading ? '...' : t('account.submit', 'Gửi')}
                                     </button>
                                 </div>
                             </div>
@@ -511,14 +513,14 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                     {/* Panel 3: Stats Summary */}
                     <div className="p-5 rounded-2xl border border-gray-150/50 dark:border-gray-700 bg-gray-50/20 dark:bg-slate-900/10 flex flex-col justify-between">
                         <div>
-                            <h4 className="text-xs font-bold text-gray-700 dark:text-slate-350 uppercase tracking-wider mb-2.5">Thống kê giới thiệu của bạn</h4>
+                            <h4 className="text-xs font-bold text-gray-700 dark:text-slate-350 uppercase tracking-wider mb-2.5">{t('account.referralStats', 'Thống kê giới thiệu của bạn')}</h4>
                             <div className="grid grid-cols-2 gap-3">
                                 <div className="bg-white dark:bg-slate-800 p-3 rounded-xl border border-gray-100 dark:border-slate-700 text-center">
-                                    <span className="text-[10px] text-gray-400 uppercase font-bold block mb-0.5">Số lượt mời</span>
+                                    <span className="text-[10px] text-gray-400 uppercase font-bold block mb-0.5">{t('account.invitedCount', 'Số lượt mời')}</span>
                                     <span className="text-xl font-extrabold text-gray-800 dark:text-white">{loadingStats ? '...' : refStats.totalInvited}</span>
                                 </div>
                                 <div className="bg-white dark:bg-slate-800 p-3 rounded-xl border border-gray-100 dark:border-slate-700 text-center">
-                                    <span className="text-[10px] text-amber-500 uppercase font-bold block mb-0.5">Lên Premium</span>
+                                    <span className="text-[10px] text-amber-500 uppercase font-bold block mb-0.5">{t('account.premiumUpgraded', 'Lên Premium')}</span>
                                     <span className="text-xl font-extrabold text-amber-600 dark:text-amber-400 flex items-center justify-center gap-0.5">
                                         <Crown className="w-4 h-4 fill-amber-500/20 text-amber-500" />
                                         {loadingStats ? '...' : refStats.premiumInvited}
@@ -528,10 +530,7 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                         </div>
 
                         <div className="mt-4 pt-3 border-t border-gray-100 dark:border-slate-750 text-[10px] text-gray-500 dark:text-slate-400 flex items-center justify-between">
-                            <span>Thành viên Free đã mời:</span>
-                            <span className="font-bold text-gray-800 dark:text-slate-300">
-                                {loadingStats ? '...' : refStats.totalInvited - refStats.premiumInvited} người
-                            </span>
+                            <span>{t('account.freeFriendsCount', 'Free members invited: {count}').replace('{count}', loadingStats ? '...' : (refStats.totalInvited - refStats.premiumInvited))}</span>
                         </div>
                     </div>
                 </div>
@@ -541,16 +540,16 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                     <div className="flex items-center gap-1.5">
                         <Award className="w-4 h-4 text-sky-600" />
                         <h4 className="text-xs font-bold text-gray-800 dark:text-slate-200">
-                            Bản đồ phần thưởng Premium lũy tiến (Khi bạn bè nâng cấp Premium)
+                            {t('account.rewardsMap', 'Bản đồ phần thưởng Premium lũy tiến')}
                         </h4>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 relative z-10">
                         {[
-                            { step: 1, label: 'Bạn thứ 1', bonus: '+15 ngày' },
-                            { step: 2, label: 'Bạn thứ 2', bonus: '+30 ngày' },
-                            { step: 3, label: 'Bạn thứ 3', bonus: '+45 ngày' },
-                            { step: 4, label: 'Bạn thứ 4+', bonus: '+60 ngày/bạn' }
+                            { step: 1, label: t('account.step1', 'Bạn thứ 1'), bonus: t('account.step1Bonus', '+15 ngày') },
+                            { step: 2, label: t('account.step2', 'Bạn thứ 2'), bonus: t('account.step2Bonus', '+30 ngày') },
+                            { step: 3, label: t('account.step3', 'Bạn thứ 3'), bonus: t('account.step3Bonus', '+45 ngày') },
+                            { step: 4, label: t('account.step4', 'Bạn thứ 4+'), bonus: t('account.step4Bonus', '+60 ngày/bạn') }
                         ].map((milestone) => {
                             const isAchieved = refStats.premiumInvited >= milestone.step || (milestone.step === 4 && refStats.premiumInvited >= 4);
                             const isActiveNext = refStats.premiumInvited === milestone.step - 1;
@@ -568,11 +567,11 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                                 >
                                     <div className="absolute top-1.5 right-2 text-[8px] font-black uppercase tracking-wider">
                                         {isAchieved ? (
-                                            <span className="text-emerald-600 dark:text-emerald-450 flex items-center gap-0.5">✓ ĐÃ CỘNG</span>
+                                            <span className="text-emerald-600 dark:text-emerald-450 flex items-center gap-0.5">{t('account.claimed', '✓ ĐÃ CỘNG')}</span>
                                         ) : isActiveNext ? (
-                                            <span className="text-sky-600 dark:text-sky-400 flex items-center gap-0.5 animate-bounce">TỚI LƯỢT</span>
+                                            <span className="text-sky-600 dark:text-sky-400 flex items-center gap-0.5 animate-bounce">{t('account.nextUp', 'TỚI LƯỢT')}</span>
                                         ) : (
-                                            <span>CHƯA ĐẠT</span>
+                                            <span>{t('account.locked', 'CHƯA ĐẠT')}</span>
                                         )}
                                     </div>
                                     <span className="text-[10px] font-extrabold block mb-1 uppercase tracking-wider">{milestone.label}</span>
@@ -588,15 +587,15 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                 {/* Referred Friends History */}
                 <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                        <h4 className="text-xs font-bold text-gray-700 dark:text-slate-350 uppercase tracking-wider">Lịch sử giới thiệu bạn bè</h4>
-                        <span className="text-[10px] text-gray-400">Đã cập nhật mới nhất</span>
+                        <h4 className="text-xs font-bold text-gray-700 dark:text-slate-350 uppercase tracking-wider">{t('account.referralHistory', 'Lịch sử giới thiệu bạn bè')}</h4>
+                        <span className="text-[10px] text-gray-400">{t('account.latestUpdated', 'Đã cập nhật mới nhất')}</span>
                     </div>
 
                     {loadingStats ? (
-                        <div className="text-center py-6 text-xs text-gray-400">Đang tải lịch sử giới thiệu...</div>
+                        <div className="text-center py-6 text-xs text-gray-400">{t('account.loadingHistory', 'Đang tải lịch sử giới thiệu...')}</div>
                     ) : refStats.friends.length === 0 ? (
                         <div className="text-center py-8 border border-dashed border-gray-200 dark:border-slate-700 rounded-xl text-xs text-gray-400">
-                            Chưa có bạn bè nào nhập mã giới thiệu của bạn. Hãy chia sẻ mã để nhận quà nhé!
+                            {t('account.emptyHistory', 'Chưa có bạn bè nào nhập mã giới thiệu của bạn...')}
                         </div>
                     ) : (
                         <div className="overflow-hidden border border-gray-150/40 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800">
@@ -604,10 +603,10 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                                 <table className="min-w-full divide-y divide-gray-100 dark:divide-slate-750 text-xs">
                                     <thead className="bg-gray-50 dark:bg-slate-900/50 text-[10px] font-bold uppercase text-gray-400">
                                         <tr>
-                                            <th scope="col" className="px-4 py-2.5 text-left">Tên bạn bè</th>
-                                            <th scope="col" className="px-4 py-2.5 text-center">Trạng thái</th>
-                                            <th scope="col" className="px-4 py-2.5 className text-center">Mốc quà tặng</th>
-                                            <th scope="col" className="px-4 py-2.5 text-right">Thời gian</th>
+                                            <th scope="col" className="px-4 py-2.5 text-left">{t('account.thFriend', 'Tên bạn bè')}</th>
+                                            <th scope="col" className="px-4 py-2.5 text-center">{t('account.thStatus', 'Trạng thái')}</th>
+                                            <th scope="col" className="px-4 py-2.5 className text-center">{t('account.thMilestone', 'Mốc quà tặng')}</th>
+                                            <th scope="col" className="px-4 py-2.5 text-right">{t('account.thTime', 'Thời gian')}</th>
                                         </tr>
                                     </thead>
                                     <tbody className="divide-y divide-gray-100 dark:divide-slate-750 text-gray-700 dark:text-slate-300 font-medium">
@@ -632,11 +631,11 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                                                     {friend.status === 'premium' ? (
                                                         <span className="text-emerald-600 dark:text-emerald-400 font-bold flex items-center justify-center gap-1">
                                                             <Check className="w-3.5 h-3.5 text-emerald-500" />
-                                                            Đã nhận quà Premium
+                                                            {t('account.rewardClaimed', 'Đã nhận quà Premium')}
                                                         </span>
                                                     ) : (
                                                         <span className="text-gray-400 dark:text-slate-500 font-normal">
-                                                            Đang đợi nâng cấp Premium
+                                                            {t('account.pendingUpgrade', 'Đang đợi nâng cấp Premium')}
                                                         </span>
                                                     )}
                                                 </td>

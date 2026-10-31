@@ -33,8 +33,8 @@ const isTabActive = (tab, pathname, search) => {
 
 const getThemeClasses = (pathname, tabs, themeProp) => {
     return {
-        bg: 'bg-blue-600',
-        shadow: 'shadow-blue-500/20 dark:shadow-blue-950/20',
+        bg: 'bg-emerald-500 border-b-2 sm:border-b-4 border-emerald-700',
+        shadow: 'shadow-emerald-500/10 dark:shadow-emerald-950/10',
     };
 };
 
@@ -60,6 +60,9 @@ const TopTabBar = ({ tabs, theme }) => {
         }
         if (tab.id === 'kanji-saved' || tab.id === 'grammar-saved') return t('tabs.saved', 'Đã lưu');
         if (tab.id === 'kanji-list' || tab.id === 'grammar-list') return t('tabs.search', 'Tra cứu');
+        if (tab.id === 'grammar-nuances') return t('tabs.mindmap', 'Bản đồ tư duy');
+        if (tab.id === 'grammar-curriculum') return t('tabs.topics', 'Chủ đề');
+        if (tab.id === 'grammar-cheatsheets') return t('tabs.cheatsheets', 'Sổ tay chuyên đề');
         return tab.label;
     };
 
@@ -119,15 +122,15 @@ const TopTabBar = ({ tabs, theme }) => {
 
     return (
         <div className="w-full relative z-10 pt-2 pb-2 px-2 sm:px-4 flex justify-center">
-            {/* Floating Solid Capsule Container with Horizontal Scroll Support */}
+            {/* Duolingo Floating Solid Capsule Container */}
             <div 
                 ref={scrollContainerRef}
-                className={`w-full sm:w-auto max-w-full sm:max-w-max p-1.5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800/90 shadow-md transition-shadow duration-200 overflow-x-auto no-scrollbar touch-pan-x ${themeClasses.shadow}`}
+                className={`w-full sm:w-auto max-w-full sm:max-w-max p-1.5 rounded-2xl bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-xs transition-shadow duration-200 overflow-x-auto no-scrollbar touch-pan-x ${themeClasses.shadow}`}
             >
                 <div className="relative flex items-center justify-start sm:justify-between w-max sm:w-auto min-w-full space-x-1" ref={containerRef}>
                     {/* Sliding Capsule Pill Indicator (GPU-accelerated translate3d) */}
                     <div 
-                        className={`absolute top-0 bottom-0 rounded-xl ${themeClasses.bg} shadow-md shadow-slate-900/10 z-0 transform-gpu ${
+                        className={`absolute top-0 bottom-0 rounded-xl ${themeClasses.bg} shadow-xs z-0 transform-gpu ${
                             indicatorStyle.animated ? 'transition-all duration-250 ease-out' : 'transition-none'
                         }`}
                         style={{ 
@@ -155,23 +158,23 @@ const TopTabBar = ({ tabs, theme }) => {
                             <Link
                                 key={tab.id}
                                 to={destination}
-                                className={`tab-item group relative z-10 shrink-0 flex items-center justify-center space-x-1.5 px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-bold whitespace-nowrap rounded-xl transition-colors duration-150 min-h-[40px] select-none active:scale-95 ${
+                                className={`tab-item group relative z-10 shrink-0 flex items-center justify-center space-x-1.5 px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-black whitespace-nowrap rounded-xl transition-all duration-150 min-h-[40px] select-none active:scale-95 ${
                                     isActive
-                                        ? 'text-white drop-shadow-sm'
-                                        : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white'
+                                        ? 'text-white drop-shadow-xs'
+                                        : 'text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-100/60 dark:hover:bg-slate-800/40'
                                 }`}
                             >
                                 {tab.icon && (
                                     <tab.icon className={`w-4 h-4 shrink-0 transition-transform duration-150 group-hover:scale-110 ${
                                         isActive 
-                                            ? 'text-white' 
-                                            : 'text-slate-400 dark:text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300'
+                                            ? 'text-white stroke-[2.5]' 
+                                            : 'text-slate-400 dark:text-slate-500 group-hover:text-slate-700 dark:group-hover:text-slate-300 stroke-[2]'
                                     }`} />
                                 )}
                                 {tab.id === 'vocab-add' ? (
                                     <>
                                         <span className="hidden min-[380px]:inline">{label}</span>
-                                        <span className="inline min-[380px]:hidden">Thêm</span>
+                                        <span className="inline min-[380px]:hidden">{t('common.add', 'Thêm')}</span>
                                     </>
                                 ) : (
                                     <span>{label}</span>

@@ -9,9 +9,11 @@ import {
     Home, BookOpen, LogOut, LogIn, Sun, Moon, ChevronRight, ChevronLeft, X,
     List, Repeat2, FileCheck, Languages, Shield, Crown, Bell,
     MessageSquare, HelpCircle, Trophy, Cpu, Zap, Activity, Bot, Timer, Globe, Film,
-    FileText, GitBranch, MoreHorizontal, Layers, Settings, Library, LayoutGrid, TrendingUp, Bookmark, Search
+    FileText, GitBranch, MoreHorizontal, Layers, Settings, Library, LayoutGrid, TrendingUp, Bookmark, Search,
+    Palette
 } from 'lucide-react';
 import { SafeAvatarImage } from '../ui';
+import QuizKiLogo from '../ui/QuizKiLogo';
 import LanguageSelector from '../ui/LanguageSelector';
 import TargetLanguageSelector from '../ui/TargetLanguageSelector';
 import IosLanguageWheelModal from '../ui/IosLanguageWheelModal';
@@ -451,65 +453,69 @@ const Sidebar = ({
 
     // Dynamic Menu Items with i18n Translation Support
     const menuItems = React.useMemo(() => {
+        const groupStudy = t('nav.groupStudy', 'Học tập');
+        const groupPracticeAi = t('nav.groupPracticeAi', 'Luyện tập & AI');
+        const groupCommunity = t('nav.groupCommunity', 'Cộng đồng');
+
         const items = [
-            { id: 'HOME', icon: Home, label: t('nav.home', 'Trang chủ'), route: ROUTES.HOME, group: 'Học tập' },
+            { id: 'HOME', icon: Home, label: t('nav.home', 'Trang chủ'), route: ROUTES.HOME, group: groupStudy },
         ];
 
         // 1. Chế độ Tiếng Anh & Tiếng Hàn: Khóa hết các menu khác, chỉ để Từ vựng và Trang chủ (+ Quản trị nếu là Admin)
         if (isEnglishMode || isKoreanMode) {
-            items.push({ id: 'VOCAB_LIST', icon: BookOpen, label: 'Từ vựng', route: ROUTES.VOCAB_REVIEW, group: 'Học tập' });
+            items.push({ id: 'VOCAB_LIST', icon: BookOpen, label: t('nav.vocab', 'Từ vựng'), route: ROUTES.VOCAB_REVIEW, group: groupStudy });
             if (isAdmin) {
-                items.push({ id: 'ADMIN', icon: Shield, label: 'Quản trị', route: ROUTES.ADMIN, group: 'Cộng đồng' });
+                items.push({ id: 'ADMIN', icon: Shield, label: t('nav.admin', 'Quản trị'), route: ROUTES.ADMIN, group: groupCommunity });
             }
             return items;
         }
 
         // 2. Nhập môn bảng chữ cái theo từng ngôn ngữ (Tiếng Nhật & Tiếng Hàn)
         if (isJapaneseMode) {
-            items.push({ id: 'KANA_STUDY', icon: KanaMenuIcon, label: 'Bảng chữ Kana', route: ROUTES.KANA, group: 'Học tập' });
+            items.push({ id: 'KANA_STUDY', icon: KanaMenuIcon, label: t('nav.kana', 'Bảng chữ Kana'), route: ROUTES.KANA, group: groupStudy });
         } else if (isKoreanMode) {
-            items.push({ id: 'HANGUL_STUDY', icon: HangulMenuIcon, label: 'Bảng chữ Hangul', route: ROUTES.HANGUL, group: 'Học tập' });
+            items.push({ id: 'HANGUL_STUDY', icon: HangulMenuIcon, label: t('nav.hangul', 'Bảng chữ Hangul'), route: ROUTES.HANGUL, group: groupStudy });
         }
 
         // 3. Từ vựng theo ngôn ngữ
         const vocabLabel = isKoreanMode 
-            ? 'Từ vựng' 
+            ? t('nav.vocab', 'Từ vựng') 
             : t('nav.vocab', 'Từ vựng');
 
         items.push(
-            { id: 'VOCAB_LIST', icon: BookOpen, label: vocabLabel, route: ROUTES.VOCAB_REVIEW, group: 'Học tập' },
+            { id: 'VOCAB_LIST', icon: BookOpen, label: vocabLabel, route: ROUTES.VOCAB_REVIEW, group: groupStudy },
         );
 
         // 4. Kanji menu is only relevant for Japanese learning
         if (isJapaneseMode) {
-            items.push({ id: 'KANJI_STUDY', icon: Languages, label: t('nav.kanji', 'Thư viện Kanji'), route: ROUTES.KANJI_REVIEW, group: 'Học tập' });
+            items.push({ id: 'KANJI_STUDY', icon: Languages, label: t('nav.kanji', 'Thư viện Kanji'), route: ROUTES.KANJI_REVIEW, group: groupStudy });
             items.push({
                 id: 'DICTIONARY',
                 icon: Search,
-                label: 'Từ điển',
+                label: t('nav.dictionary', 'Từ điển'),
                 onClick: () => window.dispatchEvent(new CustomEvent('quizki-open-dictionary')),
-                group: 'Học tập'
+                group: groupStudy
             });
         }
 
         const kaiwaLabel = isKoreanMode 
-            ? 'Luyện nói AI (말하기)' 
+            ? t('nav.koreanSpeaking', 'Luyện nói AI (말하기)') 
             : t('nav.kaiwa', 'Phòng Kaiwa AI');
 
         const testLabel = isKoreanMode 
-            ? 'Luyện thi TOPIK' 
+            ? t('nav.topikTest', 'Luyện thi TOPIK') 
             : t('nav.jlptTest', 'Luyện đề JLPT');
 
         items.push(
-            { id: 'GRAMMAR', icon: Repeat2, label: t('nav.grammar', 'Ngữ pháp'), route: ROUTES.GRAMMAR_REVIEW, group: 'Học tập' },
-            { id: 'VIDEO_KAIWA', icon: Film, label: isKoreanMode ? 'Video K-Drama' : 'Video Kaiwa', route: ROUTES.VIDEO_KAIWA, group: 'Luyện tập & AI' },
-            { id: 'JLPT_KAIWA', icon: MessageSquare, label: kaiwaLabel, route: ROUTES.JLPT_KAIWA, group: 'Luyện tập & AI' },
-            { id: 'JLPT_TEST', icon: FileCheck, label: testLabel, route: ROUTES.JLPT_TEST, group: 'Luyện tập & AI' },
-            { id: 'HUB', icon: Trophy, label: t('nav.leaderboard', 'Bảng vinh danh'), route: ROUTES.HUB, group: 'Cộng đồng' },
+            { id: 'GRAMMAR', icon: Repeat2, label: t('nav.grammar', 'Ngữ pháp'), route: ROUTES.GRAMMAR_REVIEW, group: groupStudy },
+            { id: 'VIDEO_KAIWA', icon: Film, label: isKoreanMode ? t('nav.videoKdrama', 'Video K-Drama') : t('nav.videoKaiwa', 'Video Kaiwa'), route: ROUTES.VIDEO_KAIWA, group: groupPracticeAi },
+            { id: 'JLPT_KAIWA', icon: MessageSquare, label: kaiwaLabel, route: ROUTES.JLPT_KAIWA, group: groupPracticeAi },
+            { id: 'JLPT_TEST', icon: FileCheck, label: testLabel, route: ROUTES.JLPT_TEST, group: groupPracticeAi },
+            { id: 'HUB', icon: Trophy, label: t('nav.leaderboard', 'Bảng vinh danh'), route: ROUTES.HUB, group: groupCommunity },
         );
 
         if (isAdmin) {
-            items.push({ id: 'ADMIN', icon: Shield, label: 'Quản trị', route: ROUTES.ADMIN, group: 'Cộng đồng' });
+            items.push({ id: 'ADMIN', icon: Shield, label: t('nav.admin', 'Quản trị'), route: ROUTES.ADMIN, group: groupCommunity });
         }
         return items;
     }, [t, dueVocabCount, kanjiDueCount, grammarDueCount, isAdmin, isJapaneseMode, isEnglishMode, isKoreanMode]);
@@ -533,19 +539,19 @@ const Sidebar = ({
 
     const mobileHeaderTitle = useMemo(() => {
         const path = location.pathname;
-        if (path === '/' || path === '/home') return 'Trang chủ';
+        if (path === '/' || path === '/home') return t('nav.home', 'Trang chủ');
         if (path.includes('/vocab') || path.includes('/books')) return t('nav.vocab', 'Từ vựng');
         if (path.includes('/grammar')) return t('nav.grammar', 'Ngữ pháp');
-        if (path.includes('/jlpt/test')) return isEnglishMode ? 'Luyện thi' : isKoreanMode ? 'Lộ trình TOPIK' : 'Ôn thi JLPT';
-        if (path.includes('/kanji/study') || path.includes('/kanji/lesson')) return 'Học Kanji';
-        if (path.includes('/kanji')) return 'Kanji';
-        if (path.includes('/kaiwa/video')) return 'Video Shadowing';
-        if (path.includes('/jlpt/kaiwa') || path.includes('/kaiwa')) return isEnglishMode ? 'Speaking AI' : 'Kitsu trợ lý';
-        if (path.includes('/kana') || path.includes('/hangul') || path.includes('/ipa')) return 'Bảng chữ';
-        if (path.includes('/hub')) return 'Bảng vinh danh';
-        if (path.includes('/settings') || path.includes('/account')) return 'Cài đặt';
-        if (path.includes('/upgrade')) return 'Nâng cấp';
-        if (path.includes('/admin')) return 'Quản trị';
+        if (path.includes('/jlpt/test')) return isEnglishMode ? t('nav.examPrep', 'Luyện thi') : isKoreanMode ? t('nav.topikTest', 'Lộ trình TOPIK') : t('nav.jlptTest', 'Ôn thi JLPT');
+        if (path.includes('/kanji/study') || path.includes('/kanji/lesson')) return t('nav.learnKanji', 'Học Kanji');
+        if (path.includes('/kanji')) return t('nav.kanji', 'Kanji');
+        if (path.includes('/kaiwa/video')) return t('nav.videoKaiwa', 'Video Shadowing');
+        if (path.includes('/jlpt/kaiwa') || path.includes('/kaiwa')) return isEnglishMode ? t('nav.speakingAi', 'Speaking AI') : t('nav.kaiwa', 'Kitsu trợ lý');
+        if (path.includes('/kana') || path.includes('/hangul') || path.includes('/ipa')) return t('nav.kana', 'Bảng chữ');
+        if (path.includes('/hub')) return t('nav.leaderboard', 'Bảng vinh danh');
+        if (path.includes('/settings') || path.includes('/account')) return t('nav.settings', 'Cài đặt');
+        if (path.includes('/upgrade')) return t('common.upgrade', 'Nâng cấp');
+        if (path.includes('/admin')) return t('nav.admin', 'Quản trị');
         return 'QuizKi';
     }, [location.pathname, t, isEnglishMode, isKoreanMode]);
 
@@ -565,7 +571,7 @@ const Sidebar = ({
             return [
                 {
                     id: 'home',
-                    label: 'Trang chủ',
+                    label: t('nav.home', 'Trang chủ'),
                     icon: Home,
                     route: ROUTES.HOME,
                     isActive: isHomeActive && !isMobileMenuOpen,
@@ -574,7 +580,7 @@ const Sidebar = ({
                 },
                 {
                     id: 'vocab',
-                    label: 'Từ vựng',
+                    label: t('nav.vocab', 'Từ vựng'),
                     icon: BookOpen,
                     route: ROUTES.VOCAB_REVIEW,
                     isActive: isVocabActive && !isMobileMenuOpen,
@@ -583,7 +589,7 @@ const Sidebar = ({
                 },
                 {
                     id: 'more',
-                    label: 'Thêm',
+                    label: t('nav.more', 'Thêm'),
                     icon: MoreHorizontal,
                     isActive: isMoreActive,
                     badge: (unreadChatCount > 0 ? unreadChatCount : 0),
@@ -598,7 +604,7 @@ const Sidebar = ({
         return [
             {
                 id: 'home',
-                label: 'Trang chủ',
+                label: t('nav.home', 'Trang chủ'),
                 icon: Home,
                 route: ROUTES.HOME,
                 isActive: isHomeActive && !isMobileMenuOpen,
@@ -607,7 +613,7 @@ const Sidebar = ({
             },
             {
                 id: 'vocab',
-                label: 'Từ vựng',
+                label: t('nav.vocab', 'Từ vựng'),
                 icon: BookOpen,
                 route: ROUTES.VOCAB_REVIEW,
                 isActive: isVocabActive && !isMobileMenuOpen,
@@ -616,7 +622,7 @@ const Sidebar = ({
             },
             {
                 id: 'kanji',
-                label: isJapaneseMode ? 'Kanji' : isKoreanMode ? 'Hán Hàn' : 'Từ gốc',
+                label: isJapaneseMode ? t('nav.kanji', 'Kanji') : isKoreanMode ? t('nav.hanja', 'Hán Hàn') : t('nav.rootWords', 'Từ gốc'),
                 icon: Languages,
                 route: ROUTES.KANJI_REVIEW,
                 isActive: isKanjiActive && !isMobileMenuOpen,
@@ -625,7 +631,7 @@ const Sidebar = ({
             },
             {
                 id: 'grammar',
-                label: 'Ngữ pháp',
+                label: t('nav.grammar', 'Ngữ pháp'),
                 icon: FileText,
                 route: ROUTES.GRAMMAR_REVIEW,
                 isActive: isGrammarActive && !isMobileMenuOpen,
@@ -634,7 +640,7 @@ const Sidebar = ({
             },
             {
                 id: 'more',
-                label: 'Thêm',
+                label: t('nav.more', 'Thêm'),
                 icon: MoreHorizontal,
                 isActive: isMoreActive,
                 badge: (unreadChatCount > 0 ? unreadChatCount : 0),
@@ -644,7 +650,7 @@ const Sidebar = ({
                 }
             }
         ];
-    }, [location.pathname, isMobileMenuOpen, dueVocabCount, grammarDueCount, kanjiDueCount, unreadChatCount, isJapaneseMode, isEnglishMode, isKoreanMode, handleMobileToggle]);
+    }, [location.pathname, isMobileMenuOpen, dueVocabCount, grammarDueCount, kanjiDueCount, unreadChatCount, isJapaneseMode, isEnglishMode, isKoreanMode, handleMobileToggle, t]);
 
     const studyMenuItems = useMemo(() => {
         if (isEnglishMode || isKoreanMode) {
@@ -657,7 +663,7 @@ const Sidebar = ({
         if (isJapaneseMode) {
             items.push({
                 id: 'kana',
-                label: 'Bảng chữ Kana',
+                label: t('nav.kana', 'Bảng chữ Kana'),
                 icon: KanaMenuIcon,
                 route: ROUTES.KANA,
                 badge: null,
@@ -665,7 +671,7 @@ const Sidebar = ({
             // 2. Lộ trình Hán tự
             items.push({
                 id: 'kanji_study',
-                label: 'Lộ trình Hán tự',
+                label: t('nav.kanjiStudy', 'Lộ trình Hán tự'),
                 icon: Languages,
                 route: ROUTES.KANJI_STUDY,
                 badge: null,
@@ -673,7 +679,7 @@ const Sidebar = ({
             // 3. Sổ tay Ngữ pháp
             items.push({
                 id: 'grammar_cheatsheets',
-                label: 'Sổ tay Ngữ pháp',
+                label: t('nav.grammarCheatsheets', 'Sổ tay Ngữ pháp'),
                 icon: Bookmark,
                 route: ROUTES.GRAMMAR_CHEATSHEETS,
                 badge: null,
@@ -681,7 +687,7 @@ const Sidebar = ({
             // 4. Từ điển Offline
             items.push({
                 id: 'dictionary',
-                label: 'Từ điển',
+                label: t('nav.dictionary', 'Từ điển'),
                 icon: Search,
                 onClick: () => {
                     setIsMobileMenuOpen(false);
@@ -692,7 +698,7 @@ const Sidebar = ({
         } else if (isKoreanMode) {
             items.push({
                 id: 'hangul',
-                label: 'Bảng chữ Hangul',
+                label: t('nav.hangul', 'Bảng chữ Hangul'),
                 icon: HangulMenuIcon,
                 route: ROUTES.HANGUL,
                 badge: null,
@@ -702,7 +708,7 @@ const Sidebar = ({
         // 3. Giáo trình & Sách
         items.push({
             id: 'books',
-            label: 'Giáo trình & Sách',
+            label: t('nav.textbooks', 'Giáo trình & Sách'),
             icon: Library,
             route: ROUTES.BOOKS,
             badge: null,
@@ -711,7 +717,7 @@ const Sidebar = ({
         // 4. Video Kaiwa / Shadowing
         items.push({
             id: 'video',
-            label: isKoreanMode ? 'Video K-Drama' : 'Video Kaiwa',
+            label: isKoreanMode ? t('nav.videoKdrama', 'Video K-Drama') : t('nav.videoKaiwa', 'Video Kaiwa'),
             icon: Film,
             route: ROUTES.VIDEO_KAIWA,
             badge: null,
@@ -720,7 +726,7 @@ const Sidebar = ({
         // 5. Phòng Kaiwa AI / Speaking AI
         items.push({
             id: 'kaiwa_ai',
-            label: isKoreanMode ? 'Luyện nói AI' : 'Phòng Kaiwa AI',
+            label: isKoreanMode ? t('nav.koreanSpeaking', 'Luyện nói AI') : t('nav.kaiwa', 'Phòng Kaiwa AI'),
             icon: Bot,
             route: ROUTES.JLPT_KAIWA,
             badge: null,
@@ -729,7 +735,7 @@ const Sidebar = ({
         // 6. Luyện đề thi JLPT / TOPIK / IELTS
         items.push({
             id: 'jlpt_test',
-            label: isKoreanMode ? 'Luyện thi TOPIK' : 'Luyện đề JLPT',
+            label: isKoreanMode ? t('nav.topikTest', 'Luyện thi TOPIK') : t('nav.jlptTest', 'Luyện đề JLPT'),
             icon: FileCheck,
             route: ROUTES.JLPT_TEST,
             badge: null,
@@ -751,17 +757,17 @@ const Sidebar = ({
         const items = [
             {
                 id: 'focus_timer',
-                label: 'Đồng hồ tập trung',
+                label: t('nav.focusTimer', 'Đồng hồ tập trung'),
                 icon: Timer,
                 onClick: () => {
                     setIsMobileMenuOpen(false);
                     setIsFocusModalOpen(true);
                 },
-                badge: (focusStatus === 'focusing' || focusStatus === 'break') ? 'Đang chạy' : null,
+                badge: (focusStatus === 'focusing' || focusStatus === 'break') ? t('nav.running', 'Đang chạy') : null,
             },
             {
                 id: 'admin_chat',
-                label: 'Chat với Admin',
+                label: t('nav.chatAdmin', 'Chat với Admin'),
                 icon: MessageSquare,
                 onClick: () => {
                     setIsMobileMenuOpen(false);
@@ -771,14 +777,14 @@ const Sidebar = ({
             },
             {
                 id: 'settings',
-                label: 'Cài đặt hệ thống',
+                label: t('nav.settings', 'Cài đặt hệ thống'),
                 icon: Settings,
                 route: ROUTES.SETTINGS,
                 badge: null,
             },
             {
                 id: 'help_tour',
-                label: 'Hướng dẫn sử dụng',
+                label: t('nav.userGuide', 'Hướng dẫn sử dụng'),
                 icon: HelpCircle,
                 onClick: () => {
                     setIsMobileMenuOpen(false);
@@ -789,7 +795,7 @@ const Sidebar = ({
             },
             {
                 id: 'theme_toggle',
-                label: isDarkMode ? 'Chế độ Sáng' : 'Chế độ Tối',
+                label: isDarkMode ? t('nav.lightMode', 'Chế độ Sáng') : t('nav.darkMode', 'Chế độ Tối'),
                 icon: isDarkMode ? Sun : Moon,
                 onClick: () => setIsDarkMode(prev => !prev),
                 badge: null,
@@ -800,14 +806,14 @@ const Sidebar = ({
         if (isAdmin) {
             items.push({
                 id: 'admin_panel',
-                label: 'Quản trị hệ thống',
+                label: t('nav.adminPanel', 'Quản trị hệ thống'),
                 icon: Shield,
                 route: ROUTES.ADMIN,
                 badge: null,
             });
             items.push({
                 id: 'jlpt_admin',
-                label: 'Quản lý đề thi',
+                label: t('nav.examManager', 'Quản lý đề thi'),
                 icon: FileCheck,
                 route: ROUTES.JLPT_ADMIN,
                 badge: null,
@@ -830,14 +836,14 @@ const Sidebar = ({
                 <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-2 mb-3">
                     <span className="font-bold text-sm text-slate-800 dark:text-white flex items-center gap-1.5 font-mono">
                         <Bell className="w-4 h-4 text-cyan-600 dark:text-cyan-400 font-bold" />
-                        Thông báo của bạn
+                        {t('nav.yourNotifications', 'Thông báo của bạn')}
                     </span>
                     {globalNotifications.some(n => !readNotificationIds.includes(n.id)) && (
                         <button
                             onClick={markAllAsRead}
                             className="text-xs font-semibold text-cyan-600 dark:text-cyan-400 hover:underline cursor-pointer"
                         >
-                            Đọc tất cả
+                            {t('nav.markAllAsRead', 'Đọc tất cả')}
                         </button>
                     )}
                 </div>
@@ -856,8 +862,8 @@ const Sidebar = ({
                                 <BookOpen className="w-4 h-4 text-rose-600 dark:text-rose-400" />
                             </div>
                             <div>
-                                <h4 className="font-bold text-xs text-rose-800 dark:text-rose-300">Từ vựng đến hạn ôn tập</h4>
-                                <p className="text-[11px] text-rose-700/80 dark:text-rose-400/80 mt-0.5 font-mono">Bạn có {dueVocabCount} từ vựng cần ôn tập ngay.</p>
+                                <h4 className="font-bold text-xs text-rose-800 dark:text-rose-300">{t('nav.vocabDueNotif', 'Từ vựng đến hạn ôn tập')}</h4>
+                                <p className="text-[11px] text-rose-700/80 dark:text-rose-400/80 mt-0.5 font-mono">{(t('nav.vocabDueNotifDesc', 'Bạn có {count} từ vựng cần ôn tập ngay.') || '').replace('{count}', dueVocabCount)}</p>
                             </div>
                         </button>
                     )}
@@ -875,8 +881,8 @@ const Sidebar = ({
                                 <Languages className="w-4 h-4 text-amber-600 dark:text-amber-400" />
                             </div>
                             <div>
-                                <h4 className="font-bold text-xs text-amber-800 dark:text-amber-300">Kanji đến hạn ôn tập</h4>
-                                <p className="text-[11px] text-amber-700/80 dark:text-amber-400/80 mt-0.5 font-mono">Bạn có {kanjiDueCount} chữ Kanji cần ôn tập.</p>
+                                <h4 className="font-bold text-xs text-amber-800 dark:text-amber-300">{t('nav.kanjiDueNotif', 'Kanji đến hạn ôn tập')}</h4>
+                                <p className="text-[11px] text-amber-700/80 dark:text-amber-400/80 mt-0.5 font-mono">{(t('nav.kanjiDueNotifDesc', 'Bạn có {count} chữ Kanji cần ôn tập.') || '').replace('{count}', kanjiDueCount)}</p>
                             </div>
                         </button>
                     )}
@@ -894,8 +900,8 @@ const Sidebar = ({
                                 <Repeat2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                             </div>
                             <div>
-                                <h4 className="font-bold text-xs text-emerald-800 dark:text-emerald-300">Ngữ pháp đến hạn ôn tập</h4>
-                                <p className="text-[11px] text-emerald-700/80 dark:text-emerald-400/80 mt-0.5 font-mono">Bạn có {grammarDueCount} mẫu ngữ pháp cần ôn tập.</p>
+                                <h4 className="font-bold text-xs text-emerald-800 dark:text-emerald-300">{t('nav.grammarDueNotif', 'Ngữ pháp đến hạn ôn tập')}</h4>
+                                <p className="text-[11px] text-emerald-700/80 dark:text-emerald-400/80 mt-0.5 font-mono">{(t('nav.grammarDueNotifDesc', 'Bạn có {count} mẫu ngữ pháp cần ôn tập.') || '').replace('{count}', grammarDueCount)}</p>
                             </div>
                         </button>
                     )}
@@ -925,7 +931,7 @@ const Sidebar = ({
                                             rel="noopener noreferrer"
                                             className="inline-flex items-center gap-1 mt-1.5 text-[10px] font-bold text-cyan-600 dark:text-cyan-400 hover:underline cursor-pointer"
                                         >
-                                            🔗 Mở liên kết ↗
+                                            {t('nav.openLink', '🔗 Mở liên kết ↗')}
                                         </a>
                                     )}
                                 </div>
@@ -934,7 +940,7 @@ const Sidebar = ({
                     })}
 
                     {globalNotifications.length === 0 && dueVocabCount === 0 && kanjiDueCount === 0 && grammarDueCount === 0 && (
-                        <p className="text-xs text-slate-400 text-center py-4 font-mono">Không có thông báo mới</p>
+                        <p className="text-xs text-slate-400 text-center py-4 font-mono">{t('nav.noNewNotifications', 'Không có thông báo mới')}</p>
                     )}
                 </div>
             </div>
@@ -951,7 +957,7 @@ const Sidebar = ({
                         to={ROUTES.HOME}
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700/90 flex items-center justify-center shadow-xs active:scale-95 transition-transform shrink-0"
-                        title="Trang chủ"
+                        title={t('nav.home', 'Trang chủ')}
                     >
                         <div className="w-6.5 h-6.5 rounded-full bg-gradient-to-tr from-emerald-500 via-teal-600 to-cyan-500 flex items-center justify-center text-white shadow-xs">
                             <BookOpen className="w-3.5 h-3.5" />
@@ -976,7 +982,7 @@ const Sidebar = ({
                                 type="button"
                                 onClick={() => setIsNotificationsOpen(prev => !prev)}
                                 className="w-9 h-9 rounded-full bg-slate-100/90 dark:bg-slate-800/90 text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-center cursor-pointer active:scale-95 transition-all hover:border-emerald-500/50"
-                                title="Thông báo"
+                                title={t('nav.notifications', 'Thông báo')}
                             >
                                 <Bell className="w-4 h-4" />
                                 {hasUnread && (
@@ -991,7 +997,7 @@ const Sidebar = ({
                                 to={ROUTES.SETTINGS}
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 className="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-[9px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden shadow-xs active:scale-95 transition-transform shrink-0"
-                                title="Trang cá nhân & Cài đặt"
+                                title={t('nav.personalSettings', 'Trang cá nhân & Cài đặt')}
                             >
                                 {renderAvatar()}
                             </Link>
@@ -1000,10 +1006,10 @@ const Sidebar = ({
                                 to={ROUTES.LOGIN}
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 className="px-2.5 py-1.5 rounded-full bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold text-xs shadow-xs active:scale-95 transition-transform shrink-0 flex items-center gap-1"
-                                title="Đăng nhập"
+                                title={t('nav.login', 'Đăng nhập')}
                             >
                                 <LogIn className="w-3.5 h-3.5" />
-                                <span>Đăng nhập</span>
+                                <span>{t('nav.login', 'Đăng nhập')}</span>
                             </Link>
                         )}
                     </div>
@@ -1075,17 +1081,17 @@ const Sidebar = ({
                         <div className="px-5 py-2.5 flex items-start justify-between shrink-0">
                             <div>
                                 <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
-                                    Khám phá QUIZKI
+                                    {t('nav.exploreTitle', 'Khám phá QUIZKI')}
                                 </h2>
                                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-snug">
-                                    Toàn bộ không gian học tập của bạn, được sắp xếp gọn trong một nơi.
+                                    {t('nav.exploreSub', 'Toàn bộ không gian học tập của bạn, được sắp xếp gọn trong một nơi.')}
                                 </p>
                             </div>
                             <button
                                 type="button"
                                 onClick={() => setIsMobileMenuOpen(false)}
                                 className="w-9 h-9 rounded-full bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center transition-colors shrink-0 ml-3 mt-0.5 cursor-pointer shadow-2xs"
-                                title="Đóng"
+                                title={t('common.close', 'Đóng')}
                             >
                                 <X className="w-4.5 h-4.5" />
                             </button>
@@ -1096,7 +1102,7 @@ const Sidebar = ({
                             {/* Group 1: Study & Features */}
                             <div className="space-y-2">
                                 <div className="flex items-center gap-1.5 px-1 text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider font-mono">
-                                    <span>📚 HỌC PHẦN & TÍNH NĂNG</span>
+                                    <span>{t('nav.studyGroupHeader', '📚 HỌC PHẦN & TÍNH NĂNG')}</span>
                                 </div>
                                 <div className="grid grid-cols-2 gap-2.5">
                                     {studyMenuItems.map((item) => {
@@ -1164,7 +1170,7 @@ const Sidebar = ({
                             {/* Group 2: Tools & Utilities */}
                             <div className="space-y-2 pt-1.5">
                                 <div className="flex items-center gap-1.5 px-1 text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider font-mono">
-                                    <span>🛠️ CÔNG CỤ & TIỆN ÍCH</span>
+                                    <span>{t('nav.toolsGroupHeader', '🛠️ CÔNG CỤ & TIỆN ÍCH')}</span>
                                 </div>
                                 <div className="grid grid-cols-2 gap-2.5">
                                     {toolMenuItems.map((item) => {
@@ -1242,7 +1248,7 @@ const Sidebar = ({
                                     <div className="flex-1 min-w-0">
                                         <div className="flex items-center gap-1.5">
                                             <span className="font-extrabold text-sm text-slate-800 dark:text-white truncate">
-                                                {displayName || profile?.displayName || auth?.currentUser?.displayName || (auth?.currentUser?.email ? auth.currentUser.email.split('@')[0] : 'Người học')}
+                                                {displayName || profile?.displayName || auth?.currentUser?.displayName || (auth?.currentUser?.email ? auth.currentUser.email.split('@')[0] : t('nav.learner', 'Người học'))}
                                             </span>
                                             {isPremium ? (
                                                 <span className="bg-amber-500/15 text-amber-600 dark:text-amber-400 text-[9px] font-mono font-black px-1.5 py-0.5 rounded border border-amber-500/30">PREMIUM</span>
@@ -1259,11 +1265,11 @@ const Sidebar = ({
                             {/* 2-Column Language Selectors */}
                             <div className="grid grid-cols-2 gap-2 pt-0.5">
                                 <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-800/80 p-2 rounded-xl border border-slate-200 dark:border-slate-800 shadow-2xs">
-                                    <span className="text-[10px] font-extrabold text-slate-500 dark:text-slate-400 pl-1">🎯 HỌC</span>
+                                    <span className="text-[10px] font-extrabold text-slate-500 dark:text-slate-400 pl-1">🎯 {t('nav.targetLangLabel', 'HỌC')}</span>
                                     <TargetLanguageSelector isAdmin={isAdmin} />
                                 </div>
                                 <div className="flex items-center justify-between bg-slate-50 dark:bg-slate-800/80 p-2 rounded-xl border border-slate-200 dark:border-slate-800 shadow-2xs">
-                                    <span className="text-[10px] font-extrabold text-slate-500 dark:text-slate-400 pl-1">🌐 NGÔN NGỮ</span>
+                                    <span className="text-[10px] font-extrabold text-slate-500 dark:text-slate-400 pl-1">🌐 {t('nav.uiLangLabel', 'NGÔN NGỮ')}</span>
                                     <LanguageSelector compact={true} />
                                 </div>
                             </div>
@@ -1285,16 +1291,16 @@ const Sidebar = ({
                                     className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl bg-rose-50 text-rose-600 dark:bg-rose-950/40 dark:text-rose-400 border border-rose-200 dark:border-rose-800/80 text-xs font-extrabold cursor-pointer hover:bg-rose-100 dark:hover:bg-rose-900/60 transition-colors"
                                 >
                                     <LogOut className="w-3.5 h-3.5" />
-                                    <span>Đăng xuất</span>
+                                    <span>{t('common.logout', 'Đăng xuất')}</span>
                                 </button>
                             ) : (
                                 <Link
                                     to={ROUTES.LOGIN}
                                     onClick={() => setIsMobileMenuOpen(false)}
-                                    className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white text-xs font-extrabold shadow-sm active:scale-98 transition-transform"
+                                    className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 border-b-2 border-emerald-700 active:translate-y-0.5 text-white text-xs font-black uppercase tracking-wider shadow-sm transition-all"
                                 >
-                                    <LogIn className="w-3.5 h-3.5" />
-                                    <span>Đăng nhập / Đăng ký</span>
+                                    <LogIn className="w-3.5 h-3.5 stroke-[2.5]" />
+                                    <span>{t('common.login', 'Đăng nhập')}</span>
                                 </Link>
                             )}
                         </div>
@@ -1304,37 +1310,25 @@ const Sidebar = ({
 
             {/* Desktop Cyber-AI Futuristic Sidebar */}
             <aside className={`hidden lg:flex flex-col fixed left-0 top-0 bottom-0 z-40 transition-[width] duration-200 ease-out ${isCollapsed ? 'w-20' : 'w-64'} bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shadow-xl`}>
-                {/* Cyber Brand Logo */}
+                {/* Brand Logo Header */}
                 <div className={`p-4 border-b border-slate-200 dark:border-slate-800 flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'}`}>
                     <Link
                         to={ROUTES.HOME}
-                        className="flex items-center space-x-3 min-w-0"
+                        className="flex items-center min-w-0 group cursor-pointer"
                     >
-                        <div className="w-10 h-10 bg-gradient-to-tr from-cyan-500 via-indigo-600 to-sky-500 rounded-xl flex items-center justify-center text-white shadow-md shadow-cyan-500/25 border border-cyan-400/40 shrink-0">
-                            <BookOpen className="w-5 h-5" />
-                        </div>
-                        {!isCollapsed && (
-                            <div className="flex flex-col min-w-0">
-                                <span className="text-xl font-black text-slate-800 dark:text-white leading-none tracking-tight">
-                                    QuizKi <span className="text-cyan-500 font-mono text-xs font-black">AI</span>
-                                </span>
-                                <span className="text-[10px] text-slate-400 dark:text-slate-500 font-mono font-bold tracking-widest uppercase mt-1">
-                                    NEURAL PLATFORM
-                                </span>
-                            </div>
-                        )}
+                        <QuizKiLogo size="md" showSubtitle={!isCollapsed} isIconOnly={isCollapsed} />
                     </Link>
 
-                    {!isCollapsed && (
+                    {!isCollapsed && userId && (
                         <div className="relative">
                             <button
                                 data-notif-trigger="true"
                                 type="button"
                                 onClick={() => setIsNotificationsOpen(prev => !prev)}
-                                className="p-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-600 dark:text-slate-300 hover:border-cyan-400 transition-all relative cursor-pointer"
-                                title="Thông báo"
+                                className="p-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-600 dark:text-slate-300 hover:border-emerald-400 transition-all relative cursor-pointer"
+                                title={t('nav.notifications', 'Thông báo')}
                             >
-                                <Bell className="w-4.5 h-4.5" />
+                                <Bell className="w-4 h-4" />
                                 {hasUnread && (
                                     <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full animate-ping"></span>
                                 )}
@@ -1344,87 +1338,91 @@ const Sidebar = ({
                     )}
                 </div>
 
-                {/* Cyber Profile Telemetry Capsule with Click Menu */}
-                {!isCollapsed && (
-                    userId ? (
-                        <div className="px-3 py-3 border-b border-slate-200 dark:border-slate-800 relative" ref={profileRef}>
-                            <div
-                                onClick={() => setIsProfileMenuOpen(prev => !prev)}
-                                className="flex items-center gap-3 bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-cyan-500/30 rounded-2xl p-2.5 shadow-inner hover:border-cyan-400 transition-all w-full cursor-pointer group min-w-0"
-                                title="Tài khoản cá nhân"
-                            >
-                                <div className="flex flex-col items-center gap-0.5 flex-shrink-0">
-                                    <div className="w-9 h-9 rounded-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-cyan-500/40 flex items-center justify-center text-[10px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden shadow-sm group-hover:scale-105 transition-transform">
-                                        {renderAvatar()}
-                                    </div>
-                                    <span className="bg-gradient-to-r from-cyan-500 to-indigo-600 text-white text-[8px] font-black px-1.5 rounded font-mono uppercase">
-                                        LV {xpDetails.level}
-                                    </span>
-                                </div>
+                {/* Guest Login CTA (Clean dedicated row below logo, never overlapping) */}
+                {!isCollapsed && !userId && (
+                    <div className="p-3 border-b border-slate-200 dark:border-slate-800">
+                        <Link
+                            to={ROUTES.LOGIN}
+                            className="w-full py-2.5 px-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 text-white font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm transition-all select-none cursor-pointer"
+                        >
+                            <LogIn className="w-4 h-4 stroke-[2.5]" />
+                            <span>{t('common.login', 'Đăng nhập')}</span>
+                        </Link>
+                    </div>
+                )}
 
-                                <div className="flex flex-col min-w-0 flex-1 justify-center">
-                                    {isPremium ? (
-                                        <span className="text-[9px] font-mono font-black uppercase tracking-widest text-amber-500 flex items-center gap-0.5">
-                                            <Crown className="w-2.5 h-2.5 fill-amber-500 inline" /> PREMIUM
-                                        </span>
-                                    ) : (
-                                        <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">
-                                            FREE ACCOUNT
-                                        </span>
-                                    )}
-                                    <span className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate mt-0.5">
-                                        {displayName || 'Người học'}
-                                    </span>
-                                    <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono truncate mt-0.5">
-                                        {getLevelTitle(xpDetails.level)}
-                                    </span>
+                {/* Collapsed Login Action (when not logged in) */}
+                {isCollapsed && !userId && (
+                    <div className="p-2 border-b border-slate-200 dark:border-slate-800 flex justify-center">
+                        <Link
+                            to={ROUTES.LOGIN}
+                            className="w-10 h-10 rounded-xl bg-emerald-500 hover:bg-emerald-400 border-b-2 border-emerald-700 flex items-center justify-center text-white shadow-xs transition-transform active:scale-95 cursor-pointer"
+                            title={t('common.login', 'Đăng nhập')}
+                        >
+                            <LogIn className="w-4 h-4 stroke-[2.5]" />
+                        </Link>
+                    </div>
+                )}
+
+                {/* User Profile Capsule (Only if logged in) */}
+                {!isCollapsed && userId && (
+                    <div className="px-3 py-3 border-b border-slate-200 dark:border-slate-800 relative" ref={profileRef}>
+                        <div
+                            onClick={() => setIsProfileMenuOpen(prev => !prev)}
+                            className="flex items-center gap-3 bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-emerald-500/30 rounded-2xl p-2.5 shadow-inner hover:border-emerald-400 transition-all w-full cursor-pointer group min-w-0"
+                            title={t('nav.profile', 'Tài khoản cá nhân')}
+                        >
+                            <div className="flex flex-col items-center gap-0.5 flex-shrink-0">
+                                <div className="w-9 h-9 rounded-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-emerald-500/40 flex items-center justify-center text-[10px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden shadow-sm group-hover:scale-105 transition-transform">
+                                    {renderAvatar()}
                                 </div>
+                                <span className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[8px] font-black px-1.5 rounded font-mono uppercase">
+                                    LV {xpDetails.level}
+                                </span>
                             </div>
 
-                            {/* Profile Quick Dropdown */}
-                            {isProfileMenuOpen && (
-                                <div className="absolute left-3 right-3 top-full mt-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-50 p-1.5 space-y-1 animate-fade-in">
-                                    <Link
-                                        to={ROUTES.SETTINGS}
-                                        onClick={() => setIsProfileMenuOpen(false)}
-                                        className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
-                                    >
-                                        <span>⚙️ Cài đặt cá nhân</span>
-                                    </Link>
-                                    <button
-                                        onClick={() => {
-                                            setIsProfileMenuOpen(false);
-                                            handleLogout();
-                                        }}
-                                        className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/50 transition-colors cursor-pointer"
-                                    >
-                                        <LogOut className="w-4 h-4 text-rose-500 shrink-0" />
-                                        <span>Đăng xuất</span>
-                                    </button>
-                                </div>
-                            )}
+                            <div className="flex flex-col min-w-0 flex-1 justify-center">
+                                {isPremium ? (
+                                    <span className="text-[9px] font-mono font-black uppercase tracking-widest text-amber-500 flex items-center gap-0.5">
+                                        <Crown className="w-2.5 h-2.5 fill-amber-500 inline" /> {t('nav.premiumAccount', 'PREMIUM')}
+                                    </span>
+                                ) : (
+                                    <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">
+                                        {t('nav.freeAccount', 'FREE ACCOUNT')}
+                                    </span>
+                                )}
+                                <span className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate mt-0.5">
+                                    {displayName || t('nav.learner', 'Người học')}
+                                </span>
+                                <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono truncate mt-0.5">
+                                    {getLevelTitle(xpDetails.level)}
+                                </span>
+                            </div>
                         </div>
-                    ) : (
-                        <div className="px-3 py-3 border-b border-slate-200 dark:border-slate-800">
-                            <div className="bg-gradient-to-br from-slate-50 to-cyan-50/50 dark:from-slate-950/80 dark:to-cyan-950/30 border border-slate-200 dark:border-cyan-500/30 rounded-2xl p-3 shadow-2xs space-y-2">
-                                <div className="flex items-center gap-2">
-                                    <div className="w-8 h-8 rounded-full bg-cyan-100 dark:bg-cyan-900/60 text-cyan-600 dark:text-cyan-400 flex items-center justify-center text-xs font-bold shrink-0">
-                                        👤
-                                    </div>
-                                    <div className="min-w-0 flex-1">
-                                        <div className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate">Khách (Guest)</div>
-                                        <div className="text-[10px] text-slate-400 font-mono truncate">Chưa đăng nhập</div>
-                                    </div>
-                                </div>
+
+                        {/* Profile Quick Dropdown */}
+                        {isProfileMenuOpen && (
+                            <div className="absolute left-3 right-3 top-full mt-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-50 p-1.5 space-y-1 animate-fade-in">
                                 <Link
-                                    to={ROUTES.LOGIN}
-                                    className="w-full py-2 bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-bold text-xs rounded-xl shadow-xs text-center block transition-transform active:scale-98"
+                                    to={ROUTES.SETTINGS}
+                                    onClick={() => setIsProfileMenuOpen(false)}
+                                    className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                                 >
-                                    Đăng nhập / Đăng ký
+                                    <span>⚙️ {t('nav.personalSettings', 'Cài đặt cá nhân')}</span>
                                 </Link>
+                                <button
+                                    onClick={() => {
+                                        setIsProfileMenuOpen(false);
+                                        handleLogout();
+                                    }}
+                                    className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/50 transition-colors cursor-pointer"
+                                >
+                                    <LogOut className="w-4 h-4 text-rose-500 shrink-0" />
+                                    <span>{t('common.logout', 'Đăng xuất')}</span>
+                                </button>
                             </div>
-                        </div>
-                    )
+                        )}
+                    </div>
                 )}
 
                 {/* Grouped Navigation Menu */}
@@ -1486,11 +1484,11 @@ const Sidebar = ({
                         <button
                             onClick={() => setIsLangWheelModalOpen(true)}
                             className="w-full flex items-center justify-between gap-1.5 bg-white dark:bg-slate-900 p-2.5 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 shadow-sm transition-all text-xs font-bold text-slate-700 dark:text-slate-200 cursor-pointer group"
-                            title="Bấm để cuộn chọn Ngôn ngữ (iOS Wheel)"
+                            title={t('nav.selectLangWheel', 'Bấm để cuộn chọn Ngôn ngữ (iOS Wheel)')}
                         >
                             <div className="flex items-center gap-1.5 min-w-0">
                                 <span className="text-[11px]">🎯</span>
-                                <span className="truncate">{activeTargetConfig?.name || (targetLanguage === 'en' ? 'Tiếng Anh' : targetLanguage === 'ko' ? 'Tiếng Hàn' : 'Tiếng Nhật')}</span>
+                                <span className="truncate">{t(`languages.${targetLanguage}`, activeTargetConfig?.name || (targetLanguage === 'en' ? 'Tiếng Anh' : targetLanguage === 'ko' ? 'Tiếng Hàn' : 'Tiếng Nhật'))}</span>
                             </div>
                             <div className="h-4 w-px bg-slate-200 dark:bg-slate-800 shrink-0" />
                             <div className="flex items-center gap-1.5 min-w-0">
@@ -1502,7 +1500,7 @@ const Sidebar = ({
                         <button
                             onClick={() => setIsLangWheelModalOpen(true)}
                             className="w-full p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
-                            title="Đổi ngôn ngữ"
+                            title={t('common.selectLanguage', 'Đổi ngôn ngữ')}
                         >
                             <Globe className="w-4.5 h-4.5 text-cyan-500" />
                         </button>
@@ -1534,7 +1532,7 @@ const Sidebar = ({
                             <button
                                 onClick={() => setIsCollapsed(false)}
                                 className="w-full py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-slate-500 hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center cursor-pointer shadow-sm relative"
-                                title={unreadChatCount > 0 ? `Mở rộng Sidebar (${unreadChatCount} tin nhắn chưa đọc)` : "Mở rộng Sidebar"}
+                                title={unreadChatCount > 0 ? `${t('nav.expandSidebar', 'Mở rộng Sidebar')} (${unreadChatCount})` : t('nav.expandSidebar', 'Mở rộng Sidebar')}
                             >
                                 <ChevronRight className="w-5 h-5" />
                                 {unreadChatCount > 0 && (
@@ -1550,7 +1548,7 @@ const Sidebar = ({
                                 <button
                                     onClick={() => window.dispatchEvent(new CustomEvent('open-admin-chat'))}
                                     className="p-2 rounded-lg text-cyan-600 dark:text-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-950/50 transition-colors cursor-pointer relative"
-                                    title={unreadChatCount > 0 ? `Chatbox hỗ trợ (${unreadChatCount} tin nhắn chưa đọc)` : "Chatbox hỗ trợ với Admin"}
+                                    title={unreadChatCount > 0 ? `${t('nav.chatAdmin', 'Chat với Admin')} (${unreadChatCount})` : t('nav.chatAdmin', 'Chat với Admin')}
                                 >
                                     <MessageSquare className="w-4.5 h-4.5" />
                                     {unreadChatCount > 0 && (
@@ -1567,7 +1565,7 @@ const Sidebar = ({
                                             ? 'text-purple-500 bg-purple-500/20 font-bold'
                                             : 'text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-950/50'
                                         }`}
-                                    title="Đồng hồ tập trung Focus Session"
+                                    title={t('nav.focusTimer', 'Đồng hồ tập trung Focus Session')}
                                 >
                                     <Timer className="w-4.5 h-4.5" />
                                     {(focusStatus === 'focusing' || focusStatus === 'break') && (
@@ -1582,16 +1580,25 @@ const Sidebar = ({
                                         else navigate(ROUTES.HELP);
                                     }}
                                     className="p-2 rounded-lg text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 transition-colors cursor-pointer"
-                                    title="Xem hướng dẫn trang này"
+                                    title={t('nav.userGuide', 'Xem hướng dẫn trang này')}
                                 >
                                     <HelpCircle className="w-4.5 h-4.5" />
+                                </button>
+
+                                {/* Background Wallpaper Theme Switcher */}
+                                <button
+                                    onClick={() => window.dispatchEvent(new CustomEvent('quizki-open-background-picker'))}
+                                    className="p-2 rounded-lg text-rose-500 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/50 transition-colors cursor-pointer"
+                                    title={t('settings.general.bgThemeTitle', 'Đổi hình nền học tập (Cổng Torii, Bầu trời sao...)')}
+                                >
+                                    <Palette className="w-4.5 h-4.5" />
                                 </button>
 
                                 {/* Dark Mode Toggle */}
                                 <button
                                     onClick={() => setIsDarkMode(prev => !prev)}
                                     className="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
-                                    title={isDarkMode ? 'Giao diện sáng' : 'Giao diện tối'}
+                                    title={isDarkMode ? t('nav.lightMode', 'Giao diện sáng') : t('nav.darkMode', 'Giao diện tối')}
                                 >
                                     {isDarkMode ? <Sun className="w-4.5 h-4.5 text-amber-400" /> : <Moon className="w-4.5 h-4.5 text-indigo-600" />}
                                 </button>
@@ -1600,7 +1607,7 @@ const Sidebar = ({
                                 <button
                                     onClick={() => setIsCollapsed(true)}
                                     className="p-2 rounded-lg text-slate-400 hover:text-slate-700 dark:text-slate-500 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
-                                    title="Thu gọn Sidebar"
+                                    title={t('nav.collapseSidebar', 'Thu gọn Sidebar')}
                                 >
                                     <ChevronLeft className="w-4.5 h-4.5" />
                                 </button>

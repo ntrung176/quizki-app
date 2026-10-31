@@ -98,11 +98,11 @@ const EditProfileModal = ({ profileData, onClose, onSave }) => {
                 <div className="p-5 space-y-4 overflow-y-auto flex-1">
                     {/* Bio */}
                     <div>
-                        <label className="text-xs font-bold text-gray-600 dark:text-gray-400 mb-1.5 block">Giới thiệu bản thân</label>
+                        <label className="text-xs font-bold text-gray-600 dark:text-gray-400 mb-1.5 block">{t('profile.bio', 'Giới thiệu bản thân')}</label>
                         <textarea
                             value={bio}
                             onChange={e => setBio(e.target.value)}
-                            placeholder="Viết vài dòng giới thiệu bản thân..."
+                            placeholder={t('profile.bioPlaceholder', 'Viết vài dòng giới thiệu bản thân...')}
                             className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-400 resize-none"
                             rows={3}
                             maxLength={150}
@@ -111,7 +111,7 @@ const EditProfileModal = ({ profileData, onClose, onSave }) => {
                     </div>
                     {/* JLPT Level */}
                     <div>
-                        <label className="text-xs font-bold text-gray-600 dark:text-gray-400 mb-1.5 block">Cấp độ JLPT đang học</label>
+                        <label className="text-xs font-bold text-gray-600 dark:text-gray-400 mb-1.5 block">{t('profile.currentLevel', 'Cấp độ JLPT đang học')}</label>
                         <div className="flex gap-2">
                             {JLPT_LEVELS.map(lvl => (
                                 <button
@@ -130,7 +130,7 @@ const EditProfileModal = ({ profileData, onClose, onSave }) => {
                     {/* Link */}
                     <div>
                         <label className="text-xs font-bold text-gray-600 dark:text-gray-400 mb-1.5 block flex items-center gap-1">
-                            <LinkIcon className="w-3 h-3" /> Liên kết (tuỳ chọn)
+                            <LinkIcon className="w-3 h-3" /> {t('profile.linkOptional', 'Liên kết (tuỳ chọn)')}
                         </label>
                         <input
                             type="url"
@@ -154,7 +154,7 @@ const EditProfileModal = ({ profileData, onClose, onSave }) => {
                         ) : (
                             <Check className="w-4 h-4" />
                         )}
-                        {saving ? 'Đang lưu...' : 'Lưu thay đổi'}
+                        {saving ? t('profile.saving', 'Đang lưu...') : t('profile.saveChanges', 'Lưu thay đổi')}
                     </button>
                 </div>
             </div>
@@ -176,9 +176,9 @@ const ReplyMiniCard = ({ reply }) => {
                     <div className="flex items-center gap-2 mb-1">
                         <span className="text-[10px] text-gray-400 flex items-center gap-1">
                             <MessageCircle className="w-3 h-3" />
-                            Trả lời trong bài của <span className="font-bold text-gray-500 dark:text-gray-300">{reply.postAuthorName || 'ai đó'}</span>
+                            {t('profile.replyInPost', 'Trả lời trong bài của {author}').replace('{author}', '')}<span className="font-bold text-gray-500 dark:text-gray-300">{reply.postAuthorName || t('profile.anonymous', 'ai đó')}</span>
                         </span>
-                        <span className="text-[10px] text-gray-400">{timeAgo(reply.createdAt)}</span>
+                        <span className="text-[10px] text-gray-400">{timeAgo(reply.createdAt, t, language)}</span>
                     </div>
                     {reply.postTitle && (
                         <p className="text-[11px] text-indigo-500 dark:text-indigo-400 font-medium mb-1 line-clamp-1 group-hover:text-indigo-600 transition-colors">
@@ -223,7 +223,7 @@ const PostMiniCard = ({ post }) => {
                         <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${cat.color}`}>
                             {cat.icon} {cat.label}
                         </span>
-                        <span className="text-[10px] text-gray-400">{timeAgo(post.createdAt)}</span>
+                        <span className="text-[10px] text-gray-400">{timeAgo(post.createdAt, t, language)}</span>
                     </div>
                     {post.title && (
                         <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-1 leading-snug line-clamp-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
@@ -259,7 +259,9 @@ const PostMiniCard = ({ post }) => {
 // ==========================
 // MAIN USER PROFILE SCREEN
 // ==========================
-const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isAdmin }) => {
+const UserProfileScreen = ({
+    // Localization
+ userId: currentUserId, profile: currentProfile, isAdmin }) => {
     const { userId: paramUserId } = useParams();
     const navigate = useNavigate();
     // Determine which profile to show
@@ -311,7 +313,7 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                     // Profile doesn't exist yet — create default if it's self
                     if (isSelf && currentProfile) {
                         const defaultProfile = {
-                            displayName: currentProfile.displayName || 'Ẩn danh',
+                            displayName: currentProfile.displayName || t('profile.anonymous', 'Ẩn danh'),
                             avatar: currentProfile.avatar || '',
                             bio: '',
                             jlptLevel: '',
@@ -417,7 +419,7 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                             ...commentDoc.data(),
                             postId: postDoc.id,
                             postTitle: postData.title || '',
-                            postAuthorName: postData.authorName || 'Ẩn danh',
+                            postAuthorName: postData.authorName || t('profile.anonymous', 'Ẩn danh'),
                         });
                     }
                 }
@@ -478,7 +480,7 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                 await setDoc(followRef, {
                     followerId: currentUserId,
                     followingId: targetUserId,
-                    followerName: currentProfile?.displayName || 'Ẩn danh',
+                    followerName: currentProfile?.displayName || t('profile.anonymous', 'Ẩn danh'),
                     followerAvatar: currentProfile?.avatar || '',
                     createdAt: serverTimestamp(),
                 });
@@ -504,24 +506,24 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
         }
     };
     // Get display info (use profile data or fallback to currentProfile for self)
-    const displayName = profileData?.displayName || (isSelf ? currentProfile?.displayName : 'Người dùng');
+    const displayName = profileData?.displayName || (isSelf ? currentProfile?.displayName : t('profile.defaultUser', 'Người dùng'));
     const displayAvatar = profileData?.avatar || (isSelf ? currentProfile?.avatar : '');
     const displayBio = profileData?.bio || '';
     const displayJlpt = profileData?.jlptLevel || '';
     const displayLink = profileData?.link || '';
     // Tabs config
     const tabs = [
-        { id: 'posts', label: 'Bài viết', icon: MessageSquare, count: userPosts.length },
-        { id: 'replies', label: 'Trả lời', icon: MessageCircle, count: userReplies.length > 0 ? userReplies.length : null },
+        { id: 'posts', label: t('profile.postsTab', 'Bài viết'), icon: MessageSquare, count: userPosts.length },
+        { id: 'replies', label: t('profile.repliesTab', 'Trả lời'), icon: MessageCircle, count: userReplies.length > 0 ? userReplies.length : null },
     ];
     if (isSelf) {
-        tabs.push({ id: 'likes', label: 'Đã thích', icon: Heart, count: likedPosts.length > 0 ? likedPosts.length : null });
+        tabs.push({ id: 'likes', label: t('profile.likedTab', 'Đã thích'), icon: Heart, count: likedPosts.length > 0 ? likedPosts.length : null });
     }
     if (loading) {
         return (
             <div className="max-w-xl mx-auto flex flex-col items-center gap-3 py-20">
                 <div className="w-10 h-10 border-3 border-indigo-500/30 border-t-indigo-500 rounded-full animate-spin" />
-                <p className="text-sm text-gray-400">Đang tải hồ sơ...</p>
+                <p className="text-sm text-gray-400">{t('profile.loadingProfile', 'Đang tải hồ sơ...')}</p>
             </div>
         );
     }
@@ -537,7 +539,7 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                 </button>
                 <div className="flex-1">
                     <h2 className="text-lg font-black text-gray-800 dark:text-gray-100">{displayName}</h2>
-                    <p className="text-[11px] text-gray-400">{userPosts.length} bài viết</p>
+                    <p className="text-[11px] text-gray-400">{t('profile.postsCount', '{count} bài viết').replace('{count}', userPosts.length)}</p>
                 </div>
                 {isSelf && (
                     <Link to={ROUTES.SETTINGS} className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 text-gray-400 transition-colors">
@@ -629,15 +631,15 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                     <div className="flex items-center gap-6 mt-4 pt-4 border-t border-gray-100 dark:border-gray-700">
                         <div className="text-center">
                             <p className="text-lg font-black text-gray-800 dark:text-white">{userPosts.length}</p>
-                            <p className="text-[10px] text-gray-400 font-medium">Bài viết</p>
+                            <p className="text-[10px] text-gray-400 font-medium">{t('profile.postsLabel', 'Bài viết')}</p>
                         </div>
                         <div className="text-center">
                             <p className="text-lg font-black text-gray-800 dark:text-white">{followerCount}</p>
-                            <p className="text-[10px] text-gray-400 font-medium">Người theo dõi</p>
+                            <p className="text-[10px] text-gray-400 font-medium">{t('profile.followersLabel', 'Người theo dõi')}</p>
                         </div>
                         <div className="text-center">
                             <p className="text-lg font-black text-gray-800 dark:text-white">{followingCount}</p>
-                            <p className="text-[10px] text-gray-400 font-medium">Đang theo dõi</p>
+                            <p className="text-[10px] text-gray-400 font-medium">{t('profile.followingLabel', 'Đang theo dõi')}</p>
                         </div>
                     </div>
                 </div>
@@ -683,13 +685,13 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                                 <div className="w-14 h-14 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-3">
                                     <MessageSquare className="w-7 h-7 text-gray-300 dark:text-gray-600" />
                                 </div>
-                                <p className="font-bold text-gray-500 dark:text-gray-400 text-sm">Chưa có bài viết nào</p>
+                                <p className="font-bold text-gray-500 dark:text-gray-400 text-sm">{t('profile.noPosts', 'Chưa có bài viết nào')}</p>
                                 {isSelf && (
                                     <Link
                                         to={ROUTES.FORUM}
                                         className="inline-flex items-center gap-1.5 mt-3 px-4 py-2 bg-indigo-500 text-white text-xs font-bold rounded-full shadow-md shadow-indigo-500/25 hover:bg-indigo-600 transition-all"
                                     >
-                                        <MessageSquare className="w-3.5 h-3.5" /> Đăng bài trên diễn đàn
+                                        <MessageSquare className="w-3.5 h-3.5" /> {t('profile.postOnForum', 'Đăng bài trên diễn đàn')}
                                     </Link>
                                 )}
                             </div>
@@ -711,7 +713,7 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                                 <div className="w-14 h-14 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-3">
                                     <MessageCircle className="w-7 h-7 text-gray-300 dark:text-gray-600" />
                                 </div>
-                                <p className="font-bold text-gray-500 dark:text-gray-400 text-sm">Chưa có trả lời nào</p>
+                                <p className="font-bold text-gray-500 dark:text-gray-400 text-sm">{t('profile.noReplies', 'Chưa có trả lời nào')}</p>
                             </div>
                         )}
                     </>
@@ -731,12 +733,12 @@ const UserProfileScreen = ({ userId: currentUserId, profile: currentProfile, isA
                                 <div className="w-14 h-14 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mx-auto mb-3">
                                     <Heart className="w-7 h-7 text-gray-300 dark:text-gray-600" />
                                 </div>
-                                <p className="font-bold text-gray-500 dark:text-gray-400 text-sm">Chưa thích bài viết nào</p>
+                                <p className="font-bold text-gray-500 dark:text-gray-400 text-sm">{t('profile.noLikedPosts', 'Chưa thích bài viết nào')}</p>
                                 <Link
                                     to={ROUTES.FORUM}
                                     className="inline-flex items-center gap-1.5 mt-3 px-4 py-2 bg-indigo-500 text-white text-xs font-bold rounded-full shadow-md shadow-indigo-500/25 hover:bg-indigo-600 transition-all"
                                 >
-                                    <Heart className="w-3.5 h-3.5" /> Khám phá diễn đàn
+                                    <Heart className="w-3.5 h-3.5" /> {t('profile.exploreForum', 'Khám phá diễn đàn')}
                                 </Link>
                             </div>
                         )}

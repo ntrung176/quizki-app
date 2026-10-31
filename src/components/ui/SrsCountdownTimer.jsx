@@ -1,7 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 import { Clock } from 'lucide-react';
 
-const SrsCountdownTimer = ({ targetMs, onExpire, label = 'TIẾP SAU' }) => {
+const SrsCountdownTimer = ({ targetMs, onExpire, label }) => {
+    const { t } = useLanguage();
+    const displayLabel = label || t('srs.nextIn', 'TIẾP SAU');
     const validTargetMs = typeof targetMs === 'number' && !isNaN(targetMs) && targetMs > 0 ? targetMs : 0;
     const [secondsLeft, setSecondsLeft] = useState(() =>
         validTargetMs > 0 ? Math.max(0, Math.ceil((validTargetMs - Date.now()) / 1000)) : 0
@@ -50,7 +53,7 @@ const SrsCountdownTimer = ({ targetMs, onExpire, label = 'TIẾP SAU' }) => {
             className="md:mt-3 px-5 py-2.5 md:w-full rounded-full text-xs font-mono font-bold tracking-wider uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-500 dark:text-slate-400 cursor-not-allowed flex items-center justify-center gap-1.5 shrink-0 min-h-[42px]"
         >
             <Clock className="w-3.5 h-3.5 animate-spin-slow shrink-0" />
-            <span>{label}: {formatted}</span>
+            <span>{displayLabel}: {formatted}</span>
         </button>
     );
 };

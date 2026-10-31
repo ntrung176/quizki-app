@@ -72,9 +72,9 @@ const JLPTWrongQuestionsTab = ({
                             <button
                                 onClick={() => onStartPracticeWrong(filteredList)}
                                 disabled={filteredList.length === 0}
-                                className="px-5 py-2.5 bg-[#f494bc] hover:bg-[#f6a0c5] disabled:opacity-40 text-slate-950 rounded-2xl text-xs font-black transition flex items-center gap-2 shadow-[0_4px_14px_rgba(244,148,188,0.4)] cursor-pointer active:scale-95"
+                                className="px-5 py-2.5 bg-emerald-500 hover:bg-emerald-400 disabled:opacity-40 text-white rounded-2xl text-xs font-black uppercase tracking-wider transition flex items-center gap-2 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 cursor-pointer select-none"
                             >
-                                <Play className="w-4 h-4 fill-slate-950 text-slate-950" />
+                                <Play className="w-4 h-4 fill-white text-white" />
                                 <span>Luyện lại câu sai ({filteredList.length})</span>
                             </button>
                         )}

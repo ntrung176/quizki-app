@@ -1,7 +1,10 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import { RotateCcw, Eye, EyeOff, CheckCircle2, PenTool } from 'lucide-react';
+import { useLanguage } from '../../context/LanguageContext';
 
-const KanaWritingCanvas = ({ char = 'あ', romaji = 'a', size = 260, onCompleteStroke }) => {
+const KanaWritingCanvas = ({
+ char = 'あ', romaji = 'a', size = 260, onCompleteStroke }) => {
+    const { t } = useLanguage();
     const canvasRef = useRef(null);
     const [isDrawing, setIsDrawing] = useState(false);
     const [hasDrawn, setHasDrawn] = useState(false);
@@ -154,7 +157,7 @@ const KanaWritingCanvas = ({ char = 'あ', romaji = 'a', size = 260, onCompleteS
                         type="button"
                         onClick={() => setShowGuide(prev => !prev)}
                         className="p-2 rounded-xl bg-white/90 dark:bg-slate-800/90 text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 shadow-md border border-slate-200/70 dark:border-slate-700/70 transition-all hover:scale-105 active:scale-95 cursor-pointer"
-                        title={showGuide ? 'Ẩn nét mẫu' : 'Hiện nét mẫu'}
+                        title={showGuide ? t('common.hideGuide', 'Ẩn nét mẫu') : t('common.showGuide', 'Hiện nét mẫu')}
                     >
                         {showGuide ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
                     </button>
@@ -162,7 +165,7 @@ const KanaWritingCanvas = ({ char = 'あ', romaji = 'a', size = 260, onCompleteS
                         type="button"
                         onClick={handleClear}
                         className="p-2 rounded-xl bg-white/90 dark:bg-slate-800/90 text-slate-600 dark:text-slate-300 hover:text-rose-600 dark:hover:text-rose-400 shadow-md border border-slate-200/70 dark:border-slate-700/70 transition-all hover:scale-105 active:scale-95 cursor-pointer"
-                        title="Xóa viết lại"
+                        title={t('common.clearCanvas', 'Xóa viết lại')}
                     >
                         <RotateCcw className="w-4 h-4" />
                     </button>
@@ -171,7 +174,7 @@ const KanaWritingCanvas = ({ char = 'あ', romaji = 'a', size = 260, onCompleteS
                 {/* Stroke Badge */}
                 <div className="absolute bottom-4 left-4 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-white/90 dark:bg-slate-800/90 text-[11px] font-bold text-slate-600 dark:text-slate-300 shadow-sm border border-slate-200/70 dark:border-slate-700/70">
                     <PenTool className="w-3.5 h-3.5 text-indigo-500" />
-                    <span>Nét đã vẽ: <strong className="text-indigo-600 dark:text-indigo-400">{strokeCount}</strong></span>
+                    <span>{t('common.drawnStrokes', 'Nét đã vẽ:')} <strong className="text-indigo-600 dark:text-indigo-400">{strokeCount}</strong></span>
                 </div>
             </div>
 
@@ -180,10 +183,10 @@ const KanaWritingCanvas = ({ char = 'あ', romaji = 'a', size = 260, onCompleteS
                 <button
                     type="button"
                     onClick={handleClear}
-                    className="px-4 py-2 text-xs font-bold rounded-xl bg-slate-200/80 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 transition-all cursor-pointer flex items-center gap-1.5"
+                    className="px-5 py-2.5 text-xs font-black uppercase tracking-wider rounded-2xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 text-slate-700 dark:text-slate-200 transition-all cursor-pointer flex items-center gap-1.5 select-none"
                 >
                     <RotateCcw className="w-3.5 h-3.5" />
-                    <span>Làm sạch ô vẽ</span>
+                    <span>{t('common.clearCanvas', 'Làm sạch ô vẽ')}</span>
                 </button>
             </div>
         </div>

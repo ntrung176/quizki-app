@@ -5,6 +5,7 @@ import { TopTabBar, PremiumLockedModal } from '../ui';
 import { VOCAB_TABS } from '../../config/tabs';
 import useMenuTransition from '../../hooks/useMenuTransition';
 import { useBookData } from '../../hooks/useBookData';
+import { useLanguage } from '../../context/LanguageContext';
 
 import BookNavHeader from '../books/BookNavHeader';
 import BookGroupList from '../books/BookGroupList';
@@ -30,6 +31,7 @@ const BookScreen = ({
     profile = null,
     awardXP = null
 }) => {
+    const { t } = useLanguage();
     const fadeWholePage = useMenuTransition();
     const [showAiPdfModal, setShowAiPdfModal] = useState(false);
     const [showBlankFillerModal, setShowBlankFillerModal] = useState(false);
@@ -47,7 +49,7 @@ const BookScreen = ({
     });
 
     const {
-        t, loading, groupId, bookId, chapterId, lessonId,
+        loading, groupId, bookId, chapterId, lessonId,
         currentGroup, currentBook, currentChapter, currentLesson, vocabWithAudio,
         activeFilter, setActiveFilter, searchQuery, setSearchQuery, filteredGroups,
         getGroupProgress, navigateTo, goBack, resetForm,
@@ -120,7 +122,7 @@ const BookScreen = ({
             <div className="w-full pb-8">
                 <TopTabBar tabs={VOCAB_TABS} />
                 <div className="animate-fade-in">
-                    <LoadingIndicator text="Đang tải dữ liệu Sách..." />
+                    <LoadingIndicator text={t('books.loadingBooksData', 'Đang tải dữ liệu Sách...')} />
                 </div>
             </div>
         );

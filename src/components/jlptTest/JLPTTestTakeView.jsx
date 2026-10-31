@@ -536,7 +536,7 @@ const JLPTTestTakeView = ({
 
                         <button
                             onClick={() => setShowSubmitModal(true)}
-                            className="w-full py-2.5 rounded-xl font-black text-xs bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 transition flex items-center justify-center gap-1.5 shadow-[0_4px_14px_rgba(244,148,188,0.35)] cursor-pointer active:scale-95"
+                            className="w-full py-3 rounded-2xl font-black text-xs uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white transition flex items-center justify-center gap-1.5 cursor-pointer select-none"
                         >
                             <Check className="w-4 h-4 stroke-[3]" />
                             <span>Nộp bài ({answeredCount}/{totalQ})</span>
@@ -642,7 +642,7 @@ const JLPTTestTakeView = ({
 
                                     <button
                                         onClick={() => setShowSubmitModal(true)}
-                                        className="px-4 py-1.5 rounded-xl text-xs font-black bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 transition flex items-center gap-1.5 shadow-[0_4px_14px_rgba(244,148,188,0.35)] cursor-pointer active:scale-95"
+                                        className="px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-2 border-emerald-700 text-white transition flex items-center gap-1.5 cursor-pointer select-none"
                                         title="Nộp bài thi"
                                     >
                                         <Check className="w-4 h-4 stroke-[3]" />
@@ -853,10 +853,10 @@ const JLPTTestTakeView = ({
                                                                 type="button"
                                                                 disabled={isInstantPracticeMode && selectedOpt !== undefined}
                                                                 onClick={() => selectAnswer(selectedTabIdx, qIdx, oi)}
-                                                                className={`p-3 sm:p-3.5 rounded-2xl text-left transition-all duration-150 flex items-center justify-between gap-3 border-2 select-none ${
+                                                                className={`p-3 sm:p-3.5 rounded-2xl text-left transition-all duration-150 flex items-center justify-between gap-3 border-2 border-b-4 select-none ${
                                                                     isInstantPracticeMode && selectedOpt !== undefined 
                                                                         ? 'cursor-default' 
-                                                                        : 'cursor-pointer active:scale-[0.98]'
+                                                                        : 'cursor-pointer active:translate-y-0.5 active:border-b-2'
                                                                 } ${optionStyle}`}
                                                             >
                                                                 <div className="flex items-center gap-2.5 min-w-0 flex-1">
@@ -959,10 +959,10 @@ const JLPTTestTakeView = ({
                                                                             type="button"
                                                                             disabled={isInstantPracticeMode && isSubSelected !== undefined}
                                                                             onClick={() => selectAnswerSub(selectedTabIdx, qIdx, sqi, oi)}
-                                                                            className={`p-3 rounded-xl text-left transition-all duration-150 flex items-center justify-between gap-2.5 border-2 select-none ${
+                                                                            className={`p-3 rounded-2xl text-left transition-all duration-150 flex items-center justify-between gap-2.5 border-2 border-b-4 select-none ${
                                                                                 isInstantPracticeMode && isSubSelected !== undefined 
                                                                                     ? 'cursor-default' 
-                                                                                    : 'cursor-pointer active:scale-[0.98]'
+                                                                                    : 'cursor-pointer active:translate-y-0.5 active:border-b-2'
                                                                             } ${sqStyle}`}
                                                                         >
                                                                             <div className="flex items-center gap-2 min-w-0 flex-1">
@@ -1131,7 +1131,7 @@ const JLPTTestTakeView = ({
                             ) : (
                                 <button
                                     onClick={() => setShowSubmitModal(true)}
-                                    className="w-full sm:w-auto px-8 py-3.5 rounded-2xl font-black text-sm sm:text-base bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 transition flex items-center justify-center gap-2 cursor-pointer shadow-xl shadow-[#f494bc]/30 active:scale-95"
+                                    className="w-full sm:w-auto px-8 py-3.5 rounded-2xl font-black text-sm uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white transition flex items-center justify-center gap-2 cursor-pointer select-none"
                                 >
                                     <Check className="w-5 h-5 stroke-[3]" />
                                     <span>Hoàn thành & Nộp bài</span>
@@ -1230,7 +1230,7 @@ const JLPTTestTakeView = ({
                                     setShowMobileTOC(false);
                                     setShowSubmitModal(true);
                                 }}
-                                className="w-full py-2.5 bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 font-black rounded-xl text-xs transition shadow-md shadow-[#f494bc]/30 cursor-pointer"
+                                className="w-full py-3 bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white font-black rounded-2xl text-xs uppercase tracking-wider transition cursor-pointer select-none"
                             >
                                 Nộp bài thi ({answeredCount}/{totalQ})
                             </button>
@@ -1270,7 +1270,7 @@ const JLPTTestTakeView = ({
                                     setShowSubmitModal(false);
                                     submitTest();
                                 }}
-                                className="py-2.5 rounded-xl text-xs font-black bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 transition shadow-[0_4px_14px_rgba(244,148,188,0.35)] cursor-pointer"
+                                className="py-2.5 rounded-xl text-xs font-black uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-2 border-emerald-700 text-white transition cursor-pointer select-none"
                             >
                                 Nộp bài ngay
                             </button>

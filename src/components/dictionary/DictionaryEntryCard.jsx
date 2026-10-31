@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 import { Volume2, Loader2 } from 'lucide-react';
 import { speakExampleSentence } from '../../utils/audio';
 import { aiTranslateSentence } from '../../utils/aiProvider';
@@ -49,6 +50,13 @@ const DictionaryEntryCard = ({
     const [isPlayingExAudio, setIsPlayingExAudio] = useState(false);
     const [translatedVi, setTranslatedVi] = useState(null);
     const [isTranslating, setIsTranslating] = useState(false);
+    const { t, language } = useLanguage();
+
+    const getPosLabelText = (posKey) => {
+        if (!posKey) return '';
+        const cleanKey = posKey.replace('-', '');
+        return t('dictionary.pos.' + cleanKey, POS_LABELS[posKey] || posKey);
+    };
 
     if (!entry) return null;
 
@@ -164,7 +172,7 @@ const DictionaryEntryCard = ({
                         <div className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1 tracking-wide flex items-center gap-2 flex-wrap">
                             {renderReadingWithPitch()}
                             {pitchVal !== null && (
-                                <span className="text-[11px] font-mono font-bold px-1.5 py-0.2 bg-blue-50 text-blue-600 dark:bg-blue-950/40 dark:text-blue-400 rounded border border-blue-200 dark:border-blue-800" title={`Trọng âm Pitch Accent: kiểu ${pitchVal}`}>
+                                <span className="text-[11px] font-mono font-bold px-1.5 py-0.2 bg-blue-50 text-blue-600 dark:bg-blue-950/40 dark:text-blue-400 rounded border border-blue-200 dark:border-blue-800" title={language === 'vi' ? `Trọng âm Pitch Accent: kiểu ${pitchVal}` : `Pitch Accent: pattern ${pitchVal}`}>
                                     [{pitchVal}]
                                 </span>
                             )}
@@ -183,7 +191,7 @@ const DictionaryEntryCard = ({
                             onClick={handlePlayAudio}
                             disabled={isPlayingAudio}
                             className="p-1.5 rounded-lg bg-slate-100 hover:bg-blue-50 dark:bg-slate-800 dark:hover:bg-blue-950/40 text-slate-600 hover:text-blue-600 dark:text-slate-300 dark:hover:text-blue-400 transition-colors cursor-pointer"
-                            title="Phát âm"
+                            title={t('dictionary.pronounce', 'Phát âm')}
                         >
                             <Volume2 className={`w-4 h-4 ${isPlayingAudio ? 'animate-pulse text-blue-600' : ''}`} />
                         </button>
@@ -207,7 +215,7 @@ const DictionaryEntryCard = ({
                         </span>
                     )}
                     {entry.f && (
-                        <span className="px-2 py-0.5 text-[11px] font-bold rounded-md bg-sky-50 text-sky-700 dark:bg-sky-950/40 dark:text-sky-300 border border-sky-200 dark:border-sky-800" title="Thứ hạng tần suất sử dụng thực tế (JPDB)">
+                        <span className="px-2 py-0.5 text-[11px] font-bold rounded-md bg-sky-50 text-sky-700 dark:bg-sky-950/40 dark:text-sky-300 border border-sky-200 dark:border-sky-800" title={language === 'vi' ? 'Thứ hạng tần suất sử dụng thực tế (JPDB)' : 'Frequency rank (JPDB)'}>
                             #{entry.f}
                         </span>
                     )}
@@ -221,9 +229,9 @@ const DictionaryEntryCard = ({
                         <span
                             key={idx}
                             className="px-2 py-0.5 text-[11px] font-medium bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-md border border-slate-200/60 dark:border-slate-700/60"
-                            title={POS_LABELS[pos] || pos}
+                            title={getPosLabelText(pos)}
                         >
-                            {POS_LABELS[pos] || pos}
+                            {getPosLabelText(pos)}
                         </span>
                     ))}
                 </div>
@@ -241,7 +249,7 @@ const DictionaryEntryCard = ({
                         </div>
                     ))
                 ) : (
-                    <p className="text-xs text-slate-400 italic">Chưa có giải nghĩa chi tiết.</p>
+                    <p className="text-xs text-slate-400 italic">{t('dictionary.noMeaning', 'Chưa có giải nghĩa chi tiết.')}</p>
                 )}
             </div>
 
@@ -250,14 +258,14 @@ const DictionaryEntryCard = ({
                 <div className="mb-4 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200/80 dark:border-slate-800/80 space-y-1.5 text-xs">
                     <div className="flex items-center justify-between gap-2">
                         <span className="font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider text-[10px]">
-                            Câu ví dụ
+                            {t('dictionary.exampleSentence', 'Câu ví dụ')}
                         </span>
                         <button
                             type="button"
                             onClick={handlePlayExAudio}
                             disabled={isPlayingExAudio}
                             className="p-1 rounded text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer"
-                            title="Nghe câu ví dụ"
+                            title={t('dictionary.listenExample', 'Nghe câu ví dụ')}
                         >
                             <Volume2 className={`w-3.5 h-3.5 ${isPlayingExAudio ? 'animate-pulse text-blue-600' : ''}`} />
                         </button>
@@ -294,7 +302,7 @@ const DictionaryEntryCard = ({
                                 disabled={isTranslating}
                                 className="px-2.5 py-1 rounded-md text-[11px] font-medium bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/60 dark:hover:bg-blue-900 text-blue-600 dark:text-blue-300 border border-blue-200 dark:border-blue-800 transition-colors shrink-0 cursor-pointer"
                             >
-                                {isTranslating ? 'Đang dịch...' : 'Dịch tiếng Việt'}
+                                {isTranslating ? t('dictionary.translating', 'Đang dịch...') : t('dictionary.translateVi', 'Dịch tiếng Việt')}
                             </button>
                         </div>
                     )}
@@ -305,7 +313,7 @@ const DictionaryEntryCard = ({
             {entry.ant && entry.ant.w && (
                 <div className="mb-4 px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800/80 flex items-center gap-2 text-xs">
                     <span className="font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider text-[10px] shrink-0">
-                        Từ trái nghĩa:
+                        {t('dictionary.antonym', 'Từ trái nghĩa:')}
                     </span>
                     <span className="font-bold text-slate-900 dark:text-white">
                         {entry.ant.w}
@@ -331,9 +339,9 @@ const DictionaryEntryCard = ({
                                     ? 'bg-emerald-50 hover:bg-emerald-100 text-emerald-700 dark:bg-emerald-950/40 dark:hover:bg-emerald-900/40 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800'
                                     : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700'
                             }`}
-                            title={isSaved ? 'Từ này đã có trong danh sách (Bấm để lưu thêm nếu muốn)' : 'Lưu nhanh vào học phần'}
+                            title={isSaved ? t('dictionary.alreadyInList', 'Từ này đã có trong danh sách (Bấm để lưu thêm nếu muốn)') : t('dictionary.quickSaveTooltip', 'Lưu nhanh vào học phần')}
                         >
-                            {isSaved ? '✓ Đã lưu' : 'Lưu nhanh'}
+                            {isSaved ? t('dictionary.saved', '✓ Đã lưu') : t('dictionary.quickSave', 'Lưu nhanh')}
                         </button>
                     )}
                 </div>
@@ -345,7 +353,7 @@ const DictionaryEntryCard = ({
                         disabled={isAiLoading}
                         className="px-4 py-1.5 rounded-xl text-xs font-semibold text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-500 transition-colors disabled:opacity-50 cursor-pointer shadow-xs"
                     >
-                        {isAiLoading ? 'AI đang tạo...' : 'Tạo thẻ học với AI'}
+                        {isAiLoading ? t('dictionary.aiGenerating', 'AI đang tạo...') : t('dictionary.createWithAi', 'Tạo thẻ học với AI')}
                     </button>
                 )}
             </div>

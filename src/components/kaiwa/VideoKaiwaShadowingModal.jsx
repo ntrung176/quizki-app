@@ -6,6 +6,7 @@ import {
 import FuriganaRenderer, { getParsedTokens } from './FuriganaRenderer';
 import { playFocusCompleteSound, playCompletionFanfare } from '../../utils/soundEffects';
 import { callWhisperSTT } from '../../utils/aiProvider';
+import { useLanguage } from '../../context/LanguageContext';
 
 const VideoKaiwaShadowingModal = ({
     isOpen,
@@ -16,6 +17,7 @@ const VideoKaiwaShadowingModal = ({
     onReplayAudio,
     awardXP
 }) => {
+    const { t } = useLanguage();
     const [isListening, setIsListening] = useState(false);
     const [isTranscribing, setIsTranscribing] = useState(false);
     const [spokenText, setSpokenText] = useState('');
@@ -133,21 +135,21 @@ const VideoKaiwaShadowingModal = ({
         setScore(finalScore);
 
         if (finalScore >= 80) {
-            setFeedback('🎉 Tuyệt vời! Phát âm rất chuẩn xác, ngữ điệu tự nhiên.');
+            setFeedback(t('videoKaiwa.shadowingFeedbackExcellent', '🎉 Tuyệt vời! Phát âm rất chuẩn xác, ngữ điệu tự nhiên.'));
             playCompletionFanfare();
             if (awardXP && !hasAwarded) {
                 awardXP(20);
                 setHasAwarded(true);
             }
         } else if (finalScore >= 50) {
-            setFeedback('👍 Khá tốt! Chú ý các trường âm, âm ngắt hoặc từ nối nhé.');
+            setFeedback(t('videoKaiwa.shadowingFeedbackGood', '👍 Khá tốt! Chú ý các trường âm, âm ngắt hoặc từ nối nhé.'));
             playFocusCompleteSound();
             if (awardXP && !hasAwarded) {
                 awardXP(10);
                 setHasAwarded(true);
             }
         } else {
-            setFeedback('💪 Hãy bấm "Nghe lại câu" rồi nhại lại to và rõ hơn nhé!');
+            setFeedback(t('videoKaiwa.shadowingFeedbackPractice', '💪 Hãy bấm "Nghe lại câu" rồi nhại lại to và rõ hơn nhé!'));
         }
     };
 
@@ -202,11 +204,11 @@ const VideoKaiwaShadowingModal = ({
                         if (whisperText && whisperText.trim()) {
                             evaluateSpokenResult(whisperText);
                         } else {
-                            setErrorMessage('Không nhận diện được giọng nói rõ ràng. Hãy thử đọc lại to hơn.');
+                            setErrorMessage(t('videoKaiwa.shadowingNoAudio', 'Không nhận diện được giọng nói rõ ràng. Hãy thử đọc lại to hơn.'));
                         }
                     } catch (err) {
                         console.warn('Whisper fallback error:', err);
-                        setErrorMessage('Chưa nhận được âm thanh. Hãy thử nói lại to và rõ hơn.');
+                        setErrorMessage(t('videoKaiwa.shadowingNoAudio', 'Chưa nhận được âm thanh. Hãy thử nói lại to và rõ hơn.'));
                     } finally {
                         setIsTranscribing(false);
                     }
@@ -273,7 +275,7 @@ const VideoKaiwaShadowingModal = ({
         } catch (err) {
             console.error('Failed to access microphone:', err);
             setIsListening(false);
-            setErrorMessage('Không thể truy cập Microphone. Vui lòng cho phép quyền truy cập Micro trên trình duyệt của bạn.');
+            setErrorMessage(t('videoKaiwa.shadowingMicError', 'Không thể truy cập Microphone. Vui lòng cho phép quyền truy cập Micro trên trình duyệt của bạn.'));
         }
     };
 
@@ -290,8 +292,8 @@ const VideoKaiwaShadowingModal = ({
                             <Mic className="w-5 h-5" />
                         </div>
                         <div>
-                            <h3 className="text-base font-black text-slate-800 dark:text-white">Luyện Nói Shadowing AI</h3>
-                            <p className="text-[11px] text-slate-500 dark:text-slate-400">Nghe câu mẫu và nhại lại chuẩn ngữ điệu</p>
+                            <h3 className="text-base font-black text-slate-800 dark:text-white">{t('videoKaiwa.shadowingModalTitle', 'Luyện Nói Shadowing AI')}</h3>
+                            <p className="text-[11px] text-slate-500 dark:text-slate-400">{t('videoKaiwa.shadowingModalSub', 'Nghe câu mẫu và nhại lại chuẩn ngữ điệu')}</p>
                         </div>
                     </div>
                     <button 
@@ -305,7 +307,7 @@ const VideoKaiwaShadowingModal = ({
                 {/* Target Sentence Display Box (Clean, without top buttons) */}
                 <div className="p-5 bg-slate-50 dark:bg-slate-950/70 border-2 border-[#f494bc]/60 dark:border-[#f494bc]/40 rounded-2xl space-y-2.5 text-center">
                     <span className="text-[10px] font-black uppercase tracking-wider text-[#db2777] dark:text-[#f494bc] block">
-                        CÂU MẪU CẦN ĐỌC
+                        {t('videoKaiwa.shadowingPromptLabel', 'CÂU MẪU CẦN ĐỌC')}
                     </span>
 
                     <div className="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white leading-loose py-1">
@@ -330,23 +332,23 @@ const VideoKaiwaShadowingModal = ({
                     <div className="p-4 bg-rose-50/50 dark:bg-rose-950/20 border border-rose-200/80 dark:border-rose-900/50 rounded-2xl text-center space-y-2 animate-pulse">
                         <div className="flex items-center justify-center gap-2 text-rose-600 dark:text-rose-400 text-xs font-bold">
                             <span className="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping" />
-                            <span>Đang lắng nghe giọng của bạn... Bấm dừng khi đọc xong</span>
+                            <span>{t('videoKaiwa.shadowingListening', 'Đang lắng nghe giọng của bạn... Bấm dừng khi đọc xong')}</span>
                         </div>
                         <p className="text-sm font-bold text-slate-800 dark:text-slate-100 min-h-[24px]">
-                            {interimText || spokenText || '(Hãy đọc to câu tiếng Nhật phía trên...)'}
+                            {interimText || spokenText || t('videoKaiwa.shadowingReadHint', '(Hãy đọc to câu tiếng Nhật phía trên...)')}
                         </p>
                     </div>
                 ) : isTranscribing ? (
                     <div className="p-4 bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-200/80 dark:border-indigo-900/50 rounded-2xl text-center space-y-2">
                         <div className="flex items-center justify-center gap-2 text-indigo-600 dark:text-indigo-400 text-xs font-bold">
                             <Loader2 className="w-4 h-4 animate-spin text-indigo-500" />
-                            <span>Đang phân tích và chấm điểm phát âm...</span>
+                            <span>{t('videoKaiwa.shadowingAnalyzing', 'Đang phân tích và chấm điểm phát âm...')}</span>
                         </div>
                     </div>
                 ) : (spokenText || interimText) ? (
                     <div className="p-4 bg-indigo-50/50 dark:bg-indigo-950/30 border border-indigo-200/70 dark:border-indigo-900/50 rounded-2xl text-center space-y-2 animate-fade-in">
                         <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-                            KẾT QUẢ GIỌNG ĐỌC CỦA BẠN
+                            {t('videoKaiwa.shadowingResultLabel', 'KẾT QUẢ GIỌNG ĐỌC CỦA BẠN')}
                         </span>
                         <p className="text-sm sm:text-base font-bold text-slate-800 dark:text-slate-100">
                             "{spokenText || interimText}"
@@ -361,7 +363,7 @@ const VideoKaiwaShadowingModal = ({
                                             ? 'bg-amber-500 text-slate-950' 
                                             : 'bg-rose-500 text-white'
                                 }`}>
-                                    Độ chính xác: {score}%
+                                    {t('videoKaiwa.shadowingAccuracy', 'Độ chính xác: {score}%').replace('{score}', score)}
                                 </span>
                                 {hasAwarded && (
                                     <span className="text-xs font-bold text-amber-500 flex items-center gap-1 bg-amber-50 dark:bg-amber-950/50 px-2.5 py-1 rounded-full border border-amber-200 dark:border-amber-800">
@@ -396,7 +398,7 @@ const VideoKaiwaShadowingModal = ({
                             className="px-4 py-3 rounded-2xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold text-xs flex items-center gap-1.5 transition cursor-pointer border border-slate-200 dark:border-slate-800"
                         >
                             <RotateCcw className="w-4 h-4 text-indigo-500" />
-                            <span>Nghe lại câu</span>
+                            <span>{t('videoKaiwa.shadowingReplay', 'Nghe lại câu')}</span>
                         </button>
                     )}
 
@@ -404,28 +406,28 @@ const VideoKaiwaShadowingModal = ({
                         type="button"
                         onClick={handleToggleListening}
                         disabled={isTranscribing}
-                        className={`flex-1 py-3 px-5 rounded-2xl font-black text-sm flex items-center justify-center gap-2 transition-all shadow-lg cursor-pointer ${
+                        className={`flex-1 py-3 px-5 rounded-2xl font-black text-sm uppercase tracking-wider flex items-center justify-center gap-2 transition-all cursor-pointer border-b-4 active:translate-y-0.5 active:border-b-0 select-none ${
                             isListening
-                                ? 'bg-rose-500 hover:bg-rose-600 text-white animate-pulse shadow-rose-500/30'
+                                ? 'bg-rose-500 hover:bg-rose-600 border-rose-700 text-white animate-pulse'
                                 : isTranscribing
-                                    ? 'bg-slate-300 dark:bg-slate-800 text-slate-500 cursor-not-allowed'
-                                    : 'bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 shadow-[0_6px_20px_rgba(244,148,188,0.4)] active:scale-98'
+                                    ? 'bg-slate-300 dark:bg-slate-800 text-slate-500 cursor-not-allowed border-transparent'
+                                    : 'bg-emerald-500 hover:bg-emerald-400 border-emerald-700 text-white'
                         }`}
                     >
                         {isListening ? (
                             <>
                                 <MicOff className="w-5 h-5" />
-                                <span>Đang nghe... Bấm để dừng & chấm điểm</span>
+                                <span>{t('videoKaiwa.shadowingListeningBtn', 'Đang nghe... Bấm để dừng & chấm điểm')}</span>
                             </>
                         ) : isTranscribing ? (
                             <>
                                 <Loader2 className="w-5 h-5 animate-spin" />
-                                <span>Đang xử lý âm thanh...</span>
+                                <span>{t('videoKaiwa.shadowingProcessingBtn', 'Đang xử lý âm thanh...')}</span>
                             </>
                         ) : (
                             <>
                                 <Mic className="w-5 h-5" />
-                                <span>{spokenText ? 'Thử nói lại' : 'Bấm để nói (Shadowing)'}</span>
+                                <span>{spokenText ? t('videoKaiwa.shadowingTryAgain', 'Thử nói lại') : t('videoKaiwa.shadowingStartBtn', 'Bấm để nói (Shadowing)')}</span>
                             </>
                         )}
                     </button>

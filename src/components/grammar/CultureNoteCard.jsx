@@ -1,8 +1,10 @@
 import React from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 import { ShieldAlert, CheckCircle2, XCircle, Globe, Flame } from 'lucide-react';
 import { speakExampleSentence } from '../../utils/audio';
 
 const CultureNoteCard = ({ cultureNotes, traps = [], examples = [] }) => {
+    const { t } = useLanguage();
     if ((!cultureNotes || cultureNotes.length === 0) && traps.length === 0 && examples.length === 0) {
         return null;
     }
@@ -16,10 +18,10 @@ const CultureNoteCard = ({ cultureNotes, traps = [], examples = [] }) => {
                 </div>
                 <div>
                     <h3 className="text-base font-bold text-slate-800 dark:text-slate-100 flex items-center gap-1.5">
-                        Lưu ý văn hóa & Ngữ cảnh đời sống
+                        {t('grammar.cultureTitle', 'Lưu ý văn hóa & Ngữ cảnh đời sống')}
                         <span className="text-sm">🇯🇵</span>
                     </h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">Cách người Nhật tư duy & phân biệt Đúng (✅) vs Sai/Kém tự nhiên (❌)</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">{t('grammar.cultureSubtitle', 'Cách người Nhật tư duy & phân biệt Đúng (✅) vs Sai/Kém tự nhiên (❌)')}</p>
                 </div>
             </div>
 

@@ -162,9 +162,9 @@ const JLPTTestDashboard = ({
                                 <button
                                     key={lvl.key}
                                     onClick={() => setSelectedLevel(lvl.key)}
-                                    className={`px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-extrabold rounded-xl transition-all cursor-pointer ${
+                                    className={`px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-extrabold rounded-xl transition-all cursor-pointer select-none ${
                                         selectedLevel === lvl.key
-                                            ? 'bg-white dark:bg-slate-900 text-[#db2777] dark:text-[#f494bc] shadow-xs'
+                                            ? 'bg-emerald-500 text-white border-b-2 border-emerald-700 font-black shadow-xs'
                                             : 'text-slate-500 hover:text-slate-800 dark:text-slate-400'
                                     }`}
                                 >
@@ -181,7 +181,7 @@ const JLPTTestDashboard = ({
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 placeholder="Tìm kiếm bài học, đề thi..."
-                                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 rounded-2xl pl-9 pr-8 py-2 text-xs font-medium text-slate-800 dark:text-slate-200 focus:outline-none focus:border-[#f494bc]"
+                                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 rounded-2xl pl-9 pr-8 py-2 text-xs font-medium text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500"
                             />
                             {searchQuery && (
                                 <button 
@@ -264,10 +264,10 @@ const JLPTTestDashboard = ({
                                         : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 font-bold text-xs sm:text-sm'
                                 }`}
                             >
-                                <Icon className={`w-4 h-4 shrink-0 ${isSelected ? 'text-[#db2777] dark:text-[#f494bc]' : 'text-slate-400'}`} />
+                                <Icon className={`w-4 h-4 shrink-0 ${isSelected ? 'text-emerald-500' : 'text-slate-400'}`} />
                                 <span className="whitespace-nowrap">{tab.label}</span>
                                 {wrongCount > 0 && (
-                                    <span className="px-1.5 py-0.2 rounded-full text-[10px] font-black bg-[#f494bc] text-slate-950 shrink-0">
+                                    <span className="px-1.5 py-0.2 rounded-full text-[10px] font-black bg-rose-500 text-white shrink-0">
                                         {wrongCount}
                                     </span>
                                 )}

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, useRef } from 'react'
 import LoadingIndicator from '../ui/LoadingIndicator';
+import { useLanguage } from '../../context/LanguageContext';
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import HanziWriter from 'hanzi-writer';
 import { ChevronLeft, ChevronRight, Plus, BookOpen, PenTool, Award, Volume2, Check, X, Lightbulb, RotateCcw, Keyboard, Layers, RefreshCw, ArrowLeft, Search, User, Heart, Bookmark } from 'lucide-react'
@@ -79,6 +80,7 @@ const getInitialVocabList = () => {
 
 // ==================== MAIN COMPONENT ====================
 const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = null }) => {
+    const { t } = useLanguage();
     const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams();
     const level = searchParams.get('level') || 'N5';
@@ -420,7 +422,10 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
             const newKanjiIds = kanjiIds.filter(id => !srsAddedSet.has(id));
 
             for (const kanjiId of kanjiIds) {
+                const kanjiObj = todayKanji.find(k => k.id === kanjiId);
+                const char = kanjiObj?.character || kanjiObj?.literal || '';
                 const newSrs = {
+                    character: char,
                     interval: 0,
                     ease: 2.5,
                     nextReview: now, // Due immediately for first review
@@ -433,7 +438,7 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
                     state: 'NEW'
                 };
                 await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, kanjiId), newSrs, { merge: true });
-                updateCachedUserSrs(userId, kanjiId, newSrs);
+                updateCachedUserSrs(userId, kanjiId, newSrs, char);
             }
 
             if (newKanjiIds.length > 0) {
@@ -519,14 +524,14 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
         // Log study history activities
         logKanjiActivity(userId, {
             type: 'lesson',
-            title: `Hoàn thành ${level}: Ngày ${day}`,
-            details: `Học xong ${todayKanji.length} chữ Kanji`
+            title: t('kanji.completedDayActivity', 'Completed {level}: Day {day}').replace('{level}', level).replace('{day}', day),
+            details: t('kanji.finishedKanjiDetails', 'Studied {count} Kanji characters').replace('{count}', todayKanji.length)
         });
         if (kanjiIdsToAdd.length > 0) {
             logKanjiActivity(userId, {
                 type: 'save',
-                title: `Đã lưu ${kanjiIdsToAdd.length} chữ Kanji ${level}`,
-                details: `Lưu vào danh sách ôn tập`
+                title: t('kanji.savedKanjiActivity', 'Saved {count} {level} Kanji characters').replace('{count}', kanjiIdsToAdd.length).replace('{level}', level),
+                details: t('kanji.savedToReviewDetails', 'Saved to SRS review list')
             });
         }
         // Play celebration sound
@@ -570,14 +575,14 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
         return () => window.removeEventListener('keydown', handleKeyDown);
     }, [activeMode, currentIndex, todayKanji.length, handleCompleteClick, goTo]);
     if (loading) {
-        return <LoadingIndicator text="Đang tải dữ liệu bài học..." />;
+        return <LoadingIndicator text={t('kanji.loadingLessonData', 'Đang tải dữ liệu bài học...')} />;
     }
     if (todayKanji.length === 0) {
         return (
             <div className="max-w-4xl mx-auto text-center py-20">
-                <p className="text-gray-400 text-lg">Không có kanji cho ngày {day} cấp {level}</p>
+                <p className="text-gray-400 text-lg">{t('kanji.noKanjiForDay', 'Không có kanji cho ngày {day} cấp {level}').replace('{day}', day).replace('{level}', level)}</p>
                 <button onClick={handleBackToRoadmap} className="mt-4 px-6 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-lg transition-colors">
-                    Quay lại lộ trình
+                    {t('kanji.backToRoadmap', 'Quay lại lộ trình')}
                 </button>
             </div>
         );
@@ -600,28 +605,28 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
                         ))}
                         <Award className="w-24 h-24 text-yellow-400 mx-auto" />
                     </div>
-                    <h1 className="text-4xl font-bold text-white">🎉 Chúc mừng!</h1>
-                    <p className="text-xl text-cyan-400">Hoàn thành ngày {day} - {level}</p>
-                    <p className="text-gray-400">Bạn đã học {todayKanji.length} chữ Kanji hôm nay!</p>
-                    <p className="text-gray-500 text-sm">Các chữ Kanji đã được thêm vào hệ thống ôn tập SRS</p>
+                    <h1 className="text-4xl font-bold text-white">{t('kanji.congratulations', '🎉 Chúc mừng!')}</h1>
+                    <p className="text-xl text-cyan-400">{t('kanji.completedDay', 'Hoàn thành ngày {day} - {level}').replace('{day}', day).replace('{level}', level)}</p>
+                    <p className="text-gray-400">{t('kanji.learnedKanjiToday', 'Bạn đã học {count} chữ Kanji hôm nay!').replace('{count}', todayKanji.length)}</p>
+                    <p className="text-gray-500 text-sm">{t('kanji.kanjiAddedToSrs', 'Các chữ Kanji đã được thêm vào hệ thống ôn tập SRS')}</p>
                     <div className="flex flex-col gap-3 justify-center mt-8 w-full max-w-sm mx-auto">
                         <div className="grid grid-cols-2 gap-3">
                             <button onClick={() => { setShowCelebration(false); setActiveMode('test'); }}
-                                className="w-full px-4 py-3 bg-gradient-to-r from-indigo-500 to-sky-500 hover:from-indigo-400 hover:to-sky-400 text-white rounded-xl font-bold transition-all shadow-lg shadow-indigo-500/30 flex flex-col items-center justify-center gap-1.5 focus:outline-none hover:scale-105">
-                                <PenTool className="w-5 h-5" /><span className="text-xs">Học nâng cao</span>
+                                className="w-full px-4 py-3 bg-sky-500 hover:bg-sky-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-sky-700 text-white rounded-2xl font-black text-xs uppercase tracking-wider transition-all flex flex-col items-center justify-center gap-1.5 focus:outline-none cursor-pointer">
+                                <PenTool className="w-5 h-5" /><span>{t('kanji.advancedStudy', 'Học nâng cao')}</span>
                             </button>
                             <button onClick={() => navigate(ROUTES.KANJI_REVIEW)}
-                                className="w-full px-4 py-3 bg-gradient-to-r from-orange-500 to-rose-600 hover:from-orange-400 hover:to-rose-500 text-white rounded-xl font-bold transition-all shadow-lg shadow-orange-500/30 flex flex-col items-center justify-center gap-1.5 focus:outline-none hover:scale-105">
-                                <RefreshCw className="w-5 h-5" /><span className="text-xs">Ôn tập</span>
+                                className="w-full px-4 py-3 bg-amber-500 hover:bg-amber-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-amber-700 text-white rounded-2xl font-black text-xs uppercase tracking-wider transition-all flex flex-col items-center justify-center gap-1.5 focus:outline-none cursor-pointer">
+                                <RefreshCw className="w-5 h-5" /><span>{t('kanji.review', 'Ôn tập')}</span>
                             </button>
                         </div>
                         <div className="flex gap-2 mt-1">
-                            <button onClick={handleBackToRoadmap} className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105">
-                                <ArrowLeft className="w-4 h-4" /> Lộ trình
+                            <button onClick={handleBackToRoadmap} className="px-4 py-3 flex items-center justify-center rounded-2xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 border-b-4 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs uppercase transition-all cursor-pointer">
+                                <ArrowLeft className="w-4 h-4 mr-1" /> {t('kanji.roadmap', 'Lộ trình')}
                             </button>
                             <button onClick={goToNextDay}
-                                className="flex-1 px-2 py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-white rounded-xl font-bold transition-all shadow-lg shadow-emerald-500/30 text-xs flex items-center justify-center gap-1">
-                                Ngày {day + 1} <ChevronRight className="w-4 h-4" />
+                                className="flex-1 px-4 py-3 bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white rounded-2xl font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-1 cursor-pointer">
+                                <span>{t('kanji.nextDay', 'Ngày {day}').replace('{day}', day + 1)}</span> <ChevronRight className="w-4 h-4" />
                             </button>
                         </div>
                     </div>
@@ -649,33 +654,33 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
     }
     if (activeMode === 'test') {
         const MODES = [
-            { id: 'hanviet', label: 'Trắc nghiệm Hán Việt', icon: BookOpen, desc: 'Chọn đáp án đúng về nghĩa Hán Việt', color: 'from-emerald-500 to-teal-500', shadow: 'shadow-emerald-500/20' },
-            { id: 'vocab', label: 'Trắc nghiệm Từ vựng', icon: Layers, desc: 'Chọn đáp án từ vựng chứa Kanji', color: 'from-blue-500 to-indigo-500', shadow: 'shadow-blue-500/20' },
-            { id: 'typing', label: 'Tự luận (Âm đọc)', icon: Keyboard, desc: 'Gõ âm Onyomi/Kunyomi hoặc Hán Việt', color: 'from-orange-500 to-red-500', shadow: 'shadow-orange-500/20' },
-            { id: 'writing', label: 'Vẽ viết Kanji', icon: PenTool, desc: 'Luyện tập vẽ viết nét Hán tự', color: 'from-sky-500 to-indigo-500', shadow: 'shadow-sky-500/20' },
+            { id: 'hanviet', label: t('kanji.hanvietQuiz', 'Trắc nghiệm Hán Việt'), icon: BookOpen, desc: t('kanji.hanvietQuizDesc', 'Chọn đáp án đúng về nghĩa Hán Việt'), bg: 'bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 text-white' },
+            { id: 'vocab', label: t('kanji.vocabQuiz', 'Trắc nghiệm Từ vựng'), icon: Layers, desc: t('kanji.vocabQuizDesc', 'Chọn đáp án từ vựng chứa Kanji'), bg: 'bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 text-white' },
+            { id: 'typing', label: t('kanji.typingQuiz', 'Tự luận (Âm đọc)'), icon: Keyboard, desc: t('kanji.typingQuizDesc', 'Gõ âm Onyomi/Kunyomi hoặc Hán Việt'), bg: 'bg-amber-500 hover:bg-amber-400 border-b-4 border-amber-700 text-white' },
+            { id: 'writing', label: t('kanji.writingCanvas', 'Vẽ viết Kanji'), icon: PenTool, desc: t('kanji.writingCanvasDesc', 'Luyện tập vẽ viết nét Hán tự'), bg: 'bg-indigo-600 hover:bg-indigo-500 border-b-4 border-indigo-800 text-white' },
         ];
         return (
             <div className="max-w-4xl mx-auto py-8 px-4 animate-fade-in">
                 <div className="mb-8 flex items-center gap-4">
                     <button onClick={() => setActiveMode('flashcard')}
-                        className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105 cursor-pointer">
+                        className="p-2.5 flex items-center justify-center rounded-2xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer">
                         <ArrowLeft className="w-5 h-5" />
                     </button>
                     <div>
-                        <h1 className="text-2xl font-black text-gray-800 dark:text-white">Chế độ luyện tập</h1>
-                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">Chọn phương thức luyện tập: Trắc nghiệm, Tự luận hoặc Vẽ viết để củng cố các chữ vừa học</p>
+                        <h1 className="text-2xl font-black text-gray-800 dark:text-white">{t('kanji.practiceModes', 'Chế độ luyện tập')}</h1>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">{t('kanji.practiceModesDesc', 'Chọn phương thức luyện tập: Trắc nghiệm, Tự luận hoặc Vẽ viết để củng cố các chữ vừa học')}</p>
                     </div>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-5">
                     {MODES.map(m => (
                         <button key={m.id} onClick={() => setTestMode(m.id)}
-                            className={`p-6 rounded-3xl bg-gradient-to-br ${m.color} text-white shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-300 flex items-center gap-5 group border border-white/10 ${m.shadow} cursor-pointer`}>
-                            <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 group-hover:bg-white/30 transition-all duration-300">
-                                <m.icon className="w-8 h-8 drop-shadow-md" />
+                            className={`p-6 rounded-3xl ${m.bg} shadow-md active:translate-y-1 active:border-b-0 transition-all flex items-center gap-5 group cursor-pointer text-left`}>
+                            <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-all">
+                                <m.icon className="w-8 h-8 drop-shadow-sm text-white" />
                             </div>
-                            <div className="text-left">
-                                <h3 className="text-xl font-bold mb-1 tracking-wide">{m.label}</h3>
-                                <p className="text-white/80 text-sm leading-snug">{m.desc}</p>
+                            <div className="text-left flex-1 min-w-0">
+                                <h3 className="text-lg sm:text-xl font-black mb-1 tracking-wide">{m.label}</h3>
+                                <p className="text-white/85 text-xs sm:text-sm leading-snug">{m.desc}</p>
                             </div>
                         </button>
                     ))}
@@ -774,7 +779,7 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
                             <button onClick={() => setShowKanjiFlipMode(false)}
                                 className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105">
                                 <ArrowLeft className="w-5 h-5" />
-                                <span className="text-sm font-medium">Trở lại</span>
+                                <span className="text-sm font-medium">{t('common.back', 'Trở lại')}</span>
                             </button>
                         </div>
                         {/* Completion card */}
@@ -784,46 +789,46 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
                                     <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mx-auto shadow-lg animate-bounce">
                                         <Award className="w-8 h-8 text-white" />
                                     </div>
-                                    <h2 className="text-xl font-bold text-white">🎉 Xuất sắc!</h2>
-                                    <p className="text-gray-400 text-sm">Bạn đã thuộc hết {todayKanji.length} chữ Kanji!</p>
+                                    <h2 className="text-xl font-bold text-white">{t('studyModes.excellent', '🎉 Xuất sắc!')}</h2>
+                                    <p className="text-gray-400 text-sm">{t('kanji.masteredAllCards', 'Bạn đã thuộc hết {count} chữ Kanji!').replace('{count}', todayKanji.length)}</p>
                                 </>
                             ) : (
                                 <>
                                     <div className="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center mx-auto shadow-lg">
                                         <RefreshCw className="w-8 h-8 text-white" />
                                     </div>
-                                    <h2 className="text-xl font-bold text-white">Hoàn thành vòng {kanjiFlipRound}!</h2>
-                                    <p className="text-gray-400 text-sm">Còn {unknownCount} thẻ chưa thuộc</p>
+                                    <h2 className="text-xl font-bold text-white">{t('kanji.flipRoundFinished', 'Hoàn thành vòng {round}!').replace('{round}', kanjiFlipRound)}</h2>
+                                    <p className="text-gray-400 text-sm">{t('kanji.cardsRemaining', 'Còn {count} thẻ chưa thuộc').replace('{count}', unknownCount)}</p>
                                 </>
                             )}
                             <div className="grid grid-cols-2 gap-3 max-w-xs mx-auto">
                                 <div className="p-3 bg-emerald-900/30 rounded-xl border border-emerald-700">
                                     <div className="text-2xl font-bold text-emerald-400">{knownCount}</div>
-                                    <div className="text-xs text-emerald-400/70">Đã thuộc</div>
+                                    <div className="text-xs text-emerald-400/70">{t('kanji.memorized', 'Đã thuộc')}</div>
                                 </div>
                                 <div className="p-3 bg-red-900/30 rounded-xl border border-red-700">
                                     <div className="text-2xl font-bold text-red-400">{unknownCount}</div>
-                                    <div className="text-xs text-red-400/70">Chưa thuộc</div>
+                                    <div className="text-xs text-red-400/70">{t('kanji.notMemorized', 'Chưa thuộc')}</div>
                                 </div>
                             </div>
                             <div className="space-y-2 max-w-sm mx-auto">
                                 {!allDone && unknownCount > 0 && (
                                     <button onClick={continueKanjiFlipUnknown}
-                                        className="w-full py-2.5 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white rounded-xl font-bold text-sm transition-all shadow-lg flex items-center justify-center gap-2">
+                                        className="w-full py-3 bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white rounded-2xl font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer">
                                         <RefreshCw className="w-4 h-4" />
-                                        Lật tiếp {unknownCount} thẻ chưa thuộc
+                                        {t('kanji.flipNextCards', 'Lật tiếp {count} thẻ chưa thuộc').replace('{count}', unknownCount)}
                                     </button>
                                 )}
                                 {allDone && (
                                     <button onClick={resetKanjiFlip}
-                                        className="w-full py-2.5 bg-gradient-to-r from-sky-500 to-indigo-500 hover:from-sky-600 hover:to-indigo-600 text-white rounded-xl font-bold text-sm transition-all shadow-lg flex items-center justify-center gap-2">
+                                        className="w-full py-3 bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white rounded-2xl font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer">
                                         <RotateCcw className="w-4 h-4" />
-                                        Đặt lại thẻ
+                                        {t('kanji.resetCards', 'Đặt lại thẻ')}
                                     </button>
                                 )}
                                 <button onClick={() => setShowKanjiFlipMode(false)}
-                                    className="w-full py-2.5 bg-slate-700 hover:bg-slate-600 text-gray-300 rounded-xl font-bold text-sm transition-all border border-slate-600">
-                                    Trở lại
+                                    className="w-full py-3 bg-slate-800 hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 border-b-4 border-slate-900 text-slate-200 rounded-2xl font-bold text-xs uppercase tracking-wider transition-all cursor-pointer">
+                                    {t('common.back', 'Trở lại')}
                                 </button>
                             </div>
                         </div>
@@ -843,19 +848,19 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
                         <button onClick={() => setShowKanjiFlipMode(false)}
                             className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105">
                             <ArrowLeft className="w-5 h-5" />
-                            <span className="text-sm font-medium">Trở lại</span>
+                            <span className="text-sm font-medium">{t('common.back', 'Trở lại')}</span>
                         </button>
                     </div>
                     {/* Main flashcard container */}
                     <div className="w-full rounded-2xl p-4 flex flex-col gap-3">
                         {/* Header: Round + Counter + Progress */}
                         <div className="flex items-center justify-between flex-shrink-0">
-                            <span className="px-2.5 py-1 bg-sky-500 text-white text-xs font-bold rounded-full">Vòng {kanjiFlipRound}</span>
+                            <span className="px-2.5 py-1 bg-sky-500 text-white text-xs font-bold rounded-full">{t('kanji.roundBadge', 'Vòng {round}').replace('{round}', kanjiFlipRound)}</span>
                             <span className="text-white font-bold text-sm">{kanjiFlipIndex + 1}/{kanjiFlipCards.length}</span>
                         </div>
                         <div className="flex justify-between text-[10px] text-gray-500 flex-shrink-0">
-                            <span className="text-emerald-400">{kanjiFlipKnownSet.size} thuộc</span>
-                            <span className="text-red-400">{kanjiFlipUnknownSet.size} chưa thuộc</span>
+                            <span className="text-emerald-400">{t('kanji.memorizedCount', '{count} thuộc').replace('{count}', kanjiFlipKnownSet.size)}</span>
+                            <span className="text-red-400">{t('kanji.notMemorizedCount', '{count} chưa thuộc').replace('{count}', kanjiFlipUnknownSet.size)}</span>
                         </div>
                         {/* Flip card - contained with explicit height */}
                         <div className="w-full relative min-h-[380px]" style={{ perspective: '1000px' }}>
@@ -870,7 +875,7 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
                                         <div className="text-[120px] leading-none text-indigo-500 dark:text-cyan-400 font-japanese font-bold" style={{ fontFamily: "'Noto Serif JP','Yu Mincho','Hiragino Mincho ProN',serif" }}>
                                             {flipCard.character}
                                         </div>
-                                        <div className="mt-6 text-gray-500 dark:text-gray-400 text-sm">Nhấn để lật</div>
+                                        <div className="mt-6 text-gray-500 dark:text-gray-400 text-sm">{t('kanji.clickToFlip', 'Nhấn để lật')}</div>
                                     </div>
                                 </div>
                                 {/* Back: Hán Việt + Mnemonic + Image */}
@@ -886,7 +891,7 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
                                         {flipCard.mnemonic && (
                                             <div className="bg-gray-50 dark:bg-slate-800/60 rounded-xl p-4 border border-gray-200 dark:border-slate-600 max-w-md w-full mx-auto text-left">
                                                 <div className="flex items-center justify-center gap-1 text-xs text-yellow-600 dark:text-yellow-400 mb-1">
-                                                    <Lightbulb className="w-3.5 h-3.5" /> CÁCH NHỚ
+                                                    <Lightbulb className="w-3.5 h-3.5" /> {t('kanji.mnemonicHeading', 'CÁCH NHỚ')}
                                                 </div>
                                                 <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed text-center">{flipCard.mnemonic}</div>
                                             </div>
@@ -901,22 +906,22 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
                                 className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all ${!kanjiFlipFlipped
                                     ? 'bg-gray-100 dark:bg-slate-800 text-gray-400 dark:text-gray-500 cursor-not-allowed border border-gray-200 dark:border-slate-700'
                                     : 'bg-red-50 dark:bg-red-900/40 text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-800/60 border border-red-200 dark:border-red-700 hover:scale-[1.02] shadow-md'}`}>
-                                <X className="w-4 h-4" /> Chưa thuộc
+                                <X className="w-4 h-4" /> {t('kanji.notMemorized', 'Chưa thuộc')}
                             </button>
                             <button onClick={handleKanjiFlipKnown} disabled={!kanjiFlipFlipped}
                                 className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all ${!kanjiFlipFlipped
                                     ? 'bg-gray-100 dark:bg-slate-800 text-gray-400 dark:text-gray-500 cursor-not-allowed border border-gray-200 dark:border-slate-700'
                                     : 'bg-emerald-50 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-800/60 border border-emerald-200 dark:border-emerald-700 hover:scale-[1.02] shadow-md'}`}>
-                                <Check className="w-4 h-4" /> Đã thuộc
+                                <Check className="w-4 h-4" /> {t('kanji.memorized', 'Đã thuộc')}
                             </button>
                             <button onClick={resetKanjiFlip}
-                                className="p-3 rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-400 dark:text-gray-500 hover:bg-gray-200 dark:hover:bg-slate-700 hover:text-gray-600 dark:hover:text-gray-300 transition-all border border-gray-200 dark:border-slate-700" title="Đặt lại">
+                                className="p-3 rounded-xl bg-gray-100 dark:bg-slate-800 text-gray-400 dark:text-gray-500 hover:bg-gray-200 dark:hover:bg-slate-700 hover:text-gray-600 dark:hover:text-gray-300 transition-all border border-gray-200 dark:border-slate-700" title={t('kanji.resetCards', 'Đặt lại')}>
                                 <RotateCcw className="w-4 h-4" />
                             </button>
                         </div>
                         {/* Keyboard shortcuts hint */}
                         <p className="text-center text-[10px] text-gray-500 flex items-center justify-center gap-1 flex-shrink-0">
-                            Space: Lật | ←: Chưa thuộc | →: Đã thuộc | Ctrl+Z: Hoàn tác
+                            {t('kanji.flipShortcutsHelp', 'Space: Lật | ←: Chưa thuộc | →: Đã thuộc | Ctrl+Z: Hoàn tác')}
                         </p>
                     </div>
                 </div>
@@ -952,22 +957,22 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
                     <button
                         onClick={handleBackToRoadmap}
                         className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700/80 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all font-bold text-xs shadow-2xs hover:scale-105 cursor-pointer shrink-0 active:scale-95"
-                        title="Quay lại lộ trình Kanji"
+                        title={t('kanji.backToRoadmap', 'Quay lại lộ trình Kanji')}
                     >
                         <ArrowLeft className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400 shrink-0" />
-                        <span>Quay lại</span>
+                        <span>{t('common.back', 'Quay lại')}</span>
                     </button>
 
                     {/* Breadcrumbs */}
                     <div className="flex items-center gap-1.5 sm:gap-2 text-gray-400 dark:text-slate-400 text-[10px] sm:text-xs font-bold tracking-wider uppercase truncate">
                         <button onClick={handleBackToRoadmap} className="hover:text-indigo-500 transition-colors shrink-0 cursor-pointer hidden min-[480px]:inline">
-                            Lộ trình {level}
+                            {t('kanji.roadmap', 'Lộ trình')} {level}
                         </button>
                         <span className="hidden min-[480px]:inline">/</span>
-                        <span className="shrink-0">Ngày {day}</span>
+                        <span className="shrink-0">{t('kanji.dayNumber', 'Ngày {day}').replace('{day}', day)}</span>
                         <span>/</span>
                         <span className="text-gray-700 dark:text-gray-200 truncate font-black">
-                            Chữ {currentIndex + 1} ({currentKanji?.character || ''})
+                            {t('kanji.charNumber', 'Chữ {current} ({char})').replace('{current}', currentIndex + 1).replace('{char}', currentKanji?.character || '')}
                         </span>
                     </div>
                 </div>
@@ -978,8 +983,8 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
                     className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm font-bold bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white transition-all hover:scale-[1.02] shadow-xs shadow-sky-500/20 cursor-pointer shrink-0"
                 >
                     <Award className="w-3.5 h-3.5 text-amber-300" />
-                    <span className="hidden sm:inline">🎯 Chế độ luyện tập</span>
-                    <span className="sm:hidden">Luyện tập</span>
+                    <span className="hidden sm:inline">{t('kanji.practiceModeBtn', '🎯 Chế độ luyện tập')}</span>
+                    <span className="sm:hidden">{t('kanji.practiceModeBtnShort', 'Luyện tập')}</span>
                 </button>
             </div>
 
@@ -988,10 +993,10 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
                 <div className="flex justify-between items-center text-xs font-bold text-slate-500 dark:text-slate-400">
                     <span className="flex items-center gap-1.5">
                         <Layers className="w-3.5 h-3.5 text-indigo-500" />
-                        <span>Tiến độ bài học</span>
+                        <span>{t('kanji.lessonProgress', 'Tiến độ bài học')}</span>
                     </span>
                     <span className="font-mono text-indigo-600 dark:text-cyan-400 font-black">
-                        {currentIndex + 1} / {todayKanji.length} chữ Kanji
+                        {t('kanji.lessonProgressCount', '{current} / {total} chữ Kanji').replace('{current}', currentIndex + 1).replace('{total}', todayKanji.length)}
                     </span>
                 </div>
 
@@ -1016,7 +1021,7 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
                                         ? 'w-3 bg-indigo-300 dark:bg-cyan-700/60 hover:bg-indigo-400'
                                         : 'w-2 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700'
                             }`}
-                            title={`Chữ ${i + 1}: ${k.character} (${k.sinoViet || ''})`}
+                            title={`${t('kanji.charWord', 'Chữ')} ${i + 1}: ${k.character} (${k.sinoViet || ''})`}
                         />
                     ))}
                 </div>
@@ -1057,13 +1062,13 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
                 return (
                     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-slate-700 p-6 max-w-md w-full shadow-2xl animate-bounce-in">
-                            <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-2">Thêm Kanji vào ôn tập SRS</h3>
+                            <h3 className="text-lg font-bold text-gray-800 dark:text-white mb-2">{t('kanji.addKanjiToSrsModalTitle', 'Thêm Kanji vào ôn tập SRS')}</h3>
                             <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
-                                Bạn đã thêm <span className="text-emerald-500 font-bold">{addedCount}/{allKanjiIds.length}</span> chữ Kanji vào danh sách ôn tập.
+                                {t('kanji.addedCountDesc', 'Bạn đã thêm {added}/{total} chữ Kanji vào danh sách ôn tập.').replace('{added}', addedCount).replace('{total}', allKanjiIds.length)}
                             </p>
                             {/* Show which kanji were added */}
                             <div className="mb-3">
-                                <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Đã thêm:</div>
+                                <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">{t('kanji.addedLabel', 'Đã thêm:')}</div>
                                 <div className="flex flex-wrap gap-1.5">
                                     {addedKanjiChars.map(c => (
                                         <span key={c} className="w-9 h-9 flex items-center justify-center bg-emerald-500/15 border border-emerald-500/40 text-emerald-500 rounded-lg text-lg font-bold font-japanese">{c}</span>
@@ -1071,34 +1076,34 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
                                 </div>
                             </div>
                             <div className="mb-5">
-                                <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">Chưa thêm:</div>
+                                <div className="text-xs text-gray-500 dark:text-gray-400 mb-1">{t('kanji.notAddedLabel', 'Chưa thêm:')}</div>
                                 <div className="flex flex-wrap gap-1.5">
                                     {notAddedKanjiChars.map(c => (
                                         <span key={c} className="w-9 h-9 flex items-center justify-center bg-gray-100 dark:bg-slate-700 border border-gray-300 dark:border-slate-600 text-gray-500 dark:text-gray-400 rounded-lg text-lg font-bold font-japanese">{c}</span>
                                     ))}
                                 </div>
                             </div>
-                            <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 font-medium">Bạn muốn thêm những Kanji nào vào hệ thống ôn tập?</p>
+                            <p className="text-sm text-gray-600 dark:text-gray-300 mb-4 font-medium">{t('kanji.whichKanjiToAddToSrs', 'Bạn muốn thêm những Kanji nào vào hệ thống ôn tập?')}</p>
                             <div className="flex flex-col gap-2">
                                 <button
                                     onClick={() => handleComplete('all')}
                                     className="w-full px-4 py-3 bg-gradient-to-r from-emerald-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-white rounded-xl font-bold text-sm transition-all shadow-lg shadow-emerald-500/20 flex items-center justify-center gap-2"
                                 >
                                     <BookOpen className="w-4 h-4" />
-                                    Thêm tất cả {allKanjiIds.length} chữ Kanji
+                                    {t('kanji.addAllKanjiToSrs', 'Thêm tất cả {count} chữ Kanji').replace('{count}', allKanjiIds.length)}
                                 </button>
                                 <button
                                     onClick={() => handleComplete('added-only')}
                                     className="w-full px-4 py-3 bg-gray-100 dark:bg-slate-700 hover:bg-gray-200 dark:hover:bg-slate-600 text-gray-700 dark:text-gray-300 rounded-xl font-bold text-sm transition-all border border-gray-200 dark:border-slate-600 flex items-center justify-center gap-2"
                                 >
                                     <Check className="w-4 h-4" />
-                                    Chỉ thêm {addedCount} chữ đã chọn
+                                    {t('kanji.addSelectedOnly', 'Chỉ thêm {count} chữ đã chọn').replace('{count}', addedCount)}
                                 </button>
                                 <button
                                     onClick={() => setShowSrsConfirm(false)}
                                     className="w-full px-4 py-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 text-xs transition-colors"
                                 >
-                                    Hủy
+                                    {t('common.cancel', 'Hủy')}
                                 </button>
                             </div>
                         </div>
@@ -1289,10 +1294,10 @@ const KanjiFlashcard = ({
             };
             const cardsRef = collection(db, `artifacts/${appId}/users/${userId}/cards`);
             await addDoc(cardsRef, cardData);
-            showToast(`Đã thêm từ vựng "${wordClean}" vào danh sách học phần của bạn!`, 'success');
+            showToast(t('kanji.vocabAddedToSet', 'Đã thêm từ vựng "{word}" vào danh sách học phần của bạn!').replace('{word}', wordClean), 'success');
         } catch (err) {
             console.error('Error saving vocab to user cards:', err);
-            showToast('Không thể lưu từ vựng: ' + err.message, 'error');
+            showToast(t('common.error', 'Lỗi') + ': ' + err.message, 'error');
         }
     };
 
@@ -1310,18 +1315,20 @@ const KanjiFlashcard = ({
 
         try {
             const now = Date.now();
+            const char = kanji.character || kanji.literal || '';
             const newSrs = {
+                character: char,
                 interval: 0, ease: 2.5, nextReview: now, lastReview: now, reps: 0,
                 learningStep: null, isLapsed: false, lapseCount: 0, prelapseInterval: null,
                 state: 'NEW'
             };
             await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, kanji.id), newSrs, { merge: true });
-            updateCachedUserSrs(userId, kanji.id, newSrs);
+            updateCachedUserSrs(userId, kanji.id, newSrs, char);
 
             logKanjiActivity(userId, {
                 type: 'save',
-                title: `Đã lưu Kanji ${kanji.character}`,
-                details: `Lưu từ mới vào danh sách ôn tập`
+                title: t('kanji.savedSingleKanjiActivity', 'Saved Kanji {char}').replace('{char}', kanji.character),
+                details: t('kanji.savedToReviewDetails', 'Saved to SRS review list')
             });
 
             // Award XP for Kanji manual addition
@@ -1372,8 +1379,8 @@ const KanjiFlashcard = ({
     const srsCard = srsDataMap ? srsDataMap.get(kanji.id) : null;
     const seenCount = srsCard ? (srsCard.reps || 1) : isBookmarked ? 1 : 0;
     const srsIntervalText = srsCard
-        ? (srsCard.interval === 0 ? 'Sẵn sàng' : `${srsCard.interval} ngày`)
-        : isBookmarked ? 'Sẵn sàng' : 'Chưa bắt đầu';
+        ? (srsCard.interval === 0 ? t('kanji.srsReady', 'Sẵn sàng') : t('kanji.srsDays', '{days} ngày').replace('{days}', srsCard.interval))
+        : isBookmarked ? t('kanji.srsReady', 'Sẵn sàng') : t('kanji.notLearned', 'Chưa bắt đầu');
     const masteryPercent = srsCard
         ? Math.min(100, Math.round((srsCard.interval || 0) * 15 + 20))
         : isBookmarked ? 20 : 0;
@@ -1388,11 +1395,11 @@ const KanjiFlashcard = ({
                         <div className="flex gap-1.5 sm:gap-2">
                             {isHighFreq && (
                                 <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider rounded-lg">
-                                    Tần suất cao
+                                    {t('kanji.highFrequency', 'Tần suất cao')}
                                 </span>
                             )}
                             <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider rounded-lg">
-                                Cấp độ {level}
+                                {t('kanji.levelBadge', 'Cấp độ {level}').replace('{level}', level)}
                             </span>
                         </div>
                         <button
@@ -1402,7 +1409,7 @@ const KanjiFlashcard = ({
                                     ? 'bg-pink-50 dark:bg-pink-950/40 text-pink-500 cursor-default shadow-xs'
                                     : 'text-gray-400 hover:text-pink-500 dark:hover:text-pink-400 active:scale-95 hover:scale-110'
                                 }`}
-                            title={isBookmarked ? "Đã lưu vào danh sách học" : "Lưu Kanji (Yêu thích)"}
+                            title={isBookmarked ? t('kanji.savedToStudyList', "Đã lưu vào danh sách học") : t('kanji.saveKanjiFavorite', "Lưu Kanji (Yêu thích)")}
                         >
                             {isBookmarked ? (
                                 <Heart className="w-5 h-5 fill-pink-500 text-pink-500" />
@@ -1425,7 +1432,7 @@ const KanjiFlashcard = ({
                             <button
                                 onClick={() => writerRef.current?.replay?.()}
                                 className="absolute bottom-2.5 right-2.5 z-20 p-2 bg-white/90 dark:bg-slate-800/90 backdrop-blur-xs border border-gray-200 dark:border-slate-700 text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-cyan-400 rounded-xl shadow-xs transition-all hover:scale-105 active:scale-95 cursor-pointer"
-                                title="Xem lại nét viết"
+                                title={t('kanji.replayStrokes', 'Xem lại nét viết')}
                             >
                                 <RotateCcw className="w-4 h-4" />
                             </button>
@@ -1434,7 +1441,7 @@ const KanjiFlashcard = ({
                     {/* Onyomi & Kunyomi Badges */}
                     <div className="grid grid-cols-2 gap-3 sm:gap-4 border-t border-gray-100 dark:border-slate-700/50 pt-3 sm:pt-4">
                         <div>
-                            <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-1">Âm On</span>
+                            <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-1">{t('kanji.onyomiLabel', 'Âm On')}</span>
                             <div className="flex flex-wrap gap-1.5">
                                 {onyomiList.length > 0 ? onyomiList.map((o, idx) => (
                                     <span key={`${o}-${idx}`} className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-cyan-50 dark:bg-cyan-950/20 border border-cyan-100 dark:border-cyan-900/30 rounded-lg text-xs text-cyan-600 dark:text-cyan-400 font-bold font-japanese">{o}</span>
@@ -1442,7 +1449,7 @@ const KanjiFlashcard = ({
                             </div>
                         </div>
                         <div>
-                            <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-1">Âm Kun</span>
+                            <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-1">{t('kanji.kunyomiLabel', 'Âm Kun')}</span>
                             <div className="flex flex-wrap gap-1.5">
                                 {kunyomiList.length > 0 ? kunyomiList.map((k, idx) => (
                                     <span key={`${k}-${idx}`} className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-red-50 dark:bg-red-950/20 border border-red-100 dark:border-red-900/30 rounded-lg text-xs text-red-600 dark:text-red-400 font-bold font-japanese">{k}</span>
@@ -1453,12 +1460,12 @@ const KanjiFlashcard = ({
                 </div>
                 {/* Usage Examples Section */}
                 <div className="order-5 lg:order-none bg-white dark:bg-slate-800 rounded-2xl sm:rounded-3xl border border-gray-100 dark:border-slate-700/60 p-4 sm:p-6 shadow-sm">
-                    <span className="text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-4">Ví dụ sử dụng</span>
+                    <span className="text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-4">{t('kanji.usageExamples', 'Ví dụ sử dụng')}</span>
                     {(() => {
                         if (vocab.length === 0) {
                             return (
                                 <div className="text-center py-6 text-gray-400 text-sm">
-                                    Chưa có từ vựng cho chữ Kanji này
+                                    {t('kanji.noVocabForKanji', 'Chưa có từ vựng cho chữ Kanji này')}
                                 </div>
                             );
                         }
@@ -1553,14 +1560,14 @@ const KanjiFlashcard = ({
                                         <button
                                             onClick={() => speakJapanese(v.word, v.audioBase64)}
                                             className="p-2 bg-gray-50 dark:bg-slate-700 hover:bg-gray-100 dark:hover:bg-slate-600 rounded-xl text-gray-400 hover:text-gray-600 dark:hover:text-white transition-all shadow-sm cursor-pointer"
-                                            title="Nghe phát âm"
+                                            title={t('kanji.playPronunciation', 'Nghe phát âm')}
                                         >
                                             <Volume2 className="w-4 h-4" />
                                         </button>
                                         <button
                                             onClick={() => handleAddVocabToSRS(v)}
                                             className="p-2 bg-gray-50 dark:bg-slate-700 hover:bg-gray-100 dark:hover:bg-slate-600 rounded-xl text-gray-400 hover:text-sky-500 dark:hover:text-sky-400 transition-all shadow-sm cursor-pointer"
-                                            title="Thêm từ vựng vào học phần"
+                                            title={t('kanji.addVocabToSet', 'Thêm từ vựng vào học phần')}
                                         >
                                             <Plus className="w-4 h-4" />
                                         </button>
@@ -1576,7 +1583,7 @@ const KanjiFlashcard = ({
                                         <div className="flex items-center gap-2 px-3 py-1.5 bg-red-50 dark:bg-red-950/20 border border-red-100 dark:border-red-900/30 rounded-xl sticky top-0 bg-white dark:bg-slate-800 z-10">
                                             <span className="w-1.5 h-1.5 rounded-full bg-red-500"></span>
                                             <span className="text-[10px] font-bold uppercase tracking-wider text-red-700 dark:text-red-400">
-                                                Kun yomi (Âm Kun)
+                                                Kun yomi ({t('kanji.kunyomiLabel', 'Âm Kun')})
                                             </span>
                                             <span className="text-[10px] font-bold text-red-600 dark:text-red-500/80 ml-auto">({kunyomiVocab.length})</span>
                                         </div>
@@ -1591,7 +1598,7 @@ const KanjiFlashcard = ({
                                         <div className="flex items-center gap-2 px-3 py-1.5 bg-cyan-50 dark:bg-cyan-950/20 border border-cyan-100 dark:border-cyan-900/30 rounded-xl sticky top-0 bg-white dark:bg-slate-800 z-10">
                                             <span className="w-1.5 h-1.5 rounded-full bg-cyan-500"></span>
                                             <span className="text-[10px] font-bold uppercase tracking-wider text-cyan-600 dark:text-cyan-400">
-                                                On yomi (Âm On)
+                                                On yomi ({t('kanji.onyomiLabel', 'Âm On')})
                                               </span>
                                             <span className="text-[10px] font-bold text-cyan-500 dark:text-cyan-500/80 ml-auto">({onyomiVocab.length})</span>
                                         </div>
@@ -1610,18 +1617,18 @@ const KanjiFlashcard = ({
                 {/* Meaning Card */}
                 <div className="order-2 lg:order-none bg-white dark:bg-slate-800 rounded-2xl sm:rounded-3xl border border-gray-100 dark:border-slate-700/60 p-4 sm:p-6 shadow-sm">
                     <div className="space-y-1.5 sm:space-y-2">
-                        <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-1">Ý nghĩa</span>
+                        <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-1">{t('kanji.meaningLabel', 'Ý nghĩa')}</span>
                         <h3 className="text-xl sm:text-2xl font-extrabold text-indigo-600 dark:text-cyan-400 tracking-wide">{kanji.sinoViet || ''}</h3>
                         <p className="text-sm sm:text-base text-gray-700 dark:text-slate-200 font-bold leading-relaxed">{kanji.meaning || '-'}</p>
                     </div>
                 </div>
                 {/* Mnemonics Card */}
                 <div className="order-3 lg:order-none bg-white dark:bg-slate-800 rounded-2xl sm:rounded-3xl border border-gray-100 dark:border-slate-700/60 p-4 sm:p-6 shadow-sm">
-                    <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-2 sm:mb-3">Mẹo ghi nhớ</span>
+                    <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-2 sm:mb-3">{t('kanji.mnemonicLabel', 'Mẹo ghi nhớ')}</span>
                     {kanji.mnemonic ? (
                         <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-medium">{kanji.mnemonic}</p>
                     ) : (
-                        <p className="text-xs sm:text-sm text-gray-400 italic">Không có mẹo ghi nhớ cho chữ này</p>
+                        <p className="text-xs sm:text-sm text-gray-400 italic">{t('kanji.noMnemonic', 'Không có mẹo ghi nhớ cho chữ này')}</p>
                     )}
                     {(kanji.imageUrl || kanji.imageBase64) && (
                         <div className="mt-3 sm:mt-4 rounded-xl sm:rounded-2xl overflow-hidden border border-gray-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/40 p-2 shadow-inner">
@@ -1631,11 +1638,11 @@ const KanjiFlashcard = ({
                 </div>
                 {/* Learning Status Card */}
                 <div className="order-4 lg:order-none bg-white dark:bg-slate-800 rounded-2xl sm:rounded-3xl border border-gray-100 dark:border-slate-700/60 p-4 sm:p-6 shadow-sm">
-                    <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-2 sm:mb-3">Trạng thái học tập</span>
+                    <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-2 sm:mb-3">{t('kanji.learningStatusHeading', 'Trạng thái học tập')}</span>
                     {/* Mastery bar */}
                     <div className="space-y-1.5 sm:space-y-2">
                         <div className="flex justify-between items-center text-xs text-gray-500 dark:text-slate-400 font-bold">
-                            <span>Độ thành thục</span>
+                            <span>{t('kanji.masteryLabel', 'Độ thành thục')}</span>
                             <span className="text-indigo-500 dark:text-cyan-400">{masteryPercent}%</span>
                         </div>
                         <div className="w-full h-2 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
@@ -1648,11 +1655,11 @@ const KanjiFlashcard = ({
                     {/* Status details */}
                     <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-4 border-t border-gray-50 dark:border-slate-700/30 pt-3 sm:pt-4 text-xs">
                         <div>
-                            <span className="text-gray-400 dark:text-slate-500 font-medium block text-[11px]">Số lần học</span>
-                            <span className="text-gray-800 dark:text-slate-200 font-bold text-xs sm:text-sm mt-0.5 block">{seenCount} lần</span>
+                            <span className="text-gray-400 dark:text-slate-500 font-medium block text-[11px]">{t('kanji.studyCountLabel', 'Số lần học')}</span>
+                            <span className="text-gray-800 dark:text-slate-200 font-bold text-xs sm:text-sm mt-0.5 block">{t('kanji.studyCountTimes', '{count} lần').replace('{count}', seenCount)}</span>
                         </div>
                         <div>
-                            <span className="text-gray-400 dark:text-slate-500 font-medium block text-[11px]">Chu kỳ ôn tập</span>
+                            <span className="text-gray-400 dark:text-slate-500 font-medium block text-[11px]">{t('kanji.reviewIntervalLabel', 'Chu kỳ ôn tập')}</span>
                             <span className="text-gray-800 dark:text-slate-200 font-bold text-xs sm:text-sm mt-0.5 block">{srsIntervalText}</span>
                         </div>
                     </div>
@@ -1664,12 +1671,12 @@ const KanjiFlashcard = ({
                         disabled={currentIndex === 0}
                         className="flex-1 max-w-[130px] sm:max-w-[150px] px-3.5 py-2.5 sm:px-5 sm:py-3 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed text-gray-700 dark:text-gray-300 font-bold text-xs sm:text-sm rounded-xl sm:rounded-2xl transition-all shadow-xs flex items-center justify-center gap-1.5 min-h-[42px] sm:min-h-[44px] cursor-pointer"
                     >
-                        <ChevronLeft className="w-4 h-4" /> Trước
+                        <ChevronLeft className="w-4 h-4" /> {t('kanji.prevChar', 'Trước')}
                     </button>
 
                     {/* Centered counter indicator for mobile */}
                     <div className="flex flex-col items-center justify-center px-1 text-center lg:hidden">
-                        <span className="text-[10px] font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider">Chữ</span>
+                        <span className="text-[10px] font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider">{t('kanji.charWord', 'Chữ')}</span>
                         <span className="text-xs font-black text-indigo-600 dark:text-cyan-400 font-mono">{currentIndex + 1} / {totalKanjiCount}</span>
                     </div>
 
@@ -1677,7 +1684,7 @@ const KanjiFlashcard = ({
                         onClick={isLastKanji ? onComplete : onNext}
                         className={`flex-1 ${isLastKanji ? 'max-w-[200px]' : 'max-w-[140px] sm:max-w-[160px]'} px-3.5 py-2.5 sm:px-6 sm:py-3 ${isLastKanji ? 'bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white shadow-emerald-500/25' : 'bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white shadow-indigo-600/20'} font-bold text-xs sm:text-sm rounded-xl sm:rounded-2xl transition-all shadow-md flex items-center justify-center gap-1.5 min-h-[42px] sm:min-h-[44px] cursor-pointer`}
                     >
-                        {isLastKanji ? '🎉 Hoàn thành ngày' : 'Tiếp theo'} {!isLastKanji && <ChevronRight className="w-4 h-4" />}
+                        {isLastKanji ? t('kanji.finishDay', '🎉 Hoàn thành ngày') : t('kanji.nextChar', 'Tiếp theo')} {!isLastKanji && <ChevronRight className="w-4 h-4" />}
                     </button>
                 </div>
             </div>
@@ -1690,7 +1697,7 @@ const VocabFlashcardList = ({ vocab, speakJapanese }) => {
     const toggle = (i) => setFlipped(prev => { const n = new Set(prev); n.has(i) ? n.delete(i) : n.add(i); return n; });
     return (
         <div className="space-y-2">
-            <p className="text-xs text-gray-500">Bấm vào thẻ để lật xem nghĩa</p>
+            <p className="text-xs text-gray-500">{t('kanji.clickToFlip', 'Bấm vào thẻ để lật xem nghĩa')}</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {vocab.map((v, i) => (
                     <div key={v.id || i} onClick={() => toggle(i)}
@@ -1714,12 +1721,13 @@ const VocabFlashcardList = ({ vocab, speakJapanese }) => {
                     </div>
                 ))}
             </div>
-            {vocab.length === 0 && <p className="text-gray-500 text-center py-8">Chưa có từ vựng cho các kanji này</p>}
+            {vocab.length === 0 && <p className="text-gray-500 text-center py-8">{t('kanji.noVocabForKanji', 'Chưa có từ vựng cho các kanji này')}</p>}
         </div>
     );
 };
 // ==================== TEST MODE VIEW (Styled like ReviewScreen) ====================
 const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, level, speakJapanese }) => {
+    const { t } = useLanguage();
     const [qIndex, setQIndex] = useState(0);
     const [score, setScore] = useState(0);
     const [answered, setAnswered] = useState(false);
@@ -1744,7 +1752,7 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
                 const correct = typeof k.sinoViet === 'string' ? k.sinoViet.trim() : (Array.isArray(k.sinoViet) ? k.sinoViet.join(', ') : String(k.sinoViet));
                 const others = [...new Set(todayKanji.filter(o => o.character !== k.character && o.sinoViet).map(o => typeof o.sinoViet === 'string' ? o.sinoViet.trim() : String(o.sinoViet)).filter(s => s && s !== correct))];
                 const wrong = shuffle(others).slice(0, 3);
-                return { kanji: k.character, question: `Âm Hán Việt của "${k.character}" là gì?`, correct, options: shuffle([correct, ...wrong]), type: 'mc' };
+                return { kanji: k.character, question: t('kanji.hanvietQuestion', 'Âm Hán Việt của "{char}" là gì?').replace('{char}', k.character), correct, options: shuffle([correct, ...wrong]), type: 'mc' };
             });
         }
         if (testMode === 'vocab') {
@@ -1757,7 +1765,7 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
                 return {
                     kanji: cleanWord,
                     sub: readingStr,
-                    question: `Từ "${cleanWord}" có nghĩa là gì?`,
+                    question: t('kanji.vocabMeaningQuestion', 'Từ "{word}" có nghĩa là gì?').replace('{word}', cleanWord),
                     correct,
                     options: shuffle([correct, ...wrong]),
                     type: 'mc'
@@ -1783,7 +1791,7 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
                 }
                 return {
                     kanji: k.character,
-                    question: `Gõ âm Hán Việt hoặc cách đọc On của "${k.character}"`,
+                    question: t('kanji.typingPromptQuestion', 'Gõ âm Hán Việt hoặc cách đọc On của "{char}"').replace('{char}', k.character),
                     answers: [...new Set(answers)],
                     type: 'typing'
                 };
@@ -1792,7 +1800,7 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
         if (testMode === 'writing') {
             return todayKanji.filter(k => k.sinoViet).map(k => ({
                 kanji: k.sinoViet, actualChar: k.character,
-                question: `Viết chữ Kanji có âm Hán Việt "${k.sinoViet}"`,
+                question: t('kanji.writingPromptQuestion', 'Viết chữ Kanji có âm Hán Việt "{meaning}"').replace('{meaning}', k.sinoViet),
                 meaning: k.meaning || '', type: 'writing'
             }));
         }
@@ -2012,87 +2020,87 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
     if (testDone) {
         const pct = total > 0 ? Math.round((score / total) * 100) : 0;
         return (
-            <div className="min-h-[calc(100vh-120px)] flex items-center justify-center">
-                <div className="w-[600px] max-w-[95vw] text-center space-y-6 flex flex-col items-center justify-center">
-                    <Award className={`w-20 h-20 mx-auto ${pct >= 80 ? 'text-yellow-400' : pct >= 50 ? 'text-cyan-400' : 'text-gray-500'}`} />
-                    <h2 className="text-3xl font-bold text-gray-800 dark:text-white">Kết quả kiểm tra</h2>
-                    <div className="text-5xl font-bold text-cyan-400">{score}/{total}</div>
-                    <div className="text-gray-400">{pct}% chính xác</div>
-                    {failedCards.size > 0 && <div className="text-sm text-red-400">({failedCards.size} câu sai)</div>}
-                    <div className="flex gap-3 justify-center">
-                        <button onClick={onBack} className="px-6 py-2 bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 text-gray-800 dark:text-white rounded-xl font-bold transition-colors">Quay lại</button>
+            <div className="min-h-[calc(100vh-120px)] flex items-center justify-center p-4">
+                <div className="w-[520px] max-w-full text-center space-y-6 flex flex-col items-center justify-center bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl">
+                    <Award className={`w-16 h-16 sm:w-20 sm:h-20 mx-auto ${pct >= 80 ? 'text-amber-400' : pct >= 50 ? 'text-sky-500' : 'text-slate-400'}`} />
+                    <div>
+                        <h2 className="text-2xl sm:text-3xl font-black text-gray-800 dark:text-white">{t('kanji.quizResults', 'Kết quả kiểm tra')}</h2>
+                        <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">{t('kanji.accuracyPct', '{pct}% chính xác').replace('{pct}', pct)}</p>
+                    </div>
+                    <div className="text-5xl font-black text-sky-500">{score}/{total}</div>
+                    {failedCards.size > 0 && <div className="text-sm font-bold text-rose-500">{t('kanji.failedQuestionsCount', '({count} câu sai)').replace('{count}', failedCards.size)}</div>}
+                    <div className="flex gap-3 justify-center w-full max-w-xs">
+                        <button onClick={onBack} className="flex-1 py-3 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 rounded-2xl font-black text-xs uppercase tracking-wider transition-all cursor-pointer">{t('common.back', 'Quay lại')}</button>
                         <button onClick={() => { setQIndex(0); setScore(0); setAnswered(false); setSelectedAnswer(null); setTypingInput(''); setTestDone(false); setFailedCards(new Set()); }}
-                            className="px-6 py-2 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl font-bold transition-colors">Làm lại</button>
+                            className="flex-1 py-3 bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 text-white rounded-2xl font-black text-xs uppercase tracking-wider transition-all cursor-pointer">{t('studyModes.studyAgain', 'Làm lại')}</button>
                     </div>
                 </div>
             </div>
         );
     }
-    if (!currentQ) return <div className="text-gray-400 text-center py-12">Không có câu hỏi</div>;
-    const modeLabels = { hanviet: 'Kiểm tra âm Hán Việt', vocab: 'Kiểm tra từ vựng', typing: 'Chế độ khó', writing: 'Kiểm tra viết' };
-    const modeColors = { hanviet: 'cyan', vocab: 'emerald', typing: 'orange', writing: 'sky' };
+    if (!currentQ) return <div className="text-gray-400 text-center py-12">{t('kanji.noQuestions', 'Không có câu hỏi')}</div>;
+    const modeLabels = { hanviet: t('kanji.hanvietQuiz', 'Kiểm tra âm Hán Việt'), vocab: t('kanji.vocabQuiz', 'Kiểm tra từ vựng'), typing: t('kanji.typingQuiz', 'Tự luận'), writing: t('kanji.writingCanvas', 'Kiểm tra viết') };
     const progress = Math.round(((qIndex + 1) / total) * 100);
     return (
-        <div className="min-h-[calc(100vh-120px)] flex items-center justify-center">
-            <div className="w-[600px] max-w-[95vw] flex flex-col justify-center items-center space-y-3 p-4 border-2 border-indigo-400/30 rounded-2xl">
+        <div className="min-h-[calc(100vh-120px)] flex items-center justify-center p-3 sm:p-4">
+            <div className="w-[560px] max-w-full flex flex-col justify-center items-center space-y-4 p-5 sm:p-6 bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-3xl shadow-xl">
                 {/* Progress bar */}
-                <div className="w-full space-y-1 flex-shrink-0">
-                    <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
+                <div className="w-full space-y-2 flex-shrink-0">
+                    <div className="flex justify-between items-center text-xs font-bold text-gray-500 dark:text-gray-400">
                         <div className="flex items-center gap-2">
-                            <button onClick={onBack} className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105">
-                                <ChevronLeft className="w-3.5 h-3.5" />
+                            <button onClick={onBack} className="p-2 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 border-b-2 border-slate-300 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 active:translate-y-0.5 transition-all cursor-pointer">
+                                <ChevronLeft className="w-4 h-4" />
                             </button>
-                            <span className="text-orange-500 text-sm">🔥</span>
-                            <span className="text-gray-800 dark:text-white font-bold text-sm">{modeLabels[testMode]}</span>
+                            <span className="text-gray-800 dark:text-white font-black text-sm">{modeLabels[testMode]}</span>
                         </div>
-                        <span>{qIndex + 1} / {total}</span>
+                        <span className="font-mono">{qIndex + 1} / {total}</span>
                     </div>
-                    <div className="h-1.5 w-full bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                        <div className="h-full bg-indigo-500 rounded-full transition-all duration-500" style={{ width: `${progress}%` }}></div>
+                    <div className="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                        <div className="h-full bg-sky-500 rounded-full transition-all duration-300" style={{ width: `${progress}%` }}></div>
                     </div>
                 </div>
                 {/* Card area */}
-                <div className="w-full bg-white dark:bg-slate-900 rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center relative overflow-hidden border-2 border-indigo-500/50" style={{ minHeight: '280px' }}>
+                <div className="w-full bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 sm:p-8 flex flex-col items-center justify-center text-center relative overflow-hidden border border-slate-200 dark:border-slate-700/60" style={{ minHeight: '220px' }}>
                     {/* Display: for vocab test show single question line, for writing mode show sinoViet hint, for others show kanji */}
                     {testMode === 'vocab' ? (
-                        <div className="text-xl sm:text-2xl font-bold text-gray-800 dark:text-gray-100 font-japanese leading-relaxed px-4">
-                            Từ "<span className="text-sky-600 dark:text-sky-400 font-black">{currentQ.sub ? `${currentQ.kanji}（${currentQ.sub}）` : currentQ.kanji}</span>" có nghĩa là gì?
+                        <div className="text-xl sm:text-2xl font-black text-gray-800 dark:text-gray-100 font-japanese leading-relaxed px-2">
+                            {t('kanji.whatIsMeaningOf', 'What is the meaning of "{word}"?').replace('{word}', currentQ.sub ? `${currentQ.kanji}（${currentQ.sub}）` : currentQ.kanji)}
                         </div>
                     ) : currentQ.type === 'writing' ? (
                         <>
-                            <div className="text-3xl font-bold text-emerald-400 mb-2">{currentQ.kanji}</div>
-                            {currentQ.meaning && <div className="text-lg text-gray-400 mb-2">{currentQ.meaning}</div>}
-                            <p className="text-sm text-gray-500">{currentQ.question}</p>
+                            <div className="text-3xl sm:text-4xl font-black text-emerald-500 mb-2">{currentQ.kanji}</div>
+                            {currentQ.meaning && <div className="text-base sm:text-lg text-slate-500 dark:text-slate-400 mb-2">{currentQ.meaning}</div>}
+                            <p className="text-xs sm:text-sm text-slate-400">{currentQ.question}</p>
                         </>
                     ) : (
                         <>
-                            <div className="text-7xl font-bold text-gray-900 dark:text-white font-japanese mb-3">{currentQ.kanji}</div>
-                            {currentQ.sub && <div className="text-lg text-orange-400 font-japanese mb-2">({currentQ.sub})</div>}
-                            <p className="text-sm text-gray-400">{currentQ.question}</p>
+                            <div className="text-6xl sm:text-7xl font-black text-gray-900 dark:text-white font-japanese mb-2">{currentQ.kanji}</div>
+                            {currentQ.sub && <div className="text-base text-amber-500 font-japanese mb-2 font-bold">({currentQ.sub})</div>}
+                            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">{currentQ.question}</p>
                         </>
                     )}
                 </div>
-                {/* MC options - styled like ReviewScreen */}
+                {/* MC options - styled like Duolingo */}
                 {currentQ.type === 'mc' && (
-                    <div className="w-full grid grid-cols-2 gap-2">
+                    <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                         {currentQ.options.map((opt, i) => {
-                            let cls = 'bg-white dark:bg-slate-800 border-gray-300 dark:border-slate-600 text-gray-800 dark:text-white hover:border-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-500/10';
+                            let cls = 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 hover:border-sky-400 hover:bg-sky-50/50 dark:hover:bg-sky-950/20';
                             if (answered) {
-                                if (opt === currentQ.correct) cls = 'bg-emerald-500/20 border-emerald-500 text-emerald-400 shadow-lg shadow-emerald-500/10';
-                                else if (opt === selectedAnswer) cls = 'bg-red-500/20 border-red-500 text-red-400';
-                                else cls = 'bg-gray-100 dark:bg-slate-800/50 border-gray-200 dark:border-slate-700 text-gray-400 dark:text-gray-600';
+                                if (opt === currentQ.correct) cls = 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-emerald-700 dark:text-emerald-300';
+                                else if (opt === selectedAnswer) cls = 'bg-rose-50 dark:bg-rose-950/40 border-rose-500 text-rose-700 dark:text-rose-300';
+                                else cls = 'bg-slate-100 dark:bg-slate-800/40 border-slate-200 dark:border-slate-800 text-slate-400 opacity-60';
                             }
                             return (
                                 <button key={i} onClick={() => handleMCAnswer(opt)} disabled={answered}
-                                    className={`p-4 rounded-xl border-2 font-bold text-sm transition-all ${cls}`}>
-                                    <span className="text-gray-500 mr-2 text-xs">{i + 1}</span>
-                                    {opt}
+                                    className={`p-3.5 sm:p-4 rounded-2xl border-2 border-b-4 font-bold text-sm transition-all text-left flex items-center justify-between active:translate-y-0.5 active:border-b-2 cursor-pointer ${cls}`}>
+                                    <span className="truncate">{opt}</span>
+                                    <span className="w-6 h-6 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 text-xs font-black flex items-center justify-center shrink-0 ml-2">{i + 1}</span>
                                 </button>
                             );
                         })}
                     </div>
                 )}
-                {/* Typing input - styled like ReviewScreen */}
+                {/* Typing input */}
                 {currentQ.type === 'typing' && (
                     <div className="w-full space-y-3">
                         <div className="relative">
@@ -2102,23 +2110,23 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
                                 value={typingInput}
                                 onChange={e => setTypingInput(e.target.value)}
                                 onKeyDown={e => e.key === 'Enter' && !answered && handleTypingSubmit()}
-                                placeholder="Gõ câu trả lời..."
-                                className="w-full px-4 py-3 bg-gray-50 dark:bg-slate-800 border-2 border-gray-300 dark:border-slate-600 focus:border-indigo-500 rounded-xl text-gray-900 dark:text-white text-center text-lg focus:outline-none transition-colors"
+                                placeholder={t('kanji.typeAnswerPlaceholder', 'Gõ câu trả lời...')}
+                                className="w-full px-4 py-3.5 bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 focus:border-sky-500 rounded-2xl text-gray-900 dark:text-white text-center text-lg font-bold focus:outline-none transition-colors"
                                 disabled={answered}
                             />
                         </div>
                         {!answered && (
-                            <button onClick={handleTypingSubmit} className="w-full py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold transition-colors flex items-center justify-center gap-2">
-                                <Check className="w-4 h-4" /> Kiểm tra
+                            <button onClick={handleTypingSubmit} className="w-full py-3.5 bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 text-white rounded-2xl font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer">
+                                <Check className="w-4 h-4 stroke-[3]" /> {t('kanji.checkAnswer', 'Kiểm tra')}
                             </button>
                         )}
                         {answered && (
-                            <div className={`p-3 rounded-xl text-center font-bold border-2 ${currentQ.answers.some(a => a === typingInput.trim().toLowerCase())
-                                ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400'
-                                : 'bg-red-500/20 border-red-500 text-red-400'}`}>
+                            <div className={`p-3 rounded-2xl text-center font-bold border-2 ${currentQ.answers.some(a => a === typingInput.trim().toLowerCase())
+                                ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-emerald-700 dark:text-emerald-300'
+                                : 'bg-rose-50 dark:bg-rose-950/40 border-rose-500 text-rose-700 dark:text-rose-300'}`}>
                                 {currentQ.answers.some(a => a === typingInput.trim().toLowerCase())
-                                    ? '✅ Chính xác!'
-                                    : `❌ Sai! Đáp án: ${currentQ.answers.join(' / ')}`}
+                                    ? t('kanji.correctAnswerMsg', '✅ Chính xác!')
+                                    : t('kanji.incorrectAnswerMsg', '❌ Sai! Đáp án: {answer}').replace('{answer}', currentQ.answers.join(' / '))}
                             </div>
                         )}
                     </div>
@@ -2126,24 +2134,24 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
                 {/* Writing canvas */}
                 {currentQ.type === 'writing' && (
                     <div className="w-full flex flex-col items-center gap-3">
-                        <canvas ref={canvasRef} className="w-[340px] h-[340px] sm:w-[360px] sm:h-[360px] max-w-full rounded-2xl border-2 border-indigo-500/40 dark:border-slate-700 cursor-crosshair touch-none shadow-xl bg-slate-900"
+                        <canvas ref={canvasRef} className="w-[340px] h-[340px] sm:w-[360px] sm:h-[360px] max-w-full rounded-2xl border-2 border-slate-200 dark:border-slate-700 cursor-crosshair touch-none shadow-md bg-slate-900"
                             style={{ touchAction: 'none' }}
                             onMouseDown={startDraw} onMouseMove={draw} onMouseUp={endDraw} onMouseLeave={endDraw}
                             onTouchStart={startDraw} onTouchMove={draw} onTouchEnd={endDraw} />
                         <div className="flex gap-2">
-                            <button onClick={clearCanvas} className="px-4 py-2 bg-gray-200 dark:bg-slate-700 hover:bg-gray-300 dark:hover:bg-slate-600 text-gray-800 dark:text-white rounded-lg text-sm font-bold transition-colors flex items-center gap-1">
-                                <RotateCcw className="w-3.5 h-3.5" /> Xoá
+                            <button onClick={clearCanvas} className="px-4 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border-b-2 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-bold transition-all flex items-center gap-1 active:translate-y-0.5 cursor-pointer">
+                                <RotateCcw className="w-3.5 h-3.5" /> {t('kanji.clearCanvas', 'Xoá')}
                             </button>
                             {!answered && (
                                 <button onClick={checkWriting} disabled={writingChecking}
-                                    className={`px-4 py-2 text-white rounded-lg text-sm font-bold transition-colors flex items-center gap-1 ${writingChecking ? 'bg-indigo-400 cursor-wait' : 'bg-indigo-600 hover:bg-indigo-500'}`}>
+                                    className={`px-5 py-2 text-white rounded-xl text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 border-b-4 ${writingChecking ? 'bg-emerald-400 border-emerald-600 cursor-wait' : 'bg-emerald-500 hover:bg-emerald-400 border-emerald-700 active:translate-y-0.5 active:border-b-0 cursor-pointer'}`}>
                                     {writingChecking ? (
                                         <React.Fragment>
-                                            <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" /> Đang chấm...
+                                            <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" /> {t('kanji.evaluatingScore', 'Đang chấm...')}
                                         </React.Fragment>
                                     ) : (
                                         <React.Fragment>
-                                            <Check className="w-3.5 h-3.5" /> Kiểm tra
+                                            <Check className="w-3.5 h-3.5 stroke-[3]" /> {t('kanji.checkAnswer', 'Kiểm tra')}
                                         </React.Fragment>
                                     )}
                                 </button>
@@ -2151,54 +2159,54 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
                         </div>
                         {/* Recognition result */}
                         {writingResult !== null && (
-                            <div className={`p-3 rounded-xl text-center font-bold w-full border-2 ${writingResult >= 70
-                                ? 'bg-emerald-500/20 border-emerald-500 text-emerald-400'
+                            <div className={`p-3 rounded-2xl text-center font-bold w-full border-2 ${writingResult >= 70
+                                ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-emerald-700 dark:text-emerald-300'
                                 : writingResult >= 40
-                                    ? 'bg-yellow-500/20 border-yellow-500 text-yellow-400'
-                                    : 'bg-red-500/20 border-red-500 text-red-400'
+                                    ? 'bg-amber-50 dark:bg-amber-950/40 border-amber-500 text-amber-700 dark:text-amber-300'
+                                    : 'bg-rose-50 dark:bg-rose-950/40 border-rose-500 text-rose-700 dark:text-rose-300'
                                 }`}>
                                 <div className="flex items-center justify-center gap-3">
-                                    <span className="text-2xl font-japanese">{writingRecognized || '?'}</span>
+                                    <span className="text-2xl font-japanese font-black">{writingRecognized || '?'}</span>
                                     <div>
-                                        <div>Độ chính xác: {writingResult}%</div>
-                                        <div className="text-xs font-normal mt-0.5 opacity-80">
+                                        <div className="text-xs sm:text-sm font-black">{t('kanji.canvasAccuracy', 'Độ chính xác: {accuracy}%').replace('{accuracy}', writingResult)}</div>
+                                        <div className="text-[11px] font-medium mt-0.5 opacity-80">
                                             {writingResult >= 70
-                                                ? '✅ Chính xác! Bạn viết rất tốt'
+                                                ? t('kanji.canvasCorrect', '✅ Chính xác! Bạn viết rất tốt')
                                                 : writingResult >= 40
-                                                    ? `⚠️ Gần đúng — hệ thống nhận dạng: "${writingRecognized}", đáp án: "${currentQ.actualChar}"`
-                                                    : `❌ Sai — hệ thống nhận dạng: "${writingRecognized}", đáp án: "${currentQ.actualChar}"`
+                                                    ? t('kanji.canvasNear', '⚠️ Gần đúng — hệ thống nhận dạng: "{recognized}", đáp án: "{expected}"').replace('{recognized}', writingRecognized).replace('{expected}', currentQ.actualChar)
+                                                    : t('kanji.canvasWrong', '❌ Sai — hệ thống nhận dạng: "{recognized}", đáp án: "{expected}"').replace('{recognized}', writingRecognized).replace('{expected}', currentQ.actualChar)
                                             }
                                         </div>
                                     </div>
                                 </div>
                                 {!answered && writingResult < 70 && (
-                                    <div className="mt-2 text-xs font-normal opacity-70">Nhấn "Xoá" để vẽ lại, hoặc nhấn "Bỏ qua" để qua câu tiếp theo</div>
+                                    <div className="mt-1.5 text-[11px] font-normal opacity-70">{t('kanji.canvasHint', 'Nhấn "Xoá" để vẽ lại, hoặc nhấn "Bỏ qua" để qua câu tiếp theo')}</div>
                                 )}
                             </div>
                         )}
                         {/* Skip button when failed */}
                         {!answered && writingResult !== null && writingResult < 70 && (
                             <button onClick={() => { setAnswered(true); setFailedCards(prev => new Set([...prev, qIndex])); }}
-                                className="w-full py-2.5 bg-gray-600 hover:bg-gray-500 text-white rounded-xl text-sm font-medium transition-colors flex items-center justify-center gap-1">
-                                Bỏ qua câu này →
+                                className="w-full py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border-b-2 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1 active:translate-y-0.5 cursor-pointer">
+                                {t('kanji.skipThisQuestion', 'Bỏ qua câu này →')}
                             </button>
                         )}
                     </div>
                 )}
                 {/* Feedback message */}
                 {answered && currentQ.type === 'mc' && (
-                    <div className={`w-full p-3 rounded-xl text-center text-sm font-medium ${selectedAnswer === currentQ.correct
-                        ? 'bg-emerald-500/10 text-emerald-400'
-                        : 'bg-red-500/10 text-red-400'}`}>
-                        {selectedAnswer === currentQ.correct ? `✅ Chính xác!` : `❌ Đáp án đúng: ${currentQ.correct}`}
+                    <div className={`w-full p-3 rounded-2xl text-center text-xs sm:text-sm font-bold ${selectedAnswer === currentQ.correct
+                        ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800'
+                        : 'bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800'}`}>
+                        {selectedAnswer === currentQ.correct ? t('kanji.correctAnswerMsg', '✅ Chính xác!') : t('kanji.incorrectAnswerMsg', '❌ Sai! Đáp án: {answer}').replace('{answer}', currentQ.correct)}
                     </div>
                 )}
                 {/* Next button - only for writing mode */}
                 {answered && currentQ.type === 'writing' && (
                     <button onClick={nextQuestion}
-                        className="w-full py-3 bg-gradient-to-r from-indigo-600 to-sky-500 hover:from-indigo-500 hover:to-sky-450 text-white rounded-xl font-bold transition-all flex items-center justify-center gap-2">
-                        {qIndex + 1 >= questions.length ? 'Xem kết quả' : 'Câu tiếp theo →'}
-                        <ChevronRight className="w-4 h-4" />
+                        className="w-full py-3.5 bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 text-white rounded-2xl font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer">
+                        {qIndex + 1 >= questions.length ? t('kanji.seeResultsBtn', 'Xem kết quả') : t('kanji.nextQuestionBtn', 'Câu tiếp theo →')}
+                        <ChevronRight className="w-4 h-4 stroke-[3]" />
                     </button>
                 )}
             </div>

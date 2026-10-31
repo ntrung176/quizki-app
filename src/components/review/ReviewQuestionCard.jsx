@@ -62,19 +62,19 @@ const ReviewQuestionCard = ({
     }
 
     return (
-        <div className="w-full bg-white dark:bg-slate-900 rounded-2xl shadow-xl p-4 sm:p-5 flex flex-col text-center relative border border-slate-200/80 dark:border-slate-800">
+        <div className="w-full bg-white dark:bg-slate-900 rounded-3xl shadow-md p-5 sm:p-7 flex flex-col text-center relative border-2 border-b-4 border-slate-200 dark:border-slate-800">
             {/* Header with mode label and toggle buttons */}
             <div className="w-full flex justify-between items-center mb-3 flex-shrink-0">
                 <div className="flex items-center gap-2">
-                    <span className="text-blue-500 text-xl">🔥</span>
-                    <span className="text-slate-800 dark:text-slate-200 font-bold text-sm">
+                    <span className="text-xl">🔥</span>
+                    <span className="text-slate-800 dark:text-slate-200 font-black text-sm uppercase tracking-wide">
                         {reviewMode === 'meaning_input' ? (inputMode === 'reading' ? 'Nhập tiếng Nhật' : 'Nhập tiếng Việt') : (cardReviewType === 'back' ? (inputMode === 'reading' ? 'Cách đọc' : 'Ý nghĩa') : cardReviewType === 'synonym' ? 'Đồng nghĩa' : cardReviewType === 'dictation' ? 'Nghe chép' : 'Ngữ cảnh')}
                     </span>
                     {cardReviewType === 'example' && (
                         <button
                             onClick={(e) => { e.stopPropagation(); setBlurVietnamese(prev => !prev); setRevealedMeanings(new Set()); }}
-                            className={`flex items-center gap-1 px-2 py-1 rounded-lg text-[10px] font-medium transition-all border cursor-pointer ${blurVietnamese
-                                ? 'bg-amber-500/15 text-amber-600 dark:text-amber-300 border-amber-500/30 hover:bg-amber-500/25'
+                            className={`flex items-center gap-1 px-2.5 py-1 rounded-xl text-xs font-bold transition-all border-2 border-b-4 active:translate-y-0.5 active:border-b-2 cursor-pointer ${blurVietnamese
+                                ? 'bg-amber-500/15 text-amber-600 dark:text-amber-300 border-amber-400 dark:border-amber-600'
                                 : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700'
                                 }`}
                             title={blurVietnamese ? 'Tắt ẩn tiếng Việt' : 'Ẩn tiếng Việt để luyện đọc'}
@@ -86,16 +86,16 @@ const ReviewQuestionCard = ({
                 </div>
                 {/* Only show toggle buttons for back mode and not meaning_input */}
                 {cardReviewType === 'back' && reviewMode !== 'meaning_input' && !isMultipleChoice && (
-                    <div className="flex gap-1">
+                    <div className="flex gap-1.5">
                         <button
                             onClick={() => { setInputMode('reading'); setInputValue(''); setHintCount(0); }}
-                            className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${inputMode === 'reading' ? 'bg-blue-600 text-white shadow-xs' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'}`}
+                            className={`px-3 py-1.5 text-xs font-bold rounded-xl transition-all cursor-pointer ${inputMode === 'reading' ? 'bg-emerald-500 text-white border-b-2 border-emerald-700 shadow-xs' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'}`}
                         >
                             Cách đọc
                         </button>
                         <button
                             onClick={() => { setInputMode('meaning'); setInputValue(''); setHintCount(0); }}
-                            className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-colors cursor-pointer ${inputMode === 'meaning' ? 'bg-blue-600 text-white shadow-xs' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'}`}
+                            className={`px-3 py-1.5 text-xs font-bold rounded-xl transition-all cursor-pointer ${inputMode === 'meaning' ? 'bg-emerald-500 text-white border-b-2 border-emerald-700 shadow-xs' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'}`}
                         >
                             Ý nghĩa
                         </button>
@@ -183,12 +183,12 @@ const ReviewQuestionCard = ({
                                 <div className="flex flex-col items-center gap-3">
                                     <button
                                         onClick={() => speakJapanese(currentCard, null, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(currentCard.id, b64, vid) : null)}
-                                        className="p-5 sm:p-6 bg-blue-50 hover:bg-blue-100 dark:bg-blue-500/20 dark:hover:bg-blue-500/30 text-blue-600 dark:text-blue-300 rounded-full transition-all shadow-md hover:scale-105 active:scale-95 border-2 border-blue-200 dark:border-blue-400/30 cursor-pointer"
+                                        className="p-6 sm:p-7 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/40 dark:hover:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 rounded-full transition-all shadow-md active:translate-y-0.5 border-2 border-b-4 border-emerald-400 dark:border-emerald-700 cursor-pointer"
                                         title="Phát âm thanh"
                                     >
                                         <Volume2 className="w-10 h-10 sm:w-12 sm:h-12" />
                                     </button>
-                                    <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Nghe và nhập lại từ vựng</p>
+                                    <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-bold">Nghe và nhập lại từ vựng</p>
                                 </div>
                             </>
                         ) : inputMode === 'reading' ? (

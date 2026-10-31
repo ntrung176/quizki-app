@@ -1,8 +1,10 @@
 import React from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 import { MessageSquare, Volume2, User } from 'lucide-react';
 import { speakExampleSentence } from '../../utils/audio';
 
 const RealDialogueCard = ({ dialogues }) => {
+    const { t } = useLanguage();
     if (!dialogues || dialogues.length === 0) return null;
 
     return (
@@ -14,10 +16,10 @@ const RealDialogueCard = ({ dialogues }) => {
                 </div>
                 <div>
                     <h3 className="text-base font-bold text-slate-800 dark:text-slate-100 flex items-center gap-1.5">
-                        Hội thoại thực tế
+                        {t('grammar.dialogueTitle', 'Hội thoại thực tế')}
                         <span className="text-sm">💬</span>
                     </h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">Quan sát mẫu câu được vận dụng trong đời sống thực</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">{t('grammar.dialogueSubtitle', 'Quan sát mẫu câu được vận dụng trong đời sống thực')}</p>
                 </div>
             </div>
 

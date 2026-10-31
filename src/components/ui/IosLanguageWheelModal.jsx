@@ -99,7 +99,7 @@ const WheelColumn = ({ options, value, onChange, disabledValues = [] }) => {
 
 const IosLanguageWheelModal = ({ isOpen, onClose, isAdmin = false }) => {
     const { targetLanguage, setTargetLanguage } = useTargetLanguage();
-    const { language: appLang, setLanguage } = useLanguage();
+    const { language: appLang, setLanguage, t } = useLanguage();
     const navigate = useNavigate();
     const location = useLocation();
 
@@ -118,7 +118,7 @@ const IosLanguageWheelModal = ({ isOpen, onClose, isAdmin = false }) => {
 
     const targetOptions = SUPPORTED_TARGET_LANGUAGES.map(lang => ({
         code: lang.code,
-        name: lang.name,
+        name: t(`languages.${lang.code}`, lang.name),
         flag: lang.flag,
         countryCode: lang.countryCode,
         disabled: lang.disabled
@@ -140,7 +140,8 @@ const IosLanguageWheelModal = ({ isOpen, onClose, isAdmin = false }) => {
                 showToast(`Tính năng học ${selectedTarget.name} đang trong quá trình phát triển (BETA)!`, 'info');
             } else {
                 setTargetLanguage(tempTargetLang, isAdmin);
-                showToast(`Đã chuyển sang ${selectedTarget?.name || tempTargetLang}${selectedTarget?.disabled ? ' (BETA)' : ''}!`, 'success');
+                const targetName = t(`languages.${tempTargetLang}`, selectedTarget?.name || tempTargetLang);
+                showToast((t('common.switchedTo', 'Đã chuyển sang {name}!') || '').replace('{name}', `${targetName}${selectedTarget?.disabled ? ' (BETA)' : ''}`), 'success');
                 hasTargetChanged = true;
             }
         }
@@ -149,7 +150,7 @@ const IosLanguageWheelModal = ({ isOpen, onClose, isAdmin = false }) => {
             if (typeof setLanguage === 'function') {
                 setLanguage(tempAppLang);
             }
-            showToast('Đã cập nhật ngôn ngữ giao diện!', 'info');
+            showToast(t('common.interfaceUpdated', 'Đã cập nhật ngôn ngữ giao diện!'), 'info');
         }
 
         onClose();
@@ -180,7 +181,7 @@ const IosLanguageWheelModal = ({ isOpen, onClose, isAdmin = false }) => {
                             <Globe className="w-5 h-5" />
                         </div>
                         <div>
-                            <h3 className="text-base font-bold text-white tracking-tight">Ngôn ngữ học & Giao diện</h3>
+                            <h3 className="text-base font-bold text-white tracking-tight">{t('common.langAndInterface', 'Ngôn ngữ học & Giao diện')}</h3>
                         </div>
                     </div>
                     <button
@@ -194,8 +195,8 @@ const IosLanguageWheelModal = ({ isOpen, onClose, isAdmin = false }) => {
                 {/* iOS Dual Wheel Roller */}
                 <div className="bg-slate-950 border border-slate-800 rounded-2xl p-3 shadow-inner">
                     <div className="grid grid-cols-2 text-[10px] font-black font-mono text-slate-400 uppercase text-center tracking-wider pb-2 border-b border-slate-800/80">
-                        <span>🎯 Mục Tiêu Học</span>
-                        <span>🌐 Giao Diện</span>
+                        <span>🎯 {t('common.studyTarget', 'Mục Tiêu Học')}</span>
+                        <span>🌐 {t('common.interface', 'Giao Diện')}</span>
                     </div>
 
                     <div className="grid grid-cols-2 gap-2 relative mt-2">
@@ -224,7 +225,7 @@ const IosLanguageWheelModal = ({ isOpen, onClose, isAdmin = false }) => {
                     className="w-full py-3 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-2xl shadow-lg transition-all flex items-center justify-center gap-2 text-sm cursor-pointer active:scale-95"
                 >
                     <Check className="w-4 h-4 stroke-[3]" />
-                    <span>Hoàn tất</span>
+                    <span>{t('common.done', 'Hoàn tất')}</span>
                 </button>
             </div>
         </div>,

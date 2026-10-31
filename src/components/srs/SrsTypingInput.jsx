@@ -153,15 +153,15 @@ const SrsTypingInput = ({
                         }}
                         placeholder={placeholder}
                         autoComplete="off"
-                        className="w-full py-2.5 sm:py-3.5 pl-3.5 sm:pl-4.5 pr-24 sm:pr-28 rounded-xl sm:rounded-2xl bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 text-slate-850 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 font-medium text-sm sm:text-base md:text-lg focus:outline-none focus:border-blue-500 dark:focus:border-blue-400 focus:ring-4 focus:ring-blue-500/15 dark:focus:ring-blue-400/15 shadow-lg shadow-slate-200/50 dark:shadow-none transition-all cursor-text caret-blue-600 dark:caret-blue-400"
+                        className="w-full py-3 sm:py-4 pl-4 sm:pl-5 pr-28 sm:pr-36 rounded-2xl bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 font-bold text-sm sm:text-base md:text-lg focus:outline-none focus:border-emerald-500 dark:focus:border-emerald-400 focus:ring-4 focus:ring-emerald-500/15 shadow-md shadow-slate-200/40 dark:shadow-none transition-all cursor-text caret-emerald-600 dark:caret-emerald-400"
                     />
-                    <div className="absolute right-2 flex items-center gap-1.5">
+                    <div className="absolute right-2 sm:right-2.5 flex items-center gap-1.5">
                         <button
                             type="submit"
-                            className="px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-lg sm:rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-bold flex items-center gap-1.5 transition-all active:scale-95 shadow-md shadow-blue-600/20 cursor-pointer"
+                            className="px-3.5 sm:px-4.5 py-2 sm:py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 text-white text-xs sm:text-sm font-black uppercase tracking-wider flex items-center gap-1.5 transition-all shadow-md shadow-emerald-500/20 cursor-pointer select-none"
                         >
                             <span>Kiểm tra</span>
-                            <CornerDownLeft className="w-3.5 h-3.5 opacity-80" />
+                            <CornerDownLeft className="w-3.5 h-3.5 stroke-[2.5]" />
                         </button>
                     </div>
                 </div>
@@ -175,27 +175,27 @@ const SrsTypingInput = ({
                 const displayCorrectAnswer = getFormattedCorrectAnswer();
                 return (
                     <div
-                        className={`w-full py-2.5 px-3 sm:px-4 rounded-xl sm:rounded-2xl border flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-3 shadow-sm animate-fade-in ${
+                        className={`w-full py-3 px-4 rounded-2xl border-2 border-b-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-3.5 shadow-md animate-fade-in ${
                             diffResult?.isMatch
-                                ? 'bg-emerald-50/90 dark:bg-emerald-950/40 border-emerald-200/80 dark:border-emerald-800/60 text-emerald-800 dark:text-emerald-200'
-                                : 'bg-rose-50/90 dark:bg-rose-950/40 border-rose-200/80 dark:border-rose-800/60 text-rose-800 dark:text-rose-200'
+                                ? 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-400 dark:border-emerald-600 text-emerald-900 dark:text-emerald-100'
+                                : 'bg-rose-50 dark:bg-rose-950/50 border-rose-400 dark:border-rose-600 text-rose-900 dark:text-rose-100'
                         }`}
                     >
                         {/* Bên trái: Trạng thái Đúng / Sai */}
-                        <div className="flex items-center gap-1.5 shrink-0">
+                        <div className="flex items-center gap-2 shrink-0">
                             {diffResult?.isMatch ? (
                                 <>
-                                    <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
-                                        <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 stroke-[2.5]" />
+                                    <div className="w-6 h-6 rounded-full bg-emerald-500 text-white flex items-center justify-center shrink-0 shadow-xs">
+                                        <Check className="w-4 h-4 stroke-[3]" />
                                     </div>
-                                    <span className="font-extrabold text-xs sm:text-sm text-emerald-700 dark:text-emerald-300 whitespace-nowrap">Chính xác!</span>
+                                    <span className="font-black text-sm sm:text-base text-emerald-700 dark:text-emerald-300 whitespace-nowrap">Chính xác! 🎉</span>
                                 </>
                             ) : (
                                 <>
-                                    <div className="w-5 h-5 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0">
-                                        <X className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400 stroke-[2.5]" />
+                                    <div className="w-6 h-6 rounded-full bg-rose-500 text-white flex items-center justify-center shrink-0 shadow-xs">
+                                        <X className="w-4 h-4 stroke-[3]" />
                                     </div>
-                                    <span className="font-extrabold text-xs sm:text-sm text-rose-700 dark:text-rose-300 whitespace-nowrap">Chưa đúng</span>
+                                    <span className="font-black text-sm sm:text-base text-rose-700 dark:text-rose-300 whitespace-nowrap">Chưa chính xác!</span>
                                 </>
                             )}
                         </div>

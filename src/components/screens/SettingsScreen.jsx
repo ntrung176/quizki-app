@@ -3,8 +3,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import { 
     Settings, User, Volume2, VolumeX, Sun, Moon, ArrowLeft, 
     Save, Check, Shield, Upload, Play, Edit, Type, Camera, 
-    Gift, Copy, Crown, Award, Eye, EyeOff, RefreshCw, Zap
+    Gift, Copy, Crown, Award, Eye, EyeOff, RefreshCw, Zap,
+    Palette, Sliders
 } from 'lucide-react';
+import { useAppBackground, BG_THEME_LIST } from '../../hooks/useAppBackground';
 import AvatarCropper from '../ui/AvatarCropper';
 import { SafeAvatarImage } from '../ui';
 import { ROUTES } from '../../router';
@@ -17,6 +19,7 @@ import { showToast } from '../../utils/toast';
 import { TTS_VOICES, getTTSVoice, setTTSVoice, speakJapanese } from '../../utils/audio';
 import { getReferralStats, submitReferralCode } from '../../utils/referralService';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
+import { useLanguage } from '../../context/LanguageContext';
 
 const SETTINGS_KEY = 'quizki-settings';
 const getSettings = () => {
@@ -104,10 +107,12 @@ const SettingsScreen = ({
 }) => {
     const navigate = useNavigate();
     const { isEnglishMode } = useTargetLanguage();
+    const { t, language } = useLanguage();
     const [activeTab, setActiveTab] = useState('account');
 
     const effectiveProfile = profile || userProfile;
     const effectiveUserId = userId || effectiveProfile?.uid || auth?.currentUser?.uid;
+    const { bgTheme, isAnimated, setBgTheme, setIsAnimated } = useAppBackground();
 
     const isPremiumUser = (effectiveProfile?.unlockedSpecializedPackages && (
         effectiveProfile.unlockedSpecializedPackages.includes('premium') ||
@@ -135,18 +140,18 @@ const SettingsScreen = ({
     ) || false;
 
     const getActivePackageName = () => {
-        if (!hasPremium) return 'Thành viên Miễn phí';
+        if (!hasPremium) return t('settings.membership.free', 'Thành viên Miễn phí');
         const packages = effectiveProfile?.unlockedSpecializedPackages || [];
-        if (packages.includes('premium_3y')) return 'Premium 3 Năm';
-        if (packages.includes('premium_1y')) return 'Premium 1 Năm';
-        if (packages.includes('premium_1m')) return 'Premium 1 Tháng';
+        if (packages.includes('premium_3y')) return t('settings.membership.premium3y', 'Premium 3 Năm');
+        if (packages.includes('premium_1y')) return t('settings.membership.premium1y', 'Premium 1 Năm');
+        if (packages.includes('premium_1m')) return t('settings.membership.premium1m', 'Premium 1 Tháng');
         if (packages.includes('premium')) return 'Premium';
         
         const zenPkgs = [];
-        if (packages.includes('vocab_zen')) zenPkgs.push('Từ vựng Zen');
-        if (packages.includes('grammar_zen')) zenPkgs.push('Ngữ pháp Zen');
-        if (packages.includes('kanji_zen')) zenPkgs.push('Kanji Zen');
-        if (packages.includes('jlpt_prep')) zenPkgs.push('Luyện thi JLPT');
+        if (packages.includes('vocab_zen')) zenPkgs.push(t('settings.membership.vocabZen', 'Từ vựng Zen'));
+        if (packages.includes('grammar_zen')) zenPkgs.push(t('settings.membership.grammarZen', 'Ngữ pháp Zen'));
+        if (packages.includes('kanji_zen')) zenPkgs.push(t('settings.membership.kanjiZen', 'Kanji Zen'));
+        if (packages.includes('jlpt_prep')) zenPkgs.push(t('settings.membership.jlptPrep', 'Luyện thi JLPT'));
         if (zenPkgs.length > 0) return `Zen (${zenPkgs.join(', ')})`;
         return 'Premium';
     };
@@ -312,15 +317,15 @@ const SettingsScreen = ({
             setNewPassword('');
             setConfirmPassword('');
             const hasPassword = linkedProviders.includes('password');
-            showToast(hasPassword ? 'Đã đổi mật khẩu thành công!' : 'Đã tạo mật khẩu thành công!', 'success');
+            showToast(hasPassword ? t('settings.account.passwordChangedSuccess') : t('settings.account.passwordCreatedSuccess'), 'success');
         } catch (e) {
             console.error('Lỗi đổi mật khẩu:', e);
             if (e.code === 'auth/wrong-password' || e.code === 'auth/invalid-credential') {
-                showToast('Mật khẩu hiện tại không đúng.', 'error');
+                showToast(t('settings.account.wrongPassword', { defaultValue: 'Current password is incorrect.' }), 'error');
             } else if (e.code === 'auth/requires-recent-login') {
-                showToast('Vì lý do bảo mật, bạn cần đăng xuất và đăng nhập lại trước khi tạo/đổi mật khẩu.', 'warning');
+                showToast(t('settings.account.requiresRecentLogin', { defaultValue: 'For security reasons, please log out and log back in before updating password.' }), 'warning');
             } else {
-                showToast('Lỗi: ' + (e.message || 'Không thể đổi mật khẩu'), 'error');
+                showToast(e.message || t('common.error'), 'error');
             }
         } finally {
             setIsSavingPassword(false);
@@ -335,13 +340,13 @@ const SettingsScreen = ({
             const provider = new GoogleAuthProvider();
             await linkWithPopup(auth.currentUser, provider);
             setLinkedProviders(auth.currentUser.providerData.map(p => p.providerId));
-            showToast('Đã liên kết tài khoản Google thành công!', 'success');
+            showToast(t('settings.account.linkedSuccess'), 'success');
         } catch (e) {
             console.error('Lỗi liên kết:', e);
             if (e.code === 'auth/credential-already-in-use') {
-                showToast('Tài khoản Google này đã gắn với người dùng khác.', 'error');
+                showToast(t('settings.account.credentialInUse', { defaultValue: 'This Google account is already linked to another user.' }), 'error');
             } else {
-                showToast('Lỗi liên kết: ' + e.message, 'error');
+                showToast(e.message || t('common.error'), 'error');
             }
         } finally {
             setIsLinking(false);
@@ -352,17 +357,17 @@ const SettingsScreen = ({
     const handleUnlinkGoogle = async () => {
         if (!auth?.currentUser) return;
         if (linkedProviders.length <= 1) {
-            showToast('Không thể hủy liên kết phương thức đăng nhập duy nhất.', 'warning');
+            showToast(t('settings.account.cannotUnlinkOnlyProvider', { defaultValue: 'Cannot unlink your only sign-in method.' }), 'warning');
             return;
         }
         setIsLinking(true);
         try {
             await unlink(auth.currentUser, 'google.com');
             setLinkedProviders(auth.currentUser.providerData.map(p => p.providerId));
-            showToast('Đã hủy liên kết tài khoản Google.', 'success');
+            showToast(t('settings.account.unlinkedSuccess'), 'success');
         } catch (e) {
             console.error('Lỗi hủy liên kết:', e);
-            showToast('Lỗi: ' + e.message, 'error');
+            showToast(e.message || t('common.error'), 'error');
         } finally {
             setIsLinking(false);
         }
@@ -381,17 +386,17 @@ const SettingsScreen = ({
         if (!enteredCode.trim() || !effectiveUserId) return;
         setSubmitLoading(true);
         try {
-            const res = await submitReferralCode(effectiveUserId, effectiveProfile?.displayName || 'Người dùng', enteredCode.trim());
+            const res = await submitReferralCode(effectiveUserId, effectiveProfile?.displayName || (language === 'vi' ? 'Người dùng' : 'User'), enteredCode.trim());
             if (res.success) {
-                showToast('Áp dụng mã giới thiệu thành công! Bạn nhận được 1 tháng Premium.', 'success');
+                showToast(language === 'vi' ? 'Áp dụng mã giới thiệu thành công! Bạn nhận được 1 tháng Premium.' : 'Referral code applied successfully! +1 Month Premium added.', 'success');
                 setTimeout(() => {
                     window.location.reload();
                 }, 1000);
             } else {
-                showToast(res.error || 'Mã không hợp lệ hoặc đã xảy ra lỗi.', 'error');
+                showToast(res.error || (language === 'vi' ? 'Mã không hợp lệ hoặc đã xảy ra lỗi.' : 'Invalid referral code or an error occurred.'), 'error');
             }
         } catch (e) {
-            showToast(e.message || 'Mã không hợp lệ hoặc đã xảy ra lỗi.', 'error');
+            showToast(e.message || (language === 'vi' ? 'Mã không hợp lệ hoặc đã xảy ra lỗi.' : 'Invalid referral code or an error occurred.'), 'error');
         } finally {
             setSubmitLoading(false);
         }
@@ -436,11 +441,11 @@ const SettingsScreen = ({
             }
 
             setSaveSuccess(true);
-            showToast('Đã lưu và đồng bộ cài đặt thành công!', 'success');
+            showToast(language === 'vi' ? 'Đã lưu và đồng bộ cài đặt thành công!' : 'Settings saved and synced successfully!', 'success');
             setTimeout(() => setSaveSuccess(false), 2500);
         } catch (err) {
             console.error('Lỗi khi lưu cài đặt:', err);
-            showToast('Lỗi khi đồng bộ cài đặt: ' + (err.message || 'Không thể lưu'), 'error');
+            showToast((language === 'vi' ? 'Lỗi khi đồng bộ cài đặt: ' : 'Error syncing settings: ') + (err.message || ''), 'error');
         } finally {
             setIsSavingSettings(false);
         }
@@ -480,9 +485,9 @@ const SettingsScreen = ({
     };
 
     const tabs = [
-        { id: 'account', label: 'Tài khoản', icon: User },
-        { id: 'referral', label: 'Giới thiệu bạn bè', icon: Gift },
-        { id: 'general', label: 'Cài đặt chung', icon: Settings },
+        { id: 'account', label: t('settings.tabs.account', 'Tài khoản'), icon: User },
+        { id: 'referral', label: t('settings.tabs.referral', 'Giới thiệu bạn bè'), icon: Gift },
+        { id: 'general', label: t('settings.tabs.general', 'Cài đặt chung'), icon: Settings },
     ];
 
     return (
@@ -492,7 +497,7 @@ const SettingsScreen = ({
                 <Link
                     to={ROUTES.HOME}
                     className="p-2 sm:p-2.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-all active:scale-95 shrink-0 flex items-center justify-center h-10 w-10 sm:h-11 sm:w-11 border border-slate-200/80 dark:border-slate-700/80 shadow-xs"
-                    title="Quay lại"
+                    title={t('common.back', 'Quay lại')}
                 >
                     <ArrowLeft className="w-5 h-5" />
                 </Link>
@@ -529,14 +534,14 @@ const SettingsScreen = ({
                                         <div
                                             className="w-20 h-20 rounded-full overflow-hidden bg-slate-100 dark:bg-slate-700 flex items-center justify-center border-2 border-slate-200 dark:border-slate-600 cursor-pointer hover:opacity-90 transition-all"
                                             onClick={() => setShowAvatarPicker(!showAvatarPicker)}
-                                            title="Thay đổi ảnh đại diện"
+                                            title={t('settings.account.changeAvatar')}
                                         >
                                             {getAvatarDisplay(effectiveProfile?.avatar)}
                                         </div>
                                         <button
                                             onClick={() => setShowAvatarPicker(!showAvatarPicker)}
                                             className="absolute -bottom-1 -right-1 w-7 h-7 bg-blue-600 hover:bg-blue-700 active:scale-95 text-white rounded-full flex items-center justify-center shadow transition-all cursor-pointer ring-2 ring-white dark:ring-slate-800"
-                                            title="Đổi avatar"
+                                            title={t('settings.account.changeAvatar')}
                                         >
                                             <Camera className="w-3.5 h-3.5" />
                                         </button>
@@ -554,7 +559,7 @@ const SettingsScreen = ({
                                             onClick={() => setShowAvatarCropper(true)}
                                             className="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded-lg text-[11px] font-semibold transition-all cursor-pointer active:scale-95"
                                         >
-                                            Tải ảnh
+                                            {t('settings.account.uploadPhoto')}
                                         </button>
                                     </div>
                                 </div>
@@ -572,7 +577,7 @@ const SettingsScreen = ({
                                                         if (e.key === 'Enter') handleSaveProfile();
                                                         if (e.key === 'Escape') setIsEditingName(false);
                                                     }}
-                                                    placeholder="Nhập tên hiển thị..."
+                                                    placeholder={t('settings.account.namePlaceholder')}
                                                     className="flex-1 px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-blue-400 dark:border-blue-500 rounded-lg text-slate-900 dark:text-white text-sm font-bold outline-none"
                                                     autoFocus
                                                 />
@@ -581,19 +586,19 @@ const SettingsScreen = ({
                                                     disabled={isSavingName || !displayName.trim()}
                                                     className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 active:scale-95 text-white rounded-lg text-xs font-bold transition-all disabled:opacity-50 cursor-pointer"
                                                 >
-                                                    {isSavingName ? '...' : 'Lưu'}
+                                                    {isSavingName ? '...' : t('settings.account.saveName')}
                                                 </button>
                                                 <button
                                                     onClick={() => setIsEditingName(false)}
                                                     className="px-2 py-1.5 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 active:scale-95 text-slate-600 dark:text-slate-300 rounded-lg text-xs font-bold cursor-pointer transition-colors"
                                                 >
-                                                    Hủy
+                                                    {t('settings.account.cancel')}
                                                 </button>
                                             </div>
                                         ) : (
                                             <div className="flex items-center justify-center sm:justify-start gap-2 flex-wrap mb-1">
                                                 <h3 className="font-black text-slate-900 dark:text-white text-xl">
-                                                    {effectiveProfile?.displayName || 'Chưa đặt tên'}
+                                                    {effectiveProfile?.displayName || t('settings.account.noName')}
                                                 </h3>
                                                 <button
                                                     onClick={() => {
@@ -601,7 +606,7 @@ const SettingsScreen = ({
                                                         setIsEditingName(true);
                                                     }}
                                                     className="p-1 text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer"
-                                                    title="Đổi tên"
+                                                    title={t('settings.account.editName')}
                                                 >
                                                     <Edit className="w-3.5 h-3.5" />
                                                 </button>
@@ -609,7 +614,7 @@ const SettingsScreen = ({
                                         )}
 
                                         <p className="text-slate-500 dark:text-slate-400 text-xs">
-                                            {effectiveProfile?.email || auth?.currentUser?.email || 'Không có email'}
+                                            {effectiveProfile?.email || auth?.currentUser?.email || t('settings.account.noEmail')}
                                         </p>
                                     </div>
 
@@ -617,7 +622,7 @@ const SettingsScreen = ({
                                     <div className="space-y-1.5 pt-1 w-full max-w-sm sm:max-w-none">
                                         <div className="flex justify-between items-center text-xs font-semibold">
                                             <span className="text-blue-600 dark:text-blue-400 font-bold">
-                                                Lv. {xpDetails.level} • {getLevelTitle(xpDetails.level)}
+                                                Lv. {xpDetails.level} • {getLevelTitle(xpDetails.level, t)}
                                             </span>
                                             <span className="text-slate-400 font-mono text-[11px]">
                                                 {xpDetails.remainingXp.toLocaleString()} / {xpDetails.nextLevelXp.toLocaleString()} XP
@@ -638,7 +643,7 @@ const SettingsScreen = ({
                                 <div className="space-y-2">
                                     <div className="flex items-center justify-between">
                                         <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
-                                            Gói học tập
+                                            {t('settings.membership.status')}
                                         </span>
                                         <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
                                             hasPremium 
@@ -656,17 +661,17 @@ const SettingsScreen = ({
                                     <div className="text-xs text-slate-500 dark:text-slate-400">
                                         {hasPremium ? (
                                             <div>
-                                                Hạn dùng: <strong className="text-slate-700 dark:text-slate-200">
+                                                {t('settings.membership.expiresOn')}: <strong className="text-slate-700 dark:text-slate-200">
                                                     {effectiveProfile?.premiumExpiresAt ? (
                                                         (() => {
                                                              const date = effectiveProfile.premiumExpiresAt.toDate ? effectiveProfile.premiumExpiresAt.toDate() : new Date(effectiveProfile.premiumExpiresAt);
                                                              return `${date.getDate().toString().padStart(2, '0')}/${(date.getMonth() + 1).toString().padStart(2, '0')}/${date.getFullYear()}`;
                                                         })()
-                                                    ) : 'Vĩnh viễn'}
+                                                    ) : t('settings.membership.lifetime')}
                                                 </strong>
                                             </div>
                                         ) : (
-                                            <span>Mở khóa không giới hạn tính năng AI và bài học Zen.</span>
+                                            <span>{t('settings.membership.unlockFeatures')}</span>
                                         )}
                                     </div>
                                 </div>
@@ -676,7 +681,7 @@ const SettingsScreen = ({
                                     className="w-full py-2.5 px-4 text-xs font-bold bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 active:scale-98 text-white rounded-xl shadow-md shadow-amber-500/20 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                                 >
                                     <Crown className="w-3.5 h-3.5 fill-white text-white" />
-                                    <span>{hasPremium ? 'Gia hạn / Quản lý gói' : 'Nâng cấp Premium ngay'}</span>
+                                    <span>{hasPremium ? t('settings.membership.managePackage') : t('settings.membership.upgradeNow')}</span>
                                 </button>
                             </div>
                         </div>
@@ -695,7 +700,7 @@ const SettingsScreen = ({
                                         onClick={() => setAvatarTab('photo')}
                                         className={`flex-1 py-1 rounded-md text-xs font-bold transition-all cursor-pointer ${avatarTab === 'photo' ? 'bg-white dark:bg-slate-600 text-blue-600 dark:text-blue-400 shadow-xs' : 'text-slate-500'}`}
                                     >
-                                        Ảnh của bạn
+                                        {t('settings.account.yourPhoto')}
                                     </button>
                                 </div>
 
@@ -728,7 +733,7 @@ const SettingsScreen = ({
                                             className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-98 text-white text-xs font-bold transition-colors cursor-pointer"
                                         >
                                             <Upload className="w-4 h-4" />
-                                            Tải ảnh mới từ thiết bị
+                                            {t('settings.account.uploadNewPhoto')}
                                         </button>
                                     </div>
                                 )}
@@ -751,14 +756,14 @@ const SettingsScreen = ({
                     <div className="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xs space-y-4">
                         <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
                             <Shield className="w-4 h-4 text-blue-500" />
-                            {linkedProviders.includes('password') ? 'Đổi mật khẩu' : 'Tạo mật khẩu đăng nhập'}
+                            {linkedProviders.includes('password') ? t('settings.account.changePassword') : t('settings.account.createPassword')}
                         </h3>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {linkedProviders.includes('password') && (
                                 <div className="sm:col-span-2">
                                     <label className="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">
-                                        Mật khẩu hiện tại
+                                        {t('settings.account.currentPassword')}
                                     </label>
                                     <div className="relative">
                                         <input
@@ -766,7 +771,7 @@ const SettingsScreen = ({
                                             value={oldPassword}
                                             onChange={(e) => setOldPassword(e.target.value)}
                                             className="w-full px-3.5 py-2 pr-10 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm outline-none focus:border-blue-500 dark:focus:border-blue-400"
-                                            placeholder="Nhập mật khẩu hiện tại"
+                                            placeholder={t('settings.account.currentPasswordPlaceholder')}
                                         />
                                         <button
                                             type="button"
@@ -781,7 +786,7 @@ const SettingsScreen = ({
 
                             <div>
                                 <label className="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">
-                                    Mật khẩu mới
+                                    {t('settings.account.newPassword')}
                                 </label>
                                 <div className="relative">
                                     <input
@@ -789,7 +794,7 @@ const SettingsScreen = ({
                                         value={newPassword}
                                         onChange={(e) => setNewPassword(e.target.value)}
                                         className="w-full px-3.5 py-2 pr-10 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm outline-none focus:border-blue-500 dark:focus:border-blue-400"
-                                        placeholder="Ít nhất 6 ký tự"
+                                        placeholder={t('settings.account.passwordMinLength')}
                                     />
                                     <button
                                         type="button"
@@ -803,7 +808,7 @@ const SettingsScreen = ({
 
                             <div>
                                 <label className="block text-xs font-semibold text-slate-600 dark:text-slate-300 mb-1">
-                                    Xác nhận mật khẩu
+                                    {t('settings.account.confirmPassword')}
                                 </label>
                                 <div className="relative">
                                     <input
@@ -811,7 +816,7 @@ const SettingsScreen = ({
                                         value={confirmPassword}
                                         onChange={(e) => setConfirmPassword(e.target.value)}
                                         className="w-full px-3.5 py-2 pr-10 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm outline-none focus:border-blue-500 dark:focus:border-blue-400"
-                                        placeholder="Nhập lại mật khẩu mới"
+                                        placeholder={t('settings.account.confirmPasswordPlaceholder')}
                                     />
                                     <button
                                         type="button"
@@ -830,7 +835,7 @@ const SettingsScreen = ({
                                 disabled={isSavingPassword || !newPassword || !confirmPassword}
                                 className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 active:scale-95 disabled:opacity-50 text-white rounded-xl font-bold text-xs transition-all cursor-pointer shadow-xs"
                             >
-                                {isSavingPassword ? 'Đang lưu...' : (linkedProviders.includes('password') ? 'Cập nhật mật khẩu' : 'Tạo mật khẩu')}
+                                {isSavingPassword ? t('settings.account.saving') : (linkedProviders.includes('password') ? t('settings.account.savePassword') : t('settings.account.createPassword'))}
                             </button>
                         </div>
                     </div>
@@ -838,7 +843,7 @@ const SettingsScreen = ({
                     {/* Tài khoản liên kết */}
                     <div className="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xs space-y-3">
                         <h3 className="text-sm font-bold text-slate-800 dark:text-white">
-                            Tài khoản liên kết
+                            {t('settings.account.linkedAccounts')}
                         </h3>
                         <div className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-900/40 border border-slate-200 dark:border-slate-700 rounded-xl">
                             <div className="flex items-center gap-3">
@@ -851,7 +856,7 @@ const SettingsScreen = ({
                                 <div>
                                     <p className="text-xs font-bold text-slate-800 dark:text-slate-200">Google</p>
                                     <p className="text-[11px] text-slate-400">
-                                        {linkedProviders.includes('google.com') ? 'Đã liên kết đăng nhập 1-chạm' : 'Chưa liên kết'}
+                                        {linkedProviders.includes('google.com') ? t('settings.account.googleLinkedDesc') : t('settings.account.notLinked')}
                                     </p>
                                 </div>
                             </div>
@@ -862,7 +867,7 @@ const SettingsScreen = ({
                                     disabled={isLinking || linkedProviders.length <= 1}
                                     className="px-3 py-1.5 text-xs font-bold text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 rounded-lg transition-colors disabled:opacity-50 cursor-pointer active:scale-95"
                                 >
-                                    Hủy liên kết
+                                    {t('settings.account.unlink')}
                                 </button>
                             ) : (
                                 <button
@@ -870,7 +875,7 @@ const SettingsScreen = ({
                                     disabled={isLinking}
                                     className="px-3 py-1.5 text-xs font-bold text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/40 rounded-lg transition-colors disabled:opacity-50 cursor-pointer active:scale-95"
                                 >
-                                    {isLinking ? '...' : 'Liên kết ngay'}
+                                    {isLinking ? '...' : t('settings.account.linkNow')}
                                 </button>
                             )}
                         </div>
@@ -886,11 +891,9 @@ const SettingsScreen = ({
                         <div>
                             <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
                                 <Gift className="w-5 h-5 text-blue-500" />
-                                Giới thiệu bạn bè nhận ngày Premium
+                                {t('settings.referral.heroTitle')}
                             </h3>
-                            <p className="text-slate-500 dark:text-slate-400 text-xs mt-1 leading-relaxed">
-                                Người nhập mã nhận ngay <strong>+1 tháng Premium</strong>. Bạn nhận thưởng tích lũy: bạn 1 & 2 nhận <strong>+15 ngày</strong>, bạn 3 nhận <strong>+20 ngày</strong>, từ bạn 4+ nhận <strong>+1 tháng/bạn</strong>.
-                            </p>
+                            <p className="text-slate-500 dark:text-slate-400 text-xs mt-1 leading-relaxed" dangerouslySetInnerHTML={{ __html: t('settings.referral.heroSub') }} />
                         </div>
 
                         {/* 3 Panels Grid */}
@@ -899,10 +902,10 @@ const SettingsScreen = ({
                             <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 flex flex-col justify-between gap-3">
                                 <div>
                                     <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
-                                        Mã giới thiệu của bạn
+                                        {t('settings.referral.yourCodeTitle')}
                                     </span>
                                     <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5 leading-snug">
-                                        Mỗi mã có thể dùng cho nhiều bạn bè.
+                                        {t('settings.referral.yourCodeSub')}
                                     </p>
                                 </div>
 
@@ -913,17 +916,17 @@ const SettingsScreen = ({
                                     <button
                                         onClick={handleCopyRawCode}
                                         className="px-3 py-1.5 bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/40 dark:hover:bg-blue-900/50 active:scale-95 text-blue-600 dark:text-blue-400 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer"
-                                        title="Sao chép mã"
+                                        title={t('settings.referral.copyCode')}
                                     >
                                         {copiedRaw ? (
                                             <>
                                                 <Check className="w-3.5 h-3.5 text-emerald-500" />
-                                                <span className="text-emerald-600 dark:text-emerald-400">Đã chép</span>
+                                                <span className="text-emerald-600 dark:text-emerald-400">{t('settings.referral.copied')}</span>
                                             </>
                                         ) : (
                                             <>
                                                 <Copy className="w-3.5 h-3.5" />
-                                                <span>Sao chép</span>
+                                                <span>{t('settings.referral.copyCode')}</span>
                                             </>
                                         )}
                                     </button>
@@ -934,10 +937,10 @@ const SettingsScreen = ({
                             <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 flex flex-col justify-between gap-3">
                                 <div>
                                     <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
-                                        Nhập mã bạn bè
+                                        {t('settings.referral.friendCodeTitle')}
                                     </span>
                                     <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5 leading-snug">
-                                        Mỗi tài khoản chỉ có 1 người giới thiệu.
+                                        {t('settings.referral.friendCodeSub')}
                                     </p>
                                 </div>
 
@@ -945,10 +948,10 @@ const SettingsScreen = ({
                                     <div className="bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-800 p-3 rounded-xl text-xs space-y-0.5">
                                         <div className="flex items-center gap-1.5">
                                             <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                                            <p className="font-bold text-emerald-700 dark:text-emerald-300">Đã liên kết người giới thiệu</p>
+                                            <p className="font-bold text-emerald-700 dark:text-emerald-300">{t('settings.referral.alreadyReferred')}</p>
                                         </div>
                                         <p className="text-slate-600 dark:text-slate-300 text-[11px] pl-5.5">
-                                            Bởi: <strong>{effectiveProfile.referredBy.name}</strong> ({effectiveProfile.referredBy.code})
+                                            {t('settings.referral.by')} <strong>{effectiveProfile.referredBy.name}</strong> ({effectiveProfile.referredBy.code})
                                         </p>
                                     </div>
                                 ) : (
@@ -956,7 +959,7 @@ const SettingsScreen = ({
                                         <div className="flex gap-2">
                                             <input
                                                 type="text"
-                                                placeholder="Mã ví dụ: QKXXXXXX"
+                                                placeholder={t('settings.referral.codePlaceholder')}
                                                 value={enteredCode}
                                                 onChange={(e) => setEnteredCode(e.target.value.toUpperCase())}
                                                 className="flex-1 px-3 py-2 text-xs bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl outline-none focus:border-blue-500 font-mono font-bold uppercase"
@@ -966,10 +969,10 @@ const SettingsScreen = ({
                                                 disabled={submitLoading || !enteredCode.trim()}
                                                 className="px-4 py-2 bg-blue-600 hover:bg-blue-700 active:scale-95 disabled:opacity-50 text-white font-bold text-xs rounded-xl transition-all cursor-pointer shadow-xs whitespace-nowrap"
                                             >
-                                                {submitLoading ? '...' : 'Gửi mã'}
+                                                {submitLoading ? '...' : t('settings.referral.sendCode')}
                                             </button>
                                         </div>
-                                        <p className="text-[10px] text-slate-400">Nhận ngay +1 tháng Premium khi nhập mã.</p>
+                                        <p className="text-[10px] text-slate-400">{t('settings.referral.codeBonusHint')}</p>
                                     </div>
                                 )}
                             </div>
@@ -978,16 +981,16 @@ const SettingsScreen = ({
                             <div className="p-4 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 flex flex-col justify-between gap-3">
                                 <div>
                                     <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider block">
-                                        Thống kê giới thiệu
+                                        {t('settings.referral.statsTitle')}
                                     </span>
                                     <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-0.5 leading-snug">
-                                        Số lượng bạn bè đã nhập mã của bạn.
+                                        {t('settings.referral.statsSub')}
                                     </p>
                                 </div>
 
                                 <div className="grid grid-cols-2 gap-2">
                                     <div className="bg-white dark:bg-slate-800 p-2.5 rounded-xl border border-slate-200 dark:border-slate-700 text-center">
-                                        <span className="text-[10px] text-slate-400 block font-semibold">Đã mời</span>
+                                        <span className="text-[10px] text-slate-400 block font-semibold">{t('settings.referral.totalInvited')}</span>
                                         <span className="text-lg font-black text-slate-900 dark:text-white">
                                             {loadingStats ? '...' : refStats.totalInvited}
                                         </span>
@@ -1005,15 +1008,15 @@ const SettingsScreen = ({
                         {/* Bản đồ phần thưởng lũy tiến */}
                         <div className="border-t border-slate-100 dark:border-slate-700/80 pt-4 space-y-3">
                             <span className="text-xs font-bold text-slate-700 dark:text-slate-300 block">
-                                Thưởng lũy tiến theo số lượt bạn bè giới thiệu:
+                                {t('settings.referral.progressionTitle')}
                             </span>
 
                             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
                                 {[
-                                    { step: 1, label: 'Bạn thứ 1', bonus: '+15 ngày' },
-                                    { step: 2, label: 'Bạn thứ 2', bonus: '+15 ngày' },
-                                    { step: 3, label: 'Bạn thứ 3', bonus: '+20 ngày' },
-                                    { step: 4, label: 'Bạn thứ 4+', bonus: '+1 tháng/bạn' }
+                                    { step: 1, label: t('settings.referral.step1'), bonus: language === 'vi' ? '+15 ngày' : '+15 days' },
+                                    { step: 2, label: t('settings.referral.step2'), bonus: language === 'vi' ? '+15 ngày' : '+15 days' },
+                                    { step: 3, label: t('settings.referral.step3'), bonus: language === 'vi' ? '+20 ngày' : '+20 days' },
+                                    { step: 4, label: t('settings.referral.step4'), bonus: language === 'vi' ? '+1 tháng/bạn' : '+1 mo/friend' }
                                 ].map((milestone) => {
                                     const isAchieved = refStats.totalInvited >= milestone.step;
                                     const isNext = refStats.totalInvited === milestone.step - 1;
@@ -1032,7 +1035,7 @@ const SettingsScreen = ({
                                             <span className="text-[10px] font-bold block uppercase">{milestone.label}</span>
                                             <span className="text-sm font-black mt-0.5 block">{milestone.bonus}</span>
                                             <span className="text-[9px] mt-1 block font-semibold opacity-80">
-                                                {isAchieved ? '✓ Đã nhận' : isNext ? 'Kế tiếp' : 'Chưa đạt'}
+                                                {isAchieved ? t('settings.referral.achieved') : isNext ? t('settings.referral.nextUp') : t('settings.referral.notAchieved')}
                                             </span>
                                         </div>
                                     );
@@ -1043,23 +1046,23 @@ const SettingsScreen = ({
                         {/* Lịch sử giới thiệu */}
                         <div className="border-t border-slate-100 dark:border-slate-700/80 pt-4 space-y-3">
                             <span className="text-xs font-bold text-slate-700 dark:text-slate-300 block">
-                                Danh sách bạn bè đã mời
+                                {t('settings.referral.historyTitle')}
                             </span>
 
                             {loadingStats ? (
-                                <div className="text-center py-4 text-xs text-slate-400">Đang tải...</div>
+                                <div className="text-center py-4 text-xs text-slate-400">{t('common.loading')}</div>
                             ) : refStats.friends.length === 0 ? (
                                 <div className="text-center py-6 border border-dashed border-slate-200 dark:border-slate-700 rounded-xl text-xs text-slate-400">
-                                    Chưa có bạn bè nào nhập mã giới thiệu của bạn.
+                                    {t('settings.referral.historyEmpty')}
                                 </div>
                             ) : (
                                 <div className="overflow-hidden border border-slate-200 dark:border-slate-700 rounded-xl">
                                     <table className="min-w-full divide-y divide-slate-150 dark:divide-slate-700 text-xs">
                                         <thead className="bg-slate-50 dark:bg-slate-900/50 text-[10px] font-bold uppercase text-slate-400">
                                             <tr>
-                                                <th className="px-4 py-2.5 text-left">Tên bạn bè</th>
-                                                <th className="px-4 py-2.5 text-center">Gói</th>
-                                                <th className="px-4 py-2.5 text-right">Ngày tham gia</th>
+                                                <th className="px-4 py-2.5 text-left">{t('settings.referral.thFriendName')}</th>
+                                                <th className="px-4 py-2.5 text-center">{t('settings.referral.thPackage')}</th>
+                                                <th className="px-4 py-2.5 text-right">{t('settings.referral.thJoinedDate')}</th>
                                             </tr>
                                         </thead>
                                         <tbody className="divide-y divide-slate-100 dark:divide-slate-800 text-slate-700 dark:text-slate-300">
@@ -1076,7 +1079,7 @@ const SettingsScreen = ({
                                                         </span>
                                                     </td>
                                                     <td className="px-4 py-2.5 text-right text-slate-400 text-[11px]">
-                                                        {new Date(friend.createdAt).toLocaleDateString('vi-VN')}
+                                                        {new Date(friend.createdAt).toLocaleDateString(language === 'vi' ? 'vi-VN' : 'en-US')}
                                                     </td>
                                                 </tr>
                                             ))}
@@ -1098,10 +1101,10 @@ const SettingsScreen = ({
                             <div className="space-y-0.5">
                                 <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
                                     <Type className="w-4 h-4 text-blue-500" />
-                                    Phiên âm chữ Hán (Furigana)
+                                    {t('settings.general.furiganaTitle')}
                                 </h3>
                                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                                    Tùy chỉnh màu sắc và kích thước chữ phiên âm hiển thị đồng bộ trên toàn hệ thống
+                                    {t('settings.general.furiganaSub')}
                                 </p>
                             </div>
 
@@ -1109,16 +1112,16 @@ const SettingsScreen = ({
                                 {/* Màu sắc */}
                                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                                     <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">
-                                        Màu chữ phiên âm
+                                        {t('settings.general.furiganaColor')}
                                     </span>
                                     <div className="flex items-center gap-2">
                                         {[
-                                            { color: '#2563eb', name: 'Xanh dương' },
-                                            { color: '#0284c7', name: 'Xanh biển' },
-                                            { color: '#059669', name: 'Xanh lá' },
-                                            { color: '#d97706', name: 'Cam' },
-                                            { color: '#dc2626', name: 'Đỏ' },
-                                            { color: '#4b5563', name: 'Xám chì' }
+                                            { color: '#2563eb', name: t('settings.general.colorBlue') },
+                                            { color: '#0284c7', name: t('settings.general.colorSky') },
+                                            { color: '#059669', name: t('settings.general.colorGreen') },
+                                            { color: '#d97706', name: t('settings.general.colorAmber') },
+                                            { color: '#dc2626', name: t('settings.general.colorRed') },
+                                            { color: '#4b5563', name: t('settings.general.colorGray') }
                                         ].map((setting) => (
                                             <button
                                                 key={setting.color}
@@ -1139,13 +1142,13 @@ const SettingsScreen = ({
                                 {/* Kích thước */}
                                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                                     <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">
-                                        Kích thước chữ phiên âm
+                                        {t('settings.general.furiganaSize')}
                                     </span>
                                     <div className="flex rounded-lg bg-slate-100 dark:bg-slate-700 p-1 gap-1">
                                         {[
-                                            { value: '0.5em', label: 'Nhỏ' },
-                                            { value: '0.6em', label: 'Vừa' },
-                                            { value: '0.8em', label: 'Lớn' }
+                                            { value: '0.5em', label: t('settings.general.sizeSmall') },
+                                            { value: '0.6em', label: t('settings.general.sizeMedium') },
+                                            { value: '0.8em', label: t('settings.general.sizeLarge') }
                                         ].map((size) => (
                                             <button
                                                 key={size.value}
@@ -1165,7 +1168,7 @@ const SettingsScreen = ({
 
                                 {/* Xem trước trực tiếp */}
                                 <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/50 border border-slate-200/80 dark:border-slate-700/80 flex items-center justify-between">
-                                    <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">Xem trước hiển thị:</span>
+                                    <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t('settings.general.previewLabel')}</span>
                                     <div className="text-base font-bold text-slate-800 dark:text-white font-japanese">
                                         <ruby style={{ rubyPosition: 'over', lineHeight: '2.4' }}>
                                             日本語
@@ -1182,10 +1185,10 @@ const SettingsScreen = ({
                                 <div className="space-y-0.5">
                                     <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
                                         <Volume2 className="w-4 h-4 text-blue-500" />
-                                        Hiệu ứng âm thanh
+                                        {t('settings.general.sfxTitle')}
                                     </h3>
                                     <p className="text-xs text-slate-500 dark:text-slate-400">
-                                        Phát âm thanh thông báo khi trả lời Đúng hoặc Sai trong bài học
+                                        {t('settings.general.sfxSub')}
                                     </p>
                                 </div>
                                 <button
@@ -1205,7 +1208,7 @@ const SettingsScreen = ({
                             {sfxEnabled && (
                                 <div className="pt-2 space-y-2">
                                     <div className="flex justify-between items-center text-xs">
-                                        <span className="text-slate-500 font-semibold">Âm lượng hiệu ứng</span>
+                                        <span className="text-slate-500 font-semibold">{t('settings.general.sfxVolume')}</span>
                                         <span className="font-bold text-blue-600 dark:text-blue-400">{Math.round(sfxVolume * 100)}%</span>
                                     </div>
                                     <input
@@ -1225,10 +1228,10 @@ const SettingsScreen = ({
                             <div className="space-y-0.5">
                                 <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
                                     <Play className="w-4 h-4 text-blue-500" />
-                                    Giọng đọc phát âm AI
+                                    {t('settings.general.ttsTitle')}
                                 </h3>
                                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                                    Chọn giọng đọc mẫu phát âm cho từ vựng và câu ví dụ
+                                    {t('settings.general.ttsSub')}
                                 </p>
                             </div>
 
@@ -1248,7 +1251,7 @@ const SettingsScreen = ({
                                         <div className="flex items-center gap-2.5">
                                             <span className="text-lg">{voice.gender === 'Female' ? '👩' : '👨'}</span>
                                             <span className="text-xs font-bold text-slate-800 dark:text-white">
-                                                Giọng {voice.label}
+                                                {t('settings.general.voiceLabel', { label: voice.label })}
                                             </span>
                                         </div>
                                         {ttsVoice === voice.id && <Check className="w-4 h-4 text-blue-600 dark:text-blue-400" />}
@@ -1269,12 +1272,12 @@ const SettingsScreen = ({
                                 {isPreviewingVoice ? (
                                     <>
                                         <div className="w-3.5 h-3.5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
-                                        <span>Đang phát thử...</span>
+                                        <span>{t('settings.general.testingVoice')}</span>
                                     </>
                                 ) : (
                                     <>
                                         <Play className="w-3.5 h-3.5" />
-                                        <span>Nghe thử giọng đọc</span>
+                                        <span>{t('settings.general.testVoice')}</span>
                                     </>
                                 )}
                             </button>
@@ -1285,10 +1288,10 @@ const SettingsScreen = ({
                             <div className="space-y-0.5">
                                 <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
                                     <Sun className="w-4 h-4 text-blue-500" />
-                                    Chủ đề giao diện
+                                    {t('settings.general.themeTitle')}
                                 </h3>
                                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                                    Tùy chỉnh chế độ hiển thị sáng hoặc tối
+                                    {t('settings.general.themeSub')}
                                 </p>
                             </div>
 
@@ -1303,7 +1306,7 @@ const SettingsScreen = ({
                                 >
                                     <div className="flex items-center gap-2.5">
                                         <Sun className="w-4 h-4 text-amber-500" />
-                                        <span className="text-xs font-bold text-slate-800 dark:text-white">Giao diện Sáng</span>
+                                        <span className="text-xs font-bold text-slate-800 dark:text-white">{t('settings.general.themeLight')}</span>
                                     </div>
                                     {!isDarkMode && <Check className="w-4 h-4 text-blue-600 dark:text-blue-400" />}
                                 </button>
@@ -1318,9 +1321,82 @@ const SettingsScreen = ({
                                 >
                                     <div className="flex items-center gap-2.5">
                                         <Moon className="w-4 h-4 text-sky-400" />
-                                        <span className="text-xs font-bold text-slate-800 dark:text-white">Giao diện Tối</span>
+                                        <span className="text-xs font-bold text-slate-800 dark:text-white">{t('settings.general.themeDark')}</span>
                                     </div>
                                     {isDarkMode && <Check className="w-4 h-4 text-blue-600 dark:text-blue-400" />}
+                                </button>
+                            </div>
+                        </div>
+
+                        {/* 4.1. Hình nền không gian học tập (Japanese Torii & Study Backgrounds) */}
+                        <div className="p-5 sm:p-6 space-y-4 border-t border-slate-100 dark:border-slate-800">
+                            <div className="space-y-0.5">
+                                <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
+                                    <span className="text-base">⛩️</span>
+                                    {t('settings.general.bgThemeTitle', 'Hình nền không gian học tập')}
+                                </h3>
+                                <p className="text-xs text-slate-500 dark:text-slate-400">
+                                    {t('settings.general.bgThemeSub', 'Chọn hình nền phong cách Cổng đỏ Nhật Bản, bầu trời sao hoặc công nghệ')}
+                                </p>
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                {BG_THEME_LIST.map((item) => {
+                                    const isSelected = bgTheme === item.id;
+                                    return (
+                                        <button
+                                            key={item.id}
+                                            type="button"
+                                            onClick={() => setBgTheme(item.id)}
+                                            className={`p-3.5 rounded-xl border-2 transition-all flex items-center justify-between text-left cursor-pointer ${
+                                                isSelected
+                                                    ? 'border-red-500 bg-red-50/60 dark:bg-red-950/30'
+                                                    : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 bg-white/50 dark:bg-slate-800/40'
+                                            }`}
+                                        >
+                                            <div className="flex items-center gap-2.5">
+                                                <span className="text-xl shrink-0">{item.icon}</span>
+                                                <div className="min-w-0">
+                                                    <span className="text-xs font-bold text-slate-800 dark:text-white block truncate">
+                                                        {t(item.nameKey, item.id)}
+                                                    </span>
+                                                    <span className="text-[11px] text-slate-500 dark:text-slate-400 block truncate">
+                                                        {t(item.descKey, '')}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            {isSelected && <Check className="w-4 h-4 text-red-600 dark:text-red-400 shrink-0 ml-2" />}
+                                        </button>
+                                    );
+                                })}
+                            </div>
+
+                            {/* Stars Animation / Static Mode Toggle */}
+                            <div className="pt-2 flex items-center justify-between gap-4 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700/60">
+                                <div className="space-y-0.5">
+                                    <div className="flex items-center gap-1.5">
+                                        <Sliders className="w-3.5 h-3.5 text-slate-600 dark:text-slate-300" />
+                                        <span className="text-xs font-bold text-slate-800 dark:text-slate-200">
+                                            {t('settings.general.bgAnimationTitle', 'Hiệu ứng chuyển động (Animation)')}
+                                        </span>
+                                    </div>
+                                    <p className="text-[11px] text-slate-500 dark:text-slate-400">
+                                        {t('settings.general.bgAnimationSub', 'Bật chuyển động lấp lánh hoặc giữ hình nền tĩnh hoàn toàn (tiết kiệm pin & tập trung)')}
+                                    </p>
+                                </div>
+                                <button
+                                    type="button"
+                                    onClick={() => setIsAnimated(!isAnimated)}
+                                    className={`relative inline-flex h-5 w-10 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out ${
+                                        isAnimated ? 'bg-red-600' : 'bg-slate-300 dark:bg-slate-700'
+                                    }`}
+                                    title={isAnimated ? 'Đang bật chuyển động sao' : 'Đang bật chế độ nền tĩnh'}
+                                >
+                                    <span
+                                        className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow ring-0 transition duration-200 ease-in-out ${
+                                            isAnimated ? 'translate-x-5' : 'translate-x-0'
+                                        }`}
+                                    />
                                 </button>
                             </div>
                         </div>
@@ -1331,10 +1407,10 @@ const SettingsScreen = ({
                                 <div className="space-y-0.5">
                                     <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
                                         <Zap className="w-4 h-4 text-blue-500" />
-                                        Giới hạn học trước (Learn Ahead Limit - SRS)
+                                        {t('settings.general.learnAheadTitle')}
                                     </h3>
                                     <p className="text-xs text-slate-500 dark:text-slate-400">
-                                        Chuẩn thuật toán Anki: Tự động lấy thẻ trong hàng đợi Countdown lên học tiếp nếu thời gian chờ còn lại ≤ giới hạn
+                                        {t('settings.general.learnAheadSub')}
                                     </p>
                                 </div>
                                 <select
@@ -1342,12 +1418,12 @@ const SettingsScreen = ({
                                     onChange={(e) => setLearnAheadLimit(Number(e.target.value))}
                                     className="px-3 py-2 text-xs font-bold rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-600 cursor-pointer outline-none focus:border-blue-500"
                                 >
-                                    <option value={0}>0 phút (Tắt - chờ đủ giờ)</option>
-                                    <option value={5}>5 phút</option>
-                                    <option value={10}>10 phút</option>
-                                    <option value={20}>20 phút (Mặc định Anki)</option>
-                                    <option value={30}>30 phút</option>
-                                    <option value={60}>60 phút</option>
+                                    <option value={0}>{t('settings.general.learnAheadOption0')}</option>
+                                    <option value={5}>{t('settings.general.learnAheadOption5')}</option>
+                                    <option value={10}>{t('settings.general.learnAheadOption10')}</option>
+                                    <option value={20}>{t('settings.general.learnAheadOption20')}</option>
+                                    <option value={30}>{t('settings.general.learnAheadOption30')}</option>
+                                    <option value={60}>{t('settings.general.learnAheadOption60')}</option>
                                 </select>
                             </div>
                         </div>
@@ -1363,17 +1439,17 @@ const SettingsScreen = ({
                             {isSavingSettings ? (
                                 <>
                                     <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                                    <span>Đang lưu và đồng bộ...</span>
+                                    <span>{t('settings.general.savingSync')}</span>
                                 </>
                             ) : saveSuccess ? (
                                 <>
                                     <Check className="w-4 h-4 text-emerald-300" />
-                                    <span>Đã lưu cài đặt!</span>
+                                    <span>{t('settings.general.savedSuccess')}</span>
                                 </>
                             ) : (
                                 <>
                                     <Save className="w-4 h-4" />
-                                    <span>Lưu cài đặt</span>
+                                    <span>{t('settings.general.saveBtn')}</span>
                                 </>
                             )}
                         </button>

@@ -104,24 +104,19 @@ const IpaScreen = ({ awardXP }) => {
 
     return (
         <div className={`space-y-3.5 sm:space-y-6 md:space-y-8 w-full min-w-0 font-sans ${fadeWholePage ? 'animate-fade-in' : ''}`}>
-            {/* HERO BANNER */}
-            <div className="relative overflow-hidden rounded-2xl sm:rounded-3xl bg-gradient-to-r from-violet-800 via-purple-700 to-indigo-700 text-white p-3.5 sm:p-6 md:p-8 shadow-xl shadow-violet-700/20 w-full max-w-full min-w-0">
-                {/* Decorative IPA Watermark in background */}
-                <div className="absolute -right-8 -bottom-10 text-8xl sm:text-9xl font-black text-white/5 font-serif select-none pointer-events-none overflow-hidden max-w-full">
-                    /ə/ /iː/
-                </div>
-
+            {/* HERO BANNER - Clean Duolingo Style Cockpit */}
+            <div className="relative overflow-hidden rounded-3xl bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 p-5 sm:p-7 shadow-xs w-full max-w-full min-w-0">
                 <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6 w-full min-w-0">
                     <div className="space-y-2 max-w-2xl min-w-0">
-                        <div className="inline-flex max-w-full items-center gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-white/15 backdrop-blur-md text-[11px] sm:text-xs font-bold tracking-wide uppercase truncate">
+                        <div className="inline-flex max-w-full items-center gap-2 px-3 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold tracking-wide uppercase truncate">
                             <span className="font-serif font-black shrink-0">/ə/</span>
                             <span className="truncate">Nhập môn Tiếng Anh • English IPA Phonetics</span>
                         </div>
-                        <h1 className="text-xl sm:text-3xl md:text-4xl font-black tracking-tight text-white leading-tight break-words max-w-full">
+                        <h1 className="text-xl sm:text-2xl md:text-3xl font-black tracking-tight text-slate-900 dark:text-white leading-tight break-words max-w-full">
                             Bảng Phiên Âm Quốc Tế (IPA 44 Âm)
                         </h1>
-                        <p className="text-xs sm:text-sm text-purple-100 leading-relaxed font-medium line-clamp-2 sm:line-clamp-none">
-                            Nắm vững chuẩn 44 âm Oxford (12 nguyên âm đơn, 8 nguyên âm đôi, 24 phụ âm) cùng phương pháp phân biệt cặp âm tương phản.
+                        <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 leading-relaxed font-medium line-clamp-2 sm:line-clamp-none">
+                            Nắm vững 44 âm Oxford (12 nguyên âm đơn, 8 nguyên âm đôi, 24 phụ âm) cùng phương pháp phân biệt cặp âm tương phản.
                         </p>
                     </div>
 
@@ -130,34 +125,31 @@ const IpaScreen = ({ awardXP }) => {
                         <button
                             type="button"
                             onClick={() => setIsQuizModalOpen(true)}
-                            className="w-full sm:w-auto px-4 sm:px-5 py-2.5 sm:py-3.5 rounded-xl sm:rounded-2xl bg-white text-purple-950 hover:bg-purple-50 font-black text-xs sm:text-sm shadow-xl hover:shadow-2xl transition-all hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 cursor-pointer select-none"
+                            className="w-full sm:w-auto px-5 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer select-none shadow-xs"
                         >
-                            <Ear className="w-4 h-4 fill-amber-500 text-amber-500" />
-                            <span>Luyện phản xạ (Game)</span>
+                            <Ear className="w-4 h-4 fill-current" />
+                            <span>Luyện phản xạ</span>
                         </button>
                     </div>
                 </div>
 
                 {/* Progress Metric Bar */}
-                <div className="relative z-10 mt-3 sm:mt-6 pt-3 sm:pt-5 border-t border-white/20 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4 w-full min-w-0">
-                    <div className="flex items-center gap-2.5 sm:gap-3 min-w-0">
-                        <div className="w-7 h-7 sm:w-9 sm:h-9 rounded-xl bg-white/20 flex items-center justify-center font-bold text-white shrink-0">
-                            <Trophy className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
+                <div className="relative z-10 mt-5 pt-4 border-t border-slate-100 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 sm:gap-4 w-full min-w-0">
+                    <div className="flex items-center gap-2.5 min-w-0">
+                        <div className="w-8 h-8 rounded-xl bg-amber-50 dark:bg-amber-950/60 border border-amber-200/80 dark:border-amber-800/80 flex items-center justify-center font-bold text-amber-600 shrink-0">
+                            <Trophy className="w-4 h-4" />
                         </div>
                         <div className="min-w-0 flex-1">
-                            <span className="text-[11px] sm:text-xs font-bold block text-white truncate">
-                                Tiến độ {currentCategoryName}:
-                            </span>
-                            <span className="text-[10px] sm:text-xs text-purple-100 truncate block">
-                                Đã thuộc <strong className="text-white font-black">{stats.mastered}</strong> / {stats.total} âm ({stats.percentage}%)
+                            <span className="text-xs font-bold text-slate-700 dark:text-slate-300">
+                                Đã thuộc <strong className="text-slate-900 dark:text-white font-black">{stats.mastered}</strong> / {stats.total} ({stats.percentage}%)
                             </span>
                         </div>
                     </div>
 
                     {/* Progress Bar Container */}
-                    <div className="w-full sm:w-64 bg-black/25 rounded-full h-2 sm:h-3 overflow-hidden p-0.5 border border-white/20 shrink-0">
+                    <div className="w-full sm:w-56 bg-slate-100 dark:bg-slate-800 rounded-full h-2 overflow-hidden border border-slate-200/60 dark:border-slate-700/60 shrink-0">
                         <div
-                            className="bg-gradient-to-r from-emerald-400 to-teal-300 h-full rounded-full transition-all duration-500 shadow-sm"
+                            className="bg-emerald-500 h-full rounded-full transition-all duration-500"
                             style={{ width: `${stats.percentage}%` }}
                         />
                     </div>
@@ -166,7 +158,7 @@ const IpaScreen = ({ awardXP }) => {
 
             {/* CATEGORY SELECTOR TABS */}
             <div className="w-full min-w-0 max-w-full overflow-x-auto no-scrollbar scroll-smooth">
-                <div className="inline-flex items-center p-1 sm:p-1.5 rounded-xl sm:rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 shadow-xs gap-1 w-max min-w-full sm:min-w-0">
+                <div className="inline-flex items-center p-1.5 rounded-2xl bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 shadow-xs gap-1.5 w-max min-w-full sm:min-w-0">
                     {IPA_CATEGORIES.map(cat => (
                         <button
                             key={cat.id}
@@ -175,10 +167,10 @@ const IpaScreen = ({ awardXP }) => {
                                 setActiveCategory(cat.id);
                                 setSearchQuery('');
                             }}
-                            className={`px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-lg sm:rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all cursor-pointer ${
+                            className={`px-3.5 py-2 rounded-xl font-bold text-xs sm:text-sm whitespace-nowrap transition-all cursor-pointer ${
                                 activeCategory === cat.id
-                                    ? 'bg-gradient-to-r from-violet-600 to-indigo-600 text-white shadow-md shadow-violet-500/25'
-                                    : 'text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                    ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 shadow-xs'
+                                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                             }`}
                         >
                             {cat.name}

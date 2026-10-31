@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ArrowRight, Plus } from 'lucide-react';
 import VideoKaiwaMovieCard from './VideoKaiwaMovieCard';
+import { useLanguage } from '../../context/LanguageContext';
 
 const VideoKaiwaCategoryRow = ({
     title,
@@ -14,6 +15,7 @@ const VideoKaiwaCategoryRow = ({
     onAddNewVideo,
     formatDuration
 }) => {
+    const { t } = useLanguage();
     const rowRef = useRef(null);
     const [canScrollLeft, setCanScrollLeft] = useState(false);
     const [canScrollRight, setCanScrollRight] = useState(false);
@@ -68,7 +70,7 @@ const VideoKaiwaCategoryRow = ({
                             onClick={onViewAll}
                             className="group/btn text-xs font-bold text-slate-800 dark:text-slate-100 bg-white/90 dark:bg-slate-900/90 hover:bg-[#f494bc] dark:hover:bg-[#f494bc] hover:text-slate-950 dark:hover:text-slate-950 border border-slate-200/90 dark:border-slate-800 hover:border-[#f494bc] dark:hover:border-[#f494bc] flex items-center gap-1.5 transition-all duration-200 px-3 py-1.5 rounded-xl shadow-xs cursor-pointer active:scale-95"
                         >
-                            <span>Xem tất cả</span>
+                            <span>{t('common.viewAll', 'Xem tất cả')}</span>
                             <ArrowRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
                         </button>
                     )}
@@ -78,7 +80,7 @@ const VideoKaiwaCategoryRow = ({
                         <button
                             onClick={() => handleScroll('left')}
                             disabled={!canScrollLeft}
-                            aria-label="Cuộn sang trái"
+                            aria-label={t('videoKaiwa.scrollLeft', 'Cuộn sang trái')}
                             className={`p-1.5 rounded-xl border transition-all cursor-pointer ${
                                 canScrollLeft
                                     ? 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:bg-[#f494bc] hover:text-slate-950 hover:border-[#f494bc] dark:hover:bg-[#f494bc] dark:hover:text-slate-950 dark:hover:border-[#f494bc] shadow-xs active:scale-95'
@@ -90,7 +92,7 @@ const VideoKaiwaCategoryRow = ({
                         <button
                             onClick={() => handleScroll('right')}
                             disabled={!canScrollRight}
-                            aria-label="Cuộn sang phải"
+                            aria-label={t('videoKaiwa.scrollRight', 'Cuộn sang phải')}
                             className={`p-1.5 rounded-xl border transition-all cursor-pointer ${
                                 canScrollRight
                                     ? 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:bg-[#f494bc] hover:text-slate-950 hover:border-[#f494bc] dark:hover:bg-[#f494bc] dark:hover:text-slate-950 dark:hover:border-[#f494bc] shadow-xs active:scale-95'
@@ -133,7 +135,7 @@ const VideoKaiwaCategoryRow = ({
                                 <Plus className="w-5 h-5" />
                             </div>
                             <span className="text-xs font-bold text-slate-700 dark:text-slate-300 group-hover:text-amber-600 dark:group-hover:text-amber-400">
-                                Thêm video vào mục này
+                                {t('videoKaiwa.addVideoToCategory', 'Thêm video vào mục này')}
                             </span>
                         </div>
                     )}

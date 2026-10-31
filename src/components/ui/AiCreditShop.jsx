@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 import { Zap, Star, Crown, Gift, Check, CreditCard, CheckCircle, Loader2, QrCode, Copy, Ticket, X, ArrowLeft, ChevronRight, Settings, BookOpen, Languages, Trophy, AlertTriangle, Trash2, Plus, Lightbulb } from 'lucide-react'
 import { submitCreditRequest, createPendingAutoPayment, DEFAULT_AI_PACKAGES, DEFAULT_SPECIALIZED_PACKAGES, validateVoucher, calculateDiscountedPrice, redeemVoucher, processPaymentSecurely, submitAndApproveCreditRequest, updateAdminConfig } from '../../utils/adminSettings';
 import { generateOrderCode, generateVietQR, checkPaymentStatus, getSepayToken } from '../../utils/sepayPayment';
@@ -59,6 +60,7 @@ const formatVND = (amount) => new Intl.NumberFormat('vi-VN').format(amount) + '�
  * Tích hợp chế độ Admin chỉnh sửa trực tiếp cấu hình
  */
 const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, userEmail, profile, isAdmin }) => {
+    const { t, language } = useLanguage();
     // Step: 'packages' | 'info' | 'payment'
     const [step, setStep] = useState('packages');
     const [selectedPackage, setSelectedPackage] = useState(null);
@@ -830,15 +832,15 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     )}
 
                     <div className="inline-flex items-center gap-2 bg-[#EEF2FF] dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 px-4 py-1.5 rounded-full text-xs font-extrabold mb-3 tracking-wider uppercase">
-                        👑 Nâng cấp tài khoản
+                        👑 {t('upgrade.title', 'Nâng cấp tài khoản')}
                     </div>
 
                     <h1 className="text-3xl font-black text-gray-900 dark:text-white mb-2 leading-tight">
-                        Mở khóa tài khoản Premium Quizki
+                        {t('upgrade.heroTitle', 'Mở khóa tài khoản Premium Quizki')}
                     </h1>
 
                     <p className="max-w-2xl mx-auto text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
-                        Mở khóa toàn diện tất cả tính năng: Trọn bộ giáo trình N5 - N1, 2.136 Kanji nét viết, Spaced Repetition (SRS), luyện đề JLPT thực chiến & Trợ lý đàm thoại AI Kitsu.
+                        {t('upgrade.heroSubtitle', 'Mở khóa toàn diện tất cả tính năng: Trọn bộ giáo trình N5 - N1, 2.136 Kanji nét viết, Spaced Repetition (SRS), luyện đề JLPT thực chiến & Trợ lý đàm thoại AI Kitsu.')}
                     </p>
                 </div>
 
@@ -849,7 +851,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                 <div className="relative overflow-hidden bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl py-3 px-6 text-white text-center mb-8 shadow-lg shadow-orange-500/10 flex items-center justify-center gap-3">
                     <span className="animate-bounce">🔥</span>
                     <span className="font-extrabold text-sm uppercase tracking-wider">
-                        {adminConfig?.flashSaleText || 'FLASH SALE – GIẢM ĐẾN 65%'}
+                        {adminConfig?.flashSaleText || t('upgrade.flashSale', 'FLASH SALE – GIẢM ĐẾN 65%')}
                     </span>
                     <div className="bg-black/25 text-white font-mono px-3 py-1 rounded-lg text-sm font-black shadow-inner flex items-center gap-1">
                         <span>{countdownText}</span>
@@ -895,18 +897,18 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                     {/* Golden Ribbon Badge */}
                                     {is3Y && (
                                         <div className="absolute top-0 right-0 bg-gradient-to-l from-amber-600 to-orange-500 text-white text-[9px] font-black tracking-wider px-5 py-1.5 rounded-bl-3xl shadow-md uppercase">
-                                            ★ TIẾT KIỆM NHẤT
+                                            {t('upgrade.bestValue', '★ TIẾT KIỆM NHẤT')}
                                         </div>
                                     )}
                                     {!is3Y && (
                                         <div className="absolute top-0 right-0 bg-gradient-to-l from-slate-600 to-slate-500 dark:from-slate-800 dark:to-slate-700 text-white text-[9px] font-bold tracking-wider px-5 py-1.5 rounded-bl-3xl shadow-sm uppercase">
-                                            Phổ biến
+                                            {t('upgrade.popular', 'Phổ biến')}
                                         </div>
                                     )}
 
                                     {isUnlocked && (
                                         <div className="absolute top-4 left-4 flex items-center gap-1 bg-emerald-100 dark:bg-emerald-950/50 border border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400 text-[10px] font-black px-2.5 py-1 rounded-full shadow-sm">
-                                            Đã sở hữu <Check className="w-3.5 h-3.5" />
+                                            {t('upgrade.owned', 'Đã sở hữu')} <Check className="w-3.5 h-3.5" />
                                         </div>
                                     )}
 
@@ -924,8 +926,8 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                         {/* Unlocked Features list */}
                                         <div className="border-t border-amber-200/40 dark:border-slate-700/50 pt-5 mt-2 space-y-2.5 mb-8">
                                             <div className="flex items-center justify-between mb-1">
-                                                <p className="text-[10px] font-black text-amber-700 dark:text-amber-400 uppercase tracking-wider">Quyền lợi Premium:</p>
-                                                <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500">{pkg.unlockedFeatures?.length || 0} đặc quyền VIP</span>
+                                                <p className="text-[10px] font-black text-amber-700 dark:text-amber-400 uppercase tracking-wider">{t('upgrade.exclusivePrivileges', 'Quyền lợi Premium:')}</p>
+                                                <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500">{pkg.unlockedFeatures?.length || 0} {t('upgrade.vipPerks', 'đặc quyền VIP')}</span>
                                             </div>
                                             {pkg.unlockedFeatures?.map((feature, fIdx) => {
                                                 const cleanFeature = feature.replace('[Premium]', '').trim();
@@ -983,22 +985,22 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                                     </div>
                                                     {pkg.id === 'premium_1y' && (
                                                         <span className="text-[10px] font-bold text-amber-700 dark:text-amber-300 bg-amber-100/70 dark:bg-amber-950/50 px-2 py-0.5 rounded-md border border-amber-300/40">
-                                                            ~21.500đ / tháng
+                                                            ~21.500đ / {t('upgrade.month', 'tháng')}
                                                         </span>
                                                     )}
                                                     {pkg.id === 'premium_3y' && (
                                                         <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-100/70 dark:bg-emerald-950/50 px-2 py-0.5 rounded-md border border-emerald-300/40">
-                                                            ~15.500đ / tháng
+                                                            ~15.500đ / {t('upgrade.month', 'tháng')}
                                                         </span>
                                                     )}
                                                 </div>
                                                 <div className={`w-full py-3 rounded-2xl text-white font-bold text-sm bg-gradient-to-r ${color} flex items-center justify-center gap-1.5 shadow-lg shadow-amber-500/20 hover:opacity-95 transition-opacity`}>
-                                                    Đăng ký ngay <ChevronRight className="w-4 h-4" />
+                                                    {t('upgrade.subscribeNow', 'Đăng ký ngay')} <ChevronRight className="w-4 h-4" />
                                                 </div>
                                             </>
                                         ) : (
                                             <div className="w-full py-3 rounded-2xl bg-emerald-100 dark:bg-emerald-950/20 border border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400 font-black text-sm flex items-center justify-center gap-1.5">
-                                                Đã kích hoạt ✓
+                                                {t('upgrade.activated', 'Đã kích hoạt ✓')}
                                             </div>
                                         )}
                                     </div>
@@ -1029,7 +1031,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     }} 
                     className="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-455 hover:text-indigo-500 mb-6 transition-colors font-bold"
                 >
-                    <ArrowLeft className="w-4 h-4" /> Quay lại chọn gói
+                    <ArrowLeft className="w-4 h-4" /> {t('upgrade.backToPackages', 'Quay lại chọn gói')}
                 </button>
 
                 {/* Layout Container */}
@@ -1041,9 +1043,9 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                 <Icon className="w-8 h-8 text-white" />
                             </div>
                             <div>
-                                <h2 className="font-black text-xl leading-tight">Cấu hình thanh toán</h2>
+                                <h2 className="font-black text-xl leading-tight">{t('upgrade.paymentConfig', 'Cấu hình thanh toán')}</h2>
                                 <p className="text-white/80 text-xs mt-0.5">
-                                    Mở khóa gói: {selectedPackage.name}
+                                    {t('upgrade.unlockPackage', 'Mở khóa gói: {name}').replace('{name}', selectedPackage.name)}
                                 </p>
                             </div>
                         </div>
@@ -1052,23 +1054,23 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     {/* Info rows */}
                     <div className="p-6 space-y-4">
                         <div className="flex items-center justify-between py-2.5 border-b border-gray-50 dark:border-slate-800">
-                            <span className="text-xs text-gray-500">Tên gói</span>
+                            <span className="text-xs text-gray-500">{t('upgrade.packageName', 'Tên gói')}</span>
                             <span className="text-sm font-extrabold text-gray-800 dark:text-white">{selectedPackage.name}</span>
                         </div>
                         {selectedPackage.cards && (
                             <div className="flex items-center justify-between py-2.5 border-b border-gray-50 dark:border-slate-800">
-                                <span className="text-xs text-gray-500">Số lượng Credit</span>
+                                <span className="text-xs text-gray-500">{t('upgrade.creditAmount', 'Số lượng Credit')}</span>
                                 <span className="text-sm font-extrabold text-indigo-600 dark:text-indigo-400">{selectedPackage.cards.toLocaleString()} credit</span>
                             </div>
                         )}
                         {selectedPackage.originalPrice && selectedPackage.originalPrice > selectedPackage.salePrice && (
                             <div className="flex items-center justify-between py-2.5 border-b border-gray-50 dark:border-slate-800">
-                                <span className="text-xs text-gray-500">Giá gốc</span>
+                                <span className="text-xs text-gray-500">{t('upgrade.originalPrice', 'Giá gốc')}</span>
                                 <span className="text-sm text-gray-400 line-through">{formatVND(selectedPackage.originalPrice)}</span>
                             </div>
                         )}
                         <div className="flex items-center justify-between py-2.5 border-b border-gray-50 dark:border-slate-800">
-                            <span className="text-xs text-gray-500">Đơn giá bán</span>
+                            <span className="text-xs text-gray-500">{t('upgrade.salePrice', 'Đơn giá bán')}</span>
                             <span className="text-sm font-extrabold text-emerald-600 dark:text-emerald-400">
                                 {formatVND(selectedPackage.salePrice)}
                             </span>
@@ -1077,7 +1079,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         {/* Voucher Coupon Section */}
                         <div className="bg-slate-50 dark:bg-slate-950/40 rounded-2xl p-4 border border-gray-150/40 dark:border-slate-800">
                             <p className="text-xs font-bold text-gray-700 dark:text-slate-300 mb-2.5 flex items-center gap-1">
-                                <Ticket className="w-4 h-4 text-indigo-500" /> Nhập mã giảm giá (Voucher)
+                                <Ticket className="w-4 h-4 text-indigo-500" /> {t('upgrade.voucherPrompt', 'Nhập mã giảm giá (Voucher)')}
                             </p>
                             <div className="flex gap-2">
                                 <input
@@ -1096,7 +1098,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                         onClick={handleRemoveVoucher} 
                                         className="px-4 py-2.5 bg-red-50 text-red-500 rounded-xl text-xs font-bold hover:bg-red-100 flex items-center gap-1 border border-red-200"
                                     >
-                                        <X className="w-3.5 h-3.5" /> Hủy
+                                        <X className="w-3.5 h-3.5" /> {t('upgrade.cancel', 'Hủy')}
                                     </button>
                                 ) : (
                                     <button 
@@ -1105,7 +1107,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                         className="px-5 py-2.5 bg-indigo-600 text-white rounded-xl text-xs font-bold hover:bg-indigo-700 disabled:opacity-50 transition-colors flex items-center gap-1 shadow-sm"
                                     >
                                         {voucherLoading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : null}
-                                        Áp dụng
+                                        {t('upgrade.apply', 'Áp dụng')}
                                     </button>
                                 )}
                             </div>
@@ -1114,7 +1116,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                 <div className="mt-2.5 flex items-center gap-1.5 bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900/50 rounded-lg px-3 py-2">
                                     <CheckCircle className="w-4 h-4 text-emerald-500" />
                                     <span className="text-xs text-emerald-700 dark:text-emerald-400 font-semibold">
-                                        Áp dụng thành công voucher: <strong>{appliedVoucher.code}</strong> (Giảm {appliedVoucher.discountType === 'percent' ? `${appliedVoucher.discountValue}%` : formatVND(appliedVoucher.discountValue)})
+                                        {t('upgrade.voucherSuccess', 'Áp dụng thành công voucher: {code} (Giảm {discount})').replace('{code}', appliedVoucher.code).replace('{discount}', appliedVoucher.discountType === 'percent' ? `${appliedVoucher.discountValue}%` : formatVND(appliedVoucher.discountValue))}
                                     </span>
                                 </div>
                             )}
@@ -1123,14 +1125,14 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         {/* Discount row */}
                         {appliedVoucher && discountAmount > 0 && (
                             <div className="flex items-center justify-between py-2 border-b border-gray-50 dark:border-slate-800">
-                                <span className="text-xs text-gray-500">Voucher giảm giá</span>
+                                <span className="text-xs text-gray-500">{t('upgrade.voucherDiscount', 'Voucher giảm giá')}</span>
                                 <span className="text-sm font-extrabold text-red-500">-{formatVND(discountAmount)}</span>
                             </div>
                         )}
 
                         {/* Total Payment */}
                         <div className="flex items-center justify-between py-4 mt-2 border-t border-dashed border-gray-200 dark:border-slate-800">
-                            <span className="text-sm font-black text-gray-800 dark:text-white">Tổng cộng thanh toán</span>
+                            <span className="text-sm font-black text-gray-800 dark:text-white">{t('upgrade.totalAmount', 'Tổng cộng thanh toán')}</span>
                             <span className="text-xl font-black text-emerald-600 dark:text-emerald-400">{formatVND(finalPrice)}</span>
                         </div>
                     </div>
@@ -1141,7 +1143,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     onClick={handleProceedToPayment}
                     className={`w-full mt-6 py-4 rounded-3xl text-white font-bold text-sm bg-gradient-to-r ${color} flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/10 hover:shadow-xl hover:-translate-y-0.5 transition-all`}
                 >
-                    Tiếp tục thanh toán <ChevronRight className="w-5 h-5" />
+                    {t('upgrade.proceedPayment', 'Tiếp tục thanh toán')} <ChevronRight className="w-5 h-5" />
                 </button>
             </div>
         );
@@ -1155,13 +1157,13 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     <div className="w-24 h-24 rounded-full bg-emerald-100 dark:bg-emerald-950/40 flex items-center justify-center mx-auto mb-6 animate-bounce">
                         <CheckCircle className="w-12 h-12 text-emerald-500" />
                     </div>
-                    <h2 className="text-3xl font-black text-emerald-600 dark:text-emerald-400 mb-2">Thanh toán thành công! 🎉</h2>
+                    <h2 className="text-3xl font-black text-emerald-600 dark:text-emerald-400 mb-2">{t('upgrade.paymentSuccess', 'Thanh toán thành công! 🎉')}</h2>
                     <p className="text-sm text-gray-600 dark:text-slate-350 mb-4 leading-relaxed">
-                        <span>Đã kích hoạt thành công gói Premium <strong>{selectedPackage.name}</strong>.</span>
+                        <span>{t('upgrade.packageActivated', 'Đã kích hoạt thành công gói Premium {name}.').replace('{name}', selectedPackage.name)}</span>
                     </p>
                     {appliedVoucher && (
                         <p className="text-xs text-emerald-500 mb-6 bg-emerald-50 dark:bg-emerald-950/20 py-1.5 px-4 rounded-xl inline-block font-semibold">
-                            🎟️ Voucher đã áp dụng: <strong>{appliedVoucher.code}</strong>
+                            🎟️ {t('upgrade.voucherApplied', 'Voucher đã áp dụng: {code}').replace('{code}', appliedVoucher.code)}
                         </p>
                     )}
                     <button 
@@ -1172,7 +1174,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         }} 
                         className="w-full px-8 py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold text-sm shadow-lg shadow-emerald-500/10"
                     >
-                        Bắt đầu khám phá ngay! 🚀
+                        {t('upgrade.exploreNow', 'Bắt đầu khám phá ngay! 🚀')}
                     </button>
                 </div>
             );
@@ -1184,9 +1186,9 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     <div className="w-20 h-20 rounded-full bg-indigo-50 dark:bg-indigo-950/20 flex items-center justify-center mx-auto mb-6">
                         <CheckCircle className="w-10 h-10 text-indigo-500 animate-pulse" />
                     </div>
-                    <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-2">Đã nhận yêu cầu kích hoạt!</h2>
+                    <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-2">{t('upgrade.requestReceived', 'Đã nhận yêu cầu kích hoạt!')}</h2>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
-                        Yêu cầu kích hoạt gói <strong>{selectedPackage.name}</strong> đã được ghi nhận vào hệ thống. Chúng tôi sẽ duyệt thủ công trong vòng 5-15 phút.
+                        {t('upgrade.requestDesc', 'Yêu cầu kích hoạt gói {name} đã được ghi nhận vào hệ thống. Chúng tôi sẽ duyệt thủ công trong vòng 5-15 phút.').replace('{name}', selectedPackage.name)}
                     </p>
                     <button 
                         onClick={() => { 
@@ -1196,7 +1198,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         }} 
                         className="w-full px-8 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-500 to-sky-500 text-white font-bold text-sm shadow-lg shadow-indigo-500/10"
                     >
-                        Quay lại trang chủ
+                        {t('upgrade.backToHome', 'Quay lại trang chủ')}
                     </button>
                 </div>
             );
@@ -1218,7 +1220,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     }} 
                     className="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-455 hover:text-indigo-500 mb-6 transition-colors font-bold"
                 >
-                    <ArrowLeft className="w-4 h-4" /> Quay lại xem cấu hình
+                    <ArrowLeft className="w-4 h-4" /> {t('upgrade.backToSummary', 'Quay lại xem cấu hình')}
                 </button>
 
                 {/* Bill Summary */}
@@ -1229,9 +1231,9 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                 <Icon className="w-6 h-6 text-white" />
                             </div>
                             <div>
-                                <h3 className="font-extrabold text-gray-800 dark:text-white text-base leading-snug">Gói {selectedPackage.name}</h3>
+                                <h3 className="font-extrabold text-gray-800 dark:text-white text-base leading-snug">{t('upgrade.packageTitle', 'Gói {name}').replace('{name}', selectedPackage.name)}</h3>
                                 <p className="text-xs text-gray-500">
-                                    Mở khóa toàn bộ tính năng cao cấp Premium
+                                    {t('upgrade.unlockAllFeatures', 'Mở khóa toàn bộ tính năng cao cấp Premium')}
                                 </p>
                             </div>
                         </div>
@@ -1250,7 +1252,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     {/* Left Column: QR */}
                     <div className="flex flex-col items-center">
                         <div className="flex items-center gap-1.5 text-xs text-indigo-600 dark:text-indigo-400 font-extrabold uppercase tracking-wide mb-3.5">
-                            <QrCode className="w-4 h-4" /> Quét QR bằng App Ngân Hàng
+                            <QrCode className="w-4 h-4" /> {t('upgrade.scanQr', 'Quét QR bằng App Ngân Hàng')}
                         </div>
                         <div className="relative p-3 bg-white border border-gray-200 rounded-3xl shadow-inner">
                             <img 
@@ -1265,15 +1267,15 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     {/* Right Column: Bank Details details */}
                     <div className="space-y-4">
                         <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wide border-b border-gray-100 dark:border-slate-800 pb-2">
-                            Chi tiết chuyển khoản
+                            {t('upgrade.transferDetails', 'Chi tiết chuyển khoản')}
                         </h4>
                         <div className="bg-[#FFFBEB] dark:bg-amber-950/10 border border-[#FEF3C7] dark:border-amber-900/50 rounded-2xl p-4 space-y-3 shadow-inner">
                             {[
-                                { label: 'Tên Ngân hàng', value: bankId, key: null },
-                                { label: 'Số tài khoản', value: bankAccountNo, key: 'stk' },
-                                { label: 'Chủ tài khoản', value: bankAccountName, key: null },
-                                { label: 'Số tiền chuyển', value: formatVND(finalPrice), key: 'amount', rawValue: String(finalPrice), highlight: true },
-                                { label: 'Nội dung (Bắt buộc)', value: orderCode, key: 'nd', highlight: true },
+                                { label: t('upgrade.bankName', 'Tên Ngân hàng'), value: bankId, key: null },
+                                { label: t('upgrade.accountNumber', 'Số tài khoản'), value: bankAccountNo, key: 'stk' },
+                                { label: t('upgrade.accountHolder', 'Chủ tài khoản'), value: bankAccountName, key: null },
+                                { label: t('upgrade.amount', 'Số tiền chuyển'), value: formatVND(finalPrice), key: 'amount', rawValue: String(finalPrice), highlight: true },
+                                { label: t('upgrade.transferNote', 'Nội dung (Bắt buộc)'), value: orderCode, key: 'nd', highlight: true },
                             ].map(row => (
                                 <div key={row.label} className="flex items-center justify-between text-xs font-semibold">
                                     <span className="text-amber-700 dark:text-amber-400">{row.label}</span>
@@ -1302,11 +1304,11 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         <div className="flex items-center justify-center gap-2 mb-1">
                             <Loader2 className="w-4 h-4 animate-spin text-indigo-500" />
                             <span className="text-xs font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-wide">
-                                Đang tự động kiểm tra giao dịch...
+                                {t('upgrade.checkingTransaction', 'Đang tự động kiểm tra giao dịch...')}
                             </span>
                         </div>
                         <p className="text-[11px] text-indigo-500 font-semibold">
-                            Hệ thống sẽ hoàn tất và cộng gói ngay lập tức khi nhận được thông báo biến động số dư ({Math.floor(paymentCountdown / 60)}:{(paymentCountdown % 60).toString().padStart(2, '0')})
+                            {t('upgrade.checkingSub', 'Hệ thống sẽ hoàn tất và cộng gói ngay lập tức khi nhận được thông báo biến động số dư ({seconds}s)...').replace('{seconds}', `${Math.floor(paymentCountdown / 60)}:${(paymentCountdown % 60).toString().padStart(2, '0')}`)}
                         </p>
                     </div>
                 )}
@@ -1318,7 +1320,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                             onClick={handleManualConfirm} 
                             className="w-full py-3.5 rounded-3xl bg-gradient-to-r from-indigo-500 to-sky-500 text-white font-bold text-sm shadow-lg shadow-indigo-500/10 hover:-translate-y-0.5 transition-all"
                         >
-                            Tôi đã chuyển khoản thành công ✓
+                            {t('upgrade.transferredBtn', 'Tôi đã chuyển khoản thành công ✓')}
                         </button>
                     )}
                 </div>

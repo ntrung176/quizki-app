@@ -7,14 +7,14 @@ import { IosWheelColumn } from './IosWheelPicker';
 
 const IosLanguageWheelWidget = ({ isAdmin = false }) => {
     const { targetLanguage, setTargetLanguage } = useTargetLanguage();
-    const { language: appLang, changeLanguage } = useLanguage();
+    const { language: appLang, changeLanguage, t } = useLanguage();
     const navigate = useNavigate();
     const location = useLocation();
 
     // Target Language Options (Japanese, English, Korean)
     const targetOptions = SUPPORTED_TARGET_LANGUAGES.map(lang => ({
         code: lang.code,
-        name: lang.name,
+        name: t(`languages.${lang.code}`, lang.name),
         flag: lang.flag,
         countryCode: lang.countryCode,
         disabled: lang.disabled
@@ -36,7 +36,8 @@ const IosLanguageWheelWidget = ({ isAdmin = false }) => {
         }
 
         setTargetLanguage(newCode, isAdmin);
-        showToast(`Đã chuyển sang ${selectedTarget?.name || newCode}${selectedTarget?.disabled ? ' (BETA)' : ''}!`, 'success');
+        const targetName = t(`languages.${newCode}`, selectedTarget?.name || newCode);
+        showToast((t('common.switchedTo', 'Đã chuyển sang {name}!') || '').replace('{name}', `${targetName}${selectedTarget?.disabled ? ' (BETA)' : ''}`), 'success');
 
         const path = location.pathname.toLowerCase();
         if (path.includes('/set') || path.includes('/study') || path.includes('/flashcard') || path.includes('/review') || path.includes('/kanji') || path.includes('/grammar') || path.includes('/kaiwa')) {
@@ -53,15 +54,15 @@ const IosLanguageWheelWidget = ({ isAdmin = false }) => {
     const handleAppLangChange = (newCode) => {
         if (newCode === appLang) return;
         changeLanguage(newCode);
-        showToast(`Đã đổi ngôn ngữ giao diện sang ${newCode === 'en' ? 'English' : 'Tiếng Việt'}!`, 'info');
+        showToast(t('common.interfaceUpdated', 'Đã cập nhật ngôn ngữ giao diện!'), 'info');
     };
 
     return (
         <div className="bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl p-2 shadow-sm space-y-1">
             {/* Header Titles */}
             <div className="grid grid-cols-2 text-[9px] font-black font-mono text-slate-400 dark:text-slate-500 uppercase px-1 text-center tracking-wider border-b border-slate-100 dark:border-slate-800/80 pb-1">
-                <span>🎯 MỤC TIÊU HỌC</span>
-                <span>🌐 GIAO DIỆN</span>
+                <span>🎯 {t('common.studyTarget', 'MỤC TIÊU HỌC')}</span>
+                <span>🌐 {t('common.interface', 'GIAO DIỆN')}</span>
             </div>
 
             {/* Dual Wheel Picker Columns (iOS Alarm Wheel Style) */}

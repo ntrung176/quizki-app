@@ -16,8 +16,10 @@ import VideoKaiwaMovieCard from './VideoKaiwaMovieCard';
 import VideoKaiwaCategoryRow from './VideoKaiwaCategoryRow';
 import VideoKaiwaHeroBanner from './VideoKaiwaHeroBanner';
 import LoadingIndicator from '../ui/LoadingIndicator';
+import { useLanguage } from '../../context/LanguageContext';
 
 const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
+    const { t } = useLanguage();
     const [videos, setVideos] = useState([]);
     const [loading, setLoading] = useState(true);
     const [selectedLevel, setSelectedLevel] = useState('all');
@@ -82,7 +84,7 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
         if (!userIsAdmin) return;
         const yId = extractYoutubeId(customUrl);
         if (!yId) {
-            alert('Vui lòng nhập Link YouTube hợp lệ (ví dụ: https://www.youtube.com/watch?v=...)');
+            alert(t('videoKaiwa.pasteYoutubePlaceholder', 'Vui lòng nhập Link YouTube hợp lệ (ví dụ: https://www.youtube.com/watch?v=...)'));
             return;
         }
 
@@ -90,8 +92,8 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
             id: `custom_${yId}`,
             youtubeId: yId,
             videoType: 'youtube',
-            title: 'Video YouTube Tự Do',
-            channelTitle: 'Người dùng dán link',
+            title: t('videoKaiwa.selfStudyVideo', 'Video YouTube Tự Do'),
+            channelTitle: 'YouTube',
             level: 'N3',
             category: 'daily',
             duration: 300,
@@ -101,9 +103,9 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                     id: 1,
                     start: 0,
                     end: 300,
-                    ja: 'YouTube Video Player (Đang phát video riêng của bạn)',
-                    furigana: 'YouTube Video Player (Đang phát video riêng của bạn)',
-                    vi: 'Bạn có thể xem video và luyện nghe theo phụ đề trên video.',
+                    ja: 'YouTube Video Player',
+                    furigana: 'YouTube Video Player',
+                    vi: t('videoKaiwa.syncSubHint', 'Bạn có thể xem video và luyện nghe theo phụ đề trên video.'),
                     keywords: []
                 }
             ]
@@ -145,9 +147,9 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                         id: 1,
                         start: 0,
                         end: dur,
-                        ja: 'Đang phát file video từ máy tính của bạn',
-                        furigana: 'Đang phát file video từ máy tính của bạn',
-                        vi: 'Bạn có thể bấm "Sửa" để thêm phụ đề song ngữ và gọi AI dịch nghĩa!',
+                        ja: 'Video Player',
+                        furigana: 'Video Player',
+                        vi: t('videoKaiwa.syncSubHint', 'Bạn có thể xem video và luyện nghe theo phụ đề trên video.'),
                         keywords: []
                     }
                 ];
@@ -158,7 +160,7 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                 videoType: 'file',
                 sourceType: 'file',
                 title: cleanTitle,
-                channelTitle: 'Video máy tính',
+                channelTitle: t('videoKaiwa.localFile', 'Video máy tính'),
                 level: 'N3',
                 category: 'daily',
                 duration: meta.duration ? Math.ceil(meta.duration) : 300,
@@ -170,7 +172,7 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
             setActiveSubIndex(0);
         } catch (e) {
             console.error(e);
-            alert('Lỗi khi mở file video: ' + e.message);
+            alert((t('common.error', 'Lỗi: ') + ' ') + e.message);
         } finally {
             setIsProcessingQuickFile(false);
         }
@@ -179,22 +181,22 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
     // Handle Delete Video (Admin)
     const handleDeleteVideo = async (e, videoId) => {
         e.stopPropagation();
-        if (window.confirm('Bạn có chắc chắn muốn xóa video này khỏi hệ thống?')) {
+        if (window.confirm(t('videoKaiwa.confirmDeleteVideo', 'Bạn có chắc chắn muốn xóa video này khỏi hệ thống?'))) {
             try {
                 await deleteKaiwaVideo(videoId);
                 setVideos(prev => prev.filter(v => v.id !== videoId));
                 if (currentVideo?.id === videoId) setCurrentVideo(null);
-                setNotification('Đã xóa video thành công!');
+                setNotification(t('videoKaiwa.videoDeletedSuccess', 'Đã xóa video thành công!'));
                 setTimeout(() => setNotification(''), 3000);
             } catch (err) {
-                alert('Lỗi khi xóa video: ' + err.message);
+                alert((t('common.error', 'Lỗi: ') + ' ') + err.message);
             }
         }
     };
 
     // Save word to flashcard handler
     const handleSaveToFlashcard = (kw) => {
-        setNotification(`Đã lưu từ vựng "${kw.word}" vào sổ tay ôn tập!`);
+        setNotification(t('videoKaiwa.vocabSavedSuccess', 'Đã lưu từ vựng "{word}" vào sổ tay ôn tập!').replace('{word}', kw.word));
         setTimeout(() => setNotification(''), 3000);
     };
 
@@ -209,11 +211,11 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
         setVideos(prev => prev.map(v => v.id === currentVideo.id ? updatedVideo : v));
         try {
             await saveKaiwaVideo(updatedVideo);
-            setNotification('Đã cập nhật câu thoại thành công!');
+            setNotification(t('videoKaiwa.subtitleUpdatedSuccess', 'Đã cập nhật câu thoại thành công!'));
             setTimeout(() => setNotification(''), 3000);
         } catch (e) {
             console.error('Lỗi khi lưu câu thoại:', e);
-            setNotification('Lỗi khi lưu câu thoại: ' + (e.message || ''));
+            setNotification(t('videoKaiwa.subtitleUpdateError', 'Lỗi khi lưu câu thoại: ') + (e.message || ''));
             setTimeout(() => setNotification(''), 3000);
         }
     };
@@ -260,7 +262,7 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
     }, [shadowingSub]);
 
     if (loading) {
-        return <LoadingIndicator text="Đang tải thư viện Video Kaiwa..." />;
+        return <LoadingIndicator text={t('videoKaiwa.loadingHub', 'Đang tải thư viện Video Kaiwa...')} />;
     }
 
     return (
@@ -369,7 +371,7 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                                 <div className="flex items-center gap-2">
                                     <span className="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
                                         <Film className="w-4 h-4 text-amber-500" />
-                                        <span>Tự học video riêng</span>
+                                        <span>{t('videoKaiwa.selfStudyVideo', 'Tự học video riêng')}</span>
                                     </span>
 
                                     {/* Tab Toggle: YouTube vs File */}
@@ -394,7 +396,7 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                                                     : 'text-slate-500 hover:text-slate-900 dark:hover:text-white'
                                             }`}
                                         >
-                                            File Máy Tính (.mp4)
+                                            {t('videoKaiwa.localFile', 'File Máy Tính (.mp4)')}
                                         </button>
                                     </div>
                                 </div>
@@ -406,7 +408,7 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                                     }}
                                     className="px-4 py-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-black rounded-xl flex items-center gap-1.5 shadow-md transition cursor-pointer"
                                 >
-                                    <Plus className="w-4 h-4" /> Thêm Video Mới (Admin)
+                                    <Plus className="w-4 h-4" /> {t('videoKaiwa.addVideoAdmin', 'Thêm Video Mới (Admin)')}
                                 </button>
                             </div>
 
@@ -415,7 +417,7 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                                 <div className="flex items-center gap-2">
                                     <input
                                         type="text"
-                                        placeholder="Dán đường dẫn YouTube tại đây (ví dụ: https://www.youtube.com/watch?v=...)"
+                                        placeholder={t('videoKaiwa.pasteYoutubePlaceholder', 'Dán đường dẫn YouTube tại đây (ví dụ: https://www.youtube.com/watch?v=...)')}
                                         value={customUrl}
                                         onChange={(e) => setCustomUrl(e.target.value)}
                                         className="flex-1 p-2.5 sm:p-3 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700 text-xs text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 font-mono"
@@ -425,7 +427,7 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                                         className="px-6 py-2.5 sm:py-3 bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 font-black text-xs rounded-full flex items-center gap-1.5 shadow-[0_6px_18px_rgba(244,148,188,0.4)] hover:shadow-[0_10px_25px_rgba(244,148,188,0.7)] transition-all cursor-pointer shrink-0"
                                     >
                                         <Play className="w-4 h-4 fill-slate-950 text-slate-950" />
-                                        <span>Mở Video</span>
+                                        <span>{t('videoKaiwa.openVideo', 'Mở Video')}</span>
                                     </button>
                                 </div>
                             )}
@@ -449,10 +451,10 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                                         <div className="flex items-center gap-2 truncate">
                                             <HardDrive className="w-4 h-4 text-amber-500 shrink-0" />
                                             <span className="truncate">
-                                                {quickVideoFile ? `📹 ${quickVideoFile.name} (${(quickVideoFile.size / (1024 * 1024)).toFixed(1)} MB)` : 'Chọn file video (.mp4, .webm, .mov)...'}
+                                                {quickVideoFile ? `📹 ${quickVideoFile.name} (${(quickVideoFile.size / (1024 * 1024)).toFixed(1)} MB)` : t('videoKaiwa.selectVideoFilePlaceholder', 'Chọn file video (.mp4, .webm, .mov)...')}
                                             </span>
                                         </div>
-                                        <span className="text-[11px] font-bold text-amber-600 dark:text-amber-400 shrink-0">Chọn file</span>
+                                        <span className="text-[11px] font-bold text-amber-600 dark:text-amber-400 shrink-0">{t('videoKaiwa.chooseFile', 'Chọn file')}</span>
                                     </button>
 
                                     {/* Subtitle File Optional Trigger */}
@@ -467,11 +469,11 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                                         type="button"
                                         onClick={() => quickSubInputRef.current?.click()}
                                         className="px-3 py-2.5 sm:py-3 bg-slate-50 dark:bg-slate-800/60 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 text-xs font-medium text-slate-600 dark:text-slate-300 flex items-center gap-1.5 cursor-pointer shrink-0"
-                                        title="Đính kèm file phụ đề .srt hoặc .vtt (tùy chọn)"
+                                        title={t('videoKaiwa.attachSrtTooltip', 'Đính kèm file phụ đề .srt hoặc .vtt (tùy chọn)')}
                                     >
                                         <Upload className="w-3.5 h-3.5 text-slate-400" />
                                         <span className="text-[11px] truncate max-w-[120px]">
-                                            {quickSubFile ? `Phụ đề: ${quickSubFile.name}` : '+ File SRT (Tùy chọn)'}
+                                            {quickSubFile ? `${t('videoKaiwa.subPrefix', 'Phụ đề:')} ${quickSubFile.name}` : t('videoKaiwa.srtOptional', '+ File SRT (Tùy chọn)')}
                                         </span>
                                     </button>
 
@@ -482,7 +484,7 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                                         className="px-6 py-2.5 sm:py-3 bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 font-black text-xs rounded-full flex items-center justify-center gap-1.5 shadow-[0_6px_18px_rgba(244,148,188,0.4)] hover:shadow-[0_10px_25px_rgba(244,148,188,0.7)] transition-all cursor-pointer shrink-0 disabled:opacity-40 disabled:cursor-not-allowed"
                                     >
                                         <Play className="w-4 h-4 fill-slate-950 text-slate-950" />
-                                        <span>{isProcessingQuickFile ? 'Đang mở...' : 'Phát Ngay'}</span>
+                                        <span>{isProcessingQuickFile ? t('videoKaiwa.opening', 'Đang mở...') : t('videoKaiwa.playNow', 'Phát Ngay')}</span>
                                     </button>
                                 </div>
                             )}
@@ -496,7 +498,7 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                             <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 pointer-events-none" />
                             <input
                                 type="text"
-                                placeholder="Tìm kiếm phim, video bài học, chủ đề..."
+                                placeholder={t('videoKaiwa.searchPlaceholder', 'Tìm kiếm phim, video bài học, chủ đề...')}
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 className="w-full pl-9 pr-8 py-2 bg-slate-50 dark:bg-slate-800/70 rounded-xl border border-slate-200/80 dark:border-slate-700/60 text-xs text-slate-800 dark:text-slate-100 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-amber-500 transition"
@@ -505,7 +507,7 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                                 <button
                                     onClick={() => setSearchQuery('')}
                                     className="absolute right-2.5 top-1/2 -translate-y-1/2 w-4 h-4 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-500 hover:text-slate-800 dark:hover:text-slate-200 flex items-center justify-center text-[10px] cursor-pointer font-bold"
-                                    title="Xóa tìm kiếm"
+                                    title={t('videoKaiwa.clearSearch', 'Xóa tìm kiếm')}
                                 >
                                     ✕
                                 </button>
@@ -557,8 +559,8 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                                 <div className="flex items-center gap-2">
                                     <h2 className="text-lg sm:text-xl md:text-2xl font-black tracking-tight bg-gradient-to-r from-[#00d2ff] via-[#70bbfd] to-[#bfdbfe] bg-clip-text text-transparent select-none">
                                         {selectedCategory !== 'all' 
-                                            ? (KAIWA_CATEGORIES.find(c => c.id === selectedCategory)?.title || 'Chủ đề đã chọn')
-                                            : (searchQuery ? `Kết quả tìm kiếm: "${searchQuery}"` : 'Tất cả video')}
+                                            ? (KAIWA_CATEGORIES.find(c => c.id === selectedCategory)?.title || t('videoKaiwa.selectedTopic', 'Chủ đề đã chọn'))
+                                            : (searchQuery ? t('videoKaiwa.searchResultsFor', 'Kết quả tìm kiếm: "{query}"').replace('{query}', searchQuery) : t('videoKaiwa.allVideos', 'Tất cả video'))}
                                     </h2>
                                     <span className="px-2.5 py-0.5 rounded-full text-xs font-black bg-cyan-500/15 text-cyan-400 border border-cyan-500/30">
                                         {filteredVideos.length} video
@@ -573,7 +575,7 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                                     }}
                                     className="text-xs font-bold text-slate-400 hover:text-white transition cursor-pointer flex items-center gap-1"
                                 >
-                                    <span>← Quay lại rạp phim đầy đủ</span>
+                                    <span>{t('videoKaiwa.backToFull', '← Quay lại rạp phim đầy đủ')}</span>
                                 </button>
                             </div>
 
@@ -602,7 +604,7 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                                 <div className="p-12 text-center bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 space-y-3">
                                     <Film className="w-12 h-12 text-slate-400 mx-auto opacity-40" />
                                     <p className="text-sm font-bold text-slate-600 dark:text-slate-400">
-                                        Không tìm thấy video nào phù hợp với bộ lọc hiện tại.
+                                        {t('videoKaiwa.noVideosFound', 'Không tìm thấy video nào phù hợp với bộ lọc hiện tại.')}
                                     </p>
                                     <button
                                         onClick={() => {
@@ -612,7 +614,7 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                                         }}
                                         className="px-5 py-2.5 rounded-full bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 font-black text-xs cursor-pointer shadow-[0_6px_18px_rgba(244,148,188,0.4)] hover:shadow-[0_10px_25px_rgba(244,148,188,0.7)] transition-all"
                                     >
-                                        Xóa tất cả bộ lọc
+                                        {t('videoKaiwa.clearAllFilters', 'Xóa tất cả bộ lọc')}
                                     </button>
                                 </div>
                             )}
@@ -625,7 +627,7 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                             {/* Row 1: Mới cập nhật & Nổi bật */}
                             {videos.length > 0 && (
                                 <VideoKaiwaCategoryRow
-                                    title="Mới Cập Nhật & Thịnh Hành"
+                                    title={t('videoKaiwa.trendingTitle', 'Mới Cập Nhật & Thịnh Hành')}
                                     titleGradient="from-[#00d2ff] via-[#70bbfd] to-[#bfdbfe]"
                                     videos={videos}
                                     onSelectVideo={(v) => {
@@ -701,7 +703,7 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
                 }}
                 editingVideo={editingVideo}
                 onSaveSuccess={(savedVid) => {
-                    setNotification('Đã xuất bản video thành công!');
+                    setNotification(t('videoKaiwa.videoPublishedSuccess', 'Đã xuất bản video thành công!'));
                     loadVideos();
                     setTimeout(() => setNotification(''), 3000);
                 }}

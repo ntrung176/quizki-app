@@ -1234,7 +1234,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
                                 <div className="space-y-2.5">
                                     <label className="text-xs font-bold font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-2">
                                         <Star className="w-4 h-4 text-amber-500" />
-                                        <span>1. Chọn Giáo Viên AI</span>
+                                        <span>{t('kaiwa.stepSelectTeacher', '1. Chọn Giáo Viên AI')}</span>
                                     </label>
 
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
@@ -1258,7 +1258,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
                                                     {tc.name}
                                                 </h4>
                                                 <span className="text-[11px] text-slate-500 dark:text-slate-400 truncate block">
-                                                    {tc.gender === 'female' ? 'Giọng Nữ nhẹ nhàng' : 'Giọng Nam tự nhiên'}
+                                                    {tc.gender === 'female' ? t('kaiwa.gentleFemaleVoice', 'Giọng Nữ nhẹ nhàng') : t('kaiwa.naturalMaleVoice', 'Giọng Nam tự nhiên')}
                                                 </span>
                                             </div>
                                         </button>
@@ -1271,7 +1271,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
                         <div className="space-y-2.5">
                             <label className="text-xs font-bold font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-2">
                                 <Languages className="w-4 h-4 text-cyan-500" />
-                                <span>2. Trình Độ Cấp Độ</span>
+                                <span>{t('kaiwa.stepSelectLevel', '2. Trình Độ Cấp Độ')}</span>
                             </label>
                             <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-2">
                                 {currentLevels.map((lvl) => {
@@ -1297,7 +1297,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
                         <div className="space-y-2.5">
                             <label className="text-xs font-bold font-mono text-slate-500 dark:text-slate-400 uppercase tracking-wider flex items-center gap-2">
                                 <MessageSquare className="w-4 h-4 text-indigo-500" />
-                                <span>3. Chủ Đề Trò Chuyện</span>
+                                <span>{t('kaiwa.stepSelectTopic', '3. Chủ Đề Trò Chuyện')}</span>
                             </label>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                                 {currentTopics.map((tpc) => {
@@ -1327,10 +1327,10 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
                     <div className="flex justify-center pt-1">
                         <button
                             onClick={handleStartConversation}
-                            className="w-full sm:w-auto min-h-[52px] px-8 py-3.5 rounded-2xl bg-gradient-to-r from-cyan-500 via-indigo-600 to-sky-500 text-white font-black text-sm md:text-base tracking-wide shadow-xl shadow-cyan-500/20 hover:shadow-2xl hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 cursor-pointer flex items-center justify-center gap-3 border border-cyan-400/30 select-none"
+                            className="w-full sm:w-auto min-h-[52px] px-8 py-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white font-black text-sm md:text-base tracking-wider transition-all duration-150 cursor-pointer flex items-center justify-center gap-3 select-none"
                         >
                             <Play className="w-5 h-5 fill-white" />
-                            <span>BẮT ĐẦU TRÒ CHUYỆN AI</span>
+                            <span>{t('kaiwa.startConversation', 'BẮT ĐẦU TRÒ CHUYỆN AI')}</span>
                         </button>
                     </div>
                     </>
@@ -1384,11 +1384,11 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
                                         setIsHandsFree(true);
                                         setShowCallOverlay(true);
                                     }}
-                                    className="min-h-[44px] px-2.5 rounded-xl bg-gradient-to-r from-emerald-500 to-cyan-500 text-white text-xs font-mono font-bold flex items-center gap-1 shadow-sm active:scale-95 cursor-pointer"
+                                    className="min-h-[44px] px-3 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-white text-xs font-mono font-bold flex items-center gap-1 border-b-2 border-emerald-700 active:translate-y-0.5 active:border-b-0 cursor-pointer select-none"
                                     title="Gợi gọi thoại FaceTime AI"
                                 >
                                     <Phone className="w-3.5 h-3.5" />
-                                    <span className="text-[11px]">GỌI AI</span>
+                                    <span className="text-[11px]">{t('kaiwa.callAi', 'GỌI AI')}</span>
                                 </button>
 
                                 <button
@@ -1414,7 +1414,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
                                     title="Giới hạn 10 phút luyện Kaiwa mỗi ngày cho tài khoản Premium"
                                 >
                                     <Clock className="w-3.5 h-3.5 text-amber-500 animate-pulse" />
-                                    <span>Thử nghiệm: {formatTime(Math.max(0, DAILY_KAIWA_LIMIT_SECONDS - dailyUsedSeconds))}</span>
+                                    <span>{t('kaiwa.trialBadge', 'Thử nghiệm:')} {formatTime(Math.max(0, DAILY_KAIWA_LIMIT_SECONDS - dailyUsedSeconds))}</span>
                                 </div>
                             ) : (
                                 <div 
@@ -1454,7 +1454,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
                                     setIsHandsFree(true);
                                     setShowCallOverlay(true);
                                 }}
-                                className="hidden sm:flex px-3 py-1.5 rounded-xl bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500 hover:from-emerald-400 hover:to-cyan-400 text-white text-xs font-mono font-bold transition-all shadow-md cursor-pointer items-center gap-1.5 animate-pulse"
+                                className="hidden sm:flex px-3 py-1.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-white text-xs font-mono font-bold transition-all border-b-2 border-emerald-700 active:translate-y-0.5 active:border-b-0 cursor-pointer items-center gap-1.5 select-none"
                                 title="Bật màn hình Cuộc gọi thoại FaceTime AI"
                             >
                                 <Phone className="w-3.5 h-3.5" />
@@ -1464,10 +1464,10 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
                             {/* Scorecard Report HUD Button */}
                             <button
                                 onClick={() => setShowScorecardModal(true)}
-                                className="px-3 py-2 sm:py-1.5 min-h-[44px] sm:min-h-0 rounded-xl bg-gradient-to-r from-amber-500 to-indigo-600 hover:from-amber-400 hover:to-indigo-500 text-white text-xs font-mono font-bold transition-all shadow-md cursor-pointer flex items-center justify-center gap-1.5 flex-1 sm:flex-none"
+                                className="px-3 py-2 sm:py-1.5 min-h-[44px] sm:min-h-0 rounded-xl bg-amber-500 hover:bg-amber-400 text-white text-xs font-mono font-bold transition-all border-b-2 border-amber-700 active:translate-y-0.5 active:border-b-0 cursor-pointer flex items-center justify-center gap-1.5 flex-1 sm:flex-none select-none"
                                 title="Xem báo cáo chấm điểm phản xạ Kaiwa"
                             >
-                                <Trophy className="w-3.5 h-3.5 text-amber-300" />
+                                <Trophy className="w-3.5 h-3.5 text-amber-100" />
                                 <span>Báo Cáo HUD</span>
                             </button>
 
@@ -1866,7 +1866,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
                                     setShowHandsFreeConfirm(false);
                                     setIsHandsFree(true);
                                 }}
-                                className="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 text-white text-sm font-black hover:opacity-90 transition-opacity cursor-pointer shadow-lg shadow-cyan-500/20"
+                                className="flex-1 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-2 border-emerald-700 text-white text-sm font-black transition-all cursor-pointer select-none"
                             >
                                 ⚡ Xác Nhận Bật
                             </button>
@@ -1898,7 +1898,7 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
                         <div className="flex flex-col gap-2.5">
                             <button
                                 onClick={() => navigate(ROUTES.HOME)}
-                                className="w-full py-3.5 bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white font-bold rounded-2xl transition-all shadow-lg shadow-amber-500/20 cursor-pointer text-sm"
+                                className="w-full py-3.5 bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white font-black rounded-2xl transition-all cursor-pointer text-sm select-none"
                             >
                                 Về Trang Chủ
                             </button>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 import { ChevronRight, ChevronLeft, X, Compass, Check, Settings, Plus, Trash2, ArrowUp, ArrowDown, Copy, Download, Upload } from 'lucide-react';
 import { auth } from '../../config/firebase';
 
@@ -31,42 +32,49 @@ const TOUR_STEPS = [
     // --- HOME SECTION ---
     {
         target: '[data-tour-id="HOME"]',
+        key: 'home',
         title: '🏠 Trang chủ',
         desc: 'Xem tổng quan tiến độ học tập, thống kê, số ngày học liên tục (streak) và các hoạt động học tập gần đây.',
         section: 'home'
     },
     {
         target: '[data-tour-id="VOCAB_LIST"]',
+        key: 'vocab',
         title: '📖 Học Từ Vựng',
         desc: 'Quản lý các học phần cá nhân, thêm từ vựng mới, ôn tập SRS và theo dõi tiến trình học từ vựng theo sách giáo khoa.',
         section: 'home'
     },
     {
         target: '[data-tour-id="KANJI_STUDY"]',
+        key: 'kanji',
         title: '🈶 Thư viện Kanji',
         desc: 'Học Kanji theo cấp độ JLPT từ N5 đến N1, tự động ghi nhớ và ôn tập thông qua hệ thống SRS thông minh.',
         section: 'home'
     },
     {
         target: '[data-tour-id="GRAMMAR"]',
+        key: 'grammar',
         title: '📝 Học Ngữ Pháp',
         desc: 'Học các cấu trúc ngữ pháp chi tiết theo cấp độ JLPT kèm câu ví dụ cụ thể.',
         section: 'home'
     },
     {
         target: '[data-tour-id="JLPT_TEST"]',
+        key: 'jlpt',
         title: '🏁 Luyện Đề JLPT',
         desc: 'Tham gia các bài thi mô phỏng JLPT đầy đủ các phần với giới hạn thời gian thực tế.',
         section: 'home'
     },
     {
         target: '[data-tour-id="SETTINGS"]',
+        key: 'settings',
         title: '⚙️ Trang cá nhân & Cài đặt',
         desc: 'Chỉnh sửa thông tin tài khoản, bật/tắt nhạc nền, âm thanh hiệu ứng và đổi giao diện sáng/tối.',
         section: 'home'
     },
     {
         target: '[data-tour-id="HELP_BTN"]',
+        key: 'help',
         title: '💡 Xem lại Hướng dẫn',
         desc: 'Click vào đây bất cứ lúc nào để xem lại hướng dẫn sử dụng cho màn hình hiện tại.',
         section: 'home'
@@ -75,18 +83,21 @@ const TOUR_STEPS = [
     // --- VOCAB REVIEW SECTION ---
     {
         target: '[data-tour-id="FLASHCARD_CONTAINER"]',
+        key: 'card',
         title: '🎴 Thẻ Ghi Nhớ (Flashcard)',
         desc: 'Mặt trước hiển thị từ tiếng Nhật. Nhấn trực tiếp vào thẻ hoặc phím Space để lật sang mặt sau xem nghĩa tiếng Việt, Furigana và câu ví dụ.',
         section: 'vocabReview'
     },
     {
         target: '[data-tour-id="FLASHCARD_SPEAKER"]',
+        key: 'speaker',
         title: '🔊 Nghe phát âm',
         desc: 'Nhấn vào biểu tượng loa để nghe giọng đọc bản xứ phát âm từ vựng này một cách chuẩn xác.',
         section: 'vocabReview'
     },
     {
         target: '[data-tour-id="RATING_PANEL"]',
+        key: 'rating',
         title: '📊 Đánh giá mức độ nhớ',
         desc: 'Sau khi lật thẻ, hãy tự chọn: Quên rồi (Again), Khó (Hard), Tốt (Good), hoặc Dễ (Easy). Hệ thống SRS sẽ tự động xếp lịch ôn tập tối ưu cho bạn.',
         section: 'vocabReview'
@@ -95,18 +106,21 @@ const TOUR_STEPS = [
     // --- VOCAB ADD SECTION ---
     {
         target: '[data-tour-id="STUDY_SET_TITLE"]',
+        key: 'title',
         title: '✏️ Tiêu đề học phần',
         desc: 'Đặt tên cho học phần từ vựng mới của bạn (ví dụ: Từ vựng N3 - Bài 1) trước khi tiến hành lưu.',
         section: 'vocabAdd'
     },
     {
         target: '[data-tour-id="AI_BATCH_BTN"]',
+        key: 'batch',
         title: '🤖 Tạo hàng loạt bằng AI',
         desc: 'Nhập danh sách từ vựng dạng văn bản thô, AI sẽ tự động phân tích và tạo toàn bộ thẻ từ vựng cho bạn cực kỳ nhanh chóng.',
         section: 'vocabAdd'
     },
     {
         target: '[data-tour-id="SAVE_SET_BTN"]',
+        key: 'save',
         title: '💾 Lưu học phần',
         desc: 'Sau khi nhập đầy đủ từ vựng và tiêu đề, bấm nút này để tạo và lưu học phần vào kho của bạn.',
         section: 'vocabAdd'
@@ -255,6 +269,7 @@ const getUniqueSelector = (el) => {
 
 // ==================== Main Component ====================
 const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'home', forceTrigger = 0 }) => {
+    const { t } = useLanguage();
     // Loaded Custom Steps or Default steps
     const [steps, setSteps] = useState(() => {
         try {
@@ -697,8 +712,8 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
                                         <Compass className="w-5 h-5 text-white" />
                                     </div>
                                     <div className="flex-1 min-w-0">
-                                        <h3 className="text-[15px] font-bold text-white leading-tight">{previewCurrentStep.title}</h3>
-                                        <p className="text-[13px] text-slate-300 mt-1.5 leading-relaxed">{previewCurrentStep.desc}</p>
+                                        <h3 className="text-[15px] font-bold text-white leading-tight">{previewCurrentStep.key ? t('onboarding.' + previewCurrentStep.key + '_title', previewCurrentStep.title) : previewCurrentStep.title}</h3>
+                                        <p className="text-[13px] text-slate-300 mt-1.5 leading-relaxed">{previewCurrentStep.key ? t('onboarding.' + previewCurrentStep.key + '_desc', previewCurrentStep.desc) : previewCurrentStep.desc}</p>
                                     </div>
                                 </div>
                             </div>
@@ -720,7 +735,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
                                         onClick={finish}
                                         className="text-[11px] text-slate-400 hover:text-white transition-colors px-2 py-1"
                                     >
-                                        Bỏ qua
+                                        {t('onboarding.skip', 'Bỏ qua')}
                                     </button>
                                     {step > 0 && (
                                         <button
@@ -735,9 +750,9 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
                                         className="flex items-center gap-1 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-bold transition-colors shadow-lg shadow-indigo-600/30"
                                     >
                                         {step === activeSteps.length - 1 ? (
-                                            <>Hoàn thành <Check className="w-3.5 h-3.5" /></>
+                                            <>{t('onboarding.finish', 'Hoàn thành')} <Check className="w-3.5 h-3.5" /></>
                                         ) : (
-                                            <>Tiếp theo <ChevronRight className="w-3.5 h-3.5" /></>
+                                            <>{t('onboarding.next', 'Tiếp theo')} <ChevronRight className="w-3.5 h-3.5" /></>
                                         )}
                                     </button>
                                 </div>

@@ -226,7 +226,7 @@ const JLPTSkillArenaTab = ({
                             </div>
                             <div className="w-48 bg-slate-100 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden">
                                 <div 
-                                    className="bg-[#f494bc] h-full rounded-full transition-all duration-500"
+                                    className="bg-emerald-500 h-full rounded-full transition-all duration-500"
                                     style={{ width: `${progressPct}%` }}
                                 />
                             </div>
@@ -350,13 +350,13 @@ const JLPTSkillArenaTab = ({
                                                     startTest(test);
                                                 }
                                             }}
-                                            className={`px-4 py-2 rounded-xl text-xs font-black transition flex items-center gap-1.5 cursor-pointer shadow-[0_3px_10px_rgba(244,148,188,0.35)] active:scale-95 ${
+                                            className={`px-4 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider transition flex items-center gap-1.5 cursor-pointer active:translate-y-0.5 active:border-b-0 border-b-4 select-none ${
                                                 isLocked
-                                                    ? 'bg-amber-500 hover:bg-amber-600 text-white'
-                                                    : 'bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950'
+                                                    ? 'bg-amber-500 hover:bg-amber-400 border-amber-700 text-white'
+                                                    : 'bg-emerald-500 hover:bg-emerald-400 border-emerald-700 text-white'
                                             }`}
                                         >
-                                            <Play className="w-3.5 h-3.5 fill-slate-950 text-slate-950" />
+                                            <Play className="w-3.5 h-3.5 fill-white text-white" />
                                             <span>{status === 'in_progress' ? 'Làm tiếp' : 'Bắt đầu'}</span>
                                         </button>
                                     )}
@@ -502,7 +502,7 @@ const JLPTSkillArenaTab = ({
                             <div className="mt-5 pt-3.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
                                 <div className="w-24 bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden">
                                     <div 
-                                        className="bg-[#f494bc] h-full rounded-full transition-all duration-500"
+                                        className="bg-emerald-500 h-full rounded-full transition-all duration-500"
                                         style={{ width: `${progressPct}%` }}
                                     />
                                 </div>
@@ -513,7 +513,7 @@ const JLPTSkillArenaTab = ({
                                         <span>Khóa Premium</span>
                                     </span>
                                 ) : (
-                                    <span className="px-3.5 py-1.5 rounded-xl bg-[#f494bc] group-hover:bg-[#f6a0c5] text-slate-950 font-black text-xs flex items-center gap-1 shadow-[0_3px_10px_rgba(244,148,188,0.35)] group-hover:shadow-[0_6px_18px_rgba(244,148,188,0.6)] transition-all">
+                                    <span className="px-3.5 py-1.5 rounded-2xl bg-emerald-500 group-hover:bg-emerald-400 border-b-2 border-emerald-700 text-white font-black text-xs uppercase tracking-wider flex items-center gap-1 transition-all select-none">
                                         <span>Vào học</span>
                                         <ChevronRight className="w-3.5 h-3.5" />
                                     </span>

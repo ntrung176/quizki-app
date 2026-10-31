@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import FuriganaRenderer from './FuriganaRenderer';
 import { resolveVideoSourceUrl } from '../../utils/indexedDbVideoStorage';
+import { useLanguage } from '../../context/LanguageContext';
 
 const VideoKaiwaPlayer = ({
     video,
@@ -29,6 +30,7 @@ const VideoKaiwaPlayer = ({
     allKeywords = [],
     allGrammar = []
 }) => {
+    const { t } = useLanguage();
     const playerContainerRef = useRef(null);
     const iframeRef = useRef(null);
     const playerRef = useRef(null); // YouTube Player instance
@@ -541,7 +543,7 @@ const VideoKaiwaPlayer = ({
                         ) : (
                             <div className="flex flex-col items-center justify-center gap-2 text-slate-400 p-6 text-center">
                                 <Film className="w-10 h-10 animate-pulse text-amber-500" />
-                                <p className="text-xs font-bold">Đang tải dữ liệu video...</p>
+                                <p className="text-xs font-bold">{t('videoKaiwa.loadingVideo', 'Đang tải dữ liệu video...')}</p>
                             </div>
                         )}
 
@@ -575,14 +577,14 @@ const VideoKaiwaPlayer = ({
                             {/* Vietnamese Translation Subtitle */}
                             {showVietnamese && (
                                 <p className="text-[11px] sm:text-xs md:text-sm lg:text-base text-slate-700 dark:text-slate-200 font-medium leading-relaxed drop-shadow-xs">
-                                    {currentSub.vi || '(Chưa có bản dịch Tiếng Việt)'}
+                                    {currentSub.vi || t('videoKaiwa.noSubVi', '(Chưa có bản dịch Tiếng Việt)')}
                                 </p>
                             )}
                         </div>
                     ) : (
                         <div className="text-slate-400 dark:text-slate-500 text-[11px] sm:text-xs lg:text-sm italic flex items-center gap-1.5 my-auto py-1 sm:py-2">
                             <MessageSquare className="w-3.5 h-3.5 text-slate-400 dark:text-slate-600" />
-                            <span>(Phụ đề song ngữ sẽ hiển thị đồng bộ khi video phát đến đoạn đối thoại...)</span>
+                            <span>{t('videoKaiwa.syncSubHint', '(Phụ đề song ngữ sẽ hiển thị đồng bộ khi video phát đến đoạn đối thoại...)')}</span>
                         </div>
                     )}
                 </div>
@@ -615,11 +617,11 @@ const VideoKaiwaPlayer = ({
                                 <button
                                     type="button"
                                     onClick={onBack}
-                                    title="Quay lại thư viện"
+                                    title={t('videoKaiwa.backToLibrary', 'Quay lại thư viện')}
                                     className="px-2 sm:px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white border border-slate-200 dark:border-slate-800 transition-all cursor-pointer font-bold text-xs flex items-center gap-1 shadow-xs"
                                 >
                                     <ArrowLeft className="w-3.5 h-3.5" />
-                                    <span className="hidden sm:inline">Quay lại</span>
+                                    <span className="hidden sm:inline">{t('videoKaiwa.back', 'Quay lại')}</span>
                                 </button>
                             )}
 
@@ -627,11 +629,11 @@ const VideoKaiwaPlayer = ({
                                 <button
                                     type="button"
                                     onClick={onEditVideo}
-                                    title="Chỉnh sửa video này (Admin)"
+                                    title={t('common.edit', 'Chỉnh sửa video này (Admin)')}
                                     className="px-2 sm:px-2.5 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 dark:hover:bg-indigo-900/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 transition-all cursor-pointer font-bold text-xs flex items-center gap-1 shadow-xs"
                                 >
                                     <Edit3 className="w-3.5 h-3.5" />
-                                    <span className="hidden sm:inline">Sửa</span>
+                                    <span className="hidden sm:inline">{t('videoKaiwa.edit', 'Sửa')}</span>
                                 </button>
                             )}
 
@@ -640,18 +642,18 @@ const VideoKaiwaPlayer = ({
                                 <button
                                     type="button"
                                     onClick={() => setShowSubtitleMenu(!showSubtitleMenu)}
-                                    title="Tùy chỉnh phụ đề & phiên âm"
+                                    title={t('videoKaiwa.subtitleOptions', 'Tùy chỉnh phụ đề & phiên âm')}
                                     className="px-2 sm:px-2.5 lg:px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer border flex items-center gap-1 sm:gap-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white border-slate-200 dark:border-slate-800 shadow-xs"
                                 >
                                     <Languages className="w-3.5 h-3.5 text-slate-600 dark:text-slate-400" />
-                                    <span className="text-[11px] sm:text-xs">Phụ đề</span>
+                                    <span className="text-[11px] sm:text-xs">{t('videoKaiwa.subtitles', 'Phụ đề')}</span>
                                     <span className={`w-1.5 h-1.5 rounded-full ${showFurigana || showVietnamese ? 'bg-slate-500 dark:bg-slate-300' : 'bg-slate-300 dark:bg-slate-600'}`} />
                                 </button>
 
                                 {showSubtitleMenu && (
                                     <div className="absolute bottom-full mb-2 left-0 z-50 w-52 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl p-2 space-y-1 animate-fade-in text-xs">
                                         <div className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 px-2 py-1">
-                                            Tùy chọn phụ đề
+                                            {t('videoKaiwa.subtitleOptions', 'Tùy chọn phụ đề')}
                                         </div>
 
                                         {/* Furigana Toggle */}
@@ -666,12 +668,12 @@ const VideoKaiwaPlayer = ({
                                         >
                                             <div className="flex items-center gap-2">
                                                 <span className={`w-2 h-2 rounded-full ${showFurigana ? 'bg-[#f494bc]' : 'bg-slate-400'}`} />
-                                                <span>Furigana (Phiên âm)</span>
+                                                <span>{t('videoKaiwa.furigana', 'Furigana (Phiên âm)')}</span>
                                             </div>
                                             {showFurigana && <Check className="w-3.5 h-3.5 text-slate-900 dark:text-white" />}
                                         </button>
 
-                                        {/* Tiếng Việt Toggle */}
+                                        {/* Translation Toggle */}
                                         <button
                                             type="button"
                                             onClick={() => setShowVietnamese(!showVietnamese)}
@@ -683,7 +685,7 @@ const VideoKaiwaPlayer = ({
                                         >
                                             <div className="flex items-center gap-2">
                                                 <span className={`w-2 h-2 rounded-full ${showVietnamese ? 'bg-[#f494bc]' : 'bg-slate-400'}`} />
-                                                <span>Dịch Tiếng Việt</span>
+                                                <span>{t('videoKaiwa.translation', 'Dịch Tiếng Việt')}</span>
                                             </div>
                                             {showVietnamese && <Check className="w-3.5 h-3.5 text-slate-900 dark:text-white" />}
                                         </button>
@@ -697,7 +699,7 @@ const VideoKaiwaPlayer = ({
                             {/* Prev Sentence (Back) */}
                             <button
                                 onClick={handlePrevSentence}
-                                title="Câu thoại trước ( |<< )"
+                                title={t('videoKaiwa.prevLine', 'Câu thoại trước ( |<< )')}
                                 className="p-1.5 sm:p-2 lg:p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-all cursor-pointer active:scale-95 border border-slate-200 dark:border-slate-800 shadow-xs"
                             >
                                 <SkipBack className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
@@ -706,7 +708,7 @@ const VideoKaiwaPlayer = ({
                             {/* Replay Current Sentence (Nghe lại) */}
                             <button
                                 onClick={handleReplaySentence}
-                                title="Nghe lại câu hiện tại"
+                                title={t('videoKaiwa.replayLine', 'Nghe lại câu hiện tại')}
                                 className="p-1.5 sm:p-2 lg:p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-all cursor-pointer active:scale-95 border border-slate-200 dark:border-slate-800 shadow-xs"
                             >
                                 <RefreshCw className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
@@ -715,7 +717,7 @@ const VideoKaiwaPlayer = ({
                             {/* Big Center Play/Pause */}
                             <button
                                 onClick={handleTogglePlay}
-                                title={isPlaying ? 'Tạm dừng' : 'Phát'}
+                                title={isPlaying ? t('videoKaiwa.pause', 'Tạm dừng') : t('videoKaiwa.play', 'Phát')}
                                 className="w-9 h-9 sm:w-10 sm:h-10 lg:w-11 lg:h-11 rounded-full bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 font-black shadow-[0_6px_18px_rgba(244,148,188,0.5)] hover:shadow-[0_10px_25px_rgba(244,148,188,0.8)] flex items-center justify-center transition-all cursor-pointer active:scale-95 mx-0.5"
                             >
                                 {isPlaying ? <Pause className="w-4 h-4 sm:w-5 sm:h-5 fill-slate-950 text-slate-950" /> : <Play className="w-4 h-4 sm:w-5 sm:h-5 fill-slate-950 text-slate-950 ml-0.5" />}
@@ -724,7 +726,7 @@ const VideoKaiwaPlayer = ({
                             {/* Next Sentence */}
                             <button
                                 onClick={handleNextSentence}
-                                title="Câu thoại tiếp theo ( >>| )"
+                                title={t('videoKaiwa.nextLine', 'Câu thoại tiếp theo ( >>| )')}
                                 className="p-1.5 sm:p-2 lg:p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white transition-all cursor-pointer active:scale-95 border border-slate-200 dark:border-slate-800 shadow-xs"
                             >
                                 <SkipForward className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
@@ -736,7 +738,7 @@ const VideoKaiwaPlayer = ({
                             {/* Sentence Loop Toggle */}
                             <button
                                 onClick={handleToggleLoop}
-                                title="Lặp lại câu này liên tục (A-B Loop)"
+                                title={t('videoKaiwa.loopLine', 'Lặp lại câu này liên tục (A-B Loop)')}
                                 className={`flex items-center gap-1 p-1.5 sm:px-2.5 sm:py-1.5 lg:px-3 lg:py-2 rounded-xl text-xs font-bold transition-all cursor-pointer border shadow-xs ${
                                     isLoopingSentence
                                         ? 'bg-slate-200 dark:bg-slate-800 text-slate-900 dark:text-white border-slate-300 dark:border-slate-700 ring-1 ring-[#f494bc]/50'
@@ -744,7 +746,7 @@ const VideoKaiwaPlayer = ({
                                 }`}
                             >
                                 <Repeat className={`w-3.5 h-3.5 ${isLoopingSentence ? 'animate-spin' : ''}`} />
-                                <span className="hidden md:inline">Lặp câu</span>
+                                <span className="hidden md:inline">{t('videoKaiwa.loopShort', 'Lặp câu')}</span>
                             </button>
 
                             {/* Shadowing Practice Button */}
@@ -763,7 +765,7 @@ const VideoKaiwaPlayer = ({
                                         setIsPlaying(false);
                                         onOpenShadowingModal();
                                     }}
-                                    title="Luyện nói nhại lại câu này (Shadowing AI)"
+                                    title={t('videoKaiwa.shadowing', 'Luyện nói nhại lại câu này (Shadowing AI)')}
                                     className="flex items-center gap-1 p-1.5 sm:px-2.5 sm:py-1.5 lg:px-3 lg:py-2 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white border border-slate-200 dark:border-slate-800 transition-all cursor-pointer active:scale-95 shadow-xs"
                                 >
                                     <Mic className="w-3.5 h-3.5 text-slate-600 dark:text-slate-400" />
@@ -776,7 +778,7 @@ const VideoKaiwaPlayer = ({
                                 <button
                                     type="button"
                                     onClick={handleToggleMute}
-                                    title={isMuted || volume === 0 ? "Bật âm thanh" : "Tắt tiếng"}
+                                    title={isMuted || volume === 0 ? t('videoKaiwa.unmute', 'Bật âm thanh') : t('videoKaiwa.mute', 'Tắt tiếng')}
                                     className="text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-white transition cursor-pointer flex items-center justify-center"
                                 >
                                     {isMuted || volume === 0 ? <VolumeX className="w-3.5 h-3.5 text-rose-500" /> : <Volume2 className="w-3.5 h-3.5" />}
@@ -825,7 +827,7 @@ const VideoKaiwaPlayer = ({
                             {/* Fullscreen Button */}
                             <button
                                 onClick={handleToggleFullscreen}
-                                title="Toàn màn hình"
+                                title={t('videoKaiwa.fullscreen', 'Toàn màn hình')}
                                 className="p-1.5 sm:p-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-900 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white border border-slate-200 dark:border-slate-800 transition-colors cursor-pointer shadow-xs"
                             >
                                 {isFullscreen ? <Minimize className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> : <Maximize className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}

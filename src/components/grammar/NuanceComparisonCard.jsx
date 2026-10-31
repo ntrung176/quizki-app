@@ -1,7 +1,10 @@
 import React from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 import { Scale, ArrowRightLeft, Check, HelpCircle } from 'lucide-react';
 
-const NuanceComparisonCard = ({ comparisons, title = "Phân biệt sắc thái & Mẫu câu tương tự" }) => {
+const NuanceComparisonCard = ({ comparisons, title }) => {
+    const { t } = useLanguage();
+    const displayTitle = title || t('grammar.nuanceTitle', 'Phân biệt sắc thái & Mẫu câu tương tự');
     if (!comparisons || comparisons.length === 0) return null;
 
     return (
@@ -13,9 +16,9 @@ const NuanceComparisonCard = ({ comparisons, title = "Phân biệt sắc thái &
                 </div>
                 <div>
                     <h3 className="text-base font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-                        {title}
+                        {displayTitle}
                     </h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400">Trực quan hóa sự khác biệt giữa các cấu trúc dễ nhầm</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">{t('grammar.nuanceSubtitle', 'Trực quan hóa sự khác biệt giữa các cấu trúc dễ nhầm')}</p>
                 </div>
             </div>
 

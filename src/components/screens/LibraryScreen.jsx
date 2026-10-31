@@ -122,14 +122,14 @@ const LibraryScreen = ({
 
     // Get Study Set info for a specific card
     const getCardStudySetInfo = useCallback((card) => {
-        if (!card) return { id: 'unfiled', name: 'Chưa phân loại', parentName: null };
+        if (!card) return { id: 'unfiled', name: t('vocab.unfiled'), parentName: null };
         const folderId = cardFolders[card.id] || card.folderId;
         if (!folderId || folderId === 'unfiled') {
-            return { id: 'unfiled', name: 'Chưa phân loại', parentName: null };
+            return { id: 'unfiled', name: t('vocab.unfiled'), parentName: null };
         }
         const folder = folders.find(f => f.id === folderId);
         if (!folder) {
-            return { id: 'unfiled', name: 'Chưa phân loại', parentName: null };
+            return { id: 'unfiled', name: t('vocab.unfiled'), parentName: null };
         }
         const parentFolder = folder.parentId ? parentFolders.find(p => p.id === folder.parentId) : null;
         return {
@@ -392,18 +392,18 @@ const LibraryScreen = ({
                                 <div className="px-4 py-2.5 bg-slate-50/90 dark:bg-slate-800/50 flex items-center justify-between">
                                     <div className="flex items-center gap-1.5">
                                         <span className="text-xs font-bold text-slate-700 dark:text-slate-200">
-                                            Từ vựng khớp ({globalMatchedCards.length})
+                                            {t('library.matchedWords', { count: globalMatchedCards.length })}
                                         </span>
                                     </div>
                                     <span className="text-[10px] text-slate-400 font-medium italic">
-                                        Bấm vào từ để chỉnh sửa trực tiếp
+                                        {t('library.clickToEditDirectly')}
                                     </span>
                                 </div>
 
                                 <div className="max-h-[340px] overflow-y-auto p-2 space-y-1.5 custom-scrollbar">
                                     {globalMatchedCards.length === 0 ? (
                                         <div className="py-8 text-center text-xs text-slate-400 dark:text-slate-500 italic">
-                                            Không tìm thấy từ vựng nào khớp với &quot;{searchQuery}&quot;
+                                            {t('library.noMatchingVocab', 'No vocabulary found matching "{query}"').replace('{query}', searchQuery)}
                                         </div>
                                     ) : (
                                         globalMatchedCards.slice(0, 50).map((c) => {
@@ -453,10 +453,10 @@ const LibraryScreen = ({
                                                                 setIsSearchDropdownOpen(false);
                                                             }}
                                                             className="px-2.5 py-1.5 bg-cyan-600 hover:bg-cyan-700 text-white rounded-lg text-[11px] font-bold flex items-center gap-1 shadow-xs transition-transform active:scale-95 cursor-pointer"
-                                                            title="Chỉnh sửa từ vựng này"
+                                                            title={t('vocab.editCard')}
                                                         >
                                                             <Edit3 className="w-3 h-3" />
-                                                            <span>Sửa</span>
+                                                            <span>{t('common.edit')}</span>
                                                         </button>
                                                     </div>
                                                 </div>
@@ -465,7 +465,7 @@ const LibraryScreen = ({
                                     )}
                                     {globalMatchedCards.length > 50 && (
                                         <p className="text-center text-[10px] text-slate-400 italic py-1 font-medium">
-                                            Hiển thị 50 / {globalMatchedCards.length} từ vựng khớp...
+                                            {t('library.showingMatchedCards', { count: globalMatchedCards.length })}
                                         </p>
                                     )}
                                 </div>
@@ -505,7 +505,7 @@ const LibraryScreen = ({
                                 }`}
                             >
                                 <Move className="w-4 h-4 animate-bounce" />
-                                Kéo học phần vào đây để đưa ra ngoài thư mục
+                                {t('library.dropSetHere')}
                             </div>
                         )}
 
@@ -534,9 +534,9 @@ const LibraryScreen = ({
                             {onAddParentFolder && (
                                 <button
                                     onClick={() => setShowCreateFolderModal(true)}
-                                    className="px-3.5 py-1.5 sm:px-4 sm:py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-100 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shrink-0 border border-slate-200 dark:border-slate-700 cursor-pointer shadow-xs active:scale-95"
+                                    className="px-3.5 py-2 sm:px-4 sm:py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 border-b-4 border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-100 rounded-2xl text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 shrink-0 cursor-pointer select-none"
                                 >
-                                    <FolderPlus className="w-4 h-4 text-cyan-500" />
+                                    <FolderPlus className="w-4 h-4 text-sky-500" />
                                     <span>{t('library.newFolder', 'Thư mục mới')}</span>
                                 </button>
                             )}
@@ -544,7 +544,7 @@ const LibraryScreen = ({
 
                         {parentFoldersWithCounts.length === 0 ? (
                             <div className="p-6 sm:p-8 text-center bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md text-slate-400 dark:text-slate-500 text-xs italic">
-                                {searchQuery ? 'Không tìm thấy thư mục nào phù hợp.' : 'Chưa có thư mục nào. Bạn có thể nhấn "Thư mục mới" ở trên để phân loại học phần.'}
+                                {searchQuery ? t('library.noFoldersFound') : t('library.noFolders')}
                             </div>
                         ) : (
                             <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-5">
@@ -584,7 +584,7 @@ const LibraryScreen = ({
                                                                 setEditingParentFolder({ id: folder.id, name: folder.name });
                                                             }}
                                                             className="p-1 hover:bg-slate-100 dark:hover:bg-slate-800 rounded text-slate-400 hover:text-cyan-500"
-                                                            title="Sửa tên thư mục"
+                                                            title={t('library.editFolderName')}
                                                         >
                                                             <Edit3 className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                                                         </button>
@@ -594,7 +594,7 @@ const LibraryScreen = ({
                                                                 setDeletingParentFolder(folder);
                                                             }}
                                                             className="p-1 hover:bg-red-50 dark:hover:bg-red-950/30 rounded text-slate-400 hover:text-red-500"
-                                                            title="Xóa thư mục"
+                                                            title={t('library.deleteFolder')}
                                                         >
                                                             <Trash2 className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                                                         </button>
@@ -623,7 +623,7 @@ const LibraryScreen = ({
                                                         if (matchedCount > 0) {
                                                             return (
                                                                 <span className="inline-block mt-1 text-[8px] sm:text-[9px] font-mono font-bold text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/45 px-1.5 py-0.5 rounded-lg border border-cyan-200 dark:border-cyan-800/40">
-                                                                    Khớp {matchedCount} từ
+                                                                    {t('library.matchedCardsCount', '{count} matching words').replace('{count}', matchedCount)}
                                                                 </span>
                                                             );
                                                         }
@@ -644,22 +644,22 @@ const LibraryScreen = ({
                     <div className="flex items-center justify-between gap-3 flex-wrap">
                         <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2 flex-wrap">
                             <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-500" />
-                            <span>{searchQuery ? 'Kết quả tìm kiếm học phần' : (activeParentFolderId ? 'Học phần trong thư mục này' : t('library.studySets', 'Học phần'))}</span>
+                            <span>{searchQuery ? t('library.searchSetResults', 'Study Set Search Results') : (activeParentFolderId ? t('library.setsInThisFolder', 'Sets in this folder') : t('library.studySets', 'Study Sets'))}</span>
                             <span className="text-xs font-mono font-bold text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full">
                                 ({filteredStudySets.length})
                             </span>
                             {draggedStudySetId && (
                                 <span className="text-[10px] sm:text-xs bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-600 dark:text-cyan-400 font-mono font-bold px-2.5 py-0.5 rounded-full animate-pulse">
-                                    Kéo thả học phần vào thư mục
+                                    {t('library.dragSetsHint', 'Drag sets into folders')}
                                 </span>
                             )}
                         </h2>
 
                         <button 
                             onClick={onNavigateToAdd}
-                            className="px-3.5 py-1.5 sm:px-4 sm:py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-md shadow-emerald-500/20 transition-all flex items-center gap-1.5 shrink-0 active:scale-95 cursor-pointer"
+                            className="px-4 py-2 sm:px-5 sm:py-2.5 bg-sky-500 hover:bg-sky-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-sky-700 text-white rounded-2xl text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 shrink-0 cursor-pointer select-none"
                         >
-                            <Plus className="w-4 h-4" />
+                            <Plus className="w-4 h-4 stroke-[3]" />
                             <span>{t('library.newSet', 'Tạo học phần mới')}</span>
                         </button>
                     </div>
@@ -681,9 +681,9 @@ const LibraryScreen = ({
                                     </div>
                                     <div>
                                         <h3 className="text-sm sm:text-lg font-bold text-slate-900 dark:text-white leading-tight group-hover:text-cyan-500 transition-colors">
-                                            Từ vựng lẻ
+                                            {t('library.unfiledTitle', 'Unfiled Cards')}
                                         </h3>
-                                        <p className="text-[11px] sm:text-xs text-slate-400 mt-0.5 sm:mt-1 font-medium">Các từ vựng chưa phân loại</p>
+                                        <p className="text-[11px] sm:text-xs text-slate-400 mt-0.5 sm:mt-1 font-medium">{t('library.unfiledDesc')}</p>
                                     </div>
                                 </div>
                                 <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] sm:text-xs font-mono font-bold text-slate-500">
@@ -716,7 +716,7 @@ const LibraryScreen = ({
                                                     setMovingStudySet({ id: folder.id, name: folder.name, parentId: folder.parentId });
                                                 }}
                                                 className="p-1 sm:p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-indigo-500 transition-colors flex items-center justify-center cursor-pointer"
-                                                title="Di chuyển học phần vào thư mục"
+                                                title={t('library.moveSet')}
                                             >
                                                 <Move className="w-3.5 h-3.5" />
                                             </button>
@@ -728,7 +728,7 @@ const LibraryScreen = ({
                                                         setEditingStudySet({ id: folder.id, name: folder.name });
                                                     }}
                                                     className="p-1 sm:p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-emerald-500 transition-colors flex items-center justify-center cursor-pointer"
-                                                    title="Sửa tên học phần"
+                                                    title={t('library.editSetName')}
                                                 >
                                                     <Edit3 className="w-3.5 h-3.5" />
                                                 </button>
@@ -740,7 +740,7 @@ const LibraryScreen = ({
                                                     navigate(`/vocab/edit-set/${folder.id}`);
                                                 }}
                                                 className="p-1 sm:p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-emerald-500 transition-colors flex items-center justify-center cursor-pointer"
-                                                title="Thêm từ vựng nhanh vào học phần này"
+                                                title={t('vocab.addVocab')}
                                             >
                                                 <Plus className="w-3.5 h-3.5" />
                                             </button>
@@ -749,7 +749,7 @@ const LibraryScreen = ({
                                                 <button
                                                     onClick={(e) => handleDeleteFolder(e, folder)}
                                                     className="p-1 sm:p-1.5 rounded-lg hover:bg-red-50 dark:hover:bg-red-950/30 text-slate-400 hover:text-red-500 transition-colors flex items-center justify-center cursor-pointer"
-                                                    title="Xoá học phần"
+                                                    title={t('library.deleteSet')}
                                                 >
                                                     <Trash2 className="w-3.5 h-3.5" />
                                                 </button>
@@ -794,9 +794,9 @@ const LibraryScreen = ({
                                                 <div className="mt-2.5 flex flex-wrap gap-1.5 bg-emerald-50/70 dark:bg-emerald-950/30 p-2.5 rounded-xl border border-emerald-200/60 dark:border-emerald-900/40">
                                                     <div className="flex items-center justify-between w-full mb-1">
                                                         <span className="text-[10px] font-mono font-bold text-emerald-700 dark:text-emerald-400 flex items-center gap-1">
-                                                            Từ vựng khớp ({matchedCards.length}):
+                                                            {t('library.matchedWords', { count: matchedCards.length })}:
                                                         </span>
-                                                        <span className="text-[9px] text-emerald-600/80 dark:text-emerald-400/80 italic font-medium">Bấm để sửa</span>
+                                                        <span className="text-[9px] text-emerald-600/80 dark:text-emerald-400/80 italic font-medium">{t('common.clickToEdit')}</span>
                                                     </div>
                                                     {displayCards.map((c, idx) => (
                                                         <button
@@ -807,7 +807,7 @@ const LibraryScreen = ({
                                                                 setEditingCard(c);
                                                             }}
                                                             className="text-[11px] px-2 py-1 bg-white dark:bg-slate-900 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 text-emerald-900 dark:text-emerald-200 rounded-lg font-medium border border-emerald-200 dark:border-emerald-800 transition-all hover:scale-105 active:scale-95 flex items-center gap-1.5 shadow-xs cursor-pointer group/btn"
-                                                            title="Bấm để chỉnh sửa trực tiếp từ vựng này"
+                                                            title={t('common.clickToEdit')}
                                                         >
                                                             <span className="font-japanese font-bold"><FuriganaText text={c.frontWithFurigana || c.front} knownReading={c.reading} /></span>
                                                             <span className="text-slate-500 dark:text-slate-400 text-[10px]">({c.back})</span>
@@ -823,7 +823,7 @@ const LibraryScreen = ({
                                                             }}
                                                             className="text-[10px] px-2 py-1 bg-emerald-100/80 dark:bg-emerald-900/60 hover:bg-emerald-200 dark:hover:bg-emerald-800 text-emerald-800 dark:text-emerald-300 rounded-md font-mono font-bold transition-colors self-center cursor-pointer"
                                                         >
-                                                            {isExpanded ? 'Thu gọn' : `+${matchedCards.length - 3} khác`}
+                                                            {isExpanded ? t('common.collapse') : t('library.moreCardsCount', '+{count} more').replace('{count}', matchedCards.length - 3)}
                                                         </button>
                                                     )}
                                                 </div>
@@ -875,14 +875,14 @@ const LibraryScreen = ({
                                 <Library className="w-7 h-7 text-gray-400" />
                             </div>
                             <h2 className="text-lg font-bold text-gray-800 dark:text-white mb-2">
-                                {searchQuery ? 'Không tìm thấy kết quả' : 'Thư mục trống'}
+                                {searchQuery ? t('library.noSearchResults', 'No results found') : t('library.emptyFolder', 'Empty Folder')}
                             </h2>
                             <p className="text-gray-500 dark:text-gray-400 max-w-xs text-xs font-medium">
-                                {searchQuery 
-                                    ? 'Không tìm thấy học phần nào phù hợp với tìm kiếm của bạn.'
-                                    : (activeParentFolderId 
-                                        ? 'Thư mục này chưa chứa học phần nào. Hãy kéo thả học phần bên ngoài vào đây hoặc bấm di chuyển.' 
-                                        : 'Bạn chưa có học phần cá nhân nào. Hãy bấm "Tạo học phần mới" nhé!')}
+                                {searchQuery
+                                    ? t('library.noSearchResultsDesc', 'No study sets matched your search query.')
+                                    : (activeParentFolderId
+                                        ? t('library.noSetsInFolder', 'This folder has no study sets yet. Drag sets here or click move.')
+                                        : t('library.noPersonalSets', 'You do not have any custom sets yet. Click "Create New Set" to start!'))}
                             </p>
                         </div>
                     )}
@@ -899,7 +899,7 @@ const LibraryScreen = ({
                                     <Move className="w-5 h-5 text-indigo-500" />
                                 </div>
                                 <div className="min-w-0">
-                                    <h3 className="font-extrabold text-base sm:text-lg text-slate-900 dark:text-white truncate">Di chuyển học phần</h3>
+                                    <h3 className="font-extrabold text-base sm:text-lg text-slate-900 dark:text-white truncate">{t('library.moveStudySetTitle')}</h3>
                                     <p className="text-xs text-slate-500 dark:text-slate-400 truncate">"{movingStudySet.name}"</p>
                                 </div>
                             </div>
@@ -909,7 +909,7 @@ const LibraryScreen = ({
                         </div>
 
                         <p className="text-xs font-semibold text-slate-600 dark:text-slate-300">
-                            Chọn thư mục đích để chuyển học phần này vào:
+                            {t('library.selectTargetFolder')}
                         </p>
 
                         <div className="space-y-2 max-h-60 overflow-y-auto custom-scrollbar pr-1">
@@ -925,9 +925,9 @@ const LibraryScreen = ({
                             >
                                 <div className="flex items-center gap-2.5">
                                     <Library className="w-4 h-4 text-indigo-500 shrink-0" />
-                                    <span className="text-xs font-semibold">Gốc (Không thuộc thư mục nào)</span>
+                                    <span className="text-xs font-semibold">{t('library.rootFolder')}</span>
                                 </div>
-                                {!movingStudySet.parentId && <span className="text-[10px] font-mono bg-indigo-500 text-white px-2 py-0.5 rounded-full font-bold">Hiện tại</span>}
+                                {!movingStudySet.parentId && <span className="text-[10px] font-mono bg-indigo-500 text-white px-2 py-0.5 rounded-full font-bold">{t('library.currentBadge')}</span>}
                             </button>
 
                             {/* Options: Parent Folders */}
@@ -948,7 +948,7 @@ const LibraryScreen = ({
                                             <FolderOpen className="w-4 h-4 text-cyan-500 shrink-0" />
                                             <span className="text-xs font-semibold truncate">{pf.name}</span>
                                         </div>
-                                        {isCurrent && <span className="text-[10px] font-mono bg-cyan-500 text-white px-2 py-0.5 rounded-full font-bold shrink-0">Hiện tại</span>}
+                                        {isCurrent && <span className="text-[10px] font-mono bg-cyan-500 text-white px-2 py-0.5 rounded-full font-bold shrink-0">{t('library.currentBadge')}</span>}
                                     </button>
                                 );
                             })}
@@ -967,13 +967,13 @@ const LibraryScreen = ({
                                 <FolderPlus className="w-5 h-5 text-indigo-500" />
                             </div>
                             <div>
-                                <h3 className="font-bold text-lg text-gray-800 dark:text-white">Thư mục mới</h3>
-                                <p className="text-xs text-gray-400">Tạo thư mục để gom nhóm các học phần.</p>
+                                <h3 className="font-bold text-lg text-gray-800 dark:text-white">{t('library.newFolderTitle', 'New Folder')}</h3>
+                                <p className="text-xs text-gray-400">{t('library.newFolderDesc', 'Create a folder to group study sets together.')}</p>
                             </div>
                         </div>
                         <input
                             type="text"
-                            placeholder="Nhập tên thư mục..."
+                            placeholder={t('library.folderNamePlaceholder')}
                             value={newFolderName}
                             onChange={(e) => setNewFolderName(e.target.value)}
                             required
@@ -986,13 +986,13 @@ const LibraryScreen = ({
                                 onClick={() => setShowCreateFolderModal(false)}
                                 className="flex-1 py-2.5 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-650 transition-colors text-xs"
                             >
-                                Huỷ
+                                {t('common.cancel', 'Cancel')}
                             </button>
                             <button
                                 type="submit"
                                 className="flex-1 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-colors text-xs shadow-md"
                             >
-                                Tạo thư mục
+                                {t('library.createFolderBtn', 'Create Folder')}
                             </button>
                         </div>
                     </form>
@@ -1009,13 +1009,13 @@ const LibraryScreen = ({
                                 <Folder className="w-5 h-5 text-indigo-500" />
                             </div>
                             <div>
-                                <h3 className="font-bold text-lg text-gray-800 dark:text-white">Đổi tên thư mục</h3>
-                                <p className="text-xs text-gray-400">Thay đổi tên gọi của thư mục.</p>
+                                <h3 className="font-bold text-lg text-gray-800 dark:text-white">{t('library.renameFolderTitle', 'Rename Folder')}</h3>
+                                <p className="text-xs text-gray-400">{t('library.renameFolderDesc', 'Change folder name.')}</p>
                             </div>
                         </div>
                         <input
                             type="text"
-                            placeholder="Nhập tên mới..."
+                            placeholder={t('library.renamePlaceholder')}
                             value={editingParentFolder.name}
                             onChange={(e) => setEditingParentFolder({ ...editingParentFolder, name: e.target.value })}
                             required
@@ -1027,15 +1027,11 @@ const LibraryScreen = ({
                                 type="button"
                                 onClick={() => setEditingParentFolder(null)}
                                 className="flex-1 py-2.5 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-650 transition-colors text-xs"
-                            >
-                                Huỷ
-                            </button>
+                            >{t('common.cancel', 'Cancel')}</button>
                             <button
                                 type="submit"
                                 className="flex-1 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-colors text-xs shadow-md"
-                            >
-                                Lưu thay đổi
-                            </button>
+                            >{t('library.saveChanges', 'Save Changes')}</button>
                         </div>
                     </form>
                 </div>
@@ -1051,26 +1047,23 @@ const LibraryScreen = ({
                                 <Trash2 className="w-5 h-5 text-red-500" />
                             </div>
                             <div>
-                                <h3 className="font-bold text-lg text-gray-800 dark:text-white">Xóa thư mục</h3>
-                                <p className="text-xs text-gray-400">Thao tác này không thể hoàn tác.</p>
+                                <h3 className="font-bold text-lg text-gray-800 dark:text-white">{t('library.deleteFolderConfirmTitle')}</h3>
+                                <p className="text-xs text-gray-400">{t('common.cannotUndo')}</p>
                             </div>
                         </div>
                         <p className="text-gray-600 dark:text-gray-300 text-sm font-medium">
-                            Bạn có chắc muốn xóa thư mục <strong>"{deletingParentFolder.name}"</strong>? 
-                            Các học phần bên trong thư mục này sẽ **không** bị xóa, chúng sẽ quay về danh sách học phần riêng lẻ bên ngoài.
+                            {t('library.deleteFolderConfirmBody', 'Are you sure you want to delete folder "{name}"?').replace('{name}', deletingParentFolder.name)}
                         </p>
                         <div className="flex gap-3 pt-2">
                             <button
                                 onClick={() => setDeletingParentFolder(null)}
                                 className="flex-1 py-2.5 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-650 transition-colors text-xs"
-                            >
-                                Huỷ
-                            </button>
+                            >{t('common.cancel', 'Cancel')}</button>
                             <button
                                 onClick={handleDeleteParentFolderConfirm}
                                 className="flex-1 py-2.5 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl transition-colors text-xs shadow-md"
                             >
-                                Xác nhận xóa
+                                {t('library.deleteFolderConfirmBtn', 'Confirm Delete')}
                             </button>
                         </div>
                     </div>
@@ -1088,25 +1081,23 @@ const LibraryScreen = ({
                                 <Trash2 className="w-5 h-5 text-red-500" />
                             </div>
                             <div>
-                                <h3 className="font-bold text-lg text-gray-800 dark:text-white">Xoá học phần</h3>
-                                <p className="text-xs text-gray-500 dark:text-gray-400">Thao tác này không thể hoàn tác.</p>
+                                <h3 className="font-bold text-lg text-gray-800 dark:text-white">{t('library.deleteSetConfirmTitle')}</h3>
+                                <p className="text-xs text-gray-500 dark:text-gray-400">{t('common.cannotUndo')}</p>
                             </div>
                         </div>
                         <p className="text-gray-600 dark:text-gray-300 text-sm font-medium">
-                            Bạn có chắc muốn xoá học phần <strong>"{deletingFolder.name}"</strong>? Toàn bộ từ vựng trong học phần này cũng sẽ bị xoá vĩnh viễn.
+                            {t('library.deleteSetConfirmBody', 'Are you sure you want to delete "{name}"? All cards in this set will be permanently removed.').replace('{name}', deletingFolder.name)}
                         </p>
                         <div className="flex gap-3">
                             <button
                                 onClick={() => setDeletingFolder(null)}
                                 className="flex-1 py-2.5 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-650 transition-colors text-xs"
-                            >
-                                Huỷ
-                            </button>
+                            >{t('common.cancel', 'Cancel')}</button>
                             <button
                                 onClick={confirmDelete}
                                 className="flex-1 py-2.5 bg-red-500 hover:bg-red-600 text-white font-bold rounded-xl transition-colors text-xs"
                             >
-                                Xoá
+                                {t('common.delete', 'Delete')}
                             </button>
                         </div>
                     </div>
@@ -1123,13 +1114,13 @@ const LibraryScreen = ({
                                 <Layers className="w-5 h-5 text-indigo-500" />
                             </div>
                             <div>
-                                <h3 className="font-bold text-lg text-gray-800 dark:text-white">Đổi tên học phần</h3>
-                                <p className="text-xs text-gray-400">Thay đổi tên gọi của học phần này.</p>
+                                <h3 className="font-bold text-lg text-gray-800 dark:text-white">{t('library.renameSetTitle', 'Rename Study Set')}</h3>
+                                <p className="text-xs text-gray-400">{t('library.renameSetDesc', 'Change the name of this study set.')}</p>
                             </div>
                         </div>
                         <input
                             type="text"
-                            placeholder="Nhập tên mới..."
+                            placeholder={t('library.renamePlaceholder', 'Enter new name...')}
                             value={editingStudySet.name}
                             onChange={(e) => setEditingStudySet({ ...editingStudySet, name: e.target.value })}
                             required
@@ -1141,15 +1132,11 @@ const LibraryScreen = ({
                                 type="button"
                                 onClick={() => setEditingStudySet(null)}
                                 className="flex-1 py-2.5 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-bold rounded-xl hover:bg-gray-200 dark:hover:bg-slate-650 transition-colors text-xs"
-                            >
-                                Huỷ
-                            </button>
+                            >{t('common.cancel', 'Cancel')}</button>
                             <button
                                 type="submit"
                                 className="flex-1 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-colors text-xs shadow-md"
-                            >
-                                Lưu thay đổi
-                            </button>
+                            >{t('library.saveChanges', 'Save Changes')}</button>
                         </div>
                     </form>
                 </div>
@@ -1165,7 +1152,7 @@ const LibraryScreen = ({
                             await onUpdateCard(cardIdOrData, 'all', updatedData);
                         }
                         setEditingCard(null);
-                        showToast('Đã cập nhật từ vựng thành công!', 'success');
+                        showToast(t('library.vocabUpdatedSuccess', 'Vocabulary updated successfully!'), 'success');
                     }}
                     onClose={() => setEditingCard(null)}
                     onGeminiAssist={onGeminiAssist}

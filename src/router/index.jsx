@@ -7,6 +7,7 @@ export const ROUTES = {
     // General
     HOME: '/',
     LOGIN: '/login',
+    ONBOARDING: '/onboarding',
     ACCOUNT: '/account',
     HELP: '/help',
     PRIVACY: '/privacy',
@@ -88,7 +89,7 @@ export const ProtectedRoute = ({ children, isAuthenticated, authReady = true }) 
         return <LoadingIndicator fullScreen message="Đang kiểm tra đăng nhập..." />;
     }
     if (!isAuthenticated) {
-        return <Navigate to={ROUTES.LOGIN} replace />;
+        return <Navigate to={ROUTES.HOME} replace />;
     }
 
     return children;

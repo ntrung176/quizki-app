@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 import { FileCheck, X, Check, Languages, BookOpen, Wrench, ArrowLeft } from 'lucide-react'
 import { shuffleArray } from '../../utils/textProcessing';
 import { celebrateCorrectAnswer, flashCorrect, launchFanfare } from '../../utils/celebrations'
 import { playCorrectSound, playIncorrectSound } from '../../utils/soundEffects';
 import { showToast } from '../../utils/toast';
 const TestScreen = ({ allCards, onBack }) => {
+    const { t } = useLanguage();
     const [testMode, setTestMode] = useState(null);
     const [testType, setTestType] = useState(null);
     const [showConfig, setShowConfig] = useState(false);
@@ -43,7 +45,7 @@ const TestScreen = ({ allCards, onBack }) => {
                     // Use first example line for context if multiple
                     const firstExample = (card.example || '').split('\n')[0].trim();
                     return {
-                        question: `Cách đọc của "___BOLD___${kanjiOnly}___BOLD___" là:`,
+                        question: t('test.readingQuestion', 'Reading of "___BOLD___{word}___BOLD___" is:').replace('{word}', kanjiOnly),
                         context: firstExample,
                         options: options,
                         correctAnswer: correctAnswer,
@@ -64,7 +66,7 @@ const TestScreen = ({ allCards, onBack }) => {
                     const firstExample = (card.example || '').split('\n')[0].trim();
                     const contextWithHiragana = firstExample.replace(kanjiOnly, hiragana);
                     return {
-                        question: `Kanji của "___BOLD___${hiragana}___BOLD___" là:`,
+                        question: t('test.kanjiQuestion', 'Kanji for "___BOLD___{word}___BOLD___" is:').replace('{word}', hiragana),
                         context: contextWithHiragana || '',
                         options: options,
                         correctAnswer: correctAnswer,
@@ -87,7 +89,7 @@ const TestScreen = ({ allCards, onBack }) => {
                         const wrongOptions = generateSimilarVocab(card, allCards, 3);
                         const options = shuffleArray([correctAnswer, ...wrongOptions]);
                         return {
-                            question: `Chọn từ phù hợp để điền vào chỗ trống:`,
+                            question: t('test.fillBlankQuestion', 'Choose the correct word to fill in the blank:'),
                             context: blankSentence,
                             options: options,
                             correctAnswer: correctAnswer,
@@ -106,12 +108,12 @@ const TestScreen = ({ allCards, onBack }) => {
                         const wrongOptions = generateWrongSynonyms(card, allCards, 3);
                         const options = shuffleArray([correctAnswer, ...wrongOptions]);
                         return {
-                            question: `Từ đồng nghĩa với "___BOLD___${card.front}___BOLD___" là:`,
+                            question: t('test.synonymQuestion', 'Synonym of "___BOLD___{word}___BOLD___" is:').replace('{word}', card.front),
                             context: '',
                             options: options,
                             correctAnswer: correctAnswer,
-                            explanation: `${card.front} = ${card.synonym}. Nghĩa: ${card.back}`,
-                            vocabWord: `${card.front} (Đồng nghĩa: ${card.synonym})`,
+                            explanation: t('test.synonymExplanation', '{word} = {synonym}. Meaning: {meaning}').replace('{word}', card.front).replace('{synonym}', card.synonym).replace('{meaning}', card.back),
+                            vocabWord: t('test.synonymVocabWord', '{word} (Synonym: {synonym})').replace('{word}', card.front).replace('{synonym}', card.synonym),
                             vocabMeaning: card.back
                         };
                     });
@@ -346,21 +348,19 @@ const TestScreen = ({ allCards, onBack }) => {
                     </div>
                     <div>
                         <h2 className="text-4xl font-black text-gray-800 dark:text-gray-100 mb-3">
-                            {passed ? 'Tuyệt vời! 🎉' : 'Hoàn thành! 💪'}
+                            {passed ? t('test.greatJob', 'Tuyệt vời! 🎉') : t('test.completed', 'Hoàn thành! 💪')}
                         </h2>
                         <p className="text-gray-500 dark:text-gray-400 font-medium text-lg">
-                            Bạn đã hoàn thành bài kiểm tra này.
+                            {t('test.completedSub', 'Bạn đã hoàn thành bài kiểm tra này.')}
                         </p>
                         <p className="text-indigo-600 dark:text-indigo-400 font-bold text-xl mt-2">
-                            Đạt {score}/{questions.length} câu đúng ({percentage}%)
+                            {t('test.scoreResult', 'Đạt {score}/{total} câu đúng ({percent}%)').replace('{score}', score).replace('{total}', questions.length).replace('{percent}', percentage)}
                         </p>
                     </div>
                     <button
                         onClick={() => { if (onBack) onBack(); }}
-                        className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-sky-500 dark:from-indigo-500 dark:to-sky-500 text-white font-bold rounded-xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transition-all"
-                    >
-                        Trở về
-                    </button>
+                        className="px-8 py-3.5 bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white font-black text-xs uppercase tracking-wider rounded-2xl transition-all cursor-pointer select-none"
+                    >{t('test.returnBtn', 'Trở về')}</button>
                 </div>
             </div>
         );
@@ -369,12 +369,12 @@ const TestScreen = ({ allCards, onBack }) => {
     if (testMode && questions.length > 0) {
         const currentQuestion = questions[currentQuestionIndex];
         return (
-            <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-sky-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-8">
+            <div className="relative min-h-screen bg-transparent p-4 md:p-8">
                 {onBack && (
                     <button
                         onClick={onBack}
                         className="absolute top-4 left-4 z-50 p-2 rounded-xl bg-white/80 hover:bg-white dark:bg-slate-800/80 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-200 shadow-md backdrop-blur-sm transition-all border border-gray-200 dark:border-slate-700 hover:scale-105"
-                        title="Trở lại"
+                        title={t('test.back', 'Trở lại')}
                     >
                         <ArrowLeft className="w-5 h-5 md:w-6 md:h-6" />
                     </button>
@@ -384,8 +384,8 @@ const TestScreen = ({ allCards, onBack }) => {
                         {/* Progress bar */}
                         <div className="mb-6">
                             <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400 mb-2">
-                                <span>Câu {currentQuestionIndex + 1}/{questions.length}</span>
-                                <span>Điểm: {score}</span>
+                                <span>{t('test.questionProgress', 'Câu {current}/{total}').replace('{current}', currentQuestionIndex + 1).replace('{total}', questions.length)}</span>
+                                <span>{t('test.scoreLabel', 'Điểm: {score}').replace('{score}', score)}</span>
                             </div>
                             <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                                 <div
@@ -416,19 +416,19 @@ const TestScreen = ({ allCards, onBack }) => {
                                     <div
                                         key={idx}
                                         onClick={(e) => { if (!isAnswered) handleAnswerSelect(option, e); }}
-                                        className={`w-full p-4 rounded-xl text-left font-medium transition-all border-2 ${showCorrect
-                                            ? 'bg-green-100 dark:bg-green-900/30 border-2 border-green-500 dark:border-green-600 text-green-800 dark:text-green-300'
+                                        className={`w-full p-4 rounded-2xl text-left font-bold transition-all border-2 border-b-4 active:translate-y-0.5 active:border-b-2 select-none ${showCorrect
+                                            ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 dark:border-emerald-600 text-emerald-800 dark:text-emerald-300'
                                             : showWrong
-                                                ? 'bg-red-100 dark:bg-red-900/30 border-2 border-red-500 dark:border-red-600 text-red-800 dark:text-red-300'
+                                                ? 'bg-rose-50 dark:bg-rose-950/40 border-rose-500 dark:border-rose-600 text-rose-800 dark:text-rose-300'
                                                 : isSelected
-                                                    ? 'bg-indigo-100 dark:bg-indigo-900/30 border-2 border-indigo-500 dark:border-indigo-600 text-gray-900 dark:text-gray-100'
-                                                    : 'bg-gray-50 dark:bg-gray-700 border-2 border-gray-200 dark:border-gray-600 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 text-gray-900 dark:text-gray-100'
+                                                    ? 'bg-sky-50 dark:bg-sky-950/40 border-sky-500 dark:border-sky-600 text-slate-900 dark:text-white'
+                                                    : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 text-slate-800 dark:text-slate-100 shadow-xs'
                                             } ${isAnswered ? 'cursor-default' : 'cursor-pointer'}`}
                                     >
                                         <div className="flex items-center justify-between">
-                                            <span className="font-japanese">{option}</span>
-                                            {showCorrect && <Check className="w-5 h-5" />}
-                                            {showWrong && <X className="w-5 h-5" />}
+                                            <span className="font-japanese text-base">{option}</span>
+                                            {showCorrect && <Check className="w-5 h-5 text-emerald-600" strokeWidth={3} />}
+                                            {showWrong && <X className="w-5 h-5 text-rose-600" strokeWidth={3} />}
                                         </div>
                                     </div>
                                 );
@@ -436,29 +436,29 @@ const TestScreen = ({ allCards, onBack }) => {
                         </div>
                         {/* Explanation */}
                         {isAnswered && (
-                            <div className={`p-4 rounded-xl mb-6 ${selectedAnswer === currentQuestion.correctAnswer
-                                ? 'bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800'
-                                : 'bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800'
+                            <div className={`p-4 rounded-2xl mb-6 border-2 ${selectedAnswer === currentQuestion.correctAnswer
+                                ? 'bg-emerald-50/60 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800'
+                                : 'bg-rose-50/60 dark:bg-rose-950/20 border-rose-200 dark:border-rose-800'
                                 }`}>
-                                <p className="text-sm font-semibold mb-1 dark:text-gray-200">
-                                    {selectedAnswer === currentQuestion.correctAnswer ? '✓ Chính xác!' : '✗ Chưa đúng'}
+                                <p className="text-sm font-bold mb-1 dark:text-slate-200">
+                                    {selectedAnswer === currentQuestion.correctAnswer ? t('test.correct', '✓ Chính xác!') : t('test.incorrect', '✗ Chưa đúng')}
                                 </p>
                                 {selectedAnswer !== currentQuestion.correctAnswer && (currentQuestion.vocabWord || currentQuestion.vocabMeaning) ? (
-                                    <div className="space-y-1 mt-2 text-sm border-t border-red-200 dark:border-red-800/40 pt-2">
-                                        <p className="text-red-800 dark:text-red-300">
-                                            Từ vựng: <span className="font-japanese font-bold text-base">{currentQuestion.vocabWord}</span>
+                                    <div className="space-y-1 mt-2 text-sm border-t border-rose-200 dark:border-rose-800/40 pt-2">
+                                        <p className="text-rose-800 dark:text-rose-300">
+                                            {t('test.vocab', 'Từ vựng:')} <span className="font-japanese font-bold text-base">{currentQuestion.vocabWord}</span>
                                         </p>
-                                        <p className="text-red-800 dark:text-red-300">
-                                            Ý nghĩa: <span className="font-semibold">{currentQuestion.vocabMeaning}</span>
+                                        <p className="text-rose-800 dark:text-rose-300">
+                                            {t('test.meaning', 'Ý nghĩa:')} <span className="font-semibold">{currentQuestion.vocabMeaning}</span>
                                         </p>
                                         {currentQuestion.explanation && currentQuestion.explanation !== currentQuestion.vocabMeaning && (
-                                            <p className="text-gray-500 dark:text-gray-400 text-xs italic mt-1">
-                                                Giải thích: {currentQuestion.explanation}
+                                            <p className="text-slate-500 dark:text-slate-400 text-xs italic mt-1">
+                                                {t('test.explanation', 'Giải thích: {text}').replace('{text}', currentQuestion.explanation)}
                                             </p>
                                         )}
                                     </div>
                                 ) : (
-                                    <p className="text-sm text-gray-700 dark:text-gray-300">{currentQuestion.explanation}</p>
+                                    <p className="text-sm text-slate-700 dark:text-slate-300">{currentQuestion.explanation}</p>
                                 )}
                             </div>
                         )}
@@ -466,12 +466,12 @@ const TestScreen = ({ allCards, onBack }) => {
                         <button
                             onClick={handleNextQuestion}
                             disabled={!isAnswered}
-                            className={`w-full py-3 rounded-xl font-bold transition ${isAnswered
-                                ? 'bg-indigo-600 dark:bg-indigo-500 text-white hover:bg-indigo-700 dark:hover:bg-indigo-600'
-                                : 'bg-gray-200 dark:bg-gray-700 text-gray-400 dark:text-gray-500 cursor-not-allowed'
+                            className={`w-full py-3.5 px-6 rounded-2xl font-black text-xs uppercase tracking-wider transition-all select-none ${isAnswered
+                                ? 'bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 text-white cursor-pointer shadow-sm'
+                                : 'bg-slate-100 dark:bg-slate-800 border-b-4 border-slate-200 dark:border-slate-700 text-slate-400 dark:text-slate-500 cursor-not-allowed'
                                 }`}
                         >
-                            {currentQuestionIndex < questions.length - 1 ? 'Câu tiếp theo' : 'Xem kết quả'}
+                            {currentQuestionIndex < questions.length - 1 ? t('test.nextQuestion', 'Câu tiếp theo') : t('test.viewResults', 'Xem kết quả')}
                         </button>
                     </div>
                 </div>
@@ -481,31 +481,31 @@ const TestScreen = ({ allCards, onBack }) => {
     // Render config screen
     if (showConfig) {
         return (
-            <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-sky-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-8">
+            <div className="min-h-screen bg-transparent p-4 md:p-8">
                 <div className="max-w-2xl mx-auto">
-                    <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-6 md:p-8">
+                    <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-6 md:p-8 border-2 border-slate-200 dark:border-slate-800">
                         <div className="flex items-center justify-between mb-8">
-                            <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">Cấu hình bài kiểm tra</h2>
-                            <button onClick={handleBackToMenu} className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
+                            <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100">{t('test.configTitle', 'Cấu hình bài kiểm tra')}</h2>
+                            <button onClick={handleBackToMenu} className="text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 cursor-pointer">
                                 <X className="w-6 h-6" />
                             </button>
                         </div>
                         {/* JLPT Level Selection */}
                         <div className="mb-6">
                             <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-3">
-                                Chọn cấp độ JLPT:
+                                {t('test.selectLevel', 'Chọn cấp độ JLPT:')}
                             </label>
                             <div className="grid grid-cols-3 md:grid-cols-6 gap-2">
                                 {['all', 'N5', 'N4', 'N3', 'N2', 'N1'].map(level => (
                                     <button
                                         key={level}
                                         onClick={() => setSelectedLevel(level)}
-                                        className={`py-2 px-4 rounded-xl font-bold transition ${selectedLevel === level
-                                            ? 'bg-indigo-600 dark:bg-indigo-500 text-white'
-                                            : 'bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-600'
+                                        className={`py-2 px-3 rounded-2xl font-black text-xs transition-all cursor-pointer select-none border-2 border-b-4 active:translate-y-0.5 active:border-b-2 ${selectedLevel === level
+                                            ? 'bg-emerald-500 border-emerald-700 text-white'
+                                            : 'bg-white dark:bg-gray-700 border-slate-200 dark:border-slate-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50'
                                             }`}
                                     >
-                                        {level === 'all' ? 'Tất cả' : level}
+                                        {level === 'all' ? t('test.allLevels', 'Tất cả') : level}
                                     </button>
                                 ))}
                             </div>
@@ -513,7 +513,7 @@ const TestScreen = ({ allCards, onBack }) => {
                         {/* Question Count Selection */}
                         <div className="mb-8">
                             <label className="block text-sm font-bold text-gray-700 dark:text-gray-300 mb-3">
-                                Số lượng câu hỏi: <span className="text-indigo-600 dark:text-indigo-400">{questionCount}</span>
+                                {t('test.questionCount', 'Số lượng câu hỏi: {count}').replace('{count}', '')}<span className="text-emerald-600 dark:text-emerald-400 font-mono font-black">{questionCount}</span>
                             </label>
                             <input
                                 type="range"
@@ -522,9 +522,9 @@ const TestScreen = ({ allCards, onBack }) => {
                                 step="5"
                                 value={questionCount}
                                 onChange={(e) => setQuestionCount(Number(e.target.value))}
-                                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-indigo-600"
+                                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-emerald-500"
                             />
-                            <div className="flex justify-between text-xs text-gray-500 mt-1">
+                            <div className="flex justify-between text-xs font-mono font-bold text-gray-400 mt-1">
                                 <span>5</span>
                                 <span>25</span>
                                 <span>50</span>
@@ -533,9 +533,9 @@ const TestScreen = ({ allCards, onBack }) => {
                         {/* Start button */}
                         <button
                             onClick={handleStartTest}
-                            className="w-full py-4 bg-indigo-600 dark:bg-indigo-500 text-white rounded-xl font-bold hover:bg-indigo-700 dark:hover:bg-indigo-600 transition text-lg"
+                            className="w-full py-4 bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white rounded-2xl font-black text-xs uppercase tracking-wider transition cursor-pointer select-none"
                         >
-                            Bắt đầu kiểm tra
+                            {t('test.startTest', 'Bắt đầu kiểm tra')}
                         </button>
                     </div>
                 </div>
@@ -544,12 +544,12 @@ const TestScreen = ({ allCards, onBack }) => {
     }
     // Render menu screen (initial)
     return (
-        <div className="relative min-h-screen bg-gradient-to-br from-indigo-50 via-white to-sky-50 dark:from-gray-900 dark:via-gray-800 dark:to-indigo-900/20 p-4 md:p-8">
+        <div className="relative min-h-screen bg-transparent p-4 md:p-8">
             {onBack && (
                 <button
                     onClick={onBack}
                     className="absolute top-4 left-4 z-50 p-2 rounded-xl bg-white/80 hover:bg-white dark:bg-slate-800/80 dark:hover:bg-slate-700 text-gray-700 dark:text-gray-200 shadow-md backdrop-blur-sm transition-all border border-gray-200 dark:border-slate-700 hover:scale-105"
-                    title="Trở lại"
+                    title={t('test.back', 'Trở lại')}
                 >
                     <ArrowLeft className="w-5 h-5" />
                 </button>
@@ -559,11 +559,11 @@ const TestScreen = ({ allCards, onBack }) => {
                     <div className="flex items-center justify-between mb-8">
                         <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100 flex items-center">
                             <FileCheck className="w-8 h-8 mr-3 text-indigo-600 dark:text-indigo-400" />
-                            Luyện Thi JLPT
+                            {t('test.title', 'Luyện Thi JLPT')}
                         </h1>
                     </div>
                     <p className="text-gray-600 dark:text-gray-400 mb-8 text-center">
-                        Chọn dạng bài tập bạn muốn luyện tập
+                        {t('test.subtitle', 'Chọn dạng bài tập bạn muốn luyện tập')}
                     </p>
                     {/* Kanji Section */}
                     <div className="mb-8">
@@ -574,20 +574,20 @@ const TestScreen = ({ allCards, onBack }) => {
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <button
                                 onClick={() => handleShowConfig('kanji', 1)}
-                                className="p-6 bg-gradient-to-br from-blue-400 to-blue-600 dark:from-blue-500 dark:to-blue-700 text-white rounded-2xl hover:shadow-lg transition transform hover:-translate-y-1"
+                                className="p-5 bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 active:translate-y-0.5 active:border-b-2 rounded-3xl transition-all cursor-pointer text-left select-none"
                             >
                                 <div className="text-left">
-                                    <h3 className="text-xl font-bold mb-2">Loại 1: Kanji → Hiragana</h3>
-                                    <p className="text-blue-100 dark:text-blue-200 text-sm">Nhìn Kanji, chọn cách đọc đúng</p>
+                                    <h3 className="text-base font-extrabold text-slate-900 dark:text-white mb-1">{t('test.type1Title', 'Loại 1: Kanji → Hiragana')}</h3>
+                                    <p className="text-slate-500 dark:text-slate-400 text-xs">{t('test.type1Desc', 'Nhìn Kanji, chọn cách đọc đúng')}</p>
                                 </div>
                             </button>
                             <button
                                 onClick={() => handleShowConfig('kanji', 2)}
-                                className="p-6 bg-gradient-to-br from-cyan-400 to-cyan-600 dark:from-cyan-500 dark:to-cyan-700 text-white rounded-2xl hover:shadow-lg transition transform hover:-translate-y-1"
+                                className="p-5 bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 active:translate-y-0.5 active:border-b-2 rounded-3xl transition-all cursor-pointer text-left select-none"
                             >
                                 <div className="text-left">
-                                    <h3 className="text-xl font-bold mb-2">Loại 2: Hiragana → Kanji</h3>
-                                    <p className="text-cyan-100 dark:text-cyan-200 text-sm">Nhìn Hiragana, chọn Kanji đúng</p>
+                                    <h3 className="text-base font-extrabold text-slate-900 dark:text-white mb-1">{t('test.type2Title', 'Loại 2: Hiragana → Kanji')}</h3>
+                                    <p className="text-slate-500 dark:text-slate-400 text-xs">{t('test.type2Desc', 'Nhìn Hiragana, chọn Kanji đúng')}</p>
                                 </div>
                             </button>
                         </div>
@@ -596,25 +596,25 @@ const TestScreen = ({ allCards, onBack }) => {
                     <div className="mb-8">
                         <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4 flex items-center">
                             <BookOpen className="w-6 h-6 mr-2 text-green-600 dark:text-green-400" />
-                            Từ vựng
+                            {t('test.vocabSection', 'Từ vựng')}
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <button
                                 onClick={() => handleShowConfig('vocab', 3)}
-                                className="p-6 bg-gradient-to-br from-green-400 to-green-600 dark:from-green-500 dark:to-green-700 text-white rounded-2xl hover:shadow-lg transition transform hover:-translate-y-1"
+                                className="p-5 bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 active:translate-y-0.5 active:border-b-2 rounded-3xl transition-all cursor-pointer text-left select-none"
                             >
                                 <div className="text-left">
-                                    <h3 className="text-xl font-bold mb-2">Loại 3: Điền từ vào câu</h3>
-                                    <p className="text-green-100 dark:text-green-200 text-sm">Chọn từ phù hợp với ngữ cảnh</p>
+                                    <h3 className="text-base font-extrabold text-slate-900 dark:text-white mb-1">{t('test.type3Title', 'Loại 3: Điền từ vào câu')}</h3>
+                                    <p className="text-slate-500 dark:text-slate-400 text-xs">{t('test.type3Desc', 'Chọn từ phù hợp với ngữ cảnh')}</p>
                                 </div>
                             </button>
                             <button
                                 onClick={() => handleShowConfig('vocab', 4)}
-                                className="p-6 bg-gradient-to-br from-emerald-400 to-emerald-600 dark:from-emerald-500 dark:to-emerald-700 text-white rounded-2xl hover:shadow-lg transition transform hover:-translate-y-1"
+                                className="p-5 bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 active:translate-y-0.5 active:border-b-2 rounded-3xl transition-all cursor-pointer text-left select-none"
                             >
                                 <div className="text-left">
-                                    <h3 className="text-xl font-bold mb-2">Loại 4: Từ đồng nghĩa</h3>
-                                    <p className="text-emerald-100 dark:text-emerald-200 text-sm">Tìm từ có nghĩa tương đồng</p>
+                                    <h3 className="text-base font-extrabold text-slate-900 dark:text-white mb-1">{t('test.type4Title', 'Loại 4: Từ đồng nghĩa')}</h3>
+                                    <p className="text-slate-500 dark:text-slate-400 text-xs">{t('test.type4Desc', 'Tìm từ có nghĩa tương đồng')}</p>
                                 </div>
                             </button>
                         </div>
@@ -623,7 +623,7 @@ const TestScreen = ({ allCards, onBack }) => {
                     <div>
                         <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4 flex items-center">
                             <Wrench className="w-6 h-6 mr-2 text-sky-600 dark:text-sky-400" />
-                            Ngữ pháp
+                            {t('test.grammarSection', 'Ngữ pháp')}
                         </h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <button
@@ -631,8 +631,8 @@ const TestScreen = ({ allCards, onBack }) => {
                                 className="p-6 bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 rounded-2xl cursor-not-allowed"
                             >
                                 <div className="text-left">
-                                    <h3 className="text-xl font-bold mb-2">Loại 6: Chọn ngữ pháp</h3>
-                                    <p className="text-gray-400 dark:text-gray-500 text-sm">Đang phát triển...</p>
+                                    <h3 className="text-xl font-bold mb-2">{t('test.type6Title', 'Loại 6: Chọn ngữ pháp')}</h3>
+                                    <p className="text-gray-400 dark:text-gray-500 text-sm">{t('common.inDevelopment', 'Đang phát triển...')}</p>
                                 </div>
                             </button>
                             <button
@@ -640,8 +640,8 @@ const TestScreen = ({ allCards, onBack }) => {
                                 className="p-6 bg-gray-200 dark:bg-gray-700 text-gray-500 dark:text-gray-400 rounded-2xl cursor-not-allowed"
                             >
                                 <div className="text-left">
-                                    <h3 className="text-xl font-bold mb-2">Loại 7: Sắp xếp câu</h3>
-                                    <p className="text-gray-400 dark:text-gray-500 text-sm">Đang phát triển...</p>
+                                    <h3 className="text-xl font-bold mb-2">{t('test.type7Title', 'Loại 7: Sắp xếp câu')}</h3>
+                                    <p className="text-gray-400 dark:text-gray-500 text-sm">{t('common.inDevelopment', 'Đang phát triển...')}</p>
                                 </div>
                             </button>
                         </div>

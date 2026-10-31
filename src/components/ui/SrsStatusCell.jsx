@@ -1,10 +1,12 @@
 import React from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 import { Clock, CheckCircle, AlertCircle } from 'lucide-react';
 import { getSrsProgressText } from '../../utils/srs';
 import { SRS_INTERVALS } from '../../config/constants'
 // SrsStatusCell - displays SRS status for a vocabulary card
 // Use asDiv={true} when rendering outside a <table> (e.g. in flex/grid layouts)
 const SrsStatusCell = ({ intervalIndex, nextReview, hasData, currentInterval, asDiv = false, state }) => {
+    const { t } = useLanguage();
     const Wrapper = asDiv ? 'div' : 'td';
     const wrapperClass = asDiv ? '' : 'px-2 md:px-4 py-2 md:py-3';
     if (!hasData) {
@@ -12,7 +14,7 @@ const SrsStatusCell = ({ intervalIndex, nextReview, hasData, currentInterval, as
             <Wrapper className={wrapperClass}>
                 <div className="flex items-center gap-1.5 text-gray-400 dark:text-gray-500">
                     <AlertCircle className="w-3.5 h-3.5" />
-                    <span className="text-[10px] md:text-xs">Chưa ôn</span>
+                    <span className="text-[10px] md:text-xs">{t('srs.unreviewed', 'Chưa ôn')}</span>
                 </div>
             </Wrapper>
         );
@@ -21,7 +23,7 @@ const SrsStatusCell = ({ intervalIndex, nextReview, hasData, currentInterval, as
     const effectiveInterval = (typeof currentInterval === 'number' && currentInterval > 0)
         ? currentInterval
         : (intervalIndex >= 0 && intervalIndex < SRS_INTERVALS.length ? SRS_INTERVALS[intervalIndex] : 0);
-    const progress = getSrsProgressText(intervalIndex, null, effectiveInterval, state);
+    const progress = getSrsProgressText(intervalIndex, null, effectiveInterval, state, t);
     const resolvedState = state || (intervalIndex === -1 ? 'NEW' : (intervalIndex >= 2 ? 'REVIEW' : 'LEARNING'));
     const isDue = nextReview && (nextReview instanceof Date ? nextReview.getTime() : new Date(nextReview).getTime()) <= Date.now();
     const isMastered = resolvedState === 'REVIEW' && effectiveInterval >= 21;

@@ -1,10 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 import { useFocus } from '../../contexts/FocusContext';
 import { Timer, Coffee, GripVertical } from 'lucide-react';
 
 const STORAGE_KEY = 'quizki_focus_widget_pos';
 
 const FloatingFocusWidget = () => {
+    const { t } = useLanguage();
     const {
         status,
         currentMode,
@@ -160,8 +162,8 @@ const FloatingFocusWidget = () => {
     const isPaused = status === 'paused';
 
     const periodLabel = currentPeriod
-        ? (isBreak ? `Nghỉ ${currentPeriod.breakIndex || 1}/${currentPeriod.totalBreaks || 1}` : `Focus ${currentPeriod.periodIndex || 1}/${currentPeriod.totalPeriods || 1}`)
-        : (isBreak ? 'Nghỉ giải lao' : 'Tập trung');
+        ? (isBreak ? t('common.breakLabel', 'Nghỉ {current}/{total}').replace('{current}', currentPeriod.breakIndex || 1).replace('{total}', currentPeriod.totalBreaks || 1) : t('common.focusLabel', 'Focus {current}/{total}').replace('{current}', currentPeriod.periodIndex || 1).replace('{total}', currentPeriod.totalPeriods || 1))
+        : (isBreak ? t('common.breakTime', 'Nghỉ giải lao') : t('common.focusTime', 'Tập trung'));
 
     const style = position
         ? {
@@ -188,7 +190,7 @@ const FloatingFocusWidget = () => {
                         ? 'bg-slate-900/95 border-amber-500/60 text-amber-300 shadow-slate-950/50'
                         : 'bg-slate-900/95 border-sky-500/60 text-sky-300 shadow-slate-950/50'
                 }`}
-            title="Kéo để di chuyển vị trí · Bấm để mở đồng hồ tập trung"
+            title={t('common.dragFocusWidget', 'Kéo để di chuyển vị trí · Bấm để mở đồng hồ tập trung')}
         >
             {/* Drag Grip Indicator */}
             <GripVertical className="w-3.5 h-3.5 text-slate-400/60 hover:text-slate-300 shrink-0" />

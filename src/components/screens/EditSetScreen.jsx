@@ -11,6 +11,7 @@ import { CardEditorItem } from '../cards/AddCardForm';
 import BatchAiModal from '../cards/BatchAiModal';
 import JsonImportModal from '../cards/JsonImportModal';
 import PremiumLockedModal from '../ui/PremiumLockedModal';
+import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { getLanguageService, isEnglishCard, isKoreanCard } from '../../languages';
 
@@ -54,8 +55,9 @@ const EditSetScreen = ({
     parentFolders = [],
     canUserUseAI
 }) => {
+    const { t } = useLanguage();
     const { isEnglishMode, isKoreanMode } = useTargetLanguage();
-    const folder = folderId === 'unfiled' ? { name: 'Từ vựng lẻ', description: 'Các từ vựng không thuộc học phần nào', coverImage: null } : (folders.find(f => f.id === folderId) || { name: 'Học phần', description: '', coverImage: null });
+    const folder = folderId === 'unfiled' ? { name: t('editSet.unfiledCards', 'Từ vựng lẻ'), description: t('editSet.unfiledDesc', 'Các từ vựng không thuộc học phần nào'), coverImage: null } : (folders.find(f => f.id === folderId) || { name: t('editSet.defaultSetName', 'Học phần'), description: '', coverImage: null });
     const [title, setTitle] = useState(folder.name || '');
     const [description, setDescription] = useState(folder.description || '');
     const [coverImage, setCoverImage] = useState(folder.coverImage || null);
@@ -306,7 +308,7 @@ const EditSetScreen = ({
                 externalDuplicates.push({
                     cardId: String(card.id),
                     front: card.front.trim(),
-                    otherSetName: otherFolder ? otherFolder.name : 'Học phần khác'
+                    otherSetName: otherFolder ? otherFolder.name : t('editSet.otherSetName', 'Other Set')
                 });
             }
         }
@@ -369,8 +371,8 @@ const EditSetScreen = ({
         let activeFolderId = folderId;
         // Create new folder if 'unfiled' was renamed/edited
         if (folderId === 'unfiled') {
-            const hasTitleChanged = title.trim() !== 'Từ vựng lẻ';
-            const hasDescChanged = description.trim() !== 'Các từ vựng không thuộc học phần nào';
+            const hasTitleChanged = title.trim() !== 'Từ vựng lẻ' && title.trim() !== t('editSet.unfiledCards', 'Unfiled Vocabulary');
+            const hasDescChanged = description.trim() !== 'Các từ vựng không thuộc học phần nào' && description.trim() !== t('editSet.unfiledDesc', 'Vocabulary not belonging to any set');
             const hasCoverChanged = coverImage !== null;
 
             if (hasTitleChanged || hasDescChanged || hasCoverChanged) {
@@ -422,7 +424,7 @@ const EditSetScreen = ({
                             folderId: activeFolderId
                         });
                         if (!success) {
-                            throw new Error(`Không thể lưu từ vựng (có thể bị trùng lặp): ${card.front}`);
+                            throw new Error(t('editSet.saveError', 'Could not save card: {word}').replace('{word}', card.front));
                         }
                         return success;
                     } else {
@@ -477,53 +479,53 @@ const EditSetScreen = ({
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="space-y-1">
                         <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-800 dark:text-white tracking-tight">
-                            Chỉnh sửa học phần
+                            {t('editSet.title', 'Edit Study Set')}
                         </h2>
                         <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm">
-                            Cập nhật thông tin chi tiết và danh sách từ vựng của học phần.
+                            {t('editSet.subtitle', 'Update details and manage vocabulary cards in this set.')}
                         </p>
                     </div>
                     <div className="flex items-center gap-2.5 shrink-0">
                         <button
                             type="button"
                             onClick={onBack}
-                            className="px-5 py-2.5 text-xs font-bold rounded-xl text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 dark:text-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border-slate-700 transition-colors shadow-xs cursor-pointer min-h-[40px]"
+                            className="px-5 py-2.5 text-xs font-bold uppercase tracking-wider rounded-2xl text-slate-700 bg-slate-100 hover:bg-slate-200 border-b-4 border-slate-300 dark:text-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer min-h-[42px] select-none"
                         >
-                            Hủy
+                            {t('common.cancel', 'Cancel')}
                         </button>
                         <button
                             type="button"
                             onClick={handleSaveSet}
                             disabled={isSaving}
-                            className="px-5 py-2.5 text-xs font-bold rounded-xl text-white bg-[#204051] hover:bg-[#162e3b] dark:bg-slate-700 dark:hover:bg-slate-600 shadow-md transition-all disabled:opacity-50 flex items-center gap-1.5 active:scale-95 cursor-pointer min-h-[40px]"
+                            className="px-6 py-2.5 text-xs font-black uppercase tracking-wider rounded-2xl text-white bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 shadow-sm transition-all disabled:opacity-50 flex items-center gap-1.5 cursor-pointer min-h-[42px] select-none"
                         >
                             {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Check className="w-4 h-4" />}
-                            Lưu học phần
+                            {isSaving ? t('editSet.savingSet', 'Saving...') : t('editSet.saveSet', 'Save Set')}
                         </button>
                     </div>
                 </div>
 
                 {/* Metadata Card */}
-                <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 md:p-7 shadow-md border border-slate-200 dark:border-slate-800">
+                <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 md:p-7 shadow-sm border-2 border-slate-200 dark:border-slate-800">
                     <div className="space-y-4 sm:space-y-5">
                         <div>
-                            <label className="block text-[11px] font-bold text-slate-450 dark:text-slate-500 uppercase tracking-wider mb-1.5">TIÊU ĐỀ HỌC PHẦN</label>
+                            <label className="block text-[11px] font-bold text-slate-450 dark:text-slate-500 uppercase tracking-wider mb-1.5">{t('editSet.setTitle', 'SET TITLE')}</label>
                             <input
                                 type="text"
                                 value={title}
                                 onChange={(e) => setTitle(e.target.value)}
-                                placeholder="VD: Từ vựng N3 bài 1..."
-                                className="w-full px-0 py-2.5 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 text-2xl font-bold text-slate-800 dark:text-white outline-none placeholder-slate-400 transition-colors"
+                                placeholder={t('editSet.setTitlePlaceholder', 'e.g., JLPT N3 Vocab Chapter 1...')}
+                                className="w-full px-0 py-2.5 bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-sky-500 dark:focus:border-sky-400 text-2xl font-bold text-slate-800 dark:text-white outline-none placeholder-slate-400 transition-colors"
                             />
                         </div>
                         <div>
-                            <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">THÊM MÔ TẢ</label>
+                            <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">{t('editSet.setDescription', 'DESCRIPTION')}</label>
                             <input
                                 type="text"
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
-                                placeholder="Mô tả mục tiêu của bộ từ vựng này..."
-                                className="w-full px-0 py-2 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 text-base text-slate-600 dark:text-slate-200 outline-none placeholder-slate-400 transition-colors"
+                                placeholder={t('editSet.setDescriptionPlaceholder', 'Describe the goals or topics of this study set...')}
+                                className="w-full px-0 py-2 bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-sky-500 dark:focus:border-sky-400 text-base text-slate-600 dark:text-slate-200 outline-none placeholder-slate-400 transition-colors"
                             />
                         </div>
                     </div>
@@ -535,13 +537,13 @@ const EditSetScreen = ({
                         <button
                             type="button"
                             onClick={() => setIsToolsMenuOpen(!isToolsMenuOpen)}
-                            className="flex items-center gap-2 px-3.5 py-1.5 sm:py-2 text-xs font-bold rounded-xl text-blue-700 dark:text-blue-300 bg-blue-50/90 hover:bg-blue-100 dark:bg-slate-800 dark:hover:bg-slate-750 border border-blue-200/90 dark:border-blue-800/80 transition-all shadow-xs cursor-pointer active:scale-95"
+                            className="flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-2xl text-slate-700 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer select-none"
                         >
-                            <div className="w-5 h-5 rounded-lg bg-blue-600 dark:bg-blue-500 text-white flex items-center justify-center shrink-0 shadow-xs">
+                            <div className="w-5 h-5 rounded-lg bg-sky-500 text-white flex items-center justify-center shrink-0">
                                 <Wrench className="w-3 h-3" />
                             </div>
-                            <span>Công cụ</span>
-                            <ChevronDown className={`w-3.5 h-3.5 text-blue-500 dark:text-blue-400 transition-transform duration-200 ${isToolsMenuOpen ? 'rotate-180' : ''}`} />
+                            <span>{t('editSet.tools', 'Tools')}</span>
+                            <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${isToolsMenuOpen ? 'rotate-180' : ''}`} />
                         </button>
 
                         {isToolsMenuOpen && (
@@ -570,7 +572,7 @@ const EditSetScreen = ({
                                                     <span className="w-6 h-6 rounded-lg bg-blue-100 dark:bg-slate-700 text-blue-600 dark:text-blue-400 flex items-center justify-center text-[10px] font-black shrink-0">
                                                         AI
                                                     </span>
-                                                    <span>Tạo bằng AI hàng loạt</span>
+                                                    <span>{t('editSet.batchAi', 'Batch AI Generation')}</span>
                                                 </button>
                                                 <button
                                                     type="button"
@@ -588,7 +590,7 @@ const EditSetScreen = ({
                                                     <div className="w-6 h-6 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                                                         <Camera className="w-3.5 h-3.5" />
                                                     </div>
-                                                    <span>Tạo từ vựng từ ảnh (OCR)</span>
+                                                    <span>{t('editSet.ocrImage', 'Extract from Image (OCR)')}</span>
                                                 </button>
                                             </>
                                         )}
@@ -605,7 +607,7 @@ const EditSetScreen = ({
                                             <div className="w-6 h-6 rounded-lg bg-sky-100 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0">
                                                 <FileJson className="w-3.5 h-3.5" />
                                             </div>
-                                            <span>Nhập JSON thủ công</span>
+                                            <span>{t('editSet.importJson', 'Import JSON manually')}</span>
                                         </button>
                                     </div>
                                 </div>
@@ -617,7 +619,7 @@ const EditSetScreen = ({
                 {/* Cards List */}
                 <div className="space-y-3 sm:space-y-3.5">
                     {cards.map((card, index) => (
-                        <SectionErrorBoundary key={card.id} name={`Thẻ #${index + 1}`} minimal>
+                        <SectionErrorBoundary key={card.id} name={t('editSet.cardItem', 'Card #{number}').replace('{number}', index + 1)} minimal>
                             <CardEditorItem
                                 card={card}
                                 index={index}
@@ -643,53 +645,53 @@ const EditSetScreen = ({
                         className="flex flex-col items-center justify-center gap-1.5 py-3.5 px-4 rounded-2xl bg-white dark:bg-gray-800 border-2 border-dashed border-slate-200 dark:border-gray-700 text-slate-500 hover:text-blue-600 hover:border-blue-400 dark:hover:text-blue-400 dark:hover:border-blue-500 hover:bg-blue-50/30 dark:hover:bg-slate-800 font-bold text-xs sm:text-sm w-full transition-all cursor-pointer"
                     >
                         <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
-                        THÊM THẺ MỚI
+                        {t('editSet.addNewCard', 'ADD NEW CARD')}
                     </button>
                 </div>
 
                 {/* Bottom Actions for Desktop */}
-                <div className="hidden md:flex items-center justify-end gap-2.5 pt-3.5 border-t border-slate-200 dark:border-gray-800">
+                <div className="hidden md:flex items-center justify-end gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
                     <button
                         type="button"
                         onClick={onBack}
-                        className="px-5 py-2 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 dark:text-slate-300 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors shadow-sm cursor-pointer"
+                        className="px-5 py-2.5 text-xs font-bold uppercase tracking-wider rounded-2xl text-slate-700 bg-slate-100 hover:bg-slate-200 border-b-4 border-slate-300 dark:text-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer select-none"
                     >
-                        Hủy
+                        {t('common.cancel', 'Cancel')}
                     </button>
                     <button
                         type="button"
                         onClick={handleSaveSet}
                         disabled={isSaving}
-                        className="px-6 py-2 text-sm font-bold rounded-xl text-white bg-[#204051] hover:bg-[#162e3b] dark:bg-slate-700 dark:hover:bg-slate-600 shadow-md transition-colors disabled:opacity-50 flex items-center gap-2 cursor-pointer"
+                        className="px-6 py-2.5 text-xs font-black uppercase tracking-wider rounded-2xl text-white bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 shadow-sm transition-all disabled:opacity-50 flex items-center gap-2 cursor-pointer select-none"
                     >
                         {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Check className="w-4 h-4" />}
-                        Lưu học phần
+                        {isSaving ? t('editSet.savingSet', 'Saving...') : t('editSet.saveSet', 'Save Set')}
                     </button>
                 </div>
             </div>
 
             {/* Bottom floating save bar on mobile */}
-            <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-t border-slate-200 dark:border-gray-800 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] md:hidden z-40 flex gap-3">
+            <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 shadow-xl md:hidden z-40 flex gap-3">
                 <button
                     type="button"
                     onClick={onBack}
-                    className="flex-1 px-4 py-3 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 dark:text-slate-300 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors flex items-center justify-center shadow-sm cursor-pointer"
+                    className="flex-1 px-4 py-3 text-xs font-bold uppercase tracking-wider rounded-2xl text-slate-700 bg-slate-100 hover:bg-slate-200 border-b-4 border-slate-300 dark:text-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 transition-all flex items-center justify-center cursor-pointer select-none"
                 >
-                    Hủy
+                    {t('common.cancel', 'Cancel')}
                 </button>
                 <button
                     type="button"
                     onClick={handleSaveSet}
                     disabled={isSaving}
-                    className="flex-1 px-4 py-3 text-sm font-bold rounded-xl text-white bg-[#204051] hover:bg-[#162e3b] dark:bg-slate-700 dark:hover:bg-slate-600 transition-colors disabled:opacity-50 flex items-center justify-center shadow-md cursor-pointer"
+                    className="flex-1 px-4 py-3 text-xs font-black uppercase tracking-wider rounded-2xl text-white bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 transition-all disabled:opacity-50 flex items-center justify-center shadow-sm cursor-pointer select-none"
                 >
                     {isSaving ? <Loader2 className="w-4 h-4 animate-spin mr-1.5" /> : <Check className="w-4 h-4 mr-1.5" />}
-                    Lưu học phần
+                    {isSaving ? t('editSet.savingSet', 'Saving...') : t('editSet.saveSet', 'Save Set')}
                 </button>
             </div>
 
             {/* Bulk AI Creation Modal */}
-            <SectionErrorBoundary name="Tạo từ vựng bằng AI" onDismiss={() => setIsBatchModalOpen(false)}>
+            <SectionErrorBoundary name={t('editSet.batchAi', 'Batch AI Generation')} onDismiss={() => setIsBatchModalOpen(false)}>
                 <BatchAiModal
                     isOpen={isBatchModalOpen}
                     initialTab={batchModalInitialTab}
@@ -703,7 +705,7 @@ const EditSetScreen = ({
             </SectionErrorBoundary>
 
             {/* Manual JSON Import Modal */}
-            <SectionErrorBoundary name="Nhập JSON thủ công" onDismiss={() => setIsJsonModalOpen(false)}>
+            <SectionErrorBoundary name={t('editSet.importJson', 'Import JSON manually')} onDismiss={() => setIsJsonModalOpen(false)}>
                 <JsonImportModal
                     isOpen={isJsonModalOpen}
                     onClose={() => setIsJsonModalOpen(false)}
@@ -721,10 +723,10 @@ const EditSetScreen = ({
                         <div className="flex items-center justify-between p-5 border-b border-slate-100 dark:border-slate-750">
                             <div>
                                 <h3 className="text-lg font-bold text-slate-800 dark:text-white">
-                                    Chọn thư mục lưu học phần
+                                    {t('editSet.chooseFolder', 'Choose Folder for Set')}
                                 </h3>
                                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                                    Chọn thư mục để sắp xếp học phần này của bạn.
+                                    {t('editSet.chooseFolderSub', 'Select a folder to organize this study set.')}
                                 </p>
                             </div>
                             <button
@@ -750,16 +752,14 @@ const EditSetScreen = ({
                                 <div className="flex-1 min-w-0">
                                     <div className="flex items-center gap-2">
                                         <h4 className="font-bold text-slate-800 dark:text-slate-100 group-hover:text-indigo-650 dark:group-hover:text-indigo-400 transition-colors">
-                                            Không phân loại (Thư mục gốc)
+                                            {t('editSet.rootLevel', 'Root Level (Uncategorized)')}
                                         </h4>
                                         {(!folder || !folder.parentId) && (
-                                            <span className="text-[8px] font-bold px-1.5 py-0.5 rounded uppercase bg-indigo-105 text-indigo-700 dark:bg-indigo-950/40 dark:text-indigo-400">
-                                                Hiện tại
-                                            </span>
+                                            <span className="text-[8px] font-bold px-1.5 py-0.5 rounded uppercase bg-indigo-105 text-indigo-700 dark:bg-indigo-950/40 dark:text-indigo-400">{t('editSet.current', 'Current')}</span>
                                         )}
                                     </div>
                                     <p className="text-[10px] text-slate-450 dark:text-slate-400 font-semibold mt-0.5">
-                                        Lưu ở ngoài cùng thư viện học tập
+                                        {t('editSet.rootLevelDesc', 'Save at the root level of your library')}
                                     </p>
                                 </div>
                                 <div className={`w-8 h-8 rounded-lg transition-all flex items-center justify-center shrink-0 ${(!folder || !folder.parentId) ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-850 group-hover:bg-indigo-600 group-hover:text-white text-slate-400'}`}>
@@ -770,7 +770,7 @@ const EditSetScreen = ({
                             {/* Parent Folders */}
                             {parentFolders.length > 0 && (
                                 <div className="pt-2 border-t border-slate-100 dark:border-slate-750/50">
-                                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Thư mục của bạn</p>
+                                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">{t('editSet.yourFolders', 'YOUR FOLDERS')}</p>
                                     <div className="space-y-2">
                                         {parentFolders.map((pf) => {
                                             const isSelected = folder && folder.parentId === pf.id;
@@ -790,13 +790,11 @@ const EditSetScreen = ({
                                                                 {pf.name}
                                                             </h4>
                                                             {isSelected && (
-                                                                <span className="text-[8px] font-bold px-1.5 py-0.5 rounded uppercase bg-indigo-100 text-indigo-700 dark:bg-indigo-950/40 dark:text-indigo-400">
-                                                                    Hiện tại
-                                                                </span>
+                                                                <span className="text-[8px] font-bold px-1.5 py-0.5 rounded uppercase bg-indigo-100 text-indigo-700 dark:bg-indigo-950/40 dark:text-indigo-400">{t('editSet.current', 'Current')}</span>
                                                             )}
                                                         </div>
                                                         <p className="text-[10px] text-slate-450 dark:text-slate-400 font-semibold mt-0.5">
-                                                            Thư mục lưu trữ
+                                                            {t('editSet.storageFolder', 'Storage Folder')}
                                                         </p>
                                                     </div>
                                                     <div className={`w-8 h-8 rounded-lg transition-all flex items-center justify-center shrink-0 ${isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-850 group-hover:bg-indigo-600 group-hover:text-white text-slate-400'}`}>
@@ -816,9 +814,7 @@ const EditSetScreen = ({
                                 type="button"
                                 onClick={() => setShowFolderSelector(false)}
                                 className="px-5 py-2 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-250 dark:text-slate-300 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors shadow-sm"
-                            >
-                                Hủy
-                            </button>
+                            >{t('common.cancel', 'Cancel')}</button>
                         </div>
                     </div>
                 </div>,
@@ -836,10 +832,10 @@ const EditSetScreen = ({
                             </div>
                             <div className="min-w-0">
                                 <h3 className="text-lg font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                                    <span>Phát hiện từ vựng trùng lặp</span>
+                                    <span>{t('editSet.duplicatesDetected', 'Duplicate Vocabulary Detected')}</span>
                                 </h3>
                                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                                    Học phần có {duplicateCheckResult.totalExcludedCount} từ vựng trùng lặp cần xử lý
+                                    {t('editSet.duplicatesSummary', 'Found {count} duplicate words that need review.').replace('{count}', duplicateCheckResult.totalExcludedCount)}
                                 </p>
                             </div>
                         </div>
@@ -851,12 +847,12 @@ const EditSetScreen = ({
                                 <div className="space-y-2">
                                     <div className="flex items-center justify-between">
                                         <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-800 text-orange-700 dark:text-orange-300 text-xs font-bold">
-                                            <span>🔁 Trùng trong học phần này ({duplicateCheckResult.internalDuplicates.length} từ)</span>
+                                            <span>{t('editSet.internalDuplicates', '🔁 Internal Duplicates ({count} words)').replace('{count}', duplicateCheckResult.internalDuplicates.length)}</span>
                                         </span>
-                                        <span className="text-[11px] text-slate-400 font-medium">Giữ lại 1 bản ghi</span>
+                                        <span className="text-[11px] text-slate-400 font-medium">{t('editSet.keepOneRecord', 'Keep 1 record')}</span>
                                     </div>
                                     <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                                        Các từ vựng sau xuất hiện nhiều lần trên màn hình / file JSON. Hệ thống sẽ tự động giữ lại bản ghi đầu tiên và loại bỏ các bản ghi lặp lại:
+                                        {t('editSet.internalDuplicatesDesc', 'The following words appear multiple times in this set. The system will keep the first record and discard duplicates:')}
                                     </p>
                                     <div className="space-y-1.5">
                                         {duplicateCheckResult.internalDuplicates.map((dup, idx) => (
@@ -865,7 +861,7 @@ const EditSetScreen = ({
                                                     {dup.front}
                                                 </span>
                                                 <span className="text-xs font-semibold px-2 py-0.5 rounded-md bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300 shrink-0">
-                                                    Lặp {dup.count} lần (Bỏ {dup.removeCount})
+                                                    {t('editSet.repeatsCount', 'Repeated {count} times (Discard {removeCount})').replace('{count}', dup.count).replace('{removeCount}', dup.removeCount)}
                                                 </span>
                                             </div>
                                         ))}
@@ -878,11 +874,11 @@ const EditSetScreen = ({
                                 <div className="space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800">
                                     <div className="flex items-center justify-between">
                                         <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-bold">
-                                            <span>📂 Trùng với học phần khác ({duplicateCheckResult.externalDuplicates.length} từ)</span>
+                                            <span>{t('editSet.externalDuplicates', '📂 Duplicates with other sets ({count} words)').replace('{count}', duplicateCheckResult.externalDuplicates.length)}</span>
                                         </span>
                                     </div>
                                     <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                                        Các từ vựng sau đã được tạo ở các học phần khác trong tài khoản của bạn:
+                                        {t('editSet.externalDuplicatesDesc', 'The following words already exist in other study sets in your account:')}
                                     </p>
                                     <div className="space-y-1.5">
                                         {duplicateCheckResult.externalDuplicates.map((dup, idx) => (
@@ -912,14 +908,14 @@ const EditSetScreen = ({
                                 className="w-full py-2.5 px-4 text-sm font-bold rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] transition-all shadow-md shadow-indigo-500/20 cursor-pointer flex items-center justify-center gap-2"
                             >
                                 <Check className="w-4 h-4" />
-                                <span>Lưu và trừ {duplicateCheckResult.totalExcludedCount} từ trùng lặp</span>
+                                <span>{t('editSet.saveExcludingDuplicates', 'Save & Exclude {count} Duplicates').replace('{count}', duplicateCheckResult.totalExcludedCount)}</span>
                             </button>
                             <button
                                 type="button"
                                 onClick={() => proceedSaveWithChoices(duplicateCheckResult.parentFolderId, [])}
                                 className="w-full py-2.5 px-4 text-sm font-semibold rounded-xl text-slate-700 dark:text-slate-300 bg-white hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition-colors cursor-pointer"
                             >
-                                Vẫn lưu tất cả (Bao gồm từ trùng)
+                                {t('editSet.saveAllAnyway', 'Save All Anyway (Include Duplicates)')}
                             </button>
                             <button
                                 type="button"
@@ -929,7 +925,7 @@ const EditSetScreen = ({
                                 }}
                                 className="w-full py-2 text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors cursor-pointer text-center"
                             >
-                                Hủy bỏ để chỉnh sửa thủ công
+                                {t('editSet.cancelToEdit', 'Cancel & Edit Manually')}
                             </button>
                         </div>
                     </div>

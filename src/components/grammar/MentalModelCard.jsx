@@ -1,7 +1,9 @@
 import React from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 import { Lightbulb, MessageCircle, AlertCircle } from 'lucide-react';
 
 const MentalModelCard = ({ mentalModel, meaning, formality, speechType, explanation }) => {
+    const { t } = useLanguage();
     if (!mentalModel && !explanation && !meaning) return null;
 
     return (
@@ -14,9 +16,9 @@ const MentalModelCard = ({ mentalModel, meaning, formality, speechType, explanat
                     </div>
                     <div>
                         <h3 className="text-base font-bold text-slate-800 dark:text-slate-100 flex items-center gap-1.5">
-                            Ý nghĩa & Công thức tâm lý
+                            {t('grammar.mentalModelTitle', 'Ý nghĩa & Công thức tâm lý')}
                         </h3>
-                        <p className="text-xs text-slate-500 dark:text-slate-400">Mental Model & Sắc thái sử dụng</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">{t('grammar.mentalModelSubtitle', 'Mental Model & Sắc thái sử dụng')}</p>
                     </div>
                 </div>
 
@@ -55,7 +57,7 @@ const MentalModelCard = ({ mentalModel, meaning, formality, speechType, explanat
                     <span className="text-lg select-none">🔑</span>
                     <div>
                         <div className="text-xs font-bold uppercase tracking-wider text-amber-700 dark:text-amber-400 mb-0.5">
-                            Công thức tâm lý (Mental Model)
+                            {t('grammar.mentalModelLabel', 'Công thức tâm lý (Mental Model)')}
                         </div>
                         <div className="text-sm font-medium text-slate-800 dark:text-slate-200">
                             {mentalModel}

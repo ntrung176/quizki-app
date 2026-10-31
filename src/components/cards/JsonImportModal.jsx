@@ -4,6 +4,7 @@ import { X, Copy, Check, FileJson, Download, AlertCircle } from 'lucide-react';
 import { showToast } from '../../utils/toast';
 import { cleanJapaneseExampleSentence } from '../../utils/furiganaHelper';
 import { useTargetLanguage } from '../../contexts/TargetLanguageContext';
+import { useLanguage } from '../../context/LanguageContext';
 
 const SAMPLE_PROMPT_JA = `Hãy tạo cho tôi danh sách từ vựng tiếng Nhật theo định dạng mảng JSON bên dưới. Trả về ĐÚNG 1 mảng JSON thuần túy (không kèm bất kỳ lời giải thích hay ký tự thừa nào ngoài cặp dấu ngoặc vuông []).
 
@@ -112,6 +113,7 @@ LƯU Ý ĐẶC BIỆT VỀ CÂU VÍ DỤ:
 ]`;
 
 const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
+    const { t } = useLanguage();
     let isEnglishMode = false;
     let isKoreanMode = false;
     try {
@@ -145,7 +147,7 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
     const handleImportSubmit = () => {
         setErrorMsg('');
         if (!jsonInput.trim()) {
-            setErrorMsg('Vui lòng nhập hoặc dán nội dung JSON vào ô bên dưới!');
+            setErrorMsg(t('jsonImport.emptyInputError', 'Vui lòng nhập hoặc dán nội dung JSON vào ô bên dưới!'));
             return;
         }
 
@@ -168,7 +170,7 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
             }
 
             if (items.length === 0) {
-                setErrorMsg('Không tìm thấy danh sách từ vựng hợp lệ trong chuỗi JSON!');
+                setErrorMsg(t('jsonImport.noValidCardsError', 'Không tìm thấy danh sách từ vựng hợp lệ trong chuỗi JSON!'));
                 return;
             }
 
@@ -255,17 +257,17 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
 
             if (formattedCards.length === 0) {
                 if (duplicateCount > 0) {
-                    setErrorMsg(`Tất cả ${duplicateCount} từ vựng trong file JSON đều đã tồn tại trong danh sách!`);
+                    setErrorMsg(t('jsonImport.allDuplicatesError', 'Tất cả {count} từ vựng trong file JSON đều đã tồn tại trong danh sách!').replace('{count}', duplicateCount));
                 } else {
-                    setErrorMsg('Không tìm thấy từ vựng hợp lệ nào trong chuỗi JSON!');
+                    setErrorMsg(t('jsonImport.noValidCardsError', 'Không tìm thấy từ vựng hợp lệ nào trong chuỗi JSON!'));
                 }
                 return;
             }
 
             if (duplicateCount > 0) {
-                showToast(`Đã nhập ${formattedCards.length} từ vựng mới! (Đã tự động loại bỏ ${duplicateCount} từ bị trùng lặp)`, 'info');
+                showToast(t('jsonImport.importSuccessWithDups', 'Đã nhập {count} từ vựng mới! (Đã tự động loại bỏ {dupCount} từ bị trùng lặp)').replace('{count}', formattedCards.length).replace('{dupCount}', duplicateCount), 'info');
             } else {
-                showToast(`Đã nhập thành công ${formattedCards.length} từ vựng mới từ JSON!`, 'success');
+                showToast(t('jsonImport.importSuccess', 'Đã nhập thành công {count} từ vựng mới từ JSON!').replace('{count}', formattedCards.length), 'success');
             }
 
             onImport(formattedCards);
@@ -273,7 +275,7 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
             onClose();
         } catch (err) {
             console.error('JSON Parse error:', err);
-            setErrorMsg('Cú pháp JSON chưa hợp lệ! Vui lòng kiểm tra lại cấu trúc JSON.');
+            setErrorMsg(t('jsonImport.invalidJsonError', 'Cú pháp JSON chưa hợp lệ! Vui lòng kiểm tra lại cấu trúc JSON.'));
         }
     };
 
@@ -288,14 +290,14 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                         </div>
                         <div>
                             <h3 className="text-lg font-black text-slate-800 dark:text-white">
-                                Nhập từ vựng bằng JSON thủ công
+                                {t('jsonImport.title', 'Nhập từ vựng bằng JSON thủ công')}
                             </h3>
                             <p className="text-xs text-slate-500 dark:text-slate-400">
                                 {isKoreanMode
-                                    ? 'Sao chép Prompt chuẩn tiếng Hàn bên dưới để nhờ AI soạn danh sách từ vựng'
+                                    ? t('jsonImport.subtitleKo', 'Sao chép Prompt chuẩn tiếng Hàn bên dưới để nhờ AI soạn danh sách từ vựng')
                                     : isEnglishMode
-                                    ? 'Sao chép Prompt chuẩn tiếng Anh bên dưới để nhờ AI soạn danh sách từ vựng'
-                                    : 'Sao chép Prompt đầy đủ trường dữ liệu bên dưới để nhờ AI soạn danh sách từ vựng'}
+                                    ? t('jsonImport.subtitleEn', 'Sao chép Prompt chuẩn tiếng Anh bên dưới để nhờ AI soạn danh sách từ vựng')
+                                    : t('jsonImport.subtitleJa', 'Sao chép Prompt đầy đủ trường dữ liệu bên dưới để nhờ AI soạn danh sách từ vựng')}
                             </p>
                         </div>
                     </div>
@@ -316,10 +318,10 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                                 <FileJson className="w-4 h-4 text-blue-500" />
                                 <span>
                                     {isKoreanMode
-                                        ? 'Prompt AI đầy đủ các trường từ vựng tiếng Hàn (ChatGPT / Gemini / Claude)'
+                                        ? t('jsonImport.promptBoxTitleKo', 'Prompt AI đầy đủ các trường từ vựng tiếng Hàn (ChatGPT / Gemini / Claude)')
                                         : isEnglishMode
-                                        ? 'Prompt AI đầy đủ các trường từ vựng tiếng Anh (ChatGPT / Gemini / Claude)'
-                                        : 'Prompt AI đầy đủ các trường từ vựng tiếng Nhật (ChatGPT / Gemini / Claude)'}
+                                        ? t('jsonImport.promptBoxTitleEn', 'Prompt AI đầy đủ các trường từ vựng tiếng Anh (ChatGPT / Gemini / Claude)')
+                                        : t('jsonImport.promptBoxTitleJa', 'Prompt AI đầy đủ các trường từ vựng tiếng Nhật (ChatGPT / Gemini / Claude)')}
                                 </span>
                             </div>
                             <button
@@ -327,7 +329,7 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                                 className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold transition-all shadow-sm active:scale-95 cursor-pointer shrink-0"
                             >
                                 {copiedPrompt ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                                <span>{copiedPrompt ? 'Đã chép Prompt!' : 'Sao chép Prompt'}</span>
+                                <span>{copiedPrompt ? t('jsonImport.copiedPrompt', 'Đã chép Prompt!') : t('jsonImport.copyPrompt', 'Sao chép Prompt')}</span>
                             </button>
                         </div>
                         <pre className="text-[11px] font-mono leading-relaxed bg-white/90 dark:bg-slate-950/90 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 whitespace-pre-wrap max-h-48 overflow-y-auto custom-scrollbar">
@@ -338,7 +340,7 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                     {/* Textarea Input */}
                     <div className="space-y-2">
                         <label className="block text-xs font-bold text-slate-700 dark:text-slate-300">
-                            Dán chuỗi mảng JSON từ vựng do AI tạo vào đây:
+                            {t('jsonImport.pasteJsonLabel', 'Dán chuỗi mảng JSON từ vựng do AI tạo vào đây:')}
                         </label>
                         <textarea
                             value={jsonInput}
@@ -371,14 +373,14 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                         onClick={onClose}
                         className="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
                     >
-                        Hủy
+                        {t('common.cancel', 'Hủy')}
                     </button>
                     <button
                         onClick={handleImportSubmit}
                         className="px-6 py-2.5 bg-gradient-to-r from-indigo-600 to-sky-600 hover:from-indigo-500 hover:to-sky-500 text-white text-xs font-black rounded-xl flex items-center gap-2 shadow-md transition-all active:scale-95 cursor-pointer"
                     >
                         <Download className="w-4 h-4" />
-                        <span>Nhập từ vựng vào bài</span>
+                        <span>{t('jsonImport.importBtn', 'Nhập từ vựng vào bài')}</span>
                     </button>
                 </div>
             </div>

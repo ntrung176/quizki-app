@@ -73,7 +73,7 @@ const LeechManagerModal = ({
                                 {titleText}
                             </h2>
                             <p className="text-xs text-slate-500 dark:text-slate-400">
-                                Phát hiện {currentCount} thẻ bị quên từ 4 lần trở lên. Hãy tập trung xử lý để không bị tắc nghẽn bài học!
+                                {t('modals.leechDetected', 'Phát hiện {count} thẻ bị quên từ 4 lần trở lên. Hãy tập trung xử lý để không bị tắc nghẽn bài học!').replace('{count}', currentCount)}
                             </p>
                         </div>
                     </div>
@@ -97,7 +97,7 @@ const LeechManagerModal = ({
                                         : 'bg-slate-200/70 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-300'
                                     }`}
                             >
-                                Tất cả ({leechVocab.length + leechKanji.length + leechGrammar.length})
+                                {t('modals.all', 'Tất cả')} ({leechVocab.length + leechKanji.length + leechGrammar.length})
                             </button>
                             <button
                                 onClick={() => setSelectedTab('vocab')}
@@ -106,7 +106,7 @@ const LeechManagerModal = ({
                                         : 'bg-slate-200/70 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-300'
                                     }`}
                             >
-                                Từ vựng ({leechVocab.length})
+                                {t('nav.vocab', 'Từ vựng')} ({leechVocab.length})
                             </button>
                             <button
                                 onClick={() => setSelectedTab('kanji')}
@@ -115,7 +115,7 @@ const LeechManagerModal = ({
                                         : 'bg-slate-200/70 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-300'
                                     }`}
                             >
-                                Kanji ({leechKanji.length})
+                                {t('nav.kanji', 'Kanji')} ({leechKanji.length})
                             </button>
                             <button
                                 onClick={() => setSelectedTab('grammar')}
@@ -124,13 +124,13 @@ const LeechManagerModal = ({
                                         : 'bg-slate-200/70 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-300'
                                     }`}
                             >
-                                Ngữ pháp ({leechGrammar.length})
+                                {t('nav.grammar', 'Ngữ pháp')} ({leechGrammar.length})
                             </button>
                         </div>
                     ) : (
                         <div className="flex items-center gap-2">
                             <span className="text-xs font-bold text-rose-600 dark:text-rose-400 bg-rose-500/10 px-3 py-1 rounded-lg border border-rose-500/20">
-                                🩸 Thẻ Khó {titleText.replace('Quản Lý Thẻ ', '')} ({displayedItems.length})
+                                🩸 {titleText} ({displayedItems.length})
                             </span>
                         </div>
                     )}
@@ -183,7 +183,7 @@ const LeechManagerModal = ({
                                                     {typeLabel}
                                                 </span>
                                                 <span className="text-xs font-bold text-rose-600 dark:text-rose-400 flex items-center gap-1">
-                                                    🩸 Quên {lapseCount} {t('modals.times', 'lần')}
+                                                    🩸 {t('modals.forgottenCount', 'Quên {count} lần').replace('{count}', lapseCount)}
                                                 </span>
                                             </div>
                                             <div className="text-base sm:text-lg font-bold text-slate-900 dark:text-white font-japanese">
@@ -201,10 +201,10 @@ const LeechManagerModal = ({
                                             <button
                                                 onClick={() => setEditingMnemonicId(editingMnemonicId === (item.id || wordText) ? null : (item.id || wordText))}
                                                 className="px-3 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-700 dark:text-amber-400 border border-amber-500/30 text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer"
-                                                title="Thêm hoặc chỉnh sửa mẹo nhớ cá nhân cho từ này"
+                                                title={t('modals.mnemonicTooltip', 'Thêm hoặc chỉnh sửa mẹo nhớ cá nhân cho từ này')}
                                             >
                                                 <Lightbulb className="w-3.5 h-3.5 text-amber-500" />
-                                                {(item.userMnemonic || item.customMnemonic || item.mnemonic) ? 'Sửa Mẹo Nhớ' : '+ Mẹo Nhớ'}
+                                                {(item.userMnemonic || item.customMnemonic || item.mnemonic) ? t('modals.editMnemonic', 'Sửa Mẹo Nhớ') : t('modals.addMnemonic', '+ Mẹo Nhớ')}
                                             </button>
                                             {onResetLeechCount && (
                                                 <button
@@ -222,7 +222,7 @@ const LeechManagerModal = ({
                                     {/* Existing Mnemonic Display */}
                                     {editingMnemonicId !== (item.id || wordText) && (item.userMnemonic || item.customMnemonic || item.mnemonic) && (
                                         <div className="text-xs text-amber-950 dark:text-amber-100 bg-amber-500/15 border border-amber-500/30 rounded-xl p-2.5 font-medium leading-relaxed mt-1">
-                                            <span className="font-bold text-amber-800 dark:text-amber-300 block mb-0.5">💡 Mẹo nhớ:</span>
+                                            <span className="font-bold text-amber-800 dark:text-amber-300 block mb-0.5">💡 {t('kanji.mnemonic', 'Mẹo nhớ')}:</span>
                                             <span className="whitespace-pre-line">{item.userMnemonic || item.customMnemonic || item.mnemonic}</span>
                                         </div>
                                     )}

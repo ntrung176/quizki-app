@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLanguage } from '../../context/LanguageContext';
 import { Zap, Loader2 } from 'lucide-react';
 
 /**
@@ -7,6 +8,7 @@ import { Zap, Loader2 } from 'lucide-react';
  * are fully pre-warmed before transitioning to the active review card screen.
  */
 const SrsPrewarmLoader = ({ title = "Từ Vựng", count = 0 }) => {
+    const { t } = useLanguage();
     return (
         <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-900/90 backdrop-blur-md animate-fade-in text-white p-6">
             <div className="relative flex items-center justify-center mb-6">
@@ -19,10 +21,10 @@ const SrsPrewarmLoader = ({ title = "Từ Vựng", count = 0 }) => {
             </div>
 
             <h3 className="text-xl font-black tracking-wide text-center bg-gradient-to-r from-indigo-200 via-white to-purple-200 bg-clip-text text-transparent mb-2">
-                Đang Tính Toán Dữ Liệu Ôn Tập {title}
+                {t('srs.calculatingReviewData', 'Đang Tính Toán Dữ Liệu Ôn Tập {title}').replace('{title}', title)}
             </h3>
             <p className="text-xs text-indigo-200/80 font-medium mb-6 text-center max-w-xs">
-                Đang nạp âm thanh, Furigana & tối ưu {count} thẻ học...
+                {t('srs.prewarmingCards', 'Đang nạp âm thanh, Furigana & tối ưu {count} thẻ học...').replace('{count}', count)}
             </p>
 
             {/* High-tech Loading Bar */}
@@ -32,7 +34,7 @@ const SrsPrewarmLoader = ({ title = "Từ Vựng", count = 0 }) => {
 
             <div className="flex items-center gap-1.5 mt-4 text-[11px] text-amber-300/90 font-mono">
                 <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                <span>Đã sẵn sàng vào thẻ đầu tiên...</span>
+                <span>{t('srs.readyForCardOne', 'Đã sẵn sàng vào thẻ đầu tiên...')}</span>
             </div>
         </div>
     );

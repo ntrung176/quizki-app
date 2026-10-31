@@ -5,6 +5,7 @@ import { KANJI_TABS } from '../../config/tabs';
 import useMenuTransition from '../../hooks/useMenuTransition';
 import { useKanjiData } from '../../hooks/useKanjiData';
 import { ROUTES } from '../../router';
+import { useLanguage } from '../../context/LanguageContext';
 
 import KanjiNavHeader from '../kanji/KanjiNavHeader';
 import KanjiGridList from '../kanji/KanjiGridList';
@@ -21,6 +22,7 @@ const KanjiScreen = ({
     userId,
     awardXP
 }) => {
+    const { t } = useLanguage();
     const fadeWholePage = useMenuTransition();
 
     const kanjiData = useKanjiData({
@@ -71,16 +73,16 @@ const KanjiScreen = ({
     if (loading) {
         if (location.state?.fromLesson) {
             return (
-                <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-sky-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 flex items-center justify-center">
-                    <LoadingIndicator text="Đang tải chi tiết Kanji..." />
+                <div className="min-h-screen bg-transparent flex items-center justify-center">
+                    <LoadingIndicator text={t('kanji.loadingKanjiDetails', 'Đang tải chi tiết Kanji...')} />
                 </div>
             );
         }
         return (
-            <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-sky-50 dark:bg-slate-900 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 text-gray-900 dark:text-white pb-8">
+            <div className="min-h-screen bg-transparent text-slate-900 dark:text-white pb-8">
                 <TopTabBar tabs={KANJI_TABS} />
                 <div className="animate-fade-in">
-                    <LoadingIndicator text="Đang tải dữ liệu Kanji..." />
+                    <LoadingIndicator text={t('kanji.loadingKanjiData', 'Đang tải dữ liệu Kanji...')} />
                 </div>
             </div>
         );
@@ -90,7 +92,7 @@ const KanjiScreen = ({
     if (location.state?.fromLesson) {
         if (!selectedKanji) {
             return (
-                <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-sky-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 flex items-center justify-center">
+                <div className="min-h-screen bg-transparent flex items-center justify-center">
                     <div className="flex flex-col items-center gap-4 animate-pulse">
                         <div className="w-24 h-24 rounded-2xl bg-slate-200 dark:bg-slate-700" />
                         <div className="h-4 w-40 rounded-lg bg-slate-200 dark:bg-slate-700" />
@@ -100,7 +102,7 @@ const KanjiScreen = ({
             );
         }
         return (
-            <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-sky-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 text-gray-900 dark:text-white animate-fade-in">
+            <div className="min-h-screen bg-transparent text-slate-900 dark:text-white animate-fade-in">
                 <KanjiDetailView
                     selectedKanji={selectedKanji}
                     setSelectedKanji={setSelectedKanji}

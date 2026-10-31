@@ -148,7 +148,7 @@ const FeedbackScreen = ({ userId, profile, isAdmin }) => {
                 <button
                     onClick={handleSendFeedback}
                     disabled={!feedbackText.trim() || isSendingFeedback}
-                    className="w-full py-2.5 bg-gradient-to-r from-indigo-600 to-sky-500 dark:from-indigo-500 dark:to-sky-500 text-white rounded-xl font-bold text-sm hover:from-indigo-700 hover:to-sky-600 disabled:opacity-50 transition-all flex items-center justify-center gap-2"
+                    className="w-full py-3.5 bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white rounded-2xl font-black text-xs uppercase tracking-wider disabled:opacity-50 transition-all flex items-center justify-center gap-2 cursor-pointer select-none"
                 >
                     {isSendingFeedback ? (
                         <div className="animate-spin w-4 h-4 border-2 border-white/30 border-t-white rounded-full" />

@@ -59,7 +59,7 @@ const QuestionExplanationCard = ({
             {/* 1. Header Banner */}
             <div className="flex flex-wrap sm:flex-nowrap items-start sm:items-center justify-between gap-2 sm:gap-3 border-b border-indigo-100 dark:border-indigo-900/60 pb-3">
                 <div className="flex items-center gap-2.5 min-w-0 flex-1">
-                    <div className="w-8 h-8 rounded-xl bg-slate-900 dark:bg-slate-800 text-[#f494bc] flex items-center justify-center shrink-0 shadow-xs border border-slate-700/50">
+                    <div className="w-8 h-8 rounded-xl bg-slate-900 dark:bg-slate-800 text-emerald-400 flex items-center justify-center shrink-0 shadow-xs border border-slate-700/50">
                         <BookOpen className="w-4 h-4" />
                     </div>
                     <div className="min-w-0 flex-1">
@@ -80,7 +80,7 @@ const QuestionExplanationCard = ({
                                 setBreakdownSentenceIdx(0);
                                 setIsBreakdownModalOpen(true);
                             }}
-                            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 text-xs font-black shadow-[0_4px_14px_rgba(244,148,188,0.35)] transition cursor-pointer active:scale-95"
+                            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 border-b-2 border-emerald-700 active:translate-y-0.5 active:border-b-0 text-white text-xs font-black transition cursor-pointer select-none"
                             title="Bật bảng phân tích chi tiết từng câu trong bài"
                         >
                             <Languages className="w-3.5 h-3.5" />

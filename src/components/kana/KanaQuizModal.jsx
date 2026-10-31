@@ -324,7 +324,7 @@ const KanaQuizModal = ({
                                         if (gameMode === 'memory_match') initMemoryMatch();
                                         else initSpeedQuiz();
                                     }}
-                                    className="flex-1 py-3 rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-slate-700 dark:text-slate-200 text-sm flex items-center justify-center gap-2 transition-all cursor-pointer"
+                                    className="flex-1 py-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 font-black uppercase tracking-wider text-slate-700 dark:text-slate-200 text-xs flex items-center justify-center gap-2 transition-all cursor-pointer select-none"
                                 >
                                     <RotateCcw className="w-4 h-4" />
                                     <span>Chơi lại</span>
@@ -332,7 +332,7 @@ const KanaQuizModal = ({
                                 <button
                                     type="button"
                                     onClick={onClose}
-                                    className="flex-1 py-3 rounded-2xl bg-gradient-to-r from-indigo-600 to-sky-500 hover:from-indigo-500 hover:to-sky-400 text-white font-bold text-sm shadow-lg shadow-indigo-500/25 transition-all cursor-pointer"
+                                    className="flex-1 py-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 text-white font-black uppercase tracking-wider text-xs transition-all cursor-pointer select-none"
                                 >
                                     <span>Hoàn tất</span>
                                 </button>
@@ -393,7 +393,7 @@ const KanaQuizModal = ({
                                             type="button"
                                             onClick={() => handleSelectOption(opt)}
                                             disabled={isAnswered}
-                                            className={`p-4 rounded-2xl border-2 font-mono text-xl sm:text-2xl font-black transition-all cursor-pointer flex items-center justify-center select-none active:scale-95 ${btnStyle}`}
+                                            className={`p-4 rounded-2xl border-2 border-b-4 font-mono text-xl sm:text-2xl font-black transition-all cursor-pointer flex items-center justify-center select-none active:translate-y-0.5 active:border-b-2 ${btnStyle}`}
                                         >
                                             /{opt}/
                                         </button>
@@ -481,7 +481,7 @@ const KanaQuizModal = ({
                                 <button
                                     type="submit"
                                     disabled={isAnswered || !typedText.trim()}
-                                    className="w-full py-3.5 bg-gradient-to-r from-indigo-600 to-sky-500 hover:from-indigo-500 hover:to-sky-400 disabled:opacity-50 text-white font-bold text-sm rounded-2xl shadow-md transition-all cursor-pointer"
+                                    className="w-full py-3.5 bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 disabled:opacity-50 text-white font-black uppercase tracking-wider text-xs rounded-2xl transition-all cursor-pointer select-none"
                                 >
                                     Kiểm tra đáp án
                                 </button>

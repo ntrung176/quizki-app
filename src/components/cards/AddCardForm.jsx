@@ -31,7 +31,7 @@ export const CardEditorItem = ({
     isAiLoading,
     frontInputRef
 }) => {
-    const { t } = useLanguage();
+    const { t, language } = useLanguage();
     const { isEnglishMode, isKoreanMode } = useTargetLanguage();
     const cardIsEnglish = isEnglishCard(card, isEnglishMode);
     const cardIsKorean = isKoreanCard(card, isKoreanMode);
@@ -93,7 +93,7 @@ export const CardEditorItem = ({
                 onUpdate(card.id, 'imageBase64', compressedBase64);
             } catch (error) {
                 console.error("Lỗi nén ảnh:", error);
-                showToast("Không thể xử lý ảnh này.", 'error');
+                showToast(language === 'vi' ? "Không thể xử lý ảnh này." : "Cannot process this image.", 'error');
             }
         }
     };
@@ -131,23 +131,23 @@ export const CardEditorItem = ({
                 <div className="flex-1 grid grid-cols-2 sm:grid-cols-2 gap-2.5 sm:gap-6">
                     <div className="border-b border-slate-100 dark:border-slate-800 pb-1.5 sm:pb-2">
                         <p className={`text-sm sm:text-lg font-bold ${card.front ? 'text-slate-800 dark:text-slate-200' : 'text-slate-400 dark:text-slate-500 italic'} truncate`}>
-                            {card.front || (isKoreanMode ? 'Thuật ngữ (Tiếng Hàn)' : isEnglishMode ? 'Thuật ngữ (Tiếng Anh)' : 'Thuật ngữ (Tiếng Nhật)')}
+                            {card.front || (isKoreanMode ? t('forms.termPlaceholderKo', 'Thuật ngữ (Tiếng Hàn)') : isEnglishMode ? t('forms.termPlaceholderEn', 'Thuật ngữ (Tiếng Anh)') : t('forms.termPlaceholderJa', 'Thuật ngữ (Tiếng Nhật)'))}
                         </p>
                         <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 mt-0.5 uppercase tracking-wider">
-                            {card.reading ? `${card.reading} • ` : (card.ipa ? `${card.ipa} • ` : '')}THUẬT NGỮ
+                            {card.reading ? `${card.reading} • ` : (card.ipa ? `${card.ipa} • ` : '')}{t('forms.term', 'THUẬT NGỮ')}
                         </p>
                     </div>
                     <div className="border-b border-slate-100 dark:border-slate-800 pb-1.5 sm:pb-2">
                         <p className={`text-sm sm:text-lg font-bold ${card.back ? 'text-slate-800 dark:text-slate-200' : 'text-slate-400 dark:text-slate-500 italic'} truncate`}>
-                            {card.back || 'Định nghĩa (Tiếng Việt)'}
+                            {card.back || (isEnglishMode ? t('forms.definitionPlaceholderEn', 'Định nghĩa (Tiếng Anh)') : t('forms.definitionPlaceholderJa', 'Định nghĩa (Tiếng Việt)'))}
                         </p>
-                        <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 mt-0.5 uppercase tracking-wider">ĐỊNH NGHĨA</p>
+                        <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 mt-0.5 uppercase tracking-wider">{t('forms.definitionLabel', 'ĐỊNH NGHĨA')}</p>
                     </div>
                 </div>
                 <button 
                     onClick={(e) => onDelete(e, card.id)} 
                     className="p-1.5 text-slate-300 hover:text-red-500 dark:text-slate-600 dark:hover:text-red-400 opacity-80 sm:opacity-0 group-hover:opacity-100 transition-opacity min-h-[36px] min-w-[36px] flex items-center justify-center cursor-pointer"
-                    title="Xóa thẻ"
+                    title={t('forms.deleteCard', 'Xóa thẻ')}
                 >
                     <Trash2 className="w-4 h-4 sm:w-5 sm:h-5" />
                 </button>
@@ -171,7 +171,7 @@ export const CardEditorItem = ({
                 <button 
                     onClick={(e) => onDelete(e, card.id)} 
                     className="p-2 text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-xl transition-colors"
-                    title="Xóa thẻ"
+                    title={t('forms.deleteCard', 'Xóa thẻ')}
                 >
                     <Trash2 className="w-5 h-5" />
                 </button>
@@ -181,7 +181,7 @@ export const CardEditorItem = ({
                 {/* Thuật ngữ & Định nghĩa */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                        <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">{isKoreanMode ? 'THUẬT NGỮ (TIẾNG HÀN)' : isEnglishMode ? 'THUẬT NGỮ (TIẾNG ANH)' : t('forms.japaneseTerm', 'THUẬT NGỮ (TIẾNG NHẬT)')} *</label>
+                        <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">{isKoreanMode ? (t('forms.term', 'THUẬT NGỮ') + ' (Tiếng Hàn)') : isEnglishMode ? (t('forms.term', 'THUẬT NGỮ') + ' (Tiếng Anh)') : t('forms.japaneseTerm', 'THUẬT NGỮ (TIẾNG NHẬT)')} *</label>
                         <div className="flex gap-2">
                             <input
                                 type="text"
@@ -190,7 +190,7 @@ export const CardEditorItem = ({
                                 onKeyDown={handleKeyDown}
                                 ref={frontInputRef}
                                 required
-                                placeholder={isKoreanMode ? 'Ví dụ: 학교' : isEnglishMode ? 'Ví dụ: Intelligence' : 'Ví dụ: 食べる'}
+                                placeholder={isKoreanMode ? t('forms.termPlaceholderKo', 'Ví dụ: 학교') : isEnglishMode ? t('forms.termPlaceholderEn', 'Ví dụ: Intelligence') : t('forms.termPlaceholderJa', 'Ví dụ: 食べる')}
                                 className="w-full bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 py-2.5 text-2xl font-bold text-slate-800 dark:text-white outline-none transition-colors"
                             />
                             
@@ -205,12 +205,12 @@ export const CardEditorItem = ({
                                             currentStrokeRef.current = { xs: [], ys: [] };
                                         }
                                     }}
-                                    className={`flex items-center justify-center px-3.5 py-2 rounded-xl border font-bold text-sm shadow hover:shadow-md transition-all flex-shrink-0 min-w-[38px] ${
+                                    className={`flex items-center justify-center px-3.5 py-2 rounded-2xl border-b-4 font-bold text-sm transition-all flex-shrink-0 min-w-[38px] active:translate-y-0.5 active:border-b-2 cursor-pointer select-none ${
                                         showHandwriting
-                                            ? 'bg-sky-100 dark:bg-sky-950 border-sky-200 dark:border-sky-855 text-sky-600 dark:text-sky-400'
-                                            : 'bg-white hover:bg-slate-50 dark:bg-gray-800 dark:border-gray-700 text-slate-500 dark:text-slate-300'
+                                            ? 'bg-sky-50 dark:bg-sky-950/50 border-sky-400 dark:border-sky-700 text-sky-600 dark:text-sky-400'
+                                            : 'bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200'
                                     }`}
-                                    title="Vẽ để chọn Kanji"
+                                    title={t('forms.drawKanji', 'Vẽ để chọn Kanji')}
                                 >
                                     <span className="font-japanese font-bold text-base">あ</span>
                                 </button>
@@ -221,8 +221,8 @@ export const CardEditorItem = ({
                                     type="button"
                                     onClick={() => onAiAssist(card.id)}
                                     disabled={isAiLoading || !card.front.trim()}
-                                    className="flex items-center justify-center px-3 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl shadow hover:shadow-md transition-all font-black text-xs disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0 min-w-[38px] cursor-pointer"
-                                    title="Tự động điền thông tin bằng AI (Alt+G)"
+                                    className="flex items-center justify-center px-3.5 py-2 bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 text-white rounded-2xl transition-all font-black text-xs disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0 min-w-[38px] cursor-pointer select-none"
+                                    title={t('forms.aiAutoFill', 'Tự động điền thông tin bằng AI (Alt+G)')}
                                 >
                                     {isAiLoading ? <Loader2 className="animate-spin w-4 h-4" /> : <span className="tracking-wide">AI</span>}
                                 </button>
@@ -234,11 +234,11 @@ export const CardEditorItem = ({
                             <div className="mt-3 bg-slate-50 dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-3.5 shadow-sm space-y-3 relative z-10">
                                 <div className="flex items-center justify-between">
                                     <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
-                                        <PenTool className="w-3.5 h-3.5 text-sky-500" /> Vẽ chữ Kanji để nhập
+                                        <PenTool className="w-3.5 h-3.5 text-sky-500" /> {t('forms.drawKanji', 'Vẽ chữ Kanji để nhập')}
                                     </span>
                                     <div className="flex items-center gap-2">
                                         {handwritingStrokesRef.current.length > 0 && (
-                                            <span className="text-[9px] text-gray-400 font-mono">{handwritingStrokesRef.current.length} nét</span>
+                                            <span className="text-[9px] text-gray-400 font-mono">{t('forms.strokesCount', '{count} nét').replace('{count}', handwritingStrokesRef.current.length)}</span>
                                         )}
                                         <button
                                             type="button"
@@ -254,7 +254,7 @@ export const CardEditorItem = ({
                                                 setHandwritingSuggestions([]);
                                             }}
                                             className="p-1 hover:bg-slate-200 dark:hover:bg-slate-800 rounded text-slate-500 transition-colors"
-                                            title="Xóa và vẽ lại"
+                                            title={t('forms.clearDrawing', 'Xóa và vẽ lại')}
                                         >
                                             <RotateCcw className="w-3.5 h-3.5" />
                                         </button>
@@ -376,7 +376,7 @@ export const CardEditorItem = ({
 
                                 {handwritingSuggestions.length > 0 && (
                                     <div className="border-t border-slate-200 dark:border-slate-800 pt-2 bg-slate-50/50 dark:bg-slate-900/30 max-h-36 overflow-y-auto">
-                                        <div className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2">Đề xuất Kanji (Bấm để thêm):</div>
+                                        <div className="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-2">{t('forms.kanjiSuggestions', 'Đề xuất Kanji (Bấm để thêm):')}</div>
                                         <div className="flex flex-wrap gap-2">
                                             {handwritingSuggestions.map((sug) => (
                                                 <button
@@ -413,7 +413,7 @@ export const CardEditorItem = ({
                             value={card.back}
                             onChange={(e) => onUpdate(card.id, 'back', e.target.value)}
                             required
-                            placeholder={isEnglishMode ? 'Ví dụ: Trí thông minh' : 'Ví dụ: Ăn'}
+                            placeholder={isEnglishMode ? t('forms.definitionPlaceholderEn', 'Ví dụ: Trí thông minh') : t('forms.definitionPlaceholderJa', 'Ví dụ: Ăn')}
                             className="w-full bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 py-2.5 text-2xl font-bold text-slate-800 dark:text-white outline-none transition-colors"
                         />
                     </div>
@@ -424,22 +424,22 @@ export const CardEditorItem = ({
                     <>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">PHIÊN ÂM (ROMAJA)</label>
+                                <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">{t('forms.romajaLabel', 'PHIÊN ÂM (ROMAJA)')}</label>
                                 <input
                                     type="text"
                                     value={card.reading || ''}
                                     onChange={(e) => onUpdate(card.id, 'reading', e.target.value)}
-                                    placeholder="Ví dụ: hak-gyo, an-nyeong..."
+                                    placeholder={t('forms.romajaPlaceholder', 'Ví dụ: hak-gyo, an-nyeong...')}
                                     className="w-full bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 py-2 text-base font-semibold text-slate-700 dark:text-slate-200 outline-none transition-colors"
                                 />
                             </div>
                             <div>
-                                <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">ÂM HÁN HÀN</label>
+                                <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">{t('forms.sinoKoreanLabel', 'ÂM HÁN HÀN')}</label>
                                 <input
                                     type="text"
                                     value={card.sinoVietnamese || ''}
                                     onChange={(e) => onUpdate(card.id, 'sinoVietnamese', e.target.value)}
-                                    placeholder="Âm Hán Hàn (ví dụ: Học hiệu)..."
+                                    placeholder={t('forms.sinoKoreanPlaceholder', 'Âm Hán Hàn (ví dụ: Học hiệu)...')}
                                     className="w-full bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 py-2 text-base font-semibold text-slate-700 dark:text-slate-200 outline-none transition-colors"
                                 />
                             </div>
@@ -459,7 +459,7 @@ export const CardEditorItem = ({
                                             {card.pos ? (
                                                 KOREAN_POS_TYPES[card.pos]?.label || getPosLabel(card.pos)
                                             ) : (
-                                                '-- Chọn từ loại --'
+                                                t('forms.partOfSpeechSelect', '-- Chọn từ loại --')
                                             )}
                                         </span>
                                         <ChevronDown className="w-4 h-4 text-slate-400 transition-transform duration-200" style={{ transform: posDropdownOpen ? 'rotate(180deg)' : 'none' }} />
@@ -497,7 +497,7 @@ export const CardEditorItem = ({
                 ) : cardIsEnglish ? (
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">PHIÊN ÂM (IPA)</label>
+                            <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">{t('forms.ipaLabel', 'PHIÊN ÂM (IPA)')}</label>
                             <input
                                 type="text"
                                 value={card.ipa || ''}
@@ -518,12 +518,12 @@ export const CardEditorItem = ({
                                     <span>
                                         {card.pos ? (
                                             card.pos === 'grammar' ? (
-                                                `Ngữ pháp ${card.level ? `(${card.level})` : ''}`
+                                                `${t('forms.grammar', 'Ngữ pháp')} ${card.level ? `(${card.level})` : ''}`
                                             ) : (
                                                 getPosLabel(card.pos)
                                             )
                                         ) : (
-                                            '-- Chọn từ loại --'
+                                            t('forms.partOfSpeechSelect', '-- Chọn từ loại --')
                                         )}
                                     </span>
                                     <ChevronDown className="w-4 h-4 text-slate-400 transition-transform duration-200" style={{ transform: posDropdownOpen ? 'rotate(180deg)' : 'none' }} />
@@ -567,7 +567,7 @@ export const CardEditorItem = ({
                                     type="text"
                                     value={card.reading || ''}
                                     onChange={(e) => onUpdate(card.id, 'reading', e.target.value)}
-                                    placeholder="Ví dụ: ぼしゅう, たべる..."
+                                    placeholder={t('forms.readingPlaceholder', 'Ví dụ: ぼしゅう, たべる...')}
                                     className="w-full bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 py-2 text-base font-semibold text-slate-700 dark:text-slate-200 outline-none transition-colors font-japanese"
                                 />
                             </div>
@@ -577,7 +577,7 @@ export const CardEditorItem = ({
                                     type="text"
                                     value={card.sinoVietnamese || ''}
                                     onChange={(e) => onUpdate(card.id, 'sinoVietnamese', e.target.value)}
-                                    placeholder="Âm Hán Việt..."
+                                    placeholder={t('forms.sinoVietnamesePlaceholder', 'Âm Hán Việt...')}
                                     className="w-full bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 py-2 text-base font-semibold text-slate-700 dark:text-slate-200 outline-none transition-colors"
                                 />
                             </div>
@@ -597,12 +597,12 @@ export const CardEditorItem = ({
                                         <span>
                                             {card.pos ? (
                                                 card.pos === 'grammar' ? (
-                                                    `Ngữ pháp ${card.level ? `(${card.level})` : ''}`
+                                                    `${t('forms.grammar', 'Ngữ pháp')} ${card.level ? `(${card.level})` : ''}`
                                                 ) : (
                                                     POS_TYPES[card.pos]?.label || getPosLabel(card.pos, 'ja')
                                                 )
                                             ) : (
-                                                '-- Chọn từ loại --'
+                                                t('forms.partOfSpeechSelect', '-- Chọn từ loại --')
                                             )}
                                         </span>
                                         <ChevronDown className="w-4 h-4 text-slate-400 transition-transform duration-200" style={{ transform: posDropdownOpen ? 'rotate(180deg)' : 'none' }} />
@@ -636,7 +636,7 @@ export const CardEditorItem = ({
                                                                     }}
                                                                     className="w-full px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700/50 text-left flex justify-between items-center"
                                                                 >
-                                                                    <span>Ngữ pháp</span>
+                                                                    <span>{t('forms.grammar', 'Ngữ pháp')}</span>
                                                                     <span className="text-[10px] text-slate-400">▶</span>
                                                                 </button>
 
@@ -688,7 +688,7 @@ export const CardEditorItem = ({
                 {/* Ví dụ & Ngữ cảnh */}
                 <div className="bg-slate-50/50 dark:bg-slate-900/20 p-5 rounded-2xl border border-slate-100 dark:border-slate-800/80 space-y-4">
                     <div className="flex items-center justify-between">
-                        <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">VÍ DỤ & NGỮ CẢNH</label>
+                        <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">{t('forms.addExample', 'VÍ DỤ & NGỮ CẢNH')}</label>
                         <button
                             type="button"
                             onClick={() => {
@@ -716,7 +716,7 @@ export const CardEditorItem = ({
                                 return (
                                     <div key={idx} className="space-y-2 border-b border-slate-150 dark:border-slate-800/50 pb-3 last:border-b-0 last:pb-0">
                                         <div className="flex items-center justify-between">
-                                            <span className="text-[10px] font-bold text-slate-450 dark:text-slate-500 uppercase tracking-wider">Ví dụ #{idx + 1}</span>
+                                            <span className="text-[10px] font-bold text-slate-450 dark:text-slate-500 uppercase tracking-wider">{t('forms.cardItem', 'Ví dụ #{number}').replace('#{number}', idx + 1)}</span>
                                             {maxLines > 1 && (
                                                 <button
                                                     type="button"
@@ -728,7 +728,7 @@ export const CardEditorItem = ({
                                                     }}
                                                     className="text-[10px] font-bold text-red-505 hover:text-red-650 transition-colors cursor-pointer"
                                                 >
-                                                    Xóa ví dụ này
+                                                    {t('forms.deleteExample', 'Xóa ví dụ này')}
                                                 </button>
                                             )}
                                         </div>
@@ -743,7 +743,7 @@ export const CardEditorItem = ({
                                                         updated[idx] = e.target.value;
                                                         onUpdate(card.id, 'example', updated.join('\n'));
                                                     }}
-                                                    placeholder={isKoreanMode ? 'Câu ví dụ tiếng Hàn' : isEnglishMode ? 'Câu ví dụ tiếng Anh' : 'Câu ví dụ tiếng Nhật'}
+                                                    placeholder={isKoreanMode ? t('forms.examplePlaceholderKo', 'Câu ví dụ tiếng Hàn') : isEnglishMode ? t('forms.examplePlaceholderEn', 'Câu ví dụ tiếng Anh') : t('forms.examplePlaceholderJa', 'Câu ví dụ tiếng Nhật')}
                                                     className="w-full bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 py-1.5 text-sm text-slate-750 dark:text-slate-250 outline-none"
                                                 />
                                             </div>
@@ -757,7 +757,7 @@ export const CardEditorItem = ({
                                                         updated[idx] = e.target.value;
                                                         onUpdate(card.id, 'exampleMeaning', updated.join('\n'));
                                                     }}
-                                                    placeholder="Nghĩa câu ví dụ (Việt)"
+                                                    placeholder={t('forms.exampleMeaningPlaceholder', 'Nghĩa câu ví dụ')}
                                                     className="w-full bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 py-1.5 text-sm text-slate-500 dark:text-slate-450 outline-none"
                                                 />
                                             </div>
@@ -770,7 +770,7 @@ export const CardEditorItem = ({
 
                     {onGenerateMoreExample && card.back.includes(';') && (
                         <div className="pt-2">
-                            <p className="text-xs text-slate-500 dark:text-slate-400 mb-2">Tạo thêm ví dụ bằng AI theo nghĩa:</p>
+                            <p className="text-xs text-slate-500 dark:text-slate-400 mb-2">{t('forms.generateMoreAiExamples', 'Tạo thêm ví dụ bằng AI theo nghĩa:')}</p>
                             <div className="flex flex-wrap gap-2">
                                 {card.back.split(';').map(m => m.trim()).filter(Boolean).map((meaning, idx) => (
                                     <button
@@ -796,7 +796,7 @@ export const CardEditorItem = ({
                         className="w-full flex items-center justify-between p-4 hover:bg-slate-50 dark:hover:bg-slate-900/30 transition-colors"
                     >
                         <div className="flex items-center gap-2">
-                            <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">Tùy chọn bổ sung (Ảnh, Đồng nghĩa, Ghi chú)</h3>
+                            <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">{t('forms.additionalOptions', 'TÙY CHỌN BỔ SUNG (ẢNH, ĐỒNG NGHĨA, GHI CHÚ)')}</h3>
                             {card.imageBase64 && <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />}
                         </div>
                         <ChevronDown className={`w-4 h-4 text-slate-400 transition-transform duration-300 ${showAdvanced ? 'rotate-180' : ''}`} />
@@ -806,22 +806,22 @@ export const CardEditorItem = ({
                         <div className="p-4 pt-0 space-y-4">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
-                                    <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Từ đồng nghĩa</label>
+                                    <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">{t('forms.synonyms', 'Từ đồng nghĩa')}</label>
                                     <input
                                         type="text"
                                         value={card.synonym}
                                         onChange={(e) => onUpdate(card.id, 'synonym', e.target.value)}
-                                        placeholder={isKoreanMode ? 'Ví dụ: 똑똑하다' : isEnglishMode ? 'Ví dụ: Smart, Clever' : 'Ví dụ: 食事する'}
+                                        placeholder={isKoreanMode ? t('forms.synonymPlaceholderKo', 'Ví dụ: 똑똑하다') : isEnglishMode ? t('forms.synonymPlaceholderEn', 'Ví dụ: Smart, Clever') : t('forms.synonymPlaceholderJa', 'Ví dụ: 食事する')}
                                         className="w-full bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 py-2 text-sm text-slate-700 dark:text-slate-200 outline-none"
                                     />
                                 </div>
                                 <div>
-                                    <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Sắc thái / Ghi chú</label>
+                                    <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">{t('forms.nuanceNote', 'Sắc thái / Ghi chú')}</label>
                                     <input
                                         type="text"
                                         value={card.nuance}
                                         onChange={(e) => onUpdate(card.id, 'nuance', e.target.value)}
-                                        placeholder="Ghi chú sắc thái..."
+                                        placeholder={t('forms.nuanceNotePlaceholder', 'Ghi chú sắc thái...')}
                                         className="w-full bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 py-2 text-sm text-slate-700 dark:text-slate-200 outline-none"
                                     />
                                 </div>
@@ -831,7 +831,7 @@ export const CardEditorItem = ({
                                 <div className="flex-1 space-y-2">
                                     <label htmlFor={`image-upload-${card.id}`} className="flex flex-col items-center justify-center w-full h-16 border-2 border-slate-200 dark:border-slate-700 border-dashed rounded-xl cursor-pointer hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:border-indigo-300 dark:hover:border-indigo-700 transition-all group">
                                         <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 flex items-center gap-1">
-                                            <ImageIcon className="w-4 h-4" /> Tải ảnh lên
+                                            <ImageIcon className="w-4 h-4" /> {t('forms.uploadImage', 'Tải ảnh lên')}
                                         </p>
                                         <input id={`image-upload-${card.id}`} type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
                                     </label>
@@ -839,7 +839,7 @@ export const CardEditorItem = ({
                                         type="text"
                                         value={card.imageBase64 && card.imageBase64.startsWith('http') ? card.imageBase64 : ''}
                                         onChange={(e) => onUpdate(card.id, 'imageBase64', e.target.value)}
-                                        placeholder="Hoặc dán URL hình ảnh..."
+                                        placeholder={t('forms.pasteImageUrl', 'Hoặc dán URL hình ảnh...')}
                                         className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-500 rounded-xl text-xs text-slate-700 dark:text-slate-200 outline-none transition-colors"
                                     />
                                 </div>
@@ -862,6 +862,8 @@ export const CardEditorItem = ({
 };
 
 const AddCardForm = ({
+    // Localization
+
     allCards = [],
     cardFolders = {},
     folders = [],
@@ -909,7 +911,7 @@ const AddCardForm = ({
             }
             return [...prev, ...cardsWithIsNew];
         });
-        showToast(`Đã nhập thành công ${newCards.length} từ vựng vào bài!`, 'success');
+        showToast(t('forms.cardsImportedSuccess', 'Đã nhập thành công {count} từ vựng vào bài!').replace('{count}', newCards.length), 'success');
     };
 
     const activeFrontInputRef = useRef(null);
@@ -932,7 +934,7 @@ const AddCardForm = ({
             }));
             setCards(initialCards);
             setActiveCardId(initialCards[0].id);
-            setTitle('Học phần nhập tự động');
+            setTitle(t('forms.autoImportedSetTitle', 'Học phần nhập tự động'));
         }
     }, [batchMode, batchVocabList]);
 
@@ -967,7 +969,7 @@ const AddCardForm = ({
                 setCoverImage(compressedBase64);
             } catch (error) {
                 console.error("Lỗi nén ảnh bìa:", error);
-                showToast("Không thể xử lý ảnh bìa này.", 'error');
+                showToast(language === 'vi' ? "Không thể xử lý ảnh bìa này." : "Cannot process this cover image.", 'error');
             }
         }
     };
@@ -995,7 +997,7 @@ const AddCardForm = ({
         });
 
         if (isDuplicate) {
-            showToast('Từ vựng đã có trong học phần rồi.', 'warning');
+            showToast(t('forms.duplicateWordWarning', 'Từ vựng đã có trong học phần rồi.'), 'warning');
             return;
         }
 
@@ -1085,12 +1087,12 @@ const AddCardForm = ({
     const handleSaveSet = () => {
         const validCards = cards.filter(c => c.front.trim() && c.back.trim());
         if (validCards.length === 0) {
-            showToast('Học phần phải có ít nhất 1 thẻ hợp lệ (có Thuật ngữ và Định nghĩa)', 'error');
+            showToast(t('forms.minOneCardError', 'Học phần phải có ít nhất 1 thẻ hợp lệ (có Thuật ngữ và Định nghĩa)'), 'error');
             return;
         }
 
         if (!title.trim()) {
-            showToast('Vui lòng nhập tiêu đề học phần', 'error');
+            showToast(t('forms.titleRequiredError', 'Vui lòng nhập tiêu đề học phần'), 'error');
             return;
         }
 
@@ -1160,7 +1162,7 @@ const AddCardForm = ({
                 externalDuplicates.push({
                     cardId: card.id,
                     front: card.front.trim(),
-                    otherSetName: otherFolder ? otherFolder.name : 'Học phần khác'
+                    otherSetName: otherFolder ? (otherFolder.name || otherFolder.title) : t('editSet.otherSetName', 'Học phần khác')
                 });
             }
         }
@@ -1209,7 +1211,7 @@ const AddCardForm = ({
             }
         } catch (e) {
             console.error("Lỗi khi tạo thư mục:", e);
-            showToast("Có lỗi xảy ra khi tạo học phần.", 'error');
+            showToast(t('forms.createSetError', 'Có lỗi xảy ra khi tạo học phần.'), 'error');
             setIsSaving(false);
             return;
         }
@@ -1239,7 +1241,7 @@ const AddCardForm = ({
             setIsSaving(false);
 
             if (successCount > 0) {
-                showToast(`Đã lưu thành công ${successCount} từ vựng vào học phần!`, 'success');
+                showToast(t('forms.cardsSavedSuccess', 'Đã lưu thành công {count} từ vựng vào học phần!').replace('{count}', successCount), 'success');
             }
 
             if (batchMode && onBatchSkip) {
@@ -1249,7 +1251,7 @@ const AddCardForm = ({
             onBack();
         } catch (error) {
             console.error("Lỗi khi lưu thẻ:", error);
-            showToast("Có lỗi xảy ra khi lưu từ vựng.", 'error');
+            showToast(t('forms.saveCardsError', 'Có lỗi xảy ra khi lưu từ vựng.'), 'error');
             setIsSaving(false);
         }
     };
@@ -1261,7 +1263,7 @@ const AddCardForm = ({
             <div className="max-w-4xl mx-auto px-4 lg:px-8 mt-4 sm:mt-5 space-y-4 sm:space-y-4.5 animate-fade-in">
 
                 {/* Unified Hero Header */}
-                <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-6 text-slate-800 dark:text-slate-100 shadow-sm dark:shadow-xl group">
+                <div className="relative overflow-hidden bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 text-slate-800 dark:text-slate-100 shadow-sm group">
                     <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-4 sm:gap-6">
                         <div className="space-y-1 flex-1">
                             <h2 className="text-xl sm:text-2xl md:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
@@ -1275,7 +1277,7 @@ const AddCardForm = ({
                             <button
                                 type="button"
                                 onClick={onBack}
-                                className="px-5 py-2.5 text-xs font-bold rounded-xl text-slate-700 bg-slate-100 hover:bg-slate-200 border border-slate-200 dark:text-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border-slate-700 transition-colors shadow-xs cursor-pointer min-h-[40px]"
+                                className="px-5 py-2.5 text-xs font-bold uppercase tracking-wider rounded-2xl text-slate-700 bg-slate-100 hover:bg-slate-200 border-b-4 border-slate-300 dark:text-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer min-h-[42px] select-none"
                             >
                                 {t('common.cancel', 'Hủy')}
                             </button>
@@ -1284,7 +1286,7 @@ const AddCardForm = ({
                                 onClick={handleSaveSet}
                                 disabled={isSaving}
                                 data-tour-id="SAVE_SET_BTN"
-                                className="px-5 py-2.5 text-xs font-bold rounded-xl text-white bg-[#204051] hover:bg-[#162e3b] dark:bg-slate-700 dark:hover:bg-slate-600 shadow-md transition-all disabled:opacity-50 flex items-center gap-1.5 active:scale-95 cursor-pointer min-h-[40px]"
+                                className="px-6 py-2.5 text-xs font-black uppercase tracking-wider rounded-2xl text-white bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 shadow-sm transition-all disabled:opacity-50 flex items-center gap-1.5 cursor-pointer min-h-[42px] select-none"
                             >
                                 {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Check className="w-4 h-4" />}
                                 <span>{t('forms.createSetBtn', 'Tạo học phần')}</span>
@@ -1294,7 +1296,7 @@ const AddCardForm = ({
                 </div>
 
                 {/* Metadata Card */}
-                <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 md:p-7 shadow-md border border-slate-200 dark:border-slate-800">
+                <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 md:p-7 shadow-sm border-2 border-slate-200 dark:border-slate-800">
                     <div className="space-y-4 sm:space-y-5">
                         <div>
                             <label className="block text-[11px] font-bold text-slate-450 dark:text-slate-500 uppercase tracking-wider mb-1.5">{t('forms.setTitleLabel', 'TIÊU ĐỀ HỌC PHẦN')}</label>
@@ -1303,8 +1305,8 @@ const AddCardForm = ({
                                 value={title}
                                 data-tour-id="STUDY_SET_TITLE"
                                 onChange={(e) => setTitle(e.target.value)}
-                                placeholder={isEnglishMode ? 'VD: Oxford 3000 Bài 1...' : t('forms.setTitlePlaceholder', 'VD: Từ vựng N3 bài 1...')}
-                                className="w-full px-0 py-2.5 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 text-2xl font-bold text-slate-800 dark:text-white outline-none placeholder-slate-400 transition-colors"
+                                placeholder={isEnglishMode ? 'e.g., Oxford 3000 Lesson 1...' : t('forms.setTitlePlaceholder', 'VD: Từ vựng N3 bài 1...')}
+                                className="w-full px-0 py-2.5 bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-sky-500 dark:focus:border-sky-400 text-2xl font-bold text-slate-800 dark:text-white outline-none placeholder-slate-400 transition-colors"
                             />
                         </div>
                         <div>
@@ -1314,7 +1316,7 @@ const AddCardForm = ({
                                 value={description}
                                 onChange={(e) => setDescription(e.target.value)}
                                 placeholder={t('forms.setDescriptionPlaceholder', 'Mô tả mục tiêu của bộ từ vựng này...')}
-                                className="w-full px-0 py-2 bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-blue-500 dark:focus:border-blue-400 text-base text-slate-650 dark:text-slate-200 outline-none placeholder-slate-400 transition-colors"
+                                className="w-full px-0 py-2 bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-sky-500 dark:focus:border-sky-400 text-base text-slate-650 dark:text-slate-200 outline-none placeholder-slate-400 transition-colors"
                             />
                         </div>
                     </div>
@@ -1326,13 +1328,13 @@ const AddCardForm = ({
                         <button
                             type="button"
                             onClick={() => setIsToolsMenuOpen(!isToolsMenuOpen)}
-                            className="flex items-center gap-2 px-3.5 py-1.5 sm:py-2 text-xs font-bold rounded-xl text-blue-700 dark:text-blue-300 bg-blue-50/90 hover:bg-blue-100 dark:bg-slate-800 dark:hover:bg-slate-750 border border-blue-200/90 dark:border-blue-800/80 transition-all shadow-xs cursor-pointer active:scale-95"
+                            className="flex items-center gap-2 px-4 py-2 text-xs font-bold rounded-2xl text-slate-700 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer select-none"
                         >
-                            <div className="w-5 h-5 rounded-lg bg-blue-600 dark:bg-blue-500 text-white flex items-center justify-center shrink-0 shadow-xs">
+                            <div className="w-5 h-5 rounded-lg bg-sky-500 text-white flex items-center justify-center shrink-0">
                                 <Wrench className="w-3 h-3" />
                             </div>
-                            <span>Công cụ</span>
-                            <ChevronDown className={`w-3.5 h-3.5 text-blue-500 dark:text-blue-400 transition-transform duration-200 ${isToolsMenuOpen ? 'rotate-180' : ''}`} />
+                            <span>{t('editSet.tools', 'Công cụ')}</span>
+                            <ChevronDown className={`w-3.5 h-3.5 text-slate-400 transition-transform duration-200 ${isToolsMenuOpen ? 'rotate-180' : ''}`} />
                         </button>
 
                         {isToolsMenuOpen && (
@@ -1380,7 +1382,7 @@ const AddCardForm = ({
                                                     <div className="w-6 h-6 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                                                         <Camera className="w-3.5 h-3.5" />
                                                     </div>
-                                                    <span>Tạo từ vựng từ ảnh (OCR)</span>
+                                                    <span>{t('editSet.ocrImage', 'Tạo từ vựng từ ảnh (OCR)')}</span>
                                                 </button>
                                             </>
                                         )}
@@ -1397,7 +1399,7 @@ const AddCardForm = ({
                                             <div className="w-6 h-6 rounded-lg bg-sky-100 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0">
                                                 <FileJson className="w-3.5 h-3.5" />
                                             </div>
-                                            <span>Nhập JSON thủ công</span>
+                                            <span>{t('editSet.importJson', 'Nhập JSON thủ công')}</span>
                                         </button>
                                     </div>
                                 </div>
@@ -1409,7 +1411,7 @@ const AddCardForm = ({
                 {/* Cards List */}
                 <div className="space-y-3 sm:space-y-3.5">
                     {cards.map((card, index) => (
-                        <SectionErrorBoundary key={card.id} name={`Thẻ #${index + 1}`} minimal>
+                        <SectionErrorBoundary key={card.id} name={t('editSet.cardItem', 'Thẻ #{number}').replace('{number}', index + 1)} minimal>
                             <CardEditorItem
                                 card={card}
                                 index={index}
@@ -1432,56 +1434,56 @@ const AddCardForm = ({
                     <button
                         type="button"
                         onClick={handleAddCardRow}
-                        className="flex flex-col items-center justify-center gap-1.5 py-3.5 px-4 rounded-2xl bg-white dark:bg-gray-800 border-2 border-dashed border-slate-200 dark:border-gray-700 text-slate-500 hover:text-blue-600 hover:border-blue-400 dark:hover:text-blue-400 dark:hover:border-blue-500 hover:bg-blue-50/30 dark:hover:bg-slate-800 font-bold text-xs sm:text-sm w-full transition-all cursor-pointer"
+                        className="flex flex-col items-center justify-center gap-1.5 py-3.5 px-4 rounded-2xl bg-white dark:bg-slate-900 border-2 border-dashed border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-sky-500 hover:border-sky-400 dark:hover:border-sky-500 hover:bg-sky-50/20 font-bold text-xs sm:text-sm w-full transition-all cursor-pointer"
                     >
                         <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
-                        THÊM THẺ MỚI
+                        {t('editSet.addNewCard', 'THÊM THẺ MỚI')}
                     </button>
                 </div>
 
                 {/* Bottom Actions for Desktop */}
-                <div className="hidden md:flex items-center justify-end gap-2.5 pt-3.5 border-t border-slate-200 dark:border-gray-800">
+                <div className="hidden md:flex items-center justify-end gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
                     <button
                         type="button"
                         onClick={onBack}
-                        className="px-5 py-2 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 dark:text-slate-300 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors shadow-sm cursor-pointer"
+                        className="px-5 py-2.5 text-xs font-bold uppercase tracking-wider rounded-2xl text-slate-700 bg-slate-100 hover:bg-slate-200 border-b-4 border-slate-300 dark:text-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer select-none"
                     >
-                        Hủy
+                        {t('common.cancel', 'Hủy')}
                     </button>
                     <button
                         type="button"
                         onClick={handleSaveSet}
                         disabled={isSaving}
-                        className="px-6 py-2 text-sm font-bold rounded-xl text-white bg-[#204051] hover:bg-[#162e3b] dark:bg-slate-700 dark:hover:bg-slate-600 shadow-md transition-colors disabled:opacity-50 flex items-center gap-2 cursor-pointer"
+                        className="px-6 py-2.5 text-xs font-black uppercase tracking-wider rounded-2xl text-white bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 shadow-sm transition-all disabled:opacity-50 flex items-center gap-2 cursor-pointer select-none"
                     >
                         {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Check className="w-4 h-4" />}
-                        Tạo học phần
+                        {t('forms.createSetBtn', 'Tạo học phần')}
                     </button>
                 </div>
             </div>
 
             {/* Bottom floating save bar on mobile */}
-            <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/90 dark:bg-gray-900/90 backdrop-blur-md border-t border-slate-200 dark:border-gray-800 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] md:hidden z-40 flex gap-3">
+            <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 shadow-xl md:hidden z-40 flex gap-3">
                 <button
                     type="button"
                     onClick={onBack}
-                    className="flex-1 px-4 py-3 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-200 dark:text-slate-300 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors flex items-center justify-center shadow-sm cursor-pointer"
+                    className="flex-1 px-4 py-3 text-xs font-bold uppercase tracking-wider rounded-2xl text-slate-700 bg-slate-100 hover:bg-slate-200 border-b-4 border-slate-300 dark:text-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 transition-all flex items-center justify-center cursor-pointer select-none"
                 >
-                    Hủy
+                    {t('common.cancel', 'Hủy')}
                 </button>
                 <button
                     type="button"
                     onClick={handleSaveSet}
                     disabled={isSaving}
-                    className="flex-1 px-4 py-3 text-sm font-bold rounded-xl text-white bg-[#204051] hover:bg-[#162e3b] dark:bg-slate-700 dark:hover:bg-slate-600 transition-colors disabled:opacity-50 flex items-center justify-center shadow-md cursor-pointer"
+                    className="flex-1 px-4 py-3 text-xs font-black uppercase tracking-wider rounded-2xl text-white bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 transition-all disabled:opacity-50 flex items-center justify-center shadow-sm cursor-pointer select-none"
                 >
                     {isSaving ? <Loader2 className="w-4 h-4 animate-spin mr-1.5" /> : <Check className="w-4 h-4 mr-1.5" />}
-                    Tạo học phần
+                    {t('forms.createSetBtn', 'Tạo học phần')}
                 </button>
             </div>
 
             {/* Bulk AI Creation Modal */}
-            <SectionErrorBoundary name="Tạo từ vựng bằng AI" onDismiss={() => setIsBatchModalOpen(false)}>
+            <SectionErrorBoundary name={t('batchAi.titleText', 'Tạo từ vựng bằng AI')} onDismiss={() => setIsBatchModalOpen(false)}>
                 <BatchAiModal
                     isOpen={isBatchModalOpen}
                     initialTab={batchModalInitialTab}
@@ -1495,7 +1497,7 @@ const AddCardForm = ({
             </SectionErrorBoundary>
 
             {/* Manual JSON Import Modal */}
-            <SectionErrorBoundary name="Nhập JSON thủ công" onDismiss={() => setIsJsonModalOpen(false)}>
+            <SectionErrorBoundary name={t('jsonImport.title', 'Nhập JSON thủ công')} onDismiss={() => setIsJsonModalOpen(false)}>
                 <JsonImportModal
                     isOpen={isJsonModalOpen}
                     onClose={() => setIsJsonModalOpen(false)}
@@ -1513,10 +1515,10 @@ const AddCardForm = ({
                         <div className="flex items-center justify-between p-5 border-b border-slate-100 dark:border-slate-750">
                             <div>
                                 <h3 className="text-lg font-bold text-slate-800 dark:text-white">
-                                    Chọn thư mục lưu học phần
+                                    {t('editSet.chooseFolder', 'Chọn thư mục lưu học phần')}
                                 </h3>
                                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                                    Chọn thư mục để sắp xếp học phần này của bạn.
+                                    {t('editSet.chooseFolderSub', 'Chọn thư mục để sắp xếp học phần này của bạn.')}
                                 </p>
                             </div>
                             <button
@@ -1541,10 +1543,10 @@ const AddCardForm = ({
                                 </div>
                                 <div className="flex-1 min-w-0">
                                     <h4 className="font-bold text-slate-800 dark:text-slate-100 group-hover:text-indigo-650 dark:group-hover:text-indigo-400 transition-colors">
-                                        Không phân loại (Thư mục gốc)
+                                        {t('editSet.rootLevel', 'Không phân loại (Thư mục gốc)')}
                                     </h4>
                                     <p className="text-[10px] text-slate-450 dark:text-slate-400 font-semibold mt-0.5">
-                                        Lưu ở ngoài cùng thư viện học tập
+                                        {t('editSet.rootLevelDesc', 'Lưu ở ngoài cùng thư viện học tập')}
                                     </p>
                                 </div>
                                 <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-850 group-hover:bg-indigo-600 group-hover:text-white transition-all flex items-center justify-center text-slate-400 shrink-0">
@@ -1555,7 +1557,7 @@ const AddCardForm = ({
                             {/* Parent Folders */}
                             {parentFolders.length > 0 && (
                                 <div className="pt-2 border-t border-slate-100 dark:border-slate-750/50">
-                                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Thư mục của bạn</p>
+                                    <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">{t('editSet.yourFolders', 'Thư mục của bạn')}</p>
                                     <div className="space-y-2">
                                         {parentFolders.map((folder) => (
                                             <button
@@ -1572,7 +1574,7 @@ const AddCardForm = ({
                                                         {folder.name}
                                                     </h4>
                                                     <p className="text-[10px] text-slate-450 dark:text-slate-400 font-semibold mt-0.5">
-                                                        Thư mục lưu trữ
+                                                        {t('editSet.storageFolder', 'Thư mục lưu trữ')}
                                                     </p>
                                                 </div>
                                                 <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-850 group-hover:bg-indigo-600 group-hover:text-white transition-all flex items-center justify-center text-slate-400 shrink-0">
@@ -1590,9 +1592,9 @@ const AddCardForm = ({
                             <button
                                 type="button"
                                 onClick={() => setShowFolderSelector(false)}
-                                className="px-5 py-2 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-250 dark:text-slate-300 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors shadow-sm"
+                                className="px-5 py-2 text-sm font-semibold rounded-xl text-slate-600 bg-white hover:bg-slate-100 border border-slate-250 dark:text-slate-300 dark:bg-gray-800 dark:hover:bg-gray-700/60 dark:border-gray-700 transition-colors shadow-sm cursor-pointer"
                             >
-                                Hủy
+                                {t('common.cancel', 'Hủy')}
                             </button>
                         </div>
                     </div>
@@ -1610,10 +1612,10 @@ const AddCardForm = ({
                             </div>
                             <div className="min-w-0">
                                 <h3 className="text-lg font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                                    <span>Phát hiện từ vựng trùng lặp</span>
+                                    <span>{t('editSet.duplicatesDetected', 'Phát hiện từ vựng trùng lặp')}</span>
                                 </h3>
                                 <p className="text-xs text-slate-500 dark:text-slate-400">
-                                    Học phần có {duplicateCheckResult.totalExcludedCount} từ vựng trùng lặp cần xử lý
+                                    {t('editSet.duplicatesSummary', 'Học phần có {count} từ vựng trùng lặp cần xử lý').replace('{count}', duplicateCheckResult.totalExcludedCount)}
                                 </p>
                             </div>
                         </div>
@@ -1625,12 +1627,12 @@ const AddCardForm = ({
                                 <div className="space-y-2">
                                     <div className="flex items-center justify-between">
                                         <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-800 text-orange-700 dark:text-orange-300 text-xs font-bold">
-                                            <span>🔁 Trùng trong học phần này ({duplicateCheckResult.internalDuplicates.length} từ)</span>
+                                            <span>{t('editSet.internalDuplicates', '🔁 Trùng trong học phần này ({count} từ)').replace('{count}', duplicateCheckResult.internalDuplicates.length)}</span>
                                         </span>
-                                        <span className="text-[11px] text-slate-400 font-medium">Giữ lại 1 bản ghi</span>
+                                        <span className="text-[11px] text-slate-400 font-medium">{t('editSet.keepOneRecord', 'Giữ lại 1 bản ghi')}</span>
                                     </div>
                                     <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                                        Các từ vựng sau xuất hiện nhiều lần trên màn hình / file JSON. Hệ thống sẽ tự động giữ lại bản ghi đầu tiên và loại bỏ các bản ghi lặp lại:
+                                        {t('editSet.internalDuplicatesDesc')}
                                     </p>
                                     <div className="space-y-1.5">
                                         {duplicateCheckResult.internalDuplicates.map((dup, idx) => (
@@ -1639,7 +1641,7 @@ const AddCardForm = ({
                                                     {dup.front}
                                                 </span>
                                                 <span className="text-xs font-semibold px-2 py-0.5 rounded-md bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300 shrink-0">
-                                                    Lặp {dup.count} lần (Bỏ {dup.removeCount})
+                                                    {t('editSet.repeatsCount', 'Lặp {count} lần (Bỏ {removeCount})').replace('{count}', dup.count).replace('{removeCount}', dup.removeCount)}
                                                 </span>
                                             </div>
                                         ))}
@@ -1652,11 +1654,11 @@ const AddCardForm = ({
                                 <div className="space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800">
                                     <div className="flex items-center justify-between">
                                         <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-bold">
-                                            <span>📂 Trùng với học phần khác ({duplicateCheckResult.externalDuplicates.length} từ)</span>
+                                            <span>{t('editSet.externalDuplicates', '📂 Trùng với học phần khác ({count} từ)').replace('{count}', duplicateCheckResult.externalDuplicates.length)}</span>
                                         </span>
                                     </div>
                                     <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                                        Các từ vựng sau đã được tạo ở các học phần khác trong tài khoản của bạn:
+                                        {t('editSet.externalDuplicatesDesc')}
                                     </p>
                                     <div className="space-y-1.5">
                                         {duplicateCheckResult.externalDuplicates.map((dup, idx) => (
@@ -1686,14 +1688,14 @@ const AddCardForm = ({
                                 className="w-full py-2.5 px-4 text-sm font-bold rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] transition-all shadow-md shadow-indigo-500/20 cursor-pointer flex items-center justify-center gap-2"
                             >
                                 <Check className="w-4 h-4" />
-                                <span>Lưu và trừ {duplicateCheckResult.totalExcludedCount} từ trùng lặp</span>
+                                <span>{t('editSet.saveExcludingDuplicates', 'Lưu và trừ {count} từ trùng lặp').replace('{count}', duplicateCheckResult.totalExcludedCount)}</span>
                             </button>
                             <button
                                 type="button"
                                 onClick={() => proceedSaveWithChoices(duplicateCheckResult.parentFolderId, [])}
                                 className="w-full py-2.5 px-4 text-sm font-semibold rounded-xl text-slate-700 dark:text-slate-300 bg-white hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 transition-colors cursor-pointer"
                             >
-                                Vẫn lưu tất cả (Bao gồm từ trùng)
+                                {t('editSet.saveAllAnyway', 'Vẫn lưu tất cả (Bao gồm từ trùng)')}
                             </button>
                             <button
                                 type="button"
@@ -1703,7 +1705,7 @@ const AddCardForm = ({
                                 }}
                                 className="w-full py-2 text-xs font-medium text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors cursor-pointer text-center"
                             >
-                                Hủy bỏ để chỉnh sửa thủ công
+                                {t('editSet.cancelToEdit', 'Hủy bỏ để chỉnh sửa thủ công')}
                             </button>
                         </div>
                     </div>

@@ -27,21 +27,33 @@ const getPreviewIntervals = (srs, cardId = null) => {
     return getCardPreviewIntervals(srs, cardId);
 };
 
-const formatInterval = (minutes) => {
-    if (minutes === 0) return 'ngay lập tức';
-    if (minutes < 60) return `${minutes} phút`;
-    if (minutes < 1440) return `${Math.round(minutes / 60)} giờ`;
-    if (minutes < 43200) {
-        const days = minutes / 1440;
-        return days < 2 ? `${Number(days.toFixed(1))} ngày` : `${Math.round(days)} ngày`;
+const formatInterval = (minutes, t) => {
+    if (!t) return `${minutes}m`;
+    if (minutes === 0) return t('intervals.rightNow', 'ngay lập tức');
+    if (minutes < 60) {
+        const pattern = t('intervals.minutes', '{n} phút');
+        return pattern.includes('{n}') ? pattern.replace('{n}', minutes) : `${minutes} ${t('common.minutes', 'phút')}`;
+    }
+    if (minutes < 1440) {
+        const hrs = Math.round(minutes / 60);
+        const pattern = t('intervals.hours', '{n} giờ');
+        return pattern.includes('{n}') ? pattern.replace('{n}', hrs) : `${hrs} ${t('common.hours', 'giờ')}`;
     }
     const days = minutes / 1440;
+    if (minutes < 43200) {
+        const dStr = days < 2 ? Number(days.toFixed(1)) : Math.round(days);
+        const pattern = t('intervals.days', '{n} ngày');
+        return pattern.includes('{n}') ? pattern.replace('{n}', dStr) : `${dStr} ${t('common.days', 'ngày')}`;
+    }
     const months = days / 30;
     if (months < 12) {
-        return `${Number(months.toFixed(1))} tháng`;
+        const mStr = Number(months.toFixed(1));
+        const pattern = t('intervals.months', '{n} tháng');
+        return pattern.includes('{n}') ? pattern.replace('{n}', mStr) : `${mStr} ${t('common.months', 'tháng')}`;
     }
-    const years = days / 365;
-    return `${Number(years.toFixed(1))} năm`;
+    const yStr = Number((days / 365).toFixed(1));
+    const pattern = t('intervals.years', '{n} năm');
+    return pattern.includes('{n}') ? pattern.replace('{n}', yStr) : `${yStr} ${t('common.years', 'năm')}`;
 };
 
 const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
@@ -72,9 +84,14 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         if (reviewMode) return;
         const interval = setInterval(() => {
             setDashboardTick(Date.now());
+            if (userId) {
+                getSharedGrammarSrs(userId, true).then(freshSrs => {
+                    if (freshSrs) setSrsData(freshSrs);
+                }).catch(() => {});
+            }
         }, 30000);
         return () => clearInterval(interval);
-    }, [reviewMode]);
+    }, [reviewMode, userId]);
 
     const reviewModeRef = useRef(false);
     const pendingWriteIds = useRef(new Set());
@@ -101,15 +118,31 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         const handleVisChange = () => {
             if (document.visibilityState === 'hidden') {
                 handleFlushOnLeave();
+            } else if (document.visibilityState === 'visible') {
+                // When returning to the tab from another device, re-sync SRS data from Firestore
+                if (userId && !reviewModeRef.current) {
+                    getSharedGrammarSrs(userId, true).then(freshSrs => {
+                        if (freshSrs) setSrsData(freshSrs);
+                    }).catch(() => {});
+                }
+            }
+        };
+        const handleFocus = () => {
+            if (userId && !reviewModeRef.current) {
+                getSharedGrammarSrs(userId, true).then(freshSrs => {
+                    if (freshSrs) setSrsData(freshSrs);
+                }).catch(() => {});
             }
         };
         document.addEventListener('visibilitychange', handleVisChange);
+        window.addEventListener('focus', handleFocus);
 
         return () => {
             window.removeEventListener('pagehide', handleFlushOnLeave);
             document.removeEventListener('visibilitychange', handleVisChange);
+            window.removeEventListener('focus', handleFocus);
         };
-    }, [awardXP]);
+    }, [awardXP, userId]);
 
     const [showLeechManager, setShowLeechManager] = useState(false);
     const leechGrammarItems = useMemo(() => grammarList.filter(g => isLeechCard(srsData[g.id]) || isLeechCard(g)), [grammarList, srsData]);
@@ -778,8 +811,8 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             launchFanfare();
             logGrammarActivity(userId, {
                 type: 'review',
-                title: `Đã ôn tập ${updatedQueue.length} mẫu ngữ pháp`,
-                details: `Hoàn thành phiên ôn tập SRS`
+                title: (t('grammar.reviewedGrammarCount', 'Đã ôn tập {count} mẫu ngữ pháp') || '').replace('{count}', updatedQueue.length),
+                details: t('grammar.completedSessionDetails', 'Hoàn thành phiên ôn tập SRS')
             });
             setIsAnimatingFlip(false);
             setIsFlipped(false);
@@ -965,14 +998,14 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             <div className="w-full pb-8">
                 <TopTabBar tabs={GRAMMAR_TABS} />
                 <div className="animate-fade-in">
-                    <LoadingIndicator text="Đang tải dữ liệu ôn tập..." />
+                    <LoadingIndicator text={t('grammar.loadingData', 'Đang tải dữ liệu ôn tập...')} />
                 </div>
             </div>
         );
     }
 
     if (isPreparingSession) {
-        return <SrsPrewarmLoader title="Ngữ Pháp" count={reviewQueue.length} />;
+        return <SrsPrewarmLoader title={t('grammar.title', 'Ngữ Pháp')} count={reviewQueue.length} />;
     }
 
 
@@ -983,21 +1016,21 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         }
         const previewIntv = intervalCacheRef.current[currentCard.id];
         const intervals = {
-            again: formatInterval(previewIntv.again),
-            hard: formatInterval(previewIntv.hard),
-            good: formatInterval(previewIntv.good),
-            easy: formatInterval(previewIntv.easy),
+            again: formatInterval(previewIntv.again, t),
+            hard: formatInterval(previewIntv.hard, t),
+            good: formatInterval(previewIntv.good, t),
+            easy: formatInterval(previewIntv.easy, t),
         };
         const progress = reviewQueue.length > 0 ? Math.min(100, Math.round((currentReviewIndex / reviewQueue.length) * 100)) : 100;
 
         return (
             <div className="w-full min-h-[100dvh] flex flex-col justify-center items-center px-3 sm:px-4 py-3 sm:py-6 animate-fade-in overflow-y-auto">
                 <div className="w-[760px] max-w-full my-auto flex flex-col justify-center items-center space-y-3.5 sm:space-y-4 transition-all duration-300">
-                    <div className="w-full flex justify-between items-center mb-2 gap-2">
+                    <div className="w-full flex justify-between items-center mb-1 sm:mb-2 gap-2">
                         <button onClick={exitReview}
-                            className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105 gap-2 cursor-pointer">
+                            className="px-3.5 py-2 flex items-center justify-center rounded-2xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-xs border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 transition-all font-bold gap-2 cursor-pointer select-none">
                             <ChevronLeft className="w-4 h-4" />
-                            <span className="text-sm font-medium">Trở lại</span>
+                            <span className="text-xs sm:text-sm font-bold">{t('common.back', 'Trở lại')}</span>
                         </button>
 
                         <div className="flex items-center gap-2">
@@ -1010,21 +1043,21 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                         reviewType: flashcardSettings.reviewType === 'typing' ? 'flashcard' : 'typing'
                                     });
                                 }}
-                                className={`p-2.5 flex items-center justify-center rounded-xl shadow-md border transition-all hover:scale-105 gap-1.5 cursor-pointer ${flashcardSettings.reviewType === 'typing'
-                                        ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border-emerald-300 dark:border-emerald-800'
+                                className={`px-3 py-2 flex items-center justify-center rounded-2xl shadow-xs border-2 border-b-4 transition-all active:translate-y-0.5 active:border-b-2 gap-1.5 cursor-pointer font-bold select-none ${flashcardSettings.reviewType === 'typing'
+                                        ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border-emerald-400 dark:border-emerald-700'
                                         : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'
                                     }`}
-                                title={flashcardSettings.reviewType === 'typing' ? "Đang ở chế độ Gõ phím (Typing) - Nhấn để đổi sang Thẻ 3D" : "Đang ở chế độ Thẻ Flashcard 3D - Nhấn để đổi sang Gõ phím"}
+                                title={flashcardSettings.reviewType === 'typing' ? t('grammar.typing3DToggle', "Đang ở chế độ Gõ phím (Typing) - Nhấn để đổi sang Thẻ 3D") : t('grammar.typingMode', "Đang ở chế độ Thẻ Flashcard 3D - Nhấn để đổi sang Gõ phím")}
                             >
                                 {flashcardSettings.reviewType === 'typing' ? (
                                     <>
                                         <Keyboard className="w-4 h-4 text-emerald-500" />
-                                        <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 hidden sm:inline">Gõ phím</span>
+                                        <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 hidden sm:inline">{t('grammar.typingLabel', 'Gõ phím')}</span>
                                     </>
                                 ) : (
                                     <>
                                         <CreditCard className="w-4 h-4 text-indigo-500" />
-                                        <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400 hidden sm:inline">Thẻ 3D</span>
+                                        <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400 hidden sm:inline">{t('grammar.card3DLabel', 'Thẻ 3D')}</span>
                                     </>
                                 )}
                             </button>
@@ -1032,30 +1065,34 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             <button
                                 type="button"
                                 onClick={() => setShowSettingsModal(true)}
-                                className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-md border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all hover:scale-105 gap-1.5 cursor-pointer"
-                                title="Cấu hình thẻ (Phím S)"
+                                className="px-3 py-2 flex items-center justify-center rounded-2xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-xs border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 transition-all gap-1.5 cursor-pointer font-bold select-none"
+                                title={t('grammar.cardSettingsTitle', "Cấu hình thẻ (Phím S)")}
                             >
-                                <Settings className="w-4 h-4 text-indigo-500" />
-                                <span className="text-sm font-medium hidden sm:inline">Cài đặt</span>
+                                <Settings className="w-4 h-4 text-slate-500 dark:text-slate-400" />
+                                <span className="text-xs sm:text-sm font-bold hidden sm:inline">{t('grammar.cardSettings', 'Cài đặt')}</span>
                             </button>
 
                             {reviewHistory.length > 0 && (
                                 <button onClick={handleUndo}
-                                    className="p-2.5 flex items-center justify-center rounded-xl bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105 gap-2 cursor-pointer">
+                                    className="px-3 py-2 flex items-center justify-center rounded-2xl bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-xs border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 transition-all gap-1.5 cursor-pointer font-bold select-none">
                                     <RotateCcw className="w-4 h-4" />
-                                    <span className="text-sm font-medium hidden sm:inline">Quay lại</span>
+                                    <span className="text-xs sm:text-sm font-bold hidden sm:inline">{t('common.back', 'Quay lại')}</span>
                                 </button>
                             )}
                         </div>
                     </div>
 
                     <div className="w-full space-y-2">
-                        <div className="flex justify-between items-center text-xs font-medium text-gray-500 dark:text-gray-400">
-                            <span className="flex items-center gap-1.5"><Target className="w-3.5 h-3.5" /> Ôn tập Ngữ pháp</span>
-                            <span className="bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 px-2 py-0.5 rounded-full font-bold">{Math.min(currentReviewIndex + 1, reviewQueue.length)} / {reviewQueue.length}</span>
+                        <div className="flex justify-between items-center text-xs font-bold text-slate-500 dark:text-slate-400">
+                            <span className="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-bold uppercase tracking-wide">
+                                <Target className="w-3.5 h-3.5" /> {t('grammar.title', 'Ôn tập Ngữ pháp')}
+                            </span>
+                            <span className="bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 px-2.5 py-0.5 rounded-full font-mono font-black text-xs">
+                                {Math.min(currentReviewIndex + 1, reviewQueue.length)} / {reviewQueue.length}
+                            </span>
                         </div>
-                        <div className="h-2 w-full bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
-                            <div className="h-full bg-gradient-to-r from-indigo-500 to-sky-500 rounded-full transition-all duration-700 ease-out" style={{ width: `${progress}%` }}></div>
+                        <div className="h-3.5 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden p-0.5 border border-slate-300/40 dark:border-slate-700">
+                            <div className="h-full bg-emerald-500 rounded-full transition-all duration-500 ease-out shadow-xs" style={{ width: `${progress}%` }}></div>
                         </div>
                     </div>
 
@@ -1095,11 +1132,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                     playFlipSound();
                                 }}
                                 onQuickRate={(rating) => handleRating(rating)}
-                                placeholder={
-                                    flashcardSettings.studyMode === 'vi_to_ja'
-                                        ? "Nhập mẫu ngữ pháp tiếng Nhật (ví dụ: づらい, てたまらない)..."
-                                        : "Nhập mẫu ngữ pháp tiếng Nhật tương ứng..."
-                                }
+                                placeholder={t('grammar.typePrompt', 'Nhập mẫu ngữ pháp tiếng Nhật tương ứng...')}
                             />
                         </div>
                     )}
@@ -1109,22 +1142,22 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         <div className="w-full space-y-3 animate-fade-in mt-2">
                             <div className="grid grid-cols-4 gap-2.5 w-full">
                                 {[
-                                    { key: 'again', label: 'Quên rồi', interval: intervals.again, gradient: 'from-red-500 to-rose-500', bg: 'bg-red-50 dark:bg-red-900/20', border: 'border-red-200 dark:border-red-800/50', text: 'text-red-600 dark:text-red-400', sub: 'text-red-400/70 dark:text-red-500/60' },
-                                    { key: 'hard', label: 'Khó', interval: intervals.hard, gradient: 'from-orange-500 to-amber-500', bg: 'bg-orange-50 dark:bg-orange-900/20', border: 'border-orange-200 dark:border-orange-800/50', text: 'text-orange-600 dark:text-orange-400', sub: 'text-orange-400/70 dark:text-orange-500/60' },
-                                    { key: 'good', label: 'Tốt', interval: intervals.good, gradient: 'from-emerald-500 to-green-500', bg: 'bg-emerald-50 dark:bg-emerald-900/20', border: 'border-emerald-200 dark:border-emerald-800/50', text: 'text-emerald-600 dark:text-emerald-400', sub: 'text-emerald-400/70 dark:text-emerald-500/60' },
-                                    { key: 'easy', label: 'Dễ', interval: intervals.easy, gradient: 'from-blue-500 to-indigo-500', bg: 'bg-blue-50 dark:bg-blue-900/20', border: 'border-blue-200 dark:border-blue-800/50', text: 'text-blue-600 dark:text-blue-400', sub: 'text-blue-400/70 dark:text-blue-500/60' },
+                                    { key: 'again', label: t('srs.again', 'Quên rồi'), interval: intervals.again, bg: 'bg-rose-50 dark:bg-rose-950/40', border: 'border-2 border-b-4 border-rose-300 dark:border-rose-800', text: 'text-rose-600 dark:text-rose-400', sub: 'text-rose-400/80 dark:text-rose-400/70' },
+                                    { key: 'hard', label: t('srs.hard', 'Khó'), interval: intervals.hard, bg: 'bg-amber-50 dark:bg-amber-950/40', border: 'border-2 border-b-4 border-amber-300 dark:border-amber-800', text: 'text-amber-600 dark:text-amber-400', sub: 'text-amber-500/80 dark:text-amber-400/70' },
+                                    { key: 'good', label: t('srs.good', 'Tốt'), interval: intervals.good, bg: 'bg-emerald-50 dark:bg-emerald-950/40', border: 'border-2 border-b-4 border-emerald-400 dark:border-emerald-700', text: 'text-emerald-600 dark:text-emerald-400', sub: 'text-emerald-500/80 dark:text-emerald-400/70' },
+                                    { key: 'easy', label: t('srs.easy', 'Dễ'), interval: intervals.easy, bg: 'bg-sky-50 dark:bg-sky-950/40', border: 'border-2 border-b-4 border-sky-400 dark:border-sky-700', text: 'text-sky-600 dark:text-sky-400', sub: 'text-sky-500/80 dark:text-sky-400/70' },
                                 ].map(btn => (
                                     <button key={btn.key} onClick={(e) => { e.stopPropagation(); handleRating(btn.key); }}
-                                        className={`flex flex-col justify-center items-center py-3.5 rounded-2xl ${btn.bg} ${btn.border} border text-center transition-all duration-200 hover:scale-105 hover:shadow-lg active:scale-95 cursor-pointer`}>
-                                        <div className={`font-bold ${btn.text} text-sm leading-tight`}>{btn.label}</div>
-                                        <div className={`text-[10px] ${btn.sub} mt-0.5`}>{btn.interval}</div>
+                                        className={`flex flex-col justify-center items-center py-3 rounded-2xl ${btn.bg} ${btn.border} text-center transition-all active:translate-y-0.5 active:border-b-2 cursor-pointer select-none`}>
+                                        <div className={`font-black ${btn.text} text-xs uppercase tracking-wider leading-tight`}>{btn.label}</div>
+                                        <div className={`text-[10px] font-mono font-bold ${btn.sub} mt-0.5`}>{btn.interval}</div>
                                     </button>
                                 ))}
                             </div>
 
                             <div className="text-center text-[10px] text-gray-400 dark:text-gray-500">
-                                <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">Space</kbd> lật thẻ •
-                                <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">1-4</kbd> đánh giá
+                                <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">Space</kbd> {t('studyModes.flipHint', 'lật thẻ')} •
+                                <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">1-4</kbd> {t('vocab.rateCard', 'đánh giá')}
                             </div>
                         </div>
                     )}
@@ -1165,32 +1198,32 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                 <Clock className="w-8 h-8 text-indigo-500 animate-spin-slow" />
                             </div>
                             <h2 className="text-xl font-bold text-gray-800 dark:text-white">
-                                Đang đợi thẻ Ngữ pháp tiếp theo...
+                                {t('grammar.waitingTitle', 'Đang đợi thẻ Ngữ pháp tiếp theo...')}
                             </h2>
                             <p className="text-sm text-gray-500 dark:text-gray-400 max-w-sm">
-                                Bạn đã hoàn thành các thẻ Ngữ pháp đến hạn hiện tại. Có <span className="font-bold text-indigo-500">{waiting.length}</span> thẻ đang chờ ôn lại theo chu kỳ.
+                                {(t('grammar.waitingDesc', 'Bạn đã hoàn thành các thẻ Ngữ pháp đến hạn hiện tại. Có {count} thẻ đang chờ ôn lại theo chu kỳ.') || '').replace('{count}', waiting.length)}
                             </p>
                         </div>
 
-                        <div className="px-6 py-3 bg-gradient-to-r from-indigo-500 to-sky-500 text-white rounded-2xl shadow-md flex items-center gap-2.5 font-mono">
-                            <Clock className="w-4 h-4 animate-spin-slow shrink-0" />
-                            <span className="text-xs font-semibold uppercase tracking-wider">TIẾP SAU:</span>
+                        <div className="px-6 py-3 bg-slate-900 dark:bg-slate-800 text-white rounded-2xl border-2 border-slate-700 flex items-center gap-2.5 font-mono">
+                            <Clock className="w-4 h-4 animate-spin-slow shrink-0 text-amber-400" />
+                            <span className="text-xs font-semibold uppercase tracking-wider">{t('common.nextAfter', 'TIẾP SAU:')}</span>
                             <span className="text-xl font-black tracking-widest">{formattedCountdown}</span>
                         </div>
 
                         <div className="flex flex-col sm:flex-row items-center gap-3 w-full">
                             <button
                                 onClick={(e) => { e.stopPropagation(); handleStudyAhead(); }}
-                                className="flex-1 w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-indigo-500 via-purple-600 to-indigo-600 hover:from-indigo-600 hover:to-purple-700 text-white font-black text-xs sm:text-sm shadow-[0_8px_20px_rgba(99,102,241,0.4)] hover:shadow-[0_12px_28px_rgba(99,102,241,0.6)] transition-all duration-300 transform hover:scale-[1.02] active:scale-95 cursor-pointer text-center flex items-center justify-center gap-2 touch-manipulation"
+                                className="flex-1 w-full py-3.5 px-6 rounded-2xl bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white font-black text-xs uppercase tracking-wider transition-all cursor-pointer text-center flex items-center justify-center gap-2 touch-manipulation select-none"
                             >
-                                <Zap className="w-4 h-4 fill-current text-amber-300" />
-                                <span>Học trước ngay ({waiting.length} mẫu)</span>
+                                <Zap className="w-4 h-4 fill-current text-white" />
+                                <span>{(t('grammar.studyAheadNow', 'Học trước ngay ({count} mẫu)') || '').replace('{count}', waiting.length)}</span>
                             </button>
                             <button
                                 onClick={(e) => { e.stopPropagation(); exitReview(true); }}
-                                className="w-full sm:w-auto py-3.5 px-6 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 active:scale-95 text-slate-700 dark:text-slate-200 font-bold text-xs sm:text-sm rounded-full transition-all border border-slate-200 dark:border-slate-700 cursor-pointer text-center relative z-30 touch-manipulation"
+                                className="w-full sm:w-auto py-3.5 px-6 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 border-b-4 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs uppercase tracking-wider rounded-2xl transition-all cursor-pointer text-center relative z-30 touch-manipulation select-none"
                             >
-                                Kết thúc phiên ôn tập
+                                {t('vocab.finishReviewSession', 'Kết thúc phiên ôn tập')}
                             </button>
                         </div>
                     </div>
@@ -1220,12 +1253,12 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             🎉
                         </div>
                         <h2 className="text-2xl font-black text-slate-900 dark:text-white">
-                            Hoàn thành phiên ôn tập Ngữ Pháp!
+                            {t('grammar.completedTitle', 'Hoàn thành phiên ôn tập Ngữ Pháp!')}
                         </h2>
                         <p className="text-sm text-slate-600 dark:text-slate-300 max-w-sm">
                             {newlyDueGrammar.length > 0
-                                ? `Hiện tại có thêm ${newlyDueGrammar.length} mẫu ngữ pháp đến hạn / sắp đến hạn (trong vòng ${Math.round(learnAheadMs / 60000)} phút). Bạn có muốn ôn tiếp dứt điểm không?`
-                                : "Chúc mừng! Bạn đã hoàn thành tất cả các thẻ ngữ pháp trong phiên ôn tập này."}
+                                ? (t('vocab.completedDescMore', 'Hiện tại có thêm {count} thẻ đến hạn (trong vòng {mins} phút). Bạn có muốn ôn tiếp không?').replace('{count}', newlyDueGrammar.length).replace('{mins}', Math.round(learnAheadMs / 60000)))
+                                : t('vocab.completedDescAll', 'Chúc mừng! Bạn đã hoàn thành tất cả các thẻ trong phiên ôn tập này.')}
                         </p>
                     </div>
 
@@ -1237,25 +1270,25 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                         e.stopPropagation();
                                         runStartReview(newlyDueGrammar);
                                     }}
-                                    className="flex-1 w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-emerald-500 via-teal-600 to-emerald-600 hover:from-emerald-600 hover:to-teal-700 text-white font-black text-xs sm:text-sm shadow-[0_8px_20px_rgba(16,185,129,0.45)] hover:shadow-[0_12px_28px_rgba(16,185,129,0.75)] transition-all duration-300 transform hover:scale-[1.03] active:scale-95 cursor-pointer text-center flex items-center justify-center gap-2"
+                                    className="flex-1 w-full py-3.5 px-6 rounded-2xl bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white font-black text-xs uppercase tracking-wider transition-all cursor-pointer text-center flex items-center justify-center gap-2 select-none"
                                 >
                                     <Repeat2 className="w-4 h-4" />
-                                    <span>Tiếp tục ôn tập ({newlyDueGrammar.length} thẻ)</span>
+                                    <span>{(t('vocab.continueReviewing', 'Tiếp tục ôn tập ({count} thẻ)') || '').replace('{count}', newlyDueGrammar.length)}</span>
                                 </button>
                                 <button
                                     onClick={(e) => { e.stopPropagation(); exitReview(true); }}
-                                    className="w-full sm:w-auto py-3.5 px-6 rounded-full bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs sm:text-sm transition-all border border-slate-200 dark:border-slate-700 active:scale-95 cursor-pointer text-center"
+                                    className="w-full sm:w-auto py-3.5 px-6 rounded-2xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs uppercase tracking-wider transition-all border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 cursor-pointer text-center select-none"
                                 >
-                                    Kết thúc
+                                    {t('common.finish', 'Kết thúc')}
                                 </button>
                             </div>
                         ) : (
                             <div className="flex justify-center w-full">
                                 <button
                                     onClick={(e) => { e.stopPropagation(); exitReview(true); }}
-                                    className="w-full py-3.5 px-6 rounded-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-[0_8px_20px_rgba(16,185,129,0.35)] hover:shadow-[0_12px_28px_rgba(16,185,129,0.6)] transition-all transform hover:scale-[1.02] active:scale-95 cursor-pointer text-center relative z-30 touch-manipulation"
+                                    className="w-full py-3.5 px-6 rounded-2xl bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white font-black text-xs uppercase tracking-wider transition-all cursor-pointer text-center relative z-30 touch-manipulation select-none"
                                 >
-                                    Kết thúc phiên ôn tập
+                                    {t('vocab.finishReviewSession', 'Kết thúc phiên ôn tập')}
                                 </button>
                             </div>
                         )}
@@ -1280,9 +1313,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
             <div className="max-w-4xl mx-auto px-4 md:px-8 space-y-6 mt-6 animate-fade-in">
                 {/* Unified Hero Banner */}
-                <div className="relative overflow-hidden bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-4 sm:p-5 md:p-6 text-slate-800 dark:text-slate-100 shadow-sm dark:shadow-xl group">
-                    <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 dark:bg-emerald-500/10 rounded-full blur-3xl pointer-events-none"></div>
-
+                <div className="relative overflow-hidden bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 text-slate-800 dark:text-slate-100 shadow-sm group">
                     <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-6">
                         <div className="space-y-1.5 text-center md:text-left flex-1">
                             <div className="flex flex-wrap items-center justify-center md:justify-start gap-2.5">
@@ -1300,9 +1331,9 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                 <button
                                     onClick={() => setShowSettingsModal(true)}
                                     className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 transition-colors cursor-pointer"
-                                    title="Cấu hình thẻ ôn tập"
+                                    title={t('grammar.cardSettingsTitle', 'Cấu hình thẻ ôn tập')}
                                 >
-                                    <span>Cài đặt thẻ</span>
+                                    <span>{t('grammar.cardSettings', 'Cài đặt thẻ')}</span>
                                 </button>
                             </div>
                             <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 max-w-md font-medium leading-relaxed">
@@ -1310,17 +1341,17 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             </p>
                         </div>
 
-                        <div className="flex flex-row md:flex-col items-center justify-between bg-slate-50 dark:bg-slate-950/80 rounded-2xl p-3.5 sm:p-4 border border-slate-200/90 dark:border-slate-800 text-center w-full md:w-60 shrink-0 shadow-xs gap-3">
+                        <div className="flex flex-row md:flex-col items-center justify-between bg-slate-50 dark:bg-slate-950/80 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 text-center w-full md:w-64 shrink-0 gap-3">
                             <div className="flex flex-col items-start md:items-center text-left md:text-center">
                                 <span className="text-3xl sm:text-4xl font-black font-mono text-slate-900 dark:text-white tracking-tight leading-none">
                                     {stats.dueToday}
                                 </span>
-                                <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mt-0.5">{t('grammar.dueGrammarLabel', 'MẪU CÂU CẦN ÔN TẬP')}</span>
+                                <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mt-1">{t('grammar.dueGrammarLabel', 'MẪU CÂU CẦN ÔN TẬP')}</span>
                             </div>
                             {stats.dueToday > 0 ? (
                                 <button
                                     onClick={() => startReview()}
-                                    className="md:mt-3 px-5 py-2.5 md:w-full rounded-full text-xs font-black tracking-wide uppercase transition-all duration-300 shadow-md shadow-blue-500/25 hover:shadow-lg transform hover:scale-[1.03] bg-blue-600 hover:bg-blue-700 text-white active:scale-95 flex items-center justify-center gap-2 cursor-pointer shrink-0 min-h-[42px]"
+                                    className="md:mt-2 px-5 py-3 md:w-full rounded-2xl text-xs font-black tracking-wider uppercase transition-all bg-indigo-600 hover:bg-indigo-500 active:translate-y-0.5 active:border-b-0 border-b-4 border-indigo-800 text-white flex items-center justify-center gap-2 cursor-pointer shrink-0 min-h-[44px] select-none shadow-sm"
                                 >
                                     <Play className="w-4 h-4 fill-white text-white ml-0.5 shrink-0" />
                                     <span>{t('vocab.startReviewBtn', 'BẮT ĐẦU ÔN TẬP')}</span>
@@ -1330,7 +1361,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             ) : (
                                 <button
                                     disabled
-                                    className="md:mt-3 px-5 py-2.5 md:w-full rounded-full text-xs font-black tracking-wide uppercase transition-all bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-slate-500 cursor-not-allowed flex items-center justify-center gap-2 shrink-0 min-h-[42px]"
+                                    className="md:mt-2 px-5 py-3 md:w-full rounded-2xl text-xs font-black tracking-wider uppercase transition-all bg-slate-100 dark:bg-slate-800 border-b-4 border-slate-200 dark:border-slate-700 text-slate-400 dark:text-slate-500 cursor-not-allowed flex items-center justify-center gap-2 shrink-0 min-h-[44px] select-none"
                                 >
                                     <span>{t('vocab.allReviewed', 'HẾT THẺ ÔN TẬP')}</span>
                                 </button>
@@ -1340,39 +1371,39 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 </div>
 
                 {/* 3 Stats Cards */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 shadow-md hover:scale-[1.02] transition-all duration-300">
-                        <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-xl bg-sky-50 dark:bg-sky-950/60 border border-sky-200 dark:border-sky-800/60 flex items-center justify-center text-sky-600 dark:text-sky-400">
-                                <Calendar className="w-5 h-5" />
+                <div className="grid grid-cols-3 gap-2.5 sm:gap-4">
+                    <div className="bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-3xl p-3 sm:p-5 shadow-sm hover:border-slate-300 dark:hover:border-slate-700 transition-all">
+                        <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3">
+                            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-sky-50 dark:bg-sky-950/60 border border-sky-200 dark:border-sky-800/60 flex items-center justify-center text-sky-600 dark:text-sky-400 shrink-0">
+                                <Calendar className="w-4 h-4 sm:w-5 sm:h-5" />
                             </div>
-                            <div>
-                                <p className="text-[10px] font-extrabold font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider">Học mới hôm nay</p>
-                                <h4 className="text-xl font-black font-mono text-slate-900 dark:text-white mt-0.5">{stats.newCards} mẫu</h4>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 shadow-md hover:scale-[1.02] transition-all duration-300">
-                        <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-xl bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center text-amber-600 dark:text-amber-400">
-                                <Clock className="w-5 h-5" />
-                            </div>
-                            <div>
-                                <p className="text-[10px] font-extrabold font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider">Thời gian học</p>
-                                <h4 className="text-xl font-black font-mono text-slate-900 dark:text-white mt-0.5">{stats.totalReps > 0 ? Math.round(stats.totalReps * 0.5) : 15} phút</h4>
+                            <div className="min-w-0">
+                                <p className="text-[9px] sm:text-[10px] font-extrabold font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider truncate">{t('grammar.todayLearned', 'Học mới')}</p>
+                                <h4 className="text-sm sm:text-xl font-black font-mono text-slate-900 dark:text-white mt-0.5">{stats.newCards} {t('grammar.patternsUnit', 'mẫu')}</h4>
                             </div>
                         </div>
                     </div>
 
-                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 shadow-md hover:scale-[1.02] transition-all duration-300">
-                        <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
-                                <Target className="w-5 h-5" />
+                    <div className="bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-3xl p-3 sm:p-5 shadow-sm hover:border-slate-300 dark:hover:border-slate-700 transition-all">
+                        <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3">
+                            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-amber-50 dark:bg-amber-950/60 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center text-amber-600 dark:text-amber-400 shrink-0">
+                                <Clock className="w-4 h-4 sm:w-5 sm:h-5" />
                             </div>
-                            <div>
-                                <p className="text-[10px] font-extrabold font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider">Tỷ lệ nhớ</p>
-                                <h4 className="text-xl font-black font-mono text-slate-900 dark:text-white mt-0.5">
+                            <div className="min-w-0">
+                                <p className="text-[9px] sm:text-[10px] font-extrabold font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider truncate">{t('grammar.studyTime', 'Thời gian')}</p>
+                                <h4 className="text-sm sm:text-xl font-black font-mono text-slate-900 dark:text-white mt-0.5">{stats.totalReps > 0 ? Math.round(stats.totalReps * 0.5) : 15} {t('common.minutes', 'phút')}</h4>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div className="bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-3xl p-3 sm:p-5 shadow-sm hover:border-slate-300 dark:hover:border-slate-700 transition-all">
+                        <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-2 sm:gap-3">
+                            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
+                                <Target className="w-4 h-4 sm:w-5 sm:h-5" />
+                            </div>
+                            <div className="min-w-0">
+                                <p className="text-[9px] sm:text-[10px] font-extrabold font-mono text-slate-400 dark:text-slate-500 uppercase tracking-wider truncate">{t('grammar.retentionRate', 'Tỷ lệ nhớ')}</p>
+                                <h4 className="text-sm sm:text-xl font-black font-mono text-slate-900 dark:text-white mt-0.5">
                                     {stats.grammarLearned > 0 ? Math.min(100, Math.round(85 + (stats.longTerm / stats.grammarLearned) * 15)) : 90}%
                                 </h4>
                             </div>
@@ -1385,52 +1416,52 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                     <SRSForecastChart
                         items={forecastItems}
                         daysCount={14}
-                        title="Dự Báo Ngữ Pháp Đến Hạn (14 Ngày Tới)"
+                        title={t('grammar.forecastTitle', 'Dự Báo Ngữ Pháp Đến Hạn (14 Ngày Tới)')}
                     />
                 )}
 
                 {/* 4 SRS Stage Cards */}
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-md">
-                        <span className="text-[10px] font-mono font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider">Sơ cấp (Mới học/Đang học)</span>
-                        <div className="flex items-baseline gap-1 mt-2">
-                            <span className="text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.learning}</span>
-                            <span className="text-xs text-slate-400 font-mono">mẫu</span>
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
+                    <div className="bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-3xl p-4 sm:p-5 flex flex-col justify-between h-28 sm:h-32 shadow-sm">
+                        <span className="text-[9px] sm:text-[10px] font-mono font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider truncate">{t('grammar.stageApprentice', 'Sơ cấp (Mới/Đang học)')}</span>
+                        <div className="flex items-baseline gap-1 mt-1">
+                            <span className="text-2xl sm:text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.learning}</span>
+                            <span className="text-xs text-slate-400 font-mono">{t('grammar.patternsUnit', 'mẫu')}</span>
                         </div>
-                        <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden mt-3">
+                        <div className="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden mt-2">
                             <div className="h-full bg-sky-500 rounded-full" style={{ width: `${stats.grammarLearned > 0 ? (stats.learning / stats.grammarLearned) * 100 : 0}%` }} />
                         </div>
                     </div>
 
-                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-md">
-                        <span className="text-[10px] font-mono font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider">Trung cấp (Đang ôn tập)</span>
-                        <div className="flex items-baseline gap-1 mt-2">
-                            <span className="text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.shortTerm}</span>
-                            <span className="text-xs text-slate-400 font-mono">mẫu</span>
+                    <div className="bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-3xl p-4 sm:p-5 flex flex-col justify-between h-28 sm:h-32 shadow-sm">
+                        <span className="text-[9px] sm:text-[10px] font-mono font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider truncate">{t('grammar.stageGuru', 'Trung cấp (Đang ôn)')}</span>
+                        <div className="flex items-baseline gap-1 mt-1">
+                            <span className="text-2xl sm:text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.shortTerm}</span>
+                            <span className="text-xs text-slate-400 font-mono">{t('grammar.patternsUnit', 'mẫu')}</span>
                         </div>
-                        <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden mt-3">
+                        <div className="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden mt-2">
                             <div className="h-full bg-amber-500 rounded-full" style={{ width: `${stats.grammarLearned > 0 ? (stats.shortTerm / stats.grammarLearned) * 100 : 0}%` }} />
                         </div>
                     </div>
 
-                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-md">
-                        <span className="text-[10px] font-mono font-bold text-cyan-600 dark:text-cyan-400 uppercase tracking-wider">Cao cấp (Thành thạo)</span>
-                        <div className="flex items-baseline gap-1 mt-2">
-                            <span className="text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.longTerm}</span>
-                            <span className="text-xs text-slate-400 font-mono">mẫu</span>
+                    <div className="bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-3xl p-4 sm:p-5 flex flex-col justify-between h-28 sm:h-32 shadow-sm">
+                        <span className="text-[9px] sm:text-[10px] font-mono font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider truncate">{t('grammar.stageMaster', 'Cao cấp (Thành thạo)')}</span>
+                        <div className="flex items-baseline gap-1 mt-1">
+                            <span className="text-2xl sm:text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.longTerm}</span>
+                            <span className="text-xs text-slate-400 font-mono">{t('grammar.patternsUnit', 'mẫu')}</span>
                         </div>
-                        <div className="w-full bg-slate-100 dark:bg-slate-800 h-1.5 rounded-full overflow-hidden mt-3">
-                            <div className="h-full bg-cyan-500 rounded-full" style={{ width: `${stats.grammarLearned > 0 ? (stats.longTerm / stats.grammarLearned) * 100 : 0}%` }} />
+                        <div className="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden mt-2">
+                            <div className="h-full bg-indigo-500 rounded-full" style={{ width: `${stats.grammarLearned > 0 ? (stats.longTerm / stats.grammarLearned) * 100 : 0}%` }} />
                         </div>
                     </div>
 
-                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 flex flex-col justify-between h-32 hover:scale-[1.02] transition-all duration-300 shadow-md">
-                        <span className="text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Chuyên gia (Ghi nhớ)</span>
-                        <div className="flex items-baseline gap-1 mt-2">
-                            <span className="text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.expert}</span>
-                            <span className="text-xs text-slate-400 font-mono">mẫu</span>
+                    <div className="bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-3xl p-4 sm:p-5 flex flex-col justify-between h-28 sm:h-32 shadow-sm">
+                        <span className="text-[9px] sm:text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider truncate">{t('grammar.stageEnlightened', 'Chuyên gia (Ghi nhớ)')}</span>
+                        <div className="flex items-baseline gap-1 mt-1">
+                            <span className="text-2xl sm:text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.expert}</span>
+                            <span className="text-xs text-slate-400 font-mono">{t('grammar.patternsUnit', 'mẫu')}</span>
                         </div>
-                        <div className="w-full bg-slate-100 dark:bg-slate-700 h-1.5 rounded-full overflow-hidden mt-3">
+                        <div className="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden mt-2">
                             <div className="h-full bg-emerald-500 rounded-full" style={{ width: `${stats.grammarLearned > 0 ? (stats.expert / stats.grammarLearned) * 100 : 0}%` }} />
                         </div>
                     </div>
@@ -1486,8 +1517,8 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                     setShowModeModal(false);
                     setPendingReviewCards(null);
                 }}
-                title="Chọn chế độ ôn tập Ngữ pháp"
-                subtitle="Lựa chọn phương pháp ôn tập phù hợp với bạn"
+                title={t('grammar.selectReviewMode', 'Chọn chế độ ôn tập Ngữ pháp')}
+                subtitle={t('grammar.selectReviewSub', 'Lựa chọn phương pháp ôn tập phù hợp với bạn')}
                 cardCount={(pendingReviewCards || dueGrammar).length}
                 onSelectMode={(mode) => {
                     handleUpdateSettings({ ...flashcardSettings, reviewType: mode });

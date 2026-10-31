@@ -11,6 +11,7 @@ import { showToast, showConfirm } from '../../utils/toast';
 import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 import { TopTabBar } from '../ui';
 import LoadingIndicator from '../ui/LoadingIndicator';
+import { useLanguage } from '../../context/LanguageContext';
 import { KANJI_TABS } from '../../config/tabs';
 import { parseNextReviewMs, isSrsCardDue, normalizeSRSState, getLearnAheadLimitMs } from '../../utils/srs';
 
@@ -25,15 +26,15 @@ const LEVEL_COLORS = {
 };
 
 const LEVEL_LABELS = {
-    N5: 'Cơ bản',
-    N4: 'Sơ cấp',
-    N3: 'Trung cấp',
-    N2: 'Trung-Cao',
-    N1: 'Cao cấp'
+    N5: 'Basic',
+    N4: 'Elementary',
+    N3: 'Intermediate',
+    N2: 'Advanced',
+    N1: 'Fluent'
 };
 
-const getSrsStatus = (srs) => {
-    if (!srs) return { label: 'Chưa học', color: 'text-gray-400', bg: 'bg-gray-100 dark:bg-slate-700', icon: AlertCircle };
+const getSrsStatus = (srs, t = (k, d) => d) => {
+    if (!srs) return { label: t('kanji.notLearned', 'Chưa học'), color: 'text-gray-400', bg: 'bg-gray-100 dark:bg-slate-700', icon: AlertCircle };
     const norm = normalizeSRSState(srs);
     const interval = norm.interval || 0;
     const reps = norm.reps || 0;
@@ -43,41 +44,42 @@ const getSrsStatus = (srs) => {
     const reviewMs = parseNextReviewMs(srs.nextReview);
     const isDue = reviewMs > 0 && reviewMs <= now;
 
-    if (isDue) return { label: 'Cần ôn', color: 'text-orange-500', bg: 'bg-orange-50 dark:bg-orange-900/30', icon: Clock };
+    if (isDue) return { label: t('kanji.due', 'Cần ôn'), color: 'text-orange-500', bg: 'bg-orange-50 dark:bg-orange-900/30', icon: Clock };
     
     if (state === 'NEW' || state === 'LEARNING' || state === 'RELEARNING') {
         if (reps > 0 || lastReview) {
-            return { label: 'Sơ cấp', color: 'text-yellow-500', bg: 'bg-yellow-50 dark:bg-yellow-900/30', icon: BookOpen };
+            return { label: t('kanji.apprenticeStage', 'Sơ cấp'), color: 'text-yellow-500', bg: 'bg-yellow-50 dark:bg-yellow-900/30', icon: BookOpen };
         }
-        return { label: 'Chưa học', color: 'text-slate-400', bg: 'bg-slate-100 dark:bg-slate-700', icon: AlertCircle };
+        return { label: t('kanji.notLearned', 'Chưa học'), color: 'text-slate-400', bg: 'bg-slate-100 dark:bg-slate-700', icon: AlertCircle };
     }
     
     const daysInterval = interval >= 1440 ? Math.round(interval / 1440) : interval;
     if (daysInterval >= 21) {
-        return { label: 'Chuyên gia', color: 'text-indigo-500', bg: 'bg-indigo-50 dark:bg-indigo-900/30', icon: CheckCircle };
+        return { label: t('kanji.expertStage', 'Chuyên gia'), color: 'text-indigo-500', bg: 'bg-indigo-50 dark:bg-indigo-900/30', icon: CheckCircle };
     }
     if (daysInterval >= 7) {
-        return { label: 'Cao cấp', color: 'text-emerald-500', bg: 'bg-emerald-50 dark:bg-emerald-900/30', icon: CheckCircle };
+        return { label: t('kanji.masterStage', 'Cao cấp'), color: 'text-emerald-500', bg: 'bg-emerald-50 dark:bg-emerald-900/30', icon: CheckCircle };
     }
-    return { label: 'Trung cấp', color: 'text-cyan-500', bg: 'bg-cyan-50 dark:bg-cyan-900/30', icon: Clock };
+    return { label: t('kanji.guruStage', 'Trung cấp'), color: 'text-cyan-500', bg: 'bg-cyan-50 dark:bg-cyan-900/30', icon: Clock };
 };
 
-const formatNextReview = (nextReview) => {
+const formatNextReview = (nextReview, t = (k, d) => d) => {
     const reviewMs = parseNextReviewMs(nextReview);
     if (!reviewMs) return '';
     const now = Date.now();
     const diff = reviewMs - now;
-    if (diff <= 0) return 'Ngay bây giờ';
+    if (diff <= 0) return t('kanji.rightNow', 'Ngay bây giờ');
     const minutes = Math.floor(diff / 60000);
-    if (minutes < 60) return `${minutes} phút`;
+    if (minutes < 60) return t('kanji.inMinutes', '{count} phút').replace('{count}', minutes);
     const hours = Math.floor(minutes / 60);
-    if (hours < 24) return `${hours} giờ`;
+    if (hours < 24) return t('kanji.inHours', '{count} giờ').replace('{count}', hours);
     const days = Math.floor(hours / 24);
-    if (days < 30) return `${days} ngày`;
-    return `${Math.floor(days / 30)} tháng`;
+    if (days < 30) return t('kanji.inDays', '{count} ngày').replace('{count}', days);
+    return t('kanji.inMonths', '{count} tháng').replace('{count}', Math.floor(days / 30));
 };
 
 const KanjiSRSListScreen = () => {
+    const { t } = useLanguage();
     const user = getAuth().currentUser;
     const userId = user?.uid;
     const navigate = useNavigate();
@@ -141,13 +143,13 @@ const KanjiSRSListScreen = () => {
         if (!timestamp) return '';
         const diff = Date.now() - timestamp;
         const mins = Math.floor(diff / 60000);
-        if (mins < 1) return 'Vừa xong';
-        if (mins < 60) return `${mins} phút trước`;
+        if (mins < 1) return t('kanji.justNow', 'Vừa xong');
+        if (mins < 60) return t('kanji.minutesAgo', '{count} phút trước').replace('{count}', mins);
         const hours = Math.floor(mins / 60);
-        if (hours < 24) return `${hours} giờ trước`;
+        if (hours < 24) return t('kanji.hoursAgo', '{count} giờ trước').replace('{count}', hours);
         const days = Math.floor(hours / 24);
-        if (days === 1) return 'Hôm qua';
-        return `${days} ngày trước`;
+        if (days === 1) return t('kanji.yesterday', 'Hôm qua');
+        return t('kanji.daysAgo', '{count} ngày trước').replace('{count}', days);
     };
 
     // Load Recently Viewed and Study History
@@ -386,7 +388,7 @@ const KanjiSRSListScreen = () => {
                 level: kanjiDoc?.level || jData?.level || 'N5',
                 strokeCount: jData?.stroke_count || kanjiDoc?.strokeCount || 0,
                 srs,
-                srsStatus: getSrsStatus(srs),
+                srsStatus: getSrsStatus(srs, t),
                 nextReview: srs?.nextReview || 0,
                 reps: srs?.reps || 0,
                 interval: srs?.interval || 0,
@@ -431,11 +433,11 @@ const KanjiSRSListScreen = () => {
 
     const currentFolderName = useMemo(() => {
         if (!currentFolder) return null;
-        if (currentFolder === '__all__') return 'Tất cả Kanji';
-        if (currentFolder === 'unfiled') return 'Chưa phân loại';
+        if (currentFolder === '__all__') return t('kanji.allKanjiTitle', 'Tất cả Kanji');
+        if (currentFolder === 'unfiled') return t('kanji.unfiledFolder', 'Chưa phân loại');
         if (currentFolder.startsWith('jlpt_')) return currentFolder.replace('jlpt_', '');
         const f = folders.find(f => f.id === currentFolder);
-        return f?.name || 'Thư mục';
+        return f?.name || t('kanji.folderBack', 'Thư mục');
     }, [currentFolder, folders]);
 
     const currentFolderKanji = useMemo(() => {
@@ -626,7 +628,7 @@ const KanjiSRSListScreen = () => {
             showToast('Đã xóa thành công!', 'success');
         } catch (e) {
             console.error('Error deleting SRS data:', e);
-            showToast('Lỗi khi xóa: ' + e.message, 'error');
+            showToast(t('common.error', 'Lỗi:') + ' ' + e.message, 'error');
         } finally {
             setDeleting(false);
         }
@@ -642,9 +644,9 @@ const KanjiSRSListScreen = () => {
             return;
         }
 
-        const confirmed = await showConfirm(`Xóa chữ Kanji "${character}" khỏi danh sách ôn tập SRS? Dữ liệu tiến độ học của chữ này sẽ bị mất hoàn toàn.`, {
+        const confirmed = await showConfirm(t('kanji.deleteConfirmSingle', 'Remove Kanji "{char}" from SRS review? Its learning progress will be permanently lost.').replace('{char}', character), {
             type: 'danger',
-            confirmText: 'Xóa bỏ'
+            confirmText: t('kanji.deleteBtn', 'Xóa bỏ')
         });
         if (!confirmed) return;
 
@@ -664,10 +666,10 @@ const KanjiSRSListScreen = () => {
             });
             setShowDetailModal(false);
             setSelectedKanjiChar(null);
-            showToast(`Đã xóa chữ "${character}" khỏi danh sách ôn tập!`, 'success');
+            showToast(t('kanji.deleteSingleSuccess', 'Removed "{char}" from review list!').replace('{char}', character), 'success');
         } catch (e) {
             console.error('Error deleting single kanji SRS:', e);
-            showToast('Lỗi khi xóa: ' + e.message, 'error');
+            showToast(t('common.error', 'Lỗi:') + ' ' + e.message, 'error');
         } finally {
             setDeleting(false);
         }
@@ -743,9 +745,9 @@ const KanjiSRSListScreen = () => {
         const dueCount = kanjiWithSRS.filter(k => isSrsCardDue(k.srs, threshold)).length;
         if (dueCount > 0) {
             return {
-                tag: 'Cần ôn tập',
-                content: `Bạn đang có ${dueCount} chữ Kanji đến hạn ôn tập trong SRS. Hãy dành 5-10 phút ôn tập ngay để giữ vững tiến độ nhớ nhé!`,
-                actionText: 'Bắt đầu ôn tập',
+                tag: t('kanji.dueOption', 'Cần ôn'),
+                content: t('kanji.dueNotifDesc', 'You have {count} kanji characters due for review.').replace('{count}', dueCount),
+                actionText: t('kanji.reviewNow', 'Bắt đầu ôn tập'),
                 onClick: () => navigate(ROUTES.KANJI_REVIEW)
             };
         }
@@ -756,9 +758,9 @@ const KanjiSRSListScreen = () => {
             const sampleChars = lapsedCards.slice(0, 3).map(k => k.character).join(', ');
             const targetChar = lapsedCards[0].character;
             return {
-                tag: 'Ôn tập trọng tâm',
-                content: `Bạn đang gặp khó khăn với ${lapsedCards.length} chữ Kanji hay bị quên (như: ${sampleChars}). Hãy xem lại chi tiết các chữ này nhé!`,
-                actionText: `Xem chữ '${targetChar}'`,
+                tag: t('kanji.focusReview', 'Ôn tập trọng tâm'),
+                content: t('kanji.lapsedDesc', 'You are struggling with {count} Kanji (e.g. {sampleChars}). Review their details!').replace('{count}', lapsedCards.length).replace('{sampleChars}', sampleChars),
+                actionText: t('kanji.viewCharAction', 'View character {char}').replace('{char}', targetChar),
                 onClick: () => navigate(`${ROUTES.KANJI_LIST}/${targetChar}`)
             };
         }
@@ -767,9 +769,9 @@ const KanjiSRSListScreen = () => {
         const newCardsCount = kanjiWithSRS.filter(k => k.reps === 0).length;
         if (newCardsCount > 0) {
             return {
-                tag: 'Thẻ mới',
-                content: `Bạn đã thêm ${newCardsCount} chữ Kanji mới vào danh sách ôn tập nhưng chưa học bài. Hãy bắt đầu học ngay nhé!`,
-                actionText: 'Bắt đầu học',
+                tag: t('kanji.newOption', 'Thẻ mới'),
+                content: t('kanji.newCardsNotifDesc', 'You have added {count} new Kanji. Start studying now!').replace('{count}', newCardsCount),
+                actionText: t('kanji.learnNow', 'Bắt đầu học'),
                 onClick: () => navigate(ROUTES.KANJI_REVIEW)
             };
         }
@@ -785,9 +787,9 @@ const KanjiSRSListScreen = () => {
         const startedLevel = jlptStats.find(s => s.percent > 0 && s.percent < 100);
         if (startedLevel) {
             return {
-                tag: `Chinh phục ${startedLevel.level}`,
-                content: `Bạn đã lưu ${startedLevel.srsCount}/${startedLevel.totalInDb} chữ Kanji (${startedLevel.percent}%) của cấp độ ${startedLevel.level} vào SRS. Hãy tiếp tục học các chữ còn lại nhé!`,
-                actionText: `Xem Kanji cấp độ ${startedLevel.level}`,
+                tag: t('kanji.conquerLevel', 'Chinh phục {level}').replace('{level}', startedLevel.level),
+                content: t('kanji.levelProgressDesc', 'Saved {count}/{total} ({percent}%) of level {level} to SRS. Continue studying remaining characters!').replace('{count}', startedLevel.srsCount).replace('{total}', startedLevel.totalInDb).replace('{percent}', startedLevel.percent).replace('{level}', startedLevel.level),
+                actionText: t('kanji.viewLevelKanji', 'View level {level} Kanji').replace('{level}', startedLevel.level),
                 onClick: () => {
                     navigate(`${ROUTES.KANJI_LIST}?level=${startedLevel.level}`);
                 }
@@ -796,9 +798,9 @@ const KanjiSRSListScreen = () => {
 
         // 5. Default fallback
         return {
-            tag: 'Quy tắc 80/20',
-            content: 'Quy tắc ôn tập ngắt quãng (SRS) giúp bạn nhớ lâu hơn gấp 5 lần. Hãy duy trì thói quen học và ôn tập Kanji mỗi ngày nhé!',
-            actionText: 'Xem danh sách Kanji',
+            tag: '80/20 Rule',
+            content: t('kanji.srsRuleTip', 'Spaced Repetition (SRS) helps you remember 5x longer. Keep up your daily study habit!'),
+            actionText: t('kanji.allKanjiTitle', 'Xem danh sách Kanji'),
             onClick: () => navigate(ROUTES.KANJI_LIST)
         };
     }, [kanjiWithSRS, kanjiList, navigate]);
@@ -807,7 +809,7 @@ const KanjiSRSListScreen = () => {
         return (
             <div className="w-full pb-8">
                 <TopTabBar tabs={KANJI_TABS} />
-                <LoadingIndicator text="Đang tải thư viện Kanji..." />
+                <LoadingIndicator text={t('kanji.loadingLibrary', 'Đang tải thư viện Kanji...')} />
             </div>
         );
     }
@@ -822,10 +824,10 @@ const KanjiSRSListScreen = () => {
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
                         <h1 className="text-3xl font-extrabold text-slate-800 dark:text-white tracking-tight flex items-center gap-2">
-                            Thư viện Kanji
+                            {t('kanji.kanjiLibrary', 'Thư viện Kanji')}
                         </h1>
                         <p className="text-sm text-slate-500 dark:text-slate-400 mt-1.5">
-                            Quản lý và ôn tập các Hán tự bạn đã lưu trữ theo cấp độ.
+                            {t('kanji.kanjiLibrarySub', 'Quản lý và ôn tập các Hán tự bạn đã lưu trữ theo cấp độ.')}
                         </p>
                     </div>
                 </div>
@@ -838,7 +840,7 @@ const KanjiSRSListScreen = () => {
                                 type="text"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                placeholder="Tìm kiếm thư mục, chữ Hán, Âm Hán Việt, ý nghĩa..."
+                                placeholder={t('kanji.searchKanjiPlaceholder', 'Tìm kiếm thư mục, chữ Hán, Âm Hán Việt, ý nghĩa...')}
                                 className="w-full bg-white dark:bg-slate-800 border border-slate-200/70 dark:border-slate-700 rounded-2xl px-4 py-3 pl-11 text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 shadow-sm text-sm"
                             />
                             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
@@ -849,19 +851,19 @@ const KanjiSRSListScreen = () => {
                             )}
                         </div>
 
-                        <div className="flex gap-2 w-full md:w-auto shrink-0">
+                        <div className="flex gap-2.5 w-full md:w-auto shrink-0">
                             <button
                                 onClick={() => setShowFolderManager(true)}
-                                className="px-4 py-3 bg-white dark:bg-slate-800 border border-slate-200/70 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-2xl text-sm font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 transition-all flex items-center justify-center gap-2 shadow-sm w-full md:w-auto cursor-pointer"
+                                className="px-4 py-3 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 text-slate-700 dark:text-slate-200 rounded-2xl text-xs sm:text-sm font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer select-none w-full md:w-auto"
                             >
-                                <FolderPlus className="w-4 h-4 text-slate-500" /> Quản lý thư mục
+                                <FolderPlus className="w-4 h-4 text-slate-500" /> {t('kanji.manageFolders', 'Quản lý thư mục')}
                             </button>
 
                             <button
                                 onClick={() => navigate(ROUTES.KANJI_REVIEW)}
-                                className="px-5 py-3 bg-[#2E5B70] hover:bg-[#234757] text-white rounded-2xl text-sm font-bold transition-all flex items-center justify-center gap-2 shadow-md w-full md:w-auto cursor-pointer"
+                                className="px-5 py-3 bg-amber-500 hover:bg-amber-400 border-b-4 border-amber-700 active:translate-y-0.5 active:border-b-0 text-white rounded-2xl text-xs sm:text-sm font-black uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer select-none w-full md:w-auto"
                             >
-                                Ôn tập ngay
+                                {t('kanji.reviewNow', 'Ôn tập ngay')}
                             </button>
                         </div>
                     </div>
@@ -870,7 +872,7 @@ const KanjiSRSListScreen = () => {
                     <div className="flex flex-wrap items-center gap-3 pt-1">
                         {/* Status Dropdown */}
                         <div className="flex items-center gap-2">
-                            <span className="text-xs font-bold text-slate-400 uppercase font-mono shrink-0">Trạng thái:</span>
+                            <span className="text-xs font-bold text-slate-400 uppercase font-mono shrink-0">{t('kanji.statusFilterLabel', 'Trạng thái:')}</span>
                             <div className="relative">
                                 <select
                                     value={filterStatus}
@@ -880,13 +882,13 @@ const KanjiSRSListScreen = () => {
                                     }}
                                     className="appearance-none bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700 font-semibold rounded-xl text-xs pl-3 pr-8 py-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-sky-500/20 shadow-sm transition-all"
                                 >
-                                    <option value="all">Tất cả ({stats.total})</option>
-                                    <option value="due">🔥 Cần ôn ({stats.due})</option>
-                                    <option value="learning">📖 Sơ cấp ({stats.learning})</option>
-                                    <option value="shortTerm">⚡ Trung cấp ({stats.shortTerm})</option>
-                                    <option value="longTerm">🌟 Cao cấp ({stats.longTerm})</option>
-                                    <option value="expert">🏆 Chuyên gia ({stats.expert})</option>
-                                    <option value="new">🆕 Thẻ mới ({stats.newCards})</option>
+                                    <option value="all">{t('kanji.allOption', 'Tất cả ({count})').replace('{count}', stats.total)}</option>
+                                    <option value="due">{t('kanji.dueOption', '🔥 Cần ôn ({count})').replace('{count}', stats.due)}</option>
+                                    <option value="learning">{t('kanji.learningOption', '📖 Sơ cấp ({count})').replace('{count}', stats.learning)}</option>
+                                    <option value="shortTerm">{t('kanji.shortTermOption', '⚡ Trung cấp ({count})').replace('{count}', stats.shortTerm)}</option>
+                                    <option value="longTerm">{t('kanji.longTermOption', '🌟 Cao cấp ({count})').replace('{count}', stats.longTerm)}</option>
+                                    <option value="expert">{t('kanji.expertOption', '🏆 Chuyên gia ({count})').replace('{count}', stats.expert)}</option>
+                                    <option value="new">{t('kanji.newOption', '🆕 Thẻ mới ({count})').replace('{count}', stats.newCards)}</option>
                                 </select>
                                 <ChevronDown className="w-3.5 h-3.5 text-slate-400 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                             </div>
@@ -894,7 +896,7 @@ const KanjiSRSListScreen = () => {
 
                         {/* JLPT Level Dropdown */}
                         <div className="flex items-center gap-2">
-                            <span className="text-xs font-bold text-slate-400 uppercase font-mono shrink-0">Trình độ:</span>
+                            <span className="text-xs font-bold text-slate-400 uppercase font-mono shrink-0">{t('kanji.levelFilterLabel', 'Trình độ:')}</span>
                             <div className="relative">
                                 <select
                                     value={filterLevel}
@@ -904,7 +906,7 @@ const KanjiSRSListScreen = () => {
                                     }}
                                     className="appearance-none bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700 font-semibold rounded-xl text-xs pl-3 pr-8 py-2 cursor-pointer focus:outline-none focus:ring-2 focus:ring-sky-500/20 shadow-sm transition-all"
                                 >
-                                    <option value="all">Tất cả</option>
+                                    <option value="all">{t('common.all', 'Tất cả')}</option>
                                     {JLPT_LEVELS.map(lvl => (
                                         <option key={lvl} value={lvl}>{lvl}</option>
                                     ))}
@@ -920,13 +922,13 @@ const KanjiSRSListScreen = () => {
                     <div className="bg-red-50/80 dark:bg-red-950/20 border border-red-200/50 dark:border-red-800/30 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
                         <div className="flex items-center gap-3">
                             <span className="text-sm font-bold text-red-700 dark:text-red-400">
-                                Đã chọn {selectedIds.size} Kanji
+                                {t('kanji.selectedKanjiCount', 'Đã chọn {count} Kanji').replace('{count}', selectedIds.size)}
                             </span>
                             <button
                                 onClick={() => setSelectedIds(new Set())}
                                 className="text-xs text-red-500 hover:text-red-700 font-semibold underline"
                             >
-                                Bỏ chọn
+                                {t('kanji.deselectBtn', 'Bỏ chọn')}
                             </button>
                         </div>
                         <div className="flex items-center gap-2 w-full sm:w-auto">
@@ -934,13 +936,13 @@ const KanjiSRSListScreen = () => {
                                 onClick={() => folders.length > 0 ? setShowBatchMoveModal(true) : setShowFolderManager(true)}
                                 className="flex-1 sm:flex-none px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer"
                             >
-                                <Folder className="w-3.5 h-3.5" /> Di chuyển
+                                <Folder className="w-3.5 h-3.5" /> {t('kanji.moveBtn', 'Di chuyển')}
                             </button>
                             <button
                                 onClick={() => setShowConfirmDelete(true)}
                                 className="flex-1 sm:flex-none px-4 py-2 bg-red-600 hover:bg-red-500 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer"
                             >
-                                <Trash2 className="w-3.5 h-3.5" /> Xóa bỏ
+                                <Trash2 className="w-3.5 h-3.5" /> {t('kanji.deleteBtn', 'Xóa bỏ')}
                             </button>
                         </div>
                     </div>
@@ -963,9 +965,9 @@ const KanjiSRSListScreen = () => {
                                         <div className="w-12 h-12 rounded-2xl bg-pink-50 dark:bg-pink-950/40 flex items-center justify-center mb-4">
                                             <Heart className="w-6 h-6 text-pink-500 fill-pink-500" />
                                         </div>
-                                        <h3 className="text-xl font-bold text-slate-800 dark:text-white">Tất cả Kanji</h3>
+                                        <h3 className="text-xl font-bold text-slate-800 dark:text-white">{t('kanji.allKanjiTitle', 'Tất cả Kanji')}</h3>
                                         <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                                            {stats.total} ký tự đang được theo dõi
+                                            {t('kanji.charsMonitoredCount', '{count} ký tự đang được theo dõi').replace('{count}', stats.total)}
                                         </p>
                                     </div>
 
@@ -1012,7 +1014,7 @@ const KanjiSRSListScreen = () => {
                                                         {level}: {LEVEL_LABELS[level]}
                                                     </h4>
                                                     <p className="text-xs text-slate-400 mt-0.5">
-                                                        {count} Hán tự
+                                                        {t('kanji.charsUnitBadge', '{count} Hán tự').replace('{count}', count)}
                                                     </p>
                                                 </div>
                                                 <div className={`w-8 h-8 rounded-xl ${cfg.light} flex items-center justify-center font-bold text-xs ${cfg.text}`}>
@@ -1039,7 +1041,7 @@ const KanjiSRSListScreen = () => {
                                         <Plus className="w-4 h-4" />
                                     </div>
                                     <span className="text-xs font-bold text-slate-500 group-hover:text-[#2E5B70] transition-colors">
-                                        Thư mục mới
+                                        {t('kanji.newFolderBtn', 'Thư mục mới')}
                                     </span>
                                 </button>
                             </div>
@@ -1049,7 +1051,7 @@ const KanjiSRSListScreen = () => {
                         {rootCustomFolders.length > 0 && (
                             <div className="space-y-3">
                                 <h3 className="text-sm font-bold uppercase tracking-wider text-slate-400">
-                                    Thư mục cá nhân
+                                    {t('kanji.personalFoldersHeader', 'Thư mục cá nhân')}
                                 </h3>
                                 <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
                                     {rootCustomFolders.map(f => (
@@ -1079,13 +1081,13 @@ const KanjiSRSListScreen = () => {
                             <div className="space-y-4">
                                 <div className="flex items-center justify-between">
                                     <h3 className="text-base font-bold text-slate-800 dark:text-white">
-                                        Xem gần đây
+                                        {t('kanji.recentlyViewed', 'Xem gần đây')}
                                     </h3>
                                     <button 
                                         onClick={() => openFolder('__all__')}
                                         className="text-xs font-bold text-sky-600 hover:underline flex items-center gap-0.5"
                                     >
-                                        Xem tất cả <ChevronRight className="w-3.5 h-3.5" />
+                                        {t('kanji.viewAllBtn', 'Xem tất cả')} <ChevronRight className="w-3.5 h-3.5" />
                                     </button>
                                 </div>
 
@@ -1126,7 +1128,7 @@ const KanjiSRSListScreen = () => {
                                         })
                                     ) : (
                                         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-8 text-center text-slate-400 text-xs font-semibold">
-                                            Chưa có hoạt động học gần đây.
+                                            {t('kanji.noRecentActivity', 'Chưa có hoạt động học gần đây.')}
                                         </div>
                                     )}
                                 </div>
@@ -1137,7 +1139,7 @@ const KanjiSRSListScreen = () => {
                                 {/* Recommendation Card */}
                                 <div className="space-y-3">
                                     <h3 className="text-base font-bold text-slate-800 dark:text-white">
-                                        Gợi ý ôn tập
+                                        {t('kanji.reviewRecommendations', 'Gợi ý ôn tập')}
                                     </h3>
 
                                     <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 space-y-3 shadow-md">
@@ -1163,7 +1165,7 @@ const KanjiSRSListScreen = () => {
                                 {/* Study Timeline */}
                                 <div className="space-y-3">
                                     <h3 className="text-base font-bold text-slate-800 dark:text-white">
-                                        Lịch sử học tập
+                                        {t('kanji.studyHistoryHeader', 'Lịch sử học tập')}
                                     </h3>
 
                                     <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 space-y-4 shadow-md">
@@ -1202,7 +1204,7 @@ const KanjiSRSListScreen = () => {
                                                 })
                                             ) : (
                                                 <div className="text-center text-slate-400 text-xs py-4">
-                                                    Chưa có hoạt động học tập nào.
+                                                    {t('kanji.noStudyHistory', 'Chưa có hoạt động học tập nào.')}
                                                 </div>
                                             )}
                                         </div>
@@ -1221,13 +1223,13 @@ const KanjiSRSListScreen = () => {
                                 onClick={goBackToFolders}
                                 className="p-2 flex items-center justify-center rounded-xl bg-slate-50 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 transition-all font-bold"
                             >
-                                <ChevronLeft className="w-4 h-4 mr-0.5" /> Thư mục
+                                <ChevronLeft className="w-4 h-4 mr-0.5" /> {t('kanji.folderBack', 'Thư mục')}
                             </button>
                             <span className="text-slate-300">/</span>
 
                             {currentFolder && currentFolder.startsWith('jlpt_') ? (
                                 <span className={`px-2 py-0.5 rounded-md font-bold ${LEVEL_COLORS[currentFolder.replace('jlpt_', '')]?.text || 'text-slate-700'} bg-slate-50 dark:bg-slate-700`}>
-                                    Cấp độ {currentFolderName}
+                                    {t('kanji.levelFolderTitle', 'Cấp độ {name}').replace('{name}', currentFolderName)}
                                 </span>
                             ) : currentFolder ? (
                                 <>
@@ -1243,21 +1245,21 @@ const KanjiSRSListScreen = () => {
                                     ))}
                                 </>
                             ) : (
-                                <span className="text-slate-500 font-bold">Tìm kiếm kết quả</span>
+                                <span className="text-slate-500 font-bold">{t('kanji.searchResultsTitle', 'Tìm kiếm kết quả')}</span>
                             )}
                         </div>
 
                         {/* Actions bar inside list view */}
                         <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2 pb-1 border-b border-slate-100 dark:border-slate-700">
                             <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">
-                                Hiển thị {visibleKanjiList.length} / {displayedKanjiList.length} ký tự
+                                {t('kanji.showingCharsCount', 'Hiển thị {visible} / {total} ký tự').replace('{visible}', visibleKanjiList.length).replace('{total}', displayedKanjiList.length)}
                             </span>
 
                             <button 
                                 onClick={selectAllVisible}
                                 className="text-xs font-bold text-sky-600 hover:underline"
                             >
-                                {visibleKanjiList.every(k => selectedIds.has(k.id)) ? 'Bỏ chọn tất cả' : 'Chọn tất cả'}
+                                {visibleKanjiList.every(k => selectedIds.has(k.id)) ? t('common.deselectAll', 'Bỏ chọn tất cả') : t('common.selectAll', 'Chọn tất cả')}
                             </button>
                         </div>
 
@@ -1265,12 +1267,12 @@ const KanjiSRSListScreen = () => {
                         {displayedKanjiList.length === 0 ? (
                             <div className="text-center py-16 space-y-4">
                                 <Search className="w-12 h-12 text-slate-300 mx-auto" />
-                                <h4 className="text-slate-500 font-semibold text-sm">Không tìm thấy Kanji nào</h4>
+                                <h4 className="text-slate-500 font-semibold text-sm">{t('kanji.noKanjiFound', 'Không tìm thấy Kanji nào')}</h4>
                                 <button 
                                     onClick={goBackToFolders} 
                                     className="px-4 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-bold rounded-xl transition-all"
                                 >
-                                    Quay lại thư viện
+                                    {t('kanji.backToLibraryBtn', 'Quay lại thư viện')}
                                 </button>
                             </div>
                         ) : (
@@ -1301,7 +1303,7 @@ const KanjiSRSListScreen = () => {
                                                         ? 'opacity-100' 
                                                         : 'opacity-100 sm:opacity-0 sm:group-hover:opacity-100'
                                                 }`}
-                                                title={isSelected ? "Bỏ chọn" : "Chọn Kanji này"}
+                                                title={isSelected ? t('kanji.deselectThisKanji', 'Bỏ chọn') : t('kanji.selectThisKanji', 'Chọn Kanji này')}
                                             >
                                                 <div className={`w-5 h-5 rounded-lg border-2 flex items-center justify-center transition-all ${
                                                     isSelected 
@@ -1324,7 +1326,7 @@ const KanjiSRSListScreen = () => {
                                                 <div className="flex-1 min-w-0">
                                                     <div className="flex items-center gap-2">
                                                         <span className="font-extrabold text-slate-800 dark:text-white text-sm">{kanji.sinoViet || '---'}</span>
-                                                        <span className="text-[10px] text-slate-400 font-semibold">{kanji.strokeCount} nét</span>
+                                                        <span className="text-[10px] text-slate-400 font-semibold">{t('kanji.strokesCount', '{count} nét').replace('{count}', kanji.strokeCount)}</span>
                                                     </div>
                                                     <p className="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5">
                                                         {kanji.meaning}
@@ -1346,7 +1348,7 @@ const KanjiSRSListScreen = () => {
 
                                                 {kanji.nextReview > 0 && kanji.reps > 0 && (
                                                     <span className="text-[9px] text-slate-400 font-semibold">
-                                                        {(kanji.nextReview || 0) <= Date.now() ? 'Cần ôn' : formatNextReview(kanji.nextReview)}
+                                                        {(kanji.nextReview || 0) <= Date.now() ? t('kanji.due', 'Cần ôn') : formatNextReview(kanji.nextReview, t)}
                                                     </span>
                                                 )}
                                             </div>
@@ -1356,14 +1358,14 @@ const KanjiSRSListScreen = () => {
                                                 <button 
                                                     onClick={(e) => { e.stopPropagation(); setShowMoveModal(kanji.id); }}
                                                     className="p-1 text-slate-400 hover:text-indigo-600 hover:bg-slate-50 rounded"
-                                                    title="Chuyển thư mục"
+                                                    title={t('kanji.moveFolderTooltip', 'Chuyển thư mục')}
                                                 >
                                                     <Folder className="w-3.5 h-3.5" />
                                                 </button>
                                                 <button 
                                                     onClick={(e) => { e.stopPropagation(); openKanjiDetail(kanji.character); }}
                                                     className="p-1 text-slate-400 hover:text-sky-600 hover:bg-slate-50 rounded"
-                                                    title="Chi tiết"
+                                                    title={t('kanji.detailsTooltip', 'Chi tiết')}
                                                 >
                                                     <Eye className="w-3.5 h-3.5" />
                                                 </button>
@@ -1379,7 +1381,7 @@ const KanjiSRSListScreen = () => {
                                             onClick={() => setVisibleLimit(prev => prev + 50)}
                                             className="px-6 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-650 text-slate-700 dark:text-slate-200 text-xs font-bold rounded-xl transition-all shadow-sm flex items-center gap-2 cursor-pointer"
                                         >
-                                            Xem thêm ({displayedKanjiList.length - visibleLimit} Kanji còn lại)
+                                            {t('kanji.loadMoreKanji', 'Xem thêm ({count} Kanji còn lại)').replace('{count}', displayedKanjiList.length - visibleLimit)}
                                         </button>
                                     </div>
                                 )}
@@ -1398,13 +1400,13 @@ const KanjiSRSListScreen = () => {
                                     <Trash2 className="w-5 h-5 text-red-600" />
                                 </div>
                                 <div>
-                                    <h3 className="text-lg font-bold text-slate-800 dark:text-white">Xóa khỏi ôn tập</h3>
-                                    <p className="text-xs text-slate-400">Không thể hoàn tác hành động này</p>
+                                    <h3 className="text-lg font-bold text-slate-800 dark:text-white">{t('kanji.deleteModalTitle', 'Xóa khỏi ôn tập')}</h3>
+                                    <p className="text-xs text-slate-400">{t('kanji.deleteModalSub', 'Không thể hoàn tác hành động này')}</p>
                                 </div>
                             </div>
 
                             <p className="text-sm text-slate-600 dark:text-slate-300">
-                                Bạn có chắc chắn muốn xóa {selectedIds.size} Hán tự đã chọn khỏi danh sách ôn tập? Dữ liệu tiến độ học (SRS) của chúng sẽ bị mất hoàn toàn.
+                                {t('kanji.deleteConfirmBody', 'Bạn có chắc chắn muốn xóa {count} Hán tự đã chọn khỏi danh sách ôn tập?').replace('{count}', selectedIds.size)}
                             </p>
 
                             <div className="flex gap-2.5 pt-2">
@@ -1412,15 +1414,13 @@ const KanjiSRSListScreen = () => {
                                     onClick={() => setShowConfirmDelete(false)}
                                     className="flex-1 py-3 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 text-slate-700 dark:text-slate-300 rounded-2xl font-bold text-sm transition-all"
                                     disabled={deleting}
-                                >
-                                    Hủy bỏ
-                                </button>
+                                >{t('common.cancel', 'Hủy bỏ')}</button>
                                 <button
                                     onClick={handleDeleteSelected}
                                     className="flex-1 py-3 bg-red-600 hover:bg-red-500 text-white rounded-2xl font-bold text-sm transition-all flex items-center justify-center gap-2"
                                     disabled={deleting}
                                 >
-                                    {deleting ? 'Đang xóa...' : 'Xóa bỏ'}
+                                    {deleting ? t('kanji.deletingBtn', 'Đang xóa...') : t('kanji.confirmDeleteBtn', 'Xóa bỏ')}
                                 </button>
                             </div>
                         </div>
@@ -1439,7 +1439,7 @@ const KanjiSRSListScreen = () => {
                         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                             <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 w-[360px] max-w-full shadow-2xl space-y-4 border border-slate-100 dark:border-slate-700">
                                 <h3 className="text-base font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                                    <Folder className="w-5 h-5 text-indigo-500" /> Di chuyển {selectedIds.size} Kanji
+                                    <Folder className="w-5 h-5 text-indigo-500" /> {t('kanji.moveModalTitle', 'Di chuyển {count} Kanji').replace('{count}', selectedIds.size)}
                                 </h3>
                                 <div className="max-h-[260px] overflow-y-auto divide-y divide-slate-100 dark:divide-slate-700">
                                     <button 
@@ -1447,7 +1447,7 @@ const KanjiSRSListScreen = () => {
                                         className="w-full text-left flex items-center gap-3 py-3 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors px-1"
                                     >
                                         <Folder className="w-4 h-4 text-slate-400" />
-                                        <span className="text-sm text-slate-500 italic">Chưa phân loại</span>
+                                        <span className="text-sm text-slate-500 italic">{t('kanji.unfiledFolder', 'Chưa phân loại')}</span>
                                     </button>
                                     {flatTree.map(f => (
                                         <button 
@@ -1461,15 +1461,13 @@ const KanjiSRSListScreen = () => {
                                         </button>
                                     ))}
                                     {folders.length === 0 && (
-                                        <p className="text-center text-xs text-slate-400 py-6">Chưa có thư mục tùy chỉnh nào.</p>
+                                        <p className="text-center text-xs text-slate-400 py-6">{t('kanji.noCustomFolders', 'Chưa có thư mục tùy chỉnh nào.')}</p>
                                     )}
                                 </div>
                                 <button 
                                     onClick={() => setShowBatchMoveModal(false)} 
                                     className="w-full py-2.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-xl text-xs font-bold hover:bg-slate-200"
-                                >
-                                    Hủy bỏ
-                                </button>
+                                >{t('common.cancel', 'Hủy bỏ')}</button>
                             </div>
                         </div>,
                         document.body
@@ -1487,7 +1485,7 @@ const KanjiSRSListScreen = () => {
                         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                             <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 w-[360px] max-w-full shadow-2xl space-y-4 border border-slate-100 dark:border-slate-700">
                                 <h3 className="text-base font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                                    <Folder className="w-5 h-5 text-indigo-500" /> Chọn thư mục lưu trữ
+                                    <Folder className="w-5 h-5 text-indigo-500" /> {t('kanji.selectStorageFolder', 'Chọn thư mục lưu trữ')}
                                 </h3>
                                 <div className="max-h-[260px] overflow-y-auto divide-y divide-slate-100 dark:divide-slate-700">
                                     <button 
@@ -1495,7 +1493,7 @@ const KanjiSRSListScreen = () => {
                                         className={`w-full text-left flex items-center gap-3 py-3 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors px-1 ${!kanjiCardFolders[showMoveModal] ? 'bg-indigo-50/50' : ''}`}
                                     >
                                         <Folder className="w-4 h-4 text-slate-400" />
-                                        <span className="text-sm text-slate-500 italic">Chưa phân loại</span>
+                                        <span className="text-sm text-slate-500 italic">{t('kanji.unfiledFolder', 'Chưa phân loại')}</span>
                                     </button>
                                     {flatTree.map(f => (
                                         <button 
@@ -1506,16 +1504,14 @@ const KanjiSRSListScreen = () => {
                                         >
                                             <Folder className={`w-4 h-4 ${f.depth > 0 ? 'text-amber-400' : 'text-indigo-400'}`} />
                                             <span className="text-sm text-slate-700 dark:text-slate-300 font-semibold flex-1">{f.name}</span>
-                                            {kanjiCardFolders[showMoveModal] === f.id && <span className="text-[10px] text-indigo-500 font-bold">Lưu ở đây</span>}
+                                            {kanjiCardFolders[showMoveModal] === f.id && <span className="text-[10px] text-indigo-500 font-bold">{t('kanji.savedHereBadge', 'Lưu ở đây')}</span>}
                                         </button>
                                     ))}
                                 </div>
                                 <button 
                                     onClick={() => setShowMoveModal(null)} 
                                     className="w-full py-2.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-xl text-xs font-bold hover:bg-slate-200"
-                                >
-                                    Hủy bỏ
-                                </button>
+                                >{t('common.cancel', 'Hủy bỏ')}</button>
                             </div>
                         </div>,
                         document.body
@@ -1534,7 +1530,7 @@ const KanjiSRSListScreen = () => {
                         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                             <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 w-[440px] max-w-full shadow-2xl space-y-4 border border-slate-100 dark:border-slate-700">
                                 <h3 className="text-base font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                                    <FolderPlus className="w-5 h-5 text-sky-500" /> Quản lý thư mục Kanji
+                                    <FolderPlus className="w-5 h-5 text-sky-500" /> {t('kanji.manageFoldersModalTitle', 'Quản lý thư mục Kanji')}
                                 </h3>
 
                                 <div className="flex gap-2">
@@ -1543,20 +1539,18 @@ const KanjiSRSListScreen = () => {
                                         value={newFolderName}
                                         onChange={(e) => setNewFolderName(e.target.value)}
                                         onKeyDown={(e) => { if (e.key === 'Enter' && newFolderName.trim()) { createFolder(newFolderName); setNewFolderName(''); } }}
-                                        placeholder="Tên thư mục mới..."
+                                        placeholder={t('kanji.newFolderNameInput', 'Tên thư mục mới...')}
                                         className="flex-1 bg-slate-50 dark:bg-slate-700 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-1 focus:ring-sky-500"
                                     />
                                     <button 
                                         onClick={() => { if (newFolderName.trim()) { createFolder(newFolderName); setNewFolderName(''); } }}
                                         className="px-4 py-2 bg-[#2E5B70] text-white rounded-xl text-xs font-bold hover:bg-[#20404f]"
-                                    >
-                                        Thêm
-                                    </button>
+                                    >{t('kanji.addFolderBtn', 'Thêm')}</button>
                                 </div>
 
                                 <div className="max-h-[260px] overflow-y-auto space-y-1 divide-y divide-slate-50 dark:divide-slate-700/50">
                                     {flatTree.length === 0 ? (
-                                        <p className="text-center text-xs text-slate-400 py-6">Chưa có thư mục nào.</p>
+                                        <p className="text-center text-xs text-slate-400 py-6">{t('kanji.noCustomFolders', 'Chưa có thư mục nào.')}</p>
                                     ) : flatTree.map(f => {
                                         const count = getRecursiveCardCount(f.id);
                                         return (
@@ -1582,26 +1576,26 @@ const KanjiSRSListScreen = () => {
                                                     <span className="flex-1 text-xs font-semibold text-slate-700 dark:text-slate-300 truncate">{f.name}</span>
                                                 )}
 
-                                                <span className="text-[10px] text-slate-400 font-bold mr-1">{count} từ</span>
+                                                <span className="text-[10px] text-slate-400 font-bold mr-1">{t('common.wordsUnit', 'từ').replace('{count}', count)}</span>
 
                                                 <button 
                                                     onClick={() => { setEditingFolderId(f.id); setEditingFolderName(f.name); }}
                                                     className="p-1 text-slate-400 hover:text-sky-600 transition-colors"
-                                                    title="Đổi tên"
+                                                    title={t('kanji.renameFolderTooltip', 'Đổi tên')}
                                                 >
                                                     <Edit className="w-3.5 h-3.5" />
                                                 </button>
                                                 <button 
-                                                    onClick={() => createFolder('Thư mục con', f.id)}
+                                                    onClick={() => createFolder(t('kanji.subfolderDefaultName', 'Thư mục con'), f.id)}
                                                     className="p-1 text-slate-400 hover:text-emerald-600 transition-colors"
-                                                    title="Thư mục con"
+                                                    title={t('kanji.subfolderTooltip', 'Thư mục con')}
                                                 >
                                                     <FolderPlus className="w-3.5 h-3.5" />
                                                 </button>
                                                 <button 
-                                                    onClick={async () => { if (await showConfirm(`Xóa thư mục "${f.name}"?`, { type: 'danger', confirmText: 'Xóa' })) deleteFolder(f.id); }}
+                                                    onClick={async () => { if (await showConfirm(t('kanji.deleteFolderConfirmMsg', 'Xóa thư mục "{name}"?').replace('{name}', f.name), { type: 'danger', confirmText: t('common.delete', 'Xóa') })) deleteFolder(f.id); }}
                                                     className="p-1 text-slate-400 hover:text-red-600 transition-colors"
-                                                    title="Xóa"
+                                                    title={t('kanji.deleteFolderTooltip', 'Xóa')}
                                                 >
                                                     <Trash2 className="w-3.5 h-3.5" />
                                                 </button>
@@ -1612,9 +1606,7 @@ const KanjiSRSListScreen = () => {
                                 <button 
                                     onClick={() => setShowFolderManager(false)} 
                                     className="w-full py-2.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-xl text-xs font-bold hover:bg-slate-200"
-                                >
-                                    Đóng
-                                </button>
+                                >{t('common.close', 'Đóng')}</button>
                             </div>
                         </div>,
                         document.body
@@ -1627,7 +1619,7 @@ const KanjiSRSListScreen = () => {
                         const kanjiDoc = kanjiList.find(k => k.character === selectedKanjiChar);
                         const jData = getJotobaKanjiData(selectedKanjiChar);
                         const srs = kanjiDoc ? srsData[kanjiDoc.id] : null;
-                        const status = getSrsStatus(srs);
+                        const status = getSrsStatus(srs, t);
                         const StatusIcon = status.icon;
                         const sinoViet = kanjiDoc?.sinoViet || jData?.sinoViet || '---';
                         const meaning = kanjiDoc?.meaning || jData?.meaningVi || jData?.meanings?.join(', ') || '---';
@@ -1644,9 +1636,9 @@ const KanjiSRSListScreen = () => {
                                     <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-700 pb-3">
                                         <div className="flex items-center gap-2">
                                             <span className={`px-2.5 py-1 rounded-lg text-xs font-bold ${levelColor.light} ${levelColor.text}`}>
-                                                Cấp độ {level}
+                                                {t('kanji.levelBadge', 'Cấp độ {level}').replace('{level}', level)}
                                             </span>
-                                            <span className="text-xs text-slate-400 font-semibold">{strokeCount} nét</span>
+                                            <span className="text-xs text-slate-400 font-semibold">{t('kanji.strokesCount', '{count} nét').replace('{count}', strokeCount)}</span>
                                         </div>
                                         <button
                                             onClick={() => { setShowDetailModal(false); setSelectedKanjiChar(null); }}
@@ -1676,11 +1668,11 @@ const KanjiSRSListScreen = () => {
                                     {/* Readings Details */}
                                     <div className="grid grid-cols-2 gap-3 bg-slate-50 dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-100 dark:border-slate-700/50">
                                         <div>
-                                            <span className="text-[10px] uppercase font-mono font-bold text-slate-400">Âm Ôn (Onyomi)</span>
+                                            <span className="text-[10px] uppercase font-mono font-bold text-slate-400">{t('kanji.onyomiLabel', 'Âm Ôn')} (Onyomi)</span>
                                             <p className="text-sm font-bold text-slate-700 dark:text-slate-200 mt-0.5">{onyomi}</p>
                                         </div>
                                         <div>
-                                            <span className="text-[10px] uppercase font-mono font-bold text-slate-400">Âm Kun (Kunyomi)</span>
+                                            <span className="text-[10px] uppercase font-mono font-bold text-slate-400">{t('kanji.kunyomiLabel', 'Âm Kun')} (Kunyomi)</span>
                                             <p className="text-sm font-bold text-slate-700 dark:text-slate-200 mt-0.5">{kunyomi}</p>
                                         </div>
                                     </div>
@@ -1694,14 +1686,14 @@ const KanjiSRSListScreen = () => {
                                             className="w-full py-3 bg-red-500/10 hover:bg-red-500/20 active:bg-red-500/30 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-900/60 rounded-2xl font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs disabled:opacity-50"
                                         >
                                             <Trash2 className="w-4 h-4" />
-                                            <span>{deleting ? 'Đang xóa...' : 'Xóa khỏi danh sách ôn tập'}</span>
+                                            <span>{deleting ? t('kanji.deletingBtn', 'Đang xóa...') : t('kanji.removeFromSrsAction', 'Xóa khỏi danh sách ôn tập')}</span>
                                         </button>
                                         <button
                                             type="button"
                                             onClick={() => { setShowDetailModal(false); setSelectedKanjiChar(null); }}
                                             className="w-full py-3 bg-[#2E5B70] hover:bg-[#234757] text-white rounded-2xl font-bold text-xs tracking-wider uppercase transition-all shadow-md cursor-pointer"
                                         >
-                                            Quay lại
+                                            {t('common.back', 'Quay lại')}
                                         </button>
                                     </div>
                                 </div>

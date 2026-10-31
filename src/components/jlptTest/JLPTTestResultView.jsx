@@ -293,7 +293,7 @@ const JLPTTestResultView = ({
                                     if (deletes.length > 0) { deleteNotesMultiple(deletes); }
                                     setEditingReviewNoteKey(null);
                                 }}
-                                className="px-4 py-1.5 text-xs font-black bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 rounded-xl transition shadow-[0_3px_10px_rgba(244,148,188,0.35)] cursor-pointer"
+                                className="px-4 py-1.5 text-xs font-black bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-2 border-emerald-700 text-white rounded-xl transition cursor-pointer select-none"
                             >
                                 Lưu ghi chú
                             </button>
@@ -362,9 +362,9 @@ const JLPTTestResultView = ({
                                     setReviewNoteTab('text');
                                     setEditingReviewNoteKey(noteKey);
                                 }}
-                                className="py-1.5 px-3 border border-dashed border-slate-300 dark:border-slate-700 hover:border-[#f494bc] rounded-xl flex items-center gap-1.5 text-slate-500 hover:text-slate-800 dark:hover:text-white font-bold text-xs transition cursor-pointer select-none"
+                                className="py-1.5 px-3 border border-dashed border-slate-300 dark:border-slate-700 hover:border-emerald-500 rounded-xl flex items-center gap-1.5 text-slate-500 hover:text-slate-800 dark:hover:text-white font-bold text-xs transition cursor-pointer select-none"
                             >
-                                <Edit3 className="w-3.5 h-3.5 text-[#db2777]" />
+                                <Edit3 className="w-3.5 h-3.5 text-emerald-500" />
                                 <span>Thêm ghi chú / Lời phê</span>
                             </button>
                         )}
@@ -454,7 +454,7 @@ const JLPTTestResultView = ({
                                         </div>
                                         <button 
                                             onClick={() => setShowFurigana(!showFurigana)} 
-                                            className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors focus:outline-none cursor-pointer ${showFurigana ? 'bg-[#f494bc]' : 'bg-gray-300 dark:bg-slate-700'}`}
+                                            className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors focus:outline-none cursor-pointer ${showFurigana ? 'bg-emerald-500' : 'bg-gray-300 dark:bg-slate-700'}`}
                                         >
                                             <span className={`inline-block h-3.5 w-3.5 transform rounded-full bg-slate-950 transition-transform ${showFurigana ? 'translate-x-5.5' : 'translate-x-1'}`} />
                                         </button>
@@ -610,7 +610,7 @@ const JLPTTestResultView = ({
 
                             <button
                                 onClick={() => (retakeTest || startTest)(activeTest)}
-                                className="w-full py-2.5 rounded-xl font-black text-xs bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 transition flex items-center justify-center gap-1.5 shadow-[0_4px_14px_rgba(244,148,188,0.35)] cursor-pointer active:scale-95"
+                                className="w-full py-3 rounded-2xl font-black text-xs uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white transition flex items-center justify-center gap-1.5 cursor-pointer select-none"
                             >
                                 <RotateCcw className="w-3.5 h-3.5 stroke-[2.5]" />
                                 <span>Làm lại bài này</span>
@@ -709,7 +709,7 @@ const JLPTTestResultView = ({
 
                                         <button
                                             onClick={() => (retakeTest || startTest)(activeTest)}
-                                            className="px-4 py-1.5 rounded-xl text-xs font-black bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 transition flex items-center gap-1.5 shadow-[0_4px_14px_rgba(244,148,188,0.35)] cursor-pointer active:scale-95"
+                                            className="px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-2 border-emerald-700 text-white transition flex items-center gap-1.5 cursor-pointer select-none"
                                         >
                                             <RotateCcw className="w-3.5 h-3.5" />
                                             <span>Làm lại</span>
@@ -1073,20 +1073,20 @@ const JLPTTestResultView = ({
                 <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
                     <button 
                         onClick={exitTest} 
-                        className="px-5 py-3 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-2xl text-xs font-bold border border-slate-200 dark:border-slate-700 transition cursor-pointer active:scale-95"
+                        className="px-5 py-3 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-2xl text-xs font-bold uppercase tracking-wider border-2 border-b-4 border-slate-200 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 transition cursor-pointer select-none"
                     >
                         ← Về trang danh sách
                     </button>
                     <button 
                         onClick={() => (retakeTest || startTest)(activeTest)} 
-                        className="px-5 py-3 bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 text-white rounded-2xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer active:scale-95"
+                        className="px-5 py-3 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-2xl text-xs font-bold uppercase tracking-wider border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 transition flex items-center gap-1.5 cursor-pointer select-none"
                     >
                         <RotateCcw className="w-3.5 h-3.5" />
                         <span>Làm lại đề này</span>
                     </button>
                     <button 
                         onClick={() => setShowDetailedReview(true)} 
-                        className="px-6 py-3 bg-[#f494bc] hover:bg-[#f6a0c5] text-slate-950 font-black rounded-2xl text-xs sm:text-sm transition flex items-center gap-2 shadow-[0_4px_16px_rgba(244,148,188,0.4)] hover:shadow-[0_8px_24px_rgba(244,148,188,0.65)] cursor-pointer active:scale-95"
+                        className="px-6 py-3 bg-emerald-500 hover:bg-emerald-400 text-white font-black rounded-2xl text-xs sm:text-sm uppercase tracking-wider border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 transition flex items-center gap-2 cursor-pointer select-none"
                     >
                         <BookOpen className="w-4 h-4" />
                         <span>Xem chi tiết đáp án & giải thích</span>

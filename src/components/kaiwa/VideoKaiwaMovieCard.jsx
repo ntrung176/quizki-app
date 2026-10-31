@@ -1,6 +1,7 @@
 import React from 'react';
 import { Play, Layers, Edit3, Trash2, MessageSquare, Clock, Film, HardDrive, Video } from 'lucide-react';
 import { KAIWA_LEVELS, KAIWA_CATEGORIES } from './videoKaiwaConstants';
+import { useLanguage } from '../../context/LanguageContext';
 
 const LEVEL_COLOR_MAP = {
     N5: 'bg-emerald-500 text-white shadow-emerald-500/20',
@@ -19,6 +20,7 @@ const VideoKaiwaMovieCard = ({
     formatDuration,
     cardWidthClass = 'w-[280px] sm:w-[calc((100%-1rem)/2)] md:w-[calc((100%-2rem)/3)] lg:w-[calc((100%-3rem)/4)] shrink-0'
 }) => {
+    const { t } = useLanguage();
     if (!video) return null;
 
     const levelBadgeColor = LEVEL_COLOR_MAP[video.level] || 'bg-amber-500 text-slate-950';
@@ -44,7 +46,7 @@ const VideoKaiwaMovieCard = ({
                 ) : (
                     <div className="w-full h-full bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 flex flex-col items-center justify-center text-slate-500">
                         <Film className="w-10 h-10 text-amber-500/70" />
-                        <span className="text-[10px] font-bold mt-1 text-slate-400">Video Bài Học</span>
+                        <span className="text-[10px] font-bold mt-1 text-slate-400">{t('videoKaiwa.movieLesson', 'Video Bài Học')}</span>
                     </div>
                 )}
 
@@ -90,7 +92,7 @@ const VideoKaiwaMovieCard = ({
                     {/* Dialogue Count */}
                     <span className="px-2 py-0.5 rounded-md bg-black/80 backdrop-blur-md text-white border border-slate-700/60 text-[10px] font-bold flex items-center gap-1">
                         <MessageSquare className="w-3 h-3 text-slate-300" />
-                        <span>{subCount} câu</span>
+                        <span>{t('videoKaiwa.subCount', '{count} câu').replace('{count}', subCount)}</span>
                     </span>
 
                     {/* Duration */}
@@ -108,7 +110,7 @@ const VideoKaiwaMovieCard = ({
                         {video.title}
                     </h3>
                     <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1 leading-relaxed">
-                        {video.channelTitle || video.description || 'Học tiếng Nhật qua video'}
+                        {video.channelTitle || video.description || t('videoKaiwa.learnJapaneseVideo', 'Học tiếng Nhật qua video')}
                     </p>
                 </div>
 
@@ -124,7 +126,7 @@ const VideoKaiwaMovieCard = ({
                                 type="button"
                                 onClick={() => onEditVideo?.(video)}
                                 className="p-1.5 rounded-lg text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 transition cursor-pointer"
-                                title="Chỉnh sửa video"
+                                title={t('common.edit', 'Chỉnh sửa video')}
                             >
                                 <Edit3 className="w-3.5 h-3.5" />
                             </button>
@@ -132,7 +134,7 @@ const VideoKaiwaMovieCard = ({
                                 type="button"
                                 onClick={(e) => onDeleteVideo?.(e, video.id)}
                                 className="p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition cursor-pointer"
-                                title="Xóa video"
+                                title={t('common.delete', 'Xóa video')}
                             >
                                 <Trash2 className="w-3.5 h-3.5" />
                             </button>

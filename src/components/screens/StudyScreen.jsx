@@ -9,6 +9,7 @@ import { saveStudyProgress, resetStudyProgress } from '../../utils/studyProgress
 import FuriganaText from '../ui/FuriganaText';
 import { shuffleArray } from '../../utils/textProcessing';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
+import { useLanguage } from '../../context/LanguageContext';
 import { normalize, toHiragana, extractReadings } from '../../utils/ankiDiff';
 import UnifiedStudyCompleteModal from '../review/UnifiedStudyCompleteModal';
 import { safeSetLocalStorage } from '../../utils/storageCleanup';
@@ -146,7 +147,7 @@ const buildOptions = (correctCard, currentSetCards = [], allCards = []) => {
 
     // 3. Fallback nếu vẫn không đủ 3 lựa chọn sai
     while (distractorOptions.length < 3) {
-        distractorOptions.push(`(lựa chọn ${distractorOptions.length + 1})`);
+        distractorOptions.push(`(option ${distractorOptions.length + 1})`);
     }
 
     return shuffleArray([correct, ...distractorOptions]);
@@ -155,6 +156,7 @@ const buildOptions = (correctCard, currentSetCards = [], allCards = []) => {
 // ─── Phase: Multiple Choice ────────────────────────────────────────────────
 
 const MCPhase = ({ card, currentSetCards, allCards, onCorrect, onWrong, onSaveCardAudio, furiganaEnabled, audioEnabled }) => {
+    const { t, language } = useLanguage();
     const [options] = useState(() => buildOptions(card, currentSetCards, allCards));
     const [selected, setSelected] = useState(null);
     const [answered, setAnswered] = useState(false);
@@ -229,7 +231,7 @@ const MCPhase = ({ card, currentSetCards, allCards, onCorrect, onWrong, onSaveCa
         <div className="space-y-4 sm:space-y-5 animate-fade-in">
             {/* Prompt: show Vietnamese meaning */}
             <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-7 md:p-8 text-center border border-slate-200 dark:border-slate-800 shadow-md min-h-[130px] sm:min-h-[160px] flex flex-col items-center justify-center">
-                <p className="text-xs sm:text-sm font-bold text-blue-500 uppercase tracking-widest mb-2.5">Nghĩa tiếng Việt</p>
+                <p className="text-xs sm:text-sm font-bold text-blue-500 uppercase tracking-widest mb-2.5">{t('studyModes.meaningLabel')}</p>
                 <p className={`text-gray-800 dark:text-white break-words ${promptSize}`}>{card.back}</p>
             </div>
 
@@ -238,15 +240,15 @@ const MCPhase = ({ card, currentSetCards, allCards, onCorrect, onWrong, onSaveCa
                 {options.map((opt, i) => {
                     const isCorrectOpt = normalize(opt) === normalize(correct);
                     const isSelected = selected === opt;
-                    let cls = `w-full text-left ${optPadding} rounded-2xl border-2 font-medium transition-all flex items-center gap-3.5 shadow-sm `;
+                    let cls = `w-full text-left ${optPadding} rounded-2xl border-2 border-b-4 font-bold transition-all flex items-center gap-3.5 shadow-xs `;
                     if (!answered) {
-                        cls += 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-blue-400 dark:hover:border-blue-500 hover:bg-blue-50/50 dark:hover:bg-blue-950/30 text-slate-800 dark:text-slate-200 cursor-pointer hover:shadow-md';
+                        cls += 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-sky-400 dark:hover:border-sky-500 hover:bg-sky-50/40 dark:hover:bg-sky-950/20 text-slate-800 dark:text-slate-100 cursor-pointer active:translate-y-0.5 active:border-b-2';
                     } else if (isCorrectOpt) {
-                        cls += 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-400 text-emerald-800 dark:text-emerald-300 cursor-default shadow-md shadow-emerald-500/10';
+                        cls += 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-emerald-800 dark:text-emerald-300 cursor-default shadow-xs';
                     } else if (isSelected && !isCorrectOpt) {
-                        cls += 'bg-rose-50 dark:bg-rose-950/50 border-rose-400 text-rose-800 dark:text-rose-300 cursor-default shadow-md shadow-rose-500/10';
+                        cls += 'bg-rose-50 dark:bg-rose-950/40 border-rose-500 text-rose-800 dark:text-rose-300 cursor-default shadow-xs';
                     } else {
-                        cls += 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-400 dark:text-slate-500 opacity-60 cursor-default';
+                        cls += 'bg-slate-100 dark:bg-slate-800/50 border-slate-200 dark:border-slate-800 text-slate-400 dark:text-slate-500 opacity-60 cursor-default';
                     }
                     return (
                         <div key={i} onClick={() => { if (!answered) handleSelect(opt); }} className={cls}>
@@ -256,20 +258,20 @@ const MCPhase = ({ card, currentSetCards, allCards, onCorrect, onWrong, onSaveCa
                             <span className={`font-japanese break-words flex-1 leading-snug ${optTextSize}`}>
                                 <FuriganaText text={opt} forceHide={!furiganaEnabled} />
                             </span>
-                            {answered && isCorrectOpt && <Check className="ml-2 w-6 h-6 text-emerald-500 flex-shrink-0" />}
-                            {answered && isSelected && !isCorrectOpt && <X className="ml-2 w-6 h-6 text-rose-500 flex-shrink-0" />}
+                            {answered && isCorrectOpt && <Check className="ml-2 w-5 h-5 text-emerald-500 flex-shrink-0 stroke-[3]" />}
+                            {answered && isSelected && !isCorrectOpt && <X className="ml-2 w-5 h-5 text-rose-500 flex-shrink-0 stroke-[3]" />}
                         </div>
                     );
                 })}
             </div>
             {!answered && (
                 <p className="text-center text-[10px] sm:text-xs text-gray-400 dark:text-gray-500 mt-1 opacity-70">
-                    ⌨️ Nhấn phím 1-4 để chọn nhanh
+                    {t('studyModes.press14ToSelect')}
                 </p>
             )}
             {answered && normalize(selected) !== normalize(correct) && (
                 <p className="text-center text-[10px] sm:text-xs text-gray-400 dark:text-gray-500 mt-1 opacity-70">
-                    ⌨️ Nhấn phím Enter để tiếp tục
+                    {t('studyModes.pressEnterToContinue')}
                 </p>
             )}
 
@@ -280,13 +282,13 @@ const MCPhase = ({ card, currentSetCards, allCards, onCorrect, onWrong, onSaveCa
                         <div className="w-5 h-5 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0">
                             <X className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400 stroke-[2.5]" />
                         </div>
-                        <span className="font-extrabold text-xs sm:text-sm text-rose-700 dark:text-rose-300 whitespace-nowrap">Chưa đúng</span>
+                        <span className="font-extrabold text-xs sm:text-sm text-rose-700 dark:text-rose-300 whitespace-nowrap">{t('studyModes.notQuiteRight')}</span>
                     </div>
 
                     <div className="flex flex-wrap items-center gap-2 sm:gap-3 min-w-0 flex-1 text-xs sm:text-sm">
                         {selected && (
                             <div className="flex items-center gap-1.5 shrink-0 max-w-full">
-                                <span className="text-rose-700/80 dark:text-rose-300/80 font-medium text-[11px] sm:text-xs shrink-0">Đã chọn:</span>
+                                <span className="text-rose-700/80 dark:text-rose-300/80 font-medium text-[11px] sm:text-xs shrink-0">{t('studyModes.selected')}</span>
                                 <span className="font-bold font-japanese px-2 py-0.5 rounded bg-rose-500/15 text-rose-700 dark:text-rose-300 line-through border border-rose-500/25 max-w-[180px] sm:max-w-none truncate" title={selected}>
                                     {selected}
                                 </span>
@@ -294,7 +296,7 @@ const MCPhase = ({ card, currentSetCards, allCards, onCorrect, onWrong, onSaveCa
                             </div>
                         )}
                         <div className="flex items-center gap-1.5 min-w-0 flex-wrap">
-                            <span className="text-slate-500 dark:text-slate-400 font-medium text-[11px] sm:text-xs shrink-0">Đáp án:</span>
+                            <span className="text-slate-500 dark:text-slate-400 font-medium text-[11px] sm:text-xs shrink-0">{t('studyModes.correctAnswer')}</span>
                             <span className="inline-flex items-center font-bold font-japanese px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-800 dark:text-emerald-200 border border-emerald-500/30 text-xs sm:text-sm shadow-xs" title={correct}>
                                 <FuriganaText text={correct} knownReading={card.reading} forceHide={!furiganaEnabled} compact={true} />
                             </span>
@@ -303,9 +305,9 @@ const MCPhase = ({ card, currentSetCards, allCards, onCorrect, onWrong, onSaveCa
 
                     <button
                         onClick={() => onWrong()}
-                        className="px-3 sm:px-4 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs sm:text-sm shadow-sm transition-all active:scale-95 flex items-center gap-1 shrink-0 self-end sm:self-auto cursor-pointer"
+                        className="px-4 py-2 rounded-xl bg-sky-500 hover:bg-sky-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-sky-700 text-white font-black text-xs sm:text-sm uppercase tracking-wider transition-all flex items-center gap-1.5 shrink-0 self-end sm:self-auto cursor-pointer"
                     >
-                        <span>Tiếp tục</span>
+                        <span>{t('studyModes.continue')}</span>
                         <span className="hidden sm:inline opacity-75 font-normal text-[10px]">(Enter)</span>
                         <span className="text-xs">→</span>
                     </button>
@@ -318,6 +320,7 @@ const MCPhase = ({ card, currentSetCards, allCards, onCorrect, onWrong, onSaveCa
 // ─── Phase: Written (type the answer) ────────────────────────────────────────
 
 const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabled, audioEnabled }) => {
+    const { t, language } = useLanguage();
     const [input, setInput] = useState('');
     const [feedback, setFeedback] = useState(null); // null | 'correct' | 'incorrect'
     const [needsRetype, setNeedsRetype] = useState(false);
@@ -387,10 +390,10 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
         <div className="space-y-4 sm:space-y-5 animate-fade-in">
             {/* Prompt */}
             <div className="bg-white dark:bg-slate-900 rounded-2xl p-5 sm:p-7 md:p-8 text-center border border-slate-200 dark:border-slate-800 shadow-md min-h-[130px] sm:min-h-[160px] flex flex-col items-center justify-center">
-                <p className="text-xs sm:text-sm font-bold text-blue-500 uppercase tracking-widest mb-2.5">Nhập từ tiếng Nhật</p>
+                <p className="text-xs sm:text-sm font-bold text-blue-500 uppercase tracking-widest mb-2.5">{isEnglishMode ? (language === 'vi' ? 'Nhập từ tiếng Anh' : 'Type English word') : (language === 'vi' ? 'Nhập từ tiếng Nhật' : 'Type Japanese word')}</p>
                 <p className={`text-gray-800 dark:text-white break-words ${promptSize}`}>{card.back}</p>
                 {card.sinoVietnamese && (
-                    <p className="text-xs sm:text-sm text-yellow-600 dark:text-yellow-400 mt-2 font-medium">Hán Việt: {card.sinoVietnamese}</p>
+                    <p className="text-xs sm:text-sm text-yellow-600 dark:text-yellow-400 mt-2 font-medium">{language === 'vi' ? 'Hán Việt: ' : 'Sino-Vietnamese: '}{card.sinoVietnamese}</p>
                 )}
             </div>
 
@@ -411,7 +414,7 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
                     }
                 }}
                 disabled={feedback === 'correct'}
-                placeholder={needsRetype ? "Nhập lại đáp án đúng để tiếp tục..." : "Nhập từ vựng tiếng Nhật..."}
+                placeholder={needsRetype ? t('studyModes.retypeToContinue') : t('studyModes.typeTargetWord')}
                 className={`w-full px-5 sm:px-6 py-3.5 sm:py-4 text-lg sm:text-xl font-japanese font-bold rounded-2xl border-2 outline-none transition-all shadow-sm focus:ring-4 focus:ring-blue-500/15
                     ${feedback === 'correct' ? 'border-emerald-400 bg-emerald-50 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-300'
                         : needsRetype ? 'border-rose-400 bg-rose-50/50 dark:bg-rose-950/30 text-rose-900 dark:text-rose-100 focus:border-rose-500'
@@ -423,12 +426,12 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
                     <button
                         onClick={check}
                         disabled={!input.trim()}
-                        className="w-full py-3.5 sm:py-4 text-base sm:text-lg bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md cursor-pointer active:scale-95"
+                        className="w-full py-3.5 sm:py-4 text-sm sm:text-base bg-sky-500 hover:bg-sky-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-sky-700 text-white font-black uppercase tracking-wider rounded-2xl transition-all disabled:opacity-40 disabled:cursor-not-allowed cursor-pointer"
                     >
-                        Kiểm tra
+                        {t('studyModes.check')}
                     </button>
                     <p className="text-center text-[10px] sm:text-xs text-gray-400 dark:text-gray-500 opacity-70">
-                        ⌨️ Nhấn Enter để kiểm tra nhanh
+                        {t('studyModes.pressEnterToCheck')}
                     </p>
                 </div>
             )}
@@ -439,12 +442,12 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
                         <div className="w-5 h-5 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0">
                             <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 stroke-[2.5]" />
                         </div>
-                        <span className="font-extrabold text-xs sm:text-sm text-emerald-700 dark:text-emerald-300 whitespace-nowrap">Chính xác!</span>
+                        <span className="font-extrabold text-xs sm:text-sm text-emerald-700 dark:text-emerald-300 whitespace-nowrap">{t('studyModes.correctExclamation')}</span>
                     </div>
                     <div className="flex flex-wrap items-center gap-2 sm:gap-3 min-w-0 flex-1 text-xs sm:text-sm">
                         {input && (
                             <div className="flex items-center gap-1.5 shrink-0 max-w-full">
-                                <span className="text-emerald-700/80 dark:text-emerald-300/80 font-medium text-[11px] sm:text-xs shrink-0">Bạn gõ:</span>
+                                <span className="text-emerald-700/80 dark:text-emerald-300/80 font-medium text-[11px] sm:text-xs shrink-0">{t('studyModes.youTyped')}</span>
                                 <span className="font-bold font-japanese px-2 py-0.5 rounded bg-emerald-500/15 text-emerald-800 dark:text-emerald-200 border border-emerald-500/20 max-w-[180px] sm:max-w-none truncate" title={input}>
                                     {input}
                                 </span>
@@ -452,7 +455,7 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
                             </div>
                         )}
                         <div className="flex items-center gap-1.5 min-w-0 flex-wrap">
-                            <span className="text-emerald-700/80 dark:text-emerald-300/80 font-medium text-[11px] sm:text-xs shrink-0">Đáp án:</span>
+                            <span className="text-emerald-700/80 dark:text-emerald-300/80 font-medium text-[11px] sm:text-xs shrink-0">{t('studyModes.correctAnswer')}</span>
                             <span className="inline-flex items-center font-bold font-japanese px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-800 dark:text-emerald-200 border border-emerald-500/30 text-xs sm:text-sm shadow-xs" title={correct}>
                                 <FuriganaText text={correct} knownReading={card.reading} forceHide={!furiganaEnabled} compact={true} />
                             </span>
@@ -467,12 +470,12 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
                         <div className="w-5 h-5 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0">
                             <X className="w-3.5 h-3.5 text-rose-600 dark:text-rose-400 stroke-[2.5]" />
                         </div>
-                        <span className="font-extrabold text-xs sm:text-sm text-rose-700 dark:text-rose-300 whitespace-nowrap">Chưa đúng</span>
+                        <span className="font-extrabold text-xs sm:text-sm text-rose-700 dark:text-rose-300 whitespace-nowrap">{t('studyModes.notQuiteRight')}</span>
                     </div>
                     <div className="flex flex-wrap items-center gap-2 sm:gap-3 min-w-0 flex-1 text-xs sm:text-sm">
                         {lastWrongInput && (
                             <div className="flex items-center gap-1.5 shrink-0 max-w-full">
-                                <span className="text-rose-700/80 dark:text-rose-300/80 font-medium text-[11px] sm:text-xs shrink-0">Bạn gõ:</span>
+                                <span className="text-rose-700/80 dark:text-rose-300/80 font-medium text-[11px] sm:text-xs shrink-0">{t('studyModes.youTyped')}</span>
                                 <span className="font-bold font-japanese px-2 py-0.5 rounded bg-rose-500/15 text-rose-700 dark:text-rose-300 line-through border border-rose-500/25 max-w-[180px] sm:max-w-none truncate" title={lastWrongInput}>
                                     {lastWrongInput}
                                 </span>
@@ -480,7 +483,7 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
                             </div>
                         )}
                         <div className="flex items-center gap-1.5 min-w-0 flex-wrap">
-                            <span className="text-slate-500 dark:text-slate-400 font-medium text-[11px] sm:text-xs shrink-0">Đáp án:</span>
+                            <span className="text-slate-500 dark:text-slate-400 font-medium text-[11px] sm:text-xs shrink-0">{t('studyModes.correctAnswer')}</span>
                             <span className="inline-flex items-center font-bold font-japanese px-2.5 py-0.5 rounded-md bg-emerald-500/20 text-emerald-800 dark:text-emerald-200 border border-emerald-500/30 text-xs sm:text-sm shadow-xs" title={correct}>
                                 <FuriganaText text={correct} knownReading={card.reading} forceHide={!furiganaEnabled} compact={true} />
                             </span>
@@ -493,28 +496,32 @@ const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabl
 };
 
 // ─── Batch Complete Screen ──────────────────────────────────────────────────
-const BatchComplete = ({ batchNum, totalBatches, wordCount, onNext }) => (
+const BatchComplete = ({ batchNum, totalBatches, wordCount, onNext }) => {
+    const { t } = useLanguage();
+    return (
     <div className="flex flex-col items-center justify-center text-center space-y-6 py-10 animate-fade-in">
         <div className="w-20 h-20 rounded-full bg-gradient-to-br from-emerald-400 to-teal-500 flex items-center justify-center shadow-lg shadow-emerald-200/50 dark:shadow-emerald-900/50">
             <Check className="w-10 h-10 text-white stroke-[3px]" />
         </div>
         <div>
-            <h2 className="text-2xl font-black text-gray-800 dark:text-white mb-2">Nhóm {batchNum}/{totalBatches} hoàn thành!</h2>
+            <h2 className="text-2xl font-black text-gray-800 dark:text-white mb-2">{t('studyModes.batchCompleted', { current: batchNum, total: totalBatches })}</h2>
             <p className="text-gray-500 dark:text-gray-400 text-base">
-                Bạn đã ghi nhớ thành công <span className="font-black text-emerald-600 dark:text-emerald-400">{wordCount}</span> từ vựng tiếp theo
+                {t('studyModes.batchCompletedSub', { count: wordCount })}
             </p>
         </div>
         <button
             onClick={onNext}
-            className="px-8 py-3 bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold rounded-xl shadow-md hover:shadow-lg transition-all hover:-translate-y-0.5"
+            className="px-8 py-3.5 bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white font-black uppercase tracking-wider rounded-2xl transition-all cursor-pointer select-none"
         >
-            {batchNum < totalBatches ? 'Học nhóm tiếp theo →' : 'Xem kết quả →'}
+            {batchNum < totalBatches ? t('studyModes.nextBatch') : t('studyModes.viewResults')}
         </button>
     </div>
-);
+    );
+};
 
 // ─── Session Complete ──────────────────────────────────────────────────────
 const SessionComplete = ({ totalCards, onBack, onRestart }) => {
+    const { t, language } = useLanguage();
     useEffect(() => {
         launchFanfare();
         const timer = setTimeout(() => {
@@ -526,22 +533,22 @@ const SessionComplete = ({ totalCards, onBack, onRestart }) => {
         <div className="flex flex-col items-center justify-center text-center space-y-6 py-8 animate-fade-in">
             <div className="text-6xl mb-2">🎉</div>
             <div>
-                <h2 className="text-3xl font-black text-gray-800 dark:text-white mb-2">Xuất sắc!</h2>
+                <h2 className="text-3xl font-black text-gray-800 dark:text-white mb-2">{t('studyModes.excellent')}</h2>
                 <p className="text-gray-500 dark:text-gray-400 text-lg">
-                    Bạn đã thuần thục <span className="font-black text-emerald-600 dark:text-emerald-400">{totalCards}</span> từ vựng
+                    {language === 'vi' ? <>Bạn đã thuần thục <span className="font-black text-emerald-600 dark:text-emerald-400">{totalCards}</span> từ vựng</> : <>You mastered all <span className="font-black text-emerald-600 dark:text-emerald-400">{totalCards}</span> vocabulary cards</>}
                 </p>
             </div>
             <div className="w-full max-w-xs bg-white dark:bg-slate-900 rounded-2xl p-5 border border-slate-200 dark:border-slate-800 shadow-md">
                 <div className="flex items-center justify-center gap-2 text-emerald-700 dark:text-emerald-300 font-bold text-lg">
                     <Zap className="w-5 h-5" />
-                    <span>100% Thuần thục</span>
+                    <span>{t('studyModes.masteredPercent')}</span>
                 </div>
             </div>
             <div className="flex gap-3 w-full max-w-xs">
-                <button onClick={onRestart} className="flex-1 py-3 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-bold rounded-xl hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-all flex items-center justify-center gap-1 cursor-pointer">
-                    <RotateCcw className="w-4 h-4" /> Học lại
+                <button onClick={onRestart} className="flex-1 py-3.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold rounded-2xl border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 uppercase tracking-wider text-xs transition-all flex items-center justify-center gap-1 cursor-pointer select-none">
+                    <RotateCcw className="w-4 h-4" /> {t('studyModes.studyAgain')}
                 </button>
-                <button onClick={onBack} className="flex-1 py-3 bg-gradient-to-r from-blue-600 to-sky-500 text-white font-bold rounded-xl shadow-md transition-all hover:-translate-y-0.5 flex items-center justify-center gap-1 cursor-pointer">
+                <button onClick={onBack} className="flex-1 py-3.5 bg-emerald-500 hover:bg-emerald-400 text-white font-black rounded-2xl border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 uppercase tracking-wider text-xs transition-all flex items-center justify-center gap-1 cursor-pointer select-none">
                     Xong <ChevronRight className="w-4 h-4" />
                 </button>
             </div>
@@ -552,6 +559,7 @@ const SessionComplete = ({ totalCards, onBack, onRestart }) => {
 // ─── Main StudyScreen ──────────────────────────────────────────────────────
 const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdateCard, onSaveCardAudio, onCompleteStudy, onBack, awardXP }) => {
     const { isEnglishMode } = useTargetLanguage();
+    const { t, language } = useLanguage();
     const originalCards = useMemo(() => studySessionData?.cards || [], [studySessionData]);
     const [furiganaEnabled, setFuriganaEnabled] = useState(() => localStorage.getItem('study_furigana_enabled') !== 'false');
     const [audioEnabled, setAudioEnabled] = useState(() => localStorage.getItem('study_audio_enabled') !== 'false');
@@ -1050,15 +1058,15 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         return (
             <div className="flex flex-col items-center justify-center h-full gap-4">
                 <BookOpen className="w-16 h-16 text-gray-300 dark:text-gray-600" />
-                <p className="text-gray-500 dark:text-gray-400 font-medium">Không có thẻ nào để học.</p>
-                <button onClick={onBack} className="px-6 py-2.5 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 cursor-pointer">Trở lại</button>
+                <p className="text-gray-500 dark:text-gray-400 font-medium">{t('studyModes.noCardsToShow')}</p>
+                <button onClick={onBack} className="px-6 py-3 bg-sky-500 hover:bg-sky-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-sky-700 text-white font-black uppercase tracking-wider rounded-2xl text-xs transition-all cursor-pointer">{t('common.back')}</button>
             </div>
         );
     }
 
     const phaseLabel = batchPhase === 'mc' 
-        ? `🟦 Trắc nghiệm (Nhóm ${currentBatchIndex + 1}/${batches.length})` 
-        : `✏️ Tự luận (Nhóm ${currentBatchIndex + 1}/${batches.length})`;
+        ? `${language === 'vi' ? '🟦 Trắc nghiệm' : '🟦 Quiz'} (${language === 'vi' ? 'Nhóm' : 'Batch'} ${currentBatchIndex + 1}/${batches.length})` 
+        : `${language === 'vi' ? '✏️ Tự luận' : '✏️ Written'} (${language === 'vi' ? 'Nhóm' : 'Batch'} ${currentBatchIndex + 1}/${batches.length})`;
 
     const phaseDesc = batchPhase === 'mc'
         ? `${mcIdx + 1} / ${mcQueue.length}`
@@ -1086,43 +1094,43 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                     <div className="w-full flex justify-start mb-1">
                         <button
                             onClick={onBack}
-                            className="p-2 flex items-center gap-1.5 justify-center rounded-xl bg-white dark:bg-slate-800 text-gray-700 dark:text-gray-300 shadow-md border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 transition-all hover:scale-105"
-                            title="Trở lại"
+                            className="px-3.5 py-2 flex items-center gap-1.5 justify-center rounded-2xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-xs border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 transition-all font-bold cursor-pointer select-none"
+                            title={t('common.back')}
                         >
                             <ArrowLeft className="w-4 h-4" />
-                            <span className="text-xs font-medium">Trở lại</span>
+                            <span className="text-xs sm:text-sm font-bold">{t('common.back')}</span>
                         </button>
                     </div>
                 )}
 
-                <div className="w-full flex flex-col space-y-4 sm:space-y-5 p-5 sm:p-7 md:p-8 bg-white/85 dark:bg-slate-900/85 backdrop-blur-md border-2 border-blue-400/30 dark:border-blue-500/20 rounded-3xl shadow-xl overflow-hidden">
+                <div className="w-full flex flex-col space-y-4 sm:space-y-5 p-5 sm:p-7 md:p-8 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl shadow-xl overflow-hidden">
                     {/* Progress bar inside the box */}
                     {!done && batchPhase !== 'batchComplete' && (
-                        <div className="space-y-1.5 w-full flex-shrink-0">
-                            <div className="flex justify-between items-center text-xs font-bold text-blue-500 dark:text-blue-400">
-                                <span>{phaseLabel}</span>
+                        <div className="space-y-2 w-full flex-shrink-0">
+                            <div className="flex justify-between items-center text-xs font-bold text-slate-600 dark:text-slate-400">
+                                <span className="text-emerald-600 dark:text-emerald-400 font-bold uppercase tracking-wide">{phaseLabel}</span>
                                 <div className="flex items-center gap-2">
-                                    <span className="text-gray-500 dark:text-gray-400">{phaseDesc}</span>
+                                    <span className="bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 px-2.5 py-0.5 rounded-full font-mono font-black text-xs">{phaseDesc}</span>
                                     <button
                                         type="button"
                                         onClick={toggleFullscreen}
-                                        className="p-1 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-gray-200 dark:hover:bg-slate-700 transition-all cursor-pointer"
-                                        title={isFullscreen ? "Thoát toàn màn hình (Esc)" : "Toàn màn hình"}
+                                        className="p-1.5 rounded-xl text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer"
+                                        title={isFullscreen ? t('common.exitFullscreen') : t('common.fullscreen')}
                                     >
-                                        {isFullscreen ? <Minimize2 className="w-4 h-4 text-blue-400" /> : <Maximize2 className="w-4 h-4" />}
+                                        {isFullscreen ? <Minimize2 className="w-4 h-4 text-emerald-500" /> : <Maximize2 className="w-4 h-4" />}
                                     </button>
                                     <button
                                         onClick={() => setShowSettings(true)}
-                                        className="p-1 rounded-lg hover:bg-gray-200 dark:hover:bg-slate-700 transition-all cursor-pointer"
-                                        title="Cài đặt"
+                                        className="p-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-all cursor-pointer"
+                                        title={t('settings.title')}
                                     >
-                                        <Settings className="w-4 h-4 text-gray-500 dark:text-gray-400" />
+                                        <Settings className="w-4 h-4 text-slate-500 dark:text-slate-400" />
                                     </button>
                                 </div>
                             </div>
-                            <div className="h-2 w-full bg-gray-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                            <div className="h-3.5 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden p-0.5 border border-slate-300/40 dark:border-slate-700">
                                 <div
-                                    className="h-full bg-gradient-to-r from-blue-500 to-sky-500 rounded-full transition-all duration-500"
+                                    className="h-full bg-emerald-500 rounded-full transition-all duration-500 ease-out shadow-xs"
                                     style={{ width: `${progress}%` }}
                                 />
                             </div>
@@ -1147,7 +1155,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                         ) : batchPhase === 'mc' && currentCard ? (
                             <>
                                 <div className="mb-4 flex items-center gap-2">
-                                    <span className="text-xs font-bold uppercase tracking-widest text-blue-500 bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full">Nhóm {currentBatchIndex + 1} · Trắc nghiệm</span>
+                                    <span className="text-xs font-bold uppercase tracking-widest text-blue-500 bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full">{t('studyModes.batchQuiz', { num: currentBatchIndex + 1 })}</span>
                                 </div>
                                 <MCPhase
                                     key={currentCard.id + '-mc-' + mcIdx}
@@ -1164,7 +1172,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                         ) : batchPhase === 'written' && currentCard ? (
                             <>
                                 <div className="mb-4 flex items-center gap-2">
-                                    <span className="text-xs font-bold uppercase tracking-widest text-emerald-500 bg-emerald-50 dark:bg-emerald-900/30 px-3 py-1 rounded-full">Nhóm {currentBatchIndex + 1} · Tự luận</span>
+                                    <span className="text-xs font-bold uppercase tracking-widest text-emerald-500 bg-emerald-50 dark:bg-emerald-900/30 px-3 py-1 rounded-full">{t('studyModes.batchWritten', { num: currentBatchIndex + 1 })}</span>
                                 </div>
                                 <WrittenPhase
                                     key={currentCard.id + '-written-' + writtenIdx + '-b' + currentBatchIndex}
@@ -1190,7 +1198,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                         <div className="flex items-center justify-between">
                             <div className="flex items-center gap-2">
                                 <Settings className="w-5 h-5 text-blue-500" />
-                                <h3 className="font-bold text-lg text-gray-800 dark:text-white">Cài đặt học tập</h3>
+                                <h3 className="font-bold text-lg text-gray-800 dark:text-white">{t('studyModes.studySettings')}</h3>
                             </div>
                             <button onClick={() => setShowSettings(false)} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-slate-700 transition-all cursor-pointer">
                                 <X className="w-5 h-5 text-gray-400" />
@@ -1198,7 +1206,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                         </div>
                         <div className="space-y-4">
                             <div className="flex items-center justify-between">
-                                <span className="text-sm font-bold text-gray-700 dark:text-gray-350">{isEnglishMode ? 'Hiện phiên âm IPA' : 'Hiển thị Furigana'}</span>
+                                <span className="text-sm font-bold text-gray-700 dark:text-gray-350">{isEnglishMode ? t('studyModes.showIpa') : t('studyModes.showFurigana')}</span>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input
                                         type="checkbox"
@@ -1214,7 +1222,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                             </div>
 
                             <div className="flex items-center justify-between border-t border-gray-100 dark:border-slate-700 pt-3">
-                                <span className="text-sm font-bold text-gray-700 dark:text-gray-350">Phát âm thanh từ vựng</span>
+                                <span className="text-sm font-bold text-gray-700 dark:text-gray-350">{t('studyModes.playVocabAudio')}</span>
                                 <label className="relative inline-flex items-center cursor-pointer">
                                     <input
                                         type="checkbox"
@@ -1231,7 +1239,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                         </div>
                         <button
                             onClick={() => setShowSettings(false)}
-                            className="w-full py-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-xl transition-all text-sm cursor-pointer"
+                            className="w-full py-3 bg-sky-500 hover:bg-sky-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-sky-700 text-white font-black uppercase tracking-wider rounded-2xl transition-all text-xs cursor-pointer"
                         >
                             Xong
                         </button>
