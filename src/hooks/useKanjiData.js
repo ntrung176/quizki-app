@@ -249,17 +249,24 @@ export const useKanjiData = ({
             const { type, data } = e.detail;
             if (type === 'kanji') {
                 setKanjiList(prev => {
-                    const idx = prev.findIndex(k => (k.id && data.id && k.id === data.id) || (k.character && data.character && k.character === data.character));
-                    if (idx !== -1) return prev.map((k, i) => i === idx ? { ...k, ...data } : k);
-                    return [...prev, data];
+                    const char = (data.character || data.literal || '').trim();
+                    const filtered = prev.filter(k => {
+                        const kChar = (k.character || k.literal || '').trim();
+                        return !((data.id && k.id === data.id) || (char && kChar === char));
+                    });
+                    return [...filtered, data];
                 });
             } else if (type === 'kanji-delete') {
-                setKanjiList(prev => prev.filter(k => k.id !== data));
+                const target = String(data || '').trim();
+                setKanjiList(prev => prev.filter(k => k.id !== target && (k.character || '').trim() !== target));
             } else if (type === 'vocab') {
                 setVocabList(prev => {
-                    const idx = prev.findIndex(v => (v.id && data.id && v.id === data.id) || (v.word && data.word && v.word.trim() === data.word.trim()));
-                    if (idx !== -1) return prev.map((v, i) => i === idx ? { ...v, ...data } : v);
-                    return [...prev, data];
+                    const word = (data.word || '').trim();
+                    const filtered = prev.filter(v => {
+                        const vWord = (v.word || '').trim();
+                        return !((data.id && v.id === data.id) || (word && vWord === word));
+                    });
+                    return [...filtered, data];
                 });
             } else if (type === 'vocab-delete') {
                 setVocabList(prev => prev.filter(v => v.id !== data));
@@ -361,11 +368,11 @@ export const useKanjiData = ({
                 };
 
                 try {
-                    await setDoc(doc(db, `artifacts/${appId}/public/data/kanji`, newDocId), initialKanjiData, { merge: true });
+                    await setDoc(doc(db, 'kanji', newDocId), initialKanjiData, { merge: true });
                     updateCachedKanji(initialKanjiData);
-                    setKanjiList(prev => [...prev.filter(k => k.id !== newDocId && k.character !== kanjiChar), initialKanjiData]);
+                    setKanjiList(prev => [...prev.filter(k => k.id !== newDocId && (k.character || '').trim() !== kanjiChar.trim()), initialKanjiData]);
                 } catch (saveErr) {
-                    console.warn("Could not save new kanji doc to public collection, continuing with local doc:", saveErr);
+                    console.warn("Could not save new kanji doc to kanji collection, continuing with local doc:", saveErr);
                 }
                 kanjiDoc = initialKanjiData;
             } else {
@@ -656,27 +663,32 @@ export const useKanjiData = ({
             return 99;
         };
 
-        const firebaseCharsSet = new Set(kanjiList.map(k => k.character).filter(Boolean));
+        const firebaseCharsSet = new Set(kanjiList.map(k => (k.character || k.literal || '').trim()).filter(Boolean));
         for (const k of kanjiList) {
-            if (seenChars.has(k.character)) continue;
-            const score = getMatchScore(k.character, k.sinoViet, k.meaning, null, k.onyomi, k.kunyomi);
+            const char = (k.character || k.literal || '').trim();
+            if (!char || seenChars.has(char)) continue;
+            const score = getMatchScore(char, k.sinoViet, k.meaning || k.meaningVi, null, k.onyomi, k.kunyomi);
             if (score < 99) {
-                seenChars.add(k.character);
-                allResults.push({ ...k, _score: score });
+                seenChars.add(char);
+                allResults.push({ ...k, character: char, _score: score });
             }
         }
         for (const k of Object.values(JOTOBA_KANJI_DATA)) {
-            if (firebaseCharsSet.has(k.literal)) continue;
-            const score = getMatchScore(k.literal, k.sinoViet, k.meaningVi, k.meanings, k.onyomi, k.kunyomi);
+            const char = (k.literal || '').trim();
+            if (!char || firebaseCharsSet.has(char) || seenChars.has(char)) continue;
+            const score = getMatchScore(char, k.sinoViet, k.meaningVi, k.meanings, k.onyomi, k.kunyomi);
             if (score < 99) {
-                seenChars.add(k.literal);
+                seenChars.add(char);
                 allResults.push({
-                    character: k.literal,
+                    character: char,
                     meaning: k.meaningVi || k.meanings?.join(', ') || '',
+                    meaningVi: k.meaningVi || '',
                     onyomi: k.onyomi?.join('、') || '',
                     kunyomi: k.kunyomi?.join('、') || '',
                     level: k.level,
                     sinoViet: k.sinoViet || '',
+                    strokeCount: String(k.stroke_count || ''),
+                    parts: (k.parts || []).join('、'),
                     _fromJotoba: true,
                     _score: score,
                 });
@@ -783,24 +795,29 @@ export const useKanjiData = ({
     };
 
     const handleAddKanji = async () => {
-        if (!newKanji.character) return;
-        const existingKanji = kanjiList.find(k => k.character === newKanji.character);
+        const char = (newKanji.character || '').trim();
+        if (!char) return;
+        const existingKanji = kanjiList.find(k => (k.character || '').trim() === char);
         if (existingKanji) {
-            showToast(`Kanji "${newKanji.character}" đã tồn tại trong hệ thống!`, 'warning');
+            showToast(`Kanji "${char}" đã tồn tại trong hệ thống!`, 'warning');
             return;
         }
         try {
+            const canonicalId = `kanji_${char}`;
             const kanjiDataToSave = {
                 ...newKanji,
-                character: newKanji.character.trim(),
+                id: canonicalId,
+                character: char,
                 strokeCount: newKanji.strokeCount || newKanji.stroke_count || '',
                 parts: newKanji.parts || '',
+                _userEdited: true,
                 updatedAt: Date.now()
             };
-            const docRef = await addDoc(collection(db, 'kanji'), kanjiDataToSave);
-            const addedKanji = { ...kanjiDataToSave, id: docRef.id };
-            updateCachedKanji(addedKanji);
-            showToast(`Đã thêm thành công Kanji "${addedKanji.character}"!`, 'success');
+            await setDoc(doc(db, 'kanji', canonicalId), kanjiDataToSave, { merge: true });
+            updateCachedKanji(kanjiDataToSave);
+            updateEditedKanjiLocalCache(kanjiDataToSave);
+            setKanjiList(prev => [...prev.filter(k => (k.character || '').trim() !== char && k.id !== canonicalId), kanjiDataToSave]);
+            showToast(`Đã thêm thành công Kanji "${char}"!`, 'success');
             setNewKanji({
                 character: '', meaning: '', onyomi: '', kunyomi: '',
                 level: 'N5', sinoViet: '', mnemonic: '', radical: '', parts: '', strokeCount: '', imageUrl: ''
@@ -832,9 +849,11 @@ export const useKanjiData = ({
             for (const item of parsed) {
                 if (!item.character) continue;
                 const char = item.character.trim();
-                if (kanjiList.some(k => k.character === char)) continue;
+                if (kanjiList.some(k => (k.character || '').trim() === char)) continue;
 
+                const canonicalId = item.id || `kanji_${char}`;
                 const kanjiObj = {
+                    id: canonicalId,
                     character: char,
                     meaning: item.meaning || item.meaningVi || '',
                     meaningVi: item.meaningVi || item.meaning || '',
@@ -847,18 +866,22 @@ export const useKanjiData = ({
                     mnemonic: item.mnemonic || '',
                     radical: item.radical || '',
                     imageUrl: item.imageUrl || item.image || '',
+                    _userEdited: true,
                     updatedAt: now
                 };
 
-                const docRef = await addDoc(collection(db, 'kanji'), kanjiObj);
-                const savedItem = { ...kanjiObj, id: docRef.id };
-                updateCachedKanji(savedItem);
-                newItems.push(savedItem);
+                await setDoc(doc(db, 'kanji', canonicalId), kanjiObj, { merge: true });
+                updateCachedKanji(kanjiObj);
+                updateEditedKanjiLocalCache(kanjiObj);
+                newItems.push(kanjiObj);
                 addedCount++;
             }
 
             if (newItems.length > 0) {
-                setKanjiList(prev => [...prev, ...newItems]);
+                setKanjiList(prev => {
+                    const newChars = new Set(newItems.map(n => n.character));
+                    return [...prev.filter(k => !newChars.has((k.character || '').trim())), ...newItems];
+                });
             }
 
             showToast(`Đã nhập thành công ${addedCount} chữ Kanji mới!`, 'success');
@@ -1175,18 +1198,23 @@ export const useKanjiData = ({
         delete kanjiDoc._fromJotoba;
 
         try {
-            const existingFbKanji = kanjiList.find(k => k.character === char || k.id === editingKanji.id);
-            const targetId = String(editingKanji.id || existingFbKanji?.id || char);
+            const existingFbKanji = kanjiList.find(k => (k.character || '').trim() === char || k.id === editingKanji.id);
+            const targetId = String(editingKanji.id || existingFbKanji?.id || `kanji_${char}`);
 
             const kanjiDocToSave = sanitizeForFirestore({ ...kanjiDoc, id: targetId });
             await setDoc(doc(db, 'kanji', targetId), kanjiDocToSave, { merge: true });
 
+            // If an obsolete doc with different ID existed for this character in Firestore, clean it up
+            if (existingFbKanji?.id && existingFbKanji.id !== targetId) {
+                try {
+                    await deleteDoc(doc(db, 'kanji', existingFbKanji.id));
+                } catch (_) {}
+            }
+
+            // Strictly filter out any previous duplicates in state and insert the single canonical updated record
             setKanjiList(prev => {
-                const exists = prev.some(k => k.id === targetId || k.character === char);
-                if (exists) {
-                    return prev.map(k => (k.id === targetId || k.character === char) ? kanjiDocToSave : k);
-                }
-                return [...prev, kanjiDocToSave];
+                const filtered = prev.filter(k => k.id !== targetId && (k.character || '').trim() !== char);
+                return [...filtered, kanjiDocToSave];
             });
             updateCachedKanji(kanjiDocToSave);
             updateEditedKanjiLocalCache(kanjiDocToSave);
@@ -1218,7 +1246,7 @@ export const useKanjiData = ({
             chars.forEach(c => kanjiInVocab.add(c));
         });
 
-        const missingKanji = [...kanjiInVocab].filter(char => !kanjiList.some(k => k.character === char));
+        const missingKanji = [...kanjiInVocab].filter(char => !kanjiList.some(k => (k.character || '').trim() === char.trim()));
         if (missingKanji.length === 0) {
             showToast('Tất cả chữ Hán tự trong từ vựng đã tồn tại trong cơ sở dữ liệu!', 'info');
             return;
@@ -1239,11 +1267,14 @@ export const useKanjiData = ({
                 const batch = writeBatch(db);
                 const chunk = missingKanji.slice(i, i + BATCH_SIZE);
 
-                for (const char of chunk) {
-                    const docRef = doc(collection(db, 'kanji'));
+                for (const rawChar of chunk) {
+                    const char = rawChar.trim();
+                    const canonicalId = `kanji_${char}`;
+                    const docRef = doc(db, 'kanji', canonicalId);
                     const k = getJotobaKanjiData(char);
                     let kanjiData = k ? {
-                        character: k.literal,
+                        id: canonicalId,
+                        character: char,
                         meaning: k.meaningVi || k.meanings?.join(', ') || '',
                         meaningVi: k.meaningVi || '',
                         sinoViet: k.sinoViet || '',
@@ -1255,19 +1286,21 @@ export const useKanjiData = ({
                         parts: (k.parts || []).join('、'),
                         updatedAt: now
                     } : {
+                        id: canonicalId,
                         character: char,
                         meaning: 'Hán tự tự động đồng bộ từ từ vựng',
                         meaningVi: 'Hán tự tự động đồng bộ từ từ vựng',
                         sinoViet: '', onyomi: '', kunyomi: '', level: 'N1',
                         strokeCount: '', mnemonic: '', parts: '', updatedAt: now
                     };
-                    batch.set(docRef, kanjiData);
-                    addedKanjiList.push({ ...kanjiData, id: docRef.id });
+                    batch.set(docRef, kanjiData, { merge: true });
+                    addedKanjiList.push(kanjiData);
                 }
                 await batch.commit();
             }
 
-            setKanjiList(prev => [...prev, ...addedKanjiList]);
+            const addedChars = new Set(addedKanjiList.map(a => a.character));
+            setKanjiList(prev => [...prev.filter(k => !addedChars.has((k.character || '').trim())), ...addedKanjiList]);
             addedKanjiList.forEach(k => updateCachedKanji(k));
             showToast(`Đã đồng bộ thành công ${addedKanjiList.length} chữ Hán tự mới!`, 'success');
         } catch (e) {

@@ -33,10 +33,16 @@ export const updateEditedKanjiLocalCache = (kanjiData) => {
     try {
         if (!kanjiData || (!kanjiData.id && !kanjiData.character)) return;
         const currentMap = getCachedKanjiMap();
-        const key = kanjiData.id || kanjiData.character;
+        const charKey = (kanjiData.character || kanjiData.literal || '').trim();
+        const key = charKey || kanjiData.id;
+        // Clean up legacy keys that don't match canonical character
+        if (charKey && kanjiData.id && kanjiData.id !== charKey && currentMap[kanjiData.id]) {
+            delete currentMap[kanjiData.id];
+        }
         currentMap[key] = {
             ...(currentMap[key] || {}),
             ...kanjiData,
+            character: charKey || currentMap[key]?.character || '',
             updatedAt: Date.now()
         };
         localStorage.setItem(EDITED_KANJI_KEY, JSON.stringify(currentMap));
@@ -187,35 +193,45 @@ export const getSharedKanjiList = async () => {
             const rawKanjiList = await dataRes.json();
             lastLoadedExportedAt = currentExport || null;
 
-            // Normalize with OpenJLPT authoritative data
-            cachedKanjiList = rawKanjiList.map(k => {
+            // Normalize and strictly deduplicate with OpenJLPT authoritative data
+            const canonicalKanjiMap = new Map();
+            rawKanjiList.forEach(k => {
                 const char = (k.character || k.literal || '').trim();
+                if (!char) return;
+                const existing = canonicalKanjiMap.get(char);
+                const item = existing ? { ...existing, ...k } : { ...k, character: char };
                 const jData = getJotobaKanjiData(char);
-                if (jData && !k._userEdited) {
-                    return {
-                        ...k,
-                        sinoViet: jData.sinoViet || k.sinoViet,
-                        meaning: jData.meaningVi || k.meaning,
-                        meaningVi: jData.meaningVi || k.meaningVi,
-                        onyomi: (jData.onyomi?.length ? jData.onyomi.join('、') : '') || k.onyomi,
-                        kunyomi: (jData.kunyomi?.length ? jData.kunyomi.join('、') : '') || k.kunyomi,
-                        level: jData.level || k.level,
-                        openJlptOrder: jData.openJlptOrder ?? k.openJlptOrder ?? null
-                    };
+                if (jData && !item._userEdited) {
+                    item.sinoViet = jData.sinoViet || item.sinoViet;
+                    item.meaning = jData.meaningVi || item.meaning;
+                    item.meaningVi = jData.meaningVi || item.meaningVi;
+                    item.onyomi = (jData.onyomi?.length ? jData.onyomi.join('、') : '') || item.onyomi;
+                    item.kunyomi = (jData.kunyomi?.length ? jData.kunyomi.join('、') : '') || item.kunyomi;
+                    item.level = jData.level || item.level;
+                    item.openJlptOrder = jData.openJlptOrder ?? item.openJlptOrder ?? null;
+                    if (jData.stroke_count) item.strokeCount = String(jData.stroke_count);
+                    if (jData.parts && jData.parts.length > 0) item.parts = Array.isArray(jData.parts) ? jData.parts.join('、') : jData.parts;
                 }
-                return k;
+                canonicalKanjiMap.set(char, item);
             });
 
-            // Merge local edited kanji map over list
+            // Merge local edited kanji map cleanly over canonical map
             const localEditedMap = getCachedKanjiMap();
             if (localEditedMap && Object.keys(localEditedMap).length > 0) {
-                const listMap = new Map(cachedKanjiList.map(k => [k.id || k.character, k]));
                 Object.values(localEditedMap).forEach(edited => {
-                    const key = edited.id || edited.character;
-                    if (key) listMap.set(key, { ...(listMap.get(key) || {}), ...edited });
+                    const char = (edited.character || edited.literal || '').trim();
+                    if (!char) return;
+                    const existing = canonicalKanjiMap.get(char);
+                    canonicalKanjiMap.set(char, {
+                        ...(existing || {}),
+                        ...edited,
+                        character: char,
+                        _userEdited: true
+                    });
                 });
-                cachedKanjiList = Array.from(listMap.values());
             }
+
+            cachedKanjiList = Array.from(canonicalKanjiMap.values());
 
             // Sync edits made after the export timestamp in the background
             fetchKanjiUpdatesFromFirestore(exportedAt);
@@ -225,24 +241,28 @@ export const getSharedKanjiList = async () => {
             console.log('CDN load failed (expected if not synced), falling back to Firestore: ' + e.message);
             try {
                 const snap = await getDocs(collection(db, 'kanji'));
-                cachedKanjiList = snap.docs.map(d => {
+                const canonicalKanjiMap = new Map();
+                snap.docs.forEach(d => {
                     const data = { id: d.id, ...d.data() };
                     const char = (data.character || data.literal || '').trim();
+                    if (!char) return;
+                    const existing = canonicalKanjiMap.get(char);
+                    const item = existing ? { ...existing, ...data } : { ...data, character: char };
                     const jData = getJotobaKanjiData(char);
-                    if (jData && !data._userEdited) {
-                        return {
-                            ...data,
-                            sinoViet: jData.sinoViet || data.sinoViet,
-                            meaning: jData.meaningVi || data.meaning,
-                            meaningVi: jData.meaningVi || data.meaningVi,
-                            onyomi: (jData.onyomi?.length ? jData.onyomi.join('、') : '') || data.onyomi,
-                            kunyomi: (jData.kunyomi?.length ? jData.kunyomi.join('、') : '') || data.kunyomi,
-                            level: jData.level || data.level,
-                            openJlptOrder: jData.openJlptOrder ?? data.openJlptOrder ?? null
-                        };
+                    if (jData && !item._userEdited) {
+                        item.sinoViet = jData.sinoViet || item.sinoViet;
+                        item.meaning = jData.meaningVi || item.meaning;
+                        item.meaningVi = jData.meaningVi || item.meaningVi;
+                        item.onyomi = (jData.onyomi?.length ? jData.onyomi.join('、') : '') || item.onyomi;
+                        item.kunyomi = (jData.kunyomi?.length ? jData.kunyomi.join('、') : '') || item.kunyomi;
+                        item.level = jData.level || item.level;
+                        item.openJlptOrder = jData.openJlptOrder ?? item.openJlptOrder ?? null;
+                        if (jData.stroke_count) item.strokeCount = String(jData.stroke_count);
+                        if (jData.parts && jData.parts.length > 0) item.parts = Array.isArray(jData.parts) ? jData.parts.join('、') : jData.parts;
                     }
-                    return data;
+                    canonicalKanjiMap.set(char, item);
                 });
+                cachedKanjiList = Array.from(canonicalKanjiMap.values());
                 return cachedKanjiList;
             } catch (fsErr) {
                 console.error('Error loading shared kanji list from Firestore fallback:', fsErr);
@@ -386,27 +406,40 @@ export const getSharedVocabCategories = async () => {
 
 // Functions to update the cache when a card/item is added, updated, or deleted
 export const updateCachedKanji = (kanji) => {
-    if (!cachedKanjiList) return;
-    const idx = cachedKanjiList.findIndex(k => 
-        (kanji.id && k.id === kanji.id) || 
-        (kanji.character && k.character === kanji.character)
-    );
-    if (idx !== -1) {
-        cachedKanjiList[idx] = { ...cachedKanjiList[idx], ...kanji };
-    } else {
-        cachedKanjiList.push(kanji);
-    }
+    if (!cachedKanjiList || !kanji) return;
+    const char = (kanji.character || kanji.literal || '').trim();
+    const id = kanji.id;
+
+    let existing = null;
+    cachedKanjiList = cachedKanjiList.filter(k => {
+        const kChar = (k.character || k.literal || '').trim();
+        const match = (char && kChar === char) || (id && k.id === id);
+        if (match && !existing) existing = k;
+        return !match;
+    });
+
+    const updated = {
+        ...(existing || {}),
+        ...kanji,
+        character: char || existing?.character || '',
+        id: id || existing?.id || `kanji_${char}`
+    };
+    cachedKanjiList.push(updated);
+
     // Dispatch event to keep other active screens in sync
     window.dispatchEvent(new CustomEvent('kanji-cache-updated', { 
-        detail: { type: 'kanji', data: { ...cachedKanjiList[idx !== -1 ? idx : cachedKanjiList.length - 1] } } 
+        detail: { type: 'kanji', data: { ...updated } } 
     }));
 };
 
 export const deleteCachedKanji = (kanjiId) => {
     if (!cachedKanjiList) return;
-    cachedKanjiList = cachedKanjiList.filter(k => k.id !== kanjiId && k.character !== kanjiId);
+    const idStr = String(kanjiId || '').trim();
+    cachedKanjiList = cachedKanjiList.filter(k => 
+        k.id !== idStr && (k.character || '').trim() !== idStr
+    );
     window.dispatchEvent(new CustomEvent('kanji-cache-updated', { 
-        detail: { type: 'kanji-delete', data: kanjiId } 
+        detail: { type: 'kanji-delete', data: idStr } 
     }));
 };
 
@@ -1001,83 +1034,124 @@ export const syncKanjiAndVocabToCDN = async (forceFull = true) => {
     let vocabList = [];
     let categories = [];
     let exportedAt = Date.now();
-    let isIncremental = false;
 
     const cacheConfig = await getCacheConfig();
+    const buster = Date.now();
+    const appendBuster = (url) => (!url ? '' : (url.includes('?') ? `${url}&t=${buster}` : `${url}?t=${buster}`));
 
-    if (!forceFull && cacheConfig && cacheConfig.exportedAt) {
-        try {
-            console.log('Attempting incremental sync using existing CDN / Local bundle files...');
-            const lastExport = cacheConfig.exportedAt;
-            const buster = Date.now();
+    // 1. Always load the base datasets (from existing CDN or local bundle files)
+    let [baseKanji, baseVocab, baseCats] = await Promise.all([
+        cacheConfig?.kanjiUrl ? fetch(appendBuster(cacheConfig.kanjiUrl)).then(r => r.ok ? r.json() : null).catch(() => null) : null,
+        cacheConfig?.vocabUrl ? fetch(appendBuster(cacheConfig.vocabUrl)).then(r => r.ok ? r.json() : null).catch(() => null) : null,
+        cacheConfig?.vocabCategoriesUrl ? fetch(appendBuster(cacheConfig.vocabCategoriesUrl)).then(r => r.ok ? r.json() : null).catch(() => null) : null
+    ]);
 
-            const appendBuster = (url) => {
-                if (!url) return '';
-                return url.includes('?') ? `${url}&t=${buster}` : `${url}?t=${buster}`;
-            };
-
-            // 1. Try fetching current CDN files in parallel
-            let [kanjiRes, vocabRes, catsRes] = await Promise.all([
-                cacheConfig.kanjiUrl ? fetch(appendBuster(cacheConfig.kanjiUrl)).then(r => r.ok ? r.json() : null).catch(() => null) : null,
-                cacheConfig.vocabUrl ? fetch(appendBuster(cacheConfig.vocabUrl)).then(r => r.ok ? r.json() : null).catch(() => null) : null,
-                cacheConfig.vocabCategoriesUrl ? fetch(appendBuster(cacheConfig.vocabCategoriesUrl)).then(r => r.ok ? r.json() : null).catch(() => null) : null
-            ]);
-
-            // 2. Fallback to local bundle files as base if CDN files not found
-            if (!kanjiRes || !vocabRes || !catsRes) {
-                console.log('CDN files unavailable for incremental sync, loading local bundle files as base...');
-                const [localKanji, localVocab, localCats] = await Promise.all([
-                    fetch('/data/kanji_data.json').then(r => r.ok ? r.json() : null).catch(() => null),
-                    fetch('/data/vocab_data.json').then(r => r.ok ? r.json() : null).catch(() => null),
-                    fetch('/data/vocab_categories.json').then(r => r.ok ? r.json() : null).catch(() => null)
-                ]);
-                if (!kanjiRes) kanjiRes = localKanji;
-                if (!vocabRes) vocabRes = localVocab;
-                if (!catsRes) catsRes = localCats;
-            }
-
-            if (kanjiRes && vocabRes && catsRes) {
-                // Fetch only modified docs since lastExport
-                const [kanjiUpdatesSnap, vocabUpdatesSnap, catsUpdatesSnap] = await Promise.all([
-                    safeGetCollectionDocs(query(collection(db, 'kanji'), where('updatedAt', '>', lastExport))),
-                    safeGetCollectionDocs(query(collection(db, 'kanjiVocab'), where('updatedAt', '>', lastExport))),
-                    safeGetCollectionDocs(query(collection(db, 'vocabCategories'), where('updatedAt', '>', lastExport)))
-                ]);
-
-                console.log(`Incremental updates found: ${kanjiUpdatesSnap.size} kanji, ${vocabUpdatesSnap.size} vocab, ${catsUpdatesSnap.size} categories`);
-
-                // Helper to merge updates
-                const mergeList = (existingList, updatesSnap) => {
-                    const listMap = new Map(existingList.map(item => [item.id, item]));
-                    updatesSnap.docs.forEach(docSnap => {
-                        listMap.set(docSnap.id, { id: docSnap.id, ...docSnap.data() });
-                    });
-                    return Array.from(listMap.values());
-                };
-
-                kanjiList = mergeList(kanjiRes, kanjiUpdatesSnap);
-                vocabList = mergeList(vocabRes, vocabUpdatesSnap);
-                categories = mergeList(catsRes, catsUpdatesSnap);
-                isIncremental = true;
-            }
-        } catch (incError) {
-            console.warn('Incremental sync failed, falling back to full sync:', incError);
-        }
-    }
-
-    if (!isIncremental) {
-        console.log('Performing full sync of Kanji and Vocabulary...');
-        // Fetch all data in parallel using safe chunked fallback
-        const [kanjiSnap, vocabSnap, categoriesSnap] = await Promise.all([
-            safeGetCollectionDocs(collection(db, 'kanji')),
-            safeGetCollectionDocs(collection(db, 'kanjiVocab')),
-            safeGetCollectionDocs(collection(db, 'vocabCategories'))
+    if (!baseKanji || !baseVocab || !baseCats) {
+        const [localKanji, localVocab, localCats] = await Promise.all([
+            fetch('/data/kanji_data.json').then(r => r.ok ? r.json() : null).catch(() => null),
+            fetch('/data/vocab_data.json').then(r => r.ok ? r.json() : null).catch(() => null),
+            fetch('/data/vocab_categories.json').then(r => r.ok ? r.json() : null).catch(() => null)
         ]);
-
-        kanjiList = kanjiSnap.docs.map(d => ({ id: d.id, ...d.data() }));
-        vocabList = vocabSnap.docs.map(d => ({ id: d.id, ...d.data() }));
-        categories = categoriesSnap.docs.map(d => ({ id: d.id, ...d.data() }));
+        if (!baseKanji) baseKanji = localKanji || [];
+        if (!baseVocab) baseVocab = localVocab || [];
+        if (!baseCats) baseCats = localCats || [];
     }
+
+    // 2. Build canonical map for Kanji with OpenJLPT authoritative data
+    const canonicalKanjiMap = new Map();
+    (baseKanji || []).forEach(k => {
+        const char = (k.character || k.literal || '').trim();
+        if (!char) return;
+        const jData = getJotobaKanjiData(char);
+        const item = { ...k, character: char };
+        if (jData && !item._userEdited) {
+            item.sinoViet = jData.sinoViet || item.sinoViet;
+            item.meaning = jData.meaningVi || item.meaning;
+            item.meaningVi = jData.meaningVi || item.meaningVi;
+            item.onyomi = (jData.onyomi?.length ? jData.onyomi.join('、') : '') || item.onyomi;
+            item.kunyomi = (jData.kunyomi?.length ? jData.kunyomi.join('、') : '') || item.kunyomi;
+            item.level = jData.level || item.level;
+            item.openJlptOrder = jData.openJlptOrder ?? item.openJlptOrder ?? null;
+            if (jData.stroke_count) item.strokeCount = String(jData.stroke_count);
+            if (jData.parts && jData.parts.length > 0) item.parts = Array.isArray(jData.parts) ? jData.parts.join('、') : jData.parts;
+        }
+        canonicalKanjiMap.set(char, item);
+    });
+
+    // 3. Fetch updates from Firestore (either incremental since last export or full)
+    const lastExport = (!forceFull && cacheConfig?.exportedAt) ? cacheConfig.exportedAt : 0;
+    const [kanjiSnap, vocabSnap, catsSnap] = await Promise.all([
+        lastExport > 0 
+            ? safeGetCollectionDocs(query(collection(db, 'kanji'), where('updatedAt', '>', lastExport)))
+            : safeGetCollectionDocs(collection(db, 'kanji')),
+        lastExport > 0
+            ? safeGetCollectionDocs(query(collection(db, 'kanjiVocab'), where('updatedAt', '>', lastExport)))
+            : safeGetCollectionDocs(collection(db, 'kanjiVocab')),
+        lastExport > 0
+            ? safeGetCollectionDocs(query(collection(db, 'vocabCategories'), where('updatedAt', '>', lastExport)))
+            : safeGetCollectionDocs(collection(db, 'vocabCategories'))
+    ]);
+
+    // 4. Merge Firestore Kanji docs strictly by character (deduplicating any multiple IDs)
+    kanjiSnap.docs.forEach(docSnap => {
+        const data = { id: docSnap.id, ...docSnap.data() };
+        const char = (data.character || data.literal || '').trim();
+        if (!char) return;
+        const existing = canonicalKanjiMap.get(char);
+        const merged = {
+            ...(existing || {}),
+            ...data,
+            character: char,
+            id: existing?.id || data.id || `kanji_${char}`
+        };
+        const jData = getJotobaKanjiData(char);
+        if (jData && !merged._userEdited) {
+            merged.sinoViet = jData.sinoViet || merged.sinoViet;
+            merged.meaning = jData.meaningVi || merged.meaning;
+            merged.meaningVi = jData.meaningVi || merged.meaningVi;
+            merged.onyomi = (jData.onyomi?.length ? jData.onyomi.join('、') : '') || merged.onyomi;
+            merged.kunyomi = (jData.kunyomi?.length ? jData.kunyomi.join('、') : '') || merged.kunyomi;
+            merged.level = jData.level || merged.level;
+            merged.openJlptOrder = jData.openJlptOrder ?? merged.openJlptOrder ?? null;
+            if (jData.stroke_count) merged.strokeCount = String(jData.stroke_count);
+            if (jData.parts && jData.parts.length > 0) merged.parts = Array.isArray(jData.parts) ? jData.parts.join('、') : jData.parts;
+        }
+        canonicalKanjiMap.set(char, merged);
+    });
+
+    kanjiList = Array.from(canonicalKanjiMap.values());
+
+    // 5. Merge Vocab cleanly deduplicated by word
+    const canonicalVocabMap = new Map();
+    (baseVocab || []).forEach(v => {
+        const key = (v.word || '').trim();
+        if (key) canonicalVocabMap.set(key, v);
+    });
+    vocabSnap.docs.forEach(docSnap => {
+        const data = { id: docSnap.id, ...docSnap.data() };
+        const key = (data.word || '').trim();
+        if (key) {
+            const existing = canonicalVocabMap.get(key);
+            canonicalVocabMap.set(key, { ...(existing || {}), ...data });
+        }
+    });
+    vocabList = Array.from(canonicalVocabMap.values());
+
+    // 6. Merge Categories cleanly deduplicated by id
+    const canonicalCatsMap = new Map();
+    (baseCats || []).forEach(c => {
+        const key = c.id || c.name;
+        if (key) canonicalCatsMap.set(key, c);
+    });
+    catsSnap.docs.forEach(docSnap => {
+        const data = { id: docSnap.id, ...docSnap.data() };
+        const key = data.id || data.name;
+        if (key) {
+            const existing = canonicalCatsMap.get(key);
+            canonicalCatsMap.set(key, { ...(existing || {}), ...data });
+        }
+    });
+    categories = Array.from(canonicalCatsMap.values());
 
     // Upload cache files to Firebase Storage
     const uploadFile = async (fileName, data) => {

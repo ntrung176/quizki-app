@@ -306,15 +306,25 @@ const FlashcardPlayerSection = ({
             </div>
 
             {/* Navigation */}
-            <div className="flex items-center justify-center gap-6 mt-3">
-                <button onClick={prevCard} disabled={currentCardIndex === 0} className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow border border-gray-200 dark:border-slate-700 flex items-center justify-center disabled:opacity-30 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors">
-                    <ChevronLeft className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+            <div className="flex items-center justify-center gap-3.5 mt-3.5">
+                <button
+                    onClick={prevCard}
+                    disabled={currentCardIndex === 0}
+                    className="w-10 h-10 rounded-2xl bg-white dark:bg-slate-900 shadow-xs border-2 border-b-4 border-slate-200 dark:border-slate-800 flex items-center justify-center disabled:opacity-30 hover:bg-slate-50 dark:hover:bg-slate-800 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer"
+                >
+                    <ChevronLeft className="w-5 h-5 text-slate-600 dark:text-slate-300 stroke-[2.5]" />
                 </button>
 
-                <span className="text-sm font-bold text-gray-400 tracking-widest">{currentCardIndex + 1} / {activeCardsList.length}</span>
+                <span className="text-xs font-black text-slate-500 dark:text-slate-400 tracking-wider px-3.5 py-2 bg-white dark:bg-slate-900 rounded-2xl border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-xs">
+                    {currentCardIndex + 1} / {activeCardsList.length}
+                </span>
 
-                <button onClick={nextCard} disabled={currentCardIndex === activeCardsList.length - 1} className="w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow border border-gray-200 dark:border-slate-700 flex items-center justify-center disabled:opacity-30 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors">
-                    <ChevronRight className="w-5 h-5 text-gray-600 dark:text-gray-300" />
+                <button
+                    onClick={nextCard}
+                    disabled={currentCardIndex === activeCardsList.length - 1}
+                    className="w-10 h-10 rounded-2xl bg-white dark:bg-slate-900 shadow-xs border-2 border-b-4 border-slate-200 dark:border-slate-800 flex items-center justify-center disabled:opacity-30 hover:bg-slate-50 dark:hover:bg-slate-800 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer"
+                >
+                    <ChevronRight className="w-5 h-5 text-slate-600 dark:text-slate-300 stroke-[2.5]" />
                 </button>
 
                 {/* Shuffle Button */}
@@ -332,12 +342,14 @@ const FlashcardPlayerSection = ({
                         }
                         setIsCardFlipped(false);
                     }}
-                    className={`w-10 h-10 rounded-full shadow border flex items-center justify-center transition-all hover:scale-105 ${isShuffled
-                        ? 'bg-blue-600 border-blue-600 text-white hover:bg-blue-700' : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700'
-                        }`}
+                    className={`w-10 h-10 rounded-2xl shadow-xs border-2 border-b-4 flex items-center justify-center transition-all active:translate-y-0.5 active:border-b-2 cursor-pointer ${
+                        isShuffled
+                            ? 'bg-sky-500 border-sky-700 text-white shadow-sky-500/20'
+                            : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800'
+                    }`}
                     title={isShuffled ? t('studyModes.unshuffle') : t('studyModes.shuffle')}
                 >
-                    <Shuffle className="w-4.5 h-4.5" />
+                    <Shuffle className="w-4 h-4" />
                 </button>
             </div>
         </div>
@@ -1081,36 +1093,48 @@ const StudySetDetail = ({
         <>
             <div className="w-full pb-20 min-h-screen bg-transparent animate-fade-in">
                 {/* Header */}
-                <div className="sticky top-0 z-30 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-md">
+                <div className="sticky top-0 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b-2 border-slate-200 dark:border-slate-800 shadow-xs">
                     <div className="max-w-6xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
-                        <button onClick={onBack} className="flex items-center gap-1 text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-600 font-medium transition-colors">
-                            <ChevronLeft className="w-5 h-5" /> {t('library.backToLibrary')}
+                        <button
+                            onClick={onBack}
+                            className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-750 dark:text-slate-200 font-black text-xs uppercase tracking-wider rounded-2xl border-2 border-b-3 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-1 transition-all cursor-pointer select-none"
+                        >
+                            <ChevronLeft className="w-4 h-4 stroke-[3]" /> {t('library.backToLibrary')}
                         </button>
-                        <div className="flex items-center gap-4">
+                        <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
                             {!isEnglishMode && (
                                 <button
                                     onClick={handleAddKanjiToSrs}
                                     disabled={isAddingKanji}
-                                    className="flex items-center gap-1 text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-600 transition-colors text-sm font-medium disabled:opacity-50"
+                                    className="flex items-center gap-1.5 px-3 py-1.5 bg-sky-50 hover:bg-sky-100 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 rounded-2xl border-2 border-b-3 border-sky-300 dark:border-sky-800 font-black text-xs uppercase tracking-wider transition-all active:translate-y-0.5 active:border-b-1 cursor-pointer select-none disabled:opacity-50"
                                     title={t('studyModes.addKanjiTooltip')}
                                 >
-                                    <BookOpen className="w-4 h-4" /> {isAddingKanji ? t('common.adding') : t('studyModes.addKanjiToStudy')}
+                                    <BookOpen className="w-3.5 h-3.5 stroke-[2.5]" /> {isAddingKanji ? t('common.adding') : t('studyModes.addKanjiToStudy')}
                                 </button>
                             )}
-                            <button onClick={() => onEditSet && onEditSet(folderId)} className="flex items-center gap-1 text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-600 transition-colors text-sm font-medium">
-                                <Plus className="w-4 h-4" /> {t('vocab.addVocab')}
+                            <button
+                                onClick={() => onEditSet && onEditSet(folderId)}
+                                className="flex items-center gap-1.5 px-3.5 py-1.5 bg-emerald-500 hover:bg-emerald-400 text-white rounded-2xl border-b-3 border-emerald-700 font-black text-xs uppercase tracking-wider transition-all active:translate-y-0.5 active:border-b-1 cursor-pointer select-none shadow-2xs"
+                            >
+                                <Plus className="w-3.5 h-3.5 stroke-[3]" /> {t('vocab.addVocab')}
                             </button>
                             {/* Folder delete — or unfiled bulk delete */}
                             {folderId === 'unfiled' ? (
                                 onDeleteCards && setCards.length > 0 && (
-                                    <button onClick={() => setShowDeleteConfirm(true)} className="flex items-center gap-1 text-gray-400 hover:text-red-500 transition-colors text-sm">
-                                        <Trash2 className="w-4 h-4" /> {t('vocab.deleteAllUnfiled')}
+                                    <button
+                                        onClick={() => setShowDeleteConfirm(true)}
+                                        className="flex items-center gap-1.5 px-2.5 py-1.5 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 rounded-2xl border-2 border-b-3 border-rose-200 dark:border-rose-900 font-black text-xs uppercase tracking-wider transition-all active:translate-y-0.5 active:border-b-1 cursor-pointer select-none"
+                                    >
+                                        <Trash2 className="w-3.5 h-3.5" /> {t('vocab.deleteAllUnfiled')}
                                     </button>
                                 )
                             ) : (
                                 onDeleteFolder && (
-                                    <button onClick={() => setShowDeleteConfirm(true)} className="flex items-center gap-1 text-gray-400 hover:text-red-500 transition-colors text-sm">
-                                        <Trash2 className="w-4 h-4" /> {t('library.deleteSet')}
+                                    <button
+                                        onClick={() => setShowDeleteConfirm(true)}
+                                        className="flex items-center gap-1.5 px-2.5 py-1.5 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 rounded-2xl border-2 border-b-3 border-rose-200 dark:border-rose-900 font-black text-xs uppercase tracking-wider transition-all active:translate-y-0.5 active:border-b-1 cursor-pointer select-none"
+                                    >
+                                        <Trash2 className="w-3.5 h-3.5" /> {t('library.deleteSet')}
                                     </button>
                                 )
                             )}
@@ -1118,7 +1142,7 @@ const StudySetDetail = ({
                     </div>
                 </div>
 
-                <div className="max-w-6xl mx-auto px-4 md:px-8 mt-8 space-y-10">
+                <div className="max-w-6xl mx-auto px-4 md:px-8 mt-6 space-y-6 sm:space-y-8">
                     {setCards.length > 0 ? (
                         <>
                             <FlashcardPlayerSection
@@ -1129,110 +1153,119 @@ const StudySetDetail = ({
                                 onUpdateCard={onUpdateCard}
                                 onSaveChanges={onSaveChanges}
                             />
-                            {/* Bảng trạng thái ghi nhớ (Mastery Status) */}
-                            <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 border border-slate-200 dark:border-slate-800 shadow-md space-y-6">
-                                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                                    <div>
-                                        <h3 className="text-lg font-bold text-gray-800 dark:text-white">{t('vocab.vocabStatus')}</h3>
-                                        <p className="text-xs text-gray-500 dark:text-gray-400">{t('vocab.vocabStatusSub')}</p>
+                            {/* Bảng trạng thái ghi nhớ (Mastery Status) - Compact Duolingo Style */}
+                            <div className="bg-white dark:bg-slate-900 rounded-3xl p-3.5 sm:p-4 border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
+                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5">
+                                    <div className="flex items-center gap-2">
+                                        <h3 className="text-xs sm:text-sm font-black text-slate-850 dark:text-white uppercase tracking-wider">
+                                            {t('vocab.vocabStatus')}
+                                        </h3>
+                                        <span className="hidden sm:inline text-[11px] font-bold text-slate-400">
+                                            · {t('vocab.vocabStatusSub')}
+                                        </span>
                                     </div>
                                     {/* Consolidated multi-segment progress bar */}
-                                    <div className="flex-1 max-w-md bg-gray-100 dark:bg-gray-700 h-4 rounded-full overflow-hidden flex shadow-inner">
-                                        <div
-                                            style={{ width: `${masteryStats.memorizedPct}%` }}
-                                            className="h-full bg-emerald-500 transition-all duration-500"
-                                            title={`${t('vocab.memorized')}: ${masteryStats.memorizedPct}%`}
-                                        />
-                                        <div
-                                            style={{ width: `${masteryStats.learningPct}%` }}
-                                            className="h-full bg-amber-500 transition-all duration-500"
-                                            title={`${t('vocab.learning')}: ${masteryStats.learningPct}%`}
-                                        />
-                                        <div
-                                            style={{ width: `${masteryStats.notLearnedPct}%` }}
-                                            className="h-full bg-slate-400 dark:bg-slate-600 transition-all duration-500"
-                                            title={`${t('vocab.notLearned')}: ${masteryStats.notLearnedPct}%`}
-                                        />
+                                    <div className="flex items-center gap-2 w-full sm:w-auto">
+                                        <div className="flex-1 sm:w-56 bg-slate-100 dark:bg-slate-800 h-2.5 rounded-full overflow-hidden flex border border-slate-200 dark:border-slate-700 shadow-inner">
+                                            <div
+                                                style={{ width: `${masteryStats.memorizedPct}%` }}
+                                                className="h-full bg-emerald-500 transition-all duration-500"
+                                                title={`${t('vocab.memorized')}: ${masteryStats.memorizedPct}%`}
+                                            />
+                                            <div
+                                                style={{ width: `${masteryStats.learningPct}%` }}
+                                                className="h-full bg-amber-500 transition-all duration-500"
+                                                title={`${t('vocab.learning')}: ${masteryStats.learningPct}%`}
+                                            />
+                                            <div
+                                                style={{ width: `${masteryStats.notLearnedPct}%` }}
+                                                className="h-full bg-slate-400 dark:bg-slate-600 transition-all duration-500"
+                                                title={`${t('vocab.notLearned')}: ${masteryStats.notLearnedPct}%`}
+                                            />
+                                        </div>
+                                        <span className="text-[10px] font-black text-slate-400 whitespace-nowrap">
+                                            {masteryStats.memorizedPct}% {t('vocab.memorized')}
+                                        </span>
                                     </div>
                                 </div>
 
-                                <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                <div className="grid grid-cols-3 gap-2 sm:gap-3">
                                     {/* Chưa học */}
-                                    <div className="p-4 bg-slate-50 dark:bg-slate-900/40 rounded-2xl border border-slate-150 dark:border-slate-800 flex items-center justify-between shadow-sm">
-                                        <div>
-                                            <div className="flex items-center gap-2">
-                                                <span className="w-2.5 h-2.5 rounded-full bg-slate-400 dark:bg-slate-600" />
-                                                <span className="text-sm font-bold text-gray-700 dark:text-gray-300">{t('vocab.notLearned')}</span>
+                                    <div className="p-2 sm:p-2.5 bg-slate-50 dark:bg-slate-850 rounded-2xl border-2 border-b-3 border-slate-200 dark:border-slate-800 flex items-center justify-between shadow-2xs">
+                                        <div className="min-w-0 pr-1">
+                                            <div className="flex items-center gap-1.5">
+                                                <span className="w-2 h-2 rounded-full bg-slate-400 dark:bg-slate-500 shrink-0" />
+                                                <span className="text-[11px] font-black text-slate-600 dark:text-slate-300 uppercase tracking-tight truncate">{t('vocab.notLearned')}</span>
                                             </div>
-                                            <p className="text-2xl font-black text-slate-700 dark:text-slate-300 mt-1">
-                                                {masteryStats.notLearned} <span className="text-xs font-normal text-gray-400">{t('common.wordsUnit')}</span>
+                                            <p className="text-base sm:text-lg font-black text-slate-850 dark:text-white leading-none mt-1">
+                                                {masteryStats.notLearned} <span className="text-[10px] font-bold text-slate-400">{t('common.wordsUnit')}</span>
                                             </p>
                                         </div>
                                         <button
                                             disabled={masteryStats.notLearned === 0}
                                             onClick={() => openMasteryTest('not_learned', notLearnedCards)}
-                                            className="p-2.5 bg-white dark:bg-slate-800 rounded-xl shadow border border-slate-200 dark:border-slate-700 hover:border-blue-500 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all hover:scale-105"
+                                            className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-white dark:bg-slate-800 border-2 border-b-3 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-sky-600 hover:border-sky-300 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center transition-all active:translate-y-0.5 active:border-b-1 cursor-pointer shrink-0 shadow-2xs"
                                             title={t('studyModes.reviewUnlearnedGroup', { defaultValue: 'Review unlearned cards' })}
                                         >
-                                            <PlayCircle className="w-5 h-5 text-blue-600" />
+                                            <PlayCircle className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
                                         </button>
                                     </div>
 
                                     {/* Đang học */}
-                                    <div className="p-4 bg-amber-50/20 dark:bg-amber-950/10 rounded-2xl border border-amber-100/60 dark:border-amber-900/20 flex items-center justify-between shadow-sm">
-                                        <div>
-                                            <div className="flex items-center gap-2">
-                                                <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
-                                                <span className="text-sm font-bold text-amber-700 dark:text-amber-400">{t('vocab.learning')}</span>
+                                    <div className="p-2 sm:p-2.5 bg-amber-50/50 dark:bg-amber-950/20 rounded-2xl border-2 border-b-3 border-amber-200 dark:border-amber-900/50 flex items-center justify-between shadow-2xs">
+                                        <div className="min-w-0 pr-1">
+                                            <div className="flex items-center gap-1.5">
+                                                <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0" />
+                                                <span className="text-[11px] font-black text-amber-700 dark:text-amber-400 uppercase tracking-tight truncate">{t('vocab.learning')}</span>
                                             </div>
-                                            <p className="text-2xl font-black text-amber-605 dark:text-amber-450 mt-1">
-                                                {masteryStats.learning} <span className="text-xs font-normal text-gray-400">{t('common.wordsUnit')}</span>
+                                            <p className="text-base sm:text-lg font-black text-amber-600 dark:text-amber-400 leading-none mt-1">
+                                                {masteryStats.learning} <span className="text-[10px] font-bold text-slate-400">{t('common.wordsUnit')}</span>
                                             </p>
                                         </div>
                                         <button
                                             disabled={masteryStats.learning === 0}
                                             onClick={() => openMasteryTest('learning', learningCards)}
-                                            className="p-2.5 bg-white dark:bg-slate-800 rounded-xl shadow border border-amber-250/30 dark:border-amber-900/30 hover:border-amber-400 hover:text-amber-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all hover:scale-105"
+                                            className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-white dark:bg-slate-800 border-2 border-b-3 border-amber-300 dark:border-amber-800/80 text-amber-500 hover:text-amber-600 hover:border-amber-400 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center transition-all active:translate-y-0.5 active:border-b-1 cursor-pointer shrink-0 shadow-2xs"
                                             title={t('studyModes.reviewLearningGroup', { defaultValue: 'Review learning cards' })}
                                         >
-                                            <PlayCircle className="w-5 h-5 text-amber-500" />
+                                            <PlayCircle className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
                                         </button>
                                     </div>
 
                                     {/* Đã nhớ */}
-                                    <div className="p-4 bg-emerald-50/20 dark:bg-emerald-950/10 rounded-2xl border border-emerald-100/60 dark:border-emerald-900/20 flex items-center justify-between shadow-sm">
-                                        <div>
-                                            <div className="flex items-center gap-2">
-                                                <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-                                                <span className="text-sm font-bold text-emerald-700 dark:text-emerald-400">{t('vocab.memorized')}</span>
+                                    <div className="p-2 sm:p-2.5 bg-emerald-50/50 dark:bg-emerald-950/20 rounded-2xl border-2 border-b-3 border-emerald-200 dark:border-emerald-900/50 flex items-center justify-between shadow-2xs">
+                                        <div className="min-w-0 pr-1">
+                                            <div className="flex items-center gap-1.5">
+                                                <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
+                                                <span className="text-[11px] font-black text-emerald-700 dark:text-emerald-400 uppercase tracking-tight truncate">{t('vocab.memorized')}</span>
                                             </div>
-                                            <p className="text-2xl font-black text-emerald-600 dark:text-emerald-450 mt-1">
-                                                {masteryStats.memorized} <span className="text-xs font-normal text-gray-400">{t('common.wordsUnit')}</span>
+                                            <p className="text-base sm:text-lg font-black text-emerald-600 dark:text-emerald-400 leading-none mt-1">
+                                                {masteryStats.memorized} <span className="text-[10px] font-bold text-slate-400">{t('common.wordsUnit')}</span>
                                             </p>
                                         </div>
                                         <button
                                             disabled={masteryStats.memorized === 0}
                                             onClick={() => openMasteryTest('memorized', memorizedCards)}
-                                            className="p-2.5 bg-white dark:bg-slate-800 rounded-xl shadow border border-emerald-250/30 dark:border-emerald-900/30 hover:border-emerald-400 hover:text-emerald-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all hover:scale-105"
+                                            className="w-7 h-7 sm:w-8 sm:h-8 rounded-xl bg-white dark:bg-slate-800 border-2 border-b-3 border-emerald-300 dark:border-emerald-800/80 text-emerald-500 hover:text-emerald-600 hover:border-emerald-400 disabled:opacity-40 disabled:cursor-not-allowed flex items-center justify-center transition-all active:translate-y-0.5 active:border-b-1 cursor-pointer shrink-0 shadow-2xs"
                                             title={t('studyModes.reviewMasteredGroup', { defaultValue: 'Review mastered cards' })}
                                         >
-                                            <PlayCircle className="w-5 h-5 text-emerald-500" />
+                                            <PlayCircle className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
                                         </button>
                                     </div>
                                 </div>
                             </div>
 
-                            {/* Action Buttons */}
-                            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+                            {/* Action Buttons - Compact Duolingo Study Modes */}
+                            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2.5 sm:gap-3">
                                 {/* Chế độ 1: Thẻ ghi nhớ */}
                                 {completedStates.flashcard ? (
-                                    <div className="flex flex-col items-center justify-center p-5 bg-slate-50 dark:bg-slate-900/60 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 shadow-xs relative overflow-hidden group select-none">
-                                        <div className="absolute top-2.5 right-2.5 w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center shadow-xs">
-                                            <Check className="w-3 h-3 text-white" strokeWidth={3} />
+                                    <div className="flex flex-col items-center justify-center p-2.5 sm:p-3 bg-slate-50 dark:bg-slate-900/60 rounded-2xl border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-2xs relative overflow-hidden group select-none min-h-[96px]">
+                                        <div className="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center shadow-2xs">
+                                            <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
                                         </div>
-                                        <div className="w-12 h-12 rounded-2xl bg-sky-50 dark:bg-sky-950/40 flex items-center justify-center mb-2"><Layers className="w-6 h-6 text-sky-500" /></div>
-                                        <span className="font-bold text-sm text-slate-400 dark:text-slate-500 text-center">{t('studyModes.flashcards')}</span>
-                                        <span className="text-[11px] text-emerald-600 dark:text-emerald-400 mt-0.5 font-bold text-center">{t('common.completed')}</span>
+                                        <div className="w-8 h-8 rounded-xl bg-sky-50 dark:bg-sky-950/40 border border-sky-100 dark:border-sky-800/40 flex items-center justify-center mb-1"><Layers className="w-4 h-4 text-sky-500" /></div>
+                                        <span className="font-bold text-xs text-slate-400 dark:text-slate-500 text-center leading-tight">{t('studyModes.flashcards')}</span>
+                                        <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold text-center leading-tight">{t('common.completed')}</span>
                                         <button
                                             onClick={async (e) => {
                                                 e.stopPropagation();
@@ -1241,32 +1274,32 @@ const StudySetDetail = ({
                                                 setCompletedStates(prev => ({ ...prev, flashcard: false }));
                                                 setProgressStates(prev => ({ ...prev, flashcard: false }));
                                             }}
-                                            className="mt-3 text-[11px] bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-1.5 rounded-2xl border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 flex items-center gap-1 font-bold transition-all cursor-pointer"
+                                            className="mt-1 text-[9px] bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-2 py-0.5 rounded-lg border-b-2 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-0 flex items-center gap-1 font-bold transition-all cursor-pointer"
                                         >
-                                            <RotateCcw className="w-3 h-3" /> {t('common.redo')}
+                                            <RotateCcw className="w-2.5 h-2.5" /> {t('common.redo')}
                                         </button>
                                     </div>
                                 ) : (
-                                    <button onClick={() => onFlashcardSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 hover:border-sky-300 dark:hover:border-sky-700 active:translate-y-0.5 active:border-b-2 shadow-xs transition-all group relative cursor-pointer select-none">
+                                    <button onClick={() => onFlashcardSet(folderId)} className="flex flex-col items-center justify-center p-2.5 sm:p-3 bg-white dark:bg-slate-900 rounded-2xl border-2 border-slate-200 dark:border-slate-800 border-b-4 hover:border-sky-300 dark:hover:border-sky-700 active:translate-y-0.5 active:border-b-2 shadow-xs transition-all group relative cursor-pointer select-none min-h-[96px]">
                                         {progressStates.flashcard && (
-                                            <div className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-sky-500 text-[9px] text-white font-bold uppercase tracking-wider">
+                                            <div className="absolute top-1.5 right-1.5 px-1.5 py-0.2 rounded-full bg-sky-500 text-[8px] text-white font-black uppercase tracking-wider">
                                                 {t('vocab.learning')}</div>
                                         )}
-                                        <div className="w-12 h-12 rounded-2xl bg-sky-50 dark:bg-sky-950/40 border border-sky-100 dark:border-sky-800/40 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform"><Layers className="w-6 h-6 text-sky-500" /></div>
-                                        <span className="font-extrabold text-sm text-slate-900 dark:text-white text-center">{t('studyModes.flashcards')}</span>
-                                        <span className="text-[11px] text-slate-400 mt-0.5 text-center">{t('studyModes.flashcardSub')}</span>
+                                        <div className="w-8 h-8 rounded-xl bg-sky-50 dark:bg-sky-950/40 border border-sky-100 dark:border-sky-800/40 flex items-center justify-center mb-1 group-hover:scale-105 transition-transform"><Layers className="w-4 h-4 text-sky-500" /></div>
+                                        <span className="font-extrabold text-xs text-slate-900 dark:text-white text-center leading-tight line-clamp-1">{t('studyModes.flashcards')}</span>
+                                        <span className="text-[10px] text-slate-400 mt-0.5 text-center leading-tight line-clamp-1">{t('studyModes.flashcardSub')}</span>
                                     </button>
                                 )}
 
                                 {/* Chế độ 2: Học tập */}
                                 {completedStates.study ? (
-                                    <div className="flex flex-col items-center justify-center p-5 bg-slate-50 dark:bg-slate-900/60 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 shadow-xs relative overflow-hidden group select-none">
-                                        <div className="absolute top-2.5 right-2.5 w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center shadow-xs">
-                                            <Check className="w-3 h-3 text-white" strokeWidth={3} />
+                                    <div className="flex flex-col items-center justify-center p-2.5 sm:p-3 bg-slate-50 dark:bg-slate-900/60 rounded-2xl border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-2xs relative overflow-hidden group select-none min-h-[96px]">
+                                        <div className="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center shadow-2xs">
+                                            <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
                                         </div>
-                                        <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center mb-2"><BookOpen className="w-6 h-6 text-emerald-500" /></div>
-                                        <span className="font-bold text-sm text-slate-400 dark:text-slate-500 text-center">{t('studyModes.learn')}</span>
-                                        <span className="text-[11px] text-emerald-600 dark:text-emerald-400 mt-0.5 font-bold text-center">{t('common.completed')}</span>
+                                        <div className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-1"><BookOpen className="w-4 h-4 text-emerald-500" /></div>
+                                        <span className="font-bold text-xs text-slate-400 dark:text-slate-500 text-center leading-tight">{t('studyModes.learn')}</span>
+                                        <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold text-center leading-tight">{t('common.completed')}</span>
                                         <button
                                             onClick={async (e) => {
                                                 e.stopPropagation();
@@ -1275,32 +1308,32 @@ const StudySetDetail = ({
                                                 setCompletedStates(prev => ({ ...prev, study: false }));
                                                 setProgressStates(prev => ({ ...prev, study: false }));
                                             }}
-                                            className="mt-3 text-[11px] bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-1.5 rounded-2xl border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 flex items-center gap-1 font-bold transition-all cursor-pointer"
+                                            className="mt-1 text-[9px] bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-2 py-0.5 rounded-lg border-b-2 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-0 flex items-center gap-1 font-bold transition-all cursor-pointer"
                                         >
-                                            <RotateCcw className="w-3 h-3" /> {t('common.redo')}
+                                            <RotateCcw className="w-2.5 h-2.5" /> {t('common.redo')}
                                         </button>
                                     </div>
                                 ) : (
-                                    <button onClick={() => onStudySet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 hover:border-emerald-300 dark:hover:border-emerald-700 active:translate-y-0.5 active:border-b-2 shadow-xs transition-all group relative cursor-pointer select-none">
+                                    <button onClick={() => onStudySet(folderId)} className="flex flex-col items-center justify-center p-2.5 sm:p-3 bg-white dark:bg-slate-900 rounded-2xl border-2 border-slate-200 dark:border-slate-800 border-b-4 hover:border-emerald-300 dark:hover:border-emerald-700 active:translate-y-0.5 active:border-b-2 shadow-xs transition-all group relative cursor-pointer select-none min-h-[96px]">
                                         {progressStates.study && (
-                                            <div className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-emerald-500 text-[9px] text-white font-bold uppercase tracking-wider">
+                                            <div className="absolute top-1.5 right-1.5 px-1.5 py-0.2 rounded-full bg-emerald-500 text-[8px] text-white font-black uppercase tracking-wider">
                                                 {t('vocab.learning')}</div>
                                         )}
-                                        <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform"><BookOpen className="w-6 h-6 text-emerald-500" /></div>
-                                        <span className="font-extrabold text-sm text-slate-900 dark:text-white text-center">{t('studyModes.learn')}</span>
-                                        <span className="text-[11px] text-slate-400 mt-0.5 text-center">{t('studyModes.learnSub')}</span>
+                                        <div className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-1 group-hover:scale-105 transition-transform"><BookOpen className="w-4 h-4 text-emerald-500" /></div>
+                                        <span className="font-extrabold text-xs text-slate-900 dark:text-white text-center leading-tight line-clamp-1">{t('studyModes.learn')}</span>
+                                        <span className="text-[10px] text-slate-400 mt-0.5 text-center leading-tight line-clamp-1">{t('studyModes.learnSub')}</span>
                                     </button>
                                 )}
 
                                 {/* Chế độ 3: Nhập ý nghĩa */}
                                 {completedStates.meaning_input ? (
-                                    <div className="flex flex-col items-center justify-center p-5 bg-slate-50 dark:bg-slate-900/60 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 shadow-xs relative overflow-hidden group select-none">
-                                        <div className="absolute top-2.5 right-2.5 w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center shadow-xs">
-                                            <Check className="w-3 h-3 text-white" strokeWidth={3} />
+                                    <div className="flex flex-col items-center justify-center p-2.5 sm:p-3 bg-slate-50 dark:bg-slate-900/60 rounded-2xl border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-2xs relative overflow-hidden group select-none min-h-[96px]">
+                                        <div className="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center shadow-2xs">
+                                            <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
                                         </div>
-                                        <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center mb-2"><Edit2 className="w-6 h-6 text-emerald-500" /></div>
-                                        <span className="font-bold text-sm text-slate-400 dark:text-slate-500 text-center">{t('studyModes.meaning')}</span>
-                                        <span className="text-[11px] text-emerald-600 dark:text-emerald-400 mt-0.5 font-bold text-center">{t('common.completed')}</span>
+                                        <div className="w-8 h-8 rounded-xl bg-teal-50 dark:bg-teal-950/40 border border-teal-100 dark:border-teal-800/40 flex items-center justify-center mb-1"><Edit2 className="w-4 h-4 text-teal-600" /></div>
+                                        <span className="font-bold text-xs text-slate-400 dark:text-slate-500 text-center leading-tight">{t('studyModes.meaning')}</span>
+                                        <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold text-center leading-tight">{t('common.completed')}</span>
                                         <button
                                             onClick={async (e) => {
                                                 e.stopPropagation();
@@ -1309,32 +1342,32 @@ const StudySetDetail = ({
                                                 setCompletedStates(prev => ({ ...prev, meaning_input: false }));
                                                 setProgressStates(prev => ({ ...prev, meaning_input: false }));
                                             }}
-                                            className="mt-3 text-[11px] bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-1.5 rounded-2xl border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 flex items-center gap-1 font-bold transition-all cursor-pointer"
+                                            className="mt-1 text-[9px] bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-2 py-0.5 rounded-lg border-b-2 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-0 flex items-center gap-1 font-bold transition-all cursor-pointer"
                                         >
-                                            <RotateCcw className="w-3 h-3" /> {t('common.redo')}
+                                            <RotateCcw className="w-2.5 h-2.5" /> {t('common.redo')}
                                         </button>
                                     </div>
                                 ) : (
-                                    <button onClick={() => onMeaningSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 hover:border-emerald-300 dark:hover:border-emerald-700 active:translate-y-0.5 active:border-b-2 shadow-xs transition-all group relative cursor-pointer select-none">
+                                    <button onClick={() => onMeaningSet(folderId)} className="flex flex-col items-center justify-center p-2.5 sm:p-3 bg-white dark:bg-slate-900 rounded-2xl border-2 border-slate-200 dark:border-slate-800 border-b-4 hover:border-teal-300 dark:hover:border-teal-700 active:translate-y-0.5 active:border-b-2 shadow-xs transition-all group relative cursor-pointer select-none min-h-[96px]">
                                         {progressStates.meaning_input && (
-                                            <div className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-emerald-500 text-[9px] text-white font-bold uppercase tracking-wider">
+                                            <div className="absolute top-1.5 right-1.5 px-1.5 py-0.2 rounded-full bg-teal-500 text-[8px] text-white font-black uppercase tracking-wider">
                                                 {t('vocab.learning')}</div>
                                         )}
-                                        <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform"><Edit2 className="w-6 h-6 text-emerald-500" /></div>
-                                        <span className="font-extrabold text-sm text-slate-900 dark:text-white text-center">{t('studyModes.meaning')}</span>
-                                        <span className="text-[11px] text-slate-400 mt-0.5 text-center">{t('studyModes.meaningSub')}</span>
+                                        <div className="w-8 h-8 rounded-xl bg-teal-50 dark:bg-teal-950/40 border border-teal-100 dark:border-teal-800/40 flex items-center justify-center mb-1 group-hover:scale-105 transition-transform"><Edit2 className="w-4 h-4 text-teal-600" /></div>
+                                        <span className="font-extrabold text-xs text-slate-900 dark:text-white text-center leading-tight line-clamp-1">{t('studyModes.meaning')}</span>
+                                        <span className="text-[10px] text-slate-400 mt-0.5 text-center leading-tight line-clamp-1">{t('studyModes.meaningSub')}</span>
                                     </button>
                                 )}
 
                                 {/* Chế độ 4: Nghe Chép */}
                                 {completedStates.dictation ? (
-                                    <div className="flex flex-col items-center justify-center p-5 bg-slate-50 dark:bg-slate-900/60 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 shadow-xs relative overflow-hidden group select-none">
-                                        <div className="absolute top-2.5 right-2.5 w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center shadow-xs">
-                                            <Check className="w-3 h-3 text-white" strokeWidth={3} />
+                                    <div className="flex flex-col items-center justify-center p-2.5 sm:p-3 bg-slate-50 dark:bg-slate-900/60 rounded-2xl border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-2xs relative overflow-hidden group select-none min-h-[96px]">
+                                        <div className="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center shadow-2xs">
+                                            <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
                                         </div>
-                                        <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/40 flex items-center justify-center mb-2"><Headphones className="w-6 h-6 text-amber-500" /></div>
-                                        <span className="font-bold text-sm text-slate-400 dark:text-slate-500 text-center">{t('studyModes.dictation')}</span>
-                                        <span className="text-[11px] text-emerald-600 dark:text-emerald-400 mt-0.5 font-bold text-center">{t('common.completed')}</span>
+                                        <div className="w-8 h-8 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-100 dark:border-amber-800/40 flex items-center justify-center mb-1"><Headphones className="w-4 h-4 text-amber-500" /></div>
+                                        <span className="font-bold text-xs text-slate-400 dark:text-slate-500 text-center leading-tight">{t('studyModes.dictation')}</span>
+                                        <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold text-center leading-tight">{t('common.completed')}</span>
                                         <button
                                             onClick={async (e) => {
                                                 e.stopPropagation();
@@ -1343,32 +1376,32 @@ const StudySetDetail = ({
                                                 setCompletedStates(prev => ({ ...prev, dictation: false }));
                                                 setProgressStates(prev => ({ ...prev, dictation: false }));
                                             }}
-                                            className="mt-3 text-[11px] bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-1.5 rounded-2xl border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 flex items-center gap-1 font-bold transition-all cursor-pointer"
+                                            className="mt-1 text-[9px] bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-2 py-0.5 rounded-lg border-b-2 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-0 flex items-center gap-1 font-bold transition-all cursor-pointer"
                                         >
-                                            <RotateCcw className="w-3 h-3" /> {t('common.redo')}
+                                            <RotateCcw className="w-2.5 h-2.5" /> {t('common.redo')}
                                         </button>
                                     </div>
                                 ) : (
-                                    <button onClick={() => onDictationSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 hover:border-amber-300 dark:hover:border-amber-700 active:translate-y-0.5 active:border-b-2 shadow-xs transition-all group relative cursor-pointer select-none">
+                                    <button onClick={() => onDictationSet(folderId)} className="flex flex-col items-center justify-center p-2.5 sm:p-3 bg-white dark:bg-slate-900 rounded-2xl border-2 border-slate-200 dark:border-slate-800 border-b-4 hover:border-amber-300 dark:hover:border-amber-700 active:translate-y-0.5 active:border-b-2 shadow-xs transition-all group relative cursor-pointer select-none min-h-[96px]">
                                         {progressStates.dictation && (
-                                            <div className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-amber-500 text-[9px] text-white font-bold uppercase tracking-wider">
+                                            <div className="absolute top-1.5 right-1.5 px-1.5 py-0.2 rounded-full bg-amber-500 text-[8px] text-white font-black uppercase tracking-wider">
                                                 {t('vocab.learning')}</div>
                                         )}
-                                        <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-100 dark:border-amber-800/40 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform"><Headphones className="w-6 h-6 text-amber-500" /></div>
-                                        <span className="font-extrabold text-sm text-slate-900 dark:text-white text-center">{t('studyModes.dictation')}</span>
-                                        <span className="text-[11px] text-slate-400 mt-0.5 text-center">{t('studyModes.dictationSub')}</span>
+                                        <div className="w-8 h-8 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-100 dark:border-amber-800/40 flex items-center justify-center mb-1 group-hover:scale-105 transition-transform"><Headphones className="w-4 h-4 text-amber-500" /></div>
+                                        <span className="font-extrabold text-xs text-slate-900 dark:text-white text-center leading-tight line-clamp-1">{t('studyModes.dictation')}</span>
+                                        <span className="text-[10px] text-slate-400 mt-0.5 text-center leading-tight line-clamp-1">{t('studyModes.dictationSub')}</span>
                                     </button>
                                 )}
 
                                 {/* Chế độ 5: Câu ví dụ */}
                                 {completedStates.example ? (
-                                    <div className="flex flex-col items-center justify-center p-5 bg-slate-50 dark:bg-slate-900/60 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 shadow-xs relative overflow-hidden group select-none">
-                                        <div className="absolute top-2.5 right-2.5 w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center shadow-xs">
-                                            <Check className="w-3 h-3 text-white" strokeWidth={3} />
+                                    <div className="flex flex-col items-center justify-center p-2.5 sm:p-3 bg-slate-50 dark:bg-slate-900/60 rounded-2xl border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-2xs relative overflow-hidden group select-none min-h-[96px]">
+                                        <div className="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center shadow-2xs">
+                                            <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
                                         </div>
-                                        <div className="w-12 h-12 rounded-2xl bg-cyan-50 dark:bg-cyan-950/40 flex items-center justify-center mb-2"><FileText className="w-6 h-6 text-cyan-500" /></div>
-                                        <span className="font-bold text-sm text-slate-400 dark:text-slate-500 text-center">{t('studyModes.example')}</span>
-                                        <span className="text-[11px] text-emerald-600 dark:text-emerald-400 mt-0.5 font-bold text-center">{t('common.completed')}</span>
+                                        <div className="w-8 h-8 rounded-xl bg-cyan-50 dark:bg-cyan-950/40 border border-cyan-100 dark:border-cyan-800/40 flex items-center justify-center mb-1"><FileText className="w-4 h-4 text-cyan-500" /></div>
+                                        <span className="font-bold text-xs text-slate-400 dark:text-slate-500 text-center leading-tight">{t('studyModes.example')}</span>
+                                        <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold text-center leading-tight">{t('common.completed')}</span>
                                         <button
                                             onClick={async (e) => {
                                                 e.stopPropagation();
@@ -1377,32 +1410,32 @@ const StudySetDetail = ({
                                                 setCompletedStates(prev => ({ ...prev, example: false }));
                                                 setProgressStates(prev => ({ ...prev, example: false }));
                                             }}
-                                            className="mt-3 text-[11px] bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-1.5 rounded-2xl border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 flex items-center gap-1 font-bold transition-all cursor-pointer"
+                                            className="mt-1 text-[9px] bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-2 py-0.5 rounded-lg border-b-2 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-0 flex items-center gap-1 font-bold transition-all cursor-pointer"
                                         >
-                                            <RotateCcw className="w-3 h-3" /> {t('common.redo')}
+                                            <RotateCcw className="w-2.5 h-2.5" /> {t('common.redo')}
                                         </button>
                                     </div>
                                 ) : (
-                                    <button onClick={() => onExampleSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 hover:border-cyan-300 dark:hover:border-cyan-700 active:translate-y-0.5 active:border-b-2 shadow-xs transition-all group relative cursor-pointer select-none">
+                                    <button onClick={() => onExampleSet(folderId)} className="flex flex-col items-center justify-center p-2.5 sm:p-3 bg-white dark:bg-slate-900 rounded-2xl border-2 border-slate-200 dark:border-slate-800 border-b-4 hover:border-cyan-300 dark:hover:border-cyan-700 active:translate-y-0.5 active:border-b-2 shadow-xs transition-all group relative cursor-pointer select-none min-h-[96px]">
                                         {progressStates.example && (
-                                            <div className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-cyan-500 text-[9px] text-white font-bold uppercase tracking-wider">
+                                            <div className="absolute top-1.5 right-1.5 px-1.5 py-0.2 rounded-full bg-cyan-500 text-[8px] text-white font-black uppercase tracking-wider">
                                                 {t('vocab.learning')}</div>
                                         )}
-                                        <div className="w-12 h-12 rounded-2xl bg-cyan-50 dark:bg-cyan-950/40 border border-cyan-100 dark:border-cyan-800/40 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform"><FileText className="w-6 h-6 text-cyan-500" /></div>
-                                        <span className="font-extrabold text-sm text-slate-900 dark:text-white text-center">{t('studyModes.example')}</span>
-                                        <span className="text-[11px] text-slate-400 mt-0.5 text-center">{t('studyModes.exampleSub')}</span>
+                                        <div className="w-8 h-8 rounded-xl bg-cyan-50 dark:bg-cyan-950/40 border border-cyan-100 dark:border-cyan-800/40 flex items-center justify-center mb-1 group-hover:scale-105 transition-transform"><FileText className="w-4 h-4 text-cyan-500" /></div>
+                                        <span className="font-extrabold text-xs text-slate-900 dark:text-white text-center leading-tight line-clamp-1">{t('studyModes.example')}</span>
+                                        <span className="text-[10px] text-slate-400 mt-0.5 text-center leading-tight line-clamp-1">{t('studyModes.exampleSub')}</span>
                                     </button>
                                 )}
 
                                 {/* Chế độ 6: Đồng nghĩa */}
                                 {completedStates.synonym ? (
-                                    <div className="flex flex-col items-center justify-center p-5 bg-slate-50 dark:bg-slate-900/60 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 shadow-xs relative overflow-hidden group select-none">
-                                        <div className="absolute top-2.5 right-2.5 w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center shadow-xs">
-                                            <Check className="w-3 h-3 text-white" strokeWidth={3} />
+                                    <div className="flex flex-col items-center justify-center p-2.5 sm:p-3 bg-slate-50 dark:bg-slate-900/60 rounded-2xl border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-2xs relative overflow-hidden group select-none min-h-[96px]">
+                                        <div className="absolute top-1.5 right-1.5 w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center shadow-2xs">
+                                            <Check className="w-2.5 h-2.5 text-white" strokeWidth={3} />
                                         </div>
-                                        <div className="w-12 h-12 rounded-2xl bg-rose-50 dark:bg-rose-950/40 flex items-center justify-center mb-2"><Users className="w-6 h-6 text-rose-500" /></div>
-                                        <span className="font-bold text-sm text-slate-400 dark:text-slate-500 text-center">{t('studyModes.synonymQuiz')}</span>
-                                        <span className="text-[11px] text-emerald-600 dark:text-emerald-400 mt-0.5 font-bold text-center">{t('common.completed')}</span>
+                                        <div className="w-8 h-8 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-100 dark:border-rose-800/40 flex items-center justify-center mb-1"><Users className="w-4 h-4 text-rose-500" /></div>
+                                        <span className="font-bold text-xs text-slate-400 dark:text-slate-500 text-center leading-tight">{t('studyModes.synonymQuiz')}</span>
+                                        <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold text-center leading-tight">{t('common.completed')}</span>
                                         <button
                                             onClick={async (e) => {
                                                 e.stopPropagation();
@@ -1411,32 +1444,34 @@ const StudySetDetail = ({
                                                 setCompletedStates(prev => ({ ...prev, synonym: false }));
                                                 setProgressStates(prev => ({ ...prev, synonym: false }));
                                             }}
-                                            className="mt-3 text-[11px] bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-3 py-1.5 rounded-2xl border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 flex items-center gap-1 font-bold transition-all cursor-pointer"
+                                            className="mt-1 text-[9px] bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 px-2 py-0.5 rounded-lg border-b-2 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-0 flex items-center gap-1 font-bold transition-all cursor-pointer"
                                         >
-                                            <RotateCcw className="w-3 h-3" /> {t('common.redo')}
+                                            <RotateCcw className="w-2.5 h-2.5" /> {t('common.redo')}
                                         </button>
                                     </div>
                                 ) : (
-                                    <button onClick={() => onSynonymQuiz && onSynonymQuiz(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 hover:border-rose-300 dark:hover:border-rose-700 active:translate-y-0.5 active:border-b-2 shadow-xs transition-all group relative cursor-pointer select-none">
+                                    <button onClick={() => onSynonymQuiz && onSynonymQuiz(folderId)} className="flex flex-col items-center justify-center p-2.5 sm:p-3 bg-white dark:bg-slate-900 rounded-2xl border-2 border-slate-200 dark:border-slate-800 border-b-4 hover:border-rose-300 dark:hover:border-rose-700 active:translate-y-0.5 active:border-b-2 shadow-xs transition-all group relative cursor-pointer select-none min-h-[96px]">
                                         {progressStates.synonym && (
-                                            <div className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-rose-500 text-[9px] text-white font-bold uppercase tracking-wider">
+                                            <div className="absolute top-1.5 right-1.5 px-1.5 py-0.2 rounded-full bg-rose-500 text-[8px] text-white font-black uppercase tracking-wider">
                                                 {t('vocab.learning')}</div>
                                         )}
-                                        <div className="w-12 h-12 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border border-rose-100 dark:border-rose-800/40 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform"><Users className="w-6 h-6 text-rose-500" /></div>
-                                        <span className="font-extrabold text-sm text-slate-900 dark:text-white text-center">{t('studyModes.synonymQuiz')}</span>
-                                        <span className="text-[11px] text-slate-400 mt-0.5 text-center">{t('studyModes.synonymQuizSub')}</span>
+                                        <div className="w-8 h-8 rounded-xl bg-rose-50 dark:bg-rose-950/40 border border-rose-100 dark:border-rose-800/40 flex items-center justify-center mb-1 group-hover:scale-105 transition-transform"><Users className="w-4 h-4 text-rose-500" /></div>
+                                        <span className="font-extrabold text-xs text-slate-900 dark:text-white text-center leading-tight line-clamp-1">{t('studyModes.synonymQuiz')}</span>
+                                        <span className="text-[10px] text-slate-400 mt-0.5 text-center leading-tight line-clamp-1">{t('studyModes.synonymQuizSub')}</span>
                                     </button>
                                 )}
                             </div>
 
                             {/* Term List - Inline Editable */}
-                            <div className="pt-4">
-                                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
-                                    <div>
-                                        <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-                                            {t('studyModes.terms')} ({filteredCards.length} / {setCards.length})
+                            <div className="pt-2">
+                                <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 mb-4">
+                                    <div className="flex items-center gap-2.5">
+                                        <h2 className="text-sm sm:text-base font-black text-slate-850 dark:text-white uppercase tracking-wider">
+                                            {t('studyModes.terms')}
                                         </h2>
-                                        <p className="text-xs text-gray-400 dark:text-gray-500 italic mt-0.5">{t('studyModes.clickToEdit')}</p>
+                                        <span className="bg-sky-50 dark:bg-sky-950/50 text-sky-700 dark:text-sky-300 border-2 border-sky-300 dark:border-sky-800 rounded-full px-2.5 py-0.5 text-xs font-black shadow-2xs">
+                                            {filteredCards.length} / {setCards.length}
+                                        </span>
                                     </div>
 
                                     {setCards.length > 5 && (
@@ -1446,17 +1481,17 @@ const StudySetDetail = ({
                                                 placeholder={t('common.searchVocabPlaceholder')}
                                                 value={searchQuery}
                                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                                className="w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl pl-9 pr-4 py-2 text-sm outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-gray-800 dark:text-white transition-all shadow-sm"
+                                                className="w-full bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-2xl pl-9 pr-4 py-2 text-xs sm:text-sm font-bold outline-none focus:border-sky-500 text-slate-850 dark:text-white transition-all shadow-xs"
                                             />
-                                            <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-400" />
+                                            <Search className="absolute left-3 top-2.5 w-4 h-4 text-slate-400" />
                                         </div>
                                     )}
                                 </div>
 
                                 {filteredCards.length === 0 && searchQuery ? (
-                                    <div className="text-center py-12 bg-white dark:bg-gray-800 rounded-2xl border border-gray-150 dark:border-gray-700">
-                                        <Search className="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto mb-3" />
-                                        <p className="text-gray-500 dark:text-gray-400 text-sm">
+                                    <div className="text-center py-12 bg-white dark:bg-slate-900 rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-800 p-8 shadow-xs">
+                                        <Search className="w-12 h-12 text-slate-300 dark:text-slate-600 mx-auto mb-3" />
+                                        <p className="text-slate-500 dark:text-slate-400 text-sm font-bold">
                                             {language === 'vi' ? `Không tìm thấy từ vựng nào khớp với "${searchQuery}"` : `No vocabulary found matching "${searchQuery}"`}
                                         </p>
                                     </div>
@@ -1470,16 +1505,16 @@ const StudySetDetail = ({
                                                 <div
                                                     key={card.id ? `${card.id}-${idx}` : idx}
                                                     onClick={() => toggleCardExpanded(card.id)}
-                                                    className="flex flex-col bg-white dark:bg-slate-900 p-4 md:p-5 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 gap-3 hover:border-cyan-400 dark:hover:border-cyan-500/50 hover:shadow-md transition-all cursor-pointer"
+                                                    className="flex flex-col bg-white dark:bg-slate-900 p-3.5 sm:p-4 rounded-3xl border-2 border-b-4 border-slate-200 dark:border-slate-800 gap-3 hover:border-sky-400 dark:hover:border-sky-500 shadow-xs transition-all cursor-pointer"
                                                 >
                                                     <div className="flex flex-col md:flex-row gap-4 md:gap-6 items-stretch">
-                                                        <div className="flex-1 md:w-1/2 flex flex-col justify-center md:border-r border-gray-100 dark:border-gray-700 md:pr-6">
-                                                            <div className="font-bold text-lg text-gray-900 dark:text-white flex items-center gap-2 flex-wrap">
+                                                        <div className="flex-1 md:w-1/2 flex flex-col justify-center md:border-r-2 border-slate-100 dark:border-slate-800 md:pr-6">
+                                                            <div className="font-bold text-lg text-slate-850 dark:text-white flex items-center gap-2 flex-wrap">
                                                                 <InlineEditCell
                                                                     value={cardIsEng || cardIsKo ? card.front : (card.frontWithFurigana || card.front)}
                                                                     isJapanese={!cardIsEng && !cardIsKo}
                                                                     onSave={(v) => handleInlineSave(card, 'front', v)}
-                                                                    className="text-lg font-bold inline-block"
+                                                                    className="text-lg font-black inline-block"
                                                                 />
                                                                 {cardIsKo ? (
                                                                     card.reading && (
@@ -1488,7 +1523,7 @@ const StudySetDetail = ({
                                                                                 value={card.reading}
                                                                                 placeholder={t('vocab.addRomaja')}
                                                                                 onSave={(v) => handleInlineSave(card, 'reading', v)}
-                                                                                className="text-xs font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50 px-2 py-0.5 rounded-md border border-blue-200 dark:border-blue-800/60 inline-block min-w-[70px]"
+                                                                                className="text-xs font-mono text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/50 px-2 py-0.5 rounded-xl border border-sky-200 dark:border-sky-800/60 inline-block min-w-[70px]"
                                                                             />
                                                                         </div>
                                                                     )
@@ -1498,7 +1533,7 @@ const StudySetDetail = ({
                                                                             value={formatIPA(card.ipa)}
                                                                             placeholder={t('vocab.addIpa')}
                                                                             onSave={(v) => handleInlineSave(card, 'ipa', v)}
-                                                                            className="text-xs font-mono text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-950/50 px-2 py-0.5 rounded-md border border-blue-200 dark:border-blue-800/60 inline-block min-w-[70px]"
+                                                                            className="text-xs font-mono text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/50 px-2 py-0.5 rounded-xl border border-sky-200 dark:border-sky-800/60 inline-block min-w-[70px]"
                                                                         />
                                                                     </div>
                                                                 ) : (
@@ -1506,53 +1541,53 @@ const StudySetDetail = ({
                                                                 )}
                                                             </div>
                                                             {cardIsKo ? (
-                                                                <div className="text-yellow-600 dark:text-yellow-500 text-sm mt-1 font-medium min-h-[1.5rem] flex items-center">
+                                                                <div className="text-amber-700 dark:text-amber-400 text-sm mt-1 font-bold min-h-[1.5rem] flex items-center">
                                                                     <InlineEditCell
                                                                         value={card.sinoVietnamese || ''}
                                                                         placeholder={t('vocab.addHanhan')}
                                                                         onSave={(v) => handleInlineSave(card, 'sinoVietnamese', v)}
-                                                                        className="text-sm font-medium inline-block min-w-[100px]"
+                                                                        className="text-sm font-bold inline-block min-w-[100px]"
                                                                     />
                                                                 </div>
                                                             ) : !cardIsEng ? (
-                                                                <div className="text-yellow-600 dark:text-yellow-500 text-sm mt-1 font-medium min-h-[1.5rem] flex items-center">
+                                                                <div className="text-amber-700 dark:text-amber-400 text-sm mt-1 font-bold min-h-[1.5rem] flex items-center">
                                                                     <InlineEditCell
                                                                         value={card.sinoVietnamese || ''}
                                                                         placeholder={t('vocab.addHanviet')}
                                                                         onSave={(v) => handleInlineSave(card, 'sinoVietnamese', v)}
-                                                                        className="text-sm font-medium inline-block min-w-[100px]"
+                                                                        className="text-sm font-bold inline-block min-w-[100px]"
                                                                     />
                                                                 </div>
                                                             ) : null}
                                                         </div>
                                                         <div className="flex-1 md:w-1/2 flex items-center justify-between gap-4">
-                                                            <div className="flex-1 flex flex-col justify-center text-lg text-gray-800 dark:text-gray-200">
+                                                            <div className="flex-1 flex flex-col justify-center text-base sm:text-lg font-bold text-sky-700 dark:text-sky-300">
                                                                 <InlineEditCell
                                                                     value={card.back}
                                                                     onSave={(v) => handleInlineSave(card, 'back', v)}
-                                                                    className="text-lg"
+                                                                    className="text-base sm:text-lg font-bold text-sky-700 dark:text-sky-300"
                                                                 />
                                                             </div>
-                                                            <div className="flex items-center gap-2">
+                                                            <div className="flex items-center gap-1.5 shrink-0">
                                                                 {card.imageBase64 && (
-                                                                    <div className="w-16 h-16 rounded-lg overflow-hidden flex-shrink-0 shadow-sm border border-gray-100 dark:border-gray-700">
+                                                                    <div className="w-14 h-14 rounded-2xl overflow-hidden shrink-0 shadow-2xs border-2 border-slate-200 dark:border-slate-700">
                                                                         <img src={card.imageBase64} alt={card.front} className="w-full h-full object-cover" />
                                                                     </div>
                                                                 )}
                                                                 {card.audioBase64 && (
                                                                     <button
                                                                         onClick={(e) => { e.stopPropagation(); playAudio(card.audioBase64, card.front, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null); }}
-                                                                        className="p-2.5 text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950/40 rounded-full transition-colors flex-shrink-0 cursor-pointer"
+                                                                        className="w-8 h-8 rounded-xl bg-sky-100 hover:bg-sky-200 border-2 border-b-3 border-sky-300 text-sky-600 dark:bg-sky-950/60 dark:border-sky-800 dark:text-sky-400 flex items-center justify-center transition-all active:translate-y-0.5 active:border-b-1 font-black shrink-0 cursor-pointer shadow-2xs"
                                                                     >
-                                                                        <Volume2 className="w-5 h-5" />
+                                                                        <Volume2 className="w-4 h-4" />
                                                                     </button>
                                                                 )}
                                                                 <button
                                                                     onClick={(e) => { e.stopPropagation(); setEditingCard(card); }}
-                                                                    className="p-2.5 text-slate-500 hover:text-blue-600 hover:bg-blue-50 dark:hover:bg-blue-950/40 rounded-full transition-colors flex-shrink-0 cursor-pointer"
+                                                                    className="w-8 h-8 rounded-xl bg-slate-100 hover:bg-slate-200 border-2 border-b-3 border-slate-300 text-slate-600 dark:bg-slate-800 dark:border-slate-700 dark:text-slate-300 flex items-center justify-center transition-all active:translate-y-0.5 active:border-b-1 cursor-pointer shrink-0"
                                                                     title={t('vocab.editCard')}
                                                                 >
-                                                                    <Edit className="w-5 h-5" />
+                                                                    <Edit className="w-4 h-4" />
                                                                 </button>
                                                                 {onDeleteCard && (
                                                                     <button
@@ -1560,10 +1595,10 @@ const StudySetDetail = ({
                                                                             e.stopPropagation();
                                                                             setCardToDelete(card);
                                                                         }}
-                                                                        className="p-2.5 text-slate-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-full transition-colors flex-shrink-0"
+                                                                        className="w-8 h-8 rounded-xl bg-rose-50 hover:bg-rose-100 border-2 border-b-3 border-rose-200 text-rose-600 dark:bg-rose-950/40 dark:border-rose-900 dark:text-rose-400 flex items-center justify-center transition-all active:translate-y-0.5 active:border-b-1 cursor-pointer shrink-0"
                                                                         title={t('vocab.deleteCard')}
                                                                     >
-                                                                        <Trash2 className="w-5 h-5" />
+                                                                        <Trash2 className="w-4 h-4" />
                                                                     </button>
                                                                 )}
                                                             </div>
@@ -1572,33 +1607,33 @@ const StudySetDetail = ({
 
                                                     {/* Expanded details container */}
                                                     {isExpanded && (
-                                                        <div className="mt-2 border-t border-gray-100 dark:border-gray-700/40 pt-3 space-y-3" onClick={(e) => e.stopPropagation()}>
+                                                        <div className="mt-2 border-t-2 border-slate-100 dark:border-slate-800 pt-3 space-y-3" onClick={(e) => e.stopPropagation()}>
                                                             {card.synonym && (
                                                                 <div className="flex items-start gap-1.5 text-xs text-slate-600 dark:text-slate-300">
-                                                                    <span className="font-semibold text-blue-600 shrink-0">{t('vocab.synonym')}:</span>
-                                                                    <span className="font-japanese font-medium"><FuriganaText text={card.synonym} /></span>
+                                                                    <span className="font-black text-sky-600 shrink-0">{t('vocab.synonym')}:</span>
+                                                                    <span className="font-japanese font-bold"><FuriganaText text={card.synonym} /></span>
                                                                 </div>
                                                             )}
                                                             {card.nuance && (
-                                                                <div className="flex items-start gap-1.5 text-xs text-slate-600 dark:text-slate-300 bg-amber-500/5 dark:bg-amber-500/10 border border-amber-500/20 rounded-xl p-2.5">
-                                                                    <span className="text-amber-600 dark:text-amber-400 font-bold shrink-0">💡 {t('vocab.nuance')}:</span>
-                                                                    <span className="leading-relaxed">{card.nuance}</span>
+                                                                <div className="flex items-start gap-1.5 text-xs text-slate-700 dark:text-slate-200 bg-amber-50 dark:bg-amber-950/20 border-2 border-b-3 border-amber-200 dark:border-amber-900/50 rounded-2xl p-2.5">
+                                                                    <span className="text-amber-700 dark:text-amber-400 font-black shrink-0">💡 {t('vocab.nuance')}:</span>
+                                                                    <span className="leading-relaxed font-bold">{card.nuance}</span>
                                                                 </div>
                                                             )}
                                                             {(card.example || card.exampleMeaning) && (
-                                                                <div className="space-y-2 mt-1">
-                                                                    <div className="text-[10px] uppercase tracking-wider text-slate-400 font-bold">{t('vocab.exampleSentences')}:</div>
-                                                                    <div className="bg-slate-50 dark:bg-slate-900/40 rounded-xl p-3 border border-slate-100 dark:border-slate-800 space-y-2.5">
+                                                                <div className="space-y-1.5 mt-1">
+                                                                    <div className="text-[10px] uppercase tracking-wider text-slate-400 font-black">{t('vocab.exampleSentences')}:</div>
+                                                                    <div className="bg-slate-50 dark:bg-slate-900/40 rounded-2xl p-3 border-2 border-slate-100 dark:border-slate-800 space-y-2">
                                                                         {card.example ? (
                                                                             card.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
                                                                                 const meaning = (card.exampleMeaning || '').split('\n')[idx]?.trim();
                                                                                 return (
-                                                                                    <div key={idx} className="relative group/ex border-l-2 border-blue-400/40 dark:border-blue-500/30 pl-2.5 pr-8">
-                                                                                        <div className="text-sm text-slate-800 dark:text-slate-200 font-japanese leading-relaxed">
+                                                                                    <div key={idx} className="relative group/ex border-l-3 border-sky-400 dark:border-sky-500 pl-3 pr-8">
+                                                                                        <div className="text-xs sm:text-sm text-slate-850 dark:text-slate-200 font-japanese leading-relaxed font-bold">
                                                                                             <FuriganaText text={ex} />
                                                                                         </div>
                                                                                         {meaning && (
-                                                                                            <div className="text-xs text-slate-500 dark:text-slate-400 font-sans mt-0.5">{meaning}</div>
+                                                                                            <div className="text-xs text-slate-500 dark:text-slate-400 font-sans mt-0.5 font-medium">{meaning}</div>
                                                                                         )}
                                                                                         <button
                                                                                             type="button"
@@ -1606,7 +1641,7 @@ const StudySetDetail = ({
                                                                                                 e.stopPropagation();
                                                                                                 speakExampleSentence(ex);
                                                                                             }}
-                                                                                            className="absolute right-0 top-1/2 -translate-y-1/2 p-1.5 rounded-lg text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                                                                                            className="absolute right-0 top-1/2 -translate-y-1/2 p-1.5 rounded-xl text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition-colors cursor-pointer"
                                                                                             title={language === 'vi' ? 'Nghe câu ví dụ' : 'Play example sentence audio'}
                                                                                         >
                                                                                             <Volume2 className="w-3.5 h-3.5" />
@@ -1616,7 +1651,7 @@ const StudySetDetail = ({
                                                                             })
                                                                         ) : (
                                                                             card.exampleMeaning && (
-                                                                                <p className="text-xs text-slate-500 dark:text-slate-400 italic">{card.exampleMeaning}</p>
+                                                                                <p className="text-xs text-slate-500 dark:text-slate-400 italic font-medium">{card.exampleMeaning}</p>
                                                                             )
                                                                         )}
                                                                     </div>
@@ -1626,29 +1661,29 @@ const StudySetDetail = ({
                                                     )}
 
                                                     {/* SRS Toggle Footer */}
-                                                    <div className="border-t border-gray-100 dark:border-gray-700/60 pt-3 flex justify-between items-center">
-                                                        <div className="flex items-center gap-4">
+                                                    <div className="border-t-2 border-slate-100 dark:border-slate-800 pt-2.5 flex justify-between items-center">
+                                                        <div className="flex items-center gap-3">
                                                             {card.srsEnabled !== false ? (
                                                                 <div className="flex items-center gap-1.5">
-                                                                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse flex-shrink-0"></span>
-                                                                    <span className="text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+                                                                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse shrink-0"></span>
+                                                                    <span className="text-xs font-black text-emerald-600 dark:text-emerald-400">
                                                                         {t('srs.title')} · {getSrsCycleLabel(card, t)}
                                                                     </span>
                                                                 </div>
                                                             ) : (
-                                                                <span className="text-xs text-gray-400 dark:text-gray-500 font-medium">
+                                                                <span className="text-xs text-slate-400 dark:text-slate-500 font-bold">
                                                                     {t('srs.title')}
                                                                 </span>
                                                             )}
-                                                            {/* Toggle switch */}
+                                                            {/* Duolingo tactile toggle switch */}
                                                             <button
                                                                 onClick={(e) => { e.stopPropagation(); onToggleSrs && onToggleSrs(card.id, !(card.srsEnabled !== false)); }}
-                                                                className={`relative inline-flex h-5 w-9 flex-shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${card.srsEnabled !== false ? 'bg-blue-600' : 'bg-gray-200 dark:bg-gray-600'}`}
+                                                                className={`relative inline-flex h-5 w-9 shrink-0 cursor-pointer rounded-full border-2 border-transparent transition-colors duration-200 ease-in-out focus:outline-none ${card.srsEnabled !== false ? 'bg-emerald-500' : 'bg-slate-200 dark:bg-slate-700'}`}
                                                                 role="switch"
                                                                 aria-checked={card.srsEnabled !== false}
                                                             >
                                                                 <span
-                                                                    className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-sm ring-0 transition duration-200 ease-in-out ${card.srsEnabled !== false ? 'translate-x-4' : 'translate-x-0'}`}
+                                                                    className={`pointer-events-none inline-block h-4 w-4 transform rounded-full bg-white shadow-xs ring-0 transition duration-200 ease-in-out ${card.srsEnabled !== false ? 'translate-x-4' : 'translate-x-0'}`}
                                                                 />
                                                             </button>
                                                         </div>
@@ -1656,12 +1691,12 @@ const StudySetDetail = ({
                                                         {/* Toggle details button */}
                                                         <button
                                                             onClick={(e) => { e.stopPropagation(); toggleCardExpanded(card.id); }}
-                                                            className="flex items-center gap-1 text-xs font-bold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                                                            className="flex items-center gap-1 text-xs font-black text-sky-600 dark:text-sky-400 hover:text-sky-700 dark:hover:text-sky-300 transition-colors uppercase tracking-wider"
                                                         >
                                                             {isExpanded ? (
-                                                                <>{t('common.collapse')} <ChevronUp className="w-3.5 h-3.5" /></>
+                                                                <>{t('common.collapse')} <ChevronUp className="w-3.5 h-3.5 stroke-[3]" /></>
                                                             ) : (
-                                                                <>{t('common.viewDetails')} <ChevronDown className="w-3.5 h-3.5" /></>
+                                                                <>{t('common.viewDetails')} <ChevronDown className="w-3.5 h-3.5 stroke-[3]" /></>
                                                             )}
                                                         </button>
                                                     </div>
@@ -1675,10 +1710,10 @@ const StudySetDetail = ({
                                     <div className="text-center pt-6">
                                         <button
                                             onClick={() => setVisibleCount(prev => prev + 30)}
-                                            className="px-6 py-2.5 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 hover:border-blue-500 dark:hover:border-blue-500 text-blue-600 dark:text-blue-600 hover:text-blue-600 dark:hover:text-blue-600 font-bold rounded-xl transition-all shadow-sm hover:shadow-md cursor-pointer inline-flex items-center gap-2 text-sm"
+                                            className="px-6 py-2.5 bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 hover:border-sky-400 text-sky-600 dark:text-sky-400 font-black text-xs uppercase tracking-wider rounded-2xl transition-all shadow-xs active:translate-y-0.5 active:border-b-2 cursor-pointer inline-flex items-center gap-2"
                                         >
                                             {t('vocab.loadMoreCards', { count: filteredCards.length - visibleCount })}
-                                            <ChevronDown className="w-4 h-4" />
+                                            <ChevronDown className="w-4 h-4 stroke-[3]" />
                                         </button>
                                     </div>
                                 )}

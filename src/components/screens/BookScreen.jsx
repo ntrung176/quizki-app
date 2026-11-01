@@ -258,7 +258,7 @@ const BookScreen = ({
     return (
         <div className="w-full pb-8">
             <TopTabBar tabs={VOCAB_TABS} />
-            <div className="max-w-6xl mx-auto space-y-4 px-4 md:px-8 mt-4 animate-fade-in">
+            <div className="w-full max-w-[1440px] mx-auto space-y-4 px-3 sm:px-6 lg:px-8 mt-3 animate-fade-in">
                 {(groupId || bookId || chapterId || lessonId) && (
                     <BookNavHeader
                         currentGroup={currentGroup}

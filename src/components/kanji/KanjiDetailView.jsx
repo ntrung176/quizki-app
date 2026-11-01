@@ -298,7 +298,7 @@ const KanjiDetailView = ({
                                 <RotateCcw className="w-4 h-4 stroke-[2.5]" />
                             </button>
                             <div className="absolute top-3 right-3 bg-amber-500 border-b-2 border-amber-600 text-white text-xs font-black px-3 py-1 rounded-xl shadow-xs">
-                                {kanjiApiData?.stroke_count || det.strokeCount || '?'} nét
+                                {kanjiApiData?.stroke_count || det.strokeCount || getJotobaKanjiData(selectedKanji)?.stroke_count || '?'} nét
                             </div>
                         </div>
                     </div>
