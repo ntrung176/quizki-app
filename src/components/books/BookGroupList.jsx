@@ -37,7 +37,7 @@ const BookGroupList = ({
                         <button
                             type="button"
                             onClick={() => setShowBlankFillerModal(true)}
-                            className="px-3 py-1.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm cursor-pointer"
+                            className="px-3 py-1.5 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm cursor-pointer"
                         >
                             <Sparkles className="w-3.5 h-3.5" /> ✨ AI Lắp từ vào ví dụ
                         </button>

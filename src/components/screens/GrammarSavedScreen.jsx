@@ -372,7 +372,7 @@ const GrammarSavedScreen = () => {
                                     </div>
                                     <button 
                                         onClick={() => setShowFolderManager(!showFolderManager)}
-                                        className={`p-2 rounded-xl border border-slate-200 dark:border-slate-700 hover:scale-105 active:scale-95 transition-transform shrink-0 ${showFolderManager ? 'bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 border-indigo-200' : 'bg-white dark:bg-slate-800 text-slate-655'}`}
+                                        className={`p-2 rounded-xl border border-slate-200 dark:border-slate-700 hover:scale-105 active:scale-95 transition-transform shrink-0 ${showFolderManager ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border-emerald-200' : 'bg-white dark:bg-slate-800 text-slate-655'}`}
                                     >
                                         <Folder className="w-5 h-5" />
                                     </button>
@@ -394,7 +394,7 @@ const GrammarSavedScreen = () => {
                                             placeholder="Tên thư mục mới..."
                                             className="flex-1 px-3 py-1.5 text-xs bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-750 rounded-xl outline-none"
                                         />
-                                        <button onClick={createFolder} className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold flex items-center gap-1">
+                                        <button onClick={createFolder} className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold flex items-center gap-1">
                                             <Plus className="w-3.5 h-3.5" /> Tạo
                                         </button>
                                     </div>
@@ -411,14 +411,14 @@ const GrammarSavedScreen = () => {
                                                                 onChange={(e) => setEditingFolderName(e.target.value)}
                                                                 className="flex-1 px-2 py-0.5 text-xs border border-slate-200 rounded outline-none"
                                                             />
-                                                            <button onClick={renameFolder} className="text-[10px] font-bold text-indigo-600">Lưu</button>
+                                                            <button onClick={renameFolder} className="text-[10px] font-bold text-emerald-600">Lưu</button>
                                                             <button onClick={() => setEditingFolderId(null)} className="text-[10px] font-bold text-gray-500">Huỷ</button>
                                                         </div>
                                                     ) : (
                                                         <>
                                                             <span className="text-xs font-bold text-slate-700 dark:text-slate-300 truncate">{f.name}</span>
                                                             <div className="flex items-center gap-1.5 shrink-0 ml-2">
-                                                                <button onClick={() => { setEditingFolderId(f.id); setEditingFolderName(f.name); }} className="text-slate-400 hover:text-indigo-600"><Edit className="w-3.5 h-3.5" /></button>
+                                                                <button onClick={() => { setEditingFolderId(f.id); setEditingFolderName(f.name); }} className="text-slate-400 hover:text-emerald-600"><Edit className="w-3.5 h-3.5" /></button>
                                                                 <button onClick={() => deleteFolder(f.id)} className="text-slate-400 hover:text-red-500"><Trash2 className="w-3.5 h-3.5" /></button>
                                                             </div>
                                                         </>
@@ -470,8 +470,8 @@ const GrammarSavedScreen = () => {
                         </div>
 
                         {selectedIds.size > 0 && (
-                            <div className="bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-150 dark:border-indigo-900/40 rounded-2xl p-4 flex items-center justify-between gap-4 animate-scale-up">
-                                <span className="text-xs font-bold text-indigo-700 dark:text-indigo-400">
+                            <div className="bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/40 rounded-2xl p-4 flex items-center justify-between gap-4 animate-scale-up">
+                                <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400">
                                     Đã chọn {selectedIds.size} / {filteredItems.length} cấu trúc
                                 </span>
                                 <div className="flex items-center gap-2">
@@ -504,10 +504,10 @@ const GrammarSavedScreen = () => {
                                         <div 
                                             key={item.id} 
                                             onClick={() => navigate(`/grammar/detail/${item.id}?tb=${item.textbookId || ''}&ls=${item.lessonId || ''}&from=saved`)}
-                                            className={`bg-white dark:bg-slate-800 border rounded-2xl p-4 shadow-sm hover:shadow-md hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300 flex items-start gap-3 cursor-pointer group relative ${isSelected ? 'border-indigo-500 dark:border-indigo-500 bg-indigo-50/5' : 'border-gray-200/60 dark:border-slate-700/60'}`}
+                                            className={`bg-white dark:bg-slate-800 border rounded-2xl p-4 shadow-sm hover:shadow-md hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300 flex items-start gap-3 cursor-pointer group relative ${isSelected ? 'border-emerald-500 dark:border-emerald-500 bg-emerald-50/5' : 'border-gray-200/60 dark:border-slate-700/60'}`}
                                         >
                                             <div onClick={(e) => { e.stopPropagation(); handleSelectOne(item.id); }} className="pt-0.5 select-none relative z-10">
-                                                <div className={`w-4 h-4 rounded-md border flex items-center justify-center transition-all ${isSelected ? 'bg-indigo-600 border-indigo-600 text-white' : 'border-slate-300 dark:border-slate-655 bg-white dark:bg-slate-900'}`}>
+                                                <div className={`w-4 h-4 rounded-md border flex items-center justify-center transition-all ${isSelected ? 'bg-emerald-600 border-emerald-600 text-white' : 'border-slate-300 dark:border-slate-655 bg-white dark:bg-slate-900'}`}>
                                                     {isSelected && <div className="w-1.5 h-1.5 bg-white rounded-full"></div>}
                                                 </div>
                                             </div>
@@ -544,7 +544,7 @@ const GrammarSavedScreen = () => {
                                                 </div>
 
                                                 <div className="space-y-1">
-                                                    <h3 className="font-bold text-slate-800 dark:text-white text-base group-hover:text-indigo-650 dark:group-hover:text-indigo-400 transition-colors leading-tight font-japanese">
+                                                    <h3 className="font-bold text-slate-800 dark:text-white text-base group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors leading-tight font-japanese">
                                                         {item.pattern}
                                                     </h3>
                                                     <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-1">
@@ -601,7 +601,7 @@ const GrammarSavedScreen = () => {
                                                     <p className="text-xs font-bold text-slate-800 dark:text-slate-200 truncate font-japanese">{found.pattern}</p>
                                                     <p className="text-[10px] text-slate-400 truncate">{found.meaningShort || found.meaning}</p>
                                                 </div>
-                                                <span className="text-[9px] font-black text-white px-1.5 py-0.5 rounded bg-indigo-500">
+                                                <span className="text-[9px] font-black text-white px-1.5 py-0.5 rounded bg-emerald-500">
                                                     {found.level || found.jlpt || 'N5'}
                                                 </span>
                                             </div>

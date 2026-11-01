@@ -197,7 +197,7 @@ const JLPTTestDashboard = ({
                     {/* Stats Summary Strip */}
                     <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 border-t border-slate-100 dark:border-slate-800/80">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 flex items-center justify-center shrink-0">
+                            <div className="w-10 h-10 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                                 <CheckCircle2 className="w-5 h-5" />
                             </div>
                             <div>

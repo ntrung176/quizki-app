@@ -244,7 +244,7 @@ const GrammarFlashcard = ({
                 >
                     {/* ==================== FRONT SIDE ==================== */}
                     <div
-                        className="bg-white dark:bg-slate-900 rounded-[28px] md:rounded-[36px] border border-slate-200/90 dark:border-slate-800 shadow-xl shadow-slate-200/40 dark:shadow-none p-6 md:p-8 flex flex-col justify-between hover:border-indigo-300 dark:hover:border-indigo-700/60 transition-all duration-200 group"
+                        className="bg-white dark:bg-slate-900 rounded-[28px] md:rounded-[36px] border border-slate-200/90 dark:border-slate-800 shadow-xl shadow-slate-200/40 dark:shadow-none p-6 md:p-8 flex flex-col justify-between hover:border-emerald-300 dark:hover:border-emerald-700/60 transition-all duration-200 group"
                         style={{
                             position: 'absolute',
                             top: 0,
@@ -257,7 +257,7 @@ const GrammarFlashcard = ({
                         {/* Front Header */}
                         <div className="flex items-center justify-between w-full">
                             {settings.showLevel !== false ? (
-                                <span className="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-mono font-bold bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200/80 dark:border-indigo-800/80 text-indigo-700 dark:text-indigo-300 shadow-2xs">
+                                <span className="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-mono font-bold bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/80 dark:border-emerald-800/80 text-emerald-700 dark:text-emerald-300 shadow-2xs">
                                     JLPT {levelBadge}
                                 </span>
                             ) : (
@@ -280,7 +280,7 @@ const GrammarFlashcard = ({
                                             type="button"
                                             onClick={(e) => handlePlayAudio(card.pattern, e)}
                                             title="Nghe phát âm"
-                                            className="w-8 h-8 rounded-full flex items-center justify-center bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 active:scale-95 transition-all cursor-pointer"
+                                            className="w-8 h-8 rounded-full flex items-center justify-center bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-500 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:scale-105 active:scale-95 transition-all cursor-pointer"
                                         >
                                             <Volume2 className="w-4 h-4" />
                                         </button>
@@ -317,7 +317,7 @@ const GrammarFlashcard = ({
                         {/* Front Footer / Flip Hint */}
                         <div className="w-full text-center">
                             {!isTypingMode ? (
-                                <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 text-xs font-bold border border-indigo-200/60 dark:border-indigo-800/60 shadow-2xs group-hover:bg-indigo-600 group-hover:text-white dark:group-hover:bg-indigo-600 dark:group-hover:text-white transition-all">
+                                <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 text-xs font-bold border border-emerald-200/60 dark:border-emerald-800/60 shadow-2xs group-hover:bg-emerald-600 group-hover:text-white dark:group-hover:bg-emerald-600 dark:group-hover:text-white transition-all">
                                     Nhấn thẻ hoặc bấm Space để lật
                                 </span>
                             ) : (
@@ -373,7 +373,7 @@ const GrammarFlashcard = ({
 
                             {/* Back Meaning Box (Deduplicated & Auto-fit) */}
                             {settings.showMeaning !== false && (
-                                <div className="bg-gradient-to-r from-sky-50/80 to-indigo-50/60 dark:from-sky-950/30 dark:to-indigo-950/20 border border-sky-200/70 dark:border-sky-800/50 rounded-2xl p-4 space-y-1">
+                                <div className="bg-gradient-to-r from-sky-50/80 to-emerald-50/60 dark:from-sky-950/30 dark:to-emerald-950/20 border border-sky-200/70 dark:border-sky-800/50 rounded-2xl p-4 space-y-1">
                                     <div className="flex items-center justify-between">
                                         <div className="text-[11px] font-bold text-[#1d70b8] dark:text-sky-400 uppercase tracking-wider">
                                             Ý nghĩa:
@@ -383,7 +383,7 @@ const GrammarFlashcard = ({
                                                 type="button"
                                                 onClick={(e) => handlePlayAudio(card.pattern, e)}
                                                 title="Nghe phát âm mẫu câu"
-                                                className="w-7 h-7 rounded-full flex items-center justify-center bg-white/80 dark:bg-slate-800/80 border border-sky-200/60 dark:border-sky-700/60 text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:scale-105 active:scale-95 transition-all cursor-pointer shrink-0 shadow-2xs"
+                                                className="w-7 h-7 rounded-full flex items-center justify-center bg-white/80 dark:bg-slate-800/80 border border-sky-200/60 dark:border-sky-700/60 text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:scale-105 active:scale-95 transition-all cursor-pointer shrink-0 shadow-2xs"
                                             >
                                                 <Volume2 className="w-3.5 h-3.5" />
                                             </button>
@@ -406,7 +406,7 @@ const GrammarFlashcard = ({
                             {settings.showStructure !== false && structuresList.length > 0 && (
                                 <div className="space-y-2">
                                     <div className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider flex items-center gap-1.5">
-                                        <Layers className="w-3.5 h-3.5 text-indigo-500" />
+                                        <Layers className="w-3.5 h-3.5 text-emerald-500" />
                                         <span>Cấu trúc / Kết nối:</span>
                                     </div>
                                     <div className="space-y-1.5">

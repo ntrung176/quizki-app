@@ -310,7 +310,7 @@ const ZenProtectedRoute = ({ children, packageId, profile, isAdmin }) => {
         <div className="w-full min-h-[70vh] flex flex-col items-center justify-center px-4 py-12 relative overflow-hidden bg-slate-50/50 dark:bg-slate-900/30 rounded-3xl border border-dashed border-slate-200 dark:border-slate-800">
             <div className="absolute inset-0 bg-grid-pattern opacity-5" />
             <div className="relative z-10 max-w-md w-full bg-white dark:bg-slate-800 p-8 rounded-3xl shadow-xl dark:shadow-none border border-slate-100 dark:border-slate-700 text-center space-y-6">
-                <div className="w-16 h-16 rounded-2xl bg-indigo-500/10 dark:bg-indigo-500/10 flex items-center justify-center mx-auto shadow-sm">
+                <div className="w-16 h-16 rounded-2xl bg-emerald-500/10 dark:bg-emerald-500/10 flex items-center justify-center mx-auto shadow-sm">
                     <span className="text-3xl">🔒</span>
                 </div>
                 <div className="space-y-2">
@@ -322,7 +322,7 @@ const ZenProtectedRoute = ({ children, packageId, profile, isAdmin }) => {
                 <div className="flex flex-col gap-3">
                     <button
                         onClick={() => navigate(ROUTES.UPGRADE)}
-                        className="w-full py-3 bg-gradient-to-r from-indigo-600 to-sky-500 hover:from-indigo-700 hover:to-sky-600 text-white font-bold rounded-xl transition-all shadow-lg shadow-indigo-200 dark:shadow-none cursor-pointer text-sm"
+                        className="w-full py-3 bg-gradient-to-r from-emerald-600 to-sky-500 hover:from-emerald-700 hover:to-sky-600 text-white font-bold rounded-xl transition-all shadow-lg shadow-emerald-200 dark:shadow-none cursor-pointer text-sm"
                     >
                         {t('premium.unlockNow', 'Mở khóa ngay')}
                     </button>

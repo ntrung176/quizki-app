@@ -177,7 +177,7 @@ const HangulCardModal = ({
                                 <div className="flex items-center justify-center gap-6 text-3xl font-black font-sans py-2">
                                     <span className="text-cyan-600 dark:text-cyan-400">{item.char}</span>
                                     <span className="text-slate-300 dark:text-slate-700 text-xl">↔</span>
-                                    <span className="text-indigo-600 dark:text-indigo-400 font-mono text-2xl">/{item.romaji}/</span>
+                                    <span className="text-sky-600 dark:text-sky-400 font-mono text-2xl">/{item.romaji}/</span>
                                 </div>
                             </div>
                         </div>

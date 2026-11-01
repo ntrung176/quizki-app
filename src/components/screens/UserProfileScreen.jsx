@@ -31,14 +31,14 @@ const AvatarDisplay = ({ avatar, name, size = 'w-20 h-20', textSize = 'text-2xl'
 
     const emoji = (resolvedAvatar && resolvedAvatar !== 'default') ? AVATAR_EMOJIS[resolvedAvatar] : null;
     const fallbackChar = (
-        <div className={`${size} rounded-full flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-indigo-200 dark:ring-indigo-800 border-[3px] border-white dark:border-gray-700 ${emoji ? 'bg-gradient-to-br from-indigo-100 to-sky-100 dark:from-indigo-900/40 dark:to-sky-900/20' : 'bg-gradient-to-br from-indigo-500 to-indigo-650 text-white font-bold'}`}>
+        <div className={`${size} rounded-full flex items-center justify-center flex-shrink-0 shadow-lg ring-2 ring-emerald-200 dark:ring-emerald-800 border-[3px] border-white dark:border-gray-700 ${emoji ? 'bg-gradient-to-br from-emerald-100 to-sky-100 dark:from-emerald-900/40 dark:to-sky-900/20' : 'bg-gradient-to-br from-emerald-500 to-emerald-600 text-white font-bold'}`}>
             {emoji ? <span className={textSize === 'text-2xl' ? 'text-3xl' : textSize}>{emoji}</span> : <span className={textSize}>{(name || 'U')[0].toUpperCase()}</span>}
         </div>
     );
 
     if (isPhotoUrl(resolvedAvatar)) {
         return (
-            <div className={`${size} rounded-full overflow-hidden flex-shrink-0 border-[3px] border-white dark:border-gray-700 shadow-lg ring-2 ring-indigo-200 dark:ring-indigo-800`}>
+            <div className={`${size} rounded-full overflow-hidden flex-shrink-0 border-[3px] border-white dark:border-gray-700 shadow-lg ring-2 ring-emerald-200 dark:ring-emerald-800`}>
                 <SafeAvatarImage
                     src={resolvedAvatar}
                     alt=""
@@ -88,7 +88,7 @@ const EditProfileModal = ({ profileData, onClose, onSave }) => {
                 {/* Header */}
                 <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-gray-100 dark:border-gray-800">
                     <h3 className="font-bold text-gray-800 dark:text-white text-base flex items-center gap-2">
-                        <Pencil className="w-4 h-4 text-indigo-500" />
+                        <Pencil className="w-4 h-4 text-emerald-500" />
                         Chỉnh sửa hồ sơ
                     </h3>
                     <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
@@ -103,7 +103,7 @@ const EditProfileModal = ({ profileData, onClose, onSave }) => {
                             value={bio}
                             onChange={e => setBio(e.target.value)}
                             placeholder={t('profile.bioPlaceholder', 'Viết vài dòng giới thiệu bản thân...')}
-                            className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-400 resize-none"
+                            className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-400 resize-none"
                             rows={3}
                             maxLength={150}
                         />
@@ -118,7 +118,7 @@ const EditProfileModal = ({ profileData, onClose, onSave }) => {
                                     key={lvl}
                                     onClick={() => setJlptLevel(jlptLevel === lvl ? '' : lvl)}
                                     className={`flex-1 py-2 rounded-xl text-xs font-bold transition-all ${jlptLevel === lvl
-                                        ? 'bg-indigo-500 text-white shadow-md shadow-indigo-500/25 ring-2 ring-indigo-300'
+                                        ? 'bg-emerald-500 text-white shadow-md shadow-emerald-500/25 ring-2 ring-emerald-300'
                                         : 'bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
                                         }`}
                                 >
@@ -137,7 +137,7 @@ const EditProfileModal = ({ profileData, onClose, onSave }) => {
                             value={link}
                             onChange={e => setLink(e.target.value)}
                             placeholder="https://..."
-                            className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-400"
+                            className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-400"
                             maxLength={100}
                         />
                     </div>
@@ -147,7 +147,7 @@ const EditProfileModal = ({ profileData, onClose, onSave }) => {
                     <button
                         onClick={handleSave}
                         disabled={saving}
-                        className="w-full py-3 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm shadow-lg shadow-indigo-500/25 disabled:opacity-50 transition-all flex items-center justify-center gap-2"
+                        className="w-full py-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm shadow-lg shadow-emerald-500/25 disabled:opacity-50 transition-all flex items-center justify-center gap-2"
                     >
                         {saving ? (
                             <div className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />
@@ -171,7 +171,7 @@ const ReplyMiniCard = ({ reply }) => {
             className="block bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 p-4 hover:shadow-md transition-all group"
         >
             <div className="flex items-start gap-3">
-                <div className="w-1 h-full min-h-[40px] bg-indigo-200 dark:bg-indigo-800 rounded-full flex-shrink-0" />
+                <div className="w-1 h-full min-h-[40px] bg-emerald-200 dark:bg-emerald-800 rounded-full flex-shrink-0" />
                 <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
                         <span className="text-[10px] text-gray-400 flex items-center gap-1">
@@ -181,7 +181,7 @@ const ReplyMiniCard = ({ reply }) => {
                         <span className="text-[10px] text-gray-400">{timeAgo(reply.createdAt, t, language)}</span>
                     </div>
                     {reply.postTitle && (
-                        <p className="text-[11px] text-indigo-500 dark:text-indigo-400 font-medium mb-1 line-clamp-1 group-hover:text-indigo-600 transition-colors">
+                        <p className="text-[11px] text-emerald-500 dark:text-emerald-400 font-medium mb-1 line-clamp-1 group-hover:text-emerald-600 transition-colors">
                             {reply.postTitle}
                         </p>
                     )}
@@ -193,7 +193,7 @@ const ReplyMiniCard = ({ reply }) => {
                         </span>
                     </div>
                 </div>
-                <ChevronRight className="w-4 h-4 text-gray-300 dark:text-gray-600 mt-1 group-hover:text-indigo-400 transition-colors" />
+                <ChevronRight className="w-4 h-4 text-gray-300 dark:text-gray-600 mt-1 group-hover:text-emerald-400 transition-colors" />
             </div>
         </Link>
     );
@@ -226,7 +226,7 @@ const PostMiniCard = ({ post }) => {
                         <span className="text-[10px] text-gray-400">{timeAgo(post.createdAt, t, language)}</span>
                     </div>
                     {post.title && (
-                        <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-1 leading-snug line-clamp-2 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                        <h4 className="font-bold text-sm text-gray-900 dark:text-white mb-1 leading-snug line-clamp-2 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                             {post.title}
                         </h4>
                     )}
@@ -235,7 +235,7 @@ const PostMiniCard = ({ post }) => {
                     {post.tags?.length > 0 && (
                         <div className="flex flex-wrap gap-1 mt-2">
                             {post.tags.slice(0, 3).map((tag, i) => (
-                                <span key={i} className="text-[9px] font-medium text-indigo-500 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20 px-1.5 py-0.5 rounded-full">#{tag}</span>
+                                <span key={i} className="text-[9px] font-medium text-emerald-500 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 px-1.5 py-0.5 rounded-full">#{tag}</span>
                             ))}
                         </div>
                     )}
@@ -251,7 +251,7 @@ const PostMiniCard = ({ post }) => {
                         </span>
                     </div>
                 </div>
-                <ChevronRight className="w-4 h-4 text-gray-300 dark:text-gray-600 mt-1 group-hover:text-indigo-400 transition-colors" />
+                <ChevronRight className="w-4 h-4 text-gray-300 dark:text-gray-600 mt-1 group-hover:text-emerald-400 transition-colors" />
             </div>
         </Link>
     );
@@ -522,7 +522,7 @@ const UserProfileScreen = ({
     if (loading) {
         return (
             <div className="max-w-xl mx-auto flex flex-col items-center gap-3 py-20">
-                <div className="w-10 h-10 border-3 border-indigo-500/30 border-t-indigo-500 rounded-full animate-spin" />
+                <div className="w-10 h-10 border-3 border-emerald-500/30 border-t-emerald-500 rounded-full animate-spin" />
                 <p className="text-sm text-gray-400">{t('profile.loadingProfile', 'Đang tải hồ sơ...')}</p>
             </div>
         );
@@ -550,7 +550,7 @@ const UserProfileScreen = ({
             {/* Profile Card */}
             <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm overflow-hidden">
                 {/* Cover gradient */}
-                <div className="h-24 bg-gradient-to-r from-indigo-500 to-indigo-700 relative">
+                <div className="h-24 bg-gradient-to-r from-emerald-500 to-emerald-700 relative">
                     {/* Avatar - positioned to overlap */}
                     <div className="absolute -bottom-10 left-5">
                         <AvatarDisplay avatar={displayAvatar} name={displayName} size="w-20 h-20" textSize="text-2xl" isSelf={isSelf} />
@@ -574,7 +574,7 @@ const UserProfileScreen = ({
                                 disabled={followLoading}
                                 className={`px-5 py-2 rounded-full text-sm font-bold transition-all flex items-center gap-1.5 ${isFollowing
                                     ? 'border-2 border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-200 hover:border-red-300 hover:text-red-500 dark:hover:border-red-700'
-                                    : 'bg-indigo-500 text-white shadow-md shadow-indigo-500/25 hover:bg-indigo-600'
+                                    : 'bg-emerald-500 text-white shadow-md shadow-emerald-500/25 hover:bg-emerald-600'
                                     }`}
                             >
                                 {followLoading ? (
@@ -619,7 +619,7 @@ const UserProfileScreen = ({
                                 href={displayLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-1 text-xs text-indigo-500 hover:text-indigo-600 font-medium mt-1"
+                                className="inline-flex items-center gap-1 text-xs text-emerald-500 hover:text-emerald-600 font-medium mt-1"
                             >
                                 <LinkIcon className="w-3 h-3" />
                                 {displayLink.replace(/^https?:\/\//, '').slice(0, 30)}
@@ -674,7 +674,7 @@ const UserProfileScreen = ({
                     <>
                         {loadingPosts ? (
                             <div className="flex justify-center py-12">
-                                <div className="w-6 h-6 border-2 border-indigo-500/30 border-t-indigo-500 rounded-full animate-spin" />
+                                <div className="w-6 h-6 border-2 border-emerald-500/30 border-t-emerald-500 rounded-full animate-spin" />
                             </div>
                         ) : userPosts.length > 0 ? (
                             userPosts.map(post => (
@@ -689,7 +689,7 @@ const UserProfileScreen = ({
                                 {isSelf && (
                                     <Link
                                         to={ROUTES.FORUM}
-                                        className="inline-flex items-center gap-1.5 mt-3 px-4 py-2 bg-indigo-500 text-white text-xs font-bold rounded-full shadow-md shadow-indigo-500/25 hover:bg-indigo-600 transition-all"
+                                        className="inline-flex items-center gap-1.5 mt-3 px-4 py-2 bg-emerald-500 text-white text-xs font-bold rounded-full shadow-md shadow-emerald-500/25 hover:bg-emerald-600 transition-all"
                                     >
                                         <MessageSquare className="w-3.5 h-3.5" /> {t('profile.postOnForum', 'Đăng bài trên diễn đàn')}
                                     </Link>
@@ -702,7 +702,7 @@ const UserProfileScreen = ({
                     <>
                         {loadingReplies ? (
                             <div className="flex justify-center py-12">
-                                <div className="w-6 h-6 border-2 border-indigo-500/30 border-t-indigo-500 rounded-full animate-spin" />
+                                <div className="w-6 h-6 border-2 border-emerald-500/30 border-t-emerald-500 rounded-full animate-spin" />
                             </div>
                         ) : userReplies.length > 0 ? (
                             userReplies.map(reply => (
@@ -722,7 +722,7 @@ const UserProfileScreen = ({
                     <>
                         {loadingLikes ? (
                             <div className="flex justify-center py-12">
-                                <div className="w-6 h-6 border-2 border-indigo-500/30 border-t-indigo-500 rounded-full animate-spin" />
+                                <div className="w-6 h-6 border-2 border-emerald-500/30 border-t-emerald-500 rounded-full animate-spin" />
                             </div>
                         ) : likedPosts.length > 0 ? (
                             likedPosts.map(post => (
@@ -736,7 +736,7 @@ const UserProfileScreen = ({
                                 <p className="font-bold text-gray-500 dark:text-gray-400 text-sm">{t('profile.noLikedPosts', 'Chưa thích bài viết nào')}</p>
                                 <Link
                                     to={ROUTES.FORUM}
-                                    className="inline-flex items-center gap-1.5 mt-3 px-4 py-2 bg-indigo-500 text-white text-xs font-bold rounded-full shadow-md shadow-indigo-500/25 hover:bg-indigo-600 transition-all"
+                                    className="inline-flex items-center gap-1.5 mt-3 px-4 py-2 bg-emerald-500 text-white text-xs font-bold rounded-full shadow-md shadow-emerald-500/25 hover:bg-emerald-600 transition-all"
                                 >
                                     <Heart className="w-3.5 h-3.5" /> {t('profile.exploreForum', 'Khám phá diễn đàn')}
                                 </Link>

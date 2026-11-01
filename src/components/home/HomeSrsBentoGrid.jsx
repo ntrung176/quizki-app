@@ -61,9 +61,9 @@ const HomeSrsBentoGrid = ({
                 id: 'grammar',
                 title: t('home.pillarGrammar', 'Ngữ Pháp'),
                 icon: Layers,
-                iconColor: 'text-indigo-600 dark:text-indigo-400',
-                buttonClass: 'bg-indigo-600 hover:bg-indigo-500 border-b-4 border-indigo-800',
-                progressColor: 'bg-indigo-600',
+                iconColor: 'text-teal-600 dark:text-teal-400',
+                buttonClass: 'bg-teal-600 hover:bg-teal-500 border-b-4 border-teal-800',
+                progressColor: 'bg-teal-600',
                 due: grammarDue,
                 pct: grammarPct,
                 isLoading: grammarSrsStats?.isInitialLoading

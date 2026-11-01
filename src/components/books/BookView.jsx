@@ -173,7 +173,7 @@ const BookView = ({
                         {isAdmin && setShowBlankFillerModal && (
                             <button
                                 onClick={() => setShowBlankFillerModal(true)}
-                                className="flex items-center gap-2 px-3.5 py-2 bg-gradient-to-r from-purple-600 via-indigo-600 to-pink-600 hover:from-purple-700 hover:via-indigo-700 hover:to-pink-700 text-white rounded-xl text-xs sm:text-sm font-bold shadow-md shadow-purple-500/20 transition-all active:scale-95 cursor-pointer"
+                                className="flex items-center gap-2 px-3.5 py-2 bg-gradient-to-r from-teal-600 via-emerald-600 to-pink-600 hover:from-teal-700 hover:via-emerald-700 hover:to-pink-700 text-white rounded-xl text-xs sm:text-sm font-bold shadow-md shadow-teal-500/20 transition-all active:scale-95 cursor-pointer"
                                 title="Dùng AI tự động điền từ vào tất cả chỗ trống trong câu ví dụ cho toàn bộ các bài trong cuốn sách này"
                             >
                                 <Sparkles className="w-4 h-4 text-amber-300 animate-pulse" />

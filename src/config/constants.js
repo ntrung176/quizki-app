@@ -9,7 +9,7 @@ export const POS_TYPES = {
     adverb: { label: 'Trạng từ', color: 'bg-sky-100 text-sky-700 border-sky-200' },
     conjunction: { label: 'Liên từ', color: 'bg-pink-100 text-pink-700 border-pink-200' },
     particle: { label: 'Trợ từ', color: 'bg-cyan-100 text-cyan-700 border-cyan-200' },
-    grammar: { label: 'Ngữ pháp', color: 'bg-indigo-100 text-indigo-700 border-indigo-200' },
+    grammar: { label: 'Ngữ pháp', color: 'bg-emerald-100 text-emerald-700 border-emerald-200' },
     phrase: { label: 'Cụm từ', color: 'bg-teal-100 text-teal-700 border-teal-200' },
     other: { label: 'Khác', color: 'bg-gray-100 text-gray-700 border-gray-200' }
 };
@@ -19,7 +19,7 @@ export const ENGLISH_POS_TYPES = {
     verb: { label: 'Động từ (v.)', color: 'bg-red-100 text-red-700 border-red-200' },
     adjective: { label: 'Tính từ (adj.)', color: 'bg-yellow-100 text-yellow-700 border-yellow-200' },
     adverb: { label: 'Trạng từ (adv.)', color: 'bg-sky-100 text-sky-700 border-sky-200' },
-    preposition: { label: 'Giới từ (prep.)', color: 'bg-purple-100 text-purple-700 border-purple-200' },
+    preposition: { label: 'Giới từ (prep.)', color: 'bg-teal-100 text-teal-700 border-teal-200' },
     conjunction: { label: 'Liên từ (conj.)', color: 'bg-pink-100 text-pink-700 border-pink-200' },
     pronoun: { label: 'Đại từ (pron.)', color: 'bg-emerald-100 text-emerald-700 border-emerald-200' },
     phrasal_verb: { label: 'Cụm động từ (Phrasal Verb)', color: 'bg-orange-100 text-orange-700 border-orange-200' },
@@ -35,8 +35,8 @@ export const KOREAN_POS_TYPES = {
     particle: { label: 'Trợ từ (조사)', color: 'bg-cyan-100 text-cyan-700 border-cyan-200' },
     conjunction: { label: 'Liên từ (접속사)', color: 'bg-pink-100 text-pink-700 border-pink-200' },
     pronoun: { label: 'Đại từ (대명사)', color: 'bg-emerald-100 text-emerald-700 border-emerald-200' },
-    numeral: { label: 'Số từ (수사)', color: 'bg-indigo-100 text-indigo-700 border-indigo-200' },
-    determiner: { label: 'Định từ (관형사)', color: 'bg-purple-100 text-purple-700 border-purple-200' },
+    numeral: { label: 'Số từ (수사)', color: 'bg-emerald-100 text-emerald-700 border-emerald-200' },
+    determiner: { label: 'Định từ (관형사)', color: 'bg-teal-100 text-teal-700 border-teal-200' },
     interjection: { label: 'Thán từ (감탄사)', color: 'bg-amber-100 text-amber-700 border-amber-200' },
     expression: { label: 'Cụm từ / Quán dụng ngữ (관용구)', color: 'bg-teal-100 text-teal-700 border-teal-200' },
     other: { label: 'Khác', color: 'bg-gray-100 text-gray-700 border-gray-200' }
@@ -47,7 +47,7 @@ export const TOPIK_LEVELS = [
     { value: 'TOPIK 2', label: 'TOPIK 2', color: 'bg-teal-100 text-teal-700 border-teal-200' },
     { value: 'TOPIK 3', label: 'TOPIK 3', color: 'bg-blue-100 text-blue-700 border-blue-200' },
     { value: 'TOPIK 4', label: 'TOPIK 4', color: 'bg-sky-100 text-sky-700 border-sky-200' },
-    { value: 'TOPIK 5', label: 'TOPIK 5', color: 'bg-indigo-100 text-indigo-700 border-indigo-200' },
+    { value: 'TOPIK 5', label: 'TOPIK 5', color: 'bg-emerald-100 text-emerald-700 border-emerald-200' },
     { value: 'TOPIK 6', label: 'TOPIK 6', color: 'bg-rose-100 text-rose-700 border-rose-200' }
 ];
 

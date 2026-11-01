@@ -23,10 +23,10 @@ const IpaCardModal = ({
         <div className="fixed inset-0 z-[100] bg-slate-950/75 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto animate-fade-in">
             <div
                 onClick={(e) => e.stopPropagation()}
-                className="relative w-full max-w-lg bg-white dark:bg-slate-900 border-2 border-violet-400/30 dark:border-violet-500/20 rounded-3xl shadow-2xl overflow-hidden flex flex-col my-auto transition-all"
+                className="relative w-full max-w-lg bg-white dark:bg-slate-900 border-2 border-emerald-500/20 dark:border-emerald-500/20 rounded-3xl shadow-2xl overflow-hidden flex flex-col my-auto transition-all"
             >
                 {/* Header with gradient banner */}
-                <div className="relative bg-gradient-to-r from-violet-700 via-purple-600 to-indigo-600 p-5 text-white flex items-center justify-between">
+                <div className="relative bg-gradient-to-r from-emerald-600 via-teal-500 to-sky-500 p-5 text-white flex items-center justify-between">
                     <div className="flex items-center gap-3.5">
                         <div className="min-w-[60px] h-14 px-2.5 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-white shadow-inner font-serif shrink-0">
                             <span className="font-black text-3xl whitespace-nowrap leading-none">
@@ -40,7 +40,7 @@ const IpaCardModal = ({
                                     {item.type}
                                 </span>
                             </div>
-                            <p className="text-xs text-purple-100 font-medium mt-0.5">
+                            <p className="text-xs text-emerald-100 font-medium mt-0.5">
                                 Từ khóa đại diện: <strong className="text-white font-bold">{item.keyWord}</strong> ({item.keyWordMeaning})
                             </p>
                         </div>
@@ -73,7 +73,7 @@ const IpaCardModal = ({
                         onClick={() => setActiveTab('articulation')}
                         className={`flex-1 py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
                             activeTab === 'articulation'
-                                ? 'bg-white dark:bg-slate-800 text-violet-600 dark:text-violet-400 shadow-sm'
+                                ? 'bg-white dark:bg-slate-800 text-sky-600 dark:text-sky-400 shadow-sm'
                                 : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50'
                         }`}
                     >
@@ -112,12 +112,12 @@ const IpaCardModal = ({
                     {activeTab === 'articulation' && (
                         <div className="space-y-4 animate-fade-in">
                             {/* Big Character Card */}
-                            <div className="flex flex-col items-center justify-center p-6 rounded-3xl bg-violet-50/50 dark:bg-violet-950/20 border border-violet-200 dark:border-violet-800/60 relative">
-                                <span className="text-6xl font-black font-serif text-violet-900 dark:text-violet-100 select-none">
+                            <div className="flex flex-col items-center justify-center p-6 rounded-3xl bg-sky-50/50 dark:bg-sky-950/20 border border-slate-200 dark:border-slate-800/60 relative">
+                                <span className="text-6xl font-black font-serif text-slate-900 dark:text-slate-100 select-none">
                                     /{item.char}/
                                 </span>
                                 <div className="flex items-center gap-2 mt-2">
-                                    <span className="text-xs font-bold text-violet-600 dark:text-violet-400 uppercase tracking-wider">
+                                    <span className="text-xs font-bold text-sky-600 dark:text-sky-400 uppercase tracking-wider">
                                         Ví dụ chuẩn:
                                     </span>
                                     <span className="text-sm font-bold text-slate-800 dark:text-slate-200">
@@ -151,15 +151,15 @@ const IpaCardModal = ({
                                         {/* Word A */}
                                         <div 
                                             onClick={() => handlePlayAudio(item.minimalPair.wordA)}
-                                            className="p-4 rounded-2xl bg-violet-50 dark:bg-violet-950/40 border border-violet-200 dark:border-violet-800 text-center space-y-1.5 cursor-pointer hover:border-violet-400 hover:shadow-md transition-all group"
+                                            className="p-4 rounded-2xl bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-800 text-center space-y-1.5 cursor-pointer hover:border-sky-400 hover:shadow-md transition-all group"
                                         >
-                                            <div className="w-8 h-8 rounded-full bg-violet-200 dark:bg-violet-900 text-violet-700 dark:text-violet-300 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
+                                            <div className="w-8 h-8 rounded-full bg-sky-200 dark:bg-sky-900 text-sky-700 dark:text-sky-300 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
                                                 <Volume2 className="w-4 h-4" />
                                             </div>
-                                            <div className="text-lg font-black text-violet-900 dark:text-violet-100">
+                                            <div className="text-lg font-black text-slate-900 dark:text-slate-100">
                                                 {item.minimalPair.wordA}
                                             </div>
-                                            <div className="text-xs font-mono font-bold text-violet-600 dark:text-violet-400">
+                                            <div className="text-xs font-mono font-bold text-sky-600 dark:text-sky-400">
                                                 {item.minimalPair.ipaA}
                                             </div>
                                         </div>
@@ -167,7 +167,7 @@ const IpaCardModal = ({
                                         {/* Word B */}
                                         <div 
                                             onClick={() => handlePlayAudio(item.minimalPair.wordB)}
-                                            className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-center space-y-1.5 cursor-pointer hover:border-violet-400 hover:shadow-md transition-all group"
+                                            className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-center space-y-1.5 cursor-pointer hover:border-sky-400 hover:shadow-md transition-all group"
                                         >
                                             <div className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 mx-auto flex items-center justify-center group-hover:scale-110 transition-transform">
                                                 <Volume2 className="w-4 h-4" />
@@ -204,16 +204,16 @@ const IpaCardModal = ({
                                     <div
                                         key={idx}
                                         onClick={() => handlePlayAudio(ex.word)}
-                                        className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex items-center justify-between hover:border-violet-400 hover:shadow-md transition-all cursor-pointer group"
+                                        className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex items-center justify-between hover:border-sky-400 hover:shadow-md transition-all cursor-pointer group"
                                     >
                                         <div className="flex items-center gap-3">
-                                            <div className="w-9 h-9 rounded-xl bg-violet-50 dark:bg-violet-950/60 text-violet-600 dark:text-violet-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+                                            <div className="w-9 h-9 rounded-xl bg-sky-50 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 flex items-center justify-center group-hover:scale-105 transition-transform">
                                                 <Volume2 className="w-4 h-4" />
                                             </div>
                                             <div>
                                                 <div className="font-bold text-sm text-slate-900 dark:text-white flex items-center gap-2">
                                                     <span>{ex.word}</span>
-                                                    <span className="text-xs text-violet-600 dark:text-violet-400 font-mono font-normal">{ex.ipa}</span>
+                                                    <span className="text-xs text-sky-600 dark:text-sky-400 font-mono font-normal">{ex.ipa}</span>
                                                 </div>
                                                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
                                                     {ex.meaning}

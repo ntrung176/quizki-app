@@ -339,7 +339,7 @@ export default function HandwritingCanvas({ initialStrokes = [], onChange, darkM
                         onClick={() => setIsEraser(false)}
                         className={`p-2 rounded-md transition-all flex items-center justify-center ${
                             !isEraser 
-                                ? 'bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400' 
+                                ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400' 
                                 : 'text-slate-500 hover:text-slate-700 dark:text-slate-400'
                         }`}
                         title="Bút viết"
@@ -351,7 +351,7 @@ export default function HandwritingCanvas({ initialStrokes = [], onChange, darkM
                         onClick={() => setIsEraser(true)}
                         className={`p-2 rounded-md transition-all flex items-center justify-center ${
                             isEraser 
-                                ? 'bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400' 
+                                ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400' 
                                 : 'text-slate-500 hover:text-slate-700 dark:text-slate-400'
                         }`}
                         title="Cục tẩy"
@@ -370,7 +370,7 @@ export default function HandwritingCanvas({ initialStrokes = [], onChange, darkM
                                 onClick={() => setColor(c.value)}
                                 className={`w-6.5 h-6.5 rounded-full border transition-all flex items-center justify-center hover:scale-108 relative ${
                                     color === c.value 
-                                        ? 'border-indigo-600 dark:border-indigo-400 scale-105 shadow-sm ring-2 ring-indigo-500/20' 
+                                        ? 'border-emerald-600 dark:border-emerald-400 scale-105 shadow-sm ring-2 ring-emerald-500/20' 
                                         : 'border-slate-300 dark:border-slate-600'
                                 }`}
                                 style={{ backgroundColor: c.value === '#ffffff' && darkMode ? '#ffffff' : c.value }}
@@ -387,7 +387,7 @@ export default function HandwritingCanvas({ initialStrokes = [], onChange, darkM
                         ))}
                     </div>
                 ) : (
-                    <div className="text-[11px] font-bold text-indigo-500 dark:text-indigo-400 animate-pulse px-2">
+                    <div className="text-[11px] font-bold text-emerald-500 dark:text-emerald-400 animate-pulse px-2">
                         Đang ở chế độ tẩy xóa nét...
                     </div>
                 )}

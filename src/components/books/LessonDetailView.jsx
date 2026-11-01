@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
     Upload, Folder, RefreshCw, X, Trash2, Plus, Layers, 
     Languages, EyeOff, RotateCcw, FileText, Edit, Save, 
-    Volume2, Wrench, Lightbulb, Mic, AlertTriangle, Wand2, Loader2, CloudUpload, Search, Sparkles
+    Volume2, Wrench, Lightbulb, Mic, AlertTriangle, Wand2, Loader2, CloudUpload, Search, Sparkles, ArrowRight
 } from 'lucide-react';
 import FuriganaText from '../ui/FuriganaText';
 import { accentNumberToPitchParts } from '../../utils/pitchAccent';
@@ -619,12 +619,12 @@ const LessonDetailView = ({
                                         onClick={() => setFilterBlankExamples(prev => !prev)}
                                         className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-bold transition-all border cursor-pointer ${
                                             filterBlankExamples
-                                                ? 'bg-indigo-600 text-white border-indigo-700 shadow-md animate-pulse'
-                                                : 'bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-300 border-indigo-200 dark:border-indigo-800 hover:bg-indigo-100 dark:hover:bg-indigo-900/50'
+                                                ? 'bg-emerald-600 text-white border-emerald-700 shadow-md animate-pulse'
+                                                : 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800 hover:bg-emerald-100 dark:hover:bg-emerald-900/50'
                                         }`}
                                         title="Lọc danh sách từ vựng có câu ví dụ chứa chỗ trống (______)"
                                     >
-                                        <Sparkles className={`w-3.5 h-3.5 ${filterBlankExamples ? 'text-white' : 'text-indigo-500'}`} />
+                                        <Sparkles className={`w-3.5 h-3.5 ${filterBlankExamples ? 'text-white' : 'text-emerald-500'}`} />
                                         Ví dụ có chỗ trống ({blankExamplesCount})
                                     </button>
                                 )}
@@ -632,7 +632,7 @@ const LessonDetailView = ({
                                     <button
                                         onClick={handleAutoFillBlanksWithAi}
                                         disabled={isAiFillingBlanks}
-                                        className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all border bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white border-indigo-600 shadow-md hover:shadow-lg disabled:opacity-50 cursor-pointer"
+                                        className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all border bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white border-emerald-600 shadow-md hover:shadow-lg disabled:opacity-50 cursor-pointer"
                                         title="Dùng AI tự động điền từ vựng vào chỗ trống và chia đúng thể ngữ pháp cho tất cả câu ví dụ trong bài"
                                     >
                                         {isAiFillingBlanks ? (
@@ -799,7 +799,7 @@ const LessonDetailView = ({
                                                             type="button"
                                                             onClick={handleFillBlankSingle}
                                                             disabled={isAiLoadingSingle}
-                                                            className="flex items-center gap-1 text-[11px] font-bold text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 disabled:opacity-50 cursor-pointer"
+                                                            className="flex items-center gap-1 text-[11px] font-bold text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 disabled:opacity-50 cursor-pointer"
                                                         >
                                                             {isAiLoadingSingle ? <Loader2 className="w-3 h-3 animate-spin" /> : <Sparkles className="w-3 h-3" />}
                                                             Lắp từ vào chỗ trống bằng AI
@@ -1026,7 +1026,7 @@ const LessonDetailView = ({
                                                                                 e.stopPropagation();
                                                                                 speakExampleSentence(ex.trim());
                                                                             }}
-                                                                            className="absolute right-0 top-0.5 p-1 rounded-lg text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors cursor-pointer"
+                                                                            className="absolute right-0 top-0.5 p-1 rounded-lg text-gray-300 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-gray-100 dark:hover:bg-slate-700 transition-colors cursor-pointer"
                                                                             title="Nghe câu ví dụ"
                                                                         >
                                                                             <Volume2 className="w-3.5 h-3.5" />

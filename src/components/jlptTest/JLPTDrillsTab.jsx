@@ -11,7 +11,7 @@ export const formatFuriganaRuby = (text) => {
     // Normalize to NFC to fix Vietnamese decomposed combining accents
     const normalized = String(text).normalize('NFC');
     // Match Japanese Kanji/Kana followed by [furigana] -> <ruby>Kanji<rt>furigana</rt></ruby>
-    return normalized.replace(/([\u4e00-\u9faf\u3040-\u309f\u30a0-\u30ff々〆ヶ]+)\[([^\[\]]+)\]/g, '<ruby class="font-japanese">$1<rt class="text-[10px] text-indigo-600 dark:text-indigo-400 font-normal px-0.5">$2</rt></ruby>');
+    return normalized.replace(/([\u4e00-\u9faf\u3040-\u309f\u30a0-\u30ff々〆ヶ]+)\[([^\[\]]+)\]/g, '<ruby class="font-japanese">$1<rt class="text-[10px] text-emerald-600 dark:text-emerald-400 font-normal px-0.5">$2</rt></ruby>');
 };
 
 const JLPTDrillsTab = ({

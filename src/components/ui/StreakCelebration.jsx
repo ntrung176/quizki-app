@@ -35,7 +35,7 @@ const StreakCelebration = ({ dailyActivityLogs = [], currentCalculatedStreak = 0
         const start = hasActivityToday ? Math.max(0, currentCalculatedStreak - 1) : currentCalculatedStreak;
 
         // Generate confetti particles
-        const colors = ['#f59e0b', '#ef4444', '#f97316', '#3b82f6', '#10b981', '#ec4899', '#8b5cf6'];
+        const colors = ['#f59e0b', '#ef4444', '#f97316', '#3b82f6', '#10b981', '#ec4899', '#14b8a6'];
         const shapes = ['circle', 'square', 'triangle'];
         const newParticles = Array.from({ length: 60 }).map((_, i) => {
             const angle = Math.random() * Math.PI * 2;
@@ -142,7 +142,7 @@ const StreakCelebration = ({ dailyActivityLogs = [], currentCalculatedStreak = 0
                 }
             `}</style>
 
-            <div className="bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-950 border border-slate-800/80 rounded-3xl p-6 sm:p-8 max-w-sm w-full text-center shadow-2xl relative overflow-hidden flex flex-col items-center font-sans">
+            <div className="bg-gradient-to-b from-slate-900 via-slate-900 to-emerald-950 border border-slate-800/80 rounded-3xl p-6 sm:p-8 max-w-sm w-full text-center shadow-2xl relative overflow-hidden flex flex-col items-center font-sans">
                 {/* Decorative background glow */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 bg-orange-500/15 rounded-full blur-3xl pointer-events-none" />
 

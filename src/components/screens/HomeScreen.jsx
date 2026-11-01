@@ -80,7 +80,7 @@ const HomeScreen = ({
 
     // 1. Instant Summary Cache for Kanji Stats (0ms first paint)
     const [kanjiSrsStats, setKanjiSrsStats] = useState(() => {
-        const cached = getCachedJson(userId ? `quizki_cached_kanji_srs_stats_${userId}` : null) 
+        const cached = getCachedJson(userId ? `quizki_cached_kanji_srs_stats_${userId}` : null)
             || getCachedJson('quizki_cached_kanji_srs_stats');
         if (cached && typeof cached.total === 'number') {
             return { ...cached, isInitialLoading: false };
@@ -135,7 +135,7 @@ const HomeScreen = ({
         if (calculatedStreak > 0) {
             try {
                 localStorage.setItem('quizki_cached_user_streak', String(calculatedStreak));
-            } catch (_) {}
+            } catch (_) { }
         }
     }, [calculatedStreak]);
 
@@ -163,7 +163,7 @@ const HomeScreen = ({
         try {
             localStorage.setItem(`quizki_cached_home_vocab_stats_${userId}`, JSON.stringify(payload));
             localStorage.setItem('quizki_cached_home_vocab_stats', JSON.stringify(payload));
-        } catch (_) {}
+        } catch (_) { }
     }, [allCards, userId, isEnglishMode, isKoreanMode, calculatedStreak, cachedStreak]);
 
     const [homeTick, setHomeTick] = useState(Date.now());
@@ -177,14 +177,14 @@ const HomeScreen = ({
                         const computed = computeKanjiSrsStats(JSON.parse(rawKanji));
                         setKanjiSrsStats({ ...computed, isInitialLoading: false });
                     }
-                } catch (_) {}
+                } catch (_) { }
                 try {
                     const rawGrammar = localStorage.getItem(`quizki_cached_grammar_srs_${userId}`);
                     if (rawGrammar) {
                         const computed = computeGrammarSrsStats(JSON.parse(rawGrammar));
                         setGrammarSrsStats({ ...computed, isInitialLoading: false });
                     }
-                } catch (_) {}
+                } catch (_) { }
             }
         };
         const handleLogoutReset = () => {
@@ -229,7 +229,7 @@ const HomeScreen = ({
                 const serialized = JSON.stringify(computed);
                 localStorage.setItem(`quizki_cached_kanji_srs_stats_${userId}`, serialized);
                 localStorage.setItem('quizki_cached_kanji_srs_stats', serialized);
-            } catch (_) {}
+            } catch (_) { }
         });
         return () => {
             isMounted = false;
@@ -251,7 +251,7 @@ const HomeScreen = ({
                 const serialized = JSON.stringify(computed);
                 localStorage.setItem(`quizki_cached_grammar_srs_stats_${userId}`, serialized);
                 localStorage.setItem('quizki_cached_grammar_srs_stats', serialized);
-            } catch (_) {}
+            } catch (_) { }
         });
         return () => {
             isMounted = false;
@@ -323,7 +323,7 @@ const HomeScreen = ({
                 streak: currentStreak,
                 totalCards: langCards.length
             }));
-        } catch (_) {}
+        } catch (_) { }
 
         return result;
     }, [userId, allCards, calculatedStreak, cachedStreak, isEnglishMode, isKoreanMode, cachedVocabStats, homeTick]);
@@ -374,11 +374,11 @@ const HomeScreen = ({
                     ...parsed,
                     reviewType: mode
                 }));
-            } catch (_) {}
+            } catch (_) { }
         } else if (type === 'kanji') {
             try {
                 localStorage.setItem('quizki_kanji_review_type', mode);
-            } catch (_) {}
+            } catch (_) { }
         } else if (type === 'grammar') {
             try {
                 const saved = localStorage.getItem('quizki_grammar_flashcard_settings_v1');
@@ -387,7 +387,7 @@ const HomeScreen = ({
                     ...parsed,
                     reviewType: mode
                 }));
-            } catch (_) {}
+            } catch (_) { }
         }
 
         navigate(route, hasDue ? { state: { autoStart: true, reviewType: mode } } : { state: { reviewType: mode } });
@@ -467,10 +467,10 @@ const HomeScreen = ({
                 title: t('home.kaiwaTitle', 'Phòng Kaiwa AI'),
                 subtitle: t('home.kaiwaSub', 'Luyện đối thoại giọng nói 1-1 theo tình huống thực tế'),
                 badge: 'Voice AI 1-1',
-                badgeClass: 'bg-violet-500/10 text-violet-600 dark:text-violet-400 border border-violet-500/20',
+                badgeClass: 'bg-teal-500/10 text-teal-600 dark:text-teal-400 border border-teal-500/20',
                 icon: MessageSquare,
-                iconBg: 'bg-gradient-to-br from-violet-500 to-purple-600 shadow-violet-500/25',
-                glowBg: 'bg-violet-500',
+                iconBg: 'bg-gradient-to-br from-teal-500 to-emerald-600 shadow-teal-500/25',
+                glowBg: 'bg-teal-500',
                 route: ROUTES.JLPT_KAIWA,
             },
             {
@@ -542,7 +542,7 @@ const HomeScreen = ({
                 const parsed = JSON.parse(cached);
                 if (parsed?.displayName) return parsed.displayName;
             }
-        } catch (_) {}
+        } catch (_) { }
         return '';
     }, [displayName, userId]);
 
@@ -698,7 +698,7 @@ const HomeScreen = ({
             />
 
             {/* Streak celebration popup */}
-            <StreakCelebration 
+            <StreakCelebration
                 dailyActivityLogs={dailyActivityLogs}
                 currentCalculatedStreak={calculatedStreak}
             />

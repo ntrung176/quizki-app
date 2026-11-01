@@ -182,7 +182,7 @@ const JLPTSkillArenaTab = ({
 
         const completedCount = selectedBook.tests.filter(t => getTestStatus(t) === 'completed').length;
         const progressPct = selectedBook.tests.length > 0 ? Math.round((completedCount / selectedBook.tests.length) * 100) : 0;
-        const lvlGradient = LEVEL_GRADIENTS[selectedBook.level] || 'from-indigo-600 to-sky-600';
+        const lvlGradient = LEVEL_GRADIENTS[selectedBook.level] || 'from-emerald-600 to-sky-600';
 
         return (
             <div className="space-y-6 animate-fade-in">
@@ -191,7 +191,7 @@ const JLPTSkillArenaTab = ({
                     <button
                         type="button"
                         onClick={() => setSelectedBook(null)}
-                        className="inline-flex items-center gap-2 text-xs font-black text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition cursor-pointer active:scale-95"
+                        className="inline-flex items-center gap-2 text-xs font-black text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition cursor-pointer active:scale-95"
                     >
                         <ArrowLeft className="w-4 h-4" />
                         <span>← Quay lại danh sách Sách {currentSkillMeta.label}</span>
@@ -204,7 +204,7 @@ const JLPTSkillArenaTab = ({
                                     {selectedBook.level}
                                 </span>
                                 <span className="text-xs font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1.5 bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-xl">
-                                    <SkillIcon className="w-3.5 h-3.5 text-indigo-500" />
+                                    <SkillIcon className="w-3.5 h-3.5 text-emerald-500" />
                                     <span>{currentSkillMeta.label}</span>
                                 </span>
                             </div>
@@ -242,7 +242,7 @@ const JLPTSkillArenaTab = ({
                                 value={bookInnerSearch}
                                 onChange={(e) => setBookInnerSearch(e.target.value)}
                                 placeholder={`Tìm bài học trong ${selectedBook.title}...`}
-                                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 rounded-2xl pl-10 pr-4 py-2 text-xs font-medium text-slate-800 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 rounded-2xl pl-10 pr-4 py-2 text-xs font-medium text-slate-800 dark:text-white placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500"
                             />
                         </div>
                     </div>
@@ -261,11 +261,11 @@ const JLPTSkillArenaTab = ({
                         return (
                             <div
                                 key={test.id}
-                                className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-4 sm:p-5 hover:shadow-md hover:border-indigo-300 dark:hover:border-indigo-700 transition-all flex flex-col justify-between group relative overflow-hidden"
+                                className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-4 sm:p-5 hover:shadow-md hover:border-emerald-300 dark:hover:border-emerald-700 transition-all flex flex-col justify-between group relative overflow-hidden"
                             >
                                 <div>
                                     <div className="flex items-center justify-between gap-2 mb-2.5">
-                                        <span className="text-xs font-mono font-extrabold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-2.5 py-1 rounded-xl border border-indigo-100 dark:border-indigo-900">
+                                        <span className="text-xs font-mono font-extrabold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2.5 py-1 rounded-xl border border-emerald-100 dark:border-emerald-900">
                                             Bài {lessonNumber}
                                         </span>
 
@@ -319,7 +319,7 @@ const JLPTSkillArenaTab = ({
                                 <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-2">
                                     <button 
                                         onClick={(e) => { e.stopPropagation(); handleStartPrint(test); }} 
-                                        className="p-2 text-slate-400 hover:text-indigo-600 transition cursor-pointer"
+                                        className="p-2 text-slate-400 hover:text-emerald-600 transition cursor-pointer"
                                         title="In đề thi"
                                     >
                                         <Printer className="w-4 h-4" />
@@ -391,14 +391,14 @@ const JLPTSkillArenaTab = ({
                             }}
                             className={`p-3.5 sm:p-4 rounded-2xl border text-left transition-all duration-200 cursor-pointer flex flex-col justify-between ${
                                 isSelected
-                                    ? 'bg-white dark:bg-slate-900 border-indigo-500 dark:border-indigo-500 shadow-md ring-2 ring-indigo-500/10'
+                                    ? 'bg-white dark:bg-slate-900 border-emerald-500 dark:border-emerald-500 shadow-md ring-2 ring-emerald-500/10'
                                     : 'bg-white/60 dark:bg-slate-900/60 border-slate-200/80 dark:border-slate-800 hover:bg-white dark:hover:bg-slate-900'
                             }`}
                         >
                             <div className="flex items-center justify-between gap-2">
                                 <div className={`w-9 h-9 rounded-xl flex items-center justify-center ${
                                     isSelected 
-                                        ? 'bg-indigo-600 text-white' 
+                                        ? 'bg-emerald-600 text-white' 
                                         : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
                                 }`}>
                                     <Icon className="w-4.5 h-4.5" />
@@ -408,7 +408,7 @@ const JLPTSkillArenaTab = ({
                                 </span>
                             </div>
                             <div className="mt-2.5">
-                                <h4 className={`text-xs sm:text-sm font-extrabold ${isSelected ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-800 dark:text-white'}`}>
+                                <h4 className={`text-xs sm:text-sm font-extrabold ${isSelected ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-800 dark:text-white'}`}>
                                     {cat.label}
                                 </h4>
                                 <p className="text-[10px] text-slate-400 font-medium truncate mt-0.5">
@@ -423,7 +423,7 @@ const JLPTSkillArenaTab = ({
             {/* 2. Header Info Bar */}
             <div className="flex items-center justify-between gap-3 bg-white dark:bg-slate-900 p-3.5 sm:p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs">
                 <div className="flex items-center gap-2 text-xs font-bold text-slate-700 dark:text-slate-300">
-                    <SkillIcon className="w-4 h-4 text-indigo-600" />
+                    <SkillIcon className="w-4 h-4 text-emerald-600" />
                     <span>Bộ giáo trình {currentSkillMeta.label}: <strong>{skillBooks.length}</strong> cuốn sách & bộ đề</span>
                 </div>
 
@@ -435,7 +435,7 @@ const JLPTSkillArenaTab = ({
             {/* 3. Skill Books Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
                 {skillBooks.map(book => {
-                    const lvlGradient = LEVEL_GRADIENTS[book.level] || 'from-indigo-600 to-sky-600';
+                    const lvlGradient = LEVEL_GRADIENTS[book.level] || 'from-emerald-600 to-sky-600';
                     const completedCount = book.tests.filter(t => getTestStatus(t) === 'completed').length;
                     const progressPct = book.tests.length > 0 ? Math.round((completedCount / book.tests.length) * 100) : 0;
                     const isBookLocked = book.level !== 'N5' && !hasPremiumAccess;
@@ -463,7 +463,7 @@ const JLPTSkillArenaTab = ({
                                             {isBookLocked && <Lock className="w-3 h-3 text-amber-300" />}
                                         </span>
                                         <span className="text-xs font-bold text-slate-500 dark:text-slate-400 flex items-center gap-1">
-                                            <SkillIcon className="w-3.5 h-3.5 text-indigo-500" />
+                                            <SkillIcon className="w-3.5 h-3.5 text-emerald-500" />
                                             <span>{currentSkillMeta.label}</span>
                                         </span>
                                     </div>
@@ -487,7 +487,7 @@ const JLPTSkillArenaTab = ({
                                 {/* Quick Stats */}
                                 <div className="flex items-center gap-3 text-xs font-bold text-slate-400 dark:text-slate-500 mt-3.5">
                                     <span className="flex items-center gap-1 text-slate-700 dark:text-slate-300">
-                                        <Layers className="w-3.5 h-3.5 text-indigo-500" />
+                                        <Layers className="w-3.5 h-3.5 text-emerald-500" />
                                         {book.tests.length} bài học
                                     </span>
                                     <span>•</span>

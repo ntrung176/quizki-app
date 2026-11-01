@@ -75,7 +75,7 @@ const getSectionDisplayInfo = (sec, idx) => {
         vi: title.split('·')[1]?.trim() || title,
         fullLabel: title || `Phần thi ${idx + 1}`,
         icon: SECTION_ICONS[type] || FileText,
-        color: SECTION_COLORS[type] || 'indigo'
+        color: SECTION_COLORS[type] || 'emerald'
     };
 };
 
@@ -290,7 +290,7 @@ const JLPTTestTakeView = ({
                                 {activeTest?.title}
                             </span>
                             {activeTest?.level && (
-                                <span className="px-1.5 py-0.5 rounded-md text-[10px] font-black bg-indigo-100 dark:bg-indigo-900/50 text-indigo-700 dark:text-indigo-300 border border-indigo-200/50 dark:border-indigo-800/40">
+                                <span className="px-1.5 py-0.5 rounded-md text-[10px] font-black bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200/50 dark:border-emerald-800/40">
                                     {activeTest.level}
                                 </span>
                             )}
@@ -316,7 +316,7 @@ const JLPTTestTakeView = ({
                         <div className={`px-2.5 sm:px-3 py-1 rounded-xl text-xs font-mono font-black flex items-center gap-1.5 shadow-xs ${
                             timeRemaining < 300
                                 ? 'bg-rose-100 text-rose-700 dark:bg-rose-950/50 dark:text-rose-400 animate-pulse border border-rose-300'
-                                : 'bg-indigo-50 text-indigo-700 dark:bg-indigo-950/50 dark:text-indigo-300 border border-indigo-200/60 dark:border-indigo-800'
+                                : 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800'
                         }`}>
                             <span>⏱️</span>
                             <span>{formatTime(timeRemaining)}</span>
@@ -351,7 +351,7 @@ const JLPTTestTakeView = ({
                         {showSettingsMenu && (
                             <div className="absolute right-0 mt-2 w-72 bg-white/98 dark:bg-slate-900/98 backdrop-blur-lg border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl p-4 z-50 text-left space-y-4 animate-scale-in">
                                 <div className="flex items-center gap-1.5 border-b border-slate-100 dark:border-slate-800 pb-2">
-                                    <Settings className="w-4 h-4 text-indigo-500" />
+                                    <Settings className="w-4 h-4 text-emerald-500" />
                                     <span className="font-black text-xs text-slate-800 dark:text-white uppercase tracking-wider">Cài đặt đề thi</span>
                                 </div>
                                 <div className="flex items-center justify-between">
@@ -361,7 +361,7 @@ const JLPTTestTakeView = ({
                                     </div>
                                     <button 
                                         onClick={() => setShowFurigana(!showFurigana)} 
-                                        className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors focus:outline-none cursor-pointer ${showFurigana ? 'bg-indigo-600' : 'bg-gray-300 dark:bg-slate-700'}`}
+                                        className={`relative inline-flex h-5 w-10 items-center rounded-full transition-colors focus:outline-none cursor-pointer ${showFurigana ? 'bg-emerald-600' : 'bg-gray-300 dark:bg-slate-700'}`}
                                     >
                                         <span className={`inline-block h-3.5 w-3.5 transform rounded-full bg-white transition-transform ${showFurigana ? 'translate-x-5.5' : 'translate-x-1'}`} />
                                     </button>
@@ -386,7 +386,7 @@ const JLPTTestTakeView = ({
                                                     <button
                                                         key={colorOpt.id}
                                                         onClick={() => setFuriganaColor(colorOpt.id)}
-                                                        className={`w-6 h-6 rounded-full flex items-center justify-center text-white transition-all transform hover:scale-110 cursor-pointer ${colorOpt.bgClass} ${isSelected ? 'ring-2 ring-indigo-500 ring-offset-2 dark:ring-offset-slate-900 scale-105' : 'opacity-80'}`}
+                                                        className={`w-6 h-6 rounded-full flex items-center justify-center text-white transition-all transform hover:scale-110 cursor-pointer ${colorOpt.bgClass} ${isSelected ? 'ring-2 ring-emerald-500 ring-offset-2 dark:ring-offset-slate-900 scale-105' : 'opacity-80'}`}
                                                         title={colorOpt.label}
                                                     >
                                                         {isSelected && <Check className="w-3 h-3 stroke-[3]" />}
@@ -419,7 +419,7 @@ const JLPTTestTakeView = ({
                     {/* TOC Header */}
                     <div className="p-4 pb-3 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between shrink-0">
                         <div className="flex items-center gap-2">
-                            <List className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                            <List className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                             <h3 className="font-black text-sm text-slate-800 dark:text-white">一覧 · Mục lục</h3>
                         </div>
                         <span className="text-xs font-mono font-black px-2.5 py-0.5 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 rounded-lg border border-emerald-200/50">
@@ -464,7 +464,7 @@ const JLPTTestTakeView = ({
                                         className="w-full flex items-center justify-between text-left mb-2 group cursor-pointer"
                                     >
                                         <div className="flex items-center gap-1.5 min-w-0">
-                                            <SecIcon className="w-3.5 h-3.5 text-slate-400 group-hover:text-indigo-500" />
+                                            <SecIcon className="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-500" />
                                             <span className="text-xs font-extrabold text-slate-800 dark:text-slate-200 truncate">
                                                 {sec.ja}
                                             </span>
@@ -488,7 +488,7 @@ const JLPTTestTakeView = ({
                                             } else if (status === 'answered') {
                                                 btnClass = 'bg-emerald-500 text-white shadow-xs hover:bg-emerald-600 font-black';
                                             } else if (isFocused) {
-                                                btnClass = 'bg-indigo-600 text-white ring-2 ring-indigo-300 dark:ring-indigo-700 font-black';
+                                                btnClass = 'bg-emerald-600 text-white ring-2 ring-emerald-300 dark:ring-emerald-700 font-black';
                                             }
 
                                             return (
@@ -564,7 +564,7 @@ const JLPTTestTakeView = ({
                                         className="lg:hidden px-2.5 py-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-800 dark:text-slate-200 text-xs font-bold flex items-center gap-1.5 cursor-pointer shrink-0"
                                         title="Xem danh sách câu hỏi"
                                     >
-                                        <List className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                                        <List className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                                         <span>Mục lục</span>
                                     </button>
                                     <div>
@@ -785,7 +785,7 @@ const JLPTTestTakeView = ({
 
                                             if (isSamePassage) {
                                                 return (
-                                                    <div className="mb-3.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-indigo-50/80 dark:bg-indigo-950/40 text-xs font-bold text-indigo-700 dark:text-indigo-300 border border-indigo-200/60 dark:border-indigo-800/40">
+                                                    <div className="mb-3.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-emerald-50/80 dark:bg-emerald-950/40 text-xs font-bold text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/40">
                                                         <BookOpen className="w-3.5 h-3.5" />
                                                         <span>Câu hỏi cùng bài đọc ở trên ↑</span>
                                                     </div>
@@ -844,7 +844,7 @@ const JLPTTestTakeView = ({
                                                                 optionStyle = 'bg-slate-50/60 dark:bg-slate-900/40 border-slate-200/50 dark:border-slate-800 text-slate-400 opacity-60';
                                                             }
                                                         } else if (isSelected) {
-                                                            optionStyle = 'bg-indigo-50/90 dark:bg-indigo-950/40 border-indigo-600 dark:border-indigo-500 text-slate-900 dark:text-white shadow-xs font-bold';
+                                                            optionStyle = 'bg-emerald-50/90 dark:bg-emerald-950/40 border-emerald-600 dark:border-emerald-500 text-slate-900 dark:text-white shadow-xs font-bold';
                                                         }
 
                                                         return (
@@ -868,7 +868,7 @@ const JLPTTestTakeView = ({
                                                                                     ? 'bg-rose-600 text-white'
                                                                                     : 'bg-slate-200 text-slate-500'
                                                                             : isSelected
-                                                                                ? 'bg-indigo-600 text-white'
+                                                                                ? 'bg-emerald-600 text-white'
                                                                                 : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-300/60 dark:border-slate-600'
                                                                     }`}>
                                                                         {letter}
@@ -889,7 +889,7 @@ const JLPTTestTakeView = ({
                                                                         </span>
                                                                     ) : null
                                                                 ) : isSelected ? (
-                                                                    <Check className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0" />
+                                                                    <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                                                                 ) : null}
                                                             </button>
                                                         );
@@ -918,7 +918,7 @@ const JLPTTestTakeView = ({
                                             </div>
                                         ) : (
                                             /* SubQuestions */
-                                            <div className="space-y-4 pl-2 sm:pl-4 border-l-2 border-indigo-200 dark:border-indigo-800/60 mt-2">
+                                            <div className="space-y-4 pl-2 sm:pl-4 border-l-2 border-emerald-200 dark:border-emerald-800/60 mt-2">
                                                 {question.subQuestions.map((sq, sqi) => {
                                                     const subAnsKey = subAnswerKey(selectedTabIdx, qIdx, sqi);
                                                     const isSubSelected = answers[subAnsKey];
@@ -927,7 +927,7 @@ const JLPTTestTakeView = ({
                                                     return (
                                                         <div key={sqi} className="space-y-3 p-3.5 bg-slate-50/60 dark:bg-slate-950/30 rounded-2xl border border-slate-100 dark:border-slate-800/80">
                                                             <div className="flex items-center gap-2">
-                                                                <span className="text-xs font-black px-2 py-0.5 rounded-md bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-300">
+                                                                <span className="text-xs font-black px-2 py-0.5 rounded-md bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300">
                                                                     {qIdx + 1}.{sqi + 1}
                                                                 </span>
                                                                 <h4 
@@ -950,7 +950,7 @@ const JLPTTestTakeView = ({
                                                                         if (isSqCorrect) sqStyle = 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-emerald-800 font-bold';
                                                                         else if (isSqWrong) sqStyle = 'bg-rose-50 dark:bg-rose-950/40 border-rose-500 text-rose-800 font-bold';
                                                                     } else if (isSqOptSelected) {
-                                                                        sqStyle = 'bg-indigo-50/90 dark:bg-indigo-950/40 border-indigo-600 dark:border-indigo-500 text-slate-900 dark:text-white shadow-xs font-bold';
+                                                                        sqStyle = 'bg-emerald-50/90 dark:bg-emerald-950/40 border-emerald-600 dark:border-emerald-500 text-slate-900 dark:text-white shadow-xs font-bold';
                                                                     }
 
                                                                     return (
@@ -974,7 +974,7 @@ const JLPTTestTakeView = ({
                                                                                                 ? 'bg-rose-600 text-white'
                                                                                                 : 'bg-slate-200 text-slate-500'
                                                                                         : isSqOptSelected
-                                                                                            ? 'bg-indigo-600 text-white'
+                                                                                            ? 'bg-emerald-600 text-white'
                                                                                             : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
                                                                                 }`}>
                                                                                     {letter}
@@ -991,7 +991,7 @@ const JLPTTestTakeView = ({
                                                                                     <span className="text-[11px] font-black text-rose-600 bg-rose-100 px-1.5 py-0.5 rounded shrink-0">✗ Sai</span>
                                                                                 ) : null
                                                                             ) : isSqOptSelected ? (
-                                                                                <Check className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400 shrink-0" />
+                                                                                <Check className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
                                                                             ) : null}
                                                                         </button>
                                                                     );
@@ -1148,7 +1148,7 @@ const JLPTTestTakeView = ({
                     onClick={() => setShowMobileTOC(true)}
                     className="pointer-events-auto flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-slate-900/95 dark:bg-slate-800/95 text-white font-extrabold text-xs shadow-2xl backdrop-blur-md border border-slate-700/40 active:scale-90 transition-transform cursor-pointer"
                 >
-                    <List className="w-4 h-4 text-indigo-400" />
+                    <List className="w-4 h-4 text-emerald-400" />
                     <span>Mục lục ({answeredCount}/{totalQ})</span>
                 </button>
             </div>
@@ -1160,7 +1160,7 @@ const JLPTTestTakeView = ({
                         {/* Drawer Header */}
                         <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
                             <div className="flex items-center gap-2">
-                                <List className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                                <List className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                                 <h3 className="font-black text-sm text-slate-900 dark:text-white">一覧 · Danh sách câu hỏi</h3>
                             </div>
                             <button onClick={() => setShowMobileTOC(false)} className="p-1 text-slate-400 hover:text-slate-600">
@@ -1204,7 +1204,7 @@ const JLPTTestTakeView = ({
                                                 } else if (status === 'answered') {
                                                     btnClass = 'bg-emerald-500 text-white font-black';
                                                 } else if (isCurrentTab && currentQuestionIdx === qIdx) {
-                                                    btnClass = 'bg-indigo-600 text-white ring-2 ring-indigo-300';
+                                                    btnClass = 'bg-emerald-600 text-white ring-2 ring-emerald-300';
                                                 }
 
                                                 return (

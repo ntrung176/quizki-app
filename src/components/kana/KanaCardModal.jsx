@@ -29,10 +29,10 @@ const KanaCardModal = ({
         <div className="fixed inset-0 z-[100] bg-slate-950/75 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto animate-fade-in">
             <div
                 onClick={(e) => e.stopPropagation()}
-                className="relative w-full max-w-lg bg-white dark:bg-slate-900 border-2 border-indigo-400/30 dark:border-indigo-500/20 rounded-3xl shadow-2xl overflow-hidden flex flex-col my-auto transition-all"
+                className="relative w-full max-w-lg bg-white dark:bg-slate-900 border-2 border-emerald-500/20 dark:border-emerald-500/20 rounded-3xl shadow-2xl overflow-hidden flex flex-col my-auto transition-all"
             >
                 {/* Header with gradient banner */}
-                <div className="relative bg-gradient-to-r from-indigo-600 via-indigo-500 to-sky-500 p-5 text-white flex items-center justify-between">
+                <div className="relative bg-gradient-to-r from-emerald-600 via-teal-500 to-sky-500 p-5 text-white flex items-center justify-between">
                     <div className="flex items-center gap-3.5">
                         <div className="min-w-[52px] h-12 px-2 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-white shadow-inner font-japanese shrink-0">
                             <span className={`font-black whitespace-nowrap leading-none ${char.length > 1 ? 'text-2xl' : 'text-3xl'}`}>
@@ -46,7 +46,7 @@ const KanaCardModal = ({
                                     {type === 'hiragana' ? 'Hiragana (Chữ mềm)' : 'Katakana (Chữ cứng)'}
                                 </span>
                             </div>
-                            <p className="text-xs text-indigo-100 font-medium mt-0.5">
+                            <p className="text-xs text-emerald-100 font-medium mt-0.5">
                                 Bản đối ứng ({counterpartLabel}): <span className="font-bold text-white text-sm ml-1 font-japanese">{counterpartChar}</span>
                             </p>
                         </div>
@@ -79,7 +79,7 @@ const KanaCardModal = ({
                         onClick={() => setActiveTab('write')}
                         className={`flex-1 py-2 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer ${
                             activeTab === 'write'
-                                ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-sm'
+                                ? 'bg-white dark:bg-slate-800 text-sky-600 dark:text-sky-400 shadow-sm'
                                 : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50'
                         }`}
                     >
@@ -127,7 +127,7 @@ const KanaCardModal = ({
                                     <ul className="space-y-1 text-xs text-slate-700 dark:text-slate-300 font-medium">
                                         {item.strokeHints.map((hint, idx) => (
                                             <li key={idx} className="flex items-start gap-2">
-                                                <span className="w-4 h-4 rounded-full bg-indigo-100 dark:bg-indigo-950/80 text-indigo-600 dark:text-indigo-400 font-bold flex items-center justify-center text-[10px] shrink-0 mt-0.5">
+                                                <span className="w-4 h-4 rounded-full bg-sky-100 dark:bg-sky-950/80 text-sky-600 dark:text-sky-400 font-bold flex items-center justify-center text-[10px] shrink-0 mt-0.5">
                                                     {idx + 1}
                                                 </span>
                                                 <span>{hint}</span>
@@ -162,7 +162,7 @@ const KanaCardModal = ({
                                 </span>
                                 <div className="flex items-center justify-center gap-8 text-3xl font-black font-japanese py-2">
                                     <div className="flex flex-col items-center">
-                                        <span className="text-indigo-600 dark:text-indigo-400">{item.hira}</span>
+                                        <span className="text-emerald-600 dark:text-emerald-400">{item.hira}</span>
                                         <span className="text-[10px] text-slate-400 font-sans mt-1">Hiragana</span>
                                     </div>
                                     <span className="text-slate-300 dark:text-slate-700 text-xl">↔</span>
@@ -186,10 +186,10 @@ const KanaCardModal = ({
                                     <div
                                         key={idx}
                                         onClick={() => handlePlayAudio(ex.word)}
-                                        className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex items-center justify-between hover:border-indigo-400 hover:shadow-md transition-all cursor-pointer group"
+                                        className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 flex items-center justify-between hover:border-sky-400 hover:shadow-md transition-all cursor-pointer group"
                                     >
                                         <div className="flex items-center gap-3">
-                                            <div className="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center group-hover:scale-105 transition-transform">
+                                            <div className="w-9 h-9 rounded-xl bg-sky-50 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 flex items-center justify-center group-hover:scale-105 transition-transform">
                                                 <Volume2 className="w-4 h-4" />
                                             </div>
                                             <div>

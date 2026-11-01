@@ -13,8 +13,8 @@ export const KOREAN_POS_TYPES = {
     particle: { label: 'Trợ từ (조사)', color: 'bg-cyan-100 text-cyan-700 border-cyan-200' },
     conjunction: { label: 'Liên từ (접속사)', color: 'bg-pink-100 text-pink-700 border-pink-200' },
     pronoun: { label: 'Đại từ (대명사)', color: 'bg-emerald-100 text-emerald-700 border-emerald-200' },
-    numeral: { label: 'Số từ (수사)', color: 'bg-indigo-100 text-indigo-700 border-indigo-200' },
-    determiner: { label: 'Định từ (관형사)', color: 'bg-purple-100 text-purple-700 border-purple-200' },
+    numeral: { label: 'Số từ (수사)', color: 'bg-emerald-100 text-emerald-700 border-emerald-200' },
+    determiner: { label: 'Định từ (관형사)', color: 'bg-teal-100 text-teal-700 border-teal-200' },
     interjection: { label: 'Thán từ (감탄사)', color: 'bg-amber-100 text-amber-700 border-amber-200' },
     expression: { label: 'Cụm từ / Quán dụng ngữ (관용구)', color: 'bg-teal-100 text-teal-700 border-teal-200' },
     other: { label: 'Khác', color: 'bg-gray-100 text-gray-700 border-gray-200' }

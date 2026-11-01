@@ -18,7 +18,7 @@ const ICON_COLOR_STYLES = {
     blue: 'bg-blue-500/10 text-blue-600 dark:text-blue-400',
     sky: 'bg-sky-500/10 text-sky-600 dark:text-sky-400',
     emerald: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400',
-    indigo: 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-400',
+    teal: 'bg-teal-500/10 text-teal-600 dark:text-teal-400',
     amber: 'bg-amber-500/10 text-amber-600 dark:text-amber-400',
     rose: 'bg-rose-500/10 text-rose-600 dark:text-rose-400'
 };
@@ -235,7 +235,7 @@ const JLPTLessonRoadmapTab = ({
         return (
             <div 
                 key={test.id}
-                className="flex items-center justify-between p-3 sm:p-3.5 bg-slate-50/80 dark:bg-slate-800/60 hover:bg-white dark:hover:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700/50 hover:border-indigo-200 dark:hover:border-indigo-800/60 transition-all group"
+                className="flex items-center justify-between p-3 sm:p-3.5 bg-slate-50/80 dark:bg-slate-800/60 hover:bg-white dark:hover:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700/50 hover:border-emerald-200 dark:hover:border-emerald-800/60 transition-all group"
             >
                 <div className="flex items-center gap-3 min-w-0 flex-1">
                     <div className={`w-8 h-8 rounded-xl ${colorClass} flex items-center justify-center shrink-0`}>
@@ -280,7 +280,7 @@ const JLPTLessonRoadmapTab = ({
 
                     <button 
                         onClick={(e) => { e.stopPropagation(); handleStartPrint(test); }} 
-                        className="p-1.5 text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition cursor-pointer"
+                        className="p-1.5 text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition cursor-pointer"
                         title="In đề thi / PDF"
                     >
                         <Printer className="w-3.5 h-3.5" />
@@ -333,13 +333,13 @@ const JLPTLessonRoadmapTab = ({
                 <div className="bg-white dark:bg-slate-900 p-3 sm:p-4 rounded-2xl border border-slate-200/80 dark:border-slate-800 shadow-xs space-y-2.5">
                     <div className="flex items-center justify-between gap-2">
                         <div className="flex items-center gap-2">
-                            <Layers className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                            <Layers className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
                             <span className="text-xs font-black uppercase text-slate-700 dark:text-slate-300 tracking-wider">
                                 Chọn nhanh chặng bài ({stageGroups.length} chặng)
                             </span>
                         </div>
 
-                        <div className="flex items-center gap-3 text-xs font-bold text-indigo-600 dark:text-indigo-400">
+                        <div className="flex items-center gap-3 text-xs font-bold text-emerald-600 dark:text-emerald-400">
                             <button
                                 type="button"
                                 onClick={toggleAllLessons}
@@ -364,7 +364,7 @@ const JLPTLessonRoadmapTab = ({
                             onClick={() => setSelectedStageKey('all')}
                             className={`px-3 py-1.5 rounded-xl text-xs font-bold shrink-0 transition cursor-pointer ${
                                 selectedStageKey === 'all'
-                                    ? 'bg-indigo-600 text-white shadow-xs'
+                                    ? 'bg-emerald-600 text-white shadow-xs'
                                     : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
                             }`}
                         >
@@ -380,7 +380,7 @@ const JLPTLessonRoadmapTab = ({
                                     onClick={() => setSelectedStageKey(grp.key)}
                                     className={`px-3 py-1.5 rounded-xl text-xs font-bold shrink-0 transition flex items-center gap-1.5 cursor-pointer ${
                                         isGrpSelected
-                                            ? 'bg-indigo-600 text-white shadow-xs'
+                                            ? 'bg-emerald-600 text-white shadow-xs'
                                             : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700'
                                     }`}
                                 >
@@ -402,7 +402,7 @@ const JLPTLessonRoadmapTab = ({
                 {activeStages.map(stage => {
                     const isStageCollapsed = collapsedStages[stage.key] ?? allStagesCollapsed;
                     const percent = stage.lessons.length > 0 ? Math.round((stage.completedLessonsCount / stage.lessons.length) * 100) : 0;
-                    const lvlGradient = LEVEL_GRADIENTS[stage.level] || 'from-indigo-500 to-sky-600';
+                    const lvlGradient = LEVEL_GRADIENTS[stage.level] || 'from-emerald-500 to-sky-600';
 
                     return (
                         <div 
@@ -451,7 +451,7 @@ const JLPTLessonRoadmapTab = ({
                                         return (
                                             <div 
                                                 key={lesson.key}
-                                                className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-2xs hover:border-indigo-300 dark:hover:border-indigo-700 transition"
+                                                className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 overflow-hidden shadow-2xs hover:border-emerald-300 dark:hover:border-emerald-700 transition"
                                             >
                                                 {/* Lesson Header */}
                                                 <div 
@@ -459,7 +459,7 @@ const JLPTLessonRoadmapTab = ({
                                                     className="p-3.5 sm:p-4 flex items-center justify-between gap-3 cursor-pointer select-none hover:bg-slate-50/60 dark:hover:bg-slate-800/40 transition"
                                                 >
                                                     <div className="flex items-center gap-3 min-w-0 flex-1">
-                                                        <span className="w-9 h-9 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 font-mono font-extrabold text-sm flex items-center justify-center shrink-0 border border-indigo-100 dark:border-indigo-900">
+                                                        <span className="w-9 h-9 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 font-mono font-extrabold text-sm flex items-center justify-center shrink-0 border border-emerald-100 dark:border-emerald-900">
                                                             {lesson.bai}
                                                         </span>
 
@@ -490,7 +490,7 @@ const JLPTLessonRoadmapTab = ({
                                                                     e.stopPropagation();
                                                                     setActiveStrategyModal(lesson);
                                                                 }}
-                                                                className="px-2.5 py-1 rounded-lg text-xs font-bold bg-indigo-50 hover:bg-indigo-100 text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-400 transition cursor-pointer"
+                                                                className="px-2.5 py-1 rounded-lg text-xs font-bold bg-emerald-50 hover:bg-emerald-100 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400 transition cursor-pointer"
                                                             >
                                                                 Chiến lược
                                                             </button>
@@ -507,7 +507,7 @@ const JLPTLessonRoadmapTab = ({
                                                         {renderSkillRow(lesson.vocabTest, 'Từ vựng & Chữ Hán', 'vocab', 'blue')}
                                                         {renderSkillRow(lesson.grammarTest, 'Ngữ pháp chuyên sâu', 'grammar', 'sky')}
                                                         {renderSkillRow(lesson.readingTest, 'Đọc hiểu & Phân tích câu', 'reading', 'emerald')}
-                                                        {renderSkillRow(lesson.fullTest, 'Đề thi tổng hợp đầy đủ', 'full', 'indigo')}
+                                                        {renderSkillRow(lesson.fullTest, 'Đề thi tổng hợp đầy đủ', 'full', 'emerald')}
                                                     </div>
                                                 )}
                                             </div>

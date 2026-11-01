@@ -49,13 +49,13 @@ const AdminRevenueSection = ({
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     {/* OpenRouter */}
-                    <div className="p-3 rounded-xl border border-indigo-200 dark:border-indigo-800 bg-indigo-50 dark:bg-indigo-900/20">
+                    <div className="p-3 rounded-xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-900/20">
                         <div className="flex items-center gap-2 mb-2">
-                            <div className="w-7 h-7 rounded-lg bg-indigo-500 flex items-center justify-center">
+                            <div className="w-7 h-7 rounded-lg bg-emerald-500 flex items-center justify-center">
                                 <Bot className="w-4 h-4 text-white" />
                             </div>
                             <div className="flex items-center gap-1.5 flex-wrap">
-                                <span className="font-bold text-sm text-indigo-700 dark:text-indigo-300">OpenRouter</span>
+                                <span className="font-bold text-sm text-emerald-700 dark:text-emerald-300">OpenRouter</span>
                                 {apiBalances.openRouter?.isProxy && (
                                     <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300 font-semibold">
                                         🛡️ Cloudflare Proxy
@@ -77,7 +77,7 @@ const AdminRevenueSection = ({
                                     <span className="text-xs text-gray-500">Đã dùng:</span>
                                     <span className="text-xs font-bold text-orange-600">${apiBalances.openRouter.totalUsage?.toFixed(4)}</span>
                                 </div>
-                                <div className="flex justify-between pt-1 border-t border-indigo-200 dark:border-indigo-700">
+                                <div className="flex justify-between pt-1 border-t border-emerald-200 dark:border-emerald-700">
                                     <span className="text-xs font-bold text-gray-700 dark:text-gray-300">Còn lại:</span>
                                     <span className={`text-sm font-bold ${apiBalances.openRouter.remaining > 1 ? 'text-emerald-600' : apiBalances.openRouter.remaining > 0.1 ? 'text-amber-600' : 'text-red-600'}`}>
                                         ${apiBalances.openRouter.remaining?.toFixed(4)}
@@ -122,7 +122,7 @@ const AdminRevenueSection = ({
             <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-4">
                 <div className="flex items-center justify-between">
                     <h3 className="font-bold text-gray-800 dark:text-white flex items-center gap-2">
-                        <Calendar className="w-4 h-4 text-indigo-500" />
+                        <Calendar className="w-4 h-4 text-emerald-500" />
                         Thống kê theo tháng
                     </h3>
                     <div className="flex items-center gap-2">
@@ -454,7 +454,7 @@ const AdminRevenueSection = ({
                                     <button
                                         type="button"
                                         onClick={() => setIncludeFirebaseInExpenses(!includeFirebaseInExpenses)}
-                                        className="text-indigo-650 dark:text-indigo-400 hover:underline flex items-center gap-1 font-bold text-xs"
+                                        className="text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1 font-bold text-xs"
                                     >
                                         {includeFirebaseInExpenses ? (
                                             <span className="flex items-center gap-1"><CheckCircle className="w-3.5 h-3.5 text-emerald-500" /> Đang cộng dồn vào tổng chi phí tháng</span>
@@ -469,7 +469,7 @@ const AdminRevenueSection = ({
                         {/* Expense Breakdown */}
                         <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
                             <h3 className="font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
-                                <BarChart3 className="w-4 h-4 text-indigo-500" />
+                                <BarChart3 className="w-4 h-4 text-emerald-500" />
                                 Chi tiết thu chi tháng {selectedMonth}
                             </h3>
                             <div className="space-y-3">

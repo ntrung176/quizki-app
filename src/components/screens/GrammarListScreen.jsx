@@ -82,7 +82,7 @@ const LEVEL_COLORS = {
     ALL: 'bg-[#204051] hover:bg-[#162e3b] text-white shadow-md dark:bg-slate-700 dark:hover:bg-slate-600',
     N5: 'bg-emerald-500 hover:bg-emerald-600 text-white shadow-md shadow-emerald-200 dark:shadow-emerald-900/40',
     N4: 'bg-sky-500 hover:bg-sky-600 text-white shadow-md shadow-sky-200 dark:shadow-sky-900/40',
-    N3: 'bg-indigo-500 hover:bg-indigo-600 text-white shadow-md shadow-indigo-200 dark:shadow-indigo-900/40',
+    N3: 'bg-emerald-500 hover:bg-emerald-600 text-white shadow-md shadow-emerald-200 dark:shadow-emerald-900/40',
     N2: 'bg-amber-500 hover:bg-amber-600 text-white shadow-md shadow-amber-200 dark:shadow-amber-900/40',
     N1: 'bg-rose-500 hover:bg-rose-600 text-white shadow-md shadow-rose-900/40',
 };
@@ -104,7 +104,7 @@ const normalizePattern = (str) => {
 const LEVEL_BADGE_COLORS = {
     N5: 'bg-emerald-500 text-white',
     N4: 'bg-sky-500 text-white',
-    N3: 'bg-indigo-500 text-white',
+    N3: 'bg-emerald-500 text-white',
     N2: 'bg-amber-500 text-white',
     N1: 'bg-rose-500 text-white',
 };
@@ -122,7 +122,7 @@ const getGrammarLevel = (gp) => {
 const LEVEL_BORDER_COLORS = {
     N5: 'border-emerald-500',
     N4: 'border-sky-500',
-    N3: 'border-indigo-500',
+    N3: 'border-emerald-500',
     N2: 'border-amber-500',
     N1: 'border-rose-500',
 };
@@ -534,7 +534,7 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
                                         className={`px-3 py-1 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
                                             isBatchMode
                                                 ? 'bg-rose-500 text-white shadow-md'
-                                                : 'bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800 hover:bg-indigo-100'
+                                                : 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 hover:bg-emerald-100'
                                         }`}
                                         title={isBatchMode ? 'Tắt chế độ chọn nhiều' : 'Bật chế độ chọn nhiều để xóa hàng loạt'}
                                     >
@@ -573,17 +573,17 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
 
                 {/* Admin Sticky Batch Action Toolbar */}
                 {isAdmin && isBatchMode && (
-                    <div className="bg-indigo-900 text-white rounded-2xl p-4 shadow-xl border border-indigo-700 flex flex-wrap items-center justify-between gap-3 animate-fade-in">
+                    <div className="bg-emerald-900 text-white rounded-2xl p-4 shadow-xl border border-emerald-700 flex flex-wrap items-center justify-between gap-3 animate-fade-in">
                         <div className="flex items-center gap-3 font-bold text-sm">
                             <button
                                 onClick={handleSelectAll}
-                                className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-indigo-800 hover:bg-indigo-700 text-xs text-indigo-100 border border-indigo-600 transition-colors"
+                                className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-xs text-emerald-100 border border-emerald-600 transition-colors"
                             >
                                 {selectedGrammarIds.size === filteredGrammar.length ? <CheckSquare className="w-4 h-4 text-cyan-400" /> : <Square className="w-4 h-4" />}
                                 <span>{selectedGrammarIds.size === filteredGrammar.length ? t('grammar.deselectAll', 'Bỏ chọn tất cả') : t('grammar.selectAll', 'Chọn tất cả trong trang')}</span>
                             </button>
 
-                            <span className="text-xs text-indigo-200">
+                            <span className="text-xs text-emerald-200">
                                 {t('grammar.selectedCount', 'Đã chọn {count} / {total} mục').replace('{count}', selectedGrammarIds.size).replace('{total}', filteredGrammar.length)}
                             </span>
                         </div>
@@ -603,7 +603,7 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
                                     setIsBatchMode(false);
                                     setSelectedGrammarIds(new Set());
                                 }}
-                                className="p-2 rounded-xl bg-indigo-800 hover:bg-indigo-700 text-indigo-200 hover:text-white transition-colors"
+                                className="p-2 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-emerald-200 hover:text-white transition-colors"
                                 title="Đóng"
                             >
                                 <X className="w-4 h-4" />
@@ -639,7 +639,7 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
                                         }}
                                         className={`bg-white dark:bg-slate-800 border rounded-3xl p-5 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer flex flex-col justify-between min-h-[160px] relative group overflow-hidden ${
                                             isSelected
-                                                ? 'border-indigo-500 ring-2 ring-indigo-500/40 bg-indigo-50/20 dark:bg-indigo-950/30'
+                                                ? 'border-emerald-500 ring-2 ring-emerald-500/40 bg-emerald-50/20 dark:bg-emerald-950/30'
                                                 : 'border-gray-250/70 dark:border-slate-700/60 hover:border-slate-350 dark:hover:border-slate-600'
                                         }`}
                                     >
@@ -653,7 +653,7 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
                                                     }}
                                                     className={`w-6 h-6 rounded-lg flex items-center justify-center transition-all cursor-pointer ${
                                                         isSelected
-                                                            ? 'bg-indigo-600 text-white shadow-sm'
+                                                            ? 'bg-emerald-600 text-white shadow-sm'
                                                             : 'bg-slate-100 dark:bg-slate-700 text-slate-400 border border-slate-300 dark:border-slate-600'
                                                     }`}
                                                 >
@@ -705,19 +705,19 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
                                                     <span>{gpLevel}</span>
                                                 </span>
                                                 <div className="flex items-center gap-1.5 text-[10px] text-slate-400 dark:text-slate-400 font-bold uppercase tracking-wider">
-                                                    <BookOpen className="w-3.5 h-3.5 text-indigo-500" />
+                                                    <BookOpen className="w-3.5 h-3.5 text-emerald-500" />
                                                     <span className="truncate max-w-[140px] sm:max-w-[200px]">{gp.textbookTitle || t('grammar.defaultKho', 'Kho ngữ pháp gốc')}</span>
                                                 </div>
                                             </div>
 
-                                            <h3 className="font-bold text-slate-800 dark:text-white text-lg leading-tight group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors font-japanese">
+                                            <h3 className="font-bold text-slate-800 dark:text-white text-lg leading-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors font-japanese">
                                                 {gp.pattern}
                                             </h3>
                                         </div>
 
                                         <div className="pt-4 border-t border-slate-100 dark:border-slate-750/70 flex items-center justify-between text-xs font-semibold text-slate-500 dark:text-slate-400">
                                             <span className="line-clamp-1 flex-1 pr-2">{gp.meaningShort || gp.meaning}</span>
-                                            <ExternalLink className="w-3.5 h-3.5 text-slate-300 dark:text-slate-600 group-hover:text-indigo-400 transition-colors shrink-0" />
+                                            <ExternalLink className="w-3.5 h-3.5 text-slate-300 dark:text-slate-600 group-hover:text-emerald-400 transition-colors shrink-0" />
                                         </div>
                                     </div>
                                 );
@@ -729,7 +729,7 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
                             <div className="flex flex-col items-center justify-center pt-4 pb-2 gap-2">
                                 <button
                                     onClick={() => setVisibleCount(prev => prev + 36)}
-                                    className="px-6 py-2.5 rounded-2xl bg-indigo-50 dark:bg-indigo-950/60 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 text-indigo-600 dark:text-indigo-400 font-bold text-xs sm:text-sm border border-indigo-200 dark:border-indigo-800 transition-all shadow-sm active:scale-95 cursor-pointer"
+                                    className="px-6 py-2.5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 text-emerald-600 dark:text-emerald-400 font-bold text-xs sm:text-sm border border-emerald-200 dark:border-emerald-800 transition-all shadow-sm active:scale-95 cursor-pointer"
                                 >
                                     {t('grammar.loadMore', 'Hiển thị thêm {count} / {remaining} mẫu ngữ pháp còn lại').replace('{count}', Math.min(36, filteredGrammar.length - visibleCount)).replace('{remaining}', filteredGrammar.length - visibleCount)}
                                 </button>

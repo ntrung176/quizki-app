@@ -19,7 +19,7 @@ export const SECTION_COLORS = {
 export const LEVEL_GRADIENTS = {
     N5: 'from-emerald-500 to-teal-600',
     N4: 'from-teal-500 to-cyan-600',
-    N3: 'from-blue-500 to-indigo-600',
+    N3: 'from-blue-500 to-emerald-600',
     N2: 'from-sky-500 to-blue-600',
     N1: 'from-rose-500 to-red-600',
 };

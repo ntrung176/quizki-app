@@ -30,7 +30,7 @@ export const InputField = ({ label, value, onChange, placeholder, type = 'text' 
     </div>
 );
 
-const BOOK_COLORS = ['#3B82F6', '#8B5CF6', '#F59E0B', '#10B981', '#EF4444', '#EC4899', '#6366F1', '#14B8A6'];
+const BOOK_COLORS = ['#3B82F6', '#14b8a6', '#F59E0B', '#10B981', '#EF4444', '#EC4899', '#10b981', '#14B8A6'];
 
 const BookFormModals = ({
     showAddGroup, setShowAddGroup, handleAddGroup,
@@ -350,7 +350,7 @@ const BookFormModals = ({
                         <div className="px-6 py-4 border-b border-slate-100 dark:border-slate-700 flex justify-between items-center">
                             <div>
                                 <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-                                    <Layers className="w-5 h-5 text-indigo-500" />
+                                    <Layers className="w-5 h-5 text-emerald-500" />
                                     Liên kết với học phần sẵn có
                                 </h3>
                                 <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
@@ -395,7 +395,7 @@ const BookFormModals = ({
                                                 setSelectedVocabIndices(new Set(vocabWithAudio.map((_, i) => i)));
                                             }
                                         }}
-                                        className="text-xs text-indigo-500 dark:text-indigo-400 font-bold hover:underline"
+                                        className="text-xs text-emerald-500 dark:text-emerald-400 font-bold hover:underline"
                                     >
                                         {selectedVocabIndices.size === vocabWithAudio.length ? 'Bỏ chọn tất cả' : 'Chọn tất cả'}
                                     </button>
@@ -423,7 +423,7 @@ const BookFormModals = ({
                                                     type="checkbox" 
                                                     checked={isSelected}
                                                     onChange={() => {}}
-                                                    className="w-4 h-4 rounded text-indigo-500 border-slate-300 dark:border-slate-600 focus:ring-indigo-500 cursor-pointer"
+                                                    className="w-4 h-4 rounded text-emerald-500 border-slate-300 dark:border-slate-600 focus:ring-emerald-500 cursor-pointer"
                                                 />
                                                 <div className="flex-1 min-w-0">
                                                     <p className="text-sm font-bold text-slate-800 dark:text-slate-200 truncate">{displayWord}</p>
@@ -452,7 +452,7 @@ const BookFormModals = ({
                                 type="button"
                                 onClick={handleLinkToExistingStudySet}
                                 disabled={creationLoading || !selectedExistingStudySetId || selectedVocabIndices.size === 0}
-                                className="px-5 py-2 bg-indigo-500 hover:bg-indigo-600 disabled:opacity-50 text-white rounded-xl text-sm font-extrabold transition-all shadow-md flex items-center gap-1.5"
+                                className="px-5 py-2 bg-emerald-500 hover:bg-emerald-600 disabled:opacity-50 text-white rounded-xl text-sm font-extrabold transition-all shadow-md flex items-center gap-1.5"
                             >
                                 {creationLoading ? (
                                     <>

@@ -1113,7 +1113,7 @@ const ExamAnnotationOverlay = ({
                                         key={col.name}
                                         onClick={() => setPenColor(col.value)}
                                         className={`w-6 h-6 rounded-full border border-black/10 transition hover:scale-110 flex items-center justify-center cursor-pointer ${
-                                            isSelected ? 'ring-2 ring-indigo-500 ring-offset-2 dark:ring-offset-slate-900 scale-105' : 'opacity-80'
+                                            isSelected ? 'ring-2 ring-emerald-500 ring-offset-2 dark:ring-offset-slate-900 scale-105' : 'opacity-80'
                                         }`}
                                         style={{ backgroundColor: resolvedVal }}
                                         title={col.name}
@@ -1135,7 +1135,7 @@ const ExamAnnotationOverlay = ({
                                 onClick={() => { setActiveTool('line'); setCurveState(null); }}
                                 className={`w-full text-left px-2 py-1.5 rounded-lg text-xs font-bold flex items-center gap-2 transition ${
                                     activeTool === 'line' 
-                                        ? 'bg-indigo-50 text-indigo-655 dark:bg-indigo-950/40 dark:text-indigo-400' 
+                                        ? 'bg-emerald-50 text-emerald-655 dark:bg-emerald-950/40 dark:text-emerald-400' 
                                         : 'text-slate-600 hover:bg-slate-50 dark:text-slate-350 dark:hover:bg-slate-800/50'
                                 }`}
                             >
@@ -1145,7 +1145,7 @@ const ExamAnnotationOverlay = ({
                                 onClick={() => { setActiveTool('curve'); setCurveState(null); }}
                                 className={`w-full text-left px-2 py-1.5 rounded-lg text-xs font-bold flex items-center gap-2 transition ${
                                     activeTool === 'curve' 
-                                        ? 'bg-indigo-50 text-indigo-655 dark:bg-indigo-950/40 dark:text-indigo-400' 
+                                        ? 'bg-emerald-50 text-emerald-655 dark:bg-emerald-950/40 dark:text-emerald-400' 
                                         : 'text-slate-600 hover:bg-slate-50 dark:text-slate-350 dark:hover:bg-slate-800/50'
                                 }`}
                             >
@@ -1193,7 +1193,7 @@ const ExamAnnotationOverlay = ({
                                             setHighlighterColor(col.value);
                                         }}
                                         className={`w-6 h-6 rounded-full border border-black/10 transition hover:scale-110 flex items-center justify-center cursor-pointer ${
-                                            isSelected ? 'ring-2 ring-indigo-550 ring-offset-2 dark:ring-offset-slate-900 scale-105' : 'opacity-85'
+                                            isSelected ? 'ring-2 ring-emerald-500 ring-offset-2 dark:ring-offset-slate-900 scale-105' : 'opacity-85'
                                         }`}
                                         style={{ backgroundColor: col.value }}
                                         title={col.name}
@@ -1230,7 +1230,7 @@ const ExamAnnotationOverlay = ({
                             step="0.5"
                             value={penThickness} 
                             onChange={(e) => setPenThickness(parseFloat(e.target.value))}
-                            className="w-full accent-indigo-500 h-1 bg-slate-100 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer"
+                            className="w-full accent-emerald-500 h-1 bg-slate-100 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer"
                         />
                         <div className="flex justify-between mt-1 px-1">
                             {[2, 3.5, 6, 10].map(size => (
@@ -1239,7 +1239,7 @@ const ExamAnnotationOverlay = ({
                                     onClick={() => setPenThickness(size)}
                                     className={`text-[9px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center border transition cursor-pointer ${
                                         penThickness === size
-                                            ? 'bg-indigo-55 border-indigo-300 text-indigo-600 dark:bg-indigo-950/45 dark:border-indigo-800 dark:text-indigo-400 font-black'
+                                            ? 'bg-emerald-55 border-emerald-300 text-emerald-600 dark:bg-emerald-950/45 dark:border-emerald-800 dark:text-emerald-400 font-black'
                                             : 'border-transparent text-slate-400 hover:text-slate-600 dark:hover:text-slate-305'
                                     }`}
                                 >
@@ -1400,7 +1400,7 @@ const ExamAnnotationOverlay = ({
                                         className="text-resize-handle absolute top-0 bottom-0 -right-1.5 w-3 cursor-e-resize flex items-center justify-center group-hover:opacity-100 opacity-0 transition-opacity"
                                         title="Kéo ngang để xuống dòng"
                                     >
-                                        <div className="w-1 h-3 bg-indigo-500/80 rounded-full" />
+                                        <div className="w-1 h-3 bg-emerald-500/80 rounded-full" />
                                     </div>
 
                                     <div
@@ -1408,7 +1408,7 @@ const ExamAnnotationOverlay = ({
                                         className="text-resize-handle absolute -bottom-1.5 -right-1.5 w-3.5 h-3.5 cursor-se-resize flex items-center justify-center group-hover:opacity-100 opacity-0 transition-opacity"
                                         title="Kéo góc chéo để phóng to chữ"
                                     >
-                                        <div className="w-2 h-2 bg-indigo-500/85 rounded-sm" />
+                                        <div className="w-2 h-2 bg-emerald-500/85 rounded-sm" />
                                     </div>
                                 </>
                             )}
@@ -1420,7 +1420,7 @@ const ExamAnnotationOverlay = ({
             {/* Active Inline Text Input Box (Auto-growing textarea) */}
             {textInputPos && (
                 <div 
-                    className="absolute z-40 bg-transparent flex items-center border border-dashed border-indigo-500 p-1 pointer-events-auto rounded bg-white/40 dark:bg-slate-900/40"
+                    className="absolute z-40 bg-transparent flex items-center border border-dashed border-emerald-500 p-1 pointer-events-auto rounded bg-white/40 dark:bg-slate-900/40"
                     style={{
                         left: `${textInputPos.x}px`,
                         top: `${textInputPos.y - 12}px`
@@ -1510,7 +1510,7 @@ const ExamAnnotationOverlay = ({
                                 onClick={() => setActiveTool('cursor')}
                                 className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all ${
                                     activeTool === 'cursor' 
-                                        ? 'bg-indigo-650 text-white shadow-md shadow-indigo-500/25 scale-105' 
+                                        ? 'bg-emerald-600 text-white shadow-md shadow-emerald-500/25 scale-105' 
                                         : 'text-slate-655 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                                 }`}
                                 title="Con trỏ chuột (Chọn đáp án đề thi)"
@@ -1549,7 +1549,7 @@ const ExamAnnotationOverlay = ({
                                 }}
                                 className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all relative ${
                                     (activeTool === 'line' || activeTool === 'curve')
-                                        ? 'bg-indigo-650 text-white shadow-md shadow-indigo-500/25 scale-105' 
+                                        ? 'bg-emerald-600 text-white shadow-md shadow-emerald-500/25 scale-105' 
                                         : 'text-slate-655 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                                 }`}
                                 title="Kẻ đường thẳng / đường cong (Nhấp mở menu phụ chọn loại nét)"
@@ -1598,7 +1598,7 @@ const ExamAnnotationOverlay = ({
                                 onClick={() => setActiveTool('text')}
                                 className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all ${
                                     activeTool === 'text' 
-                                        ? 'bg-indigo-650 text-white shadow-md shadow-indigo-500/25 scale-105' 
+                                        ? 'bg-emerald-600 text-white shadow-md shadow-emerald-500/25 scale-105' 
                                         : 'text-slate-655 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                                 }`}
                                 title="Gõ chữ trên đề (Kéo để di chuyển, double click để sửa)"
@@ -1653,7 +1653,7 @@ const ExamAnnotationOverlay = ({
                     <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 max-w-sm shadow-2xl space-y-4 text-left animate-fade-in">
                         <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
                             <h4 className="font-extrabold text-sm text-slate-800 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
-                                <HelpCircle className="w-4.5 h-4.5 text-indigo-500" /> Hướng dẫn nháp JLPT
+                                <HelpCircle className="w-4.5 h-4.5 text-emerald-500" /> Hướng dẫn nháp JLPT
                             </h4>
                             <button 
                                 onClick={() => setShowHelp(false)}
@@ -1664,29 +1664,29 @@ const ExamAnnotationOverlay = ({
                         </div>
                         <ul className="space-y-3 text-xs text-slate-600 dark:text-slate-350 leading-relaxed font-medium">
                             <li className="flex items-start gap-2">
-                                <span className="bg-indigo-100 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">1</span>
+                                <span className="bg-emerald-100 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">1</span>
                                 <span><b>Bút viết:</b> Vẽ tự do trên màn hình. Mở menu phụ để chọn màu viết.</span>
                             </li>
                             <li className="flex items-start gap-2">
-                                <span className="bg-indigo-100 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">2</span>
+                                <span className="bg-emerald-100 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">2</span>
                                 <span><b>Đường thẳng & cong:</b> Chọn công cụ vẽ nét. Mở menu phụ để chọn kiểu kẻ thẳng hoặc vẽ cong.</span>
                             </li>
                             <li className="flex items-start gap-2">
-                                <span className="bg-indigo-100 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">3</span>
+                                <span className="bg-emerald-100 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">3</span>
                                 <span><b>Bút highlight:</b> Bôi màu dạ quang. Mở menu phụ để chọn tô quét chữ, tô vẽ tự do và tùy ý chọn màu (Vàng, Xanh lá, Hồng).</span>
                             </li>
                             <li className="flex items-start gap-2">
-                                <span className="bg-indigo-100 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">4</span>
+                                <span className="bg-emerald-100 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">4</span>
                                 <span><b>Tẩy:</b> Di chuột xóa nét vẽ tự do, hoặc click lên đoạn chữ đang highlight để gỡ bỏ.</span>
                             </li>
                             <li className="flex items-start gap-2">
-                                <span className="bg-indigo-100 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">5</span>
+                                <span className="bg-emerald-100 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">5</span>
                                 <span><b>Ghi chú & Viết chữ:</b> Có thể viết nháp ở bất kỳ đâu, bao gồm cả khoảng trống lề hai bên đề thi.</span>
                             </li>
                         </ul>
                         <button 
                             onClick={() => setShowHelp(false)}
-                            className="w-full py-2 bg-indigo-600 text-white rounded-xl font-bold hover:bg-indigo-700 transition text-xs cursor-pointer shadow-sm"
+                            className="w-full py-2 bg-emerald-600 text-white rounded-xl font-bold hover:bg-emerald-700 transition text-xs cursor-pointer shadow-sm"
                         >
                             Đã hiểu
                         </button>

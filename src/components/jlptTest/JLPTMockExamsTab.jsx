@@ -131,7 +131,7 @@ const JLPTMockExamsTab = ({
                     const score = getTestScore(test);
                     const totalQ = getTestQuestionCount(test);
                     const isLocked = (test.level !== 'N5' || test.isPremium) && !hasPremiumAccess;
-                    const lvlGradient = LEVEL_GRADIENTS[test.level] || 'from-indigo-500 to-sky-600';
+                    const lvlGradient = LEVEL_GRADIENTS[test.level] || 'from-emerald-500 to-sky-600';
 
                     return (
                         <div
@@ -192,7 +192,7 @@ const JLPTMockExamsTab = ({
 
                                 <div className="flex items-center gap-3 text-xs font-bold text-slate-400 dark:text-slate-500 mt-3.5">
                                     <span className="flex items-center gap-1 text-slate-600 dark:text-slate-300">
-                                        <Award className="w-3.5 h-3.5 text-indigo-500" />
+                                        <Award className="w-3.5 h-3.5 text-emerald-500" />
                                         {totalQ} câu hỏi
                                     </span>
                                     <span>•</span>
@@ -206,7 +206,7 @@ const JLPTMockExamsTab = ({
                             <div className="mt-5 pt-3.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-2">
                                 <button 
                                     onClick={(e) => { e.stopPropagation(); handleStartPrint(test); }} 
-                                    className="p-2 text-slate-400 hover:text-indigo-600 transition cursor-pointer"
+                                    className="p-2 text-slate-400 hover:text-emerald-600 transition cursor-pointer"
                                     title="In đề thi / Xuất PDF"
                                 >
                                     <Printer className="w-4 h-4" />
@@ -258,7 +258,7 @@ const JLPTMockExamsTab = ({
                 <div className="text-center pt-2">
                     <button
                         onClick={() => setDisplayLimit(prev => prev + 30)}
-                        className="px-6 py-2.5 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-indigo-600 dark:text-indigo-400 font-black text-xs rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xs transition-all cursor-pointer"
+                        className="px-6 py-2.5 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-emerald-600 dark:text-emerald-400 font-black text-xs rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xs transition-all cursor-pointer"
                     >
                         Hiển thị thêm (+30 đề) • Còn {sortedTests.length - displayLimit} đề
                     </button>

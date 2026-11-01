@@ -284,9 +284,9 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
             <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 max-w-2xl w-full shadow-2xl space-y-5 my-auto max-h-[92vh] flex flex-col">
                 {/* Header */}
                 <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4 shrink-0">
-                    <div className="flex items-center gap-3 text-indigo-600 dark:text-indigo-400">
-                        <div className="p-2.5 rounded-2xl bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-100 dark:border-indigo-900/50">
-                            <FileJson className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                    <div className="flex items-center gap-3 text-emerald-600 dark:text-emerald-400">
+                        <div className="p-2.5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-100 dark:border-emerald-900/50">
+                            <FileJson className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                         </div>
                         <div>
                             <h3 className="text-lg font-black text-slate-800 dark:text-white">
@@ -356,7 +356,7 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                                     ? `Dán chuỗi JSON từ AI vào đây, ví dụ:\n[\n  {\n    "front": "Accomplish",\n    "reading": "/əˈkɑːm.plɪʃ/",\n    "back": "Hoàn thành, đạt được",\n    "pos": "Verb (Động từ)",\n    "level": "B2",\n    "example": "1. If we work together, we can accomplish anything.\\n2. She accomplished such a lot during her visit.",\n    "exampleMeaning": "1. Nếu chúng ta làm việc cùng nhau, chúng ta có thể hoàn thành bất cứ điều gì.\\n2. Cô ấy đã đạt được rất nhiều thành tựu.",\n    "synonym": "Achieve, Complete",\n    "nuance": "Dùng cho việc hoàn thành mục tiêu sau nỗ lực."\n  }\n]`
                                     : `Dán chuỗi JSON từ AI vào đây, ví dụ:\n[\n  {\n    "front": "勉強",\n    "reading": "べんきょう",\n    "back": "Học tập, học hành",\n    "sinoVietnamese": "MIỄN CƯỜNG",\n    "pos": "Danh từ / Động từ nhóm 3",\n    "level": "N5",\n    "example": "1. 毎日日本語を2時間勉強しています。\\n2. 図書館で友達と一緒に勉強しました。",\n    "exampleMeaning": "1. Tôi học tiếng Nhật 2 tiếng mỗi ngày.\\n2. Tôi đã cùng bạn học bài ở thư viện.",\n    "synonym": "学習",\n    "synonymSinoVietnamese": "HỌC TẬP",\n    "nuance": "Dùng trong học tập kiến thức, thi cử."\n  }\n]`
                             }
-                            className="w-full p-3.5 text-xs font-mono bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-2xl focus:ring-2 focus:ring-indigo-500 outline-none text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-600 transition-all custom-scrollbar"
+                            className="w-full p-3.5 text-xs font-mono bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-2xl focus:ring-2 focus:ring-emerald-500 outline-none text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-600 transition-all custom-scrollbar"
                         />
                         {errorMsg && (
                             <div className="flex items-center gap-1.5 text-xs text-rose-500 font-semibold mt-1">
@@ -377,7 +377,7 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                     </button>
                     <button
                         onClick={handleImportSubmit}
-                        className="px-6 py-2.5 bg-gradient-to-r from-indigo-600 to-sky-600 hover:from-indigo-500 hover:to-sky-500 text-white text-xs font-black rounded-xl flex items-center gap-2 shadow-md transition-all active:scale-95 cursor-pointer"
+                        className="px-6 py-2.5 bg-gradient-to-r from-emerald-600 to-sky-600 hover:from-emerald-500 hover:to-sky-500 text-white text-xs font-black rounded-xl flex items-center gap-2 shadow-md transition-all active:scale-95 cursor-pointer"
                     >
                         <Download className="w-4 h-4" />
                         <span>{t('jsonImport.importBtn', 'Nhập từ vựng vào bài')}</span>

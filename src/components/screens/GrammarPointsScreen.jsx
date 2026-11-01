@@ -790,7 +790,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                             <div className="flex-1 min-w-0">
                                 <div className="flex flex-wrap items-center gap-1.5 mb-1.5">
                                     {(textbook.levels || []).map(lvl => (
-                                        <span key={lvl} className="px-2.5 py-0.5 text-[10px] font-black rounded-md bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20 uppercase tracking-wider">
+                                        <span key={lvl} className="px-2.5 py-0.5 text-[10px] font-black rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 uppercase tracking-wider">
                                             {lvl}
                                         </span>
                                     ))}
@@ -799,7 +799,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                                             {lesson.sectionLabel}
                                         </span>
                                     )}
-                                    <span className="px-2.5 py-0.5 text-[10px] font-bold rounded-md bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800">
+                                    <span className="px-2.5 py-0.5 text-[10px] font-bold rounded-md bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
                                         📝 Ôn tập tổng hợp
                                     </span>
                                 </div>
@@ -818,7 +818,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                                     <Plus className="w-3.5 h-3.5" /> Thêm Trắc nghiệm
                                 </button>
                                 <button onClick={() => { setShowReviewImportPanel(!showReviewImportPanel); setShowAddQuizPanel(false); }}
-                                    className="flex items-center gap-1.5 px-3 py-2 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 text-xs font-bold rounded-xl transition-all border border-indigo-200 dark:border-indigo-800/80 shadow-2xs cursor-pointer">
+                                    className="flex items-center gap-1.5 px-3 py-2 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950 dark:hover:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 text-xs font-bold rounded-xl transition-all border border-emerald-200 dark:border-emerald-800/80 shadow-2xs cursor-pointer">
                                     <FileJson className="w-3.5 h-3.5" /> Nhập Đặt câu (JSON)
                                 </button>
                             </div>
@@ -839,12 +839,12 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                                 <label className="text-[10px] font-bold text-slate-500 uppercase block">Thêm Đặt câu (JSON)</label>
                                 <button onClick={() => {
                                     setJsonInputTranslate(`[\n  {\n    "questionVi": "Câu tiếng Việt ở đây",\n    "hint": "Gợi ý",\n    "answers": ["Đáp án tiếng Nhật"]\n  }\n]`);
-                                }} className="text-[10px] text-indigo-600 hover:underline">Copy mẫu</button>
+                                }} className="text-[10px] text-emerald-600 hover:underline">Copy mẫu</button>
                             </div>
                             <textarea value={jsonInputTranslate} onChange={e => setJsonInputTranslate(e.target.value)} rows={6} placeholder='[{"questionVi": "...", "answers": ["..."]}]'
-                                className="w-full font-mono text-[11px] p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl dark:text-white outline-none resize-none focus:ring-2 focus:ring-indigo-500/25" />
+                                className="w-full font-mono text-[11px] p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl dark:text-white outline-none resize-none focus:ring-2 focus:ring-emerald-500/25" />
                             <button onClick={() => handleReviewImportJson('translate')} disabled={importingReview || !jsonInputTranslate.trim()}
-                                className="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-lg disabled:opacity-50">
+                                className="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-lg disabled:opacity-50">
                                 Nhập thêm Đặt câu
                             </button>
                         </div>
@@ -875,7 +875,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                                 <div>
                                     <label className="text-[10px] font-bold text-slate-400 uppercase">Câu hỏi (Dùng ______ để điền chỗ trống)</label>
                                     <input value={manualQuizForm.question} onChange={e => setManualQuizForm(f => ({ ...f, question: e.target.value }))} placeholder="Ví dụ: 非常の______、このボタンを押してください。"
-                                        className="w-full px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none focus:ring-2 focus:ring-indigo-500/25" />
+                                        className="w-full px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none focus:ring-2 focus:ring-emerald-500/25" />
                                 </div>
                                 <div className="grid grid-cols-2 gap-3">
                                     {manualQuizForm.options.map((opt, oIdx) => (
@@ -886,7 +886,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                                                 newOpts[oIdx] = e.target.value;
                                                 setManualQuizForm(f => ({ ...f, options: newOpts }));
                                             }} placeholder={`Lựa chọn ${oIdx + 1}`}
-                                                className="w-full px-3 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm dark:text-white outline-none focus:ring-2 focus:ring-indigo-500/25" />
+                                                className="w-full px-3 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm dark:text-white outline-none focus:ring-2 focus:ring-emerald-500/25" />
                                         </div>
                                     ))}
                                 </div>
@@ -894,7 +894,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                                     <div>
                                         <label className="text-[10px] font-bold text-slate-400 uppercase block mb-1">Đáp án đúng</label>
                                         <select value={manualQuizForm.answer} onChange={e => setManualQuizForm(f => ({ ...f, answer: e.target.value }))}
-                                            className="w-full px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm dark:text-white outline-none focus:ring-2 focus:ring-indigo-500/25">
+                                            className="w-full px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm dark:text-white outline-none focus:ring-2 focus:ring-emerald-500/25">
                                             <option value="">-- Chọn đáp án đúng --</option>
                                             {manualQuizForm.options.filter(Boolean).map((opt, oIdx) => (
                                                 <option key={oIdx} value={opt}>{opt}</option>
@@ -904,7 +904,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                                     <div>
                                         <label className="text-[10px] font-bold text-slate-400 uppercase block mb-1">Giải thích (Explanation)</label>
                                         <input value={manualQuizForm.explanation} onChange={e => setManualQuizForm(f => ({ ...f, explanation: e.target.value }))} placeholder="Ví dụ: Cách dùng trang trọng của 際"
-                                            className="w-full px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm dark:text-white outline-none focus:ring-2 focus:ring-indigo-500/25" />
+                                            className="w-full px-3 py-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm dark:text-white outline-none focus:ring-2 focus:ring-emerald-500/25" />
                                     </div>
                                 </div>
                                 <button onClick={handleReviewAddQuizManually} disabled={importingReview}
@@ -918,10 +918,10 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                                     <label className="text-[10px] font-bold text-slate-500 uppercase block">Trắc nghiệm JSON</label>
                                     <button onClick={() => {
                                         setJsonInputQuiz(`[\n  {\n    "question": "非常の______、このボタンを押してください。",\n    "options": ["際", "際に", "とき", "こと"],\n    "answer": "際",\n    "explanation": "Giải thích cấu trúc"\n  }\n]`);
-                                    }} className="text-[10px] text-indigo-600 hover:underline">Copy mẫu</button>
+                                    }} className="text-[10px] text-emerald-600 hover:underline">Copy mẫu</button>
                                 </div>
                                 <textarea value={jsonInputQuiz} onChange={e => setJsonInputQuiz(e.target.value)} rows={5} placeholder='[{"question": "...", "options": ["..."], "answer": "..."}]'
-                                    className="w-full font-mono text-[11px] p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl dark:text-white outline-none resize-none focus:ring-2 focus:ring-indigo-500/25" />
+                                    className="w-full font-mono text-[11px] p-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl dark:text-white outline-none resize-none focus:ring-2 focus:ring-emerald-500/25" />
                                 <button onClick={() => { handleReviewImportJson('quiz'); setShowAddQuizPanel(false); }} disabled={importingReview || !jsonInputQuiz.trim()}
                                     className="w-full py-2 bg-sky-500 hover:bg-sky-600 text-white text-xs font-bold rounded-xl transition-all shadow-sm">
                                     Nhập câu hỏi từ JSON
@@ -941,13 +941,13 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                         <div className="flex gap-2 p-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl shadow-md">
                             {exercises.length > 0 && (
                                 <button onClick={() => setActiveTab('translate')}
-                                    className={`flex-1 py-2.5 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-2 ${currentTab === 'translate' ? 'bg-slate-100 dark:bg-slate-800 text-indigo-600 dark:text-white shadow-xs' : 'text-slate-500 hover:text-slate-850 dark:hover:text-slate-200'}`}>
+                                    className={`flex-1 py-2.5 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-2 ${currentTab === 'translate' ? 'bg-slate-100 dark:bg-slate-800 text-emerald-600 dark:text-white shadow-xs' : 'text-slate-500 hover:text-slate-850 dark:hover:text-slate-200'}`}>
                                     <ClipboardCheck className="w-4 h-4" /> Đặt câu ({exercises.length})
                                 </button>
                             )}
                             {quizzes.length > 0 && (
                                 <button onClick={() => setActiveTab('quiz')}
-                                    className={`flex-1 py-2.5 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-2 ${currentTab === 'quiz' ? 'bg-white dark:bg-slate-700 text-indigo-600 dark:text-white shadow-xs' : 'text-slate-500 hover:text-slate-850 dark:hover:text-slate-200'}`}>
+                                    className={`flex-1 py-2.5 rounded-lg text-sm font-bold transition-all flex items-center justify-center gap-2 ${currentTab === 'quiz' ? 'bg-white dark:bg-slate-700 text-emerald-600 dark:text-white shadow-xs' : 'text-slate-500 hover:text-slate-850 dark:hover:text-slate-200'}`}>
                                     <Award className="w-4 h-4" /> Trắc nghiệm ({quizzes.length})
                                 </button>
                             )}
@@ -969,8 +969,8 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
 
                                         if (isEditing) {
                                             return (
-                                                <div key={id} className="bg-slate-50 dark:bg-slate-900 border-2 border-indigo-400 dark:border-indigo-600 rounded-2xl p-5 space-y-3 animate-fade-in">
-                                                    <h4 className="text-xs font-bold text-indigo-600 uppercase">Sửa câu hỏi {idx + 1}</h4>
+                                                <div key={id} className="bg-slate-50 dark:bg-slate-900 border-2 border-emerald-400 dark:border-emerald-600 rounded-2xl p-5 space-y-3 animate-fade-in">
+                                                    <h4 className="text-xs font-bold text-emerald-600 uppercase">Sửa câu hỏi {idx + 1}</h4>
                                                     <div>
                                                         <label className="text-[10px] font-bold text-slate-400 uppercase">Câu hỏi tiếng Việt</label>
                                                         <input value={editReviewForm.questionVi} onChange={e => setEditReviewForm(f => ({ ...f, questionVi: e.target.value }))}
@@ -987,7 +987,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                                                             className="w-full px-3 py-2 bg-white dark:bg-slate-800 border rounded-lg text-sm outline-none font-mono" />
                                                     </div>
                                                     <div className="flex gap-2">
-                                                        <button onClick={() => saveReviewInlineEdit('translate', idx)} className="px-3.5 py-1.5 bg-indigo-600 text-white text-xs font-bold rounded-lg flex items-center gap-1"><Save className="w-3.5 h-3.5" /> Lưu</button>
+                                                        <button onClick={() => saveReviewInlineEdit('translate', idx)} className="px-3.5 py-1.5 bg-emerald-600 text-white text-xs font-bold rounded-lg flex items-center gap-1"><Save className="w-3.5 h-3.5" /> Lưu</button>
                                                         <button onClick={cancelReviewInlineEdit} className="px-3.5 py-1.5 bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-lg">Huỷ</button>
                                                     </div>
                                                 </div>
@@ -1008,7 +1008,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                                                 )}
 
                                                 <div className="flex items-center justify-between mb-3">
-                                                    <span className="w-8 h-8 flex items-center justify-center rounded-full bg-indigo-100 dark:bg-indigo-900/40 text-indigo-700 dark:text-indigo-300 text-sm font-black">{idx + 1}</span>
+                                                    <span className="w-8 h-8 flex items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300 text-sm font-black">{idx + 1}</span>
                                                     {r === 'correct' && <CheckCircle className="w-5 h-5 text-emerald-500 mr-8" />}
                                                     {r === 'incorrect' && <X className="w-5 h-5 text-red-500 mr-8" />}
                                                 </div>
@@ -1026,11 +1026,11 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                                                 <p className="text-[10px] font-bold text-slate-400 uppercase mb-1.5">Bản dịch của bạn (日本語)</p>
                                                 <input type="text" value={translateAnswers[id] || ''} onChange={e => setTranslateAnswers(p => ({ ...p, [id]: e.target.value }))}
                                                     onKeyDown={e => { if (e.key === 'Enter') handleReviewAiCheck(id); }} placeholder="Gõ bản dịch tiếng Nhật..." disabled={r === 'correct'}
-                                                    className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none focus:ring-2 focus:ring-indigo-500/20 disabled:opacity-60 font-medium" />
+                                                    className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none focus:ring-2 focus:ring-emerald-500/20 disabled:opacity-60 font-medium" />
 
                                                 {showTranslateAnswer[id] && (
-                                                    <div className="mt-3 px-4 py-3 bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-800/40 rounded-xl">
-                                                        <p className="text-[10px] font-bold text-indigo-500 uppercase mb-1">Đáp án mẫu:</p>
+                                                    <div className="mt-3 px-4 py-3 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800/40 rounded-xl">
+                                                        <p className="text-[10px] font-bold text-emerald-500 uppercase mb-1">Đáp án mẫu:</p>
                                                         {ex.answers?.map((a, i) => <p key={i} className="text-sm font-bold text-slate-800 dark:text-white">{a}</p>)}
                                                     </div>
                                                 )}
@@ -1039,8 +1039,8 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                                                 {ai && (
                                                     <div className={`mt-3 px-4 py-3.5 rounded-xl border transition-all ${ai.isCorrect ? 'bg-emerald-50/50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800/40 text-emerald-900 dark:text-emerald-200' : 'bg-amber-50/60 dark:bg-amber-950/20 border-amber-200 dark:border-amber-800/40 text-amber-900 dark:text-amber-200'}`}>
                                                         <div className="flex items-center gap-2 mb-2 pb-1.5 border-b border-slate-200/40 dark:border-slate-700/40">
-                                                            <Bot className="w-4 h-4 text-indigo-500" />
-                                                            <span className="text-xs font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">AI Đánh Giá Chi Tiết</span>
+                                                            <Bot className="w-4 h-4 text-emerald-500" />
+                                                            <span className="text-xs font-black text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">AI Đánh Giá Chi Tiết</span>
                                                             <span className={`ml-auto text-sm font-black px-2 py-0.5 rounded-full ${ai.score >= 80 ? 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300' : ai.score >= 50 ? 'bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300' : 'bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-300'}`}>{ai.score}/100</span>
                                                         </div>
 
@@ -1057,7 +1057,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
 
                                                         {ai.correction && (
                                                             <div className="mt-2.5 pt-2 border-t border-slate-200/40 dark:border-slate-700/40">
-                                                                <p className="text-[10px] font-bold text-indigo-500 dark:text-indigo-400 uppercase tracking-wider mb-0.5">Bản dịch gợi ý tốt nhất:</p>
+                                                                <p className="text-[10px] font-bold text-emerald-500 dark:text-emerald-400 uppercase tracking-wider mb-0.5">Bản dịch gợi ý tốt nhất:</p>
                                                                 <p className="text-sm font-bold text-slate-800 dark:text-white select-all">{ai.correction}</p>
                                                             </div>
                                                         )}
@@ -1133,7 +1133,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                                                         </div>
                                                     </div>
                                                     <div className="flex gap-2">
-                                                        <button onClick={() => saveReviewInlineEdit('quiz', qIdx)} className="px-3.5 py-1.5 bg-indigo-600 text-white text-xs font-bold rounded-lg flex items-center gap-1"><Save className="w-3.5 h-3.5" /> Lưu</button>
+                                                        <button onClick={() => saveReviewInlineEdit('quiz', qIdx)} className="px-3.5 py-1.5 bg-emerald-600 text-white text-xs font-bold rounded-lg flex items-center gap-1"><Save className="w-3.5 h-3.5" /> Lưu</button>
                                                         <button onClick={cancelReviewInlineEdit} className="px-3.5 py-1.5 bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-xs rounded-lg">Huỷ</button>
                                                     </div>
                                                 </div>
@@ -1215,9 +1215,9 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                             <div className="flex items-center gap-3 flex-1 min-w-0">
                                 <span className="text-xs font-bold text-slate-500 shrink-0">Tiến độ</span>
                                 <div className="flex-1 h-2 bg-slate-100 dark:bg-slate-750 rounded-full overflow-hidden">
-                                    <div className="h-full bg-indigo-650 rounded-full transition-all duration-500" style={{ width: `${pct}%` }} />
+                                    <div className="h-full bg-emerald-600 rounded-full transition-all duration-500" style={{ width: `${pct}%` }} />
                                 </div>
-                                <span className="text-xs font-bold text-indigo-600 shrink-0">{pct}%</span>
+                                <span className="text-xs font-bold text-emerald-600 shrink-0">{pct}%</span>
                             </div>
                             <span className="text-xs font-bold text-slate-600 dark:text-slate-300 ml-4">{completedCount} / {totalInTab}</span>
                         </div>
@@ -1245,7 +1245,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                         <div className="flex-1 min-w-0">
                             <div className="flex flex-wrap items-center gap-1.5 mb-1.5">
                                 {(textbook.levels || []).map(lvl => (
-                                    <span key={lvl} className="px-2.5 py-0.5 text-[10px] font-black rounded-md bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20 uppercase tracking-wider">
+                                    <span key={lvl} className="px-2.5 py-0.5 text-[10px] font-black rounded-md bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 uppercase tracking-wider">
                                         {lvl}
                                     </span>
                                 ))}
@@ -1269,7 +1269,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                             <button
                                 onClick={handleBatchStandardizeCurrentLesson}
                                 disabled={isStandardizingLesson || points.length === 0}
-                                className="flex items-center gap-1.5 px-3.5 py-2 bg-purple-600 hover:bg-purple-500 active:translate-y-0.5 active:border-b-0 border-b-2 border-purple-800 text-white text-xs font-black rounded-xl transition-all cursor-pointer disabled:opacity-50 select-none"
+                                className="flex items-center gap-1.5 px-3.5 py-2 bg-teal-600 hover:bg-teal-500 active:translate-y-0.5 active:border-b-0 border-b-2 border-teal-800 text-white text-xs font-black rounded-xl transition-all cursor-pointer disabled:opacity-50 select-none"
                                 title="Dùng AI chuẩn hóa toàn bộ công thức và giải thích cho bài học này"
                             >
                                 {isStandardizingLesson ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Wand2 className="w-3.5 h-3.5 text-amber-300" />}
@@ -1285,7 +1285,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                             </button>
                             <button onClick={() => { setShowJsonImport(true); setShowAdd(false); setImportError(''); setImportSuccess(''); }}
                                 className="flex items-center gap-1.5 px-3.5 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold rounded-xl transition-all border border-slate-200 dark:border-slate-700 shadow-2xs cursor-pointer">
-                                <FileJson className="w-3.5 h-3.5 text-indigo-500" /> Nhập bằng JSON
+                                <FileJson className="w-3.5 h-3.5 text-emerald-500" /> Nhập bằng JSON
                             </button>
                         </div>
                     )}
@@ -1363,7 +1363,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                                 className="border border-dashed border-slate-300 dark:border-slate-700 rounded-xl p-4 text-center cursor-pointer hover:bg-slate-100/50 dark:hover:bg-slate-800/40 transition-colors relative"
                             >
                                 {uploadingState ? (
-                                    <p className="text-xs text-indigo-500 font-bold animate-pulse py-4">Đang tải ảnh lên...</p>
+                                    <p className="text-xs text-emerald-500 font-bold animate-pulse py-4">Đang tải ảnh lên...</p>
                                 ) : (
                                     <div className="space-y-2">
                                         <p className="text-xs text-slate-500 font-bold">Bấm vào đây rồi dán ảnh (Ctrl+V) hoặc kéo thả file để tải lên</p>
@@ -1398,7 +1398,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                     </div>
 
                     <div className="flex gap-2 pt-2 shrink-0">
-                        <button onClick={handleSave} disabled={saving || !form.pattern} className="px-5 py-2.5 bg-indigo-600 text-white text-sm font-bold rounded-xl disabled:opacity-50 flex items-center gap-1.5 shadow-sm transition-all hover:bg-indigo-700"><Save className="w-4 h-4" /> Lưu ngữ pháp</button>
+                        <button onClick={handleSave} disabled={saving || !form.pattern} className="px-5 py-2.5 bg-emerald-600 text-white text-sm font-bold rounded-xl disabled:opacity-50 flex items-center gap-1.5 shadow-sm transition-all hover:bg-emerald-700"><Save className="w-4 h-4" /> Lưu ngữ pháp</button>
                         <button onClick={() => setShowAdd(false)} className="px-5 py-2.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-sm font-bold rounded-xl transition-all hover:bg-slate-200">Huỷ</button>
                     </div>
                 </div>
@@ -1409,14 +1409,14 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                 <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 space-y-4 shadow-sm w-full">
                     <div className="flex flex-wrap items-center justify-between gap-2">
                         <h3 className="font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                            <FileJson className="w-5 h-5 text-indigo-500" /> Nhập cấu trúc Ngữ pháp hàng loạt từ JSON
+                            <FileJson className="w-5 h-5 text-emerald-500" /> Nhập cấu trúc Ngữ pháp hàng loạt từ JSON
                         </h3>
                         <div className="flex flex-wrap items-center gap-2">
                             <button onClick={handleCopyAiPrompt} className="flex items-center gap-1.5 px-3 py-1.5 bg-amber-50 dark:bg-amber-950/40 hover:bg-amber-100 text-amber-700 dark:text-amber-300 text-xs font-bold rounded-xl transition-all border border-amber-200 dark:border-amber-900/40 shadow-sm cursor-pointer">
                                 {promptCopied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Copy className="w-3.5 h-3.5 text-amber-500" />}
                                 {promptCopied ? 'Đã copy Prompt!' : 'Copy Prompt AI'}
                             </button>
-                            <button onClick={() => handleCopySample()} className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 dark:bg-slate-700 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 text-slate-600 dark:text-slate-300 hover:text-indigo-600 text-xs font-bold rounded-xl transition-all border border-slate-200 dark:border-slate-700 shadow-sm">
+                            <button onClick={() => handleCopySample()} className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 dark:bg-slate-700 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 text-slate-600 dark:text-slate-300 hover:text-emerald-600 text-xs font-bold rounded-xl transition-all border border-slate-200 dark:border-slate-700 shadow-sm">
                                 {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Clipboard className="w-3.5 h-3.5" />}
                                 {copied ? 'Đã copy mẫu!' : 'Copy JSON mẫu'}
                             </button>
@@ -1430,7 +1430,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                                 <Cpu className="w-4 h-4 text-emerald-500 shrink-0" />
                                 Hướng dẫn Prompt AI (ChatGPT/Claude/Gemini) & Quy chuẩn ký hiệu ngữ pháp
                             </span>
-                            <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline shrink-0">
+                            <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:underline shrink-0">
                                 {showAiPromptGuide ? 'Thu gọn ▲' : 'Xem chi tiết ▼'}
                             </span>
                         </div>
@@ -1514,7 +1514,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                     )}
 
                     <div className="flex gap-2">
-                        <button onClick={handleJsonImportSubmit} disabled={saving || !jsonText.trim()} className="px-4 py-2 bg-indigo-600 text-white text-sm font-bold rounded-lg hover:bg-indigo-700 disabled:opacity-50">
+                        <button onClick={handleJsonImportSubmit} disabled={saving || !jsonText.trim()} className="px-4 py-2 bg-emerald-600 text-white text-sm font-bold rounded-lg hover:bg-emerald-700 disabled:opacity-50">
                             {saving ? 'Đang nhập...' : 'Nhập ngữ pháp'}
                         </button>
                         <button onClick={() => setShowJsonImport(false)} className="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-sm rounded-lg hover:bg-slate-200">
@@ -1551,7 +1551,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                                     <>
                                         <button onClick={() => navigate(`/grammar/practice/${gp.id}?tb=${textbookId}&ls=${lessonId}&add=translate`)}
                                             className="flex items-center gap-1 text-[11px] font-bold px-2 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-600 dark:bg-slate-800/60 dark:text-slate-300 dark:hover:bg-slate-800 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 cursor-pointer">
-                                            <Plus className="w-3 h-3 text-indigo-500" /> Đặt câu
+                                            <Plus className="w-3 h-3 text-emerald-500" /> Đặt câu
                                         </button>
                                         <button onClick={() => navigate(`/grammar/practice/${gp.id}?tb=${textbookId}&ls=${lessonId}&add=quiz`)}
                                             className="flex items-center gap-1 text-[11px] font-bold px-2 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-600 dark:bg-slate-800/60 dark:text-slate-300 dark:hover:bg-slate-800 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 cursor-pointer">
@@ -1568,7 +1568,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                         </div>
                         {isAdmin && (
                             <div className="absolute top-3.5 right-3.5 flex items-center gap-1">
-                                <button onClick={() => handleEdit(gp)} className="p-1.5 rounded-lg hover:bg-indigo-50 dark:hover:bg-indigo-900/40 text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all cursor-pointer" title="Chỉnh sửa"><Edit2 className="w-3.5 h-3.5" /></button>
+                                <button onClick={() => handleEdit(gp)} className="p-1.5 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-900/40 text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all cursor-pointer" title="Chỉnh sửa"><Edit2 className="w-3.5 h-3.5" /></button>
                                 <button onClick={async () => {
                                     const confirmed = window.showConfirm
                                         ? await window.showConfirm(`Bạn có chắc muốn xóa mẫu ngữ pháp "${gp.pattern}"?`, { type: 'danger', confirmText: 'Xóa ngay' })

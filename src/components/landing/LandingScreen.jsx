@@ -188,7 +188,7 @@ const LandingScreen = () => {
 
                             <button
                                 onClick={() => navigate(ROUTES.LOGIN)}
-                                className="w-full sm:w-auto px-8 py-3.5 border-2 border-slate-300 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-900 text-indigo-600 dark:text-indigo-400 font-black text-base rounded-2xl transition-all uppercase tracking-wider"
+                                className="w-full sm:w-auto px-8 py-3.5 border-2 border-slate-300 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-600 hover:bg-slate-100 dark:hover:bg-slate-900 text-emerald-600 dark:text-emerald-400 font-black text-base rounded-2xl transition-all uppercase tracking-wider"
                             >
                                 {t('landing.haveAccount', 'TÔI ĐÃ CÓ TÀI KHOẢN')}
                             </button>
@@ -267,7 +267,7 @@ const LandingScreen = () => {
                                     { stage: 'Stage 1', time: 'Sau 4 giờ', title: 'Tiếp nhận mới', color: 'bg-rose-500' },
                                     { stage: 'Stage 2', time: 'Sau 1 ngày', title: 'Ghi nhớ sơ cấp', color: 'bg-amber-500' },
                                     { stage: 'Stage 3', time: 'Sau 3 ngày', title: 'Củng cố trí nhớ', color: 'bg-sky-500' },
-                                    { stage: 'Stage 4', time: 'Sau 1 tuần', title: 'Ghi nhớ sâu', color: 'bg-indigo-500' },
+                                    { stage: 'Stage 4', time: 'Sau 1 tuần', title: 'Ghi nhớ sâu', color: 'bg-emerald-500' },
                                     { stage: 'Stage 5', time: 'Vĩnh viễn', title: 'Thuộc vĩnh viễn (Mastered)', color: 'bg-emerald-500' }
                                 ].map((step, idx) => (
                                     <div key={idx} className="flex items-center justify-between p-3 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border border-slate-200/60 dark:border-slate-700/60">
@@ -289,7 +289,7 @@ const LandingScreen = () => {
                         <div className="w-full max-w-md bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-lg space-y-4">
                             <div className="flex items-center justify-between pb-3 border-b border-slate-100 dark:border-slate-800">
                                 <div className="flex items-center gap-2.5">
-                                    <div className="w-8 h-8 rounded-full bg-indigo-500 text-white flex items-center justify-center font-bold text-xs">
+                                    <div className="w-8 h-8 rounded-full bg-emerald-500 text-white flex items-center justify-center font-bold text-xs">
                                         AI
                                     </div>
                                     <div>
@@ -297,13 +297,13 @@ const LandingScreen = () => {
                                         <div className="text-[10px] text-emerald-500 font-bold">● Đang trực tuyến</div>
                                     </div>
                                 </div>
-                                <span className="text-xs px-2 py-0.5 rounded-full bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 font-mono font-bold">
+                                <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 font-mono font-bold">
                                     Kaiwa Room
                                 </span>
                             </div>
 
                             {/* Dialogue bubble */}
-                            <div className="p-3.5 bg-indigo-50/80 dark:bg-indigo-950/40 rounded-2xl text-xs sm:text-sm text-indigo-950 dark:text-indigo-200 font-japanese">
+                            <div className="p-3.5 bg-emerald-50/80 dark:bg-emerald-950/40 rounded-2xl text-xs sm:text-sm text-emerald-950 dark:text-emerald-200 font-japanese">
                                 こんにちは！今日の調子はどうですか？日本語で少し話してみましょう。
                             </div>
 
@@ -315,13 +315,13 @@ const LandingScreen = () => {
 
                             <div className="p-2.5 bg-slate-50 dark:bg-slate-800/80 rounded-xl flex items-center justify-between text-xs font-bold text-slate-600 dark:text-slate-300">
                                 <span>Phát âm: <strong className="text-emerald-600">Chuẩn 98%</strong></span>
-                                <span>Cao độ: <strong className="text-indigo-600">Tự nhiên</strong></span>
+                                <span>Cao độ: <strong className="text-emerald-600">Tự nhiên</strong></span>
                             </div>
                         </div>
                     </div>
 
                     <div className="lg:col-span-6 space-y-5 order-1 lg:order-2">
-                        <span className="text-xs font-black tracking-widest uppercase text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/60 px-3 py-1 rounded-lg border border-indigo-200 dark:border-indigo-800">
+                        <span className="text-xs font-black tracking-widest uppercase text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-3 py-1 rounded-lg border border-emerald-200 dark:border-emerald-800">
                             {t('landing.feature2Tag', 'GIA SƯ AI KAIWA')}
                         </span>
                         <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-slate-900 dark:text-white">
@@ -337,7 +337,7 @@ const LandingScreen = () => {
                                 t('landing.feature2Bullet3', 'Mô phỏng hàng trăm tình huống thực tế đời sống')
                             ].map((bullet, idx) => (
                                 <li key={idx} className="flex items-center gap-3 text-sm sm:text-base font-bold text-slate-700 dark:text-slate-200">
-                                    <div className="w-5 h-5 rounded-full bg-indigo-100 dark:bg-indigo-950/80 text-indigo-600 flex items-center justify-center shrink-0">
+                                    <div className="w-5 h-5 rounded-full bg-emerald-100 dark:bg-emerald-950/80 text-emerald-600 flex items-center justify-center shrink-0">
                                         <Check className="w-3.5 h-3.5 stroke-[3]" />
                                     </div>
                                     <span>{bullet}</span>
@@ -426,7 +426,7 @@ const LandingScreen = () => {
                                 </div>
                                 <div className="p-3 bg-slate-50 dark:bg-slate-800 rounded-2xl flex items-center justify-between">
                                     <span className="text-xs font-bold">3 phút đàm thoại AI</span>
-                                    <span className="text-xs font-black text-indigo-500">Hoàn thành +40 XP</span>
+                                    <span className="text-xs font-black text-emerald-500">Hoàn thành +40 XP</span>
                                 </div>
                             </div>
                         </div>

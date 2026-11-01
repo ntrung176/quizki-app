@@ -302,7 +302,7 @@ const TestScreen = ({ allCards, onBack }) => {
         const parts = text.split('___BOLD___');
         return parts.map((part, idx) => {
             if (idx % 2 === 1) {
-                return <span key={idx} className="font-bold text-indigo-700 underline decoration-2 font-japanese">{part}</span>;
+                return <span key={idx} className="font-bold text-emerald-700 underline decoration-2 font-japanese">{part}</span>;
             }
             return part;
         });
@@ -341,8 +341,8 @@ const TestScreen = ({ allCards, onBack }) => {
         return (
             <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm animate-fade-in">
                 <div className="flex flex-col items-center justify-center text-center space-y-6 p-6 max-w-md">
-                    <div className="w-28 h-28 bg-gradient-to-br from-indigo-100 to-sky-200 dark:from-indigo-900/30 dark:to-sky-900/30 rounded-full flex items-center justify-center mb-2 shadow-inner">
-                        <div className="w-20 h-20 bg-gradient-to-br from-indigo-500 to-sky-500 rounded-full flex items-center justify-center shadow-lg shadow-indigo-200 dark:shadow-indigo-900/50 animate-bounce">
+                    <div className="w-28 h-28 bg-gradient-to-br from-emerald-100 to-sky-200 dark:from-emerald-900/30 dark:to-sky-900/30 rounded-full flex items-center justify-center mb-2 shadow-inner">
+                        <div className="w-20 h-20 bg-gradient-to-br from-emerald-500 to-sky-500 rounded-full flex items-center justify-center shadow-lg shadow-emerald-200 dark:shadow-emerald-900/50 animate-bounce">
                             <Award className="w-10 h-10 text-white" strokeWidth={2} />
                         </div>
                     </div>
@@ -353,7 +353,7 @@ const TestScreen = ({ allCards, onBack }) => {
                         <p className="text-gray-500 dark:text-gray-400 font-medium text-lg">
                             {t('test.completedSub', 'Bạn đã hoàn thành bài kiểm tra này.')}
                         </p>
-                        <p className="text-indigo-600 dark:text-indigo-400 font-bold text-xl mt-2">
+                        <p className="text-emerald-600 dark:text-emerald-400 font-bold text-xl mt-2">
                             {t('test.scoreResult', 'Đạt {score}/{total} câu đúng ({percent}%)').replace('{score}', score).replace('{total}', questions.length).replace('{percent}', percentage)}
                         </p>
                     </div>
@@ -389,7 +389,7 @@ const TestScreen = ({ allCards, onBack }) => {
                             </div>
                             <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
                                 <div
-                                    className="bg-indigo-600 dark:bg-indigo-500 h-2 rounded-full transition-all duration-300"
+                                    className="bg-emerald-600 dark:bg-emerald-500 h-2 rounded-full transition-all duration-300"
                                     style={{ width: `${((currentQuestionIndex + 1) / questions.length) * 100}%` }}
                                 />
                             </div>
@@ -558,7 +558,7 @@ const TestScreen = ({ allCards, onBack }) => {
                 <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl p-6 md:p-8">
                     <div className="flex items-center justify-between mb-8">
                         <h1 className="text-3xl font-bold text-gray-800 dark:text-gray-100 flex items-center">
-                            <FileCheck className="w-8 h-8 mr-3 text-indigo-600 dark:text-indigo-400" />
+                            <FileCheck className="w-8 h-8 mr-3 text-emerald-600 dark:text-emerald-400" />
                             {t('test.title', 'Luyện Thi JLPT')}
                         </h1>
                     </div>

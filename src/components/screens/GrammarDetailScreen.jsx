@@ -25,6 +25,7 @@ import QuickSummaryTable from '../grammar/QuickSummaryTable';
 import GrammarNuanceMindmapCard from '../grammar/GrammarNuanceMindmapCard';
 import { findDeepGrammarForPattern, parseDeepSections, findNuancesForPattern } from '../../utils/deepGrammarHelper';
 import { aiStandardizeGrammarStructure } from '../../services/ai/grammarAiService';
+import { useLanguage } from '../../context/LanguageContext';
 
 // Fallback illustration data for ~あげく
 const FALLBACK_VISUAL = {
@@ -47,6 +48,7 @@ const FALLBACK_EXAMPLES = [
 ];
 
 const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
+    const { t } = useLanguage();
     const { grammarId } = useParams();
     const [searchParams] = useSearchParams();
     const navigate = useNavigate();
@@ -587,7 +589,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                     <div className="text-slate-500 text-xs font-bold uppercase tracking-wider">Chế độ chỉnh sửa</div>
                     <div className="flex gap-2 shrink-0">
                         <button onClick={handleSaveDetail} disabled={saving}
-                            className="px-4 py-2 bg-indigo-650 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl flex items-center gap-1.5 shadow-sm disabled:opacity-50 transition-all">
+                            className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl flex items-center gap-1.5 shadow-sm disabled:opacity-50 transition-all">
                             <Save className="w-3.5 h-3.5" /> Lưu ngữ pháp
                         </button>
                         <button onClick={() => setIsEditing(false)}
@@ -646,7 +648,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                 type="button"
                                 onClick={handleEditAiStandardize}
                                 disabled={isStandardizing}
-                                className="text-xs text-indigo-600 dark:text-indigo-400 font-bold hover:underline flex items-center gap-1 cursor-pointer disabled:opacity-50"
+                                className="text-xs text-emerald-600 dark:text-emerald-400 font-bold hover:underline flex items-center gap-1 cursor-pointer disabled:opacity-50"
                             >
                                 <Wand2 className={`w-3.5 h-3.5 ${isStandardizing ? 'animate-spin' : ''}`} />
                                 {isStandardizing ? 'Đang chuẩn hóa...' : 'AI Chuẩn hóa cấu trúc sách'}
@@ -654,7 +656,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                         </div>
                         <textarea value={editForm.structureRaw} onChange={e => setEditForm(f => ({ ...f, structureRaw: e.target.value }))} rows={3}
                             placeholder={"[ 普通形 (Naだ→な / Nだ→である) ] + わけではない\n* Chú ý: Dùng để..."}
-                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none font-mono font-bold text-indigo-900 dark:text-indigo-200" />
+                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm dark:text-white outline-none font-mono font-bold text-emerald-900 dark:text-emerald-200" />
                     </div>
 
                     <div>
@@ -668,7 +670,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                     <div className="space-y-2 w-full">
                         <div className="flex items-center justify-between">
                             <label className="text-xs font-bold text-slate-500">Các ví dụ</label>
-                            <button onClick={handleAddExample} className="text-xs text-indigo-600 font-bold hover:underline flex items-center gap-1">
+                            <button onClick={handleAddExample} className="text-xs text-emerald-600 font-bold hover:underline flex items-center gap-1">
                                 <Plus className="w-3.5 h-3.5" /> Thêm ví dụ
                             </button>
                         </div>
@@ -755,7 +757,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                         {isAdmin && (
                             <div className="shrink-0 pt-0.5 flex items-center gap-2">
                                 <button onClick={() => setIsEditing(true)}
-                                    className="px-3 py-1.5 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950 dark:hover:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 text-xs font-bold rounded-xl flex items-center gap-1.5 border border-indigo-200 dark:border-indigo-900/40 shadow-xs transition-all cursor-pointer">
+                                    className="px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950 dark:hover:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 text-xs font-bold rounded-xl flex items-center gap-1.5 border border-emerald-200 dark:border-emerald-900/40 shadow-xs transition-all cursor-pointer">
                                     <Settings className="w-3.5 h-3.5" /> Sửa
                                 </button>
                                 <button onClick={handleDeleteDetail} disabled={saving}
@@ -787,8 +789,8 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                             <div className="space-y-3">
                                 <div className="flex items-center justify-between">
                                     <h2 className="text-base md:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2.5">
-                                        <span className="w-7 h-7 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200/70 dark:border-indigo-800/70 flex items-center justify-center shrink-0 shadow-2xs">
-                                            <Layers className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" />
+                                        <span className="w-7 h-7 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/70 dark:border-emerald-800/70 flex items-center justify-center shrink-0 shadow-2xs">
+                                            <Layers className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
                                         </span>
                                         <span>{t('grammar.structure', 'Cấu trúc')}</span>
                                     </h2>
@@ -796,7 +798,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                         type="button"
                                         onClick={handleSingleAiStandardize}
                                         disabled={isStandardizing}
-                                        className="px-2.5 py-1 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 border border-indigo-200 dark:border-indigo-800 text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer disabled:opacity-50"
+                                        className="px-2.5 py-1 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 border border-emerald-200 dark:border-emerald-800 text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer disabled:opacity-50"
                                         title="Sử dụng AI để chuẩn hóa cấu trúc thành công thức sách giáo khoa [ ]"
                                     >
                                         <Wand2 className={`w-3.5 h-3.5 ${isStandardizing ? 'animate-spin' : ''}`} />
@@ -982,7 +984,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                         setShowCompletionModal(false);
                                         navigate(`/grammar/practice/${grammarId}?tb=${tb || gp.textbookId}&ls=${ls || gp.lessonId}`);
                                     }}
-                                    className="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl flex items-center justify-center gap-2 cursor-pointer transition-colors shadow-sm text-sm"
+                                    className="w-full py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl flex items-center justify-center gap-2 cursor-pointer transition-colors shadow-sm text-sm"
                                 >
                                     <PenTool className="w-4 h-4" /> {t('grammar.practiceExercisesCount', 'Luyện tập bài tập ({count} câu)').replace('{count}', totalExercises)}
                                 </button>
@@ -992,7 +994,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                         setShowCompletionModal(false);
                                         navigate(`/grammar/practice/${grammarId}?tb=${tb || gp.textbookId}&ls=${ls || gp.lessonId}`);
                                     }}
-                                    className="w-full py-3 bg-indigo-655 hover:bg-indigo-755 text-white font-bold rounded-xl flex items-center justify-center gap-2 cursor-pointer transition-colors shadow-sm text-sm"
+                                    className="w-full py-3 bg-emerald-655 hover:bg-emerald-755 text-white font-bold rounded-xl flex items-center justify-center gap-2 cursor-pointer transition-colors shadow-sm text-sm"
                                 >
                                     <PenTool className="w-4 h-4" /> {t('grammar.practiceExercisesNow', 'Luyện tập bài tập ngay')}
                                 </button>

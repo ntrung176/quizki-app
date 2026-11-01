@@ -274,9 +274,9 @@ const KanjiNavHeader = ({
                                         </button>
                                         <button
                                             onClick={() => { setShowCategoryModal(true); setAdminMenuOpen(false); }}
-                                            className="w-full px-2.5 py-2 hover:bg-purple-50 dark:hover:bg-purple-950/40 text-slate-700 dark:text-slate-200 hover:text-purple-700 dark:hover:text-purple-300 rounded-xl text-xs font-semibold transition-all flex items-center gap-2.5 cursor-pointer text-left"
+                                            className="w-full px-2.5 py-2 hover:bg-teal-50 dark:hover:bg-teal-950/40 text-slate-700 dark:text-slate-200 hover:text-teal-700 dark:hover:text-teal-300 rounded-xl text-xs font-semibold transition-all flex items-center gap-2.5 cursor-pointer text-left"
                                         >
-                                            <div className="w-6 h-6 rounded-lg bg-purple-100 dark:bg-purple-950 flex items-center justify-center text-purple-600 shrink-0">
+                                            <div className="w-6 h-6 rounded-lg bg-teal-100 dark:bg-teal-950 flex items-center justify-center text-teal-600 shrink-0">
                                                 <Layers className="w-3.5 h-3.5" />
                                             </div>
                                             <span>Quản lý Phân Loại</span>
@@ -292,9 +292,9 @@ const KanjiNavHeader = ({
                                             <button
                                                 onClick={() => { handleBatchGenerateAiVocabForNoVocabKanji(10); setAdminMenuOpen(false); }}
                                                 disabled={generatingAiVocab}
-                                                className="w-full px-2.5 py-2 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 text-slate-700 dark:text-slate-200 hover:text-indigo-700 dark:hover:text-indigo-300 rounded-xl text-xs font-semibold transition-all flex items-center gap-2.5 cursor-pointer text-left disabled:opacity-50"
+                                                className="w-full px-2.5 py-2 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-700 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-300 rounded-xl text-xs font-semibold transition-all flex items-center gap-2.5 cursor-pointer text-left disabled:opacity-50"
                                             >
-                                                <div className="w-6 h-6 rounded-lg bg-indigo-100 dark:bg-indigo-950 flex items-center justify-center text-indigo-600 shrink-0">
+                                                <div className="w-6 h-6 rounded-lg bg-emerald-100 dark:bg-emerald-950 flex items-center justify-center text-emerald-600 shrink-0">
                                                     <Wand2 className={`w-3.5 h-3.5 ${generatingAiVocab ? 'animate-spin' : ''}`} />
                                                 </div>
                                                 <span className="truncate">{generatingAiVocab ? 'AI đang tạo từ vựng...' : 'AI Bổ sung Từ vựng (10 Kanji)'}</span>
@@ -341,9 +341,9 @@ const KanjiNavHeader = ({
                                         <button
                                             onClick={() => { handleMigrateComponents(); setAdminMenuOpen(false); }}
                                             disabled={migratingComponents}
-                                            className="w-full px-2.5 py-2 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 text-slate-700 dark:text-slate-200 hover:text-indigo-700 dark:hover:text-indigo-300 rounded-xl text-xs font-semibold transition-all flex items-center gap-2.5 cursor-pointer text-left disabled:opacity-50"
+                                            className="w-full px-2.5 py-2 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 text-slate-700 dark:text-slate-200 hover:text-emerald-700 dark:hover:text-emerald-300 rounded-xl text-xs font-semibold transition-all flex items-center gap-2.5 cursor-pointer text-left disabled:opacity-50"
                                         >
-                                            <div className="w-6 h-6 rounded-lg bg-indigo-100 dark:bg-indigo-950 flex items-center justify-center text-indigo-600 shrink-0">
+                                            <div className="w-6 h-6 rounded-lg bg-emerald-100 dark:bg-emerald-950 flex items-center justify-center text-emerald-600 shrink-0">
                                                 <RefreshCw className={`w-3.5 h-3.5 ${migratingComponents ? 'animate-spin' : ''}`} />
                                             </div>
                                             <span>Ghi đè Bộ thủ</span>

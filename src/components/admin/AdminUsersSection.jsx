@@ -43,8 +43,8 @@ const AdminUsersSection = ({
             <div className="grid grid-cols-3 gap-3">
                 <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
-                            <Users className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                        <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
+                            <Users className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                         </div>
                         <div>
                             <p className="text-2xl font-bold text-gray-800 dark:text-white">{stats.total}</p>
@@ -84,7 +84,7 @@ const AdminUsersSection = ({
                         <input
                             type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}
                             placeholder="Tìm kiếm theo tên, email hoặc ID..."
-                            className="w-full pl-10 pr-4 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none"
+                            className="w-full pl-10 pr-4 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none"
                         />
                     </div>
                     <select
@@ -135,7 +135,7 @@ const AdminUsersSection = ({
                                 type="button"
                                 disabled={isSyncingAllUsers}
                                 onClick={() => handleSyncAllUsersFromFirestore && handleSyncAllUsersFromFirestore()}
-                                className="px-3 py-1.5 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 disabled:opacity-50 text-white font-bold text-xs rounded-xl shadow-sm transition-all flex items-center gap-1.5 cursor-pointer active:scale-95 border border-white/20"
+                                className="px-3 py-1.5 bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 disabled:opacity-50 text-white font-bold text-xs rounded-xl shadow-sm transition-all flex items-center gap-1.5 cursor-pointer active:scale-95 border border-white/20"
                                 title="Quét toàn bộ tài khoản người dùng trên Firestore và nạp đầy đủ vào danh sách quản trị"
                             >
                                 {isSyncingAllUsers ? (
@@ -156,7 +156,7 @@ const AdminUsersSection = ({
                                 className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-bold text-xs rounded-xl shadow-sm transition-all flex items-center gap-1.5 cursor-pointer active:scale-95 border border-slate-300 dark:border-slate-600"
                                 title="Đồng bộ người dùng qua Email hoặc User UID"
                             >
-                                <Search className="w-3.5 h-3.5 text-indigo-500" />
+                                <Search className="w-3.5 h-3.5 text-emerald-500" />
                                 <span>Tìm & Đồng bộ Email / UID</span>
                             </button>
                             <button
@@ -169,7 +169,7 @@ const AdminUsersSection = ({
                                         setNotification({ type: 'error', message: 'Lỗi chuẩn hóa điểm: ' + e.message });
                                     }
                                 }}
-                                className="px-3 py-1.5 bg-gradient-to-r from-amber-500 via-indigo-600 to-purple-600 hover:from-amber-600 hover:to-purple-700 text-white font-extrabold text-xs rounded-xl shadow transition-all flex items-center gap-1.5 cursor-pointer active:scale-95 border border-white/20"
+                                className="px-3 py-1.5 bg-gradient-to-r from-amber-500 via-emerald-600 to-teal-600 hover:from-amber-600 hover:to-teal-700 text-white font-extrabold text-xs rounded-xl shadow transition-all flex items-center gap-1.5 cursor-pointer active:scale-95 border border-white/20"
                                 title="Gán trực tiếp Score = XP cho tất cả người dùng trên Bảng xếp hạng"
                             >
                                 <Zap className="w-3.5 h-3.5 fill-amber-300 text-amber-300" />
@@ -188,7 +188,7 @@ const AdminUsersSection = ({
                                         <button
                                             type="button"
                                             onClick={() => handleSyncUserByUidOrEmail && handleSyncUserByUidOrEmail(searchQuery)}
-                                            className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl shadow transition-all inline-flex items-center gap-1.5 cursor-pointer"
+                                            className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl shadow transition-all inline-flex items-center gap-1.5 cursor-pointer"
                                         >
                                             <Search className="w-3.5 h-3.5" />
                                             <span>Tìm kiếm & Đồng bộ "{searchQuery}"</span>
@@ -204,18 +204,18 @@ const AdminUsersSection = ({
                                         <div
                                             key={user.userId}
                                             onClick={() => handleSelectUser(user)}
-                                            className={`p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 cursor-pointer transition-colors ${selectedUser?.userId === user.userId ? 'bg-indigo-50 dark:bg-indigo-900/20' : ''}`}
+                                            className={`p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 cursor-pointer transition-colors ${selectedUser?.userId === user.userId ? 'bg-emerald-50 dark:bg-emerald-900/20' : ''}`}
                                         >
                                             <div className="flex items-center justify-between">
                                                 <div className="flex items-center gap-3">
-                                                    <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold ${isMod ? 'bg-amber-500' : 'bg-indigo-500'}`}>
+                                                    <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold ${isMod ? 'bg-amber-500' : 'bg-emerald-500'}`}>
                                                         {(user.displayName || '?')[0].toUpperCase()}
                                                     </div>
                                                     <div>
                                                         <p className="font-medium text-gray-800 dark:text-white flex items-center gap-1.5 flex-wrap">
                                                             {user.displayName || 'Chưa đặt tên'}
                                                             {user.userId === currentUserId && (
-                                                                <span className="text-xs bg-indigo-100 dark:bg-indigo-900/50 text-indigo-600 dark:text-indigo-400 px-2 py-0.5 rounded-full">Bạn</span>
+                                                                <span className="text-xs bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded-full">Bạn</span>
                                                             )}
                                                             {isMod && (
                                                                 <span className="text-xs bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 px-2 py-0.5 rounded-full flex items-center gap-0.5">
@@ -250,7 +250,7 @@ const AdminUsersSection = ({
                                                                     return <span className="text-[10px] text-amber-700 bg-amber-50 dark:bg-amber-950/20 px-1.5 py-0.5 rounded font-black">👑 1 THÁNG</span>;
                                                                 }
                                                                 if (activePlan === 'premium') {
-                                                                    return <span className="text-[10px] text-indigo-500 bg-indigo-50 dark:bg-indigo-950/20 px-1.5 py-0.5 rounded font-bold">👑 PREMIUM</span>;
+                                                                    return <span className="text-[10px] text-emerald-500 bg-emerald-50 dark:bg-emerald-950/20 px-1.5 py-0.5 rounded font-bold">👑 PREMIUM</span>;
                                                                 }
                                                                 return <span className="text-[10px] text-gray-400 bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">FREE</span>;
                                                             })()}
@@ -280,7 +280,7 @@ const AdminUsersSection = ({
                         <div className="p-4 space-y-4">
                             {/* User Header */}
                             <div className="flex items-center gap-3">
-                                <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg bg-indigo-500">
+                                <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg bg-emerald-500">
                                     {(selectedUser.displayName || '?')[0].toUpperCase()}
                                 </div>
                                 <div>
@@ -292,11 +292,11 @@ const AdminUsersSection = ({
                             {/* Account & Packages Info */}
                             <div>
                                 <h4 className="text-xs font-bold text-gray-500 dark:text-gray-400 mb-2 flex items-center gap-1">
-                                    <Shield className="w-3.5 h-3.5 text-indigo-500" /> GÓI & TÀI KHOẢN
+                                    <Shield className="w-3.5 h-3.5 text-emerald-500" /> GÓI & TÀI KHOẢN
                                 </h4>
                                 {loadingProfile ? (
                                     <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg text-center">
-                                        <Loader2 className="w-4 h-4 animate-spin mx-auto text-indigo-500" />
+                                        <Loader2 className="w-4 h-4 animate-spin mx-auto text-emerald-500" />
                                     </div>
                                 ) : (
                                     <div className="space-y-3">
@@ -337,7 +337,7 @@ const AdminUsersSection = ({
                                             <select
                                                 value={selectedUserPackageState}
                                                 onChange={(e) => setSelectedUserPackageState(e.target.value)}
-                                                className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-xs font-semibold text-gray-900 dark:text-white focus:ring-2 focus:ring-indigo-500 outline-none"
+                                                className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-xs font-semibold text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 outline-none"
                                             >
                                                 <option value="free" className="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">Gói Miễn Phí (Default)</option>
                                                 <option value="premium_1m" className="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">👑 Gói Premium 1 Tháng</option>
@@ -347,7 +347,7 @@ const AdminUsersSection = ({
                                             <button
                                                 onClick={handleSaveUserPackage}
                                                 disabled={updatingUserPackage}
-                                                className="w-full py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-bold rounded-xl transition-all shadow-md flex items-center justify-center gap-1.5 disabled:opacity-50"
+                                                className="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition-all shadow-md flex items-center justify-center gap-1.5 disabled:opacity-50"
                                             >
                                                 {updatingUserPackage ? <Loader2 className="w-3 h-3 animate-spin" /> : null}
                                                 Cập nhật gói cước
@@ -420,8 +420,8 @@ const AdminUsersSection = ({
                                     return (
                                         <div className="space-y-2">
                                             <div className="grid grid-cols-2 gap-2">
-                                                <div className="p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg">
-                                                    <p className="text-lg font-bold text-indigo-600">{userPlans.length}</p>
+                                                <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">
+                                                    <p className="text-lg font-bold text-emerald-600">{userPlans.length}</p>
                                                     <p className="text-xs text-gray-500">Lần mua</p>
                                                 </div>
                                                 <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">

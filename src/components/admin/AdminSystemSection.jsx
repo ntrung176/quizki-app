@@ -36,7 +36,7 @@ const AdminSystemSection = ({
             <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 flex flex-col justify-between">
                 <div>
                     <h3 className="font-bold text-gray-800 dark:text-white text-lg mb-2 flex items-center gap-2">
-                        <Settings className="w-5 h-5 text-indigo-500" />
+                        <Settings className="w-5 h-5 text-emerald-500" />
                         Bảo trì hệ thống
                     </h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
@@ -85,7 +85,7 @@ const AdminSystemSection = ({
                             onChange={(e) => setMaintenanceMsg(e.target.value)}
                             placeholder="QuizKi đang thực hiện nâng cấp và bảo trì định kỳ để mang lại trải nghiệm tốt nhất cho bạn. Chúng tôi sẽ trở lại trong thời gian sớm nhất."
                             rows={3}
-                            className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-750/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none text-sm text-gray-800 dark:text-white resize-none"
+                            className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-750/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none text-sm text-gray-800 dark:text-white resize-none"
                         />
                         <button
                             onClick={async () => {
@@ -102,7 +102,7 @@ const AdminSystemSection = ({
                                 setSavingConfig(false);
                             }}
                             disabled={savingConfig || maintenanceMsg.trim() === (adminConfig?.maintenanceMessage || '')}
-                            className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-sm cursor-pointer disabled:opacity-50"
+                            className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl flex items-center justify-center gap-1.5 transition-all shadow-sm cursor-pointer disabled:opacity-50"
                         >
                             {savingConfig ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Save className="w-3.5 h-3.5" />}
                             Lưu dòng thông báo
@@ -114,7 +114,7 @@ const AdminSystemSection = ({
             {/* Global notification creation card */}
             <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6">
                 <h3 className="font-bold text-gray-800 dark:text-white text-lg mb-2 flex items-center gap-2">
-                    <Bell className="w-5 h-5 text-indigo-500" />
+                    <Bell className="w-5 h-5 text-emerald-500" />
                     Gửi thông báo hệ thống
                 </h3>
                 <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
@@ -129,7 +129,7 @@ const AdminSystemSection = ({
                             value={newNotificationText.title}
                             onChange={(e) => setNewNotificationText(prev => ({ ...prev, title: e.target.value }))}
                             placeholder="Ví dụ: Cập nhật tính năng mới..."
-                            className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none text-sm text-gray-800 dark:text-white"
+                            className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none text-sm text-gray-800 dark:text-white"
                         />
                     </div>
 
@@ -140,7 +140,7 @@ const AdminSystemSection = ({
                             onChange={(e) => setNewNotificationText(prev => ({ ...prev, message: e.target.value }))}
                             placeholder="Nhập nội dung chi tiết..."
                             rows={3}
-                            className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none text-sm text-gray-800 dark:text-white resize-none"
+                            className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-700 rounded-xl focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none text-sm text-gray-800 dark:text-white resize-none"
                         />
                     </div>
 
@@ -150,7 +150,7 @@ const AdminSystemSection = ({
                             id="checkbox-notification-type"
                             checked={notificationType === 'popup'}
                             onChange={(e) => setNotificationType(e.target.checked ? 'popup' : 'normal')}
-                            className="w-4 h-4 rounded text-indigo-650 border-gray-300 focus:ring-indigo-500 dark:border-gray-700 dark:bg-gray-800 cursor-pointer"
+                            className="w-4 h-4 rounded text-emerald-600 border-gray-300 focus:ring-emerald-500 dark:border-gray-700 dark:bg-gray-800 cursor-pointer"
                         />
                         <label htmlFor="checkbox-notification-type" className="text-xs font-bold text-gray-500 dark:text-gray-400 cursor-pointer select-none uppercase">
                             Hiện Popup (Modal) khi người dùng truy cập web
@@ -164,7 +164,7 @@ const AdminSystemSection = ({
                     <button
                         onClick={handleSendNotification}
                         disabled={sendingNotification || !newNotificationText.title.trim() || !newNotificationText.message.trim()}
-                        className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 disabled:opacity-50 transition-all cursor-pointer shadow-sm"
+                        className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 disabled:opacity-50 transition-all cursor-pointer shadow-sm"
                     >
                         {sendingNotification ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                         Gửi thông báo
@@ -173,16 +173,16 @@ const AdminSystemSection = ({
             </div>
 
             {/* Email Broadcast Card */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl border border-indigo-100 dark:border-indigo-900/40 p-6 md:col-span-2 shadow-sm bg-gradient-to-br from-white via-indigo-50/20 to-purple-50/20 dark:from-gray-800 dark:via-gray-800 dark:to-indigo-950/20">
+            <div className="bg-white dark:bg-gray-800 rounded-xl border border-emerald-100 dark:border-emerald-900/40 p-6 md:col-span-2 shadow-sm bg-gradient-to-br from-white via-emerald-50/20 to-teal-50/20 dark:from-gray-800 dark:via-gray-800 dark:to-emerald-950/20">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="flex items-start gap-3.5">
-                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white flex items-center justify-center flex-shrink-0 shadow-md shadow-indigo-500/20">
+                        <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center flex-shrink-0 shadow-md shadow-emerald-500/20">
                             <Mail className="w-6 h-6" />
                         </div>
                         <div>
                             <h3 className="font-bold text-gray-900 dark:text-white text-lg flex items-center gap-2">
                                 Gửi Email Hàng Loạt (Broadcast Mailer)
-                                <span className="text-[11px] px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950/50 text-indigo-700 dark:text-indigo-300 font-black uppercase tracking-wider">
+                                <span className="text-[11px] px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 font-black uppercase tracking-wider">
                                     Resend @quizki.space
                                 </span>
                             </h3>
@@ -195,7 +195,7 @@ const AdminSystemSection = ({
                     <button
                         type="button"
                         onClick={onOpenBroadcastEmailModal}
-                        className="px-6 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 shadow-md hover:shadow-indigo-500/25 transition-all cursor-pointer flex-shrink-0"
+                        className="px-6 py-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 shadow-md hover:shadow-emerald-500/25 transition-all cursor-pointer flex-shrink-0"
                     >
                         <Mail className="w-4 h-4" />
                         Soạn & Gửi Email Ngay ✉️
@@ -214,7 +214,7 @@ const AdminSystemSection = ({
                 </p>
 
                 {syncProgress && (
-                    <div className="mb-6 p-4 bg-indigo-50 dark:bg-indigo-950/30 border border-indigo-100 dark:border-indigo-900/40 rounded-2xl flex items-center gap-3 text-indigo-700 dark:text-indigo-300 text-sm font-medium animate-pulse">
+                    <div className="mb-6 p-4 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-100 dark:border-emerald-900/40 rounded-2xl flex items-center gap-3 text-emerald-700 dark:text-emerald-300 text-sm font-medium animate-pulse">
                         <Loader2 className="w-5 h-5 animate-spin" />
                         <span>{syncProgress}</span>
                     </div>
@@ -309,7 +309,7 @@ const AdminSystemSection = ({
                 <button
                     onClick={syncAllCache}
                     disabled={Object.values(syncingCache).some(Boolean)}
-                    className="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-indigo-500 to-purple-600 hover:from-indigo-600 hover:to-purple-700 text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all cursor-pointer disabled:opacity-50"
+                    className="w-full sm:w-auto px-6 py-3 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 text-white font-bold text-sm rounded-xl flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all cursor-pointer disabled:opacity-50"
                 >
                     {syncingCache.all ? <Loader2 className="w-4 h-4 animate-spin" /> : <RefreshCw className="w-4 h-4" />}
                     Đồng bộ tất cả dữ liệu (Full Sync)

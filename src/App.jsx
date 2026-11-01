@@ -173,7 +173,7 @@ const AppContent = () => {
             <main className={`min-h-screen flex flex-col w-full max-w-full min-w-0 overflow-x-clip transition-[padding,margin] duration-200 ease-out ${isPublicWithoutAppChrome ? 'p-0' : ((isReviewActive || isReviewSessionPage) ? (isSidebarCollapsed ? 'p-0 lg:pl-20' : 'p-0 lg:pl-64') : (isSidebarCollapsed ? 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-0 lg:pl-20' : 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-0 lg:pl-64'))}`}>
                 {/* Admin Test Mode Banner */}
                 {profile?.trialPricingTier && (
-                    <div className="bg-indigo-600 text-white text-xs font-semibold px-4 py-2.5 flex items-center justify-between shadow-md relative z-40">
+                    <div className="bg-emerald-600 text-white text-xs font-semibold px-4 py-2.5 flex items-center justify-between shadow-md relative z-40">
                         <div className="flex items-center gap-2">
                             <span className="bg-white/25 text-white px-2 py-0.5 rounded text-[10px] font-black uppercase tracking-wider">TEST MODE</span>
                             <span>Đang giả lập gói: <strong className="underline">{profile.trialPricingTier.toUpperCase()}</strong>. {profile.trialPricingTier === 'free' ? 'Giới hạn: 3 học phần, 20 từ/học phần' : 'Không giới hạn học phần/từ vựng'}</span>
@@ -187,7 +187,7 @@ const AppContent = () => {
                                     alert('Đã tắt giả lập, quay về tài khoản thực tế!');
                                 } catch (e) { console.error(e); }
                             }}
-                            className="bg-white text-indigo-700 font-bold px-2 py-0.5 rounded hover:bg-gray-100 transition-all text-[10px]"
+                            className="bg-white text-emerald-700 font-bold px-2 py-0.5 rounded hover:bg-gray-100 transition-all text-[10px]"
                         >
                             Tắt giả lập
                         </button>

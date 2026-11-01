@@ -421,7 +421,7 @@ export const KO_ROADMAP_STAGES = [
         title: 'Chặng 5: Luyện Đề TOPIK I & II Toàn Diện',
         sub: 'Ngân hàng câu hỏi TOPIK chính thức, chiến lược làm bài đọc và nghe hiểu.',
         icon: '🏆',
-        color: 'purple',
+        color: 'teal',
         lessons: [
             {
                 id: 'ko_s5_l1',

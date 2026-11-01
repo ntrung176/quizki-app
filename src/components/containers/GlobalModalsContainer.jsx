@@ -51,8 +51,8 @@ export const GlobalModalsContainer = ({
             {/* Modal thông báo khẩn cấp / Popup */}
             {activePopup && (
                 <div className="fixed inset-0 bg-slate-900/60 dark:bg-black/80 backdrop-blur-md z-50 flex items-center justify-center p-4 animate-fade-in">
-                    <div className="bg-white/95 dark:bg-slate-900/95 border border-indigo-100/50 dark:border-slate-800/80 rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden transition-all duration-300 transform scale-100 relative">
-                        <div className="bg-gradient-to-r from-indigo-500 via-sky-500 to-pink-500 p-6 text-white text-center relative overflow-hidden">
+                    <div className="bg-white/95 dark:bg-slate-900/95 border border-emerald-100/50 dark:border-slate-800/80 rounded-3xl shadow-2xl max-w-lg w-full overflow-hidden transition-all duration-300 transform scale-100 relative">
+                        <div className="bg-gradient-to-r from-emerald-500 via-sky-500 to-pink-500 p-6 text-white text-center relative overflow-hidden">
                             <div className="absolute -top-10 -left-10 w-24 h-24 bg-white/20 rounded-full blur-xl animate-pulse"></div>
                             <div className="absolute -bottom-10 -right-10 w-24 h-24 bg-white/20 rounded-full blur-xl"></div>
                             <div className="w-12 h-12 bg-white/25 rounded-full flex items-center justify-center mx-auto mb-3 backdrop-blur-sm shadow-inner animate-bounce">
@@ -84,7 +84,7 @@ export const GlobalModalsContainer = ({
                             <button
                                 id="btn-close-popup-notification"
                                 onClick={handleDismissPopup}
-                                className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white font-bold text-sm rounded-2xl transition-all duration-300 transform active:scale-95 shadow-md shadow-indigo-600/10 dark:shadow-none hover:shadow-indigo-600/20 cursor-pointer min-w-[140px] text-center"
+                                className="px-8 py-3 bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-bold text-sm rounded-2xl transition-all duration-300 transform active:scale-95 shadow-md shadow-emerald-600/10 dark:shadow-none hover:shadow-emerald-600/20 cursor-pointer min-w-[140px] text-center"
                             >
                                 Đã hiểu
                             </button>
@@ -106,7 +106,7 @@ export const GlobalModalsContainer = ({
                                 value={batchVocabInput}
                                 onChange={(e) => setBatchVocabInput(e.target.value)}
                                 placeholder="適当&#10;高まる&#10;現れる&#10;低下&#10;真実&#10;ガム&#10;環境汚染&#10;健康&#10;沈む&#10;支払い"
-                                className="w-full h-64 md:h-80 px-3 md:px-4 py-2 md:py-3 text-sm md:text-base bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 focus:border-indigo-500 dark:focus:border-indigo-400 outline-none text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 resize-none font-mono"
+                                className="w-full h-64 md:h-80 px-3 md:px-4 py-2 md:py-3 text-sm md:text-base bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-400 focus:border-emerald-500 dark:focus:border-emerald-400 outline-none text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 resize-none font-mono"
                             />
                         </div>
                         <div className="p-4 md:p-6 border-t border-gray-200 dark:border-gray-700 flex gap-3">
@@ -139,7 +139,7 @@ export const GlobalModalsContainer = ({
                                     await handleBatchImportFromText(vocabList);
                                 }}
                                 disabled={isProcessingBatch || !batchVocabInput.trim()}
-                                className="flex-1 px-4 py-2 md:py-3 text-sm md:text-base font-bold rounded-lg md:rounded-xl text-white bg-indigo-600 dark:bg-indigo-500 hover:bg-indigo-700 dark:hover:bg-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                                className="flex-1 px-4 py-2 md:py-3 text-sm md:text-base font-bold rounded-lg md:rounded-xl text-white bg-emerald-600 dark:bg-emerald-500 hover:bg-emerald-700 dark:hover:bg-emerald-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                             >
                                 {isProcessingBatch ? (
                                     <>

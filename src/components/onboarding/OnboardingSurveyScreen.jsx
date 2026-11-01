@@ -746,7 +746,7 @@ const OnboardingSurveyScreen = () => {
                                 {placementQuestions[placementIndex].level && (
                                     <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-full ${
                                         placementQuestions[placementIndex].level === 'N3'
-                                            ? 'bg-purple-100 text-purple-700 dark:bg-purple-950 dark:text-purple-300'
+                                            ? 'bg-teal-100 text-teal-700 dark:bg-teal-950 dark:text-teal-300'
                                             : placementQuestions[placementIndex].level === 'N4'
                                             ? 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300'
                                             : 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300'

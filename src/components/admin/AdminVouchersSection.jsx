@@ -123,7 +123,7 @@ const AdminVouchersSection = ({
             {/* Voucher List */}
             <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
                 <h3 className="font-bold text-gray-800 dark:text-white mb-3 flex items-center gap-2">
-                    <Ticket className="w-4 h-4 text-indigo-500" />
+                    <Ticket className="w-4 h-4 text-emerald-500" />
                     Danh sách Voucher ({vouchers.length})
                 </h3>
                 {vouchers.length === 0 ? (

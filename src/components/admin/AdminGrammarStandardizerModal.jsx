@@ -273,7 +273,7 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
                 {/* Header */}
                 <div className="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50/50 dark:bg-slate-850/50">
                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-2xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center border border-indigo-500/20">
+                        <div className="w-10 h-10 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center border border-emerald-500/20">
                             <Layers className="w-5 h-5" />
                         </div>
                         <div>
@@ -298,7 +298,7 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
                 </div>
 
                 {/* Overall Repository Progress Banner */}
-                <div className="bg-gradient-to-r from-indigo-50/80 via-purple-50/60 to-emerald-50/80 dark:from-indigo-950/30 dark:via-purple-950/20 dark:to-emerald-950/30 px-6 py-3 border-b border-slate-200/80 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
+                <div className="bg-gradient-to-r from-emerald-50/80 via-teal-50/60 to-emerald-50/80 dark:from-emerald-950/30 dark:via-teal-950/20 dark:to-emerald-950/30 px-6 py-3 border-b border-slate-200/80 dark:border-slate-800 flex flex-wrap items-center justify-between gap-3">
                     <div className="flex items-center gap-4 text-xs font-semibold text-slate-700 dark:text-slate-300">
                         <span>📊 Tiến độ ({selectedLevel === 'ALL' ? 'Toàn bộ kho' : selectedLevel}):</span>
                         <div className="flex items-center gap-2">
@@ -316,7 +316,7 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
                             ✓ Đã chuẩn hóa: {stats.standardized.toLocaleString()}
                         </span>
                         <span className="text-slate-400">•</span>
-                        <span className="text-indigo-600 dark:text-indigo-400 font-bold">
+                        <span className="text-emerald-600 dark:text-emerald-400 font-bold">
                             Chưa chuẩn hóa: {stats.unstandardized.toLocaleString()}
                         </span>
                         <span className="text-slate-400">•</span>
@@ -344,8 +344,8 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
                                         onClick={() => setSelectedLevel(lvl)}
                                         className={`py-1.5 rounded-xl text-xs font-bold transition-all ${
                                             selectedLevel === lvl
-                                                ? 'bg-indigo-600 text-white shadow-xs'
-                                                : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-indigo-400'
+                                                ? 'bg-emerald-600 text-white shadow-xs'
+                                                : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-emerald-400'
                                         }`}
                                     >
                                         {lvl === 'ALL' ? 'Tất cả' : lvl}
@@ -406,7 +406,7 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
                                     disabled={isRunning}
                                     checked={onlyUnstandardized}
                                     onChange={(e) => setOnlyUnstandardized(e.target.checked)}
-                                    className="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500"
+                                    className="rounded border-slate-300 text-emerald-600 focus:ring-emerald-500"
                                 />
                                 <span>Tự động bỏ qua các mẫu đã chuẩn hóa</span>
                             </label>
@@ -417,14 +417,14 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
                     <div className="bg-slate-50/80 dark:bg-slate-800/30 border border-slate-200/80 dark:border-slate-700/60 rounded-2xl p-4 space-y-3">
                         <div className="flex items-center justify-between">
                             <h3 className="text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wider flex items-center gap-1.5">
-                                <Eye className="w-4 h-4 text-indigo-500" />
+                                <Eye className="w-4 h-4 text-emerald-500" />
                                 Thử nghiệm kiểm tra trước (1 Mẫu ngẫu nhiên)
                             </h3>
                             <button
                                 type="button"
                                 onClick={handlePreviewSample}
                                 disabled={isPreviewing || isRunning || filteredPoints.length === 0}
-                                className="px-3 py-1.5 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 border border-indigo-200 dark:border-indigo-800 text-xs font-bold flex items-center gap-1.5 transition-all disabled:opacity-40"
+                                className="px-3 py-1.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 border border-emerald-200 dark:border-emerald-800 text-xs font-bold flex items-center gap-1.5 transition-all disabled:opacity-40"
                             >
                                 <Wand2 className={`w-3.5 h-3.5 ${isPreviewing ? 'animate-spin' : ''}`} />
                                 {isPreviewing ? 'Đang chuẩn hóa...' : 'Thử 1 mẫu ngẫu nhiên'}
@@ -474,7 +474,7 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
                         <div className="space-y-2 bg-slate-50 dark:bg-slate-800/40 p-4 rounded-2xl border border-slate-200/80 dark:border-slate-700/60">
                             <div className="flex items-center justify-between text-xs font-bold">
                                 <span className="text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                                    <RefreshCw className={`w-3.5 h-3.5 text-indigo-500 ${isRunning ? 'animate-spin' : ''}`} />
+                                    <RefreshCw className={`w-3.5 h-3.5 text-emerald-500 ${isRunning ? 'animate-spin' : ''}`} />
                                     Tiến độ đợt này: {progress.processed} / {progress.total} ({progress.percent}%)
                                 </span>
                                 <span className="text-slate-500 flex items-center gap-2">
@@ -485,7 +485,7 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
                             </div>
                             <div className="w-full bg-slate-200 dark:bg-slate-700 h-2.5 rounded-full overflow-hidden">
                                 <div
-                                    className="bg-indigo-600 h-full rounded-full transition-all duration-300 ease-out"
+                                    className="bg-emerald-600 h-full rounded-full transition-all duration-300 ease-out"
                                     style={{ width: `${progress.percent}%` }}
                                 ></div>
                             </div>
@@ -547,7 +547,7 @@ const AdminGrammarStandardizerModal = ({ isOpen, onClose, adminConfig, onSyncCac
                                 type="button"
                                 onClick={handleStartBatch}
                                 disabled={currentBatchList.length === 0}
-                                className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-bold text-xs flex items-center gap-2 shadow-md shadow-indigo-500/20 transition-all disabled:opacity-40 cursor-pointer"
+                                className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-xs flex items-center gap-2 shadow-md shadow-emerald-500/20 transition-all disabled:opacity-40 cursor-pointer"
                             >
                                 <Play className="w-4 h-4 fill-white" />
                                 {currentBatchList.length === filteredPoints.length ? (

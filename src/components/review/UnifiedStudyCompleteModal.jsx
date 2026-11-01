@@ -38,7 +38,7 @@ export const UnifiedStudyCompleteModal = ({
             </div>
 
             {/* Central Completion Card - Styled consistently for all 6 study modes */}
-            <div className="w-full max-w-md mx-auto flex flex-col items-center justify-center text-center space-y-6 p-8 bg-white dark:bg-slate-900/90 border-2 border-indigo-400/40 dark:border-indigo-500/30 rounded-3xl shadow-2xl backdrop-blur-xl">
+            <div className="w-full max-w-md mx-auto flex flex-col items-center justify-center text-center space-y-6 p-8 bg-white dark:bg-slate-900/90 border-2 border-emerald-500/20 dark:border-emerald-500/20 rounded-3xl shadow-2xl backdrop-blur-xl">
                 <div className="text-6xl mb-1 animate-bounce">🎉</div>
                 
                 <div>
@@ -65,17 +65,17 @@ export const UnifiedStudyCompleteModal = ({
                     <button
                         type="button"
                         onClick={handleDoneClick}
-                        className="w-full py-3.5 bg-gradient-to-r from-indigo-600 via-indigo-500 to-sky-500 hover:from-indigo-500 hover:to-sky-400 text-white font-bold text-base rounded-2xl shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 transition-all hover:-translate-y-0.5 active:translate-y-0 flex items-center justify-center gap-2 cursor-pointer"
+                        className="w-full py-3.5 bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 text-white font-black text-sm uppercase tracking-wider rounded-2xl shadow-lg shadow-emerald-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer select-none"
                     >
                         <span>🏆 Hoàn thành xuất sắc! 🏆</span>
-                        <ChevronRight className="w-5 h-5" />
+                        <ChevronRight className="w-5 h-5 stroke-[3]" />
                     </button>
 
                     {onRestart && (
                         <button
                             type="button"
                             onClick={onRestart}
-                            className="w-full py-3 bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-300 font-semibold rounded-2xl border border-indigo-200/60 dark:border-indigo-800/60 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 transition-all flex items-center justify-center gap-2 cursor-pointer text-sm"
+                            className="w-full py-3 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold rounded-2xl border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-750 transition-all flex items-center justify-center gap-2 cursor-pointer text-sm select-none active:translate-y-0.5 active:border-b-2"
                         >
                             <RotateCcw className="w-4 h-4" />
                             <span>Học lại</span>

@@ -108,7 +108,7 @@ const FeedbackScreen = ({ userId, profile, isAdmin }) => {
                 </Link>
                 <div>
                     <h2 className="text-2xl font-black text-gray-800 dark:text-gray-100 flex items-center gap-2">
-                        <MessageSquare className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+                        <MessageSquare className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
                         Phản hồi
                     </h2>
                     <p className="text-gray-500 dark:text-gray-400 text-sm mt-1">Gửi báo lỗi hoặc đề xuất tính năng mới</p>
@@ -130,7 +130,7 @@ const FeedbackScreen = ({ userId, profile, isAdmin }) => {
                             key={cat.value}
                             onClick={() => setFeedbackCategory(cat.value)}
                             className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${feedbackCategory === cat.value
-                                ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 ring-1 ring-indigo-300 dark:ring-indigo-700'
+                                ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 ring-1 ring-emerald-300 dark:ring-emerald-700'
                                 : 'bg-gray-100 dark:bg-gray-700 text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-600'
                                 }`}
                         >
@@ -142,7 +142,7 @@ const FeedbackScreen = ({ userId, profile, isAdmin }) => {
                     value={feedbackText}
                     onChange={(e) => setFeedbackText(e.target.value)}
                     rows={4}
-                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 dark:focus:border-indigo-500 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 resize-none"
+                    className="w-full px-4 py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 dark:focus:border-emerald-500 text-sm text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 resize-none"
                     placeholder="Mô tả phản hồi của bạn..."
                 />
                 <button
@@ -171,7 +171,7 @@ const FeedbackScreen = ({ userId, profile, isAdmin }) => {
                 </h3>
                 {isLoadingFeedback ? (
                     <div className="text-center py-6">
-                        <div className="animate-spin w-6 h-6 border-2 border-indigo-500/30 border-t-indigo-500 rounded-full mx-auto" />
+                        <div className="animate-spin w-6 h-6 border-2 border-emerald-500/30 border-t-emerald-500 rounded-full mx-auto" />
                     </div>
                 ) : feedbacks.length === 0 ? (
                     <p className="text-center text-gray-400 dark:text-gray-500 text-sm py-6">Chưa có phản hồi nào</p>

@@ -572,9 +572,9 @@ const AdminBookBlankFillerModal = ({
             <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl w-full max-w-4xl max-h-[92vh] flex flex-col overflow-hidden animate-scale-up">
                 
                 {/* MODAL HEADER */}
-                <div className="flex items-center justify-between p-4 sm:p-5 border-b border-slate-100 dark:border-slate-800 bg-gradient-to-r from-indigo-50/50 via-purple-50/30 to-transparent dark:from-indigo-950/20 dark:via-purple-950/10">
+                <div className="flex items-center justify-between p-4 sm:p-5 border-b border-slate-100 dark:border-slate-800 bg-gradient-to-r from-emerald-50/50 via-teal-50/30 to-transparent dark:from-emerald-950/20 dark:via-teal-950/10">
                     <div className="flex items-center gap-3">
-                        <div className="p-2.5 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 text-white shadow-md shadow-indigo-500/20">
+                        <div className="p-2.5 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-md shadow-emerald-500/20">
                             <Sparkles className="w-5 h-5" />
                         </div>
                         <div>
@@ -603,13 +603,13 @@ const AdminBookBlankFillerModal = ({
                         {/* Group Selection */}
                         <div>
                             <label className="block text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5 flex items-center gap-1.5">
-                                <BookOpen className="w-3.5 h-3.5 text-indigo-500" /> Nhóm sách
+                                <BookOpen className="w-3.5 h-3.5 text-emerald-500" /> Nhóm sách
                             </label>
                             <select
                                 value={selectedGroupId}
                                 onChange={e => setSelectedGroupId(e.target.value)}
                                 disabled={isRunning || isLoadingData}
-                                className="w-full text-xs font-semibold px-3 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer disabled:opacity-50"
+                                className="w-full text-xs font-semibold px-3 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer disabled:opacity-50"
                             >
                                 <option value="ALL">🌐 Tất cả nhóm sách ({bookGroups.length})</option>
                                 {bookGroups.map(g => (
@@ -627,7 +627,7 @@ const AdminBookBlankFillerModal = ({
                                 value={selectedBookId}
                                 onChange={e => setSelectedBookId(e.target.value)}
                                 disabled={isRunning || isLoadingData}
-                                className="w-full text-xs font-semibold px-3 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer disabled:opacity-50"
+                                className="w-full text-xs font-semibold px-3 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer disabled:opacity-50"
                             >
                                 <option value="ALL">📚 Tất cả sách trong nhóm ({availableBooks.length})</option>
                                 {availableBooks.map(b => (
@@ -647,7 +647,7 @@ const AdminBookBlankFillerModal = ({
                                 value={batchSize}
                                 onChange={e => setBatchSize(e.target.value === 'ALL' ? 'ALL' : parseInt(e.target.value, 10))}
                                 disabled={isRunning}
-                                className="w-full text-xs font-semibold px-3 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 cursor-pointer disabled:opacity-50"
+                                className="w-full text-xs font-semibold px-3 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-emerald-500 cursor-pointer disabled:opacity-50"
                             >
                                 {BATCH_SIZES.map(bs => (
                                     <option key={bs.value} value={bs.value}>{bs.label}</option>
@@ -670,17 +670,17 @@ const AdminBookBlankFillerModal = ({
                             <span className="text-[10px] font-bold text-amber-600 dark:text-amber-400 uppercase tracking-wider block">Có chỗ trống (______)</span>
                             <span className="text-base sm:text-lg font-black text-amber-600 dark:text-amber-400">{stats.withBlanks}</span>
                         </div>
-                        <div className="bg-indigo-50 dark:bg-indigo-950/20 p-3 rounded-xl border border-indigo-200/70 dark:border-indigo-800/40 text-center">
-                            <span className="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider block">Tỷ lệ hoàn thiện</span>
-                            <span className="text-base sm:text-lg font-black text-indigo-600 dark:text-indigo-400">{stats.percent}%</span>
+                        <div className="bg-emerald-50 dark:bg-emerald-950/20 p-3 rounded-xl border border-emerald-200/70 dark:border-emerald-800/40 text-center">
+                            <span className="text-[10px] font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider block">Tỷ lệ hoàn thiện</span>
+                            <span className="text-base sm:text-lg font-black text-emerald-600 dark:text-emerald-400">{stats.percent}%</span>
                         </div>
                     </div>
 
                     {/* PREVIEW SAMPLE CARD (IF ANY) */}
                     {previewSample && (
-                        <div className="bg-gradient-to-br from-indigo-50/70 to-purple-50/50 dark:from-indigo-950/20 dark:to-purple-950/20 p-4 rounded-xl border border-indigo-200/80 dark:border-indigo-800/60 space-y-3 animate-fade-in">
+                        <div className="bg-gradient-to-br from-emerald-50/70 to-teal-50/50 dark:from-emerald-950/20 dark:to-teal-950/20 p-4 rounded-xl border border-emerald-200/80 dark:border-emerald-800/60 space-y-3 animate-fade-in">
                             <div className="flex items-center justify-between">
-                                <span className="text-xs font-bold text-indigo-700 dark:text-indigo-300 flex items-center gap-1.5 uppercase tracking-wider">
+                                <span className="text-xs font-bold text-emerald-700 dark:text-emerald-300 flex items-center gap-1.5 uppercase tracking-wider">
                                     <Eye className="w-3.5 h-3.5" /> Kết quả xem trước mẫu thử
                                 </span>
                                 <span className="text-[11px] text-slate-500 dark:text-slate-400">
@@ -742,20 +742,20 @@ const AdminBookBlankFillerModal = ({
                                 <div className="flex items-center justify-between text-xs font-bold">
                                     <span className="text-slate-700 dark:text-slate-300 flex items-center gap-2">
                                         {isRunning ? (
-                                            <Loader2 className="w-4 h-4 text-indigo-500 animate-spin" />
+                                            <Loader2 className="w-4 h-4 text-emerald-500 animate-spin" />
                                         ) : (
                                             <CheckCircle2 className="w-4 h-4 text-emerald-500" />
                                         )}
                                         {progress.currentWord ? progress.currentWord : 'Đang xử lý...'}
                                     </span>
-                                    <span className="text-indigo-600 dark:text-indigo-400">
+                                    <span className="text-emerald-600 dark:text-emerald-400">
                                         {progress.processed}/{progress.total} ({progress.percent}%)
                                     </span>
                                 </div>
 
                                 <div className="w-full h-2.5 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
                                     <div
-                                        className="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-emerald-500 transition-all duration-300 ease-out"
+                                        className="h-full bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-500 transition-all duration-300 ease-out"
                                         style={{ width: `${progress.percent}%` }}
                                     />
                                 </div>
@@ -801,7 +801,7 @@ const AdminBookBlankFillerModal = ({
                             disabled={isRunning || isPreviewing || stats.withBlanks === 0}
                             className="flex items-center gap-1.5 px-3.5 py-2 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-bold transition-all cursor-pointer disabled:opacity-40"
                         >
-                            {isPreviewing ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Eye className="w-3.5 h-3.5 text-indigo-500" />}
+                            {isPreviewing ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Eye className="w-3.5 h-3.5 text-emerald-500" />}
                             Xem trước 1 từ
                         </button>
 
@@ -829,7 +829,7 @@ const AdminBookBlankFillerModal = ({
                                 type="button"
                                 onClick={handleStartBatch}
                                 disabled={stats.withBlanks === 0 || isLoadingData}
-                                className="flex items-center gap-1.5 px-5 py-2 bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600 hover:from-indigo-600 hover:to-purple-700 text-white rounded-xl text-xs font-extrabold transition-all shadow-md hover:shadow-lg disabled:opacity-40 cursor-pointer"
+                                className="flex items-center gap-1.5 px-5 py-2 bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600 hover:from-emerald-600 hover:to-teal-700 text-white rounded-xl text-xs font-extrabold transition-all shadow-md hover:shadow-lg disabled:opacity-40 cursor-pointer"
                             >
                                 <Sparkles className="w-4 h-4" /> Bắt đầu điền bằng AI
                             </button>

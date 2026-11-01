@@ -252,7 +252,7 @@ const GrammarCurriculumScreen = ({ isAdmin = false, profile = null }) => {
                                         </div>
 
                                         {/* Main Title */}
-                                        <h3 className="text-base sm:text-lg font-black text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-sky-400 transition-colors leading-snug line-clamp-1 mb-1.5">
+                                        <h3 className="text-base sm:text-lg font-black text-slate-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-sky-400 transition-colors leading-snug line-clamp-1 mb-1.5">
                                             {topic.titleVi}
                                         </h3>
 

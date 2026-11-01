@@ -220,7 +220,7 @@ export const showAlert = (message, { title = 'Thông báo', buttonText = 'Đã h
             success: 'background: linear-gradient(135deg, #059669, #10b981);',
             error: 'background: linear-gradient(135deg, #dc2626, #ef4444);',
             warning: 'background: linear-gradient(135deg, #d97706, #f59e0b);',
-            info: 'background: linear-gradient(135deg, #4f46e5, #6366f1);'
+            info: 'background: linear-gradient(135deg, #059669, #10b981);'
         };
 
         const icon = ICONS_MAP[type] || ICONS_MAP.info;

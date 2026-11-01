@@ -598,7 +598,7 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
                                 left: `${Math.random() * 300 - 150}px`,
                                 top: `${Math.random() * -200 - 50}px`,
                                 width: '8px', height: '8px', borderRadius: '2px',
-                                backgroundColor: ['#f59e0b', '#10b981', '#3b82f6', '#ef4444', '#a855f7', '#ec4899'][i % 6],
+                                backgroundColor: ['#f59e0b', '#10b981', '#3b82f6', '#ef4444', '#14b8a6', '#ec4899'][i % 6],
                                 animationDelay: `${Math.random() * 2}s`,
                                 animationDuration: `${2 + Math.random() * 2}s`,
                             }} />
@@ -657,7 +657,7 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
             { id: 'hanviet', label: t('kanji.hanvietQuiz', 'Trắc nghiệm Hán Việt'), icon: BookOpen, desc: t('kanji.hanvietQuizDesc', 'Chọn đáp án đúng về nghĩa Hán Việt'), bg: 'bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 text-white' },
             { id: 'vocab', label: t('kanji.vocabQuiz', 'Trắc nghiệm Từ vựng'), icon: Layers, desc: t('kanji.vocabQuizDesc', 'Chọn đáp án từ vựng chứa Kanji'), bg: 'bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 text-white' },
             { id: 'typing', label: t('kanji.typingQuiz', 'Tự luận (Âm đọc)'), icon: Keyboard, desc: t('kanji.typingQuizDesc', 'Gõ âm Onyomi/Kunyomi hoặc Hán Việt'), bg: 'bg-amber-500 hover:bg-amber-400 border-b-4 border-amber-700 text-white' },
-            { id: 'writing', label: t('kanji.writingCanvas', 'Vẽ viết Kanji'), icon: PenTool, desc: t('kanji.writingCanvasDesc', 'Luyện tập vẽ viết nét Hán tự'), bg: 'bg-indigo-600 hover:bg-indigo-500 border-b-4 border-indigo-800 text-white' },
+            { id: 'writing', label: t('kanji.writingCanvas', 'Vẽ viết Kanji'), icon: PenTool, desc: t('kanji.writingCanvasDesc', 'Luyện tập vẽ viết nét Hán tự'), bg: 'bg-teal-600 hover:bg-teal-500 border-b-4 border-teal-800 text-white' },
         ];
         return (
             <div className="max-w-4xl mx-auto py-8 px-4 animate-fade-in">
@@ -872,7 +872,7 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
                                 {/* Front: Kanji character */}
                                 <div className="absolute inset-0 w-full h-full" style={{ backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' }}>
                                     <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-inner p-6 flex flex-col items-center justify-center w-full h-full border border-gray-200 dark:border-slate-700">
-                                        <div className="text-[120px] leading-none text-indigo-500 dark:text-cyan-400 font-japanese font-bold" style={{ fontFamily: "'Noto Serif JP','Yu Mincho','Hiragino Mincho ProN',serif" }}>
+                                        <div className="text-[120px] leading-none text-emerald-500 dark:text-cyan-400 font-japanese font-bold" style={{ fontFamily: "'Noto Serif JP','Yu Mincho','Hiragino Mincho ProN',serif" }}>
                                             {flipCard.character}
                                         </div>
                                         <div className="mt-6 text-gray-500 dark:text-gray-400 text-sm">{t('kanji.clickToFlip', 'Nhấn để lật')}</div>
@@ -956,54 +956,54 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
                     {/* Dedicated Back Button */}
                     <button
                         onClick={handleBackToRoadmap}
-                        className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 rounded-xl bg-white dark:bg-slate-800 border border-slate-200/90 dark:border-slate-700/80 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all font-bold text-xs shadow-2xs hover:scale-105 cursor-pointer shrink-0 active:scale-95"
+                        className="flex items-center gap-1.5 px-3 sm:px-4 py-2 rounded-2xl bg-white dark:bg-slate-800 border-2 border-b-4 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 transition-all font-black text-xs uppercase tracking-wider shadow-xs cursor-pointer shrink-0"
                         title={t('kanji.backToRoadmap', 'Quay lại lộ trình Kanji')}
                     >
-                        <ArrowLeft className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400 shrink-0" />
+                        <ArrowLeft className="w-4 h-4 text-emerald-600 dark:text-emerald-400 stroke-[2.5] shrink-0" />
                         <span>{t('common.back', 'Quay lại')}</span>
                     </button>
 
                     {/* Breadcrumbs */}
-                    <div className="flex items-center gap-1.5 sm:gap-2 text-gray-400 dark:text-slate-400 text-[10px] sm:text-xs font-bold tracking-wider uppercase truncate">
-                        <button onClick={handleBackToRoadmap} className="hover:text-indigo-500 transition-colors shrink-0 cursor-pointer hidden min-[480px]:inline">
+                    <div className="flex items-center gap-1.5 sm:gap-2 text-slate-400 dark:text-slate-400 text-[10px] sm:text-xs font-black tracking-wider uppercase truncate bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 px-3.5 py-2 rounded-2xl shadow-xs">
+                        <button onClick={handleBackToRoadmap} className="hover:text-emerald-500 transition-colors shrink-0 cursor-pointer hidden min-[480px]:inline">
                             {t('kanji.roadmap', 'Lộ trình')} {level}
                         </button>
-                        <span className="hidden min-[480px]:inline">/</span>
+                        <span className="hidden min-[480px]:inline text-slate-300 dark:text-slate-600">/</span>
                         <span className="shrink-0">{t('kanji.dayNumber', 'Ngày {day}').replace('{day}', day)}</span>
-                        <span>/</span>
-                        <span className="text-gray-700 dark:text-gray-200 truncate font-black">
+                        <span className="text-slate-300 dark:text-slate-600">/</span>
+                        <span className="text-slate-800 dark:text-slate-100 truncate font-black">
                             {t('kanji.charNumber', 'Chữ {current} ({char})').replace('{current}', currentIndex + 1).replace('{char}', currentKanji?.character || '')}
                         </span>
                     </div>
                 </div>
 
-                {/* Practice Mode Button */}
+                {/* Practice Mode Button - Duolingo 3D Blue Button */}
                 <button 
                     onClick={() => setActiveMode('test')}
-                    className="flex items-center gap-1.5 px-3 py-1.5 sm:px-4 sm:py-2 rounded-xl text-xs sm:text-sm font-bold bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white transition-all hover:scale-[1.02] shadow-xs shadow-sky-500/20 cursor-pointer shrink-0"
+                    className="flex items-center gap-2 px-3.5 sm:px-5 py-2.5 rounded-2xl text-xs sm:text-sm font-black uppercase tracking-wider bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 text-white transition-all shadow-sm cursor-pointer shrink-0"
                 >
-                    <Award className="w-3.5 h-3.5 text-amber-300" />
+                    <Award className="w-4 h-4 text-amber-300 stroke-[2.5]" />
                     <span className="hidden sm:inline">{t('kanji.practiceModeBtn', '🎯 Chế độ luyện tập')}</span>
                     <span className="sm:hidden">{t('kanji.practiceModeBtnShort', 'Luyện tập')}</span>
                 </button>
             </div>
 
             {/* Progress bar with Integrated Centered Pagination Dots */}
-            <div className="bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl p-3 sm:p-4 shadow-2xs space-y-2.5">
-                <div className="flex justify-between items-center text-xs font-bold text-slate-500 dark:text-slate-400">
-                    <span className="flex items-center gap-1.5">
-                        <Layers className="w-3.5 h-3.5 text-indigo-500" />
+            <div className="bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl p-4 sm:p-5 shadow-xs space-y-3">
+                <div className="flex justify-between items-center text-xs font-black text-slate-600 dark:text-slate-400">
+                    <span className="flex items-center gap-1.5 uppercase tracking-wider">
+                        <Layers className="w-4 h-4 text-emerald-500 stroke-[2.5]" />
                         <span>{t('kanji.lessonProgress', 'Tiến độ bài học')}</span>
                     </span>
-                    <span className="font-mono text-indigo-600 dark:text-cyan-400 font-black">
+                    <span className="font-mono text-emerald-600 dark:text-emerald-400 font-black text-sm">
                         {t('kanji.lessonProgressCount', '{current} / {total} chữ Kanji').replace('{current}', currentIndex + 1).replace('{total}', todayKanji.length)}
                     </span>
                 </div>
 
-                {/* Progress bar line */}
-                <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                {/* Duolingo Capsule Progress Bar Line */}
+                <div className="w-full h-3.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden border border-slate-200/60 dark:border-slate-700 p-0.5">
                     <div 
-                        className="h-full bg-gradient-to-r from-indigo-500 via-sky-400 to-cyan-400 rounded-full transition-all duration-500"
+                        className="h-full bg-emerald-500 rounded-full transition-all duration-500"
                         style={{ width: `${((currentIndex + 1) / todayKanji.length) * 100}%` }} 
                     />
                 </div>
@@ -1016,9 +1016,9 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
                             onClick={() => goTo(i)}
                             className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer shrink-0 ${
                                 i === currentIndex
-                                    ? 'w-7 bg-indigo-600 dark:bg-cyan-400 shadow-xs shadow-indigo-500/30 ring-2 ring-indigo-200 dark:ring-cyan-900'
+                                    ? 'w-7 bg-emerald-600 dark:bg-cyan-400 shadow-xs shadow-emerald-500/30 ring-2 ring-emerald-200 dark:ring-cyan-900'
                                     : viewedSet.has(i)
-                                        ? 'w-3 bg-indigo-300 dark:bg-cyan-700/60 hover:bg-indigo-400'
+                                        ? 'w-3 bg-emerald-300 dark:bg-cyan-700/60 hover:bg-emerald-400'
                                         : 'w-2 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700'
                             }`}
                             title={`${t('kanji.charWord', 'Chữ')} ${i + 1}: ${k.character} (${k.sinoViet || ''})`}
@@ -1146,6 +1146,7 @@ const KanjiFlashcard = ({
     level,
     day
 }) => {
+    const { t } = useLanguage();
     const getReadingType = (v, kanjiObj) => {
         if (!kanjiObj || !v.reading) return null;
         
@@ -1388,78 +1389,78 @@ const KanjiFlashcard = ({
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-6 items-start">
             {/* Left Column: Drawing and Vocabulary */}
             <div className="contents lg:block lg:space-y-6">
-                {/* Main/Drawing Card (white in light mode, slate in dark mode) */}
-                <div className="order-1 lg:order-none bg-white dark:bg-slate-800 rounded-2xl sm:rounded-3xl border border-gray-100 dark:border-slate-700/60 p-4 sm:p-6 shadow-sm relative">
+                {/* Main/Drawing Card (Duolingo 3D container) */}
+                <div className="order-1 lg:order-none bg-white dark:bg-slate-900 rounded-3xl border-2 border-b-4 border-slate-200 dark:border-slate-800 p-5 sm:p-6 shadow-xs relative">
                     {/* Tags + Bookmark top row */}
                     <div className="flex justify-between items-center mb-3 sm:mb-4">
-                        <div className="flex gap-1.5 sm:gap-2">
+                        <div className="flex gap-2">
                             {isHighFreq && (
-                                <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider rounded-lg">
+                                <span className="px-3 py-1 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-2 border-b-2 border-emerald-200 dark:border-emerald-800 text-[10px] sm:text-xs font-black uppercase tracking-wider rounded-xl">
                                     {t('kanji.highFrequency', 'Tần suất cao')}
                                 </span>
                             )}
-                            <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 text-[9px] sm:text-[10px] font-bold uppercase tracking-wider rounded-lg">
+                            <span className="px-3 py-1 bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border-2 border-b-2 border-sky-200 dark:border-sky-800 text-[10px] sm:text-xs font-black uppercase tracking-wider rounded-xl">
                                 {t('kanji.levelBadge', 'Cấp độ {level}').replace('{level}', level)}
                             </span>
                         </div>
                         <button
                             onClick={(e) => !isBookmarked && handleBookmarkToggle()}
                             disabled={isBookmarked}
-                            className={`p-2 rounded-xl transition-all ${isBookmarked
-                                    ? 'bg-pink-50 dark:bg-pink-950/40 text-pink-500 cursor-default shadow-xs'
-                                    : 'text-gray-400 hover:text-pink-500 dark:hover:text-pink-400 active:scale-95 hover:scale-110'
+                            className={`p-2.5 rounded-xl border-2 border-b-2 transition-all cursor-pointer ${isBookmarked
+                                    ? 'bg-rose-50 dark:bg-rose-950/40 border-rose-200 dark:border-rose-800 text-rose-500 cursor-default shadow-xs'
+                                    : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-400 hover:text-rose-500 hover:border-rose-300 active:translate-y-0.5'
                                 }`}
                             title={isBookmarked ? t('kanji.savedToStudyList', "Đã lưu vào danh sách học") : t('kanji.saveKanjiFavorite', "Lưu Kanji (Yêu thích)")}
                         >
                             {isBookmarked ? (
-                                <Heart className="w-5 h-5 fill-pink-500 text-pink-500" />
+                                <Heart className="w-4 h-4 fill-rose-500 text-rose-500" />
                             ) : (
-                                <Heart className="w-5 h-5" />
+                                <Heart className="w-4 h-4" />
                             )}
                         </button>
                     </div>
                     {/* Animated Stroke box */}
                     <div className="flex items-center justify-center my-3 sm:my-4">
-                        <div className="relative w-48 h-48 sm:w-56 sm:h-56 bg-slate-50 dark:bg-slate-900/40 rounded-2xl border border-gray-100 dark:border-slate-700/50 flex items-center justify-center shadow-inner overflow-hidden">
+                        <div className="relative w-48 h-48 sm:w-56 sm:h-56 bg-slate-50 dark:bg-slate-950 rounded-2xl border-2 border-slate-200 dark:border-slate-800 flex items-center justify-center shadow-inner overflow-hidden">
                             {/* Plus pattern grid guidelines */}
                             <div className="absolute inset-0 pointer-events-none">
-                                <div className="w-full h-full border-b border-dashed border-gray-200 dark:border-slate-700/50 absolute top-1/2 left-0 -translate-y-1/2" />
-                                <div className="w-full h-full border-r border-dashed border-gray-200 dark:border-slate-700/50 absolute left-1/2 top-0 -translate-x-1/2" />
+                                <div className="w-full h-full border-b border-dashed border-slate-200 dark:border-slate-800 absolute top-1/2 left-0 -translate-y-1/2" />
+                                <div className="w-full h-full border-r border-dashed border-slate-200 dark:border-slate-800 absolute left-1/2 top-0 -translate-x-1/2" />
                             </div>
                             {/* Target for HanziWriter */}
                             <div ref={writerContainerRef} className="z-10 flex items-center justify-center" />
                             {/* Replay stroke button */}
                             <button
                                 onClick={() => writerRef.current?.replay?.()}
-                                className="absolute bottom-2.5 right-2.5 z-20 p-2 bg-white/90 dark:bg-slate-800/90 backdrop-blur-xs border border-gray-200 dark:border-slate-700 text-gray-500 dark:text-gray-400 hover:text-indigo-600 dark:hover:text-cyan-400 rounded-xl shadow-xs transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                                className="absolute bottom-2.5 right-2.5 z-20 p-2 bg-white dark:bg-slate-800 border-2 border-b-2 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 rounded-xl shadow-xs transition-all active:translate-y-0.5 cursor-pointer"
                                 title={t('kanji.replayStrokes', 'Xem lại nét viết')}
                             >
-                                <RotateCcw className="w-4 h-4" />
+                                <RotateCcw className="w-4 h-4 stroke-[2.5]" />
                             </button>
                         </div>
                     </div>
                     {/* Onyomi & Kunyomi Badges */}
-                    <div className="grid grid-cols-2 gap-3 sm:gap-4 border-t border-gray-100 dark:border-slate-700/50 pt-3 sm:pt-4">
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4 border-t-2 border-slate-100 dark:border-slate-800 pt-3 sm:pt-4">
                         <div>
-                            <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-1">{t('kanji.onyomiLabel', 'Âm On')}</span>
+                            <span className="text-[10px] text-slate-400 dark:text-slate-500 font-black uppercase tracking-wider block mb-1.5">{t('kanji.onyomiLabel', 'Âm On')}</span>
                             <div className="flex flex-wrap gap-1.5">
                                 {onyomiList.length > 0 ? onyomiList.map((o, idx) => (
-                                    <span key={`${o}-${idx}`} className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-cyan-50 dark:bg-cyan-950/20 border border-cyan-100 dark:border-cyan-900/30 rounded-lg text-xs text-cyan-600 dark:text-cyan-400 font-bold font-japanese">{o}</span>
-                                )) : <span className="text-xs text-gray-400">-</span>}
+                                    <span key={`${o}-${idx}`} className="px-2.5 py-1 bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-800 rounded-xl text-xs text-sky-700 dark:text-sky-300 font-black font-japanese">{o}</span>
+                                )) : <span className="text-xs text-slate-400">-</span>}
                             </div>
                         </div>
                         <div>
-                            <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-1">{t('kanji.kunyomiLabel', 'Âm Kun')}</span>
+                            <span className="text-[10px] text-slate-400 dark:text-slate-500 font-black uppercase tracking-wider block mb-1.5">{t('kanji.kunyomiLabel', 'Âm Kun')}</span>
                             <div className="flex flex-wrap gap-1.5">
                                 {kunyomiList.length > 0 ? kunyomiList.map((k, idx) => (
-                                    <span key={`${k}-${idx}`} className="px-2 py-0.5 sm:px-2.5 sm:py-1 bg-red-50 dark:bg-red-950/20 border border-red-100 dark:border-red-900/30 rounded-lg text-xs text-red-600 dark:text-red-400 font-bold font-japanese">{k}</span>
-                                )) : <span className="text-xs text-gray-400">-</span>}
+                                    <span key={`${k}-${idx}`} className="px-2.5 py-1 bg-rose-50 dark:bg-rose-950/40 border border-rose-200 dark:border-rose-800 rounded-xl text-xs text-rose-700 dark:text-rose-300 font-black font-japanese">{k}</span>
+                                )) : <span className="text-xs text-slate-400">-</span>}
                             </div>
                         </div>
                     </div>
                 </div>
                 {/* Usage Examples Section */}
-                <div className="order-5 lg:order-none bg-white dark:bg-slate-800 rounded-2xl sm:rounded-3xl border border-gray-100 dark:border-slate-700/60 p-4 sm:p-6 shadow-sm">
+                <div className="order-5 lg:order-none bg-white dark:bg-slate-900 rounded-3xl border-2 border-b-4 border-slate-200 dark:border-slate-800 p-5 sm:p-6 shadow-xs">
                     <span className="text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-4">{t('kanji.usageExamples', 'Ví dụ sử dụng')}</span>
                     {(() => {
                         if (vocab.length === 0) {
@@ -1615,52 +1616,52 @@ const KanjiFlashcard = ({
             {/* Right Column: Widgets */}
             <div className="contents lg:block lg:space-y-6 lg:sticky lg:top-6 text-left">
                 {/* Meaning Card */}
-                <div className="order-2 lg:order-none bg-white dark:bg-slate-800 rounded-2xl sm:rounded-3xl border border-gray-100 dark:border-slate-700/60 p-4 sm:p-6 shadow-sm">
+                <div className="order-2 lg:order-none bg-white dark:bg-slate-900 rounded-3xl border-2 border-b-4 border-slate-200 dark:border-slate-800 p-5 sm:p-6 shadow-xs">
                     <div className="space-y-1.5 sm:space-y-2">
-                        <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-1">{t('kanji.meaningLabel', 'Ý nghĩa')}</span>
-                        <h3 className="text-xl sm:text-2xl font-extrabold text-indigo-600 dark:text-cyan-400 tracking-wide">{kanji.sinoViet || ''}</h3>
-                        <p className="text-sm sm:text-base text-gray-700 dark:text-slate-200 font-bold leading-relaxed">{kanji.meaning || '-'}</p>
+                        <span className="text-[10px] text-slate-400 dark:text-slate-500 font-black uppercase tracking-wider block mb-1">{t('kanji.meaningLabel', 'Ý nghĩa')}</span>
+                        <h3 className="text-2xl sm:text-3xl font-black text-emerald-600 dark:text-emerald-400 tracking-wide">{kanji.sinoViet || ''}</h3>
+                        <p className="text-base sm:text-lg text-slate-800 dark:text-slate-100 font-bold leading-relaxed">{kanji.meaning || '-'}</p>
                     </div>
                 </div>
                 {/* Mnemonics Card */}
-                <div className="order-3 lg:order-none bg-white dark:bg-slate-800 rounded-2xl sm:rounded-3xl border border-gray-100 dark:border-slate-700/60 p-4 sm:p-6 shadow-sm">
-                    <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-2 sm:mb-3">{t('kanji.mnemonicLabel', 'Mẹo ghi nhớ')}</span>
+                <div className="order-3 lg:order-none bg-white dark:bg-slate-900 rounded-3xl border-2 border-b-4 border-slate-200 dark:border-slate-800 p-5 sm:p-6 shadow-xs">
+                    <span className="text-[10px] text-slate-400 dark:text-slate-500 font-black uppercase tracking-wider block mb-2 sm:mb-3">{t('kanji.mnemonicLabel', 'Mẹo ghi nhớ')}</span>
                     {kanji.mnemonic ? (
-                        <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-medium">{kanji.mnemonic}</p>
+                        <p className="text-sm sm:text-base text-slate-700 dark:text-slate-200 leading-relaxed font-semibold">{kanji.mnemonic}</p>
                     ) : (
-                        <p className="text-xs sm:text-sm text-gray-400 italic">{t('kanji.noMnemonic', 'Không có mẹo ghi nhớ cho chữ này')}</p>
+                        <p className="text-xs sm:text-sm text-slate-400 italic">{t('kanji.noMnemonic', 'Không có mẹo ghi nhớ cho chữ này')}</p>
                     )}
                     {(kanji.imageUrl || kanji.imageBase64) && (
-                        <div className="mt-3 sm:mt-4 rounded-xl sm:rounded-2xl overflow-hidden border border-gray-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/40 p-2 shadow-inner">
+                        <div className="mt-3 sm:mt-4 rounded-2xl overflow-hidden border-2 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/40 p-2 shadow-inner">
                             <img src={kanji.imageUrl || kanji.imageBase64} alt="illustration" className="w-full max-h-40 sm:max-h-48 object-contain mx-auto" />
                         </div>
                     )}
                 </div>
                 {/* Learning Status Card */}
-                <div className="order-4 lg:order-none bg-white dark:bg-slate-800 rounded-2xl sm:rounded-3xl border border-gray-100 dark:border-slate-700/60 p-4 sm:p-6 shadow-sm">
-                    <span className="text-[9px] sm:text-[10px] text-gray-400 dark:text-slate-500 font-bold uppercase tracking-wider block mb-2 sm:mb-3">{t('kanji.learningStatusHeading', 'Trạng thái học tập')}</span>
+                <div className="order-4 lg:order-none bg-white dark:bg-slate-900 rounded-3xl border-2 border-b-4 border-slate-200 dark:border-slate-800 p-5 sm:p-6 shadow-xs">
+                    <span className="text-[10px] text-slate-400 dark:text-slate-500 font-black uppercase tracking-wider block mb-2 sm:mb-3">{t('kanji.learningStatusHeading', 'Trạng thái học tập')}</span>
                     {/* Mastery bar */}
                     <div className="space-y-1.5 sm:space-y-2">
-                        <div className="flex justify-between items-center text-xs text-gray-500 dark:text-slate-400 font-bold">
-                            <span>{t('kanji.masteryLabel', 'Độ thành thục')}</span>
-                            <span className="text-indigo-500 dark:text-cyan-400">{masteryPercent}%</span>
+                        <div className="flex justify-between items-center text-xs text-slate-600 dark:text-slate-400 font-black">
+                            <span className="uppercase tracking-wider">{t('kanji.masteryLabel', 'Độ thành thục')}</span>
+                            <span className="text-emerald-600 dark:text-emerald-400 font-mono text-sm">{masteryPercent}%</span>
                         </div>
-                        <div className="w-full h-2 bg-gray-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                        <div className="w-full h-3.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden border border-slate-200/60 dark:border-slate-700 p-0.5">
                             <div
-                                className="h-full bg-gradient-to-r from-indigo-500 to-cyan-400 rounded-full transition-all duration-500"
+                                className="h-full bg-emerald-500 rounded-full transition-all duration-500"
                                 style={{ width: `${masteryPercent}%` }}
                             />
                         </div>
                     </div>
                     {/* Status details */}
-                    <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-4 border-t border-gray-50 dark:border-slate-700/30 pt-3 sm:pt-4 text-xs">
-                        <div>
-                            <span className="text-gray-400 dark:text-slate-500 font-medium block text-[11px]">{t('kanji.studyCountLabel', 'Số lần học')}</span>
-                            <span className="text-gray-800 dark:text-slate-200 font-bold text-xs sm:text-sm mt-0.5 block">{t('kanji.studyCountTimes', '{count} lần').replace('{count}', seenCount)}</span>
+                    <div className="grid grid-cols-2 gap-3 sm:gap-4 mt-4 border-t-2 border-slate-100 dark:border-slate-800 pt-3 sm:pt-4 text-xs">
+                        <div className="bg-slate-50 dark:bg-slate-800/60 p-3 rounded-2xl border border-slate-200/60 dark:border-slate-700/60">
+                            <span className="text-slate-400 dark:text-slate-500 font-black uppercase tracking-wider block text-[10px]">{t('kanji.studyCountLabel', 'Số lần học')}</span>
+                            <span className="text-slate-800 dark:text-slate-100 font-black text-sm sm:text-base mt-0.5 block">{t('kanji.studyCountTimes', '{count} lần').replace('{count}', seenCount)}</span>
                         </div>
-                        <div>
-                            <span className="text-gray-400 dark:text-slate-500 font-medium block text-[11px]">{t('kanji.reviewIntervalLabel', 'Chu kỳ ôn tập')}</span>
-                            <span className="text-gray-800 dark:text-slate-200 font-bold text-xs sm:text-sm mt-0.5 block">{srsIntervalText}</span>
+                        <div className="bg-slate-50 dark:bg-slate-800/60 p-3 rounded-2xl border border-slate-200/60 dark:border-slate-700/60">
+                            <span className="text-slate-400 dark:text-slate-500 font-black uppercase tracking-wider block text-[10px]">{t('kanji.reviewIntervalLabel', 'Chu kỳ ôn tập')}</span>
+                            <span className="text-slate-800 dark:text-slate-100 font-black text-sm sm:text-base mt-0.5 block">{srsIntervalText}</span>
                         </div>
                     </div>
                 </div>
@@ -1669,22 +1670,22 @@ const KanjiFlashcard = ({
                     <button
                         onClick={onPrev}
                         disabled={currentIndex === 0}
-                        className="flex-1 max-w-[130px] sm:max-w-[150px] px-3.5 py-2.5 sm:px-5 sm:py-3 bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 hover:bg-gray-50 dark:hover:bg-slate-700 disabled:opacity-30 disabled:cursor-not-allowed text-gray-700 dark:text-gray-300 font-bold text-xs sm:text-sm rounded-xl sm:rounded-2xl transition-all shadow-xs flex items-center justify-center gap-1.5 min-h-[42px] sm:min-h-[44px] cursor-pointer"
+                        className="flex-1 max-w-[130px] sm:max-w-[150px] px-4 py-3 bg-white dark:bg-slate-800 border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-40 disabled:cursor-not-allowed text-slate-700 dark:text-slate-200 font-black text-xs sm:text-sm uppercase tracking-wider rounded-2xl active:translate-y-0.5 active:border-b-2 transition-all shadow-xs flex items-center justify-center gap-1.5 min-h-[44px] cursor-pointer"
                     >
-                        <ChevronLeft className="w-4 h-4" /> {t('kanji.prevChar', 'Trước')}
+                        <ChevronLeft className="w-4 h-4 stroke-[2.5]" /> {t('kanji.prevChar', 'Trước')}
                     </button>
 
                     {/* Centered counter indicator for mobile */}
                     <div className="flex flex-col items-center justify-center px-1 text-center lg:hidden">
-                        <span className="text-[10px] font-bold text-gray-400 dark:text-slate-500 uppercase tracking-wider">{t('kanji.charWord', 'Chữ')}</span>
-                        <span className="text-xs font-black text-indigo-600 dark:text-cyan-400 font-mono">{currentIndex + 1} / {totalKanjiCount}</span>
+                        <span className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-wider">{t('kanji.charWord', 'Chữ')}</span>
+                        <span className="text-xs font-black text-emerald-600 dark:text-emerald-400 font-mono">{currentIndex + 1} / {totalKanjiCount}</span>
                     </div>
 
                     <button
                         onClick={isLastKanji ? onComplete : onNext}
-                        className={`flex-1 ${isLastKanji ? 'max-w-[200px]' : 'max-w-[140px] sm:max-w-[160px]'} px-3.5 py-2.5 sm:px-6 sm:py-3 ${isLastKanji ? 'bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white shadow-emerald-500/25' : 'bg-gradient-to-r from-indigo-600 to-blue-600 hover:from-indigo-500 hover:to-blue-500 text-white shadow-indigo-600/20'} font-bold text-xs sm:text-sm rounded-xl sm:rounded-2xl transition-all shadow-md flex items-center justify-center gap-1.5 min-h-[42px] sm:min-h-[44px] cursor-pointer`}
+                        className={`flex-1 ${isLastKanji ? 'max-w-[220px]' : 'max-w-[140px] sm:max-w-[160px]'} px-5 py-3 bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 text-white font-black text-xs sm:text-sm uppercase tracking-wider rounded-2xl shadow-sm flex items-center justify-center gap-1.5 min-h-[44px] transition-all cursor-pointer`}
                     >
-                        {isLastKanji ? t('kanji.finishDay', '🎉 Hoàn thành ngày') : t('kanji.nextChar', 'Tiếp theo')} {!isLastKanji && <ChevronRight className="w-4 h-4" />}
+                        {isLastKanji ? t('kanji.finishDay', '🎉 Hoàn thành ngày') : t('kanji.nextChar', 'Tiếp theo')} {!isLastKanji && <ChevronRight className="w-4 h-4 stroke-[2.5]" />}
                     </button>
                 </div>
             </div>
@@ -1693,6 +1694,7 @@ const KanjiFlashcard = ({
 };
 // ==================== VOCAB FLASHCARD LIST ====================
 const VocabFlashcardList = ({ vocab, speakJapanese }) => {
+    const { t } = useLanguage();
     const [flipped, setFlipped] = useState(new Set());
     const toggle = (i) => setFlipped(prev => { const n = new Set(prev); n.has(i) ? n.delete(i) : n.add(i); return n; });
     return (
@@ -2020,19 +2022,21 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
     if (testDone) {
         const pct = total > 0 ? Math.round((score / total) * 100) : 0;
         return (
-            <div className="min-h-[calc(100vh-120px)] flex items-center justify-center p-4">
-                <div className="w-[520px] max-w-full text-center space-y-6 flex flex-col items-center justify-center bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-8 shadow-xl">
-                    <Award className={`w-16 h-16 sm:w-20 sm:h-20 mx-auto ${pct >= 80 ? 'text-amber-400' : pct >= 50 ? 'text-sky-500' : 'text-slate-400'}`} />
-                    <div>
-                        <h2 className="text-2xl sm:text-3xl font-black text-gray-800 dark:text-white">{t('kanji.quizResults', 'Kết quả kiểm tra')}</h2>
-                        <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">{t('kanji.accuracyPct', '{pct}% chính xác').replace('{pct}', pct)}</p>
+            <div className="w-full flex-1 flex items-center justify-center p-4 sm:p-8 animate-fade-in min-h-[calc(100vh-100px)]">
+                <div className="w-full max-w-xl text-center space-y-6 flex flex-col items-center justify-center bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl p-8 sm:p-10 shadow-xs">
+                    <div className="w-24 h-24 rounded-3xl bg-amber-50 dark:bg-amber-950/40 border-2 border-b-4 border-amber-300 dark:border-amber-700 flex items-center justify-center shadow-xs">
+                        <Award className={`w-14 h-14 ${pct >= 80 ? 'text-amber-500' : pct >= 50 ? 'text-sky-500' : 'text-slate-400'}`} />
                     </div>
-                    <div className="text-5xl font-black text-sky-500">{score}/{total}</div>
-                    {failedCards.size > 0 && <div className="text-sm font-bold text-rose-500">{t('kanji.failedQuestionsCount', '({count} câu sai)').replace('{count}', failedCards.size)}</div>}
-                    <div className="flex gap-3 justify-center w-full max-w-xs">
-                        <button onClick={onBack} className="flex-1 py-3 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 rounded-2xl font-black text-xs uppercase tracking-wider transition-all cursor-pointer">{t('common.back', 'Quay lại')}</button>
+                    <div>
+                        <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">{t('kanji.quizResults', 'Kết quả kiểm tra')}</h2>
+                        <p className="text-sm font-bold text-slate-500 dark:text-slate-400 mt-1">{t('kanji.accuracyPct', '{pct}% chính xác').replace('{pct}', pct)}</p>
+                    </div>
+                    <div className="text-5xl sm:text-6xl font-black text-emerald-500 font-mono tracking-tight">{score}/{total}</div>
+                    {failedCards.size > 0 && <div className="text-sm font-black text-rose-500 bg-rose-50 dark:bg-rose-950/30 px-4 py-1.5 rounded-xl border border-rose-200 dark:border-rose-900">{t('kanji.failedQuestionsCount', '({count} câu sai)').replace('{count}', failedCards.size)}</div>}
+                    <div className="flex gap-3 justify-center w-full max-w-sm pt-2">
+                        <button onClick={onBack} className="flex-1 py-3.5 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border-2 border-b-4 border-slate-200 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 rounded-2xl font-black text-xs uppercase tracking-wider transition-all cursor-pointer shadow-xs">{t('common.back', 'Quay lại')}</button>
                         <button onClick={() => { setQIndex(0); setScore(0); setAnswered(false); setSelectedAnswer(null); setTypingInput(''); setTestDone(false); setFailedCards(new Set()); }}
-                            className="flex-1 py-3 bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 text-white rounded-2xl font-black text-xs uppercase tracking-wider transition-all cursor-pointer">{t('studyModes.studyAgain', 'Làm lại')}</button>
+                            className="flex-1 py-3.5 bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 text-white rounded-2xl font-black text-xs uppercase tracking-wider transition-all cursor-pointer shadow-sm">{t('studyModes.studyAgain', 'Làm lại')}</button>
                     </div>
                 </div>
             </div>
@@ -2042,173 +2046,246 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
     const modeLabels = { hanviet: t('kanji.hanvietQuiz', 'Kiểm tra âm Hán Việt'), vocab: t('kanji.vocabQuiz', 'Kiểm tra từ vựng'), typing: t('kanji.typingQuiz', 'Tự luận'), writing: t('kanji.writingCanvas', 'Kiểm tra viết') };
     const progress = Math.round(((qIndex + 1) / total) * 100);
     return (
-        <div className="min-h-[calc(100vh-120px)] flex items-center justify-center p-3 sm:p-4">
-            <div className="w-[560px] max-w-full flex flex-col justify-center items-center space-y-4 p-5 sm:p-6 bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-3xl shadow-xl">
-                {/* Progress bar */}
-                <div className="w-full space-y-2 flex-shrink-0">
-                    <div className="flex justify-between items-center text-xs font-bold text-gray-500 dark:text-gray-400">
-                        <div className="flex items-center gap-2">
-                            <button onClick={onBack} className="p-2 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 border-b-2 border-slate-300 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 active:translate-y-0.5 transition-all cursor-pointer">
-                                <ChevronLeft className="w-4 h-4" />
-                            </button>
-                            <span className="text-gray-800 dark:text-white font-black text-sm">{modeLabels[testMode]}</span>
+        <div className="w-full flex-1 flex flex-col justify-center items-center py-4 sm:py-8 px-3 sm:px-6 animate-fade-in min-h-[calc(100vh-100px)]">
+            <div className="w-full max-w-4xl mx-auto flex flex-col space-y-4 sm:space-y-6">
+                {/* Progress Header - Duolingo Styled */}
+                <div className="w-full flex items-center justify-between gap-3 bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl px-4 sm:px-6 py-3.5 shadow-xs">
+                    <div className="flex items-center gap-2.5 sm:gap-3">
+                        <button
+                            onClick={onBack}
+                            className="p-2 sm:p-2.5 flex items-center justify-center rounded-2xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer shadow-2xs"
+                            title={t('common.back', 'Quay lại')}
+                        >
+                            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5 stroke-[2.5]" />
+                        </button>
+                        <span className="text-slate-800 dark:text-white font-black text-sm sm:text-base tracking-wide">
+                            {modeLabels[testMode]}
+                        </span>
+                    </div>
+
+                    {/* Central Duolingo Capsule Progress Bar */}
+                    <div className="flex-1 max-w-md mx-3 sm:mx-6">
+                        <div className="h-3.5 sm:h-4 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden border border-slate-200/80 dark:border-slate-700 p-0.5">
+                            <div
+                                className="h-full bg-emerald-500 rounded-full transition-all duration-300 shadow-inner"
+                                style={{ width: `${progress}%` }}
+                            />
                         </div>
-                        <span className="font-mono">{qIndex + 1} / {total}</span>
                     </div>
-                    <div className="h-2 w-full bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-                        <div className="h-full bg-sky-500 rounded-full transition-all duration-300" style={{ width: `${progress}%` }}></div>
-                    </div>
+
+                    <span className="font-mono font-black text-xs sm:text-sm text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 px-3.5 py-1.5 rounded-2xl border-2 border-slate-200 dark:border-slate-700 shrink-0">
+                        {qIndex + 1} / {total}
+                    </span>
                 </div>
-                {/* Card area */}
-                <div className="w-full bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-6 sm:p-8 flex flex-col items-center justify-center text-center relative overflow-hidden border border-slate-200 dark:border-slate-700/60" style={{ minHeight: '220px' }}>
-                    {/* Display: for vocab test show single question line, for writing mode show sinoViet hint, for others show kanji */}
-                    {testMode === 'vocab' ? (
-                        <div className="text-xl sm:text-2xl font-black text-gray-800 dark:text-gray-100 font-japanese leading-relaxed px-2">
-                            {t('kanji.whatIsMeaningOf', 'What is the meaning of "{word}"?').replace('{word}', currentQ.sub ? `${currentQ.kanji}（${currentQ.sub}）` : currentQ.kanji)}
+
+                {/* Main Content Card - Duolingo 3D style */}
+                <div className="w-full bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-8 md:p-10 shadow-xs flex flex-col items-center justify-center space-y-6 min-h-[460px]">
+                    {/* Writing Test: 2-column spacious layout on desktop */}
+                    {currentQ.type === 'writing' ? (
+                        <div className="w-full grid grid-cols-1 md:grid-cols-[1.1fr_auto] gap-6 md:gap-10 items-center">
+                            {/* Left Column: Prompt, Meaning, Hints & Feedback */}
+                            <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-4">
+                                <span className="px-3 py-1 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-2 border-b-2 border-emerald-200 dark:border-emerald-800 text-xs font-black uppercase tracking-wider rounded-xl">
+                                    {t('kanji.writingCanvas', 'Vẽ viết nét Kanji')}
+                                </span>
+                                <div>
+                                    <h2 className="text-4xl sm:text-5xl font-black text-emerald-600 dark:text-emerald-400 tracking-wide mb-1">
+                                        {currentQ.kanji}
+                                    </h2>
+                                    {currentQ.meaning && (
+                                        <p className="text-xl sm:text-2xl font-black text-slate-800 dark:text-slate-100">
+                                            {currentQ.meaning}
+                                        </p>
+                                    )}
+                                </div>
+                                <p className="text-sm sm:text-base font-bold text-slate-500 dark:text-slate-400 max-w-md">
+                                    {currentQ.question}
+                                </p>
+
+                                {/* Recognition feedback message */}
+                                {writingResult !== null && (
+                                    <div className={`p-4 rounded-2xl font-bold w-full border-2 border-b-4 transition-all animate-fade-in ${writingResult >= 70
+                                        ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-400 dark:border-emerald-700 text-emerald-700 dark:text-emerald-300'
+                                        : writingResult >= 40
+                                            ? 'bg-amber-50 dark:bg-amber-950/40 border-amber-400 dark:border-amber-700 text-amber-700 dark:text-amber-300'
+                                            : 'bg-rose-50 dark:bg-rose-950/40 border-rose-400 dark:border-rose-700 text-rose-700 dark:text-rose-300'
+                                        }`}>
+                                        <div className="flex items-center gap-3">
+                                            <span className="text-3xl font-japanese font-black shrink-0">{writingRecognized || '?'}</span>
+                                            <div>
+                                                <div className="text-sm font-black">{t('kanji.canvasAccuracy', 'Độ chính xác: {accuracy}%').replace('{accuracy}', writingResult)}</div>
+                                                <div className="text-xs font-medium mt-0.5 opacity-80">
+                                                    {writingResult >= 70
+                                                        ? t('kanji.canvasCorrect', '✅ Chính xác! Bạn viết rất tốt')
+                                                        : writingResult >= 40
+                                                            ? t('kanji.canvasNear', '⚠️ Gần đúng — nhận dạng: "{recognized}", đáp án: "{expected}"').replace('{recognized}', writingRecognized).replace('{expected}', currentQ.actualChar)
+                                                            : t('kanji.canvasWrong', '❌ Chưa đúng — nhận dạng: "{recognized}", đáp án: "{expected}"').replace('{recognized}', writingRecognized).replace('{expected}', currentQ.actualChar)
+                                                    }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Skip button when failed */}
+                                {!answered && writingResult !== null && writingResult < 70 && (
+                                    <button onClick={() => { setAnswered(true); setFailedCards(prev => new Set([...prev, qIndex])); }}
+                                        className="py-3 px-5 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 border-2 border-b-4 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 rounded-2xl text-xs font-black uppercase tracking-wider transition-all flex items-center justify-center gap-1 active:translate-y-0.5 cursor-pointer shadow-xs">
+                                        {t('kanji.skipThisQuestion', 'Bỏ qua câu này →')}
+                                    </button>
+                                )}
+
+                                {/* Next button after answering correctly in writing mode */}
+                                {answered && (
+                                    <button onClick={nextQuestion}
+                                        className="w-full py-4 bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 text-white rounded-2xl font-black text-sm uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm">
+                                        {qIndex + 1 >= questions.length ? t('kanji.seeResultsBtn', 'Xem kết quả') : t('kanji.nextQuestionBtn', 'Câu tiếp theo →')}
+                                        <ChevronRight className="w-5 h-5 stroke-[3]" />
+                                    </button>
+                                )}
+                            </div>
+
+                            {/* Right Column: Canvas & Controls */}
+                            <div className="flex flex-col items-center gap-4">
+                                <div className="relative">
+                                    <canvas
+                                        ref={canvasRef}
+                                        className="w-[330px] h-[330px] sm:w-[380px] sm:h-[380px] max-w-full rounded-3xl border-2 border-b-4 border-slate-700 dark:border-slate-600 cursor-crosshair touch-none shadow-xl bg-slate-950"
+                                        style={{ touchAction: 'none' }}
+                                        onMouseDown={startDraw} onMouseMove={draw} onMouseUp={endDraw} onMouseLeave={endDraw}
+                                        onTouchStart={startDraw} onTouchMove={draw} onTouchEnd={endDraw}
+                                    />
+                                </div>
+                                <div className="flex gap-3 w-full justify-center">
+                                    <button onClick={clearCanvas} className="px-5 py-3 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 border-2 border-b-4 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 rounded-2xl text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 active:translate-y-0.5 cursor-pointer shadow-xs">
+                                        <RotateCcw className="w-4 h-4 stroke-[2.5]" /> {t('kanji.clearCanvas', 'Xoá')}
+                                    </button>
+                                    {!answered && (
+                                        <button onClick={checkWriting} disabled={writingChecking}
+                                            className={`px-8 py-3 text-white rounded-2xl text-xs font-black uppercase tracking-wider transition-all flex items-center gap-2 border-b-4 shadow-sm ${writingChecking ? 'bg-emerald-400 border-emerald-600 cursor-wait' : 'bg-emerald-500 hover:bg-emerald-400 border-emerald-700 active:translate-y-0.5 active:border-b-0 cursor-pointer'}`}>
+                                            {writingChecking ? (
+                                                <React.Fragment>
+                                                    <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" /> {t('kanji.evaluatingScore', 'Đang chấm...')}
+                                                </React.Fragment>
+                                            ) : (
+                                                <React.Fragment>
+                                                    <Check className="w-4 h-4 stroke-[3]" /> {t('kanji.checkAnswer', 'Kiểm tra')}
+                                                </React.Fragment>
+                                            )}
+                                        </button>
+                                    )}
+                                </div>
+                            </div>
                         </div>
-                    ) : currentQ.type === 'writing' ? (
-                        <>
-                            <div className="text-3xl sm:text-4xl font-black text-emerald-500 mb-2">{currentQ.kanji}</div>
-                            {currentQ.meaning && <div className="text-base sm:text-lg text-slate-500 dark:text-slate-400 mb-2">{currentQ.meaning}</div>}
-                            <p className="text-xs sm:text-sm text-slate-400">{currentQ.question}</p>
-                        </>
                     ) : (
+                        /* MCQ & Typing Modes */
                         <>
-                            <div className="text-6xl sm:text-7xl font-black text-gray-900 dark:text-white font-japanese mb-2">{currentQ.kanji}</div>
-                            {currentQ.sub && <div className="text-base text-amber-500 font-japanese mb-2 font-bold">({currentQ.sub})</div>}
-                            <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">{currentQ.question}</p>
+                            {/* Question display card */}
+                            <div className="w-full bg-slate-50 dark:bg-slate-800/50 rounded-3xl p-8 sm:p-12 flex flex-col items-center justify-center text-center relative overflow-hidden border-2 border-slate-200/80 dark:border-slate-700/60 min-h-[220px] sm:min-h-[260px] shadow-inner">
+                                {testMode === 'vocab' ? (
+                                    <>
+                                        <div className="text-4xl sm:text-5xl md:text-6xl font-black text-slate-900 dark:text-white font-japanese leading-relaxed px-2 mb-2">
+                                            {currentQ.kanji}
+                                        </div>
+                                        {currentQ.sub && (
+                                            <div className="text-base sm:text-lg text-amber-500 font-japanese font-black mb-2">
+                                                （{currentQ.sub}）
+                                            </div>
+                                        )}
+                                        <p className="text-sm sm:text-base font-bold text-slate-500 dark:text-slate-400 mt-1">
+                                            {currentQ.question}
+                                        </p>
+                                    </>
+                                ) : (
+                                    <>
+                                        <div className="text-7xl sm:text-8xl md:text-9xl font-black text-slate-900 dark:text-white font-japanese mb-3 drop-shadow-xs">
+                                            {currentQ.kanji}
+                                        </div>
+                                        {currentQ.sub && (
+                                            <div className="text-base sm:text-lg text-amber-500 font-japanese mb-2 font-black">
+                                                ({currentQ.sub})
+                                            </div>
+                                        )}
+                                        <p className="text-sm sm:text-base font-bold text-slate-500 dark:text-slate-400">
+                                            {currentQ.question}
+                                        </p>
+                                    </>
+                                )}
+                            </div>
+
+                            {/* MC Options - 2x2 spacious tactile layout */}
+                            {currentQ.type === 'mc' && (
+                                <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4.5">
+                                    {currentQ.options.map((opt, i) => {
+                                        let cls = 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 hover:border-sky-400 hover:bg-sky-50/50 dark:hover:bg-sky-950/20';
+                                        if (answered) {
+                                            if (opt === currentQ.correct) cls = 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-emerald-700 dark:text-emerald-300';
+                                            else if (opt === selectedAnswer) cls = 'bg-rose-50 dark:bg-rose-950/40 border-rose-500 text-rose-700 dark:text-rose-300';
+                                            else cls = 'bg-slate-100 dark:bg-slate-800/40 border-slate-200 dark:border-slate-800 text-slate-400 opacity-60';
+                                        }
+                                        return (
+                                            <button
+                                                key={i}
+                                                onClick={() => handleMCAnswer(opt)}
+                                                disabled={answered}
+                                                className={`p-4 sm:p-5 rounded-2xl border-2 border-b-4 font-black text-base sm:text-lg transition-all text-left flex items-center justify-between active:translate-y-0.5 active:border-b-2 cursor-pointer shadow-xs ${cls}`}
+                                            >
+                                                <span className="truncate pr-2">{opt}</span>
+                                                <span className="w-7 h-7 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 text-xs font-black flex items-center justify-center shrink-0 border border-slate-200 dark:border-slate-600">
+                                                    {i + 1}
+                                                </span>
+                                            </button>
+                                        );
+                                    })}
+                                </div>
+                            )}
+
+                            {/* Typing input */}
+                            {currentQ.type === 'typing' && (
+                                <div className="w-full max-w-xl mx-auto space-y-4">
+                                    <div className="relative">
+                                        <input
+                                            ref={inputRef}
+                                            type="text"
+                                            value={typingInput}
+                                            onChange={e => setTypingInput(e.target.value)}
+                                            onKeyDown={e => e.key === 'Enter' && !answered && handleTypingSubmit()}
+                                            placeholder={t('kanji.typeAnswerPlaceholder', 'Gõ câu trả lời...')}
+                                            className="w-full px-5 py-4 bg-slate-50 dark:bg-slate-800 border-2 border-b-4 border-slate-200 dark:border-slate-700 focus:border-emerald-500 focus:bg-white dark:focus:bg-slate-850 rounded-2xl text-slate-900 dark:text-white text-center text-xl sm:text-2xl font-black focus:outline-none transition-all shadow-inner"
+                                            disabled={answered}
+                                        />
+                                    </div>
+                                    {!answered && (
+                                        <button
+                                            onClick={handleTypingSubmit}
+                                            className="w-full py-4 bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 text-white rounded-2xl font-black text-sm uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                                        >
+                                            <Check className="w-5 h-5 stroke-[3]" /> {t('kanji.checkAnswer', 'Kiểm tra')}
+                                        </button>
+                                    )}
+                                    {answered && (
+                                        <div className={`p-4 rounded-2xl text-center font-black text-sm sm:text-base border-2 border-b-4 animate-fade-in ${currentQ.answers.some(a => a === typingInput.trim().toLowerCase())
+                                            ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-400 dark:border-emerald-700 text-emerald-700 dark:text-emerald-300'
+                                            : 'bg-rose-50 dark:bg-rose-950/40 border-rose-400 dark:border-rose-700 text-rose-700 dark:text-rose-300'}`}>
+                                            {currentQ.answers.some(a => a === typingInput.trim().toLowerCase())
+                                                ? t('kanji.correctAnswerMsg', '✅ Chính xác!')
+                                                : t('kanji.incorrectAnswerMsg', '❌ Sai! Đáp án: {answer}').replace('{answer}', currentQ.answers.join(' / '))}
+                                        </div>
+                                    )}
+                                </div>
+                            )}
+
+                            {/* Feedback message for MCQ */}
+                            {answered && currentQ.type === 'mc' && (
+                                <div className={`w-full p-4 rounded-2xl text-center text-sm sm:text-base font-black border-2 border-b-4 transition-all animate-fade-in ${selectedAnswer === currentQ.correct
+                                    ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border-emerald-400 dark:border-emerald-700'
+                                    : 'bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 border-rose-400 dark:border-rose-700'}`}>
+                                    {selectedAnswer === currentQ.correct ? t('kanji.correctAnswerMsg', '✅ Chính xác!') : t('kanji.incorrectAnswerMsg', '❌ Sai! Đáp án: {answer}').replace('{answer}', currentQ.correct)}
+                                </div>
+                            )}
                         </>
                     )}
                 </div>
-                {/* MC options - styled like Duolingo */}
-                {currentQ.type === 'mc' && (
-                    <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                        {currentQ.options.map((opt, i) => {
-                            let cls = 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 hover:border-sky-400 hover:bg-sky-50/50 dark:hover:bg-sky-950/20';
-                            if (answered) {
-                                if (opt === currentQ.correct) cls = 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-emerald-700 dark:text-emerald-300';
-                                else if (opt === selectedAnswer) cls = 'bg-rose-50 dark:bg-rose-950/40 border-rose-500 text-rose-700 dark:text-rose-300';
-                                else cls = 'bg-slate-100 dark:bg-slate-800/40 border-slate-200 dark:border-slate-800 text-slate-400 opacity-60';
-                            }
-                            return (
-                                <button key={i} onClick={() => handleMCAnswer(opt)} disabled={answered}
-                                    className={`p-3.5 sm:p-4 rounded-2xl border-2 border-b-4 font-bold text-sm transition-all text-left flex items-center justify-between active:translate-y-0.5 active:border-b-2 cursor-pointer ${cls}`}>
-                                    <span className="truncate">{opt}</span>
-                                    <span className="w-6 h-6 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 text-xs font-black flex items-center justify-center shrink-0 ml-2">{i + 1}</span>
-                                </button>
-                            );
-                        })}
-                    </div>
-                )}
-                {/* Typing input */}
-                {currentQ.type === 'typing' && (
-                    <div className="w-full space-y-3">
-                        <div className="relative">
-                            <input
-                                ref={inputRef}
-                                type="text"
-                                value={typingInput}
-                                onChange={e => setTypingInput(e.target.value)}
-                                onKeyDown={e => e.key === 'Enter' && !answered && handleTypingSubmit()}
-                                placeholder={t('kanji.typeAnswerPlaceholder', 'Gõ câu trả lời...')}
-                                className="w-full px-4 py-3.5 bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 focus:border-sky-500 rounded-2xl text-gray-900 dark:text-white text-center text-lg font-bold focus:outline-none transition-colors"
-                                disabled={answered}
-                            />
-                        </div>
-                        {!answered && (
-                            <button onClick={handleTypingSubmit} className="w-full py-3.5 bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 text-white rounded-2xl font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer">
-                                <Check className="w-4 h-4 stroke-[3]" /> {t('kanji.checkAnswer', 'Kiểm tra')}
-                            </button>
-                        )}
-                        {answered && (
-                            <div className={`p-3 rounded-2xl text-center font-bold border-2 ${currentQ.answers.some(a => a === typingInput.trim().toLowerCase())
-                                ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-emerald-700 dark:text-emerald-300'
-                                : 'bg-rose-50 dark:bg-rose-950/40 border-rose-500 text-rose-700 dark:text-rose-300'}`}>
-                                {currentQ.answers.some(a => a === typingInput.trim().toLowerCase())
-                                    ? t('kanji.correctAnswerMsg', '✅ Chính xác!')
-                                    : t('kanji.incorrectAnswerMsg', '❌ Sai! Đáp án: {answer}').replace('{answer}', currentQ.answers.join(' / '))}
-                            </div>
-                        )}
-                    </div>
-                )}
-                {/* Writing canvas */}
-                {currentQ.type === 'writing' && (
-                    <div className="w-full flex flex-col items-center gap-3">
-                        <canvas ref={canvasRef} className="w-[340px] h-[340px] sm:w-[360px] sm:h-[360px] max-w-full rounded-2xl border-2 border-slate-200 dark:border-slate-700 cursor-crosshair touch-none shadow-md bg-slate-900"
-                            style={{ touchAction: 'none' }}
-                            onMouseDown={startDraw} onMouseMove={draw} onMouseUp={endDraw} onMouseLeave={endDraw}
-                            onTouchStart={startDraw} onTouchMove={draw} onTouchEnd={endDraw} />
-                        <div className="flex gap-2">
-                            <button onClick={clearCanvas} className="px-4 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border-b-2 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-bold transition-all flex items-center gap-1 active:translate-y-0.5 cursor-pointer">
-                                <RotateCcw className="w-3.5 h-3.5" /> {t('kanji.clearCanvas', 'Xoá')}
-                            </button>
-                            {!answered && (
-                                <button onClick={checkWriting} disabled={writingChecking}
-                                    className={`px-5 py-2 text-white rounded-xl text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 border-b-4 ${writingChecking ? 'bg-emerald-400 border-emerald-600 cursor-wait' : 'bg-emerald-500 hover:bg-emerald-400 border-emerald-700 active:translate-y-0.5 active:border-b-0 cursor-pointer'}`}>
-                                    {writingChecking ? (
-                                        <React.Fragment>
-                                            <span className="w-3.5 h-3.5 border-2 border-white/30 border-t-white rounded-full animate-spin" /> {t('kanji.evaluatingScore', 'Đang chấm...')}
-                                        </React.Fragment>
-                                    ) : (
-                                        <React.Fragment>
-                                            <Check className="w-3.5 h-3.5 stroke-[3]" /> {t('kanji.checkAnswer', 'Kiểm tra')}
-                                        </React.Fragment>
-                                    )}
-                                </button>
-                            )}
-                        </div>
-                        {/* Recognition result */}
-                        {writingResult !== null && (
-                            <div className={`p-3 rounded-2xl text-center font-bold w-full border-2 ${writingResult >= 70
-                                ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-emerald-700 dark:text-emerald-300'
-                                : writingResult >= 40
-                                    ? 'bg-amber-50 dark:bg-amber-950/40 border-amber-500 text-amber-700 dark:text-amber-300'
-                                    : 'bg-rose-50 dark:bg-rose-950/40 border-rose-500 text-rose-700 dark:text-rose-300'
-                                }`}>
-                                <div className="flex items-center justify-center gap-3">
-                                    <span className="text-2xl font-japanese font-black">{writingRecognized || '?'}</span>
-                                    <div>
-                                        <div className="text-xs sm:text-sm font-black">{t('kanji.canvasAccuracy', 'Độ chính xác: {accuracy}%').replace('{accuracy}', writingResult)}</div>
-                                        <div className="text-[11px] font-medium mt-0.5 opacity-80">
-                                            {writingResult >= 70
-                                                ? t('kanji.canvasCorrect', '✅ Chính xác! Bạn viết rất tốt')
-                                                : writingResult >= 40
-                                                    ? t('kanji.canvasNear', '⚠️ Gần đúng — hệ thống nhận dạng: "{recognized}", đáp án: "{expected}"').replace('{recognized}', writingRecognized).replace('{expected}', currentQ.actualChar)
-                                                    : t('kanji.canvasWrong', '❌ Sai — hệ thống nhận dạng: "{recognized}", đáp án: "{expected}"').replace('{recognized}', writingRecognized).replace('{expected}', currentQ.actualChar)
-                                            }
-                                        </div>
-                                    </div>
-                                </div>
-                                {!answered && writingResult < 70 && (
-                                    <div className="mt-1.5 text-[11px] font-normal opacity-70">{t('kanji.canvasHint', 'Nhấn "Xoá" để vẽ lại, hoặc nhấn "Bỏ qua" để qua câu tiếp theo')}</div>
-                                )}
-                            </div>
-                        )}
-                        {/* Skip button when failed */}
-                        {!answered && writingResult !== null && writingResult < 70 && (
-                            <button onClick={() => { setAnswered(true); setFailedCards(prev => new Set([...prev, qIndex])); }}
-                                className="w-full py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border-b-2 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1 active:translate-y-0.5 cursor-pointer">
-                                {t('kanji.skipThisQuestion', 'Bỏ qua câu này →')}
-                            </button>
-                        )}
-                    </div>
-                )}
-                {/* Feedback message */}
-                {answered && currentQ.type === 'mc' && (
-                    <div className={`w-full p-3 rounded-2xl text-center text-xs sm:text-sm font-bold ${selectedAnswer === currentQ.correct
-                        ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800'
-                        : 'bg-rose-50 dark:bg-rose-950/40 text-rose-700 dark:text-rose-300 border border-rose-200 dark:border-rose-800'}`}>
-                        {selectedAnswer === currentQ.correct ? t('kanji.correctAnswerMsg', '✅ Chính xác!') : t('kanji.incorrectAnswerMsg', '❌ Sai! Đáp án: {answer}').replace('{answer}', currentQ.correct)}
-                    </div>
-                )}
-                {/* Next button - only for writing mode */}
-                {answered && currentQ.type === 'writing' && (
-                    <button onClick={nextQuestion}
-                        className="w-full py-3.5 bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 text-white rounded-2xl font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer">
-                        {qIndex + 1 >= questions.length ? t('kanji.seeResultsBtn', 'Xem kết quả') : t('kanji.nextQuestionBtn', 'Câu tiếp theo →')}
-                        <ChevronRight className="w-4 h-4 stroke-[3]" />
-                    </button>
-                )}
             </div>
         </div>
     );

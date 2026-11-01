@@ -7,7 +7,7 @@ const LEVEL_COLOR_MAP = {
     N5: 'bg-emerald-500 text-white shadow-emerald-500/20',
     N4: 'bg-cyan-500 text-white shadow-cyan-500/20',
     N3: 'bg-amber-500 text-slate-950 shadow-amber-500/20',
-    N2: 'bg-indigo-500 text-white shadow-indigo-500/20',
+    N2: 'bg-emerald-500 text-white shadow-emerald-500/20',
     N1: 'bg-rose-500 text-white shadow-rose-500/20',
 };
 
@@ -125,7 +125,7 @@ const VideoKaiwaMovieCard = ({
                             <button
                                 type="button"
                                 onClick={() => onEditVideo?.(video)}
-                                className="p-1.5 rounded-lg text-slate-400 hover:text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-950/40 transition cursor-pointer"
+                                className="p-1.5 rounded-lg text-slate-400 hover:text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-950/40 transition cursor-pointer"
                                 title={t('common.edit', 'Chỉnh sửa video')}
                             >
                                 <Edit3 className="w-3.5 h-3.5" />

@@ -2,7 +2,7 @@ import React from 'react';
 
 /**
  * CyberTechBackground Component
- * Renders a high-tech Cyber Matrix grid with glowing cyan/indigo radial orbs
+ * Renders a high-tech Cyber Matrix grid with glowing cyan/emerald radial orbs
  * and crisp digital matrix grid in both Dark and Light modes.
  */
 const CyberTechBackground = ({ isDarkMode = true }) => {
@@ -43,10 +43,10 @@ const CyberTechBackground = ({ isDarkMode = true }) => {
                 }`}
             />
 
-            {/* Orb 2: Center-Right Electric Indigo Glow */}
+            {/* Orb 2: Center-Right Electric Emerald Glow */}
             <div
                 className={`absolute top-1/4 -right-32 w-[34rem] h-[34rem] rounded-full blur-3xl pointer-events-none transition-all duration-300 ${
-                    isDarkMode ? 'bg-indigo-600/20' : 'bg-indigo-400/15'
+                    isDarkMode ? 'bg-emerald-600/20' : 'bg-emerald-400/15'
                 }`}
             />
 

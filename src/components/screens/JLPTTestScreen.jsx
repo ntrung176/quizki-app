@@ -789,9 +789,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         return (
             <div className="fixed inset-0 z-[9999] bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in font-sans">
                 <div className="bg-white dark:bg-slate-800 rounded-3xl max-w-lg w-full overflow-hidden shadow-2xl border border-slate-100 dark:border-slate-700/60">
-                    <div className="p-6 pb-4 border-b border-slate-100 dark:border-slate-700/50 flex items-center justify-between bg-gradient-to-r from-indigo-50/50 to-sky-50/50 dark:from-slate-800 dark:to-slate-800">
+                    <div className="p-6 pb-4 border-b border-slate-100 dark:border-slate-700/50 flex items-center justify-between bg-gradient-to-r from-emerald-50/50 to-sky-50/50 dark:from-slate-800 dark:to-slate-800">
                         <div>
-                            <span className="text-[10px] font-extrabold uppercase bg-indigo-100 text-indigo-700 dark:bg-indigo-900/40 dark:text-indigo-400 px-2 py-0.5 rounded-md">Cấu hình bài thi</span>
+                            <span className="text-[10px] font-extrabold uppercase bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400 px-2 py-0.5 rounded-md">Cấu hình bài thi</span>
                             <h3 className="text-lg font-black text-slate-800 dark:text-white mt-1 leading-snug">{pendingStartTest.title}</h3>
                         </div>
                         <button onClick={() => setPendingStartTest(null)} className="p-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition cursor-pointer">
@@ -834,9 +834,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                                     }
                                     initTest(pendingStartTest, 'practice', false);
                                 }}
-                                className="group border-2 border-slate-200 dark:border-slate-700 hover:border-indigo-500 rounded-2xl p-4 cursor-pointer transition-all hover:shadow-md bg-slate-50/50 dark:bg-slate-900/30 flex items-start gap-3.5"
+                                className="group border-2 border-slate-200 dark:border-slate-700 hover:border-emerald-500 rounded-2xl p-4 cursor-pointer transition-all hover:shadow-md bg-slate-50/50 dark:bg-slate-900/30 flex items-start gap-3.5"
                             >
-                                <div className="p-2.5 rounded-xl bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400">
+                                <div className="p-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400">
                                     <BookOpen className="w-5 h-5" />
                                 </div>
                                 <div className="flex-1">
@@ -879,7 +879,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                     <div className="no-print fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in">
                         <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 max-w-md w-full shadow-2xl space-y-5">
                             <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-                                <div className="flex items-center gap-2 text-indigo-600 dark:text-indigo-400">
+                                <div className="flex items-center gap-2 text-emerald-600 dark:text-emerald-400">
                                     <Printer className="w-6 h-6" />
                                     <h3 className="text-lg font-black text-slate-800 dark:text-white">
                                         {isPrintTriggered ? 'Đã kích hoạt lệnh In' : 'In Đề Thi & Tải PDF'}
@@ -910,7 +910,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                                             type="checkbox"
                                             checked={includeAnswers}
                                             onChange={(e) => setIncludeAnswers(e.target.checked)}
-                                            className="w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500 cursor-pointer"
+                                            className="w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500 cursor-pointer"
                                         />
                                         <div className="text-xs font-bold text-slate-700 dark:text-slate-200">
                                             Kèm theo Bảng Đáp Án Chi Tiết ở trang cuối
@@ -922,7 +922,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                                             type="checkbox"
                                             checked={includeAnswerSheet}
                                             onChange={(e) => setIncludeAnswerSheet(e.target.checked)}
-                                            className="w-4 h-4 text-indigo-600 rounded focus:ring-indigo-500 cursor-pointer"
+                                            className="w-4 h-4 text-emerald-600 rounded focus:ring-emerald-500 cursor-pointer"
                                         />
                                         <div className="text-xs font-bold text-slate-700 dark:text-slate-200">
                                             Kèm theo Phiếu Tô Đáp Án (OMR Answer Sheet)
@@ -946,7 +946,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                                             setIsPrintTriggered(true);
                                         }
                                     }}
-                                    className="px-6 py-2.5 bg-gradient-to-r from-indigo-600 to-sky-600 hover:from-indigo-500 hover:to-sky-500 text-white text-xs font-black rounded-xl flex items-center gap-2 shadow-md transition-all cursor-pointer"
+                                    className="px-6 py-2.5 bg-gradient-to-r from-emerald-600 to-sky-600 hover:from-emerald-500 hover:to-sky-500 text-white text-xs font-black rounded-xl flex items-center gap-2 shadow-md transition-all cursor-pointer"
                                 >
                                     <Printer className="w-4 h-4" />
                                     <span>{isPrintTriggered ? 'Gửi lại lệnh In' : 'In / Xuất File PDF Ngay'}</span>

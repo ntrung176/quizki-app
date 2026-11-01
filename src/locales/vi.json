@@ -184,7 +184,9 @@
     "focusLabel": "Tập trung {current}/{total}",
     "breakTime": "Nghỉ giải lao",
     "focusTime": "Tập trung",
-    "dragFocusWidget": "Kéo để di chuyển vị trí · Bấm để mở đồng hồ tập trung"
+    "dragFocusWidget": "Kéo để di chuyển vị trí · Bấm để mở đồng hồ tập trung",
+    "months": "tháng",
+    "years": "năm"
   },
   "tabs": {
     "review": "Ôn tập",

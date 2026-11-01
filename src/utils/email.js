@@ -48,7 +48,7 @@ export const sendAIPurchaseSuccessEmail = async (userEmail, userName, packageNam
 
     const htmlContent = `
     <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 600px; margin: 0 auto; border: 1px solid #e2e8f0; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); background-color: #ffffff;">
-        <div style="background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); padding: 32px 24px; text-align: center;">
+        <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 32px 24px; text-align: center;">
             <h1 style="color: #ffffff; margin: 0; font-size: 26px; font-weight: 700; letter-spacing: -0.5px;">Chào mừng bạn đến với Quizki Premium!</h1>
             <p style="color: #e0e7ff; margin: 8px 0 0 0; font-size: 16px;">Cảm ơn bạn đã tin tưởng và đồng hành cùng chúng mình</p>
         </div>
@@ -63,7 +63,7 @@ export const sendAIPurchaseSuccessEmail = async (userEmail, userName, packageNam
             </p>
             
             <div style="margin: 28px 0; padding: 24px; background-color: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0;">
-                <p style="margin: 0 0 16px 0; font-size: 13px; color: #4f46e5; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Chi Tiết Giao Dịch</p>
+                <p style="margin: 0 0 16px 0; font-size: 13px; color: #059669; text-transform: uppercase; font-weight: 700; letter-spacing: 1px;">Chi Tiết Giao Dịch</p>
                 <div style="display: flex; justify-content: space-between; margin: 8px 0; font-size: 15px; border-bottom: 1px dashed #e2e8f0; padding-bottom: 8px;">
                     <span style="color: #6b7280;">Dịch vụ kích hoạt:</span>
                     <strong style="color: #1f2937;">${packageName}</strong>
@@ -74,7 +74,7 @@ export const sendAIPurchaseSuccessEmail = async (userEmail, userName, packageNam
                 </div>
                 <div style="display: flex; justify-content: space-between; margin: 8px 0; font-size: 15px; padding-bottom: 8px;">
                     <span style="color: #6b7280;">Số tiền thanh toán:</span>
-                    <strong style="color: #4f46e5; font-size: 16px;">${Number(amountVND).toLocaleString('vi-VN')}đ</strong>
+                    <strong style="color: #059669; font-size: 16px;">${Number(amountVND).toLocaleString('vi-VN')}đ</strong>
                 </div>
                 <p style="margin: 12px 0 0 0; font-size: 12px; color: #9ca3af; text-align: right;">Thời gian đối soát: ${new Date().toLocaleString('vi-VN')}</p>
             </div>
@@ -88,13 +88,13 @@ export const sendAIPurchaseSuccessEmail = async (userEmail, userName, packageNam
             </ul>
             
             <div style="text-align: center; margin: 36px 0 12px 0;">
-                <a href="https://quizki.space" style="display: inline-block; background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%); color: #ffffff; padding: 14px 36px; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 16px; box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3); transition: all 0.2s;">Bắt đầu học ngay thôi</a>
+                <a href="https://quizki.space" style="display: inline-block; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: #ffffff; padding: 14px 36px; text-decoration: none; border-radius: 12px; font-weight: 700; font-size: 16px; box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3); transition: all 0.2s;">Bắt đầu học ngay thôi</a>
             </div>
         </div>
         
         <div style="background-color: #f8fafc; padding: 24px; text-align: center; border-top: 1px solid #e2e8f0; color: #6b7280; font-size: 14px;">
             <p style="margin: 0 0 8px 0; line-height: 1.5;">Nếu gặp bất kỳ khó khăn nào trong quá trình học, tụi mình luôn ở đây sẵn sàng hỗ trợ qua Zalo và Fanpage Messenger nhé.</p>
-            <p style="margin: 8px 0 0 0; font-weight: 600; color: #4f46e5;">Thân ái,<br>Đội ngũ phát triển Quizki</p>
+            <p style="margin: 8px 0 0 0; font-weight: 600; color: #059669;">Thân ái,<br>Đội ngũ phát triển Quizki</p>
         </div>
     </div>
     `;
@@ -162,7 +162,7 @@ export const sendAIPendingConfirmationEmail = async (userEmail, userName, packag
 export const buildBroadcastHtmlTemplate = ({
     bannerTitle = 'Thông báo từ QuizKi',
     bannerSubtitle = 'Nền tảng học tiếng Nhật thông minh',
-    bannerGradient = 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)',
+    bannerGradient = 'linear-gradient(135deg, #059669 0%, #7c3aed 100%)',
     greeting = 'Xin chào bạn,',
     bodyText = '',
     buttonText = 'Truy cập QuizKi.space',
@@ -202,7 +202,7 @@ export const buildBroadcastHtmlTemplate = ({
         
         <div style="background-color: #f8fafc; padding: 20px 24px; text-align: center; border-top: 1px solid #e2e8f0; color: #6b7280; font-size: 13px; line-height: 1.5;">
             ${footerText ? `<p style="margin: 0 0 8px 0;">${footerText}</p>` : ''}
-            <p style="margin: 0; font-weight: 600; color: #4f46e5;">Thân ái,<br/>Đội ngũ phát triển QuizKi</p>
+            <p style="margin: 0; font-weight: 600; color: #059669;">Thân ái,<br/>Đội ngũ phát triển QuizKi</p>
         </div>
     </div>
     `;

@@ -262,7 +262,7 @@ const KanjiFormModal = ({
                                                 className={`flex-1 ${INPUT_BASE}`} 
                                                 placeholder="https://... hoặc tải ảnh từ máy" 
                                             />
-                                            <label className="px-3.5 py-2 bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shrink-0 border border-indigo-200/60 dark:border-indigo-800/60 transition-all active:scale-95">
+                                            <label className="px-3.5 py-2 bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shrink-0 border border-emerald-200/60 dark:border-emerald-800/60 transition-all active:scale-95">
                                                 <Upload className="w-3.5 h-3.5" />
                                                 {uploadingImage ? 'Đang tải...' : 'Tải ảnh'}
                                                 <input type="file" accept="image/*" className="hidden" onChange={e => handleImageUpload(e, false)} disabled={uploadingImage} />
@@ -300,7 +300,7 @@ const KanjiFormModal = ({
                                             <button
                                                 type="button"
                                                 onClick={handleCopySampleJson}
-                                                className="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-sans font-bold flex items-center gap-1 cursor-pointer transition-all active:scale-95"
+                                                className="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg font-sans font-bold flex items-center gap-1 cursor-pointer transition-all active:scale-95"
                                             >
                                                 {copiedSample ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                                                 {copiedSample ? 'Đã sao chép!' : 'Sao chép JSON Mẫu'}
@@ -368,7 +368,7 @@ const KanjiFormModal = ({
                                 onClick={() => setVocabModalTab('json')}
                                 className={`flex-1 py-2 px-3 text-xs font-bold rounded-xl flex items-center justify-center gap-2 transition-all cursor-pointer ${
                                     vocabModalTab === 'json'
-                                        ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-xs border border-slate-250 dark:border-slate-700'
+                                        ? 'bg-white dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 shadow-xs border border-slate-250 dark:border-slate-700'
                                         : 'text-slate-600 dark:text-slate-400 hover:bg-white/60 dark:hover:bg-slate-800/50'
                                 }`}
                             >
@@ -474,7 +474,7 @@ const KanjiFormModal = ({
                                             <button
                                                 type="button"
                                                 onClick={handleCopySampleVocabJson}
-                                                className="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-sans font-bold flex items-center gap-1 cursor-pointer transition-all active:scale-95"
+                                                className="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg font-sans font-bold flex items-center gap-1 cursor-pointer transition-all active:scale-95"
                                             >
                                                 {copiedVocabSample ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
                                                 {copiedVocabSample ? 'Đã sao chép!' : 'Sao chép JSON Mẫu'}
@@ -492,7 +492,7 @@ const KanjiFormModal = ({
                                             value={jsonVocabInput}
                                             onChange={e => setJsonVocabInput(e.target.value)}
                                             rows={8}
-                                            className="w-full p-3 bg-slate-50 dark:bg-slate-900 border border-slate-250 dark:border-slate-700 rounded-xl text-slate-900 dark:text-emerald-400 font-mono text-xs focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500 focus:outline-none transition-all"
+                                            className="w-full p-3 bg-slate-50 dark:bg-slate-900 border border-slate-250 dark:border-slate-700 rounded-xl text-slate-900 dark:text-emerald-400 font-mono text-xs focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500 focus:outline-none transition-all"
                                             placeholder={`[ \n  { \n    "word": "日本語", \n    "reading": "にほんご", \n    "sinoViet": "NHẬT BẢN NGỮ", \n    "meaning": "Tiếng Nhật" \n  } \n]`}
                                         />
                                     </div>
@@ -501,7 +501,7 @@ const KanjiFormModal = ({
                                     <button onClick={() => setShowAddVocabModal(false)} className="px-4 py-2 text-slate-600 dark:text-slate-300 hover:bg-slate-200/60 dark:hover:bg-slate-700 rounded-xl font-medium transition-all cursor-pointer">Hủy</button>
                                     <button
                                         onClick={() => handleImportVocabJson(jsonVocabInput)}
-                                        className="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-bold shadow-md shadow-indigo-500/20 cursor-pointer flex items-center gap-2 transition-all active:scale-95"
+                                        className="px-5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl font-bold shadow-md shadow-emerald-500/20 cursor-pointer flex items-center gap-2 transition-all active:scale-95"
                                     >
                                         <Upload className="w-4 h-4" /> Import Tất Cả Từ JSON
                                     </button>
@@ -584,7 +584,7 @@ const KanjiFormModal = ({
                                         className={`flex-1 ${INPUT_BASE}`} 
                                         placeholder="https://... hoặc tải ảnh từ máy" 
                                     />
-                                    <label className="px-3.5 py-2 bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-300 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shrink-0 border border-indigo-200/60 dark:border-indigo-800/60 transition-all active:scale-95">
+                                    <label className="px-3.5 py-2 bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-300 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shrink-0 border border-emerald-200/60 dark:border-emerald-800/60 transition-all active:scale-95">
                                         <Upload className="w-3.5 h-3.5" />
                                         {uploadingImage ? 'Đang tải...' : 'Tải ảnh'}
                                         <input type="file" accept="image/*" className="hidden" onChange={e => handleImageUpload(e, true)} disabled={uploadingImage} />

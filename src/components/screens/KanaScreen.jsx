@@ -251,7 +251,7 @@ const KanaScreen = ({ awardXP }) => {
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         placeholder="Tìm theo romaji (VD: ka, shi, a)..."
-                        className="w-full pl-9 pr-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-medium focus:outline-indigo-500 text-slate-800 dark:text-slate-100 min-w-0"
+                        className="w-full pl-9 pr-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-medium focus:outline-emerald-500 text-slate-800 dark:text-slate-100 min-w-0"
                     />
                 </div>
 
@@ -278,7 +278,7 @@ const KanaScreen = ({ awardXP }) => {
                                 <button
                                     type="button"
                                     onClick={(e) => handlePlayRow(row.vowels, e)}
-                                    className="px-2 sm:px-3 py-1 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/60 font-bold text-[10px] sm:text-xs flex items-center gap-1 sm:gap-1.5 transition-all cursor-pointer shrink-0"
+                                    className="px-2 sm:px-3 py-1 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 font-bold text-[10px] sm:text-xs flex items-center gap-1 sm:gap-1.5 transition-all cursor-pointer shrink-0"
                                     title="Nghe phát âm cả hàng"
                                 >
                                     <Volume2 className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
@@ -311,7 +311,7 @@ const KanaScreen = ({ awardXP }) => {
                                             className={`relative h-16 xs:h-18 sm:h-24 md:h-32 rounded-xl sm:rounded-2xl border sm:border-2 flex flex-col items-center justify-center p-0.5 sm:p-2 transition-all duration-200 cursor-pointer select-none group hover:shadow-lg hover:-translate-y-0.5 min-w-0 w-full overflow-hidden ${
                                                 isMastered
                                                     ? 'bg-emerald-50/50 dark:bg-emerald-950/20 border-emerald-400/60 dark:border-emerald-500/40 shadow-xs'
-                                                    : 'bg-white dark:bg-slate-800/80 border-slate-200/90 dark:border-slate-700/80 hover:border-indigo-400 dark:hover:border-indigo-500'
+                                                    : 'bg-white dark:bg-slate-800/80 border-slate-200/90 dark:border-slate-700/80 hover:border-emerald-400 dark:hover:border-emerald-500'
                                             }`}
                                         >
                                             {/* Top Corner Mastery Toggle */}
@@ -335,7 +335,7 @@ const KanaScreen = ({ awardXP }) => {
                                             <button
                                                 type="button"
                                                 onClick={(e) => handlePlayAudio(char, e)}
-                                                className="absolute top-0.5 right-0.5 sm:top-2 sm:right-2 w-4 h-4 sm:w-6 sm:h-6 rounded-md sm:rounded-lg bg-slate-100 dark:bg-slate-700/80 text-slate-500 hover:text-indigo-600 hover:bg-indigo-50 flex items-center justify-center transition cursor-pointer z-10"
+                                                className="absolute top-0.5 right-0.5 sm:top-2 sm:right-2 w-4 h-4 sm:w-6 sm:h-6 rounded-md sm:rounded-lg bg-slate-100 dark:bg-slate-700/80 text-slate-500 hover:text-emerald-600 hover:bg-emerald-50 flex items-center justify-center transition cursor-pointer z-10"
                                                 title="Nghe âm"
                                             >
                                                 <Volume2 className="w-2.5 h-2.5 sm:w-3.5 sm:h-3.5" />
@@ -374,7 +374,7 @@ const KanaScreen = ({ awardXP }) => {
                                 className={`relative h-28 sm:h-32 rounded-2xl border-2 flex flex-col items-center justify-center p-2.5 transition-all duration-200 cursor-pointer select-none group hover:shadow-lg hover:-translate-y-1 ${
                                     isMastered
                                         ? 'bg-emerald-50/50 dark:bg-emerald-950/20 border-emerald-400/60 dark:border-emerald-500/40'
-                                        : 'bg-white dark:bg-slate-800/80 border-slate-200/90 dark:border-slate-700/80 hover:border-indigo-400 dark:hover:border-indigo-500'
+                                        : 'bg-white dark:bg-slate-800/80 border-slate-200/90 dark:border-slate-700/80 hover:border-emerald-400 dark:hover:border-emerald-500'
                                 }`}
                             >
                                 <button
@@ -396,7 +396,7 @@ const KanaScreen = ({ awardXP }) => {
                                 <button
                                     type="button"
                                     onClick={(e) => handlePlayAudio(char, e)}
-                                    className="absolute top-2.5 right-2.5 w-6 h-6 rounded-lg bg-slate-100 dark:bg-slate-700/80 text-slate-500 hover:text-indigo-600 hover:bg-indigo-50 flex items-center justify-center transition cursor-pointer z-10"
+                                    className="absolute top-2.5 right-2.5 w-6 h-6 rounded-lg bg-slate-100 dark:bg-slate-700/80 text-slate-500 hover:text-emerald-600 hover:bg-emerald-50 flex items-center justify-center transition cursor-pointer z-10"
                                     title="Nghe âm"
                                 >
                                     <Volume2 className="w-3.5 h-3.5" />

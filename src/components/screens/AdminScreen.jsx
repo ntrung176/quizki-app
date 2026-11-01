@@ -478,7 +478,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             <div className="flex items-center justify-between">
                 <div>
                     <h1 className="text-2xl font-bold text-gray-800 dark:text-white flex items-center gap-2">
-                        <Shield className="w-6 h-6 text-indigo-500" />
+                        <Shield className="w-6 h-6 text-emerald-500" />
                         Quản lý Admin
                     </h1>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
@@ -495,7 +495,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                         onClick={() => setActiveSection(sec.id)}
                         className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-3 rounded-lg text-sm font-bold transition-all cursor-pointer ${
                             activeSection === sec.id
-                                ? 'bg-white dark:bg-gray-700 text-indigo-600 dark:text-indigo-400 shadow-sm'
+                                ? 'bg-white dark:bg-gray-700 text-emerald-600 dark:text-emerald-400 shadow-sm'
                                 : 'text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300'
                         }`}
                     >

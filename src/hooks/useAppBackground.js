@@ -14,7 +14,7 @@ export const BG_THEME_LIST = [
         descKey: 'settings.general.bgThemeToriiStarsDesc',
         icon: '⛩️',
         hasAnimationOption: true,
-        gradient: 'from-slate-950 via-indigo-950 to-slate-900',
+        gradient: 'from-slate-950 via-slate-900 to-slate-950',
         badge: 'Recommended',
     },
     {

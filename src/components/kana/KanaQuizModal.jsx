@@ -222,10 +222,10 @@ const KanaQuizModal = ({
         <div className="fixed inset-0 z-[110] bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto animate-fade-in">
             <div
                 onClick={(e) => e.stopPropagation()}
-                className="relative w-full max-w-xl bg-white dark:bg-slate-900 border-2 border-indigo-400/30 dark:border-indigo-500/20 rounded-3xl shadow-2xl overflow-hidden flex flex-col my-auto transition-all"
+                className="relative w-full max-w-xl bg-white dark:bg-slate-900 border-2 border-emerald-500/20 dark:border-emerald-500/20 rounded-3xl shadow-2xl overflow-hidden flex flex-col my-auto transition-all"
             >
                 {/* Header */}
-                <div className="bg-gradient-to-r from-indigo-600 via-indigo-500 to-sky-500 p-4 sm:p-5 text-white flex items-center justify-between">
+                <div className="bg-gradient-to-r from-emerald-600 via-teal-500 to-sky-500 p-4 sm:p-5 text-white flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
                         <div className="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-xl shadow-inner">
                             🎮
@@ -234,7 +234,7 @@ const KanaQuizModal = ({
                             <h3 className="text-base sm:text-lg font-black tracking-tight">
                                 Luyện Phản Xạ Bảng Chữ Cái
                             </h3>
-                            <p className="text-[11px] text-indigo-100 font-medium">
+                            <p className="text-[11px] text-emerald-100 font-medium">
                                 Nâng cao tốc độ nhận diện Hiragana & Katakana
                             </p>
                         </div>
@@ -257,7 +257,7 @@ const KanaQuizModal = ({
                         onClick={() => { setGameMode('speed_quiz'); setIsQuizCompleted(false); }}
                         className={`flex-1 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                             gameMode === 'speed_quiz'
-                                ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-sm'
+                                ? 'bg-white dark:bg-slate-800 text-sky-600 dark:text-sky-400 shadow-sm'
                                 : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50'
                         }`}
                     >
@@ -305,12 +305,12 @@ const KanaQuizModal = ({
                                 </p>
                             </div>
 
-                            <div className="p-4 rounded-2xl bg-indigo-50 dark:bg-indigo-950/50 border border-indigo-200/60 dark:border-indigo-800/60 flex items-center justify-around">
+                            <div className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200/60 dark:border-emerald-800/60 flex items-center justify-around">
                                 <div className="text-center">
                                     <span className="text-xs text-slate-500 font-bold block">Tổng điểm</span>
-                                    <span className="text-2xl font-black text-indigo-600 dark:text-indigo-400">{score} pts</span>
+                                    <span className="text-2xl font-black text-sky-600 dark:text-sky-400">{score} pts</span>
                                 </div>
-                                <div className="h-8 w-px bg-indigo-200 dark:bg-indigo-800" />
+                                <div className="h-8 w-px bg-emerald-200 dark:bg-emerald-800" />
                                 <div className="text-center">
                                     <span className="text-xs text-slate-500 font-bold block">Thưởng XP</span>
                                     <span className="text-2xl font-black text-emerald-600 dark:text-emerald-400">+40 XP</span>
@@ -348,21 +348,21 @@ const KanaQuizModal = ({
                                     <span className="text-amber-500 flex items-center gap-1">
                                         🔥 Chuỗi: {streak}
                                     </span>
-                                    <span className="text-indigo-600 dark:text-indigo-400">
+                                    <span className="text-sky-600 dark:text-sky-400">
                                         Điểm: {score}
                                     </span>
                                 </div>
                             </div>
 
                             {/* Question Character Prompt */}
-                            <div className="flex flex-col items-center justify-center p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/60 border-2 border-indigo-200/60 dark:border-indigo-500/20 shadow-inner text-center relative group">
+                            <div className="flex flex-col items-center justify-center p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/60 border-2 border-slate-200 dark:border-slate-700 shadow-inner text-center relative group">
                                 <span className="text-6xl sm:text-7xl font-black text-slate-900 dark:text-white font-japanese select-none animate-pulse">
                                     {currentQ.char}
                                 </span>
                                 <button
                                     type="button"
                                     onClick={() => speakJapanese(currentQ.char)}
-                                    className="mt-3 p-2 rounded-full bg-white dark:bg-slate-700 text-indigo-600 dark:text-indigo-400 shadow-md hover:scale-110 active:scale-95 transition-all cursor-pointer"
+                                    className="mt-3 p-2 rounded-full bg-white dark:bg-slate-700 text-sky-500 dark:text-sky-400 shadow-md hover:scale-110 active:scale-95 transition-all cursor-pointer"
                                     title="Nghe phát âm"
                                 >
                                     <Volume2 className="w-4 h-4" />
@@ -375,7 +375,7 @@ const KanaQuizModal = ({
                                     const isSelected = selectedOption === opt;
                                     const isCorrect = opt === currentQ.correct;
 
-                                    let btnStyle = 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:border-indigo-400 hover:shadow-md';
+                                    let btnStyle = 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:border-sky-400 hover:shadow-md';
 
                                     if (isAnswered) {
                                         if (isCorrect) {
@@ -424,8 +424,8 @@ const KanaQuizModal = ({
                                                 isMatched
                                                     ? 'bg-emerald-500/10 border-emerald-500/50 text-emerald-600 dark:text-emerald-400 opacity-60 scale-95'
                                                     : isFlipped
-                                                        ? 'bg-indigo-600 text-white border-indigo-700 shadow-lg scale-105'
-                                                        : 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-indigo-400 text-slate-800 dark:text-slate-200 hover:scale-102'
+                                                        ? 'bg-sky-500 text-white border-sky-600 shadow-lg scale-105'
+                                                        : 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-sky-400 text-slate-800 dark:text-slate-200 hover:scale-102'
                                             }`}
                                         >
                                             {isFlipped || isMatched ? (
@@ -450,10 +450,10 @@ const KanaQuizModal = ({
                         <div className="w-full space-y-6 animate-fade-in max-w-sm text-center">
                             <div className="flex items-center justify-between text-xs font-bold text-slate-500">
                                 <span>Câu {quizIndex + 1} / {questions.length}</span>
-                                <span className="text-indigo-600 dark:text-indigo-400">Điểm: {score}</span>
+                                <span className="text-sky-600 dark:text-sky-400">Điểm: {score}</span>
                             </div>
 
-                            <div className="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/60 border-2 border-indigo-200/60 dark:border-indigo-500/20 shadow-inner">
+                            <div className="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/60 border-2 border-slate-200 dark:border-slate-700 shadow-inner">
                                 <span className="text-7xl font-black text-slate-900 dark:text-white font-japanese block animate-bounce">
                                     {currentQ.char}
                                 </span>
@@ -475,7 +475,7 @@ const KanaQuizModal = ({
                                             ? 'bg-emerald-50 border-emerald-500 text-emerald-700'
                                             : typingFeedback === 'wrong'
                                                 ? 'bg-rose-50 border-rose-500 text-rose-700'
-                                                : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 focus:border-indigo-500 text-slate-900 dark:text-white'
+                                                : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 focus:border-emerald-500 text-slate-900 dark:text-white'
                                     }`}
                                 />
                                 <button

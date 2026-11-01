@@ -744,25 +744,25 @@ const EditSetScreen = ({
                             <button
                                 type="button"
                                 onClick={() => handleConfirmSaveSet(null)}
-                                className={`w-full flex items-center gap-4 p-3.5 text-left rounded-2xl border transition-all group ${(!folder || !folder.parentId) ? 'border-indigo-600 bg-indigo-50/20 dark:bg-indigo-900/10' : 'border-slate-100 dark:border-slate-800 hover:border-indigo-200 dark:hover:border-indigo-900/50 bg-slate-50/30 dark:bg-slate-850/30 hover:bg-indigo-50/10 dark:hover:bg-indigo-950/10'}`}
+                                className={`w-full flex items-center gap-4 p-3.5 text-left rounded-2xl border transition-all group ${(!folder || !folder.parentId) ? 'border-emerald-600 bg-emerald-50/20 dark:bg-emerald-900/10' : 'border-slate-100 dark:border-slate-800 hover:border-emerald-200 dark:hover:border-emerald-900/50 bg-slate-50/30 dark:bg-slate-850/30 hover:bg-emerald-50/10 dark:hover:bg-emerald-950/10'}`}
                             >
                                 <div className="w-10 h-10 rounded-xl bg-slate-105 dark:bg-slate-700 shrink-0 flex items-center justify-center">
                                     <Folder className="w-5 h-5 text-slate-450 dark:text-slate-400" />
                                 </div>
                                 <div className="flex-1 min-w-0">
                                     <div className="flex items-center gap-2">
-                                        <h4 className="font-bold text-slate-800 dark:text-slate-100 group-hover:text-indigo-650 dark:group-hover:text-indigo-400 transition-colors">
+                                        <h4 className="font-bold text-slate-800 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                                             {t('editSet.rootLevel', 'Root Level (Uncategorized)')}
                                         </h4>
                                         {(!folder || !folder.parentId) && (
-                                            <span className="text-[8px] font-bold px-1.5 py-0.5 rounded uppercase bg-indigo-105 text-indigo-700 dark:bg-indigo-950/40 dark:text-indigo-400">{t('editSet.current', 'Current')}</span>
+                                            <span className="text-[8px] font-bold px-1.5 py-0.5 rounded uppercase bg-emerald-105 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-400">{t('editSet.current', 'Current')}</span>
                                         )}
                                     </div>
                                     <p className="text-[10px] text-slate-450 dark:text-slate-400 font-semibold mt-0.5">
                                         {t('editSet.rootLevelDesc', 'Save at the root level of your library')}
                                     </p>
                                 </div>
-                                <div className={`w-8 h-8 rounded-lg transition-all flex items-center justify-center shrink-0 ${(!folder || !folder.parentId) ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-850 group-hover:bg-indigo-600 group-hover:text-white text-slate-400'}`}>
+                                <div className={`w-8 h-8 rounded-lg transition-all flex items-center justify-center shrink-0 ${(!folder || !folder.parentId) ? 'bg-emerald-600 text-white' : 'bg-slate-100 dark:bg-slate-850 group-hover:bg-emerald-600 group-hover:text-white text-slate-400'}`}>
                                     <Check className="w-4 h-4" />
                                 </div>
                             </button>
@@ -779,25 +779,25 @@ const EditSetScreen = ({
                                                     key={pf.id}
                                                     type="button"
                                                     onClick={() => handleConfirmSaveSet(pf.id)}
-                                                    className={`w-full flex items-center gap-4 p-3.5 text-left rounded-2xl border transition-all group ${isSelected ? 'border-indigo-600 bg-indigo-50/20 dark:bg-indigo-900/10' : 'border-slate-100 dark:border-slate-80 border-slate-200 dark:border-slate-700 hover:border-indigo-200 dark:hover:border-indigo-900/50 bg-slate-50/30 dark:bg-slate-850/30 hover:bg-indigo-50/10 dark:hover:bg-indigo-950/10'}`}
+                                                    className={`w-full flex items-center gap-4 p-3.5 text-left rounded-2xl border transition-all group ${isSelected ? 'border-emerald-600 bg-emerald-50/20 dark:bg-emerald-900/10' : 'border-slate-100 dark:border-slate-80 border-slate-200 dark:border-slate-700 hover:border-emerald-200 dark:hover:border-emerald-900/50 bg-slate-50/30 dark:bg-slate-850/30 hover:bg-emerald-50/10 dark:hover:bg-emerald-950/10'}`}
                                                 >
                                                     <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-705 shrink-0 flex items-center justify-center">
                                                         <Folder className="w-5 h-5 text-amber-500 dark:text-amber-405" />
                                                     </div>
                                                     <div className="flex-1 min-w-0">
                                                         <div className="flex items-center gap-2">
-                                                            <h4 className="font-bold text-slate-800 dark:text-slate-100 group-hover:text-indigo-650 dark:group-hover:text-indigo-400 transition-colors truncate">
+                                                            <h4 className="font-bold text-slate-800 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors truncate">
                                                                 {pf.name}
                                                             </h4>
                                                             {isSelected && (
-                                                                <span className="text-[8px] font-bold px-1.5 py-0.5 rounded uppercase bg-indigo-100 text-indigo-700 dark:bg-indigo-950/40 dark:text-indigo-400">{t('editSet.current', 'Current')}</span>
+                                                                <span className="text-[8px] font-bold px-1.5 py-0.5 rounded uppercase bg-emerald-100 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-400">{t('editSet.current', 'Current')}</span>
                                                             )}
                                                         </div>
                                                         <p className="text-[10px] text-slate-450 dark:text-slate-400 font-semibold mt-0.5">
                                                             {t('editSet.storageFolder', 'Storage Folder')}
                                                         </p>
                                                     </div>
-                                                    <div className={`w-8 h-8 rounded-lg transition-all flex items-center justify-center shrink-0 ${isSelected ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-850 group-hover:bg-indigo-600 group-hover:text-white text-slate-400'}`}>
+                                                    <div className={`w-8 h-8 rounded-lg transition-all flex items-center justify-center shrink-0 ${isSelected ? 'bg-emerald-600 text-white' : 'bg-slate-100 dark:bg-slate-850 group-hover:bg-emerald-600 group-hover:text-white text-slate-400'}`}>
                                                         <Check className="w-4 h-4" />
                                                     </div>
                                                 </button>
@@ -873,7 +873,7 @@ const EditSetScreen = ({
                             {duplicateCheckResult.externalDuplicates && duplicateCheckResult.externalDuplicates.length > 0 && (
                                 <div className="space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800">
                                     <div className="flex items-center justify-between">
-                                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-bold">
+                                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 text-xs font-bold">
                                             <span>{t('editSet.externalDuplicates', '📂 Duplicates with other sets ({count} words)').replace('{count}', duplicateCheckResult.externalDuplicates.length)}</span>
                                         </span>
                                     </div>
@@ -887,7 +887,7 @@ const EditSetScreen = ({
                                                     {dup.front}
                                                 </span>
                                                 <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 shrink-0 font-medium">
-                                                    <Folder className="w-3.5 h-3.5 text-indigo-500 shrink-0" />
+                                                    <Folder className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                                                     <span className="truncate max-w-[140px] font-semibold">{dup.otherSetName}</span>
                                                 </div>
                                             </div>
@@ -905,7 +905,7 @@ const EditSetScreen = ({
                                     duplicateCheckResult.parentFolderId, 
                                     duplicateCheckResult.allExcludeIds
                                 )}
-                                className="w-full py-2.5 px-4 text-sm font-bold rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] transition-all shadow-md shadow-indigo-500/20 cursor-pointer flex items-center justify-center gap-2"
+                                className="w-full py-2.5 px-4 text-sm font-bold rounded-xl text-white bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] transition-all shadow-md shadow-emerald-500/20 cursor-pointer flex items-center justify-center gap-2"
                             >
                                 <Check className="w-4 h-4" />
                                 <span>{t('editSet.saveExcludingDuplicates', 'Save & Exclude {count} Duplicates').replace('{count}', duplicateCheckResult.totalExcludedCount)}</span>

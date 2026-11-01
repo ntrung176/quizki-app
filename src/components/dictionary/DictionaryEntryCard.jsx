@@ -327,7 +327,7 @@ const DictionaryEntryCard = ({
                 </div>
             )}
 
-            {/* Action Buttons: Solid blue action, no purple, no gradient, no star icon */}
+            {/* Action Buttons: Solid Duolingo style actions */}
             <div className="pt-3 border-t border-slate-100 dark:border-slate-800/80 flex items-center justify-between gap-2 flex-wrap">
                 <div>
                     {onQuickAdd && (

@@ -59,7 +59,7 @@ const AdminVocabularySection = ({
                 <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-gray-150 dark:border-gray-750 pb-3 gap-3">
                     <div>
                         <h3 className="font-bold text-gray-800 dark:text-white flex items-center gap-2 text-base">
-                            <BookOpen className="w-5 h-5 text-indigo-500" />
+                            <BookOpen className="w-5 h-5 text-emerald-500" />
                             Quản lý kho từ vựng dùng chung (Shared Vocabulary)
                         </h3>
                         <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">
@@ -96,7 +96,7 @@ const AdminVocabularySection = ({
                         onClick={() => setDictLangTab('ja')}
                         className={`px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${
                             dictLangTab === 'ja'
-                                ? 'bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 shadow-sm'
+                                ? 'bg-white dark:bg-gray-800 text-emerald-600 dark:text-emerald-400 shadow-sm'
                                 : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                         }`}
                     >
@@ -106,7 +106,7 @@ const AdminVocabularySection = ({
                         onClick={() => setDictLangTab('en')}
                         className={`px-4 py-2 rounded-lg text-xs font-bold transition-all flex items-center gap-2 ${
                             dictLangTab === 'en'
-                                ? 'bg-white dark:bg-gray-800 text-indigo-600 dark:text-indigo-400 shadow-sm'
+                                ? 'bg-white dark:bg-gray-800 text-emerald-600 dark:text-emerald-400 shadow-sm'
                                 : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
                         }`}
                     >
@@ -122,7 +122,7 @@ const AdminVocabularySection = ({
                             placeholder="Tìm theo chữ Nhật, nghĩa, Hán Việt..."
                             value={dictSearchQuery}
                             onChange={(e) => setDictSearchQuery(e.target.value)}
-                            className="w-full pl-9 pr-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-xs outline-none focus:ring-2 focus:ring-indigo-500/25"
+                            className="w-full pl-9 pr-4 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl text-xs outline-none focus:ring-2 focus:ring-emerald-500/25"
                         />
                         <Search className="w-4 h-4 text-gray-400 absolute left-3 top-2.5" />
                     </div>
@@ -132,7 +132,7 @@ const AdminVocabularySection = ({
                         <select
                             value={dictLevelFilter}
                             onChange={(e) => setDictLevelFilter(e.target.value)}
-                            className="px-2 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs outline-none focus:ring-1 focus:ring-indigo-500"
+                            className="px-2 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs outline-none focus:ring-1 focus:ring-emerald-500"
                         >
                             <option value="all">Tất cả</option>
                             {dictLangTab === 'en' ? (
@@ -161,7 +161,7 @@ const AdminVocabularySection = ({
                         <select
                             value={dictPosFilter}
                             onChange={(e) => setDictPosFilter(e.target.value)}
-                            className="px-2 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs outline-none focus:ring-1 focus:ring-indigo-500"
+                            className="px-2 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs outline-none focus:ring-1 focus:ring-emerald-500"
                         >
                             <option value="all">Tất cả</option>
                             <option value="noun">Danh từ (Noun)</option>
@@ -182,7 +182,7 @@ const AdminVocabularySection = ({
                         <select
                             value={dictErrorReportedFilter}
                             onChange={(e) => setDictErrorReportedFilter(e.target.value)}
-                            className="px-2 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs outline-none focus:ring-1 focus:ring-indigo-500"
+                            className="px-2 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs outline-none focus:ring-1 focus:ring-emerald-500"
                         >
                             <option value="all">Tất cả</option>
                             <option value="error">Có báo cáo lỗi</option>
@@ -195,7 +195,7 @@ const AdminVocabularySection = ({
                         <select
                             value={dictKanjiFilter}
                             onChange={(e) => setDictKanjiFilter(e.target.value)}
-                            className="px-2 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs outline-none focus:ring-1 focus:ring-indigo-500"
+                            className="px-2 py-1 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-xs outline-none focus:ring-1 focus:ring-emerald-500"
                         >
                             <option value="all">Tất cả</option>
                             <option value="no_kanji">Không có Kanji</option>
@@ -206,11 +206,11 @@ const AdminVocabularySection = ({
                 </div>
 
                 {/* Bulk Action Bar */}
-                <div className="flex flex-wrap items-center justify-between gap-3 p-4 bg-indigo-50/50 dark:bg-indigo-950/20 border border-indigo-100/50 dark:border-indigo-900/30 rounded-xl">
+                <div className="flex flex-wrap items-center justify-between gap-3 p-4 bg-emerald-50/50 dark:bg-emerald-950/20 border border-emerald-100/50 dark:border-emerald-900/30 rounded-xl">
                     <div className="text-xs text-gray-600 dark:text-gray-350">
                         <span>Bộ lọc hiện tại có <strong>{filteredDictResults.length}</strong> từ vựng.</span>
                         {isBulkRecreating && (
-                            <span className="ml-2 text-indigo-600 dark:text-indigo-400 font-bold animate-pulse">
+                            <span className="ml-2 text-emerald-600 dark:text-emerald-400 font-bold animate-pulse">
                                 (Đang xử lý nội dung: {bulkProgress.current}/{bulkProgress.total})
                             </span>
                         )}
@@ -226,7 +226,7 @@ const AdminVocabularySection = ({
                             <>
                                 <div className="w-32 bg-gray-200 dark:bg-gray-700 h-2 rounded-full overflow-hidden">
                                     <div
-                                        className="bg-indigo-600 h-full transition-all duration-300"
+                                        className="bg-emerald-600 h-full transition-all duration-300"
                                         style={{ width: `${(bulkProgress.current / bulkProgress.total) * 100}%` }}
                                     />
                                 </div>
@@ -242,7 +242,7 @@ const AdminVocabularySection = ({
                             <button
                                 onClick={handleBulkAiRecreate}
                                 disabled={filteredDictResults.length === 0 || isBulkAudioGenerating}
-                                className="px-4 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold disabled:opacity-50 flex items-center gap-1.5 transition-all shadow-sm cursor-pointer"
+                                className="px-4 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-bold disabled:opacity-50 flex items-center gap-1.5 transition-all shadow-sm cursor-pointer"
                             >
                                 <Wand2 className="w-3.5 h-3.5 text-amber-300" />
                                 <span>AI tạo hàng loạt ({filteredDictResults.length})</span>
@@ -283,7 +283,7 @@ const AdminVocabularySection = ({
                 <div className="border border-gray-150 dark:border-gray-750 rounded-xl overflow-hidden">
                     {isLoadingDict ? (
                         <div className="p-8 text-center text-gray-400 flex flex-col items-center justify-center gap-2">
-                            <Loader2 className="w-6 h-6 animate-spin text-indigo-500" />
+                            <Loader2 className="w-6 h-6 animate-spin text-emerald-500" />
                             <span>Đang tải dữ liệu từ vựng kho chung...</span>
                         </div>
                     ) : (
@@ -313,7 +313,7 @@ const AdminVocabularySection = ({
                                                         {item.audioBase64 && (
                                                             <button
                                                                 onClick={() => playAudio(item.audioBase64)}
-                                                                className="p-1 text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 rounded-lg transition-colors cursor-pointer"
+                                                                className="p-1 text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 rounded-lg transition-colors cursor-pointer"
                                                                 title="Nghe thử âm thanh"
                                                             >
                                                                 <Volume2 className="w-3.5 h-3.5" />
@@ -341,7 +341,7 @@ const AdminVocabularySection = ({
                                                     <button
                                                         onClick={() => handleAiRecreateVocabulary(item)}
                                                         disabled={recreatingVocabId === item.id}
-                                                        className="px-2 py-1 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 dark:hover:bg-indigo-900/50 rounded text-[10px] font-bold disabled:opacity-50 transition-all"
+                                                        className="px-2 py-1 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 rounded text-[10px] font-bold disabled:opacity-50 transition-all"
                                                     >
                                                         {recreatingVocabId === item.id ? 'Đang tạo...' : 'AI tạo từ vựng'}
                                                     </button>
@@ -370,7 +370,7 @@ const AdminVocabularySection = ({
                         <div className="p-3 bg-gray-50 dark:bg-gray-750/10 text-center border-t border-gray-150 dark:border-gray-750">
                             <button
                                 onClick={() => setVisibleLimit(prev => prev + 50)}
-                                className="text-xs font-bold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300"
+                                className="text-xs font-bold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300"
                             >
                                 Xem thêm từ vựng (+50)
                             </button>
@@ -385,7 +385,7 @@ const AdminVocabularySection = ({
                     <div className="bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 p-6 max-w-xl w-full shadow-2xl animate-bounce-in text-left">
                         <div className="flex items-center justify-between border-b border-gray-150 dark:border-gray-750 pb-3 mb-4">
                             <h3 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                                <BookOpen className="w-5 h-5 text-indigo-500" />
+                                <BookOpen className="w-5 h-5 text-emerald-500" />
                                 Sửa từ vựng kho chung
                             </h3>
                             <button
@@ -532,7 +532,7 @@ const AdminVocabularySection = ({
                                             }}
                                             className="px-3 py-2 bg-white dark:bg-gray-800 border border-gray-350 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-all shadow-sm dark:text-gray-200 cursor-pointer"
                                         >
-                                            <RefreshCw className="w-3.5 h-3.5 text-indigo-500" />
+                                            <RefreshCw className="w-3.5 h-3.5 text-emerald-500" />
                                             Tạo lại âm thanh
                                         </button>
                                     </div>
@@ -546,7 +546,7 @@ const AdminVocabularySection = ({
                                                 <button
                                                     type="button"
                                                     onClick={() => playAudio(originalAudioBase64)}
-                                                    className="p-1 text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 rounded-lg transition-colors cursor-pointer"
+                                                    className="p-1 text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 rounded-lg transition-colors cursor-pointer"
                                                     title="Nghe audio gốc"
                                                 >
                                                     <Volume2 className="w-4 h-4" />
@@ -566,7 +566,7 @@ const AdminVocabularySection = ({
                                                 <button
                                                     type="button"
                                                     onClick={() => playAudio(editingDictItem.audioBase64)}
-                                                    className="p-1 text-indigo-600 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 rounded-lg transition-colors cursor-pointer"
+                                                    className="p-1 text-emerald-600 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 rounded-lg transition-colors cursor-pointer"
                                                     title="Nghe audio mới"
                                                 >
                                                     <Volume2 className="w-4 h-4" />
@@ -599,7 +599,7 @@ const AdminVocabularySection = ({
                                 </button>
                                 <button
                                     type="submit"
-                                    className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-sm font-bold transition-all"
+                                    className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-sm font-bold transition-all"
                                 >
                                     Lưu lại
                                 </button>
@@ -619,7 +619,7 @@ const AdminVocabularySection = ({
                             <>
                                 <p className="text-xs text-gray-500 dark:text-gray-400 mb-6">
                                     Chọn phương thức tạo lại âm thanh cho từ vựng: <br />
-                                    <span className="font-semibold text-indigo-600 dark:text-indigo-400">"{editingDictItem.front}"</span>
+                                    <span className="font-semibold text-emerald-600 dark:text-emerald-400">"{editingDictItem.front}"</span>
                                 </p>
                                 
                                 <div className="space-y-3">
@@ -646,7 +646,7 @@ const AdminVocabularySection = ({
                                             }
                                         }}
                                         disabled={isGeneratingAudio}
-                                        className="w-full py-2.5 bg-indigo-600 text-white rounded-xl font-bold text-xs hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                                        className="w-full py-2.5 bg-emerald-600 text-white rounded-xl font-bold text-xs hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                                     >
                                         {isGeneratingAudio ? (
                                             <Loader2 className="w-4 h-4 animate-spin" />
@@ -661,7 +661,7 @@ const AdminVocabularySection = ({
                                         onClick={() => setIsManualInputMode(true)}
                                         className="w-full py-2.5 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600 rounded-xl text-xs font-bold text-gray-700 dark:text-gray-205 flex items-center justify-center gap-2 cursor-pointer shadow-sm"
                                     >
-                                        <Bot className="w-4 h-4 text-indigo-500" />
+                                        <Bot className="w-4 h-4 text-emerald-500" />
                                         Nhập tay chữ đọc (Hiragana...)
                                     </button>
                                 </div>
@@ -678,7 +678,7 @@ const AdminVocabularySection = ({
                             <>
                                 <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">
                                     Nhập Hiragana hoặc chữ đọc tùy chỉnh cho: <br />
-                                    <span className="font-semibold text-indigo-650 dark:text-indigo-400">"{editingDictItem.front}"</span>
+                                    <span className="font-semibold text-emerald-600 dark:text-emerald-400">"{editingDictItem.front}"</span>
                                 </p>
 
                                 <div className="space-y-4">
@@ -725,7 +725,7 @@ const AdminVocabularySection = ({
                                                 }
                                             }}
                                             disabled={isGeneratingAudio || !customAudioText.trim()}
-                                            className="flex-1 py-2.5 bg-indigo-650 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold transition-all disabled:opacity-50 flex items-center justify-center gap-1 cursor-pointer"
+                                            className="flex-1 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition-all disabled:opacity-50 flex items-center justify-center gap-1 cursor-pointer"
                                         >
                                             {isGeneratingAudio && <Loader2 className="w-3 h-3 animate-spin" />}
                                             Tạo âm thanh

@@ -75,7 +75,7 @@ const AdminModeratorsSection = ({
                     {users.filter(u => u.userId !== currentUserId && !adminConfig?.moderators?.includes(u.userId)).map(user => (
                         <div key={user.userId} className="flex items-center justify-between p-2.5 hover:bg-gray-50 dark:hover:bg-gray-700/50 rounded-lg transition-colors">
                             <div className="flex items-center gap-2">
-                                <div className="w-7 h-7 rounded-full bg-indigo-500 flex items-center justify-center text-white text-xs font-bold">
+                                <div className="w-7 h-7 rounded-full bg-emerald-500 flex items-center justify-center text-white text-xs font-bold">
                                     {(user.displayName || '?')[0].toUpperCase()}
                                 </div>
                                 <span className="text-sm text-gray-800 dark:text-white">{user.displayName || 'Chưa đặt tên'}</span>

@@ -184,7 +184,9 @@
     "focusLabel": "Focus {current}/{total}",
     "breakTime": "Short Break",
     "focusTime": "Deep Focus",
-    "dragFocusWidget": "Drag to reposition · Click to open focus timer"
+    "dragFocusWidget": "Drag to reposition · Click to open focus timer",
+    "months": "mo",
+    "years": "yrs"
   },
   "tabs": {
     "review": "Review",

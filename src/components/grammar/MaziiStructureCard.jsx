@@ -246,7 +246,7 @@ const renderToken = (token, idx) => {
     // Clause / Sentence token
     if (/^(?:Mệnh đề|Câu)/i.test(t)) {
         return (
-            <span key={idx} className="inline-flex items-center px-2 py-0.5 rounded-lg text-xs md:text-sm font-semibold bg-purple-500/10 text-purple-700 dark:text-purple-300 border border-purple-500/20 tracking-normal">
+            <span key={idx} className="inline-flex items-center px-2 py-0.5 rounded-lg text-xs md:text-sm font-semibold bg-teal-500/10 text-teal-700 dark:text-teal-300 border border-teal-500/20 tracking-normal">
                 {renderWithStrikethrough(t, `c-${idx}`)}
             </span>
         );
@@ -276,8 +276,8 @@ const renderBracketGroup = (innerContent, groupKey) => {
     const items = mainText.split(/[\/／]/).map(s => s.trim()).filter(Boolean);
 
     return (
-        <div key={groupKey} className="inline-flex items-center flex-wrap gap-1 px-2.5 py-1 rounded-xl bg-indigo-50/60 dark:bg-indigo-950/40 border border-indigo-200/70 dark:border-indigo-800/60 shadow-2xs">
-            <span className="text-indigo-400 dark:text-indigo-500 font-bold select-none text-xs mr-0.5">[</span>
+        <div key={groupKey} className="inline-flex items-center flex-wrap gap-1 px-2.5 py-1 rounded-xl bg-emerald-50/60 dark:bg-emerald-950/40 border border-emerald-200/70 dark:border-emerald-800/60 shadow-2xs">
+            <span className="text-emerald-400 dark:text-emerald-500 font-bold select-none text-xs mr-0.5">[</span>
             {items.map((item, iIdx) => (
                 <React.Fragment key={iIdx}>
                     {iIdx > 0 && <span className="text-slate-300 dark:text-slate-600 font-bold text-xs select-none">/</span>}
@@ -289,7 +289,7 @@ const renderBracketGroup = (innerContent, groupKey) => {
                     ({parenText})
                 </span>
             )}
-            <span className="text-indigo-400 dark:text-indigo-500 font-bold select-none text-xs ml-0.5">]</span>
+            <span className="text-emerald-400 dark:text-emerald-500 font-bold select-none text-xs ml-0.5">]</span>
         </div>
     );
 };

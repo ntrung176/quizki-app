@@ -43,7 +43,7 @@ const FolderManagerModal = ({ folders, onClose, onCreateFolder, onRenameFolder, 
             <div className="bg-white dark:bg-slate-800 rounded-xl p-5 w-[450px] max-w-[90vw] shadow-2xl space-y-4">
                 <div className="flex items-center justify-between">
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                        <FolderOpen className="w-5 h-5 text-indigo-500" />
+                        <FolderOpen className="w-5 h-5 text-emerald-500" />
                         Quản lý thư mục
                     </h3>
                     <button onClick={onClose} className="p-1 hover:bg-gray-100 dark:hover:bg-slate-700 rounded-lg">
@@ -58,12 +58,12 @@ const FolderManagerModal = ({ folders, onClose, onCreateFolder, onRenameFolder, 
                         onChange={(e) => setNewFolderName(e.target.value)}
                         onKeyDown={(e) => e.key === 'Enter' && handleCreate()}
                         placeholder={t('listView.newFolderNamePlaceholder', 'Tên thư mục mới...')}
-                        className="flex-1 px-3 py-2 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+                        className="flex-1 px-3 py-2 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded-lg text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
                     />
                     <button
                         onClick={handleCreate}
                         disabled={!newFolderName.trim()}
-                        className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1"
+                        className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-sm font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-1"
                     >
                         <Plus className="w-4 h-4" /> {t('listView.create', 'Tạo')}
                     </button>
@@ -79,7 +79,7 @@ const FolderManagerModal = ({ folders, onClose, onCreateFolder, onRenameFolder, 
                             <div className="flex items-center gap-2 p-2.5 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700/50 group transition-colors"
                                 style={{ paddingLeft: `${12 + folder.depth * 20}px` }}>
                                 {folder.depth > 0 && <span className="text-gray-300 dark:text-gray-600 text-xs">└</span>}
-                                <Folder className={`w-4 h-4 flex-shrink-0 ${folder.depth > 0 ? 'text-amber-400' : 'text-indigo-500'}`} />
+                                <Folder className={`w-4 h-4 flex-shrink-0 ${folder.depth > 0 ? 'text-amber-400' : 'text-emerald-500'}`} />
                                 {renamingId === folder.id ? (
                                     <div className="flex-1 flex gap-2">
                                         <input type="text" value={renameValue}
@@ -89,9 +89,9 @@ const FolderManagerModal = ({ folders, onClose, onCreateFolder, onRenameFolder, 
                                                 if (e.key === 'Escape') setRenamingId(null);
                                             }}
                                             autoFocus
-                                            className="flex-1 px-2 py-1 bg-white dark:bg-slate-600 border border-indigo-300 rounded text-sm text-gray-900 dark:text-white focus:ring-1 focus:ring-indigo-500"
+                                            className="flex-1 px-2 py-1 bg-white dark:bg-slate-600 border border-emerald-300 rounded text-sm text-gray-900 dark:text-white focus:ring-1 focus:ring-emerald-500"
                                         />
-                                        <button onClick={() => { onRenameFolder(folder.id, renameValue); setRenamingId(null); }} className="text-indigo-500"><Check className="w-4 h-4" /></button>
+                                        <button onClick={() => { onRenameFolder(folder.id, renameValue); setRenamingId(null); }} className="text-emerald-500"><Check className="w-4 h-4" /></button>
                                     </div>
                                 ) : (
                                     <>
@@ -103,7 +103,7 @@ const FolderManagerModal = ({ folders, onClose, onCreateFolder, onRenameFolder, 
                                                 <FolderPlus className="w-3.5 h-3.5" />
                                             </button>
                                             <button onClick={() => { setRenamingId(folder.id); setRenameValue(folder.name); }}
-                                                className="p-1 text-gray-400 hover:text-indigo-500 rounded" title={t('listView.renameTooltip', 'Đổi tên')}>
+                                                className="p-1 text-gray-400 hover:text-emerald-500 rounded" title={t('listView.renameTooltip', 'Đổi tên')}>
                                                 <Edit className="w-3.5 h-3.5" />
                                             </button>
                                             <button onClick={async () => {
@@ -125,7 +125,7 @@ const FolderManagerModal = ({ folders, onClose, onCreateFolder, onRenameFolder, 
                                         onChange={(e) => setNewSubFolderName(e.target.value)}
                                         onKeyDown={(e) => e.key === 'Enter' && handleCreateSub(folder.id)}
                                         autoFocus placeholder={t('listView.newSubfolderPlaceholder', 'Tên thư mục con...')}
-                                        className="flex-1 px-2 py-1.5 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:ring-1 focus:ring-indigo-500"
+                                        className="flex-1 px-2 py-1.5 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:ring-1 focus:ring-emerald-500"
                                     />
                                     <button onClick={() => handleCreateSub(folder.id)} disabled={!newSubFolderName.trim()}
                                         className="px-2 py-1 bg-emerald-600 text-white rounded text-xs font-medium disabled:opacity-50">
@@ -511,8 +511,8 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                 const element = document.querySelector(`[data-card-id="${scrollToCardId}"]`);
                 if (element) {
                     element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    element.classList.add('ring-2', 'ring-indigo-500');
-                    setTimeout(() => { element.classList.remove('ring-2', 'ring-indigo-500'); }, 2000);
+                    element.classList.add('ring-2', 'ring-emerald-500');
+                    setTimeout(() => { element.classList.remove('ring-2', 'ring-emerald-500'); }, 2000);
                     if (onScrollComplete) onScrollComplete();
                 }
             }, 100);
@@ -629,7 +629,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                     <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
                         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 w-[350px] max-w-[90vw] shadow-2xl space-y-3">
                             <h3 className="text-base font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                                <Folder className="w-5 h-5 text-indigo-500" /> {t('listView.moveCardsModalTitle', 'Chuyển {count} từ vào thư mục').replace('{count}', selectedCards.size)}
+                                <Folder className="w-5 h-5 text-emerald-500" /> {t('listView.moveCardsModalTitle', 'Chuyển {count} từ vào thư mục').replace('{count}', selectedCards.size)}
                             </h3>
                             <div className="max-h-[250px] overflow-y-auto space-y-1">
                                 <button
@@ -645,7 +645,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                         onClick={() => batchMoveToFolder(f.id)}
                                         className="w-full text-left flex items-center gap-3 p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
                                     >
-                                        <Folder className="w-4 h-4 text-indigo-400" />
+                                        <Folder className="w-4 h-4 text-emerald-400" />
                                         <span className="text-sm text-gray-700 dark:text-gray-300">{f.name}</span>
                                     </button>
                                 ))}
@@ -662,7 +662,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                     <div className="fixed inset-0 bg-black/50 dark:bg-black/70 z-50 flex items-center justify-center p-4">
                         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 w-[350px] max-w-[90vw] shadow-2xl space-y-3">
                             <h3 className="text-base font-bold text-gray-900 dark:text-white flex items-center gap-2">
-                                <Folder className="w-5 h-5 text-indigo-500" /> {t('listView.chooseFolderModalTitle', 'Chọn thư mục')}
+                                <Folder className="w-5 h-5 text-emerald-500" /> {t('listView.chooseFolderModalTitle', 'Chọn thư mục')}
                             </h3>
                             <div className="max-h-[250px] overflow-y-auto space-y-1">
                                 <button
@@ -677,12 +677,12 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                         key={f.id}
                                         onClick={() => moveCardToFolder(showMoveModal, f.id)}
                                         className={`w-full text-left flex items-center gap-3 p-3 rounded-lg transition-colors ${cardFolders[showMoveModal] === f.id
-                                            ? 'bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700'
+                                            ? 'bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-700'
                                             : 'hover:bg-gray-50 dark:hover:bg-slate-700'
                                             }`}
                                     >
-                                        <Folder className={`w-4 h-4 ${cardFolders[showMoveModal] === f.id ? 'text-indigo-500' : 'text-gray-400'}`} />
-                                        <span className={`text-sm ${cardFolders[showMoveModal] === f.id ? 'text-indigo-700 dark:text-indigo-300 font-medium' : 'text-gray-700 dark:text-gray-300'}`}>{f.name}</span>
+                                        <Folder className={`w-4 h-4 ${cardFolders[showMoveModal] === f.id ? 'text-emerald-500' : 'text-gray-400'}`} />
+                                        <span className={`text-sm ${cardFolders[showMoveModal] === f.id ? 'text-emerald-700 dark:text-emerald-300 font-medium' : 'text-gray-700 dark:text-gray-300'}`}>{f.name}</span>
                                     </button>
                                 ))}
                             </div>
@@ -694,7 +694,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div>
                         <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight flex items-center gap-2.5">
-                            <div className="p-2 rounded-2xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-500">
+                            <div className="p-2 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-500">
                                 <List className="w-6 h-6" />
                             </div>
                             <span>{t('listView.title', 'Danh sách từ vựng')}</span>
@@ -705,11 +705,11 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                     </div>
                     <div className="flex items-center gap-2.5">
                         <button onClick={() => setShowFolderManager(true)}
-                            className="px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-indigo-500/40 text-slate-700 dark:text-slate-200 rounded-2xl text-xs sm:text-sm font-bold transition-all shadow-md flex items-center gap-2 cursor-pointer active:scale-95">
-                            <FolderPlus className="w-4 h-4 text-indigo-500" /> <span>{t('listView.folders', 'Thư mục')}</span>
+                            className="px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/40 text-slate-700 dark:text-slate-200 rounded-2xl text-xs sm:text-sm font-bold transition-all shadow-md flex items-center gap-2 cursor-pointer active:scale-95">
+                            <FolderPlus className="w-4 h-4 text-emerald-500" /> <span>{t('listView.folders', 'Thư mục')}</span>
                         </button>
                         <button onClick={() => onExport(allCards)}
-                            className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl text-xs sm:text-sm font-bold transition-all shadow-lg shadow-indigo-500/20 flex items-center gap-2 cursor-pointer active:scale-95">
+                            className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-2xl text-xs sm:text-sm font-bold transition-all shadow-lg shadow-emerald-500/20 flex items-center gap-2 cursor-pointer active:scale-95">
                             <Upload className="w-4 h-4" /> <span>{t('listView.exportFile', 'Xuất file')}</span>
                         </button>
                     </div>
@@ -744,7 +744,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                             placeholder={t('listView.searchPlaceholder', 'Tìm kiếm từ vựng, Hán Việt, nghĩa...')}
-                            className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl px-4 py-3 pl-11 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-indigo-500/40 focus:border-indigo-500 text-sm font-medium transition-all"
+                            className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl px-4 py-3 pl-11 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-emerald-500/40 focus:border-emerald-500 text-sm font-medium transition-all"
                         />
                         <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                         {searchTerm && (
@@ -756,18 +756,18 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                     {/* Filters */}
                     <div className="flex flex-wrap items-center gap-2 pt-0.5">
                         <div className="flex items-center gap-1.5 text-xs text-slate-400 font-mono font-bold mr-1">
-                            <Filter className="w-3.5 h-3.5 text-indigo-500" />
+                            <Filter className="w-3.5 h-3.5 text-emerald-500" />
                             <span>{t('listView.filter', 'BỘ LỌC')}</span>
                         </div>
                         {/* POS filter */}
                         <select value={filterPos} onChange={(e) => setFilterPos(e.target.value)}
-                            className="px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-0 focus:ring-2 focus:ring-indigo-500 cursor-pointer">
+                            className="px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-0 focus:ring-2 focus:ring-emerald-500 cursor-pointer">
                             <option value="all">{t('listView.allPos', 'Từ loại')}</option>
                             {Object.entries(POS_TYPES).map(([k, v]) => (<option key={k} value={k}>{v.label}</option>))}
                         </select>
                         {/* Sort */}
                         <select value={sortOrder} onChange={(e) => setSortOrder(e.target.value)}
-                            className="px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-0 focus:ring-2 focus:ring-indigo-500 cursor-pointer">
+                            className="px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-0 focus:ring-2 focus:ring-emerald-500 cursor-pointer">
                             <option value="newest">{t('listView.newest', 'Mới nhất')}</option>
                             <option value="oldest">{t('listView.oldest', 'Cũ nhất')}</option>
                         </select>
@@ -776,7 +776,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                             <>
                                 <span className="text-slate-300 dark:text-slate-700">|</span>
                                 <select value={filterFolder} onChange={(e) => setFilterFolder(e.target.value)}
-                                    className="px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-0 focus:ring-2 focus:ring-indigo-500 cursor-pointer">
+                                    className="px-3 py-1.5 rounded-full text-xs font-semibold bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-0 focus:ring-2 focus:ring-emerald-500 cursor-pointer">
                                     <option value="all">{t('listView.allFolders', '📁 Tất cả')}</option>
                                     <option value="unfiled">{t('listView.unfiledFolder', '📂 Chưa phân loại')}</option>
                                     {folders.map(f => (<option key={f.id} value={f.id}>📁 {f.name}</option>))}
@@ -818,7 +818,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                         <div className="flex items-center gap-2">
                             <button
                                 onClick={() => folders.length > 0 ? setShowBatchMoveModal(true) : setShowFolderManager(true)}
-                                className="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-medium flex items-center gap-1.5 transition-colors"
+                                className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-sm font-medium flex items-center gap-1.5 transition-colors"
                             >
                                 <Folder className="w-4 h-4" /> {t('listView.moveFolder', 'Chuyển thư mục')}
                             </button>
@@ -845,7 +845,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                     <React.Fragment key={seg.id}>
                                         <span className="text-gray-400">/</span>
                                         {i < arr.length - 1 ? (
-                                            <button onClick={() => openFolder(seg.id)} className="text-indigo-600 dark:text-indigo-400 hover:underline font-medium">{seg.name}</button>
+                                            <button onClick={() => openFolder(seg.id)} className="text-emerald-600 dark:text-emerald-400 hover:underline font-medium">{seg.name}</button>
                                         ) : (
                                             <span className="font-medium text-gray-700 dark:text-gray-300 flex items-center gap-1">
                                                 <Folder className="w-3.5 h-3.5 text-amber-500" /> {seg.name}
@@ -877,7 +877,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                                 if (e.key === 'Escape') setShowNewSubFolderInput(false);
                                             }}
                                             autoFocus placeholder={t('listView.newSubfolderPlaceholder', 'Tên thư mục con...')}
-                                            className="px-2 py-1 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 w-40"
+                                            className="px-2 py-1 bg-gray-50 dark:bg-slate-700 border border-gray-200 dark:border-slate-600 rounded text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:ring-1 focus:ring-emerald-500 w-40"
                                         />
                                         <button onClick={() => {
                                             if (newSubFolderInput.trim()) { createFolder(newSubFolderInput.trim(), currentFolder); setNewSubFolderInput(''); setShowNewSubFolderInput(false); }
@@ -904,13 +904,13 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                             {currentFolder === null && (
                                 <button
                                     onClick={() => openFolder('__all__')}
-                                    className="flex flex-col items-center gap-2 p-5 rounded-xl bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900/30 dark:to-indigo-800/20 border-2 border-indigo-200 dark:border-indigo-700 hover:border-indigo-400 dark:hover:border-indigo-500 hover:shadow-lg transition-all cursor-pointer group"
+                                    className="flex flex-col items-center gap-2 p-5 rounded-xl bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/30 dark:to-emerald-800/20 border-2 border-emerald-200 dark:border-emerald-700 hover:border-emerald-400 dark:hover:border-emerald-500 hover:shadow-lg transition-all cursor-pointer group"
                                 >
-                                    <div className="w-14 h-14 rounded-xl bg-indigo-500/10 dark:bg-indigo-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
-                                        <List className="w-7 h-7 text-indigo-500" />
+                                    <div className="w-14 h-14 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">
+                                        <List className="w-7 h-7 text-emerald-500" />
                                     </div>
-                                    <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300">{t('listView.allVocabCard', 'Tất cả từ vựng')}</span>
-                                    <span className="text-xs text-indigo-500 dark:text-indigo-400 font-medium">{t('listView.wordsUnit', '{count} từ').replace('{count}', allCards.length)}</span>
+                                    <span className="text-sm font-bold text-emerald-700 dark:text-emerald-300">{t('listView.allVocabCard', 'Tất cả từ vựng')}</span>
+                                    <span className="text-xs text-emerald-500 dark:text-emerald-400 font-medium">{t('listView.wordsUnit', '{count} từ').replace('{count}', allCards.length)}</span>
                                 </button>
                             )}
                             {/* Folder tiles (root or sub-folders) */}
@@ -918,7 +918,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                 <button
                                     key={f.id}
                                     onClick={() => openFolder(f.id)}
-                                    className="flex flex-col items-center gap-2 p-5 rounded-xl bg-white dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 hover:border-indigo-400 dark:hover:border-indigo-500 hover:shadow-lg transition-all cursor-pointer group"
+                                    className="flex flex-col items-center gap-2 p-5 rounded-xl bg-white dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 hover:border-emerald-400 dark:hover:border-emerald-500 hover:shadow-lg transition-all cursor-pointer group"
                                 >
                                     <div className="w-14 h-14 rounded-xl bg-amber-50 dark:bg-amber-900/20 flex items-center justify-center group-hover:scale-110 transition-transform">
                                         <Folder className="w-7 h-7 text-amber-500" />
@@ -960,7 +960,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                                 onClick={() => toggleCardSelection(card.id)}
                                                 className={`flex items-center gap-2 p-2.5 rounded-lg border cursor-pointer transition-all ${isSelected
                                                     ? 'bg-red-50 dark:bg-red-900/20 border-red-300 dark:border-red-700'
-                                                    : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-indigo-300'}`}>
+                                                    : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 hover:border-emerald-300'}`}>
                                                 <div className={`w-4 h-4 rounded border-2 flex items-center justify-center flex-shrink-0 ${isSelected ? 'bg-red-500 border-red-500 text-white' : 'border-gray-300 dark:border-slate-600'}`}>
                                                     {isSelected && <span className="text-[10px]">&#10003;</span>}
                                                 </div>
@@ -1018,7 +1018,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                             </span>
                             <button
                                 onClick={toggleSelectAll}
-                                className="text-xs text-indigo-600 dark:text-indigo-400 hover:underline font-medium"
+                                className="text-xs text-emerald-600 dark:text-emerald-400 hover:underline font-medium"
                             >
                                 {selectedCards.size > 0 && selectedCards.size === (currentFolder !== null ? currentFolderCards : filteredCards).length ? t('listView.deselectAll', 'Bỏ chọn tất cả') : t('listView.selectAll', 'Chọn tất cả ({count})').replace('{count}', currentFolder !== null ? currentFolderCards.length : filteredCards.length)}
                             </button>
@@ -1036,7 +1036,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                 <h3 className="text-lg font-medium text-gray-500 dark:text-gray-400">Không tìm thấy từ vựng nào</h3>
                                 <p className="text-sm text-gray-400 dark:text-gray-500">{currentFolder !== null ? 'Thư mục này chưa có từ vựng nào' : 'Thử thay đổi bộ lọc hoặc từ khóa tìm kiếm'}</p>
                                 {currentFolder !== null && (
-                                    <button onClick={goBackToFolders} className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-medium transition-colors">
+                                    <button onClick={goBackToFolders} className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-sm font-medium transition-colors">
                                         Quay lại thư mục
                                     </button>
                                 )}
@@ -1066,7 +1066,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                                 >
                                                     <div className={`w-5 h-5 rounded border-2 flex items-center justify-center transition-colors ${isSelected
                                                         ? 'bg-red-500 border-red-500 text-white'
-                                                        : 'border-gray-300 dark:border-slate-600 group-hover:border-indigo-400'
+                                                        : 'border-gray-300 dark:border-slate-600 group-hover:border-emerald-400'
                                                         }`}>
                                                         {isSelected && <span className="text-xs leading-none">✓</span>}
                                                     </div>
@@ -1075,7 +1075,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                                 <div className="flex items-center gap-2 flex-1 min-w-0">
                                                     <button
                                                         onClick={(e) => { e.stopPropagation(); onPlayAudio(card.audioBase64 || null, card.front, onSaveCardAudio ? (b64, vid) => onSaveCardAudio(card.id, b64, vid) : null); }}
-                                                        className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-colors bg-indigo-50 dark:bg-indigo-900/30 text-indigo-500 hover:bg-indigo-100"
+                                                        className="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center transition-colors bg-emerald-50 dark:bg-emerald-900/30 text-emerald-500 hover:bg-emerald-100"
                                                         title={t('common.pronounce', 'Phát âm thanh')}
                                                     >
                                                         <Volume2 className="w-3.5 h-3.5" />
@@ -1095,8 +1095,8 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                                         <div className="text-xs text-gray-500 dark:text-gray-400 truncate">{card.back}</div>
                                                         {folderName && (
                                                             <div className="flex items-center gap-1 mt-0.5">
-                                                                <Folder className="w-3 h-3 text-indigo-400" />
-                                                                <span className="text-[10px] text-indigo-500 dark:text-indigo-400 font-medium">{folderName}</span>
+                                                                <Folder className="w-3 h-3 text-emerald-400" />
+                                                                <span className="text-[10px] text-emerald-500 dark:text-emerald-400 font-medium">{folderName}</span>
                                                             </div>
                                                         )}
                                                     </div>
@@ -1106,7 +1106,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                                     <SrsStatusCell intervalIndex={card.intervalIndex_back} nextReview={card.nextReview_back} currentInterval={card.currentInterval_back} hasData={true} asDiv={true} state={card.srsState} />
                                                     <button
                                                         onClick={(e) => { e.stopPropagation(); toggleCardExpanded(card.id); }}
-                                                        className="text-gray-400 hover:text-indigo-500 transition-colors p-1"
+                                                        className="text-gray-400 hover:text-emerald-500 transition-colors p-1"
                                                         title={isExpanded ? t('common.collapse', 'Thu gọn chi tiết') : t('common.viewDetails', 'Xem chi tiết')}
                                                     >
                                                         {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -1118,7 +1118,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                                 <div className="mt-2.5 border-t border-gray-150 dark:border-slate-700/60 pt-2.5 space-y-2.5 w-full text-left" onClick={(e) => e.stopPropagation()}>
                                                     {card.synonym && (
                                                         <div className="flex items-start gap-1.5 text-xs text-slate-650 dark:text-slate-350">
-                                                            <span className="font-semibold text-indigo-500 shrink-0">{t('listView.synonymLabel', 'Đồng nghĩa:')}</span>
+                                                            <span className="font-semibold text-emerald-500 shrink-0">{t('listView.synonymLabel', 'Đồng nghĩa:')}</span>
                                                             <span className="font-japanese font-medium"><FuriganaText text={card.synonym} /></span>
                                                         </div>
                                                     )}
@@ -1136,7 +1136,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                                                     card.example.split('\n').map(e => e.trim()).filter(e => e).map((ex, idx) => {
                                                                         const meaning = (card.exampleMeaning || '').split('\n')[idx]?.trim();
                                                                         return (
-                                                                            <div key={idx} className="relative group/ex border-l-2 border-indigo-500/30 pl-2.5 pr-8">
+                                                                            <div key={idx} className="relative group/ex border-l-2 border-emerald-500/30 pl-2.5 pr-8">
                                                                                 <div className="text-xs sm:text-sm text-slate-800 dark:text-slate-200 font-japanese leading-relaxed">
                                                                                     <FuriganaText text={ex} />
                                                                                 </div>
@@ -1149,7 +1149,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                                                                         e.stopPropagation();
                                                                                         speakExampleSentence(ex);
                                                                                     }}
-                                                                                    className="absolute right-0 top-1/2 -translate-y-1/2 p-1.5 rounded-lg text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                                                                                    className="absolute right-0 top-1/2 -translate-y-1/2 p-1.5 rounded-lg text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-200/60 dark:hover:bg-slate-800 transition-colors cursor-pointer"
                                                                                     title={t('common.pronounce', 'Nghe câu ví dụ')}
                                                                                 >
                                                                                     <Volume2 className="w-3.5 h-3.5" />
@@ -1174,7 +1174,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                             >
                                                 <button
                                                     onClick={(e) => { e.stopPropagation(); setShowMoveModal(card.id); }}
-                                                    className="p-1 text-gray-400 hover:text-indigo-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 rounded transition-colors"
+                                                    className="p-1 text-gray-400 hover:text-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/30 rounded transition-colors"
                                                     title={t('listView.moveFolder', 'Chuyển thư mục')}
                                                 >
                                                     <Folder className="w-3.5 h-3.5" />
@@ -1211,7 +1211,7 @@ const ListView = React.memo(({ allCards, onDeleteCard, onPlayAudio, onSaveCardAu
                                                     {t('listView.showingCount', 'Đang hiển thị {displayed} / {total} từ vựng').replace('{displayed}', displayedCount).replace('{total}', filteredCards.length)}
                                                 </p>
                                                 <button onClick={loadMore}
-                                                    className="px-4 py-2 text-xs font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg hover:bg-indigo-200 dark:hover:bg-indigo-900/50 transition-colors">
+                                                    className="px-4 py-2 text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition-colors">
                                                     Tải thêm 100 từ vựng
                                                 </button>
                                             </>

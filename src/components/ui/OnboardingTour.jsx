@@ -484,7 +484,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
             e.stopPropagation();
 
             const el = e.target;
-            el.style.outline = '3px dashed #6366f1';
+            el.style.outline = '3px dashed #10b981';
             el.style.outlineOffset = '2px';
 
             let selector = getUniqueSelector(el);
@@ -708,7 +708,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
 
                             <div className="p-5 pb-3">
                                 <div className="flex items-start gap-3">
-                                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-sky-500 flex items-center justify-center shrink-0 shadow-lg shadow-indigo-500/30">
+                                    <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-sky-500 flex items-center justify-center shrink-0 shadow-lg shadow-emerald-500/30">
                                         <Compass className="w-5 h-5 text-white" />
                                     </div>
                                     <div className="flex-1 min-w-0">
@@ -724,8 +724,8 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
                                         <button
                                             key={i}
                                             onClick={() => setStep(i)}
-                                            className={`h-2 rounded-full transition-all duration-200 ${i === step ? 'bg-indigo-500 w-5' :
-                                                i < step ? 'bg-indigo-400/50 w-2' : 'bg-slate-600 w-2'}`}
+                                            className={`h-2 rounded-full transition-all duration-200 ${i === step ? 'bg-emerald-500 w-5' :
+                                                i < step ? 'bg-emerald-400/50 w-2' : 'bg-slate-600 w-2'}`}
                                         />
                                     ))}
                                 </div>
@@ -747,7 +747,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
                                     )}
                                     <button
                                         onClick={next}
-                                        className="flex items-center gap-1 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-bold transition-colors shadow-lg shadow-indigo-600/30"
+                                        className="flex items-center gap-1 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold transition-colors shadow-lg shadow-emerald-600/30"
                                     >
                                         {step === activeSteps.length - 1 ? (
                                             <>{t('onboarding.finish', 'Hoàn thành')} <Check className="w-3.5 h-3.5" /></>
@@ -768,7 +768,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
                     {/* Floating Design Button */}
                     <button
                         onClick={() => setIsBuilderOpen(!isBuilderOpen)}
-                        className="fixed bottom-4 right-4 z-[10002] flex items-center gap-2 px-4.5 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm shadow-2xl transition-all scale-100 hover:scale-105"
+                        className="fixed bottom-4 right-4 z-[10002] flex items-center gap-2 px-4.5 py-3 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-2xl transition-all scale-100 hover:scale-105"
                     >
                         <Settings className="w-4 h-4 animate-spin-slow" />
                         <span>Thiết kế Tour ({section})</span>
@@ -780,7 +780,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
                             <div className="p-5 border-b border-slate-800 flex items-center justify-between">
                                 <div className="flex flex-col">
                                     <div className="flex items-center gap-2">
-                                        <Settings className="w-5 h-5 text-indigo-500" />
+                                        <Settings className="w-5 h-5 text-emerald-500" />
                                         <h3 className="font-extrabold text-base tracking-tight">Trình Tạo Hướng Dẫn</h3>
                                     </div>
                                     <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wide mt-1">Screen: {section}</span>
@@ -824,13 +824,13 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
                                             }}
                                             className={`p-3.5 rounded-xl border transition-all cursor-pointer ${
                                                 step === idx && isActive
-                                                    ? 'bg-indigo-600/10 border-indigo-500 shadow-indigo-500/10 shadow-lg'
+                                                    ? 'bg-emerald-600/10 border-emerald-500 shadow-emerald-500/10 shadow-lg'
                                                     : 'bg-slate-850/50 border-slate-800 hover:border-slate-700'
                                             }`}
                                         >
                                             <div className="flex items-start justify-between gap-2">
                                                 <div className="min-w-0">
-                                                    <span className="text-xs font-bold text-indigo-400">Bước {idx + 1}</span>
+                                                    <span className="text-xs font-bold text-emerald-400">Bước {idx + 1}</span>
                                                     <h4 className="text-sm font-bold text-white truncate mt-0.5">{stepItem.title}</h4>
                                                     <p className="text-xs font-mono text-slate-450 truncate mt-1 bg-slate-900/60 p-1 rounded select-all">{stepItem.target}</p>
                                                 </div>
@@ -885,7 +885,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
                                 ) : (
                                     <button
                                         onClick={() => setIsSelecting(true)}
-                                        className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm transition-colors shadow-lg shadow-indigo-600/20"
+                                        className="w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition-colors shadow-lg shadow-emerald-600/20"
                                     >
                                         <Plus className="w-4 h-4" />
                                         Chọn phần tử trên trang
@@ -947,7 +947,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
                                             value={newStepTarget}
                                             onChange={(e) => setNewStepTarget(e.target.value)}
                                             placeholder="CSS Selector như [data-tour-id='HOME']"
-                                            className="w-full bg-slate-900 border border-slate-800 focus:border-indigo-500 outline-none rounded-xl px-4 py-2.5 text-sm font-mono text-indigo-400"
+                                            className="w-full bg-slate-900 border border-slate-800 focus:border-emerald-500 outline-none rounded-xl px-4 py-2.5 text-sm font-mono text-emerald-400"
                                         />
                                     </div>
                                     <div>
@@ -957,7 +957,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
                                             value={newStepSection}
                                             onChange={(e) => setNewStepSection(e.target.value)}
                                             placeholder="Tên màn hình..."
-                                            className="w-full bg-slate-900 border border-slate-800 focus:border-indigo-500 outline-none rounded-xl px-4 py-2.5 text-sm text-indigo-300 font-semibold"
+                                            className="w-full bg-slate-900 border border-slate-800 focus:border-emerald-500 outline-none rounded-xl px-4 py-2.5 text-sm text-emerald-300 font-semibold"
                                         />
                                     </div>
                                     <div>
@@ -967,7 +967,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
                                             value={newStepTitle}
                                             onChange={(e) => setNewStepTitle(e.target.value)}
                                             placeholder="Nhập tiêu đề..."
-                                            className="w-full bg-slate-900 border border-slate-800 focus:border-indigo-500 outline-none rounded-xl px-4 py-2.5 text-sm text-white"
+                                            className="w-full bg-slate-900 border border-slate-800 focus:border-emerald-500 outline-none rounded-xl px-4 py-2.5 text-sm text-white"
                                         />
                                     </div>
                                     <div>
@@ -977,7 +977,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
                                             onChange={(e) => setNewStepDesc(e.target.value)}
                                             placeholder="Giải thích tính năng hoặc hướng dẫn sử dụng..."
                                             rows={3.5}
-                                            className="w-full bg-slate-900 border border-slate-800 focus:border-indigo-500 outline-none rounded-xl px-4 py-2.5 text-sm text-white resize-none"
+                                            className="w-full bg-slate-900 border border-slate-800 focus:border-emerald-500 outline-none rounded-xl px-4 py-2.5 text-sm text-white resize-none"
                                         />
                                     </div>
                                 </div>
@@ -997,7 +997,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
                                         type="button"
                                         onClick={handleSaveNewStep}
                                         disabled={!newStepTarget.trim() || !newStepTitle.trim() || !newStepDesc.trim() || !newStepSection.trim()}
-                                        className="px-5 py-2.5 text-xs font-bold rounded-xl text-white bg-indigo-600 hover:bg-indigo-500 transition-colors shadow-lg shadow-indigo-600/20 disabled:opacity-50"
+                                        className="px-5 py-2.5 text-xs font-bold rounded-xl text-white bg-emerald-600 hover:bg-emerald-500 transition-colors shadow-lg shadow-emerald-600/20 disabled:opacity-50"
                                     >
                                         Xác nhận
                                     </button>
@@ -1021,8 +1021,8 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
                                 </div>
 
                                 <div className="space-y-3">
-                                    <p className="text-xs text-slate-400">Sao chép đoạn mã JSON bên dưới và dán thay thế vào biến <code className="font-mono text-indigo-400">TOUR_STEPS</code> ở dòng 28 của file <code className="font-mono text-slate-300">OnboardingTour.jsx</code>.</p>
-                                    <pre className="bg-slate-900 border border-slate-800 rounded-xl p-4 text-xs font-mono text-indigo-300 max-h-80 overflow-y-auto select-all leading-relaxed whitespace-pre-wrap">
+                                    <p className="text-xs text-slate-400">Sao chép đoạn mã JSON bên dưới và dán thay thế vào biến <code className="font-mono text-emerald-400">TOUR_STEPS</code> ở dòng 28 của file <code className="font-mono text-slate-300">OnboardingTour.jsx</code>.</p>
+                                    <pre className="bg-slate-900 border border-slate-800 rounded-xl p-4 text-xs font-mono text-emerald-300 max-h-80 overflow-y-auto select-all leading-relaxed whitespace-pre-wrap">
                                         {JSON.stringify(steps, null, 4)}
                                     </pre>
                                 </div>
@@ -1031,7 +1031,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
                                     <button
                                         type="button"
                                         onClick={() => copyToClipboard(JSON.stringify(steps, null, 4))}
-                                        className="flex items-center gap-1.5 px-5 py-2.5 text-xs font-bold rounded-xl text-white bg-indigo-600 hover:bg-indigo-500 transition-colors shadow-lg shadow-indigo-600/20"
+                                        className="flex items-center gap-1.5 px-5 py-2.5 text-xs font-bold rounded-xl text-white bg-emerald-600 hover:bg-emerald-500 transition-colors shadow-lg shadow-emerald-600/20"
                                     >
                                         <Copy className="w-4 h-4" />
                                         Sao chép mã
@@ -1069,7 +1069,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
                                         onChange={(e) => setImportText(e.target.value)}
                                         placeholder={`[\n    {\n        "target": "[data-tour-id=\\"HOME\\"]",\n        "title": "Trang chủ",\n        "desc": "...",\n        "section": "home"\n    }\n]`}
                                         rows={8}
-                                        className="w-full bg-slate-900 border border-slate-800 focus:border-indigo-500 outline-none rounded-xl px-4 py-3 text-xs font-mono text-white leading-relaxed"
+                                        className="w-full bg-slate-900 border border-slate-800 focus:border-emerald-500 outline-none rounded-xl px-4 py-3 text-xs font-mono text-white leading-relaxed"
                                     />
                                 </div>
 
@@ -1085,7 +1085,7 @@ const OnboardingTour = ({ userId: propUserId, isAdmin: propIsAdmin, section = 'h
                                         type="button"
                                         onClick={handleImportJSON}
                                         disabled={!importText.trim()}
-                                        className="px-5 py-2.5 text-xs font-bold rounded-xl text-white bg-indigo-600 hover:bg-indigo-500 transition-colors shadow-lg shadow-indigo-600/20 disabled:opacity-50"
+                                        className="px-5 py-2.5 text-xs font-bold rounded-xl text-white bg-emerald-600 hover:bg-emerald-500 transition-colors shadow-lg shadow-emerald-600/20 disabled:opacity-50"
                                     >
                                         Nhập dữ liệu
                                     </button>

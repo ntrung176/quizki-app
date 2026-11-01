@@ -9,8 +9,8 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarSt
             <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
                 <div className="flex items-center justify-between flex-wrap gap-3">
                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
-                            <Bot className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                        <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
+                            <Bot className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                         </div>
                         <div>
                             <p className="font-bold text-gray-800 dark:text-white">AI Provider: OpenRouter / Gemini Direct</p>
@@ -23,7 +23,7 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarSt
                             <button
                                 type="button"
                                 onClick={onOpenBlankFiller}
-                                className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all cursor-pointer"
+                                className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all cursor-pointer"
                             >
                                 <Sparkles className="w-4 h-4" />
                                 ✨ AI Điền Từ Vào Ví Dụ Sách
@@ -43,7 +43,7 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarSt
                             <button
                                 type="button"
                                 onClick={onOpenGrammarStandardizer}
-                                className="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all cursor-pointer"
+                                className="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all cursor-pointer"
                             >
                                 <Wand2 className="w-4 h-4" />
                                 AI Chuẩn Hóa Cấu Trúc Ngữ Pháp
@@ -54,15 +54,15 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarSt
             </div>
 
             {/* Special AI Tools Box: Blank Filler */}
-            <div className="bg-gradient-to-r from-purple-500/10 via-indigo-500/10 to-sky-500/10 dark:from-purple-950/40 dark:via-indigo-950/40 dark:to-sky-950/40 rounded-2xl border border-purple-200/80 dark:border-purple-800/80 p-5 flex items-center justify-between flex-wrap gap-4">
+            <div className="bg-gradient-to-r from-teal-500/10 via-emerald-500/10 to-sky-500/10 dark:from-teal-950/40 dark:via-emerald-950/40 dark:to-sky-950/40 rounded-2xl border border-teal-200/80 dark:border-teal-800/80 p-5 flex items-center justify-between flex-wrap gap-4">
                 <div className="flex items-center gap-3.5">
-                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-purple-600 to-indigo-600 text-white flex items-center justify-center shadow-md">
+                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-teal-600 to-emerald-600 text-white flex items-center justify-center shadow-md">
                         <Sparkles className="w-5 h-5" />
                     </div>
                     <div>
                         <h4 className="font-bold text-slate-900 dark:text-white text-sm md:text-base flex items-center gap-2">
                             AI Lắp Từ Vào Chỗ Trống Ví Dụ Sách (Blank Example Filler)
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-purple-500/20 text-purple-700 dark:text-purple-300 font-black uppercase">
+                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-teal-500/20 text-teal-700 dark:text-teal-300 font-black uppercase">
                                 Công cụ mới
                             </span>
                         </h4>
@@ -75,7 +75,7 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarSt
                 <button
                     type="button"
                     onClick={onOpenBlankFiller}
-                    className="px-4 py-2.5 rounded-xl bg-purple-600 hover:bg-purple-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all shrink-0 cursor-pointer"
+                    className="px-4 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all shrink-0 cursor-pointer"
                 >
                     <Sparkles className="w-4 h-4" />
                     Khởi Chạy AI Điền Từ Ví Dụ
@@ -83,7 +83,7 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarSt
             </div>
 
             {/* Special AI Tools Box: PDF Ingestion Engine */}
-            <div className="bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-indigo-500/10 dark:from-emerald-950/40 dark:via-teal-950/40 dark:to-indigo-950/40 rounded-2xl border border-emerald-200/80 dark:border-emerald-800/80 p-5 flex items-center justify-between flex-wrap gap-4">
+            <div className="bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-emerald-500/10 dark:from-emerald-950/40 dark:via-teal-950/40 dark:to-emerald-950/40 rounded-2xl border border-emerald-200/80 dark:border-emerald-800/80 p-5 flex items-center justify-between flex-wrap gap-4">
                 <div className="flex items-center gap-3.5">
                     <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white flex items-center justify-center shadow-md">
                         <FileText className="w-5 h-5" />
@@ -112,9 +112,9 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarSt
             </div>
 
             {/* Special AI Tools Box: Grammar Standardizer */}
-            <div className="bg-gradient-to-r from-indigo-500/10 via-sky-500/10 to-purple-500/10 dark:from-indigo-950/40 dark:via-sky-950/40 dark:to-purple-950/40 rounded-2xl border border-indigo-200/80 dark:border-indigo-800/80 p-5 flex items-center justify-between flex-wrap gap-4">
+            <div className="bg-gradient-to-r from-emerald-500/10 via-sky-500/10 to-teal-500/10 dark:from-emerald-950/40 dark:via-sky-950/40 dark:to-teal-950/40 rounded-2xl border border-emerald-200/80 dark:border-emerald-800/80 p-5 flex items-center justify-between flex-wrap gap-4">
                 <div className="flex items-center gap-3.5">
-                    <div className="w-11 h-11 rounded-2xl bg-indigo-600 text-white flex items-center justify-center shadow-md">
+                    <div className="w-11 h-11 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shadow-md">
                         <Layers className="w-5 h-5" />
                     </div>
                     <div>
@@ -133,7 +133,7 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarSt
                 <button
                     type="button"
                     onClick={onOpenGrammarStandardizer}
-                    className="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all shrink-0 cursor-pointer"
+                    className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all shrink-0 cursor-pointer"
                 >
                     <Wand2 className="w-4 h-4" />
                     Mở Bảng Điều Khiển
@@ -143,8 +143,8 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarSt
             {/* Cấu hình Model theo tính năng */}
             <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 space-y-4">
                 <div className="flex items-center gap-3 border-b border-gray-100 dark:border-gray-700 pb-3">
-                    <div className="w-10 h-10 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
-                        <Settings className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                    <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
+                        <Settings className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                     </div>
                     <div>
                         <p className="font-bold text-gray-800 dark:text-white">Cấu hình mô hình cho từng tính năng AI</p>
@@ -165,10 +165,10 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarSt
                         };
                         const currentValue = adminConfig?.aiFeatureModels?.[feature.id] || FEATURE_DEFAULTS[feature.id] || 'google/gemini-2.5-flash';
                         return (
-                            <div key={feature.id} className="p-4 rounded-xl border border-gray-100 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-900/10 flex flex-col justify-between gap-3 hover:border-indigo-500/20 transition-all duration-200">
+                            <div key={feature.id} className="p-4 rounded-xl border border-gray-100 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-900/10 flex flex-col justify-between gap-3 hover:border-emerald-500/20 transition-all duration-200">
                                 <div>
                                     <p className="font-bold text-sm text-gray-800 dark:text-white flex items-center gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
+                                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                                         {feature.label}
                                     </p>
                                     <p className="text-xs text-gray-400 mt-1 leading-relaxed min-h-[32px]">
@@ -180,7 +180,7 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarSt
                                     <select
                                         value={currentValue}
                                         onChange={(e) => handleChangeFeatureModel(feature.id, e.target.value)}
-                                        className="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg outline-none text-xs dark:text-white focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all font-medium"
+                                        className="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg outline-none text-xs dark:text-white focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all font-medium"
                                     >
                                         {OPENROUTER_MODELS.map(model => (
                                              <option key={model.value} value={model.value}>{model.label}</option>

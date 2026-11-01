@@ -292,7 +292,7 @@ const KanjiDetailView = ({
                             />
                             <button
                                 onClick={() => detailStrokeCtrl.current?.replay()}
-                                className="absolute bottom-3 right-3 p-2.5 bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-400 hover:to-indigo-500 rounded-xl text-white shadow-md shadow-blue-500/20 transition-all hover:scale-110 active:scale-95 cursor-pointer"
+                                className="absolute bottom-3 right-3 p-2.5 bg-gradient-to-r from-blue-500 to-emerald-600 hover:from-blue-400 hover:to-emerald-500 rounded-xl text-white shadow-md shadow-blue-500/20 transition-all hover:scale-110 active:scale-95 cursor-pointer"
                                 title="Xem lại nét vẽ"
                             >
                                 <RotateCcw className="w-4 h-4" />
@@ -515,7 +515,7 @@ const KanjiDetailView = ({
                                         <button
                                             onClick={() => handleGenerateAiVocabForSingleKanji(selectedKanji)}
                                             disabled={generatingAiVocab}
-                                            className="px-2.5 py-1 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 disabled:opacity-50 text-white rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs active:scale-95"
+                                            className="px-2.5 py-1 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 disabled:opacity-50 text-white rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs active:scale-95"
                                             title="Sử dụng AI tự động tạo từ vựng JLPT phổ biến cho Kanji này"
                                         >
                                             <Wand2 className={`w-3.5 h-3.5 ${generatingAiVocab ? 'animate-spin' : ''}`} />
@@ -536,7 +536,7 @@ const KanjiDetailView = ({
                                                     <button
                                                         onClick={() => handleGenerateAiVocabForSingleKanji(selectedKanji)}
                                                         disabled={generatingAiVocab}
-                                                        className="px-3.5 py-1.5 bg-slate-100 hover:bg-purple-50 dark:bg-slate-700 dark:hover:bg-purple-950/40 text-purple-700 dark:text-purple-300 border border-purple-200 dark:border-purple-800/50 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs hover:scale-105 active:scale-95"
+                                                        className="px-3.5 py-1.5 bg-slate-100 hover:bg-teal-50 dark:bg-slate-700 dark:hover:bg-teal-950/40 text-teal-700 dark:text-teal-300 border border-teal-200 dark:border-teal-800/50 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs hover:scale-105 active:scale-95"
                                                     >
                                                         <Wand2 className={`w-3.5 h-3.5 ${generatingAiVocab ? 'animate-spin' : ''}`} />
                                                         {generatingAiVocab ? 'AI đang khởi tạo...' : 'Tạo từ vựng với AI'}
@@ -657,7 +657,7 @@ const KanjiDetailView = ({
 
     if (isFullPage) {
         return (
-            <div className="w-full min-h-screen pt-[calc(3.75rem+env(safe-area-inset-top,0px))] p-3 sm:p-6 lg:p-8 bg-gradient-to-br from-indigo-50/95 via-white/95 to-sky-50/95 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 flex items-center justify-center">
+            <div className="w-full min-h-screen pt-[calc(3.75rem+env(safe-area-inset-top,0px))] p-3 sm:p-6 lg:p-8 bg-gradient-to-br from-emerald-50/95 via-white/95 to-sky-50/95 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 flex items-center justify-center">
                 <div className="w-full max-w-[1400px]">
                     {content}
                 </div>

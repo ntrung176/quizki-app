@@ -28,7 +28,7 @@ const VocabCardSettingsModal = ({
                     {/* Review Type: Typing mode toggle */}
                     <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
                         <div>
-                            <span className="text-indigo-600 dark:text-indigo-400 font-bold block">
+                            <span className="text-emerald-600 dark:text-emerald-400 font-bold block">
                                 {t('vocab.typingModeTitle', 'Chế độ gõ câu trả lời (Typing)')}
                             </span>
                             <span className="text-[11px] text-gray-400 dark:text-gray-500 font-normal">
@@ -42,13 +42,13 @@ const VocabCardSettingsModal = ({
                                 onChange={(e) => setCardSettings(prev => ({ ...prev, reviewType: e.target.checked ? 'typing' : 'flashcard' }))}
                                 className="sr-only peer"
                             />
-                            <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                            <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600"></div>
                         </label>
                     </div>
 
                     {/* Swap sides */}
                     <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                        <span className="text-indigo-600 dark:text-indigo-400 font-bold">
+                        <span className="text-emerald-600 dark:text-emerald-400 font-bold">
                             {t('vocab.swapSides', 'Đổi mặt trước/mặt sau')}
                         </span>
                         <label className="relative inline-flex items-center cursor-pointer">
@@ -58,13 +58,13 @@ const VocabCardSettingsModal = ({
                                 onChange={(e) => setCardSettings(prev => ({ ...prev, swapSides: e.target.checked }))}
                                 className="sr-only peer"
                             />
-                            <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                            <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600"></div>
                         </label>
                     </div>
 
                     {/* Audio enable */}
                     <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                        <span className="text-indigo-600 dark:text-indigo-400 font-bold">
+                        <span className="text-emerald-600 dark:text-emerald-400 font-bold">
                             {t('vocab.playAudio', 'Phát âm thanh từ vựng')}
                         </span>
                         <label className="relative inline-flex items-center cursor-pointer">
@@ -74,13 +74,13 @@ const VocabCardSettingsModal = ({
                                 onChange={(e) => setCardSettings(prev => ({ ...prev, audioEnabled: e.target.checked }))}
                                 className="sr-only peer"
                             />
-                            <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                            <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600"></div>
                         </label>
                     </div>
 
                     {/* Auto play audio on flip */}
                     <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                        <span className="text-indigo-600 dark:text-indigo-400 font-bold">
+                        <span className="text-emerald-600 dark:text-emerald-400 font-bold">
                             {t('vocab.autoPlayAudio', 'Tự động phát âm thanh khi lật')}
                         </span>
                         <label className="relative inline-flex items-center cursor-pointer">
@@ -90,7 +90,7 @@ const VocabCardSettingsModal = ({
                                 onChange={(e) => setCardSettings(prev => ({ ...prev, autoPlayAudio: e.target.checked }))}
                                 className="sr-only peer"
                             />
-                            <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                            <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600"></div>
                         </label>
                     </div>
 
@@ -98,8 +98,8 @@ const VocabCardSettingsModal = ({
                     {cardSettings.reviewType === 'typing' ? (
                         isKoreanMode ? (
                             <>
-                                <div className="bg-indigo-50/80 dark:bg-indigo-950/40 border border-indigo-200/60 dark:border-indigo-800/60 rounded-2xl p-3 text-xs text-indigo-800 dark:text-indigo-300 leading-relaxed space-y-1 mb-2">
-                                    <p className="font-bold flex items-center gap-1.5 text-indigo-900 dark:text-indigo-200">
+                                <div className="bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/60 rounded-2xl p-3 text-xs text-emerald-800 dark:text-emerald-300 leading-relaxed space-y-1 mb-2">
+                                    <p className="font-bold flex items-center gap-1.5 text-emerald-900 dark:text-emerald-200">
                                         <span>⌨️</span> {t('vocab.typingHintsTitle', 'Chế độ gõ từ (Typing):')}
                                     </p>
                                     <p className="text-[11.5px] opacity-90">
@@ -116,7 +116,7 @@ const VocabCardSettingsModal = ({
                                                 type="checkbox"
                                                 checked={cardSettings.front.reading !== false}
                                                 onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, reading: e.target.checked } }))}
-                                                className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                                className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                             />
                                             <span>{t('vocab.romajaHint', 'Phiên âm Romaja (gợi ý)')}</span>
                                         </label>
@@ -125,7 +125,7 @@ const VocabCardSettingsModal = ({
                                                 type="checkbox"
                                                 checked={cardSettings.front.hanviet !== false}
                                                 onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))}
-                                                className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                                className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                             />
                                             <span>{t('vocab.hanhanHint', 'Âm Hán Hàn (gợi ý)')}</span>
                                         </label>
@@ -134,7 +134,7 @@ const VocabCardSettingsModal = ({
                                                 type="checkbox"
                                                 checked={cardSettings.front.pos !== false}
                                                 onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))}
-                                                className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                                className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                             />
                                             <span>{t('vocab.posHint', 'Từ loại (Danh từ, Động từ...) (gợi ý)')}</span>
                                         </label>
@@ -143,8 +143,8 @@ const VocabCardSettingsModal = ({
                             </>
                         ) : isEnglishMode ? (
                             <>
-                                <div className="bg-indigo-50/80 dark:bg-indigo-950/40 border border-indigo-200/60 dark:border-indigo-800/60 rounded-2xl p-3 text-xs text-indigo-800 dark:text-indigo-300 leading-relaxed space-y-1 mb-2">
-                                    <p className="font-bold flex items-center gap-1.5 text-indigo-900 dark:text-indigo-200">
+                                <div className="bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/60 rounded-2xl p-3 text-xs text-emerald-800 dark:text-emerald-300 leading-relaxed space-y-1 mb-2">
+                                    <p className="font-bold flex items-center gap-1.5 text-emerald-900 dark:text-emerald-200">
                                         <span>⌨️</span> {t('vocab.typingHintsTitle', 'Chế độ gõ từ (Typing):')}
                                     </p>
                                     <p className="text-[11.5px] opacity-90">
@@ -161,7 +161,7 @@ const VocabCardSettingsModal = ({
                                                 type="checkbox"
                                                 checked={cardSettings.front.ipa !== false}
                                                 onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, ipa: e.target.checked } }))}
-                                                className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                                className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                             />
                                             <span>{t('vocab.ipaHint', 'Phiên âm IPA (gợi ý)')}</span>
                                         </label>
@@ -170,7 +170,7 @@ const VocabCardSettingsModal = ({
                                                 type="checkbox"
                                                 checked={cardSettings.front.pos !== false}
                                                 onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))}
-                                                className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                                className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                             />
                                             <span>{t('vocab.posHint', 'Từ loại (Noun, Verb...) (gợi ý)')}</span>
                                         </label>
@@ -179,8 +179,8 @@ const VocabCardSettingsModal = ({
                             </>
                         ) : (
                             <>
-                                <div className="bg-indigo-50/80 dark:bg-indigo-950/40 border border-indigo-200/60 dark:border-indigo-800/60 rounded-2xl p-3 text-xs text-indigo-800 dark:text-indigo-300 leading-relaxed space-y-1 mb-2">
-                                    <p className="font-bold flex items-center gap-1.5 text-indigo-900 dark:text-indigo-200">
+                                <div className="bg-emerald-50/80 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/60 rounded-2xl p-3 text-xs text-emerald-800 dark:text-emerald-300 leading-relaxed space-y-1 mb-2">
+                                    <p className="font-bold flex items-center gap-1.5 text-emerald-900 dark:text-emerald-200">
                                         <span>⌨️</span> {t('vocab.typingHintsTitle', 'Chế độ gõ từ (Typing):')}
                                     </p>
                                     <p className="text-[11.5px] opacity-90">
@@ -197,7 +197,7 @@ const VocabCardSettingsModal = ({
                                                 type="checkbox"
                                                 checked={cardSettings.front.hanviet}
                                                 onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))}
-                                                className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                                className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                             />
                                             <span>{t('vocab.hanvietHint', 'Âm Hán Việt (gợi ý)')}</span>
                                         </label>
@@ -217,7 +217,7 @@ const VocabCardSettingsModal = ({
                                             type="checkbox"
                                             checked={cardSettings.front.word !== false}
                                             onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))}
-                                            className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                            className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                         />
                                         <span>{t('vocab.koreanWord', 'Từ vựng tiếng Hàn (Hangul)')}</span>
                                     </label>
@@ -226,7 +226,7 @@ const VocabCardSettingsModal = ({
                                             type="checkbox"
                                             checked={cardSettings.front.reading !== false}
                                             onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, reading: e.target.checked } }))}
-                                            className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                            className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                         />
                                         <span>{t('vocab.romaja', 'Phiên âm Romaja')}</span>
                                     </label>
@@ -235,7 +235,7 @@ const VocabCardSettingsModal = ({
                                             type="checkbox"
                                             checked={cardSettings.front.hanviet}
                                             onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))}
-                                            className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                            className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                         />
                                         <span>{t('vocab.hanhan', 'Âm Hán Hàn')}</span>
                                     </label>
@@ -244,7 +244,7 @@ const VocabCardSettingsModal = ({
                                             type="checkbox"
                                             checked={cardSettings.front.pos !== false}
                                             onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))}
-                                            className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                            className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                         />
                                         <span>{t('vocab.partOfSpeech', 'Từ loại (Danh từ, Động từ...)')}</span>
                                     </label>
@@ -261,7 +261,7 @@ const VocabCardSettingsModal = ({
                                             type="checkbox"
                                             checked={cardSettings.front.word !== false}
                                             onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))}
-                                            className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                            className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                         />
                                         <span>{t('vocab.englishWord', 'Từ vựng tiếng Anh')}</span>
                                     </label>
@@ -270,7 +270,7 @@ const VocabCardSettingsModal = ({
                                             type="checkbox"
                                             checked={cardSettings.front.ipa !== false}
                                             onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, ipa: e.target.checked } }))}
-                                            className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                            className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                         />
                                         <span>{t('vocab.ipa', 'Phiên âm quốc tế IPA')}</span>
                                     </label>
@@ -279,7 +279,7 @@ const VocabCardSettingsModal = ({
                                             type="checkbox"
                                             checked={cardSettings.front.pos !== false}
                                             onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, pos: e.target.checked } }))}
-                                            className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                            className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                         />
                                         <span>{t('vocab.partOfSpeech', 'Từ loại (Noun, Verb...)')}</span>
                                     </label>
@@ -296,7 +296,7 @@ const VocabCardSettingsModal = ({
                                             type="checkbox"
                                             checked={cardSettings.front.word}
                                             onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, word: e.target.checked } }))}
-                                            className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                            className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                         />
                                         <span>{t('vocab.kanjiWord', 'Chữ Hán / Từ vựng')}</span>
                                     </label>
@@ -305,7 +305,7 @@ const VocabCardSettingsModal = ({
                                             type="checkbox"
                                             checked={cardSettings.front.furigana}
                                             onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, furigana: e.target.checked } }))}
-                                            className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                            className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                         />
                                         <span>{t('vocab.furigana', 'Phiên âm Furigana')}</span>
                                     </label>
@@ -314,7 +314,7 @@ const VocabCardSettingsModal = ({
                                             type="checkbox"
                                             checked={cardSettings.front.hanviet}
                                             onChange={(e) => setCardSettings(prev => ({ ...prev, front: { ...prev.front, hanviet: e.target.checked } }))}
-                                            className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                            className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                         />
                                         <span>{t('vocab.hanviet', 'Âm Hán Việt')}</span>
                                     </label>
@@ -335,7 +335,7 @@ const VocabCardSettingsModal = ({
                                         type="checkbox"
                                         checked={cardSettings.back.meaning !== false}
                                         onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))}
-                                        className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                        className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                     />
                                     <span>{t('vocab.meaning', 'Nghĩa')}</span>
                                 </label>
@@ -344,7 +344,7 @@ const VocabCardSettingsModal = ({
                                         type="checkbox"
                                         checked={cardSettings.back.reading !== false}
                                         onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))}
-                                        className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                        className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                     />
                                     <span>{t('vocab.romaja', 'Phiên âm Romaja')}</span>
                                 </label>
@@ -353,7 +353,7 @@ const VocabCardSettingsModal = ({
                                         type="checkbox"
                                         checked={cardSettings.back.hanviet}
                                         onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))}
-                                        className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                        className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                     />
                                     <span>{t('vocab.hanhan', 'Âm Hán Hàn')}</span>
                                 </label>
@@ -362,7 +362,7 @@ const VocabCardSettingsModal = ({
                                         type="checkbox"
                                         checked={cardSettings.back.pos !== false}
                                         onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, pos: e.target.checked } }))}
-                                        className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                        className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                     />
                                     <span>{t('vocab.partOfSpeech', 'Từ loại (Danh từ, Động từ...)')}</span>
                                 </label>
@@ -371,7 +371,7 @@ const VocabCardSettingsModal = ({
                                         type="checkbox"
                                         checked={cardSettings.back.synonym}
                                         onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))}
-                                        className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                        className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                     />
                                     <span>{t('vocab.synonym', 'Từ đồng nghĩa / Trái nghĩa')}</span>
                                 </label>
@@ -380,7 +380,7 @@ const VocabCardSettingsModal = ({
                                         type="checkbox"
                                         checked={cardSettings.back.example}
                                         onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))}
-                                        className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                        className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                     />
                                     <span>{t('vocab.example', 'Câu ví dụ')}</span>
                                 </label>
@@ -391,7 +391,7 @@ const VocabCardSettingsModal = ({
                                                 type="checkbox"
                                                 checked={cardSettings.back.exampleMeaning !== false}
                                                 onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))}
-                                                className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                                className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                             />
                                             <span className="text-gray-500 dark:text-gray-400">{t('vocab.exampleMeaning', 'Dịch câu ví dụ')}</span>
                                         </label>
@@ -402,7 +402,7 @@ const VocabCardSettingsModal = ({
                                         type="checkbox"
                                         checked={cardSettings.back.image !== false}
                                         onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))}
-                                        className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                        className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                     />
                                     <span>{t('vocab.illustrationImage', 'Hình ảnh minh họa')}</span>
                                 </label>
@@ -419,7 +419,7 @@ const VocabCardSettingsModal = ({
                                         type="checkbox"
                                         checked={cardSettings.back.meaning !== false}
                                         onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))}
-                                        className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                        className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                     />
                                     <span>{t('vocab.meaning', 'Nghĩa')}</span>
                                 </label>
@@ -428,7 +428,7 @@ const VocabCardSettingsModal = ({
                                         type="checkbox"
                                         checked={cardSettings.back.ipa !== false}
                                         onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, ipa: e.target.checked } }))}
-                                        className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                        className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                     />
                                     <span>{t('vocab.ipa', 'Phiên âm quốc tế IPA')}</span>
                                 </label>
@@ -437,7 +437,7 @@ const VocabCardSettingsModal = ({
                                         type="checkbox"
                                         checked={cardSettings.back.pos !== false}
                                         onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, pos: e.target.checked } }))}
-                                        className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                        className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                     />
                                     <span>{t('vocab.partOfSpeech', 'Từ loại (Noun, Verb...)')}</span>
                                 </label>
@@ -446,7 +446,7 @@ const VocabCardSettingsModal = ({
                                         type="checkbox"
                                         checked={cardSettings.back.synonym}
                                         onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))}
-                                        className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                        className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                     />
                                     <span>{t('vocab.synonym', 'Từ đồng nghĩa / Trái nghĩa')}</span>
                                 </label>
@@ -455,7 +455,7 @@ const VocabCardSettingsModal = ({
                                         type="checkbox"
                                         checked={cardSettings.back.example}
                                         onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))}
-                                        className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                        className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                     />
                                     <span>{t('vocab.example', 'Câu ví dụ')}</span>
                                 </label>
@@ -466,7 +466,7 @@ const VocabCardSettingsModal = ({
                                                 type="checkbox"
                                                 checked={cardSettings.back.exampleMeaning !== false}
                                                 onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))}
-                                                className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                                className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                             />
                                             <span className="text-gray-500 dark:text-gray-400">{t('vocab.exampleMeaning', 'Dịch câu ví dụ')}</span>
                                         </label>
@@ -477,7 +477,7 @@ const VocabCardSettingsModal = ({
                                         type="checkbox"
                                         checked={cardSettings.back.image !== false}
                                         onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))}
-                                        className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                        className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                     />
                                     <span>{t('vocab.illustrationImage', 'Hình ảnh minh họa')}</span>
                                 </label>
@@ -494,7 +494,7 @@ const VocabCardSettingsModal = ({
                                         type="checkbox"
                                         checked={cardSettings.back.meaning}
                                         onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, meaning: e.target.checked } }))}
-                                        className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                        className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                     />
                                     <span>{t('vocab.meaning', 'Nghĩa')}</span>
                                 </label>
@@ -503,7 +503,7 @@ const VocabCardSettingsModal = ({
                                         type="checkbox"
                                         checked={cardSettings.back.furigana !== false}
                                         onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, furigana: e.target.checked } }))}
-                                        className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                        className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                     />
                                     <span>{t('vocab.furigana', 'Phiên âm Furigana')}</span>
                                 </label>
@@ -512,7 +512,7 @@ const VocabCardSettingsModal = ({
                                         type="checkbox"
                                         checked={cardSettings.back.reading}
                                         onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, reading: e.target.checked } }))}
-                                        className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                        className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                     />
                                     <span>{t('vocab.readingHiragana', 'Cách đọc (Hiragana)')}</span>
                                 </label>
@@ -521,7 +521,7 @@ const VocabCardSettingsModal = ({
                                         type="checkbox"
                                         checked={cardSettings.back.hanviet}
                                         onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, hanviet: e.target.checked } }))}
-                                        className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                        className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                     />
                                     <span>{t('vocab.hanviet', 'Âm Hán Việt')}</span>
                                 </label>
@@ -530,7 +530,7 @@ const VocabCardSettingsModal = ({
                                         type="checkbox"
                                         checked={cardSettings.back.synonym}
                                         onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonym: e.target.checked } }))}
-                                        className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                        className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                     />
                                     <span>{t('vocab.synonym', 'Đồng nghĩa')}</span>
                                 </label>
@@ -541,7 +541,7 @@ const VocabCardSettingsModal = ({
                                                 type="checkbox"
                                                 checked={cardSettings.back.synonymFurigana !== false}
                                                 onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, synonymFurigana: e.target.checked } }))}
-                                                className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                                className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                             />
                                             <span className="text-gray-500 dark:text-gray-400">{t('vocab.synonymFurigana', 'Furigana đồng nghĩa')}</span>
                                         </label>
@@ -552,7 +552,7 @@ const VocabCardSettingsModal = ({
                                         type="checkbox"
                                         checked={cardSettings.back.example}
                                         onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, example: e.target.checked } }))}
-                                        className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                        className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                     />
                                     <span>{t('vocab.example', 'Ví dụ')}</span>
                                 </label>
@@ -563,7 +563,7 @@ const VocabCardSettingsModal = ({
                                                 type="checkbox"
                                                 checked={cardSettings.back.exampleFurigana !== false}
                                                 onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleFurigana: e.target.checked } }))}
-                                                className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                                className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                             />
                                             <span className="text-gray-500 dark:text-gray-400">{t('vocab.exampleFurigana', 'Furigana ví dụ')}</span>
                                         </label>
@@ -572,7 +572,7 @@ const VocabCardSettingsModal = ({
                                                 type="checkbox"
                                                 checked={cardSettings.back.exampleMeaning !== false}
                                                 onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, exampleMeaning: e.target.checked } }))}
-                                                className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                                className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                             />
                                             <span className="text-gray-500 dark:text-gray-400">{t('vocab.exampleMeaning', 'Dịch câu ví dụ')}</span>
                                         </label>
@@ -583,7 +583,7 @@ const VocabCardSettingsModal = ({
                                         type="checkbox"
                                         checked={cardSettings.back.image !== false}
                                         onChange={(e) => setCardSettings(prev => ({ ...prev, back: { ...prev.back, image: e.target.checked } }))}
-                                        className="rounded border-gray-300 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 focus:ring-indigo-500 w-4 h-4"
+                                        className="rounded border-gray-300 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 focus:ring-emerald-500 w-4 h-4"
                                     />
                                     <span>{t('vocab.illustrationImage', 'Hình ảnh minh họa')}</span>
                                 </label>

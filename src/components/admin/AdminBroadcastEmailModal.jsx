@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
-import { 
-    X, Mail, Send, Eye, Edit3, Users, CheckCircle2, 
-    AlertCircle, Loader2, StopCircle, RefreshCw, ShieldCheck, 
+import {
+    X, Mail, Send, Eye, Edit3, Users, CheckCircle2,
+    AlertCircle, Loader2, StopCircle, RefreshCw, ShieldCheck,
     Layers, Calendar, ChevronRight, Info, Check, ListFilter
 } from 'lucide-react';
 import { buildBroadcastHtmlTemplate, sendCustomEmail } from '../../utils/email';
@@ -16,7 +16,7 @@ const TEMPLATES = [
         subject: '🚀 [Thông báo] QuizKi chính thức nâng cấp sang tên miền mới: Quizki.space',
         bannerTitle: '🚀 QuizKi Nâng Cấp Tên Miền Mới!',
         bannerSubtitle: 'Trải nghiệm học tiếng Nhật mượt mà, tốc độ cao và ổn định hơn',
-        bannerGradient: 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)',
+        bannerGradient: 'linear-gradient(135deg, #059669 0%, #7c3aed 100%)',
         greeting: 'Xin chào các bạn học viên QuizKi thân mến,',
         bodyText: `Để nâng cao chất lượng dịch vụ, tối ưu tốc độ máy chủ và phục vụ tốt hơn cho các tính năng mới trong lộ trình phát triển, đội ngũ QuizKi xin trân trọng thông báo ứng dụng đã chính thức chuyển sang tên miền quốc tế mới:\n\n🌐 Địa chỉ truy cập chính thức: https://quizki.space\n\n📌 Những lưu ý quan trọng dành cho bạn:\n• Dữ liệu học tập: Toàn bộ tiến độ, kho từ vựng và tài khoản của bạn được bảo toàn nguyên vẹn 100% trên đám mây.\n• Đăng nhập: Bạn chỉ cần truy cập link mới https://quizki.space và đăng nhập lại bằng tài khoản Google/Email như bình thường.\n• Nếu đã cài đặt App ra màn hình điện thoại (PWA): Vui lòng gỡ icon cũ và mở link mới để chọn "Thêm vào màn hình chính" lại nhé.`,
         buttonText: 'Truy cập QuizKi.space ngay →',
@@ -68,7 +68,7 @@ const TEMPLATES = [
         subject: '',
         bannerTitle: 'Thông Báo Từ QuizKi',
         bannerSubtitle: '',
-        bannerGradient: 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)',
+        bannerGradient: 'linear-gradient(135deg, #059669 0%, #7c3aed 100%)',
         greeting: 'Chào bạn,',
         bodyText: '',
         buttonText: 'Truy cập QuizKi',
@@ -78,7 +78,7 @@ const TEMPLATES = [
 ];
 
 const GRADIENT_PRESETS = [
-    { label: 'Tím Indigo', value: 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)' },
+    { label: 'Xanh Teal', value: 'linear-gradient(135deg, #0d9488 0%, #14b8a6 100%)' },
     { label: 'Xanh Emerald', value: 'linear-gradient(135deg, #059669 0%, #10b981 100%)' },
     { label: 'Cam Amber', value: 'linear-gradient(135deg, #d97706 0%, #f59e0b 100%)' },
     { label: 'Đỏ Ruby', value: 'linear-gradient(135deg, #dc2626 0%, #f43f5e 100%)' },
@@ -87,17 +87,17 @@ const GRADIENT_PRESETS = [
 
 const DEFAULT_BATCH_SIZE = 80; // Khuyến nghị 80 mail/đợt để an toàn dưới giới hạn 100 mail/ngày của Resend Free
 
-export default function AdminBroadcastEmailModal({ 
-    isOpen, 
-    onClose, 
-    users = [], 
+export default function AdminBroadcastEmailModal({
+    isOpen,
+    onClose,
+    users = [],
     getUserActivePlan,
-    currentAdminEmail = '' 
+    currentAdminEmail = ''
 }) {
     const [selectedTemplate, setSelectedTemplate] = useState('domain_upgrade');
     const [audience, setAudience] = useState('all'); // 'all' | 'premium' | 'free' | 'test'
     const [testEmail, setTestEmail] = useState(currentAdminEmail || '');
-    
+
     // Batching Settings (Chia đợt gửi)
     const [enableBatching, setEnableBatching] = useState(true);
     const [batchSize, setBatchSize] = useState(DEFAULT_BATCH_SIZE);
@@ -121,7 +121,7 @@ export default function AdminBroadcastEmailModal({
     const [sending, setSending] = useState(false);
     const [sendProgress, setSendProgress] = useState({ current: 0, total: 0, success: 0, failed: 0, isDone: false });
     const [sendLogs, setSendLogs] = useState([]);
-    
+
     const abortRef = useRef(false);
 
     // Load last sent batch info from localStorage
@@ -259,7 +259,7 @@ export default function AdminBroadcastEmailModal({
             return;
         }
 
-        const currentBatchInfo = enableBatching && batches[selectedBatchIndex] 
+        const currentBatchInfo = enableBatching && batches[selectedBatchIndex]
             ? ` (Đợt ${batches[selectedBatchIndex].batchNumber}: #${batches[selectedBatchIndex].startNum} - #${batches[selectedBatchIndex].endNum})`
             : '';
 
@@ -347,11 +347,11 @@ export default function AdminBroadcastEmailModal({
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-3 sm:p-4 overflow-y-auto">
             <div className="bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl w-full max-w-5xl max-h-[94vh] flex flex-col shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200">
-                
+
                 {/* Header */}
                 <div className="flex items-center justify-between px-6 py-4 border-b border-gray-100 dark:border-gray-800 bg-slate-50/50 dark:bg-gray-800/50">
                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-indigo-500/10 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold">
+                        <div className="w-10 h-10 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">
                             <Mail className="w-5 h-5" />
                         </div>
                         <div>
@@ -369,22 +369,20 @@ export default function AdminBroadcastEmailModal({
                         <div className="flex items-center bg-gray-200 dark:bg-gray-800 p-1 rounded-xl text-xs font-semibold">
                             <button
                                 onClick={() => setActiveTab('edit')}
-                                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
-                                    activeTab === 'edit'
+                                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${activeTab === 'edit'
                                         ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm'
                                         : 'text-gray-500 hover:text-gray-900 dark:text-gray-400'
-                                }`}
+                                    }`}
                             >
                                 <Edit3 className="w-3.5 h-3.5" />
                                 Soạn thảo
                             </button>
                             <button
                                 onClick={() => setActiveTab('preview')}
-                                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${
-                                    activeTab === 'preview'
+                                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg transition-all ${activeTab === 'preview'
                                         ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm'
                                         : 'text-gray-500 hover:text-gray-900 dark:text-gray-400'
-                                }`}
+                                    }`}
                             >
                                 <Eye className="w-3.5 h-3.5" />
                                 Xem trước
@@ -405,10 +403,10 @@ export default function AdminBroadcastEmailModal({
                 <div className="flex-1 overflow-y-auto p-6 space-y-6">
                     {activeTab === 'edit' ? (
                         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-                            
+
                             {/* Left Settings Column */}
                             <div className="lg:col-span-5 space-y-4">
-                                
+
                                 {/* Template Selector */}
                                 <div>
                                     <label className="block text-xs font-bold text-gray-600 dark:text-gray-300 uppercase tracking-wider mb-2">
@@ -417,7 +415,7 @@ export default function AdminBroadcastEmailModal({
                                     <select
                                         value={selectedTemplate}
                                         onChange={(e) => handleTemplateChange(e.target.value)}
-                                        className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm font-medium text-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-indigo-500 outline-none"
+                                        className="w-full px-3.5 py-2.5 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-sm font-medium text-gray-800 dark:text-gray-100 focus:ring-2 focus:ring-emerald-500 outline-none"
                                     >
                                         {TEMPLATES.map(t => (
                                             <option key={t.id} value={t.id}>{t.name}</option>
@@ -440,11 +438,10 @@ export default function AdminBroadcastEmailModal({
                                         <button
                                             type="button"
                                             onClick={() => { setAudience('all'); setSelectedBatchIndex(0); }}
-                                            className={`p-2.5 rounded-lg border font-semibold text-left transition-all ${
-                                                audience === 'all'
-                                                    ? 'border-indigo-500 bg-indigo-50/50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 shadow-sm'
+                                            className={`p-2.5 rounded-lg border font-semibold text-left transition-all ${audience === 'all'
+                                                    ? 'border-emerald-500 bg-emerald-50/50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 shadow-sm'
                                                     : 'border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50'
-                                            }`}
+                                                }`}
                                         >
                                             👥 Tất cả ({audiencePool.allCount})
                                         </button>
@@ -452,11 +449,10 @@ export default function AdminBroadcastEmailModal({
                                         <button
                                             type="button"
                                             onClick={() => { setAudience('premium'); setSelectedBatchIndex(0); }}
-                                            className={`p-2.5 rounded-lg border font-semibold text-left transition-all ${
-                                                audience === 'premium'
-                                                    ? 'border-indigo-500 bg-indigo-50/50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 shadow-sm'
+                                            className={`p-2.5 rounded-lg border font-semibold text-left transition-all ${audience === 'premium'
+                                                    ? 'border-emerald-500 bg-emerald-50/50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 shadow-sm'
                                                     : 'border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50'
-                                            }`}
+                                                }`}
                                         >
                                             💎 Premium ({audiencePool.premiumCount})
                                         </button>
@@ -464,11 +460,10 @@ export default function AdminBroadcastEmailModal({
                                         <button
                                             type="button"
                                             onClick={() => { setAudience('free'); setSelectedBatchIndex(0); }}
-                                            className={`p-2.5 rounded-lg border font-semibold text-left transition-all ${
-                                                audience === 'free'
-                                                    ? 'border-indigo-500 bg-indigo-50/50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 shadow-sm'
+                                            className={`p-2.5 rounded-lg border font-semibold text-left transition-all ${audience === 'free'
+                                                    ? 'border-emerald-500 bg-emerald-50/50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 shadow-sm'
                                                     : 'border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50'
-                                            }`}
+                                                }`}
                                         >
                                             🌱 Free ({audiencePool.freeCount})
                                         </button>
@@ -476,11 +471,10 @@ export default function AdminBroadcastEmailModal({
                                         <button
                                             type="button"
                                             onClick={() => setAudience('test')}
-                                            className={`p-2.5 rounded-lg border font-semibold text-left transition-all ${
-                                                audience === 'test'
-                                                    ? 'border-indigo-500 bg-indigo-50/50 dark:bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 shadow-sm'
+                                            className={`p-2.5 rounded-lg border font-semibold text-left transition-all ${audience === 'test'
+                                                    ? 'border-emerald-500 bg-emerald-50/50 dark:bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 shadow-sm'
                                                     : 'border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700/50'
-                                            }`}
+                                                }`}
                                         >
                                             🧪 Gửi thử nghiệm
                                         </button>
@@ -493,7 +487,7 @@ export default function AdminBroadcastEmailModal({
                                                 placeholder="Nhập email nhận thử nghiệm..."
                                                 value={testEmail}
                                                 onChange={(e) => setTestEmail(e.target.value)}
-                                                className="w-full px-3 py-2 text-xs rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500"
+                                                className="w-full px-3 py-2 text-xs rounded-lg border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-900 text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-emerald-500"
                                             />
                                         </div>
                                     )}
@@ -509,9 +503,9 @@ export default function AdminBroadcastEmailModal({
                                             </div>
 
                                             <label className="relative inline-flex items-center cursor-pointer">
-                                                <input 
-                                                    type="checkbox" 
-                                                    checked={enableBatching} 
+                                                <input
+                                                    type="checkbox"
+                                                    checked={enableBatching}
                                                     onChange={(e) => setEnableBatching(e.target.checked)}
                                                     className="sr-only peer"
                                                 />
@@ -540,18 +534,17 @@ export default function AdminBroadcastEmailModal({
                                                     <label className="block text-[11px] font-bold text-gray-600 dark:text-gray-300">
                                                         Chọn đợt muốn gửi hôm nay:
                                                     </label>
-                                                    
+
                                                     <div className="space-y-1.5 max-h-36 overflow-y-auto pr-1">
                                                         {batches.map((b, idx) => (
                                                             <button
                                                                 key={idx}
                                                                 type="button"
                                                                 onClick={() => setSelectedBatchIndex(idx)}
-                                                                className={`w-full p-2 rounded-lg border text-xs font-semibold flex items-center justify-between transition-all ${
-                                                                    selectedBatchIndex === idx
+                                                                className={`w-full p-2 rounded-lg border text-xs font-semibold flex items-center justify-between transition-all ${selectedBatchIndex === idx
                                                                         ? 'border-amber-500 bg-amber-100/70 dark:bg-amber-900/40 text-amber-900 dark:text-amber-200 shadow-sm'
                                                                         : 'border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-amber-50/50'
-                                                                }`}
+                                                                    }`}
                                                             >
                                                                 <span className="flex items-center gap-1.5">
                                                                     <Calendar className="w-3.5 h-3.5 text-amber-600" />
@@ -569,7 +562,7 @@ export default function AdminBroadcastEmailModal({
                                                 <button
                                                     type="button"
                                                     onClick={() => setShowRecipientList(!showRecipientList)}
-                                                    className="text-[11px] font-bold text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-1"
+                                                    className="text-[11px] font-bold text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1"
                                                 >
                                                     <ListFilter className="w-3 h-3" />
                                                     {showRecipientList ? 'Ẩn danh sách người nhận' : `Xem danh sách ${targetRecipients.length} email đợt này`}
@@ -605,9 +598,8 @@ export default function AdminBroadcastEmailModal({
                                                 type="button"
                                                 onClick={() => setBannerGradient(p.value)}
                                                 style={{ background: p.value }}
-                                                className={`px-3 py-1.5 rounded-lg text-xs font-bold text-white shadow-sm transition-transform ${
-                                                    bannerGradient === p.value ? 'ring-2 ring-indigo-500 scale-105' : 'opacity-80 hover:opacity-100'
-                                                }`}
+                                                className={`px-3 py-1.5 rounded-lg text-xs font-bold text-white shadow-sm transition-transform ${bannerGradient === p.value ? 'ring-2 ring-emerald-500 scale-105' : 'opacity-80 hover:opacity-100'
+                                                    }`}
                                             >
                                                 {p.label}
                                             </button>
@@ -626,7 +618,7 @@ export default function AdminBroadcastEmailModal({
                                             value={buttonText}
                                             onChange={(e) => setButtonText(e.target.value)}
                                             placeholder="Ví dụ: Truy cập QuizKi.space ngay →"
-                                            className="w-full px-3.5 py-2 text-sm rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500"
+                                            className="w-full px-3.5 py-2 text-sm rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-emerald-500"
                                         />
                                     </div>
 
@@ -639,7 +631,7 @@ export default function AdminBroadcastEmailModal({
                                             value={buttonUrl}
                                             onChange={(e) => setButtonUrl(e.target.value)}
                                             placeholder="https://quizki.space"
-                                            className="w-full px-3.5 py-2 text-sm rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500 font-mono text-xs"
+                                            className="w-full px-3.5 py-2 text-sm rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-emerald-500 font-mono text-xs"
                                         />
                                     </div>
                                 </div>
@@ -656,7 +648,7 @@ export default function AdminBroadcastEmailModal({
                                         value={subject}
                                         onChange={(e) => setSubject(e.target.value)}
                                         placeholder="Ví dụ: 🚀 [Thông báo] QuizKi chính thức nâng cấp sang tên miền mới..."
-                                        className="w-full px-3.5 py-2.5 text-sm font-semibold rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500"
+                                        className="w-full px-3.5 py-2.5 text-sm font-semibold rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-emerald-500"
                                     />
                                 </div>
 
@@ -670,7 +662,7 @@ export default function AdminBroadcastEmailModal({
                                             value={bannerTitle}
                                             onChange={(e) => setBannerTitle(e.target.value)}
                                             placeholder="🚀 QuizKi Nâng Cấp..."
-                                            className="w-full px-3.5 py-2 text-sm rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500"
+                                            className="w-full px-3.5 py-2 text-sm rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-emerald-500"
                                         />
                                     </div>
 
@@ -683,7 +675,7 @@ export default function AdminBroadcastEmailModal({
                                             value={bannerSubtitle}
                                             onChange={(e) => setBannerSubtitle(e.target.value)}
                                             placeholder="Trải nghiệm học mượt mà..."
-                                            className="w-full px-3.5 py-2 text-sm rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500"
+                                            className="w-full px-3.5 py-2 text-sm rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-emerald-500"
                                         />
                                     </div>
                                 </div>
@@ -697,7 +689,7 @@ export default function AdminBroadcastEmailModal({
                                         value={greeting}
                                         onChange={(e) => setGreeting(e.target.value)}
                                         placeholder="Xin chào các bạn học viên QuizKi thân mến,"
-                                        className="w-full px-3.5 py-2 text-sm rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500"
+                                        className="w-full px-3.5 py-2 text-sm rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-emerald-500"
                                     />
                                 </div>
 
@@ -710,7 +702,7 @@ export default function AdminBroadcastEmailModal({
                                         value={bodyText}
                                         onChange={(e) => setBodyText(e.target.value)}
                                         placeholder="Nhập nội dung thông điệp bạn muốn gửi..."
-                                        className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500 font-sans leading-relaxed"
+                                        className="w-full px-3.5 py-2.5 text-sm rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-emerald-500 font-sans leading-relaxed"
                                     />
                                 </div>
 
@@ -723,7 +715,7 @@ export default function AdminBroadcastEmailModal({
                                         value={footerText}
                                         onChange={(e) => setFooterText(e.target.value)}
                                         placeholder="Chúc bạn học tốt..."
-                                        className="w-full px-3.5 py-2 text-xs rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-indigo-500"
+                                        className="w-full px-3.5 py-2 text-xs rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white outline-none focus:ring-2 focus:ring-emerald-500"
                                     />
                                 </div>
                             </div>
@@ -735,7 +727,7 @@ export default function AdminBroadcastEmailModal({
                                 <span>📧 Tiêu đề hiển thị: <strong className="text-gray-800 dark:text-white">{subject || '(Chưa có tiêu đề)'}</strong></span>
                                 <span>Người gửi: <strong>noreply@quizki.space</strong></span>
                             </div>
-                            <div 
+                            <div
                                 className="border border-gray-200 dark:border-gray-700 rounded-2xl shadow-lg overflow-hidden bg-white"
                                 dangerouslySetInnerHTML={{ __html: renderedHtml }}
                             />
@@ -748,7 +740,7 @@ export default function AdminBroadcastEmailModal({
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center gap-2">
                                     {sending ? (
-                                        <Loader2 className="w-5 h-5 text-indigo-400 animate-spin" />
+                                        <Loader2 className="w-5 h-5 text-emerald-400 animate-spin" />
                                     ) : (
                                         <CheckCircle2 className="w-5 h-5 text-emerald-400" />
                                     )}
@@ -764,8 +756,8 @@ export default function AdminBroadcastEmailModal({
 
                             {/* Progress Bar */}
                             <div className="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
-                                <div 
-                                    className="h-full bg-gradient-to-r from-indigo-500 to-emerald-400 transition-all duration-300"
+                                <div
+                                    className="h-full bg-gradient-to-r from-emerald-500 to-emerald-400 transition-all duration-300"
                                     style={{ width: `${Math.round((sendProgress.current / (sendProgress.total || 1)) * 100)}%` }}
                                 />
                             </div>
@@ -808,7 +800,7 @@ export default function AdminBroadcastEmailModal({
                             type="button"
                             onClick={handleStartBroadcast}
                             disabled={sending || targetRecipients.length === 0}
-                            className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white font-bold text-sm shadow-md hover:shadow-indigo-500/25 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+                            className="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-emerald-700 hover:from-emerald-500 hover:to-emerald-600 text-white font-bold text-sm shadow-md hover:shadow-emerald-500/25 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
                         >
                             {sending ? (
                                 <>
@@ -818,8 +810,8 @@ export default function AdminBroadcastEmailModal({
                             ) : (
                                 <>
                                     <Send className="w-4 h-4" />
-                                    {audience === 'test' 
-                                        ? 'Gửi thử nghiệm' 
+                                    {audience === 'test'
+                                        ? 'Gửi thử nghiệm'
                                         : enableBatching && batches[selectedBatchIndex]
                                             ? `Gửi Đợt ${batches[selectedBatchIndex].batchNumber} (${targetRecipients.length} email)`
                                             : `Gửi tới ${targetRecipients.length} người nhận`

@@ -57,8 +57,8 @@ const getSrsCycleLabel = (card, t) => {
 
     // REVIEW state - interval is in days
     const days = normalized.interval || 1;
-    if (days < 30) return t ? `${days} ${t('intervals.days')}` : `${days} ngày`;
-    return t ? `${Math.round(days / 30)} ${t('intervals.months')}` : `${Math.round(days / 30)} tháng`;
+    if (days < 30) return t ? `${days} ${t('common.days', 'ngày')}` : `${days} ngày`;
+    return t ? `${Math.round(days / 30)} ${t('common.months', 'tháng')}` : `${Math.round(days / 30)} tháng`;
 };
 
 const InlineEditCell = ({ value, onSave, className = '', isJapanese = false, placeholder = '' }) => {
@@ -1298,7 +1298,7 @@ const StudySetDetail = ({
                                         <div className="absolute top-2.5 right-2.5 w-5 h-5 rounded-full bg-emerald-500 flex items-center justify-center shadow-xs">
                                             <Check className="w-3 h-3 text-white" strokeWidth={3} />
                                         </div>
-                                        <div className="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 flex items-center justify-center mb-2"><Edit2 className="w-6 h-6 text-indigo-500" /></div>
+                                        <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center mb-2"><Edit2 className="w-6 h-6 text-emerald-500" /></div>
                                         <span className="font-bold text-sm text-slate-400 dark:text-slate-500 text-center">{t('studyModes.meaning')}</span>
                                         <span className="text-[11px] text-emerald-600 dark:text-emerald-400 mt-0.5 font-bold text-center">{t('common.completed')}</span>
                                         <button
@@ -1315,12 +1315,12 @@ const StudySetDetail = ({
                                         </button>
                                     </div>
                                 ) : (
-                                    <button onClick={() => onMeaningSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 hover:border-indigo-300 dark:hover:border-indigo-700 active:translate-y-0.5 active:border-b-2 shadow-xs transition-all group relative cursor-pointer select-none">
+                                    <button onClick={() => onMeaningSet(folderId)} className="flex flex-col items-center justify-center p-5 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 hover:border-emerald-300 dark:hover:border-emerald-700 active:translate-y-0.5 active:border-b-2 shadow-xs transition-all group relative cursor-pointer select-none">
                                         {progressStates.meaning_input && (
-                                            <div className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-indigo-500 text-[9px] text-white font-bold uppercase tracking-wider">
+                                            <div className="absolute top-2.5 right-2.5 px-2 py-0.5 rounded-full bg-emerald-500 text-[9px] text-white font-bold uppercase tracking-wider">
                                                 {t('vocab.learning')}</div>
                                         )}
-                                        <div className="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-800/40 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform"><Edit2 className="w-6 h-6 text-indigo-500" /></div>
+                                        <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-100 dark:border-emerald-800/40 flex items-center justify-center mb-2 group-hover:scale-105 transition-transform"><Edit2 className="w-6 h-6 text-emerald-500" /></div>
                                         <span className="font-extrabold text-sm text-slate-900 dark:text-white text-center">{t('studyModes.meaning')}</span>
                                         <span className="text-[11px] text-slate-400 mt-0.5 text-center">{t('studyModes.meaningSub')}</span>
                                     </button>

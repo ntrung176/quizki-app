@@ -630,7 +630,7 @@ const VideoKaiwaPlayer = ({
                                     type="button"
                                     onClick={onEditVideo}
                                     title={t('common.edit', 'Chỉnh sửa video này (Admin)')}
-                                    className="px-2 sm:px-2.5 py-1.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/60 dark:hover:bg-indigo-900/60 text-indigo-700 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800 transition-all cursor-pointer font-bold text-xs flex items-center gap-1 shadow-xs"
+                                    className="px-2 sm:px-2.5 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/60 dark:hover:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 transition-all cursor-pointer font-bold text-xs flex items-center gap-1 shadow-xs"
                                 >
                                     <Edit3 className="w-3.5 h-3.5" />
                                     <span className="hidden sm:inline">{t('videoKaiwa.edit', 'Sửa')}</span>

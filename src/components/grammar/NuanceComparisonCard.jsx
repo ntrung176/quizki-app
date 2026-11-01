@@ -11,7 +11,7 @@ const NuanceComparisonCard = ({ comparisons, title }) => {
         <div className="bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 rounded-2xl p-5 mb-6 backdrop-blur-md shadow-sm">
             {/* Header */}
             <div className="flex items-center gap-2.5 mb-4">
-                <div className="w-9 h-9 rounded-xl bg-indigo-500/15 flex items-center justify-center text-indigo-500">
+                <div className="w-9 h-9 rounded-xl bg-emerald-500/15 flex items-center justify-center text-emerald-500">
                     <Scale className="w-5 h-5" />
                 </div>
                 <div>
@@ -27,12 +27,12 @@ const NuanceComparisonCard = ({ comparisons, title }) => {
                 {comparisons.map((item, idx) => (
                     <div
                         key={idx}
-                        className="bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 rounded-xl p-4 transition hover:border-indigo-500/30"
+                        className="bg-white dark:bg-slate-800/80 border border-slate-200/80 dark:border-slate-700/80 rounded-xl p-4 transition hover:border-emerald-500/30"
                     >
                         {/* Pattern Header */}
                         <div className="flex items-center justify-between gap-2 mb-2 flex-wrap">
                             <div className="flex items-center gap-2">
-                                <span className="px-2.5 py-0.5 rounded-lg text-xs font-bold bg-indigo-500/15 text-indigo-600 dark:text-indigo-400 border border-indigo-500/20 font-mono">
+                                <span className="px-2.5 py-0.5 rounded-lg text-xs font-bold bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20 font-mono">
                                     {item.pattern || item.lhs || `Mẫu ${idx + 1}`}
                                 </span>
                                 {item.formality && (

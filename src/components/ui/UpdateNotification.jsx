@@ -10,7 +10,7 @@ const UpdateNotification = ({ onRefresh, onDismiss }) => {
     const { t } = useLanguage();
     return (
         <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-[9999] animate-slide-up">
-            <div className="flex items-center gap-3 px-5 py-3.5 bg-gradient-to-r from-indigo-600 to-indigo-700 text-white rounded-2xl shadow-2xl shadow-indigo-500/30 border border-indigo-400/20 backdrop-blur-sm">
+            <div className="flex items-center gap-3 px-5 py-3.5 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white rounded-2xl shadow-2xl shadow-emerald-500/30 border border-emerald-400/20 backdrop-blur-sm">
                 <div className="flex items-center gap-2">
                     <Bell className="w-5 h-5 text-amber-300 animate-bounce" />
                     <span className="text-sm font-semibold whitespace-nowrap">

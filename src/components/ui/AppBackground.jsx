@@ -8,7 +8,7 @@ import CyberTechBackground from './CyberTechBackground';
  * Dynamically renders the selected background theme with smooth transitions:
  * - 'torii-stars': Japanese Vermilion Torii Gate with Starry Night Sky (Twinkling or Static)
  * - 'torii-sunset': Japanese Vermilion Torii Gate with Kyoto Twilight Dusk (100% Static)
- * - 'cyber-tech': Cyber Matrix Grid with glowing cyan/indigo radial orbs
+ * - 'cyber-tech': Cyber Matrix Grid with glowing cyan/emerald radial orbs
  * - 'minimal': Clean minimal dot grid for zero-distraction focus
  */
 const AppBackground = ({ isDarkMode = true }) => {

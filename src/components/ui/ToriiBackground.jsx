@@ -196,7 +196,7 @@ export const ToriiStarsBackground = React.memo(({ isDarkMode = true, isAnimated 
             {/* 2. Ambient Moonlight / Halo Glow */}
             <div
                 className={`absolute top-8 sm:top-14 right-1/4 sm:right-1/3 w-64 h-64 sm:w-80 sm:h-80 rounded-full pointer-events-none blur-3xl transition-opacity duration-300 ${
-                    isDarkMode ? 'bg-indigo-400/10' : 'bg-amber-200/20'
+                    isDarkMode ? 'bg-cyan-400/10' : 'bg-amber-200/20'
                 }`}
             />
 

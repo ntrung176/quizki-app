@@ -188,7 +188,7 @@ const IpaScreen = ({ awardXP }) => {
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         placeholder="Tìm theo ký tự hoặc từ (VD: cat, sheep, æ)..."
-                        className="w-full pl-9 pr-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-medium focus:outline-violet-500 text-slate-800 dark:text-slate-100 min-w-0"
+                        className="w-full pl-9 pr-3 py-1.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-medium focus:outline-emerald-500 text-slate-800 dark:text-slate-100 min-w-0"
                     />
                 </div>
 
@@ -210,7 +210,7 @@ const IpaScreen = ({ awardXP }) => {
                             className={`relative h-28 sm:h-32 rounded-2xl border-2 flex flex-col items-center justify-center p-2.5 transition-all duration-200 cursor-pointer select-none group hover:shadow-lg hover:-translate-y-1 ${
                                 isMastered
                                     ? 'bg-emerald-50/50 dark:bg-emerald-950/20 border-emerald-400/60 dark:border-emerald-500/40 shadow-xs'
-                                    : 'bg-white dark:bg-slate-800/80 border-slate-200/90 dark:border-slate-700/80 hover:border-violet-400 dark:hover:border-violet-500'
+                                    : 'bg-white dark:bg-slate-800/80 border-slate-200/90 dark:border-slate-700/80 hover:border-sky-400 dark:hover:border-sky-500'
                             }`}
                         >
                             {/* Top Corner Mastery Toggle & Audio Trigger */}
@@ -233,7 +233,7 @@ const IpaScreen = ({ awardXP }) => {
                             <button
                                 type="button"
                                 onClick={(e) => handlePlayAudio(item.keyWord, e)}
-                                className="absolute top-2.5 right-2.5 w-6 h-6 rounded-lg bg-slate-100 dark:bg-slate-700/80 text-slate-500 hover:text-violet-600 hover:bg-violet-50 flex items-center justify-center transition cursor-pointer z-10"
+                                className="absolute top-2.5 right-2.5 w-6 h-6 rounded-lg bg-slate-100 dark:bg-slate-700/80 text-slate-500 hover:text-sky-600 hover:bg-sky-50 flex items-center justify-center transition cursor-pointer z-10"
                                 title="Nghe âm mẫu"
                             >
                                 <Volume2 className="w-3.5 h-3.5" />
@@ -246,7 +246,7 @@ const IpaScreen = ({ awardXP }) => {
                                 </span>
 
                                 <div className="text-xs font-bold text-slate-500 dark:text-slate-400 mt-2 flex items-center gap-1">
-                                    <span className="text-violet-600 dark:text-violet-400 font-medium">{item.keyWord}</span>
+                                    <span className="text-sky-600 dark:text-sky-400 font-medium">{item.keyWord}</span>
                                     <span className="text-[10px] text-slate-400 font-normal">({item.keyWordMeaning})</span>
                                 </div>
                             </div>

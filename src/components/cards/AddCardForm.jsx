@@ -744,7 +744,7 @@ export const CardEditorItem = ({
                                                         onUpdate(card.id, 'example', updated.join('\n'));
                                                     }}
                                                     placeholder={isKoreanMode ? t('forms.examplePlaceholderKo', 'Câu ví dụ tiếng Hàn') : isEnglishMode ? t('forms.examplePlaceholderEn', 'Câu ví dụ tiếng Anh') : t('forms.examplePlaceholderJa', 'Câu ví dụ tiếng Nhật')}
-                                                    className="w-full bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 py-1.5 text-sm text-slate-750 dark:text-slate-250 outline-none"
+                                                    className="w-full bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-emerald-500 py-1.5 text-sm text-slate-750 dark:text-slate-250 outline-none"
                                                 />
                                             </div>
                                             <div>
@@ -758,7 +758,7 @@ export const CardEditorItem = ({
                                                         onUpdate(card.id, 'exampleMeaning', updated.join('\n'));
                                                     }}
                                                     placeholder={t('forms.exampleMeaningPlaceholder', 'Nghĩa câu ví dụ')}
-                                                    className="w-full bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 py-1.5 text-sm text-slate-500 dark:text-slate-450 outline-none"
+                                                    className="w-full bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-emerald-500 py-1.5 text-sm text-slate-500 dark:text-slate-450 outline-none"
                                                 />
                                             </div>
                                         </div>
@@ -777,7 +777,7 @@ export const CardEditorItem = ({
                                         key={idx}
                                         onClick={(e) => { e.preventDefault(); handleGenerateExample(meaning); }}
                                         disabled={isGeneratingExample}
-                                        className="px-3 py-1.5 rounded-full bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 text-xs font-semibold hover:bg-indigo-50 dark:hover:bg-slate-700 transition-colors disabled:opacity-50 flex items-center gap-1.5 border border-indigo-100 dark:border-indigo-800/30"
+                                        className="px-3 py-1.5 rounded-full bg-white dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 text-xs font-semibold hover:bg-emerald-50 dark:hover:bg-slate-700 transition-colors disabled:opacity-50 flex items-center gap-1.5 border border-emerald-100 dark:border-emerald-800/30"
                                     >
                                         {isGeneratingExample ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Wand2 className="w-3.5 h-3.5" />}
                                         {meaning}
@@ -812,7 +812,7 @@ export const CardEditorItem = ({
                                         value={card.synonym}
                                         onChange={(e) => onUpdate(card.id, 'synonym', e.target.value)}
                                         placeholder={isKoreanMode ? t('forms.synonymPlaceholderKo', 'Ví dụ: 똑똑하다') : isEnglishMode ? t('forms.synonymPlaceholderEn', 'Ví dụ: Smart, Clever') : t('forms.synonymPlaceholderJa', 'Ví dụ: 食事する')}
-                                        className="w-full bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 py-2 text-sm text-slate-700 dark:text-slate-200 outline-none"
+                                        className="w-full bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-emerald-500 py-2 text-sm text-slate-700 dark:text-slate-200 outline-none"
                                     />
                                 </div>
                                 <div>
@@ -822,15 +822,15 @@ export const CardEditorItem = ({
                                         value={card.nuance}
                                         onChange={(e) => onUpdate(card.id, 'nuance', e.target.value)}
                                         placeholder={t('forms.nuanceNotePlaceholder', 'Ghi chú sắc thái...')}
-                                        className="w-full bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-indigo-500 py-2 text-sm text-slate-700 dark:text-slate-200 outline-none"
+                                        className="w-full bg-transparent border-b border-slate-200 dark:border-slate-700 focus:border-emerald-500 py-2 text-sm text-slate-700 dark:text-slate-200 outline-none"
                                     />
                                 </div>
                             </div>
 
                             <div className="flex items-start gap-3 mt-4 bg-white dark:bg-gray-800 p-3 rounded-2xl border border-slate-100 dark:border-slate-700">
                                 <div className="flex-1 space-y-2">
-                                    <label htmlFor={`image-upload-${card.id}`} className="flex flex-col items-center justify-center w-full h-16 border-2 border-slate-200 dark:border-slate-700 border-dashed rounded-xl cursor-pointer hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:border-indigo-300 dark:hover:border-indigo-700 transition-all group">
-                                        <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 group-hover:text-indigo-500 dark:group-hover:text-indigo-400 flex items-center gap-1">
+                                    <label htmlFor={`image-upload-${card.id}`} className="flex flex-col items-center justify-center w-full h-16 border-2 border-slate-200 dark:border-slate-700 border-dashed rounded-xl cursor-pointer hover:bg-emerald-50 dark:hover:bg-emerald-900/20 hover:border-emerald-300 dark:hover:border-emerald-700 transition-all group">
+                                        <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 group-hover:text-emerald-500 dark:group-hover:text-emerald-400 flex items-center gap-1">
                                             <ImageIcon className="w-4 h-4" /> {t('forms.uploadImage', 'Tải ảnh lên')}
                                         </p>
                                         <input id={`image-upload-${card.id}`} type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
@@ -840,7 +840,7 @@ export const CardEditorItem = ({
                                         value={card.imageBase64 && card.imageBase64.startsWith('http') ? card.imageBase64 : ''}
                                         onChange={(e) => onUpdate(card.id, 'imageBase64', e.target.value)}
                                         placeholder={t('forms.pasteImageUrl', 'Hoặc dán URL hình ảnh...')}
-                                        className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:border-indigo-500 dark:focus:border-indigo-500 rounded-xl text-xs text-slate-700 dark:text-slate-200 outline-none transition-colors"
+                                        className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:border-emerald-500 dark:focus:border-emerald-500 rounded-xl text-xs text-slate-700 dark:text-slate-200 outline-none transition-colors"
                                     />
                                 </div>
                                 {card.imageBase64 && (
@@ -1536,20 +1536,20 @@ const AddCardForm = ({
                             <button
                                 type="button"
                                 onClick={() => handleConfirmSaveSet(null)}
-                                className="w-full flex items-center gap-4 p-3.5 text-left rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-indigo-200 dark:hover:border-indigo-900/50 bg-slate-50/30 dark:bg-slate-850/30 hover:bg-indigo-50/10 dark:hover:bg-indigo-950/10 transition-all group"
+                                className="w-full flex items-center gap-4 p-3.5 text-left rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-emerald-200 dark:hover:border-emerald-900/50 bg-slate-50/30 dark:bg-slate-850/30 hover:bg-emerald-50/10 dark:hover:bg-emerald-950/10 transition-all group"
                             >
                                 <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-700 shrink-0 flex items-center justify-center">
                                     <Folder className="w-5 h-5 text-slate-450 dark:text-slate-400" />
                                 </div>
                                 <div className="flex-1 min-w-0">
-                                    <h4 className="font-bold text-slate-800 dark:text-slate-100 group-hover:text-indigo-650 dark:group-hover:text-indigo-400 transition-colors">
+                                    <h4 className="font-bold text-slate-800 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                                         {t('editSet.rootLevel', 'Không phân loại (Thư mục gốc)')}
                                     </h4>
                                     <p className="text-[10px] text-slate-450 dark:text-slate-400 font-semibold mt-0.5">
                                         {t('editSet.rootLevelDesc', 'Lưu ở ngoài cùng thư viện học tập')}
                                     </p>
                                 </div>
-                                <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-850 group-hover:bg-indigo-600 group-hover:text-white transition-all flex items-center justify-center text-slate-400 shrink-0">
+                                <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-850 group-hover:bg-emerald-600 group-hover:text-white transition-all flex items-center justify-center text-slate-400 shrink-0">
                                     <Check className="w-4 h-4" />
                                 </div>
                             </button>
@@ -1564,20 +1564,20 @@ const AddCardForm = ({
                                                 key={folder.id}
                                                 type="button"
                                                 onClick={() => handleConfirmSaveSet(folder.id)}
-                                                className="w-full flex items-center gap-4 p-3.5 text-left rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-indigo-200 dark:hover:border-indigo-900/50 bg-slate-50/30 dark:bg-slate-850/30 hover:bg-indigo-50/10 dark:hover:bg-indigo-950/10 transition-all group"
+                                                className="w-full flex items-center gap-4 p-3.5 text-left rounded-2xl border border-slate-100 dark:border-slate-800 hover:border-emerald-200 dark:hover:border-emerald-900/50 bg-slate-50/30 dark:bg-slate-850/30 hover:bg-emerald-50/10 dark:hover:bg-emerald-950/10 transition-all group"
                                             >
                                                 <div className="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-700 shrink-0 flex items-center justify-center">
                                                     <Folder className="w-5 h-5 text-amber-500 dark:text-amber-400" />
                                                 </div>
                                                 <div className="flex-1 min-w-0">
-                                                    <h4 className="font-bold text-slate-800 dark:text-slate-100 group-hover:text-indigo-650 dark:group-hover:text-indigo-400 transition-colors truncate">
+                                                    <h4 className="font-bold text-slate-800 dark:text-slate-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors truncate">
                                                         {folder.name}
                                                     </h4>
                                                     <p className="text-[10px] text-slate-450 dark:text-slate-400 font-semibold mt-0.5">
                                                         {t('editSet.storageFolder', 'Thư mục lưu trữ')}
                                                     </p>
                                                 </div>
-                                                <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-850 group-hover:bg-indigo-600 group-hover:text-white transition-all flex items-center justify-center text-slate-400 shrink-0">
+                                                <div className="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-850 group-hover:bg-emerald-600 group-hover:text-white transition-all flex items-center justify-center text-slate-400 shrink-0">
                                                     <Check className="w-4 h-4" />
                                                 </div>
                                             </button>
@@ -1653,7 +1653,7 @@ const AddCardForm = ({
                             {duplicateCheckResult.externalDuplicates && duplicateCheckResult.externalDuplicates.length > 0 && (
                                 <div className="space-y-2 pt-2 border-t border-slate-100 dark:border-slate-800">
                                     <div className="flex items-center justify-between">
-                                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800 text-indigo-700 dark:text-indigo-300 text-xs font-bold">
+                                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 text-xs font-bold">
                                             <span>{t('editSet.externalDuplicates', '📂 Trùng với học phần khác ({count} từ)').replace('{count}', duplicateCheckResult.externalDuplicates.length)}</span>
                                         </span>
                                     </div>
@@ -1667,7 +1667,7 @@ const AddCardForm = ({
                                                     {dup.front}
                                                 </span>
                                                 <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 shrink-0 font-medium">
-                                                    <Folder className="w-3.5 h-3.5 text-indigo-500 shrink-0" />
+                                                    <Folder className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
                                                     <span className="truncate max-w-[140px] font-semibold">{dup.otherSetName}</span>
                                                 </div>
                                             </div>
@@ -1685,7 +1685,7 @@ const AddCardForm = ({
                                     duplicateCheckResult.parentFolderId, 
                                     duplicateCheckResult.allExcludeIds
                                 )}
-                                className="w-full py-2.5 px-4 text-sm font-bold rounded-xl text-white bg-indigo-600 hover:bg-indigo-700 active:scale-[0.99] transition-all shadow-md shadow-indigo-500/20 cursor-pointer flex items-center justify-center gap-2"
+                                className="w-full py-2.5 px-4 text-sm font-bold rounded-xl text-white bg-emerald-600 hover:bg-emerald-700 active:scale-[0.99] transition-all shadow-md shadow-emerald-500/20 cursor-pointer flex items-center justify-center gap-2"
                             >
                                 <Check className="w-4 h-4" />
                                 <span>{t('editSet.saveExcludingDuplicates', 'Lưu và trừ {count} từ trùng lặp').replace('{count}', duplicateCheckResult.totalExcludedCount)}</span>

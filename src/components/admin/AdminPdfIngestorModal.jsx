@@ -210,13 +210,13 @@ const AdminPdfIngestorModal = ({
                 {/* Modal Header */}
                 <div className="px-6 py-4 border-b border-slate-150 dark:border-slate-800 flex items-center justify-between bg-slate-50/80 dark:bg-slate-900/80 shrink-0">
                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-indigo-500 to-purple-600 flex items-center justify-center text-white shadow-md">
+                        <div className="w-10 h-10 rounded-2xl bg-gradient-to-tr from-emerald-500 to-teal-600 flex items-center justify-center text-white shadow-md">
                             <FileText className="w-5 h-5" />
                         </div>
                         <div>
                             <h2 className="text-base md:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
                                 AI PDF Data Ingestor
-                                <span className="text-xs px-2 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 font-extrabold">
+                                <span className="text-xs px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 font-extrabold">
                                     Tự Động 100%
                                 </span>
                             </h2>
@@ -265,8 +265,8 @@ const AdminPdfIngestorModal = ({
                                                 onClick={() => setSelectedCategory(cat.id)}
                                                 className={`p-4 rounded-2xl border-2 transition-all cursor-pointer flex flex-col justify-between ${
                                                     isSelected
-                                                        ? 'border-indigo-600 bg-indigo-50/50 dark:bg-indigo-950/30 shadow-sm'
-                                                        : 'border-slate-200 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-slate-700 bg-white dark:bg-slate-850'
+                                                        ? 'border-emerald-600 bg-emerald-50/50 dark:bg-emerald-950/30 shadow-sm'
+                                                        : 'border-slate-200 dark:border-slate-800 hover:border-emerald-300 dark:hover:border-slate-700 bg-white dark:bg-slate-850'
                                                 }`}
                                             >
                                                 <div>
@@ -277,7 +277,7 @@ const AdminPdfIngestorModal = ({
                                                             {cat.id === 'GRAMMAR_BOOK' && '📚'}
                                                             {cat.id === 'SHARED_VOCAB' && '🎴'}
                                                         </span>
-                                                        {isSelected && <CheckCircle2 className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />}
+                                                        {isSelected && <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />}
                                                     </div>
                                                     <h4 className="font-bold text-slate-800 dark:text-white text-xs md:text-sm">
                                                         {cat.label}
@@ -303,7 +303,7 @@ const AdminPdfIngestorModal = ({
                                         e.preventDefault();
                                         if (e.dataTransfer.files?.[0]) handleFileSelect(e.dataTransfer.files[0]);
                                     }}
-                                    className="border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-indigo-500 dark:hover:border-indigo-500 rounded-3xl p-6 text-center transition-all bg-slate-50/50 dark:bg-slate-850/50 cursor-pointer relative"
+                                    className="border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-emerald-500 dark:hover:border-emerald-500 rounded-3xl p-6 text-center transition-all bg-slate-50/50 dark:bg-slate-850/50 cursor-pointer relative"
                                 >
                                     <input
                                         type="file"
@@ -314,7 +314,7 @@ const AdminPdfIngestorModal = ({
                                     
                                     {pdfFile ? (
                                         <div className="flex items-center justify-center gap-4 py-2">
-                                            <div className="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center font-bold">
+                                            <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center font-bold">
                                                 <FileCheck className="w-6 h-6" />
                                             </div>
                                             <div className="text-left">
@@ -325,17 +325,17 @@ const AdminPdfIngestorModal = ({
                                                     {(pdfFile.size / (1024 * 1024)).toFixed(2)} MB {pdfMeta ? `• ${pdfMeta.numPages} trang` : ''}
                                                 </p>
                                             </div>
-                                            <span className="text-xs text-indigo-600 dark:text-indigo-400 font-bold ml-3 underline">
+                                            <span className="text-xs text-emerald-600 dark:text-emerald-400 font-bold ml-3 underline">
                                                 Thay đổi file
                                             </span>
                                         </div>
                                     ) : (
                                         <div className="py-4 space-y-2">
-                                            <div className="w-12 h-12 rounded-2xl bg-indigo-50 dark:bg-indigo-950/50 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mx-auto mb-2">
+                                            <div className="w-12 h-12 rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto mb-2">
                                                 <Upload className="w-6 h-6" />
                                             </div>
                                             <p className="text-sm font-bold text-slate-700 dark:text-slate-200">
-                                                Kéo thả tệp PDF vào đây, hoặc <span className="text-indigo-600 dark:text-indigo-400 underline">chọn từ máy tính</span>
+                                                Kéo thả tệp PDF vào đây, hoặc <span className="text-emerald-600 dark:text-emerald-400 underline">chọn từ máy tính</span>
                                             </p>
                                             <p className="text-xs text-slate-400">
                                                 Hỗ trợ tài liệu giáo trình, sách từ vựng, đề thi JLPT PDF mọi kích thước
@@ -360,7 +360,7 @@ const AdminPdfIngestorModal = ({
                                                 name="pageRangeMode"
                                                 checked={pageRangeMode === 'all'}
                                                 onChange={() => setPageRangeMode('all')}
-                                                className="text-indigo-600"
+                                                className="text-emerald-600"
                                             />
                                             Toàn bộ ({pdfMeta ? `${pdfMeta.numPages} trang` : 'ALL'})
                                         </label>
@@ -370,7 +370,7 @@ const AdminPdfIngestorModal = ({
                                                 name="pageRangeMode"
                                                 checked={pageRangeMode === 'custom'}
                                                 onChange={() => setPageRangeMode('custom')}
-                                                className="text-indigo-600"
+                                                className="text-emerald-600"
                                             />
                                             Tùy chọn trang
                                         </label>
@@ -381,7 +381,7 @@ const AdminPdfIngestorModal = ({
                                             placeholder="Ví dụ: 1-15, 20-35"
                                             value={customPageRange}
                                             onChange={(e) => setCustomPageRange(e.target.value)}
-                                            className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs outline-none focus:ring-2 focus:ring-indigo-500/20 dark:text-white"
+                                            className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs outline-none focus:ring-2 focus:ring-emerald-500/20 dark:text-white"
                                         />
                                     )}
                                 </div>
@@ -394,7 +394,7 @@ const AdminPdfIngestorModal = ({
                                     <select
                                         value={selectedModel}
                                         onChange={(e) => setSelectedModel(e.target.value)}
-                                        className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-bold outline-none focus:ring-2 focus:ring-indigo-500/20 dark:text-white"
+                                        className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-300 dark:border-slate-700 rounded-xl text-xs font-bold outline-none focus:ring-2 focus:ring-emerald-500/20 dark:text-white"
                                     >
                                         {RECOMMENDED_INGESTOR_MODELS.map(m => (
                                             <option key={m.id} value={m.id}>
@@ -421,7 +421,7 @@ const AdminPdfIngestorModal = ({
                                     value={customInstructions}
                                     onChange={(e) => setCustomInstructions(e.target.value)}
                                     placeholder={INGESTOR_CATEGORIES[selectedCategory]?.defaultPromptNote}
-                                    className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 rounded-2xl text-xs outline-none focus:ring-2 focus:ring-indigo-500/20 dark:text-white resize-none"
+                                    className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-800 rounded-2xl text-xs outline-none focus:ring-2 focus:ring-emerald-500/20 dark:text-white resize-none"
                                 />
                             </div>
 
@@ -430,7 +430,7 @@ const AdminPdfIngestorModal = ({
                                 <button
                                     onClick={handleStartIngest}
                                     disabled={!pdfFile || isProcessing}
-                                    className="w-full py-3.5 bg-gradient-to-r from-indigo-600 via-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white rounded-2xl font-bold text-sm shadow-lg shadow-indigo-500/25 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 transition-all"
+                                    className="w-full py-3.5 bg-gradient-to-r from-emerald-600 via-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-2xl font-bold text-sm shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 transition-all"
                                 >
                                     <Wand2 className="w-5 h-5 text-amber-300" />
                                     <span>Bắt đầu Trích xuất & Soạn dữ liệu bằng AI</span>
@@ -446,7 +446,7 @@ const AdminPdfIngestorModal = ({
                             
                             {/* Progress Header */}
                             <div className="text-center space-y-3">
-                                <div className="w-16 h-16 rounded-3xl bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mx-auto">
+                                <div className="w-16 h-16 rounded-3xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mx-auto">
                                     <Loader2 className="w-8 h-8 animate-spin" />
                                 </div>
                                 <h3 className="text-lg font-bold text-slate-900 dark:text-white">
@@ -465,7 +465,7 @@ const AdminPdfIngestorModal = ({
                                 </div>
                                 <div className="w-full h-3 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden p-0.5">
                                     <div
-                                        className="h-full bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full transition-all duration-300"
+                                        className="h-full bg-gradient-to-r from-emerald-500 to-teal-600 rounded-full transition-all duration-300"
                                         style={{ width: `${progress.percent}%` }}
                                     />
                                 </div>
@@ -498,9 +498,9 @@ const AdminPdfIngestorModal = ({
                         <div className="space-y-6 animate-fade-in">
                             
                             {/* Summary & Mode Selector */}
-                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-indigo-50/60 dark:bg-indigo-950/30 p-4 rounded-2xl border border-indigo-100 dark:border-indigo-900/40">
+                            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-emerald-50/60 dark:bg-emerald-950/30 p-4 rounded-2xl border border-emerald-100 dark:border-emerald-900/40">
                                 <div>
-                                    <h3 className="text-sm md:text-base font-bold text-indigo-950 dark:text-indigo-200 flex items-center gap-2">
+                                    <h3 className="text-sm md:text-base font-bold text-emerald-950 dark:text-emerald-200 flex items-center gap-2">
                                         <CheckCircle2 className="w-5 h-5 text-emerald-500" />
                                         Đã trích xuất thành công {selectedCategory === 'VOCABULARY_BOOK' && (extractedResult.data?.bookTitle || 'Sách từ vựng')}
                                         {selectedCategory === 'JLPT_TEST' && (extractedResult.data?.title || 'Đề thi JLPT')}
@@ -516,7 +516,7 @@ const AdminPdfIngestorModal = ({
                                         onClick={() => setPreviewTab('visual')}
                                         className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
                                             previewTab === 'visual'
-                                                ? 'bg-indigo-600 text-white shadow-sm'
+                                                ? 'bg-emerald-600 text-white shadow-sm'
                                                 : 'text-slate-600 dark:text-slate-300 hover:text-slate-900'
                                         }`}
                                     >
@@ -526,7 +526,7 @@ const AdminPdfIngestorModal = ({
                                         onClick={() => setPreviewTab('json')}
                                         className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
                                             previewTab === 'json'
-                                                ? 'bg-indigo-600 text-white shadow-sm'
+                                                ? 'bg-emerald-600 text-white shadow-sm'
                                                 : 'text-slate-600 dark:text-slate-300 hover:text-slate-900'
                                         }`}
                                     >
@@ -545,13 +545,13 @@ const AdminPdfIngestorModal = ({
                                             {(extractedResult.data?.chapters || []).map((ch, cIdx) => (
                                                 <div key={cIdx} className="bg-slate-50 dark:bg-slate-850 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-3">
                                                     <h4 className="font-bold text-slate-800 dark:text-white text-sm flex items-center gap-2">
-                                                        <BookOpen className="w-4 h-4 text-indigo-500" />
+                                                        <BookOpen className="w-4 h-4 text-emerald-500" />
                                                         {ch.name || `Chương ${cIdx + 1}`}
                                                     </h4>
                                                     <div className="space-y-3">
                                                         {(ch.lessons || []).map((ls, lIdx) => (
                                                             <div key={lIdx} className="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-750">
-                                                                <div className="font-bold text-xs text-indigo-600 dark:text-indigo-400 mb-2">
+                                                                <div className="font-bold text-xs text-emerald-600 dark:text-emerald-400 mb-2">
                                                                     {ls.name} ({(ls.vocabularies || []).length} từ vựng)
                                                                 </div>
                                                                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2">
@@ -585,10 +585,10 @@ const AdminPdfIngestorModal = ({
                                                 <div key={sIdx} className="bg-slate-50 dark:bg-slate-850 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-3">
                                                     <h4 className="font-bold text-slate-800 dark:text-white text-sm flex items-center justify-between">
                                                         <span className="flex items-center gap-2">
-                                                            <Award className="w-4 h-4 text-indigo-500" />
+                                                            <Award className="w-4 h-4 text-emerald-500" />
                                                             {sec.title} ({sec.type})
                                                         </span>
-                                                        <span className="text-xs px-2 py-0.5 bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 rounded-lg font-bold">
+                                                        <span className="text-xs px-2 py-0.5 bg-emerald-100 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 rounded-lg font-bold">
                                                             {(sec.questions || []).length} câu hỏi
                                                         </span>
                                                     </h4>
@@ -620,14 +620,14 @@ const AdminPdfIngestorModal = ({
                                             {(extractedResult.data?.lessons || []).map((ls, lIdx) => (
                                                 <div key={lIdx} className="bg-slate-50 dark:bg-slate-850 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-3">
                                                     <h4 className="font-bold text-slate-800 dark:text-white text-sm flex items-center gap-2">
-                                                        <Layers className="w-4 h-4 text-indigo-500" />
+                                                        <Layers className="w-4 h-4 text-emerald-500" />
                                                         {ls.title || `Bài ${lIdx + 1}`}
                                                     </h4>
                                                     <div className="space-y-2">
                                                         {(ls.grammarPoints || []).map((gp, gIdx) => (
                                                             <div key={gIdx} className="bg-white dark:bg-slate-900 p-3 rounded-xl border border-slate-200 dark:border-slate-750 text-xs space-y-1.5">
                                                                 <div className="flex items-center justify-between font-bold">
-                                                                    <span className="text-indigo-600 dark:text-indigo-400 text-sm font-japanese">{gp.pattern}</span>
+                                                                    <span className="text-emerald-600 dark:text-emerald-400 text-sm font-japanese">{gp.pattern}</span>
                                                                     <span className="text-slate-500">{gp.meaningShort}</span>
                                                                 </div>
                                                                 <div className="font-mono text-[11px] bg-slate-50 dark:bg-slate-800 p-1.5 rounded-lg text-slate-700 dark:text-slate-300">
@@ -659,7 +659,7 @@ const AdminPdfIngestorModal = ({
                                                 setJsonParseError('Cú pháp JSON không hợp lệ: ' + err.message);
                                             }
                                         }}
-                                        className="w-full p-4 bg-slate-950 font-mono text-xs text-emerald-400 rounded-2xl border border-slate-800 outline-none focus:ring-2 focus:ring-indigo-500/20 resize-none shadow-inner"
+                                        className="w-full p-4 bg-slate-950 font-mono text-xs text-emerald-400 rounded-2xl border border-slate-800 outline-none focus:ring-2 focus:ring-emerald-500/20 resize-none shadow-inner"
                                     />
                                     {jsonParseError && (
                                         <div className="text-xs text-rose-500 font-bold flex items-center gap-1.5">
@@ -692,7 +692,7 @@ const AdminPdfIngestorModal = ({
                                                 type="checkbox"
                                                 checked={syncSharedVocab}
                                                 onChange={(e) => setSyncSharedVocab(e.target.checked)}
-                                                className="rounded text-indigo-600"
+                                                className="rounded text-emerald-600"
                                             />
                                             Đồng bộ vào Kho từ vựng chung
                                         </label>

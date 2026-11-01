@@ -213,10 +213,10 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                 <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">{t('forms.wordLabel', 'Từ vựng')} ({cardIsKorean ? (language === 'vi' ? 'Hàn' : 'Korean') : cardIsEnglish ? (language === 'vi' ? 'Anh' : 'English') : (language === 'vi' ? 'Nhật' : 'Japanese')})</label>
                                 <div className="flex gap-2">
                                     <input type="text" value={front} onChange={(e) => setFront(e.target.value)}
-                                        className="flex-1 px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 text-gray-900 dark:text-gray-100" />
+                                        className="flex-1 px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 text-gray-900 dark:text-gray-100" />
                                     {onGeminiAssist && (
                                         <button type="button" onClick={handleAiAssist}
-                                            className="px-3 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 rounded-lg font-bold hover:bg-indigo-200 dark:hover:bg-indigo-900/50">
+                                            className="px-3 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 rounded-lg font-bold hover:bg-emerald-200 dark:hover:bg-emerald-900/50">
                                             {isAiLoading ? <Loader2 className="animate-spin w-5 h-5" /> : "AI"}
                                         </button>
                                     )}
@@ -354,7 +354,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                             <div className="bg-gray-50 dark:bg-gray-700/50 p-3 rounded-xl space-y-3">
                                 <h3 className="text-xs font-bold text-gray-400 uppercase">Media</h3>
                                 <div className="flex items-center justify-between">
-                                    <label htmlFor="img-edit-modal" className="cursor-pointer text-indigo-600 dark:text-indigo-400 font-medium text-sm flex items-center hover:text-indigo-800">
+                                    <label htmlFor="img-edit-modal" className="cursor-pointer text-emerald-600 dark:text-emerald-400 font-medium text-sm flex items-center hover:text-emerald-800">
                                         <ImageIcon className="w-4 h-4 mr-2" /> {imagePreview ? t('forms.changeImage', 'Thay đổi ảnh') : t('forms.uploadImage', 'Tải ảnh lên')}
                                     </label>
                                     <input id="img-edit-modal" type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
@@ -367,7 +367,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                 </div>
                                 <div className="pt-3 border-t border-gray-200 dark:border-gray-700 space-y-3">
                                     <div className="flex items-center justify-between">
-                                        <div className="flex items-center text-sm font-bold text-indigo-600 dark:text-indigo-400">
+                                        <div className="flex items-center text-sm font-bold text-emerald-600 dark:text-emerald-400">
                                             <Volume2 className="w-4 h-4 mr-1.5" />
                                             <span>{t('forms.editAudio', 'Sửa Audio Phát Âm')}</span>
                                         </div>
@@ -375,7 +375,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                             <button
                                                 type="button"
                                                 onClick={() => playAudio(customAudio, front, null, null, customHiragana || reading)}
-                                                className="px-2.5 py-1 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/40 dark:hover:bg-indigo-900/60 text-indigo-600 dark:text-indigo-400 rounded-lg flex items-center gap-1 text-xs font-bold transition-all cursor-pointer shadow-sm active:scale-95"
+                                                className="px-2.5 py-1 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-900/40 dark:hover:bg-emerald-900/60 text-emerald-600 dark:text-emerald-400 rounded-lg flex items-center gap-1 text-xs font-bold transition-all cursor-pointer shadow-sm active:scale-95"
                                             >
                                                 <Volume2 className="w-3.5 h-3.5" />
                                                 {t('forms.testAudio', 'Nghe thử')}
@@ -387,7 +387,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                     <div className="bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 p-3 rounded-xl space-y-2.5">
                                         <div className="flex items-center justify-between">
                                             <label className="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                                                <Wrench className="w-3.5 h-3.5 text-indigo-500" />
+                                                <Wrench className="w-3.5 h-3.5 text-emerald-500" />
                                                 <span>{cardIsKorean ? (language === 'vi' ? 'Nhập từ tiếng Hàn chuẩn:' : 'Enter valid Korean word:') : cardIsEnglish ? (language === 'vi' ? 'Nhập từ chuẩn tiếng Anh:' : 'Enter valid English word:') : (language === 'vi' ? 'Nhập cách đọc Hiragana đúng:' : 'Enter valid Hiragana reading:')}</span>
                                             </label>
                                             {(audioFixed || card?.audioFixed) && (
@@ -409,7 +409,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                                 }}
                                                 placeholder={cardIsEnglish ? (language === 'vi' ? "Nhập từ chuẩn..." : "Enter valid word...") : (language === 'vi' ? "Nhập Hiragana đúng (VD: ほころびる, たべる...)" : "Enter standard Hiragana (e.g. ほころびる, たべる...)")}
                                                 disabled={isGeneratingAudio}
-                                                className="flex-1 px-3 py-2 bg-gray-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-indigo-500 outline-none font-medium font-japanese"
+                                                className="flex-1 px-3 py-2 bg-gray-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-emerald-500 outline-none font-medium font-japanese"
                                                 onKeyDown={(e) => {
                                                     if (e.key === 'Enter') {
                                                         e.preventDefault();
@@ -425,8 +425,8 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                                 disabled={isGeneratingAudio || !customHiragana.trim()}
                                                 className={`px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 shrink-0 shadow-sm ${
                                                     isGeneratingAudio || !customHiragana.trim()
-                                                        ? 'bg-indigo-300 dark:bg-indigo-900/50 text-white cursor-not-allowed'
-                                                        : 'bg-indigo-600 hover:bg-indigo-700 text-white cursor-pointer active:scale-95'
+                                                        ? 'bg-emerald-300 dark:bg-emerald-900/50 text-white cursor-not-allowed'
+                                                        : 'bg-emerald-600 hover:bg-emerald-700 text-white cursor-pointer active:scale-95'
                                                 }`}
                                             >
                                                 {isGeneratingAudio ? (
@@ -445,7 +445,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                 </div>
                 <div className="flex gap-3 p-4 border-t border-gray-200 dark:border-gray-700 sticky bottom-0 bg-white dark:bg-gray-800">
                     <button onClick={handleSave} disabled={isSaving}
-                        className="flex-1 py-2.5 bg-indigo-600 text-white rounded-xl font-bold shadow-lg shadow-indigo-200 dark:shadow-indigo-900/50 hover:bg-indigo-700 transition-colors flex items-center justify-center gap-2">
+                        className="flex-1 py-2.5 bg-emerald-600 text-white rounded-xl font-bold shadow-lg shadow-emerald-200 dark:shadow-emerald-900/50 hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2">
                         {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Check className="w-4 h-4" />}
                         {t('forms.saveChanges', 'Lưu Thay Đổi')}
                     </button>
@@ -477,7 +477,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                 </div>
                                 <div className="flex items-center justify-between">
                                     <span className="text-slate-500 dark:text-slate-400 font-medium">{t('forms.readingLabel', 'Cách đọc tạo Audio')}:</span>
-                                    <span className="text-indigo-600 dark:text-indigo-400 font-extrabold text-sm font-japanese">{customHiragana.trim()}</span>
+                                    <span className="text-emerald-600 dark:text-emerald-400 font-extrabold text-sm font-japanese">{customHiragana.trim()}</span>
                                 </div>
                             </div>
 
@@ -503,7 +503,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                             <button
                                 type="button"
                                 onClick={executeFixAudio}
-                                className="flex-1 py-2.5 px-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold transition-all shadow-md shadow-indigo-200 dark:shadow-indigo-900/50 flex items-center justify-center gap-1.5 cursor-pointer active:scale-95"
+                                className="flex-1 py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition-all shadow-md shadow-emerald-200 dark:shadow-emerald-900/50 flex items-center justify-center gap-1.5 cursor-pointer active:scale-95"
                             >
                                 <Check className="w-4 h-4" />
                                 {t('forms.confirmAndGenerateAudio', 'Xác nhận & Tạo Audio')}

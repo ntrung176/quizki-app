@@ -66,7 +66,7 @@ Trả về kết quả thuần JSON chuẩn với định dạng:
             <div className="relative w-full max-w-lg bg-white dark:bg-slate-900 rounded-3xl border border-cyan-500/30 shadow-2xl overflow-hidden flex flex-col max-h-[92dvh]">
                 
                 {/* Header */}
-                <div className="px-4 sm:px-6 py-4 sm:py-5 bg-gradient-to-r from-cyan-600 via-indigo-600 to-purple-600 text-white flex items-center justify-between shrink-0">
+                <div className="px-4 sm:px-6 py-4 sm:py-5 bg-gradient-to-r from-cyan-600 via-emerald-600 to-teal-600 text-white flex items-center justify-between shrink-0">
                     <div className="flex items-center gap-3">
                         <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-amber-300 font-bold shadow-inner shrink-0">
                             <Trophy className="w-5 h-5 sm:w-6 sm:h-6 animate-bounce" />
@@ -105,10 +105,10 @@ Trả về kết quả thuần JSON chuẩn với định dạng:
                                     </div>
                                 </div>
 
-                                <div className="p-3.5 sm:p-4 rounded-2xl bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-200 dark:border-indigo-800/60 text-center space-y-1">
-                                    <span className="text-[10px] font-mono font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">Ngữ Pháp & Ngữ Cảnh</span>
-                                    <div className="text-2xl sm:text-3xl font-black text-indigo-700 dark:text-indigo-300 font-mono">
-                                        {scoreData.grammarScore}<span className="text-xs sm:text-sm text-indigo-500">/100</span>
+                                <div className="p-3.5 sm:p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 text-center space-y-1">
+                                    <span className="text-[10px] font-mono font-black text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">Ngữ Pháp & Ngữ Cảnh</span>
+                                    <div className="text-2xl sm:text-3xl font-black text-emerald-700 dark:text-emerald-300 font-mono">
+                                        {scoreData.grammarScore}<span className="text-xs sm:text-sm text-emerald-500">/100</span>
                                     </div>
                                 </div>
                             </div>
@@ -173,7 +173,7 @@ Trả về kết quả thuần JSON chuẩn với định dạng:
                     </span>
                     <button 
                         onClick={onClose} 
-                        className="w-full sm:w-auto px-5 py-3 min-h-[48px] rounded-xl bg-gradient-to-r from-cyan-600 to-indigo-600 text-white text-xs font-extrabold shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center justify-center select-none"
+                        className="w-full sm:w-auto px-5 py-3 min-h-[48px] rounded-xl bg-gradient-to-r from-cyan-600 to-emerald-600 text-white text-xs font-extrabold shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer flex items-center justify-center select-none"
                     >
                         Đã Hiểu & Lưu Kết Quả
                     </button>

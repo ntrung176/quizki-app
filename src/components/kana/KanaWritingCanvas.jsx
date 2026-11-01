@@ -135,7 +135,7 @@ const KanaWritingCanvas = ({
     return (
         <div className="flex flex-col items-center select-none">
             {/* Canvas Outer Card Container */}
-            <div className="relative rounded-3xl overflow-hidden shadow-xl border-2 border-indigo-200/80 dark:border-indigo-500/30 bg-slate-50 dark:bg-slate-900 p-2">
+            <div className="relative rounded-3xl overflow-hidden shadow-xl border-2 border-emerald-200/80 dark:border-emerald-500/30 bg-slate-50 dark:bg-slate-900 p-2">
                 <canvas
                     ref={canvasRef}
                     width={size}
@@ -156,7 +156,7 @@ const KanaWritingCanvas = ({
                     <button
                         type="button"
                         onClick={() => setShowGuide(prev => !prev)}
-                        className="p-2 rounded-xl bg-white/90 dark:bg-slate-800/90 text-slate-600 dark:text-slate-300 hover:text-indigo-600 dark:hover:text-indigo-400 shadow-md border border-slate-200/70 dark:border-slate-700/70 transition-all hover:scale-105 active:scale-95 cursor-pointer"
+                        className="p-2 rounded-xl bg-white/90 dark:bg-slate-800/90 text-slate-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 shadow-md border border-slate-200/70 dark:border-slate-700/70 transition-all hover:scale-105 active:scale-95 cursor-pointer"
                         title={showGuide ? t('common.hideGuide', 'Ẩn nét mẫu') : t('common.showGuide', 'Hiện nét mẫu')}
                     >
                         {showGuide ? <Eye className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
@@ -173,8 +173,8 @@ const KanaWritingCanvas = ({
 
                 {/* Stroke Badge */}
                 <div className="absolute bottom-4 left-4 z-10 flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-white/90 dark:bg-slate-800/90 text-[11px] font-bold text-slate-600 dark:text-slate-300 shadow-sm border border-slate-200/70 dark:border-slate-700/70">
-                    <PenTool className="w-3.5 h-3.5 text-indigo-500" />
-                    <span>{t('common.drawnStrokes', 'Nét đã vẽ:')} <strong className="text-indigo-600 dark:text-indigo-400">{strokeCount}</strong></span>
+                    <PenTool className="w-3.5 h-3.5 text-emerald-500" />
+                    <span>{t('common.drawnStrokes', 'Nét đã vẽ:')} <strong className="text-emerald-600 dark:text-emerald-400">{strokeCount}</strong></span>
                 </div>
             </div>
 

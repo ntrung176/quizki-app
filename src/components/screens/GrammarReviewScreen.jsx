@@ -1056,8 +1056,8 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                                     </>
                                 ) : (
                                     <>
-                                        <CreditCard className="w-4 h-4 text-indigo-500" />
-                                        <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400 hidden sm:inline">{t('grammar.card3DLabel', 'Thẻ 3D')}</span>
+                                        <CreditCard className="w-4 h-4 text-emerald-500" />
+                                        <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 hidden sm:inline">{t('grammar.card3DLabel', 'Thẻ 3D')}</span>
                                     </>
                                 )}
                             </button>
@@ -1074,7 +1074,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
                             {reviewHistory.length > 0 && (
                                 <button onClick={handleUndo}
-                                    className="px-3 py-2 flex items-center justify-center rounded-2xl bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-xs border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 transition-all gap-1.5 cursor-pointer font-bold select-none">
+                                    className="px-3 py-2 flex items-center justify-center rounded-2xl bg-white dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 shadow-xs border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 transition-all gap-1.5 cursor-pointer font-bold select-none">
                                     <RotateCcw className="w-4 h-4" />
                                     <span className="text-xs sm:text-sm font-bold hidden sm:inline">{t('common.back', 'Quay lại')}</span>
                                 </button>
@@ -1194,8 +1194,8 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 <div className="min-h-[calc(100vh-120px)] flex items-center justify-center px-4 animate-fade-in">
                     <div className="w-[600px] max-w-full flex flex-col justify-center items-center space-y-6 bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl border border-gray-150 dark:border-slate-700/85">
                         <div className="flex flex-col items-center space-y-4 text-center">
-                            <div className="w-16 h-16 bg-indigo-50 dark:bg-indigo-950/40 rounded-2xl flex items-center justify-center animate-bounce">
-                                <Clock className="w-8 h-8 text-indigo-500 animate-spin-slow" />
+                            <div className="w-16 h-16 bg-emerald-50 dark:bg-emerald-950/40 rounded-2xl flex items-center justify-center animate-bounce">
+                                <Clock className="w-8 h-8 text-emerald-500 animate-spin-slow" />
                             </div>
                             <h2 className="text-xl font-bold text-gray-800 dark:text-white">
                                 {t('grammar.waitingTitle', 'Đang đợi thẻ Ngữ pháp tiếp theo...')}
@@ -1351,7 +1351,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                             {stats.dueToday > 0 ? (
                                 <button
                                     onClick={() => startReview()}
-                                    className="md:mt-2 px-5 py-3 md:w-full rounded-2xl text-xs font-black tracking-wider uppercase transition-all bg-indigo-600 hover:bg-indigo-500 active:translate-y-0.5 active:border-b-0 border-b-4 border-indigo-800 text-white flex items-center justify-center gap-2 cursor-pointer shrink-0 min-h-[44px] select-none shadow-sm"
+                                    className="md:mt-2 px-5 py-3 md:w-full rounded-2xl text-xs font-black tracking-wider uppercase transition-all bg-emerald-600 hover:bg-emerald-500 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-800 text-white flex items-center justify-center gap-2 cursor-pointer shrink-0 min-h-[44px] select-none shadow-sm"
                                 >
                                     <Play className="w-4 h-4 fill-white text-white ml-0.5 shrink-0" />
                                     <span>{t('vocab.startReviewBtn', 'BẮT ĐẦU ÔN TẬP')}</span>
@@ -1445,13 +1445,13 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                     </div>
 
                     <div className="bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-3xl p-4 sm:p-5 flex flex-col justify-between h-28 sm:h-32 shadow-sm">
-                        <span className="text-[9px] sm:text-[10px] font-mono font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider truncate">{t('grammar.stageMaster', 'Cao cấp (Thành thạo)')}</span>
+                        <span className="text-[9px] sm:text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider truncate">{t('grammar.stageMaster', 'Cao cấp (Thành thạo)')}</span>
                         <div className="flex items-baseline gap-1 mt-1">
                             <span className="text-2xl sm:text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.longTerm}</span>
                             <span className="text-xs text-slate-400 font-mono">{t('grammar.patternsUnit', 'mẫu')}</span>
                         </div>
                         <div className="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden mt-2">
-                            <div className="h-full bg-indigo-500 rounded-full" style={{ width: `${stats.grammarLearned > 0 ? (stats.longTerm / stats.grammarLearned) * 100 : 0}%` }} />
+                            <div className="h-full bg-emerald-500 rounded-full" style={{ width: `${stats.grammarLearned > 0 ? (stats.longTerm / stats.grammarLearned) * 100 : 0}%` }} />
                         </div>
                     </div>
 

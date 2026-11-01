@@ -56,7 +56,7 @@ const HomeHeroCockpit = ({
                         <button
                             type="button"
                             onClick={onLearnNew}
-                            className="shrink-0 px-5 py-3 bg-indigo-600 hover:bg-indigo-500 active:translate-y-1 active:border-b-0 border-b-4 border-indigo-800 text-white font-black text-xs sm:text-sm rounded-2xl shadow-md transition-all uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer select-none"
+                            className="shrink-0 px-5 py-3 bg-emerald-500 hover:bg-emerald-400 active:translate-y-1 active:border-b-0 border-b-4 border-emerald-700 text-white font-black text-xs sm:text-sm rounded-2xl shadow-md transition-all uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer select-none"
                         >
                             <span>{t('home.learnNewWords', 'Học bài mới')}</span>
                             <ArrowRight className="w-4 h-4 stroke-[2.5]" />

@@ -184,12 +184,12 @@ const ImportScreen = ({ onImport }) => {
 
             {/* File Upload Area — hidden when preview is shown */}
             {!parsedCards && (
-                <div className="border-2 border-dashed border-indigo-200 dark:border-indigo-800 rounded-3xl bg-indigo-50/50 dark:bg-indigo-900/20 p-10 flex flex-col items-center justify-center text-center hover:bg-indigo-50 dark:hover:bg-indigo-900/30 transition-colors">
+                <div className="border-2 border-dashed border-emerald-200 dark:border-emerald-800 rounded-3xl bg-emerald-50/50 dark:bg-emerald-900/20 p-10 flex flex-col items-center justify-center text-center hover:bg-emerald-50 dark:hover:bg-emerald-900/30 transition-colors">
                     <div className="w-16 h-16 bg-white dark:bg-gray-700 rounded-full flex items-center justify-center shadow-sm mb-4">
-                        <Upload className="w-8 h-8 text-indigo-500 dark:text-indigo-400" />
+                        <Upload className="w-8 h-8 text-emerald-500 dark:text-emerald-400" />
                     </div>
                     <label className="cursor-pointer">
-                        <span className="bg-indigo-600 dark:bg-indigo-500 text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-indigo-200 dark:shadow-indigo-900/50 hover:bg-indigo-700 dark:hover:bg-indigo-600 transition-all inline-block">
+                        <span className="bg-emerald-600 dark:bg-emerald-500 text-white px-6 py-3 rounded-xl font-bold shadow-lg shadow-emerald-200 dark:shadow-emerald-900/50 hover:bg-emerald-700 dark:hover:bg-emerald-600 transition-all inline-block">
                             Chọn File .TSV
                         </span>
                         <input
@@ -202,7 +202,7 @@ const ImportScreen = ({ onImport }) => {
                     </label>
                     <p className="mt-3 text-xs text-gray-400 dark:text-gray-500">Giới hạn {MAX_FILE_SIZE_MB} MB</p>
                     {fileName && <p className="mt-4 text-sm font-medium text-gray-600 dark:text-gray-300">{fileName}</p>}
-                    {isLoading && <Loader2 className="animate-spin mt-4 text-indigo-500 dark:text-indigo-400" />}
+                    {isLoading && <Loader2 className="animate-spin mt-4 text-emerald-500 dark:text-emerald-400" />}
                     {message && (
                         <p className={`mt-4 text-sm font-bold ${messageType === 'success' ? 'text-emerald-600 dark:text-emerald-400' : messageType === 'error' ? 'text-red-600 dark:text-red-400' : 'text-amber-600 dark:text-amber-400'}`}>
                             {message}
@@ -216,7 +216,7 @@ const ImportScreen = ({ onImport }) => {
                 <div className="space-y-4">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                            <Eye className="w-5 h-5 text-indigo-500" />
+                            <Eye className="w-5 h-5 text-emerald-500" />
                             <h3 className="text-lg font-bold text-gray-800 dark:text-white">
                                 Xem trước: {parsedCards.cards.length} thẻ
                             </h3>
@@ -262,7 +262,7 @@ const ImportScreen = ({ onImport }) => {
                     <button
                         onClick={handleConfirmImport}
                         disabled={isConfirming}
-                        className="w-full py-3 bg-gradient-to-r from-indigo-600 to-sky-500 hover:from-indigo-700 hover:to-sky-600 text-white font-bold rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-60"
+                        className="w-full py-3 bg-gradient-to-r from-emerald-600 to-sky-500 hover:from-emerald-700 hover:to-sky-600 text-white font-bold rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 disabled:opacity-60"
                     >
                         {isConfirming
                             ? <><Loader2 className="w-4 h-4 animate-spin" /> Đang nhập...</>

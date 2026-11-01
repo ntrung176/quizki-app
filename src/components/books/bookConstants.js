@@ -36,7 +36,7 @@ export const ENGLISH_SAMPLE_BOOK_GROUPS = [
         targetLanguage: 'en',
         name: '🎓 IELTS Master Vocabulary (Band 6.5 - 8.0)',
         subtitle: 'Bộ từ vựng ăn điểm cho 4 kỹ năng Listening, Reading, Writing, Speaking',
-        color: '#8B5CF6',
+        color: '#14b8a6',
         books: [
             {
                 id: 'ielts_academic',

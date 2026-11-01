@@ -80,7 +80,7 @@ const QuestionContent = React.memo(({
             </div>
             {/* Options */}
             {question?.subQuestions && question.subQuestions.length > 0 ? (
-                <div className="space-y-6 mb-8 pl-4 border-l-2 border-indigo-200 dark:border-indigo-800">
+                <div className="space-y-6 mb-8 pl-4 border-l-2 border-emerald-200 dark:border-emerald-800">
                     {question.subQuestions.map((sq, sqi) => {
                         const subAns = answers[subAnswerKey(currentSectionIdx, currentQuestionIdx, sqi)];
                         const isSqCorrect = subAns === sq.correctAnswer;
@@ -92,7 +92,7 @@ const QuestionContent = React.memo(({
                                         : 'bg-red-50/40 dark:bg-red-950/10 border-red-250 dark:border-red-900/40'
                                     : 'bg-slate-50/50 dark:bg-slate-900/10 border-slate-100 dark:border-slate-800/80'
                             }`}>
-                                <h4 className={getCleanClassName("text-[17px] md:text-[19px] font-normal text-indigo-650 dark:text-indigo-400 font-japanese", sq.question)} dangerouslySetInnerHTML={{ __html: sq.question || `Câu hỏi phụ ${sqi + 1}:` }} />
+                                <h4 className={getCleanClassName("text-[17px] md:text-[19px] font-normal text-emerald-600 dark:text-emerald-400 font-japanese", sq.question)} dangerouslySetInnerHTML={{ __html: sq.question || `Câu hỏi phụ ${sqi + 1}:` }} />
                                 <div className="grid grid-cols-1 gap-2.5">
                                     {sq.options?.map((opt, oi) => {
                                         const key = subAnswerKey(currentSectionIdx, currentQuestionIdx, sqi);
@@ -115,10 +115,10 @@ const QuestionContent = React.memo(({
                                             }
                                         } else {
                                             optStyle = isSelected
-                                                ? 'bg-indigo-50 dark:bg-indigo-900/30 border-indigo-500 dark:border-indigo-500 text-gray-900 dark:text-white shadow-sm'
-                                                : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-800 dark:text-gray-200 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10';
+                                                ? 'bg-emerald-50 dark:bg-emerald-900/30 border-emerald-500 dark:border-emerald-500 text-gray-900 dark:text-white shadow-sm'
+                                                : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-800 dark:text-gray-200 hover:border-emerald-300 dark:hover:border-emerald-500 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/10';
                                             circleStyle = isSelected
-                                                ? 'bg-indigo-600 text-white'
+                                                ? 'bg-emerald-600 text-white'
                                                 : 'bg-slate-100 dark:bg-slate-700 text-slate-650 dark:text-slate-400';
                                         }
 
@@ -187,10 +187,10 @@ const QuestionContent = React.memo(({
                             }
                         } else {
                             optStyle = isSelected
-                                ? 'bg-indigo-50 dark:bg-indigo-900/30 border-indigo-500 dark:border-indigo-500 text-gray-900 dark:text-white shadow-sm'
-                                : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-800 dark:text-gray-200 hover:border-indigo-300 dark:hover:border-indigo-500 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10';
+                                ? 'bg-emerald-50 dark:bg-emerald-900/30 border-emerald-500 dark:border-emerald-500 text-gray-900 dark:text-white shadow-sm'
+                                : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-800 dark:text-gray-200 hover:border-emerald-300 dark:hover:border-emerald-500 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/10';
                             circleStyle = isSelected
-                                ? 'bg-indigo-600 text-white'
+                                ? 'bg-emerald-600 text-white'
                                 : 'bg-slate-100 dark:bg-slate-700 text-slate-650 dark:text-slate-400';
                         }
 

@@ -698,7 +698,7 @@ export const JA_ROADMAP_STAGES = [
         title: 'Chặng 5: Đấu Trường & Luyện Đề Thi JLPT',
         sub: 'Đề thi bấm giờ JLPT N5 - N1, bẫy ngữ pháp, Dokkai & Đấu trường Skill Arena.',
         icon: '🏆',
-        color: 'purple',
+        color: 'teal',
         lessons: [
             {
                 id: 'ja_s5_l1',

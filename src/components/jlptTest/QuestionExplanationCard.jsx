@@ -54,10 +54,10 @@ const QuestionExplanationCard = ({
     };
 
     return (
-        <div className={`mt-4 rounded-3xl bg-gradient-to-br from-indigo-50/90 via-slate-50 to-purple-50/50 dark:from-slate-900 dark:via-slate-900/90 dark:to-indigo-950/40 border-2 border-indigo-200/80 dark:border-indigo-800/60 p-4 sm:p-6 shadow-sm space-y-4 animate-fade-in ${className}`}>
+        <div className={`mt-4 rounded-3xl bg-gradient-to-br from-emerald-50/90 via-slate-50 to-teal-50/50 dark:from-slate-900 dark:via-slate-900/90 dark:to-emerald-950/40 border-2 border-emerald-200/80 dark:border-emerald-800/60 p-4 sm:p-6 shadow-sm space-y-4 animate-fade-in ${className}`}>
             
             {/* 1. Header Banner */}
-            <div className="flex flex-wrap sm:flex-nowrap items-start sm:items-center justify-between gap-2 sm:gap-3 border-b border-indigo-100 dark:border-indigo-900/60 pb-3">
+            <div className="flex flex-wrap sm:flex-nowrap items-start sm:items-center justify-between gap-2 sm:gap-3 border-b border-emerald-100 dark:border-emerald-900/60 pb-3">
                 <div className="flex items-center gap-2.5 min-w-0 flex-1">
                     <div className="w-8 h-8 rounded-xl bg-slate-900 dark:bg-slate-800 text-emerald-400 flex items-center justify-center shrink-0 shadow-xs border border-slate-700/50">
                         <BookOpen className="w-4 h-4" />
@@ -185,14 +185,14 @@ const QuestionExplanationCard = ({
             {parsed.detailedExplanation && (
                 <div className="space-y-2 pt-1">
                     <div className="flex items-center gap-2 px-1">
-                        <ListChecks className="w-4 h-4 text-indigo-600 dark:text-indigo-400 shrink-0" />
+                        <ListChecks className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                         <span className="text-xs font-black uppercase text-slate-700 dark:text-slate-300 tracking-wider">
                             Căn cứ & Phân tích chuyên sâu:
                         </span>
                     </div>
 
-                    <div className="bg-white/95 dark:bg-slate-800/90 rounded-2xl p-4 sm:p-5 border border-indigo-200/80 dark:border-indigo-900/60 shadow-2xs space-y-2">
-                        <div className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed font-medium whitespace-pre-line pl-3 border-l-2 border-indigo-400 dark:border-indigo-600">
+                    <div className="bg-white/95 dark:bg-slate-800/90 rounded-2xl p-4 sm:p-5 border border-emerald-200/80 dark:border-emerald-900/60 shadow-2xs space-y-2">
+                        <div className="text-xs sm:text-sm text-slate-700 dark:text-slate-200 leading-relaxed font-medium whitespace-pre-line pl-3 border-l-2 border-emerald-400 dark:border-emerald-600">
                             {parsed.detailedExplanation}
                         </div>
                     </div>
@@ -311,10 +311,10 @@ const QuestionExplanationCard = ({
 
             {/* 7. Translation (Dịch câu hỏi & Ngữ cảnh) */}
             {parsed.translation && !parsed.correctTranslation && (
-                <div className="flex items-start gap-3 p-4 rounded-2xl bg-indigo-50/60 dark:bg-indigo-950/30 border border-indigo-200/80 dark:border-indigo-900/50 text-slate-800 dark:text-slate-200 shadow-2xs">
-                    <BookOpen className="w-5 h-5 text-indigo-600 dark:text-indigo-400 shrink-0 mt-0.5" />
+                <div className="flex items-start gap-3 p-4 rounded-2xl bg-emerald-50/60 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-900/50 text-slate-800 dark:text-slate-200 shadow-2xs">
+                    <BookOpen className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                     <div className="space-y-1 text-xs sm:text-sm leading-relaxed flex-1">
-                        <span className="font-extrabold text-xs uppercase tracking-wider text-indigo-700 dark:text-indigo-300 block">
+                        <span className="font-extrabold text-xs uppercase tracking-wider text-emerald-700 dark:text-emerald-300 block">
                             📖 Dịch Nghĩa Tiếng Việt
                         </span>
                         <p className="text-slate-700 dark:text-slate-300 font-medium">

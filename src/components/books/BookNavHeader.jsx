@@ -93,7 +93,7 @@ const BookNavHeader = ({
                                 setSelectedVocabIndices(new Set(vocabWithAudio.map((_, i) => i)));
                                 setShowLinkStudySetModal(true);
                             }}
-                            className="px-3 py-1.5 bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-100 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
+                            className="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer"
                         >
                             <Layers className="w-3.5 h-3.5" /> Liên kết học phần
                         </button>
@@ -104,7 +104,7 @@ const BookNavHeader = ({
                         {setShowBlankFillerModal && (
                             <button
                                 onClick={() => setShowBlankFillerModal(true)}
-                                className="px-3 py-1.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm cursor-pointer"
+                                className="px-3 py-1.5 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white rounded-xl text-xs font-bold transition flex items-center gap-1.5 shadow-sm cursor-pointer"
                                 title="Dùng AI điền từ vựng và chia đúng thể cho các câu ví dụ khuyết"
                             >
                                 <Sparkles className="w-3.5 h-3.5" /> AI Lắp từ vào ví dụ

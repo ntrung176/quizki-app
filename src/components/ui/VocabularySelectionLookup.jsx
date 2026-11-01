@@ -621,7 +621,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                 <button
                     ref={triggerRef}
                     onClick={handleLookup}
-                    className="backdrop-blur-md bg-indigo-600/95 dark:bg-indigo-500/95 hover:bg-indigo-700 dark:hover:bg-indigo-600 text-white rounded-full px-4 py-2 text-xs font-black flex items-center gap-1.5 shadow-[0_8px_24px_rgba(99,102,241,0.4)] transition-all transform hover:scale-105 active:scale-95 duration-200 absolute -translate-x-1/2 -translate-y-full mb-3 cursor-pointer whitespace-nowrap animate-fade-in"
+                    className="backdrop-blur-md bg-emerald-600/95 dark:bg-emerald-500/95 hover:bg-emerald-700 dark:hover:bg-emerald-600 text-white rounded-full px-4 py-2 text-xs font-black flex items-center gap-1.5 shadow-[0_8px_24px_rgba(99,102,241,0.4)] transition-all transform hover:scale-105 active:scale-95 duration-200 absolute -translate-x-1/2 -translate-y-full mb-3 cursor-pointer whitespace-nowrap animate-fade-in"
                     style={{ left: `${horizontalOffset}px` }}
                 >
                     {isPremiumUnlocked ? (
@@ -655,7 +655,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                     </h3>
                                     <button
                                         onClick={handlePlayAudio}
-                                        className="p-1.5 rounded-lg bg-indigo-50 dark:bg-slate-800 hover:bg-indigo-100 dark:hover:bg-slate-700 text-indigo-600 dark:text-indigo-400 transition-colors cursor-pointer"
+                                        className="p-1.5 rounded-lg bg-emerald-50 dark:bg-slate-800 hover:bg-emerald-100 dark:hover:bg-slate-700 text-emerald-600 dark:text-emerald-400 transition-colors cursor-pointer"
                                         title="Phát âm tiếng Nhật"
                                     >
                                         <Volume2 className="w-4 h-4" />
@@ -690,12 +690,12 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                     }
                                 }}
                                 placeholder="Sửa lại từ cần tra..."
-                                className="flex-1 px-2.5 py-1 text-xs font-bold font-japanese border border-slate-200 dark:border-slate-700/60 rounded-xl bg-slate-50 dark:bg-slate-950/40 text-slate-800 dark:text-white outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500"
+                                className="flex-1 px-2.5 py-1 text-xs font-bold font-japanese border border-slate-200 dark:border-slate-700/60 rounded-xl bg-slate-50 dark:bg-slate-950/40 text-slate-800 dark:text-white outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500"
                             />
                             <button
                                 onClick={handleLookup}
                                 disabled={loading}
-                                className="px-2.5 py-1 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold shadow-sm transition-all disabled:opacity-50 shrink-0 cursor-pointer"
+                                className="px-2.5 py-1 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold shadow-sm transition-all disabled:opacity-50 shrink-0 cursor-pointer"
                             >
                                 Tra lại
                             </button>
@@ -705,7 +705,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                     {/* Content Section */}
                     {loading && (
                         <div className="py-8 flex flex-col items-center justify-center gap-3 text-slate-500">
-                            <Loader2 className="w-7 h-7 text-indigo-500 animate-spin" />
+                            <Loader2 className="w-7 h-7 text-emerald-500 animate-spin" />
                             <span className="text-xs font-bold animate-pulse">AI đang tra cứu nghĩa chi tiết...</span>
                         </div>
                     )}
@@ -746,7 +746,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
 
                             <button
                                 onClick={handleLookup}
-                                className="w-full mt-3 py-2 bg-gradient-to-r from-indigo-500 to-sky-500 hover:from-indigo-600 hover:to-sky-600 text-white rounded-xl text-xs font-black shadow-md shadow-indigo-50 dark:shadow-none transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                                className="w-full mt-3 py-2 bg-gradient-to-r from-emerald-500 to-sky-500 hover:from-emerald-600 hover:to-sky-600 text-white rounded-xl text-xs font-black shadow-md shadow-emerald-50 dark:shadow-none transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                             >
                                 <Wand2 className="w-3.5 h-3.5 text-amber-300" />
                                 Tra cứu mở rộng bằng AI
@@ -758,8 +758,8 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                     {aiResult && !loading && (
                         <div className="space-y-3.5 text-xs text-slate-600 dark:text-slate-350">
                             {aiResult.isSentence ? (
-                                <div className="p-4 bg-indigo-50/30 dark:bg-indigo-950/10 rounded-2xl border border-indigo-100/30 dark:border-indigo-900/30">
-                                    <span className="text-[10px] font-extrabold text-indigo-500 dark:text-indigo-400 uppercase tracking-wider block mb-1.5">Bản dịch:</span>
+                                <div className="p-4 bg-emerald-50/30 dark:bg-emerald-950/10 rounded-2xl border border-emerald-100/30 dark:border-emerald-900/30">
+                                    <span className="text-[10px] font-extrabold text-emerald-500 dark:text-emerald-400 uppercase tracking-wider block mb-1.5">Bản dịch:</span>
                                     <p className="text-sm font-bold text-slate-800 dark:text-slate-100 leading-relaxed font-sans">{aiResult.meaning}</p>
                                 </div>
                             ) : (
@@ -767,7 +767,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                     {/* Badges row */}
                                     <div className="flex gap-2">
                                         {aiResult.pos && (
-                                            <span className="px-2 py-0.5 rounded-md bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-100/50 dark:border-indigo-900/40 text-[10px] font-black text-indigo-600 dark:text-indigo-400">
+                                            <span className="px-2 py-0.5 rounded-md bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-100/50 dark:border-emerald-900/40 text-[10px] font-black text-emerald-600 dark:text-emerald-400">
                                                 {getPosLabel(aiResult.pos)}
                                             </span>
                                         )}
@@ -779,8 +779,8 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                     </div>
 
                                     {/* Meaning */}
-                                    <div className="p-3 bg-indigo-50/40 dark:bg-slate-950/40 rounded-xl border border-indigo-100/30 dark:border-slate-850/60">
-                                        <span className="text-[10px] font-extrabold text-indigo-500 uppercase tracking-wider block mb-1">Ý nghĩa:</span>
+                                    <div className="p-3 bg-emerald-50/40 dark:bg-slate-950/40 rounded-xl border border-emerald-100/30 dark:border-slate-850/60">
+                                        <span className="text-[10px] font-extrabold text-emerald-500 uppercase tracking-wider block mb-1">Ý nghĩa:</span>
                                         <span className="text-sm font-bold text-slate-800 dark:text-slate-100 leading-relaxed">{aiResult.meaning}</span>
                                     </div>
 
@@ -838,7 +838,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                 <button
                                     onClick={handleOpenFolderModal}
                                     disabled={saving}
-                                    className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-black shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                                    className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-black shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                                 >
                                     {saving ? (
                                         <>
@@ -946,7 +946,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                     placeholder="Tìm kiếm học phần, thư mục..."
                                     value={modalSearchQuery}
                                     onChange={(e) => setModalSearchQuery(e.target.value)}
-                                    className="w-full pl-9 pr-8 py-2.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-900 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                                    className="w-full pl-9 pr-8 py-2.5 text-xs rounded-xl bg-slate-50 dark:bg-slate-900 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500"
                                 />
                                 {modalSearchQuery && (
                                     <button
@@ -962,7 +962,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                 {selectedModalFolderId && !modalSearchQuery.trim() && (
                                     <button
                                         onClick={(e) => { e.stopPropagation(); setSelectedModalFolderId(parentFolderId); }}
-                                        className="w-full text-left p-2.5 rounded-xl border border-dashed border-gray-200 dark:border-slate-700/80 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-indigo-500 dark:hover:text-sky-400 transition-all flex items-center gap-2 mb-2 font-medium text-xs text-gray-500 dark:text-gray-400"
+                                        className="w-full text-left p-2.5 rounded-xl border border-dashed border-gray-200 dark:border-slate-700/80 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:text-emerald-500 dark:hover:text-sky-400 transition-all flex items-center gap-2 mb-2 font-medium text-xs text-gray-500 dark:text-gray-400"
                                     >
                                         <ArrowLeft className="w-3.5 h-3.5" />
                                         Quay lại {parentFolderId ? '' : '(Thư mục chính)'}
@@ -993,14 +993,14 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                                         handleConfirmSave(folder.id);
                                                     }
                                                 }}
-                                                className="w-full text-left p-2.5 rounded-xl border border-gray-100 dark:border-slate-700/80 hover:border-indigo-500 dark:hover:border-sky-400 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all flex items-center gap-2"
+                                                className="w-full text-left p-2.5 rounded-xl border border-gray-100 dark:border-slate-700/80 hover:border-emerald-500 dark:hover:border-sky-400 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-all flex items-center gap-2"
                                             >
                                                 {folder.type === 'folder' ? (
                                                     <span className="p-2 bg-amber-50 dark:bg-amber-950 text-amber-500 dark:text-amber-400 rounded-lg">
                                                         <Folder className="w-3.5 h-3.5" />
                                                     </span>
                                                 ) : (
-                                                    <span className="p-2 bg-indigo-50 dark:bg-indigo-950 text-indigo-500 dark:text-indigo-400 rounded-lg">
+                                                    <span className="p-2 bg-emerald-50 dark:bg-emerald-950 text-emerald-500 dark:text-emerald-400 rounded-lg">
                                                         <BookOpen className="w-3.5 h-3.5" />
                                                     </span>
                                                 )}

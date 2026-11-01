@@ -30,7 +30,7 @@ const MentalModelCard = ({ mentalModel, meaning, formality, speechType, explanat
                         </span>
                     )}
                     {formality && (
-                        <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-purple-500/15 text-purple-600 dark:text-purple-400 border border-purple-500/20">
+                        <span className="px-2.5 py-1 rounded-full text-xs font-semibold bg-teal-500/15 text-teal-600 dark:text-teal-400 border border-teal-500/20">
                             {formality}
                         </span>
                     )}

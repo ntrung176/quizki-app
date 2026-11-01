@@ -38,7 +38,7 @@ const BookTableOfContents = ({
                     {isAdmin && setShowBlankFillerModal && (
                         <button
                             onClick={() => setShowBlankFillerModal(true)}
-                            className="flex items-center gap-1 px-2 py-0.5 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 text-white rounded-md text-[10px] font-bold shadow-xs transition-all active:scale-95 cursor-pointer"
+                            className="flex items-center gap-1 px-2 py-0.5 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white rounded-md text-[10px] font-bold shadow-xs transition-all active:scale-95 cursor-pointer"
                             title="Dùng AI điền từ vào chỗ trống câu ví dụ cho cả cuốn sách"
                         >
                             <Sparkles className="w-3 h-3 text-amber-300" />

@@ -50,7 +50,7 @@ const RealDialogueCard = ({ dialogues }) => {
                                             className={`w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold shrink-0 shadow-sm ${
                                                 isWhoA
                                                     ? 'bg-teal-500/20 text-teal-600 dark:text-teal-300'
-                                                    : 'bg-indigo-500/20 text-indigo-600 dark:text-indigo-300'
+                                                    : 'bg-emerald-500/20 text-emerald-600 dark:text-emerald-300'
                                             }`}
                                         >
                                             {line.who || (isWhoA ? 'A' : 'B')}

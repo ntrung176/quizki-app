@@ -442,11 +442,11 @@ const InteractiveWordTooltip = ({ matchedEntry, sinoViet, children, onClick }) =
                 style={{ minWidth: 'max-content' }}
             >
                 <span className={`bg-slate-900/95 dark:bg-slate-900/95 text-white border ${
-                    isGrammar ? 'border-indigo-400/90 shadow-indigo-500/20' : 'border-[#f494bc]/90 shadow-pink-500/20'
+                    isGrammar ? 'border-emerald-400/90 shadow-emerald-500/20' : 'border-[#f494bc]/90 shadow-pink-500/20'
                 } rounded-xl px-3 py-2 shadow-2xl backdrop-blur-md text-xs font-sans whitespace-nowrap max-w-xs text-center flex flex-col items-center gap-0.5`}>
                     {/* Header: Title + Tag / Level */}
                     <span className="font-black text-xs flex items-center gap-1.5">
-                        <span className={isGrammar ? 'text-indigo-300 font-extrabold' : 'text-[#f494bc]'}>
+                        <span className={isGrammar ? 'text-emerald-300 font-extrabold' : 'text-[#f494bc]'}>
                             {displayTitle}
                         </span>
                         {!isGrammar && reading && reading !== displayTitle && (
@@ -455,13 +455,13 @@ const InteractiveWordTooltip = ({ matchedEntry, sinoViet, children, onClick }) =
                         {levelText ? (
                             <span className={`text-[8px] font-mono px-1.5 py-0.2 rounded font-bold border ${
                                 isGrammar 
-                                    ? 'bg-indigo-500/20 text-indigo-300 border-indigo-500/30' 
+                                    ? 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' 
                                     : 'bg-pink-500/20 text-[#f494bc] border-pink-500/30'
                             }`}>
                                 {isGrammar ? `Ngữ pháp ${levelText}` : levelText}
                             </span>
                         ) : isGrammar ? (
-                            <span className="text-[8px] font-mono px-1.5 py-0.2 rounded font-bold border bg-indigo-500/20 text-indigo-300 border-indigo-500/30">
+                            <span className="text-[8px] font-mono px-1.5 py-0.2 rounded font-bold border bg-emerald-500/20 text-emerald-300 border-emerald-500/30">
                                 Ngữ pháp
                             </span>
                         ) : null}
@@ -483,7 +483,7 @@ const InteractiveWordTooltip = ({ matchedEntry, sinoViet, children, onClick }) =
                 </span>
                 {/* Pointer Arrow */}
                 <span className={`w-2 h-2 bg-slate-900 border-r border-b ${
-                    isGrammar ? 'border-indigo-400/90' : 'border-[#f494bc]/90'
+                    isGrammar ? 'border-emerald-400/90' : 'border-[#f494bc]/90'
                 } rotate-45 -mt-1 block shrink-0`} />
             </span>
         </span>
@@ -515,7 +515,7 @@ export const renderFuriganaContent = (textWithFurigana, showFurigana = true, onW
                 >
                     <span className={`inline-flex items-baseline transition-colors duration-150 ${
                         isGrammar 
-                            ? 'group-hover/word:text-indigo-400 dark:group-hover/word:text-indigo-300 underline decoration-indigo-400/50 decoration-wavy' 
+                            ? 'group-hover/word:text-emerald-400 dark:group-hover/word:text-emerald-300 underline decoration-emerald-400/50 decoration-wavy' 
                             : 'group-hover/word:text-[#f494bc]'
                     }`}>
                         {chunk.tokenGroups.map((group, gIdx) => {
@@ -524,7 +524,7 @@ export const renderFuriganaContent = (textWithFurigana, showFurigana = true, onW
                                     <ruby 
                                         key={gIdx}
                                         className={`select-text transition-colors duration-150 ${
-                                            isGrammar ? 'group-hover/word:text-indigo-400 dark:group-hover/word:text-indigo-300' : 'group-hover/word:text-[#f494bc]'
+                                            isGrammar ? 'group-hover/word:text-emerald-400 dark:group-hover/word:text-emerald-300' : 'group-hover/word:text-[#f494bc]'
                                         }`}
                                         style={{ rubyAlign: 'center', rubyPosition: 'over' }}
                                     >
@@ -532,7 +532,7 @@ export const renderFuriganaContent = (textWithFurigana, showFurigana = true, onW
                                         {showFurigana ? (
                                             <rt 
                                                 className={`text-[0.55em] font-normal select-none text-slate-500 dark:text-slate-300 leading-none tracking-normal transition-colors duration-150 ${
-                                                    isGrammar ? 'group-hover/word:text-indigo-400 dark:group-hover/word:text-indigo-300' : 'group-hover/word:text-[#f494bc]'
+                                                    isGrammar ? 'group-hover/word:text-emerald-400 dark:group-hover/word:text-emerald-300' : 'group-hover/word:text-[#f494bc]'
                                                 }`} 
                                                 style={{ textAlign: 'center' }}
                                             >

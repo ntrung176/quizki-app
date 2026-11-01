@@ -715,7 +715,7 @@ const LibraryScreen = ({
                                                     e.stopPropagation();
                                                     setMovingStudySet({ id: folder.id, name: folder.name, parentId: folder.parentId });
                                                 }}
-                                                className="p-1 sm:p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-indigo-500 transition-colors flex items-center justify-center cursor-pointer"
+                                                className="p-1 sm:p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-emerald-500 transition-colors flex items-center justify-center cursor-pointer"
                                                 title={t('library.moveSet')}
                                             >
                                                 <Move className="w-3.5 h-3.5" />
@@ -895,8 +895,8 @@ const LibraryScreen = ({
                     <div className="relative bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl shadow-2xl w-full max-w-md p-5 sm:p-6 space-y-4 border border-slate-200 dark:border-slate-800">
                         <div className="flex items-center justify-between">
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 flex items-center justify-center shrink-0">
-                                    <Move className="w-5 h-5 text-indigo-500" />
+                                <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center shrink-0">
+                                    <Move className="w-5 h-5 text-emerald-500" />
                                 </div>
                                 <div className="min-w-0">
                                     <h3 className="font-extrabold text-base sm:text-lg text-slate-900 dark:text-white truncate">{t('library.moveStudySetTitle')}</h3>
@@ -919,15 +919,15 @@ const LibraryScreen = ({
                                 onClick={() => handleMoveStudySetToParent(movingStudySet.id, 'root')}
                                 className={`w-full p-3 min-h-[48px] rounded-xl border text-left flex items-center justify-between transition-all cursor-pointer ${
                                     !movingStudySet.parentId
-                                        ? 'bg-indigo-50 dark:bg-indigo-950/40 border-indigo-500 text-indigo-700 dark:text-indigo-300 font-bold'
-                                        : 'bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-indigo-400'
+                                        ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-emerald-700 dark:text-emerald-300 font-bold'
+                                        : 'bg-slate-50 dark:bg-slate-950 border-slate-200 dark:border-slate-800 text-slate-800 dark:text-slate-200 hover:border-emerald-400'
                                 }`}
                             >
                                 <div className="flex items-center gap-2.5">
-                                    <Library className="w-4 h-4 text-indigo-500 shrink-0" />
+                                    <Library className="w-4 h-4 text-emerald-500 shrink-0" />
                                     <span className="text-xs font-semibold">{t('library.rootFolder')}</span>
                                 </div>
-                                {!movingStudySet.parentId && <span className="text-[10px] font-mono bg-indigo-500 text-white px-2 py-0.5 rounded-full font-bold">{t('library.currentBadge')}</span>}
+                                {!movingStudySet.parentId && <span className="text-[10px] font-mono bg-emerald-500 text-white px-2 py-0.5 rounded-full font-bold">{t('library.currentBadge')}</span>}
                             </button>
 
                             {/* Options: Parent Folders */}
@@ -963,8 +963,8 @@ const LibraryScreen = ({
                     <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setShowCreateFolderModal(false)}></div>
                     <form onSubmit={handleCreateParentFolder} className="relative bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-sm p-6 space-y-4 border border-gray-200 dark:border-slate-700 animate-scale-up">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 flex items-center justify-center flex-shrink-0">
-                                <FolderPlus className="w-5 h-5 text-indigo-500" />
+                            <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center flex-shrink-0">
+                                <FolderPlus className="w-5 h-5 text-emerald-500" />
                             </div>
                             <div>
                                 <h3 className="font-bold text-lg text-gray-800 dark:text-white">{t('library.newFolderTitle', 'New Folder')}</h3>
@@ -978,7 +978,7 @@ const LibraryScreen = ({
                             onChange={(e) => setNewFolderName(e.target.value)}
                             required
                             autoFocus
-                            className="w-full bg-white dark:bg-gray-905 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-gray-850 dark:text-white"
+                            className="w-full bg-white dark:bg-gray-905 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-gray-850 dark:text-white"
                         />
                         <div className="flex gap-3 pt-2">
                             <button
@@ -990,7 +990,7 @@ const LibraryScreen = ({
                             </button>
                             <button
                                 type="submit"
-                                className="flex-1 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-colors text-xs shadow-md"
+                                className="flex-1 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-colors text-xs shadow-md"
                             >
                                 {t('library.createFolderBtn', 'Create Folder')}
                             </button>
@@ -1005,8 +1005,8 @@ const LibraryScreen = ({
                     <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setEditingParentFolder(null)}></div>
                     <form onSubmit={handleRenameParentFolder} className="relative bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-sm p-6 space-y-4 border border-gray-200 dark:border-slate-700 animate-scale-up">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 flex items-center justify-center flex-shrink-0">
-                                <Folder className="w-5 h-5 text-indigo-500" />
+                            <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center flex-shrink-0">
+                                <Folder className="w-5 h-5 text-emerald-500" />
                             </div>
                             <div>
                                 <h3 className="font-bold text-lg text-gray-800 dark:text-white">{t('library.renameFolderTitle', 'Rename Folder')}</h3>
@@ -1020,7 +1020,7 @@ const LibraryScreen = ({
                             onChange={(e) => setEditingParentFolder({ ...editingParentFolder, name: e.target.value })}
                             required
                             autoFocus
-                            className="w-full bg-white dark:bg-gray-905 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-gray-850 dark:text-white"
+                            className="w-full bg-white dark:bg-gray-905 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-gray-850 dark:text-white"
                         />
                         <div className="flex gap-3 pt-2">
                             <button
@@ -1030,7 +1030,7 @@ const LibraryScreen = ({
                             >{t('common.cancel', 'Cancel')}</button>
                             <button
                                 type="submit"
-                                className="flex-1 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-colors text-xs shadow-md"
+                                className="flex-1 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-colors text-xs shadow-md"
                             >{t('library.saveChanges', 'Save Changes')}</button>
                         </div>
                     </form>
@@ -1110,8 +1110,8 @@ const LibraryScreen = ({
                     <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setEditingStudySet(null)}></div>
                     <form onSubmit={handleRenameStudySet} className="relative bg-white dark:bg-slate-800 rounded-2xl shadow-2xl w-full max-w-sm p-6 space-y-4 border border-gray-200 dark:border-slate-700 animate-scale-up">
                         <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-xl bg-indigo-50 dark:bg-indigo-950/40 flex items-center justify-center flex-shrink-0">
-                                <Layers className="w-5 h-5 text-indigo-500" />
+                            <div className="w-10 h-10 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 flex items-center justify-center flex-shrink-0">
+                                <Layers className="w-5 h-5 text-emerald-500" />
                             </div>
                             <div>
                                 <h3 className="font-bold text-lg text-gray-800 dark:text-white">{t('library.renameSetTitle', 'Rename Study Set')}</h3>
@@ -1125,7 +1125,7 @@ const LibraryScreen = ({
                             onChange={(e) => setEditingStudySet({ ...editingStudySet, name: e.target.value })}
                             required
                             autoFocus
-                            className="w-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-gray-800 dark:text-white"
+                            className="w-full bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl px-4 py-2.5 text-sm outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-gray-800 dark:text-white"
                         />
                         <div className="flex gap-3 pt-2">
                             <button
@@ -1135,7 +1135,7 @@ const LibraryScreen = ({
                             >{t('common.cancel', 'Cancel')}</button>
                             <button
                                 type="submit"
-                                className="flex-1 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-colors text-xs shadow-md"
+                                className="flex-1 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-colors text-xs shadow-md"
                             >{t('library.saveChanges', 'Save Changes')}</button>
                         </div>
                     </form>

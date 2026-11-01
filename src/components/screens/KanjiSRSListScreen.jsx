@@ -55,7 +55,7 @@ const getSrsStatus = (srs, t = (k, d) => d) => {
     
     const daysInterval = interval >= 1440 ? Math.round(interval / 1440) : interval;
     if (daysInterval >= 21) {
-        return { label: t('kanji.expertStage', 'Chuyên gia'), color: 'text-indigo-500', bg: 'bg-indigo-50 dark:bg-indigo-900/30', icon: CheckCircle };
+        return { label: t('kanji.expertStage', 'Chuyên gia'), color: 'text-emerald-500', bg: 'bg-emerald-50 dark:bg-emerald-900/30', icon: CheckCircle };
     }
     if (daysInterval >= 7) {
         return { label: t('kanji.masterStage', 'Cao cấp'), color: 'text-emerald-500', bg: 'bg-emerald-50 dark:bg-emerald-900/30', icon: CheckCircle };
@@ -934,7 +934,7 @@ const KanjiSRSListScreen = () => {
                         <div className="flex items-center gap-2 w-full sm:w-auto">
                             <button
                                 onClick={() => folders.length > 0 ? setShowBatchMoveModal(true) : setShowFolderManager(true)}
-                                className="flex-1 sm:flex-none px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer"
+                                className="flex-1 sm:flex-none px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all cursor-pointer"
                             >
                                 <Folder className="w-3.5 h-3.5" /> {t('kanji.moveBtn', 'Di chuyển')}
                             </button>
@@ -1178,8 +1178,8 @@ const KanjiSRSListScreen = () => {
                                                         dotBg = 'bg-emerald-500';
                                                         ringClass = 'ring-emerald-50 dark:ring-emerald-950';
                                                     } else if (item.type === 'save') {
-                                                        dotBg = 'bg-indigo-500';
-                                                        ringClass = 'ring-indigo-50 dark:ring-indigo-950';
+                                                        dotBg = 'bg-emerald-500';
+                                                        ringClass = 'ring-emerald-50 dark:ring-emerald-950';
                                                     } else if (item.type === 'review') {
                                                         dotBg = 'bg-sky-500';
                                                         ringClass = 'ring-sky-50 dark:ring-sky-950';
@@ -1357,7 +1357,7 @@ const KanjiSRSListScreen = () => {
                                             <div className="opacity-0 group-hover:opacity-100 absolute top-2.5 right-2.5 flex gap-1 transition-all bg-white/90 dark:bg-slate-800/90 rounded-lg p-0.5 shadow-sm border border-slate-100 dark:border-slate-700">
                                                 <button 
                                                     onClick={(e) => { e.stopPropagation(); setShowMoveModal(kanji.id); }}
-                                                    className="p-1 text-slate-400 hover:text-indigo-600 hover:bg-slate-50 rounded"
+                                                    className="p-1 text-slate-400 hover:text-emerald-600 hover:bg-slate-50 rounded"
                                                     title={t('kanji.moveFolderTooltip', 'Chuyển thư mục')}
                                                 >
                                                     <Folder className="w-3.5 h-3.5" />
@@ -1439,7 +1439,7 @@ const KanjiSRSListScreen = () => {
                         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                             <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 w-[360px] max-w-full shadow-2xl space-y-4 border border-slate-100 dark:border-slate-700">
                                 <h3 className="text-base font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                                    <Folder className="w-5 h-5 text-indigo-500" /> {t('kanji.moveModalTitle', 'Di chuyển {count} Kanji').replace('{count}', selectedIds.size)}
+                                    <Folder className="w-5 h-5 text-emerald-500" /> {t('kanji.moveModalTitle', 'Di chuyển {count} Kanji').replace('{count}', selectedIds.size)}
                                 </h3>
                                 <div className="max-h-[260px] overflow-y-auto divide-y divide-slate-100 dark:divide-slate-700">
                                     <button 
@@ -1456,7 +1456,7 @@ const KanjiSRSListScreen = () => {
                                             className="w-full text-left flex items-center gap-2 py-3 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors px-1"
                                             style={{ paddingLeft: `${4 + f.depth * 16}px` }}
                                         >
-                                            <Folder className={`w-4 h-4 ${f.depth > 0 ? 'text-amber-400' : 'text-indigo-400'}`} />
+                                            <Folder className={`w-4 h-4 ${f.depth > 0 ? 'text-amber-400' : 'text-emerald-400'}`} />
                                             <span className="text-sm text-slate-700 dark:text-slate-300 font-semibold">{f.name}</span>
                                         </button>
                                     ))}
@@ -1485,12 +1485,12 @@ const KanjiSRSListScreen = () => {
                         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
                             <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 w-[360px] max-w-full shadow-2xl space-y-4 border border-slate-100 dark:border-slate-700">
                                 <h3 className="text-base font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                                    <Folder className="w-5 h-5 text-indigo-500" /> {t('kanji.selectStorageFolder', 'Chọn thư mục lưu trữ')}
+                                    <Folder className="w-5 h-5 text-emerald-500" /> {t('kanji.selectStorageFolder', 'Chọn thư mục lưu trữ')}
                                 </h3>
                                 <div className="max-h-[260px] overflow-y-auto divide-y divide-slate-100 dark:divide-slate-700">
                                     <button 
                                         onClick={() => moveKanjiToFolder(showMoveModal, 'none')}
-                                        className={`w-full text-left flex items-center gap-3 py-3 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors px-1 ${!kanjiCardFolders[showMoveModal] ? 'bg-indigo-50/50' : ''}`}
+                                        className={`w-full text-left flex items-center gap-3 py-3 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors px-1 ${!kanjiCardFolders[showMoveModal] ? 'bg-emerald-50/50' : ''}`}
                                     >
                                         <Folder className="w-4 h-4 text-slate-400" />
                                         <span className="text-sm text-slate-500 italic">{t('kanji.unfiledFolder', 'Chưa phân loại')}</span>
@@ -1499,12 +1499,12 @@ const KanjiSRSListScreen = () => {
                                         <button 
                                             key={f.id} 
                                             onClick={() => moveKanjiToFolder(showMoveModal, f.id)}
-                                            className={`w-full text-left flex items-center gap-2 py-3 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors px-1 ${kanjiCardFolders[showMoveModal] === f.id ? 'bg-indigo-50/50' : ''}`}
+                                            className={`w-full text-left flex items-center gap-2 py-3 hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors px-1 ${kanjiCardFolders[showMoveModal] === f.id ? 'bg-emerald-50/50' : ''}`}
                                             style={{ paddingLeft: `${4 + f.depth * 16}px` }}
                                         >
-                                            <Folder className={`w-4 h-4 ${f.depth > 0 ? 'text-amber-400' : 'text-indigo-400'}`} />
+                                            <Folder className={`w-4 h-4 ${f.depth > 0 ? 'text-amber-400' : 'text-emerald-400'}`} />
                                             <span className="text-sm text-slate-700 dark:text-slate-300 font-semibold flex-1">{f.name}</span>
-                                            {kanjiCardFolders[showMoveModal] === f.id && <span className="text-[10px] text-indigo-500 font-bold">{t('kanji.savedHereBadge', 'Lưu ở đây')}</span>}
+                                            {kanjiCardFolders[showMoveModal] === f.id && <span className="text-[10px] text-emerald-500 font-bold">{t('kanji.savedHereBadge', 'Lưu ở đây')}</span>}
                                         </button>
                                     ))}
                                 </div>
@@ -1560,7 +1560,7 @@ const KanjiSRSListScreen = () => {
                                                 style={{ paddingLeft: `${4 + f.depth * 16}px` }}
                                             >
                                                 {f.depth > 0 && <span className="text-slate-300">└</span>}
-                                                <Folder className={`w-4 h-4 flex-shrink-0 ${f.depth > 0 ? 'text-amber-400' : 'text-indigo-500'}`} />
+                                                <Folder className={`w-4 h-4 flex-shrink-0 ${f.depth > 0 ? 'text-amber-400' : 'text-emerald-500'}`} />
 
                                                 {editingFolderId === f.id ? (
                                                     <input 

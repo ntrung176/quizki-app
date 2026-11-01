@@ -103,11 +103,11 @@ export const getBookCoverMeta = ({
             bottomText: 'text-white'
         };
     } else if (nameLower.includes('mimikara') || groupLower.includes('mimikara')) {
-        // Mimikara: Royal Indigo & Soft Lavender Ice
+        // Mimikara: Royal Emerald
         theme = {
-            topBg: 'bg-indigo-50 dark:bg-indigo-950/50',
-            topText: 'text-indigo-950 dark:text-indigo-100',
-            bottomBg: 'bg-indigo-600 dark:bg-indigo-700',
+            topBg: 'bg-emerald-50 dark:bg-emerald-950/50',
+            topText: 'text-emerald-950 dark:text-emerald-100',
+            bottomBg: 'bg-emerald-600 dark:bg-emerald-700',
             bottomText: 'text-white'
         };
     } else if (nameLower.includes('daichi') || groupLower.includes('daichi')) {
@@ -127,11 +127,11 @@ export const getBookCoverMeta = ({
             bottomText: 'text-white'
         };
     } else if (nameLower.includes('chủ đề') || groupLower.includes('chủ đề') || nameLower.includes('topic') || subLower.includes('chủ đề')) {
-        // Topic Vocabulary: Purple & Soft Violet
+        // Topic Vocabulary: Teal & Cyan
         theme = {
-            topBg: 'bg-purple-50 dark:bg-purple-950/50',
-            topText: 'text-purple-950 dark:text-purple-100',
-            bottomBg: 'bg-purple-600 dark:bg-purple-700',
+            topBg: 'bg-teal-50 dark:bg-teal-950/50',
+            topText: 'text-teal-950 dark:text-teal-100',
+            bottomBg: 'bg-teal-600 dark:bg-teal-700',
             bottomText: 'text-white'
         };
     } else if (nameLower.includes('nội thất') || nameLower.includes('thiết kế') || groupLower.includes('nội thất')) {
@@ -168,9 +168,9 @@ export const getBookCoverMeta = ({
             };
         } else if (nameLower.includes('n3')) {
             theme = {
-                topBg: 'bg-purple-50 dark:bg-purple-950/50',
-                topText: 'text-purple-950 dark:text-purple-100',
-                bottomBg: 'bg-purple-600 dark:bg-purple-700',
+                topBg: 'bg-teal-50 dark:bg-teal-950/50',
+                topText: 'text-teal-950 dark:text-teal-100',
+                bottomBg: 'bg-teal-600 dark:bg-teal-700',
                 bottomText: 'text-white'
             };
         } else if (nameLower.includes('n2')) {
@@ -244,11 +244,11 @@ export const getBookCoverMeta = ({
             bottomText: 'text-white'
         };
     } else if (nameLower === 'n2' || nameLower.startsWith('n2 ') || nameLower.endsWith(' n2')) {
-        // Standalone N2: Indigo
+        // Standalone N2: Emerald
         theme = {
-            topBg: 'bg-indigo-50 dark:bg-indigo-950/50',
-            topText: 'text-indigo-950 dark:text-indigo-100',
-            bottomBg: 'bg-indigo-600 dark:bg-indigo-700',
+            topBg: 'bg-emerald-50 dark:bg-emerald-950/50',
+            topText: 'text-emerald-950 dark:text-emerald-100',
+            bottomBg: 'bg-emerald-600 dark:bg-emerald-700',
             bottomText: 'text-white'
         };
     } else if (nameLower === 'n1' || nameLower.startsWith('n1 ') || nameLower.endsWith(' n1')) {

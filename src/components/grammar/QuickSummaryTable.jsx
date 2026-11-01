@@ -6,10 +6,10 @@ const QuickSummaryTable = ({ headers = ['Mục', 'Tóm tắt'], rows = [], keySe
     if ((!rows || rows.length === 0) && !keySentence) return null;
 
     return (
-        <div className="bg-gradient-to-br from-purple-500/10 via-purple-500/5 to-transparent border border-purple-500/20 rounded-2xl p-5 mb-6 backdrop-blur-md shadow-sm">
+        <div className="bg-gradient-to-br from-teal-500/10 via-teal-500/5 to-transparent border border-teal-500/20 rounded-2xl p-5 mb-6 backdrop-blur-md shadow-sm">
             {/* Header */}
             <div className="flex items-center gap-2.5 mb-4">
-                <div className="w-9 h-9 rounded-xl bg-purple-500/15 flex items-center justify-center text-purple-500">
+                <div className="w-9 h-9 rounded-xl bg-teal-500/15 flex items-center justify-center text-teal-500">
                     <Bookmark className="w-5 h-5" />
                 </div>
                 <div>
@@ -23,11 +23,11 @@ const QuickSummaryTable = ({ headers = ['Mục', 'Tóm tắt'], rows = [], keySe
 
             {/* Key takeaway sentence */}
             {keySentence && (
-                <div className="mb-4 bg-purple-500/15 border border-purple-500/30 rounded-xl p-3.5 flex items-start justify-between gap-3">
+                <div className="mb-4 bg-teal-500/15 border border-teal-500/30 rounded-xl p-3.5 flex items-start justify-between gap-3">
                     <div className="flex items-start gap-2.5">
-                        <Pin className="w-4 h-4 text-purple-600 dark:text-purple-400 mt-0.5 shrink-0" />
+                        <Pin className="w-4 h-4 text-teal-600 dark:text-teal-400 mt-0.5 shrink-0" />
                         <div>
-                            <div className="text-xs font-bold uppercase tracking-wider text-purple-700 dark:text-purple-300 mb-0.5">
+                            <div className="text-xs font-bold uppercase tracking-wider text-teal-700 dark:text-teal-300 mb-0.5">
                                 Câu "Đinh" cốt lõi cần nhớ
                             </div>
                             <div className="text-sm font-semibold text-slate-800 dark:text-slate-100 font-japanese">
@@ -37,7 +37,7 @@ const QuickSummaryTable = ({ headers = ['Mục', 'Tóm tắt'], rows = [], keySe
                     </div>
                     <button
                         onClick={() => speakExampleSentence(keySentence)}
-                        className="p-1.5 rounded-lg bg-white/60 dark:bg-slate-800/60 hover:bg-purple-600 hover:text-white transition text-purple-600 dark:text-purple-300 shrink-0"
+                        className="p-1.5 rounded-lg bg-white/60 dark:bg-slate-800/60 hover:bg-teal-600 hover:text-white transition text-teal-600 dark:text-teal-300 shrink-0"
                         title="Nghe phát âm"
                     >
                         🔊
@@ -50,14 +50,14 @@ const QuickSummaryTable = ({ headers = ['Mục', 'Tóm tắt'], rows = [], keySe
                 <div className="overflow-hidden rounded-xl border border-slate-200 dark:border-slate-700/80 bg-white/60 dark:bg-slate-800/60">
                     <table className="w-full text-left border-collapse text-xs sm:text-sm">
                         <thead>
-                            <tr className="bg-purple-500/15 border-b border-purple-500/20 text-purple-900 dark:text-purple-300 font-bold">
+                            <tr className="bg-teal-500/15 border-b border-teal-500/20 text-teal-900 dark:text-teal-300 font-bold">
                                 <th className="p-3 w-1/3">{headers[0] || 'Mục'}</th>
                                 <th className="p-3 w-2/3">{headers[1] || 'Nội dung'}</th>
                             </tr>
                         </thead>
                         <tbody className="divide-y divide-slate-200 dark:divide-slate-700/60">
                             {rows.map((row, idx) => (
-                                <tr key={idx} className="hover:bg-purple-500/5 transition">
+                                <tr key={idx} className="hover:bg-teal-500/5 transition">
                                     <td className="p-3 font-semibold text-slate-700 dark:text-slate-300 align-top">
                                         {row[0]}
                                     </td>

@@ -237,7 +237,7 @@ const AvatarCropper = ({ onConfirm, onCancel, currentAvatarUrl }) => {
                 {/* Header */}
                 <div className="px-5 pt-5 pb-3 border-b border-gray-100 dark:border-gray-800 flex items-center justify-between">
                     <h3 className="font-bold text-gray-800 dark:text-white flex items-center gap-2 text-sm">
-                        <ImageIcon className="w-4 h-4 text-indigo-500" />
+                        <ImageIcon className="w-4 h-4 text-emerald-500" />
                         Tải ảnh đại diện
                     </h3>
                     <button onClick={onCancel} className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors">
@@ -272,10 +272,10 @@ const AvatarCropper = ({ onConfirm, onCancel, currentAvatarUrl }) => {
                             {!imageSrc && (
                                 <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none"
                                     style={{ borderRadius: 16 }}>
-                                    <div className="w-32 h-32 rounded-full border-2 border-dashed border-indigo-400/60 flex items-center justify-center">
-                                        <ImageIcon className="w-10 h-10 text-indigo-400/50" />
+                                    <div className="w-32 h-32 rounded-full border-2 border-dashed border-emerald-400/60 flex items-center justify-center">
+                                        <ImageIcon className="w-10 h-10 text-emerald-400/50" />
                                     </div>
-                                    <p className="text-indigo-300/60 text-xs mt-3 font-medium">Chọn ảnh để bắt đầu</p>
+                                    <p className="text-emerald-300/60 text-xs mt-3 font-medium">Chọn ảnh để bắt đầu</p>
                                 </div>
                             )}
                         </div>
@@ -302,11 +302,11 @@ const AvatarCropper = ({ onConfirm, onCancel, currentAvatarUrl }) => {
                                         const pct = Number(e.target.value) / 100;
                                         setScale(minScale + pct * (maxScale - minScale));
                                     }}
-                                    className="flex-1 h-2 rounded-full appearance-none cursor-pointer accent-indigo-500"
+                                    className="flex-1 h-2 rounded-full appearance-none cursor-pointer accent-emerald-500"
                                     style={{
                                         background: (() => {
                                             const pct = maxScale > minScale ? ((scale - minScale) / (maxScale - minScale)) * 100 : 0;
-                                            return `linear-gradient(to right, #6366f1 ${pct}%, #e5e7eb ${pct}%)`;
+                                            return `linear-gradient(to right, #10b981 ${pct}%, #e5e7eb ${pct}%)`;
                                         })()
                                     }}
                                 />
@@ -344,7 +344,7 @@ const AvatarCropper = ({ onConfirm, onCancel, currentAvatarUrl }) => {
                         {/* Upload button */}
                         <button
                             onClick={() => fileInputRef.current?.click()}
-                            className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border-2 border-dashed border-indigo-300 dark:border-indigo-700 text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-colors text-sm font-bold"
+                            className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl border-2 border-dashed border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors text-sm font-bold"
                         >
                             <Upload className="w-4 h-4" />
                             {imageSrc ? 'Đổi ảnh' : 'Chọn ảnh'}
@@ -354,7 +354,7 @@ const AvatarCropper = ({ onConfirm, onCancel, currentAvatarUrl }) => {
                             <button
                                 onClick={handleConfirm}
                                 disabled={isProcessing}
-                                className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gradient-to-r from-indigo-500 to-sky-500 hover:from-indigo-600 hover:to-sky-600 text-white text-sm font-bold shadow-lg shadow-indigo-500/25 transition-all disabled:opacity-60"
+                                className="flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-gradient-to-r from-emerald-500 to-sky-500 hover:from-emerald-600 hover:to-sky-600 text-white text-sm font-bold shadow-lg shadow-emerald-500/25 transition-all disabled:opacity-60"
                             >
                                 {isProcessing ? (
                                     <div className="w-4 h-4 border-2 border-white/40 border-t-white rounded-full animate-spin" />

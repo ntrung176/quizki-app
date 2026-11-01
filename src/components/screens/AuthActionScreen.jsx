@@ -98,7 +98,7 @@ const AuthActionScreen = () => {
         }
     };
     return (
-        <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-sky-50 flex items-center justify-center p-4">
+        <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-white to-sky-50 flex items-center justify-center p-4">
             <div className="w-full max-w-md">
                 {/* Logo */}
                 <div className="text-center mb-8">
@@ -111,8 +111,8 @@ const AuthActionScreen = () => {
                     {/* Loading */}
                     {status === 'loading' && (
                         <div className="p-8 text-center">
-                            <div className="w-16 h-16 mx-auto mb-4 bg-indigo-50 rounded-full flex items-center justify-center">
-                                <Loader2 className="w-8 h-8 text-indigo-500 animate-spin" />
+                            <div className="w-16 h-16 mx-auto mb-4 bg-emerald-50 rounded-full flex items-center justify-center">
+                                <Loader2 className="w-8 h-8 text-emerald-500 animate-spin" />
                             </div>
                             <h2 className="text-lg font-bold text-gray-900 mb-2">Đang xử lý...</h2>
                             <p className="text-sm text-gray-500">Vui lòng đợi trong giây lát.</p>
@@ -128,7 +128,7 @@ const AuthActionScreen = () => {
                             <p className="text-sm text-gray-600 mb-6 leading-relaxed">{message}</p>
                             <button
                                 onClick={() => navigate('/login')}
-                                className="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all shadow-md shadow-indigo-600/20 hover:shadow-lg"
+                                className="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-all shadow-md shadow-emerald-600/20 hover:shadow-lg"
                             >
                                 Đi tới trang Đăng nhập
                             </button>
@@ -144,7 +144,7 @@ const AuthActionScreen = () => {
                             <p className="text-sm text-gray-600 mb-6 leading-relaxed">{message}</p>
                             <button
                                 onClick={() => navigate('/login')}
-                                className="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all shadow-md shadow-indigo-600/20 hover:shadow-lg"
+                                className="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-all shadow-md shadow-emerald-600/20 hover:shadow-lg"
                             >
                                 Quay lại trang Đăng nhập
                             </button>
@@ -172,7 +172,7 @@ const AuthActionScreen = () => {
                                             type={showPassword ? 'text' : 'password'}
                                             value={newPassword}
                                             onChange={(e) => setNewPassword(e.target.value)}
-                                            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-sm text-gray-900 placeholder-gray-400 outline-none transition-all pr-10"
+                                            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-sm text-gray-900 placeholder-gray-400 outline-none transition-all pr-10"
                                             placeholder="Tối thiểu 6 ký tự"
                                             required
                                             minLength={6}
@@ -195,7 +195,7 @@ const AuthActionScreen = () => {
                                             type={showConfirmPassword ? 'text' : 'password'}
                                             value={confirmNewPassword}
                                             onChange={(e) => setConfirmNewPassword(e.target.value)}
-                                            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 text-sm text-gray-900 placeholder-gray-400 outline-none transition-all pr-10"
+                                            className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 text-sm text-gray-900 placeholder-gray-400 outline-none transition-all pr-10"
                                             placeholder="Nhập lại mật khẩu mới"
                                             required
                                             minLength={6}
@@ -214,7 +214,7 @@ const AuthActionScreen = () => {
                                 <button
                                     type="submit"
                                     disabled={resetting}
-                                    className="w-full py-3 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all shadow-md shadow-indigo-600/20 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                                    className="w-full py-3 px-4 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-all shadow-md shadow-emerald-600/20 hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                                 >
                                     {resetting ? (
                                         <Loader2 className="w-5 h-5 animate-spin" />

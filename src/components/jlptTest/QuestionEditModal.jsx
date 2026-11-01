@@ -213,7 +213,7 @@ const QuestionEditModal = ({ isOpen, onClose, initialQuestion, onSave }) => {
                             onClick={() => setShowPreview(!showPreview)}
                             className={`px-3 py-1.5 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer ${
                                 showPreview 
-                                    ? 'bg-indigo-600 text-white shadow-xs' 
+                                    ? 'bg-emerald-600 text-white shadow-xs' 
                                     : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
                             }`}
                             title="Bật/Tắt xem trước giao diện"
@@ -238,7 +238,7 @@ const QuestionEditModal = ({ isOpen, onClose, initialQuestion, onSave }) => {
                         onClick={() => setActiveTab('passage')}
                         className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-black transition flex items-center gap-2 shrink-0 cursor-pointer ${
                             activeTab === 'passage'
-                                ? 'bg-indigo-600 text-white shadow-sm'
+                                ? 'bg-emerald-600 text-white shadow-sm'
                                 : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 border border-slate-200 dark:border-slate-700'
                         }`}
                     >
@@ -253,7 +253,7 @@ const QuestionEditModal = ({ isOpen, onClose, initialQuestion, onSave }) => {
                             onClick={() => setActiveTab('q-main')}
                             className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-black transition flex items-center gap-2 shrink-0 cursor-pointer ${
                                 activeTab === 'q-main'
-                                    ? 'bg-indigo-600 text-white shadow-sm'
+                                    ? 'bg-emerald-600 text-white shadow-sm'
                                     : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 border border-slate-200 dark:border-slate-700'
                             }`}
                         >
@@ -268,7 +268,7 @@ const QuestionEditModal = ({ isOpen, onClose, initialQuestion, onSave }) => {
                                 onClick={() => setActiveTab(`sq-${sqi}`)}
                                 className={`px-3.5 py-2 rounded-xl text-xs sm:text-sm font-black transition flex items-center gap-2 shrink-0 cursor-pointer ${
                                     activeTab === `sq-${sqi}`
-                                        ? 'bg-indigo-600 text-white shadow-sm'
+                                        ? 'bg-emerald-600 text-white shadow-sm'
                                         : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 border border-slate-200 dark:border-slate-700'
                                 }`}
                             >
@@ -299,7 +299,7 @@ const QuestionEditModal = ({ isOpen, onClose, initialQuestion, onSave }) => {
                     {activeTab === 'passage' && (
                         <div className="space-y-4 animate-fade-in">
                             <div className="flex items-center justify-between">
-                                <label className="block text-xs font-black uppercase text-indigo-700 dark:text-indigo-300 tracking-wider">
+                                <label className="block text-xs font-black uppercase text-emerald-700 dark:text-emerald-300 tracking-wider">
                                     Nội dung Đoạn văn đọc hiểu (Passage HTML)
                                 </label>
                                 <span className="text-[11px] text-slate-400">
@@ -335,7 +335,7 @@ const QuestionEditModal = ({ isOpen, onClose, initialQuestion, onSave }) => {
                                 <button
                                     type="button"
                                     onClick={() => setActiveTab(hasSubQuestions ? 'sq-0' : 'q-main')}
-                                    className="px-4 py-2 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 text-indigo-700 dark:text-indigo-300 text-xs font-bold flex items-center gap-2 hover:bg-indigo-100 cursor-pointer"
+                                    className="px-4 py-2 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 text-xs font-bold flex items-center gap-2 hover:bg-emerald-100 cursor-pointer"
                                 >
                                     <span>Chuyển sang soạn Câu hỏi</span>
                                     <ArrowRight className="w-3.5 h-3.5" />
@@ -445,12 +445,12 @@ const QuestionEditModal = ({ isOpen, onClose, initialQuestion, onSave }) => {
 
                         return (
                             <div className="space-y-5 animate-fade-in" key={sqi}>
-                                <div className="flex items-center justify-between p-3 rounded-2xl bg-indigo-50/70 dark:bg-indigo-950/40 border border-indigo-200/60 dark:border-indigo-800/40">
+                                <div className="flex items-center justify-between p-3 rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/40 border border-emerald-200/60 dark:border-emerald-800/40">
                                     <div className="flex items-center gap-2">
-                                        <span className="w-6 h-6 rounded-lg bg-indigo-600 text-white font-black text-xs flex items-center justify-center">
+                                        <span className="w-6 h-6 rounded-lg bg-emerald-600 text-white font-black text-xs flex items-center justify-center">
                                             {sqi + 1}
                                         </span>
-                                        <span className="text-xs sm:text-sm font-black text-indigo-900 dark:text-indigo-200">
+                                        <span className="text-xs sm:text-sm font-black text-emerald-900 dark:text-emerald-200">
                                             Đang chỉnh sửa: Câu hỏi số {sqi + 1}
                                         </span>
                                     </div>

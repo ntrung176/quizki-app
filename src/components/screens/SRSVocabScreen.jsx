@@ -57,11 +57,11 @@ const formatInterval = (minutes, t = (k, f) => f) => {
     if (months < 12) {
         const mStr = Number(months.toFixed(1));
         const pattern = t('intervals.months', '{n} tháng');
-        return pattern.includes('{n}') ? pattern.replace('{n}', mStr) : `${mStr} tháng`;
+        return pattern.includes('{n}') ? pattern.replace('{n}', mStr) : `${mStr} ${t('common.months', 'tháng')}`;
     }
     const yStr = Number((days / 365).toFixed(1));
     const pattern = t('intervals.years', '{n} năm');
-    return pattern.includes('{n}') ? pattern.replace('{n}', yStr) : `${yStr} năm`;
+    return pattern.includes('{n}') ? pattern.replace('{n}', yStr) : `${yStr} ${t('common.years', 'năm')}`;
 };
 
 // Helper to preview intervals based on SRS state
@@ -1426,7 +1426,7 @@ const SRSVocabScreen = ({
                         {reviewHistory.length > 0 ? (
                             <button
                                 onClick={handleUndo}
-                                className="flex items-center gap-1.5 px-3.5 py-2 min-h-[40px] rounded-2xl text-xs sm:text-sm font-bold bg-white dark:bg-slate-800 border-2 border-b-4 border-slate-200 dark:border-slate-700 text-indigo-600 dark:text-indigo-400 hover:bg-slate-50 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer select-none"
+                                className="flex items-center gap-1.5 px-3.5 py-2 min-h-[40px] rounded-2xl text-xs sm:text-sm font-bold bg-white dark:bg-slate-800 border-2 border-b-4 border-slate-200 dark:border-slate-700 text-emerald-600 dark:text-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer select-none"
                             >
                                 <RotateCcw className="w-4 h-4" /> {t('vocab.previousCard', 'Quay lại thẻ trước')}
                             </button>
@@ -2050,7 +2050,7 @@ const SRSVocabScreen = ({
                         <div className="grid grid-cols-2 gap-3">
                             <button
                                 onClick={() => setSelectedMistakeMode('flashcard')}
-                                className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMistakeMode === 'flashcard' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-700 text-gray-700 dark:text-gray-300'}`}
+                                className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMistakeMode === 'flashcard' ? 'border-emerald-600 bg-emerald-50/40 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-700 text-gray-700 dark:text-gray-300'}`}
                             >
                                 <Layers className="w-6 h-6" />
                                 <span className="font-bold text-xs">{t('vocab.flashcardMode', 'Thẻ ghi nhớ')}</span>
@@ -2058,7 +2058,7 @@ const SRSVocabScreen = ({
 
                             <button
                                 onClick={() => setSelectedMistakeMode('study')}
-                                className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMistakeMode === 'study' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-700 text-gray-700 dark:text-gray-300'}`}
+                                className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMistakeMode === 'study' ? 'border-emerald-600 bg-emerald-50/40 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-700 text-gray-700 dark:text-gray-300'}`}
                             >
                                 <BookOpen className="w-6 h-6" />
                                 <span className="font-bold text-xs">{t('vocab.studyMode', 'Học tập')}</span>
@@ -2066,7 +2066,7 @@ const SRSVocabScreen = ({
 
                             <button
                                 onClick={() => setSelectedMistakeMode('meaning')}
-                                className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMistakeMode === 'meaning' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-700 text-gray-700 dark:text-gray-300'}`}
+                                className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMistakeMode === 'meaning' ? 'border-emerald-600 bg-emerald-50/40 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-700 text-gray-700 dark:text-gray-300'}`}
                             >
                                 <Edit2 className="w-6 h-6" />
                                 <span className="font-bold text-xs">{t('vocab.meaningMode', 'Nhập ý nghĩa')}</span>
@@ -2074,7 +2074,7 @@ const SRSVocabScreen = ({
 
                             <button
                                 onClick={() => setSelectedMistakeMode('dictation')}
-                                className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMistakeMode === 'dictation' ? 'border-indigo-600 bg-indigo-50/40 dark:bg-indigo-950/20 text-indigo-600 dark:text-indigo-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-700 text-gray-700 dark:text-gray-300'}`}
+                                className={`flex flex-col items-center justify-center p-4 rounded-2xl border-2 transition-all gap-1.5 ${selectedMistakeMode === 'dictation' ? 'border-emerald-600 bg-emerald-50/40 dark:bg-emerald-950/20 text-emerald-600 dark:text-emerald-400' : 'border-gray-200 dark:border-slate-700 hover:border-gray-300 dark:hover:border-slate-700 text-gray-700 dark:text-gray-300'}`}
                             >
                                 <Headphones className="w-6 h-6" />
                                 <span className="font-bold text-xs">{t('vocab.dictationMode', 'Nghe Chép')}</span>
@@ -2101,7 +2101,7 @@ const SRSVocabScreen = ({
                                         onDictationSet('mistakes', mistakeCards);
                                     }
                                 }}
-                                className="flex-1 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-colors text-sm shadow-md cursor-pointer"
+                                className="flex-1 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition-colors text-sm shadow-md cursor-pointer"
                             >
                                 {t('vocab.startReview', 'Bắt đầu ôn')}
                             </button>

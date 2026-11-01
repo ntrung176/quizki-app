@@ -37,7 +37,7 @@ const AvatarDisplay = ({ avatar, name, size = 'w-9 h-9', textSize = 'text-sm' })
     }
     const emoji = AVATAR_EMOJIS[avatar];
     return (
-        <div className={`${size} rounded-full flex items-center justify-center flex-shrink-0 shadow-sm ${emoji ? 'bg-gradient-to-br from-indigo-100 to-sky-100 dark:from-indigo-900/40 dark:to-sky-900/40' : 'bg-gradient-to-br from-indigo-400 to-sky-500 text-white font-bold'}`}>
+        <div className={`${size} rounded-full flex items-center justify-center flex-shrink-0 shadow-sm ${emoji ? 'bg-gradient-to-br from-emerald-100 to-sky-100 dark:from-emerald-900/40 dark:to-sky-900/40' : 'bg-gradient-to-br from-emerald-400 to-sky-500 text-white font-bold'}`}>
             {emoji ? <span className={textSize === 'text-sm' ? 'text-lg' : 'text-xl'}>{emoji}</span> : <span className={textSize}>{(name || 'U')[0].toUpperCase()}</span>}
         </div>
     );
@@ -114,7 +114,7 @@ const CommentItem = ({ comment, userId, onDelete, onLike, onReply, onEdit, onHid
             <div className="flex-1 min-w-0">
                 <div className="bg-gray-50 dark:bg-gray-700/50 rounded-xl px-3.5 py-2.5 relative">
                     <div className="flex items-center gap-2 mb-0.5">
-                        <Link to={`/profile/${comment.authorId}`} className="font-bold text-xs text-gray-800 dark:text-gray-200 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors">
+                        <Link to={`/profile/${comment.authorId}`} className="font-bold text-xs text-gray-800 dark:text-gray-200 hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">
                             {comment.authorName || '\u1ea8n danh'}
                         </Link>
                         <span className="text-[10px] text-gray-400">{timeAgo(comment.createdAt)}</span>
@@ -126,7 +126,7 @@ const CommentItem = ({ comment, userId, onDelete, onLike, onReply, onEdit, onHid
                             <textarea
                                 value={editText}
                                 onChange={e => setEditText(e.target.value)}
-                                className="w-full px-2.5 py-1.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-sm text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-indigo-500/20 resize-none"
+                                className="w-full px-2.5 py-1.5 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-sm text-gray-800 dark:text-gray-200 focus:ring-2 focus:ring-emerald-500/20 resize-none"
                                 maxLength={500}
                                 rows={2}
                                 onKeyDown={e => {
@@ -139,7 +139,7 @@ const CommentItem = ({ comment, userId, onDelete, onLike, onReply, onEdit, onHid
                                 autoFocus
                             />
                             <div className="flex gap-1.5">
-                                <button onClick={handleSaveEdit} disabled={saving || !editText.trim()} className="text-[10px] font-bold text-indigo-500 hover:text-indigo-600 flex items-center gap-1 disabled:opacity-40">
+                                <button onClick={handleSaveEdit} disabled={saving || !editText.trim()} className="text-[10px] font-bold text-emerald-500 hover:text-emerald-600 flex items-center gap-1 disabled:opacity-40">
                                     <Check className="w-3 h-3" /> Lưu
                                 </button>
                                 <button onClick={() => { setIsEditing(false); setEditText(comment.content); }} className="text-[10px] font-bold text-gray-400 hover:text-gray-600">
@@ -210,7 +210,7 @@ const CommentItem = ({ comment, userId, onDelete, onLike, onReply, onEdit, onHid
                         </button>
                         <button
                             onClick={() => onReply(comment)}
-                            className="text-[11px] font-medium text-gray-400 hover:text-indigo-500 transition-colors"
+                            className="text-[11px] font-medium text-gray-400 hover:text-emerald-500 transition-colors"
                         >
                             Phản hồi
                         </button>
@@ -380,7 +380,7 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
                     </Link>
                     <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 flex-wrap">
-                            <Link to={`/profile/${post.authorId}`} className="font-bold text-sm text-gray-800 dark:text-white hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors">
+                            <Link to={`/profile/${post.authorId}`} className="font-bold text-sm text-gray-800 dark:text-white hover:text-emerald-500 dark:hover:text-emerald-400 transition-colors">
                                 {post.authorName || '\u1ea8n danh'}
                             </Link>
                             <span className={`inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full ${category.color}`}>
@@ -432,7 +432,7 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
                             value={editTitle}
                             onChange={e => setEditTitle(e.target.value)}
                             placeholder="Tiêu đề"
-                            className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-sm font-bold text-gray-800 dark:text-white focus:ring-2 focus:ring-indigo-500/20"
+                            className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-sm font-bold text-gray-800 dark:text-white focus:ring-2 focus:ring-emerald-500/20"
                             maxLength={150}
                         />
                         <div data-color-mode="light" className="dark:hidden border border-gray-300 rounded-xl overflow-hidden mt-2">
@@ -457,7 +457,7 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
                             <button
                                 onClick={handleEditPost}
                                 disabled={!editContent.trim() || savingEdit}
-                                className="px-3 py-1.5 rounded-lg bg-indigo-500 hover:bg-indigo-600 text-white text-xs font-bold flex items-center gap-1 disabled:opacity-40 transition-colors"
+                                className="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white text-xs font-bold flex items-center gap-1 disabled:opacity-40 transition-colors"
                             >
                                 {savingEdit ? <div className="w-3 h-3 border-2 border-white/40 border-t-white rounded-full animate-spin" /> : <Check className="w-3.5 h-3.5" />}
                                 Lưu thay đổi
@@ -490,7 +490,7 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
                 {!isEditingPost && post.tags?.length > 0 && (
                     <div className="flex flex-wrap gap-1.5 mt-2.5">
                         {post.tags.map((tag, i) => (
-                            <span key={i} className="text-[10px] font-medium text-indigo-500 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-900/20 px-2 py-0.5 rounded-full">#{tag}</span>
+                            <span key={i} className="text-[10px] font-medium text-emerald-500 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/20 px-2 py-0.5 rounded-full">#{tag}</span>
                         ))}
                     </div>
                 )}
@@ -510,7 +510,7 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
                 <button
                     onClick={() => setShowComments(!showComments)}
                     className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all ${showComments
-                        ? 'text-indigo-500 bg-indigo-50 dark:bg-indigo-900/20'
+                        ? 'text-emerald-500 bg-emerald-50 dark:bg-emerald-900/20'
                         : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700/50'}`}
                 >
                     <MessageCircle className="w-4 h-4" />
@@ -525,7 +525,7 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
                     <div className="space-y-4 mt-3 max-h-80 overflow-y-auto pr-1">
                         {loadingComments ? (
                             <div className="flex justify-center py-4">
-                                <div className="w-5 h-5 border-2 border-indigo-500/30 border-t-indigo-500 rounded-full animate-spin" />
+                                <div className="w-5 h-5 border-2 border-emerald-500/30 border-t-emerald-500 rounded-full animate-spin" />
                             </div>
                         ) : comments.length > 0 ? (() => {
                             const parentComments = comments.filter(c => !c.parentId);
@@ -572,11 +572,11 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
                     {/* Add comment */}
                     <form onSubmit={handleSubmitComment} className="mt-3 pt-3 border-t border-gray-100 dark:border-gray-700/50 flex flex-col gap-2">
                         {replyingTo && (
-                            <div className="flex items-center justify-between bg-indigo-50 dark:bg-indigo-900/20 px-3 py-1.5 rounded-lg text-xs">
-                                <span className="text-indigo-600 dark:text-indigo-400 font-medium">
+                            <div className="flex items-center justify-between bg-emerald-50 dark:bg-emerald-900/20 px-3 py-1.5 rounded-lg text-xs">
+                                <span className="text-emerald-600 dark:text-emerald-400 font-medium">
                                     Đang trả lời <span className="font-bold">{replyingTo.authorName}</span>
                                 </span>
-                                <button type="button" onClick={() => setReplyingTo(null)} className="text-indigo-400 hover:text-indigo-600 p-1">
+                                <button type="button" onClick={() => setReplyingTo(null)} className="text-emerald-400 hover:text-emerald-600 p-1">
                                     <X className="w-3.5 h-3.5" />
                                 </button>
                             </div>
@@ -589,7 +589,7 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
                                     value={commentText}
                                     onChange={(e) => setCommentText(e.target.value)}
                                     placeholder="Viết bình luận... (Shift+Enter để xuống dòng)"
-                                    className="w-full px-3.5 py-2 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-2xl text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-400 dark:focus:border-indigo-500 transition-all pr-10 resize-none min-h-[40px] max-h-[120px]"
+                                    className="w-full px-3.5 py-2 bg-gray-50 dark:bg-gray-700/50 border border-gray-200 dark:border-gray-600 rounded-2xl text-sm text-gray-800 dark:text-gray-200 placeholder-gray-400 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-400 dark:focus:border-emerald-500 transition-all pr-10 resize-none min-h-[40px] max-h-[120px]"
                                     maxLength={500}
                                     rows={1}
                                     onKeyDown={e => {
@@ -602,7 +602,7 @@ const PostItem = ({ post, userId, isAdmin, forumPath, profile }) => {
                                 <button
                                     type="submit"
                                     disabled={!commentText.trim() || isSubmitting}
-                                    className="absolute right-1.5 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-indigo-500 text-white disabled:opacity-30 hover:bg-indigo-600 transition-colors disabled:hover:bg-indigo-500"
+                                    className="absolute right-1.5 top-1/2 -translate-y-1/2 p-1.5 rounded-full bg-emerald-500 text-white disabled:opacity-30 hover:bg-emerald-600 transition-colors disabled:hover:bg-emerald-500"
                                 >
                                     <Send className="w-3.5 h-3.5" />
                                 </button>
@@ -680,7 +680,7 @@ const CreatePostModal = ({ onClose, onSubmit, profile }) => {
                 {/* Header */}
                 <div className="flex items-center justify-between px-5 pt-5 pb-3 border-b border-gray-100 dark:border-gray-800">
                     <h3 className="font-bold text-gray-800 dark:text-white text-base flex items-center gap-2">
-                        <Edit3 className="w-4 h-4 text-indigo-500" />
+                        <Edit3 className="w-4 h-4 text-emerald-500" />
                         Đăng bài mới
                     </h3>
                     <button onClick={onClose} className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
@@ -705,7 +705,7 @@ const CreatePostModal = ({ onClose, onSubmit, profile }) => {
                                     key={cat.id}
                                     onClick={() => setCategory(cat.id)}
                                     className={`text-xs font-bold px-2.5 py-1.5 rounded-full transition-all flex items-center gap-1 ${category === cat.id
-                                        ? 'ring-2 ring-indigo-400 shadow-md ' + cat.color
+                                        ? 'ring-2 ring-emerald-400 shadow-md ' + cat.color
                                         : cat.color + ' opacity-60 hover:opacity-80'}`}
                                 >
                                     {cat.icon} {cat.label}
@@ -719,7 +719,7 @@ const CreatePostModal = ({ onClose, onSubmit, profile }) => {
                         value={title}
                         onChange={e => setTitle(e.target.value)}
                         placeholder="Tiêu đề (không bắt buộc)"
-                        className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-sm font-bold text-gray-800 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-400"
+                        className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-sm font-bold text-gray-800 dark:text-white placeholder-gray-400 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-400"
                         maxLength={150}
                     />
                     {/* Content */}
@@ -753,9 +753,9 @@ const CreatePostModal = ({ onClose, onSubmit, profile }) => {
                         <label className="text-xs font-medium text-gray-500 dark:text-gray-400 mb-1.5 block flex items-center gap-1">
                             <Tag className="w-3 h-3" /> Thẻ tag (gõ rồi nhấn Enter)
                         </label>
-                        <div className="flex flex-wrap items-center gap-1.5 p-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl min-h-[40px] focus-within:ring-2 focus-within:ring-indigo-500/20 focus-within:border-indigo-400 transition-all">
+                        <div className="flex flex-wrap items-center gap-1.5 p-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl min-h-[40px] focus-within:ring-2 focus-within:ring-emerald-500/20 focus-within:border-emerald-400 transition-all">
                             {tags.map((tag, i) => (
-                                <span key={i} className="inline-flex items-center gap-1 text-xs font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-100 dark:bg-indigo-900/30 px-2.5 py-1 rounded-full">
+                                <span key={i} className="inline-flex items-center gap-1 text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-900/30 px-2.5 py-1 rounded-full">
                                     #{tag}
                                     <button onClick={() => removeTag(i)} className="hover:text-red-500 transition-colors">
                                         <X className="w-3 h-3" />
@@ -796,7 +796,7 @@ const CreatePostModal = ({ onClose, onSubmit, profile }) => {
                     <button
                         onClick={handleSubmit}
                         disabled={!content.trim() || isSubmitting || postStatus === 'success'}
-                        className="w-full py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-sky-500 hover:from-indigo-600 hover:to-sky-600 text-white font-bold text-sm shadow-lg shadow-indigo-500/25 disabled:opacity-50 transition-all flex items-center justify-center gap-2"
+                        className="w-full py-3 rounded-xl bg-gradient-to-r from-emerald-500 to-sky-500 hover:from-emerald-600 hover:to-sky-600 text-white font-bold text-sm shadow-lg shadow-emerald-500/25 disabled:opacity-50 transition-all flex items-center justify-center gap-2"
                     >
                         {postStatus === 'submitting' ? (
                             <>
@@ -926,7 +926,7 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
                 </Link>
                 <div className="flex-1">
                     <h2 className="text-xl font-black text-gray-800 dark:text-gray-100 flex items-center gap-2">
-                        <MessageSquare className="w-5 h-5 text-indigo-500" />
+                        <MessageSquare className="w-5 h-5 text-emerald-500" />
                         Diễn đàn
                     </h2>
                     <p className="text-gray-400 dark:text-gray-500 text-xs mt-0.5">Hỏi đáp & chia sẻ về tiếng Nhật</p>
@@ -945,7 +945,7 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
                         value={searchQuery}
                         onChange={e => setSearchQuery(e.target.value)}
                         placeholder="Tìm kiếm bài viết..."
-                        className="w-full pl-9 pr-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-700 dark:text-gray-200 placeholder-gray-400 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-400 transition-all"
+                        className="w-full pl-9 pr-4 py-2.5 bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl text-sm text-gray-700 dark:text-gray-200 placeholder-gray-400 focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-400 transition-all"
                     />
                     {searchQuery && (
                         <button onClick={() => setSearchQuery('')} className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600">
@@ -956,7 +956,7 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
                 <button
                     onClick={() => setSortBy(s => s === 'latest' ? 'popular' : 'latest')}
                     className={`px-3 py-2.5 rounded-xl border text-xs font-bold flex items-center gap-1.5 transition-all ${sortBy === 'popular'
-                        ? 'bg-indigo-50 dark:bg-indigo-900/20 border-indigo-300 dark:border-indigo-700 text-indigo-600 dark:text-indigo-400'
+                        ? 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400'
                         : 'bg-gray-50 dark:bg-gray-800 border-gray-200 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700'}`}
                 >
                     {sortBy === 'latest' ? <Clock className="w-3.5 h-3.5" /> : <TrendingUp className="w-3.5 h-3.5" />}
@@ -973,13 +973,13 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
                     }
                     setShowCreateModal(true);
                 }}
-                className="w-full flex items-center gap-3 p-3.5 bg-gray-50 dark:bg-gray-800 rounded-2xl border-2 border-dashed border-gray-200 dark:border-gray-700 hover:border-indigo-300 dark:hover:border-indigo-700 hover:bg-indigo-50/50 dark:hover:bg-indigo-900/10 transition-all group"
+                className="w-full flex items-center gap-3 p-3.5 bg-gray-50 dark:bg-gray-800 rounded-2xl border-2 border-dashed border-gray-200 dark:border-gray-700 hover:border-emerald-300 dark:hover:border-emerald-700 hover:bg-emerald-50/50 dark:hover:bg-emerald-900/10 transition-all group"
             >
                 <AvatarDisplay avatar={profile?.avatar} name={profile?.displayName} size="w-9 h-9" />
-                <span className="text-sm text-gray-400 dark:text-gray-500 group-hover:text-indigo-500 transition-colors flex-1 text-left">
+                <span className="text-sm text-gray-400 dark:text-gray-500 group-hover:text-emerald-500 transition-colors flex-1 text-left">
                     Bạn muốn hỏi gì? Chia sẻ kiến thức...
                 </span>
-                <div className="p-1.5 rounded-lg bg-indigo-500 text-white shadow-md shadow-indigo-500/25 group-hover:scale-105 transition-transform">
+                <div className="p-1.5 rounded-lg bg-emerald-500 text-white shadow-md shadow-emerald-500/25 group-hover:scale-105 transition-transform">
                     <Plus className="w-4 h-4" />
                 </div>
             </button>
@@ -987,7 +987,7 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
             <div className="space-y-3">
                 {loading ? (
                     <div className="flex flex-col items-center gap-3 py-12">
-                        <div className="w-8 h-8 border-3 border-indigo-500/30 border-t-indigo-500 rounded-full animate-spin" />
+                        <div className="w-8 h-8 border-3 border-emerald-500/30 border-t-emerald-500 rounded-full animate-spin" />
                         <p className="text-sm text-gray-400">Đang tải bài viết...</p>
                     </div>
                 ) : filteredPosts.length > 0 ? (
@@ -1003,8 +1003,8 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
                     ))
                 ) : (
                     <div className="text-center py-16">
-                        <div className="w-16 h-16 bg-indigo-50 dark:bg-indigo-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <MessageSquare className="w-8 h-8 text-indigo-300" />
+                        <div className="w-16 h-16 bg-emerald-50 dark:bg-emerald-900/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <MessageSquare className="w-8 h-8 text-emerald-300" />
                         </div>
                         <h3 className="font-bold text-gray-600 dark:text-gray-300 mb-1">
                             {searchQuery ? 'Không tìm thấy bài viết' : 'Chưa có bài viết nào'}
@@ -1022,7 +1022,7 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
                                     }
                                     setShowCreateModal(true);
                                 }}
-                                className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-indigo-500 to-sky-500 text-white rounded-xl font-bold text-sm shadow-lg shadow-indigo-500/25 hover:from-indigo-600 hover:to-sky-600 transition-all"
+                                className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-emerald-500 to-sky-500 text-white rounded-xl font-bold text-sm shadow-lg shadow-emerald-500/25 hover:from-emerald-600 hover:to-sky-600 transition-all"
                             >
                                 <Plus className="w-4 h-4" /> Đăng bài đầu tiên
                             </button>
@@ -1041,7 +1041,7 @@ const ForumScreen = ({ userId, profile, isAdmin }) => {
                         }
                         setShowCreateModal(true);
                     }}
-                    className="fixed bottom-20 right-4 sm:right-8 w-14 h-14 bg-gradient-to-r from-indigo-500 to-sky-500 rounded-full shadow-xl shadow-indigo-500/30 flex items-center justify-center text-white hover:scale-110 transition-transform z-30"
+                    className="fixed bottom-20 right-4 sm:right-8 w-14 h-14 bg-gradient-to-r from-emerald-500 to-sky-500 rounded-full shadow-xl shadow-emerald-500/30 flex items-center justify-center text-white hover:scale-110 transition-transform z-30"
                 >
                     <Plus className="w-6 h-6" />
                 </button>

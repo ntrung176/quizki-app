@@ -13,3 +13,7 @@
 ## 3. Vibe Coding Standard
 - Code must remain concise, readable, and highly maintainable for rapid AI pair programming.
 - Maintain strict import consistency (`@/` alias trỏ tới `src/`).
+
+## 4. Strict Color Palette Rule (NO PURPLE / VIOLET / INDIGO)
+- **Tuyệt đối KHÔNG dùng màu tím** trong toàn bộ giao diện app (`purple-*`, `violet-*`, `indigo-*`).
+- Thay thế hoàn toàn bằng bảng màu Duolingo chuẩn: Emerald (`emerald-*`), Sky / Cyan (`sky-*`, `cyan-*`), Amber (`amber-*`), hoặc Slate (`slate-*`). Không được sử dụng màu tím cho bất kỳ component, button, badge, header, gradient hay modal nào.

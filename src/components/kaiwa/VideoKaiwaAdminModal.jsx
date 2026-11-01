@@ -665,7 +665,7 @@ const VideoKaiwaAdminModal = ({
                             onClick={() => setProcessMode('manual')}
                             className={`py-2 px-3 rounded-xl text-xs font-black flex items-center justify-center gap-2 transition-all cursor-pointer ${
                                 processMode === 'manual'
-                                    ? 'bg-gradient-to-r from-indigo-600 to-sky-600 text-white shadow-md scale-[1.01]'
+                                    ? 'bg-gradient-to-r from-emerald-600 to-sky-600 text-white shadow-md scale-[1.01]'
                                     : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                             }`}
                         >
@@ -987,7 +987,7 @@ const VideoKaiwaAdminModal = ({
                                         onClick={() => setSourceType('direct')}
                                         className={`py-2 px-3 rounded-xl text-xs font-bold flex items-center justify-center gap-2 transition-all cursor-pointer ${
                                             sourceType === 'direct'
-                                                ? 'bg-indigo-600 text-white shadow-md'
+                                                ? 'bg-emerald-600 text-white shadow-md'
                                                 : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                                         }`}
                                     >
@@ -1034,14 +1034,14 @@ const VideoKaiwaAdminModal = ({
                             )}
 
                             {sourceType === 'direct' && (
-                                <div className="space-y-2 p-3.5 bg-indigo-50/20 dark:bg-indigo-950/10 rounded-2xl border border-indigo-200/60 dark:border-indigo-900/40">
+                                <div className="space-y-2 p-3.5 bg-emerald-50/20 dark:bg-emerald-950/10 rounded-2xl border border-emerald-200/60 dark:border-emerald-900/40">
                                     <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block">Đường dẫn Direct URL (.mp4 / .webm)</label>
                                     <input
                                         type="text"
                                         placeholder="https://example.com/video.mp4"
                                         value={directVideoUrl}
                                         onChange={(e) => setDirectVideoUrl(e.target.value)}
-                                        className="w-full p-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                        className="w-full p-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 text-xs font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500"
                                     />
                                 </div>
                             )}
@@ -1056,21 +1056,21 @@ const VideoKaiwaAdminModal = ({
                                         <button
                                             type="button"
                                             onClick={() => setManualSubTab('paste')}
-                                            className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${manualSubTab === 'paste' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-500 hover:text-slate-800 dark:hover:text-white'}`}
+                                            className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${manualSubTab === 'paste' ? 'bg-emerald-600 text-white shadow-sm' : 'text-slate-500 hover:text-slate-800 dark:hover:text-white'}`}
                                         >
                                             📝 Dán Transcript
                                         </button>
                                         <button
                                             type="button"
                                             onClick={() => setManualSubTab('upload')}
-                                            className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${manualSubTab === 'upload' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-500 hover:text-slate-800 dark:hover:text-white'}`}
+                                            className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${manualSubTab === 'upload' ? 'bg-emerald-600 text-white shadow-sm' : 'text-slate-500 hover:text-slate-800 dark:hover:text-white'}`}
                                         >
                                             📂 Tải file (.srt, .vtt)
                                         </button>
                                         <button
                                             type="button"
                                             onClick={() => setManualSubTab('editor')}
-                                            className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${manualSubTab === 'editor' ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-500 hover:text-slate-800 dark:hover:text-white'}`}
+                                            className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${manualSubTab === 'editor' ? 'bg-emerald-600 text-white shadow-sm' : 'text-slate-500 hover:text-slate-800 dark:hover:text-white'}`}
                                         >
                                             ✍️ Chỉnh sửa ({subtitles.length})
                                         </button>
@@ -1084,7 +1084,7 @@ const VideoKaiwaAdminModal = ({
                                             placeholder={`Dán nội dung transcript có mốc thời gian [0:01]: câu... hoặc văn bản tiếng Nhật:\n[0:01]: 今日から9月。\n[0:09]: 商品がスキャンされる度に鳴ってしまう...`}
                                             value={rawJapaneseText}
                                             onChange={(e) => setRawJapaneseText(e.target.value)}
-                                            className="w-full p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 text-xs text-slate-800 dark:text-slate-100 font-mono focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                            className="w-full p-3 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 text-xs text-slate-800 dark:text-slate-100 font-mono focus:outline-none focus:ring-2 focus:ring-emerald-500"
                                         />
                                         <div className="flex items-center gap-2">
                                             <button
@@ -1100,13 +1100,13 @@ const VideoKaiwaAdminModal = ({
 
                                 {manualSubTab === 'upload' && (
                                     <div className="p-4 border-2 border-dashed border-slate-300 dark:border-slate-700 rounded-2xl text-center space-y-1 bg-white/60 dark:bg-slate-900/60">
-                                        <Upload className="w-6 h-6 text-indigo-500 mx-auto" />
+                                        <Upload className="w-6 h-6 text-emerald-500 mx-auto" />
                                         <p className="text-xs font-bold text-slate-700 dark:text-slate-300">Chọn file .SRT, .VTT hoặc .TXT từ máy tính</p>
                                         <input
                                             type="file"
                                             accept=".srt,.vtt,.txt,.json"
                                             onChange={handleFileUpload}
-                                            className="text-xs text-slate-400 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-indigo-600 file:text-white cursor-pointer"
+                                            className="text-xs text-slate-400 file:mr-3 file:py-1.5 file:px-3 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-emerald-600 file:text-white cursor-pointer"
                                         />
                                     </div>
                                 )}
@@ -1169,7 +1169,7 @@ const VideoKaiwaAdminModal = ({
                                         <button
                                             type="button"
                                             onClick={handleAddSubRow}
-                                            className="w-full py-1.5 border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-indigo-500 rounded-xl text-xs font-bold text-slate-500 hover:text-indigo-600 transition flex items-center justify-center gap-1 cursor-pointer"
+                                            className="w-full py-1.5 border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-emerald-500 rounded-xl text-xs font-bold text-slate-500 hover:text-emerald-600 transition flex items-center justify-center gap-1 cursor-pointer"
                                         >
                                             <Plus className="w-3.5 h-3.5" /> Thêm câu thoại mới
                                         </button>
@@ -1182,7 +1182,7 @@ const VideoKaiwaAdminModal = ({
                                 type="button"
                                 onClick={handleAiAutoFillAll}
                                 disabled={isGeneratingAi}
-                                className="w-full py-3 bg-gradient-to-r from-indigo-600 via-sky-600 to-teal-600 hover:from-indigo-500 hover:to-teal-500 text-white font-black text-xs rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/20 transition cursor-pointer disabled:opacity-50"
+                                className="w-full py-3 bg-gradient-to-r from-emerald-600 via-sky-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-xs rounded-2xl flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 transition cursor-pointer disabled:opacity-50"
                             >
                                 {isGeneratingAi ? (
                                     <>

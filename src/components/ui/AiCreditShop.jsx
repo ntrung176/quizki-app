@@ -28,10 +28,10 @@ const COLORS = {
     premium_3y: 'from-amber-500 to-orange-600',
     premium: 'from-amber-500 to-orange-600',
     starter: 'from-blue-500 to-cyan-500',
-    popular: 'from-indigo-500 to-sky-500',
+    popular: 'from-emerald-500 to-sky-500',
     best_value: 'from-amber-500 to-orange-600',
     ultimate: 'from-rose-500 to-pink-600',
-    vocab_zen: 'from-sky-500 to-indigo-600',
+    vocab_zen: 'from-sky-500 to-emerald-600',
     grammar_zen: 'from-teal-400 to-emerald-600',
     kanji_zen: 'from-amber-500 to-orange-500',
     jlpt_prep: 'from-rose-500 to-pink-500'
@@ -43,10 +43,10 @@ const BG_LIGHT = {
     premium_3y: 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20',
     premium: 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20',
     starter: 'from-blue-50 to-cyan-50 dark:from-blue-950/20 dark:to-cyan-950/20',
-    popular: 'from-indigo-50 to-sky-50 dark:from-indigo-950/20 dark:to-sky-950/20',
+    popular: 'from-emerald-50 to-sky-50 dark:from-emerald-950/20 dark:to-sky-950/20',
     best_value: 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20',
     ultimate: 'from-rose-50 to-pink-50 dark:from-rose-950/20 dark:to-pink-950/20',
-    vocab_zen: 'from-sky-50 to-indigo-50 dark:from-sky-950/20 dark:to-indigo-950/20',
+    vocab_zen: 'from-sky-50 to-emerald-50 dark:from-sky-950/20 dark:to-emerald-950/20',
     grammar_zen: 'from-teal-50 to-emerald-50 dark:from-teal-950/20 dark:to-emerald-950/20',
     kanji_zen: 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20',
     jlpt_prep: 'from-rose-50 to-pink-50 dark:from-rose-950/20 dark:to-pink-950/20'
@@ -438,10 +438,10 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
     const renderAdminEditor = () => {
         if (!adminEditMode || !editedConfig) return null;
         return (
-            <div className="bg-white dark:bg-slate-800 border-2 border-indigo-400 rounded-3xl p-6 mb-8 shadow-2xl">
+            <div className="bg-white dark:bg-slate-800 border-2 border-emerald-400 rounded-3xl p-6 mb-8 shadow-2xl">
                 <div className="flex items-center justify-between border-b border-gray-100 dark:border-slate-700 pb-4 mb-4">
                     <div className="flex items-center gap-2">
-                        <Settings className="w-5 h-5 text-indigo-600 animate-spin" />
+                        <Settings className="w-5 h-5 text-emerald-600 animate-spin" />
                         <h2 className="text-lg font-bold text-gray-900 dark:text-white">Bảng Quản Trị Cấu Hình Trực Tiếp</h2>
                     </div>
                     <button 
@@ -464,7 +464,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                             onClick={() => setAdminTab(tab.id)}
                             className={`px-4 py-2 text-xs font-semibold rounded-t-xl border-b-2 transition-all ${
                                 adminTab === tab.id 
-                                    ? 'border-indigo-600 text-indigo-600 bg-indigo-50/50 dark:bg-indigo-950/20 dark:text-indigo-400' 
+                                    ? 'border-emerald-600 text-emerald-600 bg-emerald-50/50 dark:bg-emerald-950/20 dark:text-emerald-400' 
                                     : 'border-transparent text-gray-500 hover:text-gray-900 dark:hover:text-white'
                             }`}
                         >
@@ -594,10 +594,10 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                             });
                                         }
                                     }}
-                                    className="flex-1 flex items-center justify-center p-4 border-2 border-dashed border-indigo-300 dark:border-indigo-700 hover:border-indigo-500 rounded-2xl bg-indigo-50/10 hover:bg-indigo-50/20 transition-all group gap-2"
+                                    className="flex-1 flex items-center justify-center p-4 border-2 border-dashed border-emerald-300 dark:border-emerald-700 hover:border-emerald-500 rounded-2xl bg-emerald-50/10 hover:bg-emerald-50/20 transition-all group gap-2"
                                 >
-                                    <Crown className="w-5 h-5 text-indigo-400 group-hover:text-indigo-500 transition-colors" />
-                                    <span className="text-xs font-bold text-indigo-500 group-hover:text-indigo-600">Nhập 2 gói Premium mặc định</span>
+                                    <Crown className="w-5 h-5 text-emerald-400 group-hover:text-emerald-500 transition-colors" />
+                                    <span className="text-xs font-bold text-emerald-500 group-hover:text-emerald-600">Nhập 2 gói Premium mặc định</span>
                                 </button>
                             </div>
                         </div>
@@ -724,7 +724,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         {/* Phần 1: Giả lập gói cước chính */}
                         <div className="border border-slate-200 dark:border-slate-700 rounded-2xl p-5 bg-slate-50/50 dark:bg-slate-900/30">
                             <h3 className="text-sm font-bold text-gray-900 dark:text-white mb-4 flex items-center gap-1.5 font-bold">
-                                <Crown className="w-4 h-4 text-indigo-500" />
+                                <Crown className="w-4 h-4 text-emerald-500" />
                                 1. Giả lập Gói cước chính
                             </h3>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -733,7 +733,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                     <select
                                         value={profile?.trialPricingTier || ''}
                                         onChange={(e) => handleUpdateTrialTier(e.target.value)}
-                                        className="w-full px-3.5 py-2.5 text-sm bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-xl dark:text-white font-semibold focus:ring-2 focus:ring-indigo-500"
+                                        className="w-full px-3.5 py-2.5 text-sm bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-xl dark:text-white font-semibold focus:ring-2 focus:ring-emerald-500"
                                     >
                                         <option value="" className="bg-white dark:bg-slate-800 text-gray-900 dark:text-white">Không giả lập (Dùng gói thực tế)</option>
                                         <option value="free" className="bg-white dark:bg-slate-800 text-gray-900 dark:text-white">Gói MIỄN PHÍ (Giới hạn 3 học phần, tối đa 20 từ/học phần)</option>
@@ -798,7 +798,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     <button
                         onClick={handleSaveAdminConfig}
                         disabled={saveLoading}
-                        className="px-6 py-2.5 text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 rounded-xl flex items-center gap-1.5 shadow-md shadow-indigo-100"
+                        className="px-6 py-2.5 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 rounded-xl flex items-center gap-1.5 shadow-md shadow-emerald-100"
                     >
                         {saveLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
                         Lưu Cấu Hình
@@ -822,7 +822,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                 className={`px-4 py-2 text-xs font-bold rounded-full shadow-lg border transition-all flex items-center gap-1.5 ${
                                     adminEditMode 
                                         ? 'bg-red-500 border-red-500 text-white hover:bg-red-600' 
-                                        : 'bg-white hover:bg-gray-50 border-indigo-200 text-indigo-600 dark:bg-slate-800 dark:border-slate-700 dark:text-indigo-400 dark:hover:bg-slate-700'
+                                        : 'bg-white hover:bg-gray-50 border-emerald-200 text-emerald-600 dark:bg-slate-800 dark:border-slate-700 dark:text-emerald-400 dark:hover:bg-slate-700'
                                 }`}
                             >
                                 <Settings className={`w-4 h-4 ${adminEditMode ? 'animate-spin' : ''}`} />
@@ -831,7 +831,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         </div>
                     )}
 
-                    <div className="inline-flex items-center gap-2 bg-[#EEF2FF] dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 px-4 py-1.5 rounded-full text-xs font-extrabold mb-3 tracking-wider uppercase">
+                    <div className="inline-flex items-center gap-2 bg-[#ecfdf5] dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 px-4 py-1.5 rounded-full text-xs font-extrabold mb-3 tracking-wider uppercase">
                         👑 {t('upgrade.title', 'Nâng cấp tài khoản')}
                     </div>
 
@@ -1029,7 +1029,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         setVoucherCode(''); 
                         setVoucherError(''); 
                     }} 
-                    className="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-455 hover:text-indigo-500 mb-6 transition-colors font-bold"
+                    className="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-455 hover:text-emerald-500 mb-6 transition-colors font-bold"
                 >
                     <ArrowLeft className="w-4 h-4" /> {t('upgrade.backToPackages', 'Quay lại chọn gói')}
                 </button>
@@ -1060,7 +1060,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         {selectedPackage.cards && (
                             <div className="flex items-center justify-between py-2.5 border-b border-gray-50 dark:border-slate-800">
                                 <span className="text-xs text-gray-500">{t('upgrade.creditAmount', 'Số lượng Credit')}</span>
-                                <span className="text-sm font-extrabold text-indigo-600 dark:text-indigo-400">{selectedPackage.cards.toLocaleString()} credit</span>
+                                <span className="text-sm font-extrabold text-emerald-600 dark:text-emerald-400">{selectedPackage.cards.toLocaleString()} credit</span>
                             </div>
                         )}
                         {selectedPackage.originalPrice && selectedPackage.originalPrice > selectedPackage.salePrice && (
@@ -1079,7 +1079,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         {/* Voucher Coupon Section */}
                         <div className="bg-slate-50 dark:bg-slate-950/40 rounded-2xl p-4 border border-gray-150/40 dark:border-slate-800">
                             <p className="text-xs font-bold text-gray-700 dark:text-slate-300 mb-2.5 flex items-center gap-1">
-                                <Ticket className="w-4 h-4 text-indigo-500" /> {t('upgrade.voucherPrompt', 'Nhập mã giảm giá (Voucher)')}
+                                <Ticket className="w-4 h-4 text-emerald-500" /> {t('upgrade.voucherPrompt', 'Nhập mã giảm giá (Voucher)')}
                             </p>
                             <div className="flex gap-2">
                                 <input
@@ -1091,7 +1091,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                     }}
                                     placeholder="GIAM65, QUYZKIMAY,..."
                                     disabled={!!appliedVoucher}
-                                    className="flex-1 px-4 py-2.5 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-xl text-xs font-mono uppercase dark:text-white outline-none focus:ring-2 focus:ring-indigo-500/20"
+                                    className="flex-1 px-4 py-2.5 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-xl text-xs font-mono uppercase dark:text-white outline-none focus:ring-2 focus:ring-emerald-500/20"
                                 />
                                 {appliedVoucher ? (
                                     <button 
@@ -1104,7 +1104,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                     <button 
                                         onClick={handleApplyVoucher} 
                                         disabled={voucherLoading || !voucherCode.trim()} 
-                                        className="px-5 py-2.5 bg-indigo-600 text-white rounded-xl text-xs font-bold hover:bg-indigo-700 disabled:opacity-50 transition-colors flex items-center gap-1 shadow-sm"
+                                        className="px-5 py-2.5 bg-emerald-600 text-white rounded-xl text-xs font-bold hover:bg-emerald-700 disabled:opacity-50 transition-colors flex items-center gap-1 shadow-sm"
                                     >
                                         {voucherLoading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : null}
                                         {t('upgrade.apply', 'Áp dụng')}
@@ -1141,7 +1141,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                 {/* Continue button */}
                 <button
                     onClick={handleProceedToPayment}
-                    className={`w-full mt-6 py-4 rounded-3xl text-white font-bold text-sm bg-gradient-to-r ${color} flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/10 hover:shadow-xl hover:-translate-y-0.5 transition-all`}
+                    className={`w-full mt-6 py-4 rounded-3xl text-white font-bold text-sm bg-gradient-to-r ${color} flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/10 hover:shadow-xl hover:-translate-y-0.5 transition-all`}
                 >
                     {t('upgrade.proceedPayment', 'Tiếp tục thanh toán')} <ChevronRight className="w-5 h-5" />
                 </button>
@@ -1183,8 +1183,8 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
         if (submitted) {
             return (
                 <div className="max-w-lg mx-auto px-4 py-16 text-center select-none">
-                    <div className="w-20 h-20 rounded-full bg-indigo-50 dark:bg-indigo-950/20 flex items-center justify-center mx-auto mb-6">
-                        <CheckCircle className="w-10 h-10 text-indigo-500 animate-pulse" />
+                    <div className="w-20 h-20 rounded-full bg-emerald-50 dark:bg-emerald-950/20 flex items-center justify-center mx-auto mb-6">
+                        <CheckCircle className="w-10 h-10 text-emerald-500 animate-pulse" />
                     </div>
                     <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-2">{t('upgrade.requestReceived', 'Đã nhận yêu cầu kích hoạt!')}</h2>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
@@ -1196,7 +1196,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                             setSelectedPackage(null); 
                             setSubmitted(false); 
                         }} 
-                        className="w-full px-8 py-3.5 rounded-2xl bg-gradient-to-r from-indigo-500 to-sky-500 text-white font-bold text-sm shadow-lg shadow-indigo-500/10"
+                        className="w-full px-8 py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-sky-500 text-white font-bold text-sm shadow-lg shadow-emerald-500/10"
                     >
                         {t('upgrade.backToHome', 'Quay lại trang chủ')}
                     </button>
@@ -1218,7 +1218,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         if (countdownRef.current) clearInterval(countdownRef.current); 
                         setChecking(false); 
                     }} 
-                    className="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-455 hover:text-indigo-500 mb-6 transition-colors font-bold"
+                    className="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-455 hover:text-emerald-500 mb-6 transition-colors font-bold"
                 >
                     <ArrowLeft className="w-4 h-4" /> {t('upgrade.backToSummary', 'Quay lại xem cấu hình')}
                 </button>
@@ -1227,7 +1227,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                 <div className="bg-white dark:bg-slate-900 rounded-3xl border border-gray-100 dark:border-slate-800 p-6 mb-6 shadow-md">
                     <div className="flex items-center justify-between">
                         <div className="flex items-center gap-3">
-                            <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center shadow-md shadow-indigo-500/5`}>
+                            <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center shadow-md shadow-emerald-500/5`}>
                                 <Icon className="w-6 h-6 text-white" />
                             </div>
                             <div>
@@ -1251,7 +1251,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                 <div className="bg-white dark:bg-slate-900 rounded-3xl border border-gray-100 dark:border-slate-800 p-6 mb-6 shadow-md grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
                     {/* Left Column: QR */}
                     <div className="flex flex-col items-center">
-                        <div className="flex items-center gap-1.5 text-xs text-indigo-600 dark:text-indigo-400 font-extrabold uppercase tracking-wide mb-3.5">
+                        <div className="flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 font-extrabold uppercase tracking-wide mb-3.5">
                             <QrCode className="w-4 h-4" /> {t('upgrade.scanQr', 'Quét QR bằng App Ngân Hàng')}
                         </div>
                         <div className="relative p-3 bg-white border border-gray-200 rounded-3xl shadow-inner">
@@ -1280,13 +1280,13 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                 <div key={row.label} className="flex items-center justify-between text-xs font-semibold">
                                     <span className="text-amber-700 dark:text-amber-400">{row.label}</span>
                                     <div className="flex items-center gap-1.5">
-                                        <span className={`font-black ${row.highlight ? 'text-indigo-600 dark:text-indigo-400 text-sm' : 'text-amber-900 dark:text-slate-200'}`}>
+                                        <span className={`font-black ${row.highlight ? 'text-emerald-600 dark:text-emerald-400 text-sm' : 'text-amber-900 dark:text-slate-200'}`}>
                                             {row.value}
                                         </span>
                                         {row.key && (
                                             <button 
                                                 onClick={() => copyToClipboard(row.rawValue || row.value, row.key)} 
-                                                className="text-indigo-500 hover:text-indigo-700 p-1 bg-white dark:bg-slate-800 rounded-lg border border-gray-100 dark:border-slate-700 shadow-sm"
+                                                className="text-emerald-500 hover:text-emerald-700 p-1 bg-white dark:bg-slate-800 rounded-lg border border-gray-100 dark:border-slate-700 shadow-sm"
                                             >
                                                 {copied === row.key ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-slate-500" />}
                                             </button>
@@ -1300,14 +1300,14 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
 
                 {/* Auto check loading status */}
                 {checking && (
-                    <div className="bg-[#EEF2FF] dark:bg-indigo-950/20 border border-indigo-150 dark:border-indigo-900 rounded-2xl p-4 text-center mb-6 shadow-inner">
+                    <div className="bg-[#ecfdf5] dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900 rounded-2xl p-4 text-center mb-6 shadow-inner">
                         <div className="flex items-center justify-center gap-2 mb-1">
-                            <Loader2 className="w-4 h-4 animate-spin text-indigo-500" />
-                            <span className="text-xs font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-wide">
+                            <Loader2 className="w-4 h-4 animate-spin text-emerald-500" />
+                            <span className="text-xs font-black text-emerald-600 dark:text-emerald-400 uppercase tracking-wide">
                                 {t('upgrade.checkingTransaction', 'Đang tự động kiểm tra giao dịch...')}
                             </span>
                         </div>
-                        <p className="text-[11px] text-indigo-500 font-semibold">
+                        <p className="text-[11px] text-emerald-500 font-semibold">
                             {t('upgrade.checkingSub', 'Hệ thống sẽ hoàn tất và cộng gói ngay lập tức khi nhận được thông báo biến động số dư ({seconds}s)...').replace('{seconds}', `${Math.floor(paymentCountdown / 60)}:${(paymentCountdown % 60).toString().padStart(2, '0')}`)}
                         </p>
                     </div>
@@ -1318,7 +1318,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     {!checking && (
                         <button 
                             onClick={handleManualConfirm} 
-                            className="w-full py-3.5 rounded-3xl bg-gradient-to-r from-indigo-500 to-sky-500 text-white font-bold text-sm shadow-lg shadow-indigo-500/10 hover:-translate-y-0.5 transition-all"
+                            className="w-full py-3.5 rounded-3xl bg-gradient-to-r from-emerald-500 to-sky-500 text-white font-bold text-sm shadow-lg shadow-emerald-500/10 hover:-translate-y-0.5 transition-all"
                         >
                             {t('upgrade.transferredBtn', 'Tôi đã chuyển khoản thành công ✓')}
                         </button>

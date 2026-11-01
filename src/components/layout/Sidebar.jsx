@@ -1562,8 +1562,8 @@ const Sidebar = ({
                                 <button
                                     onClick={() => setIsFocusModalOpen(true)}
                                     className={`p-2 rounded-lg transition-colors cursor-pointer relative ${focusStatus === 'focusing' || focusStatus === 'break' || focusStatus === 'paused'
-                                            ? 'text-purple-500 bg-purple-500/20 font-bold'
-                                            : 'text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-purple-950/50'
+                                            ? 'text-amber-500 bg-amber-500/20 font-bold'
+                                            : 'text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/50'
                                         }`}
                                     title={t('nav.focusTimer', 'Đồng hồ tập trung Focus Session')}
                                 >
@@ -1579,7 +1579,7 @@ const Sidebar = ({
                                         if (onTriggerTour) onTriggerTour();
                                         else navigate(ROUTES.HELP);
                                     }}
-                                    className="p-2 rounded-lg text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/50 transition-colors cursor-pointer"
+                                    className="p-2 rounded-lg text-sky-600 dark:text-sky-400 hover:bg-sky-50 dark:hover:bg-sky-950/50 transition-colors cursor-pointer"
                                     title={t('nav.userGuide', 'Xem hướng dẫn trang này')}
                                 >
                                     <HelpCircle className="w-4.5 h-4.5" />
@@ -1600,7 +1600,7 @@ const Sidebar = ({
                                     className="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
                                     title={isDarkMode ? t('nav.lightMode', 'Giao diện sáng') : t('nav.darkMode', 'Giao diện tối')}
                                 >
-                                    {isDarkMode ? <Sun className="w-4.5 h-4.5 text-amber-400" /> : <Moon className="w-4.5 h-4.5 text-indigo-600" />}
+                                    {isDarkMode ? <Sun className="w-4.5 h-4.5 text-amber-400" /> : <Moon className="w-4.5 h-4.5 text-slate-700" />}
                                 </button>
 
                                 {/* Collapse Nav Toggle */}

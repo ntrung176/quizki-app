@@ -64,10 +64,10 @@ const LEVEL_BADGES = {
         accentBar: 'bg-rose-500'
     },
     DEFAULT: {
-        badge: 'bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 border-indigo-500/20',
-        dot: 'bg-indigo-500',
-        hover: 'group-hover:text-indigo-600 dark:group-hover:text-indigo-400',
-        accentBar: 'bg-indigo-500'
+        badge: 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-emerald-500/20',
+        dot: 'bg-emerald-500',
+        hover: 'group-hover:text-emerald-600 dark:group-hover:text-emerald-400',
+        accentBar: 'bg-emerald-500'
     }
 };
 
@@ -261,7 +261,7 @@ const GrammarTextbooksScreen = ({ isAdmin = false, profile = null }) => {
                     <div className="flex flex-wrap gap-2">
                         {GRAMMAR_CATEGORIES.map(cat => (
                             <button key={cat.id} onClick={() => setActiveCategory(cat.id)}
-                                className={`px-4 py-2 text-xs font-bold rounded-full border transition-all ${activeCategory === cat.id ? 'bg-slate-700 text-white border-slate-700 dark:bg-indigo-600 dark:border-indigo-600' : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700'}`}>
+                                className={`px-4 py-2 text-xs font-bold rounded-full border transition-all ${activeCategory === cat.id ? 'bg-slate-700 text-white border-slate-700 dark:bg-emerald-600 dark:border-emerald-600' : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700'}`}>
                                 {cat.label}
                             </button>
                         ))}
@@ -269,7 +269,7 @@ const GrammarTextbooksScreen = ({ isAdmin = false, profile = null }) => {
                     <div className="relative ml-auto w-full sm:w-56">
                         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                         <input value={searchQuery} onChange={e => setSearchQuery(e.target.value)} placeholder="Tìm giáo trình..."
-                            className="w-full pl-9 pr-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm outline-none focus:ring-2 focus:ring-indigo-500/20 dark:text-white" />
+                            className="w-full pl-9 pr-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm outline-none focus:ring-2 focus:ring-emerald-500/20 dark:text-white" />
                     </div>
                 </div>
 
@@ -281,12 +281,12 @@ const GrammarTextbooksScreen = ({ isAdmin = false, profile = null }) => {
                             <FileText className="w-4 h-4" /> Soạn giáo trình từ PDF (AI)
                         </button>
                         <button onClick={() => { setShowAdd(true); setShowJsonImport(false); setEditId(null); setForm({ title: '', titleVi: '', description: '', levels: '', category: 'jlpt', featured: false, color: '#10b981' }); }}
-                            className="flex items-center gap-2 px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-bold rounded-xl transition-colors">
+                            className="flex items-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-sm font-bold rounded-xl transition-colors">
                             <Plus className="w-4 h-4" /> Thêm giáo trình
                         </button>
                         <button onClick={() => { setShowJsonImport(true); setShowAdd(false); setImportError(''); setImportSuccess(''); }}
                             className="flex items-center gap-2 px-4 py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-sm font-bold rounded-xl transition-colors border border-slate-200 dark:border-slate-700">
-                            <FileJson className="w-4 h-4 text-indigo-500" /> Nhập bằng JSON
+                            <FileJson className="w-4 h-4 text-emerald-500" /> Nhập bằng JSON
                         </button>
                     </div>
                 )}
@@ -314,8 +314,8 @@ const GrammarTextbooksScreen = ({ isAdmin = false, profile = null }) => {
                                     { name: 'Xanh ngọc', value: '#10b981' },
                                     { name: 'Xanh lục', value: '#0d9488' },
                                     { name: 'Classic Blue', value: '#3b82f6' },
-                                    { name: 'Indigo', value: '#6366f1' },
-                                    { name: 'Tím', value: '#8b5cf6' },
+                                    { name: 'Emerald', value: '#10b981' },
+                                    { name: 'Tím', value: '#14b8a6' },
                                     { name: 'Hồng cánh sen', value: '#ec4899' },
                                     { name: 'Đỏ hồng', value: '#f43f5e' },
                                     { name: 'Đỏ đậm', value: '#be123c' },
@@ -349,7 +349,7 @@ const GrammarTextbooksScreen = ({ isAdmin = false, profile = null }) => {
                             <input type="checkbox" checked={form.featured} onChange={e => setForm(f => ({ ...f, featured: e.target.checked }))} /> Giáo trình nổi bật
                         </label>
                         <div className="flex gap-2">
-                            <button onClick={handleSave} disabled={saving || !form.titleVi} className="px-4 py-2 bg-indigo-600 text-white text-sm font-bold rounded-lg hover:bg-indigo-700 disabled:opacity-50 flex items-center gap-1.5">
+                            <button onClick={handleSave} disabled={saving || !form.titleVi} className="px-4 py-2 bg-emerald-600 text-white text-sm font-bold rounded-lg hover:bg-emerald-700 disabled:opacity-50 flex items-center gap-1.5">
                                 <Save className="w-4 h-4" /> {saving ? 'Đang lưu...' : 'Lưu'}
                             </button>
                             <button onClick={() => setShowAdd(false)} className="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-sm rounded-lg hover:bg-slate-200">
@@ -364,9 +364,9 @@ const GrammarTextbooksScreen = ({ isAdmin = false, profile = null }) => {
                     <div className="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 space-y-4 shadow-sm">
                         <div className="flex items-center justify-between">
                             <h3 className="font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                                <FileJson className="w-5 h-5 text-indigo-500" /> Nhập giáo trình hàng loạt từ JSON
+                                <FileJson className="w-5 h-5 text-emerald-500" /> Nhập giáo trình hàng loạt từ JSON
                             </h3>
-                            <button onClick={() => handleCopySample()} className="flex items-center gap-1 px-3 py-1 bg-slate-100 dark:bg-slate-700 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 text-slate-600 dark:text-slate-300 hover:text-indigo-600 text-xs font-bold rounded-lg transition-all border border-transparent hover:border-indigo-200">
+                            <button onClick={() => handleCopySample()} className="flex items-center gap-1 px-3 py-1 bg-slate-100 dark:bg-slate-700 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 text-slate-600 dark:text-slate-300 hover:text-emerald-600 text-xs font-bold rounded-lg transition-all border border-transparent hover:border-emerald-200">
                                 {copied ? <Check className="w-3.5 h-3.5 text-emerald-500" /> : <Clipboard className="w-3.5 h-3.5" />}
                                 {copied ? 'Đã sao chép mẫu!' : 'Copy JSON mẫu'}
                             </button>
@@ -394,7 +394,7 @@ const GrammarTextbooksScreen = ({ isAdmin = false, profile = null }) => {
                         )}
 
                         <div className="flex gap-2">
-                            <button onClick={handleJsonImportSubmit} disabled={saving || !jsonText.trim()} className="px-4 py-2 bg-indigo-600 text-white text-sm font-bold rounded-lg hover:bg-indigo-700 disabled:opacity-50">
+                            <button onClick={handleJsonImportSubmit} disabled={saving || !jsonText.trim()} className="px-4 py-2 bg-emerald-600 text-white text-sm font-bold rounded-lg hover:bg-emerald-700 disabled:opacity-50">
                                 {saving ? 'Đang nhập...' : 'Nhập dữ liệu'}
                             </button>
                             <button onClick={() => setShowJsonImport(false)} className="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 text-sm rounded-lg hover:bg-slate-200">
@@ -436,7 +436,7 @@ const GrammarTextbooksScreen = ({ isAdmin = false, profile = null }) => {
                                 </button>
                                 {isAdmin && (
                                     <div className="absolute top-3 right-3 flex gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity z-20">
-                                        <button onClick={(e) => { e.stopPropagation(); handleEdit(tb); }} className="p-2 bg-white/95 dark:bg-slate-800/95 shadow-lg rounded-xl hover:bg-indigo-50 dark:hover:bg-indigo-950/60 transition-all border border-slate-200/40 dark:border-slate-700/40 cursor-pointer" title="Sửa giáo trình"><Edit2 className="w-3.5 h-3.5 text-indigo-600 dark:text-indigo-400" /></button>
+                                        <button onClick={(e) => { e.stopPropagation(); handleEdit(tb); }} className="p-2 bg-white/95 dark:bg-slate-800/95 shadow-lg rounded-xl hover:bg-emerald-50 dark:hover:bg-emerald-950/60 transition-all border border-slate-200/40 dark:border-slate-700/40 cursor-pointer" title="Sửa giáo trình"><Edit2 className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" /></button>
                                         <button onClick={(e) => { e.stopPropagation(); handleDelete(tb.id); }} className="p-2 bg-white/95 dark:bg-slate-800/95 shadow-lg rounded-xl hover:bg-red-50 dark:hover:bg-red-950/60 transition-all border border-slate-200/40 dark:border-slate-700/40 cursor-pointer" title="Xóa giáo trình"><Trash2 className="w-3.5 h-3.5 text-red-500" /></button>
                                     </div>
                                 )}

@@ -60,7 +60,7 @@ const HomeDailyQuests = ({
         {
             id: 'quest2',
             icon: PenTool,
-            color: 'text-indigo-500 bg-indigo-50 dark:bg-indigo-950/60',
+            color: 'text-sky-500 bg-sky-50 dark:bg-sky-950/60',
             title: isJapaneseMode ? t('home.questKanji', 'Luyện Kanji hoặc Từ') : t('home.questKanji', 'Luyện Từ vựng'),
             xp: '+30 XP',
             isDone: isQuest2Done,
@@ -85,7 +85,7 @@ const HomeDailyQuests = ({
             {/* Header: Title & Progress Bar */}
             <div className="flex items-center justify-between mb-3.5">
                 <div className="flex items-center gap-2">
-                    <div className="w-7 h-7 rounded-lg bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-indigo-400 flex items-center justify-center">
+                    <div className="w-7 h-7 rounded-lg bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
                         <Target className="w-4 h-4 stroke-[2.5]" />
                     </div>
                     <h3 className="font-bold text-sm text-slate-900 dark:text-white">

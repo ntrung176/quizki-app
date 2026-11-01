@@ -179,10 +179,10 @@ const IpaQuizModal = ({
         <div className="fixed inset-0 z-[110] bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto animate-fade-in">
             <div
                 onClick={(e) => e.stopPropagation()}
-                className="relative w-full max-w-xl bg-white dark:bg-slate-900 border-2 border-violet-400/30 dark:border-violet-500/20 rounded-3xl shadow-2xl overflow-hidden flex flex-col my-auto transition-all"
+                className="relative w-full max-w-xl bg-white dark:bg-slate-900 border-2 border-emerald-500/20 dark:border-emerald-500/20 rounded-3xl shadow-2xl overflow-hidden flex flex-col my-auto transition-all"
             >
                 {/* Header */}
-                <div className="bg-gradient-to-r from-violet-700 via-purple-600 to-indigo-600 p-4 sm:p-5 text-white flex items-center justify-between">
+                <div className="bg-gradient-to-r from-emerald-600 via-teal-500 to-sky-500 p-4 sm:p-5 text-white flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
                         <div className="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-xl shadow-inner font-serif font-black">
                             /ə/
@@ -191,7 +191,7 @@ const IpaQuizModal = ({
                             <h3 className="text-base sm:text-lg font-black tracking-tight">
                                 Luyện Phản Xạ Ngữ Âm IPA
                             </h3>
-                            <p className="text-[11px] text-purple-100 font-medium">
+                            <p className="text-[11px] text-emerald-100 font-medium">
                                 Rèn luyện tai nghe và nhận diện chính xác 44 ký tự phiên âm quốc tế
                             </p>
                         </div>
@@ -214,7 +214,7 @@ const IpaQuizModal = ({
                         onClick={() => { setGameMode('listening_quiz'); setIsQuizCompleted(false); }}
                         className={`flex-1 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
                             gameMode === 'listening_quiz'
-                                ? 'bg-white dark:bg-slate-800 text-violet-600 dark:text-violet-400 shadow-sm'
+                                ? 'bg-white dark:bg-slate-800 text-sky-600 dark:text-sky-400 shadow-sm'
                                 : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50'
                         }`}
                     >
@@ -250,10 +250,10 @@ const IpaQuizModal = ({
                                 </p>
                             </div>
 
-                            <div className="p-4 rounded-2xl bg-violet-50 dark:bg-violet-950/30 border border-violet-200 dark:border-violet-800/60 flex items-center justify-around">
+                            <div className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-around">
                                 <div className="text-center">
                                     <span className="text-xs font-bold text-slate-400 uppercase block">Điểm số</span>
-                                    <span className="text-2xl font-black text-violet-600 dark:text-violet-400 font-mono">{score}</span>
+                                    <span className="text-2xl font-black text-sky-600 dark:text-sky-400 font-mono">{score}</span>
                                 </div>
                                 <div className="h-8 w-px bg-slate-200 dark:bg-slate-800" />
                                 <div className="text-center">
@@ -277,7 +277,7 @@ const IpaQuizModal = ({
                                 <button
                                     type="button"
                                     onClick={onClose}
-                                    className="flex-1 py-3 rounded-2xl bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-500 hover:to-indigo-500 text-white font-bold text-sm shadow-lg shadow-violet-500/25 transition-all cursor-pointer"
+                                    className="flex-1 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 text-white font-bold text-sm shadow-lg shadow-emerald-500/25 transition-all cursor-pointer"
                                 >
                                     <span>Hoàn tất</span>
                                 </button>
@@ -293,22 +293,22 @@ const IpaQuizModal = ({
                                     <span className="text-amber-500 flex items-center gap-1">
                                         🔥 Chuỗi: {streak}
                                     </span>
-                                    <span className="text-violet-600 dark:text-violet-400">
+                                    <span className="text-sky-600 dark:text-sky-400">
                                         Điểm: {score}
                                     </span>
                                 </div>
                             </div>
 
                             {/* Listening Prompt Card */}
-                            <div className="flex flex-col items-center justify-center p-8 rounded-3xl bg-violet-50/50 dark:bg-violet-950/20 border-2 border-violet-200/60 dark:border-violet-500/20 shadow-inner text-center relative group">
-                                <div className="w-20 h-20 rounded-full bg-violet-600 text-white flex items-center justify-center shadow-xl shadow-violet-600/30 animate-pulse">
+                            <div className="flex flex-col items-center justify-center p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/60 border-2 border-slate-200 dark:border-slate-700 shadow-inner text-center relative group">
+                                <div className="w-20 h-20 rounded-full bg-sky-500 text-white flex items-center justify-center shadow-xl shadow-sky-500/30 animate-pulse">
                                     <Volume2 className="w-9 h-9" />
                                 </div>
                                 <div className="mt-3">
                                     <button
                                         type="button"
                                         onClick={() => speakEnglish(currentQ.keyWord)}
-                                        className="px-4 py-1.5 rounded-full bg-white dark:bg-slate-800 text-violet-600 dark:text-violet-400 font-bold text-xs shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer border border-violet-200 dark:border-violet-700"
+                                        className="px-4 py-1.5 rounded-full bg-white dark:bg-slate-800 text-sky-600 dark:text-sky-400 font-bold text-xs shadow-md hover:scale-105 active:scale-95 transition-all cursor-pointer border border-slate-200 dark:border-slate-700"
                                     >
                                         🔊 Bấm để nghe lại từ phát âm
                                     </button>
@@ -324,7 +324,7 @@ const IpaQuizModal = ({
                                     const isSelected = selectedOption === opt;
                                     const isCorrect = opt === currentQ.correct;
 
-                                    let btnStyle = 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:border-violet-400 hover:shadow-md';
+                                    let btnStyle = 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:border-sky-400 hover:shadow-md';
 
                                     if (isAnswered) {
                                         if (isCorrect) {
@@ -373,8 +373,8 @@ const IpaQuizModal = ({
                                                 isMatched
                                                     ? 'bg-emerald-500 text-white border-emerald-600 opacity-60 pointer-events-none scale-95'
                                                     : isFlipped
-                                                        ? 'bg-gradient-to-br from-violet-600 to-indigo-600 text-white border-violet-500 shadow-lg scale-105'
-                                                        : 'bg-slate-100 dark:bg-slate-800 text-slate-400 border-slate-200 dark:border-slate-700 hover:border-violet-400 hover:bg-slate-200 dark:hover:bg-slate-750'
+                                                        ? 'bg-sky-500 text-white border-sky-600 shadow-lg scale-105'
+                                                        : 'bg-slate-100 dark:bg-slate-800 text-slate-400 border-slate-200 dark:border-slate-700 hover:border-sky-400 hover:bg-slate-200 dark:hover:bg-slate-750'
                                             }`}
                                         >
                                             {isFlipped || isMatched ? (

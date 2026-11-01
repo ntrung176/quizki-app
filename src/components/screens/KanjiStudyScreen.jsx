@@ -16,7 +16,7 @@ import useMenuTransition from '../../hooks/useMenuTransition';
 const JLPT_CONFIG = {
     N5: { label: 'N5', sublabel: 'Basic', color: 'emerald', totalDays: 12, kanjiPerDay: 10, gradient: 'from-emerald-500 to-teal-500', bg: 'bg-emerald-500', light: 'bg-emerald-50 dark:bg-emerald-900/20', text: 'text-emerald-600 dark:text-emerald-400', border: 'border-emerald-300 dark:border-emerald-700' },
     N4: { label: 'N4', sublabel: 'Elementary', color: 'blue', totalDays: 21, kanjiPerDay: 10, gradient: 'from-blue-500 to-cyan-500', bg: 'bg-blue-500', light: 'bg-blue-50 dark:bg-blue-900/20', text: 'text-blue-600 dark:text-blue-400', border: 'border-blue-300 dark:border-blue-700' },
-    N3: { label: 'N3', sublabel: 'Intermediate', color: 'sky', totalDays: 38, kanjiPerDay: 10, gradient: 'from-sky-500 to-indigo-500', bg: 'bg-sky-500', light: 'bg-sky-50 dark:bg-sky-900/20', text: 'text-sky-600 dark:text-sky-400', border: 'border-sky-300 dark:border-sky-700' },
+    N3: { label: 'N3', sublabel: 'Intermediate', color: 'sky', totalDays: 38, kanjiPerDay: 10, gradient: 'from-sky-500 to-emerald-500', bg: 'bg-sky-500', light: 'bg-sky-50 dark:bg-sky-900/20', text: 'text-sky-600 dark:text-sky-400', border: 'border-sky-300 dark:border-sky-700' },
     N2: { label: 'N2', sublabel: 'Advanced', color: 'orange', totalDays: 51, kanjiPerDay: 10, gradient: 'from-orange-500 to-amber-500', bg: 'bg-orange-500', light: 'bg-orange-50 dark:bg-orange-900/20', text: 'text-orange-600 dark:text-orange-400', border: 'border-orange-300 dark:border-orange-700' },
     N1: { label: 'N1', sublabel: 'Fluent', color: 'red', totalDays: 131, kanjiPerDay: 10, gradient: 'from-rose-500 to-pink-500', bg: 'bg-rose-500', light: 'bg-rose-50 dark:bg-rose-900/20', text: 'text-rose-600 dark:text-rose-400', border: 'border-rose-300 dark:border-rose-700' },
 };
@@ -329,7 +329,7 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                     <div className="md:col-span-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-md flex flex-col justify-between space-y-4">
                         <div className="space-y-2">
                             <div className="flex items-center justify-between">
-                                <span className="text-[10px] font-extrabold text-indigo-600 dark:text-cyan-400 uppercase tracking-widest">
+                                <span className="text-[10px] font-extrabold text-emerald-600 dark:text-cyan-400 uppercase tracking-widest">
                                     {t('kanji.studyProgress', 'Tiến trình học tập')}
                                 </span>
                                 <span className="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
@@ -429,7 +429,7 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                                                 {kanji.character}
                                             </div>
                                             <div>
-                                                <h4 className="text-sm font-extrabold text-indigo-600 dark:text-cyan-400 uppercase tracking-widest">{meaningTip || '—'}</h4>
+                                                <h4 className="text-sm font-extrabold text-emerald-600 dark:text-cyan-400 uppercase tracking-widest">{meaningTip || '—'}</h4>
                                                 <p className="text-xs text-slate-500 dark:text-slate-400 font-bold truncate max-w-[180px] mt-0.5">{translation || '—'}</p>
                                             </div>
                                         </div>

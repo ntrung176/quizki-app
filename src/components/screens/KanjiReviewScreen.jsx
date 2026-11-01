@@ -51,11 +51,11 @@ const formatInterval = (minutes, t = (k, f) => f) => {
     if (months < 12) {
         const mStr = Number(months.toFixed(1));
         const pattern = t('intervals.months', '{n} tháng');
-        return pattern.includes('{n}') ? pattern.replace('{n}', mStr) : `${mStr} tháng`;
+        return pattern.includes('{n}') ? pattern.replace('{n}', mStr) : `${mStr} ${t('common.months', 'tháng')}`;
     }
     const yStr = Number((days / 365).toFixed(1));
     const pattern = t('intervals.years', '{n} năm');
-    return pattern.includes('{n}') ? pattern.replace('{n}', yStr) : `${yStr} năm`;
+    return pattern.includes('{n}') ? pattern.replace('{n}', yStr) : `${yStr} ${t('common.years', 'năm')}`;
 };
 
 // ==================== MAIN COMPONENT ====================
@@ -1234,7 +1234,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
 
                             {reviewHistory.length > 0 && (
                                 <button onClick={handleUndo}
-                                    className="px-3 py-2 flex items-center justify-center rounded-2xl bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-xs border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 transition-all gap-1.5 cursor-pointer font-bold select-none">
+                                    className="px-3 py-2 flex items-center justify-center rounded-2xl bg-white dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 shadow-xs border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 transition-all gap-1.5 cursor-pointer font-bold select-none">
                                     <RotateCcw className="w-4 h-4" />
                                     <span className="text-xs sm:text-sm font-bold">{t('common.back', 'Quay lại')}</span>
                                 </button>
@@ -1291,13 +1291,13 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                                             <div className="text-[140px] leading-none font-bold text-gray-800 dark:text-white select-none font-japanese">{currentCard.character}</div>
                                             {!typingMode && (
                                                 <div className="absolute bottom-6 left-0 right-0 text-center">
-                                                    <span className="text-xs text-gray-400 dark:text-gray-500 px-3.5 py-1.5 bg-indigo-50 text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-400 rounded-full text-xs font-semibold shadow-sm tracking-wide">{t('vocab.flipCard', 'Nhấn để lật thẻ')}</span>
+                                                    <span className="text-xs text-gray-400 dark:text-gray-500 px-3.5 py-1.5 bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400 rounded-full text-xs font-semibold shadow-sm tracking-wide">{t('vocab.flipCard', 'Nhấn để lật thẻ')}</span>
                                                 </div>
                                             )}
                                         </>
                                     ) : (
                                         <div className="text-center space-y-3 w-full px-6">
-                                            <span className="text-xs font-bold text-indigo-500 uppercase tracking-widest bg-indigo-50 dark:bg-indigo-950/50 px-3 py-1 rounded-full border border-indigo-200 dark:border-indigo-800">
+                                            <span className="text-xs font-bold text-emerald-500 uppercase tracking-widest bg-emerald-50 dark:bg-emerald-950/50 px-3 py-1 rounded-full border border-emerald-200 dark:border-emerald-800">
                                                 {t('kanji.meaningAndReading', 'Nghĩa & Âm Hán Việt')}
                                             </span>
                                             <div className="text-4xl sm:text-5xl font-extrabold text-emerald-600 dark:text-emerald-400 mt-2">
@@ -1308,7 +1308,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                                             </div>
                                             {!typingMode && (
                                                 <div className="pt-4">
-                                                    <span className="text-xs text-gray-400 dark:text-gray-500 px-3.5 py-1.5 bg-indigo-50 text-indigo-600 dark:bg-indigo-950/40 dark:text-indigo-400 rounded-full text-xs font-semibold shadow-sm tracking-wide">{t('vocab.flipCard', 'Nhấn để lật thẻ')}</span>
+                                                    <span className="text-xs text-gray-400 dark:text-gray-500 px-3.5 py-1.5 bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400 rounded-full text-xs font-semibold shadow-sm tracking-wide">{t('vocab.flipCard', 'Nhấn để lật thẻ')}</span>
                                                 </div>
                                             )}
                                         </div>
@@ -1490,8 +1490,8 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                 <div className="min-h-[calc(100vh-120px)] flex items-center justify-center px-4 animate-fade-in">
                     <div className="w-[600px] max-w-full flex flex-col justify-center items-center space-y-6 bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl border border-gray-150 dark:border-slate-700/85">
                         <div className="flex flex-col items-center space-y-4 text-center">
-                            <div className="w-16 h-16 bg-indigo-50 dark:bg-indigo-950/40 rounded-2xl flex items-center justify-center animate-bounce">
-                                <Clock className="w-8 h-8 text-indigo-500 animate-spin-slow" />
+                            <div className="w-16 h-16 bg-emerald-50 dark:bg-emerald-950/40 rounded-2xl flex items-center justify-center animate-bounce">
+                                <Clock className="w-8 h-8 text-emerald-500 animate-spin-slow" />
                             </div>
                             <h2 className="text-xl font-bold text-gray-800 dark:text-white">
                                 {t('kanji.waitingTitle', 'Đang đợi thẻ Kanji tiếp theo...')}
@@ -1736,13 +1736,13 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                     </div>
 
                     <div className="bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-3xl p-4 sm:p-5 flex flex-col justify-between h-28 sm:h-32 shadow-sm">
-                        <span className="text-[9px] sm:text-[10px] font-mono font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider truncate">{t('kanji.stageMaster', 'Cao cấp (Thành thạo)')}</span>
+                        <span className="text-[9px] sm:text-[10px] font-mono font-bold text-emerald-600 dark:text-emerald-400 uppercase tracking-wider truncate">{t('kanji.stageMaster', 'Cao cấp (Thành thạo)')}</span>
                         <div className="flex items-baseline gap-1 mt-1">
                             <span className="text-2xl sm:text-3xl font-black font-mono text-slate-900 dark:text-white">{stats.longTerm}</span>
                             <span className="text-xs text-slate-400 font-mono">{t('kanji.charactersUnit', 'chữ')}</span>
                         </div>
                         <div className="w-full bg-slate-100 dark:bg-slate-800 h-2 rounded-full overflow-hidden mt-2">
-                            <div className="h-full bg-indigo-500 rounded-full" style={{ width: `${stats.kanjiLearned > 0 ? (stats.longTerm / stats.kanjiLearned) * 100 : 0}%` }} />
+                            <div className="h-full bg-emerald-500 rounded-full" style={{ width: `${stats.kanjiLearned > 0 ? (stats.longTerm / stats.kanjiLearned) * 100 : 0}%` }} />
                         </div>
                     </div>
 

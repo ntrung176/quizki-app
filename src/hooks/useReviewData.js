@@ -773,7 +773,7 @@ export const useReviewData = ({
                 return { label: 'Điền từ còn thiếu', text: maskedExample, meaning: firstExampleMeaning, image: currentCard.imageBase64, icon: FileText, color: 'text-sky-600' };
             }
             case 'dictation':
-                return { label: 'Nghe chép', text: null, image: null, icon: Headphones, color: 'text-indigo-600' };
+                return { label: 'Nghe chép', text: null, image: null, icon: Headphones, color: 'text-emerald-600' };
             default:
                 return { label: 'Ý nghĩa (Mặt sau)', text: formatMultipleMeanings(currentCard.back), image: currentCard.imageBase64, icon: Repeat2, color: 'text-emerald-600' };
         }

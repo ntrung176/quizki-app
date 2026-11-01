@@ -206,8 +206,8 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                             {t('account.xpTestPanel', '🧪 Bảng Test XP')}
                         </button>
                     )}
-                    <div className="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-900/30 flex items-center justify-center">
-                        <Users className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
+                    <div className="w-10 h-10 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
+                        <Users className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                     </div>
                 </div>
             </div>
@@ -221,7 +221,7 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
             />
 
             {/* Subscription Box */}
-            <div className="bg-gradient-to-r from-slate-50 to-indigo-50/30 dark:from-slate-900/40 dark:to-slate-800/20 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm">
+            <div className="bg-gradient-to-r from-slate-50 to-emerald-50/30 dark:from-slate-900/40 dark:to-slate-800/20 p-6 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-sm">
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
                     <div className="space-y-3">
                         <div>
@@ -257,8 +257,8 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                                         <span>{t('account.status', 'Trạng thái:')} <strong className="text-emerald-600 dark:text-emerald-450">{t('account.active', 'Đang hoạt động')}</strong></span>
                                     </div>
                                     <div className="flex items-center gap-1 text-gray-500 dark:text-gray-400">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-indigo-500"></span>
-                                        <span>{t('account.expiry', 'Hạn dùng:')} <strong className="text-indigo-650 dark:text-indigo-400">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                                        <span>{t('account.expiry', 'Hạn dùng:')} <strong className="text-emerald-600 dark:text-emerald-400">
                                             {profile.premiumExpiresAt ? (
                                                 (() => {
                                                     const date = profile.premiumExpiresAt.toDate ? profile.premiumExpiresAt.toDate() : new Date(profile.premiumExpiresAt);
@@ -286,7 +286,7 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                     ) : (
                         <button
                             onClick={() => navigate(ROUTES.UPGRADE)}
-                            className="w-full md:w-auto px-5 py-2.5 text-xs font-bold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 border border-indigo-200 dark:border-indigo-900/60 bg-white dark:bg-slate-800 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm transition-all cursor-pointer"
+                            className="w-full md:w-auto px-5 py-2.5 text-xs font-bold text-emerald-600 hover:text-emerald-700 dark:text-emerald-400 dark:hover:text-emerald-300 border border-emerald-200 dark:border-emerald-900/60 bg-white dark:bg-slate-800 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-700 shadow-sm transition-all cursor-pointer"
                         >
                             {t('account.renewPackage', 'Gia hạn / Mua thêm gói')}
                         </button>
@@ -313,14 +313,14 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                                 type="text"
                                 value={newDisplayName}
                                 onChange={(e) => setNewDisplayName(e.target.value)}
-                                className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-100 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 text-sm outline-none text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+                                className="w-full px-4 py-2.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-emerald-100 dark:focus:ring-emerald-900/50 focus:border-emerald-500 dark:focus:border-emerald-500 text-sm outline-none text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
                                 placeholder={t('account.displayNamePlaceholder', 'Tên sẽ hiển thị trong app')}
                             />
                         </div>
                         <button
                             type="button"
                             onClick={handleSaveProfile}
-                            className="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-xl bg-indigo-600 dark:bg-indigo-50 text-white hover:bg-indigo-700 dark:hover:bg-indigo-600 shadow-sm transition-colors"
+                            className="inline-flex items-center px-4 py-2 text-sm font-semibold rounded-xl bg-emerald-600 dark:bg-emerald-50 text-white hover:bg-emerald-700 dark:hover:bg-emerald-600 shadow-sm transition-colors"
                         >
                             <Save className="w-4 h-4 mr-1" /> {t('account.saveChanges', 'Lưu thay đổi')}
                         </button>
@@ -339,7 +339,7 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                                     type={showCurrent ? 'text' : 'password'}
                                     value={currentPassword}
                                     onChange={(e) => setCurrentPassword(e.target.value)}
-                                    className="w-full px-4 py-2.5 pr-10 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-100 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 text-sm outline-none text-gray-900 dark:text-gray-100"
+                                    className="w-full px-4 py-2.5 pr-10 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-emerald-100 dark:focus:ring-emerald-900/50 focus:border-emerald-500 dark:focus:border-emerald-500 text-sm outline-none text-gray-900 dark:text-gray-100"
                                 />
                                 <button
                                     type="button"
@@ -358,7 +358,7 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                                     type={showNew ? 'text' : 'password'}
                                     value={newPassword}
                                     onChange={(e) => setNewPassword(e.target.value)}
-                                    className="w-full px-4 py-2.5 pr-10 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-100 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 text-sm outline-none text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
+                                    className="w-full px-4 py-2.5 pr-10 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-emerald-100 dark:focus:ring-emerald-900/50 focus:border-emerald-500 dark:focus:border-emerald-500 text-sm outline-none text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
                                     placeholder={t('account.newPasswordPlaceholder', 'Tối thiểu 6 ký tự')}
                                 />
                                 <button
@@ -378,7 +378,7 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                                     type={showConfirmNew ? 'text' : 'password'}
                                     value={confirmNewPassword}
                                     onChange={(e) => setConfirmNewPassword(e.target.value)}
-                                    className="w-full px-4 py-2.5 pr-10 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-indigo-100 dark:focus:ring-indigo-900/50 focus:border-indigo-500 dark:focus:border-indigo-500 text-sm outline-none text-gray-900 dark:text-gray-100"
+                                    className="w-full px-4 py-2.5 pr-10 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl focus:ring-2 focus:ring-emerald-100 dark:focus:ring-emerald-900/50 focus:border-emerald-500 dark:focus:border-emerald-500 text-sm outline-none text-gray-900 dark:text-gray-100"
                                 />
                                 <button
                                     type="button"
@@ -404,7 +404,7 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
             {/* ==================== REFERRAL SECTION ==================== */}
             <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl border border-gray-100 dark:border-gray-700 shadow-sm space-y-6">
                 <div className="flex items-center gap-3 pb-4 border-b border-gray-150/50 dark:border-gray-700">
-                    <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-500 flex items-center justify-center text-white shadow-md shadow-indigo-100 dark:shadow-none">
+                    <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-emerald-500 flex items-center justify-center text-white shadow-md shadow-emerald-100 dark:shadow-none">
                         <Gift className="w-5 h-5" />
                     </div>
                     <div>
@@ -445,20 +445,20 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {/* Panel 1: Share Link */}
-                    <div className="bg-gradient-to-r from-indigo-50 to-sky-50 dark:from-slate-900/40 dark:to-slate-800/40 p-5 rounded-2xl border border-indigo-100/40 dark:border-slate-800 flex flex-col justify-between space-y-4 font-sans">
+                    <div className="bg-gradient-to-r from-emerald-50 to-sky-50 dark:from-slate-900/40 dark:to-slate-800/40 p-5 rounded-2xl border border-emerald-100/40 dark:border-slate-800 flex flex-col justify-between space-y-4 font-sans">
                         <div>
-                            <h4 className="text-xs font-bold text-indigo-700 dark:text-indigo-400 uppercase tracking-wider mb-2">{t('account.yourReferralLink', 'Link giới thiệu của bạn')}</h4>
+                            <h4 className="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider mb-2">{t('account.yourReferralLink', 'Link giới thiệu của bạn')}</h4>
                             <p className="text-gray-500 dark:text-slate-450 text-[11px] leading-relaxed">
                                 {t('account.copyReferralLinkDesc', 'Sao chép link này gửi cho bạn bè...')}
                             </p>
                         </div>
                         <div className="space-y-2">
-                            <div className="w-full flex items-center justify-between bg-white dark:bg-slate-850 px-3 py-2 rounded-xl border border-indigo-150/40 dark:border-slate-700 font-mono text-xs font-semibold text-indigo-650 dark:text-indigo-400 shadow-sm relative overflow-hidden break-all select-all">
+                            <div className="w-full flex items-center justify-between bg-white dark:bg-slate-850 px-3 py-2 rounded-xl border border-emerald-100/40 dark:border-slate-700 font-mono text-xs font-semibold text-emerald-600 dark:text-emerald-400 shadow-sm relative overflow-hidden break-all select-all">
                                 <span>{profile?.referralCode ? `${window.location.origin}/?ref=${profile.referralCode}` : t('account.initializing', 'ĐANG KHỞI TẠO...')}</span>
                                 <button
                                     type="button"
                                     onClick={handleCopyCode}
-                                    className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg text-gray-500 hover:text-indigo-600 transition-colors flex-shrink-0 ml-1"
+                                    className="p-1.5 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg text-gray-500 hover:text-emerald-600 transition-colors flex-shrink-0 ml-1"
                                     title={t('settings.referral.copyCode', 'Copy link')}
                                 >
                                     {copied ? <Check className="w-4 h-4 text-emerald-600" /> : <Copy className="w-4 h-4" />}
@@ -495,13 +495,13 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                                         placeholder={t('account.codePlaceholder', 'Nhập mã ví dụ: QKXXXXXX')}
                                         value={enteredCode}
                                         onChange={(e) => setEnteredCode(e.target.value.toUpperCase())}
-                                        className="flex-1 px-3 py-2 text-sm bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-650 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-900/40 text-gray-900 dark:text-white font-mono uppercase"
+                                        className="flex-1 px-3 py-2 text-sm bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-650 rounded-xl outline-none focus:ring-2 focus:ring-emerald-500 dark:focus:ring-emerald-900/40 text-gray-900 dark:text-white font-mono uppercase"
                                     />
                                     <button
                                         type="button"
                                         onClick={handleApplyReferral}
                                         disabled={submitLoading || !enteredCode.trim()}
-                                        className="px-4 py-2 bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 text-white font-bold text-xs rounded-xl shadow cursor-pointer transition-all flex items-center justify-center"
+                                        className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white font-bold text-xs rounded-xl shadow cursor-pointer transition-all flex items-center justify-center"
                                     >
                                         {submitLoading ? '...' : t('account.submit', 'Gửi')}
                                     </button>
@@ -536,7 +536,7 @@ const AccountScreen = ({ profile, awardXP, onUpdateProfileName, onChangePassword
                 </div>
 
                 {/* Progressive Reward Map */}
-                <div className="border border-indigo-50/80 dark:border-slate-750 bg-indigo-50/10 dark:bg-slate-900/10 rounded-2xl p-5 space-y-4">
+                <div className="border border-emerald-50/80 dark:border-slate-750 bg-emerald-50/10 dark:bg-slate-900/10 rounded-2xl p-5 space-y-4">
                     <div className="flex items-center gap-1.5">
                         <Award className="w-4 h-4 text-sky-600" />
                         <h4 className="text-xs font-bold text-gray-800 dark:text-slate-200">

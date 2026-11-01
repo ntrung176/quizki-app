@@ -992,7 +992,7 @@ const JLPTAdminScreen = ({ userId }) => {
                                     Cấu trúc đề thi ({formData.sections.length} phần) • Tổng số: {totalQuestions} câu hỏi
                                 </h3>
                                 {!formData.isSkillTest && (
-                                    <button onClick={addSection} className="px-3.5 py-1.5 text-xs font-bold bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/30 dark:hover:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-xl transition flex items-center gap-1.5 cursor-pointer">
+                                    <button onClick={addSection} className="px-3.5 py-1.5 text-xs font-bold bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/30 dark:hover:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 rounded-xl transition flex items-center gap-1.5 cursor-pointer">
                                         <Plus className="w-3.5 h-3.5" /> Thêm phần thi
                                     </button>
                                 )}
@@ -1315,8 +1315,8 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                 {/* Sub-questions Section */}
                                                                 <div className="border-t border-slate-200/60 dark:border-slate-700/60 pt-3 mt-3">
                                                                     <div className="flex items-center justify-between mb-2">
-                                                                        <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400 flex items-center gap-1.5">
-                                                                            <span className="w-2 h-2 rounded-full bg-indigo-500"></span>
+                                                                        <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
+                                                                            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
                                                                             Câu hỏi phụ ({q.subQuestions?.length || 0})
                                                                         </span>
                                                                         <button
@@ -1326,13 +1326,13 @@ const JLPTAdminScreen = ({ userId }) => {
                                                                                 sqs.push({ question: '', options: ['', '', '', ''], correctAnswer: 0, explanation: '' });
                                                                                 updateQuestion(si, qi, 'subQuestions', sqs);
                                                                             }}
-                                                                            className="px-2.5 py-1 bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-950/40 text-indigo-600 dark:text-indigo-400 rounded-lg text-[11px] font-bold flex items-center gap-1 cursor-pointer"
+                                                                            className="px-2.5 py-1 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 rounded-lg text-[11px] font-bold flex items-center gap-1 cursor-pointer"
                                                                         >
                                                                             <Plus className="w-3.5 h-3.5" /> Thêm câu hỏi phụ
                                                                         </button>
                                                                     </div>
                                                                     {q.subQuestions && q.subQuestions.length > 0 ? (
-                                                                        <div className="space-y-3 pl-3 border-l-2 border-indigo-200 dark:border-indigo-850">
+                                                                        <div className="space-y-3 pl-3 border-l-2 border-emerald-200 dark:border-emerald-850">
                                                                             {q.subQuestions.map((sq, sqi) => (
                                                                                 <div key={sqi} className="bg-white dark:bg-slate-800/40 p-3 rounded-xl border border-slate-150 dark:border-slate-800/60 space-y-3 shadow-sm">
                                                                                     <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-700/60 pb-1.5">
@@ -1567,7 +1567,7 @@ const JLPTAdminScreen = ({ userId }) => {
                                                 <span>•</span>
                                                 <span>{test.timeLimit} phút</span>
                                                 <span>•</span>
-                                                <span className={`px-2 py-0.5 rounded text-[9px] font-bold ${test.isSkillTest ? 'bg-sky-50 dark:bg-sky-950/25 text-sky-600' : 'bg-indigo-50 dark:bg-indigo-950/25 text-indigo-600'}`}>
+                                                <span className={`px-2 py-0.5 rounded text-[9px] font-bold ${test.isSkillTest ? 'bg-sky-50 dark:bg-sky-950/25 text-sky-600' : 'bg-emerald-50 dark:bg-emerald-950/25 text-emerald-600'}`}>
                                                     {test.isSkillTest ? `Luyện kỹ năng: ${SKILL_LABELS[test.skillType] || test.skillType}` : 'Đề thi thử đầy đủ'}
                                                 </span>
                                             </p>
@@ -1711,7 +1711,7 @@ const JLPTAdminScreen = ({ userId }) => {
                                             setJsonInput(JSON.stringify(sample, null, 2));
                                             notify('success', 'Đã nạp JSON mẫu lồng nhau!');
                                         }}
-                                        className="px-2.5 py-1.5 text-[10px] font-bold bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-400 border border-indigo-100 dark:border-indigo-900/50 hover:bg-indigo-100 dark:hover:bg-indigo-900/30 rounded-xl transition cursor-pointer select-none"
+                                        className="px-2.5 py-1.5 text-[10px] font-bold bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-900/50 hover:bg-emerald-100 dark:hover:bg-emerald-900/30 rounded-xl transition cursor-pointer select-none"
                                     >
                                         Nạp vào ô nhập
                                     </button>

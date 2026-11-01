@@ -29,7 +29,7 @@ const AiKaiwaCallOverlay = ({
 
     if (isAiSpeaking) {
         statusText = '🗣️ AI đang nói...';
-        statusBadgeColor = 'bg-indigo-500/30 text-indigo-300 border-indigo-500/50 animate-pulse';
+        statusBadgeColor = 'bg-emerald-500/30 text-emerald-300 border-emerald-500/50 animate-pulse';
     } else if (isRecording) {
         statusText = '🎙️ Đang lắng nghe giọng nói...';
         statusBadgeColor = 'bg-rose-500/30 text-rose-300 border-rose-500/50 animate-pulse';
@@ -67,7 +67,7 @@ const AiKaiwaCallOverlay = ({
                     {isAiSpeaking && (
                         <>
                             <div className="absolute w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-cyan-500/20 animate-ping pointer-events-none"></div>
-                            <div className="absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-indigo-500/30 animate-pulse pointer-events-none"></div>
+                            <div className="absolute w-32 h-32 sm:w-40 sm:h-40 rounded-full bg-emerald-500/30 animate-pulse pointer-events-none"></div>
                         </>
                     )}
                     {isRecording && (
@@ -75,7 +75,7 @@ const AiKaiwaCallOverlay = ({
                     )}
 
                     {/* Avatar Container */}
-                    <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-gradient-to-tr from-cyan-500 via-indigo-600 to-purple-600 p-1 shadow-2xl shadow-cyan-500/30 relative z-10 flex items-center justify-center">
+                    <div className="w-28 h-28 sm:w-36 sm:h-36 rounded-full bg-gradient-to-tr from-cyan-500 via-emerald-600 to-teal-600 p-1 shadow-2xl shadow-cyan-500/30 relative z-10 flex items-center justify-center">
                         <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center text-5xl sm:text-6xl shadow-inner border border-white/10">
                             {teacherAvatar}
                         </div>

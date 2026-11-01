@@ -71,7 +71,7 @@ const GrammarFlashcardSettingsModal = ({
                 {/* Header */}
                 <div className="flex items-center justify-between border-b border-slate-150 dark:border-slate-800 pb-3">
                     <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200/80 dark:border-indigo-800/80 flex items-center justify-center text-indigo-600 dark:text-indigo-400">
+                        <div className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/80 dark:border-emerald-800/80 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
                             <Settings className="w-4 h-4" />
                         </div>
                         <div>
@@ -94,7 +94,7 @@ const GrammarFlashcardSettingsModal = ({
                 {/* Section 1: Review Type (Flashcard 3D vs Typing Input) */}
                 <div className="space-y-2">
                     <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
-                        <Keyboard className="w-3.5 h-3.5 text-indigo-500" />
+                        <Keyboard className="w-3.5 h-3.5 text-emerald-500" />
                         <span>Hình thức ôn tập:</span>
                     </div>
                     <div className="grid grid-cols-2 gap-2.5">
@@ -103,11 +103,11 @@ const GrammarFlashcardSettingsModal = ({
                             onClick={() => handleSetReviewType('flashcard')}
                             className={`p-3 rounded-2xl flex flex-col items-center justify-center text-center border-2 transition-all cursor-pointer ${
                                 currentSettings.reviewType === 'flashcard'
-                                    ? 'bg-indigo-50 dark:bg-indigo-950/50 border-indigo-500 text-indigo-700 dark:text-indigo-300 shadow-xs'
+                                    ? 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-500 text-emerald-700 dark:text-emerald-300 shadow-xs'
                                     : 'bg-slate-50/80 dark:bg-slate-800/40 border-slate-200/80 dark:border-slate-700/60 text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-600'
                             }`}
                         >
-                            <CreditCard className="w-5 h-5 mb-1 text-indigo-500" />
+                            <CreditCard className="w-5 h-5 mb-1 text-emerald-500" />
                             <span className="text-xs font-bold">Thẻ Flashcard 3D</span>
                             <span className="text-[10px] opacity-75 mt-0.5">Lật xem cấu trúc & ví dụ</span>
                         </button>
@@ -142,7 +142,7 @@ const GrammarFlashcardSettingsModal = ({
                 {/* Section 2: Study Direction (Chiều học) */}
                 <div className="space-y-2 pt-2 border-t border-slate-150 dark:border-slate-800">
                     <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
-                        <Layers className="w-3.5 h-3.5 text-indigo-500" />
+                        <Layers className="w-3.5 h-3.5 text-emerald-500" />
                         <span>Chiều câu hỏi & gợi ý:</span>
                     </div>
                     <div className="grid grid-cols-3 gap-2">
@@ -174,7 +174,7 @@ const GrammarFlashcardSettingsModal = ({
                                     onClick={() => handleSetMode(m.id)}
                                     className={`p-2.5 rounded-2xl flex flex-col items-center justify-center text-center border-2 transition-all cursor-pointer ${
                                         isSelected
-                                            ? 'bg-indigo-50 dark:bg-indigo-950/50 border-indigo-500 text-indigo-700 dark:text-indigo-300 shadow-xs'
+                                            ? 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-500 text-emerald-700 dark:text-emerald-300 shadow-xs'
                                             : 'bg-slate-50/80 dark:bg-slate-800/40 border-slate-200/80 dark:border-slate-700/60 text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-600'
                                     }`}
                                 >
@@ -202,7 +202,7 @@ const GrammarFlashcardSettingsModal = ({
                                     onChange={() => handleToggle('showLevel')}
                                     className="sr-only peer"
                                 />
-                                <div className="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600" />
+                                <div className="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600" />
                             </label>
                         </div>
 
@@ -215,7 +215,7 @@ const GrammarFlashcardSettingsModal = ({
                                     onChange={() => handleToggle('showAudioButton')}
                                     className="sr-only peer"
                                 />
-                                <div className="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600" />
+                                <div className="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600" />
                             </label>
                         </div>
 
@@ -229,7 +229,7 @@ const GrammarFlashcardSettingsModal = ({
                                         onChange={() => handleToggle('showHint')}
                                         className="sr-only peer"
                                     />
-                                    <div className="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600" />
+                                    <div className="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600" />
                                 </label>
                             </div>
                         )}
@@ -253,7 +253,7 @@ const GrammarFlashcardSettingsModal = ({
                                     onChange={() => handleToggle('showStructure')}
                                     className="sr-only peer"
                                 />
-                                <div className="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600" />
+                                <div className="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600" />
                             </label>
                         </div>
 
@@ -268,12 +268,12 @@ const GrammarFlashcardSettingsModal = ({
                                     onChange={() => handleToggle('showExamples')}
                                     className="sr-only peer"
                                 />
-                                <div className="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600" />
+                                <div className="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600" />
                             </label>
                         </div>
 
                         {currentSettings.showExamples && (
-                            <div className="pl-4 space-y-2.5 border-l-2 border-indigo-100 dark:border-indigo-900/50 ml-1 py-1">
+                            <div className="pl-4 space-y-2.5 border-l-2 border-emerald-100 dark:border-emerald-900/50 ml-1 py-1">
                                 <div className="flex items-center justify-between">
                                     <span className="text-slate-600 dark:text-slate-400">
                                         Hiện phiên âm Furigana trên câu ví dụ
@@ -285,7 +285,7 @@ const GrammarFlashcardSettingsModal = ({
                                             onChange={() => handleToggle('showFurigana')}
                                             className="sr-only peer"
                                         />
-                                        <div className="w-8 h-4.5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-3.5 after:w-3.5 after:transition-all peer-checked:bg-indigo-600" />
+                                        <div className="w-8 h-4.5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-3.5 after:w-3.5 after:transition-all peer-checked:bg-emerald-600" />
                                     </label>
                                 </div>
 
@@ -300,7 +300,7 @@ const GrammarFlashcardSettingsModal = ({
                                             onChange={() => handleToggle('showExampleVi')}
                                             className="sr-only peer"
                                         />
-                                        <div className="w-8 h-4.5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-3.5 after:w-3.5 after:transition-all peer-checked:bg-indigo-600" />
+                                        <div className="w-8 h-4.5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-3.5 after:w-3.5 after:transition-all peer-checked:bg-emerald-600" />
                                     </label>
                                 </div>
                             </div>
@@ -316,7 +316,7 @@ const GrammarFlashcardSettingsModal = ({
                     <div className="space-y-2.5 text-xs font-medium text-slate-700 dark:text-slate-300">
                         <div className="flex items-center justify-between">
                             <span className="flex items-center gap-1.5 font-semibold text-slate-800 dark:text-slate-200">
-                                <Volume2 className="w-3.5 h-3.5 text-indigo-500" />
+                                <Volume2 className="w-3.5 h-3.5 text-emerald-500" />
                                 Bật âm thanh phát âm
                             </span>
                             <label className="relative inline-flex items-center cursor-pointer">
@@ -326,7 +326,7 @@ const GrammarFlashcardSettingsModal = ({
                                     onChange={() => handleToggle('audioEnabled')}
                                     className="sr-only peer"
                                 />
-                                <div className="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600" />
+                                <div className="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600" />
                             </label>
                         </div>
 
@@ -342,7 +342,7 @@ const GrammarFlashcardSettingsModal = ({
                                         onChange={() => handleToggle('autoPlayAudio')}
                                         className="sr-only peer"
                                     />
-                                    <div className="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600" />
+                                    <div className="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600" />
                                 </label>
                             </div>
                         )}

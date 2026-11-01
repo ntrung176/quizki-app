@@ -354,7 +354,7 @@ export const EN_ROADMAP_STAGES = [
         title: 'Chặng 5: Luyện Đề TOEIC / IELTS Chuẩn Quốc Tế',
         sub: 'Bấm giờ thi thử Listening Part 1-4, Reading, mẹo tránh bẫy từ và bứt phá điểm số.',
         icon: '🏆',
-        color: 'purple',
+        color: 'teal',
         lessons: [
             {
                 id: 'en_s5_l1',

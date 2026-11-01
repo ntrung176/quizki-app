@@ -349,7 +349,7 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                         }`}
                                 >
                                     <div className="relative flex-shrink-0">
-                                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-50 to-blue-50 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center font-bold text-[#2E5B70] dark:text-[#3B728C] border border-slate-200 dark:border-slate-700">
+                                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-50 to-blue-50 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center font-bold text-[#2E5B70] dark:text-[#3B728C] border border-slate-200 dark:border-slate-700">
                                             {(thread.displayName || '?')[0].toUpperCase()}
                                         </div>
                                         {isOnline && (

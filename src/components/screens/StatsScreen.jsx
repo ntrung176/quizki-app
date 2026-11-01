@@ -732,7 +732,7 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
                                 placeholder={t('leaderboard.searchLearnerPlaceholder', 'Tìm kiếm người học...')}
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
-                                className="block w-full pl-9 pr-4 py-2 border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-800/60 placeholder-slate-400 text-slate-800 dark:text-slate-100 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                                className="block w-full pl-9 pr-4 py-2 border border-slate-200 dark:border-slate-700 rounded-xl bg-slate-50 dark:bg-slate-800/60 placeholder-slate-400 text-slate-800 dark:text-slate-100 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-all"
                             />
                         </div>
 
@@ -754,7 +754,7 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
                                         onClick={() => { setSortBy(opt.id); setDisplayCount(20); }}
                                         className={`flex items-center gap-1 px-2 sm:px-2.5 py-1 sm:py-1.5 rounded-lg sm:rounded-xl text-[11px] sm:text-xs font-bold transition-all border cursor-pointer whitespace-nowrap ${
                                             isActive
-                                                ? 'bg-indigo-600 border-indigo-500 text-white shadow-sm'
+                                                ? 'bg-emerald-600 border-emerald-500 text-white shadow-sm'
                                                 : 'bg-slate-50 dark:bg-slate-800/60 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700'
                                         }`}
                                     >
@@ -789,7 +789,7 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
                                     key={user.id || idx}
                                     className={`transition-all duration-200 ${
                                         isMe 
-                                            ? 'bg-indigo-50/40 dark:bg-indigo-950/30 ring-2 ring-indigo-400 dark:ring-indigo-500 ring-inset' 
+                                            ? 'bg-emerald-50/40 dark:bg-emerald-950/30 ring-2 ring-emerald-400 dark:ring-emerald-500 ring-inset' 
                                             : 'hover:bg-slate-50 dark:hover:bg-slate-800/40'
                                     }`}
                                 >
@@ -806,11 +806,11 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
 
                                         <div className="flex-1 min-w-0">
                                             <div className="flex items-center gap-2">
-                                                <p className={`text-sm sm:text-base font-bold truncate ${isMe ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-800 dark:text-slate-100'}`}>
+                                                <p className={`text-sm sm:text-base font-bold truncate ${isMe ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-800 dark:text-slate-100'}`}>
                                                     {user.displayName || t('leaderboard.learner', 'Học viên')}
                                                 </p>
                                                 {isMe && (
-                                                    <span className="bg-indigo-600 text-white text-[9px] font-black px-2 py-0.5 rounded-full uppercase">
+                                                    <span className="bg-emerald-600 text-white text-[9px] font-black px-2 py-0.5 rounded-full uppercase">
                                                         {t('leaderboard.youBadge', 'BẠN')}
                                                     </span>
                                                 )}
@@ -867,7 +867,7 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
                                                     <span className="text-amber-500 font-bold text-sm flex items-center gap-1">
                                                         <Star className="w-3.5 h-3.5 fill-amber-400" /> {formatScore(user.computedScore || 0)} XP
                                                     </span>
-                                                    <span className="text-[10px] text-indigo-600 dark:text-indigo-400 block mt-0.5 font-sans">
+                                                    <span className="text-[10px] text-emerald-600 dark:text-emerald-400 block mt-0.5 font-sans">
                                                         {t('leaderboard.userLevel', 'Cấp độ {level}').replace('{level}', user.level || 1)}
                                                     </span>
                                                 </div>
@@ -902,7 +902,7 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
             {myRankInfo.rank > displayCount && (
                 <div className="fixed bottom-0 left-0 right-0 lg:left-64 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 p-3.5 shadow-2xl z-30 transition-all flex items-center justify-between max-w-4xl mx-auto rounded-t-3xl border-x">
                     <div className="flex items-center gap-3">
-                        <div className="bg-indigo-600 text-white font-black text-xs sm:text-sm px-3 py-1.5 rounded-xl shadow-sm font-mono">
+                        <div className="bg-emerald-600 text-white font-black text-xs sm:text-sm px-3 py-1.5 rounded-xl shadow-sm font-mono">
                             #{myRankInfo.rank}
                         </div>
                         <div>
@@ -927,13 +927,13 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
                     className="flex items-center justify-between cursor-pointer select-none group"
                 >
                     <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-2xl bg-indigo-50 dark:bg-indigo-950/60 border border-indigo-200/60 dark:border-indigo-800/60 flex items-center justify-center text-indigo-600 dark:text-indigo-400 group-hover:scale-105 transition-transform">
+                        <div className="w-10 h-10 rounded-2xl bg-emerald-50 dark:bg-emerald-950/60 border border-emerald-200/60 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:scale-105 transition-transform">
                             <FileText className="w-5 h-5" />
                         </div>
                         <div>
                             <h4 className="text-sm md:text-base font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
                                 <span>{t('leaderboard.rulesTitle', 'Quy chế & Thể lệ Điểm Bảng Xếp Hạng')}</span>
-                                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-indigo-100 text-indigo-700 dark:bg-indigo-950 dark:text-indigo-400 border border-indigo-200 dark:border-indigo-800/50">
+                                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/50">
                                     RULEBOOK
                                 </span>
                             </h4>
@@ -942,7 +942,7 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
                             </p>
                         </div>
                     </div>
-                    <button className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 group-hover:bg-indigo-50 dark:group-hover:bg-indigo-950 group-hover:text-indigo-600 transition-all cursor-pointer">
+                    <button className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 group-hover:bg-emerald-50 dark:group-hover:bg-emerald-950 group-hover:text-emerald-600 transition-all cursor-pointer">
                         {showRules ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
                     </button>
                 </div>
@@ -950,8 +950,8 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
                 {showRules && (
                     <div className="mt-5 pt-5 border-t border-slate-100 dark:border-slate-800 space-y-4 animate-fade-in text-xs">
                         <div className="bg-slate-50 dark:bg-slate-950/60 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 space-y-3">
-                            <div className="flex items-center gap-2 font-bold text-xs text-indigo-700 dark:text-indigo-400 uppercase tracking-wider font-mono">
-                                <Zap className="w-4 h-4 text-indigo-500" />
+                            <div className="flex items-center gap-2 font-bold text-xs text-emerald-700 dark:text-emerald-400 uppercase tracking-wider font-mono">
+                                <Zap className="w-4 h-4 text-emerald-500" />
                                 <span>{t('leaderboard.section1Title', '1. Cách Tính Thống Kê & Thứ Hạng ⭐')}</span>
                             </div>
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2 font-mono">
@@ -972,7 +972,7 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
                                 </div>
                                 <div className="p-2.5 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800">
                                     <span className="text-slate-400 text-[10px] block font-sans">{t('leaderboard.hallOfFameLabel', 'BẢNG VÀNG CAO THỦ')}</span>
-                                    <span className="font-bold text-indigo-600 dark:text-indigo-400">{t('leaderboard.accumulatedXp', 'Tổng điểm tích lũy')}</span>
+                                    <span className="font-bold text-emerald-600 dark:text-emerald-400">{t('leaderboard.accumulatedXp', 'Tổng điểm tích lũy')}</span>
                                     <span className="text-[10px] text-slate-400 block mt-0.5">{t('leaderboard.noReset', 'Không bị reset')}</span>
                                 </div>
                             </div>
