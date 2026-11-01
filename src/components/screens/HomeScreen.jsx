@@ -17,7 +17,6 @@ import { isEnglishCard } from '../../utils/englishVocab';
 import { isKoreanCard } from '../../languages/ko';
 
 // Modular Home Screen Components
-import HomeHeroCockpit from '../home/HomeHeroCockpit';
 import HomeSrsBentoGrid from '../home/HomeSrsBentoGrid';
 import HomeLearningRoadmap from '../home/HomeLearningRoadmap';
 import HomeDailyQuests from '../home/HomeDailyQuests';
@@ -549,18 +548,6 @@ const HomeScreen = ({
     // Sum of all due cards
     const totalDue = (stats?.dueCards ?? 0) + (isJapaneseMode ? (kanjiSrsStats?.dueCount ?? 0) + (grammarSrsStats?.dueCount ?? 0) : 0);
 
-    const handlePrimaryStartReview = () => {
-        if ((stats?.dueCards ?? 0) > 0) {
-            handleTriggerReview('vocab');
-        } else if (isJapaneseMode && (kanjiSrsStats?.dueCount ?? 0) > 0) {
-            handleTriggerReview('kanji');
-        } else if (isJapaneseMode && (grammarSrsStats?.dueCount ?? 0) > 0) {
-            handleTriggerReview('grammar');
-        } else {
-            handleTriggerReview('vocab');
-        }
-    };
-
     const handleActionClick = (action) => {
         if (action.id === 'add') {
             setShowAddOptions(true);
@@ -636,18 +623,15 @@ const HomeScreen = ({
             />
 
             {/* Duolingo-styled 2-Column Responsive Layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 relative">
                 {/* LEFT / CENTER COLUMN: Primary Focus & Study Pillars (8 cols) */}
                 <div className="lg:col-span-8 space-y-6">
-                    {/* 1. Hero Cockpit (Focus banner with ONE prominent tactile action) */}
-                    <HomeHeroCockpit
-                        effectiveDisplayName={effectiveDisplayName}
-                        todayQuote={todayQuote}
-                        totalDue={totalDue}
-                        isInitialLoading={stats.isInitialLoading}
-                        onStartReview={handlePrimaryStartReview}
-                        onLearnNew={() => setShowAddOptions(true)}
-                    />
+                    {/* Welcome Greeting */}
+                    <div className="flex items-center justify-between">
+                        <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+                            {effectiveDisplayName ? `${effectiveDisplayName}!` : t('home.helloUser', 'Chào bạn!')} 👋
+                        </h1>
+                    </div>
 
                     {/* 2. Unified Study Pillars (Vocab, Kanji, Grammar) */}
                     <HomeSrsBentoGrid
@@ -663,11 +647,12 @@ const HomeScreen = ({
                         isHighlighted={isRoadmapHighlighted}
                         awardXP={awardXP}
                         userId={userId}
+                        allCards={allCards}
                     />
                 </div>
 
-                {/* RIGHT COLUMN: Telemetry, Habit Loop & Shortcuts (4 cols) */}
-                <div className="lg:col-span-4 space-y-5 lg:sticky lg:top-4">
+                {/* RIGHT COLUMN: Telemetry, Habit Loop & Shortcuts (4 cols - Fixed & Sticky like Duolingo) */}
+                <div className="lg:col-span-4 space-y-5 lg:sticky lg:top-4 self-start lg:max-h-[calc(100vh-2rem)] lg:overflow-y-auto custom-scrollbar">
                     {/* 1. Telemetry Bar (Flame Streak, Mastered Cards, Target Language) */}
                     <HomeTelemetryBar
                         streak={stats.streak ?? 0}

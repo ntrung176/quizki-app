@@ -21,7 +21,7 @@ import RoadmapLessonModal from './RoadmapLessonModal';
  * Provides real bite-sized playable lessons, visual stepping stone path,
  * node progression (completed/active/locked), XP rewards, and stage switching.
  */
-const HomeLearningRoadmap = ({ isHighlighted = false, awardXP, userId }) => {
+const HomeLearningRoadmap = ({ isHighlighted = false, awardXP, userId, allCards = [] }) => {
     const navigate = useNavigate();
     const { t } = useLanguage();
     const { targetLanguage, isJapaneseMode, isKoreanMode, isEnglishMode } = useTargetLanguage();
@@ -323,6 +323,8 @@ const HomeLearningRoadmap = ({ isHighlighted = false, awardXP, userId }) => {
                     stage={activeLessonData.stage}
                     targetLang={langCode}
                     awardXP={awardXP}
+                    userId={userId}
+                    allCards={allCards}
                     onClose={handleCloseModal}
                     onLessonCompleted={handleLessonCompleted}
                 />

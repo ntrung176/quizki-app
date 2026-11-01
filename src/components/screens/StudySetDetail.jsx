@@ -194,10 +194,10 @@ const FlashcardPlayerSection = ({
                         const img = new Image();
                         img.src = card.imageBase64;
                         if (typeof img.decode === 'function') {
-                            img.decode().catch(() => {});
+                            img.decode().catch(() => { });
                         }
                     }
-                    preloadAudio(card).catch(() => {});
+                    preloadAudio(card).catch(() => { });
                 }
             }
         });
@@ -333,7 +333,7 @@ const FlashcardPlayerSection = ({
                         setIsCardFlipped(false);
                     }}
                     className={`w-10 h-10 rounded-full shadow border flex items-center justify-center transition-all hover:scale-105 ${isShuffled
-                            ? 'bg-blue-600 border-blue-600 text-white hover:bg-blue-700' : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700'
+                        ? 'bg-blue-600 border-blue-600 text-white hover:bg-blue-700' : 'bg-white dark:bg-slate-800 border-gray-200 dark:border-slate-700 text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-slate-700'
                         }`}
                     title={isShuffled ? t('studyModes.unshuffle') : t('studyModes.shuffle')}
                 >
@@ -359,7 +359,7 @@ const StudySetDetail = ({
 
     const handleAddKanjiToSrs = async () => {
         if (isAddingKanji) return;
-        
+
         const userId = getAuth().currentUser?.uid;
         if (!userId) {
             showToast(language === 'vi' ? 'Bạn cần đăng nhập để sử dụng tính năng này!' : 'You need to be signed in to use this feature!', 'error');
@@ -444,10 +444,10 @@ const StudySetDetail = ({
         try {
             const now = Date.now();
             const batch = writeBatch(db);
-            
+
             // Only write selected Kanji
             const selectedKanji = kanjiPreviewModal.newKanji.filter(k => kanjiPreviewModal.selectedIds.has(k.id));
-            
+
             selectedKanji.forEach(k => {
                 const ref = doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, k.id);
                 const srsPayload = {
@@ -507,7 +507,7 @@ const StudySetDetail = ({
             return next;
         });
     };
-     const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+    const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
     // Card Settings State (stored in localStorage with v2 version to apply new defaults)
     const [cardSettings, setCardSettings] = useState(() => {
@@ -931,10 +931,10 @@ const StudySetDetail = ({
 
         const text = card.frontWithFurigana || card.front || '';
         const { word, reading } = parseWordAndReading(text);
-        
+
         const jotobaData = pitchAccentData[word];
         const jotobaReading = jotobaData?.reading || null;
-        
+
         // Fallback reading
         const finalReading = card.reading || reading || jotobaReading || word;
         if (!finalReading) return null;
@@ -946,7 +946,7 @@ const StudySetDetail = ({
         const pitchParts = card.pitch || storedPitch || jotobaData?.pitch || null;
 
         const readingChars = [...finalReading];
-        
+
         let pitchElements = null;
         if (pitchParts && pitchParts.length > 0) {
             const charPitchMap = [];
@@ -956,7 +956,7 @@ const StudySetDetail = ({
                     charPitchMap.push({ char: c, high: pp.high });
                 }
             }
-            
+
             pitchElements = (
                 <span className="font-japanese inline-flex items-end gap-0 animate-fade-in">
                     {readingChars.map((char, ci) => {
@@ -965,7 +965,7 @@ const StudySetDetail = ({
                         const nextHigh = ci + 1 < charPitchMap.length ? charPitchMap[ci + 1]?.high : isHigh;
                         const showTransition = ci + 1 < charPitchMap.length && isHigh !== nextHigh;
                         const lineColor = '#ef4444'; // Standard NHK Red
-                        
+
                         return (
                             <span key={ci} className="relative inline-block" style={{ marginRight: '0px' }}>
                                 <span
@@ -997,7 +997,7 @@ const StudySetDetail = ({
                 </span>
             );
         }
-        
+
         return (
             <span className="text-sm font-normal text-gray-400 dark:text-gray-500 font-sans ml-1 select-none">
                 ({pitchElements})
@@ -1017,7 +1017,7 @@ const StudySetDetail = ({
             document.documentElement.scrollTop = 0;
             document.body.scrollTo(0, 0);
             document.documentElement.scrollTo(0, 0);
-            
+
             const mainContainer = document.querySelector('.main-with-header');
             if (mainContainer) {
                 mainContainer.scrollTo(0, 0);
@@ -1088,8 +1088,8 @@ const StudySetDetail = ({
                         </button>
                         <div className="flex items-center gap-4">
                             {!isEnglishMode && (
-                                <button 
-                                    onClick={handleAddKanjiToSrs} 
+                                <button
+                                    onClick={handleAddKanjiToSrs}
                                     disabled={isAddingKanji}
                                     className="flex items-center gap-1 text-gray-500 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-600 transition-colors text-sm font-medium disabled:opacity-50"
                                     title={t('studyModes.addKanjiTooltip')}
@@ -1691,12 +1691,12 @@ const StudySetDetail = ({
                             <p className="text-gray-500 dark:text-gray-400 mb-6">{t('vocab.emptySetSub')}</p>
                             <div className="flex items-center justify-center gap-3 flex-wrap">
                                 {folderId !== 'unfiled' && (
-                                    <button 
-                                        onClick={handleSyncFromSourceLesson} 
+                                    <button
+                                        onClick={handleSyncFromSourceLesson}
                                         disabled={isSyncingFromLesson}
                                         className="px-6 py-3 bg-amber-500 hover:bg-amber-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-amber-700 text-white rounded-2xl font-black text-xs uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer select-none disabled:opacity-50"
                                     >
-                                        <RefreshCw className={`w-4 h-4 ${isSyncingFromLesson ? 'animate-spin' : ''}`} /> 
+                                        <RefreshCw className={`w-4 h-4 ${isSyncingFromLesson ? 'animate-spin' : ''}`} />
                                         {isSyncingFromLesson ? t('common.loading') : t('books.syncFromBook')}
                                     </button>
                                 )}
@@ -1876,7 +1876,7 @@ const StudySetDetail = ({
                                     <span className="font-bold text-gray-550 dark:text-gray-400">
                                         {t('kanji.selectCharactersToAdd')} ({kanjiPreviewModal.selectedIds.size}/{kanjiPreviewModal.newKanji.length} {t('kanji.charactersUnit')}):
                                     </span>
-                                    <button 
+                                    <button
                                         type="button"
                                         onClick={() => {
                                             setKanjiPreviewModal(prev => {
@@ -1896,15 +1896,14 @@ const StudySetDetail = ({
                                     {kanjiPreviewModal.newKanji.map(k => {
                                         const isSelected = kanjiPreviewModal.selectedIds.has(k.id);
                                         return (
-                                            <button 
+                                            <button
                                                 key={k.id}
                                                 type="button"
                                                 onClick={() => togglePreviewKanjiSelect(k.id)}
-                                                className={`w-11 h-11 rounded-xl border flex items-center justify-center font-bold text-xl font-japanese shadow-sm transition-all duration-200 transform hover:scale-105 active:scale-95 cursor-pointer ${
-                                                    isSelected 
-                                                        ? 'bg-blue-50 border-blue-500 text-blue-600 dark:bg-blue-950/50 dark:border-blue-500 dark:text-blue-400 scale-100 ring-2 ring-blue-500/15'
-                                                        : 'bg-white border-gray-200 text-gray-400 dark:bg-slate-800/60 dark:border-slate-700/60 opacity-40 line-through'
-                                                }`}
+                                                className={`w-11 h-11 rounded-xl border flex items-center justify-center font-bold text-xl font-japanese shadow-sm transition-all duration-200 transform hover:scale-105 active:scale-95 cursor-pointer ${isSelected
+                                                    ? 'bg-blue-50 border-blue-500 text-blue-600 dark:bg-blue-950/50 dark:border-blue-500 dark:text-blue-400 scale-100 ring-2 ring-blue-500/15'
+                                                    : 'bg-white border-gray-200 text-gray-400 dark:bg-slate-800/60 dark:border-slate-700/60 opacity-40 line-through'
+                                                    }`}
                                                 title={isSelected ? t('kanji.clickToDeselect') : t('kanji.clickToSelect')}
                                             >
                                                 {k.character}
@@ -1916,8 +1915,8 @@ const StudySetDetail = ({
                         </div>
 
                         <div className="flex gap-3 pt-2">
-                            <button 
-                                onClick={() => setKanjiPreviewModal(prev => ({ ...prev, isOpen: false }))} 
+                            <button
+                                onClick={() => setKanjiPreviewModal(prev => ({ ...prev, isOpen: false }))}
                                 className="flex-1 py-3 bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-gray-300 font-bold rounded-2xl hover:bg-gray-200 dark:hover:bg-slate-700 transition-colors text-sm cursor-pointer"
                             >
                                 {t('common.cancel')}

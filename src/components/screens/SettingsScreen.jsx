@@ -496,21 +496,21 @@ const SettingsScreen = ({
             <div className="flex items-center gap-2 sm:gap-3 w-full">
                 <Link
                     to={ROUTES.HOME}
-                    className="p-2 sm:p-2.5 rounded-xl bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-300 transition-all active:scale-95 shrink-0 flex items-center justify-center h-10 w-10 sm:h-11 sm:w-11 border border-slate-200/80 dark:border-slate-700/80 shadow-xs"
+                    className="p-2 sm:p-2.5 rounded-2xl bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-750 text-slate-600 dark:text-slate-300 transition-all active:translate-y-0.5 border-2 border-slate-200 dark:border-slate-700 border-b-4 border-b-slate-300 dark:border-b-slate-900 active:border-b-2 shrink-0 flex items-center justify-center h-10 w-10 sm:h-11 sm:w-11 shadow-xs cursor-pointer select-none"
                     title={t('common.back', 'Quay lại')}
                 >
                     <ArrowLeft className="w-5 h-5" />
                 </Link>
 
-                <div className="flex-1 flex rounded-xl bg-slate-100 dark:bg-slate-800/80 p-1 gap-1 border border-slate-200/50 dark:border-slate-700/50 shadow-xs">
+                <div className="flex-1 flex rounded-2xl bg-slate-100 dark:bg-slate-800/80 p-1.5 gap-1.5 border-2 border-slate-200/60 dark:border-slate-700/60 shadow-xs">
                     {tabs.map(tab => (
                         <button
                             key={tab.id}
                             onClick={() => setActiveTab(tab.id)}
-                            className={`flex-1 flex items-center justify-center gap-1 sm:gap-2 py-2 sm:py-2.5 px-1.5 sm:px-3 rounded-lg text-xs sm:text-sm font-bold transition-all cursor-pointer ${
+                            className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 px-1.5 sm:px-3 rounded-xl text-xs sm:text-sm font-black transition-all cursor-pointer select-none ${
                                 activeTab === tab.id
-                                    ? 'bg-white dark:bg-slate-700 text-blue-600 dark:text-blue-400 shadow-sm'
-                                    : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200'
+                                    ? 'bg-white dark:bg-slate-700 text-sky-600 dark:text-sky-400 border-2 border-sky-400/50 border-b-4 border-b-sky-500 shadow-sm active:translate-y-0.5 active:border-b-2'
+                                    : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 hover:bg-white/60 dark:hover:bg-slate-700/50 border-2 border-transparent'
                             }`}
                         >
                             <tab.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
@@ -540,7 +540,7 @@ const SettingsScreen = ({
                                         </div>
                                         <button
                                             onClick={() => setShowAvatarPicker(!showAvatarPicker)}
-                                            className="absolute -bottom-1 -right-1 w-7 h-7 bg-blue-600 hover:bg-blue-700 active:scale-95 text-white rounded-full flex items-center justify-center shadow transition-all cursor-pointer ring-2 ring-white dark:ring-slate-800"
+                                            className="absolute -bottom-1 -right-1 w-7 h-7 bg-sky-500 hover:bg-sky-600 active:translate-y-0.5 border-2 border-sky-600 border-b-4 border-b-sky-700 active:border-b-2 text-white rounded-full flex items-center justify-center shadow transition-all cursor-pointer ring-2 ring-white dark:ring-slate-800"
                                             title={t('settings.account.changeAvatar')}
                                         >
                                             <Camera className="w-3.5 h-3.5" />
@@ -551,13 +551,13 @@ const SettingsScreen = ({
                                     <div className="flex items-center gap-1.5 mt-1">
                                         <button
                                             onClick={() => { setShowAvatarPicker(!showAvatarPicker); setAvatarTab('emoji'); }}
-                                            className="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded-lg text-[11px] font-semibold transition-all cursor-pointer active:scale-95"
+                                            className="px-2.5 py-1 bg-white dark:bg-slate-700 hover:bg-slate-50 dark:hover:bg-slate-650 text-slate-700 dark:text-slate-300 border-2 border-slate-200 dark:border-slate-600 border-b-4 border-b-slate-300 dark:border-b-slate-800 active:translate-y-0.5 active:border-b-2 rounded-xl text-[11px] font-black transition-all cursor-pointer select-none"
                                         >
                                             Emoji
                                         </button>
                                         <button
                                             onClick={() => setShowAvatarCropper(true)}
-                                            className="px-2.5 py-1 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 rounded-lg text-[11px] font-semibold transition-all cursor-pointer active:scale-95"
+                                            className="px-2.5 py-1 bg-white dark:bg-slate-700 hover:bg-slate-50 dark:hover:bg-slate-650 text-slate-700 dark:text-slate-300 border-2 border-slate-200 dark:border-slate-600 border-b-4 border-b-slate-300 dark:border-b-slate-800 active:translate-y-0.5 active:border-b-2 rounded-xl text-[11px] font-black transition-all cursor-pointer select-none"
                                         >
                                             {t('settings.account.uploadPhoto')}
                                         </button>
@@ -578,19 +578,19 @@ const SettingsScreen = ({
                                                         if (e.key === 'Escape') setIsEditingName(false);
                                                     }}
                                                     placeholder={t('settings.account.namePlaceholder')}
-                                                    className="flex-1 px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-blue-400 dark:border-blue-500 rounded-lg text-slate-900 dark:text-white text-sm font-bold outline-none"
+                                                    className="flex-1 px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border-2 border-sky-400 dark:border-sky-500 rounded-xl text-slate-900 dark:text-white text-sm font-bold outline-none focus:ring-2 focus:ring-sky-500/20"
                                                     autoFocus
                                                 />
                                                 <button
                                                     onClick={handleSaveProfile}
                                                     disabled={isSavingName || !displayName.trim()}
-                                                    className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 active:scale-95 text-white rounded-lg text-xs font-bold transition-all disabled:opacity-50 cursor-pointer"
+                                                    className="px-3.5 py-1.5 bg-emerald-500 hover:bg-emerald-600 active:translate-y-0.5 border-2 border-emerald-600 border-b-4 border-b-emerald-700 active:border-b-2 text-white rounded-xl text-xs font-black transition-all disabled:opacity-50 cursor-pointer select-none"
                                                 >
                                                     {isSavingName ? '...' : t('settings.account.saveName')}
                                                 </button>
                                                 <button
                                                     onClick={() => setIsEditingName(false)}
-                                                    className="px-2 py-1.5 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 active:scale-95 text-slate-600 dark:text-slate-300 rounded-lg text-xs font-bold cursor-pointer transition-colors"
+                                                    className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 active:translate-y-0.5 border-2 border-slate-200 dark:border-slate-600 border-b-4 border-b-slate-300 dark:border-b-slate-800 active:border-b-2 text-slate-600 dark:text-slate-300 rounded-xl text-xs font-bold cursor-pointer transition-all select-none"
                                                 >
                                                     {t('settings.account.cancel')}
                                                 </button>
@@ -605,7 +605,7 @@ const SettingsScreen = ({
                                                         setDisplayName(effectiveProfile?.displayName || '');
                                                         setIsEditingName(true);
                                                     }}
-                                                    className="p-1 text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer"
+                                                    className="p-1 text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors cursor-pointer"
                                                     title={t('settings.account.editName')}
                                                 >
                                                     <Edit className="w-3.5 h-3.5" />
@@ -621,7 +621,7 @@ const SettingsScreen = ({
                                     {/* Cấp độ & Thanh tiến trình XP */}
                                     <div className="space-y-1.5 pt-1 w-full max-w-sm sm:max-w-none">
                                         <div className="flex justify-between items-center text-xs font-semibold">
-                                            <span className="text-blue-600 dark:text-blue-400 font-bold">
+                                            <span className="text-sky-600 dark:text-sky-400 font-black">
                                                 Lv. {xpDetails.level} • {getLevelTitle(xpDetails.level, t)}
                                             </span>
                                             <span className="text-slate-400 font-mono text-[11px]">
@@ -645,7 +645,7 @@ const SettingsScreen = ({
                                         <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                                             {t('settings.membership.status')}
                                         </span>
-                                        <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
+                                        <span className={`text-[10px] font-black px-2 py-0.5 rounded-full ${
                                             hasPremium 
                                                 ? 'bg-amber-100 text-amber-800 dark:bg-amber-900/40 dark:text-amber-300' 
                                                 : 'bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-300'
@@ -678,7 +678,7 @@ const SettingsScreen = ({
 
                                 <button
                                     onClick={() => navigate(ROUTES.UPGRADE)}
-                                    className="w-full py-2.5 px-4 text-xs font-bold bg-gradient-to-r from-amber-500 via-orange-500 to-amber-600 hover:from-amber-600 hover:to-orange-600 active:scale-98 text-white rounded-xl shadow-md shadow-amber-500/20 transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                                    className="w-full py-2.5 px-4 text-xs font-black bg-amber-500 hover:bg-amber-600 active:translate-y-0.5 border-2 border-amber-600 border-b-4 border-b-amber-700 active:border-b-2 text-white rounded-xl shadow-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer uppercase tracking-wider select-none"
                                 >
                                     <Crown className="w-3.5 h-3.5 fill-white text-white" />
                                     <span>{hasPremium ? t('settings.membership.managePackage') : t('settings.membership.upgradeNow')}</span>
@@ -689,16 +689,16 @@ const SettingsScreen = ({
                         {/* Avatar Picker popdown */}
                         {showAvatarPicker && (
                             <div className="border-t border-slate-100 dark:border-slate-700/80 pt-4 space-y-3">
-                                <div className="flex rounded-lg bg-slate-100 dark:bg-slate-700 p-1 gap-1 max-w-xs">
+                                <div className="flex rounded-xl bg-slate-100 dark:bg-slate-700 p-1 gap-1 max-w-xs border border-slate-200/60 dark:border-slate-600/60">
                                     <button
                                         onClick={() => setAvatarTab('emoji')}
-                                        className={`flex-1 py-1 rounded-md text-xs font-bold transition-all cursor-pointer ${avatarTab === 'emoji' ? 'bg-white dark:bg-slate-600 text-blue-600 dark:text-blue-400 shadow-xs' : 'text-slate-500'}`}
+                                        className={`flex-1 py-1 rounded-lg text-xs font-black transition-all cursor-pointer select-none ${avatarTab === 'emoji' ? 'bg-white dark:bg-slate-600 text-sky-600 dark:text-sky-400 border border-sky-400/50 border-b-2 border-b-sky-500 shadow-xs' : 'text-slate-500'}`}
                                     >
                                         Emoji
                                     </button>
                                     <button
                                         onClick={() => setAvatarTab('photo')}
-                                        className={`flex-1 py-1 rounded-md text-xs font-bold transition-all cursor-pointer ${avatarTab === 'photo' ? 'bg-white dark:bg-slate-600 text-blue-600 dark:text-blue-400 shadow-xs' : 'text-slate-500'}`}
+                                        className={`flex-1 py-1 rounded-lg text-xs font-black transition-all cursor-pointer select-none ${avatarTab === 'photo' ? 'bg-white dark:bg-slate-600 text-sky-600 dark:text-sky-400 border border-sky-400/50 border-b-2 border-b-sky-500 shadow-xs' : 'text-slate-500'}`}
                                     >
                                         {t('settings.account.yourPhoto')}
                                     </button>
@@ -714,7 +714,7 @@ const SettingsScreen = ({
                                                     onClick={() => handleSelectAvatar(avatar.id)}
                                                     className={`flex flex-col items-center p-2 rounded-xl transition-all cursor-pointer ${
                                                         isActive
-                                                            ? 'bg-blue-50 dark:bg-blue-950/40 border-2 border-blue-500'
+                                                            ? 'bg-sky-50 dark:bg-sky-950/40 border-2 border-sky-500 border-b-4 border-b-sky-600'
                                                             : 'bg-slate-50 dark:bg-slate-700/50 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-600'
                                                     }`}
                                                     title={avatar.name}
@@ -730,7 +730,7 @@ const SettingsScreen = ({
                                     <div className="space-y-3 max-w-sm">
                                         <button
                                             onClick={() => { setShowAvatarPicker(false); setShowAvatarCropper(true); }}
-                                            className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-98 text-white text-xs font-bold transition-colors cursor-pointer"
+                                            className="w-full flex items-center justify-center gap-2 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-600 active:translate-y-0.5 border-2 border-sky-600 border-b-4 border-b-sky-700 active:border-b-2 text-white text-xs font-black transition-all cursor-pointer select-none"
                                         >
                                             <Upload className="w-4 h-4" />
                                             {t('settings.account.uploadNewPhoto')}
@@ -755,7 +755,7 @@ const SettingsScreen = ({
                     {/* Đổi mật khẩu */}
                     <div className="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xs space-y-4">
                         <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                            <Shield className="w-4 h-4 text-blue-500" />
+                            <Shield className="w-4 h-4 text-sky-500" />
                             {linkedProviders.includes('password') ? t('settings.account.changePassword') : t('settings.account.createPassword')}
                         </h3>
 
@@ -770,7 +770,7 @@ const SettingsScreen = ({
                                             type={showOldPassword ? 'text' : 'password'}
                                             value={oldPassword}
                                             onChange={(e) => setOldPassword(e.target.value)}
-                                            className="w-full px-3.5 py-2 pr-10 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm outline-none focus:border-blue-500 dark:focus:border-blue-400"
+                                            className="w-full px-3.5 py-2 pr-10 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm outline-none focus:border-sky-500 dark:focus:border-sky-400 focus:ring-2 focus:ring-sky-500/20"
                                             placeholder={t('settings.account.currentPasswordPlaceholder')}
                                         />
                                         <button
@@ -793,7 +793,7 @@ const SettingsScreen = ({
                                         type={showNewPassword ? 'text' : 'password'}
                                         value={newPassword}
                                         onChange={(e) => setNewPassword(e.target.value)}
-                                        className="w-full px-3.5 py-2 pr-10 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm outline-none focus:border-blue-500 dark:focus:border-blue-400"
+                                        className="w-full px-3.5 py-2 pr-10 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm outline-none focus:border-sky-500 dark:focus:border-sky-400 focus:ring-2 focus:ring-sky-500/20"
                                         placeholder={t('settings.account.passwordMinLength')}
                                     />
                                     <button
@@ -815,7 +815,7 @@ const SettingsScreen = ({
                                         type={showConfirmPassword ? 'text' : 'password'}
                                         value={confirmPassword}
                                         onChange={(e) => setConfirmPassword(e.target.value)}
-                                        className="w-full px-3.5 py-2 pr-10 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm outline-none focus:border-blue-500 dark:focus:border-blue-400"
+                                        className="w-full px-3.5 py-2 pr-10 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm outline-none focus:border-sky-500 dark:focus:border-sky-400 focus:ring-2 focus:ring-sky-500/20"
                                         placeholder={t('settings.account.confirmPasswordPlaceholder')}
                                     />
                                     <button
@@ -833,7 +833,7 @@ const SettingsScreen = ({
                             <button
                                 onClick={handleChangePassword}
                                 disabled={isSavingPassword || !newPassword || !confirmPassword}
-                                className="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 active:scale-95 disabled:opacity-50 text-white rounded-xl font-bold text-xs transition-all cursor-pointer shadow-xs"
+                                className="px-6 py-2.5 bg-sky-500 hover:bg-sky-600 active:translate-y-0.5 border-2 border-sky-600 border-b-4 border-b-sky-700 active:border-b-2 disabled:opacity-50 text-white rounded-xl font-black text-xs transition-all cursor-pointer shadow-xs select-none"
                             >
                                 {isSavingPassword ? t('settings.account.saving') : (linkedProviders.includes('password') ? t('settings.account.savePassword') : t('settings.account.createPassword'))}
                             </button>
@@ -865,7 +865,7 @@ const SettingsScreen = ({
                                 <button
                                     onClick={handleUnlinkGoogle}
                                     disabled={isLinking || linkedProviders.length <= 1}
-                                    className="px-3 py-1.5 text-xs font-bold text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/40 rounded-lg transition-colors disabled:opacity-50 cursor-pointer active:scale-95"
+                                    className="px-3.5 py-1.5 text-xs font-black text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/40 hover:bg-rose-100 dark:hover:bg-rose-900/60 border-2 border-rose-200 dark:border-rose-800 border-b-4 border-b-rose-300 dark:border-b-rose-900 active:translate-y-0.5 active:border-b-2 rounded-xl transition-all disabled:opacity-50 cursor-pointer select-none"
                                 >
                                     {t('settings.account.unlink')}
                                 </button>
@@ -873,7 +873,7 @@ const SettingsScreen = ({
                                 <button
                                     onClick={handleLinkGoogle}
                                     disabled={isLinking}
-                                    className="px-3 py-1.5 text-xs font-bold text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-950/40 rounded-lg transition-colors disabled:opacity-50 cursor-pointer active:scale-95"
+                                    className="px-3.5 py-1.5 text-xs font-black text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/40 hover:bg-sky-100 dark:hover:bg-sky-900/60 border-2 border-sky-200 dark:border-sky-800 border-b-4 border-b-sky-300 dark:border-b-sky-900 active:translate-y-0.5 active:border-b-2 rounded-xl transition-all disabled:opacity-50 cursor-pointer select-none"
                                 >
                                     {isLinking ? '...' : t('settings.account.linkNow')}
                                 </button>
@@ -890,7 +890,7 @@ const SettingsScreen = ({
                     <div className="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-xs space-y-4">
                         <div>
                             <h3 className="text-base font-black text-slate-900 dark:text-white flex items-center gap-2">
-                                <Gift className="w-5 h-5 text-blue-500" />
+                                <Gift className="w-5 h-5 text-sky-500" />
                                 {t('settings.referral.heroTitle')}
                             </h3>
                             <p className="text-slate-500 dark:text-slate-400 text-xs mt-1 leading-relaxed" dangerouslySetInnerHTML={{ __html: t('settings.referral.heroSub') }} />
@@ -909,19 +909,19 @@ const SettingsScreen = ({
                                     </p>
                                 </div>
 
-                                <div className="flex items-center justify-between bg-white dark:bg-slate-800 px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-xs">
-                                    <span className="text-base font-black font-mono tracking-wider text-blue-600 dark:text-blue-400">
+                                <div className="flex items-center justify-between gap-2 bg-white dark:bg-slate-800 px-3.5 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-xs min-w-0">
+                                    <span className="text-sm sm:text-base font-black font-mono tracking-wider text-sky-600 dark:text-sky-400 truncate">
                                         {effectiveProfile?.referralCode || '...'}
                                     </span>
                                     <button
                                         onClick={handleCopyRawCode}
-                                        className="px-3 py-1.5 bg-blue-50 hover:bg-blue-100 dark:bg-blue-950/40 dark:hover:bg-blue-900/50 active:scale-95 text-blue-600 dark:text-blue-400 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer"
+                                        className="shrink-0 px-3 py-1.5 bg-sky-500 hover:bg-sky-600 active:translate-y-0.5 border-2 border-sky-600 border-b-4 border-b-sky-700 active:border-b-2 text-white rounded-xl text-xs font-black transition-all flex items-center gap-1.5 cursor-pointer select-none"
                                         title={t('settings.referral.copyCode')}
                                     >
                                         {copiedRaw ? (
                                             <>
-                                                <Check className="w-3.5 h-3.5 text-emerald-500" />
-                                                <span className="text-emerald-600 dark:text-emerald-400">{t('settings.referral.copied')}</span>
+                                                <Check className="w-3.5 h-3.5 text-white" />
+                                                <span className="text-white">{t('settings.referral.copied')}</span>
                                             </>
                                         ) : (
                                             <>
@@ -956,18 +956,18 @@ const SettingsScreen = ({
                                     </div>
                                 ) : (
                                     <div className="space-y-2">
-                                        <div className="flex gap-2">
+                                        <div className="flex items-center gap-2 min-w-0">
                                             <input
                                                 type="text"
                                                 placeholder={t('settings.referral.codePlaceholder')}
                                                 value={enteredCode}
                                                 onChange={(e) => setEnteredCode(e.target.value.toUpperCase())}
-                                                className="flex-1 px-3 py-2 text-xs bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl outline-none focus:border-blue-500 font-mono font-bold uppercase"
+                                                className="min-w-0 flex-1 px-3 py-2 text-xs bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-xl outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 font-mono font-bold uppercase text-slate-800 dark:text-slate-100 placeholder:normal-case"
                                             />
                                             <button
                                                 onClick={handleApplyReferral}
                                                 disabled={submitLoading || !enteredCode.trim()}
-                                                className="px-4 py-2 bg-blue-600 hover:bg-blue-700 active:scale-95 disabled:opacity-50 text-white font-bold text-xs rounded-xl transition-all cursor-pointer shadow-xs whitespace-nowrap"
+                                                className="shrink-0 px-3.5 py-2 bg-sky-500 hover:bg-sky-600 active:translate-y-0.5 border-2 border-sky-600 border-b-4 border-b-sky-700 active:border-b-2 disabled:opacity-50 text-white font-black text-xs rounded-xl transition-all cursor-pointer select-none whitespace-nowrap shadow-xs"
                                             >
                                                 {submitLoading ? '...' : t('settings.referral.sendCode')}
                                             </button>
@@ -1028,7 +1028,7 @@ const SettingsScreen = ({
                                                 isAchieved
                                                     ? 'bg-emerald-50/50 dark:bg-emerald-950/20 border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-300'
                                                     : isNext
-                                                    ? 'bg-blue-50/50 dark:bg-blue-950/20 border-blue-300 dark:border-blue-800 text-blue-800 dark:text-blue-300'
+                                                    ? 'bg-sky-50/50 dark:bg-sky-950/20 border-sky-300 dark:border-sky-800 text-sky-800 dark:text-sky-300'
                                                     : 'bg-slate-50 dark:bg-slate-900/30 border-slate-200 dark:border-slate-700 text-slate-400'
                                             }`}
                                         >
@@ -1100,7 +1100,7 @@ const SettingsScreen = ({
                         <div className="p-5 sm:p-6 space-y-4">
                             <div className="space-y-0.5">
                                 <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                                    <Type className="w-4 h-4 text-blue-500" />
+                                    <Type className="w-4 h-4 text-sky-500" />
                                     {t('settings.general.furiganaTitle')}
                                 </h3>
                                 <p className="text-xs text-slate-500 dark:text-slate-400">
@@ -1116,7 +1116,6 @@ const SettingsScreen = ({
                                     </span>
                                     <div className="flex items-center gap-2">
                                         {[
-                                            { color: '#2563eb', name: t('settings.general.colorBlue') },
                                             { color: '#0284c7', name: t('settings.general.colorSky') },
                                             { color: '#059669', name: t('settings.general.colorGreen') },
                                             { color: '#d97706', name: t('settings.general.colorAmber') },
@@ -1128,7 +1127,7 @@ const SettingsScreen = ({
                                                 type="button"
                                                 onClick={() => setFuriganaColor(setting.color)}
                                                 className={`w-7 h-7 rounded-full transition-transform hover:scale-110 flex items-center justify-center cursor-pointer ${
-                                                    furiganaColor === setting.color ? 'ring-2 ring-blue-500 ring-offset-2 dark:ring-offset-slate-800' : ''
+                                                    furiganaColor === setting.color ? 'ring-2 ring-sky-500 ring-offset-2 dark:ring-offset-slate-800' : ''
                                                 }`}
                                                 style={{ backgroundColor: setting.color }}
                                                 title={setting.name}
@@ -1139,30 +1138,33 @@ const SettingsScreen = ({
                                     </div>
                                 </div>
 
-                                {/* Kích thước */}
+                                {/* Kích thước (Duolingo 3D buttons) */}
                                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                                     <span className="text-xs font-semibold text-slate-600 dark:text-slate-400">
                                         {t('settings.general.furiganaSize')}
                                     </span>
-                                    <div className="flex rounded-lg bg-slate-100 dark:bg-slate-700 p-1 gap-1">
+                                    <div className="flex rounded-xl bg-slate-100 dark:bg-slate-700/80 p-1.5 gap-1.5 border border-slate-200/60 dark:border-slate-600/60">
                                         {[
                                             { value: '0.5em', label: t('settings.general.sizeSmall') },
                                             { value: '0.6em', label: t('settings.general.sizeMedium') },
                                             { value: '0.8em', label: t('settings.general.sizeLarge') }
-                                        ].map((size) => (
-                                            <button
-                                                key={size.value}
-                                                type="button"
-                                                onClick={() => setFuriganaFontSize(size.value)}
-                                                className={`px-3 py-1 rounded-md text-xs font-semibold transition-all cursor-pointer ${
-                                                    furiganaFontSize === size.value
-                                                        ? 'bg-white dark:bg-slate-600 text-blue-600 dark:text-blue-400 shadow-xs'
-                                                        : 'text-slate-600 dark:text-slate-300'
-                                                }`}
-                                            >
-                                                {size.label}
-                                            </button>
-                                        ))}
+                                        ].map((size) => {
+                                            const isSelected = furiganaFontSize === size.value;
+                                            return (
+                                                <button
+                                                    key={size.value}
+                                                    type="button"
+                                                    onClick={() => setFuriganaFontSize(size.value)}
+                                                    className={`px-3.5 py-1.5 rounded-xl text-xs font-black transition-all cursor-pointer select-none ${
+                                                        isSelected
+                                                            ? 'bg-sky-500 text-white border-2 border-sky-600 border-b-4 border-b-sky-700 active:translate-y-0.5 active:border-b-2 shadow-xs'
+                                                            : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-2 border-slate-200 dark:border-slate-700 border-b-4 border-b-slate-300 dark:border-b-slate-900 hover:bg-slate-50 dark:hover:bg-slate-750 active:translate-y-0.5 active:border-b-2'
+                                                    }`}
+                                                >
+                                                    {size.label}
+                                                </button>
+                                            );
+                                        })}
                                     </div>
                                 </div>
 
@@ -1184,7 +1186,7 @@ const SettingsScreen = ({
                             <div className="flex items-center justify-between">
                                 <div className="space-y-0.5">
                                     <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                                        <Volume2 className="w-4 h-4 text-blue-500" />
+                                        <Volume2 className="w-4 h-4 text-sky-500" />
                                         {t('settings.general.sfxTitle')}
                                     </h3>
                                     <p className="text-xs text-slate-500 dark:text-slate-400">
@@ -1194,7 +1196,7 @@ const SettingsScreen = ({
                                 <button
                                     onClick={() => setSfxEnabled(!sfxEnabled)}
                                     className={`relative w-11 h-6 rounded-full transition-colors cursor-pointer shrink-0 ${
-                                        sfxEnabled ? 'bg-blue-600' : 'bg-slate-300 dark:bg-slate-600'
+                                        sfxEnabled ? 'bg-emerald-500' : 'bg-slate-300 dark:bg-slate-600'
                                     }`}
                                 >
                                     <span 
@@ -1209,7 +1211,7 @@ const SettingsScreen = ({
                                 <div className="pt-2 space-y-2">
                                     <div className="flex justify-between items-center text-xs">
                                         <span className="text-slate-500 font-semibold">{t('settings.general.sfxVolume')}</span>
-                                        <span className="font-bold text-blue-600 dark:text-blue-400">{Math.round(sfxVolume * 100)}%</span>
+                                        <span className="font-black text-emerald-600 dark:text-emerald-400">{Math.round(sfxVolume * 100)}%</span>
                                     </div>
                                     <input
                                         type="range"
@@ -1217,7 +1219,7 @@ const SettingsScreen = ({
                                         max="100"
                                         value={sfxVolume * 100}
                                         onChange={(e) => setSfxVolume(Number(e.target.value) / 100)}
-                                        className="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-blue-600"
+                                        className="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-emerald-500"
                                     />
                                 </div>
                             )}
@@ -1227,7 +1229,7 @@ const SettingsScreen = ({
                         <div className="p-5 sm:p-6 space-y-4">
                             <div className="space-y-0.5">
                                 <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                                    <Play className="w-4 h-4 text-blue-500" />
+                                    <Play className="w-4 h-4 text-sky-500" />
                                     {t('settings.general.ttsTitle')}
                                 </h3>
                                 <p className="text-xs text-slate-500 dark:text-slate-400">
@@ -1236,27 +1238,30 @@ const SettingsScreen = ({
                             </div>
 
                             <div className="grid grid-cols-2 gap-3">
-                                {Object.values(TTS_VOICES).map(voice => (
-                                    <button
-                                        key={voice.id}
-                                        onClick={() => {
-                                            setTtsVoiceState(voice.id);
-                                        }}
-                                        className={`p-3.5 rounded-xl border-2 transition-all flex items-center justify-between cursor-pointer ${
-                                            ttsVoice === voice.id
-                                                ? 'border-blue-600 bg-blue-50/60 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400 shadow-xs'
-                                                : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
-                                        }`}
-                                    >
-                                        <div className="flex items-center gap-2.5">
-                                            <span className="text-lg">{voice.gender === 'Female' ? '👩' : '👨'}</span>
-                                            <span className="text-xs font-bold text-slate-800 dark:text-white">
-                                                {t('settings.general.voiceLabel', { label: voice.label })}
-                                            </span>
-                                        </div>
-                                        {ttsVoice === voice.id && <Check className="w-4 h-4 text-blue-600 dark:text-blue-400" />}
-                                    </button>
-                                ))}
+                                {Object.values(TTS_VOICES).map(voice => {
+                                    const isSelected = ttsVoice === voice.id;
+                                    return (
+                                        <button
+                                            key={voice.id}
+                                            onClick={() => {
+                                                setTtsVoiceState(voice.id);
+                                            }}
+                                            className={`p-3.5 rounded-xl border-2 transition-all flex items-center justify-between cursor-pointer select-none ${
+                                                isSelected
+                                                    ? 'border-sky-500 border-b-4 border-b-sky-600 bg-sky-50/60 dark:bg-sky-950/30 text-sky-700 dark:text-sky-300 shadow-xs active:translate-y-0.5 active:border-b-2'
+                                                    : 'border-slate-200 dark:border-slate-700 border-b-4 border-b-slate-300 dark:border-b-slate-900 bg-white dark:bg-slate-800/80 hover:bg-slate-50 text-slate-700 dark:text-slate-300 active:translate-y-0.5 active:border-b-2'
+                                            }`}
+                                        >
+                                            <div className="flex items-center gap-2.5">
+                                                <span className="text-xl">{voice.gender === 'Female' ? '👩' : '👨'}</span>
+                                                <span className="text-xs font-black">
+                                                    {t('settings.general.voiceLabel', { label: voice.label })}
+                                                </span>
+                                            </div>
+                                            {isSelected && <Check className="w-4 h-4 text-sky-500 dark:text-sky-400 shrink-0" />}
+                                        </button>
+                                    );
+                                })}
                             </div>
 
                             <button
@@ -1267,16 +1272,16 @@ const SettingsScreen = ({
                                     setTimeout(() => setIsPreviewingVoice(false), 2500);
                                 }}
                                 disabled={isPreviewingVoice}
-                                className="w-full py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 active:scale-98 text-slate-700 dark:text-slate-200 rounded-xl font-bold text-xs transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
+                                className="w-full py-2.5 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-750 active:translate-y-0.5 border-2 border-slate-200 dark:border-slate-700 border-b-4 border-b-slate-300 dark:border-b-slate-900 active:border-b-2 text-slate-700 dark:text-slate-200 rounded-xl font-black text-xs transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs select-none disabled:opacity-50"
                             >
                                 {isPreviewingVoice ? (
                                     <>
-                                        <div className="w-3.5 h-3.5 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
+                                        <div className="w-3.5 h-3.5 border-2 border-sky-500 border-t-transparent rounded-full animate-spin" />
                                         <span>{t('settings.general.testingVoice')}</span>
                                     </>
                                 ) : (
                                     <>
-                                        <Play className="w-3.5 h-3.5" />
+                                        <Play className="w-3.5 h-3.5 text-sky-500" />
                                         <span>{t('settings.general.testVoice')}</span>
                                     </>
                                 )}
@@ -1287,7 +1292,7 @@ const SettingsScreen = ({
                         <div className="p-5 sm:p-6 space-y-4">
                             <div className="space-y-0.5">
                                 <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                                    <Sun className="w-4 h-4 text-blue-500" />
+                                    <Sun className="w-4 h-4 text-sky-500" />
                                     {t('settings.general.themeTitle')}
                                 </h3>
                                 <p className="text-xs text-slate-500 dark:text-slate-400">
@@ -1298,32 +1303,32 @@ const SettingsScreen = ({
                             <div className="grid grid-cols-2 gap-3">
                                 <button
                                     onClick={() => setIsDarkMode(false)}
-                                    className={`p-3.5 rounded-xl border-2 transition-all flex items-center justify-between cursor-pointer ${
+                                    className={`p-3.5 rounded-xl border-2 transition-all flex items-center justify-between cursor-pointer select-none ${
                                         !isDarkMode
-                                            ? 'border-blue-600 bg-blue-50/60 dark:bg-blue-950/30'
-                                            : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
+                                            ? 'border-sky-500 border-b-4 border-b-sky-600 bg-sky-50/60 dark:bg-sky-950/30 text-sky-800 dark:text-sky-200 shadow-xs active:translate-y-0.5 active:border-b-2'
+                                            : 'border-slate-200 dark:border-slate-700 border-b-4 border-b-slate-300 dark:border-b-slate-900 bg-white dark:bg-slate-800/80 hover:bg-slate-50 text-slate-700 dark:text-slate-300 active:translate-y-0.5 active:border-b-2'
                                     }`}
                                 >
                                     <div className="flex items-center gap-2.5">
                                         <Sun className="w-4 h-4 text-amber-500" />
-                                        <span className="text-xs font-bold text-slate-800 dark:text-white">{t('settings.general.themeLight')}</span>
+                                        <span className="text-xs font-black text-slate-800 dark:text-white">{t('settings.general.themeLight')}</span>
                                     </div>
-                                    {!isDarkMode && <Check className="w-4 h-4 text-blue-600 dark:text-blue-400" />}
+                                    {!isDarkMode && <Check className="w-4 h-4 text-sky-500 dark:text-sky-400" />}
                                 </button>
 
                                 <button
                                     onClick={() => setIsDarkMode(true)}
-                                    className={`p-3.5 rounded-xl border-2 transition-all flex items-center justify-between cursor-pointer ${
+                                    className={`p-3.5 rounded-xl border-2 transition-all flex items-center justify-between cursor-pointer select-none ${
                                         isDarkMode
-                                            ? 'border-blue-600 bg-blue-50/60 dark:bg-blue-950/30'
-                                            : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
+                                            ? 'border-sky-500 border-b-4 border-b-sky-600 bg-sky-50/60 dark:bg-sky-950/30 text-sky-800 dark:text-sky-200 shadow-xs active:translate-y-0.5 active:border-b-2'
+                                            : 'border-slate-200 dark:border-slate-700 border-b-4 border-b-slate-300 dark:border-b-slate-900 bg-white dark:bg-slate-800/80 hover:bg-slate-50 text-slate-700 dark:text-slate-300 active:translate-y-0.5 active:border-b-2'
                                     }`}
                                 >
                                     <div className="flex items-center gap-2.5">
                                         <Moon className="w-4 h-4 text-sky-400" />
-                                        <span className="text-xs font-bold text-slate-800 dark:text-white">{t('settings.general.themeDark')}</span>
+                                        <span className="text-xs font-black text-slate-800 dark:text-white">{t('settings.general.themeDark')}</span>
                                     </div>
-                                    {isDarkMode && <Check className="w-4 h-4 text-blue-600 dark:text-blue-400" />}
+                                    {isDarkMode && <Check className="w-4 h-4 text-sky-500 dark:text-sky-400" />}
                                 </button>
                             </div>
                         </div>
@@ -1348,10 +1353,10 @@ const SettingsScreen = ({
                                             key={item.id}
                                             type="button"
                                             onClick={() => setBgTheme(item.id)}
-                                            className={`p-3.5 rounded-xl border-2 transition-all flex items-center justify-between text-left cursor-pointer ${
+                                            className={`p-3.5 rounded-xl border-2 transition-all flex items-center justify-between text-left cursor-pointer select-none ${
                                                 isSelected
-                                                    ? 'border-red-500 bg-red-50/60 dark:bg-red-950/30'
-                                                    : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 bg-white/50 dark:bg-slate-800/40'
+                                                    ? 'border-red-500 border-b-4 border-b-red-600 bg-red-50/60 dark:bg-red-950/30 active:translate-y-0.5 active:border-b-2'
+                                                    : 'border-slate-200 dark:border-slate-700 border-b-4 border-b-slate-300 dark:border-b-slate-900 hover:bg-slate-50 bg-white/50 dark:bg-slate-800/40 active:translate-y-0.5 active:border-b-2'
                                             }`}
                                         >
                                             <div className="flex items-center gap-2.5">
@@ -1406,7 +1411,7 @@ const SettingsScreen = ({
                             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                                 <div className="space-y-0.5">
                                     <h3 className="text-sm font-bold text-slate-800 dark:text-white flex items-center gap-2">
-                                        <Zap className="w-4 h-4 text-blue-500" />
+                                        <Zap className="w-4 h-4 text-sky-500" />
                                         {t('settings.general.learnAheadTitle')}
                                     </h3>
                                     <p className="text-xs text-slate-500 dark:text-slate-400">
@@ -1416,7 +1421,7 @@ const SettingsScreen = ({
                                 <select
                                     value={learnAheadLimit}
                                     onChange={(e) => setLearnAheadLimit(Number(e.target.value))}
-                                    className="px-3 py-2 text-xs font-bold rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-600 cursor-pointer outline-none focus:border-blue-500"
+                                    className="px-3 py-2 text-xs font-bold rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-800 dark:text-slate-200 border-2 border-slate-200 dark:border-slate-600 cursor-pointer outline-none focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
                                 >
                                     <option value={0}>{t('settings.general.learnAheadOption0')}</option>
                                     <option value={5}>{t('settings.general.learnAheadOption5')}</option>
@@ -1429,12 +1434,12 @@ const SettingsScreen = ({
                         </div>
                     </div>
 
-                    {/* Nút LƯU CÀI ĐẶT (ĐỒNG BỘ WEB & MOBILE) */}
+                    {/* Nút LƯU CÀI ĐẶT (ĐỒNG BỘ WEB & MOBILE) - Duolingo 3D Emerald */}
                     <div className="pt-2 flex justify-end">
                         <button
                             onClick={handleSaveGeneralSettings}
                             disabled={isSavingSettings}
-                            className="w-full sm:w-auto px-8 py-3 bg-blue-600 hover:bg-blue-700 active:scale-98 text-white rounded-xl font-bold text-sm shadow-md shadow-blue-500/20 hover:shadow-lg hover:shadow-blue-500/30 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                            className="w-full sm:w-auto px-8 py-3 bg-emerald-500 hover:bg-emerald-600 active:translate-y-0.5 border-2 border-emerald-600 border-b-4 border-b-emerald-700 active:border-b-2 text-white rounded-2xl font-black text-sm shadow-xs transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 select-none"
                         >
                             {isSavingSettings ? (
                                 <>
@@ -1443,7 +1448,7 @@ const SettingsScreen = ({
                                 </>
                             ) : saveSuccess ? (
                                 <>
-                                    <Check className="w-4 h-4 text-emerald-300" />
+                                    <Check className="w-4 h-4 text-emerald-100" />
                                     <span>{t('settings.general.savedSuccess')}</span>
                                 </>
                             ) : (

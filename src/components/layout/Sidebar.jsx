@@ -1441,31 +1441,36 @@ const Sidebar = ({
                     <div className="p-2 border-b-2 border-slate-200 dark:border-slate-800 relative" ref={profileRef}>
                         <div
                             onClick={() => setIsProfileMenuOpen(prev => !prev)}
-                            className="flex items-center gap-2 bg-slate-50 dark:bg-slate-800/60 border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 rounded-2xl p-2 active:translate-y-0.5 active:border-b-2 transition-all w-full cursor-pointer group min-w-0 shadow-2xs"
+                            className="flex items-center gap-2.5 bg-slate-50 dark:bg-slate-800/60 border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 rounded-2xl p-2 active:translate-y-0.5 active:border-b-2 transition-all w-full cursor-pointer group min-w-0 shadow-2xs"
                             title={t('nav.profile', 'Tài khoản cá nhân')}
                         >
-                            <div className="flex flex-col items-center gap-0.5 shrink-0">
-                                <div className="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border-2 border-slate-300 dark:border-slate-600 flex items-center justify-center text-[10px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden shadow-xs group-hover:scale-105 transition-transform">
-                                    {renderAvatar()}
-                                </div>
-                                <span className="bg-emerald-500 text-white text-[8px] font-black px-1 rounded-full font-mono uppercase leading-tight">
-                                    LV {xpDetails.level}
-                                </span>
+                            {/* Avatar with Premium ring accent */}
+                            <div className={`w-9 h-9 rounded-full bg-white dark:bg-slate-800 border-2 flex items-center justify-center text-[10px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden shadow-xs group-hover:scale-105 transition-transform shrink-0 ${
+                                isPremium 
+                                    ? 'border-amber-400 dark:border-amber-500 ring-2 ring-amber-400/20' 
+                                    : 'border-slate-300 dark:border-slate-600'
+                            }`}>
+                                {renderAvatar()}
                             </div>
 
-                            <div className="flex flex-col min-w-0 flex-1 justify-center">
+                            {/* Level & Premium Info */}
+                            <div className="flex flex-col min-w-0 flex-1 justify-center gap-1">
                                 {isPremium ? (
-                                    <span className="text-[9px] font-mono font-black uppercase tracking-wider text-amber-500 flex items-center gap-0.5">
-                                        <Crown className="w-2.5 h-2.5 fill-amber-500 inline" /> {t('nav.premiumAccount', 'PREMIUM')}
+                                    <span className="text-[9.5px] font-mono font-black uppercase tracking-wider text-amber-500 dark:text-amber-400 flex items-center gap-1">
+                                        <Crown className="w-3 h-3 fill-amber-500 text-amber-500 shrink-0" />
+                                        <span>{t('nav.premiumAccount', 'PREMIUM')}</span>
                                     </span>
                                 ) : (
                                     <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
                                         {t('nav.freeAccount', 'FREE')}
                                     </span>
                                 )}
-                                <span className="text-xs font-black text-slate-800 dark:text-slate-100 truncate">
-                                    {displayName || t('nav.learner', 'Người học')}
-                                </span>
+                                <div className="flex items-center">
+                                    <span className="inline-flex items-center gap-1 bg-emerald-500 text-white text-[8.5px] font-mono font-black px-2 py-0.5 rounded-full shadow-2xs leading-none">
+                                        <Zap className="w-2.5 h-2.5 fill-white text-white shrink-0" />
+                                        <span>LV {xpDetails.level}</span>
+                                    </span>
+                                </div>
                             </div>
                         </div>
 
