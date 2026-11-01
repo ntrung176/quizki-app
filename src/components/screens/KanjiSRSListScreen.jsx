@@ -1631,34 +1631,34 @@ const KanjiSRSListScreen = () => {
 
                         return (
                             <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-                                <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 w-[520px] max-w-full max-h-[90vh] overflow-y-auto shadow-2xl space-y-5 border border-slate-100 dark:border-slate-700 animate-scale-in">
+                                <div className="bg-white dark:bg-slate-900 rounded-3xl p-6 sm:p-7 w-[520px] max-w-full max-h-[90vh] overflow-y-auto shadow-2xl space-y-5 border-2 border-b-4 border-slate-200 dark:border-slate-800 animate-scale-in">
                                     {/* Top Bar */}
-                                    <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-700 pb-3">
+                                    <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
                                         <div className="flex items-center gap-2">
-                                            <span className={`px-2.5 py-1 rounded-lg text-xs font-bold ${levelColor.light} ${levelColor.text}`}>
+                                            <span className="px-3 py-1 rounded-xl text-xs font-black uppercase tracking-wider bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800">
                                                 {t('kanji.levelBadge', 'Cấp độ {level}').replace('{level}', level)}
                                             </span>
-                                            <span className="text-xs text-slate-400 font-semibold">{t('kanji.strokesCount', '{count} nét').replace('{count}', strokeCount)}</span>
+                                            <span className="text-xs text-slate-400 font-bold">{t('kanji.strokesCount', '{count} nét').replace('{count}', strokeCount)}</span>
                                         </div>
                                         <button
                                             onClick={() => { setShowDetailModal(false); setSelectedKanjiChar(null); }}
-                                            className="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-700 rounded-xl transition-all"
+                                            className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-white bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 rounded-2xl border border-slate-200 dark:border-slate-700 transition-all cursor-pointer"
                                         >
-                                            <X className="w-5 h-5" />
+                                            <X className="w-5 h-5 stroke-[2.5]" />
                                         </button>
                                     </div>
 
                                     {/* Main Character Header */}
                                     <div className="flex items-center gap-5">
-                                        <div className={`w-24 h-24 rounded-2xl flex items-center justify-center text-5xl font-bold font-japanese shadow-inner ${levelColor.light} ${levelColor.text}`}>
+                                        <div className="w-24 h-24 rounded-3xl border-2 border-b-4 border-emerald-300 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-5xl font-black font-japanese shadow-xs">
                                             {selectedKanjiChar}
                                         </div>
                                         <div className="space-y-1">
                                             <h2 className="text-2xl font-black text-slate-800 dark:text-white uppercase tracking-wider">{sinoViet}</h2>
-                                            <p className="text-sm font-semibold text-slate-500 dark:text-slate-400">{meaning}</p>
+                                            <p className="text-sm font-bold text-slate-500 dark:text-slate-400">{meaning}</p>
                                             <div className="pt-1 flex items-center gap-2">
-                                                <span className={`inline-flex items-center gap-1 text-xs font-bold px-2.5 py-0.5 rounded-full ${status.bg} ${status.color}`}>
-                                                    <StatusIcon className="w-3.5 h-3.5" />
+                                                <span className={`inline-flex items-center gap-1.5 text-xs font-black px-3 py-1 rounded-full border ${status.bg} ${status.color}`}>
+                                                    <StatusIcon className="w-3.5 h-3.5 stroke-[2.5]" />
                                                     {status.label}
                                                 </span>
                                             </div>
@@ -1666,14 +1666,14 @@ const KanjiSRSListScreen = () => {
                                     </div>
 
                                     {/* Readings Details */}
-                                    <div className="grid grid-cols-2 gap-3 bg-slate-50 dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-100 dark:border-slate-700/50">
+                                    <div className="grid grid-cols-2 gap-3 bg-slate-50 dark:bg-slate-800/60 p-4.5 rounded-2xl border-2 border-slate-200 dark:border-slate-700 shadow-xs">
                                         <div>
-                                            <span className="text-[10px] uppercase font-mono font-bold text-slate-400">{t('kanji.onyomiLabel', 'Âm Ôn')} (Onyomi)</span>
-                                            <p className="text-sm font-bold text-slate-700 dark:text-slate-200 mt-0.5">{onyomi}</p>
+                                            <span className="text-[10px] uppercase font-mono font-black text-slate-400">{t('kanji.onyomiLabel', 'Âm Ôn')} (Onyomi)</span>
+                                            <p className="text-sm font-black text-slate-800 dark:text-slate-100 mt-0.5">{onyomi}</p>
                                         </div>
                                         <div>
-                                            <span className="text-[10px] uppercase font-mono font-bold text-slate-400">{t('kanji.kunyomiLabel', 'Âm Kun')} (Kunyomi)</span>
-                                            <p className="text-sm font-bold text-slate-700 dark:text-slate-200 mt-0.5">{kunyomi}</p>
+                                            <span className="text-[10px] uppercase font-mono font-black text-slate-400">{t('kanji.kunyomiLabel', 'Âm Kun')} (Kunyomi)</span>
+                                            <p className="text-sm font-black text-slate-800 dark:text-slate-100 mt-0.5">{kunyomi}</p>
                                         </div>
                                     </div>
 
@@ -1683,15 +1683,15 @@ const KanjiSRSListScreen = () => {
                                             type="button"
                                             disabled={deleting}
                                             onClick={() => handleDeleteSingleKanji(selectedKanjiChar)}
-                                            className="w-full py-3 bg-red-500/10 hover:bg-red-500/20 active:bg-red-500/30 text-red-600 dark:text-red-400 border border-red-200 dark:border-red-900/60 rounded-2xl font-bold text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs disabled:opacity-50"
+                                            className="w-full py-3.5 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/30 dark:hover:bg-rose-950/50 text-rose-600 dark:text-rose-400 border-2 border-b-4 border-rose-300 dark:border-rose-800 rounded-2xl font-black text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs active:translate-y-0.5 active:border-b-2 disabled:opacity-50 select-none"
                                         >
-                                            <Trash2 className="w-4 h-4" />
+                                            <Trash2 className="w-4 h-4 stroke-[2.5]" />
                                             <span>{deleting ? t('kanji.deletingBtn', 'Đang xóa...') : t('kanji.removeFromSrsAction', 'Xóa khỏi danh sách ôn tập')}</span>
                                         </button>
                                         <button
                                             type="button"
                                             onClick={() => { setShowDetailModal(false); setSelectedKanjiChar(null); }}
-                                            className="w-full py-3 bg-[#2E5B70] hover:bg-[#234757] text-white rounded-2xl font-bold text-xs tracking-wider uppercase transition-all shadow-md cursor-pointer"
+                                            className="w-full py-3.5 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border-2 border-b-4 border-slate-200 dark:border-slate-700 rounded-2xl font-black text-xs tracking-wider uppercase transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs active:translate-y-0.5 active:border-b-2 select-none"
                                         >
                                             {t('common.back', 'Quay lại')}
                                         </button>

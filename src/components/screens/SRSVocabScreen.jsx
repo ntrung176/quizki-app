@@ -39,29 +39,34 @@ const formatInterval = (minutes, t = (k, f) => f) => {
     if (!t) return `${minutes}m`;
     if (minutes === 0) return t('intervals.now', t('intervals.rightNow', 'ngay lập tức'));
     if (minutes < 60) {
-        const pattern = t('intervals.minutes', '{n} phút');
-        return pattern.includes('{n}') ? pattern.replace('{n}', minutes) : `${minutes} ${t('common.minutes', 'phút')}`;
+        const pattern = t('intervals.minutes', '{n} phút', { n: minutes });
+        const res = typeof pattern === 'string' && pattern.includes('{n}') ? pattern.replace('{n}', minutes) : (typeof pattern === 'string' ? pattern : `${minutes} phút`);
+        return res.replace(/\{n\}/g, '').trim();
     }
     if (minutes < 1440) {
         const hrs = Math.round(minutes / 60);
-        const pattern = t('intervals.hours', '{n} giờ');
-        return pattern.includes('{n}') ? pattern.replace('{n}', hrs) : `${hrs} ${t('common.hours', 'giờ')}`;
+        const pattern = t('intervals.hours', '{n} giờ', { n: hrs });
+        const res = typeof pattern === 'string' && pattern.includes('{n}') ? pattern.replace('{n}', hrs) : (typeof pattern === 'string' ? pattern : `${hrs} giờ`);
+        return res.replace(/\{n\}/g, '').trim();
     }
     const days = minutes / 1440;
     if (minutes < 43200) {
         const dStr = days < 2 ? Number(days.toFixed(1)) : Math.round(days);
-        const pattern = t('intervals.days', '{n} ngày');
-        return pattern.includes('{n}') ? pattern.replace('{n}', dStr) : `${dStr} ${t('common.days', 'ngày')}`;
+        const pattern = t('intervals.days', '{n} ngày', { n: dStr });
+        const res = typeof pattern === 'string' && pattern.includes('{n}') ? pattern.replace('{n}', dStr) : (typeof pattern === 'string' ? pattern : `${dStr} ngày`);
+        return res.replace(/\{n\}/g, '').trim();
     }
     const months = days / 30;
     if (months < 12) {
         const mStr = Number(months.toFixed(1));
-        const pattern = t('intervals.months', '{n} tháng');
-        return pattern.includes('{n}') ? pattern.replace('{n}', mStr) : `${mStr} ${t('common.months', 'tháng')}`;
+        const pattern = t('intervals.months', '{n} tháng', { n: mStr });
+        const res = typeof pattern === 'string' && pattern.includes('{n}') ? pattern.replace('{n}', mStr) : (typeof pattern === 'string' ? pattern : `${mStr} tháng`);
+        return res.replace(/\{n\}/g, '').trim();
     }
     const yStr = Number((days / 365).toFixed(1));
-    const pattern = t('intervals.years', '{n} năm');
-    return pattern.includes('{n}') ? pattern.replace('{n}', yStr) : `${yStr} ${t('common.years', 'năm')}`;
+    const pattern = t('intervals.years', '{n} năm', { n: yStr });
+    const res = typeof pattern === 'string' && pattern.includes('{n}') ? pattern.replace('{n}', yStr) : (typeof pattern === 'string' ? pattern : `${yStr} năm`);
+    return res.replace(/\{n\}/g, '').trim();
 };
 
 // Helper to preview intervals based on SRS state

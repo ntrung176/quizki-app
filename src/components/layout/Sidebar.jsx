@@ -4,7 +4,7 @@ import { signOut } from 'firebase/auth';
 import { auth, db, appId } from '../../config/firebase';
 import { collection, query, onSnapshot, doc, orderBy, limit } from 'firebase/firestore';
 import { ROUTES } from '../../router';
-import { getLevelFromXp, getLevelTitle } from '../../utils/scoring';
+import { getLevelFromXp } from '../../utils/scoring';
 import {
     Home, BookOpen, LogOut, LogIn, Sun, Moon, ChevronRight, ChevronLeft, X,
     List, Repeat2, FileCheck, Languages, Shield, Crown, Bell,
@@ -74,6 +74,62 @@ const IpaMenuIcon = ({ className = 'w-4.5 h-4.5' }) => (
         /ə/
     </span>
 );
+
+// Colorful Signature Themes for Navigation Items (Strictly Duolingo Palette: Sky, Rose, Emerald, Amber, Cyan, Teal - Zero Purple)
+const MENU_ICON_THEMES = {
+    HOME: {
+        color: 'text-sky-500 dark:text-sky-400',
+        bg: 'bg-sky-50 dark:bg-sky-950/70 border-sky-200/80 dark:border-sky-800/60'
+    },
+    KANA_STUDY: {
+        color: 'text-rose-500 dark:text-rose-400',
+        bg: 'bg-rose-50 dark:bg-rose-950/70 border-rose-200/80 dark:border-rose-800/60'
+    },
+    HANGUL_STUDY: {
+        color: 'text-rose-500 dark:text-rose-400',
+        bg: 'bg-rose-50 dark:bg-rose-950/70 border-rose-200/80 dark:border-rose-800/60'
+    },
+    IPA_STUDY: {
+        color: 'text-cyan-500 dark:text-cyan-400',
+        bg: 'bg-cyan-50 dark:bg-cyan-950/70 border-cyan-200/80 dark:border-cyan-800/60'
+    },
+    VOCAB_LIST: {
+        color: 'text-emerald-500 dark:text-emerald-400',
+        bg: 'bg-emerald-50 dark:bg-emerald-950/70 border-emerald-200/80 dark:border-emerald-800/60'
+    },
+    KANJI_STUDY: {
+        color: 'text-amber-500 dark:text-amber-400',
+        bg: 'bg-amber-50 dark:bg-amber-950/70 border-amber-200/80 dark:border-amber-800/60'
+    },
+    DICTIONARY: {
+        color: 'text-cyan-500 dark:text-cyan-400',
+        bg: 'bg-cyan-50 dark:bg-cyan-950/70 border-cyan-200/80 dark:border-cyan-800/60'
+    },
+    GRAMMAR: {
+        color: 'text-teal-500 dark:text-teal-400',
+        bg: 'bg-teal-50 dark:bg-teal-950/70 border-teal-200/80 dark:border-teal-800/60'
+    },
+    VIDEO_KAIWA: {
+        color: 'text-rose-500 dark:text-rose-400',
+        bg: 'bg-rose-50 dark:bg-rose-950/70 border-rose-200/80 dark:border-rose-800/60'
+    },
+    JLPT_KAIWA: {
+        color: 'text-sky-500 dark:text-sky-400',
+        bg: 'bg-sky-50 dark:bg-sky-950/70 border-sky-200/80 dark:border-sky-800/60'
+    },
+    JLPT_TEST: {
+        color: 'text-orange-500 dark:text-orange-400',
+        bg: 'bg-orange-50 dark:bg-orange-950/70 border-orange-200/80 dark:border-orange-800/60'
+    },
+    HUB: {
+        color: 'text-amber-500 dark:text-amber-400',
+        bg: 'bg-amber-50 dark:bg-amber-950/70 border-amber-200/80 dark:border-amber-800/60'
+    },
+    ADMIN: {
+        color: 'text-emerald-600 dark:text-emerald-400',
+        bg: 'bg-emerald-50 dark:bg-emerald-950/70 border-emerald-200/80 dark:border-emerald-800/60'
+    }
+};
 
 const Sidebar = ({
     isDarkMode,
@@ -211,8 +267,9 @@ const Sidebar = ({
     // Notifications state
     const [isNotificationsOpen, setIsNotificationsOpen] = useState(false);
     const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
-    const [isLangWheelModalOpen, setIsLangWheelModalOpen] = useState(false);
+    const [isMoreMenuOpen, setIsMoreMenuOpen] = useState(false);
     const profileRef = useRef(null);
+    const moreMenuRef = useRef(null);
     const [kanjiDueCount, setKanjiDueCount] = useState(() => {
         try {
             const cached = localStorage.getItem('quizki_cached_kanji_srs_stats');
@@ -248,9 +305,10 @@ const Sidebar = ({
         localStorage.setItem('quizki_read_notifications', JSON.stringify(readNotificationIds));
     }, [readNotificationIds]);
 
-    // Close mobile menu on route change
+    // Close mobile menu and more popover on route change
     useEffect(() => {
         setIsMobileMenuOpen(false);
+        setIsMoreMenuOpen(false);
     }, [location.pathname]);
 
     // Lock body scroll when mobile menu is open
@@ -265,7 +323,7 @@ const Sidebar = ({
         };
     }, [isMobileMenuOpen]);
 
-    // Close notifications popover when clicking outside
+    // Close notifications, profile, and more popovers when clicking outside
     useEffect(() => {
         const handleClickOutside = (e) => {
             if (
@@ -277,6 +335,9 @@ const Sidebar = ({
             }
             if (profileRef.current && !profileRef.current.contains(e.target)) {
                 setIsProfileMenuOpen(false);
+            }
+            if (moreMenuRef.current && !moreMenuRef.current.contains(e.target)) {
+                setIsMoreMenuOpen(false);
             }
         };
         document.addEventListener('mousedown', handleClickOutside);
@@ -454,7 +515,7 @@ const Sidebar = ({
     // Dynamic Menu Items with i18n Translation Support
     const menuItems = React.useMemo(() => {
         const groupStudy = t('nav.groupStudy', 'Học tập');
-        const groupPracticeAi = t('nav.groupPracticeAi', 'Luyện tập & AI');
+        const groupPracticeAi = t('nav.groupPractice', 'Luyện tập');
         const groupCommunity = t('nav.groupCommunity', 'Cộng đồng');
 
         const items = [
@@ -472,9 +533,9 @@ const Sidebar = ({
 
         // 2. Nhập môn bảng chữ cái theo từng ngôn ngữ (Tiếng Nhật & Tiếng Hàn)
         if (isJapaneseMode) {
-            items.push({ id: 'KANA_STUDY', icon: KanaMenuIcon, label: t('nav.kana', 'Bảng chữ Kana'), route: ROUTES.KANA, group: groupStudy });
+            items.push({ id: 'KANA_STUDY', icon: KanaMenuIcon, label: t('nav.kanaShort', 'Kana'), route: ROUTES.KANA, group: groupStudy });
         } else if (isKoreanMode) {
-            items.push({ id: 'HANGUL_STUDY', icon: HangulMenuIcon, label: t('nav.hangul', 'Bảng chữ Hangul'), route: ROUTES.HANGUL, group: groupStudy });
+            items.push({ id: 'HANGUL_STUDY', icon: HangulMenuIcon, label: t('nav.hangulShort', 'Hangul'), route: ROUTES.HANGUL, group: groupStudy });
         }
 
         // 3. Từ vựng theo ngôn ngữ
@@ -488,7 +549,7 @@ const Sidebar = ({
 
         // 4. Kanji menu is only relevant for Japanese learning
         if (isJapaneseMode) {
-            items.push({ id: 'KANJI_STUDY', icon: Languages, label: t('nav.kanji', 'Thư viện Kanji'), route: ROUTES.KANJI_REVIEW, group: groupStudy });
+            items.push({ id: 'KANJI_STUDY', icon: Languages, label: t('nav.kanjiShort', 'Kanji'), route: ROUTES.KANJI_REVIEW, group: groupStudy });
             items.push({
                 id: 'DICTIONARY',
                 icon: Search,
@@ -499,19 +560,19 @@ const Sidebar = ({
         }
 
         const kaiwaLabel = isKoreanMode 
-            ? t('nav.koreanSpeaking', 'Luyện nói AI (말하기)') 
-            : t('nav.kaiwa', 'Phòng Kaiwa AI');
+            ? t('nav.koreanSpeakingShort', 'Luyện nói') 
+            : t('nav.kaiwaShort', 'Kaiwa');
 
         const testLabel = isKoreanMode 
-            ? t('nav.topikTest', 'Luyện thi TOPIK') 
-            : t('nav.jlptTest', 'Luyện đề JLPT');
+            ? t('nav.topikTestShort', 'Thi TOPIK') 
+            : t('nav.jlptTestShort', 'Luyện đề');
 
         items.push(
             { id: 'GRAMMAR', icon: Repeat2, label: t('nav.grammar', 'Ngữ pháp'), route: ROUTES.GRAMMAR_REVIEW, group: groupStudy },
-            { id: 'VIDEO_KAIWA', icon: Film, label: isKoreanMode ? t('nav.videoKdrama', 'Video K-Drama') : t('nav.videoKaiwa', 'Video Kaiwa'), route: ROUTES.VIDEO_KAIWA, group: groupPracticeAi },
+            { id: 'VIDEO_KAIWA', icon: Film, label: isKoreanMode ? t('nav.videoKdramaShort', 'Video') : t('nav.videoKaiwaShort', 'Video'), route: ROUTES.VIDEO_KAIWA, group: groupPracticeAi },
             { id: 'JLPT_KAIWA', icon: MessageSquare, label: kaiwaLabel, route: ROUTES.JLPT_KAIWA, group: groupPracticeAi },
             { id: 'JLPT_TEST', icon: FileCheck, label: testLabel, route: ROUTES.JLPT_TEST, group: groupPracticeAi },
-            { id: 'HUB', icon: Trophy, label: t('nav.leaderboard', 'Bảng vinh danh'), route: ROUTES.HUB, group: groupCommunity },
+            { id: 'HUB', icon: Trophy, label: t('nav.leaderboardShort', 'Vinh danh'), route: ROUTES.HUB, group: groupCommunity },
         );
 
         if (isAdmin) {
@@ -1256,7 +1317,7 @@ const Sidebar = ({
                                                 <span className="bg-slate-200/60 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[9px] font-mono font-bold px-1.5 py-0.5 rounded">FREE</span>
                                             )}
                                         </div>
-                                        <p className="text-[10px] text-slate-400 font-mono mt-0.5">LV {xpDetails.level} • {getLevelTitle(xpDetails.level)}</p>
+                                        <p className="text-[10px] text-slate-400 font-mono mt-0.5">LV {xpDetails.level}</p>
                                     </div>
                                     <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-500 shrink-0 transition-colors" />
                                 </Link>
@@ -1281,7 +1342,7 @@ const Sidebar = ({
                                 className="w-full flex items-center justify-center space-x-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-orange-500 text-white font-extrabold text-xs shadow-sm active:scale-98 transition-transform"
                             >
                                 <Crown className="w-4 h-4 fill-white" />
-                                <span>{t('common.upgrade', 'Nâng cấp tài khoản')}</span>
+                                <span>{t('common.upgradeShort', 'Nâng cấp')}</span>
                             </Link>
 
                             {/* Logout or Login Button */}
@@ -1309,41 +1370,52 @@ const Sidebar = ({
             )}
 
             {/* Desktop Cyber-AI Futuristic Sidebar */}
-            <aside className={`hidden lg:flex flex-col fixed left-0 top-0 bottom-0 z-40 transition-[width] duration-200 ease-out ${isCollapsed ? 'w-20' : 'w-64'} bg-white dark:bg-slate-900 border-r border-slate-200 dark:border-slate-800 shadow-xl`}>
+            <aside className={`hidden lg:flex flex-col fixed left-0 top-0 bottom-0 z-40 transition-[width] duration-200 ease-out ${isCollapsed ? 'w-20' : 'w-44'} bg-white dark:bg-slate-900 border-r-2 border-slate-200 dark:border-slate-800 shadow-xl select-none`}>
                 {/* Brand Logo Header */}
-                <div className={`p-4 border-b border-slate-200 dark:border-slate-800 flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'}`}>
+                <div className={`p-2 border-b-2 border-slate-200 dark:border-slate-800 flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'}`}>
                     <Link
                         to={ROUTES.HOME}
                         className="flex items-center min-w-0 group cursor-pointer"
                     >
-                        <QuizKiLogo size="md" showSubtitle={!isCollapsed} isIconOnly={isCollapsed} />
+                        <QuizKiLogo size="sm" showSubtitle={false} showAiBadge={false} isIconOnly={isCollapsed} />
                     </Link>
 
-                    {!isCollapsed && userId && (
-                        <div className="relative">
+                    {!isCollapsed && (
+                        <div className="flex items-center gap-1 shrink-0">
+                            {userId && (
+                                <div className="relative">
+                                    <button
+                                        data-notif-trigger="true"
+                                        type="button"
+                                        onClick={() => setIsNotificationsOpen(prev => !prev)}
+                                        className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-emerald-400 active:scale-95 transition-all relative cursor-pointer flex items-center justify-center"
+                                        title={t('nav.notifications', 'Thông báo')}
+                                    >
+                                        <Bell className="w-3.5 h-3.5" />
+                                        {hasUnread && (
+                                            <span className="absolute top-0.5 right-0.5 w-1.5 h-1.5 bg-rose-500 rounded-full animate-ping"></span>
+                                        )}
+                                    </button>
+                                    <NotificationsPopover isMobile={false} />
+                                </div>
+                            )}
                             <button
-                                data-notif-trigger="true"
-                                type="button"
-                                onClick={() => setIsNotificationsOpen(prev => !prev)}
-                                className="p-2 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-600 dark:text-slate-300 hover:border-emerald-400 transition-all relative cursor-pointer"
-                                title={t('nav.notifications', 'Thông báo')}
+                                onClick={() => setIsCollapsed(true)}
+                                className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-400 hover:text-slate-700 dark:hover:text-white hover:border-slate-300 dark:hover:border-slate-600 active:scale-95 transition-all flex items-center justify-center cursor-pointer"
+                                title={t('nav.collapseSidebar', 'Thu gọn Sidebar')}
                             >
-                                <Bell className="w-4 h-4" />
-                                {hasUnread && (
-                                    <span className="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full animate-ping"></span>
-                                )}
+                                <ChevronLeft className="w-3.5 h-3.5" />
                             </button>
-                            <NotificationsPopover isMobile={false} />
                         </div>
                     )}
                 </div>
 
                 {/* Guest Login CTA (Clean dedicated row below logo, never overlapping) */}
                 {!isCollapsed && !userId && (
-                    <div className="p-3 border-b border-slate-200 dark:border-slate-800">
+                    <div className="p-2 border-b-2 border-slate-200 dark:border-slate-800">
                         <Link
                             to={ROUTES.LOGIN}
-                            className="w-full py-2.5 px-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 text-white font-black text-xs uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm transition-all select-none cursor-pointer"
+                            className="w-full py-2.5 px-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 border-2 border-emerald-600 border-b-4 border-b-emerald-700 active:translate-y-0.5 active:border-b-2 text-white font-black text-xs uppercase tracking-wide flex items-center justify-center gap-2 shadow-xs transition-all select-none cursor-pointer"
                         >
                             <LogIn className="w-4 h-4 stroke-[2.5]" />
                             <span>{t('common.login', 'Đăng nhập')}</span>
@@ -1353,10 +1425,10 @@ const Sidebar = ({
 
                 {/* Collapsed Login Action (when not logged in) */}
                 {isCollapsed && !userId && (
-                    <div className="p-2 border-b border-slate-200 dark:border-slate-800 flex justify-center">
+                    <div className="p-2 border-b-2 border-slate-200 dark:border-slate-800 flex justify-center">
                         <Link
                             to={ROUTES.LOGIN}
-                            className="w-10 h-10 rounded-xl bg-emerald-500 hover:bg-emerald-400 border-b-2 border-emerald-700 flex items-center justify-center text-white shadow-xs transition-transform active:scale-95 cursor-pointer"
+                            className="w-10 h-10 rounded-2xl bg-emerald-500 hover:bg-emerald-400 border-2 border-emerald-600 border-b-4 border-b-emerald-700 flex items-center justify-center text-white shadow-xs active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer"
                             title={t('common.login', 'Đăng nhập')}
                         >
                             <LogIn className="w-4 h-4 stroke-[2.5]" />
@@ -1366,47 +1438,44 @@ const Sidebar = ({
 
                 {/* User Profile Capsule (Only if logged in) */}
                 {!isCollapsed && userId && (
-                    <div className="px-3 py-3 border-b border-slate-200 dark:border-slate-800 relative" ref={profileRef}>
+                    <div className="p-2 border-b-2 border-slate-200 dark:border-slate-800 relative" ref={profileRef}>
                         <div
                             onClick={() => setIsProfileMenuOpen(prev => !prev)}
-                            className="flex items-center gap-3 bg-slate-50 dark:bg-slate-950/80 border border-slate-200 dark:border-emerald-500/30 rounded-2xl p-2.5 shadow-inner hover:border-emerald-400 transition-all w-full cursor-pointer group min-w-0"
+                            className="flex items-center gap-2 bg-slate-50 dark:bg-slate-800/60 border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 rounded-2xl p-2 active:translate-y-0.5 active:border-b-2 transition-all w-full cursor-pointer group min-w-0 shadow-2xs"
                             title={t('nav.profile', 'Tài khoản cá nhân')}
                         >
-                            <div className="flex flex-col items-center gap-0.5 flex-shrink-0">
-                                <div className="w-9 h-9 rounded-full bg-white dark:bg-slate-800 border border-slate-300 dark:border-emerald-500/40 flex items-center justify-center text-[10px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden shadow-sm group-hover:scale-105 transition-transform">
+                            <div className="flex flex-col items-center gap-0.5 shrink-0">
+                                <div className="w-8 h-8 rounded-full bg-white dark:bg-slate-800 border-2 border-slate-300 dark:border-slate-600 flex items-center justify-center text-[10px] font-bold text-slate-700 dark:text-slate-300 overflow-hidden shadow-xs group-hover:scale-105 transition-transform">
                                     {renderAvatar()}
                                 </div>
-                                <span className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white text-[8px] font-black px-1.5 rounded font-mono uppercase">
+                                <span className="bg-emerald-500 text-white text-[8px] font-black px-1 rounded-full font-mono uppercase leading-tight">
                                     LV {xpDetails.level}
                                 </span>
                             </div>
 
                             <div className="flex flex-col min-w-0 flex-1 justify-center">
                                 {isPremium ? (
-                                    <span className="text-[9px] font-mono font-black uppercase tracking-widest text-amber-500 flex items-center gap-0.5">
+                                    <span className="text-[9px] font-mono font-black uppercase tracking-wider text-amber-500 flex items-center gap-0.5">
                                         <Crown className="w-2.5 h-2.5 fill-amber-500 inline" /> {t('nav.premiumAccount', 'PREMIUM')}
                                     </span>
                                 ) : (
-                                    <span className="text-[9px] font-mono font-bold uppercase tracking-widest text-slate-400 dark:text-slate-500">
-                                        {t('nav.freeAccount', 'FREE ACCOUNT')}
+                                    <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                                        {t('nav.freeAccount', 'FREE')}
                                     </span>
                                 )}
-                                <span className="text-xs font-bold text-slate-800 dark:text-slate-100 truncate mt-0.5">
+                                <span className="text-xs font-black text-slate-800 dark:text-slate-100 truncate">
                                     {displayName || t('nav.learner', 'Người học')}
-                                </span>
-                                <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono truncate mt-0.5">
-                                    {getLevelTitle(xpDetails.level)}
                                 </span>
                             </div>
                         </div>
 
                         {/* Profile Quick Dropdown */}
                         {isProfileMenuOpen && (
-                            <div className="absolute left-3 right-3 top-full mt-1 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-50 p-1.5 space-y-1 animate-fade-in">
+                            <div className="absolute left-2.5 right-2.5 top-full mt-1.5 bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-2xl shadow-xl z-50 p-1.5 space-y-1 animate-fade-in">
                                 <Link
                                     to={ROUTES.SETTINGS}
                                     onClick={() => setIsProfileMenuOpen(false)}
-                                    className="flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                                    className="flex items-center gap-2 px-2.5 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
                                 >
                                     <span>⚙️ {t('nav.personalSettings', 'Cài đặt cá nhân')}</span>
                                 </Link>
@@ -1415,7 +1484,7 @@ const Sidebar = ({
                                         setIsProfileMenuOpen(false);
                                         handleLogout();
                                     }}
-                                    className="w-full flex items-center gap-2.5 px-3 py-2 rounded-xl text-xs font-bold text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/50 transition-colors cursor-pointer"
+                                    className="w-full flex items-center gap-2 px-2.5 py-2 rounded-xl text-xs font-bold text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/50 transition-colors cursor-pointer"
                                 >
                                     <LogOut className="w-4 h-4 text-rose-500 shrink-0" />
                                     <span>{t('common.logout', 'Đăng xuất')}</span>
@@ -1426,13 +1495,20 @@ const Sidebar = ({
                 )}
 
                 {/* Grouped Navigation Menu */}
-                <nav className="flex-1 p-3 space-y-1 overflow-y-auto custom-scrollbar">
+                <nav className="flex-1 p-2 space-y-0.5 overflow-y-auto custom-scrollbar">
                     {menuItems.map((item, idx) => {
                         const isFirstInGroup = idx === 0 || menuItems[idx - 1].group !== item.group;
+                        const active = isMenuActive(item);
+                        const IconComponent = item.icon;
+                        const theme = MENU_ICON_THEMES[item.id] || {
+                            color: 'text-slate-600 dark:text-slate-300',
+                            bg: 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700'
+                        };
+
                         return (
                             <React.Fragment key={item.id}>
                                 {!isCollapsed && isFirstInGroup && (
-                                    <div className="pt-2.5 pb-1 px-3 text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                                    <div className="pt-2 pb-0.5 px-2 text-[9.5px] font-black uppercase tracking-wider text-slate-400 dark:text-slate-500 select-none">
                                         {item.group}
                                     </div>
                                 )}
@@ -1446,27 +1522,34 @@ const Sidebar = ({
                                                 item.onClick();
                                             }
                                         }}
-                                        className={`w-full flex items-center justify-between ${isCollapsed ? 'justify-center' : 'space-x-3'} px-3.5 py-2.5 rounded-xl transition-all duration-200 relative ${item.disabled
+                                        className={`w-full flex items-center ${isCollapsed ? 'justify-center p-2' : 'justify-between px-2.5 py-1.5'} rounded-2xl transition-all duration-150 relative select-none ${
+                                            item.disabled
                                                 ? 'cursor-not-allowed opacity-40 text-slate-400'
-                                                : isMenuActive(item)
-                                                    ? 'bg-cyan-50 dark:bg-cyan-950/60 text-cyan-700 dark:text-cyan-400 font-bold border border-cyan-200 dark:border-cyan-500/40 shadow-sm'
-                                                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800/60'
-                                            }`}
+                                                : active
+                                                    ? 'bg-sky-50 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400 border-2 border-b-4 border-sky-400 dark:border-sky-500 font-black shadow-xs active:translate-y-0.5 active:border-b-2'
+                                                    : 'border-2 border-b-4 border-transparent hover:border-slate-200 dark:hover:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800/60 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white font-bold active:translate-y-0.5 active:border-b-2'
+                                        }`}
                                         title={isCollapsed ? item.label : undefined}
                                     >
-                                        {isMenuActive(item) && !item.disabled && (
-                                            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1 h-7 bg-cyan-500 dark:bg-cyan-400 rounded-l-full shadow-[0_0_12px_rgba(6,182,212,0.8)]" />
-                                        )}
+                                        <div className={`flex items-center ${isCollapsed ? 'justify-center' : 'space-x-2.5'} min-w-0`}>
+                                            {/* Colorful App Icon Badge */}
+                                            <div className={`w-7 h-7 rounded-xl border flex items-center justify-center shrink-0 transition-transform group-hover:scale-105 shadow-2xs ${
+                                                active
+                                                    ? 'bg-sky-500 text-white border-sky-600 shadow-xs'
+                                                    : `${theme.bg} ${theme.color}`
+                                            }`}>
+                                                <IconComponent className={`w-4 h-4 shrink-0 ${active ? 'text-white stroke-[2.3]' : 'stroke-[2.2]'}`} />
+                                            </div>
 
-                                        <div className="flex items-center space-x-3 min-w-0">
-                                            <item.icon className={`w-4.5 h-4.5 ${isMenuActive(item) ? 'text-cyan-600 dark:text-cyan-400' : 'text-slate-500 dark:text-slate-400 group-hover:text-cyan-500'}`} />
                                             {!isCollapsed && (
-                                                <span className="text-xs font-semibold truncate">{item.label}</span>
+                                                <span className={`text-[11.5px] tracking-tight truncate ${active ? 'font-black text-sky-600 dark:text-sky-400' : 'font-extrabold text-slate-700 dark:text-slate-200'}`}>
+                                                    {item.label}
+                                                </span>
                                             )}
                                         </div>
 
                                         {!isCollapsed && item.badge > 0 && (
-                                            <span className="px-2 py-0.5 rounded-full text-[10px] font-black font-mono bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-400 border border-rose-200 dark:border-rose-800/60 shadow-sm">
+                                            <span className="min-w-[17px] px-1.5 py-0.2 rounded-full text-[9.5px] font-black font-mono bg-rose-500 text-white border-b-2 border-rose-700 shadow-xs flex items-center justify-center shrink-0">
                                                 {item.badge}
                                             </span>
                                         )}
@@ -1477,143 +1560,207 @@ const Sidebar = ({
                     })}
                 </nav>
 
-                {/* Streamlined Bottom Cyber Controls */}
-                <div className="p-3 border-t border-slate-200 dark:border-slate-800 space-y-2 bg-slate-50/50 dark:bg-slate-950/50">
-                    {!isCollapsed ? (
-                        /* Sleek Compact Language Bar (Clicking opens iOS Wheel Modal) */
-                        <button
-                            onClick={() => setIsLangWheelModalOpen(true)}
-                            className="w-full flex items-center justify-between gap-1.5 bg-white dark:bg-slate-900 p-2.5 rounded-2xl border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 shadow-sm transition-all text-xs font-bold text-slate-700 dark:text-slate-200 cursor-pointer group"
-                            title={t('nav.selectLangWheel', 'Bấm để cuộn chọn Ngôn ngữ (iOS Wheel)')}
-                        >
-                            <div className="flex items-center gap-1.5 min-w-0">
-                                <span className="text-[11px]">🎯</span>
-                                <span className="truncate">{t(`languages.${targetLanguage}`, activeTargetConfig?.name || (targetLanguage === 'en' ? 'Tiếng Anh' : targetLanguage === 'ko' ? 'Tiếng Hàn' : 'Tiếng Nhật'))}</span>
+                {/* Streamlined Bottom Duolingo Controls */}
+                <div className="p-1.5 border-t border-slate-200 dark:border-slate-800 bg-slate-50/70 dark:bg-slate-950/70 relative select-none" ref={moreMenuRef}>
+                    {/* More / Utilities Floating Popover */}
+                    {isMoreMenuOpen && (
+                        <div className="absolute left-1.5 w-56 bottom-full mb-2 bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-2xl shadow-2xl p-2 z-50 space-y-1.5 animate-slide-up">
+                            <div className="px-2 py-0.5 text-[10px] font-black uppercase tracking-wider text-slate-400 dark:text-slate-500 font-mono">
+                                {t('nav.utilities', 'TIỆN ÍCH & CÀI ĐẶT')}
                             </div>
-                            <div className="h-4 w-px bg-slate-200 dark:bg-slate-800 shrink-0" />
-                            <div className="flex items-center gap-1.5 min-w-0">
-                                <span className="text-[11px]">🌐</span>
-                                <span className="truncate">{t('common.langCode', 'VI')}</span>
-                            </div>
-                        </button>
-                    ) : (
-                        <button
-                            onClick={() => setIsLangWheelModalOpen(true)}
-                            className="w-full p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
-                            title={t('common.selectLanguage', 'Đổi ngôn ngữ')}
-                        >
-                            <Globe className="w-4.5 h-4.5 text-cyan-500" />
-                        </button>
-                    )}
 
-                    {/* iOS Language Wheel Modal */}
-                    <IosLanguageWheelModal
-                        isOpen={isLangWheelModalOpen}
-                        onClose={() => setIsLangWheelModalOpen(false)}
-                        isAdmin={isAdmin}
-                    />
-
-                    {/* Upgrade Account Button */}
-                    <Link
-                        to={ROUTES.UPGRADE}
-                        className={`w-full flex items-center ${isCollapsed ? 'justify-center' : 'space-x-2.5'} px-3 py-2 rounded-xl transition-all duration-200 text-xs font-bold ${location.pathname === ROUTES.UPGRADE
-                                ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md'
-                                : 'bg-amber-500/10 text-amber-700 dark:text-amber-400 border border-amber-300/60 dark:border-amber-700/50 hover:bg-amber-500/20'
-                            }`}
-                        title={isCollapsed ? t('common.upgrade', 'Nâng cấp tài khoản') : undefined}
-                    >
-                        <Crown className="w-4 h-4 text-amber-500 fill-amber-500 shrink-0" />
-                        {!isCollapsed && <span className="truncate">{t('common.upgrade', 'Nâng cấp tài khoản')}</span>}
-                    </Link>
-
-                    {/* Integrated Quick Control Icons Row */}
-                    <div className="space-y-2 pt-1 border-t border-slate-200/60 dark:border-slate-800/60">
-                        {isCollapsed ? (
+                            {/* Chat Admin */}
                             <button
-                                onClick={() => setIsCollapsed(false)}
-                                className="w-full py-2.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 text-slate-500 hover:text-cyan-600 dark:text-slate-400 dark:hover:text-cyan-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex items-center justify-center cursor-pointer shadow-sm relative"
-                                title={unreadChatCount > 0 ? `${t('nav.expandSidebar', 'Mở rộng Sidebar')} (${unreadChatCount})` : t('nav.expandSidebar', 'Mở rộng Sidebar')}
+                                onClick={() => {
+                                    setIsMoreMenuOpen(false);
+                                    window.dispatchEvent(new CustomEvent('open-admin-chat'));
+                                }}
+                                className="w-full flex items-center justify-between px-2.5 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-left cursor-pointer group relative"
                             >
-                                <ChevronRight className="w-5 h-5" />
+                                <div className="flex items-center gap-2.5 min-w-0">
+                                    <div className="w-7 h-7 rounded-lg bg-sky-100 dark:bg-sky-950/60 flex items-center justify-center text-sky-500 dark:text-sky-400 shrink-0">
+                                        <MessageSquare className="w-4 h-4" />
+                                    </div>
+                                    <span className="truncate block font-bold">{t('nav.chatAdmin', 'Chat với Admin')}</span>
+                                </div>
                                 {unreadChatCount > 0 && (
-                                    <span className="absolute top-1.5 right-1.5 flex h-2.5 w-2.5">
-                                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
-                                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500"></span>
+                                    <span className="bg-rose-500 text-white text-[9px] font-mono font-black rounded-full min-w-[16px] h-4 px-1 flex items-center justify-center shadow-xs animate-bounce shrink-0">
+                                        {unreadChatCount > 99 ? '99+' : unreadChatCount}
                                     </span>
                                 )}
                             </button>
-                        ) : (
-                            <div className="flex items-center justify-between p-1 bg-white dark:bg-slate-900 rounded-xl border border-slate-200/80 dark:border-slate-800 shadow-sm w-full">
-                                {/* Chatbox with Admin Button */}
-                                <button
-                                    onClick={() => window.dispatchEvent(new CustomEvent('open-admin-chat'))}
-                                    className="p-2 rounded-lg text-cyan-600 dark:text-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-950/50 transition-colors cursor-pointer relative"
-                                    title={unreadChatCount > 0 ? `${t('nav.chatAdmin', 'Chat với Admin')} (${unreadChatCount})` : t('nav.chatAdmin', 'Chat với Admin')}
-                                >
-                                    <MessageSquare className="w-4.5 h-4.5" />
+
+                            {/* Dual Language Selector Card (Target Language & UI Language) */}
+                            <div className="p-2 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-750 space-y-2">
+                                <div className="flex items-center justify-between gap-1.5">
+                                    <div className="flex items-center gap-1.5 min-w-0">
+                                        <span className="text-xs">🎯</span>
+                                        <span className="text-[11px] font-extrabold text-slate-600 dark:text-slate-300">
+                                            {t('nav.targetLangLabel', 'Học')}
+                                        </span>
+                                    </div>
+                                    <TargetLanguageSelector isAdmin={isAdmin} />
+                                </div>
+                                <div className="flex items-center justify-between gap-1.5 pt-1.5 border-t border-slate-200/60 dark:border-slate-700/60">
+                                    <div className="flex items-center gap-1.5 min-w-0">
+                                        <span className="text-xs">🌐</span>
+                                        <span className="text-[11px] font-extrabold text-slate-600 dark:text-slate-300">
+                                            {t('nav.uiLangLabel', 'Giao diện')}
+                                        </span>
+                                    </div>
+                                    <LanguageSelector compact={true} />
+                                </div>
+                            </div>
+
+                            {/* Focus Session Pomodoro Timer */}
+                            <button
+                                onClick={() => {
+                                    setIsMoreMenuOpen(false);
+                                    setIsFocusModalOpen(true);
+                                }}
+                                className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-left cursor-pointer group"
+                            >
+                                <div className="w-7 h-7 rounded-lg bg-amber-100 dark:bg-amber-950/60 flex items-center justify-center text-amber-500 dark:text-amber-400 shrink-0">
+                                    <Timer className="w-4 h-4" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <span className="truncate block font-bold">{t('nav.focusTimer', 'Đồng hồ tập trung')}</span>
+                                </div>
+                                {(focusStatus === 'focusing' || focusStatus === 'break') && (
+                                    <span className="w-2 h-2 bg-emerald-500 rounded-full animate-ping shrink-0" />
+                                )}
+                            </button>
+
+                            {/* Dark Mode Toggle */}
+                            <button
+                                onClick={() => {
+                                    setIsDarkMode(prev => !prev);
+                                }}
+                                className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-left cursor-pointer group"
+                            >
+                                <div className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 shrink-0">
+                                    {isDarkMode ? <Sun className="w-4 h-4 text-amber-400" /> : <Moon className="w-4 h-4 text-slate-600 dark:text-slate-300" />}
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <span className="truncate block font-bold">{isDarkMode ? t('nav.lightMode', 'Chế độ Sáng') : t('nav.darkMode', 'Chế độ Tối')}</span>
+                                </div>
+                            </button>
+
+                            {/* Background Theme Switcher */}
+                            <button
+                                onClick={() => {
+                                    setIsMoreMenuOpen(false);
+                                    window.dispatchEvent(new CustomEvent('quizki-open-background-picker'));
+                                }}
+                                className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-left cursor-pointer group"
+                            >
+                                <div className="w-7 h-7 rounded-lg bg-rose-100 dark:bg-rose-950/60 flex items-center justify-center text-rose-500 dark:text-rose-400 shrink-0">
+                                    <Palette className="w-4 h-4" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <span className="truncate block font-bold">{t('settings.general.bgThemeTitle', 'Đổi hình nền')}</span>
+                                </div>
+                            </button>
+
+                            {/* Help Tour */}
+                            <button
+                                onClick={() => {
+                                    setIsMoreMenuOpen(false);
+                                    if (onTriggerTour) onTriggerTour();
+                                    else navigate(ROUTES.HELP);
+                                }}
+                                className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-left cursor-pointer group"
+                            >
+                                <div className="w-7 h-7 rounded-lg bg-sky-100 dark:bg-sky-950/60 flex items-center justify-center text-sky-500 dark:text-sky-400 shrink-0">
+                                    <HelpCircle className="w-4 h-4" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <span className="truncate block font-bold">{t('nav.userGuide', 'Hướng dẫn')}</span>
+                                </div>
+                            </button>
+
+                            {/* Settings */}
+                            <Link
+                                to={ROUTES.SETTINGS}
+                                onClick={() => setIsMoreMenuOpen(false)}
+                                className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-xl text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors text-left group"
+                            >
+                                <div className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-400 shrink-0">
+                                    <Settings className="w-4 h-4" />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <span className="truncate block font-bold">{t('nav.settings', 'Cài đặt')}</span>
+                                </div>
+                            </Link>
+                        </div>
+                    )}
+
+                    {!isCollapsed ? (
+                        <div className="space-y-1.5">
+                            {/* Upgrade Premium CTA Button */}
+                            <Link
+                                to={ROUTES.UPGRADE}
+                                className="w-full h-8 px-2 rounded-xl bg-gradient-to-r from-amber-400 to-amber-500 hover:from-amber-500 hover:to-amber-600 text-white font-black text-xs shadow-xs active:translate-y-0.5 border-b-2 border-amber-600 flex items-center justify-center gap-1.5 select-none transition-all cursor-pointer"
+                            >
+                                <Crown className="w-3.5 h-3.5 fill-white text-white shrink-0" />
+                                <span className="truncate">{t('common.upgradeShort', 'Nâng cấp')}</span>
+                            </Link>
+
+                            {/* Centered Tiện ích Button */}
+                            <button
+                                onClick={() => setIsMoreMenuOpen(prev => !prev)}
+                                className={`w-full h-8.5 px-3 rounded-xl border-2 border-b-4 flex items-center justify-center gap-2 cursor-pointer transition-all active:translate-y-0.5 active:border-b-2 shadow-2xs font-black text-xs select-none relative ${
+                                    isMoreMenuOpen
+                                        ? 'bg-sky-50 dark:bg-sky-950/60 border-sky-400 dark:border-sky-500 text-sky-600 dark:text-sky-400'
+                                        : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-750 hover:border-slate-300 dark:hover:border-slate-600 text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white'
+                                }`}
+                                title={t('nav.utilities', 'Tiện ích & Cài đặt')}
+                            >
+                                <MoreHorizontal className="w-4 h-4 text-slate-500 dark:text-slate-400 shrink-0" />
+                                <span>{t('nav.utilities', 'Tiện ích')}</span>
+
+                                {/* Status Indicators: Placed in top right without disturbing centering */}
+                                <div className="absolute right-2 flex items-center gap-1">
+                                    {(focusStatus === 'focusing' || focusStatus === 'break') && (
+                                        <span className="w-2 h-2 bg-emerald-500 rounded-full animate-ping" title={t('nav.focusTimer', 'Đồng hồ tập trung đang chạy')} />
+                                    )}
                                     {unreadChatCount > 0 && (
-                                        <span className="absolute -top-1 -right-1 bg-rose-500 text-white text-[9px] font-black font-mono rounded-full min-w-[17px] h-4 px-1 flex items-center justify-center shadow-md animate-bounce">
+                                        <span className="bg-rose-500 text-white text-[8px] font-mono font-black rounded-full min-w-[15px] h-3.5 px-0.5 flex items-center justify-center shadow-xs animate-bounce">
                                             {unreadChatCount > 99 ? '99+' : unreadChatCount}
                                         </span>
                                     )}
-                                </button>
+                                </div>
+                            </button>
+                        </div>
+                    ) : (
+                        /* Collapsed Mode Controls */
+                        <div className="space-y-1.5">
+                            <button
+                                onClick={() => setIsMoreMenuOpen(prev => !prev)}
+                                className={`w-full h-9 rounded-2xl border-2 border-b-4 flex items-center justify-center relative cursor-pointer transition-all active:translate-y-0.5 active:border-b-2 shadow-2xs ${
+                                    isMoreMenuOpen
+                                        ? 'bg-sky-50 dark:bg-sky-950/60 border-sky-400 dark:border-sky-500 text-sky-600 dark:text-sky-400'
+                                        : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-750 hover:border-slate-300 dark:hover:border-slate-600 text-slate-600 dark:text-slate-300'
+                                }`}
+                                title={t('nav.utilities', 'Tiện ích')}
+                            >
+                                <MoreHorizontal className="w-4 h-4 stroke-[2.5]" />
+                                {unreadChatCount > 0 && (
+                                    <span className="absolute -top-1 -right-1 bg-rose-500 text-white text-[8px] font-mono font-black rounded-full min-w-[14px] h-3.5 px-0.5 flex items-center justify-center shadow-xs animate-bounce">
+                                        {unreadChatCount > 99 ? '99+' : unreadChatCount}
+                                    </span>
+                                )}
+                            </button>
 
-                                {/* Pomodoro Focus Clock Button */}
-                                <button
-                                    onClick={() => setIsFocusModalOpen(true)}
-                                    className={`p-2 rounded-lg transition-colors cursor-pointer relative ${focusStatus === 'focusing' || focusStatus === 'break' || focusStatus === 'paused'
-                                            ? 'text-amber-500 bg-amber-500/20 font-bold'
-                                            : 'text-amber-600 dark:text-amber-400 hover:bg-amber-50 dark:hover:bg-amber-950/50'
-                                        }`}
-                                    title={t('nav.focusTimer', 'Đồng hồ tập trung Focus Session')}
-                                >
-                                    <Timer className="w-4.5 h-4.5" />
-                                    {(focusStatus === 'focusing' || focusStatus === 'break') && (
-                                        <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-500 rounded-full animate-ping"></span>
-                                    )}
-                                </button>
-
-                                {/* Help / Page Guide '?' Button */}
-                                <button
-                                    onClick={() => {
-                                        if (onTriggerTour) onTriggerTour();
-                                        else navigate(ROUTES.HELP);
-                                    }}
-                                    className="p-2 rounded-lg text-sky-600 dark:text-sky-400 hover:bg-sky-50 dark:hover:bg-sky-950/50 transition-colors cursor-pointer"
-                                    title={t('nav.userGuide', 'Xem hướng dẫn trang này')}
-                                >
-                                    <HelpCircle className="w-4.5 h-4.5" />
-                                </button>
-
-                                {/* Background Wallpaper Theme Switcher */}
-                                <button
-                                    onClick={() => window.dispatchEvent(new CustomEvent('quizki-open-background-picker'))}
-                                    className="p-2 rounded-lg text-rose-500 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/50 transition-colors cursor-pointer"
-                                    title={t('settings.general.bgThemeTitle', 'Đổi hình nền học tập (Cổng Torii, Bầu trời sao...)')}
-                                >
-                                    <Palette className="w-4.5 h-4.5" />
-                                </button>
-
-                                {/* Dark Mode Toggle */}
-                                <button
-                                    onClick={() => setIsDarkMode(prev => !prev)}
-                                    className="p-2 rounded-lg text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
-                                    title={isDarkMode ? t('nav.lightMode', 'Giao diện sáng') : t('nav.darkMode', 'Giao diện tối')}
-                                >
-                                    {isDarkMode ? <Sun className="w-4.5 h-4.5 text-amber-400" /> : <Moon className="w-4.5 h-4.5 text-slate-700" />}
-                                </button>
-
-                                {/* Collapse Nav Toggle */}
-                                <button
-                                    onClick={() => setIsCollapsed(true)}
-                                    className="p-2 rounded-lg text-slate-400 hover:text-slate-700 dark:text-slate-500 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-slate-800 transition-colors cursor-pointer"
-                                    title={t('nav.collapseSidebar', 'Thu gọn Sidebar')}
-                                >
-                                    <ChevronLeft className="w-4.5 h-4.5" />
-                                </button>
-                            </div>
-                        )}
-                    </div>
+                            <button
+                                onClick={() => setIsCollapsed(false)}
+                                className="w-full h-9 rounded-2xl bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-750 text-slate-600 hover:text-sky-600 dark:text-slate-300 dark:hover:text-sky-400 hover:border-sky-300 active:translate-y-0.5 active:border-b-2 transition-all flex items-center justify-center cursor-pointer shadow-2xs"
+                                title={t('nav.expandSidebar', 'Mở rộng Sidebar')}
+                            >
+                                <ChevronRight className="w-4 h-4 stroke-[2.5]" />
+                            </button>
+                        </div>
+                    )}
                 </div>
             </aside>
             {/* Floating Pomodoro Focus Live Timer Badge */}

@@ -270,8 +270,8 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                         </div>
                     </div>
                 </div>
-                {/* 2. Horizontal Level Progression Tabs */}
-                <div className="bg-white dark:bg-slate-900 p-2 rounded-2xl flex gap-1.5 overflow-x-auto select-none border border-slate-200 dark:border-slate-800 shadow-md">
+                {/* 2. Horizontal Level Progression Tabs - Duolingo 3D */}
+                <div className="bg-white dark:bg-slate-900 p-2 rounded-3xl flex gap-2 overflow-x-auto select-none border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-xs">
                     {Object.entries(JLPT_CONFIG).map(([level, cfg]) => {
                         const isSelected = selectedLevel === level;
                         const isCompleted = isLevelCompleted(level);
@@ -299,23 +299,23 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                                         setCurrentDay(nextDay);
                                     }
                                 }}
-                                className={`flex-1 min-w-[90px] py-3.5 rounded-xl text-center transition-all flex flex-col items-center justify-center gap-1.5 ${isSelected
-                                        ? `bg-slate-100 dark:bg-slate-800 shadow-sm border border-slate-200 dark:border-slate-700 scale-[1.01]`
-                                        : 'hover:bg-slate-50 dark:hover:bg-slate-800/60'
+                                className={`flex-1 min-w-[95px] py-3.5 px-2 rounded-2xl text-center transition-all flex flex-col items-center justify-center gap-1.5 cursor-pointer select-none active:translate-y-0.5 ${isSelected
+                                        ? `bg-emerald-50 dark:bg-emerald-950/40 shadow-xs border-2 border-b-4 border-emerald-400 dark:border-emerald-600 scale-[1.01]`
+                                        : 'border-2 border-transparent hover:bg-slate-50 dark:hover:bg-slate-800/60'
                                     }`}
                             >
                                 <div className="flex items-center gap-1">
-                                    <span className={`text-sm font-extrabold ${isSelected ? 'text-slate-800 dark:text-white' : 'text-slate-400 dark:text-slate-500'} flex items-center gap-1`}>
+                                    <span className={`text-sm font-black ${isSelected ? 'text-slate-900 dark:text-white' : 'text-slate-400 dark:text-slate-500'} flex items-center gap-1`}>
                                         {cfg.label}
                                         {isLocked && <span className="text-[10px]">🔒</span>}
                                     </span>
                                     {isCompleted && (
-                                        <span className="w-3.5 h-3.5 rounded-full bg-emerald-500 flex items-center justify-center text-white text-[8px] font-bold">✓</span>
+                                        <span className="w-4 h-4 rounded-full bg-emerald-500 flex items-center justify-center text-white text-[9px] font-black">✓</span>
                                     )}
                                 </div>
-                                <span className={`text-[9px] font-extrabold tracking-wider uppercase ${isSelected
-                                        ? `${cfg.text} bg-${cfg.color}-50 dark:bg-${cfg.color}-950/30 px-2 py-0.5 rounded-full`
-                                        : 'text-slate-400 dark:text-slate-500'
+                                <span className={`text-[9px] font-black tracking-wider uppercase px-2.5 py-0.5 rounded-full ${isSelected
+                                        ? 'bg-emerald-500 text-white shadow-xs'
+                                        : 'text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-800'
                                     }`}>
                                     {t('kanji.level_' + level, cfg.sublabel)}
                                 </span>
@@ -323,71 +323,79 @@ const KanjiStudyScreen = ({ profile = null, isAdmin = false }) => {
                         );
                     })}
                 </div>
-                {/* 3. Day Navigation & Progress Card */}
+
+                {/* 3. Day Navigation & Progress Card - Duolingo 3D */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                     {/* Left 2 Cols: Progress / Stats Card */}
-                    <div className="md:col-span-2 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-md flex flex-col justify-between space-y-4">
+                    <div className="md:col-span-2 bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xs flex flex-col justify-between space-y-4">
                         <div className="space-y-2">
                             <div className="flex items-center justify-between">
-                                <span className="text-[10px] font-extrabold text-emerald-600 dark:text-cyan-400 uppercase tracking-widest">
+                                <span className="text-[10px] font-black text-emerald-600 dark:text-emerald-400 uppercase tracking-widest">
                                     {t('kanji.studyProgress', 'Tiến trình học tập')}
                                 </span>
-                                <span className="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
+                                <span className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-wider bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-md">
                                     {t('kanji.daysCount', '{days} Ngày học').replace('{days}', stats.daysProgress)}
                                 </span>
                             </div>
-                            <h3 className="text-xl font-bold text-slate-800 dark:text-white">
+                            <h3 className="text-xl font-black text-slate-800 dark:text-white">
                                 {t('kanji.completedDaysSub', 'Bạn đã hoàn thành {days} ngày học').replace('{days}', stats.daysProgress)}
                             </h3>
-                            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-medium">
+                            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-bold">
                                 {t('kanji.motivationalText', 'Hãy tiếp tục duy trì thói quen học tập hàng ngày để nắm vững toàn bộ {total} chữ Kanji cấp độ {level}.').replace('{total}', stats.totalKanji).replace('{level}', selectedLevel)}
                             </p>
                         </div>
                         <div className="space-y-2">
-                            <div className="flex items-center justify-between text-xs font-bold text-slate-600 dark:text-slate-350">
+                            <div className="flex items-center justify-between text-xs font-black text-slate-600 dark:text-slate-350">
                                 <span>{t('kanji.dayProgress', 'Tiến độ ngày {day}').replace('{day}', currentDay)}</span>
-                                <span>{isDayCompleted(selectedLevel, currentDay) ? t('common.completed', 'Đã hoàn thành') : t('common.notStarted', 'Chưa hoàn thành')}</span>
+                                <span className={isDayCompleted(selectedLevel, currentDay) ? 'text-emerald-600 dark:text-emerald-400 font-black' : 'text-slate-400'}>
+                                    {isDayCompleted(selectedLevel, currentDay) ? t('common.completed', 'Đã hoàn thành') : t('common.notStarted', 'Chưa hoàn thành')}
+                                </span>
                             </div>
-                            <div className="h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                            <div className="h-3.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden border border-slate-200/60 dark:border-slate-700 p-0.5">
                                 <div
-                                    className={`h-full bg-gradient-to-r ${config.gradient} rounded-full transition-all duration-500`}
+                                    className="h-full bg-emerald-500 rounded-full transition-all duration-500 shadow-inner"
                                     style={{ width: isDayCompleted(selectedLevel, currentDay) ? '100%' : '20%' }}
                                 />
                             </div>
                         </div>
                     </div>
+
                     {/* Right 1 Col: Day Selector Card */}
-                    <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-md flex flex-col justify-between">
+                    <div className="bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl p-6 shadow-xs flex flex-col justify-between">
                         <div className="flex items-center justify-between mb-4">
-                            <span className="text-[10px] font-extrabold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
+                            <span className="text-[10px] font-black text-slate-400 dark:text-slate-500 uppercase tracking-widest">
                                 {t('kanji.selectDay', 'CHỌN NGÀY HỌC')}
                             </span>
                             <div className="flex items-center gap-1.5">
                                 <button
                                     onClick={() => setCurrentDay(d => Math.max(1, d - 1))}
                                     disabled={currentDay <= 1}
-                                    className="p-1.5 rounded-lg border border-slate-100 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900 disabled:opacity-30 transition-all"
+                                    className="p-2 rounded-xl border-2 border-b-4 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-30 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer shadow-2xs"
                                 >
-                                    <ChevronLeft className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                                    <ChevronLeft className="w-4 h-4 text-slate-700 dark:text-slate-300 stroke-[2.5]" />
                                 </button>
                                 <button
                                     onClick={() => setCurrentDay(d => Math.min(totalDays, d + 1))}
                                     disabled={currentDay >= totalDays}
-                                    className="p-1.5 rounded-lg border border-slate-100 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-900 disabled:opacity-30 transition-all"
+                                    className="p-2 rounded-xl border-2 border-b-4 border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 disabled:opacity-30 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer shadow-2xs"
                                 >
-                                    <ChevronRight className="w-4 h-4 text-slate-600 dark:text-slate-400" />
+                                    <ChevronRight className="w-4 h-4 text-slate-700 dark:text-slate-300 stroke-[2.5]" />
                                 </button>
                             </div>
                         </div>
                         <div className="flex flex-col items-center justify-center my-2">
-                            <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${config.gradient} flex items-center justify-center shadow-lg shadow-${config.color}-500/20 text-white text-xl font-bold`}>
-                                {currentDay}
-                            </div>
-                            <span className="text-sm font-bold text-slate-800 dark:text-white mt-3">{t('kanji.dayNumber', 'Ngày {day}').replace('{day}', currentDay)}</span>
+                            <button
+                                onClick={handleStartStudy}
+                                className="w-18 h-18 sm:w-20 sm:h-20 rounded-3xl bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 flex items-center justify-center text-white text-2xl sm:text-3xl font-black shadow-md cursor-pointer transition-all select-none group"
+                                title={t('kanji.startLearningDay', 'Bắt đầu học ngày {day}').replace('{day}', currentDay)}
+                            >
+                                <span className="group-hover:scale-110 transition-transform">{currentDay}</span>
+                            </button>
+                            <span className="text-sm font-black text-slate-800 dark:text-white mt-3">{t('kanji.dayNumber', 'Ngày {day}').replace('{day}', currentDay)}</span>
                             <span className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-bold">JLPT {selectedLevel}</span>
                         </div>
                         {/* Progress display */}
-                        <div className="text-center text-[10px] text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider pt-2 border-t border-slate-50 dark:border-slate-700/40">
+                        <div className="text-center text-[10px] text-slate-400 dark:text-slate-500 font-black uppercase tracking-wider pt-2 border-t border-slate-100 dark:border-slate-800">
                             {t('kanji.dayNumberProgress', 'Ngày {current} / {total}').replace('{current}', currentDay).replace('{total}', totalDays)}
                         </div>
                     </div>

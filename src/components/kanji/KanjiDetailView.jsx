@@ -269,11 +269,11 @@ const KanjiDetailView = ({
                             navigate(ROUTES.KANJI_LIST, { replace: true }); 
                         } 
                     }} 
-                    className="py-1.5 px-3 sm:py-2 sm:px-3.5 flex items-center justify-center gap-1.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 shadow-xs border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all active:scale-95 cursor-pointer font-bold text-xs sm:text-sm"
+                    className="px-4 py-2 flex items-center justify-center gap-2 rounded-2xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer font-black text-xs sm:text-sm uppercase tracking-wider shadow-xs select-none"
                 >
-                    <ArrowLeft className="w-4 h-4" /> <span>Quay lại</span>
+                    <ArrowLeft className="w-4 h-4 stroke-[2.5]" /> <span>Quay lại</span>
                 </button>
-                <div className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-bold font-mono uppercase tracking-widest">
+                <div className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 font-black font-mono uppercase tracking-widest">
                     CHI TIẾT KANJI
                 </div>
             </div>
@@ -284,7 +284,7 @@ const KanjiDetailView = ({
                     
                     {/* COLUMN 1: Stroke Animation Canvas (No Stroke Order Guide) */}
                     <div className="lg:col-span-4 flex flex-col items-center">
-                        <div className="w-full max-w-[220px] sm:max-w-[280px] lg:max-w-none bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 rounded-3xl aspect-square flex items-center justify-center relative shadow-xs overflow-hidden">
+                        <div className="w-full max-w-[220px] sm:max-w-[280px] lg:max-w-none bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl aspect-square flex items-center justify-center relative shadow-xs overflow-hidden">
                             <div
                                 key={`kanji-display-${selectedKanji}`}
                                 ref={detailWriterContainerRef}
@@ -292,12 +292,12 @@ const KanjiDetailView = ({
                             />
                             <button
                                 onClick={() => detailStrokeCtrl.current?.replay()}
-                                className="absolute bottom-3 right-3 p-2.5 bg-gradient-to-r from-blue-500 to-emerald-600 hover:from-blue-400 hover:to-emerald-500 rounded-xl text-white shadow-md shadow-blue-500/20 transition-all hover:scale-110 active:scale-95 cursor-pointer"
+                                className="absolute bottom-3 right-3 p-3 bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 text-white rounded-2xl shadow-sm transition-all active:translate-y-0.5 active:border-b-0 cursor-pointer"
                                 title="Xem lại nét vẽ"
                             >
-                                <RotateCcw className="w-4 h-4" />
+                                <RotateCcw className="w-4 h-4 stroke-[2.5]" />
                             </button>
-                            <div className="absolute top-3 right-3 bg-amber-500 text-white text-xs font-bold px-2.5 py-1 rounded-lg shadow-xs">
+                            <div className="absolute top-3 right-3 bg-amber-500 border-b-2 border-amber-600 text-white text-xs font-black px-3 py-1 rounded-xl shadow-xs">
                                 {kanjiApiData?.stroke_count || det.strokeCount || '?'} nét
                             </div>
                         </div>
@@ -307,9 +307,9 @@ const KanjiDetailView = ({
                     <div className="lg:col-span-4 space-y-3 sm:space-y-4">
                         {/* Title Bar: Kanji - SinoViet - Pink Heart Bookmark Button */}
                         <div className="flex items-center gap-3 flex-wrap">
-                            <span className="text-4xl font-bold text-slate-900 dark:text-white font-japanese">{selectedKanji}</span>
-                            <span className="text-2xl text-slate-400">—</span>
-                            <span className="text-2xl font-bold text-cyan-600 dark:text-cyan-400">{det.sinoViet || ''}</span>
+                            <span className="text-4xl font-black text-slate-900 dark:text-white font-japanese">{selectedKanji}</span>
+                            <span className="text-2xl text-slate-300 dark:text-slate-600 font-bold">—</span>
+                            <span className="text-2xl font-black text-emerald-600 dark:text-emerald-400">{det.sinoViet || ''}</span>
                             
                             {(() => {
                                 const kanjiDoc = kanjiMap?.get(selectedKanji);
@@ -324,22 +324,13 @@ const KanjiDetailView = ({
                                     <button
                                         onClick={(e) => !isSRSAdded && toggleKanjiSRS(e, selectedKanji)}
                                         disabled={isSRSAdded}
-                                        className={`py-1.5 px-3 rounded-xl font-bold text-xs transition-all flex items-center justify-center gap-1.5 shadow-xs border cursor-pointer ${isSRSAdded
-                                            ? 'bg-pink-500 text-white border-transparent cursor-default shadow-pink-500/20'
-                                            : 'bg-white hover:bg-pink-50 hover:text-pink-600 text-slate-700 border-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-200 dark:border-slate-700'
+                                        className={`py-2 px-3.5 rounded-2xl font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs select-none ${isSRSAdded
+                                            ? 'bg-rose-500 border-b-4 border-rose-700 text-white cursor-default shadow-sm'
+                                            : 'bg-white hover:bg-rose-50 text-rose-600 border-2 border-b-4 border-rose-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-rose-400 dark:border-rose-900 active:translate-y-0.5 active:border-b-2'
                                             }`}
                                     >
-                                        {isSRSAdded ? (
-                                            <>
-                                                <Heart className="w-3.5 h-3.5 fill-white text-white" />
-                                                Đã lưu
-                                            </>
-                                        ) : (
-                                            <>
-                                                <Heart className="w-3.5 h-3.5 text-pink-500" />
-                                                Thêm Kanji Vào Học
-                                            </>
-                                        )}
+                                        <Heart className={`w-4 h-4 ${isSRSAdded ? 'fill-white text-white' : 'text-rose-500 stroke-[2.5]'}`} />
+                                        <span>{isSRSAdded ? 'Đã lưu' : 'Lưu Kanji vào ôn tập'}</span>
                                     </button>
                                 );
                             })()}
@@ -367,34 +358,34 @@ const KanjiDetailView = ({
                         </div>
 
                         {/* Card 1: Meta List + Illustration Image */}
-                        <div className="bg-white dark:bg-slate-800/90 rounded-2xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-700/80 shadow-xs space-y-3">
+                        <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
                             <div className="flex gap-3 sm:gap-4 items-start justify-between">
                                 <div className="space-y-2 text-sm flex-1 min-w-0">
                                     <div className="flex items-baseline gap-1.5">
-                                        <span className="text-slate-500 dark:text-slate-400 font-medium text-xs">Ý nghĩa:</span> 
-                                        <span className="text-orange-500 dark:text-orange-400 font-bold text-sm sm:text-base">{det.meaning || det.meaningVi || '-'}</span>
+                                        <span className="text-slate-500 dark:text-slate-400 font-bold text-xs">Ý nghĩa:</span> 
+                                        <span className="text-amber-600 dark:text-amber-400 font-black text-sm sm:text-base">{det.meaning || det.meaningVi || '-'}</span>
                                     </div>
                                     <div className="flex items-center gap-1.5">
-                                        <span className="text-slate-500 dark:text-slate-400 font-medium text-xs">Trình độ JLPT:</span> 
-                                        <span className="text-slate-900 dark:text-white font-bold text-xs">{det.level || (kanjiApiData?.jlpt ? `N${kanjiApiData.jlpt}` : 'N5')}</span>
+                                        <span className="text-slate-500 dark:text-slate-400 font-bold text-xs">Trình độ JLPT:</span> 
+                                        <span className="text-slate-900 dark:text-white font-black text-xs">{det.level || (kanjiApiData?.jlpt ? `N${kanjiApiData.jlpt}` : 'N5')}</span>
                                     </div>
                                     <div className="flex items-center gap-1.5">
-                                        <span className="text-slate-500 dark:text-slate-400 font-medium text-xs">Số nét:</span> 
-                                        <span className="text-slate-900 dark:text-white font-bold text-xs">{det.strokeCount || kanjiApiData?.stroke_count || getJotobaKanjiData(selectedKanji)?.stroke_count || '?'}</span>
+                                        <span className="text-slate-500 dark:text-slate-400 font-bold text-xs">Số nét:</span> 
+                                        <span className="text-slate-900 dark:text-white font-black text-xs">{det.strokeCount || kanjiApiData?.stroke_count || getJotobaKanjiData(selectedKanji)?.stroke_count || '?'}</span>
                                     </div>
                                     <div className="flex items-baseline gap-1.5 flex-wrap">
-                                        <span className="text-slate-500 dark:text-slate-400 font-medium text-xs">Âm Kun:</span> 
-                                        <span className="text-red-500 dark:text-red-400 font-japanese font-bold text-xs">{det.kunyomi || '—'}</span>
+                                        <span className="text-slate-500 dark:text-slate-400 font-bold text-xs">Âm Kun:</span> 
+                                        <span className="text-rose-500 dark:text-rose-400 font-japanese font-black text-xs">{det.kunyomi || '—'}</span>
                                     </div>
                                     <div className="flex items-baseline gap-1.5 flex-wrap">
-                                        <span className="text-slate-500 dark:text-slate-400 font-medium text-xs">Âm On:</span> 
-                                        <span className="text-cyan-600 dark:text-cyan-400 font-japanese font-bold text-xs">{det.onyomi || '—'}</span>
+                                        <span className="text-slate-500 dark:text-slate-400 font-bold text-xs">Âm On:</span> 
+                                        <span className="text-sky-600 dark:text-sky-400 font-japanese font-black text-xs">{det.onyomi || '—'}</span>
                                     </div>
 
                                     {/* Thành phần */}
                                     {inComponents.length > 0 && (
                                         <div className="pt-1">
-                                            <span className="text-slate-500 dark:text-slate-400 font-medium text-xs block mb-1">Thành phần:</span>
+                                            <span className="text-slate-500 dark:text-slate-400 font-bold text-xs block mb-1">Thành phần:</span>
                                             <div className="flex flex-wrap gap-1.5">
                                                 {inComponents.map((comp, idx) => (
                                                     <button
@@ -406,14 +397,14 @@ const KanjiDetailView = ({
                                                                 setSelectedKanji(comp.char);
                                                             }
                                                         }}
-                                                        className={`px-2 py-1 rounded-lg text-xs font-bold inline-flex items-center gap-1.5 border transition-all ${
+                                                        className={`px-2.5 py-1 rounded-xl text-xs font-black inline-flex items-center gap-1.5 border-2 border-b-3 transition-all ${
                                                             comp.isKanji
-                                                                ? 'bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-800/60 hover:bg-sky-100 cursor-pointer'
-                                                                : 'bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-600 cursor-default'
+                                                                ? 'bg-sky-50 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 border-sky-300 dark:border-sky-800 hover:bg-sky-100 active:translate-y-0.5 cursor-pointer shadow-2xs'
+                                                                : 'bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-slate-200 dark:border-slate-700 cursor-default'
                                                         }`}
                                                     >
                                                         <span className="font-japanese text-sm">{comp.char}</span>
-                                                        {comp.sinoViet && <span className="text-[10px] uppercase font-bold">{comp.sinoViet}</span>}
+                                                        {comp.sinoViet && <span className="text-[10px] uppercase font-black">{comp.sinoViet}</span>}
                                                     </button>
                                                 ))}
                                             </div>
@@ -423,23 +414,23 @@ const KanjiDetailView = ({
 
                                 {/* Right Image Illustration */}
                                 {det.imageUrl ? (
-                                    <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 shrink-0 bg-white dark:bg-slate-900 rounded-2xl overflow-hidden border border-slate-200/90 dark:border-slate-700/80 flex items-center justify-center p-1.5 shadow-xs">
-                                        <img src={det.imageUrl} alt={selectedKanji} className="max-w-full max-h-full object-contain rounded-xl" />
+                                    <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 shrink-0 bg-white dark:bg-slate-900 rounded-3xl overflow-hidden border-2 border-b-4 border-slate-200 dark:border-slate-800 flex items-center justify-center p-1.5 shadow-xs">
+                                        <img src={det.imageUrl} alt={selectedKanji} className="max-w-full max-h-full object-contain rounded-2xl" />
                                     </div>
                                 ) : (
-                                    <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 shrink-0 bg-gradient-to-br from-slate-50 to-sky-50/50 dark:from-slate-900 dark:to-slate-800 rounded-2xl border border-slate-200/90 dark:border-slate-700/80 flex flex-col items-center justify-center p-2 text-center shadow-xs">
-                                        <span className="text-3xl font-japanese font-bold text-slate-800 dark:text-slate-200 drop-shadow-xs">{selectedKanji}</span>
-                                        <span className="text-[10px] font-bold text-cyan-600 dark:text-cyan-400 uppercase mt-1 tracking-wider">{det.sinoViet}</span>
+                                    <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 shrink-0 bg-slate-50 dark:bg-slate-850 rounded-3xl border-2 border-b-4 border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center p-2 text-center shadow-xs">
+                                        <span className="text-3xl font-japanese font-black text-slate-800 dark:text-slate-200 drop-shadow-xs">{selectedKanji}</span>
+                                        <span className="text-[10px] font-black text-emerald-600 dark:text-emerald-400 uppercase mt-1 tracking-wider">{det.sinoViet}</span>
                                     </div>
                                 )}
                             </div>
 
                             {/* Mnemonic Sentence */}
                             {det.mnemonic && (
-                                <div className="pt-2 border-t border-slate-100 dark:border-slate-700/60 flex items-start gap-1.5 text-xs">
+                                <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-start gap-1.5 text-xs">
                                     <span className="text-amber-500 shrink-0">💡</span>
-                                    <p className="text-slate-700 dark:text-slate-300">
-                                        <strong className="text-slate-800 dark:text-slate-200">Cách nhớ:</strong> {det.mnemonic}
+                                    <p className="text-slate-700 dark:text-slate-300 font-medium">
+                                        <strong className="text-slate-900 dark:text-white font-black">Cách nhớ:</strong> {det.mnemonic}
                                     </p>
                                 </div>
                             )}
@@ -448,26 +439,26 @@ const KanjiDetailView = ({
                         {/* Card 2: Thành phần bộ thủ (Icon lớn + Lưới xanh Tạo thành) */}
                         <div className="space-y-1.5">
                             <div className="flex items-center gap-1.5">
-                                <Layers className="w-4 h-4 text-slate-500 dark:text-slate-400" />
-                                <h4 className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
+                                <Layers className="w-4 h-4 text-slate-500 dark:text-slate-400 stroke-[2.5]" />
+                                <h4 className="text-xs font-black uppercase tracking-wider text-slate-600 dark:text-slate-300">
                                     Thành phần bộ thủ
                                 </h4>
                             </div>
 
-                            <div className="bg-white dark:bg-slate-800/90 rounded-2xl p-4 border border-slate-200/80 dark:border-slate-700/80 shadow-xs flex flex-col items-center justify-center text-center space-y-3">
+                            <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-xs flex flex-col items-center justify-center text-center space-y-3">
                                 {/* Main Blue Character Box with Badge & "TẠO THÀNH" label */}
                                 <div className="flex flex-col items-center">
                                     <div className="relative">
-                                        <div className="w-18 h-18 sm:w-22 sm:h-22 rounded-2xl bg-gradient-to-br from-sky-400 via-sky-500 to-blue-600 shadow-md shadow-sky-500/20 flex items-center justify-center">
-                                            <span className="text-3xl sm:text-4xl font-japanese text-white font-bold drop-shadow-sm">{selectedKanji}</span>
+                                        <div className="w-20 h-20 sm:w-22 sm:h-22 rounded-3xl bg-sky-500 border-b-4 border-sky-700 shadow-md flex items-center justify-center">
+                                            <span className="text-3xl sm:text-4xl font-japanese text-white font-black drop-shadow-sm">{selectedKanji}</span>
                                         </div>
                                         {det.sinoViet && (
-                                            <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 px-2.5 py-0.5 bg-white dark:bg-slate-900 rounded-full text-[10px] sm:text-xs font-bold text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800 shadow-xs uppercase tracking-wide whitespace-nowrap">
+                                            <div className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 px-2.5 py-0.5 bg-white dark:bg-slate-900 rounded-full text-[10px] sm:text-xs font-black text-sky-700 dark:text-sky-300 border-2 border-sky-300 dark:border-sky-800 shadow-xs uppercase tracking-wide whitespace-nowrap">
                                                 {det.sinoViet}
                                             </div>
                                         )}
                                     </div>
-                                    <span className="text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 tracking-widest mt-3">
+                                    <span className="text-[10px] uppercase font-black text-slate-400 dark:text-slate-500 tracking-widest mt-3">
                                         TẠO THÀNH
                                     </span>
                                 </div>
@@ -482,19 +473,19 @@ const KanjiDetailView = ({
                                                     navigate(`/kanji/list/${kDoc.char}`);
                                                     setSelectedKanji(kDoc.char);
                                                 }}
-                                                className="bg-emerald-50 dark:bg-emerald-950/30 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 border border-emerald-200/80 dark:border-emerald-800/60 rounded-xl p-1.5 flex flex-col items-center justify-center transition-all hover:scale-105 active:scale-95 cursor-pointer group shadow-xs"
+                                                className="bg-emerald-50 dark:bg-emerald-950/30 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 border-2 border-b-3 border-emerald-300 dark:border-emerald-800 rounded-2xl p-2 flex flex-col items-center justify-center transition-all active:translate-y-0.5 cursor-pointer group shadow-2xs select-none"
                                             >
-                                                <span className="text-lg font-japanese font-bold text-emerald-800 dark:text-emerald-200 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                                                <span className="text-lg font-japanese font-black text-emerald-800 dark:text-emerald-200 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                                                     {kDoc.char}
                                                 </span>
-                                                <span className="px-1 py-0.2 rounded bg-white dark:bg-slate-900 text-emerald-700 dark:text-emerald-300 text-[8px] font-extrabold uppercase mt-0.5 max-w-full truncate shadow-2xs">
+                                                <span className="px-1 py-0.2 rounded bg-white dark:bg-slate-900 text-emerald-700 dark:text-emerald-300 text-[8px] font-black uppercase mt-0.5 max-w-full truncate shadow-2xs">
                                                     {kDoc.sinoViet || '—'}
                                                 </span>
                                             </button>
                                         ))}
                                     </div>
                                 ) : (
-                                    <p className="text-xs text-slate-400 dark:text-slate-500 italic py-1">
+                                    <p className="text-xs text-slate-400 dark:text-slate-500 italic py-1 font-medium">
                                         Không có chữ Kanji phái sinh liên kết
                                     </p>
                                 )}
@@ -504,21 +495,21 @@ const KanjiDetailView = ({
 
                     {/* COLUMN 3: Từ vựng List & Thêm từ vựng */}
                     <div className="lg:col-span-4 flex flex-col">
-                        <div className="bg-white dark:bg-slate-800/90 rounded-2xl p-4 sm:p-5 border border-slate-200/80 dark:border-slate-700/80 shadow-xs flex flex-col justify-between space-y-3">
+                        <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-xs flex flex-col justify-between space-y-3">
                             <div>
                                 {/* Header */}
-                                <div className="flex justify-between items-center pb-2.5 border-b border-slate-100 dark:border-slate-700/60">
-                                    <h3 className="text-orange-500 dark:text-orange-400 font-bold text-sm flex items-center gap-1.5">
-                                        <Tag className="w-4 h-4" /> Từ vựng ({vocab.length})
+                                <div className="flex justify-between items-center pb-2.5 border-b border-slate-100 dark:border-slate-800">
+                                    <h3 className="text-amber-600 dark:text-amber-400 font-black text-sm flex items-center gap-1.5 uppercase tracking-wide">
+                                        <Tag className="w-4 h-4 stroke-[2.5]" /> Từ vựng ({vocab.length})
                                     </h3>
                                     {handleGenerateAiVocabForSingleKanji && (
                                         <button
                                             onClick={() => handleGenerateAiVocabForSingleKanji(selectedKanji)}
                                             disabled={generatingAiVocab}
-                                            className="px-2.5 py-1 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-500 hover:to-emerald-500 disabled:opacity-50 text-white rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 cursor-pointer shadow-xs active:scale-95"
+                                            className="px-3 py-1.5 bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 disabled:opacity-50 text-white rounded-2xl text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 cursor-pointer shadow-xs select-none"
                                             title="Sử dụng AI tự động tạo từ vựng JLPT phổ biến cho Kanji này"
                                         >
-                                            <Wand2 className={`w-3.5 h-3.5 ${generatingAiVocab ? 'animate-spin' : ''}`} />
+                                            <Wand2 className={`w-3.5 h-3.5 stroke-[2.5] ${generatingAiVocab ? 'animate-spin' : ''}`} />
                                             {generatingAiVocab ? 'AI đang tạo...' : 'AI Tạo Từ Vựng'}
                                         </button>
                                     )}
@@ -638,13 +629,13 @@ const KanjiDetailView = ({
                                 })()}
                             </div>
 
-                            {/* Full width button */}
-                            <div className="pt-2 border-t border-slate-100 dark:border-slate-700/60">
+                            {/* Full width button - Duolingo 3D */}
+                            <div className="pt-2 border-t border-slate-100 dark:border-slate-800">
                                 <button 
                                     onClick={() => setShowAddVocabModal(true)} 
-                                    className="w-full py-2.5 bg-cyan-600 hover:bg-cyan-500 text-white rounded-xl text-xs font-bold flex items-center justify-center gap-2 cursor-pointer shadow-xs transition-all active:scale-98"
+                                    className="w-full py-3 bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 text-white rounded-2xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer shadow-xs transition-all select-none"
                                 >
-                                    <Plus className="w-4 h-4" /> Thêm từ vựng
+                                    <Plus className="w-4 h-4 stroke-[3]" /> Thêm từ vựng
                                 </button>
                             </div>
                         </div>

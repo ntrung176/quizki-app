@@ -225,7 +225,7 @@ const KanaQuizModal = ({
                 className="relative w-full max-w-xl bg-white dark:bg-slate-900 border-2 border-emerald-500/20 dark:border-emerald-500/20 rounded-3xl shadow-2xl overflow-hidden flex flex-col my-auto transition-all"
             >
                 {/* Header */}
-                <div className="bg-gradient-to-r from-emerald-600 via-teal-500 to-sky-500 p-4 sm:p-5 text-white flex items-center justify-between">
+                <div className="bg-emerald-500 dark:bg-emerald-600 border-b-4 border-emerald-700 p-4 sm:p-5 text-white flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
                         <div className="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-xl shadow-inner">
                             🎮
@@ -251,14 +251,14 @@ const KanaQuizModal = ({
                 </div>
 
                 {/* Game Mode Selector Bar */}
-                <div className="flex items-center border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60 p-1.5 gap-1.5">
+                <div className="flex items-center border-b-2 border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60 p-2 gap-2">
                     <button
                         type="button"
                         onClick={() => { setGameMode('speed_quiz'); setIsQuizCompleted(false); }}
-                        className={`flex-1 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                        className={`flex-1 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1.5 select-none ${
                             gameMode === 'speed_quiz'
-                                ? 'bg-white dark:bg-slate-800 text-sky-600 dark:text-sky-400 shadow-sm'
-                                : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50'
+                                ? 'bg-sky-500 text-white border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 shadow-sm'
+                                : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700'
                         }`}
                     >
                         <Zap className="w-3.5 h-3.5" />
@@ -267,10 +267,10 @@ const KanaQuizModal = ({
                     <button
                         type="button"
                         onClick={() => { setGameMode('memory_match'); setIsQuizCompleted(false); }}
-                        className={`flex-1 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                        className={`flex-1 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1.5 select-none ${
                             gameMode === 'memory_match'
-                                ? 'bg-white dark:bg-slate-800 text-amber-600 dark:text-amber-400 shadow-sm'
-                                : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50'
+                                ? 'bg-amber-500 text-white border-b-4 border-amber-700 active:translate-y-0.5 active:border-b-0 shadow-sm'
+                                : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700'
                         }`}
                     >
                         <BookOpen className="w-3.5 h-3.5" />
@@ -279,10 +279,10 @@ const KanaQuizModal = ({
                     <button
                         type="button"
                         onClick={() => { setGameMode('typing'); setIsQuizCompleted(false); }}
-                        className={`flex-1 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                        className={`flex-1 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1.5 select-none ${
                             gameMode === 'typing'
-                                ? 'bg-white dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 shadow-sm'
-                                : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50'
+                                ? 'bg-emerald-500 text-white border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 shadow-sm'
+                                : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700'
                         }`}
                     >
                         <Play className="w-3.5 h-3.5" />
@@ -375,15 +375,15 @@ const KanaQuizModal = ({
                                     const isSelected = selectedOption === opt;
                                     const isCorrect = opt === currentQ.correct;
 
-                                    let btnStyle = 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:border-sky-400 hover:shadow-md';
+                                    let btnStyle = 'bg-white dark:bg-slate-800 border-2 border-b-4 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:border-emerald-400 active:translate-y-0.5 active:border-b-2 shadow-xs';
 
                                     if (isAnswered) {
                                         if (isCorrect) {
-                                            btnStyle = 'bg-emerald-500 text-white border-emerald-600 shadow-lg shadow-emerald-500/30 scale-[1.02]';
+                                            btnStyle = 'bg-emerald-500 text-white border-b-4 border-emerald-700 shadow-md scale-[1.02]';
                                         } else if (isSelected) {
-                                            btnStyle = 'bg-rose-500 text-white border-rose-600 shadow-lg shadow-rose-500/30';
+                                            btnStyle = 'bg-rose-500 text-white border-b-4 border-rose-700 shadow-md';
                                         } else {
-                                            btnStyle = 'bg-slate-100 dark:bg-slate-800/40 text-slate-400 border-transparent opacity-50';
+                                            btnStyle = 'bg-slate-100 dark:bg-slate-800/40 text-slate-400 border-2 border-slate-200 dark:border-slate-800 opacity-50';
                                         }
                                     }
 
@@ -393,7 +393,7 @@ const KanaQuizModal = ({
                                             type="button"
                                             onClick={() => handleSelectOption(opt)}
                                             disabled={isAnswered}
-                                            className={`p-4 rounded-2xl border-2 border-b-4 font-mono text-xl sm:text-2xl font-black transition-all cursor-pointer flex items-center justify-center select-none active:translate-y-0.5 active:border-b-2 ${btnStyle}`}
+                                            className={`p-4 rounded-2xl font-mono text-xl sm:text-2xl font-black transition-all cursor-pointer flex items-center justify-center select-none ${btnStyle}`}
                                         >
                                             /{opt}/
                                         </button>
@@ -420,12 +420,12 @@ const KanaQuizModal = ({
                                         <div
                                             key={card.uniqueId}
                                             onClick={() => handleCardClick(idx)}
-                                            className={`h-24 rounded-2xl flex flex-col items-center justify-center p-2 border-2 transition-all duration-300 cursor-pointer select-none ${
+                                            className={`h-24 rounded-2xl flex flex-col items-center justify-center p-2 border-2 transition-all duration-200 cursor-pointer select-none active:translate-y-0.5 ${
                                                 isMatched
-                                                    ? 'bg-emerald-500/10 border-emerald-500/50 text-emerald-600 dark:text-emerald-400 opacity-60 scale-95'
+                                                    ? 'bg-emerald-50 dark:bg-emerald-950/40 border-b-4 border-emerald-500 text-emerald-600 dark:text-emerald-400 opacity-70 scale-95'
                                                     : isFlipped
-                                                        ? 'bg-sky-500 text-white border-sky-600 shadow-lg scale-105'
-                                                        : 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-sky-400 text-slate-800 dark:text-slate-200 hover:scale-102'
+                                                        ? 'bg-emerald-500 text-white border-b-4 border-emerald-700 shadow-md scale-105'
+                                                        : 'bg-white dark:bg-slate-800 border-b-4 border-slate-300 dark:border-slate-700 hover:border-emerald-400 text-slate-800 dark:text-slate-200 hover:scale-102'
                                             }`}
                                         >
                                             {isFlipped || isMatched ? (
@@ -433,7 +433,7 @@ const KanaQuizModal = ({
                                                     <span className="text-2xl sm:text-3xl font-black font-japanese">
                                                         {card.content}
                                                     </span>
-                                                    <span className="text-[9px] font-sans font-bold uppercase opacity-80 mt-1">
+                                                    <span className="text-[9px] font-sans font-black uppercase opacity-85 mt-1">
                                                         {card.sub}
                                                     </span>
                                                 </>

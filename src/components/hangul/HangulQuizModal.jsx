@@ -176,7 +176,7 @@ const HangulQuizModal = ({
                 className="relative w-full max-w-xl bg-white dark:bg-slate-900 border-2 border-cyan-400/30 dark:border-cyan-500/20 rounded-3xl shadow-2xl overflow-hidden flex flex-col my-auto transition-all"
             >
                 {/* Header */}
-                <div className="bg-gradient-to-r from-cyan-600 via-sky-600 to-blue-600 p-4 sm:p-5 text-white flex items-center justify-between">
+                <div className="bg-emerald-500 dark:bg-emerald-600 border-b-4 border-emerald-700 p-4 sm:p-5 text-white flex items-center justify-between">
                     <div className="flex items-center gap-2.5">
                         <div className="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-xl shadow-inner font-sans font-black">
                             가
@@ -185,7 +185,7 @@ const HangulQuizModal = ({
                             <h3 className="text-base sm:text-lg font-black tracking-tight">
                                 Luyện Phản Xạ Bảng Chữ Hangul
                             </h3>
-                            <p className="text-[11px] text-sky-100 font-medium">
+                            <p className="text-[11px] text-emerald-100 font-medium">
                                 Nâng cao tốc độ nhận diện phụ âm và nguyên âm tiếng Hàn
                             </p>
                         </div>
@@ -202,14 +202,14 @@ const HangulQuizModal = ({
                 </div>
 
                 {/* Game Mode Selector Bar */}
-                <div className="flex items-center border-b border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60 p-1.5 gap-1.5">
+                <div className="flex items-center border-b-2 border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60 p-2 gap-2">
                     <button
                         type="button"
                         onClick={() => { setGameMode('speed_quiz'); setIsQuizCompleted(false); }}
-                        className={`flex-1 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                        className={`flex-1 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1.5 select-none ${
                             gameMode === 'speed_quiz'
-                                ? 'bg-white dark:bg-slate-800 text-cyan-600 dark:text-cyan-400 shadow-sm'
-                                : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50'
+                                ? 'bg-sky-500 text-white border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 shadow-sm'
+                                : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700'
                         }`}
                     >
                         <Zap className="w-3.5 h-3.5" />
@@ -218,10 +218,10 @@ const HangulQuizModal = ({
                     <button
                         type="button"
                         onClick={() => { setGameMode('memory_match'); setIsQuizCompleted(false); }}
-                        className={`flex-1 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
+                        className={`flex-1 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1.5 select-none ${
                             gameMode === 'memory_match'
-                                ? 'bg-white dark:bg-slate-800 text-amber-600 dark:text-amber-400 shadow-sm'
-                                : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50'
+                                ? 'bg-amber-500 text-white border-b-4 border-amber-700 active:translate-y-0.5 active:border-b-0 shadow-sm'
+                                : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700'
                         }`}
                     >
                         <BookOpen className="w-3.5 h-3.5" />
@@ -263,7 +263,7 @@ const HangulQuizModal = ({
                                         if (gameMode === 'speed_quiz') initSpeedQuiz();
                                         else initMemoryMatch();
                                     }}
-                                    className="flex-1 py-3 rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-sm transition-all flex items-center justify-center gap-2 cursor-pointer"
+                                    className="flex-1 py-3 rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border-2 border-b-4 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-black text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer active:translate-y-0.5 active:border-b-2"
                                 >
                                     <RotateCcw className="w-4 h-4" />
                                     <span>Chơi lại</span>
@@ -271,7 +271,7 @@ const HangulQuizModal = ({
                                 <button
                                     type="button"
                                     onClick={onClose}
-                                    className="flex-1 py-3 rounded-2xl bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-500 hover:to-blue-500 text-white font-bold text-sm shadow-lg shadow-cyan-500/25 transition-all cursor-pointer"
+                                    className="flex-1 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 text-white font-black text-xs uppercase tracking-wider transition-all cursor-pointer active:translate-y-0.5 active:border-b-0 shadow-sm"
                                 >
                                     <span>Hoàn tất</span>
                                 </button>
@@ -284,27 +284,27 @@ const HangulQuizModal = ({
                             <div className="flex items-center justify-between text-xs font-bold text-slate-500">
                                 <span>Câu {quizIndex + 1} / {questions.length}</span>
                                 <div className="flex items-center gap-3">
-                                    <span className="text-amber-500 flex items-center gap-1">
+                                    <span className="text-amber-500 flex items-center gap-1 font-bold">
                                         🔥 Chuỗi: {streak}
                                     </span>
-                                    <span className="text-cyan-600 dark:text-cyan-400">
+                                    <span className="text-emerald-600 dark:text-emerald-400 font-bold">
                                         Điểm: {score}
                                     </span>
                                 </div>
                             </div>
 
                             {/* Question Character Prompt */}
-                            <div className="flex flex-col items-center justify-center p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/60 border-2 border-cyan-200/60 dark:border-cyan-500/20 shadow-inner text-center relative group">
+                            <div className="flex flex-col items-center justify-center p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/60 border-2 border-b-4 border-slate-200 dark:border-slate-700 shadow-xs text-center relative group">
                                 <span className="text-6xl sm:text-7xl font-black text-slate-900 dark:text-white font-sans select-none animate-pulse">
                                     {currentQ.char}
                                 </span>
                                 <button
                                     type="button"
                                     onClick={() => speakKorean(currentQ.char)}
-                                    className="mt-3 p-2 rounded-full bg-white dark:bg-slate-700 text-cyan-600 dark:text-cyan-400 shadow-md hover:scale-110 active:scale-95 transition-all cursor-pointer"
+                                    className="mt-3 p-2.5 rounded-2xl bg-white dark:bg-slate-700 text-emerald-600 dark:text-emerald-400 border-2 border-b-4 border-slate-200 dark:border-slate-600 shadow-xs hover:bg-slate-50 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer"
                                     title="Nghe phát âm"
                                 >
-                                    <Volume2 className="w-4 h-4" />
+                                    <Volume2 className="w-4 h-4 stroke-[2.5]" />
                                 </button>
                             </div>
 
@@ -314,15 +314,15 @@ const HangulQuizModal = ({
                                     const isSelected = selectedOption === opt;
                                     const isCorrect = opt === currentQ.correct;
 
-                                    let btnStyle = 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:border-cyan-400 hover:shadow-md';
+                                    let btnStyle = 'bg-white dark:bg-slate-800 border-2 border-b-4 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-200 hover:border-emerald-400 active:translate-y-0.5 active:border-b-2 shadow-xs';
 
                                     if (isAnswered) {
                                         if (isCorrect) {
-                                            btnStyle = 'bg-emerald-500 text-white border-emerald-600 shadow-lg shadow-emerald-500/30 scale-[1.02]';
+                                            btnStyle = 'bg-emerald-500 text-white border-b-4 border-emerald-700 shadow-md scale-[1.02]';
                                         } else if (isSelected) {
-                                            btnStyle = 'bg-rose-500 text-white border-rose-600 shadow-lg shadow-rose-500/30';
+                                            btnStyle = 'bg-rose-500 text-white border-b-4 border-rose-700 shadow-md';
                                         } else {
-                                            btnStyle = 'bg-slate-100 dark:bg-slate-800/40 text-slate-400 border-transparent opacity-50';
+                                            btnStyle = 'bg-slate-100 dark:bg-slate-800/40 text-slate-400 border-2 border-slate-200 dark:border-slate-800 opacity-50';
                                         }
                                     }
 
@@ -332,7 +332,7 @@ const HangulQuizModal = ({
                                             type="button"
                                             onClick={() => handleSelectOption(opt)}
                                             disabled={isAnswered}
-                                            className={`p-4 rounded-2xl border-2 font-mono text-xl sm:text-2xl font-black transition-all cursor-pointer flex items-center justify-center select-none active:scale-95 ${btnStyle}`}
+                                            className={`p-4 rounded-2xl font-mono text-xl sm:text-2xl font-black transition-all cursor-pointer flex items-center justify-center select-none ${btnStyle}`}
                                         >
                                             /{opt}/
                                         </button>
@@ -359,20 +359,20 @@ const HangulQuizModal = ({
                                         <div
                                             key={card.id}
                                             onClick={() => handleCardClick(idx)}
-                                            className={`h-24 sm:h-28 rounded-2xl border-2 flex items-center justify-center text-xl sm:text-2xl font-black transition-all duration-300 cursor-pointer select-none ${
+                                            className={`h-24 sm:h-28 rounded-2xl border-2 flex items-center justify-center text-xl sm:text-2xl font-black transition-all duration-200 cursor-pointer select-none active:translate-y-0.5 ${
                                                 isMatched
-                                                    ? 'bg-emerald-500 text-white border-emerald-600 opacity-60 pointer-events-none scale-95'
+                                                    ? 'bg-emerald-50 dark:bg-emerald-950/40 border-b-4 border-emerald-500 text-emerald-600 dark:text-emerald-400 opacity-70 pointer-events-none scale-95'
                                                     : isFlipped
-                                                        ? 'bg-gradient-to-br from-cyan-600 to-blue-600 text-white border-cyan-500 shadow-lg scale-105'
-                                                        : 'bg-slate-100 dark:bg-slate-800 text-slate-400 border-slate-200 dark:border-slate-700 hover:border-cyan-400 hover:bg-slate-200 dark:hover:bg-slate-750'
+                                                        ? 'bg-emerald-500 text-white border-b-4 border-emerald-700 shadow-md scale-105'
+                                                        : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border-b-4 border-slate-300 dark:border-slate-700 hover:border-emerald-400 hover:scale-102'
                                             }`}
                                         >
                                             {isFlipped || isMatched ? (
-                                                <span className={card.type === 'hangul' ? 'font-sans text-3xl' : 'font-mono text-lg'}>
+                                                <span className={card.type === 'hangul' ? 'font-sans text-3xl font-black' : 'font-mono text-lg font-black'}>
                                                     {card.display}
                                                 </span>
                                             ) : (
-                                                <span className="text-lg opacity-40 font-mono font-bold">?</span>
+                                                <span className="text-lg opacity-40 font-mono font-black">?</span>
                                             )}
                                         </div>
                                     );

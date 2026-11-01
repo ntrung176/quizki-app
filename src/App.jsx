@@ -170,7 +170,7 @@ const AppContent = () => {
             )}
 
             {/* Main view container */}
-            <main className={`min-h-screen flex flex-col w-full max-w-full min-w-0 overflow-x-clip transition-[padding,margin] duration-200 ease-out ${isPublicWithoutAppChrome ? 'p-0' : ((isReviewActive || isReviewSessionPage) ? (isSidebarCollapsed ? 'p-0 lg:pl-20' : 'p-0 lg:pl-64') : (isSidebarCollapsed ? 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-0 lg:pl-20' : 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-0 lg:pl-64'))}`}>
+            <main className={`min-h-screen flex flex-col w-full max-w-full min-w-0 overflow-x-clip transition-[padding,margin] duration-200 ease-out ${isPublicWithoutAppChrome ? 'p-0' : ((isReviewActive || isReviewSessionPage) ? (isSidebarCollapsed ? 'p-0 lg:pl-20' : 'p-0 lg:pl-44') : (isSidebarCollapsed ? 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-0 lg:pl-20' : 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-0 lg:pl-44'))}`}>
                 {/* Admin Test Mode Banner */}
                 {profile?.trialPricingTier && (
                     <div className="bg-emerald-600 text-white text-xs font-semibold px-4 py-2.5 flex items-center justify-between shadow-md relative z-40">

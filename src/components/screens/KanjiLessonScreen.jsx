@@ -2047,7 +2047,7 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
     const progress = Math.round(((qIndex + 1) / total) * 100);
     return (
         <div className="w-full flex-1 flex flex-col justify-center items-center py-4 sm:py-8 px-3 sm:px-6 animate-fade-in min-h-[calc(100vh-100px)]">
-            <div className="w-full max-w-4xl mx-auto flex flex-col space-y-4 sm:space-y-6">
+            <div className="w-full max-w-5xl mx-auto flex flex-col space-y-4 sm:space-y-6">
                 {/* Progress Header - Duolingo Styled */}
                 <div className="w-full flex items-center justify-between gap-3 bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl px-4 sm:px-6 py-3.5 shadow-xs">
                     <div className="flex items-center gap-2.5 sm:gap-3">
@@ -2217,21 +2217,25 @@ const TestModeView = ({ testMode, todayKanji, todayVocab, vocabList, onBack, lev
                             {currentQ.type === 'mc' && (
                                 <div className="w-full grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4.5">
                                     {currentQ.options.map((opt, i) => {
-                                        let cls = 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 hover:border-sky-400 hover:bg-sky-50/50 dark:hover:bg-sky-950/20';
+                                        let cls = 'bg-white dark:bg-slate-800 border-2 border-b-4 border-slate-200 dark:border-slate-700 text-slate-800 dark:text-slate-100 hover:border-emerald-400 hover:bg-emerald-50/20 active:translate-y-0.5 active:border-b-2 shadow-xs';
                                         if (answered) {
-                                            if (opt === currentQ.correct) cls = 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-500 text-emerald-700 dark:text-emerald-300';
-                                            else if (opt === selectedAnswer) cls = 'bg-rose-50 dark:bg-rose-950/40 border-rose-500 text-rose-700 dark:text-rose-300';
-                                            else cls = 'bg-slate-100 dark:bg-slate-800/40 border-slate-200 dark:border-slate-800 text-slate-400 opacity-60';
+                                            if (opt === currentQ.correct) cls = 'bg-emerald-500 text-white border-b-4 border-emerald-700 shadow-md scale-[1.01]';
+                                            else if (opt === selectedAnswer) cls = 'bg-rose-500 text-white border-b-4 border-rose-700 shadow-md';
+                                            else cls = 'bg-slate-100 dark:bg-slate-800/40 border-2 border-slate-200 dark:border-slate-800 text-slate-400 opacity-50';
                                         }
                                         return (
                                             <button
                                                 key={i}
                                                 onClick={() => handleMCAnswer(opt)}
                                                 disabled={answered}
-                                                className={`p-4 sm:p-5 rounded-2xl border-2 border-b-4 font-black text-base sm:text-lg transition-all text-left flex items-center justify-between active:translate-y-0.5 active:border-b-2 cursor-pointer shadow-xs ${cls}`}
+                                                className={`p-4 sm:p-5 rounded-2xl font-black text-base sm:text-lg transition-all text-left flex items-center justify-between cursor-pointer select-none ${cls}`}
                                             >
                                                 <span className="truncate pr-2">{opt}</span>
-                                                <span className="w-7 h-7 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 text-xs font-black flex items-center justify-center shrink-0 border border-slate-200 dark:border-slate-600">
+                                                <span className={`w-7 h-7 rounded-xl text-xs font-black flex items-center justify-center shrink-0 border ${
+                                                    answered && opt === currentQ.correct
+                                                        ? 'bg-emerald-600 border-emerald-400 text-white'
+                                                        : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 border-slate-200 dark:border-slate-600'
+                                                }`}>
                                                     {i + 1}
                                                 </span>
                                             </button>

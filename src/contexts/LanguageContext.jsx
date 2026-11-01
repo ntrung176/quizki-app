@@ -41,26 +41,41 @@ export const LanguageProvider = ({ children }) => {
         }
     };
 
-    const t = (keyPath, fallback = '') => {
+    const t = (keyPath, fallback = '', params = null) => {
         const dict = dictionaries[language] || dictionaries['vi'];
         const keys = keyPath.split('.');
         let current = dict;
+        let found = true;
         for (const k of keys) {
             if (current && current[k] !== undefined) {
                 current = current[k];
             } else {
-                let fallbackCurrent = dictionaries['vi'];
-                for (const fk of keys) {
-                    if (fallbackCurrent && fallbackCurrent[fk] !== undefined) {
-                        fallbackCurrent = fallbackCurrent[fk];
-                    } else {
-                        return fallback || keyPath;
-                    }
-                }
-                return fallbackCurrent;
+                found = false;
+                break;
             }
         }
-        return current;
+        if (!found) {
+            let fallbackCurrent = dictionaries['vi'];
+            let viFound = true;
+            for (const fk of keys) {
+                if (fallbackCurrent && fallbackCurrent[fk] !== undefined) {
+                    fallbackCurrent = fallbackCurrent[fk];
+                } else {
+                    viFound = false;
+                    break;
+                }
+            }
+            current = viFound ? fallbackCurrent : (typeof fallback === 'string' ? fallback : keyPath);
+        }
+
+        let res = current;
+        const interpolations = (typeof fallback === 'object' && fallback !== null) ? fallback : params;
+        if (typeof res === 'string' && interpolations && typeof interpolations === 'object') {
+            for (const [pk, pv] of Object.entries(interpolations)) {
+                res = res.replaceAll(`{${pk}}`, pv);
+            }
+        }
+        return res;
     };
 
     const currentLangObj = SUPPORTED_LANGUAGES.find(l => l.code === language) || SUPPORTED_LANGUAGES[0];
