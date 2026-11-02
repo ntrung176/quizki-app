@@ -1,6 +1,12 @@
-import { collection, doc, getDocs, getDoc, setDoc, deleteDoc, serverTimestamp, query, orderBy } from 'firebase/firestore';
+import { collection, doc, getDocs, getDoc, setDoc, deleteDoc, writeBatch, increment, serverTimestamp } from 'firebase/firestore';
 import { db, appId } from '../config/firebase';
 import { callAI } from './aiProvider';
+import { updateCachedUserGrammarSrs } from './grammarService';
+
+const stripHtml = (str) => {
+    if (!str || typeof str !== 'string') return '';
+    return str.replace(/<[^>]*>/g, '').trim();
+};
 
 const LOCAL_STORAGE_KEY_PREFIX = 'quizki_grammar_notebooks_';
 
@@ -54,7 +60,9 @@ export const getGrammarNotebooks = async (userId) => {
         setCachedGrammarNotebooks(userId, list);
         return list;
     } catch (err) {
-        console.error('Error fetching grammar notebooks from Firestore, using cache:', err);
+        if (err?.code !== 'permission-denied') {
+            console.warn('Error fetching grammar notebooks from Firestore, using cache:', err);
+        }
         return cached;
     }
 };
@@ -80,7 +88,9 @@ export const getGrammarNotebookById = async (userId, notebookId) => {
             };
         }
     } catch (e) {
-        console.warn('Error fetching notebook by ID from Firestore:', e);
+        if (e?.code !== 'permission-denied') {
+            console.warn('Error fetching notebook by ID from Firestore:', e);
+        }
     }
 
     return fromCache || null;
@@ -138,7 +148,9 @@ export const saveGrammarNotebook = async (userId, notebookData) => {
                 createdAt: notebookData.createdAt ? notebookData.createdAt : serverTimestamp()
             }, { merge: true });
         } catch (e) {
-            console.error('Error saving notebook to Firestore:', e);
+            if (e?.code !== 'permission-denied') {
+                console.warn('Error saving notebook to Firestore:', e);
+            }
         }
     }
 
@@ -159,7 +171,9 @@ export const deleteGrammarNotebook = async (userId, notebookId) => {
             const docRef = doc(db, `artifacts/${appId}/users/${userId}/grammarNotebooks`, notebookId);
             await deleteDoc(docRef);
         } catch (e) {
-            console.error('Error deleting notebook from Firestore:', e);
+            if (e?.code !== 'permission-denied') {
+                console.warn('Error deleting notebook from Firestore:', e);
+            }
         }
     }
     return true;
@@ -168,25 +182,27 @@ export const deleteGrammarNotebook = async (userId, notebookId) => {
 /**
  * AI Assistant for a single grammar pattern
  * Returns auto-generated { meaning, connection, usageScope, notes, examples }
+ * Strictly concise, non-verbose, clean formatted
  */
 export const aiAssistGrammarPoint = async (pattern) => {
     if (!pattern || !pattern.trim()) {
         throw new Error('Vui lòng nhập mẫu ngữ pháp trước khi gọi AI.');
     }
 
-    const prompt = `Bạn là một giáo viên sư phạm tiếng Nhật JLPT chuyên nghiệp (tác giả các bộ sách Shinkanzen Master, Soumatome, Try!).
-Hãy phân tích và tự động điền thông tin chi tiết cho mẫu ngữ pháp tiếng Nhật sau:
-"${pattern.trim()}"
+    const prompt = `Bạn là giáo viên sư phạm tiếng Nhật JLPT chuyên nghiệp.
+Hãy soạn nội dung chuẩn, ngắn gọn, súc tích cho mẫu ngữ pháp: "${pattern.trim()}".
 
-YÊU CẦU:
-1. meaning: Ý nghĩa súc tích, tự nhiên bằng tiếng Việt.
-2. connection: Công thức kết nối chuẩn (Cách nối/接続) rõ ràng, sử dụng ký hiệu chuẩn (V-て, V-た, V-る, V-ない, N, A-い, A-な, v.v.).
-3. usageScope: Phạm vi sử dụng (Khi nào dùng, sắc thái cảm xúc, văn viết hay văn nói, hạn chế đối tượng).
-4. notes: Ghi chú quan trọng (Dễ nhầm với mẫu nào, mẹo ghi nhớ nhanh, bẫy thường gặp trong JLPT).
-5. examples: Mảng gồm 2-3 câu ví dụ tiêu biểu (mỗi câu có 'ja' tiếng Nhật có furigana nếu cần hoặc Kanji chuẩn, và 'vi' dịch nghĩa tiếng Việt).
+QUY TẮC BẮT BUỘC (CỰC KỲ QUAN TRỌNG):
+1. meaning: Ý nghĩa tiếng Việt cốt lõi, ngắn gọn nhất (chỉ 1 câu, dưới 15 từ, tự nhiên, dễ hiểu, TUYỆT ĐỐI không viết dài dòng). Ví dụ: "Trong khi còn...", "Sau khi... mới...".
+2. connection: Công thức kết nối TỐI GIẢN, GỌN GÀNG NHẤT. Dùng dấu gạch chéo '/' để gom các thể từ loại. TUYỆT ĐỐI KHÔNG lặp lại tên mẫu ngữ pháp nhiều lần.
+   - Ví dụ ĐÚNG: "V-る / V-ない / Nの / A-い / A-な + うちに"
+   - Ví dụ SAI BỊ CẤM: "Vる + うちに Nの + うちに Aい + うちに..."
+3. usageScope: Tối đa 1-2 câu ngắn, nêu thẳng vào tình huống dùng cốt lõi nhất.
+4. notes: Mẹo nhớ hoặc lưu ý ngắn (tối đa 1 câu dưới 20 từ. Để trống "" nếu không có).
+5. examples: Đúng 2 câu ví dụ ngắn, giao tiếp thực tế đời thường. 'ja' là tiếng Nhật có kanji kèm furigana trong ngoặc đơn nếu có chữ khó ví dụ: '若(わか)い'. 'vi' là dịch nghĩa tiếng Việt tự nhiên. TUYỆT ĐỐI KHÔNG chứa bất kỳ thẻ HTML nào như <b>, </b>, <i>.
 
 ĐỊNH DẠNG TRẢ VỀ:
-Chỉ trả về DUY NHẤT một chuỗi JSON hợp lệ, KHÔNG có thẻ markdown bọc ngoài (\`\`\`json), KHÔNG giải thích thêm:
+Chỉ trả về DUY NHẤT một chuỗi JSON hợp lệ, KHÔNG có thẻ markdown bọc ngoài (\`\`\`json):
 {
   "meaning": "...",
   "connection": "...",
@@ -209,11 +225,16 @@ Chỉ trả về DUY NHẤT một chuỗi JSON hợp lệ, KHÔNG có thẻ mark
     try {
         const parsed = JSON.parse(clean);
         return {
-            meaning: parsed.meaning || '',
-            connection: parsed.connection || '',
-            usageScope: parsed.usageScope || '',
-            notes: parsed.notes || '',
-            examples: Array.isArray(parsed.examples) ? parsed.examples : []
+            meaning: stripHtml(parsed.meaning || ''),
+            connection: stripHtml(parsed.connection || ''),
+            usageScope: stripHtml(parsed.usageScope || ''),
+            notes: stripHtml(parsed.notes || ''),
+            examples: Array.isArray(parsed.examples)
+                ? parsed.examples.map(ex => ({
+                    ja: stripHtml(ex.ja || ''),
+                    vi: stripHtml(ex.vi || '')
+                })).filter(ex => ex.ja || ex.vi)
+                : []
         };
     } catch (e) {
         console.error('Failed to parse AI grammar response:', clean, e);
@@ -229,20 +250,20 @@ export const aiBatchGenerateGrammarNotebook = async (topicOrText, count = 5) => 
         throw new Error('Vui lòng nhập chủ đề hoặc văn bản.');
     }
 
-    const prompt = `Bạn là một giáo viên sư phạm tiếng Nhật JLPT chuyên nghiệp.
+    const prompt = `Bạn là giáo viên sư phạm tiếng Nhật JLPT chuyên nghiệp.
 Hãy tạo danh sách khoảng ${count} mẫu ngữ pháp tiếng Nhật dựa trên chủ đề hoặc văn bản sau:
 "${topicOrText.trim()}"
 
-Mỗi mẫu ngữ pháp cần đầy đủ các trường:
+QUY TẮC BẮT BUỘC:
 - pattern: Mẫu ngữ pháp tiếng Nhật (VD: 〜てから, 〜うちに)
-- meaning: Ý nghĩa tiếng Việt súc tích
-- connection: Cách kết nối công thức (VD: V-て + から)
-- usageScope: Phạm vi sử dụng & sắc thái
-- notes: Ghi chú mẹo nhớ / lưu ý
-- examples: Mảng 1-2 câu ví dụ gồm { "ja": "câu tiếng Nhật", "vi": "dịch tiếng Việt" }
+- meaning: Ý nghĩa tiếng Việt cốt lõi, ngắn gọn (chỉ 1 câu, dưới 15 từ)
+- connection: Công thức tối giản, gom thể bằng '/' (VD: "V-る / V-ない / Nの + うちに"), TUYỆT ĐỐI KHÔNG lặp lại tên mẫu ngữ pháp
+- usageScope: Tối đa 1-2 câu ngắn gọn
+- notes: Tối đa 1 câu ngắn hoặc để trống ""
+- examples: 1-2 câu ví dụ ngắn, thực tế, KHÔNG chứa bất kỳ thẻ HTML nào (<b>, </b>)
 
 ĐỊNH DẠNG TRẢ VỀ:
-Chỉ trả về DUY NHẤT một chuỗi JSON hợp lệ là một mảng [] các object:
+Chỉ trả về DUY NHẤT một chuỗi JSON hợp lệ là một mảng [] các object, KHÔNG có thẻ markdown:
 [
   {
     "pattern": "...",
@@ -268,10 +289,145 @@ Chỉ trả về DUY NHẤT một chuỗi JSON hợp lệ là một mảng [] c�
     try {
         const parsed = JSON.parse(clean);
         if (!Array.isArray(parsed)) throw new Error('Dữ liệu trả về không phải là mảng.');
-        return parsed;
+        return parsed.map(item => ({
+            pattern: stripHtml(item.pattern || ''),
+            meaning: stripHtml(item.meaning || ''),
+            connection: stripHtml(item.connection || ''),
+            usageScope: stripHtml(item.usageScope || ''),
+            notes: stripHtml(item.notes || ''),
+            examples: Array.isArray(item.examples)
+                ? item.examples.map(ex => ({
+                    ja: stripHtml(ex.ja || ''),
+                    vi: stripHtml(ex.vi || '')
+                })).filter(ex => ex.ja || ex.vi)
+                : []
+        }));
     } catch (e) {
         console.error('Failed to parse batch AI response:', clean, e);
         throw new Error('Không thể phân tích danh sách từ AI. Vui lòng thử lại.');
     }
+};
+
+/**
+ * Toggle saving a notebook grammar item to SRS
+ */
+export const toggleNotebookItemSrs = async (userId, item, notebookTitle, isCurrentlyBookmarked) => {
+    if (!userId || !item || !item.id) return false;
+    const srsDocRef = doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, item.id);
+    const nextState = !isCurrentlyBookmarked;
+
+    if (nextState) {
+        const now = Date.now();
+        const payload = {
+            id: item.id,
+            pattern: item.pattern,
+            meaning: item.meaning,
+            meaningShort: item.meaning,
+            connection: item.connection || '',
+            structure: item.connection || '',
+            usageScope: item.usageScope || '',
+            notes: item.notes || '',
+            examples: item.examples || [],
+            textbookTitle: notebookTitle || 'Sổ tay ngữ pháp',
+            lessonTitle: 'Sổ tay',
+            level: 'Custom',
+            isNotebookPoint: true,
+            interval: 0,
+            ease: 2.5,
+            nextReview: now,
+            lastReview: now,
+            reps: 0,
+            learningStep: null,
+            isLapsed: false,
+            lapseCount: 0,
+            prelapseInterval: null,
+            state: 'NEW'
+        };
+
+        // 1. Optimistic 0ms cache update so UI and review tabs react instantly
+        updateCachedUserGrammarSrs(userId, item.id, payload);
+
+        // 2. Background Firestore sync
+        try {
+            await setDoc(srsDocRef, payload, { merge: true });
+        } catch (err) {
+            console.warn('[toggleNotebookItemSrs] Cloud sync fallback:', err?.message || err);
+        }
+
+        const today = new Date().toISOString().split('T')[0];
+        setDoc(doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, today), {
+            newGrammarAdded: increment(1)
+        }, { merge: true }).catch(() => {});
+    } else {
+        // 1. Optimistic removal
+        updateCachedUserGrammarSrs(userId, item.id, null);
+
+        // 2. Background deletion
+        try {
+            await deleteDoc(srsDocRef);
+        } catch (err) {
+            console.warn('[toggleNotebookItemSrs] Cloud delete fallback:', err?.message || err);
+        }
+    }
+
+    return nextState;
+};
+
+/**
+ * Save all grammar items of a notebook to SRS in a single batch
+ */
+export const saveAllNotebookItemsToSrs = async (userId, items, notebookTitle) => {
+    if (!userId || !items || items.length === 0) return 0;
+    const batch = writeBatch(db);
+    const now = Date.now();
+    let count = 0;
+
+    items.forEach(item => {
+        if (!item || !item.pattern || !item.meaning) return;
+        const ref = doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, item.id);
+        const payload = {
+            id: item.id,
+            pattern: item.pattern,
+            meaning: item.meaning,
+            meaningShort: item.meaning,
+            connection: item.connection || '',
+            structure: item.connection || '',
+            usageScope: item.usageScope || '',
+            notes: item.notes || '',
+            examples: item.examples || [],
+            textbookTitle: notebookTitle || 'Sổ tay ngữ pháp',
+            lessonTitle: 'Sổ tay',
+            level: 'Custom',
+            isNotebookPoint: true,
+            interval: 0,
+            ease: 2.5,
+            nextReview: now,
+            lastReview: now,
+            reps: 0,
+            learningStep: null,
+            isLapsed: false,
+            lapseCount: 0,
+            prelapseInterval: null,
+            state: 'NEW'
+        };
+        batch.set(ref, payload, { merge: true });
+        // Optimistic cache update immediately for each item
+        updateCachedUserGrammarSrs(userId, item.id, payload);
+        count++;
+    });
+
+    if (count > 0) {
+        try {
+            await batch.commit();
+            const today = new Date().toISOString().split('T')[0];
+            setDoc(doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, today), {
+                newGrammarAdded: increment(count)
+            }, { merge: true }).catch(() => {});
+        } catch (err) {
+            console.warn('[saveAllNotebookItemsToSrs] Batch commit fallback:', err?.message || err);
+        }
+    }
+
+    return count;
 };
 

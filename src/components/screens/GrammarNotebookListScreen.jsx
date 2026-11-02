@@ -4,7 +4,7 @@ import { ChevronLeft, Plus, BookMarked, Edit3, Trash2, Edit, Sparkles, BookOpen 
 import { getAuth } from 'firebase/auth';
 import { TopTabBar } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
-import { getGrammarNotebooks, deleteGrammarNotebook, saveGrammarNotebook } from '../../utils/grammarNotebookService';
+import { getGrammarNotebooks, getCachedGrammarNotebooks, deleteGrammarNotebook, saveGrammarNotebook } from '../../utils/grammarNotebookService';
 import { showToast } from '../../utils/toast';
 
 export const GrammarNotebookListScreen = ({ profile = null }) => {
@@ -12,28 +12,40 @@ export const GrammarNotebookListScreen = ({ profile = null }) => {
     const auth = getAuth();
     const userId = auth?.currentUser?.uid;
 
-    const [notebooks, setNotebooks] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [notebooks, setNotebooks] = useState(() => getCachedGrammarNotebooks(userId));
+    const [loading, setLoading] = useState(() => {
+        const cached = getCachedGrammarNotebooks(userId);
+        return !cached || cached.length === 0;
+    });
 
     // Rename Modal State
     const [renameModalOpen, setRenameModalOpen] = useState(false);
     const [selectedNotebook, setSelectedNotebook] = useState(null);
     const [newTitle, setNewTitle] = useState('');
 
-    const loadNotebooks = async () => {
-        setLoading(true);
+    // Create Modal State
+    const [createModalOpen, setCreateModalOpen] = useState(false);
+    const [createTitle, setCreateTitle] = useState('');
+
+    const loadNotebooks = async (forceSpinner = false) => {
+        if (forceSpinner) setLoading(true);
         try {
             const list = await getGrammarNotebooks(userId);
-            setNotebooks(list || []);
+            if (list) setNotebooks(list);
         } catch (e) {
-            console.error('Error loading notebooks:', e);
+            console.warn('Error loading notebooks:', e);
         } finally {
             setLoading(false);
         }
     };
 
     useEffect(() => {
-        loadNotebooks();
+        const cached = getCachedGrammarNotebooks(userId);
+        if (cached && cached.length > 0) {
+            setNotebooks(cached);
+            setLoading(false);
+        }
+        loadNotebooks(false);
     }, [userId]);
 
     const handleDelete = async (e, nb) => {
@@ -103,7 +115,10 @@ export const GrammarNotebookListScreen = ({ profile = null }) => {
 
                     <button
                         type="button"
-                        onClick={() => navigate('/grammar/notebook/create')}
+                        onClick={() => {
+                            setCreateTitle('');
+                            setCreateModalOpen(true);
+                        }}
                         className="self-start sm:self-center flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-sky-500 hover:bg-sky-400 border-2 border-b-4 border-sky-700 text-white font-black text-xs sm:text-sm shadow-md transition-all cursor-pointer select-none active:translate-y-0.5 active:border-b-2"
                     >
                         <Plus className="w-4 h-4 stroke-[3]" />
@@ -132,7 +147,10 @@ export const GrammarNotebookListScreen = ({ profile = null }) => {
                         </div>
                         <button
                             type="button"
-                            onClick={() => navigate('/grammar/notebook/create')}
+                            onClick={() => {
+                                setCreateTitle('');
+                                setCreateModalOpen(true);
+                            }}
                             className="flex items-center gap-2 px-6 py-3 rounded-2xl bg-sky-500 hover:bg-sky-400 border-2 border-b-4 border-sky-700 text-white font-black text-sm shadow-md transition-all cursor-pointer select-none active:translate-y-0.5 active:border-b-2 mt-2"
                         >
                             <Plus className="w-4 h-4 stroke-[3]" />
@@ -216,6 +234,11 @@ export const GrammarNotebookListScreen = ({ profile = null }) => {
                             type="text"
                             value={newTitle}
                             onChange={(e) => setNewTitle(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter' && newTitle.trim()) {
+                                    handleSaveRename();
+                                }
+                            }}
                             placeholder="Nhập tên mới..."
                             className="w-full text-sm font-bold px-4 py-3 bg-slate-50 dark:bg-slate-950 border-2 border-slate-200 dark:border-slate-800 rounded-2xl outline-none focus:border-sky-500 dark:text-white"
                             autoFocus
@@ -235,6 +258,55 @@ export const GrammarNotebookListScreen = ({ profile = null }) => {
                                 className="px-5 py-2 rounded-xl bg-sky-500 hover:bg-sky-400 border-b-2 border-sky-700 text-white text-xs font-black transition-all cursor-pointer disabled:opacity-50"
                             >
                                 Lưu tên mới
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {/* Create Notebook Modal (Prompt for Title) */}
+            {createModalOpen && (
+                <div className="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in">
+                    <div className="bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl p-6 max-w-md w-full shadow-2xl space-y-4">
+                        <div className="flex items-center gap-2.5">
+                            <div className="w-9 h-9 rounded-xl bg-sky-50 dark:bg-sky-950/60 border border-sky-200 dark:border-sky-800 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0">
+                                <BookMarked className="w-5 h-5" />
+                            </div>
+                            <h3 className="text-base font-black text-slate-900 dark:text-white">
+                                Đặt tên cho sổ tay mới
+                            </h3>
+                        </div>
+                        <input
+                            type="text"
+                            value={createTitle}
+                            onChange={(e) => setCreateTitle(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key === 'Enter') {
+                                    setCreateModalOpen(false);
+                                    navigate('/grammar/notebook/create' + (createTitle.trim() ? `?title=${encodeURIComponent(createTitle.trim())}` : ''));
+                                }
+                            }}
+                            placeholder="VD: Tổng hợp ngữ pháp N3, Mẫu chỉ mục đích..."
+                            className="w-full text-sm font-bold px-4 py-3 bg-slate-50 dark:bg-slate-950 border-2 border-slate-200 dark:border-slate-800 rounded-2xl outline-none focus:border-sky-500 dark:text-white"
+                            autoFocus
+                        />
+                        <div className="flex gap-2 justify-end pt-2">
+                            <button
+                                type="button"
+                                onClick={() => setCreateModalOpen(false)}
+                                className="px-4 py-2 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
+                            >
+                                Hủy
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    setCreateModalOpen(false);
+                                    navigate('/grammar/notebook/create' + (createTitle.trim() ? `?title=${encodeURIComponent(createTitle.trim())}` : ''));
+                                }}
+                                className="px-5 py-2 rounded-xl bg-sky-500 hover:bg-sky-400 border-b-2 border-sky-700 text-white text-xs font-black transition-all cursor-pointer"
+                            >
+                                Bắt đầu soạn
                             </button>
                         </div>
                     </div>

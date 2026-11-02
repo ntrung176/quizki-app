@@ -153,7 +153,7 @@ export const getSharedBookGroups = async (forceRefresh = false, forceLiveFiresto
         bookGroupsPromise = null;
     }
 
-    if (cachedBookGroups && !needsRefresh && !forceLiveFirestore) return cachedBookGroups;
+    if (cachedBookGroups && !needsRefresh && !forceLiveFirestore) return mergeEditedBookGroups(cachedBookGroups);
     if (bookGroupsPromise && !needsRefresh && !forceLiveFirestore) return bookGroupsPromise;
 
     bookGroupsPromise = (async () => {
@@ -231,7 +231,7 @@ export const getSharedBookGroups = async (forceRefresh = false, forceLiveFiresto
             return false;
         };
 
-        if (forceLiveFirestore || checkIsAdmin()) {
+        if (forceLiveFirestore) {
             const fsResult = await fetchFromFirestoreFallback();
             return mergeEditedBookGroups(fsResult);
         }

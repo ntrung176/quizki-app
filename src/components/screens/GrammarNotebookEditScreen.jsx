@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { ChevronLeft, Plus, Save, Trash2, Sparkles, Loader2, Volume2, BookMarked, Copy, FileText, Check } from 'lucide-react';
 import { getAuth } from 'firebase/auth';
 import { TopTabBar } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
-import { getGrammarNotebookById, saveGrammarNotebook, aiAssistGrammarPoint } from '../../utils/grammarNotebookService';
+import { getGrammarNotebookById, getCachedGrammarNotebooks, saveGrammarNotebook, aiAssistGrammarPoint } from '../../utils/grammarNotebookService';
 import { speakExampleSentence } from '../../utils/audio';
 import { showToast } from '../../utils/toast';
 import GrammarNotebookBatchModal from '../grammar/GrammarNotebookBatchModal';
@@ -22,37 +22,43 @@ const createEmptyItem = () => ({
 export const GrammarNotebookEditScreen = () => {
     const navigate = useNavigate();
     const { notebookId } = useParams();
+    const [searchParams] = useSearchParams();
     const auth = getAuth();
     const userId = auth?.currentUser?.uid;
 
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [items, setItems] = useState([createEmptyItem()]);
+    const cachedItem = notebookId ? getCachedGrammarNotebooks(userId).find(nb => nb.id === notebookId) : null;
+    const [title, setTitle] = useState(() => {
+        if (!notebookId) return searchParams.get('title') || '';
+        return cachedItem?.title || '';
+    });
+    const [description, setDescription] = useState(() => cachedItem?.description || '');
+    const [items, setItems] = useState(() => (cachedItem?.items && cachedItem.items.length > 0 ? cachedItem.items : [createEmptyItem()]));
     const [saving, setSaving] = useState(false);
-    const [loading, setLoading] = useState(Boolean(notebookId));
+    const [loading, setLoading] = useState(() => Boolean(notebookId && !cachedItem));
     const [aiLoadingMap, setAiLoadingMap] = useState({});
     const [batchModalOpen, setBatchModalOpen] = useState(false);
 
     useEffect(() => {
         if (!notebookId) {
-            setTitle('Sổ tay mới');
+            const paramTitle = searchParams.get('title');
+            if (paramTitle && !title) setTitle(paramTitle);
             return;
         }
 
         const load = async () => {
-            setLoading(true);
+            if (!cachedItem) setLoading(true);
             try {
                 const data = await getGrammarNotebookById(userId, notebookId);
                 if (data) {
                     setTitle(data.title || 'Sổ tay ngữ pháp');
                     setDescription(data.description || '');
                     setItems(data.items && data.items.length > 0 ? data.items : [createEmptyItem()]);
-                } else {
+                } else if (!cachedItem) {
                     showToast('Không tìm thấy sổ tay', 'error');
                     navigate('/grammar/notebook');
                 }
             } catch (e) {
-                console.error('Error loading notebook:', e);
+                console.warn('Error loading notebook:', e);
             } finally {
                 setLoading(false);
             }
@@ -219,22 +225,13 @@ export const GrammarNotebookEditScreen = () => {
                             <ChevronLeft className="w-4 h-4" />
                             <span>Sổ tay ngữ pháp</span>
                         </button>
-                        <div className="flex items-center gap-2">
+                        <div className="flex items-center gap-2.5">
+                            <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
+                                {notebookId ? 'Chỉnh sửa sổ tay' : 'Tạo sổ tay mới'}
+                            </h1>
                             <span className="text-xs font-black text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/60 border border-sky-200 dark:border-sky-800 px-2.5 py-0.5 rounded-lg">
                                 {validCount} mẫu hợp lệ
                             </span>
-                        </div>
-                        <div className="flex items-center gap-3 pt-1">
-                            <div className="w-10 h-10 rounded-xl bg-sky-50 dark:bg-sky-950/60 border-2 border-sky-200 dark:border-sky-800 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0">
-                                <BookMarked className="w-5 h-5" />
-                            </div>
-                            <input
-                                type="text"
-                                value={title}
-                                onChange={(e) => setTitle(e.target.value)}
-                                placeholder="Nhập tên sổ tay (VD: N2, Ngữ pháp chỉ mục đích)..."
-                                className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white bg-transparent outline-none border-b-2 border-transparent hover:border-slate-300 focus:border-sky-500 transition-all w-full max-w-md"
-                            />
                         </div>
                     </div>
 
@@ -255,8 +252,37 @@ export const GrammarNotebookEditScreen = () => {
                             className="flex items-center gap-1.5 px-5 py-2.5 rounded-2xl bg-sky-500 hover:bg-sky-400 border-2 border-b-4 border-sky-700 text-white font-black text-xs sm:text-sm shadow-md transition-all cursor-pointer active:translate-y-0.5 active:border-b-2 disabled:opacity-50 select-none"
                         >
                             {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-                            <span>Lưu</span>
+                            <span>Lưu sổ tay</span>
                         </button>
+                    </div>
+                </div>
+
+                {/* Notebook Info Card (Title & Description) */}
+                <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 space-y-4 shadow-xs">
+                    <div>
+                        <label className="block text-[11px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
+                            TÊN SỔ TAY NGỮ PHÁP <span className="text-rose-500">*</span>
+                        </label>
+                        <input
+                            type="text"
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                            placeholder="VD: Tổng hợp ngữ pháp N3, Mẫu câu chỉ mục đích, v.v..."
+                            className="w-full text-base sm:text-lg font-bold px-4 py-3 bg-slate-50 dark:bg-slate-950 border-2 border-slate-200 dark:border-slate-800 rounded-2xl outline-none focus:border-sky-500 dark:text-white transition-colors"
+                        />
+                    </div>
+
+                    <div>
+                        <label className="block text-[11px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
+                            MÔ TẢ (TUỲ CHỌN)
+                        </label>
+                        <input
+                            type="text"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                            placeholder="Mô tả mục tiêu học tập, thời hạn ôn tập của sổ tay này..."
+                            className="w-full text-xs sm:text-sm font-medium px-4 py-2.5 bg-slate-50 dark:bg-slate-950 border-2 border-slate-200 dark:border-slate-800 rounded-2xl outline-none focus:border-sky-500 dark:text-white transition-colors"
+                        />
                     </div>
                 </div>
 
@@ -289,33 +315,35 @@ export const GrammarNotebookEditScreen = () => {
                                     {/* Row 1: Mẫu ngữ pháp & Ý nghĩa */}
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                         <div className="space-y-1.5">
-                                            <div className="flex items-center justify-between">
-                                                <label className="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1">
-                                                    Mẫu ngữ pháp <span className="text-rose-500 font-bold">*</span>
-                                                </label>
-                                                {/* Specialized Grammar AI Assist Button */}
+                                            <label className="text-xs font-bold text-slate-700 dark:text-slate-300 block">
+                                                Mẫu ngữ pháp <span className="text-rose-500 font-bold">*</span>
+                                            </label>
+                                            <div className="flex gap-2">
+                                                <input
+                                                    type="text"
+                                                    value={item.pattern}
+                                                    onChange={(e) => handleUpdateItem(item.id, 'pattern', e.target.value)}
+                                                    onKeyDown={(e) => {
+                                                        if (e.key === 'Enter') {
+                                                            e.preventDefault();
+                                                            if (item.pattern.trim() && !isAiLoading) {
+                                                                handleAiAssist(item.id, item.pattern);
+                                                            }
+                                                        }
+                                                    }}
+                                                    placeholder="〜てから"
+                                                    className="w-full text-sm font-bold font-japanese px-3.5 py-2.5 bg-slate-50 dark:bg-slate-950 border-2 border-slate-200 dark:border-slate-800 rounded-2xl outline-none focus:border-sky-500 dark:text-white transition-colors"
+                                                />
                                                 <button
                                                     type="button"
                                                     onClick={() => handleAiAssist(item.id, item.pattern)}
                                                     disabled={isAiLoading || !item.pattern.trim()}
-                                                    className="inline-flex items-center gap-1 text-[11px] font-black px-2.5 py-1 rounded-xl bg-sky-50 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 hover:bg-sky-100 dark:hover:bg-sky-900/60 border border-sky-200 dark:border-sky-800 transition-all cursor-pointer disabled:opacity-40 select-none shadow-2xs"
-                                                    title="AI tự động tìm ý nghĩa, cách nối, phạm vi sử dụng, ghi chú và ví dụ"
+                                                    className="flex items-center justify-center px-3.5 py-2.5 bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 text-white rounded-2xl transition-all font-black text-xs disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0 min-w-[44px] cursor-pointer select-none"
+                                                    title="Tự động điền ngữ pháp bằng AI (Enter)"
                                                 >
-                                                    {isAiLoading ? (
-                                                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                                                    ) : (
-                                                        <Sparkles className="w-3.5 h-3.5 text-sky-500" />
-                                                    )}
-                                                    <span>{isAiLoading ? 'AI đang tìm...' : 'AI Điền mẫu'}</span>
+                                                    {isAiLoading ? <Loader2 className="animate-spin w-4 h-4" /> : <span className="tracking-wide">AI</span>}
                                                 </button>
                                             </div>
-                                            <input
-                                                type="text"
-                                                value={item.pattern}
-                                                onChange={(e) => handleUpdateItem(item.id, 'pattern', e.target.value)}
-                                                placeholder="〜てから"
-                                                className="w-full text-sm font-bold font-japanese px-3.5 py-2.5 bg-slate-50 dark:bg-slate-950 border-2 border-slate-200 dark:border-slate-800 rounded-2xl outline-none focus:border-sky-500 dark:text-white"
-                                            />
                                         </div>
 
                                         <div className="space-y-1.5">

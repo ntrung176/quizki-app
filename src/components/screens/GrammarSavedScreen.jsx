@@ -175,9 +175,38 @@ const GrammarSavedScreen = () => {
         return () => unsubSrs();
     }, [userId]);
 
-    const savedItems = useMemo(() => {
-        return grammarList.filter(g => !!srsData[g.id]);
+    const allGrammarList = useMemo(() => {
+        const map = new Map();
+        (grammarList || []).forEach(g => {
+            if (g?.id) map.set(String(g.id), g);
+        });
+        Object.entries(srsData || {}).forEach(([id, srsItem]) => {
+            if (!srsItem || !srsItem.pattern) return;
+            const sId = String(id);
+            if (!map.has(sId)) {
+                map.set(sId, {
+                    id: sId,
+                    pattern: srsItem.pattern,
+                    meaning: srsItem.meaning || '',
+                    meaningShort: srsItem.meaningShort || srsItem.meaning || '',
+                    connection: srsItem.connection || srsItem.structure || '',
+                    structure: srsItem.connection || srsItem.structure || '',
+                    usageScope: srsItem.usageScope || '',
+                    notes: srsItem.notes || '',
+                    examples: Array.isArray(srsItem.examples) ? srsItem.examples : [],
+                    textbookTitle: srsItem.textbookTitle || 'Sổ tay ngữ pháp',
+                    lessonTitle: srsItem.lessonTitle || 'Sổ tay',
+                    level: srsItem.level || 'Custom',
+                    isNotebookPoint: true
+                });
+            }
+        });
+        return Array.from(map.values());
     }, [grammarList, srsData]);
+
+    const savedItems = useMemo(() => {
+        return allGrammarList.filter(g => !!srsData[g.id]);
+    }, [allGrammarList, srsData]);
 
     const filteredItems = useMemo(() => {
         return savedItems.filter(item => {
@@ -589,7 +618,7 @@ const GrammarSavedScreen = () => {
                             {recentlyViewed.length > 0 ? (
                                 <div className="space-y-3">
                                     {recentlyViewed.slice(0, 5).map(id => {
-                                        const found = grammarList.find(g => g.id === id);
+                                        const found = allGrammarList.find(g => g.id === id);
                                         if (!found) return null;
                                         return (
                                             <div 

@@ -43,7 +43,10 @@ export const useBookData = ({
 
     // Data states
     const [bookGroups, setBookGroups] = useState(() => getCachedBookGroups() || []);
-    const [loading, setLoading] = useState(!getCachedBookGroups());
+    const [loading, setLoading] = useState(() => {
+        const cached = getCachedBookGroups();
+        return !(Array.isArray(cached) && cached.length > 0);
+    });
 
     // Navigation IDs (Support both short & long param names, plus clean slugs/aliases)
     const rawGroupId = searchParams.get('g') || searchParams.get('group') || null;
@@ -353,8 +356,10 @@ export const useBookData = ({
     const loadAllData = async (silent = false, forceRefresh = false) => {
         if (!silent) setLoading(true);
         try {
-            const groups = await getSharedBookGroups(forceRefresh, isAdmin);
-            setBookGroups(groups);
+            const groups = await getSharedBookGroups(forceRefresh, false);
+            if (groups && groups.length > 0) {
+                setBookGroups(groups);
+            }
         } catch (e) {
             console.error('Error loading book data:', e);
         } finally {
@@ -363,8 +368,12 @@ export const useBookData = ({
     };
 
     useEffect(() => {
-        loadAllData(false, isAdmin);
-    }, [isAdmin]);
+        const cached = getCachedBookGroups();
+        const hasCached = Array.isArray(cached) && cached.length > 0;
+        // If we already have book groups in RAM cache, load silently in background (SWR pattern)
+        // Never wipe out cache or force full-screen spinner on simple tab navigation!
+        loadAllData(hasCached, false);
+    }, []);
 
     const loadLessonAudio = useCallback(async () => {
         if (!groupId || !bookId || !chapterId || !lessonId) {

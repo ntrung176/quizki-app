@@ -833,11 +833,6 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
                                                 <p className={`text-sm sm:text-base font-bold truncate ${isMe ? 'text-emerald-600 dark:text-emerald-400' : 'text-slate-800 dark:text-slate-100'}`}>
                                                     {user.displayName || t('leaderboard.learner', 'Học viên')}
                                                 </p>
-                                                {isMe && (
-                                                    <span className="bg-emerald-600 text-white text-[9px] font-black px-2 py-0.5 rounded-full uppercase shrink-0">
-                                                        {t('leaderboard.youBadge', 'BẠN')}
-                                                    </span>
-                                                )}
                                                 {(isMe ? isUserPremiumActive(profile) : isUserPremiumActive(user)) && (
                                                     <span className="inline-flex items-center gap-1 px-1.5 py-0.5 rounded-md bg-amber-500/15 border border-amber-500/30 text-[9px] sm:text-[10px] font-black text-amber-600 dark:text-amber-400 shrink-0">
                                                         <Crown className="w-2.5 h-2.5 sm:w-3 sm:h-3 fill-amber-500 text-amber-500" />

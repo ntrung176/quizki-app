@@ -118,6 +118,13 @@ service cloud.firestore {
       allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
     }
 
+    match /artifacts/{appId}/users/{userId}/grammarNotebooks/{notebookId} {
+      allow read: if isOwner(userId) || hasAdminPrivileges(appId);
+      allow create: if isOwner(userId);
+      allow update: if isOwner(userId);
+      allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
+    }
+
     match /artifacts/{appId}/users/{userId}/grammarSRS/{grammarId} {
       allow read: if isOwner(userId) || hasAdminPrivileges(appId);
       allow create: if isOwner(userId);

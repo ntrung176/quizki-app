@@ -2,6 +2,7 @@ import { getSharedBookGroups } from './bookService';
 import { getSharedKanjiList, getSharedVocabList, getSharedVocabCategories } from './kanjiService';
 import { getSharedGrammarData } from './grammarService';
 import { getSharedJLPTTests } from '../services/jlptDataService';
+import { getKaiwaVideos } from '../services/videoKaiwaService';
 import { syncDictionary } from '../services/dictionaryService';
 import { preloadKuroshiro } from './furiganaHelper';
 
@@ -32,8 +33,9 @@ export const preloadCoreData = () => {
                 getSharedVocabList()
             ]);
 
-            // Stage 3: Load JLPT tests in the background
+            // Stage 3: Load JLPT tests & Kaiwa videos in the background
             getSharedJLPTTests().catch(() => {});
+            getKaiwaVideos().catch(() => {});
 
             // Stage 4: Idle background dictionary sync (0ms instant lookup) & Furigana engine
             syncDictionary({ silent: true }).catch(() => {});

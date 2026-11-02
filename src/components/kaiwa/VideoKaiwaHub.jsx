@@ -5,7 +5,7 @@ import {
     Bookmark, Zap, ShieldAlert, Award, ChevronDown, HardDrive, Video, Upload
 } from 'lucide-react';
 import { KAIWA_LEVELS, KAIWA_CATEGORIES } from './videoKaiwaConstants';
-import { getKaiwaVideos, saveKaiwaVideo, deleteKaiwaVideo, extractYoutubeId, parseTextToSubtitles } from '../../services/videoKaiwaService';
+import { getKaiwaVideos, getCachedKaiwaVideos, saveKaiwaVideo, deleteKaiwaVideo, extractYoutubeId, parseTextToSubtitles } from '../../services/videoKaiwaService';
 import { extractVideoThumbnailAndMetadata } from '../../utils/videoThumbnailHelper';
 import { saveVideoBlobToIndexedDb } from '../../utils/indexedDbVideoStorage';
 import VideoKaiwaPlayer from './VideoKaiwaPlayer';
@@ -20,8 +20,11 @@ import { useLanguage } from '../../context/LanguageContext';
 
 const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
     const { t } = useLanguage();
-    const [videos, setVideos] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [videos, setVideos] = useState(() => getCachedKaiwaVideos() || []);
+    const [loading, setLoading] = useState(() => {
+        const cached = getCachedKaiwaVideos();
+        return !(Array.isArray(cached) && cached.length > 0);
+    });
     const [selectedLevel, setSelectedLevel] = useState('all');
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [searchQuery, setSearchQuery] = useState('');
@@ -52,12 +55,14 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
     const quickSubInputRef = useRef(null);
     const userIsAdmin = isAdmin || (profile?.email && ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'].includes(profile.email));
 
-    // Fetch Videos on Mount
-    const loadVideos = async () => {
-        setLoading(true);
+    // Fetch Videos on Mount (SWR Cache-First pattern)
+    const loadVideos = async (silent = false) => {
+        if (!silent) setLoading(true);
         try {
-            const list = await getKaiwaVideos();
-            setVideos(list || []);
+            const list = await getKaiwaVideos(silent);
+            if (list && Array.isArray(list) && list.length > 0) {
+                setVideos(list);
+            }
         } catch (e) {
             console.error('Error loading kaiwa videos:', e);
         } finally {
@@ -66,7 +71,10 @@ const VideoKaiwaHub = ({ profile, isAdmin, awardXP }) => {
     };
 
     useEffect(() => {
-        loadVideos();
+        const cached = getCachedKaiwaVideos();
+        const hasCached = Array.isArray(cached) && cached.length > 0;
+        // If we already have cached videos in memory/localStorage, load silently in background (SWR pattern)
+        loadVideos(hasCached);
     }, []);
 
     // Filter Videos

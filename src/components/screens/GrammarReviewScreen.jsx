@@ -72,6 +72,35 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const [srsData, setSrsData] = useState(() => (userId ? getCachedUserGrammarSrsData() || {} : {}));
     const [loading, setLoading] = useState(true);
 
+    const allGrammarList = useMemo(() => {
+        const map = new Map();
+        (grammarList || []).forEach(g => {
+            if (g?.id) map.set(String(g.id), g);
+        });
+        Object.entries(srsData || {}).forEach(([id, srsItem]) => {
+            if (!srsItem || !srsItem.pattern) return;
+            const sId = String(id);
+            if (!map.has(sId)) {
+                map.set(sId, {
+                    id: sId,
+                    pattern: srsItem.pattern,
+                    meaning: srsItem.meaning || '',
+                    meaningShort: srsItem.meaningShort || srsItem.meaning || '',
+                    connection: srsItem.connection || srsItem.structure || '',
+                    structure: srsItem.connection || srsItem.structure || '',
+                    usageScope: srsItem.usageScope || '',
+                    notes: srsItem.notes || '',
+                    examples: Array.isArray(srsItem.examples) ? srsItem.examples : [],
+                    textbookTitle: srsItem.textbookTitle || 'Sổ tay ngữ pháp',
+                    lessonTitle: srsItem.lessonTitle || 'Sổ tay',
+                    level: srsItem.level || 'Custom',
+                    isNotebookPoint: true
+                });
+            }
+        });
+        return Array.from(map.values());
+    }, [grammarList, srsData]);
+
     const [reviewMode, setReviewMode] = useState(false);
     const [reviewQueue, setReviewQueue] = useState([]);
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
@@ -150,7 +179,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     }, [awardXP, userId]);
 
     const [showLeechManager, setShowLeechManager] = useState(false);
-    const leechGrammarItems = useMemo(() => grammarList.filter(g => isLeechCard(srsData[g.id]) || isLeechCard(g)), [grammarList, srsData]);
+    const leechGrammarItems = useMemo(() => allGrammarList.filter(g => isLeechCard(srsData[g.id]) || isLeechCard(g)), [allGrammarList, srsData]);
 
     const [flashcardSettings, setFlashcardSettings] = useState(() => {
         try {
@@ -260,12 +289,12 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const dueGrammar = useMemo(() => {
         const now = dashboardTick;
         const threshold = now + getLearnAheadLimitMs();
-        return grammarList.filter(g => {
+        return allGrammarList.filter(g => {
             const srs = srsData[g.id];
             if (!srs) return false;
             return isSrsCardDue(srs, threshold);
         });
-    }, [grammarList, srsData, dashboardTick]);
+    }, [allGrammarList, srsData, dashboardTick]);
 
     const nextDueGrammarInfo = useMemo(() => {
         let earliest = Infinity;
@@ -337,7 +366,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             totalReps, totalReviewed: Object.keys(srsData).length - hasNoSRS,
             daysStudied: reviewDays.size, grammarLearned: Object.keys(srsData).length, streak,
         };
-    }, [grammarList, srsData, dueGrammar]);
+    }, [allGrammarList, srsData, dueGrammar]);
 
     const chartData = useMemo(() => {
         const days = ['CN', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7'];
@@ -446,7 +475,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     }, [srsData, reviewQueue, currentReviewIndex]);
 
     const createGrammarCardFromWaiting = useCallback((itemId) => {
-        const fullCard = grammarList.find(c => c.id === itemId);
+        const fullCard = allGrammarList.find(c => String(c.id) === String(itemId));
         if (!fullCard) return null;
         const localSrs = srsData[itemId];
         return {
@@ -462,7 +491,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             nextReview_back: localSrs ? (localSrs.nextReview_back instanceof Date ? localSrs.nextReview_back : new Date(localSrs.nextReview_back)) : fullCard.nextReview_back,
             lastReviewed: localSrs ? localSrs.lastReviewed : fullCard.lastReviewed
         };
-    }, [grammarList, srsData]);
+    }, [allGrammarList, srsData]);
 
     const handleStudyAhead = useCallback(() => {
         const waiting = getLearningCardsWaiting();
@@ -628,6 +657,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         const now = Date.now();
         const nextReviewOffset = result.nextReviewOffsetMs !== undefined ? result.nextReviewOffsetMs : (result.interval * 60000);
         const newSrs = {
+            ...(srs && typeof srs === 'object' ? srs : {}),
             interval: result.interval,
             ease: result.ease,
             nextReview: now + nextReviewOffset,
@@ -679,7 +709,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         if (currentReviewIndex + 2 >= updatedQueue.length) {
             const nowTime = Date.now();
             const allQueueCardIds = new Set(updatedQueue.map(c => c.id));
-            const newlyDueGrammar = grammarList.filter(g => {
+            const newlyDueGrammar = allGrammarList.filter(g => {
                 if (g.id === currentCard.id) return false;
                 if (completedCardIds.current.has(g.id)) return false;
                 if (allQueueCardIds.has(g.id)) return false;
@@ -777,7 +807,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             }
 
             // 3. When 0 learning cards waiting: check if any other grammar point became newly due/learn-ahead
-            const newlyDueGrammar = (grammarList || []).filter(g => {
+            const newlyDueGrammar = (allGrammarList || []).filter(g => {
                 const srs = srsData[g.id];
                 if (!srs) return false;
                 if (completedCardIds.current.has(g.id)) return false;
@@ -1239,7 +1269,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         // Check for any newly due or learn-ahead grammar points while staying on the completion screen
         const learnAheadMs = getLearnAheadLimitMs();
         const checkWindow = learnAheadMs > 0 ? learnAheadMs : (20 * 60 * 1000);
-        const newlyDueGrammar = (grammarList || []).filter(g => {
+        const newlyDueGrammar = (allGrammarList || []).filter(g => {
             const srs = srsData[g.id];
             if (!srs) return false;
             if (completedCardIds.current.has(g.id)) return false;

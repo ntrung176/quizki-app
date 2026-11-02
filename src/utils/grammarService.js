@@ -879,6 +879,32 @@ export const fetchGrammarPointById = async (grammarId, textbookId, lessonId) => 
         console.warn("Direct Firestore fetch failed:", err);
     }
 
+    // 6. Check user SRS cache for custom/notebook points
+    if (cachedUserGrammarSrsData && cachedUserGrammarSrsData[grammarId] && cachedUserGrammarSrsData[grammarId].pattern) {
+        const item = cachedUserGrammarSrsData[grammarId];
+        return {
+            id: grammarId,
+            pattern: item.pattern,
+            meaning: item.meaning || '',
+            meaningShort: item.meaningShort || item.meaning || '',
+            meaningFull: item.meaning || '',
+            structureRaw: item.connection || item.structure || '',
+            connection: item.connection || item.structure || '',
+            structure: item.connection || item.structure || '',
+            usageScope: item.usageScope || '',
+            notes: item.notes || '',
+            examples: Array.isArray(item.examples) ? item.examples : [],
+            level: item.level || 'Custom',
+            textbookTitle: item.textbookTitle || 'Sổ tay ngữ pháp',
+            lessonTitle: item.lessonTitle || 'Sổ tay',
+            textbookId: 'custom',
+            lessonId: 'custom',
+            textbook: { id: 'custom', title: item.textbookTitle || 'Sổ tay ngữ pháp', titleVi: item.textbookTitle || 'Sổ tay ngữ pháp' },
+            lesson: { id: 'custom', title: item.lessonTitle || 'Sổ tay', meaning: 'Ngữ pháp sổ tay' },
+            isNotebookPoint: true
+        };
+    }
+
     return null;
 };
 
@@ -1401,6 +1427,30 @@ export const getSharedGrammarPointsList = async () => {
                         };
                     }
                 }
+            }
+
+            // 5. Merge notebook/custom grammar points from user's SRS data
+            if (cachedUserGrammarSrsData) {
+                Object.entries(cachedUserGrammarSrsData).forEach(([id, srsItem]) => {
+                    if (srsItem && srsItem.pattern && !seenIds.has(id)) {
+                        seenIds.add(id);
+                        allPoints.push({
+                            id,
+                            pattern: srsItem.pattern,
+                            meaning: srsItem.meaning || '',
+                            meaningShort: srsItem.meaningShort || srsItem.meaning || '',
+                            connection: srsItem.connection || '',
+                            structure: srsItem.connection || srsItem.structure || '',
+                            usageScope: srsItem.usageScope || '',
+                            notes: srsItem.notes || '',
+                            examples: srsItem.examples || [],
+                            textbookTitle: srsItem.textbookTitle || 'Sổ tay ngữ pháp',
+                            lessonTitle: srsItem.lessonTitle || 'Sổ tay',
+                            level: srsItem.level || 'Custom',
+                            isNotebookPoint: true
+                        });
+                    }
+                });
             }
 
             const sorted = sortGrammarPointsByCreationTime(allPoints);

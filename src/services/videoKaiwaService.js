@@ -63,40 +63,64 @@ export const extractYoutubeId = (url) => {
 
 const MOCK_SEED_IDS = new Set(['kaigo_leverage_01', 'konbini_daily_02', 'business_meeting_03']);
 
-// Fetch all Kaiwa videos (Firestore only, purging mock data)
-export const getKaiwaVideos = async () => {
-    try {
-        const q = collection(db, KAIWA_COLLECTION);
-        const snapshot = await getDocs(q);
+let memoryCachedKaiwaVideos = null;
+let pendingVideosPromise = null;
 
-        let firestoreVideos = [];
-        if (!snapshot.empty) {
-            snapshot.forEach(docSnap => {
-                const data = docSnap.data();
-                if (!MOCK_SEED_IDS.has(docSnap.id)) {
-                    firestoreVideos.push({ id: docSnap.id, ...data });
-                }
-            });
-        }
-
-        const finalVideos = firestoreVideos;
-
-        safeSetLocalStorage(CACHE_KEY, JSON.stringify(finalVideos));
-
-        return finalVideos;
-    } catch (error) {
-        console.warn('Error loading kaiwa videos from Firestore, fallback to cache:', error);
-        try {
-            const cached = localStorage.getItem(CACHE_KEY);
-            if (cached) {
-                const parsed = JSON.parse(cached);
-                return parsed.filter(v => !MOCK_SEED_IDS.has(v.id));
-            }
-        } catch (e) {
-            console.warn('Cache read error:', e);
-        }
-        return [];
+export const getCachedKaiwaVideos = () => {
+    if (memoryCachedKaiwaVideos && Array.isArray(memoryCachedKaiwaVideos) && memoryCachedKaiwaVideos.length > 0) {
+        return memoryCachedKaiwaVideos;
     }
+    try {
+        const cached = localStorage.getItem(CACHE_KEY);
+        if (cached) {
+            const parsed = JSON.parse(cached);
+            if (Array.isArray(parsed) && parsed.length > 0) {
+                memoryCachedKaiwaVideos = parsed.filter(v => !MOCK_SEED_IDS.has(v?.id));
+                return memoryCachedKaiwaVideos;
+            }
+        }
+    } catch (_) {}
+    return null;
+};
+
+// Fetch all Kaiwa videos (Firestore with in-memory & local cache SWR)
+export const getKaiwaVideos = async (forceRefresh = false) => {
+    if (!forceRefresh && memoryCachedKaiwaVideos && memoryCachedKaiwaVideos.length > 0) {
+        return memoryCachedKaiwaVideos;
+    }
+    if (pendingVideosPromise && !forceRefresh) {
+        return pendingVideosPromise;
+    }
+
+    pendingVideosPromise = (async () => {
+        try {
+            const q = collection(db, KAIWA_COLLECTION);
+            const snapshot = await getDocs(q);
+
+            let firestoreVideos = [];
+            if (!snapshot.empty) {
+                snapshot.forEach(docSnap => {
+                    const data = docSnap.data();
+                    if (!MOCK_SEED_IDS.has(docSnap.id)) {
+                        firestoreVideos.push({ id: docSnap.id, ...data });
+                    }
+                });
+            }
+
+            memoryCachedKaiwaVideos = firestoreVideos;
+            safeSetLocalStorage(CACHE_KEY, JSON.stringify(firestoreVideos));
+            pendingVideosPromise = null;
+            return firestoreVideos;
+        } catch (error) {
+            console.warn('Error loading kaiwa videos from Firestore, fallback to cache:', error);
+            pendingVideosPromise = null;
+            const cached = getCachedKaiwaVideos();
+            if (cached) return cached;
+            return [];
+        }
+    })();
+
+    return pendingVideosPromise;
 };
 
 // Save or Update a Kaiwa Video (Admin only)
@@ -119,6 +143,7 @@ export const saveKaiwaVideo = async (videoData) => {
         } else {
             list.unshift(videoData);
         }
+        memoryCachedKaiwaVideos = list;
         safeSetLocalStorage(CACHE_KEY, JSON.stringify(list));
     } catch (e) {
         console.warn('Cache update error:', e);
@@ -143,6 +168,7 @@ export const deleteKaiwaVideo = async (videoId) => {
         const cached = localStorage.getItem(CACHE_KEY);
         if (cached) {
             const list = JSON.parse(cached).filter(v => v.id !== videoId);
+            memoryCachedKaiwaVideos = list;
             safeSetLocalStorage(CACHE_KEY, JSON.stringify(list));
         }
     } catch (e) {
