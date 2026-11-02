@@ -6,6 +6,7 @@ import {
 import { TopTabBar, PremiumLockedModal } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
 import { showToast } from '../../utils/toast';
+import GrammarSpecializedSubNav from '../grammar/GrammarSpecializedSubNav';
 
 const JLPT_LEVEL_TABS = [
     { key: 'ALL', label: 'Tất cả' },
@@ -95,6 +96,7 @@ const GrammarCurriculumScreen = ({ isAdmin = false, profile = null }) => {
             <TopTabBar tabs={GRAMMAR_TABS} activeTab="grammar-curriculum" />
 
             <div className="max-w-6xl mx-auto px-4 mt-4 sm:mt-6 space-y-5 sm:space-y-6 animate-fade-in">
+                <GrammarSpecializedSubNav />
                 {/* Level selector tabs - Duolingo 3D */}
                 <div className="flex flex-col items-center gap-3">
                     <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">

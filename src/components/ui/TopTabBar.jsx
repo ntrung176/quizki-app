@@ -28,6 +28,17 @@ const isTabActive = (tab, pathname, search) => {
                pathname === '/grammar/study' || 
                pathname.startsWith('/grammar/textbook');
     }
+
+    if (tab.id === 'grammar-specialized') {
+        return pathname.startsWith('/grammar/curriculum') ||
+               pathname.startsWith('/grammar/nuances') ||
+               pathname.startsWith('/grammar/cheatsheets');
+    }
+
+    if (tab.id === 'grammar-notebook') {
+        return pathname.startsWith('/grammar/notebook');
+    }
+
     return pathname === tab.route || (tab.exact === false && pathname.startsWith(tab.route));
 };
 
@@ -53,13 +64,15 @@ const TopTabBar = ({ tabs, theme }) => {
             return t('tabs.review', 'Ôn tập');
         }
         if (tab.id === 'vocab-list') return t('tabs.library', 'Thư viện');
-        if (tab.id === 'vocab-add') return t('tabs.addSet', 'Thêm học phần');
+        if (tab.id === 'vocab-add') return t('tabs.addSet', 'Thêm từ vựng');
         if (tab.id === 'vocab-books') return t('tabs.curriculum', 'Giáo trình');
         if (tab.id === 'kanji-study' || tab.id === 'grammar-study') {
             return t('tabs.lessons', 'Bài học');
         }
         if (tab.id === 'kanji-saved' || tab.id === 'grammar-saved') return t('tabs.saved', 'Đã lưu');
         if (tab.id === 'kanji-list' || tab.id === 'grammar-list') return t('tabs.search', 'Tra cứu');
+        if (tab.id === 'grammar-specialized') return t('tabs.specialized', 'Chuyên đề');
+        if (tab.id === 'grammar-notebook') return t('tabs.grammarNotebook', 'Sổ tay ngữ pháp');
         if (tab.id === 'grammar-nuances') return t('tabs.mindmap', 'Bản đồ tư duy');
         if (tab.id === 'grammar-curriculum') return t('tabs.topics', 'Chủ đề');
         if (tab.id === 'grammar-cheatsheets') return t('tabs.cheatsheets', 'Sổ tay chuyên đề');

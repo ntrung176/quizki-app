@@ -9,6 +9,7 @@ import { TopTabBar, PremiumLockedModal } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
 import { speakExampleSentence } from '../../utils/audio';
 import GrammarNuanceMindmapCard from '../grammar/GrammarNuanceMindmapCard';
+import GrammarSpecializedSubNav from '../grammar/GrammarSpecializedSubNav';
 
 const LEVEL_COLORS = {
     N5: { bg: 'bg-emerald-500', text: 'text-emerald-500', lightBg: 'bg-emerald-50 dark:bg-emerald-950/40', border: 'border-emerald-200 dark:border-emerald-800' },
@@ -120,6 +121,7 @@ const GrammarNuancesScreen = ({ isAdmin = false, profile = null }) => {
             <TopTabBar tabs={GRAMMAR_TABS} />
 
             <div className="max-w-6xl mx-auto px-3.5 sm:px-5 md:px-8 mt-2 space-y-5 sm:space-y-6 animate-fade-in">
+                <GrammarSpecializedSubNav />
                 {/* 2. Compact Filters & Search Bar */}
                 <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs rounded-3xl border-2 border-b-4 border-slate-200 dark:border-slate-800 p-3.5 sm:p-4 shadow-xs flex flex-col md:flex-row items-center justify-between gap-3">
                     {/* Level Selector */}

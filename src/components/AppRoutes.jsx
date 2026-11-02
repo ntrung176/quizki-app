@@ -95,6 +95,9 @@ const GrammarCheatSheetsScreen = lazyWithRetry(() => import('./screens/GrammarCh
 const GrammarCheatSheetDetailScreen = lazyWithRetry(() => import('./screens/GrammarCheatSheetDetailScreen'));
 const GrammarCurriculumScreen = lazyWithRetry(() => import('./screens/GrammarCurriculumScreen'));
 const GrammarTopicDetailScreen = lazyWithRetry(() => import('./screens/GrammarTopicDetailScreen'));
+const GrammarNotebookListScreen = lazyWithRetry(() => import('./screens/GrammarNotebookListScreen'));
+const GrammarNotebookEditScreen = lazyWithRetry(() => import('./screens/GrammarNotebookEditScreen'));
+const GrammarNotebookStudyScreen = lazyWithRetry(() => import('./screens/GrammarNotebookStudyScreen'));
 
 // Import card components
 import {
@@ -1301,6 +1304,22 @@ const AppRoutes = ({
                 <Route
                     path={ROUTES.GRAMMAR_STUDY}
                     element={<GrammarTextbooksScreen isAdmin={isAdmin} profile={profile} />}
+                />
+                <Route
+                    path={ROUTES.GRAMMAR_NOTEBOOK}
+                    element={<GrammarNotebookListScreen profile={profile} />}
+                />
+                <Route
+                    path={ROUTES.GRAMMAR_NOTEBOOK_CREATE}
+                    element={<GrammarNotebookEditScreen profile={profile} />}
+                />
+                <Route
+                    path={ROUTES.GRAMMAR_NOTEBOOK_EDIT}
+                    element={<GrammarNotebookEditScreen profile={profile} />}
+                />
+                <Route
+                    path={ROUTES.GRAMMAR_NOTEBOOK_STUDY}
+                    element={<GrammarNotebookStudyScreen profile={profile} />}
                 />
 
                 {/* Cài đặt */}

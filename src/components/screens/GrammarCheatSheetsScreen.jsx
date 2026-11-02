@@ -6,6 +6,7 @@ import {
 import { TopTabBar, PremiumLockedModal } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
 import { showToast } from '../../utils/toast';
+import GrammarSpecializedSubNav from '../grammar/GrammarSpecializedSubNav';
 
 const CATEGORIES = [
     { id: 'all', label: 'Tất cả' },
@@ -90,6 +91,7 @@ const GrammarCheatSheetsScreen = ({ isAdmin = false, profile = null }) => {
             <TopTabBar tabs={GRAMMAR_TABS} activeTab="grammar-cheatsheets" />
 
             <div className="max-w-6xl mx-auto px-4 mt-6 space-y-6 animate-fade-in">
+                <GrammarSpecializedSubNav />
                 {/* Category Filter Chips - Duolingo Tactile 3D Buttons */}
                 <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar justify-start sm:justify-center">
                     {CATEGORIES.map(cat => {
