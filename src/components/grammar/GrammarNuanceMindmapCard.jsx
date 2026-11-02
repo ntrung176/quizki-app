@@ -48,7 +48,7 @@ const BRANCH_THEMES = [
         title: 'So Sánh & Phân Biệt Sắc Thái',
         subtitle: 'Đối chiếu với các mẫu câu tương tự dễ nhầm',
         icon: Zap,
-        color: 'from-teal-600 to-fuchsia-600',
+        color: 'from-teal-600 to-cyan-600',
         badgeBg: 'bg-teal-600 text-white',
         borderActive: 'border-teal-500',
         lightBg: 'bg-teal-50 dark:bg-teal-950/30',
@@ -128,12 +128,12 @@ const GrammarNuanceMindmapCard = ({ nuances = [], pattern = '' }) => {
     const coreSummary = nuances[0]?.coreMeaning || '';
 
     return (
-        <div className="bg-white dark:bg-slate-900 rounded-3xl border border-emerald-100 dark:border-emerald-950/60 p-4 sm:p-7 shadow-sm space-y-6">
+        <div className="bg-white dark:bg-slate-900 rounded-3xl border-2 border-b-4 border-slate-200 dark:border-slate-800 p-4 sm:p-6 shadow-sm space-y-5">
             
             {/* 1. Header Banner */}
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 dark:border-slate-800 pb-4">
                 <div className="flex items-center gap-3.5">
-                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-emerald-600 via-emerald-700 to-teal-600 text-white flex items-center justify-center shrink-0 shadow-md shadow-emerald-500/20">
+                    <div className="w-12 h-12 rounded-2xl bg-emerald-500 border-b-4 border-emerald-700 text-white flex items-center justify-center shrink-0 shadow-xs">
                         <Brain className="w-6 h-6" />
                     </div>
                     <div>
@@ -155,7 +155,7 @@ const GrammarNuanceMindmapCard = ({ nuances = [], pattern = '' }) => {
                     <button
                         type="button"
                         onClick={() => speakExampleSentence(pattern)}
-                        className="px-3 py-1.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 hover:bg-emerald-100 dark:hover:bg-emerald-900/80 text-emerald-600 dark:text-emerald-300 text-xs font-bold flex items-center gap-1.5 transition-colors cursor-pointer border border-emerald-200/60 dark:border-emerald-900/60 shadow-xs"
+                        className="px-3.5 py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950 dark:hover:bg-emerald-900 text-emerald-600 dark:text-emerald-300 text-xs font-black flex items-center gap-1.5 transition-colors cursor-pointer border-2 border-b-4 border-emerald-300 dark:border-emerald-700 active:translate-y-0.5 active:border-b-2 shadow-xs"
                     >
                         <Volume2 className="w-4 h-4" />
                         <span>Phát âm mẫu câu</span>
@@ -164,7 +164,7 @@ const GrammarNuanceMindmapCard = ({ nuances = [], pattern = '' }) => {
             </div>
 
             {/* 2. Visual Center Mindmap Hub (Gốc trung tâm) */}
-            <div className="relative p-5 sm:p-6 rounded-3xl bg-gradient-to-br from-emerald-900 via-slate-900 to-slate-950 text-white border border-emerald-500/30 shadow-xl overflow-hidden space-y-3 text-center">
+            <div className="relative p-5 sm:p-6 rounded-3xl bg-slate-900 dark:bg-slate-950 text-white border-2 border-b-4 border-emerald-700/60 shadow-lg overflow-hidden space-y-3 text-center">
                 <div className="absolute -right-8 -top-8 w-40 h-40 bg-emerald-500/10 rounded-full blur-2xl pointer-events-none" />
                 <div className="absolute -left-8 -bottom-8 w-40 h-40 bg-teal-500/10 rounded-full blur-2xl pointer-events-none" />
 
@@ -184,7 +184,7 @@ const GrammarNuanceMindmapCard = ({ nuances = [], pattern = '' }) => {
                 )}
             </div>
 
-            {/* 3. Mindmap Branch Selector Tabs (6 Trục tư duy lớn - Rõ ràng, không bị cắt chữ) */}
+            {/* 3. Mindmap Branch Selector Tabs (6 Trục tư duy lớn - Rõ ràng, Duolingo 3D style) */}
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-2.5">
                 {activeThemes.map((theme) => {
                     const Icon = theme.icon;
@@ -195,10 +195,10 @@ const GrammarNuanceMindmapCard = ({ nuances = [], pattern = '' }) => {
                         <button
                             key={theme.id}
                             onClick={() => setSelectedThemeId(theme.id)}
-                            className={`p-3 rounded-2xl border text-left transition-all duration-200 cursor-pointer flex flex-col justify-between gap-2 active:scale-95 ${
+                            className={`p-3 rounded-2xl border-2 border-b-4 text-left transition-all duration-200 cursor-pointer flex flex-col justify-between gap-2 active:translate-y-0.5 select-none ${
                                 isSelected
-                                    ? `bg-gradient-to-br ${theme.color} text-white shadow-md ring-2 ring-offset-2 ${theme.ringColor} border-transparent`
-                                    : 'bg-white dark:bg-slate-800/80 border-slate-200 dark:border-slate-700/80 text-slate-700 dark:text-slate-300 hover:border-emerald-400 hover:bg-slate-50 dark:hover:bg-slate-800'
+                                    ? 'bg-emerald-500 text-white border-emerald-700 shadow-sm active:border-b-0'
+                                    : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:border-emerald-400 active:border-b-2'
                             }`}
                         >
                             <div className="flex items-center justify-between w-full">

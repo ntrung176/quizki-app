@@ -352,7 +352,7 @@ const GrammarSavedScreen = () => {
             <div className="max-w-7xl mx-auto px-4 mt-6 animate-fade-in">
                 <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
                     <div className="lg:col-span-3 space-y-6">
-                        <div className="bg-white dark:bg-slate-800 rounded-3xl p-6 shadow-sm border border-gray-200/60 dark:border-slate-700/60 space-y-4">
+                        <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs rounded-3xl p-6 shadow-xs border-2 border-b-4 border-slate-200 dark:border-slate-800 space-y-4">
                             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                                 <h1 className="text-xl font-extrabold text-gray-800 dark:text-white flex items-center gap-2">
                                     <Heart className="w-6 h-6 text-pink-500 fill-pink-500" />
@@ -504,7 +504,7 @@ const GrammarSavedScreen = () => {
                                         <div 
                                             key={item.id} 
                                             onClick={() => navigate(`/grammar/detail/${item.id}?tb=${item.textbookId || ''}&ls=${item.lessonId || ''}&from=saved`)}
-                                            className={`bg-white dark:bg-slate-800 border rounded-2xl p-4 shadow-sm hover:shadow-md hover:border-slate-300 dark:hover:border-slate-600 transition-all duration-300 flex items-start gap-3 cursor-pointer group relative ${isSelected ? 'border-emerald-500 dark:border-emerald-500 bg-emerald-50/5' : 'border-gray-200/60 dark:border-slate-700/60'}`}
+                                            className={`bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs border-2 border-b-4 rounded-2xl p-4 shadow-xs hover:border-emerald-400 dark:hover:border-emerald-500 hover:shadow-lg active:translate-y-0.5 active:border-b-2 transition-all duration-200 flex items-start gap-3 cursor-pointer group relative ${isSelected ? 'border-emerald-500 ring-2 ring-emerald-500/40 bg-emerald-50/20' : 'border-slate-200 dark:border-slate-800'}`}
                                         >
                                             <div onClick={(e) => { e.stopPropagation(); handleSelectOne(item.id); }} className="pt-0.5 select-none relative z-10">
                                                 <div className={`w-4 h-4 rounded-md border flex items-center justify-center transition-all ${isSelected ? 'bg-emerald-600 border-emerald-600 text-white' : 'border-slate-300 dark:border-slate-655 bg-white dark:bg-slate-900'}`}>
@@ -582,7 +582,7 @@ const GrammarSavedScreen = () => {
                     </div>
 
                     <div className="space-y-6">
-                        <div className="bg-white dark:bg-slate-800 rounded-3xl p-5 border border-slate-200/65 dark:border-slate-700/60 shadow-sm space-y-5">
+                        <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs rounded-3xl p-5 border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-xs space-y-5">
                             <h3 className="font-extrabold text-gray-800 dark:text-white text-sm flex items-center gap-2 pb-3 border-b border-slate-100 dark:border-slate-750">
                                 Xem gần đây
                             </h3>
@@ -613,7 +613,7 @@ const GrammarSavedScreen = () => {
                             )}
                         </div>
 
-                        <div className="bg-white dark:bg-slate-800 rounded-3xl p-5 border border-slate-200/65 dark:border-slate-700/60 shadow-sm space-y-5">
+                        <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs rounded-3xl p-5 border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-xs space-y-5">
                             <h3 className="font-extrabold text-gray-800 dark:text-white text-sm flex items-center gap-2 pb-3 border-b border-slate-100 dark:border-slate-750">
                                 Lịch sử ôn tập
                             </h3>

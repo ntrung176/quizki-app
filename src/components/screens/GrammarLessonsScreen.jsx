@@ -115,11 +115,11 @@ const GrammarLessonsScreen = ({ isAdmin, profile = null }) => {
             <TopTabBar tabs={GRAMMAR_TABS} />
             <div className="max-w-4xl mx-auto space-y-6 animate-fade-in px-4 md:px-0 mt-4">
                 {/* Header Banner */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-5 md:p-6 shadow-sm">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl p-5 md:p-6 shadow-xs">
                     <div className="flex items-start gap-3.5 flex-1 min-w-0">
                         <button
                             onClick={() => navigate('/grammar/study')}
-                            className="flex items-center justify-center w-9 h-9 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors shadow-2xs shrink-0 mt-0.5 cursor-pointer"
+                            className="flex items-center justify-center w-10 h-10 rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-b-4 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-emerald-400 active:translate-y-0.5 active:border-b-2 transition-all shadow-xs shrink-0 mt-0.5 cursor-pointer"
                             title="Quay lại danh sách giáo trình"
                         >
                             <ChevronLeft className="w-4 h-4" />
@@ -236,7 +236,7 @@ const GrammarLessonsScreen = ({ isAdmin, profile = null }) => {
                         }
                     };
                     return (
-                        <div key={lesson.id} className="group relative text-left p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300">
+                        <div key={lesson.id} className="group relative text-left p-3.5 sm:p-5 rounded-2xl sm:rounded-3xl border-2 border-b-4 border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs hover:border-emerald-400 dark:hover:border-emerald-500 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0.5 active:border-b-2 transition-all duration-200">
                             <button onClick={handleLessonClick} className="w-full text-left">
                                 <div className="flex items-center gap-2">
                                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">{lesson.sectionLabel}</p>

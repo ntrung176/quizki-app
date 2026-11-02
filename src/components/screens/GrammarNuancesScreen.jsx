@@ -115,15 +115,15 @@ const GrammarNuancesScreen = ({ isAdmin = false, profile = null }) => {
     };
 
     return (
-        <div className="grammar-nuances-screen min-h-screen bg-[#FAFBFD] dark:bg-slate-950 font-sans text-slate-900 dark:text-slate-100 pb-24">
+        <div className="grammar-nuances-screen min-h-screen bg-transparent font-sans text-slate-900 dark:text-slate-100 pb-24">
             {/* 1. Navigation Top Bar */}
             <TopTabBar tabs={GRAMMAR_TABS} />
 
-            <div className="max-w-6xl mx-auto px-3.5 sm:px-5 md:px-8 mt-2 space-y-6 sm:space-y-8 animate-fade-in">
+            <div className="max-w-6xl mx-auto px-3.5 sm:px-5 md:px-8 mt-2 space-y-5 sm:space-y-6 animate-fade-in">
                 {/* 2. Compact Filters & Search Bar */}
-                <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-4 sm:p-5 shadow-xs flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs rounded-3xl border-2 border-b-4 border-slate-200 dark:border-slate-800 p-3.5 sm:p-4 shadow-xs flex flex-col md:flex-row items-center justify-between gap-3">
                     {/* Level Selector */}
-                    <div className="flex flex-wrap items-center gap-1.5 p-1 bg-slate-100 dark:bg-slate-800/80 rounded-2xl w-full md:w-auto">
+                    <div className="flex flex-wrap items-center gap-1 p-1 bg-slate-100 dark:bg-slate-800/80 rounded-2xl w-full md:w-auto">
                         {[
                             { key: 'all', label: 'Tất cả' },
                             { key: 'N5', label: 'N5' },
@@ -138,10 +138,10 @@ const GrammarNuancesScreen = ({ isAdmin = false, profile = null }) => {
                                     setSelectedLevel(lvl.key);
                                     setDisplayLimit(24);
                                 }}
-                                className={`px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-extrabold rounded-xl transition-all cursor-pointer ${
+                                className={`px-3.5 sm:px-4 py-1.5 text-xs sm:text-sm font-black rounded-xl transition-all cursor-pointer ${
                                     selectedLevel === lvl.key
-                                        ? 'bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-xs'
-                                        : 'text-slate-500 hover:text-slate-800 dark:text-slate-400'
+                                        ? 'bg-emerald-500 text-white border-b-2 border-emerald-700 shadow-xs'
+                                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                                 }`}
                             >
                                 {lvl.label}
@@ -160,7 +160,7 @@ const GrammarNuancesScreen = ({ isAdmin = false, profile = null }) => {
                                 setDisplayLimit(24);
                             }}
                             placeholder="Tìm mẫu câu (VD: ものの, あげく, わけ...)"
-                            className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 rounded-2xl pl-9 pr-8 py-2.5 text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500"
+                            className="w-full bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-2xl pl-9 pr-8 py-2 text-xs sm:text-sm font-medium text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500"
                         />
                         {searchQuery && (
                             <button 
@@ -180,13 +180,13 @@ const GrammarNuancesScreen = ({ isAdmin = false, profile = null }) => {
                         <p className="text-xs font-bold text-slate-400">Đang tải thư viện sơ đồ tư duy...</p>
                     </div>
                 ) : filteredPatterns.length === 0 ? (
-                    <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-12 text-center space-y-3">
+                    <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs rounded-3xl border-2 border-b-4 border-slate-200 dark:border-slate-800 p-12 text-center space-y-3 shadow-xs">
                         <Brain className="w-12 h-12 text-slate-300 mx-auto" />
                         <h3 className="text-base font-bold text-slate-700 dark:text-slate-300">Không tìm thấy mẫu câu phù hợp</h3>
                         <p className="text-xs text-slate-400">Thử tìm kiếm với từ khóa khác hoặc chuyển sang cấp độ khác</p>
                     </div>
                 ) : (
-                    <div className="space-y-6">
+                    <div className="space-y-5">
                         <div className="flex items-center justify-between text-xs font-bold text-slate-400 px-1">
                             <span>Hiển thị {Math.min(filteredPatterns.length, displayLimit)} / {filteredPatterns.length} mẫu câu tư duy</span>
                         </div>
@@ -206,13 +206,13 @@ const GrammarNuancesScreen = ({ isAdmin = false, profile = null }) => {
                                             }
                                             setSelectedPatternKey(item.rawKey);
                                         }}
-                                        className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-5 hover:border-emerald-500 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden"
+                                        className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs rounded-3xl border-2 border-b-4 border-slate-200 dark:border-slate-800 p-5 hover:border-emerald-400 dark:hover:border-emerald-500 hover:shadow-lg hover:-translate-y-1 active:translate-y-0.5 active:border-b-2 transition-all duration-200 cursor-pointer flex flex-col justify-between group relative overflow-hidden"
                                     >
                                         <div className="space-y-3">
                                             {/* Header Tags */}
                                             <div className="flex items-center justify-between gap-2">
                                                 <div className="flex items-center gap-2">
-                                                    <span className={`px-2.5 py-0.5 rounded-lg text-[11px] font-black text-white ${lvlColor.bg} flex items-center gap-1`}>
+                                                    <span className={`px-2.5 py-0.5 rounded-lg text-[11px] font-black text-white ${lvlColor.bg} flex items-center gap-1 shadow-xs`}>
                                                         {isLocked && <span>🔒</span>}
                                                         <span>{item.level}</span>
                                                     </span>
@@ -224,11 +224,11 @@ const GrammarNuancesScreen = ({ isAdmin = false, profile = null }) => {
                                                 </div>
 
                                                 {isLocked ? (
-                                                    <span className="px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 border border-amber-200 dark:border-amber-900/60 flex items-center gap-1">
+                                                    <span className="px-2 py-0.5 rounded-md text-[10px] font-black bg-amber-50 dark:bg-amber-950 text-amber-600 dark:text-amber-400 border border-amber-300 dark:border-amber-800 flex items-center gap-1">
                                                         <span>Khóa Premium</span>
                                                     </span>
                                                 ) : (
-                                                    <span className="px-2 py-0.5 rounded-md text-[10px] font-extrabold bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-100 dark:border-emerald-900/60 flex items-center gap-1">
+                                                    <span className="px-2 py-0.5 rounded-md text-[10px] font-black bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 flex items-center gap-1">
                                                         <Brain className="w-3 h-3" />
                                                         <span>{item.nodeCount} nhánh</span>
                                                     </span>
@@ -263,7 +263,7 @@ const GrammarNuancesScreen = ({ isAdmin = false, profile = null }) => {
 
                                             {/* Preview Node / Definition */}
                                             {item.definition && (
-                                                <p className="text-xs text-slate-500 dark:text-slate-400 font-normal leading-relaxed line-clamp-2 bg-slate-50 dark:bg-slate-950/60 p-2.5 rounded-xl border border-slate-100 dark:border-slate-800/80">
+                                                <p className="text-xs text-slate-500 dark:text-slate-400 font-normal leading-relaxed line-clamp-2 bg-slate-50 dark:bg-slate-800/60 p-2.5 rounded-xl border border-slate-100 dark:border-slate-700/60">
                                                     {item.definition.replace(/\*\*/g, '')}
                                                 </p>
                                             )}
@@ -284,10 +284,10 @@ const GrammarNuancesScreen = ({ isAdmin = false, profile = null }) => {
 
                         {/* Load More Button */}
                         {filteredPatterns.length > displayLimit && (
-                            <div className="text-center pt-4">
+                            <div className="text-center pt-3">
                                 <button
                                     onClick={() => setDisplayLimit(prev => prev + 24)}
-                                    className="px-6 py-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500 text-slate-700 dark:text-slate-200 hover:text-emerald-600 font-bold text-xs sm:text-sm rounded-2xl shadow-xs transition-all cursor-pointer"
+                                    className="px-6 py-2.5 bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 hover:border-emerald-400 text-slate-700 dark:text-slate-200 hover:text-emerald-600 font-black text-xs uppercase tracking-wider rounded-2xl shadow-xs transition-all active:translate-y-0.5 active:border-b-2 cursor-pointer"
                                 >
                                     Xem thêm 24 mẫu câu ({filteredPatterns.length - displayLimit} mẫu còn lại)
                                 </button>

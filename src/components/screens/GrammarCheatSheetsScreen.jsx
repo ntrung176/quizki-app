@@ -85,12 +85,12 @@ const GrammarCheatSheetsScreen = ({ isAdmin = false, profile = null }) => {
     }, [sheets, selectedCategory, showSavedOnly, savedSheets, searchQuery]);
 
     return (
-        <div className="min-h-screen bg-[#fcfcfc] dark:bg-slate-950 text-slate-900 dark:text-white pb-24">
+        <div className="min-h-screen bg-transparent font-sans text-slate-900 dark:text-white pb-24">
             {/* Top Bar Tabs */}
             <TopTabBar tabs={GRAMMAR_TABS} activeTab="grammar-cheatsheets" />
 
             <div className="max-w-6xl mx-auto px-4 mt-6 space-y-6 animate-fade-in">
-                {/* Category Filter Chips - Minimal Monochrome */}
+                {/* Category Filter Chips - Duolingo Tactile 3D Buttons */}
                 <div className="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar justify-start sm:justify-center">
                     {CATEGORIES.map(cat => {
                         const isActive = selectedCategory === cat.id;
@@ -98,10 +98,10 @@ const GrammarCheatSheetsScreen = ({ isAdmin = false, profile = null }) => {
                             <button
                                 key={cat.id}
                                 onClick={() => setSelectedCategory(cat.id)}
-                                className={`px-4 py-2 rounded-2xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-200 cursor-pointer shrink-0 ${
+                                className={`px-4 py-2 rounded-2xl text-xs sm:text-sm font-bold whitespace-nowrap transition-all duration-150 cursor-pointer shrink-0 active:scale-95 ${
                                     isActive
-                                        ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-950 border border-slate-900 dark:border-white shadow-sm font-black'
-                                        : 'bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-slate-400 dark:hover:border-slate-600'
+                                        ? 'bg-emerald-500 text-white border-2 border-b-4 border-emerald-700 shadow-xs font-black active:translate-y-0.5 active:border-b-2'
+                                        : 'bg-white/95 dark:bg-slate-900/95 text-slate-600 dark:text-slate-300 border-2 border-b-4 border-slate-200 dark:border-slate-800 hover:border-emerald-400 dark:hover:border-emerald-600'
                                 }`}
                             >
                                 {cat.label}
@@ -110,8 +110,8 @@ const GrammarCheatSheetsScreen = ({ isAdmin = false, profile = null }) => {
                     })}
                 </div>
 
-                {/* Search Bar & Header Card - Minimal B&W */}
-                <div className="bg-white dark:bg-slate-900 rounded-3xl p-4 sm:p-6 border border-slate-200 dark:border-slate-800 shadow-xs flex flex-col md:flex-row items-center justify-between gap-4">
+                {/* Search Bar & Header Card - Duolingo Solid Card */}
+                <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs rounded-3xl p-4 sm:p-6 border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-xs flex flex-col md:flex-row items-center justify-between gap-4">
                     <div className="space-y-1 text-center md:text-left w-full md:w-auto">
                         <h2 className="text-base sm:text-lg font-black text-slate-900 dark:text-white flex items-center justify-center md:justify-start gap-2 flex-wrap">
                             <span>Sổ tay Chuyên đề Ngữ pháp</span>
@@ -132,7 +132,7 @@ const GrammarCheatSheetsScreen = ({ isAdmin = false, profile = null }) => {
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
                                 placeholder="Tìm trợ từ, kính ngữ, thể bị động..."
-                                className="w-full pl-10 pr-10 py-2.5 sm:py-3 text-xs sm:text-sm bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-2xl outline-none text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:border-slate-900 dark:focus:border-white focus:ring-1 focus:ring-slate-900 dark:focus:ring-white transition-all"
+                                className="w-full pl-10 pr-10 py-2.5 sm:py-3 text-xs sm:text-sm bg-slate-50 dark:bg-slate-950 border-2 border-slate-200 dark:border-slate-800 rounded-2xl outline-none text-slate-800 dark:text-slate-100 placeholder:text-slate-400 focus:border-emerald-500 dark:focus:border-emerald-400 transition-all font-sans"
                             />
                             {searchQuery && (
                                 <button
@@ -148,14 +148,14 @@ const GrammarCheatSheetsScreen = ({ isAdmin = false, profile = null }) => {
                         {/* Saved Filter Button */}
                         <button
                             onClick={() => setShowSavedOnly(prev => !prev)}
-                            className={`px-4 py-2.5 sm:py-3 rounded-2xl border text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer shrink-0 ${
+                            className={`px-4 py-2.5 sm:py-3 rounded-2xl border-2 border-b-4 text-xs font-black flex items-center gap-1.5 transition-all cursor-pointer shrink-0 active:translate-y-0.5 active:border-b-2 ${
                                 showSavedOnly
-                                    ? 'bg-rose-50 dark:bg-rose-950/40 border-rose-300 dark:border-rose-800 text-rose-600 dark:text-rose-400 shadow-xs'
-                                    : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-slate-400 dark:hover:border-slate-600'
+                                    ? 'bg-rose-500 text-white border-rose-700 shadow-xs'
+                                    : 'bg-white/95 dark:bg-slate-900/95 border-slate-200 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:border-rose-400 dark:hover:border-rose-600'
                             }`}
                             title={showSavedOnly ? 'Hiển thị tất cả' : 'Chỉ hiển thị sổ tay đã lưu'}
                         >
-                            <Heart className={`w-4 h-4 transition-colors ${showSavedOnly ? 'fill-rose-500 text-rose-500' : 'text-slate-400'}`} />
+                            <Heart className={`w-4 h-4 transition-colors ${showSavedOnly ? 'fill-white text-white' : 'text-slate-400'}`} />
                             <span className="hidden sm:inline">Đã lưu</span>
                         </button>
                     </div>
@@ -200,18 +200,18 @@ const GrammarCheatSheetsScreen = ({ isAdmin = false, profile = null }) => {
                                         }
                                         navigate(`/grammar/cheatsheets/${sheet.id}`);
                                     }}
-                                    className="group relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 hover:border-slate-900 dark:hover:border-slate-400 hover:shadow-xl hover:-translate-y-1 transition-all duration-200 flex flex-col justify-between cursor-pointer"
+                                    className="group relative bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl p-6 hover:border-emerald-400 dark:hover:border-emerald-500 hover:shadow-lg hover:-translate-y-1 active:translate-y-0.5 active:border-b-2 transition-all duration-200 flex flex-col justify-between cursor-pointer"
                                 >
                                     <div>
                                         {/* Top Header: Icon + Level + Heart Button */}
                                         <div className="flex items-start justify-between gap-3 mb-4">
-                                            <div className="w-12 h-12 rounded-2xl bg-slate-50 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-2xl group-hover:bg-slate-900 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-slate-900 transition-colors shadow-xs select-none">
+                                            <div className="w-12 h-12 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border-2 border-b-4 border-amber-300 dark:border-amber-700 flex items-center justify-center text-2xl group-hover:scale-105 transition-transform shadow-xs select-none">
                                                 {sheet.icon || '📖'}
                                             </div>
 
                                             <div className="flex items-center gap-2">
                                                 {sheet.level && (
-                                                    <span className={`px-2.5 py-1 rounded-xl text-[11px] font-extrabold border ${isLocked ? 'border-amber-300 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300' : 'border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300'} flex items-center gap-1`}>
+                                                    <span className={`px-2.5 py-1 rounded-xl text-[11px] font-black border-2 border-b-2 ${isLocked ? 'border-amber-300 dark:border-amber-800 bg-amber-50 dark:bg-amber-950/40 text-amber-700 dark:text-amber-300' : 'border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-300'} flex items-center gap-1`}>
                                                         {isLocked && <span>🔒</span>}
                                                         <span>{sheet.level}</span>
                                                     </span>
@@ -221,7 +221,7 @@ const GrammarCheatSheetsScreen = ({ isAdmin = false, profile = null }) => {
                                                 <button
                                                     type="button"
                                                     onClick={(e) => toggleSaveSheet(e, sheet.id, sheet.title)}
-                                                    className="p-1.5 rounded-xl text-slate-400 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition-all cursor-pointer active:scale-90"
+                                                    className="p-1.5 rounded-xl border-2 border-b-2 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-400 hover:text-rose-500 hover:border-rose-300 transition-all cursor-pointer active:scale-90"
                                                     title={isSaved ? "Bỏ lưu sổ tay" : "Lưu sổ tay yêu thích"}
                                                 >
                                                     <Heart className={`w-4 h-4 transition-colors ${isSaved ? 'fill-rose-500 text-rose-500' : ''}`} />
@@ -246,13 +246,13 @@ const GrammarCheatSheetsScreen = ({ isAdmin = false, profile = null }) => {
                                     </div>
 
                                     {/* Footer Info */}
-                                    <div className="pt-3 border-t border-slate-100 dark:border-slate-800">
+                                    <div className="pt-3 border-t-2 border-slate-100 dark:border-slate-800/80">
                                         <div className="flex items-center justify-between">
                                             <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
                                                 {sheet.sections?.length || 0} bảng quy tắc
                                             </span>
 
-                                            <div className={`flex items-center gap-1 text-xs font-bold ${isLocked ? 'text-amber-600 dark:text-amber-400' : 'text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white group-hover:translate-x-1'} transition-all`}>
+                                            <div className={`flex items-center gap-1 text-xs font-bold ${isLocked ? 'text-amber-600 dark:text-amber-400' : 'text-slate-600 dark:text-slate-400 group-hover:text-emerald-600 dark:group-hover:text-sky-400 group-hover:translate-x-1'} transition-all`}>
                                                 <span>{isLocked ? 'Khóa Premium' : 'Xem bảng tra cứu'}</span>
                                                 <ChevronRight className="w-3.5 h-3.5" />
                                             </div>

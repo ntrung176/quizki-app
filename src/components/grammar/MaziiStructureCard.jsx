@@ -349,7 +349,7 @@ const MaziiStructureCard = ({ formula, structure, pattern, isFirst = true, index
         const segments = normalizedText.split(/(\[[^\]]+\]|\+|\/|／|➔)/g).filter(Boolean);
 
         return (
-            <div className="group bg-slate-50/70 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-700/60 rounded-2xl p-3 md:p-3.5 flex items-center gap-3 transition-all duration-150 shadow-2xs hover:border-blue-300 dark:hover:border-blue-600/60 w-full">
+            <div className="group bg-slate-50/70 dark:bg-slate-800/40 border-2 border-b-3 border-slate-200 dark:border-slate-700/80 rounded-2xl p-3 md:p-3.5 flex items-center gap-3 transition-all duration-150 shadow-2xs hover:border-emerald-300 dark:hover:border-emerald-700 w-full">
                 {isNumbered ? (
                     <span className="w-5 h-5 rounded-full bg-[#1d70b8]/15 dark:bg-sky-400/20 text-[#1d70b8] dark:text-sky-300 text-xs font-black flex items-center justify-center shrink-0 select-none">
                         {numberPrefix.replace('.', '')}
@@ -417,7 +417,7 @@ const MaziiStructureCard = ({ formula, structure, pattern, isFirst = true, index
     });
 
     return (
-        <div className="group bg-slate-50/70 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-700/60 rounded-2xl p-3 md:p-3.5 flex items-center gap-3 transition-all duration-150 shadow-2xs hover:border-blue-300 dark:hover:border-blue-600/60 w-full">
+        <div className="group bg-slate-50/70 dark:bg-slate-800/40 border-2 border-b-3 border-slate-200 dark:border-slate-700/80 rounded-2xl p-3 md:p-3.5 flex items-center gap-3 transition-all duration-150 shadow-2xs hover:border-emerald-300 dark:hover:border-emerald-700 w-full">
             {isNumbered ? (
                 <span className="w-5 h-5 rounded-full bg-[#1d70b8]/15 dark:bg-sky-400/20 text-[#1d70b8] dark:text-sky-300 text-xs font-black flex items-center justify-center shrink-0 select-none">
                     {numberPrefix.replace('.', '')}

@@ -2,13 +2,14 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import {
     ArrowLeft, Play, Lightbulb, PenTool, Layers, Settings, Save, Trash2, Plus, X,
-    Volume2, HelpCircle, AlertCircle, Bookmark, ChevronLeft, ChevronRight, Wand2, MessageSquare, Clock, CheckCircle, BookOpen
+    Volume2, HelpCircle, AlertCircle, Bookmark, ChevronLeft, ChevronRight, Wand2, MessageSquare, Clock, CheckCircle, BookOpen, Heart
 } from 'lucide-react';
-import { fetchGrammarPointById, updateGrammarPoint, subscribeGrammarPoints, deleteGrammarPoint } from '../../utils/grammarService';
+import { fetchGrammarPointById, updateGrammarPoint, subscribeGrammarPoints, deleteGrammarPoint, updateCachedUserGrammarSrs, subscribeGrammarSrs } from '../../utils/grammarService';
 import { speakExampleSentence } from '../../utils/audio';
 import { showToast } from '../../utils/toast';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { storage } from '../../config/firebase';
+import { storage, db, appId } from '../../config/firebase';
+import { doc, setDoc, deleteDoc, increment } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { recordRecentGrammar } from '../../utils/grammarHistory';
 import { TopTabBar } from '../ui';
@@ -85,6 +86,71 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
     const [isStandardizing, setIsStandardizing] = useState(false);
     const [deepSections, setDeepSections] = useState(null);
     const [nuanceNodes, setNuanceNodes] = useState([]);
+
+    const auth = getAuth();
+    const userId = auth?.currentUser?.uid;
+    const [isBookmarked, setIsBookmarked] = useState(false);
+
+    useEffect(() => {
+        if (!userId || !grammarId) {
+            setIsBookmarked(false);
+            return;
+        }
+        const unsub = subscribeGrammarSrs(userId, (freshSrs) => {
+            setIsBookmarked(!!freshSrs?.[grammarId]);
+        });
+        return () => unsub?.();
+    }, [userId, grammarId]);
+
+    const handleToggleBookmark = async () => {
+        if (!userId) {
+            showToast('Vui lòng đăng nhập để lưu cấu trúc ngữ pháp', 'error');
+            return;
+        }
+        if (!gp) return;
+
+        const nextState = !isBookmarked;
+        setIsBookmarked(nextState);
+        showToast(
+            nextState
+                ? `Đã thêm "${gp.pattern}" vào danh sách ôn tập SRS`
+                : `Đã xóa "${gp.pattern}" khỏi danh sách ôn tập SRS`,
+            nextState ? 'success' : 'info'
+        );
+
+        try {
+            const srsDocRef = doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, gp.id);
+            if (nextState) {
+                const now = Date.now();
+                const newSrs = {
+                    interval: 0,
+                    ease: 2.5,
+                    nextReview: now,
+                    lastReview: now,
+                    reps: 0,
+                    learningStep: null,
+                    isLapsed: false,
+                    lapseCount: 0,
+                    prelapseInterval: null,
+                    state: 'NEW'
+                };
+                await setDoc(srsDocRef, newSrs, { merge: true });
+                updateCachedUserGrammarSrs(userId, gp.id, newSrs);
+
+                const today = new Date().toISOString().split('T')[0];
+                await setDoc(doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, today), {
+                    newGrammarAdded: increment(1)
+                }, { merge: true }).catch(() => {});
+            } else {
+                await deleteDoc(srsDocRef);
+                updateCachedUserGrammarSrs(userId, gp.id, null);
+            }
+        } catch (err) {
+            console.error('Error toggling grammar SRS bookmark:', err);
+            setIsBookmarked(!nextState);
+            showToast('Lỗi khi lưu vào SRS', 'error');
+        }
+    };
 
     useEffect(() => {
         let isMounted = true;
@@ -581,7 +647,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
     return (
         <div className="w-full pb-8">
             <TopTabBar tabs={GRAMMAR_TABS} />
-            <div className="max-w-4xl mx-auto pb-16 animate-fade-in space-y-6 w-full px-4 md:px-0 mt-6">
+            <div className="max-w-6xl mx-auto pb-16 animate-fade-in space-y-6 w-full px-4 sm:px-6 md:px-8 mt-6">
 
             {/* Header controls when editing */}
             {isEditing && (
@@ -704,14 +770,14 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
             ) : (
 
                 /* Mazii Form Reading/Study Layout */
-                <div className="bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-6 md:p-8 shadow-sm space-y-6 w-full">
+                <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl p-6 md:p-8 shadow-xs space-y-6 w-full">
                     {/* Header: Back button, Pattern Title, Meaning in corner brackets, JLPT badge, Audio button, Admin actions */}
                     <div className="flex items-start justify-between gap-4 w-full">
                         <div className="flex items-start gap-3.5 flex-1 min-w-0">
                             {/* Back Button */}
                             <button
                                 onClick={() => navigate(backUrl)}
-                                className="flex items-center justify-center w-9 h-9 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors shadow-2xs shrink-0 mt-0.5 cursor-pointer"
+                                className="flex items-center justify-center w-10 h-10 rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-b-4 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-emerald-400 active:translate-y-0.5 active:border-b-2 transition-all shadow-xs shrink-0 mt-0.5 cursor-pointer"
                                 title="Quay lại"
                             >
                                 <ChevronLeft className="w-4 h-4" />
@@ -729,10 +795,10 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                     <button
                                         type="button"
                                         onClick={() => speakText(gp.pattern)}
-                                        className="w-7 h-7 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-blue-50 dark:hover:bg-blue-950/40 hover:text-blue-600 dark:hover:text-blue-300 border border-slate-200 dark:border-slate-700 flex items-center justify-center shrink-0 transition-colors cursor-pointer"
+                                        className="w-8 h-8 rounded-xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-emerald-900/60 border-2 border-b-3 border-emerald-200 dark:border-emerald-800 flex items-center justify-center shrink-0 transition-all active:translate-y-0.5 active:border-b-2 cursor-pointer shadow-xs"
                                         title="Nghe phát âm mẫu câu"
                                     >
-                                        <Volume2 className="w-3.5 h-3.5" />
+                                        <Volume2 className="w-4 h-4" />
                                     </button>
                                 </div>
 
@@ -745,27 +811,43 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                                     </p>
                                 )}
 
-                                {/* JLPT Level Badge (Mazii Orange) */}
+                                {/* JLPT Level Badge (Duolingo 3D style) */}
                                 <div className="pt-0.5 flex items-center gap-2">
-                                    <span className="bg-[#f59e0b] text-white px-2 py-0.5 rounded text-[11px] font-bold tracking-wider uppercase inline-block select-none">
+                                    <span className="bg-amber-500 border-b-2 border-amber-600 text-white px-2.5 py-0.5 rounded-lg text-[11px] font-black tracking-wider uppercase inline-block select-none shadow-xs">
                                         JLPT {gp.level || 'N3'}
                                     </span>
                                 </div>
                             </div>
                         </div>
 
-                        {isAdmin && (
-                            <div className="shrink-0 pt-0.5 flex items-center gap-2">
-                                <button onClick={() => setIsEditing(true)}
-                                    className="px-3 py-1.5 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950 dark:hover:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 text-xs font-bold rounded-xl flex items-center gap-1.5 border border-emerald-200 dark:border-emerald-900/40 shadow-xs transition-all cursor-pointer">
-                                    <Settings className="w-3.5 h-3.5" /> Sửa
-                                </button>
-                                <button onClick={handleDeleteDetail} disabled={saving}
-                                    className="px-3 py-1.5 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950 dark:hover:bg-rose-900/50 text-rose-600 dark:text-rose-400 text-xs font-bold rounded-xl flex items-center gap-1.5 border border-rose-200 dark:border-rose-900/40 shadow-xs disabled:opacity-50 transition-all cursor-pointer">
-                                    <Trash2 className="w-3.5 h-3.5 text-rose-500" /> Xóa
-                                </button>
-                            </div>
-                        )}
+                        <div className="shrink-0 pt-0.5 flex items-center gap-2">
+                            {/* Kanji-style Bookmark Button for SRS */}
+                            <button
+                                onClick={handleToggleBookmark}
+                                className={`py-2 px-4 rounded-full font-black text-xs transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs select-none active:translate-y-0.5 active:border-b-2 ${
+                                    isBookmarked
+                                        ? 'bg-rose-500 border-b-4 border-rose-700 text-white shadow-sm uppercase tracking-wider'
+                                        : 'bg-white hover:bg-slate-50 text-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-200 border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:border-slate-300'
+                                }`}
+                                title={isBookmarked ? "Bỏ lưu ôn tập SRS" : "Thêm vào danh sách ôn tập SRS"}
+                            >
+                                <Heart className={`w-4 h-4 ${isBookmarked ? 'fill-white text-white' : 'text-slate-600 dark:text-slate-300 stroke-[2.2]'}`} />
+                                <span>{isBookmarked ? 'ĐÃ LƯU' : 'Lưu ôn tập'}</span>
+                            </button>
+
+                            {isAdmin && (
+                                <>
+                                    <button onClick={() => setIsEditing(true)}
+                                        className="px-3 py-2 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950 dark:hover:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 text-xs font-bold rounded-2xl flex items-center gap-1.5 border-2 border-b-4 border-emerald-200 dark:border-emerald-800 shadow-xs active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer">
+                                        <Settings className="w-3.5 h-3.5" /> Sửa
+                                    </button>
+                                    <button onClick={handleDeleteDetail} disabled={saving}
+                                        className="px-3 py-2 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950 dark:hover:bg-rose-900/50 text-rose-600 dark:text-rose-400 text-xs font-bold rounded-2xl flex items-center gap-1.5 border-2 border-b-4 border-rose-200 dark:border-rose-800 shadow-xs disabled:opacity-50 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer">
+                                        <Trash2 className="w-3.5 h-3.5 text-rose-500" /> Xóa
+                                    </button>
+                                </>
+                            )}
+                        </div>
                     </div>
 
                     {/* Divider */}
@@ -943,7 +1025,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                         <div className="flex flex-col items-center gap-5 pt-8 w-full border-t border-slate-100 dark:border-slate-800">
                             <button
                                 onClick={handleNextClick}
-                                className="bg-[#1d70b8] hover:bg-[#155b96] text-white font-bold rounded-2xl px-10 py-3.5 shadow-md flex items-center justify-center gap-2 cursor-pointer transition-all hover:scale-[1.02] active:scale-[0.98] text-sm"
+                                className="bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-2 border-2 border-b-4 border-emerald-700 text-white font-black rounded-2xl px-10 py-3.5 shadow-md flex items-center justify-center gap-2 cursor-pointer transition-all text-sm tracking-wide select-none"
                             >
                                 {nextGp ? t('grammar.finishAndContinue', 'HOÀN THÀNH & TIẾP TỤC') : t('grammar.finishLesson', 'HOÀN THÀNH BÀI HỌC')}
                                 <ChevronRight className="w-4 h-4" />

@@ -79,12 +79,12 @@ const JLPT_LEVEL_TABS = [
 ];
 
 const LEVEL_COLORS = {
-    ALL: 'bg-[#204051] hover:bg-[#162e3b] text-white shadow-md dark:bg-slate-700 dark:hover:bg-slate-600',
-    N5: 'bg-emerald-500 hover:bg-emerald-600 text-white shadow-md shadow-emerald-200 dark:shadow-emerald-900/40',
-    N4: 'bg-sky-500 hover:bg-sky-600 text-white shadow-md shadow-sky-200 dark:shadow-sky-900/40',
-    N3: 'bg-emerald-500 hover:bg-emerald-600 text-white shadow-md shadow-emerald-200 dark:shadow-emerald-900/40',
-    N2: 'bg-amber-500 hover:bg-amber-600 text-white shadow-md shadow-amber-200 dark:shadow-amber-900/40',
-    N1: 'bg-rose-500 hover:bg-rose-600 text-white shadow-md shadow-rose-900/40',
+    ALL: 'bg-slate-800 text-white border-2 border-b-4 border-slate-950 shadow-xs active:translate-y-0.5 active:border-b-2 font-black',
+    N5: 'bg-emerald-500 text-white border-2 border-b-4 border-emerald-700 shadow-xs active:translate-y-0.5 active:border-b-2 font-black',
+    N4: 'bg-sky-500 text-white border-2 border-b-4 border-sky-700 shadow-xs active:translate-y-0.5 active:border-b-2 font-black',
+    N3: 'bg-emerald-500 text-white border-2 border-b-4 border-emerald-700 shadow-xs active:translate-y-0.5 active:border-b-2 font-black',
+    N2: 'bg-amber-500 text-white border-2 border-b-4 border-amber-700 shadow-xs active:translate-y-0.5 active:border-b-2 font-black',
+    N1: 'bg-rose-500 text-white border-2 border-b-4 border-rose-700 shadow-xs active:translate-y-0.5 active:border-b-2 font-black',
 };
 
 const removeVietnameseTones = (str) => {
@@ -497,10 +497,10 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
                                     key={tab.key}
                                     type="button"
                                     onClick={() => setSelectedLevel(tab.key)}
-                                    className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-2xl text-xs sm:text-sm font-extrabold transition-all duration-200 transform-gpu active:scale-95 cursor-pointer ${
+                                    className={`px-4 sm:px-6 py-2 sm:py-2.5 rounded-2xl text-xs sm:text-sm font-extrabold transition-all duration-150 transform-gpu active:scale-95 cursor-pointer ${
                                         isActive 
                                             ? LEVEL_COLORS[tab.key] 
-                                            : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 border border-slate-200 dark:border-slate-700/80 hover:bg-slate-50 dark:hover:bg-slate-750'
+                                            : 'bg-white/95 dark:bg-slate-900/95 text-slate-600 dark:text-slate-300 border-2 border-b-4 border-slate-200 dark:border-slate-800 hover:border-emerald-400 dark:hover:border-emerald-600'
                                     }`}
                                 >
                                     {tab.label}
@@ -511,7 +511,7 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
                 </div>
 
                 {/* Search Bar & Admin Controls */}
-                <div className="bg-white dark:bg-slate-800 rounded-3xl p-4 sm:p-6 shadow-sm border border-gray-200/60 dark:border-slate-700/60 flex flex-col md:flex-row items-center justify-between gap-4">
+                <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs rounded-3xl p-4 sm:p-6 shadow-xs border-2 border-b-4 border-slate-200 dark:border-slate-800 flex flex-col md:flex-row items-center justify-between gap-4">
                     <div className="space-y-1 text-center md:text-left w-full md:w-auto">
                         <h2 className="text-base sm:text-lg font-extrabold text-gray-800 dark:text-white flex items-center justify-center md:justify-start gap-2 flex-wrap">
                             <span>{t('grammar.lookupTitle', 'Tra cứu cấu trúc Ngữ pháp')}</span>
@@ -637,10 +637,10 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
                                                 navigate(`/grammar/detail/${gp.id}?${currentParams.toString()}`);
                                             }
                                         }}
-                                        className={`bg-white dark:bg-slate-800 border rounded-3xl p-5 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer flex flex-col justify-between min-h-[160px] relative group overflow-hidden ${
+                                        className={`bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs border-2 border-b-4 rounded-3xl p-5 shadow-xs hover:shadow-lg transition-all duration-200 cursor-pointer flex flex-col justify-between min-h-[160px] relative group overflow-hidden active:translate-y-0.5 active:border-b-2 ${
                                             isSelected
                                                 ? 'border-emerald-500 ring-2 ring-emerald-500/40 bg-emerald-50/20 dark:bg-emerald-950/30'
-                                                : 'border-gray-250/70 dark:border-slate-700/60 hover:border-slate-350 dark:hover:border-slate-600'
+                                                : 'border-slate-200 dark:border-slate-800 hover:border-emerald-400 dark:hover:border-emerald-500'
                                         }`}
                                     >
                                         {/* Action buttons (Bookmark & Admin Delete / Checkbox) */}
@@ -687,10 +687,14 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
 
                                                     <button
                                                         onClick={(e) => toggleBookmark(e, gp)}
-                                                        className={`p-2 rounded-xl border transition-all duration-200 active:scale-95 ${isBookmarked ? 'bg-pink-50 dark:bg-pink-950/40 border-pink-200/60 text-pink-500 dark:text-pink-400' : 'bg-slate-50 dark:bg-slate-900 border-slate-200/80 dark:border-slate-750 text-slate-400 hover:text-pink-500'}`}
-                                                        title={t('grammar.saveSrs', 'Lưu ôn tập (SRS)')}
+                                                        className={`p-2 rounded-full border-2 border-b-3 transition-all duration-200 active:translate-y-0.5 active:border-b-2 ${
+                                                            isBookmarked
+                                                                ? 'bg-rose-500 border-rose-700 text-white shadow-xs'
+                                                                : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-700 text-slate-400 hover:text-rose-500 hover:border-rose-300'
+                                                        }`}
+                                                        title={isBookmarked ? "Đã lưu (Bấm để xóa khỏi SRS)" : t('grammar.saveSrs', 'Lưu ôn tập (SRS)')}
                                                     >
-                                                        <Heart className={`w-4 h-4 ${isBookmarked ? 'fill-pink-500 text-pink-500' : ''}`} />
+                                                        <Heart className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-white text-white' : 'stroke-[2.5]'}`} />
                                                     </button>
                                                 </>
                                             )}

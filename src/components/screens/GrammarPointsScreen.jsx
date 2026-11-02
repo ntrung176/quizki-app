@@ -3,15 +3,20 @@ import { useNavigate, useParams } from 'react-router-dom';
 import {
     ArrowLeft, Plus, Trash2, Edit2, Save, ChevronRight, ChevronLeft, PenTool, FileJson,
     Clipboard, Check, AlertCircle, Wand2, Clock, X,
-    Loader2, Award, ClipboardCheck, Lightbulb, Bot, Eye, CheckCircle, BookOpen, Search, ListPlus, CheckSquare, Square
+    Loader2, Award, ClipboardCheck, Lightbulb, Bot, Eye, CheckCircle, BookOpen, Search, ListPlus, CheckSquare, Square,
+    Heart
 } from 'lucide-react';
 import {
     subscribeTextbooks, subscribeLessons, subscribeGrammarPoints,
     addGrammarPoint, updateGrammarPoint, deleteGrammarPoint, importGrammarPointsFromJson,
-    updateLesson, getMasterGrammarPoints, assignGrammarPointsToLesson
+    updateLesson, getMasterGrammarPoints, assignGrammarPointsToLesson,
+    updateCachedUserGrammarSrs, subscribeGrammarSrs
 } from '../../utils/grammarService';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { storage } from '../../config/firebase';
+import { storage, db, appId } from '../../config/firebase';
+import { getAuth } from 'firebase/auth';
+import { doc, setDoc, deleteDoc, increment } from 'firebase/firestore';
+import { useLanguage } from '../../context/LanguageContext';
 import { aiCheckGrammarAnswer, aiGenerateGrammarPointsJson } from '../../utils/aiProvider';
 import { aiBatchStandardizeGrammarStructures } from '../../services/ai/grammarAiService';
 import { playCorrectSound, playIncorrectSound, playCompletionFanfare } from '../../utils/soundEffects';
@@ -110,11 +115,15 @@ const EMPTY_FORM = {
 };
 
 const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
+    const { t } = useLanguage();
+    const auth = getAuth();
+    const userId = auth?.currentUser?.uid;
     const { textbookId, lessonId } = useParams();
     const navigate = useNavigate();
     const [textbook, setTextbook] = useState(null);
     const [lesson, setLesson] = useState(null);
     const [points, setPoints] = useState([]);
+    const [userGrammarSRS, setUserGrammarSRS] = useState(new Set());
     const [showAdd, setShowAdd] = useState(false);
     const [showJsonImport, setShowJsonImport] = useState(false);
     const [jsonText, setJsonText] = useState('');
@@ -533,6 +542,73 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
     }, [textbookId, lessonId, isAdmin]);
 
     useEffect(() => {
+        if (!userId) return;
+        const unsub = subscribeGrammarSrs(userId, (srsMap) => {
+            setUserGrammarSRS(new Set(Object.keys(srsMap || {})));
+        });
+        return () => unsub?.();
+    }, [userId]);
+
+    const toggleBookmark = async (e, gp) => {
+        e.stopPropagation();
+        if (!userId) {
+            showToast('Vui lòng đăng nhập để lưu cấu trúc ngữ pháp', 'error');
+            return;
+        }
+
+        const isAdded = userGrammarSRS.has(gp.id);
+        if (isAdded) {
+            setUserGrammarSRS(prev => {
+                const next = new Set(prev);
+                next.delete(gp.id);
+                return next;
+            });
+            showToast(`Đã xóa "${gp.pattern}" khỏi danh sách ôn tập SRS`, 'info');
+            try {
+                await deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, gp.id));
+                updateCachedUserGrammarSrs(userId, gp.id, null);
+            } catch (err) {
+                console.error('Error removing grammar SRS:', err);
+                setUserGrammarSRS(prev => new Set(prev).add(gp.id));
+            }
+            return;
+        }
+
+        setUserGrammarSRS(prev => new Set(prev).add(gp.id));
+        showToast(`Đã thêm "${gp.pattern}" vào danh sách ôn tập SRS`, 'success');
+        try {
+            const now = Date.now();
+            const newSrs = {
+                interval: 0,
+                ease: 2.5,
+                nextReview: now,
+                lastReview: now,
+                reps: 0,
+                learningStep: null,
+                isLapsed: false,
+                lapseCount: 0,
+                prelapseInterval: null,
+                state: 'NEW'
+            };
+            await setDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, gp.id), newSrs, { merge: true });
+            updateCachedUserGrammarSrs(userId, gp.id, newSrs);
+
+            const today = new Date().toISOString().split('T')[0];
+            await setDoc(doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, today), {
+                newGrammarAdded: increment(1)
+            }, { merge: true }).catch(() => {});
+        } catch (err) {
+            console.error('Error saving grammar SRS:', err);
+            setUserGrammarSRS(prev => {
+                const next = new Set(prev);
+                next.delete(gp.id);
+                return next;
+            });
+            showToast('Lỗi khi lưu vào SRS', 'error');
+        }
+    };
+
+    useEffect(() => {
         if (lesson && profile) {
             const userIsAdmin = profile?.email && ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'].includes(profile.email);
             const isLocked = lesson.isPremium && !userIsAdmin && !profile?.isPremiumUnlocked && !(profile?.unlockedSpecializedPackages || []).includes('grammar_zen');
@@ -776,13 +852,13 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
         return (
             <div className="w-full pb-8">
                 <TopTabBar tabs={GRAMMAR_TABS} />
-                <div className="max-w-3xl mx-auto space-y-5 animate-fade-in px-4 md:px-0 mt-4">
+                <div className="max-w-6xl mx-auto space-y-5 animate-fade-in px-4 sm:px-6 md:px-8 mt-4">
                     {/* Header Banner */}
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-5 md:p-6 shadow-sm">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl p-5 md:p-6 shadow-xs">
                         <div className="flex items-start gap-3.5 flex-1 min-w-0">
                             <button
                                 onClick={() => navigate(`/grammar/textbook/${textbookId}`)}
-                                className="flex items-center justify-center w-9 h-9 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors shadow-2xs shrink-0 mt-0.5 cursor-pointer"
+                                className="flex items-center justify-center w-10 h-10 rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-b-4 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-emerald-400 active:translate-y-0.5 active:border-b-2 transition-all shadow-xs shrink-0 mt-0.5 cursor-pointer"
                                 title="Quay lại danh sách bài học"
                             >
                                 <ChevronLeft className="w-4 h-4" />
@@ -1231,13 +1307,13 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
     return (
         <div className="w-full pb-8">
             <TopTabBar tabs={GRAMMAR_TABS} />
-            <div className="max-w-4xl mx-auto space-y-6 animate-fade-in px-4 md:px-0 mt-4">
+            <div className="max-w-6xl mx-auto space-y-6 animate-fade-in px-4 sm:px-6 md:px-8 mt-4">
                 {/* Header Banner */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-5 md:p-6 shadow-sm">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl p-5 md:p-6 shadow-xs">
                     <div className="flex items-start gap-3.5 flex-1 min-w-0">
                         <button
                             onClick={() => navigate(`/grammar/textbook/${textbookId}`)}
-                            className="flex items-center justify-center w-9 h-9 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors shadow-2xs shrink-0 mt-0.5 cursor-pointer"
+                            className="flex items-center justify-center w-10 h-10 rounded-2xl bg-slate-50 dark:bg-slate-800 border-2 border-b-4 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-emerald-400 active:translate-y-0.5 active:border-b-2 transition-all shadow-xs shrink-0 mt-0.5 cursor-pointer"
                             title="Quay lại danh sách bài học"
                         >
                             <ChevronLeft className="w-4 h-4" />
@@ -1526,62 +1602,78 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
 
             {points.length === 0 && <p className="text-center text-slate-400 py-12">{t('grammar.emptyGrammarList', 'Chưa có mẫu ngữ pháp nào.')} {isAdmin ? 'Nhấn "Thêm mẫu ngữ pháp" hoặc "Nhập bằng JSON" để bắt đầu.' : ''}</p>}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 w-full">
-                {points.map(gp => (
-                    <div key={gp.id} className="group relative bg-white dark:bg-slate-900/90 border border-slate-200/80 dark:border-slate-800 rounded-2xl p-4 sm:p-5 hover:border-blue-400/60 dark:hover:border-blue-500/50 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 min-w-0 flex flex-col justify-between">
-                        <button onClick={() => navigate(`/grammar/detail/${gp.id}?tb=${textbookId}&ls=${lessonId}`)} className="w-full text-left cursor-pointer">
-                            <div className="flex items-start justify-between gap-2 pr-12">
-                                <h3 className="text-lg sm:text-xl font-bold text-[#1d70b8] dark:text-sky-400 font-japanese leading-snug group-hover:text-blue-700 dark:group-hover:text-sky-300 transition-colors">
-                                    {gp.pattern}
-                                </h3>
+                {points.map(gp => {
+                    const isBookmarked = userGrammarSRS.has(gp.id);
+                    return (
+                        <div key={gp.id} className="group relative bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-4 sm:p-5 hover:border-emerald-400 dark:hover:border-emerald-500 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0.5 active:border-b-2 transition-all duration-200 min-w-0 flex flex-col justify-between">
+                            <button onClick={() => navigate(`/grammar/detail/${gp.id}?tb=${textbookId}&ls=${lessonId}`)} className="w-full text-left cursor-pointer">
+                                <div className="flex items-start justify-between gap-2 pr-24">
+                                    <h3 className="text-lg sm:text-xl font-bold text-[#1d70b8] dark:text-sky-400 font-japanese leading-snug group-hover:text-blue-700 dark:group-hover:text-sky-300 transition-colors">
+                                        {gp.pattern}
+                                    </h3>
+                                </div>
+                                {(gp.meaningShort || gp.meaning) && (
+                                    <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1.5 leading-relaxed line-clamp-2">
+                                        {gp.meaningShort || gp.meaning}
+                                    </p>
+                                )}
+                            </button>
+                            <div className="flex items-center justify-between gap-2 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800/80">
+                                <div className="flex items-center gap-1.5 flex-wrap">
+                                    <button onClick={() => navigate(`/grammar/practice/${gp.id}?tb=${textbookId}&ls=${lessonId}`)}
+                                        className="flex items-center gap-1 text-[11px] font-bold px-2.5 py-1.5 bg-blue-50 hover:bg-blue-100 text-[#1d70b8] dark:bg-blue-950/40 dark:text-sky-300 dark:hover:bg-blue-900/50 rounded-lg transition-colors border border-blue-200/60 dark:border-blue-800/50 cursor-pointer shadow-2xs"
+                                        title="Làm bài tập trắc nghiệm & đặt câu">
+                                        <PenTool className="w-3 h-3" /> {t('grammar.practice', 'Luyện tập')}
+                                    </button>
+                                    {isAdmin && (
+                                        <>
+                                            <button onClick={() => navigate(`/grammar/practice/${gp.id}?tb=${textbookId}&ls=${lessonId}&add=translate`)}
+                                                className="flex items-center gap-1 text-[11px] font-bold px-2 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-600 dark:bg-slate-800/60 dark:text-slate-300 dark:hover:bg-slate-800 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 cursor-pointer">
+                                                <Plus className="w-3 h-3 text-emerald-500" /> Đặt câu
+                                            </button>
+                                            <button onClick={() => navigate(`/grammar/practice/${gp.id}?tb=${textbookId}&ls=${lessonId}&add=quiz`)}
+                                                className="flex items-center gap-1 text-[11px] font-bold px-2 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-600 dark:bg-slate-800/60 dark:text-slate-300 dark:hover:bg-slate-800 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 cursor-pointer">
+                                                <Plus className="w-3 h-3 text-emerald-500" /> Trắc nghiệm
+                                            </button>
+                                        </>
+                                    )}
+                                </div>
+                                <button onClick={() => navigate(`/grammar/detail/${gp.id}?tb=${textbookId}&ls=${lessonId}`)}
+                                    className="w-7 h-7 rounded-full bg-slate-50 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-950/40 text-slate-400 hover:text-[#1d70b8] dark:hover:text-sky-300 flex items-center justify-center transition-colors cursor-pointer shrink-0"
+                                    title={t('grammar.viewDetails', 'Xem chi tiết')}>
+                                    <ChevronRight className="w-4 h-4" />
+                                </button>
                             </div>
-                            {(gp.meaningShort || gp.meaning) && (
-                                <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-1.5 leading-relaxed line-clamp-2">
-                                    {gp.meaningShort || gp.meaning}
-                                </p>
-                            )}
-                        </button>
-                        <div className="flex items-center justify-between gap-2 mt-4 pt-3 border-t border-slate-100 dark:border-slate-800/80">
-                            <div className="flex items-center gap-1.5 flex-wrap">
-                                <button onClick={() => navigate(`/grammar/practice/${gp.id}?tb=${textbookId}&ls=${lessonId}`)}
-                                    className="flex items-center gap-1 text-[11px] font-bold px-2.5 py-1.5 bg-blue-50 hover:bg-blue-100 text-[#1d70b8] dark:bg-blue-950/40 dark:text-sky-300 dark:hover:bg-blue-900/50 rounded-lg transition-colors border border-blue-200/60 dark:border-blue-800/50 cursor-pointer shadow-2xs"
-                                    title="Làm bài tập trắc nghiệm & đặt câu">
-                                    <PenTool className="w-3 h-3" /> {t('grammar.practice', 'Luyện tập')}
+                            <div className="absolute top-3.5 right-3.5 flex items-center gap-1.5 z-10">
+                                <button
+                                    onClick={(e) => toggleBookmark(e, gp)}
+                                    className={`w-8 h-8 rounded-full flex items-center justify-center transition-all cursor-pointer border-2 border-b-3 active:translate-y-0.5 active:border-b-2 ${
+                                        isBookmarked
+                                            ? 'bg-rose-500 border-rose-700 text-white shadow-xs'
+                                            : 'bg-white/90 dark:bg-slate-800/90 border-slate-200 dark:border-slate-700 text-slate-400 hover:text-rose-500 hover:border-rose-300'
+                                    }`}
+                                    title={isBookmarked ? "Đã lưu ôn tập SRS (Bấm để xóa)" : "Thêm vào ôn tập SRS"}
+                                >
+                                    <Heart className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-white text-white' : 'stroke-[2.5]'}`} />
                                 </button>
                                 {isAdmin && (
                                     <>
-                                        <button onClick={() => navigate(`/grammar/practice/${gp.id}?tb=${textbookId}&ls=${lessonId}&add=translate`)}
-                                            className="flex items-center gap-1 text-[11px] font-bold px-2 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-600 dark:bg-slate-800/60 dark:text-slate-300 dark:hover:bg-slate-800 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 cursor-pointer">
-                                            <Plus className="w-3 h-3 text-emerald-500" /> Đặt câu
-                                        </button>
-                                        <button onClick={() => navigate(`/grammar/practice/${gp.id}?tb=${textbookId}&ls=${lessonId}&add=quiz`)}
-                                            className="flex items-center gap-1 text-[11px] font-bold px-2 py-1.5 bg-slate-50 hover:bg-slate-100 text-slate-600 dark:bg-slate-800/60 dark:text-slate-300 dark:hover:bg-slate-800 rounded-lg transition-colors border border-slate-200 dark:border-slate-700 cursor-pointer">
-                                            <Plus className="w-3 h-3 text-emerald-500" /> Trắc nghiệm
-                                        </button>
+                                        <button onClick={() => handleEdit(gp)} className="p-1.5 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-900/40 text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all cursor-pointer" title="Chỉnh sửa"><Edit2 className="w-3.5 h-3.5" /></button>
+                                        <button onClick={async () => {
+                                            const confirmed = window.showConfirm
+                                                ? await window.showConfirm(`Bạn có chắc muốn xóa mẫu ngữ pháp "${gp.pattern}"?`, { type: 'danger', confirmText: 'Xóa ngay' })
+                                                : window.confirm(`Bạn có chắc muốn xóa mẫu ngữ pháp "${gp.pattern}"?`);
+                                            if (confirmed) {
+                                                const ok = await deleteGrammarPoint(textbookId, lessonId, gp.id);
+                                                if (ok) showToast(`Đã xóa "${gp.pattern}"`, 'success');
+                                            }
+                                        }} className="p-1.5 rounded-lg hover:bg-rose-50 dark:hover:bg-rose-950/40 text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 transition-all cursor-pointer" title="Xóa ngữ pháp"><Trash2 className="w-3.5 h-3.5" /></button>
                                     </>
                                 )}
                             </div>
-                            <button onClick={() => navigate(`/grammar/detail/${gp.id}?tb=${textbookId}&ls=${lessonId}`)}
-                                className="w-7 h-7 rounded-full bg-slate-50 dark:bg-slate-800 hover:bg-blue-50 dark:hover:bg-blue-950/40 text-slate-400 hover:text-[#1d70b8] dark:hover:text-sky-300 flex items-center justify-center transition-colors cursor-pointer shrink-0"
-                                title={t('grammar.viewDetails', 'Xem chi tiết')}>
-                                <ChevronRight className="w-4 h-4" />
-                            </button>
                         </div>
-                        {isAdmin && (
-                            <div className="absolute top-3.5 right-3.5 flex items-center gap-1">
-                                <button onClick={() => handleEdit(gp)} className="p-1.5 rounded-lg hover:bg-emerald-50 dark:hover:bg-emerald-900/40 text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all cursor-pointer" title="Chỉnh sửa"><Edit2 className="w-3.5 h-3.5" /></button>
-                                <button onClick={async () => {
-                                    const confirmed = window.showConfirm
-                                        ? await window.showConfirm(`Bạn có chắc muốn xóa mẫu ngữ pháp "${gp.pattern}"?`, { type: 'danger', confirmText: 'Xóa ngay' })
-                                        : window.confirm(`Bạn có chắc muốn xóa mẫu ngữ pháp "${gp.pattern}"?`);
-                                    if (confirmed) {
-                                        const ok = await deleteGrammarPoint(textbookId, lessonId, gp.id);
-                                        if (ok) showToast(`Đã xóa "${gp.pattern}"`, 'success');
-                                    }
-                                }} className="p-1.5 rounded-lg hover:bg-rose-50 dark:hover:bg-rose-950/40 text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 transition-all cursor-pointer" title="Xóa ngữ pháp"><Trash2 className="w-3.5 h-3.5" /></button>
-                            </div>
-                        )}
-                    </div>
-                ))}
+                    );
+                })}
             </div>
 
             {/* Master Grammar Bank Selection Modal (Admin) */}

@@ -250,17 +250,17 @@ const MaziiExampleItem = ({ example, pattern, index, onPlayAudio }) => {
     return (
         <div
             onClick={handlePlay}
-            className="group bg-slate-50/70 dark:bg-slate-800/40 border border-slate-200/80 dark:border-slate-700/60 hover:border-blue-300 dark:hover:border-blue-600/70 rounded-2xl p-4 md:p-5 flex items-start gap-3.5 transition-all duration-150 shadow-2xs hover:shadow-xs cursor-pointer w-full"
+            className="group bg-slate-50/70 dark:bg-slate-800/40 border-2 border-b-3 border-slate-200 dark:border-slate-700/80 hover:border-emerald-300 dark:hover:border-emerald-700 active:translate-y-0.5 active:border-b-2 rounded-2xl p-4 md:p-5 flex items-start gap-3.5 transition-all duration-150 shadow-2xs cursor-pointer w-full"
         >
             {/* Audio speaker button */}
             <button
                 type="button"
                 onClick={handlePlay}
                 title="Nghe phát âm"
-                className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 border transition-all duration-150 cursor-pointer mt-0.5 ${
+                className={`w-8 h-8 rounded-xl flex items-center justify-center shrink-0 border-2 border-b-3 transition-all duration-150 cursor-pointer mt-0.5 active:translate-y-0.5 active:border-b-2 ${
                     isPlaying
-                        ? 'bg-[#1d70b8] text-white border-[#1d70b8] scale-105 shadow-xs'
-                        : 'bg-white dark:bg-slate-700 text-slate-500 dark:text-slate-300 border-slate-200 dark:border-slate-600 group-hover:bg-blue-50 dark:group-hover:bg-blue-950/40 group-hover:text-[#1d70b8] dark:group-hover:text-sky-300 group-hover:border-blue-200 dark:group-hover:border-blue-800'
+                        ? 'bg-emerald-600 text-white border-emerald-700 shadow-xs'
+                        : 'bg-white dark:bg-slate-700 text-slate-500 dark:text-slate-300 border-slate-200 dark:border-slate-600 group-hover:bg-emerald-50 dark:group-hover:bg-emerald-950/40 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 group-hover:border-emerald-300 dark:group-hover:border-emerald-800'
                 }`}
             >
                 <Volume2 className={`w-4 h-4 ${isPlaying ? 'animate-pulse' : ''}`} />

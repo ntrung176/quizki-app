@@ -1602,14 +1602,14 @@ const SRSVocabScreen = ({
                         <div className="w-full space-y-2 sm:space-y-3 animate-fade-in mt-2 sm:mt-3.5">
                             <div className="grid grid-cols-4 gap-1.5 sm:gap-3.5 w-full" data-tour-id="RATING_PANEL">
                                 {[
-                                    { key: 'again', num: '1', label: t('studyModes.again', 'Quên rồi'), interval: intervals.again, bg: 'bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 border-2 border-b-4 border-rose-300 dark:border-rose-800' },
-                                    { key: 'hard', num: '2', label: t('studyModes.hard', 'Khó'), interval: intervals.hard, bg: 'bg-amber-50 dark:bg-amber-950/40 text-amber-600 dark:text-amber-400 border-2 border-b-4 border-amber-300 dark:border-amber-800' },
-                                    { key: 'good', num: '3', label: t('studyModes.good', 'Tốt'), interval: intervals.good, bg: 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border-2 border-b-4 border-emerald-400 dark:border-emerald-700' },
-                                    { key: 'easy', num: '4', label: t('studyModes.easy', 'Dễ'), interval: intervals.easy, bg: 'bg-sky-50 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400 border-2 border-b-4 border-sky-300 dark:border-sky-800' },
+                                    { key: 'again', num: '1', label: t('studyModes.again', 'Quên rồi'), interval: intervals.again, bg: 'bg-rose-50 hover:bg-rose-100 dark:bg-rose-950 dark:hover:bg-rose-900 text-rose-600 dark:text-rose-300 border-2 border-b-4 border-rose-300 dark:border-rose-700 shadow-sm' },
+                                    { key: 'hard', num: '2', label: t('studyModes.hard', 'Khó'), interval: intervals.hard, bg: 'bg-amber-50 hover:bg-amber-100 dark:bg-amber-950 dark:hover:bg-amber-900 text-amber-600 dark:text-amber-300 border-2 border-b-4 border-amber-300 dark:border-amber-700 shadow-sm' },
+                                    { key: 'good', num: '3', label: t('studyModes.good', 'Tốt'), interval: intervals.good, bg: 'bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950 dark:hover:bg-emerald-900 text-emerald-600 dark:text-emerald-300 border-2 border-b-4 border-emerald-400 dark:border-emerald-600 shadow-sm' },
+                                    { key: 'easy', num: '4', label: t('studyModes.easy', 'Dễ'), interval: intervals.easy, bg: 'bg-sky-50 hover:bg-sky-100 dark:bg-sky-950 dark:hover:bg-sky-900 text-sky-600 dark:text-sky-300 border-2 border-b-4 border-sky-300 dark:border-sky-600 shadow-sm' },
                                 ].map(btn => (
                                     <button key={btn.key} onClick={(e) => { e.stopPropagation(); handleRating(btn.key); }}
                                         className={`relative flex flex-col justify-center items-center py-2 sm:py-3 px-1.5 sm:px-2 min-h-[50px] sm:min-h-[58px] rounded-2xl ${btn.bg} text-center transition-all active:translate-y-0.5 active:border-b-2 cursor-pointer select-none`}>
-                                        <span className="absolute top-1 sm:top-1.5 right-1.5 sm:right-2 px-1 py-0.2 rounded-md bg-white/60 dark:bg-slate-800/60 text-[8px] sm:text-[9px] font-mono font-bold opacity-75 hidden sm:block">
+                                        <span className="absolute top-1 sm:top-1.5 right-1.5 sm:right-2 px-1 py-0.2 rounded-md bg-white/80 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/80 dark:border-slate-700 text-[8px] sm:text-[9px] font-mono font-bold hidden sm:block">
                                             {btn.num}
                                         </span>
                                         <div className="font-black text-[11px] sm:text-sm md:text-base leading-tight">{btn.label}</div>

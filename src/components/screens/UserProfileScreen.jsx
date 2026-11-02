@@ -5,6 +5,7 @@ import { auth, db, appId } from '../../config/firebase';
 import { ROUTES } from '../../router';
 import { ArrowLeft, Settings, Pencil, X, Check, MessageSquare, Heart, Users, Award, ExternalLink, Link as LinkIcon, ChevronRight, MessageCircle, Shield, Loader2 } from 'lucide-react'
 import { SafeAvatarImage } from '../ui';
+import { useLanguage } from '../../context/LanguageContext';
 
 // ==========================
 // AVATAR EMOJIS (reuse)
@@ -72,6 +73,7 @@ const JLPT_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
 // EDIT PROFILE MODAL
 // ==========================
 const EditProfileModal = ({ profileData, onClose, onSave }) => {
+    const { t } = useLanguage();
     const [bio, setBio] = useState(profileData?.bio || '');
     const [jlptLevel, setJlptLevel] = useState(profileData?.jlptLevel || '');
     const [link, setLink] = useState(profileData?.link || '');
@@ -264,6 +266,7 @@ const UserProfileScreen = ({
  userId: currentUserId, profile: currentProfile, isAdmin }) => {
     const { userId: paramUserId } = useParams();
     const navigate = useNavigate();
+    const { t } = useLanguage();
     // Determine which profile to show
     const targetUserId = (!paramUserId || paramUserId === 'me') ? currentUserId : paramUserId;
     const isSelf = targetUserId === currentUserId;

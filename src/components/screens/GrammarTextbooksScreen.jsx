@@ -82,7 +82,7 @@ const TextbookCover = ({ title, titleVi, levels, description, color, featured, l
         : null;
 
     return (
-        <div className="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-sm hover:shadow-lg hover:-translate-y-1 hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 flex flex-col justify-between min-h-[220px] group text-left relative overflow-hidden">
+        <div className="w-full bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 shadow-xs hover:border-emerald-400 dark:hover:border-emerald-500 hover:shadow-lg hover:-translate-y-1 active:translate-y-0.5 active:border-b-2 transition-all duration-300 flex flex-col justify-between min-h-[220px] group text-left relative overflow-hidden">
             {/* Subtle top accent line */}
             <div className={`absolute top-0 left-0 right-0 h-1 ${badgeStyle.accentBar} opacity-80`} />
 
@@ -261,7 +261,7 @@ const GrammarTextbooksScreen = ({ isAdmin = false, profile = null }) => {
                     <div className="flex flex-wrap gap-2">
                         {GRAMMAR_CATEGORIES.map(cat => (
                             <button key={cat.id} onClick={() => setActiveCategory(cat.id)}
-                                className={`px-4 py-2 text-xs font-bold rounded-full border transition-all ${activeCategory === cat.id ? 'bg-slate-700 text-white border-slate-700 dark:bg-emerald-600 dark:border-emerald-600' : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50 dark:bg-slate-800 dark:text-slate-300 dark:border-slate-700'}`}>
+                                className={`px-4 py-2 text-xs font-bold rounded-2xl transition-all duration-150 cursor-pointer active:scale-95 ${activeCategory === cat.id ? 'bg-emerald-500 text-white border-2 border-b-4 border-emerald-700 shadow-xs active:translate-y-0.5 active:border-b-2 font-black' : 'bg-white/95 dark:bg-slate-900/95 text-slate-600 dark:text-slate-300 border-2 border-b-4 border-slate-200 dark:border-slate-800 hover:border-emerald-400'}`}>
                                 {cat.label}
                             </button>
                         ))}
