@@ -1,16 +1,24 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { X, Volume2, CheckCircle2, RotateCcw, Zap, Trophy, Play, ArrowRight, Award, BookOpen } from 'lucide-react';
+import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
+import { 
+    X, Volume2, CheckCircle2, Zap, Play, 
+    BookOpen, AlertCircle 
+} from 'lucide-react';
 import { speakJapanese } from '../../utils/audio';
 import { playCorrectSound, playIncorrectSound } from '../../utils/soundEffects';
 import { launchFanfare } from '../../utils/celebrations';
-import { shuffleArray } from '../../utils/textProcessing';
-import { KANA_DICTIONARY } from '../../data/kanaData';
+import { 
+    getUserLearnedPool, 
+    generateSpeedQuizQuestions, 
+    generateMemoryMatchCards 
+} from './kanaQuizHelper';
+import KanaQuizCompletionView from './KanaQuizCompletionView';
 
 const KanaQuizModal = ({
     isOpen,
     onClose,
-    targetType = 'hiragana', // 'hiragana' | 'katakana' | 'mixed'
+    targetType = 'hiragana', // 'hiragana' | 'katakana'
     kanaList = [],
+    masteredList = [],
     awardXP
 }) => {
     const [gameMode, setGameMode] = useState('speed_quiz'); // 'speed_quiz' | 'memory_match' | 'typing'
@@ -22,43 +30,23 @@ const KanaQuizModal = ({
     const [isAnswered, setIsAnswered] = useState(false);
     const [isQuizCompleted, setIsQuizCompleted] = useState(false);
 
-    // Memory match game state
+    // Memory match state
     const [cards, setCards] = useState([]);
     const [flippedIndices, setFlippedIndices] = useState([]);
     const [matchedPairs, setMatchedPairs] = useState([]);
 
-    // Typing mode state
+    // Typing state
     const [typedText, setTypedText] = useState('');
     const [typingFeedback, setTypingFeedback] = useState(null);
 
-    // Generate questions for Speed Quiz
+    // Filter user learned pool vs fallback pool
+    const { pool, isCustomMastered, masteredCount } = useMemo(() => {
+        return getUserLearnedPool(targetType, masteredList, kanaList);
+    }, [targetType, masteredList, kanaList]);
+
+    // Initialize Speed Quiz Questions
     const initSpeedQuiz = useCallback(() => {
-        const pool = kanaList.length >= 4 ? kanaList : Object.keys(KANA_DICTIONARY).map(k => {
-            const item = KANA_DICTIONARY[k];
-            return {
-                id: k,
-                char: targetType === 'katakana' ? item.kata : item.hira,
-                romaji: item.romaji,
-                type: targetType
-            };
-        });
-
-        const shuffled = shuffleArray([...pool]).slice(0, 10);
-        const generated = shuffled.map(q => {
-            const wrongOptions = pool
-                .filter(p => p.id !== q.id)
-                .sort(() => 0.5 - Math.random())
-                .slice(0, 3)
-                .map(p => p.romaji);
-
-            const options = shuffleArray([q.romaji, ...wrongOptions]);
-            return {
-                ...q,
-                options,
-                correct: q.romaji
-            };
-        });
-
+        const generated = generateSpeedQuizQuestions(pool, targetType, 10);
         setQuestions(generated);
         setQuizIndex(0);
         setScore(0);
@@ -66,58 +54,65 @@ const KanaQuizModal = ({
         setSelectedOption(null);
         setIsAnswered(false);
         setIsQuizCompleted(false);
-    }, [kanaList, targetType]);
 
-    // Generate cards for Memory Match (Match Hiragana with Katakana or Kana with Romaji)
+        // Auto-play audio for the first question if it's a listening question
+        if (generated[0]?.autoPlayAudio && generated[0]?.audioChar) {
+            setTimeout(() => speakJapanese(generated[0].audioChar), 300);
+        }
+    }, [pool, targetType]);
+
+    // Initialize Memory Match Cards
     const initMemoryMatch = useCallback(() => {
-        const pool = kanaList.length >= 6 ? kanaList : Object.keys(KANA_DICTIONARY).slice(0, 10).map(k => ({
-            id: k,
-            char: KANA_DICTIONARY[k].hira,
-            otherChar: KANA_DICTIONARY[k].kata,
-            romaji: KANA_DICTIONARY[k].romaji
-        }));
-
-        const selected = shuffleArray([...pool]).slice(0, 6);
-        const gameCards = [];
-
-        selected.forEach((item, index) => {
-            gameCards.push({
-                uniqueId: `hira-${item.id}`,
-                pairId: item.id,
-                content: targetType === 'katakana' ? item.romaji : item.char,
-                sub: targetType === 'katakana' ? 'Romaji' : 'Hiragana'
-            });
-            gameCards.push({
-                uniqueId: `kata-${item.id}`,
-                pairId: item.id,
-                content: targetType === 'hiragana' ? item.romaji : (item.otherChar || item.kata),
-                sub: targetType === 'hiragana' ? 'Romaji' : 'Katakana'
-            });
-        });
-
-        setCards(shuffleArray(gameCards));
+        const gameCards = generateMemoryMatchCards(pool, targetType, 6);
+        setCards(gameCards);
         setFlippedIndices([]);
         setMatchedPairs([]);
         setIsQuizCompleted(false);
-    }, [kanaList, targetType]);
+    }, [pool, targetType]);
+
+    // Typing mode initialization
+    const initTyping = useCallback(() => {
+        const generated = generateSpeedQuizQuestions(pool, targetType, 10).filter(q => q.type === 'char_to_romaji' || q.type === 'listening_kana');
+        setQuestions(generated.length >= 5 ? generated : generateSpeedQuizQuestions(pool, targetType, 10));
+        setQuizIndex(0);
+        setScore(0);
+        setStreak(0);
+        setTypedText('');
+        setTypingFeedback(null);
+        setIsAnswered(false);
+        setIsQuizCompleted(false);
+    }, [pool, targetType]);
 
     useEffect(() => {
         if (isOpen) {
-            if (gameMode === 'speed_quiz' || gameMode === 'typing') {
-                initSpeedQuiz();
-            } else if (gameMode === 'memory_match') {
-                initMemoryMatch();
-            }
+            if (gameMode === 'speed_quiz') initSpeedQuiz();
+            else if (gameMode === 'memory_match') initMemoryMatch();
+            else if (gameMode === 'typing') initTyping();
         }
-    }, [isOpen, gameMode, initSpeedQuiz, initMemoryMatch]);
+    }, [isOpen, gameMode, initSpeedQuiz, initMemoryMatch, initTyping]);
 
     if (!isOpen) return null;
 
     const currentQ = questions[quizIndex] || null;
 
-    // Handle Speed Quiz Option Select
+    // Auto play audio when question advances (for listening questions)
+    const handleNextQuestion = (nextIndex) => {
+        setQuizIndex(nextIndex);
+        setSelectedOption(null);
+        setIsAnswered(false);
+        setTypedText('');
+        setTypingFeedback(null);
+
+        const nextQ = questions[nextIndex];
+        if (nextQ?.autoPlayAudio && nextQ?.audioChar) {
+            setTimeout(() => speakJapanese(nextQ.audioChar), 250);
+        }
+    };
+
+    // Handle Option Select
     const handleSelectOption = (opt) => {
         if (isAnswered || !currentQ) return;
+
         setSelectedOption(opt);
         setIsAnswered(true);
 
@@ -131,22 +126,22 @@ const KanaQuizModal = ({
             setStreak(0);
         }
 
-        speakJapanese(currentQ.char);
+        if (currentQ.audioChar) {
+            speakJapanese(currentQ.audioChar);
+        }
 
         setTimeout(() => {
             if (quizIndex + 1 < questions.length) {
-                setQuizIndex(prev => prev + 1);
-                setSelectedOption(null);
-                setIsAnswered(false);
+                handleNextQuestion(quizIndex + 1);
             } else {
                 setIsQuizCompleted(true);
                 launchFanfare();
-                if (awardXP) awardXP(30);
+                if (awardXP) awardXP(40);
             }
         }, 1200);
     };
 
-    // Handle Memory Match Card Click
+    // Handle Memory Match Flip
     const handleCardClick = (idx) => {
         if (flippedIndices.length === 2 || flippedIndices.includes(idx) || matchedPairs.includes(cards[idx].pairId)) {
             return;
@@ -154,6 +149,10 @@ const KanaQuizModal = ({
 
         const newFlipped = [...flippedIndices, idx];
         setFlippedIndices(newFlipped);
+
+        if (cards[idx]?.audioChar) {
+            speakJapanese(cards[idx].audioChar);
+        }
 
         if (newFlipped.length === 2) {
             const [firstIdx, secondIdx] = newFlipped;
@@ -168,7 +167,7 @@ const KanaQuizModal = ({
                         setTimeout(() => {
                             setIsQuizCompleted(true);
                             launchFanfare();
-                            if (awardXP) awardXP(40);
+                            if (awardXP) awardXP(45);
                         }, 500);
                     }
                     return updated;
@@ -188,7 +187,10 @@ const KanaQuizModal = ({
         e.preventDefault();
         if (!typedText.trim() || !currentQ || isAnswered) return;
 
-        const isCorrect = typedText.trim().toLowerCase() === currentQ.correct.toLowerCase();
+        const expected = (currentQ.romaji || currentQ.correct || '').trim().toLowerCase();
+        const userInput = typedText.trim().toLowerCase();
+        const isCorrect = userInput === expected;
+
         setIsAnswered(true);
 
         if (isCorrect) {
@@ -202,14 +204,13 @@ const KanaQuizModal = ({
             setStreak(0);
         }
 
-        speakJapanese(currentQ.char);
+        if (currentQ.audioChar) {
+            speakJapanese(currentQ.audioChar);
+        }
 
         setTimeout(() => {
             if (quizIndex + 1 < questions.length) {
-                setQuizIndex(prev => prev + 1);
-                setTypedText('');
-                setTypingFeedback(null);
-                setIsAnswered(false);
+                handleNextQuestion(quizIndex + 1);
             } else {
                 setIsQuizCompleted(true);
                 launchFanfare();
@@ -219,23 +220,23 @@ const KanaQuizModal = ({
     };
 
     return (
-        <div className="fixed inset-0 z-[110] bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto animate-fade-in">
+        <div className="fixed inset-0 z-[110] bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-4 overflow-y-auto animate-fade-in font-sans">
             <div
                 onClick={(e) => e.stopPropagation()}
-                className="relative w-full max-w-xl bg-white dark:bg-slate-900 border-2 border-emerald-500/20 dark:border-emerald-500/20 rounded-3xl shadow-2xl overflow-hidden flex flex-col my-auto transition-all"
+                className="relative w-full max-w-xl bg-white dark:bg-slate-900 border-2 border-emerald-500/20 rounded-3xl shadow-2xl overflow-hidden flex flex-col my-auto transition-all"
             >
-                {/* Header */}
-                <div className="bg-emerald-500 dark:bg-emerald-600 border-b-4 border-emerald-700 p-4 sm:p-5 text-white flex items-center justify-between">
-                    <div className="flex items-center gap-2.5">
-                        <div className="w-10 h-10 rounded-2xl bg-white/20 backdrop-blur-md flex items-center justify-center text-xl shadow-inner">
-                            🎮
+                {/* Header Strip */}
+                <div className="bg-emerald-500 dark:bg-emerald-600 border-b-4 border-emerald-700 p-3.5 sm:p-4 text-white flex items-center justify-between">
+                    <div className="flex items-center gap-2.5 min-w-0">
+                        <div className="w-9 h-9 rounded-xl bg-white/20 backdrop-blur-md flex items-center justify-center text-lg shadow-inner shrink-0">
+                            ⚡
                         </div>
-                        <div>
-                            <h3 className="text-base sm:text-lg font-black tracking-tight">
+                        <div className="min-w-0">
+                            <h3 className="text-sm sm:text-base font-black tracking-tight truncate">
                                 Luyện Phản Xạ Bảng Chữ Cái
                             </h3>
-                            <p className="text-[11px] text-emerald-100 font-medium">
-                                Nâng cao tốc độ nhận diện Hiragana & Katakana
+                            <p className="text-[11px] text-emerald-100 font-medium truncate">
+                                {targetType === 'hiragana' ? 'Bảng chữ mềm Hiragana' : 'Bảng chữ cứng Katakana'}
                             </p>
                         </div>
                     </div>
@@ -243,134 +244,151 @@ const KanaQuizModal = ({
                     <button
                         type="button"
                         onClick={onClose}
-                        className="p-2 rounded-2xl bg-white/20 hover:bg-white/30 text-white transition-all hover:scale-105 active:scale-95 shadow-md cursor-pointer"
-                        title="Đóng game"
+                        className="p-1.5 sm:p-2 rounded-xl bg-white/20 hover:bg-white/30 text-white transition-all hover:scale-105 active:scale-95 shadow-xs cursor-pointer shrink-0"
+                        title="Đóng"
                     >
-                        <X className="w-5 h-5" />
+                        <X className="w-4 h-4 sm:w-5 sm:h-5" />
                     </button>
                 </div>
 
+                {/* Sub-Header: Learned Status Pill */}
+                <div className="px-3.5 sm:px-4 py-2 bg-slate-50 dark:bg-slate-950/70 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between gap-2 text-xs">
+                    {isCustomMastered ? (
+                        <div className="flex items-center gap-1.5 text-emerald-700 dark:text-emerald-400 font-bold truncate">
+                            <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                            <span className="truncate">Luyện tập từ <strong>{masteredCount} chữ</strong> bạn đã đánh dấu thuộc (✓)</span>
+                        </div>
+                    ) : (
+                        <div className="flex items-center gap-1.5 text-amber-700 dark:text-amber-400 font-medium truncate">
+                            <AlertCircle className="w-3.5 h-3.5 text-amber-500 shrink-0" />
+                            <span className="truncate">Đã thuộc {masteredCount} chữ. Đang bổ sung chữ mẫu để đủ bộ câu hỏi.</span>
+                        </div>
+                    )}
+
+                    <span className="text-[10px] font-mono font-bold text-slate-400 shrink-0">
+                        {pool.length} ký tự trong kho
+                    </span>
+                </div>
+
                 {/* Game Mode Selector Bar */}
-                <div className="flex items-center border-b-2 border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60 p-2 gap-2">
+                <div className="flex items-center border-b-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-2 gap-1.5 sm:gap-2">
                     <button
                         type="button"
                         onClick={() => { setGameMode('speed_quiz'); setIsQuizCompleted(false); }}
-                        className={`flex-1 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1.5 select-none ${
+                        className={`flex-1 py-2 sm:py-2.5 rounded-xl text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1.5 select-none ${
                             gameMode === 'speed_quiz'
-                                ? 'bg-sky-500 text-white border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 shadow-sm'
-                                : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700'
+                                ? 'bg-sky-500 text-white border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 shadow-xs'
+                                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700'
                         }`}
                     >
-                        <Zap className="w-3.5 h-3.5" />
-                        <span>Trắc nghiệm 4 đáp án</span>
+                        <Zap className="w-3.5 h-3.5 shrink-0" />
+                        <span className="truncate">4 Đáp án</span>
                     </button>
                     <button
                         type="button"
                         onClick={() => { setGameMode('memory_match'); setIsQuizCompleted(false); }}
-                        className={`flex-1 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1.5 select-none ${
+                        className={`flex-1 py-2 sm:py-2.5 rounded-xl text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1.5 select-none ${
                             gameMode === 'memory_match'
-                                ? 'bg-amber-500 text-white border-b-4 border-amber-700 active:translate-y-0.5 active:border-b-0 shadow-sm'
-                                : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700'
+                                ? 'bg-amber-500 text-white border-b-4 border-amber-700 active:translate-y-0.5 active:border-b-0 shadow-xs'
+                                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700'
                         }`}
                     >
-                        <BookOpen className="w-3.5 h-3.5" />
-                        <span>Ghép cặp thẻ nhớ</span>
+                        <BookOpen className="w-3.5 h-3.5 shrink-0" />
+                        <span className="truncate">Ghép thẻ</span>
                     </button>
                     <button
                         type="button"
                         onClick={() => { setGameMode('typing'); setIsQuizCompleted(false); }}
-                        className={`flex-1 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1.5 select-none ${
+                        className={`flex-1 py-2 sm:py-2.5 rounded-xl text-[11px] sm:text-xs font-black uppercase tracking-wider transition-all cursor-pointer flex items-center justify-center gap-1.5 select-none ${
                             gameMode === 'typing'
-                                ? 'bg-emerald-500 text-white border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 shadow-sm'
-                                : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700'
+                                ? 'bg-emerald-500 text-white border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 shadow-xs'
+                                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700'
                         }`}
                     >
-                        <Play className="w-3.5 h-3.5" />
-                        <span>Gõ phản xạ</span>
+                        <Play className="w-3.5 h-3.5 shrink-0" />
+                        <span className="truncate">Gõ phản xạ</span>
                     </button>
                 </div>
 
                 {/* Main Game Screen */}
-                <div className="p-5 sm:p-6 min-h-[340px] flex flex-col justify-center items-center">
+                <div className="p-4 sm:p-5 min-h-[320px] flex flex-col justify-center items-center">
                     {isQuizCompleted ? (
-                        /* COMPLETION VIEW */
-                        <div className="text-center space-y-5 py-4 animate-fade-in w-full max-w-sm">
-                            <div className="text-6xl animate-bounce">🏆</div>
-                            <div>
-                                <h3 className="text-2xl font-black text-slate-800 dark:text-white">
-                                    Xuất Sắc!
-                                </h3>
-                                <p className="text-sm text-slate-600 dark:text-slate-300 font-medium mt-1">
-                                    Bạn đã hoàn thành phiên luyện tập bảng chữ Kana!
+                        <KanaQuizCompletionView
+                            score={score}
+                            onRetry={() => {
+                                if (gameMode === 'memory_match') initMemoryMatch();
+                                else if (gameMode === 'typing') initTyping();
+                                else initSpeedQuiz();
+                            }}
+                            onClose={onClose}
+                        />
+                    ) : gameMode === 'speed_quiz' && currentQ ? (
+                        /* SPEED QUIZ 4-OPTIONS VIEW */
+                        <div className="w-full space-y-4 animate-fade-in">
+                            {/* Question Header & Stats Bar */}
+                            <div className="flex items-center justify-between text-xs font-bold text-slate-500">
+                                <div className="flex items-center gap-2">
+                                    <span className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-[11px] font-black">
+                                        {currentQ.badge || 'Câu hỏi'}
+                                    </span>
+                                    <span>Câu {quizIndex + 1} / {questions.length}</span>
+                                </div>
+                                <div className="flex items-center gap-3">
+                                    <span className="text-amber-500 flex items-center gap-1 font-bold">
+                                        🔥 {streak}
+                                    </span>
+                                    <span className="text-sky-600 dark:text-sky-400 font-bold">
+                                        {score} pts
+                                    </span>
+                                </div>
+                            </div>
+
+                            {/* Question Prompt Title */}
+                            <div className="text-center space-y-0.5">
+                                <h4 className="text-sm sm:text-base font-black text-slate-900 dark:text-white">
+                                    {currentQ.title}
+                                </h4>
+                                <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400">
+                                    {currentQ.subtitle}
                                 </p>
                             </div>
 
-                            <div className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200/60 dark:border-emerald-800/60 flex items-center justify-around">
-                                <div className="text-center">
-                                    <span className="text-xs text-slate-500 font-bold block">Tổng điểm</span>
-                                    <span className="text-2xl font-black text-sky-600 dark:text-sky-400">{score} pts</span>
-                                </div>
-                                <div className="h-8 w-px bg-emerald-200 dark:bg-emerald-800" />
-                                <div className="text-center">
-                                    <span className="text-xs text-slate-500 font-bold block">Thưởng XP</span>
-                                    <span className="text-2xl font-black text-emerald-600 dark:text-emerald-400">+40 XP</span>
-                                </div>
-                            </div>
-
-                            <div className="flex gap-3 pt-2">
-                                <button
-                                    type="button"
-                                    onClick={() => {
-                                        if (gameMode === 'memory_match') initMemoryMatch();
-                                        else initSpeedQuiz();
-                                    }}
-                                    className="flex-1 py-3.5 rounded-2xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 font-black uppercase tracking-wider text-slate-700 dark:text-slate-200 text-xs flex items-center justify-center gap-2 transition-all cursor-pointer select-none"
-                                >
-                                    <RotateCcw className="w-4 h-4" />
-                                    <span>Chơi lại</span>
-                                </button>
-                                <button
-                                    type="button"
-                                    onClick={onClose}
-                                    className="flex-1 py-3.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 text-white font-black uppercase tracking-wider text-xs transition-all cursor-pointer select-none"
-                                >
-                                    <span>Hoàn tất</span>
-                                </button>
-                            </div>
-                        </div>
-                    ) : gameMode === 'speed_quiz' && currentQ ? (
-                        /* SPEED QUIZ 4-OPTIONS VIEW */
-                        <div className="w-full space-y-6 animate-fade-in">
-                            {/* Progress & Score bar */}
-                            <div className="flex items-center justify-between text-xs font-bold text-slate-500">
-                                <span>Câu {quizIndex + 1} / {questions.length}</span>
-                                <div className="flex items-center gap-3">
-                                    <span className="text-amber-500 flex items-center gap-1">
-                                        🔥 Chuỗi: {streak}
-                                    </span>
-                                    <span className="text-sky-600 dark:text-sky-400">
-                                        Điểm: {score}
-                                    </span>
-                                </div>
-                            </div>
-
-                            {/* Question Character Prompt */}
-                            <div className="flex flex-col items-center justify-center p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/60 border-2 border-slate-200 dark:border-slate-700 shadow-inner text-center relative group">
-                                <span className="text-6xl sm:text-7xl font-black text-slate-900 dark:text-white font-japanese select-none animate-pulse">
-                                    {currentQ.char}
-                                </span>
-                                <button
-                                    type="button"
-                                    onClick={() => speakJapanese(currentQ.char)}
-                                    className="mt-3 p-2 rounded-full bg-white dark:bg-slate-700 text-sky-500 dark:text-sky-400 shadow-md hover:scale-110 active:scale-95 transition-all cursor-pointer"
-                                    title="Nghe phát âm"
-                                >
-                                    <Volume2 className="w-4 h-4" />
-                                </button>
+                            {/* Question Main Display Card */}
+                            <div className="flex flex-col items-center justify-center p-5 sm:p-6 rounded-2xl sm:rounded-3xl bg-slate-50 dark:bg-slate-800/60 border-2 border-slate-200 dark:border-slate-700 shadow-inner text-center relative group min-h-[110px]">
+                                {currentQ.isAudioPrompt ? (
+                                    <button
+                                        type="button"
+                                        onClick={() => speakJapanese(currentQ.audioChar)}
+                                        className="px-5 py-3 rounded-2xl bg-sky-500 hover:bg-sky-400 text-white font-black text-sm flex items-center gap-2 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 cursor-pointer shadow-sm transition"
+                                    >
+                                        <Volume2 className="w-5 h-5 animate-pulse" />
+                                        <span>Bấm nghe lại âm thanh</span>
+                                    </button>
+                                ) : (
+                                    <>
+                                        <span className={`font-black text-slate-900 dark:text-white font-japanese select-none ${
+                                            currentQ.display.length > 2 
+                                                ? 'text-2xl sm:text-3xl' 
+                                                : 'text-4xl sm:text-5xl'
+                                        }`}>
+                                            {currentQ.display}
+                                        </span>
+                                        {currentQ.audioChar && (
+                                            <button
+                                                type="button"
+                                                onClick={() => speakJapanese(currentQ.audioChar)}
+                                                className="mt-2 p-1.5 rounded-full bg-white dark:bg-slate-700 text-sky-500 dark:text-sky-400 shadow-xs hover:scale-110 active:scale-95 transition-all cursor-pointer"
+                                                title="Nghe phát âm"
+                                            >
+                                                <Volume2 className="w-3.5 h-3.5" />
+                                            </button>
+                                        )}
+                                    </>
+                                )}
                             </div>
 
                             {/* 4 Options Grid */}
-                            <div className="grid grid-cols-2 gap-3">
+                            <div className="grid grid-cols-2 gap-2 sm:gap-2.5">
                                 {currentQ.options.map((opt, idx) => {
                                     const isSelected = selectedOption === opt;
                                     const isCorrect = opt === currentQ.correct;
@@ -383,7 +401,7 @@ const KanaQuizModal = ({
                                         } else if (isSelected) {
                                             btnStyle = 'bg-rose-500 text-white border-b-4 border-rose-700 shadow-md';
                                         } else {
-                                            btnStyle = 'bg-slate-100 dark:bg-slate-800/40 text-slate-400 border-2 border-slate-200 dark:border-slate-800 opacity-50';
+                                            btnStyle = 'bg-slate-100 dark:bg-slate-800/40 text-slate-400 border border-slate-200 dark:border-slate-800 opacity-40';
                                         }
                                     }
 
@@ -393,9 +411,13 @@ const KanaQuizModal = ({
                                             type="button"
                                             onClick={() => handleSelectOption(opt)}
                                             disabled={isAnswered}
-                                            className={`p-4 rounded-2xl font-mono text-xl sm:text-2xl font-black transition-all cursor-pointer flex items-center justify-center select-none ${btnStyle}`}
+                                            className={`p-3 sm:p-3.5 rounded-xl font-black transition-all cursor-pointer flex items-center justify-center select-none text-center ${btnStyle} ${
+                                                opt.length > 4 
+                                                    ? 'text-xs sm:text-sm font-sans' 
+                                                    : 'text-lg sm:text-xl font-japanese'
+                                            }`}
                                         >
-                                            /{opt}/
+                                            {currentQ.type === 'char_to_romaji' ? `/${opt}/` : opt}
                                         </button>
                                     );
                                 })}
@@ -403,15 +425,15 @@ const KanaQuizModal = ({
                         </div>
                     ) : gameMode === 'memory_match' ? (
                         /* MEMORY MATCH PAIR FLIP GAME */
-                        <div className="w-full space-y-4 animate-fade-in">
+                        <div className="w-full space-y-3.5 animate-fade-in">
                             <div className="flex items-center justify-between text-xs font-bold text-slate-500 px-1">
-                                <span>Tìm các cặp Hiragana ↔ Katakana tương ứng</span>
+                                <span>Ghép cặp Hiragana ↔ Katakana / Romaji</span>
                                 <span className="text-emerald-500 font-bold">
                                     Đã ghép: {matchedPairs.length} / {cards.length / 2}
                                 </span>
                             </div>
 
-                            <div className="grid grid-cols-3 sm:grid-cols-4 gap-2.5 sm:gap-3">
+                            <div className="grid grid-cols-3 sm:grid-cols-4 gap-2 sm:gap-2.5">
                                 {cards.map((card, idx) => {
                                     const isFlipped = flippedIndices.includes(idx);
                                     const isMatched = matchedPairs.includes(card.pairId);
@@ -420,25 +442,25 @@ const KanaQuizModal = ({
                                         <div
                                             key={card.uniqueId}
                                             onClick={() => handleCardClick(idx)}
-                                            className={`h-24 rounded-2xl flex flex-col items-center justify-center p-2 border-2 transition-all duration-200 cursor-pointer select-none active:translate-y-0.5 ${
+                                            className={`h-20 sm:h-22 rounded-xl flex flex-col items-center justify-center p-1.5 border-2 transition-all duration-200 cursor-pointer select-none active:translate-y-0.5 ${
                                                 isMatched
-                                                    ? 'bg-emerald-50 dark:bg-emerald-950/40 border-b-4 border-emerald-500 text-emerald-600 dark:text-emerald-400 opacity-70 scale-95'
+                                                    ? 'bg-emerald-50 dark:bg-emerald-950/40 border-b-4 border-emerald-500 text-emerald-600 dark:text-emerald-400 opacity-60 scale-95'
                                                     : isFlipped
-                                                        ? 'bg-emerald-500 text-white border-b-4 border-emerald-700 shadow-md scale-105'
-                                                        : 'bg-white dark:bg-slate-800 border-b-4 border-slate-300 dark:border-slate-700 hover:border-emerald-400 text-slate-800 dark:text-slate-200 hover:scale-102'
+                                                        ? 'bg-emerald-500 text-white border-b-4 border-emerald-700 shadow-md scale-102'
+                                                        : 'bg-white dark:bg-slate-800 border-b-4 border-slate-300 dark:border-slate-700 hover:border-emerald-400 text-slate-800 dark:text-slate-200 hover:scale-101'
                                             }`}
                                         >
                                             {isFlipped || isMatched ? (
                                                 <>
-                                                    <span className="text-2xl sm:text-3xl font-black font-japanese">
+                                                    <span className="text-xl sm:text-2xl font-black font-japanese">
                                                         {card.content}
                                                     </span>
-                                                    <span className="text-[9px] font-sans font-black uppercase opacity-85 mt-1">
+                                                    <span className="text-[8px] sm:text-[9px] font-sans font-black uppercase opacity-85 mt-0.5">
                                                         {card.sub}
                                                     </span>
                                                 </>
                                             ) : (
-                                                <span className="text-2xl text-slate-400 font-bold opacity-60">❓</span>
+                                                <span className="text-xl text-slate-400 font-bold opacity-50">❓</span>
                                             )}
                                         </div>
                                     );
@@ -446,23 +468,23 @@ const KanaQuizModal = ({
                             </div>
                         </div>
                     ) : gameMode === 'typing' && currentQ ? (
-                        /* TYPING ATTACK MODE */
-                        <div className="w-full space-y-6 animate-fade-in max-w-sm text-center">
+                        /* TYPING REFLEX MODE */
+                        <div className="w-full space-y-4 animate-fade-in max-w-sm text-center">
                             <div className="flex items-center justify-between text-xs font-bold text-slate-500">
                                 <span>Câu {quizIndex + 1} / {questions.length}</span>
-                                <span className="text-sky-600 dark:text-sky-400">Điểm: {score}</span>
+                                <span className="text-sky-600 dark:text-sky-400 font-bold">{score} pts</span>
                             </div>
 
-                            <div className="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/60 border-2 border-slate-200 dark:border-slate-700 shadow-inner">
-                                <span className="text-7xl font-black text-slate-900 dark:text-white font-japanese block animate-bounce">
-                                    {currentQ.char}
+                            <div className="p-6 rounded-2xl bg-slate-50 dark:bg-slate-800/60 border-2 border-slate-200 dark:border-slate-700 shadow-inner">
+                                <span className="text-5xl sm:text-6xl font-black text-slate-900 dark:text-white font-japanese block animate-bounce">
+                                    {currentQ.kanaChar || currentQ.display}
                                 </span>
-                                <span className="text-xs text-slate-400 font-medium mt-2 block">
+                                <span className="text-xs text-slate-400 font-medium mt-1.5 block">
                                     Gõ phiên âm Romaji của ký tự này
                                 </span>
                             </div>
 
-                            <form onSubmit={handleTypingSubmit} className="space-y-3">
+                            <form onSubmit={handleTypingSubmit} className="space-y-2.5">
                                 <input
                                     type="text"
                                     autoFocus
@@ -470,7 +492,7 @@ const KanaQuizModal = ({
                                     onChange={(e) => setTypedText(e.target.value)}
                                     placeholder="Nhập romaji (VD: ka, shi, a)..."
                                     disabled={isAnswered}
-                                    className={`w-full p-4 rounded-2xl border-2 text-center text-xl font-mono font-bold outline-none transition-all ${
+                                    className={`w-full p-3 rounded-xl border-2 text-center text-lg font-mono font-bold outline-none transition-all ${
                                         typingFeedback === 'correct'
                                             ? 'bg-emerald-50 border-emerald-500 text-emerald-700'
                                             : typingFeedback === 'wrong'
@@ -481,7 +503,7 @@ const KanaQuizModal = ({
                                 <button
                                     type="submit"
                                     disabled={isAnswered || !typedText.trim()}
-                                    className="w-full py-3.5 bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 disabled:opacity-50 text-white font-black uppercase tracking-wider text-xs rounded-2xl transition-all cursor-pointer select-none"
+                                    className="w-full py-3 bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 disabled:opacity-40 text-white font-black uppercase tracking-wider text-xs rounded-xl transition-all cursor-pointer select-none"
                                 >
                                     Kiểm tra đáp án
                                 </button>
