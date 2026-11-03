@@ -11,11 +11,12 @@ import {
     updateSingleJLPTTestInCache, 
     removeSingleJLPTTestFromCache 
 } from '../../services/jlptDataService';
-import { Plus, Trash2, Edit3, Save, X, ChevronDown, ChevronUp, FileText, Headphones, BookOpen, Languages, AlertTriangle, CheckCircle, Loader2, Copy, Upload, ArrowLeft, Award, Bold, Underline, Highlighter, Italic, Strikethrough, AlignCenter, CornerDownLeft, Palette, Eraser, Type, Lock, Unlock, Crown } from 'lucide-react'
+import { Plus, Trash2, Edit3, Save, X, ChevronDown, ChevronUp, FileText, Headphones, BookOpen, Languages, AlertTriangle, CheckCircle, Loader2, Copy, Upload, ArrowLeft, Award, Bold, Underline, Highlighter, Italic, Strikethrough, AlignCenter, CornerDownLeft, Palette, Eraser, Type, Lock, Unlock, Crown, Search } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom';
 import { ROUTES } from '../../router';
 import { compressImage, fileToBase64 } from '../../utils/image';
 import AdminPdfIngestorModal from '../admin/AdminPdfIngestorModal';
+import JLPTQuestionSearchModal from '../jlptTest/JLPTQuestionSearchModal';
 const SECTION_TYPES = [
     { value: 'vocabulary', label: 'Từ vựng (文字・語彙)', icon: Languages, color: 'blue' },
     { value: 'grammar', label: 'Ngữ pháp (文法)', icon: BookOpen, color: 'sky' },
@@ -403,11 +404,52 @@ const JLPTAdminScreen = ({ userId }) => {
     const [showAiPdfModal, setShowAiPdfModal] = useState(false);
     const [jsonInput, setJsonInput] = useState('');
     const [confirmDelete, setConfirmDelete] = useState(null);
+    const [showQuestionSearchModal, setShowQuestionSearchModal] = useState(false);
     const [importType, setImportType] = useState('full');
     const [importSkillType, setImportSkillType] = useState('vocabulary');
     const [importMethod, setImportMethod] = useState('overwrite');
     const testsPath = `artifacts/${appId}/jlptTests`;
     const [activeFieldsTabs, setActiveFieldsTabs] = useState({});
+
+    // Global keyboard shortcut Ctrl+K to open question search for admin
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
+                e.preventDefault();
+                setShowQuestionSearchModal(prev => !prev);
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, []);
+
+    const handleSaveSearchedQuestion = async (testId, sectionIdx, questionIdx, updatedQuestion) => {
+        try {
+            const targetTest = tests.find(t => t.id === testId);
+            if (!targetTest) return false;
+            const updatedSections = JSON.parse(JSON.stringify(targetTest.sections));
+            updatedSections[sectionIdx].questions[questionIdx] = updatedQuestion;
+            const testRef = doc(db, testsPath, testId);
+            await setDoc(testRef, { 
+                ...targetTest,
+                sections: updatedSections,
+                updatedAt: Date.now()
+            }, { merge: true });
+
+            updateSingleJLPTTestInCache(testId, { sections: updatedSections });
+            setTests(prevTests => prevTests.map(t => t.id === testId ? { ...t, sections: updatedSections } : t));
+            if (editingTest?.id === testId) {
+                setEditingTest(prev => ({ ...prev, sections: updatedSections }));
+                setFormData(prev => ({ ...prev, sections: updatedSections }));
+            }
+            setNotification('Đã lưu thay đổi câu hỏi thành công!');
+            return true;
+        } catch (err) {
+            console.error('Error saving question:', err);
+            setNotification('Lỗi khi lưu câu hỏi: ' + err.message);
+            return false;
+        }
+    };
 
     const getTab = (sectionIdx, questionIdx, field) => {
         return activeFieldsTabs[`${sectionIdx}-${questionIdx}-${field}`] || 'preview';
@@ -1455,28 +1497,42 @@ const JLPTAdminScreen = ({ userId }) => {
                             <h2 className="font-extrabold text-slate-800 dark:text-white text-sm md:text-base">
                                 📋 Danh sách đề thi & bài luyện hiện có ({filteredTests.length})
                             </h2>
-                            {/* Search bar */}
-                            <div className="relative max-w-xs w-full">
-                                <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
-                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                    </svg>
-                                </span>
-                                <input
-                                    type="text"
-                                    value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
-                                    placeholder="Tìm tên đề thi, cấp độ..."
-                                    className="w-full pl-9 pr-8 py-2 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-850 text-slate-800 dark:text-white focus:ring-2 focus:ring-[#2E5B70]/20 outline-none"
-                                />
-                                {searchQuery && (
-                                    <button 
-                                        onClick={() => setSearchQuery('')}
-                                        className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-650"
-                                    >
-                                        <X className="w-4 h-4" />
-                                    </button>
-                                )}
+                            {/* Search bar and Quick Question Search */}
+                            <div className="flex items-center gap-2 max-w-md w-full justify-end">
+                                <button
+                                    type="button"
+                                    onClick={() => setShowQuestionSearchModal(true)}
+                                    className="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-500 active:translate-y-0.5 border-b-3 border-emerald-700 active:border-b-1 text-white rounded-xl text-xs font-black transition-all flex items-center gap-1.5 shadow-xs cursor-pointer shrink-0 select-none"
+                                    title="Tìm kiếm và sửa nhanh câu hỏi trên toàn bộ đề thi (Ctrl + K)"
+                                >
+                                    <Search className="w-3.5 h-3.5 stroke-[2.5]" />
+                                    <span>Tìm & Sửa câu hỏi</span>
+                                    <span className="hidden sm:inline-block px-1 py-0.2 text-[9px] bg-emerald-700 rounded font-mono">
+                                        Ctrl+K
+                                    </span>
+                                </button>
+                                <div className="relative flex-1">
+                                    <span className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                        </svg>
+                                    </span>
+                                    <input
+                                        type="text"
+                                        value={searchQuery}
+                                        onChange={(e) => setSearchQuery(e.target.value)}
+                                        placeholder="Tìm tên đề thi, cấp độ..."
+                                        className="w-full pl-9 pr-8 py-2 text-xs border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-850 text-slate-800 dark:text-white focus:ring-2 focus:ring-[#2E5B70]/20 outline-none"
+                                    />
+                                    {searchQuery && (
+                                        <button 
+                                            onClick={() => setSearchQuery('')}
+                                            className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-650"
+                                        >
+                                            <X className="w-4 h-4" />
+                                        </button>
+                                    )}
+                                </div>
                             </div>
                         </div>
 
@@ -1793,6 +1849,14 @@ const JLPTAdminScreen = ({ userId }) => {
                 onClose={() => setShowAiPdfModal(false)}
                 initialCategory="JLPT_TEST"
                 onSyncCache={() => {}}
+            />
+
+            {/* Quick Question Search & Edit Modal */}
+            <JLPTQuestionSearchModal
+                isOpen={showQuestionSearchModal}
+                onClose={() => setShowQuestionSearchModal(false)}
+                tests={tests}
+                onSaveQuestion={handleSaveSearchedQuestion}
             />
         </div>
     );

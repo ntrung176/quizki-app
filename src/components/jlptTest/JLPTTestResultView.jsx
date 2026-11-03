@@ -879,6 +879,7 @@ const JLPTTestResultView = ({
                                                                     options={sq.options || []}
                                                                     correctAnswer={sq.correctAnswer}
                                                                     userAnswer={subUserAns}
+                                                                    onEditQuestion={canEdit && setEditingQuestionData ? () => setEditingQuestionData({ question, sectionIdx: selectedTabIdx, questionIdx: qIdx }) : null}
                                                                 />
                                                             </div>
                                                         );
@@ -934,6 +935,7 @@ const JLPTTestResultView = ({
                                                         options={question.options || []}
                                                         correctAnswer={question.correctAnswer}
                                                         userAnswer={userChoice}
+                                                        onEditQuestion={canEdit && setEditingQuestionData ? () => setEditingQuestionData({ question, sectionIdx: selectedTabIdx, questionIdx: qIdx }) : null}
                                                     />
                                                 </div>
                                             )}

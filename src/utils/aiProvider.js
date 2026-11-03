@@ -431,7 +431,7 @@ export const generateVocabPrompt = (frontText, contextPos = '', contextLevel = '
 
     let grammarInstruction = '';
     let exampleRule = '';
-    let exampleMeaningRule = '5. exampleMeaning: Nghĩa tiếng Việt đầy đủ của câu ví dụ.';
+    let exampleMeaningRule = '5. exampleMeaning: Nghĩa tiếng Việt ngắn gọn, tự nhiên, sát ngữ cảnh của câu/cụm ví dụ.';
 
     if (isGrammar) {
         if (hasMeaning) {
@@ -452,9 +452,9 @@ Yêu cầu cấu trúc kết quả:
         }
     } else {
         // Build example rule dynamically based on level
-        exampleRule = `4. example: CHỈ 1 CÂU VÍ DỤ HOÀN CHỈNH. Viết câu ví dụ tự nhiên bằng tiếng Nhật thể hiện CÁCH DÙNG THÔNG DỤNG NHẤT (collocation / ngữ cảnh phổ biến trong đời sống hoặc công việc) của từ "${frontText}". Giữ nguyên vẹn từ vựng "${frontText}" trong câu (TUYỆT ĐỐI KHÔNG dùng dấu gạch dưới ＿＿＿＿, KHÔNG che từ). Tránh các câu quá ngắn hoặc chung chung (như "Đây là...", "Tôi thích..."). KHÔNG thêm phiên âm hay ngoặc furigana vào câu.`;
+        exampleRule = `4. example: CHỈ 1 CÂU HOẶC CỤM TỪ NGẮN THÔNG DỤNG (COLLOCATION) từ 5 đến 12 từ tiếng Nhật, thể hiện cách dùng quen thuộc nhất trong đời sống thường nhật của từ "${frontText}" (Ví dụ các cụm collocation tự nhiên: 水を飲む, 約束を守る, 時間に間に合う, バスに乗る, 意見を述べる...). Giữ nguyên vẹn từ vựng "${frontText}" trong câu (hoặc dạng chia thì tự nhiên, TUYỆT ĐỐI KHÔNG dùng dấu gạch dưới ＿＿＿＿, KHÔNG che từ). TUYỆT ĐỐI KHÔNG viết câu phức ghép dài dòng, lan man, nhiều mệnh đề hay từ ngữ hàn lâm khó hiểu. KHÔNG thêm phiên âm hay ngoặc furigana vào câu.`;
         if (contextLevel === 'N5') {
-            exampleRule = `4. example: CHỈ 1 CÂU VÍ DỤ HOÀN CHỈNH. Viết câu ngắn đơn giản dễ hiểu (tối đa 8-10 từ) thể hiện cách dùng thông dụng của từ "${frontText}". Giữ nguyên vẹn từ vựng trong câu (TUYỆT ĐỐI KHÔNG dùng dấu gạch dưới ＿＿＿＿, KHÔNG che từ), viết bằng HIRAGANA và Kanji đơn giản. KHÔNG thêm ngoặc phiên âm furigana.`;
+            exampleRule = `4. example: CHỈ 1 CÂU HOẶC CỤM TỪ NGẮN ĐƠN GIẢN (5-10 từ tiếng Nhật) thể hiện cách dùng thông dụng nhất của từ "${frontText}". Giữ nguyên vẹn từ vựng trong câu (TUYỆT ĐỐI KHÔNG dùng dấu gạch dưới ＿＿＿＿, KHÔNG che từ), viết bằng HIRAGANA và Kanji cơ bản. TUYỆT ĐỐI KHÔNG viết câu dài lan man. KHÔNG thêm ngoặc phiên âm furigana.`;
         }
     }
 
@@ -469,7 +469,7 @@ QUY TẮC BẮT BUỘC:
 2. front (Từ gốc): Chữ Hán/từ vựng thuần túy (TUYỆT ĐỐI KHÔNG chứa ngoặc phiên âm furigana, ví dụ "募集", "水道", "食べる", "日本語を勉強する", "スマホを使う").
 3. reading (Cách đọc): BẮT BUỘC điền cách đọc chỉ bằng chữ Hiragana/Katakana cho TOÀN BỘ từ gốc/cụm từ (Ví dụ: "ぼしゅう", "すいどう", "たべる", "にほんごをべんきょうする", "スマホをつかう"). TUYỆT ĐỐI KHÔNG chứa chữ Hán (Kanji).
 4. synonym (Từ đồng nghĩa): Chữ Hán/từ thuần túy (TUYỆT ĐỐI KHÔNG chứa ngoặc phiên âm, ví dụ "配管"). N5 hoặc không có -> "".
-5. meaning: ${isGrammar ? 'Định nghĩa ngữ pháp theo hướng dẫn ở trên.' : 'Ngắn gọn, nghĩa khác nhau ngăn ";". Không liệt kê nghĩa gần giống. Đặc biệt, nếu từ gốc là một cụm từ dài, câu, collocation hoặc có pos là "phrase" (Ví dụ: "進学を契機にテニス部に入った"), thì trường "meaning" BẮT BUỘC phải là một bản dịch tiếng Việt tự nhiên, thoát ý duy nhất cho TOÀN BỘ cụm từ/câu đó. TUYỆT ĐỐI KHÔNG dịch tách nhỏ từng vế hoặc liệt kê nhiều nghĩa rời rạc phân cách bởi dấu chấm phẩy (;).'}
+5. meaning: ${isGrammar ? 'Định nghĩa ngữ pháp theo hướng dẫn ở trên.' : `BẮT BUỘC NGẮN GỌN DỄ HỌC (khoảng 1 - 8 từ tiếng Việt). CHỈ CHỌN 1 ĐẾN 2 NÉT NGHĨA PHỔ BIẾN / ĐẶC TRƯNG NHẤT trong đời sống thực tế (ngăn cách bởi dấu chấm phẩy ";" nếu có 2 nghĩa). TUYỆT ĐỐI KHÔNG sao chép nguyên cả bài từ điển dài dòng, không liệt kê nghĩa hiếm gặp, không viết các định nghĩa hàn lâm dài dòng khó nhớ.${hasMeaning ? ' [LƯU Ý ĐẶC BIỆT: Hãy dựa vào thông tin nghĩa tham khảo/Mazii được cung cấp ở trên để chắt lọc lấy 1-2 nghĩa thông dụng, ngắn gọn, tự nhiên và dễ nhớ nhất cho người học; TUYỆT ĐỐI KHÔNG sao chép y chang cả đoạn dài từ điển].' : ''} Đặc biệt, nếu từ gốc là một cụm từ dài, câu, collocation hoặc có pos là "phrase" (Ví dụ: "進学を契機にテニス部に入った"), thì trường "meaning" BẮT BUỘC phải là một bản dịch tiếng Việt tự nhiên, thoát ý duy nhất cho TOÀN BỘ cụm từ/câu đó. TUYỆT ĐỐI KHÔNG dịch tách nhỏ từng vế hoặc liệt kê nhiều nghĩa rời rạc phân cách bởi dấu chấm phẩy (;).`}
 6. pos/level: Phải khớp ngữ cảnh nếu đã chọn. Grammar→giải thích như ngữ pháp.
    - pos: Bắt buộc chọn một trong các chuỗi sau: "noun" (danh từ), "verb" (động từ), "suru_verb" (danh động từ - suru verb), "adj-i" (tính từ -い), "adj-na" (tính từ -な), "noun/adj-na" (danh từ kiêm tính từ -な), "adverb" (trạng từ), "conjunction" (liên từ), "particle" (trợ từ), "grammar" (ngữ pháp), "phrase" (cụm từ), "other" (khác).
 

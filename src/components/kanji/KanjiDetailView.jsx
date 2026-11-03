@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { 
     ArrowLeft, RotateCcw, Check, Heart, Bookmark, Edit, Trash2, 
-    Layers, Tag, Volume2, Plus, Wand2 
+    Layers, Tag, Volume2, Plus, Wand2, BookPlus, Folder, BookOpen, Search, X, Loader2, ChevronRight 
 } from 'lucide-react';
 import { renderMaziiStyleKanji } from '../../utils/kanjiStroke';
 import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitchAccent';
@@ -13,6 +13,11 @@ import openjlptComposition from '../../data/openjlptComposition.json' with { typ
 import openjlptComponentInfo from '../../data/openjlptComponentInfo.json' with { type: 'json' };
 import kanjiComponents from '../../data/kanjiComponents.json' with { type: 'json' };
 import { computeSinoVietnameseForWord, getSinoVietnamese } from '../../utils/kanjiHVLookup';
+import { searchDictionary } from '../../services/dictionaryService';
+import { sortStudySetsOldToNew } from '../../utils/studySetSorter';
+import { aiAssistVocab } from '../../utils/aiProvider';
+import { ensureFuriganaFormat } from '../../utils/furiganaHelper';
+import { showToast } from '../../utils/toast';
 
 const RADICAL_NAME_MAP = {};
 if (RADICALS_214) {
@@ -59,14 +64,171 @@ const KanjiDetailView = ({
     handleDeleteVocab,
     setShowAddVocabModal,
     handleGenerateAiVocabForSingleKanji,
-    generatingAiVocab
+    generatingAiVocab,
+    folders = []
 }) => {
     const detail = selectedKanji ? getKanjiDetail(selectedKanji) : null;
-    const vocab = selectedKanji ? getVocabForKanji(selectedKanji) : [];
+    const baseVocab = selectedKanji ? getVocabForKanji(selectedKanji) : [];
     const det = detail || {};
 
     // --- Pitch Accent state & fetching ---
     const [pitchAccentData, setPitchAccentData] = useState({});
+
+    // --- Fetch Supplementary Vocabulary from Yomitan / Mazii 266k Dictionary ---
+    const [dictVocab, setDictVocab] = useState([]);
+
+    useEffect(() => {
+        if (!selectedKanji) {
+            setDictVocab([]);
+            return;
+        }
+        let isCancelled = false;
+        searchDictionary(selectedKanji, 40).then(results => {
+            if (!isCancelled && results && results.length > 0) {
+                setDictVocab(results);
+            }
+        }).catch(err => {
+            console.warn('Error fetching supplementary dictionary vocab for kanji:', err);
+        });
+        return () => { isCancelled = true; };
+    }, [selectedKanji]);
+
+    // Merge base vocab with dictionary vocab without duplicates
+    const vocab = useMemo(() => {
+        const seenWords = new Set();
+        // 1. Add existing kanji vocab items first
+        for (const v of baseVocab) {
+            const clean = (v.word || '').split('（')[0].split('(')[0].trim();
+            if (clean) seenWords.add(clean);
+        }
+
+        // 2. Add extra words from dictionary that contain this kanji and are not duplicates
+        const extraList = [];
+        for (const entry of dictVocab) {
+            if (!entry || !entry.w) continue;
+            const cleanWord = entry.w.trim();
+            if (!cleanWord.includes(selectedKanji)) continue;
+            if (seenWords.has(cleanWord)) continue;
+            seenWords.add(cleanWord);
+
+            const reading = entry.r || '';
+            const meaningText = Array.isArray(entry.m) ? entry.m.slice(0, 2).join('; ') : (entry.m || '');
+            const sinoViet = entry.hv || computeSinoVietnameseForWord(cleanWord, kanjiMap);
+            const level = entry.jlpt ? entry.jlpt.toUpperCase() : '';
+            const accent = entry.pi && entry.pi.length > 0 ? entry.pi[0] : '';
+            const pos = Array.isArray(entry.pos) ? entry.pos.join(', ') : (entry.pos || '');
+
+            extraList.push({
+                id: `dict_${cleanWord}_${reading}`,
+                word: reading ? `${cleanWord}（${reading}）` : cleanWord,
+                rawWord: cleanWord,
+                reading: reading,
+                meaning: meaningText,
+                fullMeaning: Array.isArray(entry.m) ? entry.m.join('\n') : meaningText,
+                sinoViet: sinoViet,
+                level: level,
+                accent: accent,
+                pos: pos,
+                fromDict: true
+            });
+        }
+
+        return [...baseVocab, ...extraList];
+    }, [baseVocab, dictVocab, selectedKanji, kanjiMap]);
+
+    // --- Save to Study Set Modal State & Logic ---
+    const [saveModal, setSaveModal] = useState({
+        isOpen: false,
+        vocab: null,
+        mode: 'quick', // 'quick' | 'ai'
+        parentFolderId: null,
+        searchQuery: '',
+        isSaving: false
+    });
+
+    const handleOpenSaveModal = (v) => {
+        setSaveModal({
+            isOpen: true,
+            vocab: v,
+            mode: 'quick',
+            parentFolderId: null,
+            searchQuery: '',
+            isSaving: false
+        });
+    };
+
+    const handleCloseSaveModal = () => {
+        setSaveModal(prev => ({ ...prev, isOpen: false, isSaving: false, vocab: null }));
+    };
+
+    const handleExecuteSaveVocab = async (targetFolderId) => {
+        const targetVocab = saveModal.vocab;
+        if (!targetVocab) return;
+
+        setSaveModal(prev => ({ ...prev, isSaving: true }));
+        try {
+            const wordClean = (targetVocab.rawWord || targetVocab.word || '').split('（')[0].split('(')[0].trim();
+            let cardData = {
+                front: targetVocab.word || wordClean,
+                back: targetVocab.meaning || '',
+                synonym: targetVocab.synonym || '',
+                example: targetVocab.example || '',
+                exampleMeaning: targetVocab.exampleMeaning || '',
+                nuance: targetVocab.nuance || '',
+                pos: targetVocab.pos || '',
+                level: targetVocab.level || '',
+                sinoVietnamese: targetVocab.sinoViet || '',
+                synonymSinoVietnamese: targetVocab.synonymSinoVietnamese || '',
+                reading: targetVocab.reading || '',
+                accent: targetVocab.accent !== undefined ? String(targetVocab.accent) : '0',
+                imageBase64: null,
+                audioBase64: null,
+                action: 'stay',
+                folderId: targetFolderId === 'unfiled' ? null : targetFolderId
+            };
+
+            if (saveModal.mode === 'ai') {
+                try {
+                    const rawMeaning = targetVocab.fullMeaning || targetVocab.meaning || '';
+                    const aiRefined = await aiAssistVocab(
+                        wordClean,
+                        targetVocab.pos || '',
+                        targetVocab.level || '',
+                        rawMeaning
+                    );
+                    if (aiRefined) {
+                        const rawFront = aiRefined.frontWithFurigana || aiRefined.front || targetVocab.word || wordClean;
+                        const front = await ensureFuriganaFormat(rawFront, aiRefined.reading || targetVocab.reading || '');
+                        cardData = {
+                            ...cardData,
+                            ...aiRefined,
+                            front,
+                            back: aiRefined.meaning || cardData.back,
+                            reading: aiRefined.reading || cardData.reading,
+                            sinoVietnamese: aiRefined.sinoVietnamese || cardData.sinoVietnamese
+                        };
+                    }
+                } catch (aiErr) {
+                    console.warn('AI assist failed during save, falling back to current vocab data:', aiErr);
+                    cardData.front = await ensureFuriganaFormat(cardData.front, cardData.reading);
+                }
+            } else {
+                cardData.front = await ensureFuriganaFormat(cardData.front, cardData.reading);
+            }
+
+            if (onAddVocabToSRS) {
+                await onAddVocabToSRS(cardData);
+            } else if (handleAddVocabToSRS) {
+                await handleAddVocabToSRS(cardData);
+            }
+            showToast(`Đã thêm "${wordClean}" vào học phần!`, 'success');
+            handleCloseSaveModal();
+        } catch (err) {
+            console.error('Error saving vocab from Kanji detail:', err);
+            showToast('Không thể lưu từ vựng: ' + (err.message || 'Lỗi không xác định'), 'error');
+            setSaveModal(prev => ({ ...prev, isSaving: false }));
+        }
+    };
 
     useEffect(() => {
         if (!selectedKanji || !detailWriterContainerRef?.current) return;
@@ -280,7 +442,7 @@ const KanjiDetailView = ({
 
             {/* Main 3-Column Layout */}
             <div className="flex-1 min-h-0 overflow-y-auto overscroll-contain pr-1 sm:pr-2 pb-6 space-y-4">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 items-stretch">
                     
                     {/* COLUMN 1: Stroke Animation Canvas (No Stroke Order Guide) */}
                     <div className="lg:col-span-4 flex flex-col items-center">
@@ -304,7 +466,7 @@ const KanjiDetailView = ({
                     </div>
 
                     {/* COLUMN 2: Meta Information, Illustration & Thành phần bộ thủ */}
-                    <div className="lg:col-span-4 space-y-3 sm:space-y-4">
+                    <div className="lg:col-span-4 space-y-3 sm:space-y-4 flex flex-col justify-between">
                         {/* Title Bar: Kanji - SinoViet - Pink Heart Bookmark Button */}
                         <div className="flex items-center gap-3 flex-wrap">
                             <span className="text-4xl font-black text-slate-900 dark:text-white font-japanese">{selectedKanji}</span>
@@ -437,7 +599,7 @@ const KanjiDetailView = ({
                         </div>
 
                         {/* Card 2: Thành phần bộ thủ (Icon lớn + Lưới xanh Tạo thành) */}
-                        <div className="space-y-1.5">
+                        <div className="space-y-1.5 flex-1 flex flex-col">
                             <div className="flex items-center gap-1.5">
                                 <Layers className="w-4 h-4 text-slate-500 dark:text-slate-400 stroke-[2.5]" />
                                 <h4 className="text-xs font-black uppercase tracking-wider text-slate-600 dark:text-slate-300">
@@ -445,7 +607,7 @@ const KanjiDetailView = ({
                                 </h4>
                             </div>
 
-                            <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-xs flex flex-col items-center justify-center text-center space-y-3">
+                            <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-xs flex flex-col items-center justify-center text-center space-y-3 flex-1">
                                 {/* Main Blue Character Box with Badge & "TẠO THÀNH" label */}
                                 <div className="flex flex-col items-center">
                                     <div className="relative">
@@ -494,9 +656,9 @@ const KanjiDetailView = ({
                     </div>
 
                     {/* COLUMN 3: Từ vựng List & Thêm từ vựng */}
-                    <div className="lg:col-span-4 flex flex-col">
-                        <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-xs flex flex-col justify-between space-y-3">
-                            <div>
+                    <div className="lg:col-span-4 flex flex-col h-full">
+                        <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-xs flex flex-col justify-between h-full space-y-3">
+                            <div className="flex-1 min-h-0 flex flex-col">
                                 {/* Header */}
                                 <div className="flex justify-between items-center pb-2.5 border-b border-slate-100 dark:border-slate-800">
                                     <h3 className="text-amber-600 dark:text-amber-400 font-black text-sm flex items-center gap-1.5 uppercase tracking-wide">
@@ -565,6 +727,11 @@ const KanjiDetailView = ({
                                                         </span>
                                                         {renderVocabPitch(v)}
                                                         {sinoVietText && <span className="px-1.5 py-0.2 bg-cyan-50 dark:bg-cyan-900/20 text-cyan-600 dark:text-cyan-400 text-[10px] font-bold uppercase rounded ml-1">[{sinoVietText}]</span>}
+                                                        {v.fromDict && (
+                                                            <span className="px-1 py-0.2 bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 text-[9px] font-bold rounded">
+                                                                Từ điển
+                                                            </span>
+                                                        )}
                                                     </div>
                                                     <div className="text-slate-700 dark:text-slate-300 text-xs line-clamp-1">{v.meaning}</div>
                                                 </div>
@@ -578,9 +745,13 @@ const KanjiDetailView = ({
                                                             <Volume2 className="w-3.5 h-3.5" />
                                                         </button>
                                                     )}
-                                                    {onAddVocabToSRS && (
-                                                        <button onClick={() => handleAddVocabToSRS(v)} className="p-1 text-slate-400 hover:text-sky-500 hover:bg-sky-50 dark:hover:bg-sky-950/30 rounded-lg transition-colors cursor-pointer" title="Thêm vào học phần">
-                                                            <Plus className="w-3.5 h-3.5" />
+                                                    {(onAddVocabToSRS || handleAddVocabToSRS) && (
+                                                        <button 
+                                                            onClick={() => handleOpenSaveModal(v)} 
+                                                            className="p-1.5 text-emerald-600 hover:text-white hover:bg-emerald-500 dark:text-emerald-400 dark:hover:bg-emerald-600 rounded-lg transition-all cursor-pointer border border-emerald-200 dark:border-emerald-800/60 shadow-2xs" 
+                                                            title="Lưu nhanh hoặc tạo thẻ với AI"
+                                                        >
+                                                            <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
                                                         </button>
                                                     )}
                                                     {isAdmin && (
@@ -595,7 +766,7 @@ const KanjiDetailView = ({
                                     };
 
                                     return (
-                                        <div className="space-y-2.5 max-h-[360px] overflow-y-auto pr-1 py-1">
+                                        <div className="space-y-2.5 flex-1 min-h-[380px] lg:min-h-[500px] max-h-[620px] overflow-y-auto pr-1 py-1 custom-scrollbar">
                                             {kunyomiVocab.length > 0 && (
                                                 <div className="space-y-1.5">
                                                     <div className="flex items-center gap-2 px-2.5 py-1 bg-red-50/80 dark:bg-red-950/20 border border-red-100 dark:border-red-900/30 rounded-lg sticky top-0 bg-white dark:bg-slate-800 z-10">
@@ -630,7 +801,7 @@ const KanjiDetailView = ({
                             </div>
 
                             {/* Full width button - Duolingo 3D */}
-                            <div className="pt-2 border-t border-slate-100 dark:border-slate-800">
+                            <div className="pt-2 border-t border-slate-100 dark:border-slate-800 shrink-0">
                                 <button 
                                     onClick={() => setShowAddVocabModal(true)} 
                                     className="w-full py-3 bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 text-white rounded-2xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer shadow-xs transition-all select-none"
@@ -646,11 +817,184 @@ const KanjiDetailView = ({
         </div>
     );
 
+    const saveModalPortal = (saveModal.isOpen && saveModal.vocab && typeof document !== 'undefined') ? createPortal(
+        (() => {
+            const wordClean = (saveModal.vocab.rawWord || saveModal.vocab.word || '').split('（')[0].split('(')[0].trim();
+            const readingClean = saveModal.vocab.reading || (saveModal.vocab.word?.includes('（') ? saveModal.vocab.word.split('（')[1]?.replace('）', '') : '');
+            
+            const parentFolders = (folders || []).filter(f => f.type === 'folder');
+            const studySets = (folders || []).filter(f => f.type !== 'folder');
+
+            const activeFolder = saveModal.parentFolderId ? parentFolders.find(f => f.id === saveModal.parentFolderId) : null;
+            
+            // Filter items based on search or folder drill-down
+            let itemsToShow = [];
+            if (saveModal.searchQuery.trim()) {
+                const q = saveModal.searchQuery.toLowerCase().trim();
+                itemsToShow = (folders || []).filter(f => (f.name || f.title || '').toLowerCase().includes(q));
+            } else if (saveModal.parentFolderId) {
+                itemsToShow = studySets.filter(s => s.parentId === saveModal.parentFolderId);
+            } else {
+                // Root level: show folders first, then standalone study sets
+                const rootStudySets = studySets.filter(s => !s.parentId || !parentFolders.some(p => p.id === s.parentId));
+                itemsToShow = [...parentFolders, ...rootStudySets];
+            }
+            const sortedItems = sortStudySetsOldToNew(itemsToShow);
+
+            return (
+                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[100060] flex items-center justify-center p-3 sm:p-4" onClick={handleCloseSaveModal}>
+                    <div className="bg-white dark:bg-slate-900 rounded-3xl border-2 border-b-4 border-slate-200 dark:border-slate-800 p-5 sm:p-6 max-w-md w-full shadow-2xl animate-fade-in text-left space-y-4" onClick={e => e.stopPropagation()}>
+                        {/* Header */}
+                        <div className="flex items-start justify-between gap-3 border-b border-slate-100 dark:border-slate-800 pb-3">
+                            <div className="min-w-0">
+                                <div className="flex items-center gap-2">
+                                    <span className="font-japanese font-black text-xl text-slate-900 dark:text-white">{wordClean}</span>
+                                    {readingClean && <span className="font-japanese text-xs font-bold text-slate-500 dark:text-slate-400">({readingClean})</span>}
+                                    {saveModal.vocab.sinoViet && <span className="text-[10px] font-black uppercase px-1.5 py-0.5 rounded bg-cyan-50 dark:bg-cyan-950 text-cyan-600 dark:text-cyan-400">[{saveModal.vocab.sinoViet}]</span>}
+                                </div>
+                                <p className="text-xs text-slate-600 dark:text-slate-300 line-clamp-1 mt-0.5">{saveModal.vocab.meaning}</p>
+                            </div>
+                            <button onClick={handleCloseSaveModal} className="p-1.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer shrink-0">
+                                <X className="w-4 h-4 stroke-[2.5]" />
+                            </button>
+                        </div>
+
+                        {/* Mode Selector: 2 tactile Duolingo 3D buttons */}
+                        <div>
+                            <label className="text-[10px] font-black uppercase tracking-wider text-slate-400 dark:text-slate-500 block mb-1.5">
+                                Hình thức lưu thẻ
+                            </label>
+                            <div className="grid grid-cols-2 gap-2">
+                                <button
+                                    type="button"
+                                    onClick={() => setSaveModal(prev => ({ ...prev, mode: 'quick' }))}
+                                    className={`py-2 px-3 rounded-2xl font-black text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer border-b-4 select-none ${
+                                        saveModal.mode === 'quick'
+                                            ? 'bg-emerald-600 hover:bg-emerald-500 text-white border-emerald-700 shadow-xs'
+                                            : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700'
+                                    }`}
+                                >
+                                    <BookPlus className="w-3.5 h-3.5 stroke-[2.5]" />
+                                    <span>Lưu nhanh</span>
+                                </button>
+
+                                <button
+                                    type="button"
+                                    onClick={() => setSaveModal(prev => ({ ...prev, mode: 'ai' }))}
+                                    className={`py-2 px-3 rounded-2xl font-black text-xs transition-all flex items-center justify-center gap-1.5 cursor-pointer border-b-4 select-none ${
+                                        saveModal.mode === 'ai'
+                                            ? 'bg-sky-500 hover:bg-sky-400 text-white border-sky-600 shadow-xs'
+                                            : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700'
+                                    }`}
+                                >
+                                    <Wand2 className="w-3.5 h-3.5 text-amber-200 stroke-[2.5]" />
+                                    <span>Tạo thẻ với AI</span>
+                                </button>
+                            </div>
+                            <p className="text-[11px] text-slate-400 dark:text-slate-500 mt-1 italic">
+                                {saveModal.mode === 'ai'
+                                    ? '✨ AI sẽ tinh gọn nghĩa ngắn gọn (1-8 từ) & tạo câu ví dụ thông dụng (5-12 từ).'
+                                    : '⚡ Lưu từ vựng ngay vào học phần với định nghĩa hiện tại.'}
+                            </p>
+                        </div>
+
+                        {/* Search bar */}
+                        <div className="relative">
+                            <Search className="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                            <input
+                                type="text"
+                                placeholder="Tìm kiếm thư mục hoặc học phần..."
+                                value={saveModal.searchQuery}
+                                onChange={(e) => setSaveModal(prev => ({ ...prev, searchQuery: e.target.value }))}
+                                className="w-full pl-9 pr-8 py-2 text-xs rounded-xl bg-slate-50 dark:bg-slate-850 border border-slate-200 dark:border-slate-700 text-slate-800 dark:text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500"
+                            />
+                            {saveModal.searchQuery && (
+                                <button onClick={() => setSaveModal(prev => ({ ...prev, searchQuery: '' }))} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 cursor-pointer">
+                                    <X className="w-3.5 h-3.5" />
+                                </button>
+                            )}
+                        </div>
+
+                        {/* Items List (Sorted Old to New) */}
+                        <div className="max-h-56 overflow-y-auto space-y-2 pr-1 custom-scrollbar">
+                            {saveModal.parentFolderId && !saveModal.searchQuery.trim() && (
+                                <button
+                                    onClick={() => setSaveModal(prev => ({ ...prev, parentFolderId: activeFolder?.parentId || null }))}
+                                    className="w-full text-left p-2 rounded-xl border border-dashed border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all flex items-center gap-2 font-bold text-xs text-slate-500 dark:text-slate-400 cursor-pointer"
+                                >
+                                    <ArrowLeft className="w-3.5 h-3.5 stroke-[2.5]" />
+                                    <span>Quay lại {activeFolder?.parentId ? '' : 'danh sách thư mục'}</span>
+                                </button>
+                            )}
+
+                            {sortedItems.length === 0 ? (
+                                <p className="text-center text-xs text-slate-400 py-6 italic">
+                                    {saveModal.searchQuery.trim() ? 'Không tìm thấy học phần nào phù hợp.' : 'Chưa có học phần nào.'}
+                                </p>
+                            ) : (
+                                sortedItems.map(item => (
+                                    <button
+                                        key={item.id}
+                                        disabled={saveModal.isSaving}
+                                        onClick={() => {
+                                            if (item.type === 'folder') {
+                                                setSaveModal(prev => ({ ...prev, parentFolderId: item.id, searchQuery: '' }));
+                                            } else {
+                                                handleExecuteSaveVocab(item.id);
+                                            }
+                                        }}
+                                        className="w-full text-left p-2.5 rounded-2xl border-2 border-b-3 border-slate-200/80 dark:border-slate-800 hover:border-emerald-500 dark:hover:border-sky-400 hover:bg-slate-50 dark:hover:bg-slate-800 transition-all flex items-center justify-between gap-2.5 cursor-pointer active:translate-y-0.5 active:border-b-2 disabled:opacity-50"
+                                    >
+                                        <div className="flex items-center gap-2.5 min-w-0">
+                                            <span className={`p-2 rounded-xl shrink-0 ${
+                                                item.type === 'folder' 
+                                                    ? 'bg-amber-50 dark:bg-amber-950/60 text-amber-500' 
+                                                    : 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400'
+                                            }`}>
+                                                {item.type === 'folder' ? <Folder className="w-4 h-4 stroke-[2.5]" /> : <BookOpen className="w-4 h-4 stroke-[2.5]" />}
+                                            </span>
+                                            <div className="min-w-0">
+                                                <div className="text-xs font-black text-slate-800 dark:text-slate-200 truncate">
+                                                    {item.name || item.title || 'Học phần'}
+                                                </div>
+                                                <div className="text-[10px] text-slate-400 mt-0.5 font-bold">
+                                                    {item.type === 'folder' ? 'Thư mục' : 'Học phần'}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {item.type === 'folder' ? (
+                                            <ChevronRight className="w-4 h-4 text-slate-400 shrink-0" />
+                                        ) : (
+                                            saveModal.isSaving ? <Loader2 className="w-3.5 h-3.5 text-emerald-500 animate-spin shrink-0" /> : <Plus className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                                        )}
+                                    </button>
+                                ))
+                            )}
+                        </div>
+
+                        {/* Footer */}
+                        <div className="flex justify-end gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
+                            <button
+                                onClick={handleCloseSaveModal}
+                                disabled={saveModal.isSaving}
+                                className="px-4 py-2 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-300 rounded-xl font-bold text-xs transition-all cursor-pointer"
+                            >
+                                Hủy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            );
+        })(),
+        document.body
+    ) : null;
+
     if (isFullPage) {
         return (
             <div className="w-full min-h-screen pt-[calc(3.75rem+env(safe-area-inset-top,0px))] p-3 sm:p-6 lg:p-8 bg-gradient-to-br from-emerald-50/95 via-white/95 to-sky-50/95 dark:from-slate-900 dark:via-slate-900 dark:to-slate-900 flex items-center justify-center">
                 <div className="w-full max-w-[1400px]">
                     {content}
+                    {saveModalPortal}
                 </div>
             </div>
         );
@@ -658,13 +1002,18 @@ const KanjiDetailView = ({
 
     if (typeof document === 'undefined') return null;
 
-    return createPortal(
-        <div className="fixed inset-0 bg-black/70 dark:bg-black/85 backdrop-blur-md z-[100000] flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-8 pt-[max(0.75rem,env(safe-area-inset-top))] pb-[max(0.75rem,env(safe-area-inset-bottom))] animate-fade-in overflow-hidden">
-            <div className="w-full max-w-[96vw] lg:max-w-[1420px] h-[92vh] sm:h-auto sm:max-h-[92vh] bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 flex flex-col p-3.5 sm:p-5 overflow-hidden my-auto">
-                {content}
-            </div>
-        </div>,
-        document.body
+    return (
+        <>
+            {createPortal(
+                <div className="fixed inset-0 bg-black/70 dark:bg-black/85 backdrop-blur-md z-[100000] flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-8 pt-[max(0.75rem,env(safe-area-inset-top))] pb-[max(0.75rem,env(safe-area-inset-bottom))] animate-fade-in overflow-hidden">
+                    <div className="w-full max-w-[96vw] lg:max-w-[1420px] h-[92vh] sm:h-auto sm:max-h-[92vh] bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl shadow-2xl border border-slate-200/80 dark:border-slate-800 flex flex-col p-3.5 sm:p-5 overflow-hidden my-auto">
+                        {content}
+                    </div>
+                </div>,
+                document.body
+            )}
+            {saveModalPortal}
+        </>
     );
 };
 

@@ -137,6 +137,7 @@ const KanjiScreen = ({
                     diagramPan={diagramPan}
                     setDiagramPan={setDiagramPan}
                     setDiagramZoom={setDiagramZoom}
+                    folders={folders}
                 />
 
                 {/* Form Modals for Lesson Direct Mode */}
@@ -289,6 +290,7 @@ const KanjiScreen = ({
                         diagramPan={diagramPan}
                         setDiagramPan={setDiagramPan}
                         setDiagramZoom={setDiagramZoom}
+                        folders={folders}
                     />
                 )}
 

@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { 
     CheckCircle2, XCircle, Lightbulb, BookOpen, 
     Volume2, Plus, ChevronDown, ChevronUp,
-    Languages, ListChecks, HelpCircle
+    Languages, ListChecks, HelpCircle, Sparkles
 } from 'lucide-react';
 import { parseJlptExplanation } from '../../utils/jlptExplanationParser';
 import SentenceBreakdownModal from './SentenceBreakdownModal';
@@ -14,6 +14,7 @@ const QuestionExplanationCard = ({
     correctAnswer = -1, 
     userAnswer = undefined,
     onAddFlashcard = null,
+    onEditQuestion = null,
     className = '' 
 }) => {
     const [isBreakdownModalOpen, setIsBreakdownModalOpen] = useState(false);
@@ -73,6 +74,18 @@ const QuestionExplanationCard = ({
                 </div>
 
                 <div className="flex items-center gap-2 shrink-0 self-start sm:self-center">
+                    {onEditQuestion && (
+                        <button
+                            type="button"
+                            onClick={onEditQuestion}
+                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 border-b-2 border-amber-700 active:translate-y-0.5 active:border-b-0 text-white text-xs font-black transition cursor-pointer select-none shadow-2xs"
+                            title="Sửa câu hỏi hoặc tạo giải thích với AI"
+                        >
+                            <Sparkles className="w-3.5 h-3.5 text-white" />
+                            <span>Sửa / AI</span>
+                        </button>
+                    )}
+
                     {parsed.sentences && parsed.sentences.length > 0 && (
                         <button
                             type="button"

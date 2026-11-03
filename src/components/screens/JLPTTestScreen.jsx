@@ -14,6 +14,7 @@ import QuestionEditModal from '../jlptTest/QuestionEditModal';
 import JLPTTestTakeView from '../jlptTest/JLPTTestTakeView';
 import JLPTTestResultView from '../jlptTest/JLPTTestResultView';
 import JLPTTestDashboard from '../jlptTest/JLPTTestDashboard';
+import JLPTQuestionSearchModal from '../jlptTest/JLPTQuestionSearchModal';
 import { showToast } from '../../utils/toast';
 import { X, Play, BookOpen, Lock, ChevronRight, FileText, Printer, Check } from 'lucide-react';
 
@@ -141,6 +142,47 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
     const userIsAdmin = profile?.email && ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'].includes(profile.email);
     const hasPremiumAccess = isAdmin || userIsAdmin || profile?.isPremiumUnlocked || (profile?.unlockedSpecializedPackages || []).includes('jlpt_prep');
     const canEdit = isAdmin || userIsAdmin;
+    const [showQuestionSearchModal, setShowQuestionSearchModal] = useState(false);
+
+    // Global keyboard shortcut Ctrl+K to open question search for admin
+    useEffect(() => {
+        if (!canEdit) return;
+        const handleKeyDown = (e) => {
+            if ((e.ctrlKey || e.metaKey) && (e.key === 'k' || e.key === 'K')) {
+                e.preventDefault();
+                setShowQuestionSearchModal(prev => !prev);
+            }
+        };
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [canEdit]);
+
+    const handleSaveSearchedQuestion = async (testId, sectionIdx, questionIdx, updatedQuestion) => {
+        try {
+            const targetTest = tests.find(t => t.id === testId);
+            if (!targetTest) return false;
+            const updatedSections = JSON.parse(JSON.stringify(targetTest.sections));
+            updatedSections[sectionIdx].questions[questionIdx] = updatedQuestion;
+            const testRef = doc(db, `artifacts/${appId}/jlptTests`, testId);
+            await setDoc(testRef, { 
+                ...targetTest,
+                sections: updatedSections,
+                updatedAt: Date.now()
+            }, { merge: true });
+
+            updateSingleJLPTTestInCache(testId, { sections: updatedSections });
+            setTests(prevTests => prevTests.map(t => t.id === testId ? { ...t, sections: updatedSections } : t));
+            if (activeTest?.id === testId) {
+                setActiveTest(prev => ({ ...prev, sections: updatedSections }));
+            }
+            showToast('Đã lưu thay đổi câu hỏi thành công!', 'success');
+            return true;
+        } catch (err) {
+            console.error('Error saving question:', err);
+            showToast('Lỗi khi lưu câu hỏi: ' + err.message, 'error');
+            return false;
+        }
+    };
 
     useEffect(() => { localStorage.setItem('quizki_jlpt_show_furigana', String(showFurigana)); }, [showFurigana]);
     useEffect(() => { localStorage.setItem('quizki_jlpt_show_timer', String(showTimer)); }, [showTimer]);
@@ -1035,6 +1077,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                     pkgName={lockedPkgName} 
                 />
                 {renderPrintElements()}
+                {canEdit && (
+                    <JLPTQuestionSearchModal
+                        isOpen={showQuestionSearchModal}
+                        onClose={() => setShowQuestionSearchModal(false)}
+                        tests={tests}
+                        onSaveQuestion={handleSaveSearchedQuestion}
+                    />
+                )}
             </>
         );
     }
@@ -1074,7 +1124,8 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                     audioRef={audioRef}
                     isRealExam={isRealExam}
                     canEdit={canEdit}
-                    onEditQuestion={(q, sIdx, qIdx) => setEditingQuestionData({ question: q, sectionIdx: sIdx, questionIdx: qIdx })}
+                    onEditQuestion={(q, sIdx, qIdx, targetTab) => setEditingQuestionData({ question: targetTab ? { ...q, _targetTab: targetTab } : q, sectionIdx: sIdx, questionIdx: qIdx })}
+                    setShowQuestionSearchModal={setShowQuestionSearchModal}
                     submitTest={submitTest}
                     saveProgressAndExit={saveProgressAndExit}
                     goToQuestion={goToQuestion}
@@ -1143,6 +1194,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                 />
                 {renderModeSelectionModal()}
                 {renderPrintElements()}
+                {canEdit && (
+                    <JLPTQuestionSearchModal
+                        isOpen={showQuestionSearchModal}
+                        onClose={() => setShowQuestionSearchModal(false)}
+                        tests={tests}
+                        onSaveQuestion={handleSaveSearchedQuestion}
+                    />
+                )}
             </>
         );
     }
@@ -1181,6 +1240,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                 onRemoveWrongQuestion={removeWrongQuestion}
                 onClearAllWrongQuestions={clearAllWrongQuestions}
                 onStartPracticeWrong={handleStartPracticeWrong}
+                onOpenQuestionSearch={() => setShowQuestionSearchModal(true)}
             />
             {renderModeSelectionModal()}
             <PremiumLockedModal 
@@ -1189,6 +1249,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                 pkgName={lockedPkgName} 
             />
             {renderPrintElements()}
+            {canEdit && (
+                <JLPTQuestionSearchModal
+                    isOpen={showQuestionSearchModal}
+                    onClose={() => setShowQuestionSearchModal(false)}
+                    tests={tests}
+                    onSaveQuestion={handleSaveSearchedQuestion}
+                />
+            )}
         </>
     );
 };

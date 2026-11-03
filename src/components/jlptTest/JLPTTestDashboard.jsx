@@ -42,6 +42,7 @@ const JLPTTestDashboard = ({
     toggleRoadmapDay,
     allCards = [],
     canEdit,
+    onOpenQuestionSearch,
     hasPremiumAccess,
     startTest,
     reviewTest,
@@ -133,15 +134,28 @@ const JLPTTestDashboard = ({
                         </p>
                     </div>
 
-                    <div className="flex items-center gap-3 self-start md:self-center">
+                    <div className="flex items-center gap-2.5 self-start md:self-center flex-wrap">
                         {canEdit && (
-                            <Link 
-                                to={ROUTES.JLPT_ADMIN}
-                                className="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 text-white rounded-2xl text-xs font-bold transition flex items-center gap-2 shadow-xs cursor-pointer"
-                            >
-                                <FileText className="w-4 h-4" />
-                                <span>Quản trị Đề thi</span>
-                            </Link>
+                            <>
+                                <button
+                                    onClick={onOpenQuestionSearch}
+                                    className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 active:translate-y-0.5 border-b-4 border-emerald-700 active:border-b-2 text-white rounded-2xl text-xs font-black transition-all flex items-center gap-2 shadow-xs cursor-pointer select-none"
+                                    title="Tìm kiếm và sửa nhanh câu hỏi trên toàn bộ đề thi (Ctrl + K)"
+                                >
+                                    <Search className="w-4 h-4 stroke-[2.5]" />
+                                    <span>Tìm & Sửa câu hỏi</span>
+                                    <span className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] bg-emerald-700/80 rounded-md font-mono">
+                                        Ctrl+K
+                                    </span>
+                                </button>
+                                <Link 
+                                    to={ROUTES.JLPT_ADMIN}
+                                    className="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 active:translate-y-0.5 border-b-4 border-slate-900 active:border-b-2 text-white rounded-2xl text-xs font-bold transition flex items-center gap-2 shadow-xs cursor-pointer"
+                                >
+                                    <FileText className="w-4 h-4" />
+                                    <span>Quản trị Đề thi</span>
+                                </Link>
+                            </>
                         )}
                     </div>
                 </div>

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { createPortal } from 'react-dom';
-import { Volume2, Wand2, BookOpen, Plus, Loader2, X, ChevronDown, Check, AlertCircle, Crown, Folder, ArrowLeft, AlertTriangle, Search } from 'lucide-react';
+import { Volume2, Wand2, BookOpen, Plus, Loader2, X, ChevronDown, Check, AlertCircle, Crown, Folder, ArrowLeft, AlertTriangle, Search, BookPlus } from 'lucide-react';
 import PremiumLockedModal from './PremiumLockedModal';
 import { aiAssistVocab, aiTranslateSentence } from '../../utils/aiProvider';
 import { getSinoVietnamese } from '../../utils/kanjiHVLookup';
@@ -12,6 +12,7 @@ import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 
 import { getPosLabel } from '../../config/constants';
 import { searchDictionary } from '../../services/dictionaryService';
+import { getCreationTime, sortStudySetsOldToNew } from '../../utils/studySetSorter';
 
 // Helper to format Japanese readings: e.g. "日本語（にほんご）" -> "日本語 (にほんご)"
 const formatReading = (text) => {
@@ -77,6 +78,7 @@ const getSelectedTextClean = (selection) => {
 
 
 const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard, setNotification, disabled, isPremiumUnlocked }) => {
+    const safeFolders = useMemo(() => Array.isArray(folders) ? folders : [], [folders]);
     const [pendingWord, setPendingWord] = useState('');
     const [showPremiumModal, setShowPremiumModal] = useState(false);
 
@@ -104,6 +106,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
     const [showFolderModal, setShowFolderModal] = useState(false);
     const [selectedModalFolderId, setSelectedModalFolderId] = useState(null);
     const [modalSearchQuery, setModalSearchQuery] = useState('');
+    const [isAiSaveAction, setIsAiSaveAction] = useState(false);
 
     const popupRef = useRef(null);
     const cardRef = useRef(null);
@@ -505,8 +508,25 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
         }
     };
 
+    const handleOpenAiSaveModal = (e) => {
+        if (e) e.stopPropagation();
+        setIsAiSaveAction(true);
+        setShowFolderModal(true);
+        setSelectedModalFolderId(null);
+        setModalSearchQuery('');
+    };
+
+    const handleOpenQuickSaveModal = (e) => {
+        if (e) e.stopPropagation();
+        setIsAiSaveAction(false);
+        setShowFolderModal(true);
+        setSelectedModalFolderId(null);
+        setModalSearchQuery('');
+    };
+
     const handleOpenFolderModal = (e) => {
-        e.stopPropagation();
+        if (e) e.stopPropagation();
+        setIsAiSaveAction(false);
         setShowFolderModal(true);
         setSelectedModalFolderId(null);
         setModalSearchQuery('');
@@ -531,6 +551,40 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
         }
     };
 
+    const handleAiRefine = async (e) => {
+        if (e) e.stopPropagation();
+        if (!pendingWord) return;
+        setLoading(true);
+        setError('');
+        try {
+            const maziiMeaning = aiResult?.meaning || '';
+            const refined = await aiAssistVocab(
+                pendingWord,
+                aiResult?.pos || '',
+                aiResult?.level || '',
+                maziiMeaning
+            );
+            if (refined) {
+                const updated = {
+                    ...aiResult,
+                    ...refined,
+                    reading: refined.reading || aiResult?.reading || '',
+                    sinoVietnamese: refined.sinoVietnamese || aiResult?.sinoVietnamese || localSinoVietnamese || '',
+                    isYomitan: false
+                };
+                if (updated.frontWithFurigana) {
+                    updated.frontWithFurigana = await ensureFuriganaFormat(updated.frontWithFurigana, updated.reading || '');
+                }
+                setAiResult(updated);
+            }
+        } catch (err) {
+            console.warn('AI Refine error:', err);
+            setError('Không thể tinh gọn bằng AI: ' + (err.message || 'Lỗi máy chủ'));
+        } finally {
+            setLoading(false);
+        }
+    };
+
     const handleConfirmSave = async (folderId) => {
         setShowFolderModal(false);
         setSelectedModalFolderId(null);
@@ -539,19 +593,47 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
 
         setSaving(true);
         try {
+            let cardData = { ...aiResult };
+
+            // If user chose "Tạo thẻ với AI", distill Mazii definitions into a concise, easy-to-learn meaning (1-8 words)
+            // and generate a short, natural everyday collocation example (5-12 words).
+            if (isAiSaveAction) {
+                try {
+                    const maziiMeaning = cardData?.meaning || '';
+                    const aiRefined = await aiAssistVocab(
+                        pendingWord,
+                        cardData?.pos || '',
+                        cardData?.level || '',
+                        maziiMeaning
+                    );
+                    if (aiRefined) {
+                        cardData = {
+                            ...cardData,
+                            ...aiRefined,
+                            reading: aiRefined.reading || cardData?.reading || '',
+                            sinoVietnamese: aiRefined.sinoVietnamese || cardData?.sinoVietnamese || localSinoVietnamese || '',
+                            isYomitan: false
+                        };
+                        setAiResult(cardData);
+                    }
+                } catch (aiErr) {
+                    console.warn('AI assist on save failed, falling back to current card data:', aiErr);
+                }
+            }
+
             // Extract values to save
-            const rawFront = aiResult?.frontWithFurigana || pendingWord;
-            const front = await ensureFuriganaFormat(rawFront, aiResult?.reading || localMatch?.reading || '');
-            const back = aiResult?.meaning || localMatch?.back || '';
-            const rawSynonym = aiResult?.synonym || localMatch?.synonym || '';
+            const rawFront = cardData?.frontWithFurigana || cardData?.front || pendingWord;
+            const front = await ensureFuriganaFormat(rawFront, cardData?.reading || localMatch?.reading || '');
+            const back = cardData?.meaning || cardData?.back || localMatch?.back || '';
+            const rawSynonym = cardData?.synonym || localMatch?.synonym || '';
             const synonym = rawSynonym ? await ensureFuriganaFormat(rawSynonym) : '';
-            const example = aiResult?.example || localMatch?.example || '';
-            const exampleMeaning = aiResult?.exampleMeaning || localMatch?.exampleMeaning || '';
-            const nuance = aiResult?.nuance || localMatch?.nuance || '';
-            const pos = aiResult?.pos || localMatch?.pos || '';
-            const level = aiResult?.level || localMatch?.level || '';
-            const sinoVietnamese = aiResult?.sinoVietnamese || localSinoVietnamese || '';
-            const synonymSinoVietnamese = aiResult?.synonymSinoVietnamese || '';
+            const example = cardData?.example || localMatch?.example || '';
+            const exampleMeaning = cardData?.exampleMeaning || localMatch?.exampleMeaning || '';
+            const nuance = cardData?.nuance || localMatch?.nuance || '';
+            const pos = cardData?.pos || localMatch?.pos || '';
+            const level = cardData?.level || localMatch?.level || '';
+            const sinoVietnamese = cardData?.sinoVietnamese || localSinoVietnamese || '';
+            const synonymSinoVietnamese = cardData?.synonymSinoVietnamese || '';
 
             const success = await handleAddCard({
                 front,
@@ -565,21 +647,21 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                 sinoVietnamese,
                 synonymSinoVietnamese,
                 folderId: folderId,
-                reading: aiResult?.reading || '',
-                accent: aiResult?.accent !== undefined ? String(aiResult.accent) : '',
+                reading: cardData?.reading || '',
+                accent: cardData?.accent !== undefined ? String(cardData.accent) : '',
                 action: 'keep' // Keep screen state as is
             });
 
             if (success) {
                 setSavedSuccessfully(true);
                 if (setNotification) {
-                    setNotification(`Đã thêm "${front.split('（')[0]}" vào thư viện từ vựng!`);
+                    setNotification(`Đã thêm "${front.split('（')[0]}" vào học phần!`);
                 }
             }
         } catch (err) {
             console.error('Save card from lookup error:', err);
             if (setNotification) {
-                setNotification('Không thể lưu từ vựng.');
+                setNotification('Không thể lưu từ vựng: ' + (err.message || 'Lỗi không xác định'));
             }
         } finally {
             setSaving(false);
@@ -621,7 +703,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                 <button
                     ref={triggerRef}
                     onClick={handleLookup}
-                    className="backdrop-blur-md bg-emerald-600/95 dark:bg-emerald-500/95 hover:bg-emerald-700 dark:hover:bg-emerald-600 text-white rounded-full px-4 py-2 text-xs font-black flex items-center gap-1.5 shadow-[0_8px_24px_rgba(99,102,241,0.4)] transition-all transform hover:scale-105 active:scale-95 duration-200 absolute -translate-x-1/2 -translate-y-full mb-3 cursor-pointer whitespace-nowrap animate-fade-in"
+                    className="backdrop-blur-md bg-emerald-600/95 dark:bg-emerald-500/95 hover:bg-emerald-700 dark:hover:bg-emerald-600 text-white rounded-full px-4 py-2 text-xs font-black flex items-center gap-1.5 shadow-[0_8px_24px_rgba(16,185,129,0.35)] transition-all transform hover:scale-105 active:scale-95 duration-200 absolute -translate-x-1/2 -translate-y-full mb-3 cursor-pointer whitespace-nowrap animate-fade-in"
                     style={{ left: `${horizontalOffset}px` }}
                 >
                     {isPremiumUnlocked ? (
@@ -828,30 +910,52 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
 
                     {/* 3. Add to Study Set Section */}
                     {handleAddCard && !loading && !aiResult?.isSentence && (
-                        <div className="border-t border-slate-150 dark:border-slate-800 pt-4 mt-4 space-y-3">
+                        <div className="border-t border-slate-150 dark:border-slate-800 pt-3.5 mt-3 space-y-2">
                             {savedSuccessfully ? (
-                                <div className="flex items-center justify-center gap-2 p-2.5 bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900/50 rounded-xl text-emerald-600 dark:text-emerald-400 text-xs font-black">
+                                <div className="flex items-center justify-center gap-2 p-2.5 bg-emerald-50 dark:bg-emerald-950/20 border-2 border-emerald-200 dark:border-emerald-800/60 rounded-2xl text-emerald-600 dark:text-emerald-400 text-xs font-black">
                                     <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-450 stroke-[3px]" />
                                     <span>Đã thêm từ vựng thành công!</span>
                                 </div>
                             ) : (
-                                <button
-                                    onClick={handleOpenFolderModal}
-                                    disabled={saving}
-                                    className="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-black shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-1.5 cursor-pointer"
-                                >
-                                    {saving ? (
-                                        <>
-                                            <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                                            <span>Đang lưu...</span>
-                                        </>
-                                    ) : (
-                                        <>
-                                            <Plus className="w-3.5 h-3.5 stroke-[3px]" />
-                                            <span>Lưu vào thư viện</span>
-                                        </>
-                                    )}
-                                </button>
+                                <div className="space-y-2">
+                                    <button
+                                        onClick={handleOpenAiSaveModal}
+                                        disabled={saving}
+                                        className="w-full py-2.5 px-3 bg-sky-500 hover:bg-sky-400 active:translate-y-0.5 border-b-4 border-sky-600 active:border-b-2 text-white rounded-2xl text-xs font-black shadow-xs disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                                        title="Dùng AI tinh gọn định nghĩa dài và sinh cụm ví dụ thông dụng rồi lưu"
+                                    >
+                                        {saving && isAiSaveAction ? (
+                                            <>
+                                                <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                                                <span>AI đang tạo thẻ & lưu...</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Wand2 className="w-3.5 h-3.5 text-amber-200 stroke-[2.5px]" />
+                                                <span>Tạo thẻ với AI</span>
+                                            </>
+                                        )}
+                                    </button>
+
+                                    <button
+                                        onClick={handleOpenQuickSaveModal}
+                                        disabled={saving}
+                                        className="w-full py-2.5 px-3 bg-emerald-600 hover:bg-emerald-500 active:translate-y-0.5 border-b-4 border-emerald-700 active:border-b-2 text-white rounded-2xl text-xs font-black shadow-xs disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-1.5 cursor-pointer"
+                                        title="Lưu nhanh vào học phần với nghĩa hiện tại"
+                                    >
+                                        {saving && !isAiSaveAction ? (
+                                            <>
+                                                <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                                                <span>Đang lưu nhanh...</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <BookPlus className="w-3.5 h-3.5 stroke-[2.5px]" />
+                                                <span>Lưu nhanh</span>
+                                            </>
+                                        )}
+                                    </button>
+                                </div>
                             )}
 
                             {aiResult?.isShared && (
@@ -879,61 +983,69 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
 
             {/* Folder Select Modal overlay */}
             {showFolderModal && (() => {
-                const activeFolder = folders.find(f => f.id === selectedModalFolderId);
+                const activeFolder = safeFolders.find(f => f.id === selectedModalFolderId);
                 const parentFolderId = activeFolder ? (activeFolder.parentId || null) : null;
                 
                 // Get items based on navigation or search query
                 let itemsToShow = [];
                 if (modalSearchQuery.trim()) {
                     // Global search
-                    itemsToShow = folders.filter(item => 
+                    itemsToShow = safeFolders.filter(item => 
                         (item.name || '').toLowerCase().includes(modalSearchQuery.toLowerCase())
                     );
                 } else {
                     // Folder-based navigation
-                    itemsToShow = folders.filter(f => (f.parentId || null) === selectedModalFolderId);
+                    itemsToShow = safeFolders.filter(f => (f.parentId || null) === selectedModalFolderId);
                 }
 
-                // Helper to extract creation time in milliseconds
-                const getCreationTime = (item) => {
-                    if (!item.createdAt) return 0;
-                    if (typeof item.createdAt === 'number') return item.createdAt;
-                    if (item.createdAt.seconds) return item.createdAt.seconds * 1000;
-                    if (typeof item.createdAt.toDate === 'function') return item.createdAt.toDate().getTime();
-                    if (item.createdAt instanceof Date) return item.createdAt.getTime();
-                    return 0;
-                };
-
-                // Sort: folders first, then study sets, both sorted newest to oldest
+                // Sort: folders first, then study sets, both sorted oldest to newest (cũ -> mới) with natural numeric fallback
                 const sortedItems = [...itemsToShow].sort((a, b) => {
                     if (a.type === 'folder' && b.type !== 'folder') return -1;
                     if (a.type !== 'folder' && b.type === 'folder') return 1;
                     
                     const timeA = getCreationTime(a);
                     const timeB = getCreationTime(b);
-                    return timeB - timeA;
+                    if (timeA && timeB && timeA !== timeB) {
+                        return timeA - timeB; // Cũ -> Mới
+                    }
+                    if (timeA && !timeB) return -1;
+                    if (!timeA && timeB) return 1;
+                    const nameA = a.name || a.title || '';
+                    const nameB = b.name || b.title || '';
+                    return nameA.localeCompare(nameB, undefined, { numeric: true, sensitivity: 'base' });
                 });
 
                 const getParentFolderName = (parentId) => {
                     if (!parentId) return '';
-                    const parent = folders.find(f => f.id === parentId);
+                    const parent = safeFolders.find(f => f.id === parentId);
                     return parent ? parent.name : '';
                 };
 
                 return (
                     <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[10000] flex items-center justify-center p-4" onClick={(e) => e.stopPropagation()}>
                         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-slate-700 p-6 max-w-md w-full shadow-2xl animate-bounce-in text-left" onClick={(e) => e.stopPropagation()}>
-                            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
-                                {modalSearchQuery.trim() 
-                                    ? 'Tìm kiếm học phần' 
-                                    : (selectedModalFolderId ? `Thư mục: ${activeFolder?.name}` : 'Thêm vào học phần nào?')}
+                            <h3 className="text-base font-black text-gray-900 dark:text-white mb-1.5 flex items-center gap-2">
+                                {isAiSaveAction ? (
+                                    <span className="p-1.5 rounded-lg bg-sky-50 dark:bg-sky-950 text-sky-600 dark:text-sky-400">
+                                        <Wand2 className="w-4 h-4 text-amber-500" />
+                                    </span>
+                                ) : (
+                                    <span className="p-1.5 rounded-lg bg-emerald-50 dark:bg-emerald-950 text-emerald-600 dark:text-emerald-400">
+                                        <BookPlus className="w-4 h-4" />
+                                    </span>
+                                )}
+                                <span>
+                                    {modalSearchQuery.trim() 
+                                        ? 'Tìm kiếm học phần' 
+                                        : (selectedModalFolderId ? `Thư mục: ${activeFolder?.name}` : (isAiSaveAction ? 'Tạo thẻ với AI vào học phần nào?' : 'Lưu nhanh vào học phần nào?'))}
+                                </span>
                             </h3>
-                            <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                            <p className="text-xs text-gray-500 dark:text-gray-400 mb-4">
                                 {modalSearchQuery.trim()
                                     ? `Tìm thấy ${sortedItems.length} kết quả phù hợp.`
                                     : (selectedModalFolderId
-                                        ? 'Chọn một học phần bên trong thư mục này để lưu từ vựng.'
-                                        : 'Chọn học phần hoặc thư mục bạn muốn lưu từ vựng này vào để bắt đầu ôn tập.'
+                                        ? `Chọn một học phần bên trong thư mục này để ${isAiSaveAction ? 'tạo thẻ với AI và lưu' : 'lưu nhanh'}.`
+                                        : `Chọn học phần bạn muốn ${isAiSaveAction ? 'tạo thẻ AI và lưu' : 'lưu nhanh'} để bắt đầu ôn tập.`
                                     )
                                 }
                             </p>
@@ -969,7 +1081,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                     </button>
                                 )}
 
-                                {folders.length === 0 ? (
+                                {safeFolders.length === 0 ? (
                                     <p className="text-center text-sm text-gray-500 dark:text-gray-400 py-6">
                                         Chưa có học phần nào. Vui lòng tạo học phần ở trang Thư viện để lưu từ vựng.
                                     </p>

@@ -116,8 +116,9 @@ const AppContent = () => {
             {userId && (
                 <VocabularySelectionLookup
                     allCards={flashcardCards}
-                    folders={cardFolders}
+                    folders={activeFolders}
                     handleAddCard={handleAddCard}
+                    setNotification={setNotification}
                     isPremiumUnlocked={userHasAdminPrivileges || hasPremium}
                 />
             )}

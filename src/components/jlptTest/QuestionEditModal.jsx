@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { 
     X, BookOpen, HelpCircle, Plus, Trash2, 
-    CheckCircle2, Eye, EyeOff, Layers, ListChecks, ArrowRight
+    CheckCircle2, Eye, EyeOff, Layers, ListChecks, ArrowRight,
+    Sparkles, Loader2, AlertTriangle, AlertCircle
 } from 'lucide-react';
+import { aiGenerateAndCheckQuestionExplanation } from '../../services/ai/jlptExplanationAiService';
 
 const QuestionEditModal = ({ isOpen, onClose, initialQuestion, onSave }) => {
     const [formData, setFormData] = useState(null);
     const [activeTab, setActiveTab] = useState('passage'); // 'passage' | 'q-main' | 'sq-0' | 'sq-1'...
     const [showPreview, setShowPreview] = useState(false);
+    const [isAiLoading, setIsAiLoading] = useState(false);
+    const [aiFeedback, setAiFeedback] = useState(null);
 
     useEffect(() => {
         if (initialQuestion) {
@@ -15,20 +20,84 @@ const QuestionEditModal = ({ isOpen, onClose, initialQuestion, onSave }) => {
             // Default subQuestions if not present
             if (!clone.subQuestions) clone.subQuestions = [];
             setFormData(clone);
-            // Default tab: if passage exists, focus passage, otherwise focus question 1
-            if (clone.passage || clone.passageData) {
+            setAiFeedback(null);
+            // Default tab: if explicit _targetTab requested, use it; otherwise if passage exists, focus passage
+            if (clone._targetTab) {
+                setActiveTab(clone._targetTab);
+            } else if (clone.passage || clone.passageData) {
                 setActiveTab('passage');
             } else {
                 setActiveTab(clone.subQuestions?.length > 0 ? 'sq-0' : 'q-main');
             }
         } else {
             setFormData(null);
+            setAiFeedback(null);
         }
     }, [initialQuestion]);
 
     if (!isOpen || !formData) return null;
 
     const hasSubQuestions = Array.isArray(formData.subQuestions) && formData.subQuestions.length > 0;
+
+    // AI Check & Explanation Generator
+    const handleAiCheckAndGenerate = async (sqIndex = null) => {
+        setIsAiLoading(true);
+        setAiFeedback(null);
+        try {
+            const isSub = typeof sqIndex === 'number' && sqIndex >= 0;
+            const currentQ = isSub ? formData.subQuestions?.[sqIndex] : formData;
+            if (!currentQ) return;
+
+            const passageText = formData.passage || (formData.passageData?.japanese ? formData.passageData.japanese : '') || (typeof formData.passageIndex === 'number' && formData.passageData?.passage ? formData.passageData.passage : '');
+            const questionText = currentQ.question || currentQ.title || currentQ.qText || '';
+            const options = currentQ.options || [];
+            const currentCorrectIndex = currentQ.correctAnswer ?? 0;
+            const level = formData.level || formData.testLevel || 'N3';
+
+            const result = await aiGenerateAndCheckQuestionExplanation({
+                questionText,
+                options,
+                currentCorrectIndex,
+                passage: passageText,
+                level,
+                sectionName: formData.sectionName || ''
+            });
+
+            // Update explanation
+            if (isSub) {
+                handleSubQuestionFieldChange(sqIndex, 'explanation', result.explanation);
+                if (!result.isCurrentAnswerCorrect) {
+                    handleSetSubCorrectAnswer(sqIndex, result.detectedCorrectIndex);
+                }
+            } else {
+                handleFieldChange('explanation', result.explanation);
+                if (!result.isCurrentAnswerCorrect) {
+                    handleSetCorrectAnswer(result.detectedCorrectIndex);
+                }
+            }
+
+            const oldLetter = String.fromCharCode(65 + currentCorrectIndex);
+            if (!result.isCurrentAnswerCorrect) {
+                setAiFeedback({
+                    type: 'warning',
+                    message: `⚠️ AI phát hiện đáp án đúng thực sự là [${result.detectedCorrectLetter}], khác với đáp án [${oldLetter}] đang chọn! Đã tự động chọn đáp án đúng sang [${result.detectedCorrectLetter}] và tạo bản giải thích ngắn gọn.`
+                });
+            } else {
+                setAiFeedback({
+                    type: 'success',
+                    message: `✓ AI đã kiểm tra: Đáp án đúng [${result.detectedCorrectLetter}] là chính xác! Đã tạo bản giải thích chuẩn form ngắn gọn.`
+                });
+            }
+        } catch (err) {
+            console.error('AI Explanation Error:', err);
+            setAiFeedback({
+                type: 'error',
+                message: 'Lỗi khi gọi AI: ' + (err.message || 'Không thể tạo giải thích')
+            });
+        } finally {
+            setIsAiLoading(false);
+        }
+    };
 
     // Field changers
     const handleFieldChange = (field, val) => {
@@ -187,8 +256,8 @@ const QuestionEditModal = ({ isOpen, onClose, initialQuestion, onSave }) => {
     // Sub-question list to render
     const subQuestionsList = hasSubQuestions ? formData.subQuestions : [];
 
-    return (
-        <div className="fixed inset-0 z-[10000] bg-slate-950/70 backdrop-blur-md flex items-center justify-center p-3 sm:p-5 overflow-y-auto animate-fade-in font-sans">
+    const modalContent = (
+        <div className="fixed inset-0 z-[100080] bg-slate-950/70 backdrop-blur-md flex items-center justify-center p-3 sm:p-5 overflow-y-auto animate-fade-in font-sans">
             <div className="bg-white dark:bg-slate-900 rounded-3xl max-w-4xl w-full max-h-[92vh] flex flex-col overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 my-auto">
                 
                 {/* 1. Modal Header */}
@@ -418,18 +487,68 @@ const QuestionEditModal = ({ isOpen, onClose, initialQuestion, onSave }) => {
                             </div>
 
                             {/* Explanation */}
-                            <div className="space-y-1.5">
-                                <label className="block text-xs font-black uppercase text-slate-700 dark:text-slate-300 tracking-wider">
-                                    Giải thích chi tiết (Explanation HTML)
-                                </label>
+                            <div className="space-y-2 pt-1">
+                                <div className="flex items-center justify-between gap-2 flex-wrap">
+                                    <label className="block text-xs font-black uppercase text-slate-700 dark:text-slate-300 tracking-wider">
+                                        Giải thích chi tiết (Explanation HTML)
+                                    </label>
+                                    <button
+                                        type="button"
+                                        disabled={isAiLoading}
+                                        onClick={() => handleAiCheckAndGenerate(null)}
+                                        className="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:translate-y-0.5 border-b-2 border-emerald-700 text-white text-xs font-black transition-all flex items-center gap-1.5 shadow-xs cursor-pointer disabled:opacity-50 select-none"
+                                        title="AI sẽ phân tích đề, check đáp án đúng và tạo giải thích ngắn gọn theo form chuẩn QuizKi"
+                                    >
+                                        {isAiLoading ? (
+                                            <>
+                                                <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                                                <span>AI đang check & tạo giải thích...</span>
+                                            </>
+                                        ) : (
+                                            <>
+                                                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                                                <span>AI Check Đáp Án & Tạo Giải Thích</span>
+                                            </>
+                                        )}
+                                    </button>
+                                </div>
+
+                                {aiFeedback && (
+                                    <div className={`p-3 sm:p-3.5 rounded-2xl text-xs sm:text-sm font-bold flex items-start gap-2.5 animate-fade-in ${
+                                        aiFeedback.type === 'warning'
+                                            ? 'bg-amber-50 dark:bg-amber-950/50 border-2 border-amber-300 dark:border-amber-800 text-amber-900 dark:text-amber-200'
+                                            : aiFeedback.type === 'success'
+                                                ? 'bg-emerald-50 dark:bg-emerald-950/50 border-2 border-emerald-300 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200'
+                                                : 'bg-rose-50 dark:bg-rose-950/50 border-2 border-rose-300 dark:border-rose-800 text-rose-900 dark:text-rose-200'
+                                    }`}>
+                                        {aiFeedback.type === 'warning' ? (
+                                            <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+                                        ) : aiFeedback.type === 'success' ? (
+                                            <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                                        ) : (
+                                            <AlertCircle className="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5" />
+                                        )}
+                                        <div className="flex-1 leading-relaxed">
+                                            {aiFeedback.message}
+                                        </div>
+                                        <button 
+                                            type="button" 
+                                            onClick={() => setAiFeedback(null)} 
+                                            className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer p-0.5 rounded-lg"
+                                        >
+                                            <X className="w-4 h-4" />
+                                        </button>
+                                    </div>
+                                )}
+
                                 <div className="border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden shadow-2xs">
                                     {renderToolbar('edit-explanation')}
                                     <textarea
                                         id="edit-explanation"
                                         value={formData.explanation || ''}
                                         onChange={(e) => handleFieldChange('explanation', e.target.value)}
-                                        placeholder="Nhập giải thích đáp án, phân tích các phương án và bí quyết làm bài..."
-                                        rows={5}
+                                        placeholder="Nhập giải thích đáp án hoặc bấm 'AI Check Đáp Án & Tạo Giải Thích' ở trên..."
+                                        rows={6}
                                         className="w-full p-3.5 text-sm leading-relaxed bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:outline-none border-0"
                                     />
                                 </div>
@@ -539,18 +658,68 @@ const QuestionEditModal = ({ isOpen, onClose, initialQuestion, onSave }) => {
                                 </div>
 
                                 {/* Explanation */}
-                                <div className="space-y-1.5">
-                                    <label className="block text-xs font-black uppercase text-slate-700 dark:text-slate-300 tracking-wider">
-                                        Giải thích câu {sqi + 1} (Explanation HTML)
-                                    </label>
+                                <div className="space-y-2 pt-1">
+                                    <div className="flex items-center justify-between gap-2 flex-wrap">
+                                        <label className="block text-xs font-black uppercase text-slate-700 dark:text-slate-300 tracking-wider">
+                                            Giải thích câu {sqi + 1} (Explanation HTML)
+                                        </label>
+                                        <button
+                                            type="button"
+                                            disabled={isAiLoading}
+                                            onClick={() => handleAiCheckAndGenerate(sqi)}
+                                            className="px-3.5 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:translate-y-0.5 border-b-2 border-emerald-700 text-white text-xs font-black transition-all flex items-center gap-1.5 shadow-xs cursor-pointer disabled:opacity-50 select-none"
+                                            title="AI sẽ phân tích câu hỏi con này kết hợp bài đọc, check đáp án và tạo giải thích ngắn gọn"
+                                        >
+                                            {isAiLoading ? (
+                                                <>
+                                                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                                                    <span>AI đang check câu {sqi + 1}...</span>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+                                                    <span>AI Check Đáp Án & Tạo Giải Thích</span>
+                                                </>
+                                            )}
+                                        </button>
+                                    </div>
+
+                                    {aiFeedback && (
+                                        <div className={`p-3 sm:p-3.5 rounded-2xl text-xs sm:text-sm font-bold flex items-start gap-2.5 animate-fade-in ${
+                                            aiFeedback.type === 'warning'
+                                                ? 'bg-amber-50 dark:bg-amber-950/50 border-2 border-amber-300 dark:border-amber-800 text-amber-900 dark:text-amber-200'
+                                                : aiFeedback.type === 'success'
+                                                    ? 'bg-emerald-50 dark:bg-emerald-950/50 border-2 border-emerald-300 dark:border-emerald-800 text-emerald-900 dark:text-emerald-200'
+                                                    : 'bg-rose-50 dark:bg-rose-950/50 border-2 border-rose-300 dark:border-rose-800 text-rose-900 dark:text-rose-200'
+                                        }`}>
+                                            {aiFeedback.type === 'warning' ? (
+                                                <AlertTriangle className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+                                            ) : aiFeedback.type === 'success' ? (
+                                                <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                                            ) : (
+                                                <AlertCircle className="w-4 h-4 text-rose-600 dark:text-rose-400 shrink-0 mt-0.5" />
+                                            )}
+                                            <div className="flex-1 leading-relaxed">
+                                                {aiFeedback.message}
+                                            </div>
+                                            <button 
+                                                type="button" 
+                                                onClick={() => setAiFeedback(null)} 
+                                                className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 cursor-pointer p-0.5 rounded-lg"
+                                            >
+                                                <X className="w-4 h-4" />
+                                            </button>
+                                        </div>
+                                    )}
+
                                     <div className="border border-slate-200 dark:border-slate-700 rounded-2xl overflow-hidden shadow-2xs">
                                         {renderToolbar(`edit-sq-${sqi}-explanation`)}
                                         <textarea
                                             id={`edit-sq-${sqi}-explanation`}
                                             value={sq.explanation || ''}
                                             onChange={(e) => handleSubQuestionFieldChange(sqi, 'explanation', e.target.value)}
-                                            placeholder={`Nhập giải thích đáp án cho câu ${sqi + 1}...`}
-                                            rows={4}
+                                            placeholder={`Nhập giải thích đáp án cho câu ${sqi + 1} hoặc bấm AI ở trên...`}
+                                            rows={5}
                                             className="w-full p-3.5 text-sm leading-relaxed bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:outline-none border-0"
                                         />
                                     </div>
@@ -586,6 +755,11 @@ const QuestionEditModal = ({ isOpen, onClose, initialQuestion, onSave }) => {
             </div>
         </div>
     );
+
+    if (typeof document !== 'undefined') {
+        return createPortal(modalContent, document.body);
+    }
+    return modalContent;
 };
 
 export default QuestionEditModal;
