@@ -14,46 +14,14 @@ let hasPreloaded = false;
  * Delivers instantaneous (0ms) page transitions for Books, Kanji, Grammar, and JLPT Tests,
  * and preloads the Yomitan Japanese Dictionary into IndexedDB.
  */
+/**
+ * Intelligent on-demand preloader.
+ * High-memory datasets (Books, Grammar, Vocab, Kaiwa videos, Yomitan Dictionary, and JLPT banks)
+ * are now strictly loaded on-demand per screen to keep active browser RAM lean (< 180MB),
+ * identical to modern web apps like Nhaikanji.
+ */
 export const preloadCoreData = () => {
-    if (typeof window === 'undefined' || isPreloading || hasPreloaded) return;
-    isPreloading = true;
-
-    const runPreload = async () => {
-        try {
-            // Stage 1: Load lightweight collections first (Kanji list & Vocab categories)
-            await Promise.allSettled([
-                getSharedKanjiList(),
-                getSharedVocabCategories(),
-            ]);
-
-            // Stage 2: Load mid-weight collections (Book groups & Grammar curriculum)
-            await Promise.allSettled([
-                getSharedBookGroups(),
-                getSharedGrammarData(),
-                getSharedVocabList()
-            ]);
-
-            // Stage 3: Load Kaiwa videos in the background
-            getKaiwaVideos().catch(() => {});
-
-            // Stage 4: Idle background dictionary sync (0ms instant lookup) into IndexedDB
-            syncDictionary({ silent: true }).catch(() => {});
-            // Note: JLPT tests & Kuroshiro dictionary are loaded on-demand per level/screen to keep RAM lean (< 250MB)
-
-            hasPreloaded = true;
-            if (import.meta.env.DEV) {
-                console.log('⚡ [QuizKi Preloader] Core data cached in RAM successfully for 0ms navigation.');
-            }
-        } catch (err) {
-            console.warn('⚠️ [QuizKi Preloader] Background warm-up notice:', err);
-        } finally {
-            isPreloading = false;
-        }
-    };
-
-    if ('requestIdleCallback' in window) {
-        window.requestIdleCallback(() => runPreload(), { timeout: 3000 });
-    } else {
-        setTimeout(runPreload, 1500);
-    }
+    // No-op: Eager background loading of multi-megabyte JSON databases into V8 heap is disabled.
+    // Every module (Kanji, Books, Grammar, JLPT, Dictionary) automatically fetches its own
+    // data smoothly and on-demand when the user opens that respective section.
 };

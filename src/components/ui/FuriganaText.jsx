@@ -245,7 +245,7 @@ const getInitialProcessedText = (txt, reading) => {
  * @param {string} text - Japanese text (with or without brackets)
  * @param {string} className - Optional CSS class for the container
  */
-const FuriganaText = ({ text, knownReading = '', className = '', forceHide = false, showReadingOnly = false, compact = false }) => {
+const FuriganaText = ({ text, knownReading = '', className = '', forceHide = false, showReadingOnly = false, compact = false, nowrap = false }) => {
     const [processedText, setProcessedText] = useState(() => getInitialProcessedText(text, knownReading));
     const [furiganaColor, setFuriganaColor] = useState(() => {
         try {
@@ -331,7 +331,7 @@ const FuriganaText = ({ text, knownReading = '', className = '', forceHide = fal
     if (!processedText) return null;
 
     const parts = parseFuriganaText(processedText);
-    const isNowrap = compact || (typeof className === 'string' && className.includes('whitespace-nowrap'));
+    const isNowrap = nowrap || (typeof className === 'string' && className.includes('whitespace-nowrap'));
     const wrapClass = isNowrap ? 'whitespace-nowrap' : 'break-words whitespace-normal overflow-wrap-anywhere';
     const containerWrapClass = isNowrap ? 'inline-block whitespace-nowrap align-baseline' : 'inline break-words whitespace-normal overflow-wrap-anywhere';
 

@@ -162,16 +162,26 @@ export const getSharedKanjiList = async () => {
             const cacheConfig = await getCacheConfig().catch(() => null);
             const currentExport = cacheConfig?.exportedAt || 0;
             
-            let dataRes, exportedAt;
+            let dataRes = null;
+            let exportedAt = 0;
+
             if (cacheConfig && cacheConfig.kanjiUrl) {
-                console.log('Using Firebase Storage CDN for Kanji cache');
-                const urlWithBuster = cacheConfig.kanjiUrl.includes('?') 
-                    ? `${cacheConfig.kanjiUrl}&t=${currentExport}`
-                    : `${cacheConfig.kanjiUrl}?t=${currentExport}`;
-                dataRes = await fetch(urlWithBuster);
-                exportedAt = currentExport;
-            } else {
-                console.log('Falling back to local bundle files for Kanji cache');
+                try {
+                    const urlWithBuster = cacheConfig.kanjiUrl.includes('?') 
+                        ? `${cacheConfig.kanjiUrl}&t=${currentExport}`
+                        : `${cacheConfig.kanjiUrl}?t=${currentExport}`;
+                    const res = await fetch(urlWithBuster);
+                    if (res.ok) {
+                        dataRes = res;
+                        exportedAt = currentExport;
+                    }
+                } catch (cdnErr) {
+                    console.warn('Kanji CDN fetch failed, falling back to local bundle:', cdnErr);
+                }
+            }
+
+            if (!dataRes || !dataRes.ok) {
+                console.log('Loading local kanji_data.json bundle...');
                 const [localRes, metaRes] = await Promise.all([
                     fetch('/data/kanji_data.json'),
                     fetch('/data/metadata.json').catch(() => null)
@@ -182,16 +192,11 @@ export const getSharedKanjiList = async () => {
             }
 
             if (!dataRes || !dataRes.ok) {
-                throw new Error('CDN fetch failed');
-            }
-
-            const contentType = dataRes.headers.get('content-type');
-            if (!contentType || !contentType.includes('application/json')) {
-                throw new Error('Response is not JSON (got: ' + contentType + ')');
+                throw new Error('Could not load kanji data');
             }
 
             const rawKanjiList = await dataRes.json();
-            lastLoadedExportedAt = currentExport || null;
+            lastLoadedExportedAt = exportedAt || currentExport || null;
 
             // Normalize and strictly deduplicate with OpenJLPT authoritative data
             const canonicalKanjiMap = new Map();
@@ -232,43 +237,11 @@ export const getSharedKanjiList = async () => {
             }
 
             cachedKanjiList = Array.from(canonicalKanjiMap.values());
-
-            // Sync edits made after the export timestamp in the background
-            fetchKanjiUpdatesFromFirestore(exportedAt);
-
             return cachedKanjiList;
         } catch (e) {
-            console.log('CDN load failed (expected if not synced), falling back to Firestore: ' + e.message);
-            try {
-                const snap = await getDocs(collection(db, 'kanji'));
-                const canonicalKanjiMap = new Map();
-                snap.docs.forEach(d => {
-                    const data = { id: d.id, ...d.data() };
-                    const char = (data.character || data.literal || '').trim();
-                    if (!char) return;
-                    const existing = canonicalKanjiMap.get(char);
-                    const item = existing ? { ...existing, ...data } : { ...data, character: char };
-                    const jData = getJotobaKanjiData(char);
-                    if (jData && !item._userEdited) {
-                        item.sinoViet = jData.sinoViet || item.sinoViet;
-                        item.meaning = jData.meaningVi || item.meaning;
-                        item.meaningVi = jData.meaningVi || item.meaningVi;
-                        item.onyomi = (jData.onyomi?.length ? jData.onyomi.join('、') : '') || item.onyomi;
-                        item.kunyomi = (jData.kunyomi?.length ? jData.kunyomi.join('、') : '') || item.kunyomi;
-                        item.level = jData.level || item.level;
-                        item.openJlptOrder = jData.openJlptOrder ?? item.openJlptOrder ?? null;
-                        if (jData.stroke_count) item.strokeCount = String(jData.stroke_count);
-                        if (jData.parts && jData.parts.length > 0) item.parts = Array.isArray(jData.parts) ? jData.parts.join('、') : jData.parts;
-                    }
-                    canonicalKanjiMap.set(char, item);
-                });
-                cachedKanjiList = Array.from(canonicalKanjiMap.values());
-                return cachedKanjiList;
-            } catch (fsErr) {
-                console.error('Error loading shared kanji list from Firestore fallback:', fsErr);
-                kanjiPromise = null;
-                throw fsErr;
-            }
+            console.error('Fatal error loading kanji data:', e);
+            kanjiPromise = null;
+            return [];
         }
     })();
 
@@ -285,16 +258,26 @@ export const getSharedVocabList = async () => {
             const cacheConfig = await getCacheConfig().catch(() => null);
             const currentExport = cacheConfig?.exportedAt || 0;
             
-            let dataRes, exportedAt;
+            let dataRes = null;
+            let exportedAt = 0;
+
             if (cacheConfig && cacheConfig.vocabUrl) {
-                console.log('Using Firebase Storage CDN for Vocab cache');
-                const urlWithBuster = cacheConfig.vocabUrl.includes('?') 
-                    ? `${cacheConfig.vocabUrl}&t=${currentExport}`
-                    : `${cacheConfig.vocabUrl}?t=${currentExport}`;
-                dataRes = await fetch(urlWithBuster);
-                exportedAt = currentExport;
-            } else {
-                console.log('Falling back to local bundle files for Vocab cache');
+                try {
+                    const urlWithBuster = cacheConfig.vocabUrl.includes('?') 
+                        ? `${cacheConfig.vocabUrl}&t=${currentExport}`
+                        : `${cacheConfig.vocabUrl}?t=${currentExport}`;
+                    const res = await fetch(urlWithBuster);
+                    if (res.ok) {
+                        dataRes = res;
+                        exportedAt = currentExport;
+                    }
+                } catch (cdnErr) {
+                    console.warn('Vocab CDN fetch failed, falling back to local bundle:', cdnErr);
+                }
+            }
+
+            if (!dataRes || !dataRes.ok) {
+                console.log('Loading local vocab_data.json bundle...');
                 const [localRes, metaRes] = await Promise.all([
                     fetch('/data/vocab_data.json'),
                     fetch('/data/metadata.json').catch(() => null)
@@ -305,12 +288,7 @@ export const getSharedVocabList = async () => {
             }
 
             if (!dataRes || !dataRes.ok) {
-                throw new Error('CDN fetch failed');
-            }
-
-            const contentType = dataRes.headers.get('content-type');
-            if (!contentType || !contentType.includes('application/json')) {
-                throw new Error('Response is not JSON (got: ' + contentType + ')');
+                throw new Error('Could not load vocab data');
             }
 
             cachedVocabList = await dataRes.json();
@@ -326,21 +304,11 @@ export const getSharedVocabList = async () => {
                 cachedVocabList = Array.from(listMap.values());
             }
 
-            // Sync edits made after the export timestamp in the background
-            fetchVocabUpdatesFromFirestore(exportedAt);
-
             return cachedVocabList;
         } catch (e) {
-            console.log('CDN load failed (expected if not synced), falling back to Firestore: ' + e.message);
-            try {
-                const snap = await getDocs(collection(db, 'kanjiVocab'));
-                cachedVocabList = snap.docs.map(d => ({ id: d.id, ...d.data() }));
-                return cachedVocabList;
-            } catch (fsErr) {
-                console.error('Error loading shared vocab list from Firestore fallback:', fsErr);
-                vocabPromise = null;
-                throw fsErr;
-            }
+            console.error('Fatal error loading vocab data:', e);
+            vocabPromise = null;
+            return [];
         }
     })();
 

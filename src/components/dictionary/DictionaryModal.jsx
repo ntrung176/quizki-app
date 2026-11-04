@@ -75,14 +75,11 @@ const DictionaryModal = ({
         isDictionaryReady().then((ready) => {
             setIsReady(ready);
             if (!ready) {
-                // First-time download for a fresh browser
+                // First-time setup for a fresh browser
                 syncDictionary().catch((err) => {
                     console.error('Failed to install dictionary:', err);
                     showToast(t('dictionary.downloadError', 'Lỗi tải dữ liệu từ điển: {error}').replace('{error}', err.message), 'error');
                 });
-            } else if (!isDictionaryUpToDate() && !isDictionarySyncing()) {
-                // Has existing data: silently update in the background, NEVER blocking search
-                syncDictionary({ silent: true }).catch(() => {});
             }
         });
 

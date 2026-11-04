@@ -8,46 +8,6 @@ import { saveStudyCompletion } from '../utils/studyProgressService';
 import UpgradeScreen from './ui/AiCreditShop';
 import { shuffleArray } from '../utils/textProcessing';
 import { useLanguage } from '../context/LanguageContext';
-import OnboardingSurveyScreen from './onboarding/OnboardingSurveyScreen';
-
-
-import {
-    HomeScreen,
-    SRSVocabScreen,
-    LoginScreen,
-    AccountScreen,
-    HelpScreen,
-    ImportScreen,
-    StatsScreen,
-    LibraryScreen,
-    StudySetDetail,
-    ReviewScreen,
-    KanjiStudyScreen,
-    KanjiLessonScreen,
-    KanjiReviewScreen,
-    KanjiSRSListScreen,
-    StudyScreen,
-    TestScreen,
-    FlashcardScreen,
-    SettingsScreen,
-    FeedbackScreen,
-    PrivacyScreen,
-    TermsScreen,
-    AuthActionScreen,
-    ForumScreen,
-    UserProfileScreen,
-    SynonymQuizScreen,
-    EditSetScreen,
-    GrammarTextbooksScreen,
-    GrammarLessonsScreen,
-    GrammarPracticeScreen,
-    GrammarReviewScreen,
-    GrammarSavedScreen,
-    GrammarListScreen,
-    KanaScreen,
-    HangulScreen,
-    IpaScreen
-} from './screens';
 
 // Helper for resilient lazy loading that handles network/re-deploy chunk errors smoothly
 const lazyWithRetry = (componentImport) =>
@@ -81,13 +41,45 @@ const lazyWithRetry = (componentImport) =>
         }
     });
 
-const AdminScreen = lazyWithRetry(() => import('./screens/AdminScreen'));
-const JLPTAdminScreen = lazyWithRetry(() => import('./screens/JLPTAdminScreen'));
-const JLPTTestScreen = lazyWithRetry(() => import('./screens/JLPTTestScreen'));
-const JLPTKaiwaScreen = lazyWithRetry(() => import('./screens/JLPTKaiwaScreen'));
-const VideoKaiwaScreen = lazyWithRetry(() => import('./screens/VideoKaiwaScreen'));
-const BookScreen = lazyWithRetry(() => import('./screens/BookScreen'));
+// Core & Auth Screens (Lazy loaded for minimum initial RAM)
+const HomeScreen = lazyWithRetry(() => import('./screens/HomeScreen'));
+const SRSVocabScreen = lazyWithRetry(() => import('./screens/SRSVocabScreen'));
+const LoginScreen = lazyWithRetry(() => import('./screens/LoginScreen'));
+const AccountScreen = lazyWithRetry(() => import('./screens/AccountScreen'));
+const HelpScreen = lazyWithRetry(() => import('./screens/HelpScreen'));
+const ImportScreen = lazyWithRetry(() => import('./screens/ImportScreen'));
+const StatsScreen = lazyWithRetry(() => import('./screens/StatsScreen'));
+const LibraryScreen = lazyWithRetry(() => import('./screens/LibraryScreen'));
+const StudySetDetail = lazyWithRetry(() => import('./screens/StudySetDetail'));
+const ReviewScreen = lazyWithRetry(() => import('./screens/ReviewScreen'));
+const StudyScreen = lazyWithRetry(() => import('./screens/StudyScreen'));
+const TestScreen = lazyWithRetry(() => import('./screens/TestScreen'));
+const FlashcardScreen = lazyWithRetry(() => import('./screens/FlashcardScreen'));
+const SettingsScreen = lazyWithRetry(() => import('./screens/SettingsScreen'));
+const FeedbackScreen = lazyWithRetry(() => import('./screens/FeedbackScreen'));
+const PrivacyScreen = lazyWithRetry(() => import('./screens/PrivacyScreen'));
+const TermsScreen = lazyWithRetry(() => import('./screens/TermsScreen'));
+const AuthActionScreen = lazyWithRetry(() => import('./screens/AuthActionScreen'));
+const ForumScreen = lazyWithRetry(() => import('./screens/ForumScreen'));
+const UserProfileScreen = lazyWithRetry(() => import('./screens/UserProfileScreen'));
+const SynonymQuizScreen = lazyWithRetry(() => import('./screens/SynonymQuizScreen'));
+const EditSetScreen = lazyWithRetry(() => import('./screens/EditSetScreen'));
+const OnboardingSurveyScreen = lazyWithRetry(() => import('./onboarding/OnboardingSurveyScreen'));
+
+// Kanji Screens
+const KanjiStudyScreen = lazyWithRetry(() => import('./screens/KanjiStudyScreen'));
+const KanjiLessonScreen = lazyWithRetry(() => import('./screens/KanjiLessonScreen'));
+const KanjiReviewScreen = lazyWithRetry(() => import('./screens/KanjiReviewScreen'));
+const KanjiSRSListScreen = lazyWithRetry(() => import('./screens/KanjiSRSListScreen'));
 const KanjiScreen = lazyWithRetry(() => import('./screens/KanjiScreen'));
+
+// Grammar Screens
+const GrammarTextbooksScreen = lazyWithRetry(() => import('./screens/GrammarTextbooksScreen'));
+const GrammarLessonsScreen = lazyWithRetry(() => import('./screens/GrammarLessonsScreen'));
+const GrammarPracticeScreen = lazyWithRetry(() => import('./screens/GrammarPracticeScreen'));
+const GrammarReviewScreen = lazyWithRetry(() => import('./screens/GrammarReviewScreen'));
+const GrammarSavedScreen = lazyWithRetry(() => import('./screens/GrammarSavedScreen'));
+const GrammarListScreen = lazyWithRetry(() => import('./screens/GrammarListScreen'));
 const GrammarPointsScreen = lazyWithRetry(() => import('./screens/GrammarPointsScreen'));
 const GrammarDetailScreen = lazyWithRetry(() => import('./screens/GrammarDetailScreen'));
 const GrammarNuancesScreen = lazyWithRetry(() => import('./screens/GrammarNuancesScreen'));
@@ -98,6 +90,19 @@ const GrammarTopicDetailScreen = lazyWithRetry(() => import('./screens/GrammarTo
 const GrammarNotebookListScreen = lazyWithRetry(() => import('./screens/GrammarNotebookListScreen'));
 const GrammarNotebookEditScreen = lazyWithRetry(() => import('./screens/GrammarNotebookEditScreen'));
 const GrammarNotebookStudyScreen = lazyWithRetry(() => import('./screens/GrammarNotebookStudyScreen'));
+
+// Language Scripts
+const KanaScreen = lazyWithRetry(() => import('./screens/KanaScreen'));
+const HangulScreen = lazyWithRetry(() => import('./screens/HangulScreen'));
+const IpaScreen = lazyWithRetry(() => import('./screens/IpaScreen'));
+
+// Heavy Modules
+const AdminScreen = lazyWithRetry(() => import('./screens/AdminScreen'));
+const JLPTAdminScreen = lazyWithRetry(() => import('./screens/JLPTAdminScreen'));
+const JLPTTestScreen = lazyWithRetry(() => import('./screens/JLPTTestScreen'));
+const JLPTKaiwaScreen = lazyWithRetry(() => import('./screens/JLPTKaiwaScreen'));
+const VideoKaiwaScreen = lazyWithRetry(() => import('./screens/VideoKaiwaScreen'));
+const BookScreen = lazyWithRetry(() => import('./screens/BookScreen'));
 
 // Import card components
 import {

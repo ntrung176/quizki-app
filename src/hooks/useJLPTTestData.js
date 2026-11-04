@@ -64,12 +64,6 @@ export const useJLPTTestData = ({ userId, profile }) => {
         }
     }, [profile?.jlptTargetLevel]);
 
-    useEffect(() => {
-        if (targetLevel) {
-            loadJLPTLevelData(targetLevel);
-        }
-    }, [targetLevel]);
-
 
     const handleUpdateTargetLevel = async (newLevel) => {
         setTargetLevel(newLevel);

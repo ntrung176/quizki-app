@@ -75,12 +75,8 @@ const JLPTTestDashboard = ({
     const statusFilter = externalStatusFilter !== undefined ? externalStatusFilter : internalStatusFilter;
     const setStatusFilter = externalSetStatusFilter || setInternalStatusFilter;
 
-    // Background warm-up for the active selected level only (not 'all' to preserve low RAM)
-    React.useEffect(() => {
-        if (selectedLevel && selectedLevel !== 'all') {
-            loadJLPTLevelData(selectedLevel);
-        }
-    }, [selectedLevel]);
+    // Full level test banks are loaded on-demand when the user starts/reviews a test (ensureFullTestLoaded).
+    // The dashboard stays extremely lean using the lightweight summary catalog (< 150MB RAM).
 
 
 

@@ -4,7 +4,7 @@ import { ChevronLeft, Plus, Save, Trash2, Sparkles, Loader2, Volume2, BookMarked
 import { getAuth } from 'firebase/auth';
 import { TopTabBar } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
-import { getGrammarNotebookById, getCachedGrammarNotebooks, saveGrammarNotebook, aiAssistGrammarPoint } from '../../utils/grammarNotebookService';
+import { getGrammarNotebookById, getCachedGrammarNotebooks, findNotebookInAnyLocalStorage, saveGrammarNotebook, aiAssistGrammarPoint } from '../../utils/grammarNotebookService';
 import { speakExampleSentence } from '../../utils/audio';
 import { showToast } from '../../utils/toast';
 import GrammarNotebookBatchModal from '../grammar/GrammarNotebookBatchModal';
@@ -24,9 +24,21 @@ export const GrammarNotebookEditScreen = () => {
     const { notebookId } = useParams();
     const [searchParams] = useSearchParams();
     const auth = getAuth();
-    const userId = auth?.currentUser?.uid;
+    const [userId, setUserId] = useState(() => auth?.currentUser?.uid || null);
 
-    const cachedItem = notebookId ? getCachedGrammarNotebooks(userId).find(nb => nb.id === notebookId) : null;
+    // Sync auth state on mount / reload
+    useEffect(() => {
+        const unsub = auth.onAuthStateChanged(user => {
+            if (user?.uid && user.uid !== userId) {
+                setUserId(user.uid);
+            }
+        });
+        return () => unsub?.();
+    }, [userId]);
+
+    const cachedItem = notebookId
+        ? (getCachedGrammarNotebooks(userId).find(nb => nb && nb.id === notebookId) || findNotebookInAnyLocalStorage(notebookId) || null)
+        : null;
     const [title, setTitle] = useState(() => {
         if (!notebookId) return searchParams.get('title') || '';
         return cachedItem?.title || '';
@@ -45,26 +57,37 @@ export const GrammarNotebookEditScreen = () => {
             return;
         }
 
+        let isMounted = true;
         const load = async () => {
-            if (!cachedItem) setLoading(true);
+            const localFound = cachedItem || findNotebookInAnyLocalStorage(notebookId);
+            if (localFound && !title) {
+                setTitle(localFound.title || 'Sổ tay ngữ pháp');
+                setDescription(localFound.description || '');
+                setItems(localFound.items && localFound.items.length > 0 ? localFound.items : [createEmptyItem()]);
+                setLoading(false);
+            }
+
             try {
                 const data = await getGrammarNotebookById(userId, notebookId);
+                if (!isMounted) return;
+
                 if (data) {
                     setTitle(data.title || 'Sổ tay ngữ pháp');
                     setDescription(data.description || '');
                     setItems(data.items && data.items.length > 0 ? data.items : [createEmptyItem()]);
-                } else if (!cachedItem) {
+                } else if (!localFound) {
                     showToast('Không tìm thấy sổ tay', 'error');
                     navigate('/grammar/notebook');
                 }
             } catch (e) {
                 console.warn('Error loading notebook:', e);
             } finally {
-                setLoading(false);
+                if (isMounted) setLoading(false);
             }
         };
 
         load();
+        return () => { isMounted = false; };
     }, [notebookId, userId, navigate]);
 
     // Count valid items (has both pattern and meaning)

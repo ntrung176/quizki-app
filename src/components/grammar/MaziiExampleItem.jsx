@@ -154,6 +154,50 @@ function buildRubySegments(ja, furigana) {
 }
 
 /**
+ * parseInlineRubySegments
+ * Parses Japanese sentences with inline furigana like:
+ * "新(あたら)しい事業(じぎょう)を始(はじ)めるにあたって、皆(みな)様(さま)のご協力(きょうりょく)をお願(ねが)いいたします。"
+ * into segments with { text, rt }
+ */
+function parseInlineRubySegments(jaText) {
+    if (!jaText) return [];
+
+    // Regex matches [Kanji/Characters][(（\[【][Kana/Reading][)）\]】]
+    const regex = /([\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff0-9０-９]+)[\(（\[【]([\u3040-\u309f\u30a0-\u30ff\s]+)[\)）\]】]/g;
+
+    const segments = [];
+    let lastIndex = 0;
+    let match;
+
+    while ((match = regex.exec(jaText)) !== null) {
+        if (match.index > lastIndex) {
+            segments.push({
+                text: jaText.substring(lastIndex, match.index),
+                rt: ''
+            });
+        }
+
+        const kanji = match[1];
+        const reading = match[2].trim();
+        segments.push({
+            text: kanji,
+            rt: reading
+        });
+
+        lastIndex = match.index + match[0].length;
+    }
+
+    if (lastIndex < jaText.length) {
+        segments.push({
+            text: jaText.substring(lastIndex),
+            rt: ''
+        });
+    }
+
+    return segments;
+}
+
+/**
  * Extract distinct searchable keywords from grammar pattern
  * Examples:
  * - "から～まで" -> ["から", "まで"]
@@ -210,7 +254,7 @@ function extractHighlightKeywords(pattern) {
  * - Top: Japanese sentence with furigana directly above the Kanji and smart grammar highlights
  * - Bottom: Vietnamese translation
  */
-const MaziiExampleItem = ({ example, pattern, index, onPlayAudio }) => {
+const MaziiExampleItem = ({ example, pattern, index, onPlayAudio, showFurigana = true }) => {
     const [isPlaying, setIsPlaying] = useState(false);
 
     if (!example) return null;
@@ -225,14 +269,23 @@ const MaziiExampleItem = ({ example, pattern, index, onPlayAudio }) => {
         e?.stopPropagation?.();
         if (onPlayAudio && jaText) {
             setIsPlaying(true);
-            onPlayAudio(jaText);
+            // Clean inline furigana brackets before speaking to ensure natural TTS pronunciation
+            const cleanJaForAudio = jaText.replace(/[\(（\[【][^\)）\]】]+[\)）\]】]/g, '').trim();
+            onPlayAudio(cleanJaForAudio || jaText);
             setTimeout(() => setIsPlaying(false), 2000);
         }
     };
 
+    const hasInlineFurigana = useMemo(() => {
+        return /[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff0-9０-９]+[\(（\[【][\u3040-\u309f\u30a0-\u30ff\s]+[\)）\]】]/.test(jaText);
+    }, [jaText]);
+
     const segments = useMemo(() => {
+        if (hasInlineFurigana) {
+            return parseInlineRubySegments(jaText);
+        }
         return buildRubySegments(jaText, furigana);
-    }, [jaText, furigana]);
+    }, [jaText, furigana, hasInlineFurigana]);
 
     const keywords = useMemo(() => {
         return extractHighlightKeywords(pattern);
@@ -281,9 +334,11 @@ const MaziiExampleItem = ({ example, pattern, index, onPlayAudio }) => {
                             return (
                                 <ruby key={segIdx} className={`ruby-group ${isRubyMatch ? 'text-[#1d70b8] dark:text-sky-400 font-bold' : ''}`}>
                                     {seg.text}
-                                    <rt className="text-[10px] md:text-[11px] text-slate-400 dark:text-slate-400 font-normal select-none leading-none">
-                                        {seg.rt}
-                                    </rt>
+                                    {showFurigana && (
+                                        <rt className="text-[10px] md:text-[11px] text-slate-400 dark:text-slate-400 font-normal select-none leading-none">
+                                            {seg.rt}
+                                        </rt>
+                                    )}
                                 </ruby>
                             );
                         }

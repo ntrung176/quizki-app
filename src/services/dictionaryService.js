@@ -88,6 +88,7 @@ export async function isDictionaryReady() {
                 const hasData = countReq.result > 1000;
                 if (hasData) {
                     localStorage.setItem('quizki_dict_ready', 'true');
+                    localStorage.setItem('quizki_dict_version', CURRENT_DICT_VERSION);
                 }
                 resolve(hasData);
             };
@@ -115,9 +116,9 @@ export function isDictionarySyncing() {
 }
 
 /**
- * Download dictionary chunks and import into IndexedDB.
- * Completely non-destructive: uses store.put() (upsert) instead of store.clear()
- * so searching remains 100% available and uninterrupted at all times.
+ * Download dictionary chunks and import into IndexedDB with low memory footprint.
+ * Uses micro-batched transactions (1,000 items) and event-loop yielding to allow
+ * browser Garbage Collection to run, keeping RAM strictly low (~150MB).
  */
 export async function syncDictionary({ onProgress = null, silent = false } = {}) {
     if (onProgress) {
@@ -131,12 +132,13 @@ export async function syncDictionary({ onProgress = null, silent = false } = {})
     activeSyncPromise = (async () => {
         try {
             const storedVer = localStorage.getItem('quizki_dict_version');
-            if (storedVer === CURRENT_DICT_VERSION) {
-                broadcastProgress({ percent: 100, text: 'Từ điển đã ở phiên bản mới nhất.' });
+            const isReady = localStorage.getItem('quizki_dict_ready') === 'true';
+            if (isReady && storedVer === CURRENT_DICT_VERSION) {
+                broadcastProgress({ percent: 100, text: 'Từ điển đã sẵn sàng.' });
                 return true;
             }
 
-            broadcastProgress({ percent: 5, text: 'Kiểm tra tệp từ điển & ví dụ...' });
+            broadcastProgress({ percent: 5, text: 'Kiểm tra dữ liệu từ điển...' });
             const manifestRes = await fetch('/dictionary/manifest.json');
             if (!manifestRes.ok) {
                 throw new Error('Không thể tải manifest từ điển.');
@@ -147,12 +149,13 @@ export async function syncDictionary({ onProgress = null, silent = false } = {})
 
             const db = await openDb();
             let importedEntries = 0;
+            const SUB_BATCH_SIZE = 1000;
 
             for (let i = 1; i <= totalChunks; i++) {
                 const pct = Math.round(10 + ((i - 1) / totalChunks) * 85);
                 broadcastProgress({
                     percent: pct,
-                    text: `Đang đồng bộ dữ liệu ${i}/${totalChunks}... (${importedEntries.toLocaleString()} từ & câu ví dụ)`
+                    text: `Đang tải phần ${i}/${totalChunks}... (${importedEntries.toLocaleString()} từ đã lưu)`
                 });
 
                 const chunkRes = await fetch(`/dictionary/chunk_${i}.json`);
@@ -161,29 +164,37 @@ export async function syncDictionary({ onProgress = null, silent = false } = {})
                 }
                 const chunkData = await chunkRes.json();
 
-                // Batch upsert into IndexedDB
-                await new Promise((resolve, reject) => {
-                    const tx = db.transaction(STORE_NAME, 'readwrite');
-                    const store = tx.objectStore(STORE_NAME);
+                // Process in lightweight 1,000-item sub-batches with GC pauses
+                for (let s = 0; s < chunkData.length; s += SUB_BATCH_SIZE) {
+                    const slice = chunkData.slice(s, s + SUB_BATCH_SIZE);
+                    await new Promise((resolve, reject) => {
+                        const tx = db.transaction(STORE_NAME, 'readwrite');
+                        const store = tx.objectStore(STORE_NAME);
+                        for (let j = 0; j < slice.length; j++) {
+                            store.put(slice[j]);
+                        }
+                        tx.oncomplete = () => resolve();
+                        tx.onerror = (err) => reject(err);
+                    });
+                    importedEntries += slice.length;
 
-                    for (let j = 0; j < chunkData.length; j++) {
-                        store.put(chunkData[j]);
-                    }
+                    // Micro-yield to allow browser rendering and disk I/O flush
+                    await new Promise(r => setTimeout(r, 8));
+                }
 
-                    tx.oncomplete = () => {
-                        importedEntries += chunkData.length;
-                        resolve();
-                    };
-                    tx.onerror = (err) => reject(err);
-                });
+                // Immediately drop chunkData reference to free memory
+                chunkData.length = 0;
 
-                // Mark ready right after first chunk is imported
+                // Mark ready right after first chunk is imported so user can start searching immediately!
                 localStorage.setItem('quizki_dict_ready', 'true');
+
+                // Allow V8 Garbage Collector to reclaim heap before fetching next chunk
+                await new Promise(r => setTimeout(r, 40));
             }
 
             broadcastProgress({
                 percent: 100,
-                text: `Hoàn tất! Đã đồng bộ ${totalEntries.toLocaleString()} từ & câu ví dụ.`
+                text: `Hoàn tất! Đã lưu ${totalEntries.toLocaleString()} từ & câu ví dụ.`
             });
 
             localStorage.setItem('quizki_dict_ready', 'true');

@@ -1,4 +1,5 @@
 import { collection, doc, getDocs, getDoc, setDoc, deleteDoc, writeBatch, increment, serverTimestamp } from 'firebase/firestore';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { db, appId } from '../config/firebase';
 import { callAI } from './aiProvider';
 import { updateCachedUserGrammarSrs } from './grammarService';
@@ -16,12 +17,85 @@ const LOCAL_STORAGE_KEY_PREFIX = 'quizki_grammar_notebooks_';
 const getCacheKey = (userId) => `${LOCAL_STORAGE_KEY_PREFIX}${userId || 'guest'}`;
 
 /**
+ * Scan all localStorage entries for any grammar notebooks
+ */
+export const findNotebookInAnyLocalStorage = (notebookId) => {
+    if (!notebookId) return null;
+    try {
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (key && key.startsWith(LOCAL_STORAGE_KEY_PREFIX)) {
+                try {
+                    const list = JSON.parse(localStorage.getItem(key) || '[]');
+                    if (Array.isArray(list)) {
+                        const match = list.find(nb => nb && nb.id === notebookId);
+                        if (match) return match;
+                    }
+                } catch (_) {}
+            }
+        }
+    } catch (e) {
+        console.warn('Error searching localStorage notebooks:', e);
+    }
+    return null;
+};
+
+/**
+ * Helper to get currently authenticated user, waiting briefly if auth is initializing (e.g. on F5)
+ */
+export const resolveCurrentUserId = (passedUserId) => {
+    if (passedUserId) return Promise.resolve(passedUserId);
+    const auth = getAuth();
+    if (auth?.currentUser?.uid) return Promise.resolve(auth.currentUser.uid);
+
+    return new Promise((resolve) => {
+        let isDone = false;
+        const timer = setTimeout(() => {
+            if (!isDone) {
+                isDone = true;
+                resolve(auth?.currentUser?.uid || null);
+            }
+        }, 1500);
+
+        const unsub = onAuthStateChanged(auth, (user) => {
+            if (!isDone) {
+                isDone = true;
+                clearTimeout(timer);
+                try { unsub(); } catch (_) {}
+                resolve(user?.uid || null);
+            }
+        });
+    });
+};
+
+/**
  * Read cached notebooks from LocalStorage
  */
 export const getCachedGrammarNotebooks = (userId) => {
     try {
-        const raw = localStorage.getItem(getCacheKey(userId));
-        return raw ? JSON.parse(raw) : [];
+        if (userId) {
+            const raw = localStorage.getItem(getCacheKey(userId));
+            if (raw) {
+                const parsed = JSON.parse(raw);
+                if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+            }
+        }
+
+        // Fallback: If no userId or specific cache empty, check any notebook cache in localStorage
+        for (let i = 0; i < localStorage.length; i++) {
+            const key = localStorage.key(i);
+            if (key && key.startsWith(LOCAL_STORAGE_KEY_PREFIX)) {
+                try {
+                    const parsed = JSON.parse(localStorage.getItem(key) || '[]');
+                    if (Array.isArray(parsed) && parsed.length > 0) {
+                        return parsed;
+                    }
+                } catch (_) {}
+            }
+        }
+
+        const guestRaw = localStorage.getItem(getCacheKey('guest'));
+        return guestRaw ? JSON.parse(guestRaw) : [];
     } catch (e) {
         console.warn('Error reading cached grammar notebooks:', e);
         return [];
@@ -44,10 +118,11 @@ export const setCachedGrammarNotebooks = (userId, notebooks) => {
  */
 export const getGrammarNotebooks = async (userId) => {
     const cached = getCachedGrammarNotebooks(userId);
-    if (!userId) return cached;
+    const effectiveUserId = await resolveCurrentUserId(userId);
+    if (!effectiveUserId) return cached;
 
     try {
-        const colPath = `artifacts/${appId}/users/${userId}/grammarNotebooks`;
+        const colPath = `artifacts/${appId}/users/${effectiveUserId}/grammarNotebooks`;
         const snap = await getDocs(collection(db, colPath));
         const list = snap.docs.map(d => ({
             id: d.id,
@@ -57,7 +132,7 @@ export const getGrammarNotebooks = async (userId) => {
         }));
 
         list.sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0));
-        setCachedGrammarNotebooks(userId, list);
+        setCachedGrammarNotebooks(effectiveUserId, list);
         return list;
     } catch (err) {
         if (err?.code !== 'permission-denied') {
@@ -68,24 +143,43 @@ export const getGrammarNotebooks = async (userId) => {
 };
 
 /**
- * Fetch a single notebook by ID
+ * Fetch a single notebook by ID (resilient to F5 page reload)
  */
 export const getGrammarNotebookById = async (userId, notebookId) => {
-    const cached = getCachedGrammarNotebooks(userId);
-    const fromCache = cached.find(nb => nb.id === notebookId);
+    if (!notebookId) return null;
 
-    if (!userId) return fromCache || null;
+    // 1. Check user cache first
+    const cached = getCachedGrammarNotebooks(userId);
+    let fromCache = cached.find(nb => nb && nb.id === notebookId);
+
+    // 2. If not found in user cache, scan across all localStorage keys
+    if (!fromCache) {
+        fromCache = findNotebookInAnyLocalStorage(notebookId);
+    }
+
+    if (fromCache) return fromCache;
+
+    // 3. If not in localStorage, resolve user ID (waiting up to 1.5s for auth state to restore on F5)
+    const effectiveUserId = await resolveCurrentUserId(userId);
+    if (!effectiveUserId) return null;
 
     try {
-        const docRef = doc(db, `artifacts/${appId}/users/${userId}/grammarNotebooks`, notebookId);
+        const docRef = doc(db, `artifacts/${appId}/users/${effectiveUserId}/grammarNotebooks`, notebookId);
         const snap = await getDoc(docRef);
         if (snap.exists()) {
-            return {
+            const data = {
                 id: snap.id,
                 ...snap.data(),
                 createdAt: snap.data().createdAt?.toMillis?.() || snap.data().createdAt || Date.now(),
                 updatedAt: snap.data().updatedAt?.toMillis?.() || snap.data().updatedAt || Date.now()
             };
+            // Cache it
+            const currentCache = getCachedGrammarNotebooks(effectiveUserId);
+            const exists = currentCache.some(n => n.id === data.id);
+            if (!exists) {
+                setCachedGrammarNotebooks(effectiveUserId, [data, ...currentCache]);
+            }
+            return data;
         }
     } catch (e) {
         if (e?.code !== 'permission-denied') {
@@ -93,7 +187,7 @@ export const getGrammarNotebookById = async (userId, notebookId) => {
         }
     }
 
-    return fromCache || null;
+    return null;
 };
 
 /**

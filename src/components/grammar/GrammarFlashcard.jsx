@@ -330,13 +330,14 @@ const GrammarFlashcard = ({
 
                     {/* ==================== BACK SIDE ==================== */}
                     <div
-                        className="bg-white dark:bg-slate-900 rounded-[28px] md:rounded-[36px] border border-slate-200/90 dark:border-slate-800 shadow-xl shadow-slate-200/40 dark:shadow-none p-6 md:p-7 flex flex-col justify-start hover:border-emerald-300 dark:hover:border-emerald-700/60 transition-all duration-200 overflow-y-auto"
+                        className="bg-white dark:bg-slate-900 rounded-[28px] md:rounded-[36px] border border-slate-200/90 dark:border-slate-800 shadow-xl shadow-slate-200/40 dark:shadow-none p-4 sm:p-6 md:p-7 flex flex-col justify-start hover:border-emerald-300 dark:hover:border-emerald-700/60 transition-all duration-200 overflow-y-auto overflow-x-hidden w-full max-w-full"
                         style={{
                             position: 'absolute',
                             top: 0,
                             left: 0,
                             width: '100%',
                             height: '100%',
+                            WebkitBackfaceVisibility: 'hidden',
                             backfaceVisibility: 'hidden',
                             transform: 'rotateY(180deg)',
                         }}
@@ -402,6 +403,22 @@ const GrammarFlashcard = ({
                                 </div>
                             )}
 
+                            {/* Back Usage Scope */}
+                            {card.usageScope && (
+                                <div className="bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700/80 rounded-2xl p-3 text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                                    <span className="font-bold text-slate-700 dark:text-slate-200 mr-1.5">Cách dùng:</span>
+                                    {card.usageScope}
+                                </div>
+                            )}
+
+                            {/* Back Notes / Chú ý */}
+                            {(card.notes || card.note) && (
+                                <div className="bg-amber-500/10 dark:bg-amber-950/20 border border-amber-500/30 rounded-2xl p-3 text-xs md:text-sm font-medium text-slate-700 dark:text-slate-300 leading-relaxed">
+                                    <span className="font-bold text-amber-600 dark:text-amber-400 mr-1.5">💡 Chú ý:</span>
+                                    {card.notes || card.note}
+                                </div>
+                            )}
+
                             {/* Back Structure Box */}
                             {settings.showStructure !== false && structuresList.length > 0 && (
                                 <div className="space-y-2">
@@ -453,6 +470,7 @@ const GrammarFlashcard = ({
                                                                     ? ex.furigana
                                                                     : '',
                                                         }}
+                                                        showFurigana={settings.showFurigana !== false}
                                                         pattern={card.pattern}
                                                         index={idx}
                                                         onPlayAudio={(jaText) =>

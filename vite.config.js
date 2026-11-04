@@ -66,6 +66,7 @@ export default defineConfig({
           // Tách các lib lớn để giảm bundle chính
           firebase: ['firebase/app', 'firebase/auth', 'firebase/firestore'],
           recharts: ['recharts'],
+          katex: ['katex', 'rehype-katex', 'remark-math'],
           icons: ['lucide-react'],
           react: ['react', 'react-dom'],
         },

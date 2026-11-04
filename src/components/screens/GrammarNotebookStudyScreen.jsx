@@ -4,7 +4,7 @@ import { ChevronLeft, ChevronRight, RotateCcw, Volume2, Edit, CheckCircle, Heart
 import { getAuth } from 'firebase/auth';
 import { TopTabBar } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
-import { getGrammarNotebookById, getCachedGrammarNotebooks, saveGrammarNotebook, toggleNotebookItemSrs, saveAllNotebookItemsToSrs } from '../../utils/grammarNotebookService';
+import { getGrammarNotebookById, getCachedGrammarNotebooks, findNotebookInAnyLocalStorage, saveGrammarNotebook, toggleNotebookItemSrs, saveAllNotebookItemsToSrs } from '../../utils/grammarNotebookService';
 import { subscribeGrammarSrs, getCachedUserGrammarSrsData } from '../../utils/grammarService';
 import { speakExampleSentence } from '../../utils/audio';
 import { showToast } from '../../utils/toast';
@@ -14,17 +14,23 @@ export const GrammarNotebookStudyScreen = () => {
     const navigate = useNavigate();
     const { notebookId } = useParams();
     const auth = getAuth();
-    const userId = auth?.currentUser?.uid;
+    const [userId, setUserId] = useState(() => auth?.currentUser?.uid || null);
+
+    // Sync auth state on mount / reload
+    useEffect(() => {
+        const unsub = auth.onAuthStateChanged(user => {
+            if (user?.uid && user.uid !== userId) {
+                setUserId(user.uid);
+            }
+        });
+        return () => unsub?.();
+    }, [userId]);
 
     const [notebook, setNotebook] = useState(() => {
         const cached = getCachedGrammarNotebooks(userId);
-        return cached.find(nb => nb.id === notebookId) || null;
+        return cached.find(nb => nb && nb.id === notebookId) || findNotebookInAnyLocalStorage(notebookId) || null;
     });
-    const [loading, setLoading] = useState(() => {
-        const cached = getCachedGrammarNotebooks(userId);
-        const found = cached.find(nb => nb.id === notebookId);
-        return !found;
-    });
+    const [loading, setLoading] = useState(() => !notebook);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
     const [isFinished, setIsFinished] = useState(false);
@@ -34,32 +40,36 @@ export const GrammarNotebookStudyScreen = () => {
     const [renameTitle, setRenameTitle] = useState('');
 
     useEffect(() => {
+        let isMounted = true;
         const load = async () => {
-            const cached = getCachedGrammarNotebooks(userId);
-            const found = cached.find(nb => nb.id === notebookId);
-            if (found && !notebook) {
-                setNotebook(found);
+            const localFound = notebook || findNotebookInAnyLocalStorage(notebookId);
+            if (localFound && !notebook) {
+                setNotebook(localFound);
                 setLoading(false);
             }
+
             try {
                 const data = await getGrammarNotebookById(userId, notebookId);
+                if (!isMounted) return;
+
                 if (data && data.items && data.items.length > 0) {
                     setNotebook(data);
                 } else if (data) {
                     showToast('Sổ tay này chưa có mẫu ngữ pháp nào. Vui lòng thêm mẫu trước.', 'info');
                     navigate(`/grammar/notebook/${notebookId}/edit`);
-                } else if (!found) {
+                } else if (!localFound) {
                     showToast('Không tìm thấy sổ tay', 'error');
                     navigate('/grammar/notebook');
                 }
             } catch (e) {
                 console.warn('Error loading study notebook:', e);
             } finally {
-                setLoading(false);
+                if (isMounted) setLoading(false);
             }
         };
 
         load();
+        return () => { isMounted = false; };
     }, [notebookId, userId, navigate]);
 
     // Real-time SRS subscription for instant Heart button updates
@@ -320,7 +330,10 @@ export const GrammarNotebookStudyScreen = () => {
                                 }`}
                             >
                                 {/* FRONT SIDE: Huge pattern, clean connection formula, flip hint */}
-                                <div className="absolute inset-0 backface-hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-10 flex flex-col justify-between shadow-sm hover:border-sky-300 dark:hover:border-sky-700 transition-colors">
+                                <div
+                                    className="absolute inset-0 backface-hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl p-4 sm:p-6 md:p-10 flex flex-col justify-between shadow-sm hover:border-sky-300 dark:hover:border-sky-700 transition-colors overflow-hidden w-full max-w-full"
+                                    style={{ WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden' }}
+                                >
                                     <div className="flex items-center justify-between">
                                         <span className="text-[11px] font-black uppercase tracking-wider text-slate-400 bg-slate-100 dark:bg-slate-800 px-3 py-1 rounded-xl">
                                             Mặt trước (Mẫu câu)
@@ -332,7 +345,7 @@ export const GrammarNotebookStudyScreen = () => {
 
                                     <div className="my-auto py-4 text-center space-y-4">
                                         <div className="flex items-center justify-center gap-3.5 flex-wrap">
-                                            <h2 className="text-4xl sm:text-6xl font-black text-slate-900 dark:text-white font-japanese tracking-tight">
+                                            <h2 className="text-4xl sm:text-6xl font-black text-slate-900 dark:text-white font-japanese tracking-tight break-words">
                                                 {currentItem.pattern}
                                             </h2>
                                             <button
@@ -350,7 +363,7 @@ export const GrammarNotebookStudyScreen = () => {
 
                                         {currentItem.connection && (
                                             <div className="flex justify-center pt-1">
-                                                <div className="inline-flex items-center gap-2 px-4 py-2 bg-sky-50/80 dark:bg-sky-950/50 border border-sky-200 dark:border-sky-800/80 rounded-2xl text-sm sm:text-base font-japanese font-bold text-sky-700 dark:text-sky-300 shadow-2xs max-w-full text-center">
+                                                <div className="inline-flex items-center gap-2 px-4 py-2 bg-sky-50/80 dark:bg-sky-950/50 border border-sky-200 dark:border-sky-800/80 rounded-2xl text-sm sm:text-base font-japanese font-bold text-sky-700 dark:text-sky-300 shadow-2xs max-w-full text-center break-words">
                                                     <span>{currentItem.connection}</span>
                                                 </div>
                                             </div>
@@ -368,7 +381,10 @@ export const GrammarNotebookStudyScreen = () => {
                                 </div>
 
                                 {/* BACK SIDE: Meaning, Scope, Notes, Examples with Furigana */}
-                                <div className="absolute inset-0 backface-hidden rotate-y-180 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl p-6 sm:p-10 flex flex-col justify-between shadow-sm hover:border-sky-300 dark:hover:border-sky-700 transition-colors overflow-hidden">
+                                <div
+                                    className="absolute inset-0 backface-hidden rotate-y-180 bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl p-4 sm:p-6 md:p-10 flex flex-col justify-between shadow-sm hover:border-sky-300 dark:hover:border-sky-700 transition-colors overflow-hidden w-full max-w-full"
+                                    style={{ WebkitBackfaceVisibility: 'hidden', backfaceVisibility: 'hidden' }}
+                                >
                                     <div className="flex items-center justify-between shrink-0">
                                         <span className="text-[11px] font-black uppercase tracking-wider text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 px-3 py-1 rounded-xl border border-emerald-200 dark:border-emerald-800">
                                             Mặt sau (Ý nghĩa & Chi tiết)
@@ -379,27 +395,27 @@ export const GrammarNotebookStudyScreen = () => {
                                     </div>
 
                                     <div
-                                        className="flex-1 overflow-y-auto custom-scrollbar my-3 pr-1 space-y-3.5 text-left"
+                                        className="flex-1 overflow-y-auto overflow-x-hidden w-full max-w-full min-w-0 custom-scrollbar my-2.5 sm:my-3 pr-1 space-y-3.5 text-left"
                                         onClick={(e) => e.stopPropagation()}
                                     >
                                         <div className="space-y-1">
                                             <span className="text-[10px] font-black text-slate-400 uppercase tracking-widest block">
                                                 Ý NGHĨA
                                             </span>
-                                            <p className="text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400 leading-snug">
+                                            <p className="text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400 leading-snug break-words">
                                                 {currentItem.meaning}
                                             </p>
                                         </div>
 
                                         {currentItem.usageScope && (
-                                            <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                                            <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed break-words">
                                                 <span className="font-bold text-slate-700 dark:text-slate-200 mr-1.5">Cách dùng:</span>
                                                 {currentItem.usageScope}
                                             </div>
                                         )}
 
                                         {currentItem.notes && (
-                                            <div className="p-3 bg-amber-500/10 dark:bg-amber-950/20 rounded-2xl border border-amber-500/30 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 leading-relaxed">
+                                            <div className="p-3 bg-amber-500/10 dark:bg-amber-950/20 rounded-2xl border border-amber-500/30 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 leading-relaxed break-words">
                                                 <span className="font-bold text-amber-600 dark:text-amber-400 mr-1.5">💡 Chú ý:</span>
                                                 {currentItem.notes}
                                             </div>
@@ -415,16 +431,18 @@ export const GrammarNotebookStudyScreen = () => {
                                                         const cleanJa = (ex.ja || '').replace(/<[^>]*>/g, '');
                                                         const cleanVi = (ex.vi || '').replace(/<[^>]*>/g, '');
                                                         return (
-                                                            <div key={exIdx} className="p-3 bg-slate-50 dark:bg-slate-950/60 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-1">
+                                                            <div key={exIdx} className="p-3 bg-slate-50 dark:bg-slate-950/60 rounded-2xl border border-slate-200 dark:border-slate-800 space-y-1 w-full max-w-full overflow-hidden">
                                                                 <div className="flex items-start justify-between gap-2">
-                                                                    <div className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-100 font-japanese leading-relaxed">
-                                                                        <FuriganaText text={cleanJa} compact />
+                                                                    <div className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-100 font-japanese leading-relaxed break-words min-w-0 flex-1">
+                                                                        <FuriganaText text={cleanJa} />
                                                                     </div>
                                                                     <button
                                                                         type="button"
                                                                         onClick={(e) => {
                                                                             e.stopPropagation();
-                                                                            speakExampleSentence(cleanJa);
+                                                                            // Clean parenthesized furigana before TTS audio
+                                                                            const audioJa = cleanJa.replace(/[\(（\[【][^\)）\]】]+[\)）\]】]/g, '').trim();
+                                                                            speakExampleSentence(audioJa || cleanJa);
                                                                         }}
                                                                         className="p-1.5 rounded-xl bg-white dark:bg-slate-800 text-slate-400 hover:text-sky-500 border border-slate-200 dark:border-slate-700 transition-colors shrink-0 cursor-pointer shadow-2xs active:translate-y-0.5"
                                                                         title="Nghe câu ví dụ"
@@ -432,9 +450,11 @@ export const GrammarNotebookStudyScreen = () => {
                                                                         <Volume2 className="w-3.5 h-3.5" />
                                                                     </button>
                                                                 </div>
-                                                                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                                                                    {cleanVi}
-                                                                </p>
+                                                                {cleanVi && (
+                                                                    <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed break-words">
+                                                                        {cleanVi}
+                                                                    </p>
+                                                                )}
                                                             </div>
                                                         );
                                                     })}

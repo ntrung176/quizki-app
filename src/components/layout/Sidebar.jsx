@@ -20,8 +20,8 @@ import IosLanguageWheelModal from '../ui/IosLanguageWheelModal';
 import FloatingFocusWidget from '../ui/FloatingFocusWidget';
 import { isVocabCardDue, isSrsCardDue, getLearnAheadLimitMs } from '../../utils/srs';
 import { isEnglishCard } from '../../utils/englishVocab';
-import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
-import { getSharedGrammarPointsList, subscribeGrammarSrs } from '../../utils/grammarService';
+import { subscribeKanjiSrs } from '../../utils/kanjiService';
+import { subscribeGrammarSrs } from '../../utils/grammarService';
 
 import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
@@ -346,9 +346,7 @@ const Sidebar = ({
 
     // 3-second ticker + real-time srs-updated event listener
     const [sidebarTick, setSidebarTick] = useState(Date.now());
-    const kanjiListRef = useRef([]);
     const kanjiSrsRef = useRef({});
-    const grammarListRef = useRef([]);
     const grammarSrsRef = useRef({});
 
     const updateKanjiCount = useCallback(() => {
@@ -358,8 +356,7 @@ const Sidebar = ({
         }
         const now = Date.now();
         const threshold = now + getLearnAheadLimitMs();
-        const dueCount = (kanjiListRef.current || []).filter(k => {
-            const srs = kanjiSrsRef.current[k.id];
+        const dueCount = Object.values(kanjiSrsRef.current || {}).filter(srs => {
             if (!srs) return false;
             return isSrsCardDue(srs, threshold);
         }).length;
@@ -373,8 +370,7 @@ const Sidebar = ({
         }
         const now = Date.now();
         const threshold = now + getLearnAheadLimitMs();
-        const dueCount = (grammarListRef.current || []).filter(g => {
-            const srs = grammarSrsRef.current[g.id];
+        const dueCount = Object.values(grammarSrsRef.current || {}).filter(srs => {
             if (!srs) return false;
             return isSrsCardDue(srs, threshold);
         }).length;
@@ -395,59 +391,35 @@ const Sidebar = ({
         };
     }, [updateKanjiCount, updateGrammarCount]);
 
-    // Listen to Kanji SRS due count synchronized with Kanji module (deferred to prevent main thread blocking)
+    // Listen to Kanji SRS due count synchronized with Kanji module (0ms, memory-lean)
     useEffect(() => {
         if (!userId) return;
         let isMounted = true;
-        let unsub = () => { };
-
-        const timer = setTimeout(() => {
-            getSharedKanjiList().then(kList => {
-                if (!isMounted) return;
-                kanjiListRef.current = kList || [];
-
-                unsub = subscribeKanjiSrs(userId, (freshSrs) => {
-                    if (!isMounted) return;
-                    kanjiSrsRef.current = freshSrs || {};
-                    updateKanjiCount();
-                });
-            }).catch(err => {
-                console.error('Error fetching kanji list in Sidebar:', err);
-            });
-        }, 500);
+        const unsub = subscribeKanjiSrs(userId, (freshSrs) => {
+            if (!isMounted) return;
+            kanjiSrsRef.current = freshSrs || {};
+            updateKanjiCount();
+        });
 
         return () => {
             isMounted = false;
-            clearTimeout(timer);
-            unsub();
+            if (typeof unsub === 'function') unsub();
         };
     }, [userId, updateKanjiCount]);
 
-    // Listen to Grammar SRS due count synchronized with Grammar module (deferred)
+    // Listen to Grammar SRS due count synchronized with Grammar module (0ms, memory-lean)
     useEffect(() => {
         if (!userId) return;
         let isMounted = true;
-        let unsub = () => { };
-
-        const timer = setTimeout(() => {
-            getSharedGrammarPointsList().then(gList => {
-                if (!isMounted) return;
-                grammarListRef.current = gList || [];
-
-                unsub = subscribeGrammarSrs(userId, (freshSrs) => {
-                    if (!isMounted) return;
-                    grammarSrsRef.current = freshSrs || {};
-                    updateGrammarCount();
-                });
-            }).catch(err => {
-                console.error('Error fetching grammar list in Sidebar:', err);
-            });
-        }, 600);
+        const unsub = subscribeGrammarSrs(userId, (freshSrs) => {
+            if (!isMounted) return;
+            grammarSrsRef.current = freshSrs || {};
+            updateGrammarCount();
+        });
 
         return () => {
             isMounted = false;
-            clearTimeout(timer);
-            unsub();
+            if (typeof unsub === 'function') unsub();
         };
     }, [userId, updateGrammarCount]);
 

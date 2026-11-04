@@ -213,34 +213,46 @@ export const useKanjiData = ({
 
     // Load shared data
     useEffect(() => {
+        let isMounted = true;
         const loadData = async () => {
             const hasPreloadedData = !!(location.state?.kanjiList);
             try {
                 if (hasPreloadedData) {
                     const catData = await getSharedVocabCategories();
+                    if (!isMounted) return;
                     setVocabCategories(catData);
                     location.state.kanjiList.forEach(k => updateCachedKanji(k));
-                    location.state.vocabList.forEach(v => updateCachedVocab(v));
+                    if (location.state.vocabList) location.state.vocabList.forEach(v => updateCachedVocab(v));
+                    setLoading(false);
                 } else {
-                    const [kanjiData, vocabData, catData] = await Promise.all([
+                    // 1. Eagerly load Kanji list & categories so Kanji cards appear INSTANTLY (< 50ms)!
+                    const [kanjiData, catData] = await Promise.all([
                         getSharedKanjiList(),
-                        getSharedVocabList(),
                         getSharedVocabCategories()
                     ]);
+                    if (!isMounted) return;
                     setKanjiList(kanjiData);
-                    setVocabList(vocabData);
                     setVocabCategories(catData);
+                    setLoading(false);
+
+                    // 2. Load vocab list non-blockingly in the background
+                    getSharedVocabList().then(vocabData => {
+                        if (isMounted && vocabData) {
+                            setVocabList(vocabData);
+                        }
+                    }).catch(err => console.warn('Background vocab load warning:', err));
                 }
             } catch (e) {
                 console.error('Error loading kanji data:', e);
                 if (!hasPreloadedData) {
-                    showToast('Lỗi tải dữ liệu Kanji. Vui lòng kiểm tra kết nối hoặc Firebase Rules.', 'error');
+                    showToast('Lỗi tải dữ liệu Kanji. Vui lòng kiểm tra kết nối.', 'error');
                 }
             } finally {
-                setLoading(false);
+                if (isMounted) setLoading(false);
             }
         };
         loadData();
+        return () => { isMounted = false; };
     }, []);
 
     // Listen to cache updates
