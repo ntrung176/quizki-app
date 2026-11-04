@@ -85,13 +85,13 @@ const loadedLevels = new Set();
 const levelLoadingPromises = new Map();
 
 /**
- * Lazily loads test bank for a specific level (n1, n2, n3, n4, n5)
+ * Lazily loads full test bank for a specific level (n1, n2, n3, n4, n5)
  */
 export const loadJLPTLevelData = async (level) => {
     if (!level) return;
     const lvlKey = level.toLowerCase().trim();
     if (lvlKey === 'all') {
-        const levels = ['n1', 'n2', 'n3', 'n4', 'n5'];
+        const levels = ['n5', 'n4', 'n3', 'n2', 'n1'];
         await Promise.all(levels.map(l => loadJLPTLevelData(l)));
         return;
     }
@@ -105,7 +105,10 @@ export const loadJLPTLevelData = async (level) => {
                 const list = await res.json();
                 if (Array.isArray(list) && list.length > 0) {
                     list.forEach(t => {
-                        if (t && t.id) baseTestsMap.set(t.id, t);
+                        if (t && t.id) {
+                            const prev = baseTestsMap.get(t.id) || {};
+                            baseTestsMap.set(t.id, { ...prev, ...t });
+                        }
                     });
                     loadedLevels.add(lvlKey);
                     recomputeCombinedTests();
@@ -120,6 +123,26 @@ export const loadJLPTLevelData = async (level) => {
 
     levelLoadingPromises.set(lvlKey, promise);
     return promise;
+};
+
+/**
+ * Ensures a specific test has its complete sections and questions loaded into memory
+ */
+export const ensureFullTestLoaded = async (testId, level) => {
+    if (!testId) return null;
+    const existing = baseTestsMap.get(testId);
+    if (existing && Array.isArray(existing.sections) && existing.sections.length > 0) {
+        return existing;
+    }
+
+    let targetLvl = level || existing?.level;
+    if (!targetLvl) {
+        const match = String(testId).toLowerCase().match(/(n[1-5])/);
+        targetLvl = match ? match[1] : 'n5';
+    }
+
+    await loadJLPTLevelData(targetLvl);
+    return baseTestsMap.get(testId) || existing;
 };
 
 export const invalidateJLPTCache = () => {
@@ -154,7 +177,7 @@ export const isJLPTDataLoaded = () => {
 
 /**
  * Loads JLPT tests with in-memory caching and request deduplication.
- * Hierarchy: In-Memory RAM -> Firebase Storage CDN -> Local Bundled JSON -> Realtime Firestore Overlay
+ * Hierarchy: In-Memory RAM -> /data/jlpt/summary.json -> Realtime Firestore Overlay
  */
 export const getSharedJLPTTests = async (forceRefresh = false) => {
     if (!forceRefresh && cachedTests && cachedTests.length > 0) {
@@ -173,19 +196,43 @@ export const getSharedJLPTTests = async (forceRefresh = false) => {
             console.warn('[jlptDataService] Cache config fetch warning:', e);
         }
 
-        // 1. ALWAYS load fresh static base file /data/jlpt_data.json
+        // 1. ALWAYS load lightweight summary catalog first (fast, ~3.5MB, < 15MB RAM)
         try {
-            const res = await fetch(`/data/jlpt_data.json?t=${Date.now()}`);
+            const res = await fetch(`/data/jlpt/summary.json?t=${Date.now()}`);
             if (res && res.ok) {
                 const data = await res.json();
                 if (Array.isArray(data) && data.length > 0) {
                     data.forEach((t) => {
-                        if (t && t.id) baseTestsMap.set(t.id, t);
+                        if (t && t.id) {
+                            const existing = baseTestsMap.get(t.id);
+                            if (existing && existing.sections) {
+                                baseTestsMap.set(t.id, { ...t, ...existing });
+                            } else {
+                                baseTestsMap.set(t.id, t);
+                            }
+                        }
                     });
                 }
             }
         } catch (e) {
-            console.warn('[jlptDataService] Local jlpt_data.json load warning:', e);
+            console.warn('[jlptDataService] Local summary.json load warning:', e);
+        }
+
+        // Fallback to jlpt_data.json if summary.json failed or empty
+        if (baseTestsMap.size === 0) {
+            try {
+                const res = await fetch(`/data/jlpt_data.json?t=${Date.now()}`);
+                if (res && res.ok) {
+                    const data = await res.json();
+                    if (Array.isArray(data) && data.length > 0) {
+                        data.forEach((t) => {
+                            if (t && t.id) baseTestsMap.set(t.id, t);
+                        });
+                    }
+                }
+            } catch (e) {
+                console.warn('[jlptDataService] Local jlpt_data.json load warning:', e);
+            }
         }
 
         // 2. Compute combined map with Firestore overlay

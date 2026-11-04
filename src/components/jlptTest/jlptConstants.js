@@ -46,6 +46,8 @@ export const ROADMAP_TASKS = {
  */
 export const getTestQuestionCount = (test) => {
     if (!test) return 0;
+    if (typeof test.questionCount === 'number') return test.questionCount;
+    if (typeof test.totalQuestions === 'number') return test.totalQuestions;
     if (test.sections && Array.isArray(test.sections)) {
         return test.sections.reduce((sum, s) => {
             if (!s || !s.questions || !Array.isArray(s.questions)) return sum;

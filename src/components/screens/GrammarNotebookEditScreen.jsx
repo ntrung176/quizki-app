@@ -116,7 +116,7 @@ export const GrammarNotebookEditScreen = () => {
     };
 
     // AI Single Item Assist
-    const handleAiAssist = async (itemId, pattern) => {
+    const handleAiAssist = async (itemId, pattern, meaning = '') => {
         if (!pattern || !pattern.trim()) {
             showToast('Vui lòng nhập Mẫu ngữ pháp trước khi gọi AI.', 'warning');
             return;
@@ -124,19 +124,23 @@ export const GrammarNotebookEditScreen = () => {
 
         setAiLoadingMap(prev => ({ ...prev, [itemId]: true }));
         try {
-            const aiData = await aiAssistGrammarPoint(pattern);
+            const aiData = await aiAssistGrammarPoint(pattern, meaning);
             setItems(prev => prev.map(it => {
                 if (it.id !== itemId) return it;
                 return {
                     ...it,
-                    meaning: aiData.meaning || it.meaning,
+                    meaning: aiData.meaning || (meaning && meaning.trim()) || it.meaning,
                     connection: aiData.connection || it.connection,
                     usageScope: aiData.usageScope || it.usageScope,
                     notes: aiData.notes || it.notes,
                     examples: aiData.examples && aiData.examples.length > 0 ? aiData.examples : it.examples
                 };
             }));
-            showToast(`AI đã tự động điền thông tin cho "${pattern}"!`, 'success');
+            if (meaning && meaning.trim()) {
+                showToast(`AI đã tìm chính xác theo cách dùng "${meaning.trim()}"!`, 'success');
+            } else {
+                showToast(`AI đã tự động điền thông tin cho "${pattern}"!`, 'success');
+            }
         } catch (err) {
             console.error('AI Assist error:', err);
             showToast(err.message || 'Lỗi khi gọi AI', 'error');
@@ -327,7 +331,7 @@ export const GrammarNotebookEditScreen = () => {
                                                         if (e.key === 'Enter') {
                                                             e.preventDefault();
                                                             if (item.pattern.trim() && !isAiLoading) {
-                                                                handleAiAssist(item.id, item.pattern);
+                                                                handleAiAssist(item.id, item.pattern, item.meaning);
                                                             }
                                                         }
                                                     }}
@@ -336,10 +340,10 @@ export const GrammarNotebookEditScreen = () => {
                                                 />
                                                 <button
                                                     type="button"
-                                                    onClick={() => handleAiAssist(item.id, item.pattern)}
+                                                    onClick={() => handleAiAssist(item.id, item.pattern, item.meaning)}
                                                     disabled={isAiLoading || !item.pattern.trim()}
                                                     className="flex items-center justify-center px-3.5 py-2.5 bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 text-white rounded-2xl transition-all font-black text-xs disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0 min-w-[44px] cursor-pointer select-none"
-                                                    title="Tự động điền ngữ pháp bằng AI (Enter)"
+                                                    title={item.meaning?.trim() ? `AI tìm chính xác theo cách dùng "${item.meaning}"` : "Tự động điền ngữ pháp bằng AI (Nhập thêm Ý nghĩa nếu muốn tìm đúng cách dùng)"}
                                                 >
                                                     {isAiLoading ? <Loader2 className="animate-spin w-4 h-4" /> : <span className="tracking-wide">AI</span>}
                                                 </button>
@@ -354,7 +358,15 @@ export const GrammarNotebookEditScreen = () => {
                                                 type="text"
                                                 value={item.meaning}
                                                 onChange={(e) => handleUpdateItem(item.id, 'meaning', e.target.value)}
-                                                placeholder="Sau khi... rồi mới..."
+                                                onKeyDown={(e) => {
+                                                    if (e.key === 'Enter') {
+                                                        e.preventDefault();
+                                                        if (item.pattern.trim() && !isAiLoading) {
+                                                            handleAiAssist(item.id, item.pattern, item.meaning);
+                                                        }
+                                                    }
+                                                }}
+                                                placeholder="Sau khi... rồi mới... (nhập để AI tìm đúng cách dùng này)"
                                                 className="w-full text-sm font-medium px-3.5 py-2.5 bg-slate-50 dark:bg-slate-950 border-2 border-slate-200 dark:border-slate-800 rounded-2xl outline-none focus:border-sky-500 dark:text-white"
                                             />
                                         </div>

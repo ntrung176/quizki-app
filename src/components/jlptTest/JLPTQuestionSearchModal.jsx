@@ -2,6 +2,7 @@ import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Search, X, Edit, BookOpen, CheckCircle2, ChevronRight, Layers, AlertCircle, FileText, Sparkles } from 'lucide-react';
 import QuestionEditModal from './QuestionEditModal';
+import { loadJLPTLevelData } from '../../services/jlptDataService';
 
 /**
  * Utility to strip HTML tags for clean search
@@ -40,9 +41,10 @@ const JLPTQuestionSearchModal = ({
     const [editingTarget, setEditingTarget] = useState(null); // { test, sectionIdx, questionIdx, question }
     const searchInputRef = useRef(null);
 
-    // Auto focus search input on open
+    // Auto focus search input on open & lazily load all level questions for admin search
     useEffect(() => {
         if (isOpen) {
+            loadJLPTLevelData('all');
             setTimeout(() => {
                 searchInputRef.current?.focus();
             }, 100);
@@ -52,8 +54,9 @@ const JLPTQuestionSearchModal = ({
         }
     }, [isOpen]);
 
-    // Flatten all questions across all tests with indexing metadata
+    // Flatten all questions across all tests with indexing metadata (only when modal is open to save RAM)
     const allQuestionsIndex = useMemo(() => {
+        if (!isOpen) return [];
         const list = [];
         if (!Array.isArray(tests)) return list;
 

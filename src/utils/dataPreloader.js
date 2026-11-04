@@ -33,13 +33,12 @@ export const preloadCoreData = () => {
                 getSharedVocabList()
             ]);
 
-            // Stage 3: Load JLPT tests & Kaiwa videos in the background
-            getSharedJLPTTests().catch(() => {});
+            // Stage 3: Load Kaiwa videos in the background
             getKaiwaVideos().catch(() => {});
 
-            // Stage 4: Idle background dictionary sync (0ms instant lookup) & Furigana engine
+            // Stage 4: Idle background dictionary sync (0ms instant lookup) into IndexedDB
             syncDictionary({ silent: true }).catch(() => {});
-            preloadKuroshiro();
+            // Note: JLPT tests & Kuroshiro dictionary are loaded on-demand per level/screen to keep RAM lean (< 250MB)
 
             hasPreloaded = true;
             if (import.meta.env.DEV) {

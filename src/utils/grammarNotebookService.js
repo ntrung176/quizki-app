@@ -182,24 +182,85 @@ export const deleteGrammarNotebook = async (userId, notebookId) => {
 /**
  * AI Assistant for a single grammar pattern
  * Returns auto-generated { meaning, connection, usageScope, notes, examples }
+ * If meaningHint is provided, strictly matches that exact usage/meaning of the pattern
  * Strictly concise, non-verbose, clean formatted
  */
-export const aiAssistGrammarPoint = async (pattern) => {
+export const aiAssistGrammarPoint = async (pattern, meaningHint = '') => {
     if (!pattern || !pattern.trim()) {
         throw new Error('Vui lòng nhập mẫu ngữ pháp trước khi gọi AI.');
     }
 
+    const trimmedPattern = pattern.trim();
+    const trimmedMeaning = (meaningHint || '').trim();
+
+    // 1. Search local curriculum database for reference if available
+    let dbMatchInfo = '';
+    try {
+        const { getSharedGrammarData } = await import('./grammarService');
+        const allData = await getSharedGrammarData().catch(() => null);
+        if (Array.isArray(allData)) {
+            const cleanPat = trimmedPattern.replace(/[〜~～]/g, '').trim().toLowerCase();
+            const matches = [];
+            for (const tb of allData) {
+                for (const ls of tb.lessons || []) {
+                    for (const pt of ls.points || []) {
+                        const ptClean = (pt.title || pt.pattern || '').replace(/[〜~～]/g, '').trim().toLowerCase();
+                        if (ptClean === cleanPat || ptClean.includes(cleanPat) || cleanPat.includes(ptClean)) {
+                            matches.push(pt);
+                        }
+                    }
+                }
+            }
+
+            if (matches.length > 0) {
+                let bestMatch = null;
+                if (trimmedMeaning) {
+                    const mClean = trimmedMeaning.toLowerCase();
+                    bestMatch = matches.find(m => 
+                        (m.meaning || '').toLowerCase().includes(mClean) || 
+                        (m.meaningShort || '').toLowerCase().includes(mClean) ||
+                        mClean.split(/\s+/).some(w => w.length > 2 && (m.meaning || '').toLowerCase().includes(w))
+                    );
+                }
+                const targetMatch = bestMatch || matches[0];
+                if (targetMatch) {
+                    dbMatchInfo = `\n[TÀI LIỆU GIÁO TRÌNH CHUẨN ĐÃ LƯU]:
+- Mẫu: ${targetMatch.title || targetMatch.pattern || ''}
+- Ý nghĩa: ${targetMatch.meaningShort || targetMatch.meaning || ''}
+- Cấu trúc/Kết nối: ${targetMatch.structureRaw || (Array.isArray(targetMatch.connection) ? targetMatch.connection.join(' / ') : targetMatch.connection || '')}
+- Giải thích/Cách dùng: ${targetMatch.meaningFull || targetMatch.explanation || ''}
+`;
+                }
+            }
+        }
+    } catch (_) {}
+
+    const meaningInstruction = trimmedMeaning ? `
+⚠️ QUAN TRỌNG NHẤT: NGƯỜI DÙNG ĐÃ CHỈ ĐỊNH Ý NGHĨA CỤ THỂ MUỐN TẠO LÀ: "${trimmedMeaning}"
+Một mẫu ngữ pháp tiếng Nhật có thể có nhiều cách sử dụng hoặc sắc thái khác nhau. Vì người dùng đã nhập ý nghĩa cụ thể, bạn BẮT BUỘC phải:
+1. "meaning": Giữ hoặc trau chuốt chuẩn xác theo đúng ý nghĩa "${trimmedMeaning}" mà người dùng yêu cầu (dưới 15 từ, ngắn gọn).
+2. "connection": Đưa ra công thức kết nối (cách chia động từ/tính từ/danh từ) CỦA ĐÚNG CÁCH DÙNG NÀY.
+3. "usageScope": Nêu rõ phạm vi và sắc thái sử dụng CỦA ĐÚNG CÁCH DÙNG NÀY (khi nào dùng, hạn chế vế sau, sắc thái cảm xúc...).
+4. "notes": Ghi chú, mẹo nhớ hoặc phân biệt với mẫu tương đồng cho ĐÚNG CÁCH DÙNG NÀY.
+5. "examples": BẮT BUỘC 2 câu ví dụ tiếng Nhật và bản dịch tiếng Việt PHẢI MINH HOẠ ĐÚNG Ý NGHĨA "${trimmedMeaning}" (TUYỆT ĐỐI không lấy ví dụ của cách dùng khác).
+` : `
+Nếu không có ý nghĩa cụ thể đi kèm, hãy chọn cách dùng phổ biến và trọng tâm nhất trong kỳ thi JLPT của mẫu ngữ pháp "${trimmedPattern}".
+`;
+
     const prompt = `Bạn là giáo viên sư phạm tiếng Nhật JLPT chuyên nghiệp.
-Hãy soạn nội dung chuẩn, ngắn gọn, súc tích cho mẫu ngữ pháp: "${pattern.trim()}".
+Hãy soạn nội dung chuẩn, ngắn gọn, súc tích cho mẫu ngữ pháp: "${trimmedPattern}".
+${trimmedMeaning ? `- Ý nghĩa người dùng yêu cầu: "${trimmedMeaning}"` : ''}
+${dbMatchInfo}
+${meaningInstruction}
 
 QUY TẮC BẮT BUỘC (CỰC KỲ QUAN TRỌNG):
-1. meaning: Ý nghĩa tiếng Việt cốt lõi, ngắn gọn nhất (chỉ 1 câu, dưới 15 từ, tự nhiên, dễ hiểu, TUYỆT ĐỐI không viết dài dòng). Ví dụ: "Trong khi còn...", "Sau khi... mới...".
+1. meaning: Ý nghĩa tiếng Việt cốt lõi, ngắn gọn nhất (chỉ 1 câu, dưới 15 từ, tự nhiên, dễ hiểu, TUYỆT ĐỐI không viết dài dòng). ${trimmedMeaning ? `Bám sát ý nghĩa: "${trimmedMeaning}".` : ''}
 2. connection: Công thức kết nối TỐI GIẢN, GỌN GÀNG NHẤT. Dùng dấu gạch chéo '/' để gom các thể từ loại. TUYỆT ĐỐI KHÔNG lặp lại tên mẫu ngữ pháp nhiều lần.
    - Ví dụ ĐÚNG: "V-る / V-ない / Nの / A-い / A-な + うちに"
    - Ví dụ SAI BỊ CẤM: "Vる + うちに Nの + うちに Aい + うちに..."
-3. usageScope: Tối đa 1-2 câu ngắn, nêu thẳng vào tình huống dùng cốt lõi nhất.
+3. usageScope: Tối đa 1-2 câu ngắn, nêu thẳng vào tình huống dùng cốt lõi nhất của đúng cách dùng này.
 4. notes: Mẹo nhớ hoặc lưu ý ngắn (tối đa 1 câu dưới 20 từ. Để trống "" nếu không có).
-5. examples: Đúng 2 câu ví dụ ngắn, giao tiếp thực tế đời thường. 'ja' là tiếng Nhật có kanji kèm furigana trong ngoặc đơn nếu có chữ khó ví dụ: '若(わか)い'. 'vi' là dịch nghĩa tiếng Việt tự nhiên. TUYỆT ĐỐI KHÔNG chứa bất kỳ thẻ HTML nào như <b>, </b>, <i>.
+5. examples: Đúng 2 câu ví dụ ngắn, giao tiếp thực tế đời thường. 'ja' là tiếng Nhật có kanji kèm furigana trong ngoặc đơn nếu có chữ khó ví dụ: '若(わか)い'. 'vi' là dịch nghĩa tiếng Việt tự nhiên và PHẢI DỊCH THEO ĐÚNG Ý NGHĨA YÊU CẦU. TUYỆT ĐỐI KHÔNG chứa bất kỳ thẻ HTML nào như <b>, </b>, <i>.
 
 ĐỊNH DẠNG TRẢ VỀ:
 Chỉ trả về DUY NHẤT một chuỗi JSON hợp lệ, KHÔNG có thẻ markdown bọc ngoài (\`\`\`json):

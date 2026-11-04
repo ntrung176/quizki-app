@@ -1094,47 +1094,57 @@ const StudySetDetail = ({
             <div className="w-full pb-20 min-h-screen bg-transparent animate-fade-in">
                 {/* Header */}
                 <div className="sticky top-0 z-30 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b-2 border-slate-200 dark:border-slate-800 shadow-xs">
-                    <div className="max-w-6xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
+                    <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-8 min-h-14 sm:h-16 py-2 flex items-center justify-between gap-2">
                         <button
                             onClick={onBack}
-                            className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-750 dark:text-slate-200 font-black text-xs uppercase tracking-wider rounded-2xl border-2 border-b-3 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-1 transition-all cursor-pointer select-none"
+                            className="flex items-center gap-1.5 px-2.5 sm:px-3 py-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-750 dark:text-slate-200 font-black text-xs uppercase tracking-wider rounded-2xl border-2 border-b-3 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-1 transition-all cursor-pointer select-none shrink-0"
                         >
-                            <ChevronLeft className="w-4 h-4 stroke-[3]" /> {t('library.backToLibrary')}
+                            <ChevronLeft className="w-4 h-4 stroke-[3]" />
+                            <span className="hidden sm:inline">{t('library.backToLibrary')}</span>
+                            <span className="sm:hidden">{t('common.back', 'Trở về')}</span>
                         </button>
-                        <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+                        <div className="flex items-center gap-1.5 sm:gap-2.5 flex-nowrap shrink-0 overflow-x-auto no-scrollbar py-0.5">
                             {!isEnglishMode && (
                                 <button
                                     onClick={handleAddKanjiToSrs}
                                     disabled={isAddingKanji}
-                                    className="flex items-center gap-1.5 px-3 py-1.5 bg-sky-50 hover:bg-sky-100 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 rounded-2xl border-2 border-b-3 border-sky-300 dark:border-sky-800 font-black text-xs uppercase tracking-wider transition-all active:translate-y-0.5 active:border-b-1 cursor-pointer select-none disabled:opacity-50"
+                                    className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-1.5 bg-sky-50 hover:bg-sky-100 dark:bg-sky-950/40 text-sky-700 dark:text-sky-300 rounded-2xl border-2 border-b-3 border-sky-300 dark:border-sky-800 font-black text-xs uppercase tracking-wider transition-all active:translate-y-0.5 active:border-b-1 cursor-pointer select-none disabled:opacity-50 shrink-0 shadow-2xs"
                                     title={t('studyModes.addKanjiTooltip')}
                                 >
-                                    <BookOpen className="w-3.5 h-3.5 stroke-[2.5]" /> {isAddingKanji ? t('common.adding') : t('studyModes.addKanjiToStudy')}
+                                    <BookOpen className="w-3.5 h-3.5 stroke-[2.5]" />
+                                    <span className="hidden sm:inline">{isAddingKanji ? t('common.adding') : t('studyModes.addKanjiToStudy')}</span>
+                                    <span className="sm:hidden">{isAddingKanji ? '...' : '+ Kanji'}</span>
                                 </button>
                             )}
                             <button
                                 onClick={() => onEditSet && onEditSet(folderId)}
-                                className="flex items-center gap-1.5 px-3.5 py-1.5 bg-emerald-500 hover:bg-emerald-400 text-white rounded-2xl border-b-3 border-emerald-700 font-black text-xs uppercase tracking-wider transition-all active:translate-y-0.5 active:border-b-1 cursor-pointer select-none shadow-2xs"
+                                className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3.5 py-1.5 bg-emerald-500 hover:bg-emerald-400 text-white rounded-2xl border-b-3 border-emerald-700 font-black text-xs uppercase tracking-wider transition-all active:translate-y-0.5 active:border-b-1 cursor-pointer select-none shadow-2xs shrink-0"
                             >
-                                <Plus className="w-3.5 h-3.5 stroke-[3]" /> {t('vocab.addVocab')}
+                                <Plus className="w-3.5 h-3.5 stroke-[3]" />
+                                <span className="hidden sm:inline">{t('vocab.addVocab')}</span>
+                                <span className="sm:hidden">Thêm từ</span>
                             </button>
                             {/* Folder delete — or unfiled bulk delete */}
                             {folderId === 'unfiled' ? (
                                 onDeleteCards && setCards.length > 0 && (
                                     <button
                                         onClick={() => setShowDeleteConfirm(true)}
-                                        className="flex items-center gap-1.5 px-2.5 py-1.5 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 rounded-2xl border-2 border-b-3 border-rose-200 dark:border-rose-900 font-black text-xs uppercase tracking-wider transition-all active:translate-y-0.5 active:border-b-1 cursor-pointer select-none"
+                                        className="flex items-center gap-1 px-2.5 py-1.5 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 rounded-2xl border-2 border-b-3 border-rose-200 dark:border-rose-900 font-black text-xs uppercase tracking-wider transition-all active:translate-y-0.5 active:border-b-1 cursor-pointer select-none shrink-0"
+                                        title={t('vocab.deleteAllUnfiled')}
                                     >
-                                        <Trash2 className="w-3.5 h-3.5" /> {t('vocab.deleteAllUnfiled')}
+                                        <Trash2 className="w-3.5 h-3.5" />
+                                        <span className="hidden sm:inline">{t('vocab.deleteAllUnfiled')}</span>
                                     </button>
                                 )
                             ) : (
                                 onDeleteFolder && (
                                     <button
                                         onClick={() => setShowDeleteConfirm(true)}
-                                        className="flex items-center gap-1.5 px-2.5 py-1.5 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 rounded-2xl border-2 border-b-3 border-rose-200 dark:border-rose-900 font-black text-xs uppercase tracking-wider transition-all active:translate-y-0.5 active:border-b-1 cursor-pointer select-none"
+                                        className="flex items-center gap-1 px-2.5 py-1.5 bg-rose-50 hover:bg-rose-100 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 rounded-2xl border-2 border-b-3 border-rose-200 dark:border-rose-900 font-black text-xs uppercase tracking-wider transition-all active:translate-y-0.5 active:border-b-1 cursor-pointer select-none shrink-0"
+                                        title={t('library.deleteSet')}
                                     >
-                                        <Trash2 className="w-3.5 h-3.5" /> {t('library.deleteSet')}
+                                        <Trash2 className="w-3.5 h-3.5" />
+                                        <span className="hidden sm:inline">{t('library.deleteSet')}</span>
                                     </button>
                                 )
                             )}

@@ -75,13 +75,9 @@ const JLPTTestDashboard = ({
     const statusFilter = externalStatusFilter !== undefined ? externalStatusFilter : internalStatusFilter;
     const setStatusFilter = externalSetStatusFilter || setInternalStatusFilter;
 
+    // Background warm-up for the active selected level only (not 'all' to preserve low RAM)
     React.useEffect(() => {
-        // Load all level data so all 104 books populate immediately
-        loadJLPTLevelData('all');
-    }, []);
-
-    React.useEffect(() => {
-        if (selectedLevel) {
+        if (selectedLevel && selectedLevel !== 'all') {
             loadJLPTLevelData(selectedLevel);
         }
     }, [selectedLevel]);

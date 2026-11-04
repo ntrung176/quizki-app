@@ -6,7 +6,7 @@ import { db, appId } from '../../config/firebase';
 import { playCompletionFanfare } from '../../utils/soundEffects';
 
 import { useJLPTTestData } from '../../hooks/useJLPTTestData';
-import { updateSingleJLPTTestInCache } from '../../services/jlptDataService';
+import { updateSingleJLPTTestInCache, ensureFullTestLoaded } from '../../services/jlptDataService';
 import PrintErrorBoundary from '../jlptTest/PrintErrorBoundary';
 import JLPTPrintView from '../jlptTest/JLPTPrintView';
 import PrintPortal from '../jlptTest/PrintPortal';
@@ -468,9 +468,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             return;
         }
         setPendingStartTest(test);
+        if (!test?.sections || test.sections.length === 0) {
+            ensureFullTestLoaded(test?.id, test?.level).then(fullTest => {
+                if (fullTest) setPendingStartTest(fullTest);
+            });
+        }
     };
 
-    const retakeTest = (test) => {
+    const retakeTest = async (test) => {
         const targetTest = test || activeTest;
         if (!targetTest) return;
         let isPremium = targetTest?.level !== 'N5' || targetTest?.isPremium;
@@ -481,18 +486,26 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         }
         setShowResult(false);
         setShowDetailedReview(false);
-        initTest(targetTest, wasRealExam ? 'real' : 'practice');
+        let fullTest = targetTest;
+        if (!fullTest?.sections || fullTest.sections.length === 0) {
+            fullTest = (await ensureFullTestLoaded(targetTest?.id, targetTest?.level)) || targetTest;
+        }
+        initTest(fullTest, wasRealExam ? 'real' : 'practice');
     };
 
-    const initTest = (test, mode = 'practice', isResume = false) => {
+    const initTest = async (test, mode = 'practice', isResume = false) => {
         setPendingStartTest(null);
-        setActiveTest(test);
+        let fullTest = test;
+        if (!fullTest?.sections || fullTest.sections.length === 0) {
+            fullTest = (await ensureFullTestLoaded(test?.id, test?.level)) || test;
+        }
+        setActiveTest(fullTest);
         setIsRealExam(mode === 'real');
         setViolationCount(0);
         setShowViolationWarning(false);
         setShowFullscreenRequired(false);
 
-        const testId = test?.id || test?._id;
+        const testId = fullTest?.id || fullTest?._id;
         const savedProgress = isResume ? (savedProgresses[testId] || savedProgresses[String(testId)]) : null;
         if (savedProgress && savedProgress.answers && Object.keys(savedProgress.answers).length > 0) {
             setAnswers(savedProgress.answers || {});
@@ -511,7 +524,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         setWasRealExam(mode === 'real');
 
         if (mode === 'real') {
-            setTimeRemaining(test.timeLimit * 60);
+            setTimeRemaining((fullTest.timeLimit || 60) * 60);
             setTimerActive(true);
             sessionStorage.setItem('realExamModeActive', 'true');
             window.dispatchEvent(new Event('realExamModeChange'));
@@ -523,7 +536,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         }
     };
 
-    const reviewTest = (test) => {
+    const reviewTest = async (test) => {
         if ((test.level !== 'N5' || test.isPremium) && !hasPremiumAccess) {
             setLockedPkgName('Luyện đề thi thử JLPT');
             setShowPremiumModal(true);
@@ -534,7 +547,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             setIsRealExam(false);
             setWasRealExam(saved.wasRealExam !== undefined ? saved.wasRealExam : true);
             setTimeTaken(saved.timeTaken || 0);
-            setActiveTest(test);
+            let fullTest = test;
+            if (!fullTest?.sections || fullTest.sections.length === 0) {
+                fullTest = (await ensureFullTestLoaded(test?.id, test?.level)) || test;
+            }
+            setActiveTest(fullTest);
             setAnswers(saved.answers || {});
             setCurrentSectionIdx(0);
             setCurrentQuestionIdx(0);
@@ -780,13 +797,17 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         } catch (err) { setNotification('Lỗi: ' + err.message); }
     };
 
-    const handleStartPrint = (test) => {
+    const handleStartPrint = async (test) => {
         if (!test) return;
         if (test.isPremium && !hasPremiumAccess) {
             setShowPremiumModal(true);
             return;
         }
-        setPrintingTest(test);
+        let fullTest = test;
+        if (!fullTest?.sections || fullTest.sections.length === 0) {
+            fullTest = (await ensureFullTestLoaded(test?.id, test?.level)) || test;
+        }
+        setPrintingTest(fullTest);
     };
 
     const furiganaStyles = useMemo(() => {

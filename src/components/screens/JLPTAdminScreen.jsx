@@ -9,7 +9,8 @@ import {
     getSynchronousJLPTTests, 
     isJLPTDataLoaded, 
     updateSingleJLPTTestInCache, 
-    removeSingleJLPTTestFromCache 
+    removeSingleJLPTTestFromCache,
+    ensureFullTestLoaded
 } from '../../services/jlptDataService';
 import { Plus, Trash2, Edit3, Save, X, ChevronDown, ChevronUp, FileText, Headphones, BookOpen, Languages, AlertTriangle, CheckCircle, Loader2, Copy, Upload, ArrowLeft, Award, Bold, Underline, Highlighter, Italic, Strikethrough, AlignCenter, CornerDownLeft, Palette, Eraser, Type, Lock, Unlock, Crown, Search } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom';
@@ -614,16 +615,20 @@ const JLPTAdminScreen = ({ userId }) => {
         setFormData(JSON.parse(JSON.stringify(EMPTY_TEST)));
         setExpandedSections({});
     };
-    const handleEdit = (test) => {
-        setEditingTest(test);
+    const handleEdit = async (test) => {
+        let fullTest = test;
+        if (!fullTest.sections || fullTest.sections.length === 0) {
+            fullTest = (await ensureFullTestLoaded(test.id, test.level)) || test;
+        }
+        setEditingTest(fullTest);
         setFormData({
-            title: test.title || '',
-            level: test.level || 'N5',
-            timeLimit: test.timeLimit || 60,
-            isSkillTest: !!test.isSkillTest,
-            skillType: test.skillType || 'vocabulary',
-            isPremium: !!test.isPremium,
-            sections: test.sections || [],
+            title: fullTest.title || '',
+            level: fullTest.level || 'N5',
+            timeLimit: fullTest.timeLimit || 60,
+            isSkillTest: !!fullTest.isSkillTest,
+            skillType: fullTest.skillType || 'vocabulary',
+            isPremium: !!fullTest.isPremium,
+            sections: fullTest.sections || [],
         });
         setExpandedSections({ 0: true });
         window.scrollTo({ top: 0, behavior: 'smooth' });
