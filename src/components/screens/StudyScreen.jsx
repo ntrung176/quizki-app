@@ -73,6 +73,7 @@ const formatCardForOption = (c) => {
 // Build 4 MC options: 1 correct + 3 distractors
 // ƯU TIÊN: Gom từ vựng từ học phần hiện tại trước (currentSetCards), nếu không đủ mới lấy từ học phần khác (allCards)
 const buildOptions = (correctCard, currentSetCards = [], allCards = []) => {
+    if (!correctCard) return [];
     const targetLang = correctCard.targetLanguage || 'ja';
     const correct = formatCardForOption(correctCard);
     const normalizedCorrect = normalize(correct);
@@ -156,6 +157,7 @@ const buildOptions = (correctCard, currentSetCards = [], allCards = []) => {
 // ─── Phase: Multiple Choice ────────────────────────────────────────────────
 
 const MCPhase = ({ card, currentSetCards, allCards, onCorrect, onWrong, onSaveCardAudio, furiganaEnabled, audioEnabled }) => {
+    if (!card) return null;
     const { t, language } = useLanguage();
     const [options] = useState(() => buildOptions(card, currentSetCards, allCards));
     const [selected, setSelected] = useState(null);
@@ -320,6 +322,8 @@ const MCPhase = ({ card, currentSetCards, allCards, onCorrect, onWrong, onSaveCa
 // ─── Phase: Written (type the answer) ────────────────────────────────────────
 
 const WrittenPhase = ({ card, onCorrect, onWrong, onSaveCardAudio, furiganaEnabled, audioEnabled }) => {
+    if (!card) return null;
+    const { isEnglishMode } = useTargetLanguage();
     const { t, language } = useLanguage();
     const [input, setInput] = useState('');
     const [feedback, setFeedback] = useState(null); // null | 'correct' | 'incorrect'
@@ -616,6 +620,37 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         }
     }, [originalCards]);
 
+    // Auto-recovery if page refreshed or studySessionData in memory was lost
+    useEffect(() => {
+        if ((!originalCards || originalCards.length === 0) && allCards && allCards.length > 0) {
+            try {
+                const saved = sessionStorage.getItem('quizki_active_study_session');
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    if (parsed?.setId) {
+                        const cardMap = new Map(allCards.map(c => [c.id, c]));
+                        let restoredCards = [];
+                        if (parsed.cardIds && Array.isArray(parsed.cardIds)) {
+                            restoredCards = parsed.cardIds.map(id => cardMap.get(id)).filter(Boolean);
+                        }
+                        if (restoredCards.length === 0 && parsed.setId) {
+                            restoredCards = allCards.filter(c => c.folderId === parsed.setId || c.deckId === parsed.setId);
+                        }
+                        if (restoredCards.length > 0 && setStudySessionData) {
+                            setStudySessionData({
+                                mode: 'learn',
+                                cards: restoredCards,
+                                setId: parsed.setId,
+                                isCustomSubset: Boolean(parsed.isCustomSubset),
+                                customType: parsed.customType || null
+                            });
+                        }
+                    }
+                }
+            } catch (_) {}
+        }
+    }, [originalCards, allCards, setStudySessionData]);
+
     const getSavedProgress = useCallback(() => {
         if (!studySessionData?.setId) return null;
         // Never use or restore full set progress for a custom subset (e.g. studying 3 'Đang học' words)
@@ -881,18 +916,18 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         if (nextIdx >= mcQueue.length) {
             if (mcWrong.length === 0) {
                 setBatchPhase('written');
-                setWrittenQueue(shuffleArray([...currentBatch]));
+                setWrittenQueue(shuffleArray([...(currentBatch || [])]));
                 setWrittenIdx(0);
                 setWrittenWrong([]);
             } else {
-                setMcQueue(shuffleArray([...mcWrong]));
+                setMcQueue(shuffleArray([...(mcWrong || [])]));
                 setMcIdx(0);
                 setMcWrong([]);
             }
         } else {
             setMcIdx(nextIdx);
         }
-    }, [mcIdx, mcQueue, currentBatch, onUpdateCard, mcWrong]);
+    }, [mcIdx, mcQueue, currentBatch, onUpdateCard, mcWrong, awardXP]);
 
     const handleMCWrong = useCallback(() => {
         const cCard = mcQueue[mcIdx];
@@ -903,25 +938,23 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             }
         }
         setMcWrong(prev => {
-            if (prev.some(c => c.id === cCard.id)) return prev;
-            return [...prev, cCard];
+            if (prev.some(c => c?.id === cCard?.id)) return prev;
+            return cCard ? [...prev, cCard] : prev;
         });
 
         const nextIdx = mcIdx + 1;
         if (nextIdx >= mcQueue.length) {
-            setMcWrong(prev => {
-                const updated = [...prev];
-                if (!updated.some(c => c.id === cCard.id)) {
-                    updated.push(cCard);
-                }
-                setMcQueue(shuffleArray(updated));
-                return [];
-            });
+            const updated = [...mcWrong];
+            if (cCard?.id && !updated.some(c => c?.id === cCard.id)) {
+                updated.push(cCard);
+            }
+            setMcQueue(shuffleArray(updated));
             setMcIdx(0);
+            setMcWrong([]);
         } else {
             setMcIdx(nextIdx);
         }
-    }, [mcIdx, mcQueue, onUpdateCard]);
+    }, [mcIdx, mcQueue, mcWrong, onUpdateCard]);
 
     // ── Written handlers ─────────────────────────────────────────────────────
 
@@ -944,14 +977,14 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             if (writtenWrong.length === 0) {
                 setBatchPhase('batchComplete');
             } else {
-                setWrittenQueue(shuffleArray([...writtenWrong]));
+                setWrittenQueue(shuffleArray([...(writtenWrong || [])]));
                 setWrittenIdx(0);
                 setWrittenWrong([]);
             }
         } else {
             setWrittenIdx(nextIdx);
         }
-    }, [writtenIdx, writtenQueue.length, writtenWrong, onUpdateCard, writtenQueue, studySessionData?.customType]);
+    }, [writtenIdx, writtenQueue, writtenWrong, onUpdateCard, awardXP]);
 
     const handleWrittenWrong = useCallback(() => {
         const cCard = writtenQueue[writtenIdx];
@@ -962,26 +995,24 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             }
         }
         setWrittenWrong(prev => {
-            if (prev.some(c => c.id === cCard.id)) return prev;
-            return [...prev, cCard];
+            if (prev.some(c => c?.id === cCard?.id)) return prev;
+            return cCard ? [...prev, cCard] : prev;
         });
 
         const nextIdx = writtenIdx + 1;
         if (nextIdx >= writtenQueue.length) {
             // Include current wrong card if not already added
-            setWrittenWrong(prev => {
-                const updated = [...prev];
-                if (!updated.some(c => c.id === cCard.id)) {
-                    updated.push(cCard);
-                }
-                setWrittenQueue(shuffleArray(updated));
-                return [];
-            });
+            const updated = [...writtenWrong];
+            if (cCard?.id && !updated.some(c => c?.id === cCard.id)) {
+                updated.push(cCard);
+            }
+            setWrittenQueue(shuffleArray(updated));
             setWrittenIdx(0);
+            setWrittenWrong([]);
         } else {
             setWrittenIdx(nextIdx);
         }
-    }, [writtenIdx, writtenQueue, onUpdateCard]);
+    }, [writtenIdx, writtenQueue, writtenWrong, onUpdateCard]);
 
     const handleNextBatch = useCallback(() => {
         const nextBatchIdx = currentBatchIndex + 1;
@@ -989,10 +1020,10 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
             setDone(true);
         } else {
             setCurrentBatchIndex(nextBatchIdx);
-            const nextBatch = batches[nextBatchIdx];
+            const nextBatch = batches[nextBatchIdx] || [];
             setCurrentBatch(nextBatch);
             setBatchPhase('mc');
-            setMcQueue(shuffleArray([...nextBatch]));
+            setMcQueue(shuffleArray([...(nextBatch || [])]));
             setMcIdx(0);
             setMcWrong([]);
             setWrittenQueue([]);
@@ -1018,7 +1049,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         if (b.length > 0) {
             setCurrentBatch(b[0]);
             setBatchPhase('mc');
-            setMcQueue(shuffleArray([...b[0]]));
+            setMcQueue(shuffleArray([...(b[0] || [])]));
             setMcIdx(0);
             setMcWrong([]);
             setWrittenQueue([]);
@@ -1054,7 +1085,23 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
         };
     }, [done, batchPhase, onCompleteStudy, onBack, handleNextBatch]);
 
+    const hasActiveSession = useMemo(() => {
+        try {
+            return Boolean(sessionStorage.getItem('quizki_active_study_session'));
+        } catch (_) {
+            return false;
+        }
+    }, []);
+
     if (!originalCards.length) {
+        if (hasActiveSession && (!allCards || allCards.length === 0)) {
+            return (
+                <div className="flex flex-col items-center justify-center h-full gap-4 py-12">
+                    <div className="w-10 h-10 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin" />
+                    <p className="text-gray-500 dark:text-gray-400 font-medium">{t('common.loading', 'Đang tải dữ liệu...')}</p>
+                </div>
+            );
+        }
         return (
             <div className="flex flex-col items-center justify-center h-full gap-4">
                 <BookOpen className="w-16 h-16 text-gray-300 dark:text-gray-600" />
@@ -1158,7 +1205,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                     <span className="text-xs font-bold uppercase tracking-widest text-blue-500 bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full">{t('studyModes.batchQuiz', { num: currentBatchIndex + 1 })}</span>
                                 </div>
                                 <MCPhase
-                                    key={currentCard.id + '-mc-' + mcIdx}
+                                    key={(currentCard?.id || 'card') + '-mc-' + mcIdx}
                                     card={currentCard}
                                     currentSetCards={originalCards}
                                     allCards={allCards}
@@ -1175,7 +1222,7 @@ const StudyScreen = ({ studySessionData, setStudySessionData, allCards, onUpdate
                                     <span className="text-xs font-bold uppercase tracking-widest text-emerald-500 bg-emerald-50 dark:bg-emerald-900/30 px-3 py-1 rounded-full">{t('studyModes.batchWritten', { num: currentBatchIndex + 1 })}</span>
                                 </div>
                                 <WrittenPhase
-                                    key={currentCard.id + '-written-' + writtenIdx + '-b' + currentBatchIndex}
+                                    key={(currentCard?.id || 'card') + '-written-' + writtenIdx + '-b' + currentBatchIndex}
                                     card={currentCard}
                                     onCorrect={handleWrittenCorrect}
                                     onWrong={handleWrittenWrong}

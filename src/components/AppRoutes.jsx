@@ -133,6 +133,14 @@ const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards,
         const setCards = customCards || (targetId === 'unfiled' 
             ? allCards.filter(c => !cardFolders[c.id]) 
             : allCards.filter(c => cardFolders[c.id] === targetId));
+        try {
+            sessionStorage.setItem('quizki_active_study_session', JSON.stringify({
+                setId: targetId,
+                isCustomSubset: Boolean(customCards),
+                customType: options?.customType || null,
+                cardIds: (setCards || []).map(c => c.id)
+            }));
+        } catch (_) {}
         setStudySessionData({ 
             mode: 'learn', 
             cards: setCards, 
@@ -564,6 +572,14 @@ const AppRoutes = ({
         const setCards = customCards || (setId === 'unfiled' 
             ? allCards.filter(c => !cardFolders[c.id]) 
             : allCards.filter(c => cardFolders[c.id] === setId));
+        try {
+            sessionStorage.setItem('quizki_active_study_session', JSON.stringify({
+                setId,
+                isCustomSubset: Boolean(customCards),
+                customType: options?.customType || null,
+                cardIds: (setCards || []).map(c => c.id)
+            }));
+        } catch (_) {}
         setStudySessionData({ 
             mode: 'learn', 
             cards: setCards, 
@@ -1025,6 +1041,9 @@ const AppRoutes = ({
                                     const userId = getAuth().currentUser?.uid;
                                     saveStudyCompletion(userId, setId, 'study');
                                 }
+                                try {
+                                    sessionStorage.removeItem('quizki_active_study_session');
+                                } catch (_) {}
                                 setStudySessionData({
                                     learning: [],
                                     new: [],
@@ -1042,6 +1061,9 @@ const AppRoutes = ({
                             }}
                             onBack={() => {
                                 const setId = studySessionData?.setId;
+                                try {
+                                    sessionStorage.removeItem('quizki_active_study_session');
+                                } catch (_) {}
                                 if (setId && setId !== 'mistakes') {
                                     navigate(`/vocab/set/${setId}`);
                                 } else {
