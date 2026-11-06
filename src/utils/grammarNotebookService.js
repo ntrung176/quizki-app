@@ -2,7 +2,7 @@ import { collection, doc, getDocs, getDoc, setDoc, deleteDoc, writeBatch, increm
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { db, appId } from '../config/firebase';
 import { callAI } from './aiProvider';
-import { updateCachedUserGrammarSrs } from './grammarService';
+import { updateCachedUserGrammarSrs, getCachedUserGrammarSrsData } from './grammarService';
 
 const stripHtml = (str) => {
     if (!str || typeof str !== 'string') return '';
@@ -465,14 +465,18 @@ Chỉ trả về DUY NHẤT một chuỗi JSON hợp lệ là một mảng [] c�
 
 /**
  * Toggle saving a notebook grammar item to SRS
+ * Preserves existing review progress if item already had review data!
  */
-export const toggleNotebookItemSrs = async (userId, item, notebookTitle, isCurrentlyBookmarked) => {
+export const toggleNotebookItemSrs = async (userId, item, notebookTitle, isCurrentlyBookmarked, existingSrs = null) => {
     if (!userId || !item || !item.id) return false;
     const srsDocRef = doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, item.id);
     const nextState = !isCurrentlyBookmarked;
 
     if (nextState) {
         const now = Date.now();
+        const currentSrsMap = getCachedUserGrammarSrsData(userId) || {};
+        const existing = existingSrs || currentSrsMap[item.id];
+
         const payload = {
             id: item.id,
             pattern: item.pattern,
@@ -483,20 +487,21 @@ export const toggleNotebookItemSrs = async (userId, item, notebookTitle, isCurre
             usageScope: item.usageScope || '',
             notes: item.notes || '',
             examples: item.examples || [],
-            textbookTitle: notebookTitle || 'Sổ tay ngữ pháp',
+            textbookTitle: notebookTitle || existing?.textbookTitle || 'Sổ tay ngữ pháp',
             lessonTitle: 'Sổ tay',
             level: 'Custom',
             isNotebookPoint: true,
-            interval: 0,
-            ease: 2.5,
-            nextReview: now,
-            lastReview: now,
-            reps: 0,
-            learningStep: null,
-            isLapsed: false,
-            lapseCount: 0,
-            prelapseInterval: null,
-            state: 'NEW'
+            // CRITICAL: Preserve SRS progress and review cycle if already studied!
+            interval: existing?.interval !== undefined ? existing.interval : 0,
+            ease: existing?.ease !== undefined ? existing.ease : 2.5,
+            nextReview: existing?.nextReview !== undefined ? existing.nextReview : now,
+            lastReview: existing?.lastReview !== undefined ? existing.lastReview : now,
+            reps: existing?.reps !== undefined ? existing.reps : 0,
+            learningStep: existing?.learningStep !== undefined ? existing.learningStep : null,
+            isLapsed: existing?.isLapsed !== undefined ? existing.isLapsed : false,
+            lapseCount: existing?.lapseCount !== undefined ? existing.lapseCount : 0,
+            prelapseInterval: existing?.prelapseInterval !== undefined ? existing.prelapseInterval : null,
+            state: existing?.state || 'NEW'
         };
 
         // 1. Optimistic 0ms cache update so UI and review tabs react instantly
@@ -509,10 +514,12 @@ export const toggleNotebookItemSrs = async (userId, item, notebookTitle, isCurre
             console.warn('[toggleNotebookItemSrs] Cloud sync fallback:', err?.message || err);
         }
 
-        const today = new Date().toISOString().split('T')[0];
-        setDoc(doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, today), {
-            newGrammarAdded: increment(1)
-        }, { merge: true }).catch(() => {});
+        if (!existing) {
+            const today = new Date().toISOString().split('T')[0];
+            setDoc(doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, today), {
+                newGrammarAdded: increment(1)
+            }, { merge: true }).catch(() => {});
+        }
     } else {
         // 1. Optimistic removal
         updateCachedUserGrammarSrs(userId, item.id, null);
@@ -530,16 +537,22 @@ export const toggleNotebookItemSrs = async (userId, item, notebookTitle, isCurre
 
 /**
  * Save all grammar items of a notebook to SRS in a single batch
+ * CRITICAL: PRESERVES review history & intervals of already-learned items!
+ * Only newly added items start at interval 0 and state NEW.
  */
-export const saveAllNotebookItemsToSrs = async (userId, items, notebookTitle) => {
-    if (!userId || !items || items.length === 0) return 0;
+export const saveAllNotebookItemsToSrs = async (userId, items, notebookTitle, existingSrsMap = null) => {
+    if (!userId || !items || items.length === 0) return { total: 0, newlyAdded: 0 };
     const batch = writeBatch(db);
     const now = Date.now();
+    const currentSrsMap = existingSrsMap || getCachedUserGrammarSrsData(userId) || {};
     let count = 0;
+    let newlyAddedCount = 0;
 
     items.forEach(item => {
         if (!item || !item.pattern || !item.meaning) return;
         const ref = doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, item.id);
+        const existing = currentSrsMap[item.id];
+
         const payload = {
             id: item.id,
             pattern: item.pattern,
@@ -550,39 +563,45 @@ export const saveAllNotebookItemsToSrs = async (userId, items, notebookTitle) =>
             usageScope: item.usageScope || '',
             notes: item.notes || '',
             examples: item.examples || [],
-            textbookTitle: notebookTitle || 'Sổ tay ngữ pháp',
+            textbookTitle: notebookTitle || existing?.textbookTitle || 'Sổ tay ngữ pháp',
             lessonTitle: 'Sổ tay',
             level: 'Custom',
             isNotebookPoint: true,
-            interval: 0,
-            ease: 2.5,
-            nextReview: now,
-            lastReview: now,
-            reps: 0,
-            learningStep: null,
-            isLapsed: false,
-            lapseCount: 0,
-            prelapseInterval: null,
-            state: 'NEW'
+            // CRITICAL: Preserve existing SRS progress if already studied/reviewed!
+            interval: existing?.interval !== undefined ? existing.interval : 0,
+            ease: existing?.ease !== undefined ? existing.ease : 2.5,
+            nextReview: existing?.nextReview !== undefined ? existing.nextReview : now,
+            lastReview: existing?.lastReview !== undefined ? existing.lastReview : now,
+            reps: existing?.reps !== undefined ? existing.reps : 0,
+            learningStep: existing?.learningStep !== undefined ? existing.learningStep : null,
+            isLapsed: existing?.isLapsed !== undefined ? existing.isLapsed : false,
+            lapseCount: existing?.lapseCount !== undefined ? existing.lapseCount : 0,
+            prelapseInterval: existing?.prelapseInterval !== undefined ? existing.prelapseInterval : null,
+            state: existing?.state || 'NEW'
         };
         batch.set(ref, payload, { merge: true });
         // Optimistic cache update immediately for each item
         updateCachedUserGrammarSrs(userId, item.id, payload);
         count++;
+        if (!existing) {
+            newlyAddedCount++;
+        }
     });
 
     if (count > 0) {
         try {
             await batch.commit();
-            const today = new Date().toISOString().split('T')[0];
-            setDoc(doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, today), {
-                newGrammarAdded: increment(count)
-            }, { merge: true }).catch(() => {});
+            if (newlyAddedCount > 0) {
+                const today = new Date().toISOString().split('T')[0];
+                setDoc(doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, today), {
+                    newGrammarAdded: increment(newlyAddedCount)
+                }, { merge: true }).catch(() => {});
+            }
         } catch (err) {
             console.warn('[saveAllNotebookItemsToSrs] Batch commit fallback:', err?.message || err);
         }
     }
 
-    return count;
+    return { total: count, newlyAdded: newlyAddedCount };
 };
 

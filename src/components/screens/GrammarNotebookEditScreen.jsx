@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { ChevronLeft, Plus, Save, Trash2, Sparkles, Loader2, Volume2, BookMarked, Copy, FileText, Check } from 'lucide-react';
 import { getAuth } from 'firebase/auth';
@@ -49,6 +49,11 @@ export const GrammarNotebookEditScreen = () => {
     const [loading, setLoading] = useState(() => Boolean(notebookId && !cachedItem));
     const [aiLoadingMap, setAiLoadingMap] = useState({});
     const [batchModalOpen, setBatchModalOpen] = useState(false);
+    const bottomRef = useRef(null);
+    const didAutoScrollRef = useRef(false);
+
+    const isScrollToBottomRequested = searchParams.get('scrollToBottom') === 'true' || searchParams.get('action') === 'add';
+    const isActionAddRequested = searchParams.get('action') === 'add';
 
     useEffect(() => {
         if (!notebookId) {
@@ -90,6 +95,21 @@ export const GrammarNotebookEditScreen = () => {
         return () => { isMounted = false; };
     }, [notebookId, userId, navigate]);
 
+    // Auto-scroll down to the bottom when entering notebook edit screen so user can easily add new patterns
+    useEffect(() => {
+        if (!loading && items.length > 0 && !didAutoScrollRef.current) {
+            didAutoScrollRef.current = true;
+            if (isActionAddRequested) {
+                setItems(prev => [...prev, createEmptyItem()]);
+            }
+            if (isScrollToBottomRequested || Boolean(notebookId)) {
+                setTimeout(() => {
+                    bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                }, 350);
+            }
+        }
+    }, [loading, notebookId, isScrollToBottomRequested, isActionAddRequested, items.length]);
+
     // Count valid items (has both pattern and meaning)
     const validCount = items.filter(it => it.pattern.trim() && it.meaning.trim()).length;
 
@@ -100,6 +120,9 @@ export const GrammarNotebookEditScreen = () => {
 
     const handleAddItem = () => {
         setItems(prev => [...prev, createEmptyItem()]);
+        setTimeout(() => {
+            bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        }, 100);
     };
 
     const handleDeleteItem = (itemId) => {
@@ -262,7 +285,17 @@ export const GrammarNotebookEditScreen = () => {
                         </div>
                     </div>
 
-                    <div className="flex items-center gap-2.5 self-start sm:self-center shrink-0">
+                    <div className="flex items-center gap-2.5 self-start sm:self-center shrink-0 flex-wrap">
+                        <button
+                            type="button"
+                            onClick={handleAddItem}
+                            className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-2xl bg-white dark:bg-slate-800 border-2 border-b-4 border-slate-200 dark:border-slate-700 text-sky-600 dark:text-sky-400 hover:border-sky-300 font-black text-xs shadow-xs transition-all cursor-pointer active:translate-y-0.5 active:border-b-2 select-none"
+                            title="Thêm mẫu ngữ pháp mới ở cuối sổ"
+                        >
+                            <Plus className="w-4 h-4 text-sky-500 stroke-[2.5]" />
+                            <span>Thêm mẫu</span>
+                        </button>
+
                         <button
                             type="button"
                             onClick={() => setBatchModalOpen(true)}
@@ -521,6 +554,7 @@ export const GrammarNotebookEditScreen = () => {
                     <Plus className="w-5 h-5 stroke-[2.5]" />
                     <span>Thêm mẫu ngữ pháp</span>
                 </button>
+                <div ref={bottomRef} className="h-4" />
 
                 {/* Footer Note & Save Button (Matches Image 3 & Image 4) */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 border-t border-slate-200 dark:border-slate-800">

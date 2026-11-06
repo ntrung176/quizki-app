@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ChevronLeft, ChevronRight, RotateCcw, Volume2, Edit, CheckCircle, Heart, Layers, Eye, Edit3 } from 'lucide-react';
+import { ChevronLeft, ChevronRight, RotateCcw, Volume2, Edit, CheckCircle, Heart, Layers, Eye, Edit3, Plus } from 'lucide-react';
 import { getAuth } from 'firebase/auth';
 import { TopTabBar } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
@@ -139,7 +139,7 @@ export const GrammarNotebookStudyScreen = () => {
 
         setSavingSrs(true);
         try {
-            const nextState = await toggleNotebookItemSrs(userId, currentItem, notebook?.title, isCurrentItemBookmarked);
+            const nextState = await toggleNotebookItemSrs(userId, currentItem, notebook?.title, isCurrentItemBookmarked, srsMap[currentItem.id]);
             showToast(
                 nextState
                     ? `Đã thêm "${currentItem.pattern}" vào ôn tập SRS`
@@ -164,8 +164,14 @@ export const GrammarNotebookStudyScreen = () => {
 
         setSavingSrs(true);
         try {
-            const count = await saveAllNotebookItemsToSrs(userId, items, notebook?.title);
-            showToast(`Đã lưu toàn bộ ${count} mẫu ngữ pháp vào ôn tập SRS!`, 'success');
+            const result = await saveAllNotebookItemsToSrs(userId, items, notebook?.title, srsMap);
+            const total = typeof result === 'object' ? result.total : result;
+            const newlyAdded = typeof result === 'object' ? result.newlyAdded : 0;
+            if (newlyAdded > 0) {
+                showToast(`Đã thêm ${newlyAdded} mẫu mới vào ôn tập SRS (giữ nguyên chu kỳ các mẫu đã học)!`, 'success');
+            } else {
+                showToast(`Đã cập nhật toàn bộ ${total} mẫu vào ôn tập SRS (chu kỳ ôn tập được bảo toàn)!`, 'success');
+            }
         } catch (e) {
             console.error('Error saving all items to SRS:', e);
             showToast('Lỗi khi lưu vào SRS', 'error');
@@ -275,10 +281,21 @@ export const GrammarNotebookStudyScreen = () => {
                             </button>
                         )}
 
+                        {/* Quick Add Pattern button */}
                         <button
                             type="button"
-                            onClick={() => navigate(`/grammar/notebook/${notebook.id}/edit`)}
-                            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border-2 border-b-3 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-sky-300 font-black text-xs transition-all cursor-pointer active:translate-y-0.5"
+                            onClick={() => navigate(`/grammar/notebook/${notebook.id}/edit?action=add&scrollToBottom=true`)}
+                            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border-2 border-b-3 border-slate-200 dark:border-slate-700 text-sky-600 dark:text-sky-400 hover:border-sky-300 font-black text-xs transition-all cursor-pointer active:translate-y-0.5 select-none"
+                            title="Thêm nhanh mẫu ngữ pháp vào sổ tay"
+                        >
+                            <Plus className="w-3.5 h-3.5 text-sky-500 stroke-[2.5]" />
+                            <span className="hidden sm:inline">Thêm mẫu</span>
+                        </button>
+
+                        <button
+                            type="button"
+                            onClick={() => navigate(`/grammar/notebook/${notebook.id}/edit?scrollToBottom=true`)}
+                            className="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white dark:bg-slate-800 border-2 border-b-3 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-sky-300 font-black text-xs transition-all cursor-pointer active:translate-y-0.5 select-none"
                             title="Sửa sổ tay"
                         >
                             <Edit className="w-3.5 h-3.5 text-sky-500" />
