@@ -182,7 +182,7 @@ const lookupSharedAudio = async (text, gender, reading = '') => {
  * @param {string} gender - 'male' hoặc 'female'
  * @param {string} reading - Phiên âm kana (nếu có)
  */
-const saveSharedAudio = async (text, base64, gender, reading = '') => {
+export const saveSharedAudio = async (text, base64, gender, reading = '') => {
     if (!_sharedAudioDeps || !text || !base64) return;
     try {
         const { db, sharedVocabPath, setDoc, doc, disabled } = _sharedAudioDeps;
@@ -207,6 +207,39 @@ const saveSharedAudio = async (text, base64, gender, reading = '') => {
             if (_sharedAudioDeps?.disabled) _sharedAudioDeps.disabled.current = true;
         }
     }
+};
+
+/**
+ * Xóa cache âm thanh trong session memory và shared memory
+ * Gọi khi người dùng sửa cách đọc hoặc bấm tạo lại audio
+ */
+export const clearAudioCache = (text = '', reading = '') => {
+    try {
+        if (text) {
+            const { word, reading: kanaReading } = getWordAndReading(text, reading);
+            const searchWord = word || text;
+            const searchKana = kanaReading || reading;
+
+            for (const k of Array.from(ttsCache.keys())) {
+                if (k.includes(searchWord) || (searchKana && k.includes(searchKana))) {
+                    const old = ttsCache.get(k);
+                    if (old?.blobUrl) URL.revokeObjectURL(old.blobUrl);
+                    ttsCache.delete(k);
+                }
+            }
+            for (const k of Array.from(sharedAudioMemCache.keys())) {
+                if (k.includes(searchWord) || (searchKana && k.includes(searchKana))) {
+                    sharedAudioMemCache.delete(k);
+                }
+            }
+        } else {
+            for (const old of ttsCache.values()) {
+                if (old?.blobUrl) URL.revokeObjectURL(old.blobUrl);
+            }
+            ttsCache.clear();
+            sharedAudioMemCache.clear();
+        }
+    } catch (_) {}
 };
 
 const getSettings = () => {
@@ -347,19 +380,25 @@ export const getWordAndReading = (text, reading = '') => {
     rawText = rawText.replace(/^[【〔［\[(（][^】〕］\])）]{1,8}[】〕］\])）]\s*/, '');
     rawReading = rawReading.replace(/^[【〔［\[(（][^】〕］\])）]{1,8}[】〕］\])）]\s*/, '');
 
-    // 3. Extract bracketed reading: e.g. "募集（ぼしゅう）" hoặc "雨 (あめ)" hoặc "食べる[たべる]"
-    const bracketMatch = rawText.match(/[（(\[\{]([^）)\]\}]+)[）)\]\}]/);
-    const mainText = rawText.split(/[（(\[\{]/)[0].trim();
-
+    // 3. Extract bracketed reading: e.g. "募集（ぼしゅう）" hoặc "雨 (あめ)" hoặc "食べる[たべる]" hoặc "新(あたら)しい"
+    // Nếu reading được truyền rõ ràng, ƯU TIÊN reading làm chuẩn dữ liệu phát âm
     let candidateReading = rawReading;
-    if (bracketMatch && !candidateReading) {
-        // Only use bracket content if it contains kana
-        if (/[\u3040-\u309F\u30A0-\u30FF]/.test(bracketMatch[1])) {
-            candidateReading = bracketMatch[1].trim();
+    if (!candidateReading) {
+        // Thử lấy ngoặc phiên âm ở cuối từ
+        const trailingMatch = rawText.match(/[（(\[\{]([\u3040-\u309F\u30A0-\u30FF\s]+)[）)\]\}]$/);
+        if (trailingMatch) {
+            candidateReading = trailingMatch[1].trim();
+        } else {
+            // Hoặc bóc tách toàn bộ kana trong các ngoặc ghép lại
+            const allBracketKana = Array.from(rawText.matchAll(/[（(\[\{]([\u3040-\u309F\u30A0-\u30FF]+)[）)\]\}]/g)).map(m => m[1]).join('');
+            if (allBracketKana) {
+                candidateReading = allBracketKana.trim();
+            }
         }
     }
 
-    const cleanWord = mainText || rawText || rawReading;
+    // Bóc tách toàn bộ ngoặc furigana ra khỏi từ vựng để giữ nguyên vẹn từ gốc và okurigana (Ví dụ: 浸(つ)ける -> 浸ける, 新(あたら)しい -> 新しい)
+    const cleanWord = rawText.replace(/[（(\[\{][^）)\]\}]*[）)\]\}]/g, '').trim() || rawText || rawReading;
     return {
         word: cleanWord,
         reading: candidateReading || ''
@@ -810,10 +849,30 @@ export const playAudio = (base64Data, text = '', onAudioGenerated = null, cardVo
     globalAudioSessionId++;
     const currentSessionId = globalAudioSessionId;
 
+    let effectiveBase64 = base64Data;
+    let effectiveText = text;
+    let effectiveReading = reading;
+    let effectiveVoiceId = cardVoiceId;
+
+    // Hỗ trợ truyền thẳng card object vào param 1 hoặc param 2
+    if (typeof base64Data === 'object' && base64Data !== null) {
+        const card = base64Data;
+        effectiveBase64 = card.audioBase64 || null;
+        effectiveText = card.front || card.word || card.character || '';
+        effectiveReading = card.reading || reading || '';
+        effectiveVoiceId = card.audioVoiceId || cardVoiceId || null;
+    } else if (typeof text === 'object' && text !== null) {
+        const card = text;
+        effectiveText = card.front || card.word || card.character || '';
+        effectiveReading = card.reading || reading || '';
+        effectiveBase64 = effectiveBase64 || card.audioBase64 || null;
+        effectiveVoiceId = effectiveVoiceId || card.audioVoiceId || null;
+    }
+
     let isAudioCleaned = false;
-    if (base64Data && base64Data.includes('|cleaned')) {
+    if (effectiveBase64 && typeof effectiveBase64 === 'string' && effectiveBase64.includes('|cleaned')) {
         isAudioCleaned = true;
-        base64Data = base64Data.replace('|cleaned', '');
+        effectiveBase64 = effectiveBase64.replace('|cleaned', '');
     }
 
     return new Promise((resolve) => {
@@ -839,15 +898,15 @@ export const playAudio = (base64Data, text = '', onAudioGenerated = null, cardVo
         }
         safeCancelSpeechSynthesis();
 
-        if (base64Data && text && !isAudioCleaned) {
-            const match = text.match(/[（(]([^）)]+)[）)]/);
+        if (effectiveBase64 && effectiveText && !isAudioCleaned && typeof effectiveText === 'string') {
+            const match = effectiveText.match(/[（(]([^）)]+)[）)]/);
             if (match && /[a-zA-Z]/.test(match[1])) {
-                base64Data = null;
+                effectiveBase64 = null;
             }
         }
 
-        if (base64Data) {
-            const audioSrc = base64Data.startsWith('data:audio') ? base64Data : `data:audio/mp3;base64,${base64Data}`;
+        if (effectiveBase64 && typeof effectiveBase64 === 'string') {
+            const audioSrc = effectiveBase64.startsWith('data:audio') ? effectiveBase64 : `data:audio/mp3;base64,${effectiveBase64}`;
             currentAudioObj = new Audio(audioSrc);
             currentAudioObj.onended = () => {
                 currentAudioObj = null;
@@ -855,17 +914,17 @@ export const playAudio = (base64Data, text = '', onAudioGenerated = null, cardVo
             };
             currentAudioObj.onerror = async () => {
                 if (globalAudioSessionId !== currentSessionId) return safeResolve();
-                await speakWithTTS(text, onAudioGenerated, currentSessionId, reading);
+                await speakWithTTS(effectiveText, onAudioGenerated, currentSessionId, effectiveReading);
                 safeResolve();
             };
             currentAudioObj.play().catch(async () => {
                 if (globalAudioSessionId !== currentSessionId) return safeResolve();
-                await speakWithTTS(text, onAudioGenerated, currentSessionId, reading);
+                await speakWithTTS(effectiveText, onAudioGenerated, currentSessionId, effectiveReading);
                 safeResolve();
             });
-        } else if (text || reading) {
+        } else if (effectiveText || effectiveReading) {
             if (globalAudioSessionId !== currentSessionId) return safeResolve();
-            speakWithTTS(text, onAudioGenerated, currentSessionId, reading).then(safeResolve);
+            speakWithTTS(effectiveText, onAudioGenerated, currentSessionId, effectiveReading).then(safeResolve);
         } else {
             safeResolve();
         }

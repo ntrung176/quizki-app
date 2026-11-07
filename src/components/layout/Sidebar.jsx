@@ -20,7 +20,7 @@ import IosLanguageWheelModal from '../ui/IosLanguageWheelModal';
 import FloatingFocusWidget from '../ui/FloatingFocusWidget';
 import { isVocabCardDue, isSrsCardDue, getLearnAheadLimitMs } from '../../utils/srs';
 import { isEnglishCard } from '../../utils/englishVocab';
-import { subscribeKanjiSrs } from '../../utils/kanjiService';
+import { subscribeKanjiSrs, computeKanjiSrsStats } from '../../utils/kanjiService';
 import { subscribeGrammarSrs } from '../../utils/grammarService';
 
 import { useLanguage } from '../../context/LanguageContext';
@@ -354,13 +354,8 @@ const Sidebar = ({
             setKanjiDueCount(0);
             return;
         }
-        const now = Date.now();
-        const threshold = now + getLearnAheadLimitMs();
-        const dueCount = Object.values(kanjiSrsRef.current || {}).filter(srs => {
-            if (!srs) return false;
-            return isSrsCardDue(srs, threshold);
-        }).length;
-        setKanjiDueCount(dueCount);
+        const stats = computeKanjiSrsStats(kanjiSrsRef.current || {});
+        setKanjiDueCount(stats.dueCount || 0);
     }, [userId]);
 
     const updateGrammarCount = useCallback(() => {

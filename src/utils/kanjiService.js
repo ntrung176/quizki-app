@@ -764,7 +764,7 @@ export const subscribeKanjiSrs = (userId, callback) => {
 };
 
 // Compute Kanji SRS statistics with canonical character deduplication and future-review priority
-export const computeKanjiSrsStats = (srsMap) => {
+export const computeKanjiSrsStats = (srsMap, explicitKanjiList = null) => {
     let total = 0, learning = 0, mastered = 0, dueCount = 0;
     const now = Date.now();
     const learnAheadMs = getLearnAheadLimitMs();
@@ -778,9 +778,18 @@ export const computeKanjiSrsStats = (srsMap) => {
     };
 
     if (srsMap && typeof srsMap === 'object') {
-        const kanjiList = getCachedKanjiList() || [];
+        let kanjiList = (Array.isArray(explicitKanjiList) && explicitKanjiList.length > 0)
+            ? explicitKanjiList
+            : (getCachedKanjiList() || []);
+        if (kanjiList.length === 0 && typeof window !== 'undefined' && window.localStorage) {
+            try {
+                const stored = localStorage.getItem('quizki_cached_kanji_list');
+                if (stored) kanjiList = JSON.parse(stored);
+            } catch (_) {}
+        }
+
         const kanjiMap = new Map();
-        kanjiList.forEach(k => {
+        (kanjiList || []).forEach(k => {
             if (k.id) kanjiMap.set(k.id, k);
             if (k.character) kanjiMap.set(k.character, k);
         });

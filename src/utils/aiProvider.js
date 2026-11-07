@@ -832,7 +832,13 @@ export const aiAssistVocab = async (frontText, contextPos = '', contextLevel = '
             } else {
                 result.front = rawFront.replace(/[（\(][^）\)]+[）\)]/g, '').trim();
             }
-            result.frontWithFurigana = result.front;
+            // Chuẩn hóa dữ liệu: Furigana của từ vựng luôn gắn theo cách đọc reading chính xác
+            const cleanReading = (result.reading || '').trim();
+            if (cleanReading && /[\u4E00-\u9FAF\u3400-\u4DBF]/.test(result.front)) {
+                result.frontWithFurigana = `${result.front}（${cleanReading}）`;
+            } else {
+                result.frontWithFurigana = result.front;
+            }
 
             // Normalize synonym: Bỏ ngoặc nếu có
             if (result.synonym) {
@@ -1520,7 +1526,13 @@ Trả về duy nhất một đối tượng JSON có định dạng sau:
         if (result) {
             if (result.front) {
                 result.front = result.front.replace(/[（\(][^）\)]+[）\)]/g, '').trim();
+                // Chuẩn hóa dữ liệu: Furigana của từ vựng luôn gắn theo cách đọc reading chính xác
+            const cleanReading = (result.reading || '').trim();
+            if (cleanReading && /[\u4E00-\u9FAF\u3400-\u4DBF]/.test(result.front)) {
+                result.frontWithFurigana = `${result.front}（${cleanReading}）`;
+            } else {
                 result.frontWithFurigana = result.front;
+            }
             }
             if (result.synonym) {
                 result.synonym = result.synonym.replace(/[（\(][^）\)]+[）\)]/g, '').trim();

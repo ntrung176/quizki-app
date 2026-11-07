@@ -5,7 +5,7 @@ import { auth, db } from '../../config/firebase';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { SafeAvatarImage } from '../ui';
 import { isKanjiMastered, isSrsCardDue, isVocabCardMastered, getLearnAheadLimitMs } from '../../utils/srs';
-import { getSharedKanjiList, subscribeKanjiSrs } from '../../utils/kanjiService';
+import { getSharedKanjiList, subscribeKanjiSrs, computeKanjiSrsStats } from '../../utils/kanjiService';
 import { getLevelFromXp, getLevelTitle, formatScore } from '../../utils/scoring';
 import { formatLastActive, isUserOnline } from '../../utils/userActivityHelper';
 import { useLanguage } from '../../context/LanguageContext';
@@ -129,7 +129,7 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
         return () => clearInterval(interval);
     }, []);
 
-    // Đồng bộ thống kê Kanji từ service
+    // Đồng bộ thống kê Kanji từ service (chuẩn hoá canonical deduplication khớp 100% với KanjiReviewScreen)
     useEffect(() => {
         if (!userId) return;
         let isMounted = true;
@@ -137,21 +137,16 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
 
         getSharedKanjiList().then(kList => {
             if (!isMounted) return;
-            const validKanjiIds = new Set((kList || []).map(k => k.id));
 
             unsub = subscribeKanjiSrs(userId, (freshSrs) => {
                 if (!isMounted) return;
-                let total = 0, learning = 0, mastered = 0, dueToday = 0;
-                const now = Date.now();
-                const threshold = now + getLearnAheadLimitMs();
-                Object.entries(freshSrs || {}).forEach(([id, data]) => {
-                    if (validKanjiIds.size > 0 && !validKanjiIds.has(id)) return;
-                    total++;
-                    if (isKanjiMastered(data)) mastered++;
-                    else learning++;
-                    if (isSrsCardDue(data, threshold)) dueToday++;
+                const stats = computeKanjiSrsStats(freshSrs || {}, kList);
+                setKanjiSrsStats({
+                    total: stats.total,
+                    learning: stats.learning,
+                    mastered: stats.mastered,
+                    dueToday: stats.dueCount
                 });
-                setKanjiSrsStats({ total, learning, mastered, dueToday });
             });
         }).catch(err => {
             console.error('Error fetching kanji list in StatsScreen:', err);

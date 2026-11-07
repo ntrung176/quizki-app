@@ -485,7 +485,7 @@ const Flashcard = ({
             const { word, reading } = parseWordAndReading(text);
 
             const jotobaReading = pitchData?.reading || null;
-            const finalReading = reading || card.reading || jotobaReading || word;
+            const finalReading = (card.reading && String(card.reading).trim()) || reading || jotobaReading || word;
 
             const cardPitchParts = card.pitch || (card.accent !== undefined && card.accent !== null && card.accent !== '' ? accentNumberToPitchParts(finalReading, card.accent) : null);
             const pitchParts = cardPitchParts || pitchData?.pitch || null;

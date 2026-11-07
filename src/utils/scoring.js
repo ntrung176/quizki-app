@@ -56,10 +56,10 @@ export const formatScore = (num) => {
     if (val < 1000) return String(val);
     if (val < 1000000) {
         const formatted = (val / 1000).toFixed(1);
-        return formatted.endsWith('.0') ? `${Math.floor(val / 1000)}K` : `${formatted}K`;
+        return formatted.endsWith('.0') ? `${Math.round(val / 1000)}K` : `${formatted}K`;
     }
     const formatted = (val / 1000000).toFixed(1);
-    return formatted.endsWith('.0') ? `${Math.floor(val / 1000000)}M` : `${formatted}M`;
+    return formatted.endsWith('.0') ? `${Math.round(val / 1000000)}M` : `${formatted}M`;
 };
 
 /**
