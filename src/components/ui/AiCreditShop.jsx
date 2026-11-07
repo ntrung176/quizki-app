@@ -831,15 +831,15 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         </div>
                     )}
 
-                    <div className="inline-flex items-center gap-2 bg-[#ecfdf5] dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 px-4 py-1.5 rounded-full text-xs font-extrabold mb-3 tracking-wider uppercase">
+                    <div className="inline-flex items-center gap-2 bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 px-4 py-1.5 rounded-full text-xs font-black mb-3 tracking-wider uppercase border-2 border-b-3 border-emerald-200 dark:border-emerald-800 shadow-xs">
                         👑 {t('upgrade.title', 'Nâng cấp tài khoản')}
                     </div>
 
-                    <h1 className="text-3xl font-black text-gray-900 dark:text-white mb-2 leading-tight">
+                    <h1 className="text-3xl sm:text-4xl font-black text-gray-900 dark:text-white mb-2.5 leading-tight tracking-tight">
                         {t('upgrade.heroTitle', 'Mở khóa tài khoản Premium Quizki')}
                     </h1>
 
-                    <p className="max-w-2xl mx-auto text-sm text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+                    <p className="max-w-3xl mx-auto text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed mb-6 font-medium">
                         {t('upgrade.heroSubtitle', 'Mở khóa toàn diện tất cả tính năng: Trọn bộ giáo trình N5 - N1, 2.136 Kanji nét viết, Spaced Repetition (SRS), luyện đề JLPT thực chiến & Trợ lý đàm thoại AI Kitsu.')}
                     </p>
                 </div>
@@ -848,36 +848,35 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                 {renderAdminEditor()}
 
                 {/* Flash Sale Countdown Banner */}
-                <div className="relative overflow-hidden bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl py-3 px-6 text-white text-center mb-8 shadow-lg shadow-orange-500/10 flex items-center justify-center gap-3">
-                    <span className="animate-bounce">🔥</span>
-                    <span className="font-extrabold text-sm uppercase tracking-wider">
+                <div className="relative overflow-hidden bg-gradient-to-r from-red-500 via-orange-500 to-amber-500 rounded-2xl py-3.5 px-6 text-white text-center mb-8 shadow-lg shadow-orange-500/15 border-2 border-b-4 border-orange-600 flex items-center justify-center gap-3">
+                    <span className="animate-bounce text-lg">🔥</span>
+                    <span className="font-black text-sm sm:text-base uppercase tracking-wider">
                         {adminConfig?.flashSaleText || t('upgrade.flashSale', 'FLASH SALE – GIẢM ĐẾN 65%')}
                     </span>
-                    <div className="bg-black/25 text-white font-mono px-3 py-1 rounded-lg text-sm font-black shadow-inner flex items-center gap-1">
+                    <div className="bg-black/30 backdrop-blur-xs text-white font-mono px-3.5 py-1 rounded-xl text-sm font-black shadow-inner flex items-center gap-1 border border-white/20">
                         <span>{countdownText}</span>
                     </div>
                 </div>
 
                 {/* Packages Grid */}
                 {!packagesReady ? (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12 items-stretch">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl lg:max-w-6xl mx-auto mb-12 items-stretch">
                         {[1, 2].map(i => (
-                            <div key={i} className="rounded-3xl border border-gray-100 dark:border-slate-800 p-8 animate-pulse bg-white dark:bg-slate-900 shadow-sm min-h-[380px]">
-                                <div className="w-12 h-12 rounded-2xl bg-gray-200 dark:bg-slate-800 mb-4" />
-                                <div className="h-6 bg-gray-200 dark:bg-slate-800 rounded w-2/3 mb-3" />
-                                <div className="h-4 bg-gray-200 dark:bg-slate-800 rounded w-3/4 mb-4" />
-                                <div className="h-24 bg-gray-100 dark:bg-slate-800 rounded w-full mb-6" />
-                                <div className="h-10 bg-gray-200 dark:bg-slate-800 rounded w-full" />
+                            <div key={i} className="rounded-3xl border-2 border-b-6 border-slate-200 dark:border-slate-800 p-8 animate-pulse bg-white dark:bg-slate-900 shadow-md min-h-[420px]">
+                                <div className="w-14 h-14 rounded-2xl bg-gray-200 dark:bg-slate-800 mb-5" />
+                                <div className="h-7 bg-gray-200 dark:bg-slate-800 rounded-xl w-2/3 mb-3" />
+                                <div className="h-4 bg-gray-200 dark:bg-slate-800 rounded w-3/4 mb-5" />
+                                <div className="h-32 bg-gray-100 dark:bg-slate-800/60 rounded-2xl w-full mb-6" />
+                                <div className="h-12 bg-gray-200 dark:bg-slate-800 rounded-2xl w-full" />
                             </div>
                         ))}
                     </div>
                 ) : (
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12 items-stretch">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl lg:max-w-6xl mx-auto mb-12 items-stretch">
                         {specializedPackages.map(pkg => {
                             const isUnlocked = unlockedPackages.includes(pkg.id);
                             const Icon = ICONS[pkg.id] || Crown;
-                            const color = COLORS[pkg.id] || 'from-amber-500 to-orange-650';
-                            const bgLight = BG_LIGHT[pkg.id] || 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20';
+                            const color = COLORS[pkg.id] || 'from-amber-500 to-orange-500';
                             const is3Y = pkg.id === 'premium_3y';
 
                             return (
@@ -888,46 +887,48 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                             handleSelectPackage(pkg);
                                         }
                                     }}
-                                    className={`relative bg-gradient-to-br ${bgLight} rounded-3xl border-2 p-8 flex flex-col justify-between transition-all duration-300 shadow-xl overflow-hidden ${
+                                    className={`relative rounded-3xl border-2 p-7 sm:p-9 flex flex-col justify-between transition-all duration-300 shadow-xl overflow-hidden ${
                                         isUnlocked 
-                                            ? 'border-emerald-400 dark:border-emerald-500 opacity-95 cursor-default' 
-                                            : `border-amber-400 dark:border-amber-550 hover:border-amber-505 dark:hover:border-amber-400 hover:scale-[1.02] hover:shadow-2xl cursor-pointer ring-4 ring-amber-400/5 ${is3Y ? 'scale-[1.01] border-amber-500 dark:border-amber-400 shadow-amber-500/5 ring-8 ring-amber-500/5' : ''}`
+                                            ? 'bg-white dark:bg-slate-900 border-emerald-400 dark:border-emerald-500 border-b-[6px] opacity-95 cursor-default' 
+                                            : is3Y 
+                                                ? 'bg-gradient-to-b from-amber-50/90 via-orange-50/30 to-white dark:from-slate-900 dark:via-amber-950/20 dark:to-slate-900 border-amber-400 dark:border-amber-500 border-b-[8px] border-b-amber-600 hover:border-amber-500 hover:scale-[1.01] hover:shadow-2xl cursor-pointer ring-4 ring-amber-400/10' 
+                                                : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 border-b-[8px] border-b-slate-300 dark:border-b-slate-950 hover:border-amber-400 hover:scale-[1.01] hover:shadow-2xl cursor-pointer'
                                     }`}
                                 >
-                                    {/* Golden Ribbon Badge */}
+                                    {/* Duolingo Ribbon Badges */}
                                     {is3Y && (
-                                        <div className="absolute top-0 right-0 bg-gradient-to-l from-amber-600 to-orange-500 text-white text-[9px] font-black tracking-wider px-5 py-1.5 rounded-bl-3xl shadow-md uppercase">
+                                        <div className="absolute top-0 right-0 bg-gradient-to-l from-amber-500 to-orange-500 text-white text-[11px] font-black tracking-wider px-5 py-2 rounded-bl-3xl border-b-2 border-l-2 border-amber-600 shadow-md uppercase">
                                             {t('upgrade.bestValue', '★ TIẾT KIỆM NHẤT')}
                                         </div>
                                     )}
                                     {!is3Y && (
-                                        <div className="absolute top-0 right-0 bg-gradient-to-l from-slate-600 to-slate-500 dark:from-slate-800 dark:to-slate-700 text-white text-[9px] font-bold tracking-wider px-5 py-1.5 rounded-bl-3xl shadow-sm uppercase">
+                                        <div className="absolute top-0 right-0 bg-slate-600 text-white text-[11px] font-black tracking-wider px-5 py-2 rounded-bl-3xl border-b-2 border-l-2 border-slate-700 shadow-sm uppercase">
                                             {t('upgrade.popular', 'Phổ biến')}
                                         </div>
                                     )}
 
                                     {isUnlocked && (
-                                        <div className="absolute top-4 left-4 flex items-center gap-1 bg-emerald-100 dark:bg-emerald-950/50 border border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400 text-[10px] font-black px-2.5 py-1 rounded-full shadow-sm">
-                                            {t('upgrade.owned', 'Đã sở hữu')} <Check className="w-3.5 h-3.5" />
+                                        <div className="absolute top-5 left-5 flex items-center gap-1.5 bg-emerald-100 dark:bg-emerald-950/50 border-2 border-emerald-400 text-emerald-700 dark:text-emerald-400 text-xs font-black px-3.5 py-1.5 rounded-full shadow-sm">
+                                            {t('upgrade.owned', 'Đã sở hữu')} <Check className="w-4 h-4" />
                                         </div>
                                     )}
 
                                     <div>
-                                        <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center mb-6 shadow-lg shadow-amber-500/20`}>
-                                            <Icon className="w-8 h-8 text-white fill-white/10" />
+                                        <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center mb-6 border-2 border-b-4 border-amber-600 shadow-lg shadow-amber-500/20`}>
+                                            <Icon className="w-9 h-9 text-white drop-shadow-sm" />
                                         </div>
-                                        <h3 className="font-black text-gray-900 dark:text-white text-xl mb-1 flex items-center gap-2">
+                                        <h3 className="font-black text-gray-900 dark:text-white text-2xl mb-1.5 flex items-center gap-2">
                                             {pkg.name}
                                         </h3>
-                                        <p className="text-xs text-gray-500 dark:text-gray-400 mb-6 leading-relaxed font-bold">
+                                        <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed font-semibold">
                                             {pkg.description}
                                         </p>
 
                                         {/* Unlocked Features list */}
-                                        <div className="border-t border-amber-200/40 dark:border-slate-700/50 pt-5 mt-2 space-y-2.5 mb-8">
-                                            <div className="flex items-center justify-between mb-1">
-                                                <p className="text-[10px] font-black text-amber-700 dark:text-amber-400 uppercase tracking-wider">{t('upgrade.exclusivePrivileges', 'Quyền lợi Premium:')}</p>
-                                                <span className="text-[10px] font-bold text-slate-400 dark:text-slate-500">{pkg.unlockedFeatures?.length || 0} {t('upgrade.vipPerks', 'đặc quyền VIP')}</span>
+                                        <div className="border-t-2 border-slate-100 dark:border-slate-800 pt-5 mt-2 space-y-3 mb-8">
+                                            <div className="flex items-center justify-between mb-1.5">
+                                                <p className="text-xs font-black text-amber-700 dark:text-amber-400 uppercase tracking-wider">{t('upgrade.exclusivePrivileges', 'Quyền lợi Premium:')}</p>
+                                                <span className="text-xs font-extrabold text-slate-400 dark:text-slate-500">{pkg.unlockedFeatures?.length || 0} {t('upgrade.vipPerks', 'đặc quyền VIP')}</span>
                                             </div>
                                             {pkg.unlockedFeatures?.map((feature, fIdx) => {
                                                 const cleanFeature = feature.replace('[Premium]', '').trim();
@@ -938,27 +939,27 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                                 return (
                                                     <div 
                                                         key={fIdx} 
-                                                        className={`flex gap-2.5 items-start ${isHeaderPerk ? 'bg-amber-500/10 dark:bg-amber-400/10 p-2 rounded-xl border border-amber-500/20 -mx-1' : ''}`}
+                                                        className={`flex gap-3 items-start ${isHeaderPerk ? 'bg-amber-500/10 dark:bg-amber-400/10 p-2.5 rounded-2xl border-2 border-amber-500/20 -mx-1' : ''}`}
                                                     >
-                                                        <div className={`w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${
+                                                        <div className={`w-5 h-5 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 border-b-2 ${
                                                             is3Y 
-                                                                ? 'bg-gradient-to-tr from-amber-500 to-orange-500 text-white shadow-xs' 
-                                                                : 'bg-amber-100 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-900 text-amber-600 dark:text-amber-400'
+                                                                ? 'bg-gradient-to-tr from-amber-500 to-orange-500 text-white border-amber-700 shadow-xs' 
+                                                                : 'bg-emerald-500 text-white border-emerald-700 shadow-xs'
                                                         }`}>
-                                                            <Check className={`w-2.5 h-2.5 ${is3Y ? 'text-white' : 'text-current'}`} />
+                                                            <Check className="w-3 h-3 text-white stroke-[3]" />
                                                         </div>
-                                                        <div className="text-xs leading-relaxed">
+                                                        <div className="text-sm leading-relaxed">
                                                             {hasColon ? (
                                                                 <>
                                                                     <span className="font-extrabold text-gray-900 dark:text-slate-100">
                                                                         {cleanFeature.slice(0, colonIdx)}:
                                                                     </span>{' '}
-                                                                    <span className="text-gray-600 dark:text-slate-350 font-medium">
+                                                                    <span className="text-gray-600 dark:text-slate-300 font-medium">
                                                                         {cleanFeature.slice(colonIdx + 2)}
                                                                     </span>
                                                                 </>
                                                             ) : (
-                                                                <span className={`font-semibold ${isHeaderPerk ? 'text-amber-900 dark:text-amber-200 font-extrabold' : 'text-gray-700 dark:text-slate-350'}`}>
+                                                                <span className={`font-semibold ${isHeaderPerk ? 'text-amber-900 dark:text-amber-200 font-black' : 'text-gray-700 dark:text-slate-300'}`}>
                                                                     {cleanFeature}
                                                                 </span>
                                                             )}
@@ -969,38 +970,38 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                         </div>
                                     </div>
 
-                                    <div className="mt-auto pt-4 border-t border-amber-250/20 dark:border-slate-800">
+                                    <div className="mt-auto pt-5 border-t-2 border-slate-100 dark:border-slate-800">
                                         {!isUnlocked ? (
                                             <>
-                                                <div className="flex items-baseline justify-between gap-2 mb-3">
-                                                    <div className="flex items-baseline gap-2">
-                                                        <span className="text-gray-900 dark:text-white font-black text-2xl">
+                                                <div className="flex items-baseline justify-between gap-2 mb-4">
+                                                    <div className="flex items-baseline gap-2.5">
+                                                        <span className="text-gray-900 dark:text-white font-black text-3xl sm:text-4xl">
                                                             {formatVND(pkg.salePrice)}
                                                         </span>
                                                         {pkg.originalPrice && pkg.originalPrice > pkg.salePrice && (
-                                                            <span className="text-gray-400 dark:text-slate-500 line-through text-xs font-bold">
+                                                            <span className="text-gray-400 dark:text-slate-500 line-through text-sm font-bold">
                                                                 {formatVND(pkg.originalPrice)}
                                                             </span>
                                                         )}
                                                     </div>
                                                     {pkg.id === 'premium_1y' && (
-                                                        <span className="text-[10px] font-bold text-amber-700 dark:text-amber-300 bg-amber-100/70 dark:bg-amber-950/50 px-2 py-0.5 rounded-md border border-amber-300/40">
+                                                        <span className="text-xs font-black text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-950/60 px-3 py-1 rounded-xl border-2 border-b-3 border-amber-300 dark:border-amber-800">
                                                             ~21.500đ / {t('upgrade.month', 'tháng')}
                                                         </span>
                                                     )}
                                                     {pkg.id === 'premium_3y' && (
-                                                        <span className="text-[10px] font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-100/70 dark:bg-emerald-950/50 px-2 py-0.5 rounded-md border border-emerald-300/40">
+                                                        <span className="text-xs font-black text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-950/60 px-3 py-1 rounded-xl border-2 border-b-3 border-emerald-300 dark:border-emerald-800">
                                                             ~15.500đ / {t('upgrade.month', 'tháng')}
                                                         </span>
                                                     )}
                                                 </div>
-                                                <div className={`w-full py-3 rounded-2xl text-white font-bold text-sm bg-gradient-to-r ${color} flex items-center justify-center gap-1.5 shadow-lg shadow-amber-500/20 hover:opacity-95 transition-opacity`}>
-                                                    {t('upgrade.subscribeNow', 'Đăng ký ngay')} <ChevronRight className="w-4 h-4" />
+                                                <div className={`w-full py-4 rounded-2xl text-white font-black text-base uppercase tracking-wider bg-gradient-to-r ${color} border-2 border-amber-600 border-b-[5px] active:border-b-2 active:translate-y-[3px] flex items-center justify-center gap-2 shadow-lg shadow-amber-500/20 hover:brightness-105 transition-all`}>
+                                                    {t('upgrade.subscribeNow', 'Đăng ký ngay')} <ChevronRight className="w-5 h-5" />
                                                 </div>
                                             </>
                                         ) : (
-                                            <div className="w-full py-3 rounded-2xl bg-emerald-100 dark:bg-emerald-950/20 border border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400 font-black text-sm flex items-center justify-center gap-1.5">
-                                                {t('upgrade.activated', 'Đã kích hoạt ✓')}
+                                            <div className="w-full py-4 rounded-2xl bg-emerald-100 dark:bg-emerald-950/30 border-2 border-emerald-300 dark:border-emerald-800 border-b-[5px] border-b-emerald-400 text-emerald-700 dark:text-emerald-400 font-black text-base flex items-center justify-center gap-2">
+                                                <Check className="w-5 h-5" /> {t('upgrade.activated', 'Đã kích hoạt')}
                                             </div>
                                         )}
                                     </div>
@@ -1017,11 +1018,13 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
     if (step === 'info' && selectedPackage) {
         const color = COLORS[selectedPackage.id] || COLORS.starter;
         const Icon = ICONS[selectedPackage.id] || Zap;
-        const isSpecialized = selectedPackage.cards === undefined;
+        const displayPkgName = selectedPackage.name.startsWith('Gói') 
+            ? selectedPackage.name 
+            : `Gói ${selectedPackage.name}`;
 
         return (
-            <div className="max-w-2xl mx-auto px-4 py-8 select-none">
-                {/* Back Link */}
+            <div className="max-w-5xl mx-auto px-4 py-8 select-none">
+                {/* Back Link Button with Duolingo 3D styling */}
                 <button 
                     onClick={() => { 
                         setStep('packages'); 
@@ -1029,140 +1032,217 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         setVoucherCode(''); 
                         setVoucherError(''); 
                     }} 
-                    className="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-455 hover:text-emerald-500 mb-6 transition-colors font-bold"
+                    className="inline-flex items-center gap-2 text-sm font-black text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 bg-white dark:bg-slate-900 px-4 py-2 rounded-2xl border-2 border-b-4 border-slate-200 dark:border-slate-800 hover:border-emerald-300 active:border-b-2 active:translate-y-0.5 transition-all mb-6 shadow-sm"
                 >
                     <ArrowLeft className="w-4 h-4" /> {t('upgrade.backToPackages', 'Quay lại chọn gói')}
                 </button>
 
-                {/* Layout Container */}
-                <div className="bg-white dark:bg-slate-900 rounded-3xl border border-gray-100 dark:border-slate-800 overflow-hidden shadow-xl">
-                    {/* Header */}
-                    <div className={`bg-gradient-to-r ${color} px-6 py-6 text-white`}>
-                        <div className="flex items-center gap-4">
-                            <div className="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-md">
-                                <Icon className="w-8 h-8 text-white" />
-                            </div>
-                            <div>
-                                <h2 className="font-black text-xl leading-tight">{t('upgrade.paymentConfig', 'Cấu hình thanh toán')}</h2>
-                                <p className="text-white/80 text-xs mt-0.5">
-                                    {t('upgrade.unlockPackage', 'Mở khóa gói: {name}').replace('{name}', selectedPackage.name)}
-                                </p>
-                            </div>
-                        </div>
+                {/* Section Title Banner */}
+                <div className="flex items-center gap-3.5 mb-8">
+                    <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 border-2 border-b-4 border-amber-600 flex items-center justify-center text-white shadow-md">
+                        <CreditCard className="w-6 h-6" />
                     </div>
-
-                    {/* Info rows */}
-                    <div className="p-6 space-y-4">
-                        <div className="flex items-center justify-between py-2.5 border-b border-gray-50 dark:border-slate-800">
-                            <span className="text-xs text-gray-500">{t('upgrade.packageName', 'Tên gói')}</span>
-                            <span className="text-sm font-extrabold text-gray-800 dark:text-white">{selectedPackage.name}</span>
-                        </div>
-                        {selectedPackage.cards && (
-                            <div className="flex items-center justify-between py-2.5 border-b border-gray-50 dark:border-slate-800">
-                                <span className="text-xs text-gray-500">{t('upgrade.creditAmount', 'Số lượng Credit')}</span>
-                                <span className="text-sm font-extrabold text-emerald-600 dark:text-emerald-400">{selectedPackage.cards.toLocaleString()} credit</span>
-                            </div>
-                        )}
-                        {selectedPackage.originalPrice && selectedPackage.originalPrice > selectedPackage.salePrice && (
-                            <div className="flex items-center justify-between py-2.5 border-b border-gray-50 dark:border-slate-800">
-                                <span className="text-xs text-gray-500">{t('upgrade.originalPrice', 'Giá gốc')}</span>
-                                <span className="text-sm text-gray-400 line-through">{formatVND(selectedPackage.originalPrice)}</span>
-                            </div>
-                        )}
-                        <div className="flex items-center justify-between py-2.5 border-b border-gray-50 dark:border-slate-800">
-                            <span className="text-xs text-gray-500">{t('upgrade.salePrice', 'Đơn giá bán')}</span>
-                            <span className="text-sm font-extrabold text-emerald-600 dark:text-emerald-400">
-                                {formatVND(selectedPackage.salePrice)}
-                            </span>
-                        </div>
-
-                        {/* Voucher Coupon Section */}
-                        <div className="bg-slate-50 dark:bg-slate-950/40 rounded-2xl p-4 border border-gray-150/40 dark:border-slate-800">
-                            <p className="text-xs font-bold text-gray-700 dark:text-slate-300 mb-2.5 flex items-center gap-1">
-                                <Ticket className="w-4 h-4 text-emerald-500" /> {t('upgrade.voucherPrompt', 'Nhập mã giảm giá (Voucher)')}
-                            </p>
-                            <div className="flex gap-2">
-                                <input
-                                    type="text"
-                                    value={voucherCode}
-                                    onChange={(e) => { 
-                                        setVoucherCode(e.target.value.toUpperCase()); 
-                                        setVoucherError(''); 
-                                    }}
-                                    placeholder="GIAM65, QUYZKIMAY,..."
-                                    disabled={!!appliedVoucher}
-                                    className="flex-1 px-4 py-2.5 bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-xl text-xs font-mono uppercase dark:text-white outline-none focus:ring-2 focus:ring-emerald-500/20"
-                                />
-                                {appliedVoucher ? (
-                                    <button 
-                                        onClick={handleRemoveVoucher} 
-                                        className="px-4 py-2.5 bg-red-50 text-red-500 rounded-xl text-xs font-bold hover:bg-red-100 flex items-center gap-1 border border-red-200"
-                                    >
-                                        <X className="w-3.5 h-3.5" /> {t('upgrade.cancel', 'Hủy')}
-                                    </button>
-                                ) : (
-                                    <button 
-                                        onClick={handleApplyVoucher} 
-                                        disabled={voucherLoading || !voucherCode.trim()} 
-                                        className="px-5 py-2.5 bg-emerald-600 text-white rounded-xl text-xs font-bold hover:bg-emerald-700 disabled:opacity-50 transition-colors flex items-center gap-1 shadow-sm"
-                                    >
-                                        {voucherLoading ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : null}
-                                        {t('upgrade.apply', 'Áp dụng')}
-                                    </button>
-                                )}
-                            </div>
-                            {voucherError && <p className="mt-2 text-xs text-red-500 font-semibold">{voucherError}</p>}
-                            {appliedVoucher && (
-                                <div className="mt-2.5 flex items-center gap-1.5 bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-900/50 rounded-lg px-3 py-2">
-                                    <CheckCircle className="w-4 h-4 text-emerald-500" />
-                                    <span className="text-xs text-emerald-700 dark:text-emerald-400 font-semibold">
-                                        {t('upgrade.voucherSuccess', 'Áp dụng thành công voucher: {code} (Giảm {discount})').replace('{code}', appliedVoucher.code).replace('{discount}', appliedVoucher.discountType === 'percent' ? `${appliedVoucher.discountValue}%` : formatVND(appliedVoucher.discountValue))}
-                                    </span>
-                                </div>
-                            )}
-                        </div>
-
-                        {/* Discount row */}
-                        {appliedVoucher && discountAmount > 0 && (
-                            <div className="flex items-center justify-between py-2 border-b border-gray-50 dark:border-slate-800">
-                                <span className="text-xs text-gray-500">{t('upgrade.voucherDiscount', 'Voucher giảm giá')}</span>
-                                <span className="text-sm font-extrabold text-red-500">-{formatVND(discountAmount)}</span>
-                            </div>
-                        )}
-
-                        {/* Total Payment */}
-                        <div className="flex items-center justify-between py-4 mt-2 border-t border-dashed border-gray-200 dark:border-slate-800">
-                            <span className="text-sm font-black text-gray-800 dark:text-white">{t('upgrade.totalAmount', 'Tổng cộng thanh toán')}</span>
-                            <span className="text-xl font-black text-emerald-600 dark:text-emerald-400">{formatVND(finalPrice)}</span>
-                        </div>
+                    <div>
+                        <h1 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white leading-tight">
+                            {t('upgrade.paymentConfig', 'Cấu hình thanh toán')}
+                        </h1>
+                        <p className="text-sm text-gray-500 dark:text-gray-400 font-semibold mt-0.5">
+                            Xác nhận thông tin gói và nhập ưu đãi trước khi tạo mã QR VietQR
+                        </p>
                     </div>
                 </div>
 
-                {/* Continue button */}
-                <button
-                    onClick={handleProceedToPayment}
-                    className={`w-full mt-6 py-4 rounded-3xl text-white font-bold text-sm bg-gradient-to-r ${color} flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/10 hover:shadow-xl hover:-translate-y-0.5 transition-all`}
-                >
-                    {t('upgrade.proceedPayment', 'Tiếp tục thanh toán')} <ChevronRight className="w-5 h-5" />
-                </button>
+                {/* Two-Column Responsive Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                    {/* Left Column: Selected Package Preview & Perks */}
+                    <div className="lg:col-span-5 rounded-3xl border-2 border-b-[6px] border-amber-300 dark:border-amber-700/60 bg-gradient-to-b from-amber-50/90 via-white to-orange-50/30 dark:from-slate-900 dark:to-slate-900 p-6 sm:p-7 shadow-lg space-y-6">
+                        <div className="flex items-center gap-4">
+                            <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center border-2 border-b-4 border-amber-600 shadow-md`}>
+                                <Icon className="w-8 h-8 text-white drop-shadow-sm" />
+                            </div>
+                            <div>
+                                <span className="text-[10px] font-black uppercase tracking-wider text-amber-700 dark:text-amber-400 bg-amber-100 dark:bg-amber-950/60 px-2.5 py-0.5 rounded-lg border border-amber-300 dark:border-amber-800">
+                                    Gói đang chọn
+                                </span>
+                                <h2 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white leading-tight mt-1">
+                                    {displayPkgName}
+                                </h2>
+                            </div>
+                        </div>
+
+                        <p className="text-sm text-slate-600 dark:text-slate-300 font-medium leading-relaxed">
+                            {selectedPackage.description}
+                        </p>
+
+                        {/* Unlocked Highlights preview */}
+                        {selectedPackage.unlockedFeatures && (
+                            <div className="space-y-2.5 pt-4 border-t-2 border-amber-200/50 dark:border-slate-800">
+                                <p className="text-xs font-black text-amber-800 dark:text-amber-300 uppercase tracking-wider mb-2">
+                                    Quyền lợi nổi bật:
+                                </p>
+                                {selectedPackage.unlockedFeatures.slice(0, 5).map((feat, idx) => {
+                                    const cleanFeat = feat.replace('[Premium]', '').trim();
+                                    return (
+                                        <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-700 dark:text-slate-300 font-semibold leading-relaxed">
+                                            <div className="w-4 h-4 rounded-full bg-emerald-500 text-white flex items-center justify-center flex-shrink-0 mt-0.5 border-b border-emerald-700">
+                                                <Check className="w-2.5 h-2.5 stroke-[3]" />
+                                            </div>
+                                            <span>{cleanFeat}</span>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        )}
+
+                        {/* Reassurance Guarantees */}
+                        <div className="pt-4 border-t-2 border-amber-200/50 dark:border-slate-800 space-y-3">
+                            <div className="flex items-center gap-3 text-xs font-bold text-slate-600 dark:text-slate-350">
+                                <span className="w-7 h-7 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-black text-sm">⚡</span>
+                                <span>Kích hoạt tự động tức thì ngay khi thanh toán</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-xs font-bold text-slate-600 dark:text-slate-350">
+                                <span className="w-7 h-7 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center font-black text-sm">🛡️</span>
+                                <span>Bảo mật chuẩn VietQR 24/7 của Napas & Ngân hàng</span>
+                            </div>
+                            <div className="flex items-center gap-3 text-xs font-bold text-slate-600 dark:text-slate-350">
+                                <span className="w-7 h-7 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-black text-sm">👑</span>
+                                <span>Hỗ trợ ưu tiên 1-1 riêng biệt trong suốt thời hạn</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Right Column: Invoice Details & Action */}
+                    <div className="lg:col-span-7 rounded-3xl border-2 border-b-[6px] border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-6 sm:p-8 shadow-xl space-y-6">
+                        <div className="flex items-center justify-between border-b-2 border-slate-100 dark:border-slate-800 pb-4">
+                            <h2 className="text-lg font-black text-slate-900 dark:text-white flex items-center gap-2">
+                                <Ticket className="w-5 h-5 text-amber-500" />
+                                Chi tiết đơn hàng
+                            </h2>
+                            <span className="text-xs font-black text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 px-3 py-1 rounded-full border border-emerald-200 dark:border-emerald-800 uppercase tracking-wide">
+                                Đơn hàng an toàn
+                            </span>
+                        </div>
+
+                        {/* Bill Breakdown rows */}
+                        <div className="space-y-4">
+                            <div className="flex items-center justify-between py-2 border-b border-gray-100 dark:border-slate-800">
+                                <span className="text-sm font-semibold text-gray-500 dark:text-gray-400">{t('upgrade.packageName', 'Tên gói')}</span>
+                                <span className="text-base font-black text-gray-900 dark:text-white">{displayPkgName}</span>
+                            </div>
+
+                            {selectedPackage.cards && (
+                                <div className="flex items-center justify-between py-2 border-b border-gray-100 dark:border-slate-800">
+                                    <span className="text-sm font-semibold text-gray-500 dark:text-gray-400">{t('upgrade.creditAmount', 'Số lượng Credit')}</span>
+                                    <span className="text-base font-black text-emerald-600 dark:text-emerald-400">{selectedPackage.cards.toLocaleString()} credit</span>
+                                </div>
+                            )}
+
+                            {selectedPackage.originalPrice && selectedPackage.originalPrice > selectedPackage.salePrice && (
+                                <div className="flex items-center justify-between py-2 border-b border-gray-100 dark:border-slate-800">
+                                    <span className="text-sm font-semibold text-gray-500 dark:text-gray-400">{t('upgrade.originalPrice', 'Giá gốc')}</span>
+                                    <span className="text-sm font-bold text-gray-400 line-through">{formatVND(selectedPackage.originalPrice)}</span>
+                                </div>
+                            )}
+
+                            <div className="flex items-center justify-between py-2 border-b border-gray-100 dark:border-slate-800">
+                                <span className="text-sm font-semibold text-gray-500 dark:text-gray-400">{t('upgrade.salePrice', 'Đơn giá ưu đãi')}</span>
+                                <span className="text-base font-black text-emerald-600 dark:text-emerald-400">
+                                    {formatVND(selectedPackage.salePrice)}
+                                </span>
+                            </div>
+
+                            {/* Voucher Coupon Section */}
+                            <div className="bg-slate-50 dark:bg-slate-950/40 rounded-2xl p-4 border-2 border-b-4 border-slate-200 dark:border-slate-800">
+                                <p className="text-xs font-black uppercase tracking-wider text-gray-700 dark:text-slate-300 mb-2.5 flex items-center gap-1.5">
+                                    <Ticket className="w-4 h-4 text-emerald-500" /> {t('upgrade.voucherPrompt', 'Nhập mã giảm giá (Voucher)')}
+                                </p>
+                                <div className="flex gap-2">
+                                    <input
+                                        type="text"
+                                        value={voucherCode}
+                                        onChange={(e) => { 
+                                            setVoucherCode(e.target.value.toUpperCase()); 
+                                            setVoucherError(''); 
+                                        }}
+                                        placeholder="GIAM65, QUIZKIMAY,..."
+                                        disabled={!!appliedVoucher}
+                                        className="flex-1 px-4 py-3 bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-700 focus:border-emerald-500 rounded-xl text-sm font-mono font-bold uppercase tracking-wider outline-none text-slate-900 dark:text-white"
+                                    />
+                                    {appliedVoucher ? (
+                                        <button 
+                                            onClick={handleRemoveVoucher} 
+                                            className="px-5 py-3 bg-red-50 text-red-500 rounded-xl text-xs font-black uppercase tracking-wider hover:bg-red-100 flex items-center gap-1 border-2 border-b-4 border-red-200 active:border-b-2 active:translate-y-0.5 transition-all"
+                                        >
+                                            <X className="w-4 h-4" /> {t('upgrade.cancel', 'Hủy')}
+                                        </button>
+                                    ) : (
+                                        <button 
+                                            onClick={handleApplyVoucher} 
+                                            disabled={voucherLoading || !voucherCode.trim()} 
+                                            className="px-6 py-3 bg-emerald-500 hover:bg-emerald-450 active:bg-emerald-600 text-white rounded-xl text-xs font-black uppercase tracking-wider border-2 border-emerald-600 border-b-4 active:border-b-2 active:translate-y-0.5 disabled:opacity-50 transition-all flex items-center gap-1.5 shadow-sm"
+                                        >
+                                            {voucherLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
+                                            {t('upgrade.apply', 'Áp dụng')}
+                                        </button>
+                                    )}
+                                </div>
+                                {voucherError && <p className="mt-2 text-xs text-red-500 font-bold">{voucherError}</p>}
+                                {appliedVoucher && (
+                                    <div className="mt-3 flex items-center gap-2 bg-emerald-50 dark:bg-emerald-950/30 border-2 border-emerald-200 dark:border-emerald-900 rounded-xl px-3.5 py-2">
+                                        <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                                        <span className="text-xs text-emerald-700 dark:text-emerald-400 font-bold">
+                                            {t('upgrade.voucherSuccess', 'Áp dụng thành công voucher: {code} (Giảm {discount})').replace('{code}', appliedVoucher.code).replace('{discount}', appliedVoucher.discountType === 'percent' ? `${appliedVoucher.discountValue}%` : formatVND(appliedVoucher.discountValue))}
+                                        </span>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* Voucher Discount Row */}
+                            {appliedVoucher && discountAmount > 0 && (
+                                <div className="flex items-center justify-between py-2 border-b border-gray-100 dark:border-slate-800">
+                                    <span className="text-sm font-semibold text-gray-500 dark:text-gray-400">{t('upgrade.voucherDiscount', 'Voucher giảm giá')}</span>
+                                    <span className="text-base font-black text-red-500">-{formatVND(discountAmount)}</span>
+                                </div>
+                            )}
+
+                            {/* Total Amount Banner */}
+                            <div className="bg-emerald-50/70 dark:bg-emerald-950/30 border-2 border-b-4 border-emerald-200 dark:border-emerald-800 rounded-2xl p-5 flex items-center justify-between mt-4">
+                                <span className="text-base font-black text-slate-800 dark:text-slate-200">{t('upgrade.totalAmount', 'Tổng cộng thanh toán')}</span>
+                                <span className="text-3xl sm:text-4xl font-black text-emerald-600 dark:text-emerald-400 tracking-tight">{formatVND(finalPrice)}</span>
+                            </div>
+                        </div>
+
+                        {/* Continue Button */}
+                        <button
+                            onClick={handleProceedToPayment}
+                            className="w-full py-4 rounded-2xl text-white font-black text-base uppercase tracking-wider bg-gradient-to-r from-amber-500 to-orange-500 border-2 border-amber-600 border-b-[6px] active:border-b-2 active:translate-y-[4px] shadow-lg shadow-orange-500/20 hover:brightness-105 transition-all flex items-center justify-center gap-2"
+                        >
+                            {t('upgrade.proceedPayment', 'Tiếp tục thanh toán')} <ChevronRight className="w-5 h-5" />
+                        </button>
+                    </div>
+                </div>
             </div>
         );
     }
 
     // ==================== STEP 3: PAYMENT SCREEN ====================
     if (step === 'payment' && selectedPackage) {
+        const displayPkgName = selectedPackage.name.startsWith('Gói') 
+            ? selectedPackage.name 
+            : `Gói ${selectedPackage.name}`;
+
         if (paymentSuccess) {
             return (
-                <div className="max-w-lg mx-auto px-4 py-16 text-center select-none">
-                    <div className="w-24 h-24 rounded-full bg-emerald-100 dark:bg-emerald-950/40 flex items-center justify-center mx-auto mb-6 animate-bounce">
+                <div className="max-w-2xl mx-auto px-4 py-16 text-center select-none">
+                    <div className="w-24 h-24 rounded-full bg-emerald-100 dark:bg-emerald-950/40 flex items-center justify-center mx-auto mb-6 animate-bounce border-2 border-emerald-300">
                         <CheckCircle className="w-12 h-12 text-emerald-500" />
                     </div>
-                    <h2 className="text-3xl font-black text-emerald-600 dark:text-emerald-400 mb-2">{t('upgrade.paymentSuccess', 'Thanh toán thành công! 🎉')}</h2>
-                    <p className="text-sm text-gray-600 dark:text-slate-350 mb-4 leading-relaxed">
-                        <span>{t('upgrade.packageActivated', 'Đã kích hoạt thành công gói Premium {name}.').replace('{name}', selectedPackage.name)}</span>
+                    <h2 className="text-3xl sm:text-4xl font-black text-emerald-600 dark:text-emerald-400 mb-2">{t('upgrade.paymentSuccess', 'Thanh toán thành công! 🎉')}</h2>
+                    <p className="text-base text-gray-600 dark:text-slate-350 mb-4 leading-relaxed font-semibold">
+                        <span>Đã kích hoạt thành công {displayPkgName}.</span>
                     </p>
                     {appliedVoucher && (
-                        <p className="text-xs text-emerald-500 mb-6 bg-emerald-50 dark:bg-emerald-950/20 py-1.5 px-4 rounded-xl inline-block font-semibold">
+                        <p className="text-xs text-emerald-600 dark:text-emerald-400 mb-6 bg-emerald-50 dark:bg-emerald-950/20 py-2 px-5 rounded-xl inline-block font-black border border-emerald-200">
                             🎟️ {t('upgrade.voucherApplied', 'Voucher đã áp dụng: {code}').replace('{code}', appliedVoucher.code)}
                         </p>
                     )}
@@ -1172,7 +1252,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                             setSelectedPackage(null); 
                             setPaymentSuccess(false); 
                         }} 
-                        className="w-full px-8 py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-600 text-white font-bold text-sm shadow-lg shadow-emerald-500/10"
+                        className="w-full max-w-md mx-auto py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-black text-base uppercase tracking-wider border-2 border-emerald-600 border-b-[5px] active:border-b-2 active:translate-y-[3px] shadow-lg shadow-emerald-500/20 hover:brightness-105 transition-all"
                     >
                         {t('upgrade.exploreNow', 'Bắt đầu khám phá ngay! 🚀')}
                     </button>
@@ -1182,13 +1262,13 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
 
         if (submitted) {
             return (
-                <div className="max-w-lg mx-auto px-4 py-16 text-center select-none">
-                    <div className="w-20 h-20 rounded-full bg-emerald-50 dark:bg-emerald-950/20 flex items-center justify-center mx-auto mb-6">
-                        <CheckCircle className="w-10 h-10 text-emerald-500 animate-pulse" />
+                <div className="max-w-2xl mx-auto px-4 py-16 text-center select-none">
+                    <div className="w-24 h-24 rounded-full bg-emerald-50 dark:bg-emerald-950/20 flex items-center justify-center mx-auto mb-6 border-2 border-emerald-300">
+                        <CheckCircle className="w-12 h-12 text-emerald-500 animate-pulse" />
                     </div>
-                    <h2 className="text-2xl font-black text-gray-900 dark:text-white mb-2">{t('upgrade.requestReceived', 'Đã nhận yêu cầu kích hoạt!')}</h2>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-6 leading-relaxed">
-                        {t('upgrade.requestDesc', 'Yêu cầu kích hoạt gói {name} đã được ghi nhận vào hệ thống. Chúng tôi sẽ duyệt thủ công trong vòng 5-15 phút.').replace('{name}', selectedPackage.name)}
+                    <h2 className="text-2xl sm:text-3xl font-black text-gray-900 dark:text-white mb-2">{t('upgrade.requestReceived', 'Đã nhận yêu cầu kích hoạt!')}</h2>
+                    <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 mb-6 leading-relaxed font-medium">
+                        Yêu cầu kích hoạt {displayPkgName} đã được ghi nhận vào hệ thống. Chúng tôi sẽ duyệt thủ công trong vòng 5-15 phút.
                     </p>
                     <button 
                         onClick={() => { 
@@ -1196,7 +1276,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                             setSelectedPackage(null); 
                             setSubmitted(false); 
                         }} 
-                        className="w-full px-8 py-3.5 rounded-2xl bg-gradient-to-r from-emerald-500 to-sky-500 text-white font-bold text-sm shadow-lg shadow-emerald-500/10"
+                        className="w-full max-w-md mx-auto py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-sky-500 text-white font-black text-base uppercase tracking-wider border-2 border-emerald-600 border-b-[5px] active:border-b-2 active:translate-y-[3px] shadow-lg shadow-emerald-500/20 hover:brightness-105 transition-all"
                     >
                         {t('upgrade.backToHome', 'Quay lại trang chủ')}
                     </button>
@@ -1206,11 +1286,10 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
 
         const color = COLORS[selectedPackage.id] || COLORS.starter;
         const Icon = ICONS[selectedPackage.id] || Zap;
-        const isSpecialized = selectedPackage.cards === undefined;
 
         return (
-            <div className="max-w-2xl mx-auto px-4 py-8 select-none">
-                {/* Back Button */}
+            <div className="max-w-5xl mx-auto px-4 py-8 select-none">
+                {/* Back Button with Duolingo styling */}
                 <button 
                     onClick={() => { 
                         setStep('info'); 
@@ -1218,58 +1297,59 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         if (countdownRef.current) clearInterval(countdownRef.current); 
                         setChecking(false); 
                     }} 
-                    className="inline-flex items-center gap-1.5 text-sm text-gray-500 dark:text-gray-455 hover:text-emerald-500 mb-6 transition-colors font-bold"
+                    className="inline-flex items-center gap-2 text-sm font-black text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 bg-white dark:bg-slate-900 px-4 py-2 rounded-2xl border-2 border-b-4 border-slate-200 dark:border-slate-800 hover:border-emerald-300 active:border-b-2 active:translate-y-0.5 transition-all mb-6 shadow-sm"
                 >
                     <ArrowLeft className="w-4 h-4" /> {t('upgrade.backToSummary', 'Quay lại xem cấu hình')}
                 </button>
 
-                {/* Bill Summary */}
-                <div className="bg-white dark:bg-slate-900 rounded-3xl border border-gray-100 dark:border-slate-800 p-6 mb-6 shadow-md">
-                    <div className="flex items-center justify-between">
-                        <div className="flex items-center gap-3">
-                            <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center shadow-md shadow-emerald-500/5`}>
-                                <Icon className="w-6 h-6 text-white" />
-                            </div>
-                            <div>
-                                <h3 className="font-extrabold text-gray-800 dark:text-white text-base leading-snug">{t('upgrade.packageTitle', 'Gói {name}').replace('{name}', selectedPackage.name)}</h3>
-                                <p className="text-xs text-gray-500">
-                                    {t('upgrade.unlockAllFeatures', 'Mở khóa toàn bộ tính năng cao cấp Premium')}
-                                </p>
-                            </div>
+                {/* Bill Summary Banner */}
+                <div className="bg-white dark:bg-slate-900 rounded-3xl border-2 border-b-[5px] border-slate-200 dark:border-slate-800 p-6 mb-8 shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div className="flex items-center gap-4">
+                        <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center border-2 border-b-4 border-amber-600 shadow-md`}>
+                            <Icon className="w-8 h-8 text-white drop-shadow-sm" />
                         </div>
-                        <div className="text-right">
-                            {appliedVoucher && discountAmount > 0 && (
-                                <p className="text-xs text-gray-400 line-through mb-0.5">{formatVND(selectedPackage.salePrice)}</p>
-                            )}
-                            <p className="text-xl font-black text-emerald-600 dark:text-emerald-400">{formatVND(finalPrice)}</p>
-                            {appliedVoucher && <p className="text-[10px] text-emerald-500 font-bold">🎟️ Voucher: {appliedVoucher.code}</p>}
+                        <div>
+                            <h3 className="font-black text-gray-900 dark:text-white text-xl leading-snug">{displayPkgName}</h3>
+                            <p className="text-xs text-gray-500 dark:text-gray-400 font-semibold mt-0.5">
+                                {t('upgrade.unlockAllFeatures', 'Mở khóa toàn bộ tính năng cao cấp Premium')}
+                            </p>
                         </div>
+                    </div>
+                    <div className="text-left sm:text-right">
+                        {appliedVoucher && discountAmount > 0 && (
+                            <p className="text-xs text-gray-400 line-through mb-0.5 font-bold">{formatVND(selectedPackage.salePrice)}</p>
+                        )}
+                        <p className="text-2xl sm:text-3xl font-black text-emerald-600 dark:text-emerald-400">{formatVND(finalPrice)}</p>
+                        {appliedVoucher && <p className="text-xs text-emerald-500 font-bold mt-0.5">🎟️ Voucher: {appliedVoucher.code}</p>}
                     </div>
                 </div>
 
                 {/* QR Code and Bank Details */}
-                <div className="bg-white dark:bg-slate-900 rounded-3xl border border-gray-100 dark:border-slate-800 p-6 mb-6 shadow-md grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    {/* Left Column: QR */}
-                    <div className="flex flex-col items-center">
-                        <div className="flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 font-extrabold uppercase tracking-wide mb-3.5">
+                <div className="bg-white dark:bg-slate-900 rounded-3xl border-2 border-b-[6px] border-slate-200 dark:border-slate-800 p-6 sm:p-9 mb-8 shadow-xl grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                    {/* Left Column: QR Code */}
+                    <div className="md:col-span-5 flex flex-col items-center">
+                        <div className="bg-emerald-500 text-white font-black text-xs px-4 py-1.5 rounded-full border-b-2 border-emerald-700 uppercase tracking-wide inline-flex items-center gap-1.5 mb-4 shadow-sm">
                             <QrCode className="w-4 h-4" /> {t('upgrade.scanQr', 'Quét QR bằng App Ngân Hàng')}
                         </div>
-                        <div className="relative p-3 bg-white border border-gray-200 rounded-3xl shadow-inner">
+                        <div className="p-4 bg-white border-2 border-slate-200 dark:border-slate-700 rounded-3xl shadow-inner flex items-center justify-center">
                             <img 
                                 src={qrUrl} 
                                 alt="VietQR VietNam" 
-                                className="w-56 h-56 object-contain rounded-2xl" 
+                                className="w-60 h-60 sm:w-68 sm:h-68 object-contain rounded-2xl" 
                                 onError={(e) => { e.target.style.display = 'none'; }} 
                             />
                         </div>
+                        <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 text-center mt-3 max-w-xs leading-relaxed">
+                            Mở ứng dụng Ngân hàng hoặc Ví MoMo/ZaloPay hỗ trợ VietQR để quét mã và thanh toán trong 5 giây
+                        </p>
                     </div>
 
-                    {/* Right Column: Bank Details details */}
-                    <div className="space-y-4">
-                        <h4 className="text-xs font-bold text-gray-500 uppercase tracking-wide border-b border-gray-100 dark:border-slate-800 pb-2">
+                    {/* Right Column: Bank Details */}
+                    <div className="md:col-span-7 space-y-4">
+                        <h4 className="text-xs font-black text-slate-700 dark:text-slate-300 uppercase tracking-wider border-b-2 border-gray-100 dark:border-slate-800 pb-2.5">
                             {t('upgrade.transferDetails', 'Chi tiết chuyển khoản')}
                         </h4>
-                        <div className="bg-[#FFFBEB] dark:bg-amber-950/10 border border-[#FEF3C7] dark:border-amber-900/50 rounded-2xl p-4 space-y-3 shadow-inner">
+                        <div className="bg-[#FFFBEB] dark:bg-amber-950/20 border-2 border-b-4 border-[#FEF3C7] dark:border-amber-900/50 rounded-2xl p-5 space-y-3.5 shadow-sm">
                             {[
                                 { label: t('upgrade.bankName', 'Tên Ngân hàng'), value: bankId, key: null },
                                 { label: t('upgrade.accountNumber', 'Số tài khoản'), value: bankAccountNo, key: 'stk' },
@@ -1277,18 +1357,25 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                 { label: t('upgrade.amount', 'Số tiền chuyển'), value: formatVND(finalPrice), key: 'amount', rawValue: String(finalPrice), highlight: true },
                                 { label: t('upgrade.transferNote', 'Nội dung (Bắt buộc)'), value: orderCode, key: 'nd', highlight: true },
                             ].map(row => (
-                                <div key={row.label} className="flex items-center justify-between text-xs font-semibold">
-                                    <span className="text-amber-700 dark:text-amber-400">{row.label}</span>
-                                    <div className="flex items-center gap-1.5">
-                                        <span className={`font-black ${row.highlight ? 'text-emerald-600 dark:text-emerald-400 text-sm' : 'text-amber-900 dark:text-slate-200'}`}>
+                                <div key={row.label} className="flex items-center justify-between text-xs sm:text-sm font-semibold">
+                                    <span className="text-amber-800 dark:text-amber-300">{row.label}</span>
+                                    <div className="flex items-center gap-2">
+                                        <span className={`font-black ${row.highlight ? 'text-emerald-600 dark:text-emerald-400 text-base' : 'text-amber-950 dark:text-slate-200'}`}>
                                             {row.value}
                                         </span>
                                         {row.key && (
                                             <button 
                                                 onClick={() => copyToClipboard(row.rawValue || row.value, row.key)} 
-                                                className="text-emerald-500 hover:text-emerald-700 p-1 bg-white dark:bg-slate-800 rounded-lg border border-gray-100 dark:border-slate-700 shadow-sm"
+                                                className="text-emerald-600 hover:text-emerald-700 p-1.5 bg-white dark:bg-slate-800 rounded-xl border-2 border-b-3 border-slate-200 dark:border-slate-700 active:border-b active:translate-y-0.5 shadow-xs transition-all flex items-center gap-1"
+                                                title="Sao chép"
                                             >
-                                                {copied === row.key ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5 text-slate-500" />}
+                                                {copied === row.key ? (
+                                                    <span className="flex items-center gap-1 text-[10px] font-black text-emerald-600">
+                                                        <Check className="w-3.5 h-3.5" /> Đã chép
+                                                    </span>
+                                                ) : (
+                                                    <Copy className="w-3.5 h-3.5 text-slate-500" />
+                                                )}
                                             </button>
                                         )}
                                     </div>
@@ -1300,14 +1387,14 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
 
                 {/* Auto check loading status */}
                 {checking && (
-                    <div className="bg-[#ecfdf5] dark:bg-emerald-950/20 border border-emerald-100 dark:border-emerald-900 rounded-2xl p-4 text-center mb-6 shadow-inner">
-                        <div className="flex items-center justify-center gap-2 mb-1">
-                            <Loader2 className="w-4 h-4 animate-spin text-emerald-500" />
-                            <span className="text-xs font-black text-emerald-600 dark:text-emerald-400 uppercase tracking-wide">
+                    <div className="bg-emerald-50 dark:bg-emerald-950/30 border-2 border-b-4 border-emerald-200 dark:border-emerald-800 rounded-2xl p-5 text-center mb-6 shadow-sm">
+                        <div className="flex items-center justify-center gap-2.5 mb-1.5">
+                            <Loader2 className="w-5 h-5 animate-spin text-emerald-600" />
+                            <span className="text-sm font-black text-emerald-700 dark:text-emerald-300 uppercase tracking-wide">
                                 {t('upgrade.checkingTransaction', 'Đang tự động kiểm tra giao dịch...')}
                             </span>
                         </div>
-                        <p className="text-[11px] text-emerald-500 font-semibold">
+                        <p className="text-xs text-emerald-600 dark:text-emerald-400 font-semibold">
                             {t('upgrade.checkingSub', 'Hệ thống sẽ hoàn tất và cộng gói ngay lập tức khi nhận được thông báo biến động số dư ({seconds}s)...').replace('{seconds}', `${Math.floor(paymentCountdown / 60)}:${(paymentCountdown % 60).toString().padStart(2, '0')}`)}
                         </p>
                     </div>
@@ -1318,7 +1405,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                     {!checking && (
                         <button 
                             onClick={handleManualConfirm} 
-                            className="w-full py-3.5 rounded-3xl bg-gradient-to-r from-emerald-500 to-sky-500 text-white font-bold text-sm shadow-lg shadow-emerald-500/10 hover:-translate-y-0.5 transition-all"
+                            className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-teal-500 text-white font-black text-base uppercase tracking-wider border-2 border-emerald-600 border-b-[5px] active:border-b-2 active:translate-y-[3px] shadow-lg shadow-emerald-500/20 hover:brightness-105 transition-all"
                         >
                             {t('upgrade.transferredBtn', 'Tôi đã chuyển khoản thành công ✓')}
                         </button>
