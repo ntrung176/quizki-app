@@ -264,6 +264,8 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
     const chatEndRef = useRef(null);
     const isRecordingRef = useRef(false);
     const audioRef = useRef(new Audio());
+    const recognitionRef = useRef(null);
+    const speechRecognitionTextRef = useRef('');
 
     // Check MediaRecorder support on mount & cleanup audio
     useEffect(() => {
@@ -281,6 +283,11 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
             if (typeof window !== 'undefined' && window.speechSynthesis) {
                 window.speechSynthesis.cancel();
             }
+            try {
+                if (recognitionRef.current) {
+                    recognitionRef.current.stop();
+                }
+            } catch (e) {}
             stopVadLoop();
         };
     }, []);
@@ -491,13 +498,53 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
 
         setIsRecording(true);
         isRecordingRef.current = true;
-        setTranscript('🎙️ Đang lắng nghe giọng nói tiếng Nhật...');
+        setTranscript(isEnglishMode ? '🎙️ Đang lắng nghe giọng nói tiếng Anh...' : '🎙️ Đang lắng nghe giọng nói tiếng Nhật...');
         audioChunksRef.current = [];
         recordingStartTimeRef.current = Date.now();
 
         try {
             window.speechSynthesis.cancel();
             setIsAiSpeaking(false);
+
+            // Parallel Web Speech API for real-time live preview and zero-key fallback
+            speechRecognitionTextRef.current = '';
+            const SpeechRec = typeof window !== 'undefined' && (window.SpeechRecognition || window.webkitSpeechRecognition);
+            if (SpeechRec) {
+                try {
+                    const recognition = new SpeechRec();
+                    recognitionRef.current = recognition;
+                    recognition.lang = isEnglishMode ? 'en-US' : 'ja-JP';
+                    recognition.continuous = true;
+                    recognition.interimResults = true;
+
+                    recognition.onresult = (event) => {
+                        let interim = '';
+                        let final = '';
+                        for (let i = event.resultIndex; i < event.results.length; ++i) {
+                            if (event.results[i].isFinal) {
+                                final += event.results[i][0].transcript;
+                            } else {
+                                interim += event.results[i][0].transcript;
+                            }
+                        }
+                        if (final) {
+                            speechRecognitionTextRef.current = (speechRecognitionTextRef.current + ' ' + final).trim();
+                        }
+                        const currentSpoken = (speechRecognitionTextRef.current + ' ' + interim).trim();
+                        if (currentSpoken) {
+                            setTranscript(currentSpoken);
+                        }
+                    };
+
+                    recognition.onerror = (e) => {
+                        console.warn('Web Speech API event notice (relying on Whisper/MediaRecorder):', e.error);
+                    };
+
+                    recognition.start();
+                } catch (recErr) {
+                    console.warn('SpeechRecognition start notice:', recErr);
+                }
+            }
 
             let stream = micStreamRef.current;
             if (!stream || !stream.active) {
@@ -526,8 +573,9 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
                 const durationSec = Math.max(1, Math.round((recordingEndTime - (recordingStartTimeRef.current || recordingEndTime)) / 1000));
 
                 const audioBlob = new Blob(audioChunksRef.current, { type: 'audio/webm' });
+                const webSpeechText = speechRecognitionTextRef.current ? speechRecognitionTextRef.current.trim() : '';
                 
-                if (audioBlob.size < 2500 || durationSec < 1) {
+                if ((audioBlob.size < 2500 || durationSec < 1) && !webSpeechText) {
                     setIsRecording(false);
                     isRecordingRef.current = false;
                     setTranscript('');
@@ -535,10 +583,26 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
                 }
 
                 setIsTranscribing(true);
-                setTranscript('⚡ Neural Whisper đang chuyển giọng nói thành văn bản...');
+                setTranscript('⚡ Đang xử lý giọng nói thành văn bản...');
                 try {
-                    const text = await callWhisperSTT(audioBlob, isEnglishMode ? 'en' : 'ja');
-                    const clean = text ? text.trim() : '';
+                    let text = '';
+                    try {
+                        text = await callWhisperSTT(audioBlob, isEnglishMode ? 'en' : 'ja');
+                    } catch (sttErr) {
+                        console.warn('Whisper STT failed or key not configured, checking Web Speech API fallback:', sttErr);
+                        if (webSpeechText) {
+                            text = webSpeechText;
+                        } else {
+                            throw sttErr;
+                        }
+                    }
+
+                    // If Whisper returned empty but Web Speech API captured text, fallback to webSpeechText
+                    if (!text && webSpeechText) {
+                        text = webSpeechText;
+                    }
+
+                    let clean = text ? text.trim() : '';
                     
                     const hallucinations = [
                         'ご視聴ありがとうございました',
@@ -555,7 +619,9 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
 
                     const isHallucination = hallucinations.some(h => clean.includes(h) || h.includes(clean)) && clean.length < 30;
 
-                    if (isHallucination || !clean) {
+                    if (isHallucination && webSpeechText) {
+                        clean = webSpeechText;
+                    } else if (isHallucination || !clean) {
                         setTranscript('');
                         return;
                     }
@@ -583,6 +649,14 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
         if (!isRecordingRef.current) return;
         setIsRecording(false);
         isRecordingRef.current = false;
+
+        try {
+            if (recognitionRef.current) {
+                recognitionRef.current.stop();
+            }
+        } catch (e) {
+            console.warn('Error stopping speech recognition:', e);
+        }
 
         try {
             if (mediaRecorderRef.current && mediaRecorderRef.current.state !== 'inactive') {

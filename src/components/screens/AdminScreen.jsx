@@ -531,6 +531,7 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
             {activeSection === 'ai' && (
                 <AdminAiSection
                     adminConfig={adminConfig}
+                    currentUserId={currentUserId}
                     handleChangeFeatureModel={handleChangeFeatureModel}
                     onOpenBlankFiller={() => setShowBlankFillerModal(true)}
                     onOpenGrammarStandardizer={() => setShowGrammarStandardizerModal(true)}

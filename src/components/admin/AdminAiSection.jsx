@@ -1,8 +1,31 @@
-import React from 'react';
-import { Bot, Settings, Layers, FileText, Wand2, Sparkles, BookMarked } from 'lucide-react';
-import { AI_FEATURES, OPENROUTER_MODELS } from '../../utils/adminSettings';
+import React, { useState, useEffect } from 'react';
+import { Bot, Settings, Layers, FileText, Wand2, Sparkles, BookMarked, Mic, Key, Check, Loader2 } from 'lucide-react';
+import { AI_FEATURES, OPENROUTER_MODELS, updateAdminConfig } from '../../utils/adminSettings';
 
-const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarStandardizer, onOpenPdfIngestor, onOpenBlankFiller }) => {
+const AdminAiSection = ({ adminConfig, currentUserId, handleChangeFeatureModel, onOpenGrammarStandardizer, onOpenPdfIngestor, onOpenBlankFiller }) => {
+    const [groqKeyInput, setGroqKeyInput] = useState(adminConfig?.groqApiKey || '');
+    const [savingGroqKey, setSavingGroqKey] = useState(false);
+    const [groqSaved, setGroqSaved] = useState(false);
+
+    useEffect(() => {
+        if (adminConfig?.groqApiKey !== undefined) {
+            setGroqKeyInput(adminConfig.groqApiKey);
+        }
+    }, [adminConfig?.groqApiKey]);
+
+    const handleSaveGroqKey = async () => {
+        setSavingGroqKey(true);
+        try {
+            await updateAdminConfig({ groqApiKey: groqKeyInput.trim() }, currentUserId);
+            setGroqSaved(true);
+            setTimeout(() => setGroqSaved(false), 3000);
+        } catch (e) {
+            console.error('Failed to save Groq API key:', e);
+            alert('Lỗi lưu Groq API Key: ' + e.message);
+        } finally {
+            setSavingGroqKey(false);
+        }
+    };
     return (
         <div className="space-y-4">
             {/* AI Provider Selection */}
@@ -138,6 +161,46 @@ const AdminAiSection = ({ adminConfig, handleChangeFeatureModel, onOpenGrammarSt
                     <Wand2 className="w-4 h-4" />
                     Mở Bảng Điều Khiển
                 </button>
+            </div>
+
+            {/* Cấu hình Whisper STT (Groq Cloud) */}
+            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 space-y-3">
+                <div className="flex items-center justify-between flex-wrap gap-3 border-b border-gray-100 dark:border-gray-700 pb-3">
+                    <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-lg bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center">
+                            <Mic className="w-5 h-5 text-sky-600 dark:text-sky-400" />
+                        </div>
+                        <div>
+                            <p className="font-bold text-gray-800 dark:text-white">Cấu hình Speech-to-Text: Groq Whisper STT</p>
+                            <p className="text-xs text-gray-500 dark:text-gray-400">Dùng cho Luyện nói Kaiwa AI & Shadowing (Miễn phí 100% tại console.groq.com)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-3 items-center">
+                    <div className="relative flex-1 w-full">
+                        <Key className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+                        <input
+                            type="password"
+                            value={groqKeyInput}
+                            onChange={(e) => setGroqKeyInput(e.target.value)}
+                            placeholder="Nhập Groq API Key (bắt đầu bằng gsk_...)"
+                            className="w-full pl-9 pr-3 py-2.5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl outline-none text-xs dark:text-white font-mono focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
+                        />
+                    </div>
+                    <button
+                        type="button"
+                        onClick={handleSaveGroqKey}
+                        disabled={savingGroqKey}
+                        className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer disabled:opacity-50 shrink-0"
+                    >
+                        {savingGroqKey ? <Loader2 className="w-4 h-4 animate-spin" /> : groqSaved ? <Check className="w-4 h-4 text-white" /> : null}
+                        {groqSaved ? 'Đã lưu thành công!' : 'Lưu Key Groq'}
+                    </button>
+                </div>
+                <p className="text-[11px] text-gray-400 leading-relaxed">
+                    💡 Khóa API này được lưu bảo mật trong cấu hình hệ thống (Firestore). Bạn cũng có thể điền trực tiếp vào biến <code>VITE_GROQ_API_KEY</code> trong file <code>.env</code>.
+                </p>
             </div>
 
             {/* Cấu hình Model theo tính năng */}

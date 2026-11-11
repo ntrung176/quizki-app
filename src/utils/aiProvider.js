@@ -1189,11 +1189,24 @@ export const callKaiwaAI = async (systemPrompt, conversationHistory = [], userMe
 
 // ============== WHISPER STT CALL ==============
 export const callWhisperSTT = async (audioBlob, langCode = 'ja') => {
-    const groqKey = import.meta.env.VITE_GROQ_API_KEY;
+    let groqKey = import.meta.env.VITE_GROQ_API_KEY;
     const openaiKey = import.meta.env.VITE_OPENAI_API_KEY;
 
+    // Nếu chưa có trong .env, kiểm tra xem Admin đã lưu trong Firestore adminConfig chưa
     if (!groqKey && !openaiKey) {
-        throw new Error('Thiếu API Key cho Whisper STT. Vui lòng cấu hình VITE_GROQ_API_KEY trong file .env');
+        try {
+            const { loadAdminConfig } = await import('./adminSettings');
+            const config = await loadAdminConfig();
+            if (config?.groqApiKey) {
+                groqKey = config.groqApiKey;
+            }
+        } catch (e) {
+            console.warn('Failed to load admin config for Groq key:', e);
+        }
+    }
+
+    if (!groqKey && !openaiKey) {
+        throw new Error('Thiếu API Key cho Whisper STT. Vui lòng cấu hình VITE_GROQ_API_KEY trong file .env hoặc tab Quản trị Admin (nhận key miễn phí tại https://console.groq.com/keys)');
     }
 
     const formData = new FormData();
