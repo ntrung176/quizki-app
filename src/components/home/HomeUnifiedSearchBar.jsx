@@ -283,6 +283,7 @@ export default function HomeUnifiedSearchBar({
                                 m: Array.isArray(v.meaning) ? v.meaning : [v.meaning],
                                 hv: v.sinoViet || v.sinoVietnamese || '',
                                 j: v.level ? v.level.replace('N', '') : null,
+                                p: v.pos ? [v.pos] : (v.partOfSpeech ? [v.partOfSpeech] : []),
                                 ex: (v.example || v.exampleSentence) ? {
                                     ja: v.example || v.exampleSentence,
                                     vi: v.exampleMeaning || v.exampleTranslation || ''

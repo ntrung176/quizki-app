@@ -899,12 +899,42 @@ const Flashcard = ({
     let backCardClass = "";
 
     if (variant === 'review' || variant === 'emerald') {
-        frontCardClass = `absolute inset-0 backface-hidden bg-gradient-to-br from-blue-600 to-sky-500 rounded-[32px] border-4 border-white shadow-2xl ${scale.cardPadding || 'p-4 sm:p-6'} flex flex-col items-center w-full h-full hover:shadow-3xl transition-shadow overflow-hidden`;
-        backCardClass = `absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-[32px] border-4 border-white shadow-2xl ${scale.cardPadding || 'p-4 sm:p-6'} flex flex-col items-center w-full h-full hover:shadow-3xl transition-shadow overflow-hidden`;
+        frontCardClass = `absolute inset-0 backface-hidden bg-gradient-to-br from-blue-600 to-sky-500 rounded-[32px] border-4 border-white shadow-2xl ${scale.cardPadding || 'p-4 sm:p-6'} flex flex-col items-center w-full h-full hover:shadow-3xl transition-shadow`;
+        backCardClass = `absolute inset-0 backface-hidden rotate-y-180 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-[32px] border-4 border-white shadow-2xl ${scale.cardPadding || 'p-4 sm:p-6'} flex flex-col items-center w-full h-full hover:shadow-3xl transition-shadow`;
     } else {
-        frontCardClass = `absolute inset-0 backface-hidden bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none ${scale.cardPadding || 'p-4 sm:p-6'} flex flex-col items-center text-center overflow-hidden w-full h-full transition-shadow hover:shadow-xl`;
-        backCardClass = `absolute inset-0 backface-hidden rotate-y-180 bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none ${scale.cardPadding || 'p-4 sm:p-6'} flex flex-col items-center text-center overflow-hidden w-full h-full transition-shadow hover:shadow-xl`;
+        frontCardClass = `absolute inset-0 backface-hidden bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none ${scale.cardPadding || 'p-4 sm:p-6'} flex flex-col items-center text-center w-full h-full transition-shadow hover:shadow-xl`;
+        backCardClass = `absolute inset-0 backface-hidden rotate-y-180 bg-white dark:bg-slate-800 rounded-[32px] border border-gray-200/80 dark:border-slate-700/80 shadow-lg shadow-gray-150/30 dark:shadow-none ${scale.cardPadding || 'p-4 sm:p-6'} flex flex-col items-center text-center w-full h-full transition-shadow hover:shadow-xl`;
     }
+
+    const frontFaceStyle = {
+        WebkitBackfaceVisibility: 'hidden',
+        backfaceVisibility: 'hidden',
+        transform: 'rotateY(0deg) translateZ(1px)',
+        WebkitTransform: 'rotateY(0deg) translateZ(1px)',
+        visibility: isFlipped ? 'hidden' : 'visible',
+        opacity: isFlipped ? 0 : 1,
+        pointerEvents: isFlipped ? 'none' : 'auto',
+        transition: transitionEnabled
+            ? (isFlipped
+                ? 'opacity 0.05s linear 0.18s, visibility 0s linear 0.18s'
+                : 'opacity 0.12s ease-out 0.2s, visibility 0s linear 0.2s')
+            : 'none',
+    };
+
+    const backFaceStyle = {
+        WebkitBackfaceVisibility: 'hidden',
+        backfaceVisibility: 'hidden',
+        transform: 'rotateY(180deg) translateZ(1px)',
+        WebkitTransform: 'rotateY(180deg) translateZ(1px)',
+        visibility: isFlipped ? 'visible' : 'hidden',
+        opacity: isFlipped ? 1 : 0,
+        pointerEvents: isFlipped ? 'auto' : 'none',
+        transition: transitionEnabled
+            ? (isFlipped
+                ? 'opacity 0.12s ease-out 0.18s, visibility 0s linear 0.18s'
+                : 'opacity 0.05s linear 0.18s, visibility 0s linear 0.18s')
+            : 'none',
+    };
 
     return (
         <div className={`perspective-1000 w-full mx-auto relative select-none ${isTypingBlocked ? 'cursor-default' : 'cursor-pointer'}`}>
@@ -927,15 +957,15 @@ const Flashcard = ({
                 }}
             >
                 {/* Front Side */}
-                <div className={frontCardClass}>
-                    <div className="flex flex-col items-center justify-center min-h-full w-full relative h-full my-auto">
+                <div className={frontCardClass} style={frontFaceStyle}>
+                    <div className="flex flex-col items-center justify-center min-h-full w-full relative h-full my-auto overflow-hidden rounded-[28px]">
                         {renderFrontContent()}
                     </div>
                 </div>
 
                 {/* Back Side */}
-                <div className={backCardClass}>
-                    <div className={`flex flex-col items-center w-full h-full min-h-0 relative ${hasExamples ? '' : 'justify-center min-h-full my-auto'}`}>
+                <div className={backCardClass} style={backFaceStyle}>
+                    <div className={`flex flex-col items-center w-full h-full min-h-0 relative overflow-hidden rounded-[28px] ${hasExamples ? '' : 'justify-center min-h-full my-auto'}`}>
                         {renderBackContent()}
                     </div>
 

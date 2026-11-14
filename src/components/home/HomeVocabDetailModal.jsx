@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { X, Volume2, Sparkles, Plus, Check, BookOpen, ChevronRight } from 'lucide-react';
 import { speakJapanese, speakExampleSentence } from '../../utils/audio';
+import { formatJlptLevel, formatPosTag } from './HomeSearchCards';
 
 export default function HomeVocabDetailModal({
     isOpen,
@@ -20,8 +21,8 @@ export default function HomeVocabDetailModal({
     const reading = entry.r || '';
     const sinoViet = (entry.hv || '').toUpperCase();
     const meanings = Array.isArray(entry.m) ? entry.m : (entry.m ? [entry.m] : []);
-    const level = entry.j ? `N${entry.j}` : null;
-    const pos = Array.isArray(entry.p) && entry.p.length > 0 ? entry.p.join(', ') : null;
+    const level = formatJlptLevel(entry.j);
+    const pos = Array.isArray(entry.p) && entry.p.length > 0 ? entry.p.map(formatPosTag).filter(Boolean).join(', ') : null;
     const exampleJa = entry.ex?.ja || '';
     const exampleVi = entry.ex?.vi || entry.ex?.en || '';
 

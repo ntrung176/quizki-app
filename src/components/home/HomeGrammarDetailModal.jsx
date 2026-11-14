@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { X, Heart, BookOpen, Volume2, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { speakExampleSentence } from '../../utils/audio';
+import { formatGrammarStructure, formatJlptLevel } from './HomeSearchCards';
 
 export default function HomeGrammarDetailModal({
-    isOpen,
+    isOpen = true,
     onClose,
     point,
     isBookmarked = false,
@@ -15,11 +16,11 @@ export default function HomeGrammarDetailModal({
 
     if (!isOpen || !point) return null;
 
-    const pattern = point.pattern || point.title || '';
-    const meaning = point.meaningShort || point.meaning || point.meaningVi || '';
-    const structure = point.structureRaw || point.structure || point.connection || '';
-    const level = point.level || 'Custom';
-    const notes = point.notes || point.usageScope || point.explanation || '';
+    const pattern = typeof point.pattern === 'string' ? point.pattern : (point.title || '');
+    const meaning = typeof point.meaningShort === 'string' ? point.meaningShort : (typeof point.meaning === 'string' ? point.meaning : (typeof point.meaningVi === 'string' ? point.meaningVi : ''));
+    const structure = formatGrammarStructure(point.structureRaw || point.structure || point.connection);
+    const level = formatJlptLevel(point.level) || point.level || 'Custom';
+    const notes = typeof point.notes === 'string' ? point.notes : (typeof point.usageScope === 'string' ? point.usageScope : (typeof point.explanation === 'string' ? point.explanation : ''));
     const examples = Array.isArray(point.examples) ? point.examples : [];
 
     const handlePlayAudio = (text, idx) => {

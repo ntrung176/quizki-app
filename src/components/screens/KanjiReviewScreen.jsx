@@ -1290,7 +1290,27 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                             >
                                 {/* Front Side */}
                                 <div className="bg-white dark:bg-slate-800 rounded-3xl border-2 border-b-4 border-slate-200 dark:border-slate-700 shadow-md"
-                                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backfaceVisibility: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                                    style={{
+                                        position: 'absolute',
+                                        top: 0,
+                                        left: 0,
+                                        width: '100%',
+                                        height: '100%',
+                                        backfaceVisibility: 'hidden',
+                                        WebkitBackfaceVisibility: 'hidden',
+                                        transform: 'rotateY(0deg) translateZ(1px)',
+                                        WebkitTransform: 'rotateY(0deg) translateZ(1px)',
+                                        visibility: isFlipped ? 'hidden' : 'visible',
+                                        opacity: isFlipped ? 0 : 1,
+                                        pointerEvents: isFlipped ? 'none' : 'auto',
+                                        transition: isAnimatingFlip
+                                            ? (isFlipped ? 'opacity 0.05s linear 0.18s, visibility 0s linear 0.18s' : 'opacity 0.12s ease-out 0.2s, visibility 0s linear 0.2s')
+                                            : 'none',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        alignItems: 'center',
+                                        justifyContent: 'center'
+                                    }}>
                                     {!kanjiSwapSides ? (
                                         <>
                                             <div className="text-[140px] leading-none font-bold text-gray-800 dark:text-white select-none font-japanese">{currentCard.character}</div>
@@ -1321,7 +1341,29 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                                 </div>
                                 {/* Back Side */}
                                 <div className="bg-white dark:bg-slate-800 rounded-3xl border-2 border-b-4 border-slate-200 dark:border-slate-700 shadow-md"
-                                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', backfaceVisibility: 'hidden', transform: 'rotateY(180deg)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', padding: '32px', overflowY: 'auto' }}>
+                                    style={{
+                                        position: 'absolute',
+                                        top: 0,
+                                        left: 0,
+                                        width: '100%',
+                                        height: '100%',
+                                        backfaceVisibility: 'hidden',
+                                        WebkitBackfaceVisibility: 'hidden',
+                                        transform: 'rotateY(180deg) translateZ(1px)',
+                                        WebkitTransform: 'rotateY(180deg) translateZ(1px)',
+                                        visibility: isFlipped ? 'visible' : 'hidden',
+                                        opacity: isFlipped ? 1 : 0,
+                                        pointerEvents: isFlipped ? 'auto' : 'none',
+                                        transition: isAnimatingFlip
+                                            ? (isFlipped ? 'opacity 0.12s ease-out 0.18s, visibility 0s linear 0.18s' : 'opacity 0.05s linear 0.18s, visibility 0s linear 0.18s')
+                                            : 'none',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        padding: '32px',
+                                        overflowY: 'auto'
+                                    }}>
                                     <div className="text-center space-y-4 w-full">
                                         {!kanjiSwapSides ? (
                                             <>

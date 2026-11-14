@@ -241,7 +241,7 @@ const QuestionExplanationCard = ({
 
                                 {g.structure && (
                                     <div className="text-xs font-medium text-slate-600 dark:text-slate-300">
-                                        <strong className="text-slate-900 dark:text-white">Cấu trúc:</strong> {g.structure}
+                                        <strong className="text-slate-900 dark:text-white">Cấu trúc:</strong> {typeof g.structure === 'string' ? g.structure : (Array.isArray(g.structure) ? g.structure.map(s => (typeof s === 'object' ? s?.text : s) || '').filter(Boolean).join(' ') : (g.structure?.text || ''))}
                                     </div>
                                 )}
 

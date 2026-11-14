@@ -2,6 +2,102 @@ import React from 'react';
 import { Volume2, Plus, Sparkles, Heart, ChevronRight, Check } from 'lucide-react';
 import { speakJapanese } from '../../utils/audio';
 
+// Map common Japanese POS abbreviations to friendly Vietnamese labels
+export const POS_VIETNAMESE_MAP = {
+    // Verbs
+    'v1': 'Động từ nhóm 2',
+    'v5': 'Động từ nhóm 1',
+    'v5k': 'Động từ nhóm 1 (k)',
+    'v5s': 'Động từ nhóm 1 (s)',
+    'v5t': 'Động từ nhóm 1 (t)',
+    'v5n': 'Động từ nhóm 1 (n)',
+    'v5m': 'Động từ nhóm 1 (m)',
+    'v5r': 'Động từ nhóm 1 (r)',
+    'v5w': 'Động từ nhóm 1 (w)',
+    'v5g': 'Động từ nhóm 1 (g)',
+    'v5b': 'Động từ nhóm 1 (b)',
+    'v5u': 'Động từ nhóm 1 (u)',
+    'v5k-s': 'Động từ nhóm 1 (k-s)',
+    'v5r-i': 'Động từ nhóm 1 (r-i)',
+    'vk': 'Động từ Kuru (nhóm 3)',
+    'vs': 'Động từ Suru (nhóm 3)',
+    'vs-i': 'Động từ Suru (nhóm 3)',
+    'vs-s': 'Động từ Suru (nhóm 3)',
+    'vz': 'Động từ nhóm 2',
+    'vi': 'Tự động từ',
+    'vt': 'Tha động từ',
+    'aux-v': 'Trợ động từ',
+    // Adjectives
+    'adj-i': 'Tính từ đuôi -i',
+    'adj-na': 'Tính từ đuôi -na',
+    'adj-no': 'Danh từ đuôi -no',
+    'adj-pn': 'Tính từ bổ nghĩa',
+    'adj-t': 'Tính từ dạng -taru',
+    'adj-f': 'Tính từ dạng cố định',
+    'aux-adj': 'Trợ tính từ',
+    // Nouns
+    'n': 'Danh từ',
+    'n-adv': 'Danh từ phó từ',
+    'n-t': 'Danh từ chỉ thời gian',
+    'n-suf': 'Hậu tố danh từ',
+    'n-pref': 'Tiền tố danh từ',
+    // Adverbs & Particles
+    'adv': 'Phó từ',
+    'adv-to': 'Phó từ đuôi と',
+    'prt': 'Trợ từ',
+    'conj': 'Liên từ',
+    'exp': 'Cụm từ',
+    'int': 'Thán từ',
+    'pn': 'Đại từ',
+    'num': 'Số từ',
+    'ctr': 'Lượng từ / Đơn vị đếm',
+    'pref': 'Tiền tố',
+    'suf': 'Hậu tố',
+    'cop': 'Hệ từ'
+};
+
+export const formatPosTag = (pos) => {
+    if (!pos) return '';
+    const clean = String(pos).trim().toLowerCase();
+    if (POS_VIETNAMESE_MAP[clean]) return POS_VIETNAMESE_MAP[clean];
+    if (clean.startsWith('v5')) return 'Động từ nhóm 1';
+    if (clean.startsWith('adj-i')) return 'Tính từ đuôi -i';
+    if (clean.startsWith('adj-na')) return 'Tính từ đuôi -na';
+    if (clean.startsWith('adj-no')) return 'Danh từ đuôi -no';
+    if (clean.startsWith('n-')) return 'Danh từ';
+    if (clean.startsWith('v1')) return 'Động từ nhóm 2';
+    if (clean.startsWith('vs')) return 'Động từ Suru';
+    return pos;
+};
+
+export const formatJlptLevel = (levelVal) => {
+    if (!levelVal) return null;
+    const str = String(levelVal).trim().toUpperCase();
+    if (!str || str === 'NULL' || str === 'UNDEFINED') return null;
+    const match = str.match(/(?:N+)?([1-5])/);
+    return match ? `N${match[1]}` : str;
+};
+
+export const formatGrammarStructure = (structure) => {
+    if (!structure) return '';
+    if (typeof structure === 'string') return structure;
+    if (Array.isArray(structure)) {
+        return structure
+            .map(item => {
+                if (!item) return '';
+                if (typeof item === 'string') return item;
+                if (typeof item === 'object') return item.text || item.content || item.formula || '';
+                return String(item);
+            })
+            .filter(Boolean)
+            .join(' ');
+    }
+    if (typeof structure === 'object') {
+        return structure.text || structure.content || structure.raw || '';
+    }
+    return String(structure);
+};
+
 // JLPT badge styling using Duolingo-compliant colors (No purple/indigo)
 const JLPT_BADGES = {
     N5: 'bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800',
@@ -36,8 +132,8 @@ export const VocabResultCard = ({
     const word = entry.w || entry.r || '';
     const reading = entry.r || '';
     const meaningsText = Array.isArray(entry.m) ? entry.m.join(', ') : (entry.m || '');
-    const posTag = Array.isArray(entry.p) && entry.p.length > 0 ? entry.p[0] : null;
-    const level = entry.j ? `N${entry.j}` : null;
+    const posTag = Array.isArray(entry.p) && entry.p.length > 0 ? formatPosTag(entry.p[0]) : null;
+    const level = formatJlptLevel(entry.j);
     const sinoViet = entry.hv ? entry.hv.toUpperCase() : null;
 
     const handlePlayAudio = (e) => {
@@ -156,7 +252,7 @@ export const KanjiResultCard = ({
     const meaningVi = kanji.meaningVi || (Array.isArray(kanji.meanings) ? kanji.meanings.join(', ') : kanji.meaning || '');
     const onyomiStr = Array.isArray(kanji.onyomi) ? kanji.onyomi.join('、') : (kanji.onyomi || '');
     const kunyomiStr = Array.isArray(kanji.kunyomi) ? kanji.kunyomi.join('、') : (kanji.kunyomi || '');
-    const level = kanji.level || (kanji.jlpt ? `N${kanji.jlpt}` : null);
+    const level = formatJlptLevel(kanji.level || kanji.jlpt);
     const strokeCount = kanji.stroke_count || kanji.strokeCount || null;
 
     return (
@@ -264,8 +360,8 @@ export const GrammarResultCard = ({
 }) => {
     const pattern = point.pattern || point.title || '';
     const meaning = point.meaningShort || point.meaning || point.meaningVi || '';
-    const structure = point.structureRaw || point.structure || point.connection || '';
-    const level = point.level || 'Custom';
+    const structure = formatGrammarStructure(point.structureRaw || point.structure || point.connection);
+    const level = formatJlptLevel(point.level);
 
     return (
         <div
