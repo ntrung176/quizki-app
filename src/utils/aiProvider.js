@@ -809,9 +809,16 @@ export const aiAssistVocab = async (frontText, contextPos = '', contextLevel = '
 
     const featureId = contextPos === 'grammar' ? 'grammar_gen' : 'vocab_gen';
     const responseText = await callAI(prompt, null, featureId);
-    const result = parseJsonFromAI(responseText);
+    let result = parseJsonFromAI(responseText);
+
+    if (Array.isArray(result) && result.length > 0) {
+        result = result[0];
+    }
 
     if (result) {
+        if (result.word && !result.front) result.front = result.word;
+        if (result.hanviet && !result.sinoVietnamese) result.sinoVietnamese = result.hanviet;
+        if (result.back && !result.meaning) result.meaning = result.back;
         if (result.pos) result.pos = normalizePosKey(result.pos);
 
         if (isKorean) {

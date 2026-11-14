@@ -1343,65 +1343,62 @@ const AddCardForm = ({
                                     className="fixed inset-0 z-40" 
                                     onClick={() => setIsToolsMenuOpen(false)} 
                                 />
-                                <div className="absolute right-0 mt-2 w-56 rounded-2xl bg-white dark:bg-slate-800 shadow-xl border border-slate-200 dark:border-slate-700 py-1.5 z-50 animate-scale-up divide-y divide-slate-100 dark:divide-slate-700/60">
-                                    <div className="p-1 space-y-0.5">
-                                        {onGeminiAssist && (
-                                            <>
-                                                <button
-                                                    type="button"
-                                                    onClick={() => {
-                                                        setIsToolsMenuOpen(false);
-                                                        if (!canUserUseAI) {
-                                                            setShowPremiumModal(true);
-                                                            return;
-                                                        }
-                                                        setBatchModalInitialTab('text');
-                                                        setIsBatchModalOpen(true);
-                                                    }}
-                                                    data-tour-id="AI_BATCH_BTN"
-                                                    className="w-full px-3 py-2 text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/60 rounded-xl flex items-center gap-2.5 transition-colors cursor-pointer text-left"
-                                                >
-                                                    <span className="w-6 h-6 rounded-lg bg-blue-100 dark:bg-slate-700 text-blue-600 dark:text-blue-400 flex items-center justify-center text-[10px] font-black shrink-0">
-                                                        AI
-                                                    </span>
-                                                    <span>{t('forms.aiBatch', 'Tạo bằng AI hàng loạt')}</span>
-                                                </button>
-                                                <button
-                                                    type="button"
-                                                    onClick={() => {
-                                                        setIsToolsMenuOpen(false);
-                                                        if (!canUserUseAI) {
-                                                            setShowPremiumModal(true);
-                                                            return;
-                                                        }
-                                                        setBatchModalInitialTab('image');
-                                                        setIsBatchModalOpen(true);
-                                                    }}
-                                                    className="w-full px-3 py-2 text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/60 rounded-xl flex items-center gap-2.5 transition-colors cursor-pointer text-left"
-                                                >
-                                                    <div className="w-6 h-6 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                                                        <Camera className="w-3.5 h-3.5" />
-                                                    </div>
-                                                    <span>{t('editSet.ocrImage', 'Tạo từ vựng từ ảnh (OCR)')}</span>
-                                                </button>
-                                            </>
-                                        )}
-                                    </div>
-                                    <div className="p-1">
-                                        <button
-                                            type="button"
-                                            onClick={() => {
-                                                setIsToolsMenuOpen(false);
-                                                setIsJsonModalOpen(true);
-                                            }}
-                                            className="w-full px-3 py-2 text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/60 rounded-xl flex items-center gap-2.5 transition-colors cursor-pointer text-left"
-                                        >
-                                            <div className="w-6 h-6 rounded-lg bg-sky-100 dark:bg-sky-950/40 text-sky-600 dark:text-sky-400 flex items-center justify-center shrink-0">
-                                                <FileJson className="w-3.5 h-3.5" />
-                                            </div>
-                                            <span>{t('editSet.importJson', 'Nhập JSON thủ công')}</span>
-                                        </button>
-                                    </div>
+                                <div className="absolute right-0 mt-2 w-60 rounded-2xl bg-white dark:bg-slate-800 shadow-2xl border-2 border-slate-200 dark:border-slate-700 p-1.5 z-50 animate-scale-up space-y-1">
+                                    {onGeminiAssist && (
+                                        <>
+                                            <button
+                                                type="button"
+                                                onClick={() => {
+                                                    setIsToolsMenuOpen(false);
+                                                    if (!canUserUseAI) {
+                                                        setShowPremiumModal(true);
+                                                        return;
+                                                    }
+                                                    setBatchModalInitialTab('text');
+                                                    setIsBatchModalOpen(true);
+                                                }}
+                                                data-tour-id="AI_BATCH_BTN"
+                                                className="w-full px-3 py-2.5 text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700/60 rounded-xl flex items-center gap-2.5 transition-all cursor-pointer text-left active:scale-[0.98]"
+                                            >
+                                                <div className="w-7 h-7 rounded-lg bg-sky-100 dark:bg-sky-950/50 text-sky-600 dark:text-sky-400 flex items-center justify-center text-[10px] font-black shrink-0 border border-sky-200 dark:border-sky-800">
+                                                    AI
+                                                </div>
+                                                <span className="font-extrabold">{t('forms.aiBatch', 'Tạo bằng AI hàng loạt')}</span>
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={() => {
+                                                    setIsToolsMenuOpen(false);
+                                                    if (!canUserUseAI) {
+                                                        setShowPremiumModal(true);
+                                                        return;
+                                                    }
+                                                    setBatchModalInitialTab('image');
+                                                    setIsBatchModalOpen(true);
+                                                }}
+                                                className="w-full px-3 py-2.5 text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700/60 rounded-xl flex items-center gap-2.5 transition-all cursor-pointer text-left active:scale-[0.98]"
+                                            >
+                                                <div className="w-7 h-7 rounded-lg bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-200 dark:border-emerald-800">
+                                                    <Camera className="w-3.5 h-3.5" />
+                                                </div>
+                                                <span className="font-extrabold">{t('editSet.ocrImage', 'Tạo từ vựng từ ảnh (OCR)')}</span>
+                                            </button>
+                                        </>
+                                    )}
+                                    <div className="h-px bg-slate-100 dark:bg-slate-700/60 my-1" />
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            setIsToolsMenuOpen(false);
+                                            setIsJsonModalOpen(true);
+                                        }}
+                                        className="w-full px-3 py-2.5 text-xs font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700/60 rounded-xl flex items-center gap-2.5 transition-all cursor-pointer text-left active:scale-[0.98]"
+                                    >
+                                        <div className="w-7 h-7 rounded-lg bg-amber-100 dark:bg-amber-950/50 text-amber-600 dark:text-amber-400 flex items-center justify-center shrink-0 border border-amber-200 dark:border-amber-800">
+                                            <FileJson className="w-3.5 h-3.5" />
+                                        </div>
+                                        <span className="font-extrabold">{t('editSet.importJson', 'Nhập JSON thủ công')}</span>
+                                    </button>
                                 </div>
                             </>
                         )}

@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Cpu, Upload, Image as ImageIcon, X, Play, StopCircle, Loader2, CheckCircle, AlertTriangle, Camera, FileText } from 'lucide-react';
-import PremiumLockedModal from '../ui/PremiumLockedModal';
+import { Cpu, Upload, Image as ImageIcon, X, Play, StopCircle, Loader2, CheckCircle, AlertTriangle, Camera, FileText, Sparkles } from 'lucide-react';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { useLanguage } from '../../context/LanguageContext';
 import { getLanguageService } from '../../languages';
@@ -32,13 +31,12 @@ const BatchAiModal = ({
     // Generation progress state
     const [isGenerating, setIsGenerating] = useState(false);
     const [progress, setProgress] = useState({ current: 0, total: 0, currentWord: '' });
-    const [processedWords, setProcessedWords] = useState([]); // Array of { word, status: 'success' | 'error' }
+    const [processedWords, setProcessedWords] = useState([]);
 
     const isCancelledRef = useRef(false);
     const fileInputRef = useRef(null);
     const cameraInputRef = useRef(null);
 
-    // Reset state on open/close
     useEffect(() => {
         if (isOpen) {
             setActiveTab(initialTab);
@@ -55,10 +53,7 @@ const BatchAiModal = ({
 
     if (!isOpen) return null;
 
-    // Handle drag and drop events
-    const handleDragOver = (e) => {
-        e.preventDefault();
-    };
+    const handleDragOver = (e) => e.preventDefault();
 
     const handleDrop = async (e) => {
         e.preventDefault();
@@ -66,15 +61,13 @@ const BatchAiModal = ({
         if (file && file.type.startsWith('image/')) {
             await processSelectedFile(file);
         } else {
-            showToast(t('batchAi.imageOnlyError', 'Chỉ hỗ trợ file hình ảnh!'), 'error');
+            showToast('Chỉ hỗ trợ file hình ảnh!', 'error');
         }
     };
 
     const handleFileSelect = async (e) => {
         const file = e.target.files[0];
-        if (file) {
-            await processSelectedFile(file);
-        }
+        if (file) await processSelectedFile(file);
     };
 
     const processSelectedFile = async (file) => {
@@ -84,15 +77,10 @@ const BatchAiModal = ({
             setImagePreview(compressed);
         } catch (error) {
             console.error('Lỗi nén ảnh:', error);
-            showToast(language === 'vi' ? 'Không thể nén ảnh này. Vui lòng chọn ảnh khác.' : 'Cannot compress this image. Please select another image.', 'error');
+            showToast('Không thể nén ảnh này. Vui lòng chọn ảnh khác.', 'error');
         }
     };
 
-    const triggerFileSelect = () => {
-        fileInputRef.current?.click();
-    };
-
-    // Run OCR using onExtractVocabFromImage
     const handleStartOcr = async () => {
         if (!imagePreview || !onExtractVocabFromImage) return;
 
@@ -100,21 +88,19 @@ const BatchAiModal = ({
         try {
             const extractedWords = await onExtractVocabFromImage(imagePreview);
             if (extractedWords && Array.isArray(extractedWords) && extractedWords.length > 0) {
-                // Append extracted words to text area
                 const newText = extractedWords.join('\n');
                 setTextInput(prev => {
                     const cleanPrev = prev.trim();
                     return cleanPrev ? `${cleanPrev}\n${newText}` : newText;
                 });
-                showToast(t('batchAi.ocrSuccess', 'Đã nhận diện thành công {count} từ vựng!').replace('{count}', extractedWords.length), 'success');
-                // Switch back to text tab to verify
+                showToast(`Đã nhận diện thành công ${extractedWords.length} từ vựng! 🎉`, 'success');
                 setActiveTab('text');
             } else {
-                showToast(t('batchAi.ocrNoWords', 'Không nhận diện được từ vựng nào trong ảnh.'), 'warning');
+                showToast('Không nhận diện được từ vựng nào trong ảnh.', 'warning');
             }
         } catch (error) {
             console.error('OCR Error:', error);
-            showToast(t('batchAi.ocrError', 'Có lỗi xảy ra khi nhận diện chữ từ ảnh chụp.'), 'error');
+            showToast('Có lỗi xảy ra khi nhận diện chữ từ ảnh chụp.', 'error');
         } finally {
             setIsOcrLoading(false);
             setSelectedImage(null);
@@ -122,7 +108,6 @@ const BatchAiModal = ({
         }
     };
 
-    // Sequential bulk generation
     const handleStartGeneration = async () => {
         const words = textInput
             .split('\n')
@@ -130,12 +115,12 @@ const BatchAiModal = ({
             .filter(Boolean);
 
         if (words.length === 0) {
-            showToast(t('batchAi.enterAtLeastOneError', 'Vui lòng nhập ít nhất một từ vựng!'), 'error');
+            showToast('Vui lòng nhập ít nhất một từ vựng!', 'error');
             return;
         }
 
         if (words.length > 20) {
-            showToast(t('batchAi.maxTwentyWordsWarning', 'Chỉ hỗ trợ tạo tối đa 20 từ cùng một lúc để tránh quá tải.'), 'warning');
+            showToast('Chỉ hỗ trợ tạo tối đa 20 từ cùng một lúc để đảm bảo tốc độ và chất lượng.', 'warning');
             return;
         }
 
@@ -149,14 +134,13 @@ const BatchAiModal = ({
 
         for (let i = 0; i < words.length; i++) {
             if (isCancelledRef.current) {
-                showToast(t('batchAi.stoppedWarning', 'Đã dừng tiến trình tạo thẻ.'), 'warning');
+                showToast('Đã dừng tiến trình tạo thẻ.', 'warning');
                 break;
             }
 
             const word = words[i];
             setProgress({ current: i + 1, total: words.length, currentWord: word });
 
-            // Check duplicate in study set
             const wordNormalized = word.split('（')[0].split('(')[0].trim().toLowerCase();
             const exists = existingCards.some(c => {
                 if (!c.front) return false;
@@ -167,7 +151,6 @@ const BatchAiModal = ({
             if (exists) {
                 skippedCount++;
                 setProcessedWords(prev => [...prev, { word, status: 'exists' }]);
-                // Small delay to make the skipping readable in UI logs
                 await new Promise(resolve => setTimeout(resolve, 150));
                 continue;
             }
@@ -201,7 +184,6 @@ const BatchAiModal = ({
                     });
                     setProcessedWords(prev => [...prev, { word, status: 'success' }]);
                 } else {
-                    // Fallback to empty card if AI returns null
                     generatedCards.push({
                         id: `new_${Date.now()}_${i}_${Math.random()}`,
                         isNew: true,
@@ -246,13 +228,11 @@ const BatchAiModal = ({
                 setProcessedWords(prev => [...prev, { word, status: 'error' }]);
             }
 
-            // Pause briefly between calls
             if (i < words.length - 1) {
                 await new Promise(resolve => setTimeout(resolve, 800));
             }
         }
 
-        // Callback with all generated cards
         if (generatedCards.length > 0) {
             onGenerateComplete(generatedCards);
         }
@@ -261,43 +241,42 @@ const BatchAiModal = ({
         onClose();
 
         if (skippedCount > 0) {
-            showToast(t('batchAi.batchAiSuccessWithSkipped', 'Đã tạo {count} thẻ. Bỏ qua {skippedCount} từ đã có trong học phần.').replace('{count}', generatedCards.length).replace('{skippedCount}', skippedCount), 'warning');
+            showToast(`Đã tạo ${generatedCards.length} thẻ. (Bỏ qua ${skippedCount} từ đã có trong học phần)`, 'warning');
         } else {
-            showToast(t('batchAi.batchAiSuccess', 'Đã tạo thành công {count} thẻ bằng AI!').replace('{count}', generatedCards.length), 'success');
+            showToast(`Đã tạo thành công ${generatedCards.length} thẻ bằng AI! 🎉`, 'success');
         }
     };
 
-    const handleStopGeneration = () => {
-        isCancelledRef.current = true;
-    };
-
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-fade-in" onClick={() => !isGenerating && !isOcrLoading && onClose()}>
+        <div 
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-150"
+            onClick={() => !isGenerating && !isOcrLoading && onClose()}
+        >
             <div 
-                className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl max-w-xl w-full overflow-hidden border border-slate-200 dark:border-slate-700 animate-scale-up"
+                className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl max-w-xl w-full max-h-[92vh] flex flex-col border-2 border-slate-200 dark:border-slate-800 overflow-hidden"
                 onClick={e => e.stopPropagation()}
             >
-                {/* Header */}
-                <div className="flex items-center justify-between p-5 border-b border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-900">
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-600 dark:text-blue-400 flex items-center justify-center">
-                            {activeTab === 'image' ? <ImageIcon className="w-5 h-5" /> : <Cpu className="w-5 h-5" />}
+                {/* Duolingo-Styled Header */}
+                <div className="p-4 sm:p-5 border-b-2 border-slate-100 dark:border-slate-800 flex items-center justify-between bg-slate-50/80 dark:bg-slate-850">
+                    <div className="flex items-center gap-3.5 min-w-0">
+                        <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-2 border-emerald-400/40 flex items-center justify-center font-black shrink-0 shadow-xs">
+                            {activeTab === 'image' ? <Camera className="w-6 h-6 stroke-[2.2]" /> : <Sparkles className="w-6 h-6 stroke-[2.2]" />}
                         </div>
-                        <div>
-                            <h3 className="font-bold text-slate-800 dark:text-white text-lg">
-                                {activeTab === 'image' ? t('batchAi.titleOcr', 'Quét từ vựng từ ảnh chụp') : t('batchAi.titleText', 'Tạo bằng AI hàng loạt')}
+                        <div className="min-w-0">
+                            <h3 className="font-black text-slate-900 dark:text-white text-base sm:text-lg tracking-tight truncate">
+                                {activeTab === 'image' ? 'Quét từ vựng từ ảnh (OCR)' : 'Tạo từ vựng hàng loạt bằng AI'}
                             </h3>
-                            <p className="text-xs text-slate-500 dark:text-slate-400">
+                            <p className="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5 font-medium">
                                 {activeTab === 'image'
-                                    ? (isKoreanMode ? t('batchAi.subtitleOcrKo', 'Trích xuất từ vựng tiếng Hàn từ hình ảnh tài liệu') : isEnglishMode ? t('batchAi.subtitleOcrEn', 'Trích xuất từ vựng tiếng Anh từ hình ảnh tài liệu') : t('batchAi.subtitleOcrJa', 'Trích xuất từ vựng tiếng Nhật từ hình ảnh tài liệu'))
-                                    : (isKoreanMode ? t('batchAi.subtitleTextKo', 'AI sẽ tự tra cứu từ điển và tự động điền đầy đủ dữ liệu cho tiếng Hàn') : isEnglishMode ? t('batchAi.subtitleTextEn', 'AI sẽ tự tra cứu từ điển và tự động điền đầy đủ dữ liệu cho tiếng Anh') : t('batchAi.subtitleTextJa', 'Tạo nhiều thẻ từ vựng đầy đủ thông tin cùng lúc'))}
+                                    ? 'Trích xuất văn bản từ hình ảnh chụp tài liệu hoặc giáo trình'
+                                    : 'AI tự tra từ điển, tạo câu ví dụ ngắn thông dụng và âm Hán Việt'}
                             </p>
                         </div>
                     </div>
                     {(!isGenerating && !isOcrLoading) && (
                         <button 
                             onClick={onClose} 
-                            className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                            className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 transition cursor-pointer shrink-0"
                         >
                             <X className="w-5 h-5" />
                         </button>
@@ -305,59 +284,61 @@ const BatchAiModal = ({
                 </div>
 
                 {/* Body Content */}
-                <div className="p-6">
+                <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4">
                     {/* Generative Progress View */}
                     {isGenerating ? (
-                        <div className="space-y-6 py-4">
+                        <div className="space-y-5 py-4">
                             <div className="flex items-center justify-between text-sm">
-                                <span className="font-bold text-blue-600 dark:text-blue-400 flex items-center gap-1.5">
-                                    <Loader2 className="w-4 h-4 animate-spin animate-infinite" />
-                                    {t('batchAi.analyzingImage', 'Đang phân tích từ vựng...')}
+                                <span className="font-black text-emerald-600 dark:text-emerald-400 flex items-center gap-2">
+                                    <Loader2 className="w-4 h-4 animate-spin" />
+                                    Đang phân tích từ vựng bằng AI...
                                 </span>
-                                <span className="text-slate-500 font-mono">
+                                <span className="text-slate-500 font-mono font-bold text-xs bg-slate-100 dark:bg-slate-800 px-2.5 py-1 rounded-lg">
                                     {progress.current} / {progress.total}
                                 </span>
                             </div>
 
-                            {/* Progress bar */}
-                            <div className="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-3 overflow-hidden shadow-inner">
+                            {/* Duolingo Progress Bar */}
+                            <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-3.5 overflow-hidden border border-slate-200 dark:border-slate-700">
                                 <div 
-                                    className="bg-blue-600 h-full rounded-full transition-all duration-300 shadow-sm"
+                                    className="bg-emerald-500 h-full rounded-full transition-all duration-300"
                                     style={{ width: `${(progress.current / progress.total) * 100}%` }}
-                                ></div>
+                                />
                             </div>
 
                             {/* Current word display */}
-                            <div className="p-4 bg-slate-50 dark:bg-slate-900/40 rounded-xl border border-slate-200/60 dark:border-slate-700/60 flex items-center justify-between">
-                                <div>
-                                    <p className="text-xs text-slate-400 font-medium">{t('batchAi.analyzingWord', 'TỪ ĐANG PHÂN TÍCH')}</p>
-                                    <p className="text-xl font-black text-slate-800 dark:text-white mt-1 font-mono tracking-wide">{progress.currentWord}</p>
+                            <div className="p-4 bg-emerald-50/60 dark:bg-emerald-950/30 rounded-2xl border-2 border-emerald-200 dark:border-emerald-800/60 flex items-center justify-between gap-4">
+                                <div className="min-w-0">
+                                    <p className="text-[10px] font-black uppercase tracking-wider text-emerald-700 dark:text-emerald-400">
+                                        Từ đang xử lý:
+                                    </p>
+                                    <p className="text-xl font-japanese font-black text-slate-900 dark:text-white mt-0.5 truncate">
+                                        {progress.currentWord}
+                                    </p>
                                 </div>
                                 <button
-                                    onClick={handleStopGeneration}
-                                    className="px-4 py-2 bg-rose-50 dark:bg-rose-950/30 hover:bg-rose-100 dark:hover:bg-rose-900/50 text-rose-600 dark:text-rose-400 text-xs font-bold rounded-lg transition-all flex items-center gap-1 border border-rose-100 dark:border-rose-900/30"
+                                    onClick={() => { isCancelledRef.current = true; }}
+                                    className="px-4 py-2 bg-white dark:bg-slate-800 hover:bg-rose-50 dark:hover:bg-rose-950/40 text-rose-600 text-xs font-bold rounded-xl transition border-2 border-rose-200 dark:border-rose-800/60 flex items-center gap-1.5 cursor-pointer"
                                 >
-                                    <StopCircle className="w-4 h-4" /> {t('batchAi.stop', 'Dừng lại')}
+                                    <StopCircle className="w-4 h-4" /> Dừng lại
                                 </button>
                             </div>
 
                             {/* Real-time word log */}
-                            <div className="space-y-2 max-h-[160px] overflow-y-auto pr-1">
+                            <div className="space-y-2 max-h-[180px] overflow-y-auto pr-1">
                                 {processedWords.map((item, idx) => (
-                                    <div key={idx} className="flex items-center justify-between text-xs px-3 py-2 bg-slate-50 dark:bg-slate-700/30 rounded-lg animate-fade-in">
-                                        <span className="font-semibold text-slate-700 dark:text-slate-300 font-mono">{item.word}</span>
+                                    <div key={idx} className="flex items-center justify-between text-xs px-3.5 py-2.5 bg-slate-50 dark:bg-slate-800/60 rounded-xl border border-slate-200 dark:border-slate-750">
+                                        <span className="font-japanese font-bold text-slate-800 dark:text-slate-200 text-sm">{item.word}</span>
                                         {item.status === 'success' ? (
                                             <span className="text-emerald-600 dark:text-emerald-400 font-bold flex items-center gap-1">
-                                                <CheckCircle className="w-3.5 h-3.5" /> {t('batchAi.successStatus', 'Thành công')}
+                                                <CheckCircle className="w-3.5 h-3.5" /> Hoàn thành
                                             </span>
                                         ) : item.status === 'exists' ? (
                                             <span className="text-amber-600 dark:text-amber-400 font-bold flex items-center gap-1">
-                                                <AlertTriangle className="w-3.5 h-3.5" /> {t('batchAi.alreadyInSetStatus', 'Đã có trong học phần')}
+                                                <AlertTriangle className="w-3.5 h-3.5" /> Đã có sẵn
                                             </span>
                                         ) : (
-                                            <span className="text-amber-600 dark:text-amber-400 font-bold flex items-center gap-1">
-                                                <AlertTriangle className="w-3.5 h-3.5" /> {t('batchAi.fallbackStatus', 'Fallback (Rỗng)')}
-                                            </span>
+                                            <span className="text-slate-400 font-medium">Bỏ qua</span>
                                         )}
                                     </div>
                                 ))}
@@ -365,58 +346,58 @@ const BatchAiModal = ({
                         </div>
                     ) : (
                         <>
-                            {/* Mode Selector Tabs */}
-                            <div className="flex bg-slate-100 dark:bg-slate-900 p-1 rounded-xl mb-5 border border-slate-200/80 dark:border-slate-800">
+                            {/* Duolingo Segmented Tabs */}
+                            <div className="flex bg-slate-100 dark:bg-slate-850 p-1.5 rounded-2xl border-2 border-slate-200/80 dark:border-slate-800 gap-1.5">
                                 <button
                                     type="button"
                                     onClick={() => setActiveTab('text')}
-                                    className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                                    className={`flex-1 py-2.5 text-xs font-black uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer ${
                                         activeTab === 'text'
-                                            ? 'bg-white dark:bg-slate-800 text-blue-600 dark:text-blue-400 shadow-sm'
-                                            : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+                                            ? 'bg-emerald-500 text-white shadow-xs'
+                                            : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                                     }`}
                                 >
-                                    <FileText className="w-3.5 h-3.5" />
-                                    {t('batchAi.textTab', 'Tạo bằng văn bản')}
+                                    <Sparkles className="w-4 h-4" />
+                                    <span>Danh sách từ (AI)</span>
                                 </button>
                                 <button
                                     type="button"
                                     onClick={() => setActiveTab('image')}
-                                    className={`flex-1 py-2 text-xs font-bold rounded-lg transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                                    className={`flex-1 py-2.5 text-xs font-black uppercase tracking-wider rounded-xl transition-all flex items-center justify-center gap-2 cursor-pointer ${
                                         activeTab === 'image'
-                                            ? 'bg-white dark:bg-slate-800 text-blue-600 dark:text-blue-400 shadow-sm'
-                                            : 'text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+                                            ? 'bg-emerald-500 text-white shadow-xs'
+                                            : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white'
                                     }`}
                                 >
-                                    <Camera className="w-3.5 h-3.5" />
-                                    {t('batchAi.ocrTab', 'Quét từ vựng từ ảnh (OCR)')}
+                                    <Camera className="w-4 h-4" />
+                                    <span>Quét ảnh (OCR)</span>
                                 </button>
                             </div>
 
                             {/* Tab 1: Text List Input */}
                             {activeTab === 'text' && (
                                 <div className="space-y-4">
-                                    <div>
-                                        <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">
-                                            {t('batchAi.wordListLabel', 'Danh sách từ vựng (mỗi từ một dòng)')}
+                                    <div className="space-y-2">
+                                        <label className="font-black text-xs uppercase tracking-wider text-slate-700 dark:text-slate-300">
+                                            Danh sách từ vựng (mỗi từ một dòng, tối đa 20 từ):
                                         </label>
                                         <textarea
                                             rows={6}
                                             value={textInput}
                                             onChange={(e) => setTextInput(e.target.value)}
-                                            placeholder={isKoreanMode ? (language === 'vi' ? "Ví dụ:\n학교\n도서관\n맛있다" : "e.g.:\n학교\n도서관\n맛있다") : isEnglishMode ? (language === 'vi' ? "Ví dụ:\nIntelligence\nLibrary\nDelicious" : "e.g.:\nIntelligence\nLibrary\nDelicious") : (language === 'vi' ? "Ví dụ:\n食べる\n図書館\n美味しい" : "e.g.:\n食べる\n図書館\n美味しい")}
-                                            className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-700 rounded-xl outline-none text-sm dark:text-white focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all font-mono leading-relaxed"
+                                            placeholder={`Ví dụ:\n食べる\n図書館\n美味しい\n約束`}
+                                            className="w-full p-4 bg-slate-50 dark:bg-slate-950/60 border-2 border-slate-200 dark:border-slate-750 rounded-2xl outline-none text-xs sm:text-sm font-japanese dark:text-white focus:border-emerald-500 focus:bg-white dark:focus:bg-slate-900 focus:ring-4 focus:ring-emerald-500/10 transition-all leading-relaxed"
                                         />
                                     </div>
 
-                                    {/* Warnings/Credits Info */}
-                                    <div className="bg-blue-50/50 dark:bg-blue-950/20 border border-blue-100 dark:border-blue-900/30 rounded-xl p-3.5 text-xs text-blue-700 dark:text-blue-300 space-y-1.5">
-                                        <div className="flex items-center gap-1.5 font-bold">
-                                            <Cpu className="w-3.5 h-3.5 text-blue-500" />
-                                            {t('batchAi.aiMechanismTitle', 'Cơ chế hoạt động của AI')}
+                                    {/* Duolingo Friendly Helper Tip */}
+                                    <div className="bg-emerald-50/70 dark:bg-emerald-950/30 border-2 border-emerald-200 dark:border-emerald-800/60 rounded-2xl p-4 text-xs text-emerald-800 dark:text-emerald-300 space-y-1">
+                                        <div className="flex items-center gap-1.5 font-black uppercase tracking-wider">
+                                            <span>💡</span>
+                                            <span>Cơ chế tạo thẻ thông minh</span>
                                         </div>
                                         <p className="leading-relaxed">
-                                            {isKoreanMode ? t('batchAi.aiMechanismDescKo') : isEnglishMode ? t('batchAi.aiMechanismDescEn') : t('batchAi.aiMechanismDescJa')}
+                                            AI sẽ tự động tra cứu từ điển, xác định chữ Kanji chuẩn, phiên âm Hiragana, phân tích âm Hán Việt và tạo câu ví dụ ngắn (5 - 10 từ) dễ học.
                                         </p>
                                     </div>
                                 </div>
@@ -426,115 +407,111 @@ const BatchAiModal = ({
                             {activeTab === 'image' && (
                                 <div className="space-y-4">
                                     {isOcrLoading ? (
-                                        <div className="border-2 border-dashed border-blue-200 dark:border-blue-800 rounded-2xl p-10 text-center bg-slate-50 dark:bg-slate-900/30">
-                                            <Loader2 className="w-10 h-10 animate-spin mx-auto text-blue-600 mb-3" />
-                                            <p className="text-sm font-bold text-slate-700 dark:text-slate-300">{t('batchAi.analyzingImage', 'Đang phân tích chữ trong hình ảnh...')}</p>
-                                            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('batchAi.analyzingImageSub', 'Quá trình này có thể mất vài giây. Vui lòng chờ...')}</p>
+                                        <div className="border-2 border-dashed border-emerald-300 dark:border-emerald-700 rounded-3xl p-10 text-center bg-emerald-50/30 dark:bg-emerald-950/20">
+                                            <Loader2 className="w-10 h-10 animate-spin mx-auto text-emerald-600 mb-3" />
+                                            <p className="text-sm font-black text-slate-800 dark:text-slate-200">Đang phân tích chữ từ ảnh chụp...</p>
+                                            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">Quá trình này mất khoảng vài giây. Vui lòng chờ nhé!</p>
                                         </div>
                                     ) : imagePreview ? (
-                                        <div className="space-y-4">
-                                            <div className="relative rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-slate-950/10 flex items-center justify-center max-h-[220px]">
+                                        <div className="space-y-3">
+                                            <div className="relative rounded-3xl overflow-hidden border-2 border-slate-200 dark:border-slate-700 bg-slate-950/10 flex items-center justify-center max-h-[220px]">
                                                 <img src={imagePreview} alt="Scanned Preview" className="max-h-[220px] object-contain" />
                                                 <button
                                                     onClick={() => { setSelectedImage(null); setImagePreview(null); }}
-                                                    className="absolute top-3 right-3 p-1.5 bg-slate-900/80 hover:bg-slate-950 text-white rounded-full transition-all"
+                                                    className="absolute top-3 right-3 p-1.5 bg-slate-900/80 hover:bg-slate-950 text-white rounded-xl transition cursor-pointer"
                                                 >
                                                     <X className="w-4 h-4" />
                                                 </button>
                                             </div>
                                             <button
+                                                type="button"
                                                 onClick={handleStartOcr}
-                                                className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-xl shadow-sm hover:shadow-md transition-all flex items-center justify-center gap-2"
+                                                className="w-full py-3 bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 text-white text-xs font-black uppercase tracking-wider rounded-2xl shadow-md active:translate-y-0.5 active:border-b-0 transition flex items-center justify-center gap-2 cursor-pointer"
                                             >
-                                                <Cpu className="w-4 h-4" />
-                                                {t('batchAi.startOcrBtn', 'Bắt đầu quét & trích xuất từ ảnh')}
+                                                <Sparkles className="w-4 h-4" />
+                                                <span>Bắt đầu quét & trích xuất từ ảnh</span>
                                             </button>
                                         </div>
                                     ) : (
-                                        <div 
+                                        <div
                                             onDragOver={handleDragOver}
                                             onDrop={handleDrop}
-                                            className="border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-blue-400 rounded-2xl p-6 text-center bg-slate-50 dark:bg-slate-900/20 transition-all"
+                                            className="border-2 border-dashed border-emerald-300 dark:border-emerald-700 rounded-3xl p-8 text-center bg-emerald-50/40 dark:bg-emerald-950/20 hover:border-emerald-400 hover:bg-emerald-50/60 transition space-y-3"
                                         >
-                                            <Upload className="w-8 h-8 mx-auto text-slate-400 dark:text-slate-500 mb-3" />
-                                            <p className="text-sm font-bold text-slate-700 dark:text-slate-300">
-                                                {t('batchAi.dragDropText', 'Kéo thả ảnh chụp tài liệu vào đây')}
-                                            </p>
-                                            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 mb-4">
-                                                {t('batchAi.dragDropSub', 'Hỗ trợ các file định dạng JPG, PNG')}
-                                            </p>
+                                            <input
+                                                ref={fileInputRef}
+                                                type="file"
+                                                accept="image/*"
+                                                onChange={handleFileSelect}
+                                                className="hidden"
+                                            />
+                                            <input
+                                                ref={cameraInputRef}
+                                                type="file"
+                                                accept="image/*"
+                                                capture="environment"
+                                                onChange={handleFileSelect}
+                                                className="hidden"
+                                            />
 
-                                            <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-sm mx-auto">
-                                                <button
-                                                    type="button"
-                                                    onClick={() => cameraInputRef.current?.click()}
-                                                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-xl shadow-sm hover:shadow-md transition-all"
-                                                >
-                                                    <Camera className="w-4 h-4" />
-                                                    {t('batchAi.captureCamera', 'Chụp ảnh bằng Camera')}
-                                                </button>
+                                            <div className="w-14 h-14 mx-auto rounded-3xl bg-emerald-500/10 text-emerald-600 border-2 border-emerald-400/40 flex items-center justify-center">
+                                                <Upload className="w-6 h-6 stroke-[2.2]" />
+                                            </div>
+
+                                            <div>
+                                                <h4 className="font-black text-sm text-slate-800 dark:text-slate-200">
+                                                    Kéo thả ảnh hoặc chọn ảnh tài liệu
+                                                </h4>
+                                                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                                                    Hỗ trợ JPG, PNG, WEBP (sách giáo khoa, vở ghi, đề thi...)
+                                                </p>
+                                            </div>
+
+                                            <div className="flex items-center justify-center gap-2 pt-1">
                                                 <button
                                                     type="button"
                                                     onClick={() => fileInputRef.current?.click()}
-                                                    className="flex-1 flex items-center justify-center gap-2 px-4 py-2.5 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/60 text-xs font-bold rounded-xl shadow-sm transition-all"
+                                                    className="px-4 py-2 rounded-xl text-xs font-black text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 border-2 border-b-4 border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-750 active:translate-y-0.5 active:border-b-2 transition cursor-pointer"
                                                 >
-                                                    <Upload className="w-4 h-4" />
-                                                    {t('batchAi.chooseFile', 'Chọn từ thiết bị')}
+                                                    Chọn từ máy
+                                                </button>
+                                                <button
+                                                    type="button"
+                                                    onClick={() => cameraInputRef.current?.click()}
+                                                    className="px-4 py-2 rounded-xl text-xs font-black text-emerald-700 dark:text-emerald-300 bg-emerald-100/70 dark:bg-emerald-950/60 border-2 border-b-4 border-emerald-300 dark:border-emerald-700 hover:bg-emerald-200 active:translate-y-0.5 active:border-b-2 transition cursor-pointer flex items-center gap-1.5"
+                                                >
+                                                    <Camera className="w-3.5 h-3.5" />
+                                                    Chụp ảnh
                                                 </button>
                                             </div>
-
-                                            <input
-                                                type="file"
-                                                ref={fileInputRef}
-                                                onChange={handleFileSelect}
-                                                accept="image/*"
-                                                className="hidden"
-                                            />
-                                            <input
-                                                type="file"
-                                                ref={cameraInputRef}
-                                                onChange={handleFileSelect}
-                                                accept="image/*"
-                                                capture="environment"
-                                                className="hidden"
-                                            />
                                         </div>
                                     )}
-
-                                    {/* Image Scan Warning */}
-                                    <div className="bg-amber-50/60 dark:bg-amber-950/20 border border-amber-100 dark:border-amber-900/30 rounded-xl p-3.5 text-xs text-amber-700 dark:text-amber-300 space-y-1">
-                                        <div className="flex items-center gap-1.5 font-bold">
-                                            <AlertTriangle className="w-3.5 h-3.5 text-amber-500" />
-                                            {t('batchAi.ocrTipTitle', 'Lưu ý quét ảnh')}
-                                        </div>
-                                        <p className="leading-relaxed">
-                                            {t('batchAi.ocrTipDesc')}
-                                        </p>
-                                    </div>
                                 </div>
                             )}
                         </>
                     )}
                 </div>
 
-                {/* Footer Controls */}
-                {!isGenerating && (
-                    <div className="flex items-center justify-between p-5 border-t border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
+                {/* Duolingo-Styled Footer */}
+                {(!isGenerating && !isOcrLoading) && (
+                    <div className="p-4 sm:p-5 border-t-2 border-slate-100 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-850 flex items-center justify-between gap-3">
                         <button
+                            type="button"
                             onClick={onClose}
-                            disabled={isOcrLoading}
-                            className="px-4 py-2.5 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 text-sm font-bold rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-all disabled:opacity-50"
+                            className="px-5 py-2.5 rounded-2xl text-xs font-bold text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 border-2 border-b-4 border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-750 active:translate-y-0.5 active:border-b-2 transition cursor-pointer"
                         >
-                            {t('common.cancel', 'Hủy bỏ')}
+                            Hủy
                         </button>
+
                         {activeTab === 'text' && (
                             <button
+                                type="button"
                                 onClick={handleStartGeneration}
-                                disabled={isOcrLoading || !textInput.trim()}
-                                className="px-5 py-2.5 bg-[#204051] hover:bg-[#162e3b] dark:bg-slate-700 dark:hover:bg-slate-600 disabled:opacity-50 text-white text-sm font-bold rounded-xl shadow-md hover:shadow-lg transition-all flex items-center gap-1.5 disabled:shadow-none cursor-pointer"
+                                disabled={!textInput.trim()}
+                                className="px-6 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider text-white bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 transition shadow-md flex items-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                             >
-                                <Play className="w-4 h-4 fill-current" />
-                                {t('batchAi.startAiBtn', 'Bắt đầu tạo bằng AI')}
+                                <Play className="w-4 h-4 fill-white" />
+                                <span>Tạo thẻ bằng AI</span>
                             </button>
                         )}
                     </div>

@@ -1,116 +1,111 @@
 import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
-import { X, Copy, Check, FileJson, Download, AlertCircle } from 'lucide-react';
+import { X, Copy, Check, FileJson, Sparkles, AlertCircle, ArrowDownToLine } from 'lucide-react';
 import { showToast } from '../../utils/toast';
 import { cleanJapaneseExampleSentence } from '../../utils/furiganaHelper';
-import { useTargetLanguage } from '../../contexts/TargetLanguageContext';
+import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { useLanguage } from '../../context/LanguageContext';
 
-const SAMPLE_PROMPT_JA = `Hãy tạo cho tôi danh sách từ vựng tiếng Nhật theo định dạng mảng JSON bên dưới. Trả về ĐÚNG 1 mảng JSON thuần túy (không kèm bất kỳ lời giải thích hay ký tự thừa nào ngoài cặp dấu ngoặc vuông []).
+const SAMPLE_PROMPT_JA = `Bạn là chuyên gia ngôn ngữ và công cụ trích xuất/chuyển đổi từ vựng tiếng Nhật chuẩn cho ứng dụng Flashcard QuizKi.
 
-LƯU Ý ĐẶC BIỆT VỀ CÂU VÍ DỤ:
-1. Mỗi từ vựng hãy tạo từ 2 đến 3 câu ví dụ tự nhiên hoàn chỉnh thể hiện các ngữ cảnh và cấu trúc câu thông dụng (giữ nguyên từ gốc trong câu ví dụ, không che từ hay dùng dấu gạch dưới).
-2. Phân dòng (\\n) và đánh số thứ tự 1., 2., 3. cho từng câu ví dụ ở trường "example".
-3. Dịch nghĩa tiếng Việt tương ứng cho từng câu ở trường "exampleMeaning", phân dòng (\\n) và đánh số 1., 2., 3. khớp hoàn toàn với các câu ở trường "example".
+Nhiệm vụ: Chuyển đổi dữ liệu input hoặc tài liệu đính kèm thành bộ thẻ từ vựng đơn giản, dễ nhớ nhất cho người học.
+CHỈ trả về JSON Array hợp lệ, KHÔNG giải thích, KHÔNG markdown, KHÔNG code block.
 
+Format output:
 [
   {
-    "front": "勉強",
-    "reading": "べんきょう",
-    "back": "Học tập, học hành; nghiên cứu",
-    "sinoVietnamese": "MIỄN CƯỜNG",
-    "pos": "Danh từ / Động từ nhóm 3",
-    "level": "N5",
-    "example": "1. 毎日日本語を2時間勉強しています。\\n2. 図書館で友達と一緒に勉強しました。\\n3. 社会に出てからの方が勉強になることが多い。",
-    "exampleMeaning": "1. Tôi học tiếng Nhật 2 tiếng mỗi ngày.\\n2. Tôi đã cùng bạn học bài ở thư viện.\\n3. Sau khi ra xã hội có nhiều điều giúp mình học hỏi được hơn.",
-    "synonym": "学習",
-    "synonymSinoVietnamese": "HỌC TẬP",
-    "nuance": "Dùng cho việc học tập kiến thức, thi cử hoặc học hỏi trải nghiệm thực tế."
-  },
-  {
-    "front": "約束",
-    "reading": "やくそく",
-    "back": "Lời hứa, hẹn ước; cuộc hẹn",
-    "sinoVietnamese": "ƯỚC THÚC",
-    "pos": "Danh từ / Động từ nhóm 3",
-    "level": "N5",
-    "example": "1. 明日友達と会う約束があります。\\n2. 一度した約束は必ず守らなければならない。",
-    "exampleMeaning": "1. Ngày mai tôi có hẹn gặp bạn bè.\\n2. Lời hứa một khi đã đưa ra thì nhất định phải giữ.",
-    "synonym": "契り",
-    "synonymSinoVietnamese": "KHẾ",
-    "nuance": "Dùng cho cả cuộc hẹn (appointment) lẫn lời hứa (promise)."
+    "word": "từ vựng (Kanji/Katakana/Hiragana)",
+    "reading": "cách đọc Hiragana (Katakana giữ nguyên)",
+    "sinoVietnamese": "ÂM HÁN VIỆT VIẾT HOA (để trống \"\" nếu không có Kanji)",
+    "meaning": "Nghĩa tiếng Việt ngắn gọn cốt lõi (1 - 5 từ)",
+    "pos": "noun / verb / adj-i / adj-na / adverb / phrase / other",
+    "level": "N5 / N4 / N3 / N2 / N1",
+    "example": "Câu ví dụ tiếng Nhật ngắn thông dụng (5 - 10 từ)",
+    "exampleMeaning": "Nghĩa câu ví dụ tiếng Việt"
   }
-]`;
+]
 
-const SAMPLE_PROMPT_KO = `Hãy tạo cho tôi danh sách từ vựng tiếng Hàn theo định dạng mảng JSON bên dưới. Trả về ĐÚNG 1 mảng JSON thuần túy (không kèm bất kỳ lời giải thích hay ký tự thừa nào ngoài cặp dấu ngoặc vuông []).
+User có thể cung cấp input ở BẤT KỲ dạng nào:
+- Chỉ list từ vựng (vd: 学校, 先生, すみません)
+- Chỉ nghĩa tiếng Việt (vd: trường học, giáo viên) → tra ngược ra từ tiếng Nhật thông dụng nhất
+- JSON thiếu field (vd: [{"word":"学校"}])
+- Text thô có hoặc không có nghĩa, reading
+- Bảng copy từ sách/web hoặc tài liệu đính kèm
 
-LƯU Ý ĐẶC BIỆT VỀ CÂU VÍ DỤ:
-1. Mỗi từ vựng hãy tạo từ 2 đến 3 câu ví dụ tiếng Hàn tự nhiên hoàn chỉnh thể hiện các ngữ cảnh và cấu trúc câu thông dụng (giữ nguyên từ gốc trong câu ví dụ, không che từ hay dùng dấu gạch dưới).
-2. Phân dòng (\\n) và đánh số thứ tự 1., 2., 3. cho từng câu ví dụ ở trường "example".
-3. Dịch nghĩa tiếng Việt tương ứng cho từng câu ở trường "exampleMeaning", phân dòng (\\n) và đánh số 1., 2., 3. khớp hoàn toàn với các câu ở trường "example".
+QUY TẮC BẮT BUỘC ĐỂ THẺ ĐƠN GIẢN, DỄ HỌC NHẤT:
+1. word: 
+   - Giữ nguyên chữ Kanji/Katakana/Hiragana gốc.
+   - Nếu input chỉ có Hiragana và nghĩa (vd: がっこう + trường học), hãy đưa về đúng chữ Kanji tương ứng (学校). Nếu từ thuần Hiragana/Katakana thì giữ nguyên.
+   - Giữ nguyên cụm từ nếu người dùng nhập cụm (vd: "お腹が空いた").
 
+2. reading:
+   - Cách đọc phiên âm Hiragana thuần túy cho Kanji (từ gốc Katakana giữ nguyên Katakana).
+   - TUYỆT ĐỐI KHÔNG để lẫn chữ Hán trong trường reading.
+
+3. sinoVietnamese (Âm Hán Việt):
+   - PHIÊN ÂM Hán Việt TỪNG CHỮ HÁN theo âm chuẩn, viết HOA TOÀN BỘ, phân cách bằng dấu cách (ĐÚNG: 前日 → "TIỀN NHẬT", 学校 → "HỌC HIỆU", 先生 → "TIÊN SINH"; SAI: "TIỀN NGÀY", "HỌC TRƯỜNG").
+   - Nếu từ không chứa chữ Hán nào (như すみません, パン) thì để rỗng "".
+
+4. meaning (Tối ưu cho người học dễ nhớ):
+   - BẮT BUỘC NGẮN GỌN (chỉ từ 1 đến 5 từ tiếng Việt), viết hoa chữ cái đầu tiên (vd: "Trường học", "Ăn", "Giáo viên").
+   - TUYỆT ĐỐI KHÔNG sao chép nguyên cả bài từ điển dài dòng; CHỈ chọn 1 đến 2 nét nghĩa thông dụng nhất trong đời sống hàng ngày (ngăn cách bằng dấu chấm phẩy ";" nếu có 2 nghĩa).
+
+5. example & exampleMeaning (Nhớ lâu & đúng ngữ cảnh):
+   - CHỈ 1 CÂU HOẶC CỤM COLLOCATION NGẮN (từ 5 đến 10 từ tiếng Nhật), phản ánh ngữ cảnh quen thuộc nhất của từ đó (vd: "毎朝8時に学校へ行きます。", "約束を守る。").
+   - Ngữ pháp và từ vựng trong câu ví dụ phải phù hợp với trình độ của từ (từ N5 dùng câu N5, tránh dùng câu phức tạp nhiều mệnh đề).
+   - Giữ nguyên từ vựng trong câu (có thể chia thể tự nhiên như 食べた, 行きます), KHÔNG chèn ngoặc furigana hay dấu gạch dưới trong câu.
+   - exampleMeaning: Dịch thoát ý, tự nhiên sang tiếng Việt.
+
+6. pos & level:
+   - pos: Chọn 1 trong các giá trị: "noun", "verb", "adj-i", "adj-na", "adverb", "phrase", "other".
+   - level: Điền cấp độ JLPT từ "N5", "N4", "N3", "N2", "N1". Nếu không rõ ghi "".
+
+7. Bảo toàn dữ liệu:
+   - Mỗi từ = 1 item trong mảng, giữ nguyên thứ tự xuất hiện gốc trong tài liệu/input.
+   - Nếu người dùng đã cung cấp sẵn trường nào thì ưu tiên giữ nguyên, chỉ bổ sung các trường còn thiếu.`;
+
+const SAMPLE_PROMPT_KO = `Bạn là chuyên gia ngôn ngữ tiếng Hàn cho ứng dụng QuizKi.
+CHỈ trả về JSON Array hợp lệ, KHÔNG giải thích, KHÔNG markdown.
+
+Format output:
 [
   {
-    "front": "공부하다",
-    "reading": "gong-bu-ha-da",
-    "back": "Học, học tập; nghiên cứu",
-    "sinoVietnamese": "CÔNG PHU",
-    "pos": "Động từ",
-    "level": "TOPIK 1",
-    "example": "1. 저는 매일 한국어를 2시간 공부해요.\\n2. 도서관에서 친구와 같이 공부했어요.\\n3. 열심히 공부해서 시험에 합격했어요.",
-    "exampleMeaning": "1. Tôi học tiếng Hàn 2 tiếng mỗi ngày.\\n2. Tôi đã cùng bạn học bài ở thư viện.\\n3. Tôi đã học hành chăm chỉ và thi đậu.",
-    "synonym": "배우다, 학습하다",
-    "synonymSinoVietnamese": "HỌC TẬP",
-    "nuance": "Dùng cho việc học tập kiến thức, thi cử hoặc nỗ lực rèn luyện."
-  },
-  {
-    "front": "약속",
-    "reading": "yak-sok",
-    "back": "Lời hứa, hẹn ước; cuộc hẹn",
-    "sinoVietnamese": "ƯỚC THÚC",
-    "pos": "Danh từ",
-    "level": "TOPIK 1",
-    "example": "1. 내일 친구와 만날 약속이 있어요.\\n2. 한번 한 약속은 꼭 지켜야 해요.",
-    "exampleMeaning": "1. Ngày mai tôi có hẹn gặp bạn bè.\\n2. Lời hứa một khi đã đưa ra thì nhất định phải giữ.",
-    "synonym": "다짐, 계약",
-    "synonymSinoVietnamese": "ƯỚC",
-    "nuance": "Dùng cho cả cuộc hẹn gặp mặt lẫn lời hứa thực hiện điều gì."
+    "word": "từ vựng Hangul",
+    "reading": "phiên âm Romaja",
+    "sinoVietnamese": "ÂM HÁN HÀN VIẾT HOA (hoặc \"\")",
+    "meaning": "Nghĩa tiếng Việt ngắn gọn (1 - 5 từ)",
+    "pos": "noun / verb / adjective / adverb / other",
+    "level": "TOPIK 1 / TOPIK 2 / ...",
+    "example": "Câu ví dụ tiếng Hàn ngắn thông dụng (5 - 10 từ)",
+    "exampleMeaning": "Nghĩa tiếng Việt của câu ví dụ"
   }
-]`;
+]
 
-const SAMPLE_PROMPT_EN = `Hãy tạo cho tôi danh sách từ vựng tiếng Anh theo định dạng mảng JSON bên dưới. Trả về ĐÚNG 1 mảng JSON thuần túy (không kèm bất kỳ lời giải thích hay ký tự thừa nào ngoài cặp dấu ngoặc vuông []).
+Quy tắc:
+1. word: Giữ nguyên từ Hangul chuẩn.
+2. meaning: Ngắn gọn (1-5 từ), dễ học, viết hoa chữ cái đầu.
+3. example: 1 câu ví dụ ngắn gọn, tự nhiên, không che từ hay dùng gạch dưới.`;
 
-LƯU Ý ĐẶC BIỆT VỀ CÂU VÍ DỤ:
-1. Mỗi từ vựng hãy tạo từ 2 đến 3 câu ví dụ tự nhiên hoàn chỉnh thể hiện các ngữ cảnh và cấu trúc câu thông dụng (giữ nguyên từ gốc trong câu ví dụ, không che từ hay dùng dấu gạch dưới).
-2. Phân dòng (\\n) và đánh số thứ tự 1., 2., 3. cho từng câu ví dụ ở trường "example".
-3. Dịch nghĩa tiếng Việt tương ứng cho từng câu ở trường "exampleMeaning", phân dòng (\\n) và đánh số 1., 2., 3. khớp hoàn toàn với các câu ở trường "example".
+const SAMPLE_PROMPT_EN = `You are an English vocabulary flashcard assistant for QuizKi.
+Output ONLY a valid JSON Array, NO markdown, NO code block.
 
+Format output:
 [
   {
-    "front": "Accomplish",
-    "reading": "/əˈkɑːm.plɪʃ/",
-    "back": "Hoàn thành, đạt được, thực hiện",
-    "pos": "Verb (Động từ)",
-    "level": "B2",
-    "example": "1. If we work together, we can accomplish anything.\\n2. She accomplished such a lot during her visit.\\n3. I don't feel I've accomplished very much today.",
-    "exampleMeaning": "1. Nếu chúng ta làm việc cùng nhau, chúng ta có thể hoàn thành bất cứ điều gì.\\n2. Cô ấy đã đạt được rất nhiều thành tựu trong chuyến thăm của mình.\\n3. Tôi cảm thấy hôm nay mình chưa làm được gì nhiều.",
-    "synonym": "Achieve, Complete, Fulfill",
-    "antonym": "Fail, Abandon",
-    "nuance": "Nhấn mạnh việc hoàn thành một mục tiêu, kế hoạch hoặc nhiệm vụ sau nhiều nỗ lực."
-  },
-  {
-    "front": "Resilient",
-    "reading": "/rɪˈzɪl.jənt/",
-    "back": "Kiên cường, có khả năng phục hồi nhanh chóng",
-    "pos": "Adjective (Tính từ)",
-    "level": "C1",
-    "example": "1. The local economy is remarkably resilient.\\n2. Children are often very resilient and adapt quickly to change.",
-    "exampleMeaning": "1. Nền kinh tế địa phương kiên cường một cách đáng kể.\\n2. Trẻ em thường rất kiên cường và thích nghi nhanh chóng với sự thay đổi.",
-    "synonym": "Tough, Robust, Adaptable",
-    "antonym": "Fragile, Vulnerable",
-    "nuance": "Dùng để miêu tả người hoặc hệ thống có thể nhanh chóng vượt qua khó khăn, bệnh tật hoặc thất bại."
+    "word": "English word/phrase",
+    "reading": "/IPA pronunciation/",
+    "meaning": "Concise Vietnamese meaning (1 - 5 words)",
+    "pos": "noun / verb / adjective / adverb / phrase / other",
+    "level": "A1 / A2 / B1 / B2 / C1 / C2",
+    "example": "1 short natural English example sentence (5 - 12 words)",
+    "exampleMeaning": "Vietnamese translation of the example sentence"
   }
-]`;
+]
+
+Rules:
+1. word: Keep the original English word/phrase.
+2. meaning: Short, practical Vietnamese meaning.
+3. example: 1 natural collocation/sentence without blanks or underscores.`;
 
 const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
     const { t } = useLanguage();
@@ -136,6 +131,7 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
     const handleCopyPrompt = () => {
         navigator.clipboard.writeText(currentPrompt);
         setCopiedPrompt(true);
+        showToast('Đã sao chép Prompt AI vào khay nhớ tạm! 🎉', 'success');
         setTimeout(() => setCopiedPrompt(false), 2000);
     };
 
@@ -197,7 +193,7 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
 
                 const reading = String(item.reading || item.furigana || item.kana || item.pronunciation || item.ipa || item.romaji || '').trim();
                 const back = String(item.back || item.meaning || item.definition || item.vietnamese || item.definition_vi || '').trim();
-                const sinoVietnamese = String(item.sinoVietnamese || item.hanViet || item.sino_vietnamese || '').trim();
+                const sinoVietnamese = String(item.sinoVietnamese || item.hanviet || item.hanViet || item.sino_vietnamese || '').trim();
                 const pos = String(item.pos || item.partOfSpeech || item.type || '').trim();
                 const level = String(item.level || item.jlpt || item.jlptLevel || item.cefr || '').trim();
 
@@ -248,147 +244,153 @@ const JsonImportModal = ({ isOpen, onClose, onImport, existingCards = [] }) => {
                     synonym: synonym,
                     synonymSinoVietnamese: synonymSinoVietnamese,
                     nuance: nuance,
-                    ipa: isEnglishMode ? (reading || String(item.ipa || '').trim()) : '',
-                    accent: '',
+                    accent: String(item.accent || '0'),
+                    targetLanguage: isKoreanMode ? 'ko' : (isEnglishMode ? 'en' : 'ja'),
                     imageBase64: null,
                     audioBase64: null
                 });
             });
 
             if (formattedCards.length === 0) {
-                if (duplicateCount > 0) {
-                    setErrorMsg(t('jsonImport.allDuplicatesError', 'Tất cả {count} từ vựng trong file JSON đều đã tồn tại trong danh sách!').replace('{count}', duplicateCount));
-                } else {
-                    setErrorMsg(t('jsonImport.noValidCardsError', 'Không tìm thấy từ vựng hợp lệ nào trong chuỗi JSON!'));
-                }
+                setErrorMsg(duplicateCount > 0 
+                    ? `Toàn bộ ${duplicateCount} từ trong file JSON đều đã tồn tại trong học phần!`
+                    : 'Không tìm thấy dữ liệu từ vựng hợp lệ.');
                 return;
             }
 
-            if (duplicateCount > 0) {
-                showToast(t('jsonImport.importSuccessWithDups', 'Đã nhập {count} từ vựng mới! (Đã tự động loại bỏ {dupCount} từ bị trùng lặp)').replace('{count}', formattedCards.length).replace('{dupCount}', duplicateCount), 'info');
-            } else {
-                showToast(t('jsonImport.importSuccess', 'Đã nhập thành công {count} từ vựng mới từ JSON!').replace('{count}', formattedCards.length), 'success');
-            }
-
             onImport(formattedCards);
-            setJsonInput('');
             onClose();
+
+            if (duplicateCount > 0) {
+                showToast(`Đã nhập thành công ${formattedCards.length} từ! (Bỏ qua ${duplicateCount} từ bị trùng)`, 'warning');
+            } else {
+                showToast(`Đã nhập thành công ${formattedCards.length} từ vựng! 🎉`, 'success');
+            }
         } catch (err) {
-            console.error('JSON Parse error:', err);
-            setErrorMsg(t('jsonImport.invalidJsonError', 'Cú pháp JSON chưa hợp lệ! Vui lòng kiểm tra lại cấu trúc JSON.'));
+            setErrorMsg(`Cú pháp JSON không hợp lệ: ${err.message}`);
         }
     };
 
-    const modalContent = (
-        <div className="fixed inset-0 z-[100] bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 animate-fade-in overflow-y-auto">
-            <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 max-w-2xl w-full shadow-2xl space-y-5 my-auto max-h-[92vh] flex flex-col">
-                {/* Header */}
-                <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-4 shrink-0">
-                    <div className="flex items-center gap-3 text-emerald-600 dark:text-emerald-400">
-                        <div className="p-2.5 rounded-2xl bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-100 dark:border-emerald-900/50">
-                            <FileJson className="w-6 h-6 text-emerald-600 dark:text-emerald-400" />
+    return createPortal(
+        <div 
+            className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-5 bg-slate-900/60 backdrop-blur-xs animate-in fade-in duration-150"
+            onClick={onClose}
+        >
+            <div 
+                className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl max-w-2xl w-full max-h-[92vh] flex flex-col border-2 border-slate-200 dark:border-slate-800 overflow-hidden"
+                onClick={e => e.stopPropagation()}
+            >
+                {/* Duolingo-Styled Header */}
+                <div className="p-4 sm:p-5 border-b-2 border-slate-100 dark:border-slate-800 flex items-center justify-between bg-slate-50/80 dark:bg-slate-850">
+                    <div className="flex items-center gap-3.5 min-w-0">
+                        <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border-2 border-emerald-400/40 flex items-center justify-center font-black shrink-0 shadow-xs">
+                            <FileJson className="w-6 h-6 stroke-[2.2]" />
                         </div>
-                        <div>
-                            <h3 className="text-lg font-black text-slate-800 dark:text-white">
-                                {t('jsonImport.title', 'Nhập từ vựng bằng JSON thủ công')}
+                        <div className="min-w-0">
+                            <h3 className="font-black text-slate-900 dark:text-white text-base sm:text-lg tracking-tight truncate">
+                                Nhập từ vựng bằng JSON thủ công
                             </h3>
-                            <p className="text-xs text-slate-500 dark:text-slate-400">
-                                {isKoreanMode
-                                    ? t('jsonImport.subtitleKo', 'Sao chép Prompt chuẩn tiếng Hàn bên dưới để nhờ AI soạn danh sách từ vựng')
-                                    : isEnglishMode
-                                    ? t('jsonImport.subtitleEn', 'Sao chép Prompt chuẩn tiếng Anh bên dưới để nhờ AI soạn danh sách từ vựng')
-                                    : t('jsonImport.subtitleJa', 'Sao chép Prompt đầy đủ trường dữ liệu bên dưới để nhờ AI soạn danh sách từ vựng')}
+                            <p className="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5 font-medium">
+                                Sao chép Prompt đầy đủ trường dữ liệu bên dưới để nhờ AI soạn danh sách từ vựng
                             </p>
                         </div>
                     </div>
-                    <button
-                        onClick={onClose}
-                        className="p-2 rounded-xl text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                    <button 
+                        type="button"
+                        onClick={onClose} 
+                        className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 transition cursor-pointer shrink-0"
                     >
                         <X className="w-5 h-5" />
                     </button>
                 </div>
 
-                {/* Body Content - Scrollable on small screens */}
-                <div className="space-y-4 overflow-y-auto custom-scrollbar flex-1 pr-1">
-                    {/* Full Prompt AI Copy Box */}
-                    <div className="p-4 bg-slate-50 dark:bg-slate-950/40 border border-slate-200 dark:border-slate-800 rounded-2xl space-y-2.5">
-                        <div className="flex items-center justify-between">
-                            <div className="flex items-center gap-2 text-slate-700 dark:text-slate-200 font-bold text-xs">
-                                <FileJson className="w-4 h-4 text-blue-500" />
-                                <span>
-                                    {isKoreanMode
-                                        ? t('jsonImport.promptBoxTitleKo', 'Prompt AI đầy đủ các trường từ vựng tiếng Hàn (ChatGPT / Gemini / Claude)')
-                                        : isEnglishMode
-                                        ? t('jsonImport.promptBoxTitleEn', 'Prompt AI đầy đủ các trường từ vựng tiếng Anh (ChatGPT / Gemini / Claude)')
-                                        : t('jsonImport.promptBoxTitleJa', 'Prompt AI đầy đủ các trường từ vựng tiếng Nhật (ChatGPT / Gemini / Claude)')}
+                {/* Body Content */}
+                <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-5">
+                    {/* Prompt Box */}
+                    <div className="rounded-2xl bg-sky-50/80 dark:bg-sky-950/30 border-2 border-sky-200 dark:border-sky-800/60 p-4 space-y-3">
+                        <div className="flex items-center justify-between gap-3 flex-wrap">
+                            <div className="flex items-center gap-2">
+                                <Sparkles className="w-4 h-4 text-sky-600 dark:text-sky-400" />
+                                <span className="font-black text-xs sm:text-sm text-sky-900 dark:text-sky-200">
+                                    Prompt AI đầy đủ các trường từ vựng (ChatGPT / Gemini / Claude)
                                 </span>
                             </div>
                             <button
+                                type="button"
                                 onClick={handleCopyPrompt}
-                                className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold transition-all shadow-sm active:scale-95 cursor-pointer shrink-0"
+                                className={`px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider flex items-center gap-1.5 transition-all cursor-pointer active:scale-95 shadow-xs border-b-2 ${
+                                    copiedPrompt
+                                        ? 'bg-emerald-500 hover:bg-emerald-400 text-white border-emerald-700'
+                                        : 'bg-sky-500 hover:bg-sky-400 text-white border-sky-700'
+                                }`}
                             >
                                 {copiedPrompt ? <Check className="w-3.5 h-3.5" /> : <Copy className="w-3.5 h-3.5" />}
-                                <span>{copiedPrompt ? t('jsonImport.copiedPrompt', 'Đã chép Prompt!') : t('jsonImport.copyPrompt', 'Sao chép Prompt')}</span>
+                                <span>{copiedPrompt ? 'Đã sao chép!' : 'Sao chép Prompt'}</span>
                             </button>
                         </div>
-                        <pre className="text-[11px] font-mono leading-relaxed bg-white/90 dark:bg-slate-950/90 p-3.5 rounded-xl border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 whitespace-pre-wrap max-h-48 overflow-y-auto custom-scrollbar">
-                            {currentPrompt}
-                        </pre>
+
+                        {/* Prompt Preview Codebox */}
+                        <div className="relative">
+                            <textarea
+                                readOnly
+                                rows={6}
+                                value={currentPrompt}
+                                className="w-full p-3 rounded-xl bg-white dark:bg-slate-950 border border-sky-200/80 dark:border-sky-900/50 text-slate-700 dark:text-slate-300 font-mono text-[11px] sm:text-xs leading-relaxed resize-none focus:outline-none"
+                            />
+                        </div>
                     </div>
 
-                    {/* Textarea Input */}
+                    {/* JSON Input Area */}
                     <div className="space-y-2">
-                        <label className="block text-xs font-bold text-slate-700 dark:text-slate-300">
-                            {t('jsonImport.pasteJsonLabel', 'Dán chuỗi mảng JSON từ vựng do AI tạo vào đây:')}
+                        <label className="font-black text-xs uppercase tracking-wider text-slate-700 dark:text-slate-300 flex items-center justify-between">
+                            <span>Dán chuỗi mảng JSON từ vựng do AI tạo vào đây:</span>
+                            {jsonInput.trim().length > 0 && (
+                                <span className="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-bold lowercase">
+                                    {jsonInput.length} ký tự
+                                </span>
+                            )}
                         </label>
                         <textarea
+                            rows={8}
                             value={jsonInput}
-                            onChange={(e) => {
-                                setJsonInput(e.target.value);
-                                setErrorMsg('');
-                            }}
-                            rows={5}
-                            placeholder={
-                                isKoreanMode
-                                    ? `Dán chuỗi JSON từ AI vào đây, ví dụ:\n[\n  {\n    "front": "공부하다",\n    "reading": "gong-bu-ha-da",\n    "back": "Học, học tập",\n    "sinoVietnamese": "CÔNG PHU",\n    "pos": "Động từ",\n    "level": "TOPIK 1",\n    "example": "1. 저는 매일 한국어를 2시간 공부해요.\\n2. 도서관에서 친구와 같이 공부했어요.",\n    "exampleMeaning": "1. Tôi học tiếng Hàn 2 tiếng mỗi ngày.\\n2. Tôi đã cùng bạn học bài ở thư viện.",\n    "synonym": "배우다",\n    "nuance": "Dùng cho việc học tập rèn luyện."\n  }\n]`
-                                    : isEnglishMode
-                                    ? `Dán chuỗi JSON từ AI vào đây, ví dụ:\n[\n  {\n    "front": "Accomplish",\n    "reading": "/əˈkɑːm.plɪʃ/",\n    "back": "Hoàn thành, đạt được",\n    "pos": "Verb (Động từ)",\n    "level": "B2",\n    "example": "1. If we work together, we can accomplish anything.\\n2. She accomplished such a lot during her visit.",\n    "exampleMeaning": "1. Nếu chúng ta làm việc cùng nhau, chúng ta có thể hoàn thành bất cứ điều gì.\\n2. Cô ấy đã đạt được rất nhiều thành tựu.",\n    "synonym": "Achieve, Complete",\n    "nuance": "Dùng cho việc hoàn thành mục tiêu sau nỗ lực."\n  }\n]`
-                                    : `Dán chuỗi JSON từ AI vào đây, ví dụ:\n[\n  {\n    "front": "勉強",\n    "reading": "べんきょう",\n    "back": "Học tập, học hành",\n    "sinoVietnamese": "MIỄN CƯỜNG",\n    "pos": "Danh từ / Động từ nhóm 3",\n    "level": "N5",\n    "example": "1. 毎日日本語を2時間勉強しています。\\n2. 図書館で友達と一緒に勉強しました。",\n    "exampleMeaning": "1. Tôi học tiếng Nhật 2 tiếng mỗi ngày.\\n2. Tôi đã cùng bạn học bài ở thư viện.",\n    "synonym": "学習",\n    "synonymSinoVietnamese": "HỌC TẬP",\n    "nuance": "Dùng trong học tập kiến thức, thi cử."\n  }\n]`
-                            }
-                            className="w-full p-3.5 text-xs font-mono bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 rounded-2xl focus:ring-2 focus:ring-emerald-500 outline-none text-slate-800 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-600 transition-all custom-scrollbar"
+                            onChange={(e) => setJsonInput(e.target.value)}
+                            placeholder={`Dán chuỗi JSON từ AI vào đây, ví dụ:\n[\n  {\n    "word": "勉強",\n    "reading": "べんきょう",\n    "sinoVietnamese": "MIỄN CƯỜNG",\n    "meaning": "Học tập",\n    "example": "毎日日本語を勉強します。",\n    "exampleMeaning": "Mỗi ngày tôi đều học tiếng Nhật."\n  }\n]`}
+                            className="w-full p-4 rounded-2xl bg-slate-50 dark:bg-slate-950/60 border-2 border-slate-200 dark:border-slate-750 focus:border-emerald-500 focus:bg-white dark:focus:bg-slate-900 focus:ring-4 focus:ring-emerald-500/10 transition-all text-xs sm:text-sm font-mono text-slate-800 dark:text-slate-200 outline-none leading-relaxed"
                         />
-                        {errorMsg && (
-                            <div className="flex items-center gap-1.5 text-xs text-rose-500 font-semibold mt-1">
-                                <AlertCircle className="w-4 h-4 shrink-0" />
-                                <span>{errorMsg}</span>
-                            </div>
-                        )}
                     </div>
+
+                    {/* Error Notice */}
+                    {errorMsg && (
+                        <div className="p-3.5 rounded-2xl bg-rose-50 dark:bg-rose-950/40 border-2 border-rose-300 dark:border-rose-800 flex items-center gap-2.5 text-xs font-bold text-rose-600 dark:text-rose-400 animate-in fade-in">
+                            <AlertCircle className="w-4 h-4 shrink-0" />
+                            <span>{errorMsg}</span>
+                        </div>
+                    )}
                 </div>
 
-                {/* Footer Buttons */}
-                <div className="flex items-center justify-end gap-2.5 border-t border-slate-100 dark:border-slate-800 pt-4 shrink-0">
+                {/* Duolingo-Styled Footer */}
+                <div className="p-4 sm:p-5 border-t-2 border-slate-100 dark:border-slate-800 bg-slate-50/80 dark:bg-slate-850 flex items-center justify-between gap-3">
                     <button
+                        type="button"
                         onClick={onClose}
-                        className="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                        className="px-5 py-2.5 rounded-2xl text-xs font-bold text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 border-2 border-b-4 border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-750 active:translate-y-0.5 active:border-b-2 transition cursor-pointer"
                     >
-                        {t('common.cancel', 'Hủy')}
+                        Hủy
                     </button>
+
                     <button
+                        type="button"
                         onClick={handleImportSubmit}
-                        className="px-6 py-2.5 bg-gradient-to-r from-emerald-600 to-sky-600 hover:from-emerald-500 hover:to-sky-500 text-white text-xs font-black rounded-xl flex items-center gap-2 shadow-md transition-all active:scale-95 cursor-pointer"
+                        className="px-6 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider text-white bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 transition shadow-md flex items-center gap-2 cursor-pointer"
                     >
-                        <Download className="w-4 h-4" />
-                        <span>{t('jsonImport.importBtn', 'Nhập từ vựng vào bài')}</span>
+                        <ArrowDownToLine className="w-4 h-4" />
+                        <span>Nhập từ vựng vào bài</span>
                     </button>
                 </div>
             </div>
-        </div>
+        </div>,
+        document.body
     );
-
-    return typeof document !== 'undefined' ? createPortal(modalContent, document.body) : modalContent;
 };
 
 export default JsonImportModal;
-
