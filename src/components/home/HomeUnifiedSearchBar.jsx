@@ -14,8 +14,12 @@ import {
 import {
     subscribeKanjiSrs,
     getCachedUserSrsData,
+    getSharedKanjiSrs,
     updateCachedUserSrs,
-    getSharedVocabList
+    getSharedVocabList,
+    getSharedKanjiList,
+    getCachedKanjiList,
+    buildKanjiSrsIdentifierSet
 } from '../../utils/kanjiService';
 import { db, appId } from '../../config/firebase';
 import { doc, setDoc, deleteDoc } from 'firebase/firestore';
@@ -26,6 +30,8 @@ import HomeVocabDetailModal from './HomeVocabDetailModal';
 import HomeKanjiDetailModal from './HomeKanjiDetailModal';
 import HomeGrammarDetailModal from './HomeGrammarDetailModal';
 import HomeKanjiHandwritingModal from './HomeKanjiHandwritingModal';
+import HomeSentenceTranslateCard from './HomeSentenceTranslateCard';
+import { isSentenceCandidate } from '../../services/sentenceTranslationService';
 
 const removeTones = (str) => {
     if (!str) return '';
@@ -80,10 +86,14 @@ export default function HomeUnifiedSearchBar({
     const [selectedKanjiForDetail, setSelectedKanjiForDetail] = useState(null);
     const [selectedGrammarForDetail, setSelectedGrammarForDetail] = useState(null);
 
+    // Canonical Kanji map references for instant ID <-> character translation
+    const canonicalKanjiMapRef = useRef(new Map());
+    const canonicalIdToDocMapRef = useRef(new Map());
+
     // User SRS states for instant bookmarking feedback
     const [userKanjiSRS, setUserKanjiSRS] = useState(() => {
         const cached = getCachedUserSrsData(userId);
-        return new Set(cached ? Object.keys(cached) : []);
+        return buildKanjiSrsIdentifierSet(cached, getCachedKanjiList());
     });
 
     const [userGrammarSRS, setUserGrammarSRS] = useState(() => {
@@ -109,6 +119,31 @@ export default function HomeUnifiedSearchBar({
         return Object.values(JOTOBA_KANJI_DATA || {});
     }, []);
 
+    // Load and index canonical Kanji list
+    useEffect(() => {
+        let isMounted = true;
+        getSharedKanjiList().then((list) => {
+            if (!isMounted || !Array.isArray(list)) return;
+            const cMap = new Map();
+            const iMap = new Map();
+            list.forEach(k => {
+                const char = (k.character || k.literal || '').trim();
+                if (char) cMap.set(char, k);
+                if (k.id) iMap.set(k.id, k);
+            });
+            canonicalKanjiMapRef.current = cMap;
+            canonicalIdToDocMapRef.current = iMap;
+
+            // Re-sync user's SRS set with canonical character mappings
+            const cachedSrs = getCachedUserSrsData(userId);
+            if (cachedSrs && Object.keys(cachedSrs).length > 0) {
+                setUserKanjiSRS(buildKanjiSrsIdentifierSet(cachedSrs, list));
+            }
+        }).catch(() => {});
+
+        return () => { isMounted = false; };
+    }, [userId]);
+
     // Cached shared grammar points
     const grammarListRef = useRef([]);
     useEffect(() => {
@@ -132,8 +167,18 @@ export default function HomeUnifiedSearchBar({
     // Live subscriptions to user's SRS progress
     useEffect(() => {
         if (!userId) return;
+
+        // Ensure user SRS is loaded and synchronized
+        getSharedKanjiSrs(userId).then(srs => {
+            if (srs) {
+                setUserKanjiSRS(buildKanjiSrsIdentifierSet(srs, getCachedKanjiList()));
+            }
+        }).catch(() => {});
+
         const unsubKanji = subscribeKanjiSrs(userId, (freshSrs) => {
-            if (freshSrs) setUserKanjiSRS(new Set(Object.keys(freshSrs)));
+            if (freshSrs) {
+                setUserKanjiSRS(buildKanjiSrsIdentifierSet(freshSrs, getCachedKanjiList()));
+            }
         });
         const unsubGrammar = subscribeGrammarSrs(userId, (freshSrs) => {
             if (freshSrs) setUserGrammarSRS(new Set(Object.keys(freshSrs)));
@@ -277,7 +322,13 @@ export default function HomeUnifiedSearchBar({
                     }
 
                     if (score > 0) {
-                        matchingKanji.push({ ...k, _score: score });
+                        const canonicalDoc = canonicalKanjiMapRef.current.get(char);
+                        matchingKanji.push({
+                            ...k,
+                            id: canonicalDoc?.id || k.id,
+                            character: char,
+                            _score: score
+                        });
                     }
                 }
                 matchingKanji.sort((a, b) => b._score - a._score);
@@ -336,18 +387,36 @@ export default function HomeUnifiedSearchBar({
             return;
         }
         const char = kanji.literal || kanji.character;
-        const docId = kanji.id || `kanji_${char}`;
-        const isSaved = userKanjiSRS.has(char) || userKanjiSRS.has(docId);
+        const canonicalDoc = canonicalKanjiMapRef.current.get(char);
+        const docId = kanji.id || canonicalDoc?.id || `kanji_${char}`;
+        const canonicalId = canonicalDoc?.id;
+        const isSaved = Boolean(
+            (char && userKanjiSRS.has(char)) ||
+            (char && userKanjiSRS.has(`kanji_${char}`)) ||
+            (docId && userKanjiSRS.has(docId)) ||
+            (canonicalId && userKanjiSRS.has(canonicalId))
+        );
 
         try {
-            const srsDocRef = doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, docId);
+            const targetDocId = canonicalId || docId;
+            const srsDocRef = doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, targetDocId);
             if (isSaved) {
                 await deleteDoc(srsDocRef);
-                updateCachedUserSrs(userId, docId, null, char);
+                if (canonicalId && canonicalId !== targetDocId) {
+                    deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, canonicalId)).catch(() => {});
+                }
+                if (char) {
+                    deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, `kanji_${char}`)).catch(() => {});
+                    deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, char)).catch(() => {});
+                }
+                updateCachedUserSrs(userId, targetDocId, null, char);
                 setUserKanjiSRS(prev => {
                     const next = new Set(prev);
                     next.delete(char);
+                    next.delete(targetDocId);
                     next.delete(docId);
+                    next.delete(`kanji_${char}`);
+                    if (canonicalId) next.delete(canonicalId);
                     return next;
                 });
                 showToast(`Đã bỏ lưu Kanji "${char}" khỏi SRS`, 'info');
@@ -363,8 +432,16 @@ export default function HomeUnifiedSearchBar({
                     state: 'NEW'
                 };
                 await setDoc(srsDocRef, newSrs, { merge: true });
-                updateCachedUserSrs(userId, docId, newSrs, char);
-                setUserKanjiSRS(prev => new Set([...prev, char, docId]));
+                updateCachedUserSrs(userId, targetDocId, newSrs, char);
+                setUserKanjiSRS(prev => {
+                    const next = new Set(prev);
+                    next.add(char);
+                    next.add(targetDocId);
+                    next.add(docId);
+                    next.add(`kanji_${char}`);
+                    if (canonicalId) next.add(canonicalId);
+                    return next;
+                });
                 awardXP?.(15);
                 showToast(`Đã lưu Kanji "${char}" vào danh sách ôn tập SRS`, 'success');
             }
@@ -416,6 +493,7 @@ export default function HomeUnifiedSearchBar({
     };
 
     const hasSearchText = query.trim().length > 0;
+    const isSentence = isSentenceCandidate(query);
 
     return (
         <div ref={containerRef} className="relative w-full z-40">
@@ -486,7 +564,7 @@ export default function HomeUnifiedSearchBar({
                                 : 'text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-750'
                         }`}
                     >
-                        <span>Từ vựng</span>
+                        <span>{isSentence ? 'Dịch câu / Từ vựng' : 'Từ vựng'}</span>
                         {vocabResults.length > 0 && hasSearchText && (
                             <span className="text-[10px] opacity-80 font-black">({vocabResults.length})</span>
                         )}
@@ -528,45 +606,61 @@ export default function HomeUnifiedSearchBar({
             {isDropdownOpen && hasSearchText && (
                 <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-150 max-h-[70vh] flex flex-col z-40">
                     <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-2">
-                        {/* TAB 1: VOCABULARY */}
+                        {/* TAB 1: VOCABULARY & SENTENCE TRANSLATION */}
                         {activeTab === 'vocab' && (
                             <>
-                                {vocabResults.length === 0 && !isLoading ? (
-                                    <div className="text-center py-10 px-4">
-                                        <div className="w-12 h-12 mx-auto rounded-2xl bg-sky-50 dark:bg-sky-950/40 text-sky-500 flex items-center justify-center text-xl mb-3">
-                                            📖
-                                        </div>
-                                        <h4 className="font-bold text-sm text-slate-700 dark:text-slate-300">
-                                            Không tìm thấy từ vựng nào cho "{query}"
-                                        </h4>
-                                        <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 max-w-sm mx-auto">
-                                            Thử tìm bằng Kanji, Hiragana, Romaji hoặc nghĩa tiếng Việt (có dấu/không dấu)
-                                        </p>
+                                {/* Translation Card: Displayed for sentences, phrases, or whenever no exact dictionary words found */}
+                                {(isSentence || (vocabResults.length === 0 && !isLoading)) && (
+                                    <HomeSentenceTranslateCard
+                                        query={query}
+                                        onSaveCard={(cardData) => {
+                                            setSelectedVocabForSave({
+                                                w: cardData.front,
+                                                r: cardData.reading || '',
+                                                m: [cardData.back],
+                                                ex: cardData.example ? { ja: cardData.example, vi: cardData.exampleMeaning } : null
+                                            });
+                                            setIsAiSaveAction(false);
+                                            setSaveModalOpen(true);
+                                        }}
+                                        savedVocabSet={savedVocabSet}
+                                    />
+                                )}
+
+                                {vocabResults.length > 0 && (
+                                    <div className="space-y-2 pt-1">
+                                        {isSentence && (
+                                            <div className="flex items-center gap-2 pt-2 pb-1 px-1">
+                                                <span className="text-[11px] font-black uppercase tracking-wider text-slate-400">
+                                                    Các từ vựng liên quan ({vocabResults.length})
+                                                </span>
+                                                <div className="h-px flex-1 bg-slate-100 dark:bg-slate-800" />
+                                            </div>
+                                        )}
+                                        {vocabResults.map((v, idx) => {
+                                            const w = cleanWord(v.w || v.r);
+                                            const isSaved = savedVocabSet.has(w);
+                                            return (
+                                                <VocabResultCard
+                                                    key={`vocab-${idx}-${w}`}
+                                                    entry={v}
+                                                    isSaved={isSaved}
+                                                    onSelectVocab={(entry) => setSelectedVocabForDetail(entry)}
+                                                    onOpenSave={(entry) => {
+                                                        setSelectedVocabForSave(entry);
+                                                        setIsAiSaveAction(false);
+                                                        setSaveModalOpen(true);
+                                                    }}
+                                                    onOpenAiSave={(entry) => {
+                                                        setSelectedVocabForSave(entry);
+                                                        setIsAiSaveAction(true);
+                                                        setSaveModalOpen(true);
+                                                    }}
+                                                    canUserUseAI={canUserUseAI}
+                                                />
+                                            );
+                                        })}
                                     </div>
-                                ) : (
-                                    vocabResults.map((v, idx) => {
-                                        const w = cleanWord(v.w || v.r);
-                                        const isSaved = savedVocabSet.has(w);
-                                        return (
-                                            <VocabResultCard
-                                                key={`vocab-${idx}-${w}`}
-                                                entry={v}
-                                                isSaved={isSaved}
-                                                onSelectVocab={(entry) => setSelectedVocabForDetail(entry)}
-                                                onOpenSave={(entry) => {
-                                                    setSelectedVocabForSave(entry);
-                                                    setIsAiSaveAction(false);
-                                                    setSaveModalOpen(true);
-                                                }}
-                                                onOpenAiSave={(entry) => {
-                                                    setSelectedVocabForSave(entry);
-                                                    setIsAiSaveAction(true);
-                                                    setSaveModalOpen(true);
-                                                }}
-                                                canUserUseAI={canUserUseAI}
-                                            />
-                                        );
-                                    })
                                 )}
                             </>
                         )}
@@ -589,7 +683,14 @@ export default function HomeUnifiedSearchBar({
                                 ) : (
                                     kanjiResults.map((k) => {
                                         const char = k.literal || k.character;
-                                        const isBookmarked = userKanjiSRS.has(char) || userKanjiSRS.has(k.id || `kanji_${char}`);
+                                        const canonicalDoc = canonicalKanjiMapRef.current.get(char);
+                                        const canonicalId = k.id || canonicalDoc?.id;
+                                        const isBookmarked = Boolean(
+                                            (char && userKanjiSRS.has(char)) ||
+                                            (char && userKanjiSRS.has(`kanji_${char}`)) ||
+                                            (canonicalId && userKanjiSRS.has(canonicalId)) ||
+                                            (k.id && userKanjiSRS.has(k.id))
+                                        );
                                         return (
                                             <KanjiResultCard
                                                 key={`kanji-${char}`}
@@ -675,7 +776,13 @@ export default function HomeUnifiedSearchBar({
                 isOpen={!!selectedKanjiForDetail}
                 onClose={() => setSelectedKanjiForDetail(null)}
                 kanji={selectedKanjiForDetail}
-                isBookmarked={selectedKanjiForDetail ? (userKanjiSRS.has(selectedKanjiForDetail.literal || selectedKanjiForDetail.character) || userKanjiSRS.has(selectedKanjiForDetail.id || `kanji_${selectedKanjiForDetail.literal || selectedKanjiForDetail.character}`)) : false}
+                isBookmarked={selectedKanjiForDetail ? Boolean(
+                    (selectedKanjiForDetail.literal && userKanjiSRS.has(selectedKanjiForDetail.literal)) ||
+                    (selectedKanjiForDetail.character && userKanjiSRS.has(selectedKanjiForDetail.character)) ||
+                    (selectedKanjiForDetail.id && userKanjiSRS.has(selectedKanjiForDetail.id)) ||
+                    (canonicalKanjiMapRef.current.get(selectedKanjiForDetail.literal || selectedKanjiForDetail.character)?.id && 
+                     userKanjiSRS.has(canonicalKanjiMapRef.current.get(selectedKanjiForDetail.literal || selectedKanjiForDetail.character).id))
+                ) : false}
                 onToggleBookmark={handleToggleKanjiBookmark}
             />
 

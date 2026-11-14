@@ -237,6 +237,12 @@ export const getSharedKanjiList = async () => {
             }
 
             cachedKanjiList = Array.from(canonicalKanjiMap.values());
+            if (cachedUserSrsData && Object.keys(cachedUserSrsData).length > 0) {
+                try {
+                    cachedUserSrsData = harmonizeKanjiSrsMap(cachedUserSrsData);
+                    kanjiSrsListeners.forEach(cb => { try { cb(cachedUserSrsData); } catch (_) {} });
+                } catch (_) {}
+            }
             return cachedKanjiList;
         } catch (e) {
             console.error('Fatal error loading kanji data:', e);
@@ -588,11 +594,72 @@ export const harmonizeKanjiSrsMap = (srsMap) => {
         const best = charToBestSrs.get(char);
         if (!best) return;
         keys.forEach(k => {
-            harmonized[k] = { ...harmonized[k], ...best };
+            harmonized[k] = { ...harmonized[k], ...best, character: char };
         });
     });
 
     return harmonized;
+};
+
+/**
+ * Build a Set containing all valid identifier keys for user's Kanji SRS:
+ * - Firestore doc.id
+ * - character (literal)
+ * - `kanji_${character}`
+ * This guarantees O(1) bookmark lookup regardless of whether a card was queried
+ * by character, legacy id, or canonical Firestore doc.id.
+ */
+export const buildKanjiSrsIdentifierSet = (srsMap, explicitKanjiList = null) => {
+    const idSet = new Set();
+    if (!srsMap || typeof srsMap !== 'object') return idSet;
+
+    const kanjiList = explicitKanjiList || getCachedKanjiList() || [];
+    const idToChar = new Map();
+    const charToId = new Map();
+    if (Array.isArray(kanjiList) && kanjiList.length > 0) {
+        kanjiList.forEach(k => {
+            const char = (k.character || k.literal || '').trim();
+            if (char && k.id) {
+                charToId.set(char, k.id);
+                idToChar.set(k.id, char);
+            }
+        });
+    }
+
+    Object.entries(srsMap).forEach(([key, data]) => {
+        if (!data) return;
+        idSet.add(key);
+
+        if (key.startsWith('kanji_')) {
+            const rawChar = key.replace('kanji_', '');
+            idSet.add(rawChar);
+            const canonicalId = charToId.get(rawChar);
+            if (canonicalId) idSet.add(canonicalId);
+        }
+
+        const charFromData = data.character || (key.length === 1 ? key : null);
+        if (charFromData) {
+            idSet.add(charFromData);
+            idSet.add(`kanji_${charFromData}`);
+            const canonicalId = charToId.get(charFromData);
+            if (canonicalId) idSet.add(canonicalId);
+        }
+
+        const charFromDocId = idToChar.get(key);
+        if (charFromDocId) {
+            idSet.add(charFromDocId);
+            idSet.add(`kanji_${charFromDocId}`);
+        }
+    });
+
+    return idSet;
+};
+
+export const getCanonicalKanjiByChar = (char) => {
+    if (!char) return null;
+    const clean = String(char).trim();
+    const list = getCachedKanjiList() || [];
+    return list.find(k => (k.character || k.literal || '').trim() === clean) || null;
 };
 
 const mergeServerWithLocalKanjiSrs = (userId, serverSrsMap) => {

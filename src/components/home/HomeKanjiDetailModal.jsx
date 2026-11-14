@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import openjlptKanjiVocab from '../../data/openjlptKanjiVocab.json' with { type: 'json' };
 
 export default function HomeKanjiDetailModal({
-    isOpen,
+    isOpen = true,
     onClose,
     kanji,
     isBookmarked = false,

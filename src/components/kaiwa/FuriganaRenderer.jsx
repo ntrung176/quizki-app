@@ -22,6 +22,16 @@ export function getParsedTokens(textWithFurigana) {
 
     let cleanText = textWithFurigana;
 
+    // 0. Convert raw HTML <ruby> tags if text contains them
+    if (typeof cleanText === 'string' && (cleanText.includes('<ruby') || cleanText.includes('<rt'))) {
+        cleanText = cleanText.replace(/<ruby>([\s\S]*?)<\/ruby>/gi, (_, inner) => {
+            const rtMatch = inner.match(/<rt>([\s\S]*?)<\/rt>/i);
+            const reading = rtMatch ? rtMatch[1].trim() : '';
+            const kanji = inner.replace(/<rt>[\s\S]*?<\/rt>/gi, '').replace(/<rp>[\s\S]*?<\/rp>/gi, '').replace(/<[^>]+>/g, '').trim();
+            return reading ? `${kanji}（${reading}）` : kanji;
+        }).replace(/<[^>]+>/g, '');
+    }
+
     // 1. Convert Kanji(reading) or Kanji（reading）into {Kanji|reading} syntax
     cleanText = cleanText.replace(/([\u4E00-\u9FAF\u3400-\u4DBF\u3005]+)[（\(]([\u3040-\u309F\u30A0-\u30FF\s]+)[）\)]/g, '{$1|$2}');
 
@@ -306,7 +316,16 @@ function processTokensWithCharacterMapping(rawTokens, keywords = [], grammar = [
     if (!rawTokens || rawTokens.length === 0) return [];
     const allEntries = prepareAllEntries(keywords, grammar);
     if (allEntries.length === 0) {
-        return rawTokens.map(t => ({ isMatch: false, ...t }));
+        return rawTokens.map(t => ({
+            isMatch: false,
+            matchedEntry: null,
+            spanChars: [],
+            tokenGroups: [{
+                token: t,
+                isRuby: t.isRuby,
+                chars: t.isRuby ? (t.kanji ? t.kanji.split('') : []) : (t.text ? t.text.split('') : [])
+            }]
+        }));
     }
 
     // 1. Build character-level map from raw tokens
@@ -518,7 +537,7 @@ export const renderFuriganaContent = (textWithFurigana, showFurigana = true, onW
                             ? 'group-hover/word:text-emerald-400 dark:group-hover/word:text-emerald-300 underline decoration-emerald-400/50 decoration-wavy' 
                             : 'group-hover/word:text-[#f494bc]'
                     }`}>
-                        {chunk.tokenGroups.map((group, gIdx) => {
+                        {(chunk.tokenGroups || []).map((group, gIdx) => {
                             if (group.isRuby) {
                                 return (
                                     <ruby 
@@ -554,9 +573,15 @@ export const renderFuriganaContent = (textWithFurigana, showFurigana = true, onW
         }
 
         // Unmatched Segment (Text or Ruby)
+        const groups = chunk.tokenGroups || [{
+            token: chunk,
+            isRuby: chunk.isRuby,
+            chars: chunk.isRuby ? (chunk.kanji ? chunk.kanji.split('') : []) : (chunk.text ? chunk.text.split('') : [])
+        }];
+
         return (
             <React.Fragment key={chunkIdx}>
-                {chunk.tokenGroups.map((group, gIdx) => {
+                {groups.map((group, gIdx) => {
                     if (group.isRuby) {
                         return (
                             <ruby 
