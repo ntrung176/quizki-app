@@ -17,6 +17,7 @@ import { isEnglishCard } from '../../utils/englishVocab';
 import { isKoreanCard } from '../../languages/ko';
 
 // Modular Home Screen Components
+import HomeUnifiedSearchBar from '../home/HomeUnifiedSearchBar';
 import HomeSrsBentoGrid from '../home/HomeSrsBentoGrid';
 import HomeLearningRoadmap from '../home/HomeLearningRoadmap';
 import HomeDailyQuests from '../home/HomeDailyQuests';
@@ -55,6 +56,11 @@ const HomeScreen = ({
     isReviewActive = false,
     calculatedStreak = 0,
     awardXP,
+    folders = [],
+    parentFolders = [],
+    onSaveCard,
+    onGeminiAssist,
+    canUserUseAI = true,
 }) => {
     const { t, language } = useLanguage();
     const { isJapaneseMode, isEnglishMode, isKoreanMode, targetLanguage } = useTargetLanguage();
@@ -632,6 +638,20 @@ const HomeScreen = ({
                             {effectiveDisplayName ? `${effectiveDisplayName}!` : t('home.helloUser', 'Chào bạn!')} 👋
                         </h1>
                     </div>
+
+                    {/* Unified Multi-Pillar Search Bar (Vocab, Kanji, Grammar) */}
+                    {isJapaneseMode && (
+                        <HomeUnifiedSearchBar
+                            userId={userId}
+                            allCards={allCards}
+                            folders={folders}
+                            parentFolders={parentFolders}
+                            onSaveCard={onSaveCard}
+                            onGeminiAssist={onGeminiAssist}
+                            canUserUseAI={canUserUseAI}
+                            awardXP={awardXP}
+                        />
+                    )}
 
                     {/* 2. Unified Study Pillars (Vocab, Kanji, Grammar) */}
                     <HomeSrsBentoGrid

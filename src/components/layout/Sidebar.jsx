@@ -517,13 +517,6 @@ const Sidebar = ({
         // 4. Kanji menu is only relevant for Japanese learning
         if (isJapaneseMode) {
             items.push({ id: 'KANJI_STUDY', icon: Languages, label: t('nav.kanjiShort', 'Kanji'), route: ROUTES.KANJI_REVIEW, group: groupStudy });
-            items.push({
-                id: 'DICTIONARY',
-                icon: Search,
-                label: t('nav.dictionary', 'Từ điển'),
-                onClick: () => window.dispatchEvent(new CustomEvent('quizki-open-dictionary')),
-                group: groupStudy
-            });
         }
 
         const kaiwaLabel = isKoreanMode 
@@ -711,17 +704,6 @@ const Sidebar = ({
                 icon: Bookmark,
                 route: ROUTES.GRAMMAR_CHEATSHEETS,
                 badge: null,
-            });
-            // 4. Từ điển Offline
-            items.push({
-                id: 'dictionary',
-                label: t('nav.dictionary', 'Từ điển'),
-                icon: Search,
-                onClick: () => {
-                    setIsMobileMenuOpen(false);
-                    window.dispatchEvent(new CustomEvent('quizki-open-dictionary'));
-                },
-                badge: 'Offline',
             });
         } else if (isKoreanMode) {
             items.push({

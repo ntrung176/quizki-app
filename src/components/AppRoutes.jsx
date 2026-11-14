@@ -702,6 +702,11 @@ const AppRoutes = ({
                                 calculatedStreak={calculatedStreak}
                                 isActivityLogsLoaded={isActivityLogsLoaded}
                                 awardXP={awardXP}
+                                folders={folders}
+                                parentFolders={parentFolders}
+                                onSaveCard={handleSaveNewCard}
+                                onGeminiAssist={canUserUseAI ? handleGeminiAssist : null}
+                                canUserUseAI={canUserUseAI}
                             />
                         )
                     }
