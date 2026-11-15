@@ -134,6 +134,14 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         } catch (_) { }
     }, [typingMode]);
 
+    // Đồng bộ lập tức chế độ ôn tập Kanji (Flashcard vs Typing) vào state và localStorage
+    const applyTypingMode = useCallback((isTyping) => {
+        try {
+            localStorage.setItem('quizki_kanji_review_type', isTyping ? 'typing' : 'flashcard');
+        } catch (_) {}
+        setTypingMode(isTyping);
+    }, []);
+
     const sessionXpRef = useRef(0);
     const completedCardIds = useRef(new Set());
     const activeReviewCardIds = useRef(new Set());
@@ -654,9 +662,15 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
 
     const [isPreparingSession, setIsPreparingSession] = useState(false);
 
-    const runStartReview = (customList = null) => {
+    const runStartReview = (customList = null, explicitTyping = null) => {
         const list = customList || dueKanji;
         if (list.length === 0) return;
+        if (explicitTyping !== null) {
+            setTypingMode(explicitTyping);
+            try {
+                localStorage.setItem('quizki_kanji_review_type', explicitTyping ? 'typing' : 'flashcard');
+            } catch (_) { }
+        }
         sessionXpRef.current = 0;
         completedCardIds.current.clear();
         const mappedList = list.map(c => {
@@ -709,20 +723,22 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
 
     const hasAutoStartedRef = useRef(false);
 
-    // Auto start review session when navigated from Home Screen
+    // Tự động khởi chạy hoặc đồng bộ reviewType khi chuyển hướng từ Trang chủ
     useEffect(() => {
+        if (location.state?.reviewType) {
+            applyTypingMode(location.state.reviewType === 'typing');
+        }
+
         if (location.state?.autoStart && !hasAutoStartedRef.current && !loading && !reviewMode) {
             if (dueKanji.length > 0) {
                 hasAutoStartedRef.current = true;
-                if (location.state?.reviewType) {
-                    setTypingMode(location.state.reviewType === 'typing');
-                }
-                runStartReview();
+                const isTyping = location.state?.reviewType === 'typing';
+                runStartReview(null, isTyping);
             } else {
                 hasAutoStartedRef.current = true; // No due kanji, stay on overview tab
             }
         }
-    }, [location.state, loading, reviewMode, dueKanji.length]);
+    }, [location.state, loading, reviewMode, dueKanji.length, applyTypingMode]);
 
 
 
@@ -1844,8 +1860,9 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                 title={t('kanji.selectReviewMode', 'Chọn chế độ ôn tập Kanji')}
                 cardCount={dueKanji.length}
                 onSelectMode={(mode) => {
-                    setTypingMode(mode === 'typing');
-                    runStartReview();
+                    const isTyping = mode === 'typing';
+                    applyTypingMode(isTyping);
+                    runStartReview(null, isTyping);
                 }}
             />
         </div>

@@ -328,6 +328,23 @@ const SRSVocabScreen = ({
         localStorage.setItem('quizki_flashcard_settings_v2', JSON.stringify(cardSettings));
     }, [cardSettings]);
 
+    // Đồng bộ lập tức chế độ ôn tập (Flashcard vs Typing) vào state và localStorage
+    const applyReviewType = useCallback((mode) => {
+        if (!mode) return;
+        try {
+            const saved = localStorage.getItem('quizki_flashcard_settings_v2');
+            const parsed = saved ? JSON.parse(saved) : {};
+            localStorage.setItem('quizki_flashcard_settings_v2', JSON.stringify({
+                ...parsed,
+                reviewType: mode
+            }));
+        } catch (_) { }
+        setCardSettings(prev => ({
+            ...prev,
+            reviewType: mode
+        }));
+    }, []);
+
     const [showSettingsMenu, setShowSettingsMenu] = useState(false);
     const [showNuancePopup, setShowNuancePopup] = useState(false);
 
@@ -608,7 +625,7 @@ const SRSVocabScreen = ({
         }), { new: 0, due: 0 });
     }, [folderStats]);
 
-    const startFolderReview = (dueCards, folderId = 'global') => {
+    const startFolderReview = (dueCards, folderId = 'global', explicitReviewType = null) => {
         if (dueCards.length === 0) return;
         activeFolderIdRef.current = folderId;
         sessionXpRef.current = 0;
@@ -626,15 +643,22 @@ const SRSVocabScreen = ({
         // Re-sync freshest card settings from localStorage so Card #1 always applies latest user settings
         try {
             const saved = localStorage.getItem('quizki_flashcard_settings_v2');
-            if (saved) {
-                const parsed = JSON.parse(saved);
-                setCardSettings(prev => ({
-                    ...prev,
-                    ...parsed,
-                    front: { ...prev.front, ...parsed.front },
-                    back: { ...prev.back, ...parsed.back }
-                }));
-            }
+            const parsed = saved ? JSON.parse(saved) : {};
+            const resolvedReviewType = explicitReviewType || parsed.reviewType || cardSettings?.reviewType || 'flashcard';
+
+            const mergedSettings = {
+                ...parsed,
+                reviewType: resolvedReviewType
+            };
+            localStorage.setItem('quizki_flashcard_settings_v2', JSON.stringify(mergedSettings));
+
+            setCardSettings(prev => ({
+                ...prev,
+                ...mergedSettings,
+                reviewType: resolvedReviewType,
+                front: { ...prev.front, ...parsed.front },
+                back: { ...prev.back, ...parsed.back }
+            }));
         } catch (_) { }
 
         // Pre-calculate preview intervals & fuzz factors for all queue cards during prewarming screen
@@ -725,24 +749,23 @@ const SRSVocabScreen = ({
     const lastRatedCardIdRef = useRef(null);
     const lastRatedTimeRef = useRef(0);
 
-    // Auto start review session when navigated from Home Screen
+    // Tự động khởi chạy hoặc đồng bộ reviewType khi chuyển hướng từ Trang chủ / màn hình khác
     useEffect(() => {
+        if (location.state?.reviewType) {
+            applyReviewType(location.state.reviewType);
+        }
+
         if (location.state?.autoStart && !hasAutoStartedRef.current && !reviewMode) {
             const dueCardsOnly = filteredCards.filter(c => isDue(c));
             if (dueCardsOnly.length > 0) {
                 hasAutoStartedRef.current = true;
-                if (location.state?.reviewType) {
-                    setCardSettings(prev => ({
-                        ...prev,
-                        reviewType: location.state.reviewType
-                    }));
-                }
-                startFolderReview(dueCardsOnly, 'global');
+                const chosenType = location.state.reviewType || null;
+                startFolderReview(dueCardsOnly, 'global', chosenType);
             } else {
                 hasAutoStartedRef.current = true; // No due cards, stay on overview tab
             }
         }
-    }, [location.state, filteredCards, reviewMode]);
+    }, [location.state, filteredCards, reviewMode, applyReviewType]);
 
     const [lastTick, setLastTick] = useState(Date.now());
 
@@ -2100,8 +2123,8 @@ const SRSVocabScreen = ({
                 title={srsModeModalData.title}
                 cardCount={srsModeModalData.count}
                 onSelectMode={(mode) => {
-                    setCardSettings(prev => ({ ...prev, reviewType: mode }));
-                    startFolderReview(srsModeModalData.cards, srsModeModalData.folderId);
+                    applyReviewType(mode);
+                    startFolderReview(srsModeModalData.cards, srsModeModalData.folderId, mode);
                 }}
             />
         </div>
