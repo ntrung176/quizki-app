@@ -1,6 +1,6 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { Search, X, Edit, BookOpen, CheckCircle2, ChevronRight, Layers, AlertCircle, FileText, Sparkles } from 'lucide-react';
+import { Search, X, Edit, BookOpen, CheckCircle2, ChevronRight, Layers, AlertCircle, FileText, ExternalLink } from 'lucide-react';
 import QuestionEditModal from './QuestionEditModal';
 import { loadJLPTLevelData } from '../../services/jlptDataService';
 
@@ -34,7 +34,8 @@ const JLPTQuestionSearchModal = ({
     isOpen,
     onClose,
     tests = [],
-    onSaveQuestion
+    onSaveQuestion,
+    onSelectTest
 }) => {
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedLevel, setSelectedLevel] = useState('all');
@@ -149,13 +150,13 @@ const JLPTQuestionSearchModal = ({
                             </span>
                             <div>
                                 <h3 className="text-base sm:text-lg font-black text-slate-900 dark:text-white flex items-center gap-2">
-                                    Tìm & Sửa Nhanh Câu Hỏi JLPT
+                                    Tìm Kiếm Câu Hỏi JLPT
                                     <span className="text-[11px] font-black px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
                                         Admin
                                     </span>
                                 </h3>
                                 <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                                    Tìm kiếm bất kỳ câu hỏi nào trong {allQuestionsIndex.length} câu hỏi của toàn bộ đề thi để sửa đáp án và giải thích ngay lập tức.
+                                    Tìm kiếm bất kỳ câu hỏi nào trong {allQuestionsIndex.length} câu hỏi của toàn bộ đề thi để mở đề hoặc sửa đáp án.
                                 </p>
                             </div>
                         </div>
@@ -227,7 +228,7 @@ const JLPTQuestionSearchModal = ({
                                 <span>Gõ từ khóa để bắt đầu tìm kiếm nhanh câu hỏi...</span>
                             )}
                             <span className="text-[11px] text-slate-400">
-                                Mẹo: Bấm <strong>Sửa & AI</strong> để mở bảng chỉnh sửa, dùng AI check đáp án và tạo giải thích ngắn gọn tức thì.
+                                Mẹo: Bấm <strong>Mở đề</strong> để vào làm/xem trực tiếp đề thi, hoặc <strong>Sửa câu</strong> để đổi đáp án nhanh.
                             </span>
                         </div>
                     </div>
@@ -264,15 +265,29 @@ const JLPTQuestionSearchModal = ({
                                         key={`${item.testId}-${item.sectionIdx}-${item.questionIdx}-${idx}`}
                                         className="bg-white dark:bg-slate-950/60 rounded-2xl border-2 border-b-4 border-slate-200/80 dark:border-slate-800 p-4 sm:p-5 hover:border-emerald-400 dark:hover:border-emerald-700/70 transition-all shadow-xs space-y-3"
                                     >
-                                        {/* Card Top: Breadcrumb metadata + Edit button */}
+                                        {/* Card Top: Breadcrumb metadata + Action buttons */}
                                         <div className="flex items-start justify-between gap-3">
                                             <div className="flex items-center gap-2 flex-wrap">
                                                 <span className="px-2.5 py-1 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 text-xs font-black border border-emerald-200 dark:border-emerald-900/60">
                                                     {item.testLevel}
                                                 </span>
-                                                <span className="text-xs font-black text-slate-900 dark:text-white">
-                                                    {item.testTitle}
-                                                </span>
+                                                {onSelectTest ? (
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => {
+                                                            onClose();
+                                                            onSelectTest(item.test, item.sectionIdx, item.questionIdx);
+                                                        }}
+                                                        className="text-xs font-black text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors cursor-pointer text-left underline decoration-slate-300 dark:decoration-slate-700 decoration-dotted hover:decoration-emerald-500"
+                                                        title="Bấm để mở đề thi này"
+                                                    >
+                                                        {item.testTitle}
+                                                    </button>
+                                                ) : (
+                                                    <span className="text-xs font-black text-slate-900 dark:text-white">
+                                                        {item.testTitle}
+                                                    </span>
+                                                )}
                                                 <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
                                                 <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
                                                     {item.sectionName}
@@ -282,14 +297,31 @@ const JLPTQuestionSearchModal = ({
                                                 </span>
                                             </div>
 
-                                            <button
-                                                onClick={() => setEditingTarget(item)}
-                                                className="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 active:translate-y-0.5 border-b-3 border-emerald-700 text-white rounded-xl text-xs font-black transition-all flex items-center gap-1.5 cursor-pointer shadow-xs shrink-0 select-none"
-                                                title="Mở bảng sửa câu hỏi và dùng AI check đáp án / tạo giải thích"
-                                            >
-                                                <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-                                                <span>Sửa & AI</span>
-                                            </button>
+                                            <div className="flex items-center gap-2 shrink-0">
+                                                {onSelectTest && (
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => {
+                                                            onClose();
+                                                            onSelectTest(item.test, item.sectionIdx, item.questionIdx);
+                                                        }}
+                                                        className="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-500 active:translate-y-0.5 border-b-3 border-emerald-700 text-white rounded-xl text-xs font-black transition-all flex items-center gap-1.5 cursor-pointer shadow-xs select-none"
+                                                        title="Mở trực tiếp đề thi này và nhảy đến câu hỏi"
+                                                    >
+                                                        <BookOpen className="w-3.5 h-3.5" />
+                                                        <span>Mở đề</span>
+                                                    </button>
+                                                )}
+                                                <button
+                                                    type="button"
+                                                    onClick={() => setEditingTarget(item)}
+                                                    className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 active:translate-y-0.5 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 rounded-xl text-xs font-black transition-all flex items-center gap-1.5 cursor-pointer shadow-2xs select-none"
+                                                    title="Chỉnh sửa nội dung câu hỏi, đáp án và giải thích"
+                                                >
+                                                    <Edit className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
+                                                    <span>Sửa câu</span>
+                                                </button>
+                                            </div>
                                         </div>
 
                                         {/* Question Stem */}

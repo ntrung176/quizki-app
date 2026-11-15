@@ -43,6 +43,81 @@ export const normalizeAnswerIndex = (rawAnswer, options = []) => {
 };
 
 /**
+ * Strips all undefined fields recursively to prevent Firestore setDoc errors
+ */
+export const sanitizeDataForFirestore = (data) => {
+    if (data === null || data === undefined) return null;
+    if (Array.isArray(data)) {
+        return data.filter(item => item !== undefined).map(sanitizeDataForFirestore);
+    }
+    if (typeof data === 'object') {
+        const clean = {};
+        for (const [key, value] of Object.entries(data)) {
+            if (value !== undefined) {
+                clean[key] = sanitizeDataForFirestore(value);
+            }
+        }
+        return clean;
+    }
+    return data;
+};
+
+/**
+ * Builds a clean question object with no undefined fields
+ */
+export const buildCleanQuestion = (oldQ = {}, newQ = {}) => {
+    const optList = Array.isArray(newQ.options) && newQ.options.length > 0 ? newQ.options : (oldQ.options || []);
+    const rawAns = newQ.correctAnswer ?? newQ.answer ?? newQ.correct ?? oldQ.correctAnswer ?? 0;
+    const normalizedAns = normalizeAnswerIndex(rawAns, optList);
+
+    const qObj = {
+        ...oldQ,
+        question: newQ.question || oldQ.question || '',
+        options: optList,
+        correctAnswer: normalizedAns,
+        answer: normalizedAns,
+        correct: normalizedAns,
+        explanation: newQ.explanation || newQ.detail || oldQ.explanation || '',
+        detail: newQ.explanation || newQ.detail || oldQ.detail || ''
+    };
+
+    const passageText = newQ.passage || oldQ.passage;
+    if (passageText) {
+        qObj.passage = passageText;
+    } else {
+        delete qObj.passage;
+    }
+
+    if (Array.isArray(newQ.subQuestions) && newQ.subQuestions.length > 0) {
+        qObj.subQuestions = newQ.subQuestions.map((sq, sqi) => {
+            const oldSq = (oldQ.subQuestions || [])[sqi] || {};
+            const sqOpts = Array.isArray(sq.options) && sq.options.length > 0 ? sq.options : (oldSq.options || []);
+            const sqRawAns = sq.correctAnswer ?? sq.answer ?? oldSq.correctAnswer ?? 0;
+            const sqNormAns = normalizeAnswerIndex(sqRawAns, sqOpts);
+            return {
+                ...oldSq,
+                question: sq.question || oldSq.question || '',
+                options: sqOpts,
+                correctAnswer: sqNormAns,
+                answer: sqNormAns,
+                explanation: sq.explanation || sq.detail || oldSq.explanation || '',
+                detail: sq.explanation || sq.detail || oldSq.detail || ''
+            };
+        });
+    } else if (Array.isArray(oldQ.subQuestions) && oldQ.subQuestions.length > 0) {
+        qObj.subQuestions = oldQ.subQuestions;
+    } else {
+        delete qObj.subQuestions;
+    }
+
+    Object.keys(qObj).forEach(k => {
+        if (qObj[k] === undefined) delete qObj[k];
+    });
+
+    return qObj;
+};
+
+/**
  * Extracts and cleans JSON from AI output (stripping ```json fences and notes)
  */
 export const cleanAndExtractJson = (text) => {
@@ -89,6 +164,7 @@ const JLPTExportImportModal = ({
     const [copiedJson, setCopiedJson] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
     const [expandedPreviewIdx, setExpandedPreviewIdx] = useState(0);
+    const [previewFilter, setPreviewFilter] = useState('changed'); // 'changed' | 'all'
 
     // Reset state when opened
     useEffect(() => {
@@ -98,6 +174,7 @@ const JLPTExportImportModal = ({
             setCopiedPrompt(false);
             setCopiedJson(false);
             setMarkStandardized(true);
+            setPreviewFilter('changed');
         }
     }, [isOpen, activeSectionIdx]);
 
@@ -334,6 +411,77 @@ ${formattedExportJson}`;
         }
     }, [jsonInput]);
 
+    // Compute questions whose correct answer was changed compared to original
+    const changedAnswerQuestions = useMemo(() => {
+        if (!importValidation.isValid || !Array.isArray(importValidation.questions)) return [];
+
+        const diffList = [];
+        const newQuestions = importValidation.questions;
+
+        newQuestions.forEach((newQ, idx) => {
+            const oldQ = questionsToExport[idx];
+            if (!oldQ) return;
+
+            // 1. Check SubQuestions if passage exists
+            if (Array.isArray(oldQ.subQuestions) && oldQ.subQuestions.length > 0) {
+                oldQ.subQuestions.forEach((oldSq, sqi) => {
+                    const newSq = (newQ.subQuestions || [])[sqi];
+                    if (!newSq) return;
+                    const oldSqOpts = Array.isArray(oldSq.options) ? oldSq.options : [];
+                    const newSqOpts = Array.isArray(newSq.options) && newSq.options.length > 0 ? newSq.options : oldSqOpts;
+
+                    const oldSqRaw = oldSq.correctAnswer !== undefined ? (typeof oldSq.correctAnswer === 'number' ? oldSq.correctAnswer - 1 : oldSq.correctAnswer) : 0;
+                    const oldSqAns = normalizeAnswerIndex(oldSqRaw, oldSqOpts);
+
+                    const newSqRaw = newSq.correctAnswer ?? newSq.answer ?? newSq.correct;
+                    const newSqAns = normalizeAnswerIndex(newSqRaw, newSqOpts);
+
+                    if (oldSqAns !== newSqAns) {
+                        diffList.push({
+                            qNum: `${oldQ.id || idx + 1}.${sqi + 1}`,
+                            question: newSq.question || oldSq.question || `Câu hỏi phụ ${sqi + 1}`,
+                            oldAnsIdx: oldSqAns,
+                            newAnsIdx: newSqAns,
+                            oldLetter: String.fromCharCode(65 + oldSqAns),
+                            newLetter: String.fromCharCode(65 + newSqAns),
+                            oldOptionText: oldSqOpts[oldSqAns] || '',
+                            newOptionText: newSqOpts[newSqAns] || '',
+                            options: newSqOpts,
+                            explanation: newSq.explanation || newSq.detail || oldSq.explanation || ''
+                        });
+                    }
+                });
+            } else {
+                // 2. Standard single question
+                const oldOpts = Array.isArray(oldQ.options) ? oldQ.options : [];
+                const newOpts = Array.isArray(newQ.options) && newQ.options.length > 0 ? newQ.options : oldOpts;
+
+                const oldRaw = oldQ.correctAnswer !== undefined ? (typeof oldQ.correctAnswer === 'number' ? oldQ.correctAnswer - 1 : oldQ.correctAnswer) : 0;
+                const oldAnsIdx = normalizeAnswerIndex(oldRaw, oldOpts);
+
+                const newRaw = newQ.correctAnswer ?? newQ.answer ?? newQ.correct;
+                const newAnsIdx = normalizeAnswerIndex(newRaw, newOpts);
+
+                if (oldAnsIdx !== newAnsIdx) {
+                    diffList.push({
+                        qNum: `${oldQ.id || idx + 1}`,
+                        question: newQ.question || oldQ.question || '',
+                        oldAnsIdx,
+                        newAnsIdx,
+                        oldLetter: String.fromCharCode(65 + oldAnsIdx),
+                        newLetter: String.fromCharCode(65 + newAnsIdx),
+                        oldOptionText: oldOpts[oldAnsIdx] || '',
+                        newOptionText: newOpts[newAnsIdx] || '',
+                        options: newOpts,
+                        explanation: newQ.explanation || newQ.detail || oldQ.explanation || ''
+                    });
+                }
+            }
+        });
+
+        return diffList;
+    }, [importValidation, questionsToExport]);
+
     // Execute Import and Save
     const handleExecuteImport = async () => {
         if (!importValidation.isValid || importValidation.questions.length === 0) {
@@ -355,38 +503,7 @@ ${formattedExportJson}`;
                     
                     const mergedQuestions = newQuestions.map((newQ, idx) => {
                         const oldQ = existingQList[idx] || {};
-                        const optList = Array.isArray(newQ.options) && newQ.options.length > 0 ? newQ.options : (oldQ.options || []);
-                        const rawAns = newQ.correctAnswer ?? newQ.answer ?? newQ.correct ?? oldQ.correctAnswer ?? 0;
-                        const normalizedAns = normalizeAnswerIndex(rawAns, optList);
-
-                        return {
-                            ...oldQ,
-                            question: newQ.question || oldQ.question || '',
-                            options: optList,
-                            correctAnswer: normalizedAns,
-                            answer: normalizedAns,
-                            correct: normalizedAns,
-                            explanation: newQ.explanation || newQ.detail || oldQ.explanation || '',
-                            detail: newQ.explanation || newQ.detail || oldQ.detail || '',
-                            passage: newQ.passage || oldQ.passage || undefined,
-                            subQuestions: Array.isArray(newQ.subQuestions) && newQ.subQuestions.length > 0
-                                ? newQ.subQuestions.map((sq, sqi) => {
-                                    const oldSq = (oldQ.subQuestions || [])[sqi] || {};
-                                    const sqOpts = Array.isArray(sq.options) && sq.options.length > 0 ? sq.options : (oldSq.options || []);
-                                    const sqRawAns = sq.correctAnswer ?? sq.answer ?? oldSq.correctAnswer ?? 0;
-                                    const sqNormAns = normalizeAnswerIndex(sqRawAns, sqOpts);
-                                    return {
-                                        ...oldSq,
-                                        question: sq.question || oldSq.question || '',
-                                        options: sqOpts,
-                                        correctAnswer: sqNormAns,
-                                        answer: sqNormAns,
-                                        explanation: sq.explanation || sq.detail || oldSq.explanation || '',
-                                        detail: sq.explanation || sq.detail || oldSq.detail || ''
-                                    };
-                                })
-                                : oldQ.subQuestions
-                        };
+                        return buildCleanQuestion(oldQ, newQ);
                     });
 
                     targetSec.questions = mergedQuestions;
@@ -403,47 +520,17 @@ ${formattedExportJson}`;
                         sec.questions = sec.questions.map((oldQ, idx) => {
                             const newQ = secSlice[idx];
                             if (!newQ) return oldQ;
-
-                            const optList = Array.isArray(newQ.options) && newQ.options.length > 0 ? newQ.options : (oldQ.options || []);
-                            const rawAns = newQ.correctAnswer ?? newQ.answer ?? newQ.correct ?? oldQ.correctAnswer ?? 0;
-                            const normalizedAns = normalizeAnswerIndex(rawAns, optList);
-
-                            return {
-                                ...oldQ,
-                                question: newQ.question || oldQ.question || '',
-                                options: optList,
-                                correctAnswer: normalizedAns,
-                                answer: normalizedAns,
-                                correct: normalizedAns,
-                                explanation: newQ.explanation || newQ.detail || oldQ.explanation || '',
-                                detail: newQ.explanation || newQ.detail || oldQ.detail || '',
-                                passage: newQ.passage || oldQ.passage || undefined,
-                                subQuestions: Array.isArray(newQ.subQuestions) && newQ.subQuestions.length > 0
-                                    ? newQ.subQuestions.map((sq, sqi) => {
-                                        const oldSq = (oldQ.subQuestions || [])[sqi] || {};
-                                        const sqOpts = Array.isArray(sq.options) && sq.options.length > 0 ? sq.options : (oldSq.options || []);
-                                        const sqRawAns = sq.correctAnswer ?? sq.answer ?? oldSq.correctAnswer ?? 0;
-                                        const sqNormAns = normalizeAnswerIndex(sqRawAns, sqOpts);
-                                        return {
-                                            ...oldSq,
-                                            question: sq.question || oldSq.question || '',
-                                            options: sqOpts,
-                                            correctAnswer: sqNormAns,
-                                            answer: sqNormAns,
-                                            explanation: sq.explanation || sq.detail || oldSq.explanation || '',
-                                            detail: sq.explanation || sq.detail || oldSq.detail || ''
-                                        };
-                                    })
-                                    : oldQ.subQuestions
-                            };
+                            return buildCleanQuestion(oldQ, newQ);
                         });
                     }
                 });
             }
 
+            const cleanSections = sanitizeDataForFirestore(updatedSections);
+
             // Call parent save handler
             if (onSaveSections) {
-                await onSaveSections(updatedSections, markStandardized);
+                await onSaveSections(cleanSections, markStandardized);
             }
 
             showToast(`Đã cập nhật thành công ${importValidation.count} câu hỏi vào đề thi!`, 'success');
@@ -655,61 +742,190 @@ ${formattedExportJson}`;
 
                             {/* Preview parsed questions */}
                             {importValidation.isValid && importValidation.questions.length > 0 && (
-                                <div className="space-y-2 border-t border-slate-100 dark:border-slate-800 pt-3">
-                                    <h4 className="text-xs font-black text-slate-700 dark:text-slate-300 flex items-center justify-between">
-                                        <span>Xem trước các câu hỏi sẽ được cập nhật (3 câu đầu):</span>
-                                        <span className="text-[10px] font-bold text-slate-400">
-                                            Tổng {importValidation.questions.length} câu
-                                        </span>
-                                    </h4>
+                                <div className="space-y-3 border-t border-slate-100 dark:border-slate-800 pt-3">
+                                    {/* Header & Filter Controls */}
+                                    <div className="flex items-center justify-between gap-2 flex-wrap">
+                                        <div className="flex items-center gap-2 flex-wrap">
+                                            <span className="text-xs font-black text-slate-800 dark:text-slate-200">
+                                                {changedAnswerQuestions.length > 0
+                                                    ? `⚠️ Câu hỏi bị sửa đáp án đúng (${changedAnswerQuestions.length} câu):`
+                                                    : `✓ Kiểm tra đáp án: Khớp 100% (${importValidation.questions.length} câu)`}
+                                            </span>
+                                            {changedAnswerQuestions.length > 0 ? (
+                                                <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-amber-100 text-amber-800 dark:bg-amber-950/80 dark:text-amber-300 border border-amber-300 dark:border-amber-700 animate-pulse">
+                                                    Đã đổi đáp án: {changedAnswerQuestions.length} câu
+                                                </span>
+                                            ) : (
+                                                <span className="px-2 py-0.5 rounded-full text-[10px] font-black bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700">
+                                                    Đáp án chuẩn
+                                                </span>
+                                            )}
+                                        </div>
 
-                                    <div className="space-y-2 max-h-56 overflow-y-auto custom-scrollbar">
-                                        {importValidation.questions.slice(0, 3).map((pq, pqi) => {
-                                            const optList = Array.isArray(pq.options) ? pq.options : [];
-                                            const ansIdx = normalizeAnswerIndex(pq.correctAnswer ?? pq.answer, optList);
+                                        <div className="flex items-center bg-slate-100 dark:bg-slate-800 p-0.5 rounded-xl text-[11px] font-bold">
+                                            <button
+                                                type="button"
+                                                onClick={() => setPreviewFilter('changed')}
+                                                className={`px-2.5 py-1 rounded-lg transition cursor-pointer ${
+                                                    previewFilter === 'changed'
+                                                        ? 'bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-2xs font-black'
+                                                        : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
+                                                }`}
+                                            >
+                                                Câu đổi đáp án ({changedAnswerQuestions.length})
+                                            </button>
+                                            <button
+                                                type="button"
+                                                onClick={() => setPreviewFilter('all')}
+                                                className={`px-2.5 py-1 rounded-lg transition cursor-pointer ${
+                                                    previewFilter === 'all'
+                                                        ? 'bg-white dark:bg-slate-900 text-emerald-600 dark:text-emerald-400 shadow-2xs font-black'
+                                                        : 'text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'
+                                                }`}
+                                            >
+                                                Tất cả câu ({importValidation.questions.length})
+                                            </button>
+                                        </div>
+                                    </div>
 
-                                            return (
-                                                <div 
-                                                    key={pqi}
-                                                    className="p-3 rounded-xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950/40 text-xs space-y-2"
-                                                >
-                                                    <div className="flex items-center gap-2 font-bold text-slate-900 dark:text-slate-100">
-                                                        <span className="w-5 h-5 rounded-md bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300 flex items-center justify-center text-[10px] shrink-0">
-                                                            {pqi + 1}
-                                                        </span>
-                                                        <span className="truncate">{pq.question || pq.passage || 'Câu hỏi'}</span>
-                                                    </div>
-
-                                                    {/* Options */}
-                                                    <div className="grid grid-cols-2 gap-1.5 pl-7">
-                                                        {optList.map((opt, oi) => {
-                                                            const isCorrect = oi === ansIdx;
-                                                            return (
-                                                                <div 
-                                                                    key={oi}
-                                                                    className={`px-2 py-1 rounded-lg text-[11px] truncate flex items-center gap-1.5 ${
-                                                                        isCorrect 
-                                                                            ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-bold border border-emerald-300 dark:border-emerald-800'
-                                                                            : 'bg-slate-100 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400'
-                                                                    }`}
-                                                                >
-                                                                    <span className="font-mono text-[10px]">{String.fromCharCode(65 + oi)}.</span>
-                                                                    <span className="truncate">{opt}</span>
-                                                                    {isCorrect && <Check className="w-3 h-3 text-emerald-600 dark:text-emerald-400 shrink-0 ml-auto" />}
-                                                                </div>
-                                                            );
-                                                        })}
-                                                    </div>
-
-                                                    {/* Explanation Preview */}
-                                                    {pq.explanation && (
-                                                        <div className="pl-7 text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2">
-                                                            <strong>Giải thích:</strong> {pq.explanation}
+                                    {/* List Content */}
+                                    <div className="space-y-2.5 max-h-64 overflow-y-auto custom-scrollbar pr-1">
+                                        {previewFilter === 'changed' ? (
+                                            changedAnswerQuestions.length > 0 ? (
+                                                changedAnswerQuestions.map((cq, cqi) => (
+                                                    <div 
+                                                        key={cqi}
+                                                        className="p-3.5 rounded-2xl border-2 border-amber-300 dark:border-amber-700/80 bg-amber-50/40 dark:bg-amber-950/20 text-xs space-y-2.5 shadow-2xs"
+                                                    >
+                                                        <div className="flex items-center justify-between gap-2 flex-wrap">
+                                                            <div className="flex items-center gap-2 font-bold text-slate-900 dark:text-slate-100 min-w-0 flex-1">
+                                                                <span className="w-6 h-6 rounded-lg bg-amber-500 text-white flex items-center justify-center text-xs font-mono font-black shrink-0 shadow-2xs">
+                                                                    {cq.qNum}
+                                                                </span>
+                                                                <span className="truncate text-xs sm:text-sm font-japanese">{cq.question}</span>
+                                                            </div>
+                                                            <div className="flex items-center gap-1.5 font-black text-[11px] shrink-0">
+                                                                <span className="px-2 py-0.5 rounded-md bg-rose-100 text-rose-700 dark:bg-rose-950/80 dark:text-rose-300 line-through border border-rose-200/60 dark:border-rose-900">
+                                                                    Cũ: {cq.oldLetter}
+                                                                </span>
+                                                                <ArrowRight className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400" />
+                                                                <span className="px-2.5 py-0.5 rounded-md bg-emerald-500 text-white font-black shadow-2xs flex items-center gap-1">
+                                                                    <Check className="w-3 h-3 stroke-[3]" />
+                                                                    <span>Mới: {cq.newLetter}</span>
+                                                                </span>
+                                                            </div>
                                                         </div>
-                                                    )}
+
+                                                        {/* Direct comparison */}
+                                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pl-0 sm:pl-8">
+                                                            <div className="p-2.5 rounded-xl bg-white dark:bg-slate-900 border border-rose-200 dark:border-rose-900/60 text-slate-700 dark:text-slate-300">
+                                                                <div className="text-[10px] font-bold text-rose-600 dark:text-rose-400 mb-1 flex items-center gap-1">
+                                                                    <span>✕ Đáp án ban đầu ({cq.oldLetter}):</span>
+                                                                </div>
+                                                                <div className="text-xs font-japanese line-through opacity-80">{cq.oldOptionText || '(Trống)'}</div>
+                                                            </div>
+                                                            <div className="p-2.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 border-2 border-emerald-400 dark:border-emerald-600 text-emerald-900 dark:text-emerald-100 font-bold">
+                                                                <div className="text-[10px] font-black text-emerald-700 dark:text-emerald-300 mb-1 flex items-center gap-1">
+                                                                    <Check className="w-3 h-3 stroke-[3]" />
+                                                                    <span>✓ Đáp án đã sửa sang ({cq.newLetter}):</span>
+                                                                </div>
+                                                                <div className="text-xs font-japanese">{cq.newOptionText || '(Trống)'}</div>
+                                                            </div>
+                                                        </div>
+
+                                                        {/* Explanation */}
+                                                        {cq.explanation && (
+                                                            <div className="pl-0 sm:pl-8 text-[11px] text-slate-600 dark:text-slate-300 bg-white/80 dark:bg-slate-900/70 p-2.5 rounded-xl border border-amber-200/70 dark:border-amber-800/50 leading-relaxed">
+                                                                <strong className="text-slate-900 dark:text-white">💡 Giải thích AI: </strong>
+                                                                <span>{cq.explanation}</span>
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                ))
+                                            ) : (
+                                                <div className="p-4 rounded-2xl bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 text-xs text-emerald-800 dark:text-emerald-200 space-y-2">
+                                                    <div className="flex items-center gap-2 font-black text-sm text-emerald-700 dark:text-emerald-300">
+                                                        <CheckCircle2 className="w-4 h-4 text-emerald-500 shrink-0" />
+                                                        <span>Không có câu hỏi nào bị thay đổi đáp án đúng!</span>
+                                                    </div>
+                                                    <p className="text-[11px] text-emerald-700 dark:text-emerald-300/80 leading-relaxed">
+                                                        Toàn bộ <strong>{importValidation.questions.length}</strong> câu hỏi đều giữ nguyên đáp án đúng ban đầu (AI chỉ chuẩn hóa câu chữ, sửa lỗi chính tả Kanji/Hiragana hoặc cập nhật giải thích).
+                                                    </p>
+                                                    <button
+                                                        type="button"
+                                                        onClick={() => setPreviewFilter('all')}
+                                                        className="text-[11px] font-black text-emerald-600 dark:text-emerald-400 underline hover:no-underline cursor-pointer"
+                                                    >
+                                                        Bấm vào đây để xem tất cả {importValidation.questions.length} câu hỏi →
+                                                    </button>
                                                 </div>
-                                            );
-                                        })}
+                                            )
+                                        ) : (
+                                            /* All questions preview */
+                                            importValidation.questions.map((pq, pqi) => {
+                                                const optList = Array.isArray(pq.options) ? pq.options : [];
+                                                const ansIdx = normalizeAnswerIndex(pq.correctAnswer ?? pq.answer, optList);
+                                                const oldQ = questionsToExport[pqi];
+                                                const oldRaw = oldQ?.correctAnswer !== undefined ? (typeof oldQ.correctAnswer === 'number' ? oldQ.correctAnswer - 1 : oldQ.correctAnswer) : 0;
+                                                const oldAnsIdx = oldQ ? normalizeAnswerIndex(oldRaw, oldQ.options) : ansIdx;
+                                                const isChanged = oldQ && ansIdx !== oldAnsIdx;
+
+                                                return (
+                                                    <div 
+                                                        key={pqi}
+                                                        className={`p-3 rounded-xl border text-xs space-y-2 ${
+                                                            isChanged 
+                                                                ? 'border-amber-300 dark:border-amber-700 bg-amber-50/40 dark:bg-amber-950/20' 
+                                                                : 'border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950/40'
+                                                        }`}
+                                                    >
+                                                        <div className="flex items-center justify-between gap-2">
+                                                            <div className="flex items-center gap-2 font-bold text-slate-900 dark:text-slate-100 min-w-0">
+                                                                <span className={`w-5 h-5 rounded-md flex items-center justify-center text-[10px] shrink-0 font-bold ${
+                                                                    isChanged ? 'bg-amber-500 text-white' : 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300'
+                                                                }`}>
+                                                                    {pqi + 1}
+                                                                </span>
+                                                                <span className="truncate font-japanese">{pq.question || pq.passage || 'Câu hỏi'}</span>
+                                                            </div>
+                                                            {isChanged && (
+                                                                <span className="px-2 py-0.5 rounded-md text-[10px] font-black bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300 border border-amber-300 dark:border-amber-700 shrink-0">
+                                                                    Đổi đáp án: {String.fromCharCode(65 + oldAnsIdx)} ➔ {String.fromCharCode(65 + ansIdx)}
+                                                                </span>
+                                                            )}
+                                                        </div>
+
+                                                        {/* Options */}
+                                                        <div className="grid grid-cols-2 gap-1.5 pl-7">
+                                                            {optList.map((opt, oi) => {
+                                                                const isCorrect = oi === ansIdx;
+                                                                return (
+                                                                    <div 
+                                                                        key={oi}
+                                                                        className={`px-2 py-1 rounded-lg text-[11px] truncate flex items-center gap-1.5 ${
+                                                                            isCorrect 
+                                                                                ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 font-bold border border-emerald-300 dark:border-emerald-800'
+                                                                                : 'bg-slate-100 dark:bg-slate-800/60 text-slate-600 dark:text-slate-400'
+                                                                        }`}
+                                                                    >
+                                                                        <span className="font-mono text-[10px]">{String.fromCharCode(65 + oi)}.</span>
+                                                                        <span className="truncate">{opt}</span>
+                                                                        {isCorrect && <Check className="w-3 h-3 text-emerald-600 dark:text-emerald-400 shrink-0 ml-auto" />}
+                                                                    </div>
+                                                                );
+                                                            })}
+                                                        </div>
+
+                                                        {/* Explanation Preview */}
+                                                        {pq.explanation && (
+                                                            <div className="pl-7 text-[11px] text-slate-500 dark:text-slate-400 line-clamp-2">
+                                                                <strong>Giải thích:</strong> {pq.explanation}
+                                                            </div>
+                                                        )}
+                                                    </div>
+                                                );
+                                            })
+                                        )}
                                     </div>
                                 </div>
                             )}

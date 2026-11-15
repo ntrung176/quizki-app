@@ -73,6 +73,7 @@ const JLPTSkillArenaTab = ({
     reviewTest,
     handleStartPrint,
     handleToggleTestPremium,
+    handleToggleTestFixed,
     setShowPremiumModal,
     setLockedPkgName
 }) => {
@@ -269,7 +270,36 @@ const JLPTSkillArenaTab = ({
                                             Bài {lessonNumber}
                                         </span>
 
-                                        <div className="flex items-center gap-1.5">
+                                        <div className="flex items-center gap-1.5 flex-wrap">
+                                            {/* Admin Checkbox "Đã chuẩn data" */}
+                                            {canEdit ? (
+                                                <label 
+                                                    onClick={(e) => e.stopPropagation()} 
+                                                    className={`flex items-center gap-1.5 cursor-pointer select-none text-[10px] font-black px-2 py-0.5 rounded-lg border transition-all ${
+                                                        test.isFixed || test.isDataStandardized
+                                                            ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/80 dark:text-emerald-300 border-emerald-300 dark:border-emerald-700'
+                                                            : 'bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-400 border-slate-200 dark:border-slate-700 hover:border-slate-300'
+                                                    }`}
+                                                    title="Admin: Đánh dấu đề đã chuẩn hóa data"
+                                                >
+                                                    <input 
+                                                        type="checkbox"
+                                                        checked={!!(test.isFixed || test.isDataStandardized)}
+                                                        onChange={(e) => {
+                                                            e.stopPropagation();
+                                                            handleToggleTestFixed && handleToggleTestFixed(e, test);
+                                                        }}
+                                                        className="w-3.5 h-3.5 rounded border-emerald-400 text-emerald-500 cursor-pointer accent-emerald-500"
+                                                    />
+                                                    <span>{test.isFixed || test.isDataStandardized ? 'Đã chuẩn' : 'Chưa chuẩn'}</span>
+                                                </label>
+                                            ) : (test.isFixed || test.isDataStandardized) ? (
+                                                <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-300/60 dark:border-emerald-800 flex items-center gap-1">
+                                                    <CheckCircle2 className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
+                                                    <span>Đã chuẩn</span>
+                                                </span>
+                                            ) : null}
+
                                             {canEdit && (
                                                 <button
                                                     onClick={(e) => { e.stopPropagation(); handleToggleTestPremium && handleToggleTestPremium(e, test); }}

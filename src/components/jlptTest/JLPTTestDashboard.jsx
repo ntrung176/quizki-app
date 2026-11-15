@@ -316,6 +316,7 @@ const JLPTTestDashboard = ({
                         reviewTest={reviewTest}
                         handleStartPrint={handleStartPrint}
                         handleToggleTestPremium={handleToggleTestPremium}
+                        handleToggleTestFixed={handleToggleTestFixed}
                         setShowPremiumModal={setShowPremiumModal}
                         setLockedPkgName={setLockedPkgName}
                     />
@@ -335,6 +336,7 @@ const JLPTTestDashboard = ({
                         reviewTest={reviewTest}
                         handleStartPrint={handleStartPrint}
                         handleToggleTestPremium={handleToggleTestPremium}
+                        handleToggleTestFixed={handleToggleTestFixed}
                         setShowPremiumModal={setShowPremiumModal}
                         setLockedPkgName={setLockedPkgName}
                     />

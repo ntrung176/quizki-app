@@ -432,7 +432,7 @@ const QuestionEditModal = ({ isOpen, onClose, initialQuestion, onSave }) => {
                                         id="edit-explanation"
                                         value={formData.explanation || ''}
                                         onChange={(e) => handleFieldChange('explanation', e.target.value)}
-                                        placeholder="Nhập giải thích đáp án hoặc bấm 'AI Check Đáp Án & Tạo Giải Thích' ở trên..."
+                                        placeholder="Nhập giải thích đáp án chi tiết cho câu hỏi này..."
                                         rows={6}
                                         className="w-full p-3.5 text-sm leading-relaxed bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:outline-none border-0"
                                     />
@@ -554,7 +554,7 @@ const QuestionEditModal = ({ isOpen, onClose, initialQuestion, onSave }) => {
                                             id={`edit-sq-${sqi}-explanation`}
                                             value={sq.explanation || ''}
                                             onChange={(e) => handleSubQuestionFieldChange(sqi, 'explanation', e.target.value)}
-                                            placeholder={`Nhập giải thích đáp án cho câu ${sqi + 1} hoặc bấm AI ở trên...`}
+                                            placeholder={`Nhập giải thích đáp án cho câu ${sqi + 1}...`}
                                             rows={5}
                                             className="w-full p-3.5 text-sm leading-relaxed bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 focus:outline-none border-0"
                                         />

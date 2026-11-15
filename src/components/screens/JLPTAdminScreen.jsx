@@ -633,6 +633,17 @@ const JLPTAdminScreen = ({ userId }) => {
         setExpandedSections({ 0: true });
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
+
+    const handleSelectTestFromSearch = async (test, sectionIdx, questionIdx) => {
+        setShowQuestionSearchModal(false);
+        if (test) {
+            await handleEdit(test);
+            if (typeof sectionIdx === 'number') {
+                setExpandedSections(prev => ({ ...prev, [sectionIdx]: true }));
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    };
     useEffect(() => {
         if (location.state?.editTest) {
             handleEdit(location.state.editTest);
@@ -1862,6 +1873,7 @@ const JLPTAdminScreen = ({ userId }) => {
                 onClose={() => setShowQuestionSearchModal(false)}
                 tests={tests}
                 onSaveQuestion={handleSaveSearchedQuestion}
+                onSelectTest={handleSelectTestFromSearch}
             />
         </div>
     );

@@ -15,7 +15,7 @@ import JLPTTestTakeView from '../jlptTest/JLPTTestTakeView';
 import JLPTTestResultView from '../jlptTest/JLPTTestResultView';
 import JLPTTestDashboard from '../jlptTest/JLPTTestDashboard';
 import JLPTQuestionSearchModal from '../jlptTest/JLPTQuestionSearchModal';
-import JLPTExportImportModal from '../jlptTest/JLPTExportImportModal';
+import JLPTExportImportModal, { sanitizeDataForFirestore } from '../jlptTest/JLPTExportImportModal';
 import { showToast } from '../../utils/toast';
 import { X, Play, BookOpen, Lock, ChevronRight, FileText, Printer, Check } from 'lucide-react';
 
@@ -538,6 +538,38 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         }
     };
 
+    const handleSelectTestFromSearch = async (test, sectionIdx = 0, questionIdx = 0) => {
+        setShowQuestionSearchModal(false);
+        try {
+            let fullTest = test;
+            if (!fullTest?.sections || fullTest.sections.length === 0) {
+                fullTest = (await ensureFullTestLoaded(test?.id, test?.level)) || test;
+            }
+            if (!fullTest) return;
+
+            // Nếu đang trong cùng bài thi này thì chỉ cần nhảy trực tiếp đến câu hỏi
+            if (activeTest && (activeTest.id === fullTest.id || activeTest._id === fullTest.id)) {
+                setShowResult(false);
+                setShowDetailedReview(false);
+                if (typeof sectionIdx === 'number') setCurrentSectionIdx(sectionIdx);
+                if (typeof questionIdx === 'number') setCurrentQuestionIdx(questionIdx);
+                return;
+            }
+
+            // Nếu đang ở bài thi khác hoặc ở ngoài dashboard, bắt đầu bài thi ở chế độ luyện tập
+            await initTest(fullTest, 'practice', false);
+            if (typeof sectionIdx === 'number' && !isNaN(sectionIdx)) {
+                setCurrentSectionIdx(sectionIdx);
+            }
+            if (typeof questionIdx === 'number' && !isNaN(questionIdx)) {
+                setCurrentQuestionIdx(questionIdx);
+            }
+        } catch (err) {
+            console.error('Error opening test from search:', err);
+            showToast('Không thể mở đề thi: ' + err.message, 'error');
+        }
+    };
+
     const reviewTest = async (test) => {
         if ((test.level !== 'N5' || test.isPremium) && !hasPremiumAccess) {
             setLockedPkgName('Luyện đề thi thử JLPT');
@@ -751,11 +783,12 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             const updatedSections = JSON.parse(JSON.stringify(activeTest.sections));
             updatedSections[sectionIdx].questions[questionIdx] = updatedQuestion;
             const testRef = doc(db, `artifacts/${appId}/jlptTests`, activeTest.id);
-            await setDoc(testRef, { 
+            const cleanUpdatedTest = sanitizeDataForFirestore({ 
                 ...activeTest,
                 sections: updatedSections,
                 updatedAt: Date.now()
-            }, { merge: true });
+            });
+            await setDoc(testRef, cleanUpdatedTest, { merge: true });
 
             updateSingleJLPTTestInCache(activeTest.id, { sections: updatedSections });
             setActiveTest(prev => ({ ...prev, sections: updatedSections }));
@@ -808,17 +841,18 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         if (!activeTest) return false;
         try {
             const testRef = doc(db, `artifacts/${appId}/jlptTests`, activeTest.id);
-            const updatePayload = {
+            const rawPayload = {
                 ...activeTest,
                 sections: updatedSections,
                 isFixed: markAsFixed ? true : (activeTest.isFixed || false),
                 isDataStandardized: markAsFixed ? true : (activeTest.isDataStandardized || false),
                 updatedAt: Date.now()
             };
-            await setDoc(testRef, updatePayload, { merge: true });
-            updateSingleJLPTTestInCache(activeTest.id, updatePayload);
-            setActiveTest(prev => ({ ...prev, ...updatePayload }));
-            setTests(prevTests => prevTests.map(t => t.id === activeTest.id ? { ...t, ...updatePayload } : t));
+            const cleanPayload = sanitizeDataForFirestore(rawPayload);
+            await setDoc(testRef, cleanPayload, { merge: true });
+            updateSingleJLPTTestInCache(activeTest.id, cleanPayload);
+            setActiveTest(prev => ({ ...prev, ...cleanPayload }));
+            setTests(prevTests => prevTests.map(t => t.id === activeTest.id ? { ...t, ...cleanPayload } : t));
             showToast('Đã cập nhật dữ liệu đề thi thành công!', 'success');
             return true;
         } catch (err) {
@@ -1136,6 +1170,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                         onClose={() => setShowQuestionSearchModal(false)}
                         tests={tests}
                         onSaveQuestion={handleSaveSearchedQuestion}
+                        onSelectTest={handleSelectTestFromSearch}
                     />
                 )}
                 {canEdit && showExportImportModal && activeTest && (
@@ -1264,6 +1299,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                         onClose={() => setShowQuestionSearchModal(false)}
                         tests={tests}
                         onSaveQuestion={handleSaveSearchedQuestion}
+                        onSelectTest={handleSelectTestFromSearch}
                     />
                 )}
                 {canEdit && showExportImportModal && activeTest && (
@@ -1329,6 +1365,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                     onClose={() => setShowQuestionSearchModal(false)}
                     tests={tests}
                     onSaveQuestion={handleSaveSearchedQuestion}
+                    onSelectTest={handleSelectTestFromSearch}
                 />
             )}
         </>
