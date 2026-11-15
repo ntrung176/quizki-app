@@ -911,14 +911,10 @@ const Flashcard = ({
         backfaceVisibility: 'hidden',
         transform: 'rotateY(0deg) translateZ(1px)',
         WebkitTransform: 'rotateY(0deg) translateZ(1px)',
-        visibility: isFlipped ? 'hidden' : 'visible',
-        opacity: isFlipped ? 0 : 1,
+        transformStyle: 'preserve-3d',
+        WebkitTransformStyle: 'preserve-3d',
+        zIndex: isFlipped ? 1 : 2,
         pointerEvents: isFlipped ? 'none' : 'auto',
-        transition: transitionEnabled
-            ? (isFlipped
-                ? 'opacity 0.05s linear 0.18s, visibility 0s linear 0.18s'
-                : 'opacity 0.12s ease-out 0.2s, visibility 0s linear 0.2s')
-            : 'none',
     };
 
     const backFaceStyle = {
@@ -926,14 +922,10 @@ const Flashcard = ({
         backfaceVisibility: 'hidden',
         transform: 'rotateY(180deg) translateZ(1px)',
         WebkitTransform: 'rotateY(180deg) translateZ(1px)',
-        visibility: isFlipped ? 'visible' : 'hidden',
-        opacity: isFlipped ? 1 : 0,
+        transformStyle: 'preserve-3d',
+        WebkitTransformStyle: 'preserve-3d',
+        zIndex: isFlipped ? 2 : 1,
         pointerEvents: isFlipped ? 'auto' : 'none',
-        transition: transitionEnabled
-            ? (isFlipped
-                ? 'opacity 0.12s ease-out 0.18s, visibility 0s linear 0.18s'
-                : 'opacity 0.05s linear 0.18s, visibility 0s linear 0.18s')
-            : 'none',
     };
 
     return (

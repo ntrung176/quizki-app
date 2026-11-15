@@ -15,13 +15,12 @@
 
 .rotate-y-180 {
   transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
 }
 
 .backface-hidden {
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
 }
 
 .transform-style-3d {
