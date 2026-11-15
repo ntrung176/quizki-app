@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Loader2, X, Image as ImageIcon, Music, Volume2, Trash2, Check, ChevronDown, AlertTriangle, Wrench, RefreshCw, ShieldAlert } from 'lucide-react';
+import { Loader2, X, Image as ImageIcon, Volume2, Trash2, Check, ChevronDown, Wrench, RefreshCw, Sparkles, Play } from 'lucide-react';
 import { POS_TYPES, ENGLISH_POS_TYPES, KOREAN_POS_TYPES, JLPT_LEVELS, getPosLabel } from '../../config/constants';
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
 import { playAudio, generateAudioSilent, clearAudioCache, saveSharedAudio, getTTSVoice } from '../../utils/audio';
-import { db } from '../../config/firebase';
-import { doc, getDoc, updateDoc, setDoc } from 'firebase/firestore';
 
 import PremiumLockedModal from '../ui/PremiumLockedModal';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
@@ -34,7 +32,6 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
     const [audioFixed, setAudioFixed] = useState(card?.audioFixed || false);
     const [customHiragana, setCustomHiragana] = useState(card?.reading || '');
     const [isGeneratingAudio, setIsGeneratingAudio] = useState(false);
-    const [showConfirmModal, setShowConfirmModal] = useState(false);
     const [isSaving, setIsSaving] = useState(false);
     const [isAiLoading, setIsAiLoading] = useState(false);
     const [posDropdownOpen, setPosDropdownOpen] = useState(false);
@@ -44,35 +41,46 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
     const cardIsEnglish = langService.code === 'en' || isEnglishCard({ front }, isEnglishMode);
     const cardIsKorean = langService.code === 'ko' || isKoreanCard({ front }, isKoreanMode);
 
-    const handlePreFixAudio = () => {
+    // Xử lý tạo / tạo lại audio trực tiếp, mượt mà và tin cậy
+    const handleGenerateAudioDirect = async () => {
         const trimmedReading = customHiragana.trim();
         if (!trimmedReading) {
-            showToast(cardIsKorean ? (language === "vi" ? "Vui lòng nhập từ vựng hoặc cách đọc tiếng Hàn chuẩn." : "Please enter valid Korean word or reading.") : cardIsEnglish ? (language === "vi" ? "Vui lòng nhập từ tiếng Anh chuẩn." : "Please enter a valid English word.") : (language === "vi" ? "Vui lòng nhập cách đọc bằng Hiragana chuẩn xác." : "Please enter standard Hiragana reading."), "warning");
+            showToast(
+                cardIsKorean 
+                    ? (language === "vi" ? "Vui lòng nhập từ vựng hoặc cách đọc tiếng Hàn chuẩn." : "Please enter valid Korean word or reading.") 
+                    : cardIsEnglish 
+                        ? (language === "vi" ? "Vui lòng nhập từ tiếng Anh chuẩn." : "Please enter a valid English word.") 
+                        : (language === "vi" ? "Vui lòng nhập cách đọc bằng Hiragana chuẩn xác." : "Please enter standard Hiragana reading."), 
+                "warning"
+            );
             return;
         }
+
         if (!cardIsEnglish && !cardIsKorean) {
             const isKana = /^[\u3040-\u309F\u30A0-\u30FF\s・ー]+$/.test(trimmedReading);
             if (!isKana) {
-                showToast(language === "vi" ? "Cách đọc tiếng Nhật phải nhập bằng Hiragana hoặc Katakana (VD: もくどく)." : "Japanese reading must be in Hiragana or Katakana (e.g. もくどく).", "warning");
+                showToast(
+                    language === "vi" 
+                        ? "Cách đọc tiếng Nhật phải nhập bằng Hiragana hoặc Katakana (VD: もくどく)." 
+                        : "Japanese reading must be in Hiragana or Katakana (e.g. もくどく).", 
+                    "warning"
+                );
                 return;
             }
         }
-        setShowConfirmModal(true);
-    };
 
-    const executeFixAudio = async () => {
-        setShowConfirmModal(false);
-        const trimmedReading = customHiragana.trim();
         setIsGeneratingAudio(true);
         try {
-            // Xóa cache cũ để đảm bảo phát âm mới nhất không bị load lại audio cũ
+            // Xóa cache cũ cả theo front lẫn reading
             clearAudioCache(front, trimmedReading);
 
-            // Force generate with fresh Azure TTS using exact reading and bypass any old caches
+            // Tạo audio mới với timeout dài & fallback Google TTS tự động
+            const textToSpeak = (!cardIsEnglish && !cardIsKorean) ? trimmedReading : (front || trimmedReading);
             const result = await generateAudioSilent(front || trimmedReading, trimmedReading, null, {
                 forceRegenerate: true,
-                skipNative: true
+                skipNative: false
             });
+
             if (result && result.base64) {
                 setCustomAudio(result.base64);
                 setAudioFixed(true);
@@ -82,13 +90,19 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                 const gender = getTTSVoice() === 'male' ? 'male' : 'female';
                 saveSharedAudio(front || trimmedReading, result.base64, gender, trimmedReading);
 
-                showToast(language === "vi" ? "Đã tạo audio phát âm chuẩn theo Hiragana mới!" : "Audio regenerated with new reading!", "success");
+                showToast(
+                    language === "vi" 
+                        ? "Đã tạo phát âm mới thành công!" 
+                        : "Audio regenerated successfully!", 
+                    "success"
+                );
+                // Tự động phát âm thanh mới để người dùng nghe kiểm tra ngay
                 playAudio(result.base64, front || trimmedReading, null, null, trimmedReading);
             } else {
-                throw new Error("Không thể tạo audio từ máy chủ Microsoft Azure TTS. Vui lòng thử lại.");
+                throw new Error("Không thể tạo audio từ máy chủ. Vui lòng kiểm tra kết nối mạng.");
             }
         } catch (err) {
-            console.error("Fix audio error:", err);
+            console.error("Audio generation error:", err);
             showToast((language === "vi" ? "Lỗi khi tạo audio: " : "Error generating audio: ") + err.message, "error");
         } finally {
             setIsGeneratingAudio(false);
@@ -126,6 +140,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
 
         await onSave({
             cardId: card.id,
+            id: card.id,
             front: front.trim(),
             frontWithFurigana: updatedFrontWithFurigana,
             back: back.trim(),
@@ -189,7 +204,10 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                 const cleanReading = aiData.reading || (bracketMatch ? bracketMatch[2].trim() : '');
                 setFront(cleanFront);
                 if (aiData.sinoVietnamese) setSinoVietnamese(aiData.sinoVietnamese);
-                if (cleanReading) setReading(cleanReading);
+                if (cleanReading) {
+                    setReading(cleanReading);
+                    setCustomHiragana(cleanReading);
+                }
                 if (aiData.accent !== undefined) setAccent(String(aiData.accent));
             }
             if (aiData.meaning) setBack(aiData.meaning);
@@ -211,61 +229,90 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
     }, [onClose]);
 
     return (
-        <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-2 sm:p-4 overflow-y-auto overflow-x-hidden">
-            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl max-w-4xl w-full min-w-0 max-h-[92vh] overflow-y-auto overflow-x-hidden flex flex-col my-auto">
-                <div className="flex items-center justify-between px-4 py-3 sm:p-4 border-b border-gray-200 dark:border-gray-700 sticky top-0 bg-white dark:bg-gray-800 z-10 shrink-0">
-                    <h2 className="text-lg sm:text-xl font-bold text-gray-800 dark:text-white truncate">{t('forms.editCardTitle', 'Chỉnh Sửa Thẻ')}</h2>
-                    <button onClick={onClose} className="p-2 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors cursor-pointer shrink-0">
-                        <X className="w-5 h-5 text-gray-500" />
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-2.5 sm:p-4 overflow-y-auto animate-fade-in">
+            {/* Duolingo 3D Modal Box */}
+            <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl rounded-3xl border-2 border-b-[6px] border-slate-200 dark:border-slate-800 shadow-2xl max-w-4xl w-full min-w-0 max-h-[92vh] overflow-y-auto custom-scrollbar flex flex-col my-auto transition-all animate-scale-up">
+                
+                {/* Header Bar */}
+                <div className="flex items-center justify-between px-5 py-4 border-b-2 border-slate-100 dark:border-slate-800/80 sticky top-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md z-10 shrink-0">
+                    <div className="flex items-center gap-2.5">
+                        <div className="w-8 h-8 rounded-xl bg-emerald-100 dark:bg-emerald-950/60 border-2 border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                            <Sparkles className="w-4 h-4" />
+                        </div>
+                        <h2 className="text-base sm:text-lg font-black text-slate-900 dark:text-white tracking-tight">
+                            {t('forms.editCardTitle', 'Chỉnh Sửa Thẻ Từ Vựng')}
+                        </h2>
+                    </div>
+                    
+                    <button 
+                        onClick={onClose} 
+                        className="w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-750 border-2 border-b-3 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center transition-all cursor-pointer active:translate-y-0.5 active:border-b-1 shrink-0"
+                    >
+                        <X className="w-4 h-4" />
                     </button>
                 </div>
-                <div className="p-3 sm:p-4 space-y-4 min-w-0">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="space-y-4 min-w-0">
-                            <div className="space-y-2">
-                                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">{t('forms.wordLabel', 'Từ vựng')} ({cardIsKorean ? (language === 'vi' ? 'Hàn' : 'Korean') : cardIsEnglish ? (language === 'vi' ? 'Anh' : 'English') : (language === 'vi' ? 'Nhật' : 'Japanese')})</label>
+
+                {/* Body Form */}
+                <div className="p-4 sm:p-6 space-y-4 sm:space-y-5 min-w-0">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+                        
+                        {/* LEFT COLUMN: Front, Pos, Meaning, Reading */}
+                        <div className="space-y-3.5 sm:space-y-4 min-w-0">
+                            {/* Front Word & AI Auto-fill */}
+                            <div className="space-y-1.5">
+                                <label className="block text-[11px] font-black uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                                    {t('forms.wordLabel', 'Từ vựng')} ({cardIsKorean ? (language === 'vi' ? 'Hàn' : 'Korean') : cardIsEnglish ? (language === 'vi' ? 'Anh' : 'English') : (language === 'vi' ? 'Nhật' : 'Japanese')})
+                                </label>
                                 <div className="flex gap-2">
-                                    <input type="text" value={front} onChange={(e) => setFront(e.target.value)}
-                                        className="flex-1 min-w-0 px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 text-gray-900 dark:text-gray-100" />
+                                    <input 
+                                        type="text" 
+                                        value={front} 
+                                        onChange={(e) => setFront(e.target.value)}
+                                        className="flex-1 min-w-0 px-3.5 py-2.5 bg-slate-50 dark:bg-slate-950/60 border-2 border-slate-200 dark:border-slate-700 rounded-2xl focus:border-emerald-500 focus:outline-none text-slate-900 dark:text-white text-sm font-bold shadow-xs" 
+                                    />
                                     {onGeminiAssist && (
-                                        <button type="button" onClick={handleAiAssist}
-                                            className="px-3 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 rounded-lg font-bold hover:bg-emerald-200 dark:hover:bg-emerald-900/50 shrink-0 cursor-pointer">
-                                            {isAiLoading ? <Loader2 className="animate-spin w-5 h-5" /> : "AI"}
+                                        <button 
+                                            type="button" 
+                                            onClick={handleAiAssist}
+                                            className="px-4 bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-2 border-2 border-b-4 border-emerald-700 text-white rounded-2xl font-black text-xs transition-all flex items-center gap-1.5 shrink-0 cursor-pointer select-none shadow-xs"
+                                        >
+                                            {isAiLoading ? <Loader2 className="animate-spin w-4 h-4" /> : <Sparkles className="w-3.5 h-3.5" />}
+                                            <span>AI</span>
                                         </button>
                                     )}
                                 </div>
                             </div>
-                            <div className="bg-gray-50 dark:bg-gray-700/50 p-3 rounded-xl relative min-w-0">
-                                {/* Trigger Button */}
+
+                            {/* Part of Speech (POS) Dropdown */}
+                            <div className="space-y-1.5 relative min-w-0">
+                                <label className="block text-[11px] font-black uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                                    {t('forms.partOfSpeechLabel', 'Từ loại')}
+                                </label>
                                 <button
                                     type="button"
                                     onClick={() => setPosDropdownOpen(!posDropdownOpen)}
-                                    className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-100 text-left flex justify-between items-center cursor-pointer"
+                                    className="w-full px-3.5 py-2.5 bg-slate-50 dark:bg-slate-950/60 border-2 border-slate-200 dark:border-slate-700 rounded-2xl text-xs font-bold text-slate-800 dark:text-slate-200 text-left flex justify-between items-center cursor-pointer shadow-xs focus:border-emerald-500"
                                 >
                                     <span>
-                                            {pos ? (
-                                                pos === 'grammar' ? (
-                                                    `${t('forms.grammar', 'Ngữ pháp')} ${level ? `(${level})` : ''}`
-                                                ) : (
-                                                    getPosLabel(pos, cardIsKorean ? 'ko' : cardIsEnglish ? 'en' : 'ja')
-                                                )
+                                        {pos ? (
+                                            pos === 'grammar' ? (
+                                                `${t('forms.grammar', 'Ngữ pháp')} ${level ? `(${level})` : ''}`
                                             ) : (
+                                                getPosLabel(pos, cardIsKorean ? 'ko' : cardIsEnglish ? 'en' : 'ja')
+                                            )
+                                        ) : (
                                             t('forms.partOfSpeechSelect', '-- Chọn Từ Loại --')
                                         )}
                                     </span>
-                                    <ChevronDown className="w-4 h-4 text-gray-400 transition-transform duration-200" style={{ transform: posDropdownOpen ? 'rotate(180deg)' : 'none' }} />
+                                    <ChevronDown className="w-4 h-4 text-slate-400 transition-transform duration-200" style={{ transform: posDropdownOpen ? 'rotate(180deg)' : 'none' }} />
                                 </button>
 
                                 {/* Dropdown Menu */}
                                 {posDropdownOpen && (
                                     <>
-                                        <div 
-                                            className="fixed inset-0 z-40" 
-                                            onClick={() => setPosDropdownOpen(false)} 
-                                        />
-                                        
-                                        <div className="absolute left-0 mt-1.5 w-56 rounded-xl bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700 py-1.5 z-50 text-sm font-medium text-slate-700 dark:text-slate-200 max-h-60 overflow-y-auto">
-                                        {Object.entries(cardIsKorean ? KOREAN_POS_TYPES : cardIsEnglish ? ENGLISH_POS_TYPES : POS_TYPES).map(([key, value]) => {
+                                        <div className="fixed inset-0 z-40" onClick={() => setPosDropdownOpen(false)} />
+                                        <div className="absolute left-0 mt-1.5 w-60 rounded-2xl bg-white dark:bg-slate-800 shadow-xl border-2 border-slate-200 dark:border-slate-700 py-1.5 z-50 text-xs font-bold text-slate-700 dark:text-slate-200 max-h-60 overflow-y-auto custom-scrollbar">
+                                            {Object.entries(cardIsKorean ? KOREAN_POS_TYPES : cardIsEnglish ? ENGLISH_POS_TYPES : POS_TYPES).map(([key, value]) => {
                                                 if (key === 'grammar') {
                                                     return (
                                                         <div key={key} className="relative group/grammar">
@@ -282,14 +329,13 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                                                         setPosDropdownOpen(false);
                                                                     }
                                                                 }}
-                                                                className="w-full px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700/50 text-left flex justify-between items-center"
+                                                                className="w-full px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700/50 text-left flex justify-between items-center cursor-pointer"
                                                             >
                                                                 <span>{t('forms.grammar', 'Ngữ pháp')}</span>
                                                                 <span className="text-[10px] text-slate-400">▶</span>
                                                             </button>
 
-                                                            {/* Sub-menu for JLPT levels */}
-                                                            <div className={`absolute left-full top-0 ml-1 w-24 rounded-lg bg-white dark:bg-slate-800 shadow-lg border border-slate-100 dark:border-slate-700 py-1 ${showLevels ? 'block' : 'hidden md:group-hover/grammar:block'}`}>
+                                                            <div className={`absolute left-full top-0 ml-1 w-24 rounded-xl bg-white dark:bg-slate-800 shadow-xl border-2 border-slate-200 dark:border-slate-700 py-1 ${showLevels ? 'block' : 'hidden md:group-hover/grammar:block'}`}>
                                                                 {JLPT_LEVELS.map((lvl) => (
                                                                     <button
                                                                         key={lvl.value}
@@ -300,7 +346,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                                                             setLevel(lvl.value);
                                                                             setPosDropdownOpen(false);
                                                                         }}
-                                                                        className="w-full px-3 py-1.5 hover:bg-slate-100 dark:hover:bg-slate-700/50 text-left text-xs font-semibold"
+                                                                        className="w-full px-3 py-1.5 hover:bg-slate-100 dark:hover:bg-slate-700/50 text-left text-xs font-bold cursor-pointer"
                                                                     >
                                                                         {lvl.label}
                                                                     </button>
@@ -318,7 +364,7 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                                             setLevel('');
                                                             setPosDropdownOpen(false);
                                                         }}
-                                                        className="w-full px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700/50 text-left"
+                                                        className="w-full px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700/50 text-left cursor-pointer"
                                                     >
                                                         {value.label}
                                                     </button>
@@ -328,84 +374,175 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                     </>
                                 )}
                             </div>
-                            <div className="space-y-2 min-w-0">
-                                <label className="block text-sm font-semibold text-gray-700 dark:text-gray-300">{t('forms.definitionLabel', 'Ý nghĩa')}</label>
-                                <input type="text" value={back} onChange={(e) => setBack(e.target.value)} className="w-full min-w-0 px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
+
+                            {/* Definition (Ý nghĩa) */}
+                            <div className="space-y-1.5 min-w-0">
+                                <label className="block text-[11px] font-black uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                                    {t('forms.definitionLabel', 'Ý nghĩa & Định nghĩa')}
+                                </label>
+                                <input 
+                                    type="text" 
+                                    value={back} 
+                                    onChange={(e) => setBack(e.target.value)} 
+                                    className="w-full min-w-0 px-3.5 py-2.5 bg-slate-50 dark:bg-slate-950/60 border-2 border-slate-200 dark:border-slate-700 rounded-2xl text-slate-900 dark:text-white text-xs font-bold focus:border-emerald-500 focus:outline-none shadow-xs" 
+                                />
                             </div>
-                            <div className="grid grid-cols-2 gap-2 min-w-0">
+
+                            {/* Sub fields: Reading, Sino-Vietnamese, Synonyms */}
+                            <div className="grid grid-cols-2 gap-2.5 min-w-0">
                                 {cardIsKorean ? (
                                     <>
-                                        <input type="text" value={reading} onChange={(e) => setReading(e.target.value)} placeholder={t('forms.romajaLabel', 'Phiên âm Romaja')} className="w-full min-w-0 px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
-                                        <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)} placeholder={t('forms.sinoKoreanLabel', 'Âm Hán Hàn')} className="w-full min-w-0 px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
-                                        <div className="col-span-2 min-w-0">
-                                            <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder={t('forms.synonyms', 'Đồng nghĩa')} className="w-full min-w-0 px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
+                                        <div className="space-y-1">
+                                            <label className="text-[10px] font-black uppercase text-slate-400">{t('forms.romajaLabel', 'Phiên âm Romaja')}</label>
+                                            <input type="text" value={reading} onChange={(e) => setReading(e.target.value)} placeholder="Romaja..." className="w-full px-3 py-2 text-xs bg-slate-50 dark:bg-slate-950/60 border-2 border-slate-200 dark:border-slate-700 rounded-xl font-bold" />
+                                        </div>
+                                        <div className="space-y-1">
+                                            <label className="text-[10px] font-black uppercase text-slate-400">{t('forms.sinoKoreanLabel', 'Âm Hán Hàn')}</label>
+                                            <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)} placeholder="Hán Hàn..." className="w-full px-3 py-2 text-xs bg-slate-50 dark:bg-slate-950/60 border-2 border-slate-200 dark:border-slate-700 rounded-xl font-bold" />
+                                        </div>
+                                        <div className="col-span-2 space-y-1">
+                                            <label className="text-[10px] font-black uppercase text-slate-400">{t('forms.synonyms', 'Đồng nghĩa')}</label>
+                                            <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Từ đồng nghĩa..." className="w-full px-3 py-2 text-xs bg-slate-50 dark:bg-slate-950/60 border-2 border-slate-200 dark:border-slate-700 rounded-xl font-bold" />
                                         </div>
                                     </>
                                 ) : cardIsEnglish ? (
                                     <>
-                                        <input type="text" value={ipa} onChange={(e) => setIpa(e.target.value)} placeholder={t('forms.ipaLabel', 'Phiên âm (IPA)')} className="w-full min-w-0 px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100 font-mono" />
-                                        <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder={t('forms.synonyms', 'Đồng nghĩa')} className="w-full min-w-0 px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
+                                        <div className="space-y-1">
+                                            <label className="text-[10px] font-black uppercase text-slate-400">{t('forms.ipaLabel', 'Phiên âm (IPA)')}</label>
+                                            <input type="text" value={ipa} onChange={(e) => setIpa(e.target.value)} placeholder="/.../" className="w-full px-3 py-2 text-xs bg-slate-50 dark:bg-slate-950/60 border-2 border-slate-200 dark:border-slate-700 rounded-xl font-mono font-bold" />
+                                        </div>
+                                        <div className="space-y-1">
+                                            <label className="text-[10px] font-black uppercase text-slate-400">{t('forms.synonyms', 'Đồng nghĩa')}</label>
+                                            <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Synonyms..." className="w-full px-3 py-2 text-xs bg-slate-50 dark:bg-slate-950/60 border-2 border-slate-200 dark:border-slate-700 rounded-xl font-bold" />
+                                        </div>
                                     </>
                                 ) : (
                                     <>
-                                        <input type="text" value={reading} onChange={(e) => {
-                                            setReading(e.target.value);
-                                            setCustomHiragana(e.target.value);
-                                        }} placeholder={t('forms.readingLabel', 'Cách đọc (Hiragana)')} className="w-full min-w-0 px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100 font-japanese" />
-                                        <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)} placeholder={t('forms.sinoVietnameseLabel', 'Hán Việt')} className="w-full min-w-0 px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
-                                        <div className="col-span-2 min-w-0">
-                                            <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder={t('forms.synonyms', 'Đồng nghĩa')} className="w-full min-w-0 px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100" />
+                                        <div className="space-y-1">
+                                            <label className="text-[10px] font-black uppercase text-slate-400">{t('forms.readingLabel', 'Cách đọc (Hiragana)')}</label>
+                                            <input 
+                                                type="text" 
+                                                value={reading} 
+                                                onChange={(e) => {
+                                                    setReading(e.target.value);
+                                                    setCustomHiragana(e.target.value);
+                                                }} 
+                                                placeholder="Hiragana..." 
+                                                className="w-full px-3 py-2 text-xs bg-slate-50 dark:bg-slate-950/60 border-2 border-slate-200 dark:border-slate-700 rounded-xl font-japanese font-bold" 
+                                            />
+                                        </div>
+                                        <div className="space-y-1">
+                                            <label className="text-[10px] font-black uppercase text-slate-400">{t('forms.sinoVietnameseLabel', 'Hán Việt')}</label>
+                                            <input type="text" value={sinoVietnamese} onChange={(e) => setSinoVietnamese(e.target.value)} placeholder="Hán Việt..." className="w-full px-3 py-2 text-xs bg-slate-50 dark:bg-slate-950/60 border-2 border-slate-200 dark:border-slate-700 rounded-xl font-bold" />
+                                        </div>
+                                        <div className="col-span-2 space-y-1">
+                                            <label className="text-[10px] font-black uppercase text-slate-400">{t('forms.synonyms', 'Đồng nghĩa')}</label>
+                                            <input type="text" value={synonym} onChange={(e) => setSynonym(e.target.value)} placeholder="Từ đồng nghĩa..." className="w-full px-3 py-2 text-xs bg-slate-50 dark:bg-slate-950/60 border-2 border-slate-200 dark:border-slate-700 rounded-xl font-bold" />
                                         </div>
                                     </>
                                 )}
                             </div>
                         </div>
-                        <div className="space-y-4 min-w-0">
-                            <textarea value={example} onChange={(e) => setExample(e.target.value)} rows="2" placeholder={cardIsKorean ? t('forms.examplePlaceholderKo', 'Ví dụ (Hàn)') : cardIsEnglish ? t('forms.examplePlaceholderEn', 'Ví dụ (Anh)') : t('forms.examplePlaceholderJa', 'Ví dụ (Nhật)')} className="w-full min-w-0 px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-gray-100" />
-                            <textarea value={exampleMeaning} onChange={(e) => setExampleMeaning(e.target.value)} rows="2" placeholder={t('forms.exampleMeaningPlaceholder', 'Nghĩa ví dụ')} className="w-full min-w-0 px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-gray-100" />
-                            <textarea value={nuance} onChange={(e) => setNuance(e.target.value)} rows="2" placeholder={t('forms.nuanceNotePlaceholder', 'Ghi chú')} className="w-full min-w-0 px-3 py-2 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg text-sm text-gray-900 dark:text-gray-100" />
-                            <div className="bg-gray-50 dark:bg-gray-700/50 p-3 rounded-xl space-y-3 min-w-0">
-                                <h3 className="text-xs font-bold text-gray-400 uppercase">Media</h3>
+
+                        {/* RIGHT COLUMN: Examples, Notes, Media & Audio Tool */}
+                        <div className="space-y-3.5 sm:space-y-4 min-w-0">
+                            {/* Examples */}
+                            <div className="space-y-1.5">
+                                <label className="block text-[11px] font-black uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                                    {cardIsKorean ? t('forms.examplePlaceholderKo', 'Câu ví dụ (Hàn)') : cardIsEnglish ? t('forms.examplePlaceholderEn', 'Câu ví dụ (Anh)') : t('forms.examplePlaceholderJa', 'Câu ví dụ (Nhật)')}
+                                </label>
+                                <textarea 
+                                    value={example} 
+                                    onChange={(e) => setExample(e.target.value)} 
+                                    rows="2" 
+                                    className="w-full min-w-0 px-3.5 py-2 bg-slate-50 dark:bg-slate-950/60 border-2 border-slate-200 dark:border-slate-700 rounded-2xl text-xs font-medium text-slate-900 dark:text-white focus:border-emerald-500 focus:outline-none shadow-xs" 
+                                />
+                            </div>
+
+                            {/* Example Meaning */}
+                            <div className="space-y-1.5">
+                                <label className="block text-[11px] font-black uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                                    {t('forms.exampleMeaningPlaceholder', 'Nghĩa của câu ví dụ')}
+                                </label>
+                                <textarea 
+                                    value={exampleMeaning} 
+                                    onChange={(e) => setExampleMeaning(e.target.value)} 
+                                    rows="2" 
+                                    className="w-full min-w-0 px-3.5 py-2 bg-slate-50 dark:bg-slate-950/60 border-2 border-slate-200 dark:border-slate-700 rounded-2xl text-xs font-medium text-slate-900 dark:text-white focus:border-emerald-500 focus:outline-none shadow-xs" 
+                                />
+                            </div>
+
+                            {/* Nuance / Notes */}
+                            <div className="space-y-1.5">
+                                <label className="block text-[11px] font-black uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                                    {t('forms.nuanceNotePlaceholder', 'Ghi chú ngữ cảnh & Sắc thái')}
+                                </label>
+                                <textarea 
+                                    value={nuance} 
+                                    onChange={(e) => setNuance(e.target.value)} 
+                                    rows="2" 
+                                    className="w-full min-w-0 px-3.5 py-2 bg-slate-50 dark:bg-slate-950/60 border-2 border-slate-200 dark:border-slate-700 rounded-2xl text-xs font-medium text-slate-900 dark:text-white focus:border-emerald-500 focus:outline-none shadow-xs" 
+                                />
+                            </div>
+
+                            {/* Media Section: Image & Audio Tool */}
+                            <div className="bg-slate-50 dark:bg-slate-950/50 p-3.5 rounded-2xl border-2 border-slate-200/80 dark:border-slate-800 space-y-3 min-w-0">
+                                
+                                {/* Image Upload row */}
                                 <div className="flex items-center justify-between min-w-0 gap-2">
-                                    <label htmlFor="img-edit-modal" className="cursor-pointer text-emerald-600 dark:text-emerald-400 font-medium text-sm flex items-center hover:text-emerald-800 shrink-0">
-                                        <ImageIcon className="w-4 h-4 mr-2" /> {imagePreview ? t('forms.changeImage', 'Thay đổi ảnh') : t('forms.uploadImage', 'Tải ảnh lên')}
+                                    <label htmlFor="img-edit-modal" className="cursor-pointer text-emerald-600 dark:text-emerald-400 font-bold text-xs flex items-center hover:text-emerald-700 shrink-0">
+                                        <ImageIcon className="w-4 h-4 mr-1.5" /> 
+                                        <span>{imagePreview ? t('forms.changeImage', 'Thay đổi ảnh minh họa') : t('forms.uploadImage', 'Tải ảnh minh họa lên')}</span>
                                     </label>
                                     <input id="img-edit-modal" type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
                                     {imagePreview && (
-                                        <div className="relative w-12 h-12 rounded-lg overflow-hidden border border-gray-200 group shrink-0">
+                                        <div className="relative w-10 h-10 rounded-xl overflow-hidden border-2 border-slate-200 dark:border-slate-700 group shrink-0 shadow-xs">
                                             <img src={imagePreview} className="w-full h-full object-cover" />
-                                            <button type="button" onClick={() => setImagePreview(null)} className="absolute inset-0 bg-black/50 text-white opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"><X className="w-4 h-4" /></button>
+                                            <button 
+                                                type="button" 
+                                                onClick={() => setImagePreview(null)} 
+                                                className="absolute inset-0 bg-black/60 text-white opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"
+                                            >
+                                                <X className="w-3.5 h-3.5" />
+                                            </button>
                                         </div>
                                     )}
                                 </div>
-                                <div className="pt-3 border-t border-gray-200 dark:border-gray-700 space-y-3 min-w-0">
+
+                                {/* AUDIO TOOLKIT (DUOLINGO 3D) */}
+                                <div className="pt-2.5 border-t border-slate-200 dark:border-slate-800 space-y-2.5 min-w-0">
                                     <div className="flex items-center justify-between min-w-0 gap-2">
-                                        <div className="flex items-center text-sm font-bold text-emerald-600 dark:text-emerald-400 truncate">
+                                        <div className="flex items-center text-xs font-black text-emerald-600 dark:text-emerald-400 uppercase tracking-wider">
                                             <Volume2 className="w-4 h-4 mr-1.5 shrink-0" />
-                                            <span className="truncate">{t('forms.editAudio', 'Sửa Audio Phát Âm')}</span>
+                                            <span>{t('forms.editAudio', 'Sửa Audio Phát Âm')}</span>
                                         </div>
+                                        
+                                        {/* Nút Nghe thử */}
                                         {customAudio && (
                                             <button
                                                 type="button"
                                                 onClick={() => playAudio(customAudio, front, null, null, customHiragana || reading)}
-                                                className="px-2.5 py-1 bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-900/40 dark:hover:bg-emerald-900/60 text-emerald-600 dark:text-emerald-400 rounded-lg flex items-center gap-1 text-xs font-bold transition-all cursor-pointer shadow-sm active:scale-95 shrink-0"
+                                                className="px-2.5 py-1 bg-amber-500 hover:bg-amber-400 active:translate-y-0.5 active:border-b-1 border-2 border-b-3 border-amber-700 text-white rounded-xl flex items-center gap-1.5 text-xs font-black transition-all cursor-pointer shadow-xs select-none shrink-0"
+                                                title="Nghe thử audio hiện tại"
                                             >
-                                                <Volume2 className="w-3.5 h-3.5" />
-                                                {t('forms.testAudio', 'Nghe thử')}
+                                                <Play className="w-3 h-3 fill-white" />
+                                                <span>{t('forms.testAudio', 'Nghe thử')}</span>
                                             </button>
                                         )}
                                     </div>
 
-                                    {/* Fix Audio Input & Action */}
-                                    <div className="bg-white dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 p-3 rounded-xl space-y-2.5 min-w-0">
+                                    {/* Input Hiragana & Nút Tạo audio trực tiếp */}
+                                    <div className="bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-700/80 p-3 rounded-2xl space-y-2 min-w-0 shadow-xs">
                                         <div className="flex items-center justify-between gap-2">
-                                            <label className="text-xs font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1.5 truncate">
+                                            <label className="text-[11px] font-bold text-slate-600 dark:text-slate-300 flex items-center gap-1.5 truncate">
                                                 <Wrench className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
-                                                <span className="truncate">{cardIsKorean ? (language === 'vi' ? 'Nhập từ tiếng Hàn chuẩn:' : 'Enter valid Korean word:') : cardIsEnglish ? (language === 'vi' ? 'Nhập từ chuẩn tiếng Anh:' : 'Enter valid English word:') : (language === 'vi' ? 'Nhập cách đọc Hiragana đúng:' : 'Enter valid Hiragana reading:')}</span>
+                                                <span className="truncate">
+                                                    {cardIsKorean ? (language === 'vi' ? 'Nhập từ tiếng Hàn chuẩn:' : 'Enter valid Korean word:') : cardIsEnglish ? (language === 'vi' ? 'Nhập từ chuẩn tiếng Anh:' : 'Enter valid English word:') : (language === 'vi' ? 'Nhập cách đọc Hiragana đúng:' : 'Enter valid Hiragana reading:')}
+                                                </span>
                                             </label>
                                             {(audioFixed || card?.audioFixed) && (
-                                                <span className="text-[10px] font-bold px-2 py-0.5 bg-emerald-100 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 rounded-full flex items-center gap-1 border border-emerald-300 dark:border-emerald-800 shrink-0">
-                                                    <Check className="w-3 h-3" /> {t('forms.audioFixedBadge', 'Đã sửa audio')}
+                                                <span className="text-[9px] font-black px-2 py-0.5 bg-emerald-100 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 rounded-lg flex items-center gap-1 border border-emerald-300 dark:border-emerald-800 shrink-0">
+                                                    <Check className="w-2.5 h-2.5" /> {t('forms.audioFixedBadge', 'Đã lưu audio')}
                                                 </span>
                                             )}
                                         </div>
@@ -420,34 +557,36 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                                                         setReading(e.target.value);
                                                     }
                                                 }}
-                                                placeholder={cardIsEnglish ? (language === 'vi' ? "Nhập từ chuẩn..." : "Enter valid word...") : (language === 'vi' ? "Nhập Hiragana đúng (VD: ほころびる, たべる...)" : "Enter standard Hiragana (e.g. ほころびる, たべる...)")}
+                                                placeholder={cardIsEnglish ? (language === 'vi' ? "Nhập từ chuẩn..." : "Enter valid word...") : (language === 'vi' ? "Nhập Hiragana đúng (VD: それとも, たべる...)" : "Enter standard Hiragana (e.g. それとも, たべる...)")}
                                                 disabled={isGeneratingAudio}
-                                                className="w-full min-w-0 flex-1 px-3 py-2 bg-gray-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-700 rounded-xl text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:ring-2 focus:ring-emerald-500 outline-none font-medium font-japanese"
+                                                className="w-full min-w-0 flex-1 px-3 py-2 bg-slate-50 dark:bg-slate-950 border-2 border-slate-200 dark:border-slate-700 rounded-xl text-xs text-slate-900 dark:text-white placeholder-slate-400 focus:border-emerald-500 focus:outline-none font-bold font-japanese"
                                                 onKeyDown={(e) => {
                                                     if (e.key === 'Enter') {
                                                         e.preventDefault();
                                                         if (customHiragana.trim() && !isGeneratingAudio) {
-                                                            handlePreFixAudio();
+                                                            handleGenerateAudioDirect();
                                                         }
                                                     }
                                                 }}
                                             />
+                                            
+                                            {/* Nút Tạo Audio Duolingo 3D */}
                                             <button
                                                 type="button"
-                                                onClick={handlePreFixAudio}
+                                                onClick={handleGenerateAudioDirect}
                                                 disabled={isGeneratingAudio || !customHiragana.trim()}
-                                                className={`w-full sm:w-auto px-3.5 py-2 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 shrink-0 shadow-sm ${
+                                                className={`w-full sm:w-auto px-4 py-2 rounded-xl text-xs font-black transition-all flex items-center justify-center gap-1.5 shrink-0 select-none border-2 border-b-3 ${
                                                     isGeneratingAudio || !customHiragana.trim()
-                                                        ? 'bg-emerald-300 dark:bg-emerald-900/50 text-white cursor-not-allowed'
-                                                        : 'bg-emerald-600 hover:bg-emerald-700 text-white cursor-pointer active:scale-95'
+                                                        ? 'bg-slate-200 dark:bg-slate-800 border-slate-300 dark:border-slate-700 text-slate-400 cursor-not-allowed'
+                                                        : 'bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-1 border-emerald-700 text-white cursor-pointer shadow-xs'
                                                 }`}
                                             >
                                                 {isGeneratingAudio ? (
                                                     <Loader2 className="w-3.5 h-3.5 animate-spin" />
                                                 ) : (
-                                                    <RefreshCw className="w-3.5 h-3.5" />
+                                                    <RefreshCw className="w-3.5 h-3.5 stroke-[2.5]" />
                                                 )}
-                                                <span>{customAudio || audioFixed ? t('forms.regenerateAudio', 'Tạo lại audio') : t('forms.generateAudio', 'Tạo audio')}</span>
+                                                <span>{isGeneratingAudio ? 'Đang tạo...' : (customAudio || audioFixed ? t('forms.regenerateAudio', 'Tạo lại audio') : t('forms.generateAudio', 'Tạo audio'))}</span>
                                             </button>
                                         </div>
                                     </div>
@@ -456,75 +595,26 @@ const EditCardModal = ({ card, onSave, onClose, onGeminiAssist, allCards = [], c
                         </div>
                     </div>
                 </div>
-                <div className="flex gap-2.5 sm:gap-3 px-4 py-3 sm:p-4 border-t border-gray-200 dark:border-gray-700 sticky bottom-0 bg-white dark:bg-gray-800 shrink-0">
-                    <button onClick={handleSave} disabled={isSaving}
-                        className="flex-1 min-w-0 py-2.5 bg-emerald-600 text-white rounded-xl font-bold shadow-lg shadow-emerald-200 dark:shadow-emerald-900/50 hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2 cursor-pointer">
-                        {isSaving ? <Loader2 className="w-4 h-4 animate-spin shrink-0" /> : <Check className="w-4 h-4 shrink-0" />}
+
+                {/* Footer Actions (Duolingo 3D Style) */}
+                <div className="flex gap-3 px-5 py-3.5 sm:py-4 border-t-2 border-slate-100 dark:border-slate-800 sticky bottom-0 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shrink-0">
+                    <button 
+                        onClick={handleSave} 
+                        disabled={isSaving}
+                        className="flex-1 min-w-0 py-3 px-6 bg-emerald-500 hover:bg-emerald-400 active:translate-y-1 active:border-b-2 border-2 border-b-[5px] border-emerald-700 text-white rounded-2xl font-black text-sm tracking-wide shadow-lg shadow-emerald-500/20 transition-all flex items-center justify-center gap-2 cursor-pointer select-none"
+                    >
+                        {isSaving ? <Loader2 className="w-4 h-4 animate-spin shrink-0" /> : <Check className="w-4 h-4 stroke-[3] shrink-0" />}
                         <span className="truncate">{t('forms.saveChanges', 'Lưu Thay Đổi')}</span>
                     </button>
-                    <button onClick={onClose} className="px-5 sm:px-6 py-2.5 bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-xl font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-600 shrink-0 cursor-pointer">
+                    
+                    <button 
+                        onClick={onClose} 
+                        className="px-6 py-3 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-750 active:translate-y-0.5 active:border-b-2 border-2 border-b-4 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-2xl font-black text-sm transition-all shrink-0 cursor-pointer select-none"
+                    >
                         {t('common.cancel', 'Hủy')}
                     </button>
                 </div>
             </div>
-
-            {/* Warning & Confirmation Modal */}
-            {showConfirmModal && (
-                <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-fade-in" onClick={() => setShowConfirmModal(false)}>
-                    <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-md overflow-hidden border border-gray-200 dark:border-gray-700 animate-scale-up" onClick={e => e.stopPropagation()}>
-                        <div className="flex items-center justify-between p-4 border-b border-gray-100 dark:border-gray-700/80 bg-amber-50/70 dark:bg-amber-950/40">
-                            <h3 className="text-sm font-extrabold text-amber-800 dark:text-amber-300 flex items-center gap-2">
-                                <AlertTriangle className="w-5 h-5 text-amber-500 shrink-0" />
-                                <span>{t('forms.confirmFixAudioTitle', 'Xác nhận sửa Audio (Chỉ 1 lần duy nhất)')}</span>
-                            </h3>
-                            <button onClick={() => setShowConfirmModal(false)} className="p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 rounded-lg cursor-pointer">
-                                <X className="w-4 h-4" />
-                            </button>
-                        </div>
-
-                        <div className="p-4 space-y-3.5">
-                            <div className="p-3 bg-slate-50 dark:bg-slate-750/70 rounded-xl border border-slate-200/80 dark:border-slate-700 space-y-1.5 text-xs">
-                                <div className="flex items-center justify-between">
-                                    <span className="text-slate-500 dark:text-slate-400 font-medium">{t('forms.wordLabel', 'Từ vựng')}:</span>
-                                    <span className="text-slate-900 dark:text-white font-extrabold text-sm">{front}</span>
-                                </div>
-                                <div className="flex items-center justify-between">
-                                    <span className="text-slate-500 dark:text-slate-400 font-medium">{t('forms.readingLabel', 'Cách đọc tạo Audio')}:</span>
-                                    <span className="text-emerald-600 dark:text-emerald-400 font-extrabold text-sm font-japanese">{customHiragana.trim()}</span>
-                                </div>
-                            </div>
-
-                            <div className="p-3 bg-amber-50 dark:bg-amber-950/50 border border-amber-300/80 dark:border-amber-800/60 rounded-xl text-xs leading-relaxed text-amber-900 dark:text-amber-200 space-y-1.5">
-                                <div className="font-bold flex items-center gap-1.5 text-amber-800 dark:text-amber-300">
-                                    <ShieldAlert className="w-4 h-4 text-amber-600 dark:text-amber-400 shrink-0" />
-                                    <span>{t('forms.audioRulesTitle', 'Quy định sửa Audio:')}</span>
-                                </div>
-                                <p className="text-[11px] leading-relaxed text-amber-800 dark:text-amber-300">
-                                    {language === 'vi' ? 'Mỗi từ vựng chỉ được phép sửa audio 1 lần duy nhất bằng cách nhập cách đọc Hiragana chuẩn xác. Nghiêm cấm hành vi spam, cố tình nhập sai hoặc phá hoại hệ thống — nếu vi phạm sẽ bị khóa tài khoản vĩnh viễn.' : 'Each vocabulary word is only allowed to fix audio once by entering the accurate reading. Spamming or abusive behavior will result in a permanent ban.'}
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="p-4 bg-gray-50 dark:bg-gray-800/80 border-t border-gray-100 dark:border-gray-700 flex gap-2.5">
-                            <button
-                                type="button"
-                                onClick={() => setShowConfirmModal(false)}
-                                className="flex-1 py-2.5 px-3 bg-white dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 border border-gray-200 dark:border-gray-600 rounded-xl text-xs font-bold text-gray-700 dark:text-gray-200 transition-all cursor-pointer"
-                            >
-                                {t('forms.cancelCheckAgain', 'Hủy / Kiểm tra lại')}
-                            </button>
-                            <button
-                                type="button"
-                                onClick={executeFixAudio}
-                                className="flex-1 py-2.5 px-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition-all shadow-md shadow-emerald-200 dark:shadow-emerald-900/50 flex items-center justify-center gap-1.5 cursor-pointer active:scale-95"
-                            >
-                                <Check className="w-4 h-4" />
-                                {t('forms.confirmAndGenerateAudio', 'Xác nhận & Tạo Audio')}
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            )}
 
             <PremiumLockedModal isOpen={showPremiumModal} onClose={() => setShowPremiumModal(false)} />
         </div>

@@ -23,6 +23,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { doc, setDoc } from 'firebase/firestore';
 import { db, appId } from '../../config/firebase';
+import { calculateAccurateStreak } from '../../utils/streakHelper';
 
 // Helper to shuffle array
 const shuffleArray = (array) => {
@@ -261,59 +262,14 @@ const SRSVocabScreen = ({
         setDashboardTick(Date.now());
     };
 
-    // Calculate streak from dailyActivityLogs
+    // Calculate streak from dailyActivityLogs & card study history
     const streak = useMemo(() => {
-        if (!dailyActivityLogs || dailyActivityLogs.length === 0) return 0;
-        const activeLogs = dailyActivityLogs.filter(log =>
-            (log.newWordsAdded || 0) > 0 ||
-            (log.newKanjiAdded || 0) > 0 ||
-            (log.reviewsDone || 0) > 0 ||
-            (log.cardsReviewed || 0) > 0 ||
-            (log.xpGained || 0) > 0 ||
-            (log.count || 0) > 0
-        );
-        if (activeLogs.length === 0) return 0;
-
-        const logMap = new Map(activeLogs.map(l => [l.id, l]));
-
-        const getLocalDateStr = (d) => {
-            const year = d.getFullYear();
-            const month = String(d.getMonth() + 1).padStart(2, '0');
-            const day = String(d.getDate()).padStart(2, '0');
-            return `${year}-${month}-${day}`;
-        };
-
-        const getUtcDateStr = (d) => d.toISOString().split('T')[0];
-
-        const hasActivityOnDate = (d) => {
-            const localStr = getLocalDateStr(d);
-            const utcStr = getUtcDateStr(d);
-            return logMap.has(localStr) || logMap.has(utcStr);
-        };
-
-        const today = new Date();
-        const yesterday = new Date();
-        yesterday.setDate(yesterday.getDate() - 1);
-
-        const hasToday = hasActivityOnDate(today);
-        const hasYesterday = hasActivityOnDate(yesterday);
-
-        if (!hasToday && !hasYesterday) return 0;
-
-        let currentStreak = 0;
-        let checkDate = new Date();
-        if (!hasToday) checkDate = yesterday;
-
-        while (true) {
-            if (hasActivityOnDate(checkDate)) {
-                currentStreak++;
-                checkDate.setDate(checkDate.getDate() - 1);
-            } else {
-                break;
-            }
-        }
-        return currentStreak;
-    }, [dailyActivityLogs]);
+        return calculateAccurateStreak({
+            dailyActivityLogs,
+            allCards,
+            userId
+        });
+    }, [dailyActivityLogs, allCards, userId]);
 
     const streakPct = useMemo(() => {
         if (streak === 0) return 0;

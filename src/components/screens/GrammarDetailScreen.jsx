@@ -10,6 +10,7 @@ import { showToast } from '../../utils/toast';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage, db, appId } from '../../config/firebase';
 import { doc, setDoc, deleteDoc, increment } from 'firebase/firestore';
+import { getSafeLocalDateString } from '../../utils/streakHelper';
 import { getAuth } from 'firebase/auth';
 import { recordRecentGrammar } from '../../utils/grammarHistory';
 import { TopTabBar } from '../ui';
@@ -137,7 +138,7 @@ const GrammarDetailScreen = ({ isAdmin, profile = null }) => {
                 await setDoc(srsDocRef, newSrs, { merge: true });
                 updateCachedUserGrammarSrs(userId, gp.id, newSrs);
 
-                const today = new Date().toISOString().split('T')[0];
+                const today = getSafeLocalDateString();
                 await setDoc(doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, today), {
                     newGrammarAdded: increment(1)
                 }, { merge: true }).catch(() => {});

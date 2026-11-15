@@ -553,8 +553,9 @@ export const azureTTS = async (text, reading = '', forceVoice = null, options = 
             return result;
         })();
 
-        // Fast 1800ms timeout for Azure TTS so we never block user
-        return await withTimeout(fetchAzurePromise, 1800, null);
+        // Dynamic timeout: 8000ms when user manually forces regenerate, 2500ms for background pre-fetching
+        const timeoutMs = forceRegenerate ? 8000 : 2500;
+        return await withTimeout(fetchAzurePromise, timeoutMs, null);
     } catch (e) {
         return null;
     }
@@ -1000,7 +1001,7 @@ export const generateAudioSilent = async (text, reading = '', forceVoice = null,
     }
 
     // 3. Fallback to Native Japanese Audio (Jotoba/Wadoku) if Azure was unavailable or failed
-    if (!preferNative && !isEng && !isKor && !forceRegenerate) {
+    if (!isEng && !isKor) {
         try {
             const nativeResult = await fetchNativeJapaneseAudio(text, reading);
             if (nativeResult && nativeResult.base64) {
@@ -1015,6 +1016,24 @@ export const generateAudioSilent = async (text, reading = '', forceVoice = null,
         } catch (e) {
             console.warn('Fallback native audio lookup failed:', e);
         }
+    }
+
+    // 4. Ultimate Fallback to Google TTS (Instant, zero cost, 100% reliable)
+    try {
+        const textForGoogle = kanaReading || word || text;
+        if (textForGoogle) {
+            const targetLang = isKor ? 'ko' : (isEng ? 'en' : 'ja');
+            const googleResult = await googleTTS(textForGoogle, targetLang);
+            if (googleResult && googleResult.base64) {
+                return {
+                    base64: googleResult.base64,
+                    voiceId: 'google',
+                    fromGoogle: true
+                };
+            }
+        }
+    } catch (e) {
+        console.warn('Ultimate Google TTS fallback failed:', e);
     }
 
     return null;

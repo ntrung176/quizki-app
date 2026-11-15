@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { Trophy, Crown, Medal, Star, Flame, BookOpen, Languages, Search, Users, Zap, Cpu, ChevronDown, ChevronUp, FileText, CheckCircle2 } from 'lucide-react';
+import { Trophy, Crown, Medal, Star, Flame, BookOpen, Languages, Search, Users, Zap, Cpu, ChevronDown, ChevronUp, FileText, CheckCircle2, RotateCcw, X, Sparkles } from 'lucide-react';
 import { collection, query, onSnapshot, doc, setDoc, serverTimestamp } from 'firebase/firestore';
-import { auth, db } from '../../config/firebase';
+import { auth, db, appId } from '../../config/firebase';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { SafeAvatarImage } from '../ui';
 import { isKanjiMastered, isSrsCardDue, isVocabCardMastered, getLearnAheadLimitMs } from '../../utils/srs';
@@ -9,6 +9,8 @@ import { getSharedKanjiList, subscribeKanjiSrs, computeKanjiSrsStats } from '../
 import { getLevelFromXp, getLevelTitle, formatScore } from '../../utils/scoring';
 import { formatLastActive, isUserOnline } from '../../utils/userActivityHelper';
 import { useLanguage } from '../../context/LanguageContext';
+import { showToast } from '../../utils/toast';
+import { calculateAccurateStreak, restoreUserStreak } from '../../utils/streakHelper';
 
 // Avatar emoji lookup
 const AVATAR_EMOJIS = {
@@ -197,59 +199,49 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
         };
     }, [publicStatsPath]);
 
-    // Tính toán chuỗi ngày streak của người dùng hiện tại
+    // Trạng thái modal khôi phục Streak thủ công
+    const [showStreakRestoreModal, setShowStreakRestoreModal] = useState(false);
+    const [customStreakInput, setCustomStreakInput] = useState('');
+    const [isRestoringStreak, setIsRestoringStreak] = useState(false);
+
+    // Tính toán chuỗi ngày streak của người dùng hiện tại an toàn, chống gián đoạn nhầm
     const streak = useMemo(() => {
-        if (!dailyActivityLogs || dailyActivityLogs.length === 0) return 0;
-        const activeLogs = dailyActivityLogs.filter(log => 
-            (log.newWordsAdded || 0) > 0 || 
-            (log.newKanjiAdded || 0) > 0 || 
-            (log.reviewsDone || 0) > 0 ||
-            (log.cardsReviewed || 0) > 0 ||
-            (log.xpGained || 0) > 0 ||
-            (log.count || 0) > 0
-        );
-        if (activeLogs.length === 0) return 0;
+        const myData = (leaderboardData || []).find(u => u.id === userId);
+        const savedStreak = myData?.streak || profile?.streak || 0;
+        return calculateAccurateStreak({
+            dailyActivityLogs,
+            allCards,
+            savedStreak,
+            userId
+        });
+    }, [dailyActivityLogs, allCards, leaderboardData, userId, profile]);
 
-        const logMap = new Map(activeLogs.map(l => [l.id, l]));
-
-        const getLocalDateStr = (d) => {
-            const year = d.getFullYear();
-            const month = String(d.getMonth() + 1).padStart(2, '0');
-            const day = String(d.getDate()).padStart(2, '0');
-            return `${year}-${month}-${day}`;
-        };
-
-        const getUtcDateStr = (d) => d.toISOString().split('T')[0];
-
-        const hasActivityOnDate = (d) => {
-            const localStr = getLocalDateStr(d);
-            const utcStr = getUtcDateStr(d);
-            return logMap.has(localStr) || logMap.has(utcStr);
-        };
-
-        const today = new Date();
-        const yesterday = new Date();
-        yesterday.setDate(yesterday.getDate() - 1);
-
-        const hasToday = hasActivityOnDate(today);
-        const hasYesterday = hasActivityOnDate(yesterday);
-
-        if (!hasToday && !hasYesterday) return 0;
-
-        let currentStreak = 0;
-        let checkDate = new Date();
-        if (!hasToday) checkDate = yesterday;
-
-        while (true) {
-            if (hasActivityOnDate(checkDate)) {
-                currentStreak++;
-                checkDate.setDate(checkDate.getDate() - 1);
-            } else {
-                break;
-            }
+    // Xử lý khôi phục streak
+    const handleRestoreStreak = async (targetStreakNum) => {
+        if (!userId) return;
+        const streakVal = parseInt(targetStreakNum, 10);
+        if (isNaN(streakVal) || streakVal < 1) {
+            showToast('Vui lòng nhập số ngày streak hợp lệ (tối thiểu 1 ngày).', 'warning');
+            return;
         }
-        return currentStreak;
-    }, [dailyActivityLogs]);
+
+        setIsRestoringStreak(true);
+        try {
+            await restoreUserStreak({
+                userId,
+                targetStreak: streakVal,
+                db,
+                appId,
+                publicStatsPath
+            });
+            showToast(`Đã khôi phục chuỗi streak ${streakVal} ngày thành công! 🔥`, 'success');
+            setShowStreakRestoreModal(false);
+        } catch (err) {
+            showToast('Lỗi khi khôi phục streak: ' + err.message, 'error');
+        } finally {
+            setIsRestoringStreak(false);
+        }
+    };
 
     // Từ vựng đã thuộc (Mastered Vocab)
     const vocabMastery = useMemo(() => {
@@ -835,10 +827,37 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
                                                     </span>
                                                 )}
                                                 {user.streak > 0 && (
-                                                    <span className="flex items-center gap-1 text-xs font-bold text-amber-500 shrink-0">
+                                                    <span 
+                                                        onClick={(e) => {
+                                                            if (isMe) {
+                                                                e.stopPropagation();
+                                                                setCustomStreakInput(String(user.streak || 30));
+                                                                setShowStreakRestoreModal(true);
+                                                            }
+                                                        }}
+                                                        title={isMe ? "Nhấn để chỉnh sửa hoặc khôi phục chuỗi Streak" : undefined}
+                                                        className={`flex items-center gap-1 text-xs font-bold text-amber-500 shrink-0 ${
+                                                            isMe ? 'cursor-pointer hover:scale-105 active:scale-95 transition-transform bg-amber-500/10 hover:bg-amber-500/20 px-2 py-0.5 rounded-lg border border-amber-500/30' : ''
+                                                        }`}
+                                                    >
                                                         <Flame className="w-3.5 h-3.5 fill-amber-500" />
-                                                        {user.streak}
+                                                        <span>{user.streak}</span>
+                                                        {isMe && <span className="text-[10px] text-amber-600 dark:text-amber-400 font-medium underline ml-0.5">Sửa</span>}
                                                     </span>
+                                                )}
+                                                {isMe && user.streak <= 1 && (
+                                                    <button
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            setCustomStreakInput('30');
+                                                            setShowStreakRestoreModal(true);
+                                                        }}
+                                                        className="flex items-center gap-1 px-2 py-0.5 rounded-lg text-xs font-bold text-amber-600 dark:text-amber-400 bg-amber-500/15 border border-amber-500/40 hover:bg-amber-500/25 transition-all cursor-pointer shadow-xs"
+                                                        title="Nhấn để khôi phục lại chuỗi ngày học nếu bị reset nhầm"
+                                                    >
+                                                        <RotateCcw className="w-3 h-3 text-amber-500" />
+                                                        <span>Khôi phục Streak</span>
+                                                    </button>
                                                 )}
                                             </div>
                                         </div>
@@ -1031,6 +1050,84 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
                     </div>
                 )}
             </div>
+
+            {/* Modal khôi phục chuỗi Streak Duolingo 3D */}
+            {showStreakRestoreModal && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in font-sans">
+                    <div className="relative bg-white dark:bg-slate-900 rounded-3xl shadow-2xl w-full max-w-sm p-6 border-2 border-b-[5px] border-slate-200 dark:border-slate-800 space-y-5 text-center">
+                        <button
+                            onClick={() => setShowStreakRestoreModal(false)}
+                            className="absolute top-4 right-4 p-2 rounded-xl text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                        >
+                            <X className="w-5 h-5" />
+                        </button>
+
+                        <div className="w-16 h-16 mx-auto rounded-2xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center shadow-inner">
+                            <Flame className="w-9 h-9 text-amber-500 fill-amber-500 animate-bounce" />
+                        </div>
+
+                        <div>
+                            <h3 className="text-lg font-black text-slate-900 dark:text-white">
+                                Khôi phục Chuỗi Streak 🔥
+                            </h3>
+                            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium leading-relaxed">
+                                Nhập số ngày streak học liên tục thực tế của bạn trước khi bị gián đoạn để hệ thống đồng bộ lại ngay.
+                            </p>
+                        </div>
+
+                        <div className="space-y-3">
+                            <div className="relative">
+                                <input
+                                    type="number"
+                                    min="1"
+                                    max="999"
+                                    value={customStreakInput}
+                                    onChange={(e) => setCustomStreakInput(e.target.value)}
+                                    placeholder="VD: 30, 45, 60..."
+                                    className="w-full text-center text-2xl font-black py-3 px-4 rounded-2xl border-2 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 text-slate-900 dark:text-white focus:outline-none focus:border-amber-500 transition-all font-mono"
+                                    autoFocus
+                                />
+                                <span className="absolute right-4 top-1/2 -translate-y-1/2 text-xs font-bold text-slate-400">
+                                    ngày
+                                </span>
+                            </div>
+
+                            {/* Gợi ý nhanh */}
+                            <div className="flex items-center justify-center gap-2 flex-wrap">
+                                {[15, 30, 45, 60, 90].map(days => (
+                                    <button
+                                        key={days}
+                                        type="button"
+                                        onClick={() => setCustomStreakInput(String(days))}
+                                        className="px-2.5 py-1 text-xs font-bold rounded-lg border border-slate-200 dark:border-slate-700 hover:border-amber-400 dark:hover:border-amber-500 hover:text-amber-500 transition-colors cursor-pointer bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300"
+                                    >
+                                        {days} ngày
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
+                        <div className="flex items-center gap-3 pt-2">
+                            <button
+                                type="button"
+                                onClick={() => setShowStreakRestoreModal(false)}
+                                className="flex-1 py-3 px-4 rounded-2xl text-xs font-black text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 active:border-b-2 active:translate-y-0.5 transition-all cursor-pointer"
+                            >
+                                Hủy
+                            </button>
+                            <button
+                                type="button"
+                                disabled={isRestoringStreak || !customStreakInput}
+                                onClick={() => handleRestoreStreak(customStreakInput)}
+                                className="flex-1 py-3 px-4 rounded-2xl text-xs font-black text-white bg-amber-500 border-2 border-amber-600 border-b-4 border-b-amber-700 hover:bg-amber-450 active:border-b-2 active:translate-y-0.5 transition-all cursor-pointer shadow-md disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-1.5"
+                            >
+                                <Sparkles className="w-4 h-4" />
+                                <span>{isRestoringStreak ? 'Đang lưu...' : 'Khôi phục ngay'}</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Inline animation */}
             <style>{`

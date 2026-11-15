@@ -9,6 +9,7 @@ import { getAuth } from 'firebase/auth';
 import { getSharedGrammarPointsList, getSharedGrammarSrs, getCachedUserGrammarSrsData, updateCachedUserGrammarSrs, subscribeGrammarSrs, deleteGrammarPoint, deleteGrammarPointsBatch, importDirectGrammarPointsFromJson } from '../../utils/grammarService';
 import { aiGenerateGrammarPointsJson } from '../../utils/aiProvider';
 import { showToast } from '../../utils/toast';
+import { getSafeLocalDateString } from '../../utils/streakHelper';
 import { TopTabBar, PremiumLockedModal } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
 
@@ -453,7 +454,7 @@ const GrammarListScreen = ({ isAdmin = false, profile = null }) => {
             updateCachedUserGrammarSrs(userId, gp.id, newSrs);
 
             // Trigger daily activity count
-            const todayDateString = new Date().toISOString().split('T')[0];
+            const todayDateString = getSafeLocalDateString();
             const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
             await setDoc(activityRef, {
                 newGrammarAdded: increment(1)

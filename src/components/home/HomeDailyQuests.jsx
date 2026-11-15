@@ -3,6 +3,7 @@ import { Target, CheckCircle2, Circle, Flame, PenTool, MessageSquare } from 'luc
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../router';
 import { useLanguage } from '../../context/LanguageContext';
+import { getSafeLocalDateString } from '../../utils/streakHelper';
 
 const HomeDailyQuests = ({
     userId,
@@ -13,7 +14,7 @@ const HomeDailyQuests = ({
     const { t } = useLanguage();
     const navigate = useNavigate();
 
-    const todayStr = new Date().toISOString().split('T')[0];
+    const todayStr = getSafeLocalDateString();
     const questKey = userId ? `quizki_daily_quests_${userId}_${todayStr}` : `quizki_daily_quests_${todayStr}`;
 
     const [questState, setQuestState] = useState(() => {
@@ -28,8 +29,10 @@ const HomeDailyQuests = ({
     const hasClearedSrs = totalDue === 0;
     const hasStudiedToday = Array.isArray(dailyActivityLogs) && dailyActivityLogs.some(log => {
         if (!log) return false;
-        const logDate = log.date || (log.timestamp ? new Date(log.timestamp).toISOString().split('T')[0] : '');
-        return logDate === todayStr;
+        const logId = log.id || '';
+        const logDate = log.date || (log.lastUpdated ? getSafeLocalDateString(log.lastUpdated) : '');
+        const hasCount = (log.cardsReviewed || 0) > 0 || (log.reviewsDone || 0) > 0 || (log.xpGained || 0) > 0 || (log.newWordsAdded || 0) > 0;
+        return (logId === todayStr || logDate === todayStr) && hasCount;
     });
 
     const isQuest1Done = questState.quest1 || hasClearedSrs;

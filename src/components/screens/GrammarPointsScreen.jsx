@@ -21,6 +21,7 @@ import { aiCheckGrammarAnswer, aiGenerateGrammarPointsJson } from '../../utils/a
 import { aiBatchStandardizeGrammarStructures } from '../../services/ai/grammarAiService';
 import { playCorrectSound, playIncorrectSound, playCompletionFanfare } from '../../utils/soundEffects';
 import { showToast, showConfirm } from '../../utils/toast';
+import { getSafeLocalDateString } from '../../utils/streakHelper';
 import { TopTabBar } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
 
@@ -593,7 +594,7 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
             await setDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, gp.id), newSrs, { merge: true });
             updateCachedUserGrammarSrs(userId, gp.id, newSrs);
 
-            const today = new Date().toISOString().split('T')[0];
+            const today = getSafeLocalDateString();
             await setDoc(doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, today), {
                 newGrammarAdded: increment(1)
             }, { merge: true }).catch(() => {});

@@ -3,6 +3,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { db, appId } from '../config/firebase';
 import { callAI } from './aiProvider';
 import { updateCachedUserGrammarSrs, getCachedUserGrammarSrsData } from './grammarService';
+import { getSafeLocalDateString } from './streakHelper';
 
 const stripHtml = (str) => {
     if (!str || typeof str !== 'string') return '';
@@ -515,7 +516,7 @@ export const toggleNotebookItemSrs = async (userId, item, notebookTitle, isCurre
         }
 
         if (!existing) {
-            const today = new Date().toISOString().split('T')[0];
+            const today = getSafeLocalDateString();
             setDoc(doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, today), {
                 newGrammarAdded: increment(1)
             }, { merge: true }).catch(() => {});
@@ -592,7 +593,7 @@ export const saveAllNotebookItemsToSrs = async (userId, items, notebookTitle, ex
         try {
             await batch.commit();
             if (newlyAddedCount > 0) {
-                const today = new Date().toISOString().split('T')[0];
+                const today = getSafeLocalDateString();
                 setDoc(doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, today), {
                     newGrammarAdded: increment(newlyAddedCount)
                 }, { merge: true }).catch(() => {});

@@ -476,18 +476,18 @@ const LibraryScreen = ({
 
                 {/* Breadcrumb Navigation when inside a Folder */}
                 {activeParentFolderId && (
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white dark:bg-slate-900 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm">
-                        <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 font-medium">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md p-3.5 sm:p-4 rounded-2xl sm:rounded-3xl border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-xs">
+                        <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 font-bold flex-wrap">
                             <button 
                                 onClick={() => setActiveParentFolderId(null)}
-                                className="hover:text-cyan-600 dark:hover:text-cyan-400 transition-colors flex items-center gap-1 font-bold"
+                                className="hover:text-sky-600 dark:hover:text-sky-400 transition-colors flex items-center gap-1.5 font-black cursor-pointer"
                             >
-                                <Library className="w-4 h-4" />
-                                {t('tabs.library', 'Thư viện')}
+                                <Library className="w-4 h-4 text-sky-500" />
+                                <span>{t('tabs.library', 'Thư viện')}</span>
                             </button>
                             <ChevronRight className="w-4 h-4 text-slate-400" />
-                            <div className="flex items-center gap-1.5 bg-cyan-50 dark:bg-cyan-950/40 px-3 py-1 rounded-lg text-cyan-600 dark:text-cyan-400 font-bold">
-                                <FolderOpen className="w-4 h-4" />
+                            <div className="flex items-center gap-1.5 bg-sky-50 dark:bg-sky-950/60 border border-sky-200 dark:border-sky-800/60 px-3 py-1 rounded-xl text-sky-600 dark:text-sky-400 font-black text-xs">
+                                <FolderOpen className="w-3.5 h-3.5" />
                                 <span>{activeFolderName}</span>
                             </div>
                         </div>
@@ -498,43 +498,43 @@ const LibraryScreen = ({
                                 onDragOver={(e) => { e.preventDefault(); setDragOverRoot(true); }}
                                 onDragLeave={() => setDragOverRoot(false)}
                                 onDrop={handleDropOnRoot}
-                                className={`px-6 py-2.5 rounded-xl border-2 border-dashed text-xs font-bold transition-all flex items-center gap-2 ${
+                                className={`px-5 py-2 rounded-xl border-2 border-dashed text-xs font-black transition-all flex items-center gap-2 select-none ${
                                     dragOverRoot 
                                         ? 'bg-amber-50 dark:bg-amber-950/20 border-amber-500 text-amber-600 dark:text-amber-400 scale-102' 
                                         : 'bg-slate-50 dark:bg-slate-900 border-slate-300 dark:border-slate-700 text-slate-500 dark:text-slate-400'
                                 }`}
                             >
-                                <Move className="w-4 h-4 animate-bounce" />
-                                {t('library.dropSetHere')}
+                                <Move className="w-4 h-4 animate-bounce text-amber-500" />
+                                <span>{t('library.dropSetHere', 'Thả vào đây để đưa về gốc')}</span>
                             </div>
                         )}
 
                         <button
                             onClick={() => setActiveParentFolderId(null)}
-                            className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-xs rounded-xl transition-all flex items-center gap-1 self-start sm:self-auto"
+                            className="px-4 py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-750 active:translate-y-0.5 active:border-b-2 border-2 border-b-4 border-slate-300 dark:border-slate-700 text-slate-700 dark:text-slate-200 font-black text-xs rounded-2xl transition-all flex items-center gap-1.5 self-start sm:self-auto cursor-pointer select-none"
                         >
-                            <ArrowLeft className="w-3.5 h-3.5" />
-                            {t('common.back', 'Quay lại')}
+                            <ArrowLeft className="w-3.5 h-3.5 stroke-[2.5]" />
+                            <span>{t('common.back', 'Quay lại')}</span>
                         </button>
                     </div>
                 )}
 
                 {/* 1. PARENT FOLDERS GRID SECTION - Only show at root level */}
                 {(!activeParentFolderId || searchQuery) && (
-                    <div className="space-y-4">
+                    <div className="space-y-3 sm:space-y-3.5">
                         <div className="flex items-center justify-between gap-3">
-                            <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-                                <Folder className="w-5 h-5 text-cyan-500" />
+                            <h2 className="text-base sm:text-lg font-black text-slate-900 dark:text-white flex items-center gap-2">
+                                <Folder className="w-5 h-5 text-sky-500 fill-sky-500/20" />
                                 <span>{t('library.managedFolders', 'Thư mục quản lý')}</span>
-                                <span className="text-xs font-mono font-bold text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full">
-                                    ({parentFoldersWithCounts.length})
+                                <span className="text-xs font-mono font-black text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 rounded-full border border-slate-200 dark:border-slate-700">
+                                    {parentFoldersWithCounts.length}
                                 </span>
                             </h2>
 
                             {onAddParentFolder && (
                                 <button
                                     onClick={() => setShowCreateFolderModal(true)}
-                                    className="px-3.5 py-2 sm:px-4 sm:py-2.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 border-b-4 border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-100 rounded-2xl text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 shrink-0 cursor-pointer select-none"
+                                    className="px-3.5 py-2 sm:px-4 sm:py-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-750 active:translate-y-0.5 active:border-b-2 border-2 border-b-4 border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-100 rounded-2xl text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 shrink-0 cursor-pointer select-none"
                                 >
                                     <FolderPlus className="w-4 h-4 text-sky-500" />
                                     <span>{t('library.newFolder', 'Thư mục mới')}</span>
@@ -543,11 +543,11 @@ const LibraryScreen = ({
                         </div>
 
                         {parentFoldersWithCounts.length === 0 ? (
-                            <div className="p-6 sm:p-8 text-center bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border border-slate-200 dark:border-slate-800 shadow-md text-slate-400 dark:text-slate-500 text-xs italic">
-                                {searchQuery ? t('library.noFoldersFound') : t('library.noFolders')}
+                            <div className="p-6 sm:p-8 text-center bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl sm:rounded-3xl border-2 border-b-4 border-slate-200 dark:border-slate-800 text-slate-400 dark:text-slate-500 text-xs font-bold italic shadow-xs">
+                                {searchQuery ? t('library.noFoldersFound', 'Không tìm thấy thư mục phù hợp.') : t('library.noFolders', 'Chưa có thư mục nào. Nhấn "Thư mục mới" để gom nhóm học phần!')}
                             </div>
                         ) : (
-                            <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2.5 sm:gap-5">
+                            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2.5 sm:gap-3.5">
                                 {parentFoldersWithCounts.map(folder => {
                                     const isDragOver = dragOverFolderId === folder.id;
                                     return (
@@ -557,79 +557,74 @@ const LibraryScreen = ({
                                             onDragOver={(e) => { e.preventDefault(); setDragOverFolderId(folder.id); }}
                                             onDragLeave={() => setDragOverFolderId(null)}
                                             onDrop={(e) => handleDropOnFolder(e, folder.id)}
-                                            className={`bg-white dark:bg-slate-900 border-l-4 border-l-cyan-500 border-y border-r border-slate-200 dark:border-slate-800 hover:border-cyan-400 dark:hover:border-cyan-500/50 p-3 sm:p-5 rounded-r-xl sm:rounded-r-2xl rounded-l-md cursor-pointer transition-all duration-200 hover:shadow-xl shadow-md flex flex-col justify-between group relative overflow-hidden h-28 sm:h-36 ${
+                                            className={`bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-2 border-b-4 rounded-2xl sm:rounded-3xl p-3 sm:p-3.5 transition-all duration-150 cursor-pointer flex flex-col justify-between group relative overflow-hidden select-none active:translate-y-0.5 active:border-b-2 ${
                                                 isDragOver 
-                                                    ? 'border-cyan-500 bg-cyan-50 dark:bg-slate-850 scale-102 ring-2 ring-cyan-500/20' 
-                                                    : ''
+                                                    ? 'border-sky-500 bg-sky-50 dark:bg-sky-950/40 ring-2 ring-sky-500/30 scale-102' 
+                                                    : 'border-slate-200 dark:border-slate-800 hover:border-sky-400 dark:hover:border-sky-500/60 shadow-xs hover:shadow-md hover:-translate-y-1'
                                             }`}
                                         >
                                             {/* Folder icon decoration background */}
-                                            <div className="absolute right-0 bottom-0 translate-x-4 translate-y-4 opacity-5 group-hover:scale-110 transition-transform">
-                                                <Folder className="w-16 h-16 sm:w-24 sm:h-24 text-cyan-500" />
+                                            <div className="absolute -right-3 -bottom-3 opacity-5 group-hover:scale-110 group-hover:opacity-10 transition-all pointer-events-none">
+                                                <Folder className="w-16 h-16 sm:w-20 sm:h-20 text-sky-500" />
                                             </div>
 
-                                            <div className="space-y-1.5 sm:space-y-3 relative z-10 w-full">
-                                                <div className="flex items-start justify-between">
-                                                    <div className={`w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center transition-colors ${
-                                                        isDragOver 
-                                                            ? 'bg-cyan-500 text-white' 
-                                                            : 'bg-cyan-50 dark:bg-cyan-950/40 text-cyan-500 border border-cyan-200 dark:border-cyan-800/60'
-                                                    }`}>
-                                                        <FolderOpen className="w-3.5 h-3.5 sm:w-5 sm:h-5" />
-                                                    </div>
-                                                    <div className="flex gap-1 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity">
-                                                        <button
-                                                            onClick={(e) => {
-                                                                e.stopPropagation();
-                                                                setEditingParentFolder({ id: folder.id, name: folder.name });
-                                                            }}
-                                                            className="p-1 hover:bg-slate-100 dark:hover:bg-slate-800 rounded text-slate-400 hover:text-cyan-500"
-                                                            title={t('library.editFolderName')}
-                                                        >
-                                                            <Edit3 className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                                                        </button>
-                                                        <button
-                                                            onClick={(e) => {
-                                                                e.stopPropagation();
-                                                                setDeletingParentFolder(folder);
-                                                            }}
-                                                            className="p-1 hover:bg-red-50 dark:hover:bg-red-950/30 rounded text-slate-400 hover:text-red-500"
-                                                            title={t('library.deleteFolder')}
-                                                        >
-                                                            <Trash2 className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-                                                        </button>
-                                                    </div>
+                                            {/* Top Row: 3D Folder Icon & Actions */}
+                                            <div className="flex items-center justify-between gap-1.5 w-full relative z-10">
+                                                <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-xl sm:rounded-2xl flex items-center justify-center shrink-0 border-2 transition-transform group-hover:scale-105 ${
+                                                    isDragOver 
+                                                        ? 'bg-sky-500 text-white border-sky-600 shadow-sm' 
+                                                        : 'bg-sky-100 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 border-sky-300 dark:border-sky-700 shadow-xs'
+                                                }`}>
+                                                    <FolderOpen className="w-4 h-4 sm:w-4.5 sm:h-4.5" />
                                                 </div>
 
-                                                <div>
-                                                    <h3 className="font-extrabold text-xs sm:text-sm text-slate-900 dark:text-white leading-tight group-hover:text-cyan-500 transition-colors line-clamp-1">
-                                                        {folder.name}
-                                                    </h3>
-                                                    <p className="text-[9px] sm:text-[10px] font-mono text-slate-400 mt-0.5">
-                                                        {folder.setsCount} {t('library.setsUnit', 'Học phần')} • {folder.totalCards} {t('library.wordsUnit', 'Từ')}
-                                                    </p>
-                                                    {searchQuery && (() => {
-                                                        const setsInside = folders.filter(f => f.parentId === folder.id);
-                                                        const matchedCount = setsInside.reduce((sum, f) => {
-                                                            const folderCards = filteredAllCards.filter(c => cardFolders[c.id] === f.id || c.folderId === f.id);
-                                                            const matches = folderCards.filter(c => 
-                                                                (c.front || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
-                                                                (c.back || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
-                                                                (c.sinoVietnamese || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
-                                                                (c.synonym || '').toLowerCase().includes(searchQuery.toLowerCase())
-                                                            );
-                                                            return sum + matches.length;
-                                                        }, 0);
-                                                        if (matchedCount > 0) {
-                                                            return (
-                                                                <span className="inline-block mt-1 text-[8px] sm:text-[9px] font-mono font-bold text-cyan-600 dark:text-cyan-400 bg-cyan-50 dark:bg-cyan-950/45 px-1.5 py-0.5 rounded-lg border border-cyan-200 dark:border-cyan-800/40">
-                                                                    {t('library.matchedCardsCount', '{count} matching words').replace('{count}', matchedCount)}
-                                                                </span>
-                                                            );
-                                                        }
-                                                        return null;
-                                                    })()}
+                                                <div className="flex items-center gap-0.5 opacity-90 sm:opacity-0 group-hover:opacity-100 transition-opacity" onClick={e => e.stopPropagation()}>
+                                                    <button
+                                                        onClick={() => setEditingParentFolder({ id: folder.id, name: folder.name })}
+                                                        className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 flex items-center justify-center text-slate-400 hover:text-sky-500 transition-colors cursor-pointer"
+                                                        title={t('library.editFolderName', 'Đổi tên thư mục')}
+                                                    >
+                                                        <Edit3 className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                                                    </button>
+                                                    <button
+                                                        onClick={() => setDeletingParentFolder(folder)}
+                                                        className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg hover:bg-rose-50 dark:hover:bg-rose-950/30 flex items-center justify-center text-slate-400 hover:text-rose-500 transition-colors cursor-pointer"
+                                                        title={t('library.deleteFolder', 'Xóa thư mục')}
+                                                    >
+                                                        <Trash2 className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                                                    </button>
                                                 </div>
+                                            </div>
+
+                                            {/* Folder Info */}
+                                            <div className="mt-2.5 relative z-10 w-full">
+                                                <h3 className="font-black text-xs sm:text-sm text-slate-900 dark:text-white leading-tight truncate group-hover:text-sky-500 transition-colors">
+                                                    {folder.name}
+                                                </h3>
+                                                <p className="text-[10px] font-bold text-slate-400 dark:text-slate-500 truncate mt-0.5">
+                                                    {folder.setsCount} {t('library.setsUnit', 'Học phần')} • {folder.totalCards} {t('library.wordsUnit', 'Từ')}
+                                                </p>
+                                                {searchQuery && (() => {
+                                                    const setsInside = folders.filter(f => f.parentId === folder.id);
+                                                    const matchedCount = setsInside.reduce((sum, f) => {
+                                                        const folderCards = filteredAllCards.filter(c => cardFolders[c.id] === f.id || c.folderId === f.id);
+                                                        const matches = folderCards.filter(c => 
+                                                            (c.front || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                                            (c.back || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                                            (c.sinoVietnamese || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+                                                            (c.synonym || '').toLowerCase().includes(searchQuery.toLowerCase())
+                                                        );
+                                                        return sum + matches.length;
+                                                    }, 0);
+                                                    if (matchedCount > 0) {
+                                                        return (
+                                                            <span className="inline-block mt-1 text-[8px] sm:text-[9px] font-mono font-black text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/50 px-1.5 py-0.5 rounded-lg border border-sky-200 dark:border-sky-800/40">
+                                                                {t('library.matchedCardsCount', '{count} từ khớp').replace('{count}', matchedCount)}
+                                                            </span>
+                                                        );
+                                                    }
+                                                    return null;
+                                                })()}
                                             </div>
                                         </div>
                                     );
@@ -640,55 +635,55 @@ const LibraryScreen = ({
                 )}
 
                 {/* 2. STUDY SETS LIST GRID */}
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-3.5">
                     <div className="flex items-center justify-between gap-3 flex-wrap">
-                        <h2 className="text-base sm:text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2 flex-wrap">
-                            <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-500" />
-                            <span>{searchQuery ? t('library.searchSetResults', 'Study Set Search Results') : (activeParentFolderId ? t('library.setsInThisFolder', 'Sets in this folder') : t('library.studySets', 'Study Sets'))}</span>
-                            <span className="text-xs font-mono font-bold text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full">
-                                ({filteredStudySets.length})
+                        <h2 className="text-base sm:text-lg font-black text-slate-900 dark:text-white flex items-center gap-2 flex-wrap">
+                            <Layers className="w-5 h-5 text-emerald-500" />
+                            <span>{searchQuery ? t('library.searchSetResults', 'Kết quả tìm kiếm học phần') : (activeParentFolderId ? t('library.setsInThisFolder', 'Học phần trong thư mục này') : t('library.studySets', 'Danh sách Học phần'))}</span>
+                            <span className="text-xs font-mono font-black text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2.5 py-0.5 rounded-full border border-slate-200 dark:border-slate-700">
+                                {filteredStudySets.length}
                             </span>
                             {draggedStudySetId && (
-                                <span className="text-[10px] sm:text-xs bg-cyan-50 dark:bg-cyan-950/60 border border-cyan-200 dark:border-cyan-800/60 text-cyan-600 dark:text-cyan-400 font-mono font-bold px-2.5 py-0.5 rounded-full animate-pulse">
-                                    {t('library.dragSetsHint', 'Drag sets into folders')}
+                                <span className="text-[10px] sm:text-xs bg-sky-50 dark:bg-sky-950/60 border border-sky-200 dark:border-sky-800/60 text-sky-600 dark:text-sky-400 font-black px-2.5 py-0.5 rounded-full animate-pulse">
+                                    {t('library.dragSetsHint', 'Kéo học phần thả vào thư mục')}
                                 </span>
                             )}
                         </h2>
 
                         <button 
                             onClick={onNavigateToAdd}
-                            className="px-4 py-2 sm:px-5 sm:py-2.5 bg-sky-500 hover:bg-sky-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-sky-700 text-white rounded-2xl text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 shrink-0 cursor-pointer select-none"
+                            className="px-4 py-2 sm:px-5 sm:py-2.5 bg-sky-500 hover:bg-sky-400 active:translate-y-0.5 active:border-b-2 border-2 border-b-4 border-sky-700 text-white rounded-2xl text-xs font-black uppercase tracking-wider transition-all flex items-center gap-1.5 shrink-0 cursor-pointer select-none shadow-sm"
                         >
                             <Plus className="w-4 h-4 stroke-[3]" />
                             <span>{t('library.newSet', 'Tạo học phần mới')}</span>
                         </button>
                     </div>
 
-                    <p className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-900 px-3.5 py-2.5 rounded-xl sm:rounded-2xl border border-slate-200 dark:border-slate-800 shadow-sm flex items-center gap-2">
-                        {t('library.dragTip', '💡 Mẹo: Nhấn icon Di chuyển hoặc kéo thả học phần vào các thư mục để sắp xếp dễ dàng hơn.')}
+                    <p className="text-[11px] sm:text-xs text-slate-600 dark:text-slate-300 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md px-3.5 py-2.5 rounded-2xl border-2 border-slate-200 dark:border-slate-800 shadow-xs flex items-center gap-2 font-medium">
+                        {t('library.dragTip', '💡 Mẹo: Bạn có thể nhấn icon Di chuyển hoặc kéo thả các học phần vào các thư mục để sắp xếp và phân loại chúng dễ dàng hơn.')}
                     </p>
 
-                    <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-3 sm:gap-4">
                         {/* Unfiled cards set - Only show at root level */}
                         {!activeParentFolderId && !searchQuery && unfiledCount > 0 && (
                             <div 
                                 onClick={() => onOpenStudySet('unfiled')}
-                                className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 border border-slate-200 dark:border-slate-800 shadow-md hover:border-cyan-400 dark:hover:border-cyan-500/50 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+                                className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl sm:rounded-3xl p-3.5 sm:p-4 border-2 border-b-4 border-slate-200 dark:border-slate-800 hover:border-amber-500 dark:hover:border-amber-500 cursor-pointer hover:-translate-y-1 active:translate-y-0.5 active:border-b-2 transition-all duration-150 flex flex-col justify-between group shadow-xs select-none"
                             >
-                                <div className="space-y-2.5 sm:space-y-3">
-                                    <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/60 flex items-center justify-center">
-                                        <Layers className="w-4 h-4 sm:w-5 sm:h-5 text-amber-500" />
+                                <div>
+                                    <div className="w-9 h-9 rounded-2xl bg-amber-100 dark:bg-amber-950/60 border-2 border-amber-300 dark:border-amber-700 flex items-center justify-center text-amber-600 dark:text-amber-400 shrink-0 shadow-xs transition-transform group-hover:scale-105">
+                                        <Layers className="w-4 h-4" />
                                     </div>
-                                    <div>
-                                        <h3 className="text-sm sm:text-lg font-bold text-slate-900 dark:text-white leading-tight group-hover:text-cyan-500 transition-colors">
-                                            {t('library.unfiledTitle', 'Unfiled Cards')}
+                                    <div className="mt-2.5">
+                                        <h3 className="text-sm sm:text-base font-black text-slate-900 dark:text-white leading-tight group-hover:text-amber-500 transition-colors">
+                                            {t('library.unfiledTitle', 'Chưa phân loại')}
                                         </h3>
-                                        <p className="text-[11px] sm:text-xs text-slate-400 mt-0.5 sm:mt-1 font-medium">{t('library.unfiledDesc')}</p>
+                                        <p className="text-[11px] text-slate-400 mt-0.5 font-medium line-clamp-1">{t('library.unfiledDesc')}</p>
                                     </div>
                                 </div>
-                                <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] sm:text-xs font-mono font-bold text-slate-500">
+                                <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[10px] font-black text-slate-500">
                                     <span>{unfiledCount} {t('library.wordsUnit', 'Từ')}</span>
-                                    <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-slate-300 group-hover:translate-x-0.5 transition-transform" />
+                                    <ChevronRight className="w-3.5 h-3.5 text-slate-400 group-hover:translate-x-0.5 transition-transform" />
                                 </div>
                             </div>
                         )}
@@ -700,56 +695,48 @@ const LibraryScreen = ({
                                 draggable="true"
                                 onDragStart={(e) => handleDragStart(e, folder.id)}
                                 onDragEnd={handleDragEnd}
-                                className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 pt-3 sm:pt-5 border-t-4 border-t-emerald-500 border-x border-b border-slate-200 dark:border-slate-800 shadow-md hover:border-cyan-400 dark:hover:border-cyan-500/50 cursor-pointer hover:shadow-xl hover:-translate-y-1 transition-all duration-350 flex flex-col justify-between group relative overflow-hidden active:scale-98 cursor-grab"
+                                className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-md rounded-2xl sm:rounded-3xl p-3.5 sm:p-4 border-2 border-b-4 border-slate-200 dark:border-slate-800 hover:border-emerald-500 dark:hover:border-emerald-500 shadow-xs hover:shadow-md hover:-translate-y-1 active:translate-y-0.5 active:border-b-2 transition-all duration-150 flex flex-col justify-between group relative overflow-hidden select-none cursor-pointer"
                             >
-                                <div className="space-y-2 sm:space-y-3">
-                                    {/* Top row: Icon & Action buttons */}
+                                <div>
+                                    {/* Top row: 3D Icon & Action Buttons Pill */}
                                     <div className="flex items-center justify-between gap-1.5 w-full">
-                                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-lg bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 flex items-center justify-center text-emerald-600 dark:text-emerald-400 shrink-0">
-                                            <Layers className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+                                        <div className="w-9 h-9 rounded-2xl bg-emerald-100 dark:bg-emerald-950/60 border-2 border-emerald-300 dark:border-emerald-700 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 shadow-xs transition-transform group-hover:scale-105">
+                                            <Layers className="w-4 h-4" />
                                         </div>
 
-                                        <div className="flex items-center gap-0.5 sm:gap-1 shrink-0 z-20 opacity-90 sm:opacity-80 group-hover:opacity-100 transition-opacity">
+                                        {/* Action Buttons: Dễ bấm, rõ ràng, không bị bấm nhầm */}
+                                        <div className="flex items-center gap-1 shrink-0 p-1 bg-slate-100/90 dark:bg-slate-800/80 rounded-xl border border-slate-200 dark:border-slate-700" onClick={e => e.stopPropagation()}>
                                             <button
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    setMovingStudySet({ id: folder.id, name: folder.name, parentId: folder.parentId });
-                                                }}
-                                                className="p-1 sm:p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-emerald-500 transition-colors flex items-center justify-center cursor-pointer"
-                                                title={t('library.moveSet')}
+                                                onClick={() => setMovingStudySet({ id: folder.id, name: folder.name, parentId: folder.parentId })}
+                                                className="w-7 h-7 rounded-lg hover:bg-white dark:hover:bg-slate-700 text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center justify-center cursor-pointer"
+                                                title={t('library.moveSet', 'Di chuyển vào thư mục')}
                                             >
                                                 <Move className="w-3.5 h-3.5" />
                                             </button>
 
                                             {onRenameFolder && (
                                                 <button
-                                                    onClick={(e) => {
-                                                        e.stopPropagation();
-                                                        setEditingStudySet({ id: folder.id, name: folder.name });
-                                                    }}
-                                                    className="p-1 sm:p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-emerald-500 transition-colors flex items-center justify-center cursor-pointer"
-                                                    title={t('library.editSetName')}
+                                                    onClick={() => setEditingStudySet({ id: folder.id, name: folder.name })}
+                                                    className="w-7 h-7 rounded-lg hover:bg-white dark:hover:bg-slate-700 text-slate-400 hover:text-sky-600 dark:hover:text-sky-400 transition-colors flex items-center justify-center cursor-pointer"
+                                                    title={t('library.editSetName', 'Đổi tên học phần')}
                                                 >
                                                     <Edit3 className="w-3.5 h-3.5" />
                                                 </button>
                                             )}
 
                                             <button
-                                                onClick={(e) => {
-                                                    e.stopPropagation();
-                                                    navigate(`/vocab/edit-set/${folder.id}`);
-                                                }}
-                                                className="p-1 sm:p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-emerald-500 transition-colors flex items-center justify-center cursor-pointer"
-                                                title={t('vocab.addVocab')}
+                                                onClick={() => navigate(`/vocab/edit-set/${folder.id}`)}
+                                                className="w-7 h-7 rounded-lg hover:bg-white dark:hover:bg-slate-700 text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center justify-center cursor-pointer"
+                                                title={t('vocab.addVocab', 'Thêm từ mới')}
                                             >
-                                                <Plus className="w-3.5 h-3.5" />
+                                                <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
                                             </button>
 
                                             {onDeleteFolder && (
                                                 <button
                                                     onClick={(e) => handleDeleteFolder(e, folder)}
-                                                    className="p-1 sm:p-1.5 rounded-lg hover:bg-red-50 dark:hover:bg-red-950/30 text-slate-400 hover:text-red-500 transition-colors flex items-center justify-center cursor-pointer"
-                                                    title={t('library.deleteSet')}
+                                                    className="w-7 h-7 rounded-lg hover:bg-rose-50 dark:hover:bg-rose-950/40 text-slate-400 hover:text-rose-500 transition-colors flex items-center justify-center cursor-pointer"
+                                                    title={t('library.deleteSet', 'Xóa học phần')}
                                                 >
                                                     <Trash2 className="w-3.5 h-3.5" />
                                                 </button>
@@ -758,26 +745,23 @@ const LibraryScreen = ({
                                     </div>
 
                                     {/* Study set Title */}
-                                    <div>
-                                        <h3 className="text-sm sm:text-base font-extrabold text-slate-900 dark:text-white leading-snug group-hover:text-emerald-500 transition-colors line-clamp-2">
+                                    <div className="mt-2.5">
+                                        <h3 className="text-sm sm:text-base font-black text-slate-900 dark:text-white leading-snug group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors line-clamp-1">
                                             {folder.name}
                                         </h3>
+                                        {folder.description && (
+                                            <p className="text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1 mt-0.5 font-medium">
+                                                {folder.description}
+                                            </p>
+                                        )}
                                     </div>
 
-                                    {(folder.coverImage || folder.description) && (
-                                        <div className="flex gap-2.5 items-start">
-                                            {folder.coverImage && (
-                                                <div className="w-12 h-9 sm:w-16 sm:h-12 rounded-lg overflow-hidden relative shrink-0">
-                                                    <img src={folder.coverImage} alt={folder.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
-                                                </div>
-                                            )}
-                                            {folder.description && (
-                                                <p className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-400 line-clamp-2 leading-relaxed font-medium flex-1">
-                                                    {folder.description}
-                                                </p>
-                                            )}
+                                    {(folder.coverImage) && (
+                                        <div className="mt-2 w-full h-16 rounded-xl overflow-hidden relative shrink-0 border border-slate-200 dark:border-slate-800">
+                                            <img src={folder.coverImage} alt={folder.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
                                         </div>
                                     )}
+
                                     {searchQuery && (() => {
                                         const matchedCards = filteredAllCards.filter(c => cardFolders[c.id] === folder.id || c.folderId === folder.id).filter(c => 
                                             (c.front || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -791,12 +775,12 @@ const LibraryScreen = ({
                                             const isExpanded = expandedMatchSetIds.has(folder.id);
                                             const displayCards = isExpanded ? matchedCards : matchedCards.slice(0, 3);
                                             return (
-                                                <div className="mt-2.5 flex flex-wrap gap-1.5 bg-emerald-50/70 dark:bg-emerald-950/30 p-2.5 rounded-xl border border-emerald-200/60 dark:border-emerald-900/40">
-                                                    <div className="flex items-center justify-between w-full mb-1">
-                                                        <span className="text-[10px] font-mono font-bold text-emerald-700 dark:text-emerald-400 flex items-center gap-1">
+                                                <div className="mt-2 flex flex-wrap gap-1 bg-emerald-50/70 dark:bg-emerald-950/30 p-2 rounded-xl border border-emerald-200/60 dark:border-emerald-900/40">
+                                                    <div className="flex items-center justify-between w-full mb-0.5">
+                                                        <span className="text-[9px] font-mono font-bold text-emerald-700 dark:text-emerald-400 flex items-center gap-1">
                                                             {t('library.matchedWords', { count: matchedCards.length })}:
                                                         </span>
-                                                        <span className="text-[9px] text-emerald-600/80 dark:text-emerald-400/80 italic font-medium">{t('common.clickToEdit')}</span>
+                                                        <span className="text-[8px] text-emerald-600/80 dark:text-emerald-400/80 italic font-medium">{t('common.clickToEdit')}</span>
                                                     </div>
                                                     {displayCards.map((c, idx) => (
                                                         <button
@@ -806,11 +790,11 @@ const LibraryScreen = ({
                                                                 e.stopPropagation();
                                                                 setEditingCard(c);
                                                             }}
-                                                            className="text-[11px] px-2 py-1 bg-white dark:bg-slate-900 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 text-emerald-900 dark:text-emerald-200 rounded-lg font-medium border border-emerald-200 dark:border-emerald-800 transition-all hover:scale-105 active:scale-95 flex items-center gap-1.5 shadow-xs cursor-pointer group/btn"
+                                                            className="text-[10px] px-2 py-0.5 bg-white dark:bg-slate-900 hover:bg-emerald-100 dark:hover:bg-emerald-900/50 text-emerald-900 dark:text-emerald-200 rounded-lg font-medium border border-emerald-200 dark:border-emerald-800 transition-all hover:scale-105 active:scale-95 flex items-center gap-1 shadow-xs cursor-pointer group/btn"
                                                             title={t('common.clickToEdit')}
                                                         >
                                                             <span className="font-japanese font-bold"><FuriganaText text={c.frontWithFurigana || c.front} knownReading={c.reading} /></span>
-                                                            <span className="text-slate-500 dark:text-slate-400 text-[10px]">({c.back})</span>
+                                                            <span className="text-slate-500 dark:text-slate-400 text-[9px]">({c.back})</span>
                                                             <Edit3 className="w-2.5 h-2.5 text-emerald-600 dark:text-emerald-400 opacity-60 group-hover/btn:opacity-100 shrink-0" />
                                                         </button>
                                                     ))}
@@ -821,7 +805,7 @@ const LibraryScreen = ({
                                                                 e.stopPropagation();
                                                                 toggleExpandMatchSet(folder.id);
                                                             }}
-                                                            className="text-[10px] px-2 py-1 bg-emerald-100/80 dark:bg-emerald-900/60 hover:bg-emerald-200 dark:hover:bg-emerald-800 text-emerald-800 dark:text-emerald-300 rounded-md font-mono font-bold transition-colors self-center cursor-pointer"
+                                                            className="text-[9px] px-1.5 py-0.5 bg-emerald-100/80 dark:bg-emerald-900/60 hover:bg-emerald-200 dark:hover:bg-emerald-800 text-emerald-800 dark:text-emerald-300 rounded-md font-mono font-bold transition-colors self-center cursor-pointer"
                                                         >
                                                             {isExpanded ? t('common.collapse') : t('library.moreCardsCount', '+{count} more').replace('{count}', matchedCards.length - 3)}
                                                         </button>
@@ -833,14 +817,19 @@ const LibraryScreen = ({
                                     })()}
                                 </div>
 
-                                <div className="mt-4 sm:mt-5 space-y-1.5 sm:space-y-2">
-                                    <div className="flex items-center justify-between text-[9px] sm:text-[10px] font-mono font-extrabold text-slate-500 uppercase tracking-wider">
-                                        <span>{folder.count} {t('library.wordsUnit', 'Từ')}</span>
-                                        <span className="text-emerald-500">{folder.masteredPct}% {t('common.mastered', 'Đã thuộc')}</span>
+                                {/* Bottom Progress Block (Duolingo Chunky Progress Bar) */}
+                                <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-slate-800 space-y-1.5">
+                                    <div className="flex items-center justify-between text-[10px] font-black uppercase tracking-wider">
+                                        <span className="text-slate-500 dark:text-slate-400">
+                                            {folder.count} {t('library.wordsUnit', 'Từ')}
+                                        </span>
+                                        <span className="text-emerald-600 dark:text-emerald-400">
+                                            {folder.masteredPct}% {t('common.mastered', 'Đã thuộc')}
+                                        </span>
                                     </div>
-                                    <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                    <div className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden border border-slate-200 dark:border-slate-700/80">
                                         <div 
-                                            className="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full"
+                                            className="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full transition-all duration-300"
                                             style={{ width: `${folder.masteredPct}%` }}
                                         />
                                     </div>
@@ -848,16 +837,16 @@ const LibraryScreen = ({
                             </div>
                         ))}
 
-                        {/* Add Collection dashed card */}
+                        {/* Add Collection dashed card (Duolingo 3D Matching Dimensions) */}
                         <div
                             onClick={onNavigateToAdd}
-                            className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl border-2 border-dashed border-slate-300 dark:border-slate-700 p-3.5 sm:p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:border-cyan-400 dark:hover:border-cyan-500 transition-all h-full min-h-[130px] sm:min-h-[140px] group shadow-md"
+                            className="bg-white/50 dark:bg-slate-900/40 hover:bg-emerald-50/50 dark:hover:bg-emerald-950/20 rounded-2xl sm:rounded-3xl border-2 border-b-4 border-dashed border-slate-300 dark:border-slate-700 hover:border-emerald-500 dark:hover:border-emerald-500 p-3 sm:p-4 flex flex-col items-center justify-center text-center cursor-pointer transition-all duration-150 min-h-[125px] sm:min-h-[140px] group select-none shadow-xs hover:-translate-y-1 active:translate-y-0.5 active:border-b-2"
                         >
-                            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center mb-2 sm:mb-3 group-hover:scale-110 transition-transform">
-                                <Plus className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-500" />
+                            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-2xl bg-slate-100 dark:bg-slate-800 group-hover:bg-emerald-100 dark:group-hover:bg-emerald-950/60 border-2 border-slate-200 dark:border-slate-700 group-hover:border-emerald-300 dark:group-hover:border-emerald-700 flex items-center justify-center mb-1.5 transition-transform group-hover:scale-105 text-slate-400 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 shadow-xs">
+                                <Plus className="w-5 h-5 stroke-[2.5]" />
                             </div>
-                            <h3 className="font-bold text-slate-900 dark:text-white text-xs sm:text-sm mb-0.5">{t('library.createSetCard', 'Tạo học phần')}</h3>
-                            <p className="text-[10px] sm:text-[11px] text-slate-400 dark:text-slate-500 max-w-[150px] leading-relaxed font-medium">
+                            <h3 className="font-black text-slate-900 dark:text-white text-xs sm:text-sm">{t('library.createSetCard', 'Tạo học phần')}</h3>
+                            <p className="text-[10px] text-slate-400 dark:text-slate-500 leading-tight font-medium max-w-[140px] mt-0.5">
                                 {t('library.createSetCardSub', 'Xây dựng một bộ từ vựng tùy chỉnh mới.')}
                             </p>
                         </div>

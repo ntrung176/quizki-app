@@ -139,7 +139,10 @@ const HomeScreen = ({
     useEffect(() => {
         if (calculatedStreak > 0) {
             try {
-                localStorage.setItem('quizki_cached_user_streak', String(calculatedStreak));
+                const existing = parseInt(localStorage.getItem('quizki_cached_user_streak') || '0', 10);
+                if (calculatedStreak >= existing || existing <= 1) {
+                    localStorage.setItem('quizki_cached_user_streak', String(calculatedStreak));
+                }
             } catch (_) { }
         }
     }, [calculatedStreak]);
@@ -156,7 +159,7 @@ const HomeScreen = ({
         const dueCards = langCards.filter(card => isVocabCardDue(card, threshold)).length;
         const newCards = langCards.filter(card => !card.srsEnabled).length;
         const masteredCards = langCards.filter(card => isVocabCardMastered(card)).length;
-        const currentStreak = calculatedStreak > 0 ? calculatedStreak : (cachedStreak ?? 0);
+        const currentStreak = Math.max(calculatedStreak || 0, cachedStreak ?? 0);
         const payload = {
             dueCards,
             newCards,
@@ -278,7 +281,7 @@ const HomeScreen = ({
         }
 
         const hasLoadedCards = allCards && allCards.length > 0;
-        const currentStreak = calculatedStreak > 0 ? calculatedStreak : (cachedStreak ?? 0);
+        const currentStreak = Math.max(calculatedStreak || 0, cachedStreak ?? 0);
 
         if (!hasLoadedCards && cachedVocabStats) {
             return {

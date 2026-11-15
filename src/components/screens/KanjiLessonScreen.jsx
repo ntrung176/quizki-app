@@ -14,6 +14,7 @@ import { getJotobaKanjiData, JOTOBA_KANJI_DATA } from '../../data/jotobaKanjiDat
 import { logKanjiActivity } from '../../utils/kanjiHistory';
 import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitchAccent';
 import { showToast } from '../../utils/toast';
+import { getSafeLocalDateString } from '../../utils/streakHelper';
 import { renderMaziiStyleKanji, fetchKanjiSvg } from '../../utils/kanjiStroke';
 import { getSharedKanjiList, getSharedVocabList, getSharedKanjiSrs, updateCachedUserSrs, updateCachedKanjiProgress, getCachedKanjiList, getCachedVocabList, getCachedUserSrsData, getCachedKanjiMap } from '../../utils/kanjiService';
 import { normalize, toHiragana } from '../../utils/ankiDiff';
@@ -460,7 +461,7 @@ const KanjiLessonScreen = ({ awardXP, isAdmin = false, profile: propProfile = nu
                 }
 
                 // Cập nhật hoạt động Kanji mới hàng ngày
-                const todayDateString = new Date().toISOString().split('T')[0];
+                const todayDateString = getSafeLocalDateString();
                 const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
                 await setDoc(activityRef, {
                     newKanjiAdded: increment(newKanjiIds.length)
@@ -1347,7 +1348,7 @@ const KanjiFlashcard = ({
             }
 
             // Cập nhật hoạt động Kanji mới hàng ngày
-            const todayDateString = new Date().toISOString().split('T')[0];
+            const todayDateString = getSafeLocalDateString();
             const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
             await setDoc(activityRef, {
                 newKanjiAdded: increment(1)

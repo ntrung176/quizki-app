@@ -221,9 +221,20 @@ export const useAppLogic = () => {
         const formulaScore = (reviewsLast7Days * 4) + (addedLast7Days * 3) + (kanjiLast7Days * 5) + (activeDaysLast7Days * 15);
         const weeklyScore = Math.max(xpGainedLast7Days, formulaScore, reviewsLast7Days * 4);
 
+        let safeSyncStreak = calculatedStreak || 0;
+        try {
+            const cachedStreakStr = localStorage.getItem('quizki_cached_user_streak');
+            if (cachedStreakStr) {
+                const cachedStreak = parseInt(cachedStreakStr, 10);
+                if (cachedStreak > safeSyncStreak && activeDaysLast7Days >= 1) {
+                    safeSyncStreak = cachedStreak;
+                }
+            }
+        } catch (_) {}
+
         const statsRef = doc(db, publicStatsCollectionPath, userId);
         setDoc(statsRef, {
-            streak: calculatedStreak || 0,
+            streak: safeSyncStreak,
             addedLast7Days,
             kanjiAddedLast7Days: kanjiLast7Days,
             reviewsLast7Days,

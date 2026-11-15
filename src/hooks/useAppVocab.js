@@ -1,10 +1,9 @@
 import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 import { collection, query, onSnapshot, doc, setDoc, deleteDoc, writeBatch, increment } from 'firebase/firestore';
 import { db, appId } from '../config/firebase';
+import { getSafeLocalDateString, calculateAccurateStreak } from '../utils/streakHelper';
 
-const getLocalDateString = (d = new Date()) => {
-    return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-};
+const getLocalDateString = (d = new Date()) => getSafeLocalDateString(d);
 import { showToast } from '../utils/toast';
 import { cleanFirestoreData } from '../utils/firestoreHelpers';
 import { isVocabCardDue, calculateAnkiSRS, getLearnAheadLimitMs } from '../utils/srs';
@@ -151,69 +150,12 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
     }, [allCards]);
 
     const calculatedStreak = useMemo(() => {
-        if (!dailyActivityLogs || dailyActivityLogs.length === 0) return 0;
-
-        // Nhận diện ngày có hoạt động học tập (từ vựng, kanji, ngữ pháp, xp...)
-        const activeLogs = dailyActivityLogs.filter(log =>
-            (log.cardsReviewed || 0) > 0 ||
-            (log.reviewsDone || 0) > 0 ||
-            (log.xpGained || 0) > 0 ||
-            (log.newWordsAdded || 0) > 0 ||
-            (log.newKanjiAdded || 0) > 0 ||
-            (log.count || 0) > 0
-        );
-        if (activeLogs.length === 0) return 0;
-
-        // Lưu log theo Map để tra cứu O(1)
-        const logMap = new Map(activeLogs.map(l => [l.id, l]));
-
-        const getLocalDateStr = (d) => {
-            const year = d.getFullYear();
-            const month = String(d.getMonth() + 1).padStart(2, '0');
-            const day = String(d.getDate()).padStart(2, '0');
-            return `${year}-${month}-${day}`;
-        };
-
-        const getUtcDateStr = (d) => {
-            return d.toISOString().split('T')[0];
-        };
-
-        // Hàm kiểm tra xem ngày d có hoạt động không (check cả local date lẫn utc date cho dữ liệu cũ)
-        const hasActivityOnDate = (d) => {
-            const localStr = getLocalDateStr(d);
-            const utcStr = getUtcDateStr(d);
-            return logMap.has(localStr) || logMap.has(utcStr);
-        };
-
-        const today = new Date();
-        const yesterday = new Date();
-        yesterday.setDate(yesterday.getDate() - 1);
-
-        const hasToday = hasActivityOnDate(today);
-        const hasYesterday = hasActivityOnDate(yesterday);
-
-        // Nếu hôm nay chưa học VÀ hôm qua cũng không học thì streak = 0
-        if (!hasToday && !hasYesterday) return 0;
-
-        let currentStreak = 0;
-        let checkDate = new Date();
-
-        // Nếu hôm nay chưa học nhưng hôm qua có học, bắt đầu đếm từ hôm qua
-        if (!hasToday) {
-            checkDate = yesterday;
-        }
-
-        while (true) {
-            if (hasActivityOnDate(checkDate)) {
-                currentStreak++;
-                checkDate.setDate(checkDate.getDate() - 1);
-            } else {
-                break;
-            }
-        }
-
-        return currentStreak;
-    }, [dailyActivityLogs]);
+        return calculateAccurateStreak({
+            dailyActivityLogs,
+            allCards,
+            userId
+        });
+    }, [dailyActivityLogs, allCards, userId]);
 
     const handleUpdateCard = useCallback(async (cardId, isCorrectOrData, mode, action, responseTime) => {
         if (!cardId) return;
@@ -324,6 +266,19 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
             } catch (err) {
                 console.warn('⚠️ Failed to persist card mastery state to Firestore:', err);
             }
+        }
+
+        // Tự động ghi nhận hoạt động học tập hàng ngày (dailyActivity) khi học thẻ flashcard / trắc nghiệm / tự luận
+        if (userId && db && appId && updatedFields.lastStudied) {
+            try {
+                const todayStr = getSafeLocalDateString();
+                const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayStr);
+                setDoc(activityRef, {
+                    cardsReviewed: increment(1),
+                    reviewsDone: increment(1),
+                    lastUpdated: Date.now()
+                }, { merge: true }).catch(() => {});
+            } catch (_) {}
         }
     }, [userId, vocabCollectionPath, setAllCards, allCards]);
 
