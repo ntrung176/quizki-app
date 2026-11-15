@@ -9,6 +9,7 @@ import { subscribeGrammarSrs, getCachedUserGrammarSrsData } from '../../utils/gr
 import { speakExampleSentence } from '../../utils/audio';
 import { showToast } from '../../utils/toast';
 import FuriganaText from '../ui/FuriganaText';
+import { renderFormattedContent } from '../grammar/GrammarFlashcard';
 
 export const GrammarNotebookStudyScreen = () => {
     const navigate = useNavigate();
@@ -380,8 +381,12 @@ export const GrammarNotebookStudyScreen = () => {
 
                                         {currentItem.connection && (
                                             <div className="flex justify-center pt-1">
-                                                <div className="inline-flex items-center gap-2 px-4 py-2 bg-sky-50/80 dark:bg-sky-950/50 border border-sky-200 dark:border-sky-800/80 rounded-2xl text-sm sm:text-base font-japanese font-bold text-sky-700 dark:text-sky-300 shadow-2xs max-w-full text-center break-words">
-                                                    <span>{currentItem.connection}</span>
+                                                <div className={`inline-flex items-center gap-2 px-4 py-2 bg-sky-50/80 dark:bg-sky-950/50 border border-sky-200 dark:border-sky-800/80 rounded-2xl font-japanese font-bold text-sky-700 dark:text-sky-300 shadow-2xs max-w-full text-center break-words ${
+                                                    String(currentItem.connection).length > 70
+                                                        ? 'text-xs sm:text-sm leading-relaxed max-h-32 overflow-y-auto custom-scrollbar'
+                                                        : 'text-sm sm:text-base'
+                                                }`}>
+                                                    <span>{renderFormattedContent(currentItem.connection, 'nb-conn')}</span>
                                                 </div>
                                             </div>
                                         )}
@@ -420,21 +425,21 @@ export const GrammarNotebookStudyScreen = () => {
                                                 Ý NGHĨA
                                             </span>
                                             <p className="text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400 leading-snug break-words">
-                                                {currentItem.meaning}
+                                                {renderFormattedContent(currentItem.meaning, 'nb-mean')}
                                             </p>
                                         </div>
 
                                         {currentItem.usageScope && (
                                             <div className="p-3 bg-slate-50 dark:bg-slate-800/60 rounded-2xl border border-slate-200 dark:border-slate-700 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed break-words">
                                                 <span className="font-bold text-slate-700 dark:text-slate-200 mr-1.5">Cách dùng:</span>
-                                                {currentItem.usageScope}
+                                                {renderFormattedContent(currentItem.usageScope, 'nb-usage')}
                                             </div>
                                         )}
 
                                         {currentItem.notes && (
                                             <div className="p-3 bg-amber-500/10 dark:bg-amber-950/20 rounded-2xl border border-amber-500/30 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300 leading-relaxed break-words">
                                                 <span className="font-bold text-amber-600 dark:text-amber-400 mr-1.5">💡 Chú ý:</span>
-                                                {currentItem.notes}
+                                                {renderFormattedContent(currentItem.notes, 'nb-note')}
                                             </div>
                                         )}
 
@@ -469,7 +474,7 @@ export const GrammarNotebookStudyScreen = () => {
                                                                 </div>
                                                                 {cleanVi && (
                                                                     <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed break-words">
-                                                                        {cleanVi}
+                                                                        {renderFormattedContent(cleanVi, `nb-ex-vi-${exIdx}`)}
                                                                     </p>
                                                                 )}
                                                             </div>

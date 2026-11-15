@@ -1,15 +1,16 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import { Settings, X, RotateCcw, Volume2, Layers, Keyboard, CreditCard } from 'lucide-react';
+import { Settings, X, RotateCcw, Volume2, Layers, BookOpen, CheckCircle2 } from 'lucide-react';
 
 export const DEFAULT_GRAMMAR_FLASHCARD_SETTINGS = {
-    reviewType: 'flashcard', // 'flashcard' | 'typing'
+    reviewType: 'flashcard', // Cố định flashcard 3D cho ngữ pháp
     studyMode: 'ja_to_vi', // 'ja_to_vi' | 'vi_to_ja' | 'random'
     showLevel: true,
+    showConnection: true,
     showAudioButton: true,
-    showHint: true,
     showMeaning: true,
-    showStructure: true,
+    showUsage: true,
+    showNotes: true,
     showExamples: true,
     showFurigana: true,
     showExampleVi: true,
@@ -28,19 +29,13 @@ const GrammarFlashcardSettingsModal = ({
     const currentSettings = {
         ...DEFAULT_GRAMMAR_FLASHCARD_SETTINGS,
         ...settings,
+        reviewType: 'flashcard', // Luôn ép cố định flashcard
     };
 
     const handleToggle = (key) => {
         onUpdateSettings({
             ...currentSettings,
             [key]: !currentSettings[key],
-        });
-    };
-
-    const handleSetReviewType = (type) => {
-        onUpdateSettings({
-            ...currentSettings,
-            reviewType: type,
         });
     };
 
@@ -65,7 +60,7 @@ const GrammarFlashcardSettingsModal = ({
 
             {/* Modal Container */}
             <div
-                className="relative bg-white dark:bg-slate-900 rounded-3xl shadow-2xl w-full max-w-md p-6 space-y-5 border border-slate-200 dark:border-slate-800 animate-scale-up text-slate-800 dark:text-slate-150 max-h-[90vh] overflow-y-auto"
+                className="relative bg-white dark:bg-slate-900 rounded-3xl shadow-2xl w-full max-w-md p-6 space-y-5 border border-slate-200 dark:border-slate-800 animate-scale-up text-slate-800 dark:text-slate-150 max-h-[90vh] overflow-y-auto custom-scrollbar"
                 onClick={(e) => e.stopPropagation()}
             >
                 {/* Header */}
@@ -91,56 +86,8 @@ const GrammarFlashcardSettingsModal = ({
                     </button>
                 </div>
 
-                {/* Section 1: Review Type (Flashcard 3D vs Typing Input) */}
+                {/* Section 1: Study Direction (Chiều câu hỏi & gợi ý) */}
                 <div className="space-y-2">
-                    <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
-                        <Keyboard className="w-3.5 h-3.5 text-emerald-500" />
-                        <span>Hình thức ôn tập:</span>
-                    </div>
-                    <div className="grid grid-cols-2 gap-2.5">
-                        <button
-                            type="button"
-                            onClick={() => handleSetReviewType('flashcard')}
-                            className={`p-3 rounded-2xl flex flex-col items-center justify-center text-center border-2 transition-all cursor-pointer ${
-                                currentSettings.reviewType === 'flashcard'
-                                    ? 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-500 text-emerald-700 dark:text-emerald-300 shadow-xs'
-                                    : 'bg-slate-50/80 dark:bg-slate-800/40 border-slate-200/80 dark:border-slate-700/60 text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-600'
-                            }`}
-                        >
-                            <CreditCard className="w-5 h-5 mb-1 text-emerald-500" />
-                            <span className="text-xs font-bold">Thẻ Flashcard 3D</span>
-                            <span className="text-[10px] opacity-75 mt-0.5">Lật xem cấu trúc & ví dụ</span>
-                        </button>
-
-                        <button
-                            type="button"
-                            onClick={() => handleSetReviewType('typing')}
-                            className={`p-3 rounded-2xl flex flex-col items-center justify-center text-center border-2 transition-all cursor-pointer ${
-                                currentSettings.reviewType === 'typing'
-                                    ? 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-500 text-emerald-700 dark:text-emerald-300 shadow-xs'
-                                    : 'bg-slate-50/80 dark:bg-slate-800/40 border-slate-200/80 dark:border-slate-700/60 text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-600'
-                            }`}
-                        >
-                            <Keyboard className="w-5 h-5 mb-1 text-emerald-500" />
-                            <span className="text-xs font-bold">Gõ phím (Typing)</span>
-                            <span className="text-[10px] opacity-75 mt-0.5">Tự gõ để nhớ sâu</span>
-                        </button>
-                    </div>
-
-                    {currentSettings.reviewType === 'typing' && (
-                        <div className="bg-emerald-50/80 dark:bg-emerald-950/30 border border-emerald-200/70 dark:border-emerald-800/50 rounded-2xl p-3 text-[11.5px] text-emerald-800 dark:text-emerald-300 space-y-1">
-                            <div className="font-bold flex items-center gap-1 text-emerald-900 dark:text-emerald-200">
-                                <Keyboard className="w-3.5 h-3.5" /> Chế độ Gõ phím (Typing):
-                            </div>
-                            <p className="opacity-90 leading-relaxed">
-                                Bạn có thể gõ câu trả lời bằng chữ <strong>Hiragana</strong> (hoặc Romaji / Tiếng Việt). Nhấn <kbd className="px-1 py-0.5 bg-emerald-100 dark:bg-emerald-900 rounded font-mono text-[10px]">Enter</kbd> để kiểm tra so khớp từng ký tự.
-                            </p>
-                        </div>
-                    )}
-                </div>
-
-                {/* Section 2: Study Direction (Chiều học) */}
-                <div className="space-y-2 pt-2 border-t border-slate-150 dark:border-slate-800">
                     <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
                         <Layers className="w-3.5 h-3.5 text-emerald-500" />
                         <span>Chiều câu hỏi & gợi ý:</span>
@@ -149,13 +96,13 @@ const GrammarFlashcardSettingsModal = ({
                         {[
                             {
                                 id: 'ja_to_vi',
-                                label: '🇯🇵 ➔ 🇻🇳',
+                                label: 'JP ➔ VN',
                                 title: 'Nhật ➔ Việt',
                                 desc: 'Mẫu câu ➔ Nghĩa',
                             },
                             {
                                 id: 'vi_to_ja',
-                                label: '🇻🇳 ➔ 🇯🇵',
+                                label: 'VN ➔ JP',
                                 title: 'Việt ➔ Nhật',
                                 desc: 'Nghĩa ➔ Mẫu câu',
                             },
@@ -178,7 +125,7 @@ const GrammarFlashcardSettingsModal = ({
                                             : 'bg-slate-50/80 dark:bg-slate-800/40 border-slate-200/80 dark:border-slate-700/60 text-slate-600 dark:text-slate-400 hover:border-slate-300 dark:hover:border-slate-600'
                                     }`}
                                 >
-                                    <span className="text-base font-bold mb-0.5">{m.label}</span>
+                                    <span className="text-xs font-mono font-bold text-emerald-600 dark:text-emerald-400 mb-0.5">{m.label}</span>
                                     <span className="text-xs font-bold leading-tight">{m.title}</span>
                                     <span className="text-[10px] opacity-75 mt-0.5">{m.desc}</span>
                                 </button>
@@ -187,7 +134,7 @@ const GrammarFlashcardSettingsModal = ({
                     </div>
                 </div>
 
-                {/* Section 3: Front Side Display Options */}
+                {/* Section 2: Front Side Display Options */}
                 <div className="space-y-3 pt-2 border-t border-slate-150 dark:border-slate-800">
                     <p className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                         Mặt trước (Mặt câu hỏi):
@@ -207,6 +154,21 @@ const GrammarFlashcardSettingsModal = ({
                         </div>
 
                         <div className="flex items-center justify-between">
+                            <span className="font-semibold text-slate-800 dark:text-slate-200">
+                                Hiển thị cách nối (Cấu trúc liên kết)
+                            </span>
+                            <label className="relative inline-flex items-center cursor-pointer">
+                                <input
+                                    type="checkbox"
+                                    checked={currentSettings.showConnection !== false}
+                                    onChange={() => handleToggle('showConnection')}
+                                    className="sr-only peer"
+                                />
+                                <div className="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600" />
+                            </label>
+                        </div>
+
+                        <div className="flex items-center justify-between">
                             <span>Nút nghe phát âm mẫu câu ở mặt trước</span>
                             <label className="relative inline-flex items-center cursor-pointer">
                                 <input
@@ -218,39 +180,50 @@ const GrammarFlashcardSettingsModal = ({
                                 <div className="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600" />
                             </label>
                         </div>
-
-                        {currentSettings.studyMode !== 'ja_to_vi' && (
-                            <div className="flex items-center justify-between">
-                                <span>Gợi ý chữ cái đầu khi học Việt ➔ Nhật</span>
-                                <label className="relative inline-flex items-center cursor-pointer">
-                                    <input
-                                        type="checkbox"
-                                        checked={currentSettings.showHint}
-                                        onChange={() => handleToggle('showHint')}
-                                        className="sr-only peer"
-                                    />
-                                    <div className="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600" />
-                                </label>
-                            </div>
-                        )}
                     </div>
                 </div>
 
-                {/* Section 4: Back Side Display Options */}
+                {/* Section 3: Back Side Display Options */}
                 <div className="space-y-3 pt-2 border-t border-slate-150 dark:border-slate-800">
                     <p className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
-                        Mặt sau (Mặt giải nghĩa & cấu trúc):
+                        Mặt sau (Mặt giải nghĩa & chi tiết):
                     </p>
                     <div className="space-y-2.5 text-xs font-medium text-slate-700 dark:text-slate-300">
                         <div className="flex items-center justify-between">
                             <span className="font-semibold text-slate-800 dark:text-slate-200">
-                                Công thức kết hợp ngữ pháp (Cấu trúc)
+                                Ý nghĩa tiếng Việt
                             </span>
                             <label className="relative inline-flex items-center cursor-pointer">
                                 <input
                                     type="checkbox"
-                                    checked={currentSettings.showStructure}
-                                    onChange={() => handleToggle('showStructure')}
+                                    checked={currentSettings.showMeaning !== false}
+                                    onChange={() => handleToggle('showMeaning')}
+                                    className="sr-only peer"
+                                />
+                                <div className="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600" />
+                            </label>
+                        </div>
+
+                        <div className="flex items-center justify-between">
+                            <span>Cách dùng / Phạm vi sử dụng</span>
+                            <label className="relative inline-flex items-center cursor-pointer">
+                                <input
+                                    type="checkbox"
+                                    checked={currentSettings.showUsage !== false}
+                                    onChange={() => handleToggle('showUsage')}
+                                    className="sr-only peer"
+                                />
+                                <div className="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600" />
+                            </label>
+                        </div>
+
+                        <div className="flex items-center justify-between">
+                            <span>Mục Chú ý quan trọng (💡 Chú ý)</span>
+                            <label className="relative inline-flex items-center cursor-pointer">
+                                <input
+                                    type="checkbox"
+                                    checked={currentSettings.showNotes !== false}
+                                    onChange={() => handleToggle('showNotes')}
                                     className="sr-only peer"
                                 />
                                 <div className="w-9 h-5 bg-slate-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600" />
@@ -259,12 +232,12 @@ const GrammarFlashcardSettingsModal = ({
 
                         <div className="flex items-center justify-between">
                             <span className="font-semibold text-slate-800 dark:text-slate-200">
-                                Câu ví dụ minh họa
+                                Câu ví dụ minh họa tiêu biểu
                             </span>
                             <label className="relative inline-flex items-center cursor-pointer">
                                 <input
                                     type="checkbox"
-                                    checked={currentSettings.showExamples}
+                                    checked={currentSettings.showExamples !== false}
                                     onChange={() => handleToggle('showExamples')}
                                     className="sr-only peer"
                                 />
@@ -272,7 +245,7 @@ const GrammarFlashcardSettingsModal = ({
                             </label>
                         </div>
 
-                        {currentSettings.showExamples && (
+                        {currentSettings.showExamples !== false && (
                             <div className="pl-4 space-y-2.5 border-l-2 border-emerald-100 dark:border-emerald-900/50 ml-1 py-1">
                                 <div className="flex items-center justify-between">
                                     <span className="text-slate-600 dark:text-slate-400">
@@ -281,7 +254,7 @@ const GrammarFlashcardSettingsModal = ({
                                     <label className="relative inline-flex items-center cursor-pointer">
                                         <input
                                             type="checkbox"
-                                            checked={currentSettings.showFurigana}
+                                            checked={currentSettings.showFurigana !== false}
                                             onChange={() => handleToggle('showFurigana')}
                                             className="sr-only peer"
                                         />
@@ -296,7 +269,7 @@ const GrammarFlashcardSettingsModal = ({
                                     <label className="relative inline-flex items-center cursor-pointer">
                                         <input
                                             type="checkbox"
-                                            checked={currentSettings.showExampleVi}
+                                            checked={currentSettings.showExampleVi !== false}
                                             onChange={() => handleToggle('showExampleVi')}
                                             className="sr-only peer"
                                         />
@@ -308,7 +281,7 @@ const GrammarFlashcardSettingsModal = ({
                     </div>
                 </div>
 
-                {/* Section 5: Audio Options */}
+                {/* Section 4: Audio Options */}
                 <div className="space-y-3 pt-2 border-t border-slate-150 dark:border-slate-800">
                     <p className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">
                         Cài đặt âm thanh (Phát âm):

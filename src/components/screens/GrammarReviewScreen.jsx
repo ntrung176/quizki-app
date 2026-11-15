@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useRef, useCallback } from 'react';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { useNavigate, useLocation } from 'react-router-dom';
-import { Calendar, Clock, Target, ChevronLeft, RotateCcw, BarChart3, Volume2, Cpu, Repeat2, Settings, Keyboard, CreditCard, Play, Zap } from 'lucide-react';
+import { Calendar, Clock, Target, ChevronLeft, RotateCcw, BarChart3, Volume2, Cpu, Repeat2, Settings, Play, Zap, ArrowLeftRight } from 'lucide-react';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase/firestore';
@@ -20,8 +20,6 @@ import { useLanguage } from '../../context/LanguageContext';
 import { speakExampleSentence } from '../../utils/audio';
 import GrammarFlashcard from '../grammar/GrammarFlashcard';
 import GrammarFlashcardSettingsModal, { DEFAULT_GRAMMAR_FLASHCARD_SETTINGS } from '../grammar/GrammarFlashcardSettingsModal';
-import SrsTypingInput from '../srs/SrsTypingInput';
-import SrsModeSelectModal from '../srs/SrsModeSelectModal';
 
 const getPreviewIntervals = (srs, cardId = null) => {
     return getCardPreviewIntervals(srs, cardId);
@@ -185,20 +183,13 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         try {
             const saved = localStorage.getItem('quizki_grammar_flashcard_settings_v1');
             if (saved) {
-                return { ...DEFAULT_GRAMMAR_FLASHCARD_SETTINGS, ...JSON.parse(saved) };
+                return { ...DEFAULT_GRAMMAR_FLASHCARD_SETTINGS, ...JSON.parse(saved), reviewType: 'flashcard' };
             }
         } catch (e) { }
         return DEFAULT_GRAMMAR_FLASHCARD_SETTINGS;
     });
     const [showSettingsModal, setShowSettingsModal] = useState(false);
-    const [showModeModal, setShowModeModal] = useState(false);
-    const [pendingReviewCards, setPendingReviewCards] = useState(null);
     const [isPreparingSession, setIsPreparingSession] = useState(false);
-    const [hasCheckedTyping, setHasCheckedTyping] = useState(false);
-
-    useEffect(() => {
-        setHasCheckedTyping(false);
-    }, [currentReviewIndex, reviewMode]);
 
     useEffect(() => {
         if (setIsReviewActive) {
@@ -212,9 +203,10 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     }, [reviewMode, setIsReviewActive]);
 
     const handleUpdateSettings = (newSettings) => {
-        setFlashcardSettings(newSettings);
+        const updated = { ...newSettings, reviewType: 'flashcard' };
+        setFlashcardSettings(updated);
         try {
-            localStorage.setItem('quizki_grammar_flashcard_settings_v1', JSON.stringify(newSettings));
+            localStorage.setItem('quizki_grammar_flashcard_settings_v1', JSON.stringify(updated));
         } catch (e) { }
     };
 
@@ -511,7 +503,6 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             return [...prevQueue, ...newCards];
         });
 
-        setHasCheckedTyping(false);
         setIsAnimatingFlip(false);
         setIsFlipped(false);
         requestAnimationFrame(() => {
@@ -564,7 +555,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const runStartReview = (customList = null) => {
         const validList = Array.isArray(customList) && customList.length > 0
             ? customList
-            : (Array.isArray(pendingReviewCards) && pendingReviewCards.length > 0 ? pendingReviewCards : dueGrammar);
+            : dueGrammar;
 
         if (!Array.isArray(validList) || validList.length === 0) return;
 
@@ -578,7 +569,6 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         setCurrentReviewIndex(0);
         setIsFlipped(false);
         setReviewHistory([]);
-        setPendingReviewCards(null);
 
         // Show calculating & prewarming screen before Card #1
         setIsPreparingSession(true);
@@ -608,8 +598,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         const validCustomList = Array.isArray(customList) && customList.length > 0 ? customList : null;
         const targetList = validCustomList || dueGrammar;
         if (!Array.isArray(targetList) || targetList.length === 0) return;
-        setPendingReviewCards(validCustomList);
-        setShowModeModal(true);
+        runStartReview(targetList);
     };
 
     const hasAutoStartedRef = useRef(false);
@@ -619,12 +608,6 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         if (location.state?.autoStart && !hasAutoStartedRef.current && !loading && !reviewMode) {
             if (dueGrammar.length > 0) {
                 hasAutoStartedRef.current = true;
-                if (location.state?.reviewType) {
-                    handleUpdateSettings({
-                        ...flashcardSettings,
-                        reviewType: location.state.reviewType
-                    });
-                }
                 runStartReview();
             } else {
                 hasAutoStartedRef.current = true; // No due grammar, stay on overview tab
@@ -998,19 +981,15 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             if (activeTag === 'INPUT' || activeTag === 'TEXTAREA' || e.target?.isContentEditable) {
                 return;
             }
-            const isTyping = flashcardSettings?.reviewType === 'typing';
             if (e.key === ' ') {
-                if (isTyping && !hasCheckedTyping) return;
                 e.preventDefault();
                 setIsFlipped(f => !f);
                 playFlipSound();
             }
-            if (!isTyping || hasCheckedTyping) {
-                if (e.key === '1') handleRating('again');
-                if (e.key === '2') handleRating('hard');
-                if (e.key === '3') handleRating('good');
-                if (e.key === '4') handleRating('easy');
-            }
+            if (e.key === '1') handleRating('again');
+            if (e.key === '2') handleRating('hard');
+            if (e.key === '3') handleRating('good');
+            if (e.key === '4') handleRating('easy');
             if (e.key === 's' || e.key === 'S') {
                 e.preventDefault();
                 setShowSettingsModal(s => !s);
@@ -1026,7 +1005,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         };
         window.addEventListener('keydown', handler);
         return () => window.removeEventListener('keydown', handler);
-    }, [reviewMode, currentCard, currentReviewIndex, reviewHistory, flashcardSettings, hasCheckedTyping]);
+    }, [reviewMode, currentCard, currentReviewIndex, reviewHistory, flashcardSettings]);
 
     if (loading) {
         return (
@@ -1069,32 +1048,24 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         </button>
 
                         <div className="flex items-center gap-2">
-                            {/* Quick Review Type Switcher (Flashcard 3D vs Typing Input) */}
+                            {/* Nút đổi chiều học nhanh (JP ➔ VN ⇋ VN ➔ JP) */}
                             <button
                                 type="button"
                                 onClick={() => {
+                                    const nextMode = flashcardSettings.studyMode === 'vi_to_ja' ? 'ja_to_vi' : 'vi_to_ja';
                                     handleUpdateSettings({
                                         ...flashcardSettings,
-                                        reviewType: flashcardSettings.reviewType === 'typing' ? 'flashcard' : 'typing'
+                                        studyMode: nextMode
                                     });
+                                    setIsFlipped(false);
                                 }}
-                                className={`px-3 py-2 flex items-center justify-center rounded-2xl shadow-xs border-2 border-b-4 transition-all active:translate-y-0.5 active:border-b-2 gap-1.5 cursor-pointer font-bold select-none ${flashcardSettings.reviewType === 'typing'
-                                        ? 'bg-emerald-50 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border-emerald-400 dark:border-emerald-700'
-                                        : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'
-                                    }`}
-                                title={flashcardSettings.reviewType === 'typing' ? t('grammar.typing3DToggle', "Đang ở chế độ Gõ phím (Typing) - Nhấn để đổi sang Thẻ 3D") : t('grammar.typingMode', "Đang ở chế độ Thẻ Flashcard 3D - Nhấn để đổi sang Gõ phím")}
+                                className="px-3 py-2 flex items-center justify-center rounded-2xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 shadow-xs border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 active:translate-y-0.5 active:border-b-2 transition-all gap-1.5 cursor-pointer font-bold select-none"
+                                title={flashcardSettings.studyMode === 'vi_to_ja' ? 'Đang học: VN ➔ JP (Bấm để đổi sang JP ➔ VN)' : 'Đang học: JP ➔ VN (Bấm để đổi sang VN ➔ JP)'}
                             >
-                                {flashcardSettings.reviewType === 'typing' ? (
-                                    <>
-                                        <Keyboard className="w-4 h-4 text-emerald-500" />
-                                        <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 hidden sm:inline">{t('grammar.typingLabel', 'Gõ phím')}</span>
-                                    </>
-                                ) : (
-                                    <>
-                                        <CreditCard className="w-4 h-4 text-emerald-500" />
-                                        <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 hidden sm:inline">{t('grammar.card3DLabel', 'Thẻ 3D')}</span>
-                                    </>
-                                )}
+                                <ArrowLeftRight className="w-4 h-4 text-emerald-500" />
+                                <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                                    {flashcardSettings.studyMode === 'vi_to_ja' ? 'VN ➔ JP' : 'JP ➔ VN'}
+                                </span>
                             </button>
 
                             <button
@@ -1133,10 +1104,10 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
                     {/* Rich Grammar SRS Flashcard */}
                     <GrammarFlashcard
+                        key={`${currentCard.id}_${currentReviewIndex}_${flashcardSettings.studyMode}`}
                         card={currentCard}
                         isFlipped={isFlipped}
                         onFlip={() => {
-                            if (flashcardSettings.reviewType === 'typing' && !hasCheckedTyping) return;
                             setIsFlipped(f => !f);
                             playFlipSound();
                         }}
@@ -1144,58 +1115,30 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         slideDirection={slideDirection}
                         settings={flashcardSettings}
                         onSpeak={speakText}
-                        hasCheckedTyping={hasCheckedTyping}
                     />
 
-                    {/* Typing Input for Grammar */}
-                    {flashcardSettings.reviewType === 'typing' && (
-                        <div className="w-full mt-1">
-                            <SrsTypingInput
-                                card={currentCard}
-                                isFlipped={isFlipped}
-                                isReversed={flashcardSettings.studyMode === 'vi_to_ja'}
-                                expectedLanguage={flashcardSettings.studyMode === 'vi_to_ja' ? 'ja' : 'ja'}
-                                onFlip={() => {
-                                    setIsAnimatingFlip(true);
-                                    setIsFlipped(true);
-                                    playFlipSound();
-                                }}
-                                onCheck={() => {
-                                    setHasCheckedTyping(true);
-                                    setIsAnimatingFlip(true);
-                                    setIsFlipped(true);
-                                    playFlipSound();
-                                }}
-                                onQuickRate={(rating) => handleRating(rating)}
-                                placeholder={t('grammar.typePrompt', 'Nhập mẫu ngữ pháp tiếng Nhật tương ứng...')}
-                            />
+                    {/* Rating Buttons */}
+                    <div className="w-full space-y-3 animate-fade-in mt-2">
+                        <div className="grid grid-cols-4 gap-2.5 w-full">
+                            {[
+                                { key: 'again', label: t('srs.again', 'Quên rồi'), interval: intervals.again, bg: 'bg-rose-50 hover:bg-rose-100 dark:bg-rose-950 dark:hover:bg-rose-900', border: 'border-2 border-b-4 border-rose-300 dark:border-rose-700 shadow-sm', text: 'text-rose-600 dark:text-rose-300', sub: 'text-rose-500/80 dark:text-rose-400' },
+                                { key: 'hard', label: t('srs.hard', 'Khó'), interval: intervals.hard, bg: 'bg-amber-50 hover:bg-amber-100 dark:bg-amber-950 dark:hover:bg-amber-900', border: 'border-2 border-b-4 border-amber-300 dark:border-amber-700 shadow-sm', text: 'text-amber-600 dark:text-amber-300', sub: 'text-amber-500/80 dark:text-amber-400' },
+                                { key: 'good', label: t('srs.good', 'Tốt'), interval: intervals.good, bg: 'bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950 dark:hover:bg-emerald-900', border: 'border-2 border-b-4 border-emerald-400 dark:border-emerald-600 shadow-sm', text: 'text-emerald-600 dark:text-emerald-300', sub: 'text-emerald-500/80 dark:text-emerald-400' },
+                                { key: 'easy', label: t('srs.easy', 'Dễ'), interval: intervals.easy, bg: 'bg-sky-50 hover:bg-sky-100 dark:bg-sky-950 dark:hover:bg-sky-900', border: 'border-2 border-b-4 border-sky-300 dark:border-sky-600 shadow-sm', text: 'text-sky-600 dark:text-sky-300', sub: 'text-sky-500/80 dark:text-sky-400' },
+                            ].map(btn => (
+                                <button key={btn.key} onClick={(e) => { e.stopPropagation(); handleRating(btn.key); }}
+                                    className={`flex flex-col justify-center items-center py-3 rounded-2xl ${btn.bg} ${btn.border} text-center transition-all active:translate-y-0.5 active:border-b-2 cursor-pointer select-none`}>
+                                    <div className={`font-black ${btn.text} text-xs uppercase tracking-wider leading-tight`}>{btn.label}</div>
+                                    <div className={`text-[10px] font-mono font-bold ${btn.sub} mt-0.5`}>{btn.interval}</div>
+                                </button>
+                            ))}
                         </div>
-                    )}
 
-                    {/* Rating Buttons: Shown in flashcard mode OR after submitting answer in typing mode */}
-                    {(flashcardSettings.reviewType !== 'typing' || hasCheckedTyping) && (
-                        <div className="w-full space-y-3 animate-fade-in mt-2">
-                            <div className="grid grid-cols-4 gap-2.5 w-full">
-                                {[
-                                    { key: 'again', label: t('srs.again', 'Quên rồi'), interval: intervals.again, bg: 'bg-rose-50 hover:bg-rose-100 dark:bg-rose-950 dark:hover:bg-rose-900', border: 'border-2 border-b-4 border-rose-300 dark:border-rose-700 shadow-sm', text: 'text-rose-600 dark:text-rose-300', sub: 'text-rose-500/80 dark:text-rose-400' },
-                                    { key: 'hard', label: t('srs.hard', 'Khó'), interval: intervals.hard, bg: 'bg-amber-50 hover:bg-amber-100 dark:bg-amber-950 dark:hover:bg-amber-900', border: 'border-2 border-b-4 border-amber-300 dark:border-amber-700 shadow-sm', text: 'text-amber-600 dark:text-amber-300', sub: 'text-amber-500/80 dark:text-amber-400' },
-                                    { key: 'good', label: t('srs.good', 'Tốt'), interval: intervals.good, bg: 'bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950 dark:hover:bg-emerald-900', border: 'border-2 border-b-4 border-emerald-400 dark:border-emerald-600 shadow-sm', text: 'text-emerald-600 dark:text-emerald-300', sub: 'text-emerald-500/80 dark:text-emerald-400' },
-                                    { key: 'easy', label: t('srs.easy', 'Dễ'), interval: intervals.easy, bg: 'bg-sky-50 hover:bg-sky-100 dark:bg-sky-950 dark:hover:bg-sky-900', border: 'border-2 border-b-4 border-sky-300 dark:border-sky-600 shadow-sm', text: 'text-sky-600 dark:text-sky-300', sub: 'text-sky-500/80 dark:text-sky-400' },
-                                ].map(btn => (
-                                    <button key={btn.key} onClick={(e) => { e.stopPropagation(); handleRating(btn.key); }}
-                                        className={`flex flex-col justify-center items-center py-3 rounded-2xl ${btn.bg} ${btn.border} text-center transition-all active:translate-y-0.5 active:border-b-2 cursor-pointer select-none`}>
-                                        <div className={`font-black ${btn.text} text-xs uppercase tracking-wider leading-tight`}>{btn.label}</div>
-                                        <div className={`text-[10px] font-mono font-bold ${btn.sub} mt-0.5`}>{btn.interval}</div>
-                                    </button>
-                                ))}
-                            </div>
-
-                            <div className="text-center text-[10px] text-gray-400 dark:text-gray-500">
-                                <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">Space</kbd> {t('studyModes.flipHint', 'lật thẻ')} •
-                                <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">1-4</kbd> {t('vocab.rateCard', 'đánh giá')}
-                            </div>
+                        <div className="text-center text-[10px] text-gray-400 dark:text-gray-500">
+                            <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">Space</kbd> {t('studyModes.flipHint', 'lật thẻ')} •
+                            <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">1-4</kbd> {t('vocab.rateCard', 'đánh giá')}
                         </div>
-                    )}
+                    </div>
 
                     {/* Settings Modal inside Review Session */}
                     <GrammarFlashcardSettingsModal
@@ -1545,21 +1488,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 onUpdateSettings={handleUpdateSettings}
             />
 
-            {/* SRS Mode Selection Modal (Flashcard vs Anki Typing) */}
-            <SrsModeSelectModal
-                isOpen={showModeModal}
-                onClose={() => {
-                    setShowModeModal(false);
-                    setPendingReviewCards(null);
-                }}
-                title={t('grammar.selectReviewMode', 'Chọn chế độ ôn tập Ngữ pháp')}
-                subtitle={t('grammar.selectReviewSub', 'Lựa chọn phương pháp ôn tập phù hợp với bạn')}
-                cardCount={(pendingReviewCards || dueGrammar).length}
-                onSelectMode={(mode) => {
-                    handleUpdateSettings({ ...flashcardSettings, reviewType: mode });
-                    runStartReview(pendingReviewCards || dueGrammar);
-                }}
-            />
+
         </div>
     );
 };
