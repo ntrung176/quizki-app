@@ -69,9 +69,22 @@ const isUserPremiumActive = (u) => {
 };
 
 // ==================== MAIN LEADERBOARD SCREEN ====================
-const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], dailyActivityLogs = [], userId, publicStatsPath }) => {
+const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], dailyActivityLogs = [], userId, publicStatsPath, isAdmin = false }) => {
     const profile = rawProfile || {};
     const { t } = useLanguage();
+
+    // Quyền Admin: Kiểm tra qua prop isAdmin, window/sessionStorage, hoặc email admin/developer
+    const isCurrentUserAdmin = useMemo(() => {
+        if (isAdmin) return true;
+        if (typeof window !== 'undefined' && window.__QUIZKI_IS_ADMIN__) return true;
+        try {
+            if (typeof sessionStorage !== 'undefined' && sessionStorage.getItem('quizki_is_admin') === 'true') return true;
+        } catch (_) {}
+        const email = (auth?.currentUser?.email || '').trim().toLowerCase();
+        const developerEmails = ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'];
+        if (email && developerEmails.includes(email)) return true;
+        return false;
+    }, [isAdmin]);
     const LEADERBOARD_CACHE_KEY = 'quizki_cached_leaderboard';
     const [kanjiSrsStats, setKanjiSrsStats] = useState({ total: 0, learning: 0, mastered: 0, dueToday: 0 });
     const [leaderboardData, setLeaderboardData] = useState(() => {
@@ -199,8 +212,9 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
         };
     }, [publicStatsPath]);
 
-    // Trạng thái modal khôi phục Streak thủ công
+    // Trạng thái modal khôi phục Streak thủ công (Chỉ dành cho Admin)
     const [showStreakRestoreModal, setShowStreakRestoreModal] = useState(false);
+    const [targetStreakUser, setTargetStreakUser] = useState(null); // { id, displayName, streak }
     const [customStreakInput, setCustomStreakInput] = useState('');
     const [isRestoringStreak, setIsRestoringStreak] = useState(false);
 
@@ -216,9 +230,15 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
         });
     }, [dailyActivityLogs, allCards, leaderboardData, userId, profile]);
 
-    // Xử lý khôi phục streak
+    // Xử lý khôi phục streak (Chỉ Admin mới có quyền thực hiện)
     const handleRestoreStreak = async (targetStreakNum) => {
-        if (!userId) return;
+        if (!isCurrentUserAdmin) {
+            showToast('Chỉ quản trị viên mới có quyền khôi phục hoặc chỉnh sửa Streak.', 'error');
+            return;
+        }
+        const targetId = targetStreakUser?.id || userId;
+        if (!targetId) return;
+
         const streakVal = parseInt(targetStreakNum, 10);
         if (isNaN(streakVal) || streakVal < 1) {
             showToast('Vui lòng nhập số ngày streak hợp lệ (tối thiểu 1 ngày).', 'warning');
@@ -228,14 +248,15 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
         setIsRestoringStreak(true);
         try {
             await restoreUserStreak({
-                userId,
+                userId: targetId,
                 targetStreak: streakVal,
                 db,
                 appId,
                 publicStatsPath
             });
-            showToast(`Đã khôi phục chuỗi streak ${streakVal} ngày thành công! 🔥`, 'success');
+            showToast(`Đã cập nhật chuỗi streak ${streakVal} ngày cho ${targetStreakUser?.displayName || 'tài khoản'} thành công! 🔥`, 'success');
             setShowStreakRestoreModal(false);
+            setTargetStreakUser(null);
         } catch (err) {
             showToast('Lỗi khi khôi phục streak: ' + err.message, 'error');
         } finally {
@@ -829,31 +850,34 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
                                                 {user.streak > 0 && (
                                                     <span 
                                                         onClick={(e) => {
-                                                            if (isMe) {
+                                                            if (isCurrentUserAdmin) {
                                                                 e.stopPropagation();
+                                                                setTargetStreakUser(user);
                                                                 setCustomStreakInput(String(user.streak || 30));
                                                                 setShowStreakRestoreModal(true);
                                                             }
                                                         }}
-                                                        title={isMe ? "Nhấn để chỉnh sửa hoặc khôi phục chuỗi Streak" : undefined}
+                                                        title={isCurrentUserAdmin ? (isMe ? "Admin: Nhấn để chỉnh sửa chuỗi Streak của bạn" : `Admin: Chỉnh sửa chuỗi Streak cho ${user.displayName || 'học viên'}`) : undefined}
                                                         className={`flex items-center gap-1 text-xs font-bold text-amber-500 shrink-0 ${
-                                                            isMe ? 'cursor-pointer hover:scale-105 active:scale-95 transition-transform bg-amber-500/10 hover:bg-amber-500/20 px-2 py-0.5 rounded-lg border border-amber-500/30' : ''
+                                                            isCurrentUserAdmin ? 'cursor-pointer hover:scale-105 active:scale-95 transition-transform bg-amber-500/10 hover:bg-amber-500/20 px-2 py-0.5 rounded-lg border border-amber-500/30' : ''
                                                         }`}
                                                     >
                                                         <Flame className="w-3.5 h-3.5 fill-amber-500" />
                                                         <span>{user.streak}</span>
-                                                        {isMe && <span className="text-[10px] text-amber-600 dark:text-amber-400 font-medium underline ml-0.5">Sửa</span>}
+                                                        {isCurrentUserAdmin && <span className="text-[10px] text-amber-600 dark:text-amber-400 font-medium underline ml-0.5">Sửa</span>}
                                                     </span>
                                                 )}
-                                                {isMe && user.streak <= 1 && (
+                                                {isCurrentUserAdmin && isMe && Number(user.streak || 0) <= 1 && (
                                                     <button
+                                                        type="button"
                                                         onClick={(e) => {
                                                             e.stopPropagation();
+                                                            setTargetStreakUser(user);
                                                             setCustomStreakInput('30');
                                                             setShowStreakRestoreModal(true);
                                                         }}
                                                         className="flex items-center gap-1 px-2 py-0.5 rounded-lg text-xs font-bold text-amber-600 dark:text-amber-400 bg-amber-500/15 border border-amber-500/40 hover:bg-amber-500/25 transition-all cursor-pointer shadow-xs"
-                                                        title="Nhấn để khôi phục lại chuỗi ngày học nếu bị reset nhầm"
+                                                        title="Admin: Nhấn để khôi phục lại chuỗi ngày học nếu bị reset nhầm"
                                                     >
                                                         <RotateCcw className="w-3 h-3 text-amber-500" />
                                                         <span>Khôi phục Streak</span>
@@ -1051,12 +1075,15 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
                 )}
             </div>
 
-            {/* Modal khôi phục chuỗi Streak Duolingo 3D */}
-            {showStreakRestoreModal && (
+            {/* Modal khôi phục chuỗi Streak Duolingo 3D (Chỉ dành riêng cho Admin) */}
+            {isCurrentUserAdmin && showStreakRestoreModal && (
                 <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in font-sans">
                     <div className="relative bg-white dark:bg-slate-900 rounded-3xl shadow-2xl w-full max-w-sm p-6 border-2 border-b-[5px] border-slate-200 dark:border-slate-800 space-y-5 text-center">
                         <button
-                            onClick={() => setShowStreakRestoreModal(false)}
+                            onClick={() => {
+                                setShowStreakRestoreModal(false);
+                                setTargetStreakUser(null);
+                            }}
                             className="absolute top-4 right-4 p-2 rounded-xl text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
                         >
                             <X className="w-5 h-5" />
@@ -1067,11 +1094,14 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
                         </div>
 
                         <div>
+                            <div className="inline-block px-2.5 py-0.5 mb-1.5 rounded-full text-[10px] font-black uppercase tracking-wider bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+                                Quyền Quản Trị Viên (Admin)
+                            </div>
                             <h3 className="text-lg font-black text-slate-900 dark:text-white">
-                                Khôi phục Chuỗi Streak 🔥
+                                {targetStreakUser?.id === userId ? 'Khôi phục Streak của bạn 🔥' : `Chỉnh Streak cho ${targetStreakUser?.displayName || 'học viên'} 🔥`}
                             </h3>
                             <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 font-medium leading-relaxed">
-                                Nhập số ngày streak học liên tục thực tế của bạn trước khi bị gián đoạn để hệ thống đồng bộ lại ngay.
+                                Nhập số ngày streak học liên tục thực tế để hệ thống đồng bộ lại ngay lên Bảng xếp hạng.
                             </p>
                         </div>
 
@@ -1110,7 +1140,10 @@ const StatsScreen = ({ totalCards = 0, profile: rawProfile, allCards = [], daily
                         <div className="flex items-center gap-3 pt-2">
                             <button
                                 type="button"
-                                onClick={() => setShowStreakRestoreModal(false)}
+                                onClick={() => {
+                                    setShowStreakRestoreModal(false);
+                                    setTargetStreakUser(null);
+                                }}
                                 className="flex-1 py-3 px-4 rounded-2xl text-xs font-black text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-slate-800 border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 active:border-b-2 active:translate-y-0.5 transition-all cursor-pointer"
                             >
                                 Hủy

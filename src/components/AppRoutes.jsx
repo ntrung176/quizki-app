@@ -1101,6 +1101,7 @@ const AppRoutes = ({
                             onUpdateGoal={handleUpdateGoal}
                             onBack={() => setView('HOME')}
                             userId={userId}
+                            isAdmin={userHasAdminPrivileges || isAdmin}
                             publicStatsPath={publicStatsCollectionPath}
                             initialTab="stats"
                         />
