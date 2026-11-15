@@ -4,7 +4,7 @@ import { db, appId } from '../config/firebase';
 import { getCacheConfig } from './cacheConfigService';
 import { cleanFirestoreData } from './firestoreHelpers';
 import { safeSetLocalStorage } from './storageCleanup';
-import { isSrsCardDue, isKanjiMastered, getLearnAheadLimitMs } from './srs';
+import { isSrsCardDue, isKanjiMastered, getLearnAheadLimitMs, parseNextReviewMs } from './srs';
 
 const sanitizeGrammarPointForFirestore = (data) => {
     if (!data || typeof data !== 'object') return {};
@@ -1733,6 +1733,7 @@ export const computeGrammarSrsStats = (srsMap) => {
     const now = Date.now();
     const threshold = now + getLearnAheadLimitMs();
     const seenIds = new Set();
+    let nextDueTime = null;
 
     if (srsMap && typeof srsMap === 'object') {
         Object.entries(srsMap).forEach(([key, data]) => {
@@ -1745,9 +1746,14 @@ export const computeGrammarSrsStats = (srsMap) => {
             if (isKanjiMastered(data)) mastered++;
             else learning++;
             if (isSrsCardDue(data, threshold)) dueCount++;
+
+            const rev = parseNextReviewMs(data.nextReview || data.nextReview_back);
+            if (rev > now && (nextDueTime === null || rev < nextDueTime)) {
+                nextDueTime = rev;
+            }
         });
     }
-    return { total, learning, mastered, dueCount };
+    return { total, learning, mastered, dueCount, nextDueTime };
 };
 
 export const updateCachedUserGrammarSrs = (userId, grammarId, newSrs) => {

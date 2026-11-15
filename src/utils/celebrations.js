@@ -14,7 +14,7 @@ const CONFETTI_COLORS = [
 
 const CONFETTI_SHAPES = ['square', 'circle', 'triangle'];
 
-function launchConfetti(duration = 2500, count = 70) {
+export function launchConfetti(duration = 2500, count = 70) {
     const isMobile = typeof window !== 'undefined' && window.innerWidth <= 768;
     const finalCount = isMobile ? 28 : count;
     const container = document.createElement('div');

@@ -3,7 +3,7 @@ import { collection, getDocs, query, where, doc, setDoc, onSnapshot, limit, star
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { getCacheConfig } from './cacheConfigService';
 import { getJotobaKanjiData } from '../data/jotobaKanjiData';
-import { isSrsCardDue, isKanjiMastered, getLearnAheadLimitMs } from './srs';
+import { isSrsCardDue, isKanjiMastered, getLearnAheadLimitMs, parseNextReviewMs } from './srs';
 import { safeSetLocalStorage } from './storageCleanup';
 
 // In-memory module cache
@@ -900,6 +900,7 @@ export const computeKanjiSrsStats = (srsMap, explicitKanjiList = null) => {
             }
         });
 
+        let nextDueTime = null;
         canonicalItems.forEach((data) => {
             total++;
             if (isKanjiMastered(data)) mastered++;
@@ -909,9 +910,14 @@ export const computeKanjiSrsStats = (srsMap, explicitKanjiList = null) => {
                 const dateStr = toDateStr(data.lastReview);
                 if (dateStr) actDates.push(dateStr);
             }
+            const rev = parseNextReviewMs(data.nextReview || data.nextReview_back);
+            if (rev > now && (nextDueTime === null || rev < nextDueTime)) {
+                nextDueTime = rev;
+            }
         });
+        return { total, learning, mastered, dueCount, actDates, nextDueTime };
     }
-    return { total, learning, mastered, dueCount, actDates };
+    return { total, learning, mastered, dueCount, actDates, nextDueTime: null };
 };
 
 export const updateCachedUserSrs = (userId, kanjiId, newSrs, kanjiChar = null) => {

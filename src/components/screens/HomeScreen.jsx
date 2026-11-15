@@ -8,7 +8,7 @@ import { appId } from '../../config/firebase';
 import BookVocabSyncChecker from '../ui/BookVocabSyncChecker';
 import StreakCelebration from '../ui/StreakCelebration';
 import SrsModeSelectModal from '../srs/SrsModeSelectModal';
-import { isVocabCardDue, isKanjiMastered, isVocabCardMastered, getLearnAheadLimitMs } from '../../utils/srs';
+import { isVocabCardDue, isKanjiMastered, isVocabCardMastered, getLearnAheadLimitMs, parseNextReviewMs } from '../../utils/srs';
 import { subscribeKanjiSrs, computeKanjiSrsStats } from '../../utils/kanjiService';
 import { subscribeGrammarSrs, computeGrammarSrsStats } from '../../utils/grammarService';
 import { useLanguage } from '../../context/LanguageContext';
@@ -314,10 +314,25 @@ const HomeScreen = ({
         const dueCards = langCards.filter(card => isVocabCardDue(card, threshold)).length;
         const newCards = langCards.filter(card => !card.srsEnabled).length;
         const masteredCards = langCards.filter(card => isVocabCardMastered(card)).length;
+
+        // Tính thời điểm thẻ tiếp theo đến hạn (nếu hiện tại đã hoàn thành)
+        let nextDueTime = null;
+        const now = Date.now();
+        langCards.forEach(c => {
+            if (c.srsEnabled !== false) {
+                const nextVal = c.nextReview_back !== undefined ? c.nextReview_back : (c.nextReview !== undefined ? c.nextReview : (c.srsData?.nextReview || c.srsData?.nextReview_back));
+                const rev = parseNextReviewMs(nextVal);
+                if (rev > now && (nextDueTime === null || rev < nextDueTime)) {
+                    nextDueTime = rev;
+                }
+            }
+        });
+
         const result = {
             dueCards,
             newCards,
             masteredCards,
+            nextDueTime,
             streak: currentStreak,
             totalCards: langCards.length,
             isInitialLoading: false
@@ -669,6 +684,11 @@ const HomeScreen = ({
                         totalDue={totalDue}
                         dailyActivityLogs={dailyActivityLogs}
                         isJapaneseMode={isJapaneseMode}
+                        awardXP={awardXP}
+                        allCards={allCards}
+                        kanjiSrsStats={kanjiSrsStats}
+                        grammarSrsStats={grammarSrsStats}
+                        stats={stats}
                     />
 
                     {/* 3. Quick Launchpad */}
