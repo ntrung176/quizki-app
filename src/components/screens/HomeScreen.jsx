@@ -538,19 +538,6 @@ const HomeScreen = ({
     ];
     const todayQuote = quotes[new Date().getDate() % quotes.length];
 
-    const effectiveDisplayName = useMemo(() => {
-        if (!userId) return '';
-        if (displayName) return displayName;
-        try {
-            const cached = localStorage.getItem('quizki_cached_user_profile');
-            if (cached) {
-                const parsed = JSON.parse(cached);
-                if (parsed?.displayName) return parsed.displayName;
-            }
-        } catch (_) { }
-        return '';
-    }, [displayName, userId]);
-
     // Sum of all due cards
     const totalDue = (stats?.dueCards ?? 0) + (isJapaneseMode ? (kanjiSrsStats?.dueCount ?? 0) + (grammarSrsStats?.dueCount ?? 0) : 0);
 
@@ -632,13 +619,6 @@ const HomeScreen = ({
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 relative">
                 {/* LEFT / CENTER COLUMN: Primary Focus & Study Pillars (8 cols) */}
                 <div className="lg:col-span-8 space-y-6">
-                    {/* Welcome Greeting */}
-                    <div className="flex items-center justify-between">
-                        <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
-                            {effectiveDisplayName ? `${effectiveDisplayName}!` : t('home.helloUser', 'Chào bạn!')} 👋
-                        </h1>
-                    </div>
-
                     {/* Unified Multi-Pillar Search Bar (Vocab, Kanji, Grammar) */}
                     {isJapaneseMode && (
                         <HomeUnifiedSearchBar
