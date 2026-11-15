@@ -4,7 +4,7 @@ import {
     Save, ChevronLeft, ChevronRight, Edit3, Pencil, 
     ShieldAlert, Play, BookOpen, Lock, Volume2, Printer, 
     RotateCcw, HelpCircle, Layers, Eye, EyeOff, 
-    CheckCircle2, ChevronDown, List, AlertCircle, Zap, Sparkles
+    CheckCircle2, ChevronDown, List, AlertCircle, Zap, FileCode
 } from 'lucide-react';
 import QuestionEditModal from './QuestionEditModal';
 import HandwritingCanvas from '../ui/HandwritingCanvas';
@@ -142,6 +142,7 @@ const JLPTTestTakeView = ({
     handleToggleTestFixed,
     handleStartPrint,
     setShowQuestionSearchModal,
+    onOpenExportImport,
     setAnswers
 }) => {
     const [selectedTabIdx, setSelectedTabIdx] = useState(currentSectionIdx || 0);
@@ -296,14 +297,21 @@ const JLPTTestTakeView = ({
                                 </span>
                             )}
                             {canEdit && (
-                                <label className="hidden md:flex items-center gap-1 cursor-pointer select-none text-[10px] font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 px-2 py-0.5 rounded-md border border-emerald-200/40">
+                                <label 
+                                    className={`flex items-center gap-1.5 cursor-pointer select-none text-[10px] sm:text-xs font-black px-2.5 py-1 rounded-xl transition-all shadow-2xs ${
+                                        activeTest?.isFixed
+                                            ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700'
+                                            : 'bg-slate-100 text-slate-600 dark:bg-slate-800 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:border-slate-300'
+                                    }`}
+                                    title="Admin: Đánh dấu bài thi đã được chuẩn hóa dữ liệu"
+                                >
                                     <input 
                                         type="checkbox" 
                                         checked={!!activeTest?.isFixed} 
                                         onChange={(e) => handleToggleTestFixed && handleToggleTestFixed(e, activeTest)}
-                                        className="w-3 h-3 rounded border-emerald-400 text-emerald-500 cursor-pointer"
+                                        className="w-3.5 h-3.5 rounded border-emerald-400 text-emerald-500 cursor-pointer accent-emerald-500"
                                     />
-                                    <span>Đã sửa đề</span>
+                                    <span>Đã chuẩn data</span>
                                 </label>
                             )}
                         </div>
@@ -621,14 +629,25 @@ const JLPTTestTakeView = ({
                                 </div>
 
                                 <div className="flex items-center gap-2 flex-wrap">
+                                    {canEdit && onOpenExportImport && (
+                                        <button
+                                            onClick={onOpenExportImport}
+                                            className="px-3 py-1.5 rounded-xl text-xs font-black bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/60 dark:hover:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 transition flex items-center gap-1.5 cursor-pointer border border-emerald-300 dark:border-emerald-800 active:scale-95 shadow-2xs"
+                                            title="Xuất dữ liệu & Nhập đè JSON đã chuẩn hóa bằng ChatGPT / Gemini"
+                                        >
+                                            <FileCode className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400" />
+                                            <span>Xuất / Nhập đề</span>
+                                        </button>
+                                    )}
+
                                     {canEdit && setShowQuestionSearchModal && (
                                         <button
                                             onClick={() => setShowQuestionSearchModal(true)}
-                                            className="px-3 py-1.5 rounded-xl text-xs font-black bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/60 dark:hover:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 transition flex items-center gap-1.5 cursor-pointer border border-emerald-300 dark:border-emerald-800 active:scale-95 shadow-2xs"
-                                            title="Mở công cụ tìm & sửa câu hỏi với AI (Ctrl + K)"
+                                            className="px-2.5 py-1.5 rounded-xl text-xs font-bold bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition flex items-center gap-1 cursor-pointer active:scale-95"
+                                            title="Tìm kiếm câu hỏi trong đề thi (Ctrl+K)"
                                         >
-                                            <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-                                            <span>AI Tìm & Sửa (Ctrl+K)</span>
+                                            <List className="w-3.5 h-3.5" />
+                                            <span className="hidden sm:inline">Tìm câu</span>
                                         </button>
                                     )}
 
@@ -734,11 +753,10 @@ const JLPTTestTakeView = ({
                                                 {canEdit && onEditQuestion && (
                                                     <button
                                                         onClick={() => onEditQuestion(question, selectedTabIdx, qIdx)}
-                                                        className="px-2.5 py-1 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white text-xs font-black transition flex items-center gap-1.5 shadow-xs cursor-pointer select-none active:scale-95 border border-emerald-500/50"
-                                                        title="Admin: Check đáp án và tạo giải thích câu này với AI"
+                                                        className="p-1.5 rounded-xl text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer active:scale-95"
+                                                        title="Sửa nội dung câu hỏi"
                                                     >
-                                                        <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-                                                        <span>AI Sửa / Check</span>
+                                                        <Edit3 className="w-4 h-4" />
                                                     </button>
                                                 )}
 
@@ -953,11 +971,10 @@ const JLPTTestTakeView = ({
                                                                     <button
                                                                         type="button"
                                                                         onClick={() => onEditQuestion(question, selectedTabIdx, qIdx, `sq-${sqi}`)}
-                                                                        className="px-2.5 py-1 rounded-lg bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/60 dark:hover:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 text-xs font-black flex items-center gap-1 transition cursor-pointer border border-emerald-300/80 dark:border-emerald-800 shrink-0 shadow-2xs"
-                                                                        title={`Admin: Check đáp án & tạo giải thích câu ${qIdx + 1}.${sqi + 1} với AI`}
+                                                                        className="p-1.5 rounded-lg text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition cursor-pointer shrink-0 active:scale-95"
+                                                                        title={`Sửa câu ${qIdx + 1}.${sqi + 1}`}
                                                                     >
-                                                                        <Sparkles className="w-3 h-3 text-amber-500" />
-                                                                        <span>AI Sửa</span>
+                                                                        <Edit3 className="w-3.5 h-3.5" />
                                                                     </button>
                                                                 )}
                                                             </div>

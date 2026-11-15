@@ -73,6 +73,7 @@ const JLPTBooksCollectionTab = ({
     reviewTest,
     handleStartPrint,
     handleToggleTestPremium,
+    handleToggleTestFixed,
     setShowPremiumModal,
     setLockedPkgName
 }) => {
@@ -260,7 +261,33 @@ const JLPTBooksCollectionTab = ({
                                             Bài {lessonNumber}
                                         </span>
 
-                                        <div className="flex items-center gap-1.5">
+                                        <div className="flex items-center gap-1.5 flex-wrap">
+                                            {test.isFixed ? (
+                                                <span 
+                                                    onClick={(e) => {
+                                                        if (canEdit && handleToggleTestFixed) {
+                                                            e.stopPropagation();
+                                                            handleToggleTestFixed(e, test);
+                                                        }
+                                                    }}
+                                                    className={`text-[10px] font-extrabold px-2 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-300/60 dark:border-emerald-800 flex items-center gap-1 ${canEdit ? 'cursor-pointer hover:bg-emerald-200 dark:hover:bg-emerald-900/80' : ''}`}
+                                                    title={canEdit ? 'Admin: Click để chuyển trạng thái' : 'Đề đã được chuẩn hóa dữ liệu'}
+                                                >
+                                                    <CheckCircle2 className="w-3 h-3 text-emerald-600 dark:text-emerald-400" />
+                                                    <span>Đã chuẩn data</span>
+                                                </span>
+                                            ) : canEdit && (
+                                                <button
+                                                    type="button"
+                                                    onClick={(e) => { e.stopPropagation(); handleToggleTestFixed && handleToggleTestFixed(e, test); }}
+                                                    className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-400 border border-slate-200 dark:border-slate-700 flex items-center gap-1 cursor-pointer transition"
+                                                    title="Admin: Đánh dấu đề đã chuẩn hóa data"
+                                                >
+                                                    <CheckCircle2 className="w-3 h-3" />
+                                                    <span>Chưa chuẩn</span>
+                                                </button>
+                                            )}
+
                                             {canEdit && (
                                                 <button
                                                     onClick={(e) => { e.stopPropagation(); handleToggleTestPremium && handleToggleTestPremium(e, test); }}

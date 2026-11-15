@@ -15,6 +15,7 @@ import JLPTTestTakeView from '../jlptTest/JLPTTestTakeView';
 import JLPTTestResultView from '../jlptTest/JLPTTestResultView';
 import JLPTTestDashboard from '../jlptTest/JLPTTestDashboard';
 import JLPTQuestionSearchModal from '../jlptTest/JLPTQuestionSearchModal';
+import JLPTExportImportModal from '../jlptTest/JLPTExportImportModal';
 import { showToast } from '../../utils/toast';
 import { X, Play, BookOpen, Lock, ChevronRight, FileText, Printer, Check } from 'lucide-react';
 
@@ -69,6 +70,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
     // Admin Edit HTML states
     const [editingQuestionData, setEditingQuestionData] = useState(null);
     const [savingHtml, setSavingHtml] = useState(false);
+    const [showExportImportModal, setShowExportImportModal] = useState(false);
 
     // Notes draft states
     const [isEditingNote, setIsEditingNote] = useState(false);
@@ -787,14 +789,43 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         try {
             const testRef = doc(db, `artifacts/${appId}/jlptTests`, test.id);
             const nextVal = !test.isFixed;
-            await setDoc(testRef, { ...test, isFixed: nextVal, updatedAt: Date.now() }, { merge: true });
-            updateSingleJLPTTestInCache(test.id, { isFixed: nextVal });
-            setNotification(`Đã đánh dấu đề thi: ${nextVal ? 'Đã sửa' : 'Chưa sửa'}`);
-            setTests(prevTests => prevTests.map(t => t.id === test.id ? { ...t, isFixed: nextVal } : t));
+            await setDoc(testRef, { 
+                ...test, 
+                isFixed: nextVal, 
+                isDataStandardized: nextVal, 
+                updatedAt: Date.now() 
+            }, { merge: true });
+            updateSingleJLPTTestInCache(test.id, { isFixed: nextVal, isDataStandardized: nextVal });
+            showToast(`Đã đánh dấu đề: ${nextVal ? 'Đã chuẩn data' : 'Chưa chuẩn'}`, 'success');
+            setTests(prevTests => prevTests.map(t => t.id === test.id ? { ...t, isFixed: nextVal, isDataStandardized: nextVal } : t));
             if (activeTest && activeTest.id === test.id) {
-                setActiveTest(prev => ({ ...prev, isFixed: nextVal }));
+                setActiveTest(prev => ({ ...prev, isFixed: nextVal, isDataStandardized: nextVal }));
             }
-        } catch (err) { setNotification('Lỗi: ' + err.message); }
+        } catch (err) { showToast('Lỗi: ' + err.message, 'error'); }
+    };
+
+    const handleImportTestSections = async (updatedSections, markAsFixed = true) => {
+        if (!activeTest) return false;
+        try {
+            const testRef = doc(db, `artifacts/${appId}/jlptTests`, activeTest.id);
+            const updatePayload = {
+                ...activeTest,
+                sections: updatedSections,
+                isFixed: markAsFixed ? true : (activeTest.isFixed || false),
+                isDataStandardized: markAsFixed ? true : (activeTest.isDataStandardized || false),
+                updatedAt: Date.now()
+            };
+            await setDoc(testRef, updatePayload, { merge: true });
+            updateSingleJLPTTestInCache(activeTest.id, updatePayload);
+            setActiveTest(prev => ({ ...prev, ...updatePayload }));
+            setTests(prevTests => prevTests.map(t => t.id === activeTest.id ? { ...t, ...updatePayload } : t));
+            showToast('Đã cập nhật dữ liệu đề thi thành công!', 'success');
+            return true;
+        } catch (err) {
+            console.error('Error importing test sections:', err);
+            showToast('Lỗi khi cập nhật dữ liệu đề thi: ' + err.message, 'error');
+            throw err;
+        }
     };
 
     const handleStartPrint = async (test) => {
@@ -1090,6 +1121,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                     editingQuestionData={editingQuestionData}
                     setEditingQuestionData={setEditingQuestionData}
                     handleSaveQuestionHtml={handleSaveQuestionHtml}
+                    onOpenExportImport={() => setShowExportImportModal(true)}
                 />
                 {renderModeSelectionModal()}
                 <PremiumLockedModal 
@@ -1104,6 +1136,16 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                         onClose={() => setShowQuestionSearchModal(false)}
                         tests={tests}
                         onSaveQuestion={handleSaveSearchedQuestion}
+                    />
+                )}
+                {canEdit && showExportImportModal && activeTest && (
+                    <JLPTExportImportModal
+                        isOpen={showExportImportModal}
+                        onClose={() => setShowExportImportModal(false)}
+                        test={activeTest}
+                        activeSectionIdx={0}
+                        onSaveSections={handleImportTestSections}
+                        showToast={showToast}
                     />
                 )}
             </>
@@ -1211,6 +1253,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                     startRealExamConfirm={() => initTest(pendingStartTest, 'real', false)}
                     handleToggleTestFixed={handleToggleTestFixed}
                     handleStartPrint={() => handleStartPrint(activeTest)}
+                    onOpenExportImport={() => setShowExportImportModal(true)}
                     setAnswers={setAnswers}
                 />
                 {renderModeSelectionModal()}
@@ -1221,6 +1264,16 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                         onClose={() => setShowQuestionSearchModal(false)}
                         tests={tests}
                         onSaveQuestion={handleSaveSearchedQuestion}
+                    />
+                )}
+                {canEdit && showExportImportModal && activeTest && (
+                    <JLPTExportImportModal
+                        isOpen={showExportImportModal}
+                        onClose={() => setShowExportImportModal(false)}
+                        test={activeTest}
+                        activeSectionIdx={currentSectionIdx}
+                        onSaveSections={handleImportTestSections}
+                        showToast={showToast}
                     />
                 )}
             </>
