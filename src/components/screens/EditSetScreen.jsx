@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
+import { useSearchParams } from 'react-router-dom';
 import { Plus, Loader2, Image as ImageIcon, Check, X, Folder, AlertTriangle, FileJson, Camera, Wrench, ChevronDown } from 'lucide-react';
 
 import { compressImage } from '../../utils/image';
@@ -101,6 +102,27 @@ const EditSetScreen = ({
         showToast(`Đã nhập thành công ${newCards.length} từ vựng vào bài!`, 'success');
     };
 
+    const [searchParams] = useSearchParams();
+    const isScrollToBottomRequested = searchParams?.get('scrollToBottom') === 'true' || searchParams?.get('action') === 'add';
+    const isActionAddRequested = searchParams?.get('action') === 'add';
+    const didAutoScrollRef = useRef(false);
+
+    useEffect(() => {
+        if (!didAutoScrollRef.current) {
+            didAutoScrollRef.current = true;
+            if (isActionAddRequested) {
+                const newCard = { id: `new_${Date.now()}`, isNew: true, front: '', back: '', ipa: '', synonym: '', example: '', exampleMeaning: '', nuance: '', pos: '', level: '', sinoVietnamese: '', synonymSinoVietnamese: '', reading: '', accent: '', imageBase64: null, audioBase64: null };
+                setCards(prev => [...prev, newCard]);
+                setActiveCardId(newCard.id);
+            }
+            if (isScrollToBottomRequested) {
+                setTimeout(() => {
+                    window.scrollTo({ top: document.body.scrollHeight + 1000, behavior: 'smooth' });
+                }, 300);
+            }
+        }
+    }, [isActionAddRequested, isScrollToBottomRequested]);
+
     const activeFrontInputRef = useRef(null);
 
     useEffect(() => {
@@ -144,13 +166,8 @@ const EditSetScreen = ({
         setCards(prev => [...prev, newCard]);
         setActiveCardId(newCard.id);
         setTimeout(() => {
-            const el = document.getElementById(`card-editor-${newCard.id}`);
-            if (el) {
-                el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            } else {
-                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-            }
-        }, 100);
+            window.scrollTo({ top: document.body.scrollHeight + 1000, behavior: 'smooth' });
+        }, 120);
     };
 
     const handleCoverImageChange = async (e) => {

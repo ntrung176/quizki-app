@@ -121,7 +121,7 @@ export const GrammarNotebookEditScreen = () => {
             }
             if (isScrollToBottomRequested) {
                 setTimeout(() => {
-                    bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+                    window.scrollTo({ top: document.body.scrollHeight + 1000, behavior: 'smooth' });
                 }, 350);
             }
         }
@@ -151,13 +151,8 @@ export const GrammarNotebookEditScreen = () => {
         setItems(prev => [...prev, newItem]);
         setActiveItemId(newItem.id);
         setTimeout(() => {
-            const el = document.getElementById(`grammar-item-${newItem.id}`);
-            if (el) {
-                el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            } else {
-                bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
-            }
-        }, 100);
+            window.scrollTo({ top: document.body.scrollHeight + 1000, behavior: 'smooth' });
+        }, 120);
     };
 
     const handleDeleteItem = (itemId) => {

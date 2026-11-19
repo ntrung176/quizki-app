@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { Plus, Wand2, Loader2, Image as ImageIcon, Check, X, Languages, ChevronDown, CreditCard, Trash2, Folder, PenTool, RotateCcw, AlertTriangle, Cpu, FileJson, Camera, Wrench } from 'lucide-react';
 import { POS_TYPES, ENGLISH_POS_TYPES, KOREAN_POS_TYPES, JLPT_LEVELS, getPosLabel } from '../../config/constants'
 import { compressImage } from '../../utils/image';
@@ -914,6 +915,19 @@ const AddCardForm = ({
         showToast(t('forms.cardsImportedSuccess', 'Đã nhập thành công {count} từ vựng vào bài!').replace('{count}', newCards.length), 'success');
     };
 
+    const [searchParams] = useSearchParams();
+    const isScrollToBottomRequested = searchParams?.get('scrollToBottom') === 'true' || searchParams?.get('action') === 'add';
+    const didAutoScrollRef = useRef(false);
+
+    useEffect(() => {
+        if (!didAutoScrollRef.current && isScrollToBottomRequested) {
+            didAutoScrollRef.current = true;
+            setTimeout(() => {
+                window.scrollTo({ top: document.body.scrollHeight + 1000, behavior: 'smooth' });
+            }, 300);
+        }
+    }, [isScrollToBottomRequested]);
+
     const activeFrontInputRef = useRef(null);
 
     useEffect(() => {
@@ -967,13 +981,8 @@ const AddCardForm = ({
         setCards(prev => [...prev, newCard]);
         setActiveCardId(newCard.id);
         setTimeout(() => {
-            const el = document.getElementById(`vocab-card-${newCard.id}`);
-            if (el) {
-                el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            } else {
-                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
-            }
-        }, 100);
+            window.scrollTo({ top: document.body.scrollHeight + 1000, behavior: 'smooth' });
+        }, 120);
     };
 
     const handleCoverImageChange = async (e) => {

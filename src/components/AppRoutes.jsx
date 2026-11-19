@@ -241,14 +241,14 @@ const StudySetDetailWrapper = ({ allCards, folders, cardFolders, setReviewCards,
         cardFolders={cardFolders} 
         allCards={allCards} 
         onBack={() => navigate(ROUTES.VOCAB_LIST)}
-        onEditSet={() => navigate(`/vocab/edit-set/${id}`)}
+        onEditSet={(folderIdParam, action) => navigate(`/vocab/edit-set/${folderIdParam || id}${action === 'add' ? '?action=add&scrollToBottom=true' : ''}`)}
         onStudySet={handleStudySet}
         onFlashcardSet={handleFlashcardSet}
         onMeaningSet={handleMeaningSet}
         onDictationSet={handleDictationSet}
         onExampleSet={handleExampleSet}
         onSynonymQuiz={handleSynonymQuiz}
-        onNavigateToAdd={() => navigate(ROUTES.VOCAB_ADD)}
+        onNavigateToAdd={() => navigate(ROUTES.VOCAB_ADD + '?action=add&scrollToBottom=true')}
         onDeleteFolder={onDeleteFolder}
         onDeleteCard={handleDeleteCard}
         onDeleteCards={handleDeleteCards}

@@ -725,7 +725,7 @@ const LibraryScreen = ({
                                             )}
 
                                             <button
-                                                onClick={() => navigate(`/vocab/edit-set/${folder.id}`)}
+                                                onClick={() => navigate(`/vocab/edit-set/${folder.id}?action=add&scrollToBottom=true`)}
                                                 className="w-7 h-7 rounded-lg hover:bg-white dark:hover:bg-slate-700 text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors flex items-center justify-center cursor-pointer"
                                                 title={t('vocab.addVocab', 'Thêm từ mới')}
                                             >

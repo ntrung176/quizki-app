@@ -1117,7 +1117,7 @@ const StudySetDetail = ({
                                 </button>
                             )}
                             <button
-                                onClick={() => onEditSet && onEditSet(folderId)}
+                                onClick={() => onEditSet && onEditSet(folderId, 'add')}
                                 className="flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3.5 py-1.5 bg-emerald-500 hover:bg-emerald-400 text-white rounded-2xl border-b-3 border-emerald-700 font-black text-xs uppercase tracking-wider transition-all active:translate-y-0.5 active:border-b-1 cursor-pointer select-none shadow-2xs shrink-0"
                             >
                                 <Plus className="w-3.5 h-3.5 stroke-[3]" />
@@ -1745,7 +1745,7 @@ const StudySetDetail = ({
                                         {isSyncingFromLesson ? t('common.loading') : t('books.syncFromBook')}
                                     </button>
                                 )}
-                                <button onClick={folderId !== 'unfiled' ? () => onEditSet(folderId) : onNavigateToAdd} className="px-6 py-3 bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white rounded-2xl font-black text-xs uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer select-none">
+                                <button onClick={folderId !== 'unfiled' ? () => onEditSet(folderId, 'add') : onNavigateToAdd} className="px-6 py-3 bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white rounded-2xl font-black text-xs uppercase tracking-wider flex items-center gap-2 transition-all cursor-pointer select-none">
                                     <Plus className="w-4 h-4" /> {folderId !== 'unfiled' ? t('vocab.addVocabNow') : t('library.newSet')}
                                 </button>
                             </div>

@@ -134,11 +134,11 @@ const TopTabBar = ({ tabs, theme }) => {
     }, [tabs]);
 
     return (
-        <div className="w-full relative z-10 pt-2 pb-2 px-2 sm:px-4 flex justify-center">
+        <div className="w-full sticky top-[calc(3.5rem+env(safe-area-inset-top,0px))] lg:relative lg:top-0 z-20 pt-1 pb-2 px-2 sm:px-4 flex justify-center pointer-events-none">
             {/* Duolingo Floating Solid Capsule Container */}
             <div 
                 ref={scrollContainerRef}
-                className={`w-full sm:w-auto max-w-full sm:max-w-max p-1.5 rounded-2xl bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-xs transition-shadow duration-200 overflow-x-auto no-scrollbar touch-pan-x ${themeClasses.shadow}`}
+                className={`pointer-events-auto w-full sm:w-auto max-w-full sm:max-w-max p-1.5 rounded-2xl bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-sm transition-shadow duration-200 overflow-x-auto no-scrollbar touch-pan-x ${themeClasses.shadow}`}
             >
                 <div className="relative flex items-center justify-start sm:justify-between w-max sm:w-auto min-w-full space-x-1" ref={containerRef}>
                     {/* Sliding Capsule Pill Indicator (GPU-accelerated translate3d) */}
@@ -171,6 +171,13 @@ const TopTabBar = ({ tabs, theme }) => {
                             <Link
                                 key={tab.id}
                                 to={destination}
+                                onClick={() => {
+                                    if (tab.id === 'vocab-add') {
+                                        setTimeout(() => {
+                                            window.scrollTo({ top: document.body.scrollHeight + 500, behavior: 'smooth' });
+                                        }, 100);
+                                    }
+                                }}
                                 className={`tab-item group relative z-10 shrink-0 flex items-center justify-center space-x-1.5 px-3 sm:px-4 py-2 sm:py-2.5 text-xs sm:text-sm font-black whitespace-nowrap rounded-xl transition-all duration-150 min-h-[40px] select-none active:scale-95 ${
                                     isActive
                                         ? 'text-white drop-shadow-xs'
