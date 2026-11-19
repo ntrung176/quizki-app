@@ -129,12 +129,27 @@ const EditSetScreen = ({
         }
     };
 
+    const handleActivateCard = (cardId) => {
+        setActiveCardId(cardId);
+        setTimeout(() => {
+            const el = document.getElementById(`card-editor-${cardId}`);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }, 80);
+    };
+
     const handleAddCardRow = () => {
         const newCard = { id: `new_${Date.now()}`, isNew: true, front: '', back: '', ipa: '', synonym: '', example: '', exampleMeaning: '', nuance: '', pos: '', level: '', sinoVietnamese: '', synonymSinoVietnamese: '', reading: '', accent: '', imageBase64: null, audioBase64: null };
         setCards(prev => [...prev, newCard]);
         setActiveCardId(newCard.id);
         setTimeout(() => {
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            const el = document.getElementById(`card-editor-${newCard.id}`);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+            }
         }, 100);
     };
 
@@ -532,7 +547,16 @@ const EditSetScreen = ({
                 </div>
 
                 {/* Tools Menu Row - Equal Symmetrical Spacing & Distinct Color */}
-                <div className="flex items-center justify-end relative z-20">
+                <div className="flex items-center justify-between relative z-20">
+                    <button
+                        type="button"
+                        onClick={handleAddCardRow}
+                        className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold rounded-2xl text-white bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer shadow-xs select-none"
+                    >
+                        <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
+                        <span>{t('editSet.addNewCard', 'Thêm thẻ')}</span>
+                    </button>
+
                     <div className="relative">
                         <button
                             type="button"
@@ -619,21 +643,23 @@ const EditSetScreen = ({
                 {/* Cards List */}
                 <div className="space-y-3 sm:space-y-3.5">
                     {cards.map((card, index) => (
-                        <SectionErrorBoundary key={card.id} name={t('editSet.cardItem', 'Card #{number}').replace('{number}', index + 1)} minimal>
-                            <CardEditorItem
-                                card={card}
-                                index={index}
-                                isActive={activeCardId === card.id}
-                                onActivate={setActiveCardId}
-                                onUpdate={handleUpdateCard}
-                                onDelete={handleDeleteCardFromUI}
-                                onAiAssist={handleAiAssist}
-                                onGenerateMoreExample={onGenerateMoreExample}
-                                aiCreditsRemaining={aiCreditsRemaining}
-                                isAiLoading={isAiLoadingMap[card.id]}
-                                frontInputRef={activeCardId === card.id ? activeFrontInputRef : null}
-                            />
-                        </SectionErrorBoundary>
+                        <div key={card.id} id={`card-editor-${card.id}`}>
+                            <SectionErrorBoundary name={t('editSet.cardItem', 'Card #{number}').replace('{number}', index + 1)} minimal>
+                                <CardEditorItem
+                                    card={card}
+                                    index={index}
+                                    isActive={activeCardId === card.id}
+                                    onActivate={handleActivateCard}
+                                    onUpdate={handleUpdateCard}
+                                    onDelete={handleDeleteCardFromUI}
+                                    onAiAssist={handleAiAssist}
+                                    onGenerateMoreExample={onGenerateMoreExample}
+                                    aiCreditsRemaining={aiCreditsRemaining}
+                                    isAiLoading={isAiLoadingMap[card.id]}
+                                    frontInputRef={activeCardId === card.id ? activeFrontInputRef : null}
+                                />
+                            </SectionErrorBoundary>
+                        </div>
                     ))}
                 </div>
 
@@ -671,7 +697,7 @@ const EditSetScreen = ({
             </div>
 
             {/* Bottom floating save bar on mobile */}
-            <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 shadow-xl md:hidden z-40 flex gap-3">
+            <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/98 dark:bg-slate-900/98 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 shadow-xl md:hidden z-50 flex gap-3 pb-[max(1rem,env(safe-area-inset-bottom,1rem))]">
                 <button
                     type="button"
                     onClick={onBack}

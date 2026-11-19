@@ -93,6 +93,12 @@ const AppContent = () => {
         )) || location.state?.isGuest
     );
     const isPublicWithoutAppChrome = (!userId && !isGuestActive) || isAuthPage || isStaticInfoPage;
+    const isCreationOrEditPage = 
+        location.pathname.startsWith('/vocab/edit-set') || 
+        location.pathname.startsWith('/vocab/add') || 
+        location.pathname.startsWith('/vocab/quick-add') ||
+        location.pathname.startsWith('/grammar/notebook/create') ||
+        (location.pathname.startsWith('/grammar/notebook/') && location.pathname.endsWith('/edit'));
 
     return (
         <div className={`min-h-screen font-sans ${isDarkMode ? 'dark text-slate-100' : 'text-slate-900'} relative transition-colors duration-200`}>
@@ -171,7 +177,7 @@ const AppContent = () => {
             )}
 
             {/* Main view container */}
-            <main className={`min-h-screen flex flex-col w-full max-w-full min-w-0 transition-[padding,margin] duration-200 ease-out ${isPublicWithoutAppChrome ? 'p-0' : ((isReviewActive || isReviewSessionPage) ? (isSidebarCollapsed ? 'p-0 lg:pl-20' : 'p-0 lg:pl-44') : (isSidebarCollapsed ? 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-12 lg:pl-20' : 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-12 lg:pl-44'))}`}>
+            <main className={`min-h-screen flex flex-col w-full max-w-full min-w-0 transition-[padding,margin] duration-200 ease-out ${isPublicWithoutAppChrome ? 'p-0' : ((isReviewActive || isReviewSessionPage || isCreationOrEditPage) ? (isSidebarCollapsed ? 'p-0 lg:pl-20' : 'p-0 lg:pl-44') : (isSidebarCollapsed ? 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-12 lg:pl-20' : 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-12 lg:pl-44'))}`}>
                 {/* Admin Test Mode Banner */}
                 {profile?.trialPricingTier && (
                     <div className="bg-emerald-600 text-white text-xs font-semibold px-4 py-2.5 flex items-center justify-between shadow-md relative z-40">

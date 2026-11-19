@@ -294,7 +294,11 @@ const GrammarFlashcard = ({
                                 <>
                                     <div className="flex items-center justify-center gap-3.5 flex-wrap">
                                         <h2 className="text-4xl sm:text-6xl font-black text-slate-900 dark:text-white font-japanese tracking-tight break-words">
-                                            {patternText}
+                                            {settings.showFurigana !== false ? (
+                                                <FuriganaText text={patternText} />
+                                            ) : (
+                                                patternText.replace(/[\(（\[【][^\)）\]】]+[\)）\]】]/g, '').trim()
+                                            )}
                                         </h2>
                                         {settings.audioEnabled && settings.showAudioButton !== false && (
                                             <button
@@ -316,7 +320,13 @@ const GrammarFlashcard = ({
                                                     ? 'text-xs sm:text-sm leading-relaxed max-h-32 overflow-y-auto custom-scrollbar'
                                                     : 'text-sm sm:text-base'
                                             }`}>
-                                                <span>{renderFormattedContent(connectionText, 'conn-front')}</span>
+                                                <span>
+                                                    {settings.showFurigana !== false ? (
+                                                        <FuriganaText text={connectionText} />
+                                                    ) : (
+                                                        renderFormattedContent(connectionText, 'conn-front')
+                                                    )}
+                                                </span>
                                             </div>
                                         </div>
                                     )}
@@ -410,7 +420,11 @@ const GrammarFlashcard = ({
                                             MẪU NGỮ PHÁP TIẾNG NHẬT
                                         </span>
                                         <h2 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-japanese break-words">
-                                            {patternText}
+                                            {settings.showFurigana !== false ? (
+                                                <FuriganaText text={patternText} />
+                                            ) : (
+                                                patternText.replace(/[\(（\[【][^\)）\]】]+[\)）\]】]/g, '').trim()
+                                            )}
                                         </h2>
                                     </div>
                                     {settings.audioEnabled && (
@@ -445,7 +459,13 @@ const GrammarFlashcard = ({
                                         CÁCH NỐI (CẤU TRÚC)
                                     </span>
                                     <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-sky-50/80 dark:bg-sky-950/50 border border-sky-200 dark:border-sky-800/80 rounded-2xl text-xs sm:text-sm font-japanese font-bold text-sky-700 dark:text-sky-300 shadow-2xs max-w-full break-words">
-                                        <span>{renderFormattedContent(connectionText, 'conn-back')}</span>
+                                        <span>
+                                            {settings.showFurigana !== false ? (
+                                                <FuriganaText text={connectionText} />
+                                            ) : (
+                                                renderFormattedContent(connectionText, 'conn-back')
+                                            )}
+                                        </span>
                                     </div>
                                 </div>
                             )}

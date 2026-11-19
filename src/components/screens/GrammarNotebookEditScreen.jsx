@@ -1,13 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
-import { ChevronLeft, Plus, Save, Trash2, Sparkles, Loader2, Volume2, BookMarked, Copy, FileText, Check } from 'lucide-react';
+import {
+    ChevronLeft, Plus, Trash2, Loader2, Volume2,
+    Check, FileJson, Wrench, ChevronUp
+} from 'lucide-react';
 import { getAuth } from 'firebase/auth';
 import { TopTabBar } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
-import { getGrammarNotebookById, getCachedGrammarNotebooks, findNotebookInAnyLocalStorage, saveGrammarNotebook, aiAssistGrammarPoint } from '../../utils/grammarNotebookService';
+import {
+    getGrammarNotebookById, getCachedGrammarNotebooks,
+    findNotebookInAnyLocalStorage, saveGrammarNotebook,
+    aiAssistGrammarPoint
+} from '../../utils/grammarNotebookService';
 import { speakExampleSentence } from '../../utils/audio';
 import { showToast } from '../../utils/toast';
 import GrammarNotebookBatchModal from '../grammar/GrammarNotebookBatchModal';
+import GrammarJsonImportModal from '../grammar/GrammarJsonImportModal';
 
 const createEmptyItem = () => ({
     id: `item_${Date.now()}_${Math.random().toString(36).slice(2, 6)}`,
@@ -26,7 +34,7 @@ export const GrammarNotebookEditScreen = () => {
     const auth = getAuth();
     const [userId, setUserId] = useState(() => auth?.currentUser?.uid || null);
 
-    // Sync auth state on mount / reload
+    // Sync auth state
     useEffect(() => {
         const unsub = auth.onAuthStateChanged(user => {
             if (user?.uid && user.uid !== userId) {
@@ -45,10 +53,12 @@ export const GrammarNotebookEditScreen = () => {
     });
     const [description, setDescription] = useState(() => cachedItem?.description || '');
     const [items, setItems] = useState(() => (cachedItem?.items && cachedItem.items.length > 0 ? cachedItem.items : [createEmptyItem()]));
+    const [activeItemId, setActiveItemId] = useState(() => (cachedItem?.items?.[0]?.id || null));
     const [saving, setSaving] = useState(false);
     const [loading, setLoading] = useState(() => Boolean(notebookId && !cachedItem));
     const [aiLoadingMap, setAiLoadingMap] = useState({});
     const [batchModalOpen, setBatchModalOpen] = useState(false);
+    const [jsonModalOpen, setJsonModalOpen] = useState(false);
     const bottomRef = useRef(null);
     const didAutoScrollRef = useRef(false);
 
@@ -59,6 +69,7 @@ export const GrammarNotebookEditScreen = () => {
         if (!notebookId) {
             const paramTitle = searchParams.get('title');
             if (paramTitle && !title) setTitle(paramTitle);
+            if (!activeItemId && items[0]) setActiveItemId(items[0].id);
             return;
         }
 
@@ -68,7 +79,9 @@ export const GrammarNotebookEditScreen = () => {
             if (localFound && !title) {
                 setTitle(localFound.title || 'Sổ tay ngữ pháp');
                 setDescription(localFound.description || '');
-                setItems(localFound.items && localFound.items.length > 0 ? localFound.items : [createEmptyItem()]);
+                const initItems = localFound.items && localFound.items.length > 0 ? localFound.items : [createEmptyItem()];
+                setItems(initItems);
+                setActiveItemId(initItems[0]?.id || null);
                 setLoading(false);
             }
 
@@ -79,7 +92,9 @@ export const GrammarNotebookEditScreen = () => {
                 if (data) {
                     setTitle(data.title || 'Sổ tay ngữ pháp');
                     setDescription(data.description || '');
-                    setItems(data.items && data.items.length > 0 ? data.items : [createEmptyItem()]);
+                    const loadedItems = data.items && data.items.length > 0 ? data.items : [createEmptyItem()];
+                    setItems(loadedItems);
+                    if (!activeItemId) setActiveItemId(loadedItems[0]?.id || null);
                 } else if (!localFound) {
                     showToast('Không tìm thấy sổ tay', 'error');
                     navigate('/grammar/notebook');
@@ -95,23 +110,36 @@ export const GrammarNotebookEditScreen = () => {
         return () => { isMounted = false; };
     }, [notebookId, userId, navigate]);
 
-    // Auto-scroll down to the bottom when entering notebook edit screen so user can easily add new patterns
+    // Auto-scroll when requested
     useEffect(() => {
         if (!loading && items.length > 0 && !didAutoScrollRef.current) {
             didAutoScrollRef.current = true;
             if (isActionAddRequested) {
-                setItems(prev => [...prev, createEmptyItem()]);
+                const newItem = createEmptyItem();
+                setItems(prev => [...prev, newItem]);
+                setActiveItemId(newItem.id);
             }
-            if (isScrollToBottomRequested || Boolean(notebookId)) {
+            if (isScrollToBottomRequested) {
                 setTimeout(() => {
                     bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
                 }, 350);
             }
         }
-    }, [loading, notebookId, isScrollToBottomRequested, isActionAddRequested, items.length]);
+    }, [loading, isScrollToBottomRequested, isActionAddRequested, items.length]);
 
-    // Count valid items (has both pattern and meaning)
-    const validCount = items.filter(it => it.pattern.trim() && it.meaning.trim()).length;
+    // Count valid items
+    const validCount = items.filter(it => it.pattern?.trim() && it.meaning?.trim()).length;
+
+    // Activate item with smooth scroll into view
+    const handleActivateItem = (itemId) => {
+        setActiveItemId(itemId);
+        setTimeout(() => {
+            const el = document.getElementById(`grammar-item-${itemId}`);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }, 80);
+    };
 
     // Item handlers
     const handleUpdateItem = (itemId, field, value) => {
@@ -119,18 +147,33 @@ export const GrammarNotebookEditScreen = () => {
     };
 
     const handleAddItem = () => {
-        setItems(prev => [...prev, createEmptyItem()]);
+        const newItem = createEmptyItem();
+        setItems(prev => [...prev, newItem]);
+        setActiveItemId(newItem.id);
         setTimeout(() => {
-            bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            const el = document.getElementById(`grammar-item-${newItem.id}`);
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+                bottomRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }
         }, 100);
     };
 
     const handleDeleteItem = (itemId) => {
         if (items.length <= 1) {
-            setItems([createEmptyItem()]);
+            const fresh = createEmptyItem();
+            setItems([fresh]);
+            setActiveItemId(fresh.id);
             return;
         }
-        setItems(prev => prev.filter(it => it.id !== itemId));
+        setItems(prev => {
+            const next = prev.filter(it => it.id !== itemId);
+            if (activeItemId === itemId) {
+                setActiveItemId(next[0]?.id || null);
+            }
+            return next;
+        });
     };
 
     // Example handlers
@@ -175,6 +218,7 @@ export const GrammarNotebookEditScreen = () => {
                 if (it.id !== itemId) return it;
                 return {
                     ...it,
+                    pattern: aiData.pattern || it.pattern,
                     meaning: aiData.meaning || (meaning && meaning.trim()) || it.meaning,
                     connection: aiData.connection || it.connection,
                     usageScope: aiData.usageScope || it.usageScope,
@@ -195,10 +239,10 @@ export const GrammarNotebookEditScreen = () => {
         }
     };
 
-    // Batch import callback
+    // Batch & JSON import callbacks
     const handleImportBatchItems = (newItems) => {
         const mapped = newItems.map((it, idx) => ({
-            id: `item_${Date.now()}_${idx}`,
+            id: it.id || `item_${Date.now()}_${idx}`,
             pattern: it.pattern || '',
             meaning: it.meaning || '',
             connection: it.connection || '',
@@ -207,9 +251,9 @@ export const GrammarNotebookEditScreen = () => {
             examples: it.examples || []
         }));
 
-        // Replace if current has only 1 blank item
         if (items.length === 1 && !items[0].pattern.trim() && !items[0].meaning.trim()) {
             setItems(mapped);
+            setActiveItemId(mapped[0]?.id || null);
         } else {
             setItems(prev => [...prev, ...mapped]);
         }
@@ -222,7 +266,7 @@ export const GrammarNotebookEditScreen = () => {
             return;
         }
 
-        const validItems = items.filter(it => it.pattern.trim() && it.meaning.trim());
+        const validItems = items.filter(it => it.pattern?.trim() && it.meaning?.trim());
         if (validItems.length === 0) {
             showToast('Sổ tay cần có ít nhất 1 mẫu ngữ pháp có Mẫu và Ý nghĩa.', 'warning');
             return;
@@ -238,7 +282,6 @@ export const GrammarNotebookEditScreen = () => {
             });
 
             showToast('Đã lưu sổ tay thành công!', 'success');
-            // Navigate directly to study flashcards as requested
             navigate(`/grammar/notebook/${saved.id}`);
         } catch (err) {
             console.error('Save error:', err);
@@ -260,12 +303,12 @@ export const GrammarNotebookEditScreen = () => {
     }
 
     return (
-        <div className="w-full pb-20 bg-transparent min-h-screen">
+        <div className="w-full pb-32 bg-transparent min-h-screen">
             <TopTabBar tabs={GRAMMAR_TABS} />
 
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 md:px-8 mt-4 space-y-6 animate-fade-in">
-                {/* Top Action Header */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 dark:border-slate-800 pb-4">
+            <div className="max-w-4xl mx-auto px-4 lg:px-8 mt-4 sm:mt-5 space-y-4 sm:space-y-4.5 animate-fade-in">
+                {/* Header Section: Matches Vocab Study Set */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="space-y-1">
                         <button
                             type="button"
@@ -276,90 +319,177 @@ export const GrammarNotebookEditScreen = () => {
                             <span>Sổ tay ngữ pháp</span>
                         </button>
                         <div className="flex items-center gap-2.5">
-                            <h1 className="text-xl sm:text-2xl font-black text-slate-900 dark:text-white tracking-tight">
-                                {notebookId ? 'Chỉnh sửa sổ tay' : 'Tạo sổ tay mới'}
-                            </h1>
-                            <span className="text-xs font-black text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/60 border border-sky-200 dark:border-sky-800 px-2.5 py-0.5 rounded-lg">
+                            <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-800 dark:text-white tracking-tight">
+                                {notebookId ? 'Chỉnh sửa sổ tay' : 'Thêm sổ tay mới'}
+                            </h2>
+                            <span className="text-xs font-bold text-sky-600 dark:text-sky-400 bg-sky-50 dark:bg-sky-950/60 border border-sky-200 dark:border-sky-800 px-2.5 py-0.5 rounded-xl">
                                 {validCount} mẫu hợp lệ
                             </span>
                         </div>
+                        <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm">
+                            {notebookId
+                                ? 'Cập nhật chi tiết và quản lý các mẫu ngữ pháp trong sổ tay này.'
+                                : 'Tạo lộ trình học tập của bạn với bộ sưu tập ngữ pháp tập trung.'}
+                        </p>
                     </div>
 
-                    <div className="flex items-center gap-2.5 self-start sm:self-center shrink-0 flex-wrap">
+                    {/* Top Action Buttons (HỦY + TẠO/LƯU SỔ TAY) */}
+                    <div className="flex items-center gap-2.5 shrink-0">
                         <button
                             type="button"
-                            onClick={handleAddItem}
-                            className="flex items-center gap-1.5 px-3.5 py-2.5 rounded-2xl bg-white dark:bg-slate-800 border-2 border-b-4 border-slate-200 dark:border-slate-700 text-sky-600 dark:text-sky-400 hover:border-sky-300 font-black text-xs shadow-xs transition-all cursor-pointer active:translate-y-0.5 active:border-b-2 select-none"
-                            title="Thêm mẫu ngữ pháp mới ở cuối sổ"
+                            onClick={() => navigate('/grammar/notebook')}
+                            className="px-5 py-2.5 text-xs font-bold uppercase tracking-wider rounded-2xl text-slate-700 bg-slate-100 hover:bg-slate-200 border-b-4 border-slate-300 dark:text-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer min-h-[42px] select-none"
                         >
-                            <Plus className="w-4 h-4 text-sky-500 stroke-[2.5]" />
-                            <span>Thêm mẫu</span>
+                            HỦY
+                        </button>
+                        <button
+                            type="button"
+                            onClick={handleSave}
+                            disabled={saving}
+                            className="px-6 py-2.5 text-xs font-black uppercase tracking-wider rounded-2xl text-white bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 shadow-sm transition-all disabled:opacity-50 flex items-center gap-1.5 cursor-pointer min-h-[42px] select-none"
+                        >
+                            {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Check className="w-4 h-4" />}
+                            <span>{saving ? 'ĐANG LƯU...' : (notebookId ? 'LƯU SỔ TAY' : 'TẠO SỔ TAY')}</span>
+                        </button>
+                    </div>
+                </div>
+
+                {/* Metadata Card: Matches Vocab Title & Description */}
+                <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 sm:p-6 md:p-7 shadow-sm border-2 border-slate-200 dark:border-slate-800">
+                    <div className="space-y-4 sm:space-y-5">
+                        <div>
+                            <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">
+                                TIÊU ĐỀ SỔ TAY <span className="text-rose-500">*</span>
+                            </label>
+                            <input
+                                type="text"
+                                value={title}
+                                onChange={(e) => setTitle(e.target.value)}
+                                placeholder="VD: Tổng hợp ngữ pháp N3, Mẫu câu chỉ mục đích, v.v..."
+                                className="w-full px-0 py-2.5 bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-sky-500 dark:focus:border-sky-400 text-2xl font-bold text-slate-800 dark:text-white outline-none placeholder-slate-400 transition-colors"
+                            />
+                        </div>
+                        <div>
+                            <label className="block text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1.5">
+                                THÊM MÔ TẢ
+                            </label>
+                            <input
+                                type="text"
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                                placeholder="Mô tả mục tiêu của bộ ngữ pháp này..."
+                                className="w-full px-0 py-2 bg-transparent border-b-2 border-slate-200 dark:border-slate-700 focus:border-sky-500 dark:focus:border-sky-400 text-base text-slate-600 dark:text-slate-200 outline-none placeholder-slate-400 transition-colors"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                {/* Tools Menu Row - Equal Symmetrical Spacing & Distinct Color */}
+                <div className="flex items-center justify-between relative z-20">
+                    <button
+                        type="button"
+                        onClick={handleAddItem}
+                        className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold rounded-2xl text-white bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer shadow-xs select-none"
+                    >
+                        <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
+                        <span>Thêm ngữ pháp</span>
+                    </button>
+
+                    <div className="flex items-center gap-2">
+                        <button
+                            type="button"
+                            onClick={() => setJsonModalOpen(true)}
+                            className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold rounded-2xl text-slate-700 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer select-none"
+                        >
+                            <FileJson className="w-3.5 h-3.5 text-sky-500" />
+                            <span>Nhập JSON</span>
                         </button>
 
                         <button
                             type="button"
                             onClick={() => setBatchModalOpen(true)}
-                            className="flex items-center gap-1.5 px-4 py-2.5 rounded-2xl bg-white dark:bg-slate-800 border-2 border-b-4 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:border-sky-300 font-black text-xs shadow-xs transition-all cursor-pointer active:translate-y-0.5 active:border-b-2 select-none"
+                            className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold rounded-2xl text-slate-700 dark:text-slate-200 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer select-none"
                         >
-                            <FileText className="w-4 h-4 text-sky-500" />
-                            <span>Nhập hàng loạt</span>
-                        </button>
-
-                        <button
-                            type="button"
-                            onClick={handleSave}
-                            disabled={saving}
-                            className="flex items-center gap-1.5 px-5 py-2.5 rounded-2xl bg-sky-500 hover:bg-sky-400 border-2 border-b-4 border-sky-700 text-white font-black text-xs sm:text-sm shadow-md transition-all cursor-pointer active:translate-y-0.5 active:border-b-2 disabled:opacity-50 select-none"
-                        >
-                            {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-                            <span>Lưu sổ tay</span>
+                            <Wrench className="w-3.5 h-3.5 text-sky-500" />
+                            <span>AI & Dán thô</span>
                         </button>
                     </div>
                 </div>
 
-                {/* Notebook Info Card (Title & Description) */}
-                <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 space-y-4 shadow-xs">
-                    <div>
-                        <label className="block text-[11px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
-                            TÊN SỔ TAY NGỮ PHÁP <span className="text-rose-500">*</span>
-                        </label>
-                        <input
-                            type="text"
-                            value={title}
-                            onChange={(e) => setTitle(e.target.value)}
-                            placeholder="VD: Tổng hợp ngữ pháp N3, Mẫu câu chỉ mục đích, v.v..."
-                            className="w-full text-base sm:text-lg font-bold px-4 py-3 bg-slate-50 dark:bg-slate-950 border-2 border-slate-200 dark:border-slate-800 rounded-2xl outline-none focus:border-sky-500 dark:text-white transition-colors"
-                        />
-                    </div>
-
-                    <div>
-                        <label className="block text-[11px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1.5">
-                            MÔ TẢ (TUỲ CHỌN)
-                        </label>
-                        <input
-                            type="text"
-                            value={description}
-                            onChange={(e) => setDescription(e.target.value)}
-                            placeholder="Mô tả mục tiêu học tập, thời hạn ôn tập của sổ tay này..."
-                            className="w-full text-xs sm:text-sm font-medium px-4 py-2.5 bg-slate-50 dark:bg-slate-950 border-2 border-slate-200 dark:border-slate-800 rounded-2xl outline-none focus:border-sky-500 dark:text-white transition-colors"
-                        />
-                    </div>
-                </div>
-
-                {/* Grammar Item Cards List (Matches Image 3 & Image 4) */}
-                <div className="space-y-5">
+                {/* Grammar Item Cards List (Compact by default, click to expand) */}
+                <div className="space-y-3 sm:space-y-3.5">
                     {items.map((item, idx) => {
+                        const isActive = activeItemId === item.id;
                         const isAiLoading = aiLoadingMap[item.id];
+
+                        // COMPACT VIEW: Matches Vocab compact cards
+                        if (!isActive) {
+                            return (
+                                <div
+                                    key={item.id}
+                                    id={`grammar-item-${item.id}`}
+                                    className="bg-white dark:bg-slate-900 rounded-2xl sm:rounded-3xl p-3.5 sm:p-6 shadow-md border border-slate-200 dark:border-slate-800 hover:shadow-lg cursor-pointer transition-all group flex items-start gap-3 sm:gap-4 select-none"
+                                    onClick={() => handleActivateItem(item.id)}
+                                >
+                                    <div className="flex items-center justify-center w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold text-xs sm:text-sm shrink-0">
+                                        {idx + 1}
+                                    </div>
+                                    <div className="flex-1 grid grid-cols-2 gap-2.5 sm:gap-6 min-w-0">
+                                        <div className="border-b border-slate-100 dark:border-slate-800 pb-1.5 sm:pb-2 min-w-0">
+                                            <p className={`text-sm sm:text-lg font-bold font-japanese ${item.pattern ? 'text-slate-800 dark:text-slate-200' : 'text-slate-400 dark:text-slate-500 italic'} truncate`}>
+                                                {item.pattern || 'Mẫu ngữ pháp (〜...)'}
+                                            </p>
+                                            <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 mt-0.5 uppercase tracking-wider">
+                                                MẪU NGỮ PHÁP
+                                            </p>
+                                        </div>
+                                        <div className="border-b border-slate-100 dark:border-slate-800 pb-1.5 sm:pb-2 min-w-0">
+                                            <p className={`text-sm sm:text-lg font-bold ${item.meaning ? 'text-slate-800 dark:text-slate-200' : 'text-slate-400 dark:text-slate-500 italic'} truncate`}>
+                                                {item.meaning || 'Ý nghĩa ngữ pháp'}
+                                            </p>
+                                            <p className="text-[9px] sm:text-[10px] font-bold text-slate-400 mt-0.5 uppercase tracking-wider">
+                                                Ý NGHĨA
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <button
+                                        type="button"
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            handleDeleteItem(item.id);
+                                        }}
+                                        className="p-1.5 text-slate-300 hover:text-rose-500 dark:text-slate-600 dark:hover:text-rose-400 opacity-80 sm:opacity-0 group-hover:opacity-100 transition-opacity min-h-[36px] min-w-[36px] flex items-center justify-center cursor-pointer shrink-0"
+                                        title="Xóa mẫu"
+                                    >
+                                        <Trash2 className="w-4 h-4" />
+                                    </button>
+                                </div>
+                            );
+                        }
+
+                        // EXPANDED DETAILED VIEW
                         return (
                             <div
                                 key={item.id}
-                                className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden shadow-xs transition-all hover:border-slate-300 dark:hover:border-slate-700"
+                                id={`grammar-item-${item.id}`}
+                                className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xs border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl overflow-hidden shadow-md transition-all hover:border-slate-300 dark:hover:border-slate-700"
                             >
                                 {/* Card Header */}
                                 <div className="bg-sky-50/70 dark:bg-sky-950/30 px-5 py-3 border-b border-slate-200 dark:border-slate-800/80 flex items-center justify-between">
-                                    <span className="font-black text-xs text-sky-700 dark:text-sky-300 uppercase tracking-wider">
-                                        Mẫu #{idx + 1}
-                                    </span>
+                                    <div className="flex items-center gap-2.5">
+                                        <span className="font-black text-xs text-sky-700 dark:text-sky-300 uppercase tracking-wider">
+                                            Mẫu #{idx + 1}
+                                        </span>
+                                        <button
+                                            type="button"
+                                            onClick={() => setActiveItemId(null)}
+                                            className="inline-flex items-center gap-1 text-[11px] font-bold text-sky-600 dark:text-sky-400 hover:text-sky-700 dark:hover:text-sky-300 px-2 py-0.5 rounded-lg hover:bg-sky-100/60 dark:hover:bg-sky-900/40 cursor-pointer transition-colors"
+                                            title="Thu gọn mẫu này"
+                                        >
+                                            <ChevronUp className="w-3.5 h-3.5" />
+                                            <span>Thu gọn</span>
+                                        </button>
+                                    </div>
                                     <button
                                         type="button"
                                         onClick={() => handleDeleteItem(item.id)}
@@ -438,7 +568,7 @@ export const GrammarNotebookEditScreen = () => {
                                                 type="text"
                                                 value={item.connection}
                                                 onChange={(e) => handleUpdateItem(item.id, 'connection', e.target.value)}
-                                                placeholder="Vて + から"
+                                                placeholder="V-て + から"
                                                 className="w-full text-xs sm:text-sm font-japanese px-3.5 py-2.5 bg-slate-50 dark:bg-slate-950 border-2 border-slate-200 dark:border-slate-800 rounded-2xl outline-none focus:border-sky-500 dark:text-white"
                                             />
                                         </div>
@@ -504,7 +634,7 @@ export const GrammarNotebookEditScreen = () => {
                                                                     type="text"
                                                                     value={ex.ja}
                                                                     onChange={(e) => handleUpdateExample(item.id, exIdx, 'ja', e.target.value)}
-                                                                    placeholder="Câu ví dụ tiếng Nhật..."
+                                                                    placeholder="Câu ví dụ tiếng Nhật (kèm ngoặc đọc)..."
                                                                     className="w-full text-xs sm:text-sm font-japanese px-2.5 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl outline-none focus:border-sky-500 dark:text-white"
                                                                 />
                                                                 {ex.ja && (
@@ -545,35 +675,68 @@ export const GrammarNotebookEditScreen = () => {
                     })}
                 </div>
 
-                {/* Big Button: Thêm mẫu ngữ pháp */}
-                <button
-                    type="button"
-                    onClick={handleAddItem}
-                    className="w-full py-3.5 rounded-3xl bg-white/95 dark:bg-slate-900/95 border-2 border-b-4 border-dashed border-sky-400/80 dark:border-sky-600/80 text-sky-600 dark:text-sky-400 hover:bg-sky-50/50 dark:hover:bg-sky-950/30 font-black text-sm flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer active:translate-y-0.5 active:border-b-2 select-none"
-                >
-                    <Plus className="w-5 h-5 stroke-[2.5]" />
-                    <span>Thêm mẫu ngữ pháp</span>
-                </button>
+                {/* Big Button: Thêm mẫu ngữ pháp mới (Centered like Vocab) */}
+                <div className="pt-1 flex justify-center">
+                    <button
+                        type="button"
+                        onClick={handleAddItem}
+                        className="flex flex-col items-center justify-center gap-1.5 py-3.5 px-4 rounded-2xl bg-white dark:bg-slate-900 border-2 border-dashed border-slate-300 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:text-sky-500 hover:border-sky-400 dark:hover:border-sky-500 hover:bg-sky-50/20 font-bold text-xs sm:text-sm w-full transition-all cursor-pointer"
+                    >
+                        <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
+                        <span>THÊM MẪU NGỮ PHÁP MỚI</span>
+                    </button>
+                </div>
                 <div ref={bottomRef} className="h-4" />
 
-                {/* Footer Note & Save Button (Matches Image 3 & Image 4) */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pt-4 border-t border-slate-200 dark:border-slate-800">
-                    <p className="text-xs text-slate-500 dark:text-slate-400 font-medium leading-relaxed max-w-xl">
-                        Mỗi mẫu cần có ít nhất <strong>Mẫu ngữ pháp</strong> và <strong>Ý nghĩa</strong>. Các trường khác tuỳ chọn. Lưu xong sẽ chuyển sang học flashcard.
-                    </p>
+                {/* Bottom Actions for Desktop: Matches Vocab Set */}
+                <div className="hidden md:flex items-center justify-end gap-3 pt-4 border-t border-slate-200 dark:border-slate-800">
+                    <button
+                        type="button"
+                        onClick={() => navigate('/grammar/notebook')}
+                        className="px-5 py-2.5 text-xs font-bold uppercase tracking-wider rounded-2xl text-slate-700 bg-slate-100 hover:bg-slate-200 border-b-4 border-slate-300 dark:text-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer select-none"
+                    >
+                        HỦY
+                    </button>
                     <button
                         type="button"
                         onClick={handleSave}
                         disabled={saving}
-                        className="self-end sm:self-center flex items-center gap-2 px-7 py-3 rounded-2xl bg-sky-500 hover:bg-sky-400 border-2 border-b-4 border-sky-700 text-white font-black text-sm shadow-md transition-all cursor-pointer active:translate-y-0.5 active:border-b-2 disabled:opacity-50 select-none shrink-0"
+                        className="px-6 py-2.5 text-xs font-black uppercase tracking-wider rounded-2xl text-white bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 shadow-sm transition-all disabled:opacity-50 flex items-center gap-2 cursor-pointer select-none"
                     >
-                        {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
-                        <span>Lưu</span>
+                        {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Check className="w-4 h-4" />}
+                        <span>{saving ? 'ĐANG LƯU...' : (notebookId ? 'LƯU SỔ TAY' : 'TẠO SỔ TAY')}</span>
                     </button>
                 </div>
             </div>
 
-            {/* Batch Import Modal */}
+            {/* Bottom floating action bar on mobile: Matches Vocab Set */}
+            <div className="fixed bottom-0 left-0 right-0 p-4 bg-white/98 dark:bg-slate-900/98 backdrop-blur-md border-t border-slate-200 dark:border-slate-800 shadow-xl md:hidden z-50 flex gap-3 pb-[max(1rem,env(safe-area-inset-bottom,1rem))]">
+                <button
+                    type="button"
+                    onClick={() => navigate('/grammar/notebook')}
+                    className="flex-1 px-4 py-3 text-xs font-bold uppercase tracking-wider rounded-2xl text-slate-700 bg-slate-100 hover:bg-slate-200 border-b-4 border-slate-300 dark:text-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 transition-all flex items-center justify-center cursor-pointer select-none"
+                >
+                    HỦY
+                </button>
+                <button
+                    type="button"
+                    onClick={handleSave}
+                    disabled={saving}
+                    className="flex-1 px-4 py-3 text-xs font-black uppercase tracking-wider rounded-2xl text-white bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 transition-all disabled:opacity-50 flex items-center justify-center shadow-sm cursor-pointer select-none"
+                >
+                    {saving ? <Loader2 className="w-4 h-4 animate-spin mr-1.5" /> : <Check className="w-4 h-4 mr-1.5" />}
+                    <span>{saving ? 'ĐANG LƯU...' : (notebookId ? 'LƯU SỔ TAY' : 'TẠO SỔ TAY')}</span>
+                </button>
+            </div>
+
+            {/* Manual JSON Import Modal */}
+            <GrammarJsonImportModal
+                isOpen={jsonModalOpen}
+                onClose={() => setJsonModalOpen(false)}
+                onImport={handleImportBatchItems}
+            />
+
+            {/* Batch AI / Raw Text Modal */}
             <GrammarNotebookBatchModal
                 isOpen={batchModalOpen}
                 onClose={() => setBatchModalOpen(false)}
@@ -584,4 +747,3 @@ export const GrammarNotebookEditScreen = () => {
 };
 
 export default GrammarNotebookEditScreen;
-

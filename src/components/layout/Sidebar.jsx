@@ -159,6 +159,15 @@ const Sidebar = ({
 
     const unreadChatCount = useChatUnreadCount(userId, isAdmin);
 
+    const isEditOrCreationPage = useMemo(() => {
+        const p = location.pathname;
+        return p.startsWith('/vocab/edit-set') ||
+            p.startsWith('/vocab/add') ||
+            p.startsWith('/vocab/quick-add') ||
+            p.startsWith('/grammar/notebook/create') ||
+            (p.startsWith('/grammar/notebook/') && p.endsWith('/edit'));
+    }, [location.pathname]);
+
     const isPremium = useMemo(() => {
         if (isPremiumProp === true) return true;
         if (!profile) return false;
@@ -1027,7 +1036,7 @@ const Sidebar = ({
             )}
 
             {/* Mobile Bottom Navigation Bar - Fixed at bottom matching iOS native proportion */}
-            {!isReviewActive && !isRealExamActive && (
+            {!isReviewActive && !isRealExamActive && !isEditOrCreationPage && (
                 <nav 
                     className="lg:hidden fixed bottom-0 left-0 right-0 z-30 bg-white/98 dark:bg-slate-900/98 backdrop-blur-md border-t border-slate-200/80 dark:border-slate-800/80 shadow-[0_-2px_12px_rgba(0,0,0,0.04)] dark:shadow-[0_-4px_20px_rgba(0,0,0,0.3)] transition-colors select-none"
                     style={{

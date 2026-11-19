@@ -349,17 +349,19 @@ ${dbMatchInfo}
 ${meaningInstruction}
 
 QUY TẮC BẮT BUỘC (CỰC KỲ QUAN TRỌNG):
+0. pattern: Chuẩn hóa mẫu ngữ pháp. Nếu mẫu có chứa chữ Hán Kanji, BẮT BUỘC ghi kèm cách đọc Hiragana trong ngoặc đơn ngay sau chữ Hán dạng 漢字(かんじ) (Ví dụ: '〜並(な)み', '〜込(こ)む', '〜際(さい)に', '〜得(え)る', '〜通(とお)して').
 1. meaning: Ý nghĩa tiếng Việt cốt lõi, ngắn gọn nhất (chỉ 1 câu, dưới 15 từ, tự nhiên, dễ hiểu, TUYỆT ĐỐI không viết dài dòng). ${trimmedMeaning ? `Bám sát ý nghĩa: "${trimmedMeaning}".` : ''}
-2. connection: Công thức kết nối TỐI GIẢN, GỌN GÀNG NHẤT. Dùng dấu gạch chéo '/' để gom các thể từ loại. TUYỆT ĐỐI KHÔNG lặp lại tên mẫu ngữ pháp nhiều lần.
+2. connection: Công thức kết nối TỐI GIẢN, GỌN GÀNG NHẤT (có Kanji thì kèm ngoặc cách đọc, ví dụ: 'N + 並(な)み'). Dùng dấu gạch chéo '/' để gom các thể từ loại. TUYỆT ĐỐI KHÔNG lặp lại tên mẫu ngữ pháp nhiều lần.
    - Ví dụ ĐÚNG: "V-る / V-ない / Nの / A-い / A-な + うちに"
    - Ví dụ SAI BỊ CẤM: "Vる + うちに Nの + うちに Aい + うちに..."
 3. usageScope: Tối đa 1-2 câu ngắn, nêu thẳng vào tình huống dùng cốt lõi nhất của đúng cách dùng này.
 4. notes: Mẹo nhớ hoặc lưu ý ngắn (tối đa 1 câu dưới 20 từ. Để trống "" nếu không có).
-5. examples: Đúng 2 câu ví dụ ngắn, giao tiếp thực tế đời thường. 'ja' là tiếng Nhật có kanji kèm furigana trong ngoặc đơn nếu có chữ khó ví dụ: '若(わか)い'. 'vi' là dịch nghĩa tiếng Việt tự nhiên và PHẢI DỊCH THEO ĐÚNG Ý NGHĨA YÊU CẦU. TUYỆT ĐỐI KHÔNG chứa bất kỳ thẻ HTML nào như <b>, </b>, <i>.
+5. examples: Đúng 2 câu ví dụ ngắn, giao tiếp thực tế đời thường. 'ja' là tiếng Nhật có kanji thì BẮT BUỘC kèm ngoặc cách đọc Hiragana cho các chữ Hán dạng 漢字(かんじ), ví dụ: '若(わか)い', '荷物(にもつ)をトランクに詰(つ)め込(こ)む'. 'vi' là dịch nghĩa tiếng Việt tự nhiên và PHẢI DỊCH THEO ĐÚNG Ý NGHĨA YÊU CẦU. TUYỆT ĐỐI KHÔNG chứa bất kỳ thẻ HTML nào như <b>, </b>, <i>.
 
 ĐỊNH DẠNG TRẢ VỀ:
 Chỉ trả về DUY NHẤT một chuỗi JSON hợp lệ, KHÔNG có thẻ markdown bọc ngoài (\`\`\`json):
 {
+  "pattern": "...",
   "meaning": "...",
   "connection": "...",
   "usageScope": "...",
@@ -381,6 +383,7 @@ Chỉ trả về DUY NHẤT một chuỗi JSON hợp lệ, KHÔNG có thẻ mark
     try {
         const parsed = JSON.parse(clean);
         return {
+            pattern: stripHtml(parsed.pattern || ''),
             meaning: stripHtml(parsed.meaning || ''),
             connection: stripHtml(parsed.connection || ''),
             usageScope: stripHtml(parsed.usageScope || ''),
@@ -411,12 +414,12 @@ Hãy tạo danh sách khoảng ${count} mẫu ngữ pháp tiếng Nhật dựa t
 "${topicOrText.trim()}"
 
 QUY TẮC BẮT BUỘC:
-- pattern: Mẫu ngữ pháp tiếng Nhật (VD: 〜てから, 〜うちに)
+- pattern: Mẫu ngữ pháp. Nếu có chữ Hán Kanji, BẮT BUỘC ghi kèm cách đọc Hiragana trong ngoặc đơn ngay sau chữ Hán (Ví dụ: '〜並(な)み', '〜込(こ)む', '〜際(さい)に')
 - meaning: Ý nghĩa tiếng Việt cốt lõi, ngắn gọn (chỉ 1 câu, dưới 15 từ)
-- connection: Công thức tối giản, gom thể bằng '/' (VD: "V-る / V-ない / Nの + うちに"), TUYỆT ĐỐI KHÔNG lặp lại tên mẫu ngữ pháp
+- connection: Công thức tối giản, gom thể bằng '/' (VD: "V-る / V-ない / Nの + うちに", "N + 並(な)み"), có Kanji thì kèm ngoặc cách đọc
 - usageScope: Tối đa 1-2 câu ngắn gọn
 - notes: Tối đa 1 câu ngắn hoặc để trống ""
-- examples: 1-2 câu ví dụ ngắn, thực tế, KHÔNG chứa bất kỳ thẻ HTML nào (<b>, </b>)
+- examples: 1-2 câu ví dụ ngắn, thực tế, câu tiếng Nhật 'ja' nếu có chữ Hán Kanji thì BẮT BUỘC kèm ngoặc cách đọc Hiragana trong ngoặc đơn (Ví dụ: '彼(かれ)は素人(しろうと)だが...'), KHÔNG chứa bất kỳ thẻ HTML nào (<b>, </b>)
 
 ĐỊNH DẠNG TRẢ VỀ:
 Chỉ trả về DUY NHẤT một chuỗi JSON hợp lệ là một mảng [] các object, KHÔNG có thẻ markdown:
