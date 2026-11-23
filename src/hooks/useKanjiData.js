@@ -662,6 +662,7 @@ export const useKanjiData = ({
             if (cleanSino.startsWith(query)) return 1;
             if (cleanSino.includes(query)) return 2;
             if (char === query) return 3;
+            if (query.includes(char)) return 3.5;
             if (cleanMeaning === query) return 4;
             if (cleanMeaning.includes(query)) return 5;
             if (meanings?.some(m => m && String(m).toLowerCase().includes(query))) return 5;
@@ -715,7 +716,7 @@ export const useKanjiData = ({
             const strokeB = getJotobaKanjiData(b.character)?.stroke_count || 999;
             return strokeA - strokeB;
         });
-        return allResults.slice(0, 20);
+        return allResults.slice(0, 50);
     }, [kanjiList, searchQuery]);
 
     const handleSelectSearchResult = (kanji) => {

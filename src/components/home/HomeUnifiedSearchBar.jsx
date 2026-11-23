@@ -32,6 +32,7 @@ import HomeGrammarDetailModal from './HomeGrammarDetailModal';
 import HomeKanjiHandwritingModal from './HomeKanjiHandwritingModal';
 import HomeSentenceTranslateCard from './HomeSentenceTranslateCard';
 import { isSentenceCandidate } from '../../services/sentenceTranslationService';
+import { computeSinoVietnameseForWord, getSinoVietnamese } from '../../utils/kanjiHVLookup';
 
 const removeTones = (str) => {
     if (!str) return '';
@@ -296,44 +297,94 @@ export default function HomeUnifiedSearchBar({
                     viVocabMatches = viVocabMatches.slice(0, 20);
                 }
 
-                // 2. Kanji Search via In-Memory JOTOBA_KANJI_DATA
+                // 2. Kanji Search: Unified DB + Jotoba + Direct Kanji Extraction
                 const matchingKanji = [];
+                const seenKanjiChars = new Set();
+
+                // 2.1 First: Extract all Kanji characters present directly in the query (in the exact order the user typed / pasted)
+                const kanjiRegex = /[\u4e00-\u9faf\u3400-\u4dbf]/g;
+                const rawCharsInQuery = trimmed.match(kanjiRegex) || [];
+                const orderedQueryChars = [];
+                for (const c of rawCharsInQuery) {
+                    if (!seenKanjiChars.has(c)) {
+                        seenKanjiChars.add(c);
+                        orderedQueryChars.push(c);
+                    }
+                }
+
+                // Add all characters found directly in query with highest priority in their exact pasted order
+                orderedQueryChars.forEach((char, idx) => {
+                    const canonicalDoc = canonicalKanjiMapRef.current?.get(char);
+                    const jData = JOTOBA_KANJI_DATA[char];
+                    const sinoViet = canonicalDoc?.sinoViet || jData?.sinoViet || getSinoVietnamese(char) || computeSinoVietnameseForWord(char) || '';
+                    const meaning = canonicalDoc?.meaning || canonicalDoc?.meaningVi || jData?.meaningVi || (jData?.meanings || []).join(', ') || '';
+                    const level = canonicalDoc?.level || (jData?.jlpt ? `N${jData.jlpt}` : 'Mở rộng');
+                    const strokeCount = canonicalDoc?.strokeCount || jData?.stroke_count || null;
+
+                    matchingKanji.push({
+                        ...(jData || {}),
+                        ...(canonicalDoc || {}),
+                        id: canonicalDoc?.id || `kanji_${char}`,
+                        character: char,
+                        literal: char,
+                        sinoViet: String(sinoViet).toUpperCase(),
+                        meaning: meaning,
+                        meaningVi: meaning,
+                        level: level,
+                        strokeCount: strokeCount,
+                        stroke_count: strokeCount,
+                        _score: 2000 - idx // Preserves exact user paste order!
+                    });
+                });
+
+                // 2.2 Next: Search by Sino-Vietnamese, Meaning, Onyomi/Kunyomi across all DB + Jotoba kanji
+                const allAvailableKanjiMap = new Map();
                 for (const k of allKanjiEntries) {
                     const char = k.literal || '';
-                    if (!char) continue;
+                    if (char) allAvailableKanjiMap.set(char, k);
+                }
+                if (canonicalKanjiMapRef.current) {
+                    canonicalKanjiMapRef.current.forEach((dbDoc, char) => {
+                        const existing = allAvailableKanjiMap.get(char) || {};
+                        allAvailableKanjiMap.set(char, { ...existing, ...dbDoc, literal: char, character: char });
+                    });
+                }
+
+                for (const [char, k] of allAvailableKanjiMap.entries()) {
+                    if (seenKanjiChars.has(char)) continue;
 
                     let score = 0;
-                    if (char === trimmed) score = 100;
-                    else if (trimmed.includes(char)) score = 80;
+                    const sino = removeTones(k.sinoViet || '');
+                    const mVi = removeTones(k.meaningVi || k.meaning || '');
+                    if (sino === normQ) score = 90;
+                    else if (sino.startsWith(normQ)) score = 70;
+                    else if (sino.includes(normQ)) score = 50;
+                    else if (mVi === normQ) score = 65;
+                    else if (mVi.includes(normQ)) score = 45;
                     else {
-                        const sino = removeTones(k.sinoViet || '');
-                        const mVi = removeTones(k.meaningVi || '');
-                        if (sino === normQ) score = 90;
-                        else if (sino.startsWith(normQ)) score = 70;
-                        else if (sino.includes(normQ)) score = 50;
-                        else if (mVi === normQ) score = 65;
-                        else if (mVi.includes(normQ)) score = 45;
-                        else {
-                            const onyomi = (k.onyomi || []).join(' ').toLowerCase();
-                            const kunyomi = (k.kunyomi || []).join(' ').toLowerCase();
-                            if (onyomi.includes(normPatternQ) || kunyomi.includes(normPatternQ)) {
-                                score = 40;
-                            }
+                        const onyomi = (Array.isArray(k.onyomi) ? k.onyomi.join(' ') : (k.onyomi || '')).toLowerCase();
+                        const kunyomi = (Array.isArray(k.kunyomi) ? k.kunyomi.join(' ') : (k.kunyomi || '')).toLowerCase();
+                        if (onyomi.includes(normPatternQ) || kunyomi.includes(normPatternQ)) {
+                            score = 40;
                         }
                     }
 
                     if (score > 0) {
-                        const canonicalDoc = canonicalKanjiMapRef.current.get(char);
+                        seenKanjiChars.add(char);
+                        const canonicalDoc = canonicalKanjiMapRef.current?.get(char);
                         matchingKanji.push({
                             ...k,
-                            id: canonicalDoc?.id || k.id,
+                            id: canonicalDoc?.id || k.id || `kanji_${char}`,
                             character: char,
+                            literal: char,
+                            sinoViet: String(k.sinoViet || canonicalDoc?.sinoViet || getSinoVietnamese(char) || '').toUpperCase(),
                             _score: score
                         });
                     }
                 }
+
                 matchingKanji.sort((a, b) => b._score - a._score);
-                const topKanji = matchingKanji.slice(0, 20);
+                const topKanji = matchingKanji.slice(0, 50); // Increased limit from 20 to 50!
 
                 // 3. Grammar Search via In-Memory Grammar Points
                 const gList = grammarListRef.current || [];
