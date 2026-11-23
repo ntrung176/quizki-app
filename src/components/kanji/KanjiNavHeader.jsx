@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Search, PenTool, RotateCcw, X, RefreshCw, Upload, Plus, Layers, CheckSquare, Square, Wand2, Lock, Wrench, ChevronDown, Trash2, Filter } from 'lucide-react';
+import { Search, PenTool, RotateCcw, X, RefreshCw, Upload, Plus, Layers, CheckSquare, Square, Wand2, Lock, Wrench, ChevronDown, Trash2, Filter, Sparkles } from 'lucide-react';
 import { JLPT_LEVELS, LEVEL_TAB_COLORS } from './kanjiConstants';
 
 const KanjiNavHeader = ({
@@ -34,6 +34,8 @@ const KanjiNavHeader = ({
     setShowAddVocabModal,
     setShowCategoryModal,
     handleSyncVocabToKanji,
+    handleEnrichExtendedKanjiWithAI,
+    enrichingExtendedKanji,
     handleAutoFixVocabSinoViet,
     fixingSinoViet,
     handleBatchGenerateAiVocabForNoVocabKanji,
@@ -65,7 +67,7 @@ const KanjiNavHeader = ({
     const hasKanjiAccess = isAdmin || isUserAdmin || profile?.isPremiumUnlocked || profile?.isPremium || (profile?.unlockedSpecializedPackages || []).includes('kanji_zen') || (profile?.unlockedSpecializedPackages || []).includes('premium');
 
     const handleLevelChange = (level) => {
-        const isLocked = level !== 'N5' && !['Bộ thủ', 'Mới thêm', 'Chưa có từ vựng', 'Đã có từ vựng'].includes(level) && !hasKanjiAccess;
+        const isLocked = level !== 'N5' && !['Mở rộng', 'Bộ thủ', 'Mới thêm', 'Chưa có từ vựng', 'Đã có từ vựng'].includes(level) && !hasKanjiAccess;
         if (isLocked) {
             setLockedPkgName('Thư viện Kanji Zen');
             setShowPremiumModal(true);
@@ -80,6 +82,7 @@ const KanjiNavHeader = ({
             label: lvl,
             isLocked: lvl !== 'N5' && !hasKanjiAccess
         })),
+        { value: 'Mở rộng', label: 'Mở rộng', isLocked: !hasKanjiAccess },
         { value: 'Bộ thủ', label: 'Bộ thủ (214)', isLocked: false },
         ...(isUserAdmin ? [
             { value: 'Mới thêm', label: 'Mới thêm (Admin)', isLocked: false },
@@ -319,8 +322,20 @@ const KanjiNavHeader = ({
                                             <div className="w-6 h-6 rounded-lg bg-amber-100 dark:bg-amber-950 flex items-center justify-center text-amber-600 shrink-0">
                                                 <RefreshCw className="w-3.5 h-3.5" />
                                             </div>
-                                            <span>Đồng bộ Hán tự thiếu</span>
+                                            <span>Đồng bộ Hán tự mở rộng</span>
                                         </button>
+                                        {handleEnrichExtendedKanjiWithAI && (
+                                            <button
+                                                onClick={() => { handleEnrichExtendedKanjiWithAI(); setAdminMenuOpen(false); }}
+                                                disabled={enrichingExtendedKanji}
+                                                className="w-full px-2.5 py-2 hover:bg-sky-50 dark:hover:bg-sky-950/40 text-slate-700 dark:text-slate-200 hover:text-sky-700 dark:hover:text-sky-300 rounded-xl text-xs font-semibold transition-all flex items-center gap-2.5 cursor-pointer text-left disabled:opacity-50"
+                                            >
+                                                <div className="w-6 h-6 rounded-lg bg-sky-100 dark:bg-sky-950 flex items-center justify-center text-sky-600 shrink-0">
+                                                    <Sparkles className={`w-3.5 h-3.5 ${enrichingExtendedKanji ? 'animate-spin' : ''}`} />
+                                                </div>
+                                                <span>AI Chuẩn hóa Hán tự Mở rộng</span>
+                                            </button>
+                                        )}
                                     </div>
 
                                     {/* Section 3: CDN & Di trú */}

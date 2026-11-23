@@ -316,7 +316,7 @@ export async function renderMaziiStyleKanji(container, char, options = {}) {
     const data = await fetchKanjiSvg(char);
     if (!data || !container) {
         container.innerHTML = `<span style="font-size:min(80%, 180px);color:#334155;line-height:1;display:flex;align-items:center;justify-content:center;width:100%;height:100%">${char}</span>`;
-        return { replay: () => { }, stop: () => { }, hasData: false };
+        return { replay: () => { }, stop: () => { }, hasData: false, strokeCount: 0 };
     }
 
     let stopped = false;
@@ -447,7 +447,7 @@ export async function renderMaziiStyleKanji(container, char, options = {}) {
     }
 
     animate();
-    return { replay, stop, hasData: true };
+    return { replay, stop, hasData: true, strokeCount: strokes.length };
 }
 
 

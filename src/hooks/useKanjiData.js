@@ -18,7 +18,8 @@ import { JOTOBA_KANJI_DATA, getJotobaKanjiChars, getJotobaKanjiData } from '../d
 import kanjiComponents from '../data/kanjiComponents.json' with { type: 'json' };
 import openjlptKanjiVocab from '../data/openjlptKanjiVocab.json' with { type: 'json' };
 import { computeSinoVietnameseForWord } from '../utils/kanjiHVLookup';
-import { generateVocabForKanjiWithAI } from '../utils/aiProvider';
+import { generateVocabForKanjiWithAI, aiEnrichKanjiBatch } from '../utils/aiProvider';
+import { fetchKanjiSvg } from '../utils/kanjiStroke';
 import { ROUTES } from '../router';
 
 export const useKanjiData = ({
@@ -67,6 +68,8 @@ export const useKanjiData = ({
     const [migratingComponents, setMigratingComponents] = useState(false);
     const [fixingSinoViet, setFixingSinoViet] = useState(false);
     const [generatingAiVocab, setGeneratingAiVocab] = useState(false);
+    const [enrichingExtendedKanji, setEnrichingExtendedKanji] = useState(false);
+    const [enrichingSingleKanji, setEnrichingSingleKanji] = useState(false);
 
     // Vocab Categories
     const [vocabCategories, setVocabCategories] = useState(() => getCachedVocabCategories() || []);
@@ -1255,18 +1258,33 @@ export const useKanjiData = ({
         const kanjiInVocab = new Set();
         pureKanjiVocabList.forEach(v => {
             const chars = (v.word || '').match(/[\u4e00-\u9faf]/g) || [];
-            chars.forEach(c => kanjiInVocab.add(c));
+            chars.forEach(c => kanjiInVocab.add(c.trim()));
         });
 
-        const missingKanji = [...kanjiInVocab].filter(char => !kanjiList.some(k => (k.character || '').trim() === char.trim()));
-        if (missingKanji.length === 0) {
-            showToast('Tất cả chữ Hán tự trong từ vựng đã tồn tại trong cơ sở dữ liệu!', 'info');
+        // 1. Chữ mới hoàn toàn chưa có trong DB
+        const missingKanji = [...kanjiInVocab].filter(char => !kanjiList.some(k => (k.character || '').trim() === char));
+
+        // 2. Chữ đã có trong DB nhưng là placeholder / dữ liệu lỗi từ lần đồng bộ trước (gán nhầm N1, nghĩa dummy hoặc thiếu thông tin)
+        const corruptedKanji = kanjiList.filter(k => {
+            const char = (k.character || '').trim();
+            if (!char) return false;
+            const isJotobaStandard = Boolean(getJotobaKanjiData(char));
+            const isOldSyncPlaceholder = (k.meaning || '').includes('đồng bộ') || (k.meaningVi || '').includes('đồng bộ');
+            const isDummyMeaning = k.meaning === 'Hán tự mở rộng' || k.meaningVi === 'Hán tự mở rộng' || !k.meaning || !k.meaningVi;
+            const isTrappedInN1 = !isJotobaStandard && k.level === 'N1';
+            const isExtendedIncomplete = k.level === 'Mở rộng' && (!k.sinoViet || isDummyMeaning || !k.mnemonic);
+            return isOldSyncPlaceholder || isTrappedInN1 || isExtendedIncomplete;
+        });
+
+        const totalNeedSync = missingKanji.length + corruptedKanji.length;
+        if (totalNeedSync === 0) {
+            showToast('Tất cả chữ Hán tự trong từ vựng đã tồn tại và chuẩn hóa đầy đủ!', 'info');
             return;
         }
 
         const confirmed = await showConfirm(
-            `Tìm thấy ${missingKanji.length} chữ Hán tự trong từ vựng chưa có trong cơ sở dữ liệu. Bạn có muốn đồng bộ không?`,
-            { type: 'info', confirmText: 'Đồng bộ' }
+            `Tìm thấy ${missingKanji.length} chữ Hán tự mới và ${corruptedKanji.length} chữ Hán tự cần chuyển vào mục "Mở rộng" & chuẩn hóa dữ liệu. Bạn có muốn thực hiện không?`,
+            { type: 'info', confirmText: 'Đồng bộ Mở rộng' }
         );
         if (!confirmed) return;
 
@@ -1275,37 +1293,42 @@ export const useKanjiData = ({
             const now = Date.now();
             const addedKanjiList = [];
 
-            for (let i = 0; i < missingKanji.length; i += BATCH_SIZE) {
+            // Gộp tất cả các chữ cần xử lý
+            const allToProcessChars = Array.from(new Set([
+                ...missingKanji,
+                ...corruptedKanji.map(k => (k.character || '').trim())
+            ])).filter(Boolean);
+
+            for (let i = 0; i < allToProcessChars.length; i += BATCH_SIZE) {
                 const batch = writeBatch(db);
-                const chunk = missingKanji.slice(i, i + BATCH_SIZE);
+                const chunk = allToProcessChars.slice(i, i + BATCH_SIZE);
 
                 for (const rawChar of chunk) {
                     const char = rawChar.trim();
                     const canonicalId = `kanji_${char}`;
-                    const docRef = doc(db, 'kanji', canonicalId);
+                    const existing = kanjiList.find(k => (k.character || '').trim() === char) || {};
+                    const docRef = doc(db, 'kanji', existing.id || canonicalId);
                     const k = getJotobaKanjiData(char);
-                    let kanjiData = k ? {
-                        id: canonicalId,
+                    const partsArr = kanjiComponents[char] || k?.parts || existing.parts || [];
+                    const sinoVietName = (k?.sinoViet || computeSinoVietnameseForWord(char) || existing.sinoViet || '').toUpperCase();
+
+                    let finalMeaning = k?.meaningVi || (existing.meaning && !existing.meaning.includes('đồng bộ') ? existing.meaning : '') || 'Hán tự mở rộng';
+                    let kanjiData = {
+                        ...existing,
+                        id: existing.id || canonicalId,
                         character: char,
-                        meaning: k.meaningVi || k.meanings?.join(', ') || '',
-                        meaningVi: k.meaningVi || '',
-                        sinoViet: k.sinoViet || '',
-                        onyomi: k.onyomi?.join('、') || '',
-                        kunyomi: k.kunyomi?.join('、') || '',
-                        level: k.level || 'N1',
-                        strokeCount: String(k.stroke_count || ''),
-                        mnemonic: '',
-                        parts: (k.parts || []).join('、'),
+                        meaning: finalMeaning,
+                        meaningVi: finalMeaning,
+                        sinoViet: sinoVietName,
+                        onyomi: k?.onyomi?.join('、') || existing.onyomi || '',
+                        kunyomi: k?.kunyomi?.join('、') || existing.kunyomi || '',
+                        level: 'Mở rộng',
+                        strokeCount: String(k?.stroke_count || existing.strokeCount || ''),
+                        mnemonic: existing.mnemonic || '',
+                        parts: Array.isArray(partsArr) ? partsArr.join('、') : partsArr,
                         updatedAt: now
-                    } : {
-                        id: canonicalId,
-                        character: char,
-                        meaning: 'Hán tự tự động đồng bộ từ từ vựng',
-                        meaningVi: 'Hán tự tự động đồng bộ từ từ vựng',
-                        sinoViet: '', onyomi: '', kunyomi: '', level: 'N1',
-                        strokeCount: '', mnemonic: '', parts: '', updatedAt: now
                     };
-                    batch.set(docRef, kanjiData, { merge: true });
+                    batch.set(docRef, sanitizeForFirestore(kanjiData), { merge: true });
                     addedKanjiList.push(kanjiData);
                 }
                 await batch.commit();
@@ -1314,10 +1337,180 @@ export const useKanjiData = ({
             const addedChars = new Set(addedKanjiList.map(a => a.character));
             setKanjiList(prev => [...prev.filter(k => !addedChars.has((k.character || '').trim())), ...addedKanjiList]);
             addedKanjiList.forEach(k => updateCachedKanji(k));
-            showToast(`Đã đồng bộ thành công ${addedKanjiList.length} chữ Hán tự mới!`, 'success');
+            showToast(`Đã đồng bộ thành công ${addedKanjiList.length} chữ Hán tự vào mục "Mở rộng"!`, 'success');
+
+            // Tự động hỏi để AI chuẩn hóa luôn nếu còn chữ thiếu thông tin
+            const needAi = addedKanjiList.filter(k => !k.mnemonic || (k.meaning || '').includes('đồng bộ') || k.meaning === 'Hán tự mở rộng' || !k.sinoViet);
+            if (needAi.length > 0) {
+                const doAi = await showConfirm(
+                    `Đã chuyển ${addedKanjiList.length} chữ vào mục "Mở rộng". Có ${needAi.length} chữ cần AI chuẩn hóa (nghĩa, âm Hán Việt, cách nhớ). Bạn có muốn AI chạy chuẩn hóa ngay bây giờ không?`,
+                    { type: 'info', confirmText: 'AI Chuẩn hóa ngay' }
+                );
+                if (doAi) {
+                    await handleEnrichExtendedKanjiWithAI();
+                }
+            }
         } catch (e) {
             console.error('Lỗi khi đồng bộ Hán tự:', e);
             showToast('Đồng bộ thất bại: ' + e.message, 'error');
+        }
+    };
+
+    const handleEnrichExtendedKanjiWithAI = async () => {
+        const extendedKanjiToEnrich = kanjiList.filter(k => {
+            const char = (k.character || '').trim();
+            if (!char) return false;
+            const isJotobaStandard = Boolean(getJotobaKanjiData(char));
+            const isOldSyncPlaceholder = (k.meaning || '').includes('đồng bộ') || (k.meaningVi || '').includes('đồng bộ');
+            const isDummyMeaning = k.meaning === 'Hán tự mở rộng' || k.meaningVi === 'Hán tự mở rộng' || !k.meaning || !k.meaningVi;
+            const isMissingEssential = !k.sinoViet || !k.mnemonic || !k.strokeCount || k.strokeCount === '?' || (!k.onyomi && !k.kunyomi);
+            const isExtendedOrMisplaced = k.level === 'Mở rộng' || !isJotobaStandard || isOldSyncPlaceholder;
+
+            return isExtendedOrMisplaced && (isOldSyncPlaceholder || isDummyMeaning || isMissingEssential);
+        });
+
+        if (extendedKanjiToEnrich.length === 0) {
+            showToast('Tất cả chữ Hán tự mở rộng đã có đầy đủ dữ liệu và cách nhớ!', 'info');
+            return;
+        }
+
+        const confirmed = await showConfirm(
+            `Tìm thấy ${extendedKanjiToEnrich.length} chữ Hán tự mở rộng cần bổ sung nghĩa, âm Hán Việt và mẹo nhớ (mnemonic). Bạn có muốn AI tự động chuẩn hóa không?`,
+            { type: 'info', confirmText: 'AI Chuẩn hóa' }
+        );
+        if (!confirmed) return;
+
+        setEnrichingExtendedKanji(true);
+        showToast(`Đang chạy AI chuẩn hóa dữ liệu cho ${extendedKanjiToEnrich.length} Hán tự...`, 'info');
+
+        try {
+            const BATCH_SIZE = 15;
+            const now = Date.now();
+            let totalUpdated = 0;
+
+            for (let i = 0; i < extendedKanjiToEnrich.length; i += BATCH_SIZE) {
+                const chunk = extendedKanjiToEnrich.slice(i, i + BATCH_SIZE);
+                const chars = chunk.map(k => (k.character || '').trim()).filter(Boolean);
+
+                try {
+                    const aiResults = await aiEnrichKanjiBatch(chars);
+                    if (Array.isArray(aiResults) && aiResults.length > 0) {
+                        const batch = writeBatch(db);
+                        const updatedRecords = [];
+
+                        for (const res of aiResults) {
+                            if (!res.character) continue;
+                            const char = res.character.trim();
+                            const existing = chunk.find(c => c.character === char) || {};
+                            const canonicalId = existing.id || `kanji_${char}`;
+                            const docRef = doc(db, 'kanji', canonicalId);
+
+                            let finalStroke = res.strokeCount || existing.strokeCount || '';
+                            if (!finalStroke || finalStroke === '?') {
+                                try {
+                                    const svgData = await fetchKanjiSvg(char);
+                                    if (svgData?.strokes?.length) finalStroke = svgData.strokes.length;
+                                } catch (_) {}
+                            }
+
+                            const updatedData = {
+                                ...existing,
+                                id: canonicalId,
+                                character: char,
+                                sinoViet: (res.sinoViet || existing.sinoViet || computeSinoVietnameseForWord(char) || '').toUpperCase(),
+                                meaning: res.meaning || res.meaningVi || existing.meaning || '',
+                                meaningVi: res.meaning || res.meaningVi || existing.meaningVi || '',
+                                onyomi: res.onyomi || existing.onyomi || '',
+                                kunyomi: res.kunyomi || existing.kunyomi || '',
+                                strokeCount: String(finalStroke || ''),
+                                parts: res.parts || existing.parts || (kanjiComponents[char] || []).join('、'),
+                                mnemonic: res.mnemonic || existing.mnemonic || '',
+                                level: 'Mở rộng',
+                                updatedAt: now
+                            };
+
+                            batch.set(docRef, sanitizeForFirestore(updatedData), { merge: true });
+                            updatedRecords.push(updatedData);
+                        }
+
+                        await batch.commit();
+                        totalUpdated += updatedRecords.length;
+
+                        // Update local cache & state
+                        updatedRecords.forEach(rec => updateCachedKanji(rec));
+                        setKanjiList(prev => {
+                            const updatedMap = new Map(updatedRecords.map(r => [r.character, r]));
+                            return prev.map(k => updatedMap.get(k.character) || k);
+                        });
+                    }
+                } catch (chunkErr) {
+                    console.warn('Lỗi khi enrich chunk:', chunkErr);
+                }
+            }
+
+            showToast(`Đã hoàn tất AI chuẩn hóa cho ${totalUpdated} chữ Hán tự mở rộng!`, 'success');
+        } catch (err) {
+            console.error('Lỗi khi chuẩn hóa Hán tự:', err);
+            showToast('Lỗi AI chuẩn hóa: ' + err.message, 'error');
+        } finally {
+            setEnrichingExtendedKanji(false);
+        }
+    };
+
+    const handleEnrichSingleKanji = async (char) => {
+        if (!char) return;
+        setEnrichingSingleKanji(true);
+        showToast(`Đang dùng AI chuẩn hóa dữ liệu cho chữ "${char}"...`, 'info');
+        try {
+            const results = await aiEnrichKanjiBatch([char]);
+            if (results && results.length > 0) {
+                const res = results[0];
+                const canonicalId = `kanji_${char}`;
+                const existing = kanjiList.find(k => (k.character || '').trim() === char) || {};
+                const docRef = doc(db, 'kanji', existing.id || canonicalId);
+
+                let finalStroke = res.strokeCount || existing.strokeCount || '';
+                if (!finalStroke || finalStroke === '?') {
+                    try {
+                        const svgData = await fetchKanjiSvg(char);
+                        if (svgData?.strokes?.length) finalStroke = svgData.strokes.length;
+                    } catch (_) {}
+                }
+
+                const isJotobaStandard = Boolean(getJotobaKanjiData(char));
+                const newLevel = isJotobaStandard ? (existing.level || 'N1') : 'Mở rộng';
+
+                const updatedData = {
+                    ...existing,
+                    id: existing.id || canonicalId,
+                    character: char,
+                    sinoViet: (res.sinoViet || existing.sinoViet || computeSinoVietnameseForWord(char) || '').toUpperCase(),
+                    meaning: res.meaning || res.meaningVi || existing.meaning || '',
+                    meaningVi: res.meaning || res.meaningVi || existing.meaningVi || '',
+                    onyomi: res.onyomi || existing.onyomi || '',
+                    kunyomi: res.kunyomi || existing.kunyomi || '',
+                    strokeCount: String(finalStroke || ''),
+                    parts: res.parts || existing.parts || (kanjiComponents[char] || []).join('、'),
+                    mnemonic: res.mnemonic || existing.mnemonic || '',
+                    level: newLevel,
+                    updatedAt: Date.now()
+                };
+
+                await setDoc(docRef, sanitizeForFirestore(updatedData), { merge: true });
+                updateCachedKanji(updatedData);
+                setKanjiList(prev => {
+                    const filtered = prev.filter(k => k.id !== updatedData.id && (k.character || '').trim() !== char);
+                    return [...filtered, updatedData];
+                });
+                showToast(`Đã chuẩn hóa thành công Hán tự "${char}"!`, 'success');
+            } else {
+                showToast('Không nhận được dữ liệu từ AI', 'warning');
+            }
+        } catch (err) {
+            console.error('Lỗi khi AI chuẩn hóa Hán tự:', err);
+            showToast('Lỗi AI chuẩn hóa: ' + err.message, 'error');
+        } finally {
+            setEnrichingSingleKanji(false);
         }
     };
 
@@ -1498,6 +1691,8 @@ export const useKanjiData = ({
         handleGenerateAiVocabForSingleKanji, handleBatchGenerateAiVocabForNoVocabKanji, generatingAiVocab, handleDeleteCategory, toggleKanjiSelection,
         toggleVocabSelection, selectAllKanji, handleBulkDeleteKanji, handleEditKanji,
         handleDeleteKanji, handleSyncVocabToKanji, handleCDNSync, handleMigrateComponents,
+        handleEnrichExtendedKanjiWithAI, enrichingExtendedKanji,
+        handleEnrichSingleKanji, enrichingSingleKanji,
         handleEditVocab, handleDeleteVocab, openEditKanji, openEditVocab,
         handleAddVocabToSRS, handleAddAllVocabToSRS
     };

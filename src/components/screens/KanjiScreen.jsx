@@ -65,6 +65,8 @@ const KanjiScreen = ({
         handleGenerateAiVocabForSingleKanji, handleBatchGenerateAiVocabForNoVocabKanji, generatingAiVocab, handleDeleteCategory, toggleKanjiSelection,
         toggleVocabSelection, selectAllKanji, handleBulkDeleteKanji, handleEditKanji,
         handleDeleteKanji, handleSyncVocabToKanji, handleCDNSync, handleMigrateComponents,
+        handleEnrichExtendedKanjiWithAI, enrichingExtendedKanji,
+        handleEnrichSingleKanji, enrichingSingleKanji,
         handleEditVocab, handleDeleteVocab, openEditKanji, openEditVocab,
         handleAddVocabToSRS, handleAddAllVocabToSRS, recognizeHandwriting
     } = kanjiData;
@@ -134,6 +136,8 @@ const KanjiScreen = ({
                     openEditVocab={openEditVocab}
                     handleDeleteVocab={handleDeleteVocab}
                     setShowAddVocabModal={setShowAddVocabModal}
+                    handleEnrichSingleKanji={handleEnrichSingleKanji}
+                    enrichingSingleKanji={enrichingSingleKanji}
                     diagramPan={diagramPan}
                     setDiagramPan={setDiagramPan}
                     setDiagramZoom={setDiagramZoom}
@@ -225,6 +229,8 @@ const KanjiScreen = ({
                     setShowAddVocabModal={setShowAddVocabModal}
                     setShowCategoryModal={setShowCategoryModal}
                     handleSyncVocabToKanji={handleSyncVocabToKanji}
+                    handleEnrichExtendedKanjiWithAI={handleEnrichExtendedKanjiWithAI}
+                    enrichingExtendedKanji={enrichingExtendedKanji}
                     handleAutoFixVocabSinoViet={handleAutoFixVocabSinoViet}
                     fixingSinoViet={fixingSinoViet}
                     handleBatchGenerateAiVocabForNoVocabKanji={handleBatchGenerateAiVocabForNoVocabKanji}
@@ -285,6 +291,8 @@ const KanjiScreen = ({
                         openEditVocab={openEditVocab}
                         handleDeleteVocab={handleDeleteVocab}
                         setShowAddVocabModal={setShowAddVocabModal}
+                        handleEnrichSingleKanji={handleEnrichSingleKanji}
+                        enrichingSingleKanji={enrichingSingleKanji}
                         handleGenerateAiVocabForSingleKanji={handleGenerateAiVocabForSingleKanji}
                         generatingAiVocab={generatingAiVocab}
                         diagramPan={diagramPan}

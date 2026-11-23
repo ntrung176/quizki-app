@@ -923,6 +923,44 @@ JSON only, không markdown/backtick. Trả về MẢNG JSON:
     }
 };
 
+// ============== KANJI DATA ENRICHMENT (Gemini Flash) ==============
+export const aiEnrichKanjiBatch = async (characters) => {
+    if (!characters || characters.length === 0) return [];
+    const charListStr = characters.join(', ');
+
+    const prompt = `Bạn là chuyên gia ngôn ngữ tiếng Nhật và Hán tự (Kanji). Hãy tạo dữ liệu chuẩn xác, đầy đủ và dễ học nhất theo format từ điển cho danh sách các chữ Hán tự tiếng Nhật sau:
+[${charListStr}]
+
+QUY TẮC BẮT BUỘC CHO TỪNG CHỮ HÁN TỰ:
+1. "character": Chữ Hán gốc (ví dụ: "炒").
+2. "sinoViet": Âm Hán Việt chuẩn, viết IN HOA (ví dụ: "SẢO, SAO", "QUẶC", "NGHỄ").
+3. "meaning": Ý nghĩa tiếng Việt thông dụng, ngắn gọn, súc tích (1 - 3 từ dễ hiểu nhất). Viết hoa chữ cái đầu. (Ví dụ: "Xào, rang", "Nắm bắt", "Lườm, liếc").
+4. "onyomi": Âm On viết bằng Katakana chuẩn (ngăn cách bởi dấu "、" nếu nhiều âm, ví dụ: "ソウ").
+5. "kunyomi": Âm Kun viết bằng Hiragana chuẩn có dấu chấm phân cách okurigana (ví dụ: "いた.める, い.る"). Nếu không có thì để "".
+6. "strokeCount": Số nét vẽ chính xác (dạng số nguyên, ví dụ: 9).
+7. "parts": Các bộ thủ cấu thành chữ Hán ngăn cách bởi dấu "、" (ví dụ: "火、少").
+8. "mnemonic": Mẹo nhớ / Câu chuyện cực ngắn (1 câu dưới 20 từ) giải thích cách nhớ chữ dựa trên các bộ thủ cấu thành để người học nhìn vào là nhớ ngay! (Ví dụ: "Dùng LỬA (火) nấu trong thời gian ÍT (少) là món XÀO").
+
+Định dạng JSON thuần túy, KHÔNG markdown, KHÔNG backtick:
+[
+  {
+    "character": "炒",
+    "sinoViet": "SẢO",
+    "meaning": "Xào, rang",
+    "onyomi": "ソウ",
+    "kunyomi": "いた.める",
+    "strokeCount": 9,
+    "parts": "火、少",
+    "mnemonic": "Dùng LỬA (火) nấu trong thời gian ÍT (少) là món XÀO"
+  }
+]`;
+
+    const responseText = await callAI(prompt, 'google/gemini-2.5-flash', 'kanji_enrich', 4000);
+    if (!responseText) return [];
+    const result = parseJsonFromAI(responseText);
+    return Array.isArray(result) ? result : [];
+};
+
 // ============== OCR IMAGE EXTRACTION ==============
 
 export const extractVocabFromImage = async (imageBase64, targetLanguage = 'ja') => {

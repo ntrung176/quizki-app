@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback, useMemo } from 'react';
 import { createPortal } from 'react-dom';
 import { 
     ArrowLeft, RotateCcw, Check, Heart, Bookmark, Edit, Trash2, 
-    Layers, Tag, Volume2, Plus, Wand2, BookPlus, Folder, BookOpen, Search, X, Loader2, ChevronRight 
+    Layers, Tag, Volume2, Plus, Wand2, BookPlus, Folder, BookOpen, Search, X, Loader2, ChevronRight, Sparkles 
 } from 'lucide-react';
 import { renderMaziiStyleKanji } from '../../utils/kanjiStroke';
 import { fetchJotobaWordData, accentNumberToPitchParts } from '../../utils/pitchAccent';
@@ -65,11 +65,20 @@ const KanjiDetailView = ({
     setShowAddVocabModal,
     handleGenerateAiVocabForSingleKanji,
     generatingAiVocab,
-    folders = []
+    folders = [],
+    handleEnrichSingleKanji,
+    enrichingSingleKanji
 }) => {
     const detail = selectedKanji ? getKanjiDetail(selectedKanji) : null;
     const baseVocab = selectedKanji ? getVocabForKanji(selectedKanji) : [];
     const det = detail || {};
+
+    const displayStrokeCount = det.strokeCount || kanjiApiData?.stroke_count || svgStrokeCount || getJotobaKanjiData(selectedKanji)?.stroke_count || '?';
+    const displaySinoViet = det.sinoViet || computeSinoVietnameseForWord(selectedKanji) || '';
+    const isPlaceholderMeaning = (det.meaning || '').includes('đồng bộ') || (det.meaningVi || '').includes('đồng bộ') || det.meaning === 'Hán tự mở rộng';
+    const isMissingEssential = !displaySinoViet || !det.mnemonic || (!det.onyomi && !det.kunyomi) || !displayStrokeCount || displayStrokeCount === '?';
+    const isDataIncomplete = isPlaceholderMeaning || isMissingEssential;
+    const displayLevel = det.level === 'Mở rộng' ? 'Mở rộng' : (det.level || (kanjiApiData?.jlpt ? `N${kanjiApiData.jlpt}` : (!getJotobaKanjiData(selectedKanji) ? 'Mở rộng' : 'N5')));
 
     // --- Pitch Accent state & fetching ---
     const [pitchAccentData, setPitchAccentData] = useState({});
@@ -230,6 +239,12 @@ const KanjiDetailView = ({
         }
     };
 
+    const [svgStrokeCount, setSvgStrokeCount] = useState(null);
+
+    useEffect(() => {
+        setSvgStrokeCount(null);
+    }, [selectedKanji]);
+
     useEffect(() => {
         if (!selectedKanji || !detailWriterContainerRef?.current) return;
         let isMounted = true;
@@ -237,6 +252,9 @@ const KanjiDetailView = ({
         renderMaziiStyleKanji(detailWriterContainerRef.current, selectedKanji).then(ctrl => {
             if (isMounted && detailStrokeCtrl) {
                 detailStrokeCtrl.current = ctrl;
+                if (ctrl?.strokeCount) {
+                    setSvgStrokeCount(ctrl.strokeCount);
+                }
             }
         });
 
@@ -460,7 +478,7 @@ const KanjiDetailView = ({
                                 <RotateCcw className="w-4 h-4 stroke-[2.5]" />
                             </button>
                             <div className="absolute top-3 right-3 bg-amber-500 border-b-2 border-amber-600 text-white text-xs font-black px-3 py-1 rounded-xl shadow-xs">
-                                {kanjiApiData?.stroke_count || det.strokeCount || getJotobaKanjiData(selectedKanji)?.stroke_count || '?'} nét
+                                {displayStrokeCount} nét
                             </div>
                         </div>
                     </div>
@@ -471,7 +489,7 @@ const KanjiDetailView = ({
                         <div className="flex items-center gap-3 flex-wrap">
                             <span className="text-4xl font-black text-slate-900 dark:text-white font-japanese">{selectedKanji}</span>
                             <span className="text-2xl text-slate-300 dark:text-slate-600 font-bold">—</span>
-                            <span className="text-2xl font-black text-emerald-600 dark:text-emerald-400">{det.sinoViet || ''}</span>
+                            <span className="text-2xl font-black text-emerald-600 dark:text-emerald-400">{displaySinoViet}</span>
                             
                             {(() => {
                                 const kanjiDoc = kanjiMap?.get(selectedKanji);
@@ -498,7 +516,16 @@ const KanjiDetailView = ({
                             })()}
 
                             {isAdmin && (
-                                <div className="ml-auto flex gap-1.5">
+                                <div className="ml-auto flex items-center gap-1.5">
+                                    <button
+                                        onClick={() => handleEnrichSingleKanji && handleEnrichSingleKanji(selectedKanji)}
+                                        disabled={enrichingSingleKanji}
+                                        className="px-2.5 py-1.5 text-amber-700 dark:text-amber-300 hover:bg-amber-100 dark:hover:bg-amber-900/40 bg-amber-50 dark:bg-amber-950/40 border border-amber-300 dark:border-amber-700 rounded-xl transition-all cursor-pointer flex items-center gap-1 font-black text-xs active:translate-y-0.5"
+                                        title="Dùng AI hoàn thiện dữ liệu chữ này"
+                                    >
+                                        <Sparkles className={`w-3.5 h-3.5 ${enrichingSingleKanji ? 'animate-spin' : ''}`} />
+                                        <span className="hidden sm:inline">AI Chuẩn hóa</span>
+                                    </button>
                                     <button
                                         onClick={() => openEditKanji(det)}
                                         className="p-1.5 text-slate-400 hover:text-cyan-600 dark:hover:text-cyan-400 bg-slate-100 dark:bg-slate-700 rounded-lg transition-colors cursor-pointer"
@@ -519,6 +546,24 @@ const KanjiDetailView = ({
                             )}
                         </div>
 
+                        {/* Incomplete / Missing Data Alert & AI Enrich Action */}
+                        {isDataIncomplete && (
+                            <div className="p-3 rounded-2xl bg-amber-50 dark:bg-amber-950/40 border-2 border-amber-200 dark:border-amber-800 flex items-center justify-between gap-3 shadow-2xs">
+                                <div className="flex items-center gap-2 text-xs text-amber-900 dark:text-amber-200 font-medium min-w-0">
+                                    <span className="text-base shrink-0">💡</span>
+                                    <span className="truncate">Chữ này thiếu thông tin chuẩn hoặc mẹo nhớ.</span>
+                                </div>
+                                <button
+                                    onClick={() => handleEnrichSingleKanji && handleEnrichSingleKanji(selectedKanji)}
+                                    disabled={enrichingSingleKanji}
+                                    className="px-3 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-600 active:translate-y-0.5 text-white font-black text-xs flex items-center gap-1.5 shadow-xs transition-all cursor-pointer shrink-0"
+                                >
+                                    <Sparkles className={`w-3.5 h-3.5 ${enrichingSingleKanji ? 'animate-spin' : ''}`} />
+                                    <span>{enrichingSingleKanji ? 'Đang chuẩn hóa...' : 'AI Chuẩn hóa ngay'}</span>
+                                </button>
+                            </div>
+                        )}
+
                         {/* Card 1: Meta List + Illustration Image */}
                         <div className="bg-white dark:bg-slate-900 rounded-3xl p-5 border-2 border-b-4 border-slate-200 dark:border-slate-800 shadow-xs space-y-3">
                             <div className="flex gap-3 sm:gap-4 items-start justify-between">
@@ -529,11 +574,11 @@ const KanjiDetailView = ({
                                     </div>
                                     <div className="flex items-center gap-1.5">
                                         <span className="text-slate-500 dark:text-slate-400 font-bold text-xs">Trình độ JLPT:</span> 
-                                        <span className="text-slate-900 dark:text-white font-black text-xs">{det.level || (kanjiApiData?.jlpt ? `N${kanjiApiData.jlpt}` : 'N5')}</span>
+                                        <span className="text-slate-900 dark:text-white font-black text-xs">{displayLevel}</span>
                                     </div>
                                     <div className="flex items-center gap-1.5">
                                         <span className="text-slate-500 dark:text-slate-400 font-bold text-xs">Số nét:</span> 
-                                        <span className="text-slate-900 dark:text-white font-black text-xs">{det.strokeCount || kanjiApiData?.stroke_count || getJotobaKanjiData(selectedKanji)?.stroke_count || '?'}</span>
+                                        <span className="text-slate-900 dark:text-white font-black text-xs">{displayStrokeCount}</span>
                                     </div>
                                     <div className="flex items-baseline gap-1.5 flex-wrap">
                                         <span className="text-slate-500 dark:text-slate-400 font-bold text-xs">Âm Kun:</span> 
@@ -582,7 +627,7 @@ const KanjiDetailView = ({
                                 ) : (
                                     <div className="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 shrink-0 bg-slate-50 dark:bg-slate-850 rounded-3xl border-2 border-b-4 border-slate-200 dark:border-slate-800 flex flex-col items-center justify-center p-2 text-center shadow-xs">
                                         <span className="text-3xl font-japanese font-black text-slate-800 dark:text-slate-200 drop-shadow-xs">{selectedKanji}</span>
-                                        <span className="text-[10px] font-black text-emerald-600 dark:text-emerald-400 uppercase mt-1 tracking-wider">{det.sinoViet}</span>
+                                        <span className="text-[10px] font-black text-emerald-600 dark:text-emerald-400 uppercase mt-1 tracking-wider">{displaySinoViet}</span>
                                     </div>
                                 )}
                             </div>
