@@ -137,7 +137,28 @@ export const calculateAccurateStreak = ({
     savedStreak = 0,
     userId = null
 }) => {
-    const activeDates = collectAllActiveDates({ dailyActivityLogs, allCards, kanjiSrsMap, grammarSrsMap });
+    // Tự động bổ sung Kanji SRS và Grammar SRS từ localStorage nếu chưa được truyền
+    let effectiveKanjiSrs = kanjiSrsMap;
+    let effectiveGrammarSrs = grammarSrsMap;
+    if (!effectiveKanjiSrs && typeof window !== 'undefined' && window.localStorage) {
+        try {
+            const raw = localStorage.getItem(userId ? `quizki_cached_kanji_srs_${userId}` : 'quizki_cached_kanji_srs');
+            if (raw) effectiveKanjiSrs = JSON.parse(raw);
+        } catch (_) {}
+    }
+    if (!effectiveGrammarSrs && typeof window !== 'undefined' && window.localStorage) {
+        try {
+            const raw = localStorage.getItem(userId ? `quizki_cached_grammar_srs_${userId}` : 'quizki_cached_grammar_srs');
+            if (raw) effectiveGrammarSrs = JSON.parse(raw);
+        } catch (_) {}
+    }
+
+    const activeDates = collectAllActiveDates({
+        dailyActivityLogs,
+        allCards,
+        kanjiSrsMap: effectiveKanjiSrs,
+        grammarSrsMap: effectiveGrammarSrs
+    });
 
     const now = new Date();
     const todayStr = getSafeLocalDateString(now);
@@ -149,17 +170,30 @@ export const calculateAccurateStreak = ({
     const hasToday = activeDates.has(todayStr);
     const hasYesterday = activeDates.has(yesterdayStr);
 
-    // Retrieve cached streak from localStorage safely
+    // Retrieve cached streak & last streak date from localStorage safely
     let cachedStreakNum = 0;
+    let lastStreakDate = null;
     try {
         if (typeof window !== 'undefined' && window.localStorage) {
             const raw = localStorage.getItem('quizki_cached_user_streak') || 
                         localStorage.getItem(userId ? `quizki_cached_user_streak_${userId}` : 'quizki_cached_user_streak');
             if (raw) cachedStreakNum = parseInt(raw, 10) || 0;
+            lastStreakDate = localStorage.getItem('quizki_last_streak_date');
         }
     } catch (_) {}
 
+    // Chuỗi Streak nền tảng: Luôn ưu tiên giá trị lớn nhất giữa đám mây (savedStreak) và bộ nhớ máy khách (cachedStreakNum)
     const baselineStreak = Math.max(Number(savedStreak) || 0, cachedStreakNum);
+
+    // Tự động đồng bộ số streak từ cloud xuống localStorage nếu cloud có giá trị lớn hơn
+    if (Number(savedStreak) > cachedStreakNum) {
+        try {
+            if (typeof window !== 'undefined' && window.localStorage) {
+                localStorage.setItem('quizki_cached_user_streak', String(savedStreak));
+                if (userId) localStorage.setItem(`quizki_cached_user_streak_${userId}`, String(savedStreak));
+            }
+        } catch (_) {}
+    }
 
     // Calculate backward consecutive days
     let rawStreak = 0;
@@ -182,36 +216,54 @@ export const calculateAccurateStreak = ({
         }
     }
 
-    // Monotonicity & Anti-Regression Rule:
-    // If the learner has studied today, their streak must NEVER drop below their previous streak.
+    // Monotonicity & Incremental Progress Rule:
     let finalStreak = rawStreak;
 
     if (hasToday) {
-        if (baselineStreak > 1 && rawStreak < baselineStreak) {
-            // Studied today, history has a missing gap -> preserve baseline streak
-            finalStreak = baselineStreak;
+        if (baselineStreak > 0) {
+            // Nếu hôm nay có học và ngày ghi nhận streak trước đó là hôm qua (hoặc chưa ghi nhận hôm nay):
+            // Tăng thêm 1 ngày liên tiếp (baselineStreak + 1), tránh bị kẹt streak do khoảng trống lịch sử quá khứ
+            if (lastStreakDate && lastStreakDate !== todayStr && (hasYesterday || activeDates.has(yesterdayStr))) {
+                finalStreak = Math.max(rawStreak, baselineStreak + 1);
+            } else {
+                finalStreak = Math.max(rawStreak, baselineStreak);
+            }
         } else {
-            finalStreak = Math.max(rawStreak, baselineStreak);
+            finalStreak = Math.max(rawStreak, 1);
         }
     } else if (hasYesterday) {
-        // Today hasn't ended and user studied yesterday -> hold baseline
+        // Hôm nay chưa học nhưng hôm qua có học -> bảo lưu streak nền tảng
         finalStreak = Math.max(rawStreak, baselineStreak);
     } else {
-        // Neither today nor yesterday active:
-        // If baseline was high, only reset if inactive for >= 2 full days
+        // Cả hôm nay và hôm qua chưa học: kiểm tra ân hạn 1 ngày (Streak Freeze) nếu 2 ngày trước có học
         if (baselineStreak > 1 && activeDates.size >= 2) {
-            // Check day before yesterday
             const twoDaysAgo = new Date(now);
             twoDaysAgo.setDate(twoDaysAgo.getDate() - 2);
             const twoDaysAgoStr = getSafeLocalDateString(twoDaysAgo);
             if (activeDates.has(twoDaysAgoStr)) {
-                finalStreak = baselineStreak; // 1-day grace period
+                finalStreak = baselineStreak; // Ân hạn 1 ngày
             } else {
                 finalStreak = 0;
             }
         } else {
             finalStreak = 0;
         }
+    }
+
+    // Cập nhật kết quả tính toán streak và ngày streak vào localStorage
+    if (finalStreak > 0) {
+        try {
+            if (typeof window !== 'undefined' && window.localStorage) {
+                const currentLocal = parseInt(localStorage.getItem('quizki_cached_user_streak') || '0', 10);
+                if (finalStreak >= currentLocal) {
+                    localStorage.setItem('quizki_cached_user_streak', String(finalStreak));
+                    if (userId) localStorage.setItem(`quizki_cached_user_streak_${userId}`, String(finalStreak));
+                }
+                if (hasToday) {
+                    localStorage.setItem('quizki_last_streak_date', todayStr);
+                }
+            }
+        } catch (_) {}
     }
 
     return Math.max(0, finalStreak);

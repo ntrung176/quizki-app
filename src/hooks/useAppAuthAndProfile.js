@@ -29,6 +29,14 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
     const [adminConfig, setAdminConfig] = useState(null);
     const [activePopup, setActivePopup] = useState(null);
     const [geminiApiKeys] = useState(() => getOpenRouterKeys());
+    const [cloudStreak, setCloudStreak] = useState(() => {
+        try {
+            const cached = localStorage.getItem('quizki_cached_user_streak');
+            return cached ? parseInt(cached, 10) : 0;
+        } catch (_) {
+            return 0;
+        }
+    });
 
     const settingsDocPath = useMemo(() => {
         if (!userId) return null;
@@ -52,6 +60,20 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
                 try {
                     localStorage.setItem('quizki_cached_user_profile', JSON.stringify(data));
                 } catch (_) {}
+
+                // Đồng bộ số streak từ Firestore profile sang bộ nhớ máy
+                if (data && typeof data === 'object' && Number(data.streak) > 0) {
+                    const pStreak = Number(data.streak);
+                    setCloudStreak(prev => Math.max(prev, pStreak));
+                    try {
+                        const localStreak = parseInt(localStorage.getItem('quizki_cached_user_streak') || '0', 10);
+                        if (pStreak > localStreak) {
+                            localStorage.setItem('quizki_cached_user_streak', String(pStreak));
+                            if (userId) localStorage.setItem(`quizki_cached_user_streak_${userId}`, String(pStreak));
+                            window.dispatchEvent(new CustomEvent('quizki-streak-synced', { detail: pStreak }));
+                        }
+                    } catch (_) {}
+                }
                 // Sync cloud appSettings across Web and Mobile
                 if (data.appSettings && typeof data.appSettings === 'object') {
                     try {
@@ -84,6 +106,34 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
 
         return () => unsubscribe();
     }, [authReady, settingsDocPath]);
+
+    // Real-time synchronization of authoritative cloud streak from publicStats
+    useEffect(() => {
+        if (!authReady || !userId || !db || !publicStatsCollectionPath) return;
+
+        const statsDocRef = doc(db, publicStatsCollectionPath, userId);
+        const unsubscribe = onSnapshot(statsDocRef, (snap) => {
+            if (snap.exists()) {
+                const sData = snap.data();
+                const sStreak = Number(sData?.streak || 0);
+                if (sStreak > 0) {
+                    setCloudStreak(prev => Math.max(prev, sStreak));
+                    try {
+                        const localStreak = parseInt(localStorage.getItem('quizki_cached_user_streak') || '0', 10);
+                        if (sStreak > localStreak) {
+                            localStorage.setItem('quizki_cached_user_streak', String(sStreak));
+                            localStorage.setItem(`quizki_cached_user_streak_${userId}`, String(sStreak));
+                            window.dispatchEvent(new CustomEvent('quizki-streak-synced', { detail: sStreak }));
+                        }
+                    } catch (_) {}
+                }
+            }
+        }, (err) => {
+            console.warn('⚠️ Lỗi lắng nghe publicStats cho streak:', err);
+        });
+
+        return () => unsubscribe();
+    }, [authReady, userId, publicStatsCollectionPath]);
 
     const profile = useMemo(() => {
         if (!rawProfile) return null;
@@ -529,6 +579,7 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
         handleChangePassword,
         awardXP,
         geminiApiKeys,
-        publicStatsCollectionPath
+        publicStatsCollectionPath,
+        cloudStreak
     };
 };

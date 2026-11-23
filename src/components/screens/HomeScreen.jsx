@@ -142,6 +142,7 @@ const HomeScreen = ({
                 const existing = parseInt(localStorage.getItem('quizki_cached_user_streak') || '0', 10);
                 if (calculatedStreak >= existing || existing <= 1) {
                     localStorage.setItem('quizki_cached_user_streak', String(calculatedStreak));
+                    setCachedStreak(calculatedStreak);
                 }
             } catch (_) { }
         }
@@ -202,9 +203,19 @@ const HomeScreen = ({
             setGrammarSrsStats({ total: 0, dueCount: 0, mastered: 0, learning: 0, isInitialLoading: false });
             setHomeTick(Date.now());
         };
+        const handleStreakSynced = (e) => {
+            const val = e?.detail;
+            if (typeof val === 'number' && val > 0) {
+                setCachedStreak(prev => Math.max(prev || 0, val));
+            }
+        };
+        window.addEventListener('quizki-streak-synced', handleStreakSynced);
+        window.addEventListener('quizki-streak-restored', handleStreakSynced);
         window.addEventListener('srs-updated', handleSrsUpdate);
         window.addEventListener('quizki-user-logged-out', handleLogoutReset);
         return () => {
+            window.removeEventListener('quizki-streak-synced', handleStreakSynced);
+            window.removeEventListener('quizki-streak-restored', handleStreakSynced);
             window.removeEventListener('srs-updated', handleSrsUpdate);
             window.removeEventListener('quizki-user-logged-out', handleLogoutReset);
         };

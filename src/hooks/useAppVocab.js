@@ -11,7 +11,7 @@ import { getCachedVocabSrsMap, updateCachedVocabSrs, mergeCachedVocabSrs, record
 import { aiAssistVocab, extractVocabFromImage } from '../utils/aiProvider';
 import { POINTS } from '../utils/scoring';
 
-export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
+export const useAppVocab = ({ authReady, userId, dailyActivityLogs, savedStreak = 0 }) => {
     const [allCards, setAllCards] = useState(() => {
         try {
             const cached = localStorage.getItem('quizki_cached_vocab_list');
@@ -153,9 +153,10 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs }) => {
         return calculateAccurateStreak({
             dailyActivityLogs,
             allCards,
+            savedStreak,
             userId
         });
-    }, [dailyActivityLogs, allCards, userId]);
+    }, [dailyActivityLogs, allCards, savedStreak, userId]);
 
     const handleUpdateCard = useCallback(async (cardId, isCorrectOrData, mode, action, responseTime) => {
         if (!cardId) return;

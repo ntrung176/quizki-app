@@ -147,7 +147,7 @@ export const useAppLogic = () => {
         authReady, userId, rawProfile, setProfile, profile, isProfileLoading,
         isAdmin, adminConfig, hasPremium, canUserUseAI, userHasAdminPrivileges,
         activePopup, handleDismissPopup, handleAdminDeleteUserData, geminiApiKeys,
-        publicStatsCollectionPath
+        publicStatsCollectionPath, cloudStreak
     } = authAndProfile;
 
     // Lắng nghe dữ liệu hoạt động hàng ngày (dailyActivity) từ Firestore
@@ -181,7 +181,8 @@ export const useAppLogic = () => {
     const vocab = useAppVocab({
         authReady,
         userId,
-        dailyActivityLogs
+        dailyActivityLogs,
+        savedStreak: cloudStreak
     });
 
     const {
@@ -193,7 +194,7 @@ export const useAppLogic = () => {
 
     // Đồng bộ số liệu tuần và streak của người dùng vào publicStats theo thời gian thực để bảng xếp hạng (Leaderboard) hiển thị chuẩn
     useEffect(() => {
-        if (!userId || !publicStatsCollectionPath || !db) return;
+        if (!userId || !publicStatsCollectionPath || !db || !isActivityLogsLoaded) return;
 
         const sevenDaysAgo = new Date();
         sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
@@ -221,20 +222,21 @@ export const useAppLogic = () => {
         const formulaScore = (reviewsLast7Days * 4) + (addedLast7Days * 3) + (kanjiLast7Days * 5) + (activeDaysLast7Days * 15);
         const weeklyScore = Math.max(xpGainedLast7Days, formulaScore, reviewsLast7Days * 4);
 
-        let safeSyncStreak = calculatedStreak || 0;
+        let localCachedStreak = 0;
         try {
             const cachedStreakStr = localStorage.getItem('quizki_cached_user_streak');
             if (cachedStreakStr) {
-                const cachedStreak = parseInt(cachedStreakStr, 10);
-                if (cachedStreak > safeSyncStreak && activeDaysLast7Days >= 1) {
-                    safeSyncStreak = cachedStreak;
-                }
+                localCachedStreak = parseInt(cachedStreakStr, 10) || 0;
             }
         } catch (_) {}
 
+        // Đảm bảo tính đơn điệu không bao giờ tụt streak: lấy giá trị cao nhất từ tính toán, đám mây và máy khách
+        const safeSyncStreak = Math.max(calculatedStreak || 0, Number(cloudStreak || 0), localCachedStreak);
+        const streakToSync = Math.max(safeSyncStreak, Number(cloudStreak || 0));
+
         const statsRef = doc(db, publicStatsCollectionPath, userId);
         setDoc(statsRef, {
-            streak: safeSyncStreak,
+            streak: streakToSync,
             addedLast7Days,
             kanjiAddedLast7Days: kanjiLast7Days,
             reviewsLast7Days,
@@ -243,7 +245,16 @@ export const useAppLogic = () => {
             lastActive: Date.now(),
             updatedAt: Date.now()
         }, { merge: true }).catch(() => { });
-    }, [userId, publicStatsCollectionPath, calculatedStreak, dailyActivityLogs]);
+
+        // Đồng bộ đồng thời lên user profile để bảo đảm tính nhất quán trên mọi nền tảng
+        if (streakToSync > 0 && appId) {
+            const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
+            setDoc(profileRef, {
+                streak: streakToSync,
+                updatedAt: Date.now()
+            }, { merge: true }).catch(() => {});
+        }
+    }, [userId, publicStatsCollectionPath, calculatedStreak, dailyActivityLogs, cloudStreak, isActivityLogsLoaded]);
 
     useEffect(() => {
         setAllCardsRef.current = setAllCards;

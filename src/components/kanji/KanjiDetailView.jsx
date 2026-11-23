@@ -69,6 +69,9 @@ const KanjiDetailView = ({
     handleEnrichSingleKanji,
     enrichingSingleKanji
 }) => {
+    // --- SVG Stroke Count State (from stroke animation controller) ---
+    const [svgStrokeCount, setSvgStrokeCount] = useState(null);
+
     const detail = selectedKanji ? getKanjiDetail(selectedKanji) : null;
     const baseVocab = selectedKanji ? getVocabForKanji(selectedKanji) : [];
     const det = detail || {};
@@ -238,8 +241,6 @@ const KanjiDetailView = ({
             setSaveModal(prev => ({ ...prev, isSaving: false }));
         }
     };
-
-    const [svgStrokeCount, setSvgStrokeCount] = useState(null);
 
     useEffect(() => {
         setSvgStrokeCount(null);
