@@ -98,71 +98,79 @@ function isValidChoice(c) {
     return true;
 }
 
-// Deterministic seed-based shuffle
-function seededShuffle(array, seedStr) {
-    const arr = [...array];
-    let hash = 0;
-    for (let i = 0; i < seedStr.length; i++) {
-        hash = ((hash << 5) - hash) + seedStr.charCodeAt(i);
-        hash |= 0;
+function resolveAuthoritativeQuestion(rawChoices, rawAns, analysis) {
+    let choices = (rawChoices || []).map(c => typeof c === 'object' ? (c.ansText || c.text || '') : String(c)).map(s => s.trim()).filter(Boolean);
+
+    let correctIdx = -1;
+
+    // 1. If choices have fewer than 4 items or are dummy digits/letters and analysis exists, extract real 4 choices from analysis
+    const shouldExtract = choices.length < 4 || choices.every(c => /^[1-4ABCDabcd\s\.\,\-]+$/.test(c));
+    if (shouldExtract && analysis) {
+        const extracted = extractChoicesFromAnalysis(analysis);
+        if (extracted && extracted.choices.length === 4) {
+            choices = extracted.choices;
+            correctIdx = extracted.correctIdx;
+        }
     }
-    
-    let currentSeed = Math.abs(hash) + 1;
-    const rng = () => {
-        const x = Math.sin(currentSeed++) * 10000;
-        return x - Math.floor(x);
-    };
-    
-    for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(rng() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-    return arr;
-}
 
-function resolveAndShuffleChoices(rawChoices, rawAns, seedKey) {
-    const stringChoices = rawChoices.map(c => typeof c === 'object' ? (c.ansText || c.text || '') : String(c)).map(s => s.trim()).filter(Boolean);
-    if (stringChoices.length < 2) return null;
+    if (choices.length < 2) return null;
 
-    let correctChoiceText = '';
-
-    if (typeof rawAns === 'number' && rawAns >= 0 && rawAns < stringChoices.length) {
-        // Direct 0-based index
-        correctChoiceText = stringChoices[rawAns];
-    } else if (typeof rawAns === 'string') {
-        const ansStr = rawAns.trim();
-        const exactIdx = stringChoices.findIndex(c => c === ansStr);
-        if (exactIdx !== -1) {
-            correctChoiceText = stringChoices[exactIdx];
-        } else if (/^[1-4]$/.test(ansStr)) {
-            const num = parseInt(ansStr, 10);
-            if (num >= 1 && num <= stringChoices.length) {
-                correctChoiceText = stringChoices[num - 1];
-            }
-        } else if (/^[abcd]$/i.test(ansStr)) {
-            const letterIdx = ansStr.toLowerCase().charCodeAt(0) - 97;
-            if (letterIdx >= 0 && letterIdx < stringChoices.length) {
-                correctChoiceText = stringChoices[letterIdx];
-            }
-        } else {
-            const noSpaceAns = ansStr.replace(/\s+/g, '');
-            const fuzzyIdx = stringChoices.findIndex(c => c.replace(/\s+/g, '') === noSpaceAns);
-            if (fuzzyIdx !== -1) {
-                correctChoiceText = stringChoices[fuzzyIdx];
-            } else {
-                correctChoiceText = stringChoices[0];
+    // 2. If analysis exists and correctIdx not determined yet, extract authoritative answer from verdict or why
+    if (correctIdx === -1 && analysis) {
+        let anLetter = null;
+        const vMatch = (analysis.verdict || '').match(/\(([a-dA-D1-4])\)/);
+        if (vMatch) {
+            anLetter = vMatch[1].toLowerCase();
+        } else if (Array.isArray(analysis.why)) {
+            for (let i = 0; i < analysis.why.length; i++) {
+                if (typeof analysis.why[i] === 'string' && analysis.why[i].includes('✓')) {
+                    const m = analysis.why[i].match(/\(([a-dA-D1-4])\)/);
+                    if (m) anLetter = m[1].toLowerCase();
+                    else anLetter = String.fromCharCode(97 + i);
+                    break;
+                }
             }
         }
-    } else {
-        correctChoiceText = stringChoices[0];
+
+        if (anLetter) {
+            const letterIdx = anLetter >= 'a' && anLetter <= 'd' ? anLetter.charCodeAt(0) - 97 : parseInt(anLetter, 10) - 1;
+            if (letterIdx >= 0 && letterIdx < choices.length) {
+                correctIdx = letterIdx;
+            }
+        }
     }
 
-    const shuffled = seededShuffle(stringChoices, seedKey);
-    const newCorrectIdx = shuffled.findIndex(c => c === correctChoiceText);
+    // 3. Fallback: match rawAns against choices
+    if (correctIdx === -1) {
+        if (typeof rawAns === 'number' && rawAns >= 0 && rawAns < choices.length) {
+            correctIdx = rawAns;
+        } else if (typeof rawAns === 'string') {
+            const s = rawAns.trim();
+            const exactIdx = choices.indexOf(s);
+            if (exactIdx !== -1) {
+                correctIdx = exactIdx;
+            } else if (/^[1-4]$/.test(s)) {
+                const num = parseInt(s, 10);
+                if (num >= 1 && num <= choices.length) correctIdx = num - 1;
+            } else if (/^[a-d]$/i.test(s)) {
+                const lIdx = s.toLowerCase().charCodeAt(0) - 97;
+                if (lIdx >= 0 && lIdx < choices.length) correctIdx = lIdx;
+            } else {
+                const noSpace = s.replace(/\s+/g, '');
+                const fIdx = choices.findIndex(c => c.replace(/\s+/g, '') === noSpace);
+                if (fIdx !== -1) correctIdx = fIdx;
+            }
+        }
+    }
+
+    // Safety fallback
+    if (correctIdx === -1 || correctIdx >= choices.length) {
+        correctIdx = 0;
+    }
 
     return {
-        options: shuffled,
-        correctAnswer: newCorrectIdx >= 0 ? newCorrectIdx : 0
+        options: choices,
+        correctAnswer: correctIdx
     };
 }
 
@@ -173,8 +181,8 @@ function getAnalysisForQuestion(qMap, slug, tIdx, qIdx) {
 
     const candidates = [
         `${slug}-t${tNum}-q${qNum}`,
-        `test-${tNum}-q${qNum}`,
         `test-${tNum}-q${qNum}-${qNum}`,
+        `test-${tNum}-q${qNum}`,
         `t${tNum}-q${qNum}`,
         `t-${tNum}-q-${qNum}`,
         `dethi-${tNum}-q${qNum}`,
@@ -182,6 +190,11 @@ function getAnalysisForQuestion(qMap, slug, tIdx, qIdx) {
         `q${qNum}`
     ];
 
+    // First pass: find candidate with verdict or why
+    for (const k of candidates) {
+        if (qMap[k] && (qMap[k].verdict || qMap[k].why)) return qMap[k];
+    }
+    // Second pass: any candidate
     for (const k of candidates) {
         if (qMap[k]) return qMap[k];
     }
@@ -327,9 +340,9 @@ if (fs.existsSync(yomimonoDir)) {
                     const rawOptions = (q.options || []).filter(isValidChoice);
                     if (rawOptions.length < 2) return;
 
-                    const seedKey = `yomimono-b${baiNum}-p${pIdx + 1}-q${qIdx + 1}`;
-                    const resolved = resolveAndShuffleChoices(rawOptions, q.answer, seedKey);
-                    if (!resolved) return;
+                    const correctAns = typeof q.answer === 'number' && q.answer >= 0 && q.answer < rawOptions.length
+                        ? q.answer
+                        : 0;
 
                     let expText = q.explainVi || '';
                     if (q.tip) expText += `\n\n💡 Mẹo làm bài:\n${q.tip}`;
@@ -338,9 +351,9 @@ if (fs.existsSync(yomimonoDir)) {
                         id: `q-yomimono-b${baiNum}-p${pIdx + 1}-q${qIdx + 1}`,
                         question: q.q || '文章の内容に合っているものはどれか。',
                         questionVi: q.qt?.q || '',
-                        options: resolved.options,
+                        options: rawOptions,
                         optionsVi: q.qt?.o || [],
-                        correctAnswer: resolved.correctAnswer,
+                        correctAnswer: correctAns,
                         explanation: expText.trim(),
                         tip: q.tip || '',
                         evidenceSentenceIndices: q.evi || [],
@@ -627,21 +640,11 @@ if (fs.existsSync(scrapedDir)) {
                         rawChoices = q.choices.map(c => typeof c === 'object' ? (c.ansText || c.text || '') : String(c)).filter(Boolean);
                     }
 
-                    // Check analysis entry first
                     const analysis = getAnalysisForQuestion(analysisQMap, cleanSlug, tIdx, qIdx);
-                    let rawAns = q.correctAnswer ?? q.answer;
+                    const rawAns = q.correctAnswer ?? q.answer;
 
-                    // If raw choices are empty or dummy digits/letters (e.g. 1, 2, 3, 4), extract real choices from analysis
-                    const isDummyChoices = rawChoices.length === 0 || rawChoices.every(c => /^[1-4ABCDabcd\s\.\,\-]+$/.test(c.trim()));
-                    if (isDummyChoices && analysis) {
-                        const extracted = extractChoicesFromAnalysis(analysis);
-                        if (extracted && extracted.choices.length === 4) {
-                            rawChoices = extracted.choices;
-                            rawAns = extracted.correctIdx;
-                        }
-                    }
-
-                    if (rawChoices.length < 2 || !rawChoices.every(isValidChoice)) {
+                    const resolved = resolveAuthoritativeQuestion(rawChoices, rawAns, analysis);
+                    if (!resolved || resolved.options.length < 2 || !resolved.options.every(isValidChoice)) {
                         testHasInvalidQ = true;
                         break;
                     }
@@ -664,14 +667,6 @@ if (fs.existsSync(scrapedDir)) {
 
                     if (!qStem && qPassage) {
                         qStem = '文章の内容に合っているものはどれか。(Chọn phương án phù hợp nhất với nội dung bài đọc)';
-                    }
-
-                    const qUniqueKey = `${cleanSlug}-t${tIdx + 1}-q${qIdx + 1}-${qStem.slice(0, 20)}`;
-                    const resolved = resolveAndShuffleChoices(rawChoices, rawAns, qUniqueKey);
-
-                    if (!resolved) {
-                        testHasInvalidQ = true;
-                        break;
                     }
 
                     let finalExplanation = '';
@@ -832,15 +827,23 @@ if (fs.existsSync(worksheetsDir)) {
                             exp += '\n\n📖 Từ vựng trong câu:\n' + item.glosses.map(g => `• ${g.t}: ${g.vi}`).join('\n');
                         }
 
-                        const qKey = `ws-${level.toLowerCase()}-b${baiNum}-g${gIdx + 1}-s${sIdx + 1}-i${itemIdx + 1}`;
-                        const resolved = resolveAndShuffleChoices(rawChoices, item.answer, qKey);
-                        if (!resolved) return;
+                        let correctAns = 0;
+                        if (typeof item.answer === 'number' && item.answer >= 0 && item.answer < rawChoices.length) {
+                            correctAns = item.answer;
+                        } else if (typeof item.answer === 'string') {
+                            const s = item.answer.trim();
+                            const idx = rawChoices.indexOf(s);
+                            if (idx !== -1) correctAns = idx;
+                            else if (/^[1-4]$/.test(s)) correctAns = parseInt(s, 10) - 1;
+                            else if (/^[a-d]$/i.test(s)) correctAns = s.toLowerCase().charCodeAt(0) - 97;
+                        }
 
+                        const qKey = `ws-${level.toLowerCase()}-b${baiNum}-g${gIdx + 1}-s${sIdx + 1}-i${itemIdx + 1}`;
                         secQuestions.push({
                             id: `q-${qKey}`,
                             question: prompt || subInstr,
-                            options: resolved.options,
-                            correctAnswer: resolved.correctAnswer,
+                            options: rawChoices,
+                            correctAnswer: correctAns,
                             explanation: exp.trim(),
                             passage: item.passage || '',
                             imageUrl: item.image || '',
