@@ -67,7 +67,23 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs, savedStreak 
             setIsLoading(false);
         });
 
-        return () => unsubscribe();
+        // Optimistic instant merge when completing a Roadmap lesson
+        const handleRoadmapVocabAdded = (e) => {
+            const added = e?.detail?.cards;
+            if (!Array.isArray(added) || added.length === 0) return;
+            setAllCards(prev => {
+                const map = new Map();
+                prev.forEach(c => { if (c?.id) map.set(String(c.id), c); });
+                added.forEach(c => { if (c?.id) map.set(String(c.id), { ...(map.get(String(c.id)) || {}), ...c }); });
+                return Array.from(map.values());
+            });
+        };
+        window.addEventListener('quizki-roadmap-vocab-added', handleRoadmapVocabAdded);
+
+        return () => {
+            unsubscribe();
+            window.removeEventListener('quizki-roadmap-vocab-added', handleRoadmapVocabAdded);
+        };
     }, [authReady, vocabCollectionPath, userId]);
 
     // One-time flush of any leftover pending review items from previous session

@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "generate:jlpt-summary": "node scripts/generateJlptSummary.mjs",
+    "generate:roadmap": "node scripts/buildInteractiveRoadmap.mjs",
     "build": "node scripts/generateJlptSummary.mjs && vite build",
     "lint": "eslint .",
     "preview": "vite preview",

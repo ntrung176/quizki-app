@@ -1,40 +1,67 @@
-import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-    Sparkles, Lock, CheckCircle2, Star, Play, Compass,
-    RotateCcw, Trophy, ChevronRight, Award, Zap
-} from 'lucide-react';
+import { Compass } from 'lucide-react';
 import { ROUTES } from '../../router';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import {
     getRoadmapStages,
     getRoadmapProgress,
-    isLessonUnlocked,
     getStageStats,
-    findCurrentActiveLessonId
+    findCurrentActiveLessonId,
+    loadRoadmapManifest,
+    loadRoadmapStageChunk,
+    loadRoadmapLessonById,
+    hydrateRoadmapProgressFromCloud
 } from '../../data/roadmap';
 import RoadmapLessonModal from './RoadmapLessonModal';
+import RoadmapStageHeaderBar from './RoadmapStageHeaderBar';
+import RoadmapUnitBlock from './RoadmapUnitBlock';
 
 /**
  * HomeLearningRoadmap Component - Authentic Duolingo Interactive Winding Path
- * Provides real bite-sized playable lessons, visual stepping stone path,
- * node progression (completed/active/locked), XP rewards, and stage switching.
+ * 10 Japanese stages (Kana -> N5 -> N4 -> N3 -> N2 -> N1) backed by real QuizKi datasets,
+ * lazy-loaded stage chunks, cloud progress sync, and automatic SRS integration after every lesson.
  */
-const HomeLearningRoadmap = ({ isHighlighted = false, awardXP, userId, allCards = [] }) => {
+const HomeLearningRoadmap = ({ isHighlighted = false, awardXP, userId, allCards = [], folders = [] }) => {
     const navigate = useNavigate();
     const { t } = useLanguage();
-    const { targetLanguage, isJapaneseMode, isKoreanMode, isEnglishMode } = useTargetLanguage();
+    const { isKoreanMode, isEnglishMode } = useTargetLanguage();
 
     const langCode = isKoreanMode ? 'ko' : isEnglishMode ? 'en' : 'ja';
 
-    // 1. Load curriculum stages based on current language
-    const stages = useMemo(() => getRoadmapStages(langCode), [langCode]);
-
-    // 2. Load stored progress state
+    const [stages, setStages] = useState(() => getRoadmapStages(langCode));
+    const [activeStageChunk, setActiveStageChunk] = useState(null);
+    const [isLoadingStage, setIsLoadingStage] = useState(false);
     const [progress, setProgress] = useState(() => getRoadmapProgress());
+    const [selectedStageNum, setSelectedStageNum] = useState(1);
+    const [activeLessonData, setActiveLessonData] = useState(null); // { lesson, stage, unlockStageOnPass }
+    const [lockedHint, setLockedHint] = useState(null);
 
-    // Listen to roadmap update events from any lesson completion
+    // Load manifest for Japanese 10-stage curriculum
+    useEffect(() => {
+        if (langCode !== 'ja') {
+            setStages(getRoadmapStages(langCode));
+            setActiveStageChunk(null);
+            return;
+        }
+        let mounted = true;
+        loadRoadmapManifest().then((manifest) => {
+            if (mounted && manifest?.stages?.length > 0) {
+                setStages(manifest.stages);
+            }
+        });
+        return () => { mounted = false; };
+    }, [langCode]);
+
+    // Sync roadmap progress with Firestore cloud so clearing browser storage preserves progress
+    useEffect(() => {
+        if (!userId) return;
+        hydrateRoadmapProgressFromCloud(userId, getRoadmapProgress()).then((merged) => {
+            if (merged) setProgress(merged);
+        });
+    }, [userId]);
+
     useEffect(() => {
         const handleProgressUpdate = () => {
             setProgress(getRoadmapProgress());
@@ -43,58 +70,114 @@ const HomeLearningRoadmap = ({ isHighlighted = false, awardXP, userId, allCards 
         return () => window.removeEventListener('quizki-roadmap-updated', handleProgressUpdate);
     }, []);
 
-    // 3. Current active stage index (1-based)
-    const [selectedStageNum, setSelectedStageNum] = useState(1);
-
-    // Selected lesson for active runner modal
-    const [activeLessonData, setActiveLessonData] = useState(null); // { lesson, stage }
-    const [lockedHint, setLockedHint] = useState(null);
-
-    // Find the global next active lesson across all stages
+    // Find current active lesson across all unlocked stages
     const currentActiveLessonId = useMemo(() => {
         return findCurrentActiveLessonId(stages, progress);
     }, [stages, progress]);
 
-    // Auto-select stage that contains the active lesson on initial load
+    // Auto-select stage containing active lesson on initial placement/load
+    const hasAutoSelectedRef = React.useRef(false);
     useEffect(() => {
-        if (!currentActiveLessonId) return;
+        if (hasAutoSelectedRef.current || !currentActiveLessonId || stages.length === 0) return;
         for (const st of stages) {
-            if (st.lessons.some(l => l.id === currentActiveLessonId)) {
+            if ((st.lessons || []).some((l) => l.id === currentActiveLessonId)) {
                 setSelectedStageNum(st.stage);
+                hasAutoSelectedRef.current = true;
                 break;
             }
         }
     }, [stages, currentActiveLessonId]);
 
-    // Current selected stage object
-    const currentStage = useMemo(() => {
-        return stages.find(s => s.stage === selectedStageNum) || stages[0];
+    // Lazy-load full stage chunk (units + questions + SRS items) whenever user selects a stage
+    useEffect(() => {
+        if (langCode !== 'ja') {
+            const st = stages.find((s) => s.stage === selectedStageNum) || stages[0] || null;
+            setActiveStageChunk(st);
+            return;
+        }
+        let cancelled = false;
+        setIsLoadingStage(true);
+        loadRoadmapStageChunk(selectedStageNum)
+            .then((chunk) => {
+                if (!cancelled && chunk) setActiveStageChunk(chunk);
+            })
+            .finally(() => {
+                if (!cancelled) setIsLoadingStage(false);
+            });
+        return () => { cancelled = true; };
+    }, [langCode, selectedStageNum, stages]);
+
+    const currentStageMeta = useMemo(() => {
+        return stages.find((s) => s.stage === selectedStageNum) || stages[0];
     }, [stages, selectedStageNum]);
 
-    // Current stage completion stats
+    const currentStage = useMemo(() => {
+        if (activeStageChunk && activeStageChunk.stage === selectedStageNum) {
+            return activeStageChunk;
+        }
+        return currentStageMeta;
+    }, [activeStageChunk, selectedStageNum, currentStageMeta]);
+
     const currentStageStats = useMemo(() => {
         return getStageStats(currentStage, progress);
     }, [currentStage, progress]);
 
-    // Handle node click
-    const handleNodeClick = (lesson, stage, isUnlocked, isCompleted) => {
+    // Map lessonId -> index inside flat stage.lessons so unlock rules work across units cleanly
+    const lessonGlobalIndexMap = useMemo(() => {
+        const map = new Map();
+        (currentStage?.lessons || []).forEach((l, i) => map.set(l.id, i));
+        return map;
+    }, [currentStage]);
+
+    // Normalize units even for Korean/English legacy tracks
+    const displayUnits = useMemo(() => {
+        if (Array.isArray(currentStage?.units) && currentStage.units.length > 0 && currentStage.units[0]?.lessons) {
+            return currentStage.units;
+        }
+        return [
+            {
+                id: `${currentStage?.id || 'unit'}_u1`,
+                title: currentStage?.title || '',
+                subtitle: currentStage?.sub || '',
+                lessons: currentStage?.lessons || []
+            }
+        ];
+    }, [currentStage]);
+
+    const handleNodeClick = async (lesson, stage, isUnlocked) => {
         if (!isUnlocked) {
-            setLockedHint(`Hoàn thành bài học trước để mở khóa "${lesson.shortTitle}" nhé! 🔒`);
-            setTimeout(() => setLockedHint(null), 3000);
+            setLockedHint(`Hoàn thành bài trước hoặc nhấn "Thi vượt chặng mở khóa" để vào Chặng ${stage.stage} nhé! 🔒`);
+            setTimeout(() => setLockedHint(null), 3500);
             return;
         }
-        // Launch lesson player
-        setActiveLessonData({ lesson, stage });
+        if (Array.isArray(lesson.questions) && lesson.questions.length > 0) {
+            setActiveLessonData({ lesson, stage, unlockStageOnPass: null });
+            return;
+        }
+        setIsLoadingStage(true);
+        const loaded = await loadRoadmapLessonById(stage.stage, lesson.id);
+        setIsLoadingStage(false);
+        if (loaded?.lesson) {
+            setActiveLessonData({ lesson: loaded.lesson, stage: loaded.stage, unlockStageOnPass: null });
+        }
     };
 
-    // Close lesson modal
-    const handleCloseModal = () => {
-        setActiveLessonData(null);
-    };
+    // Duolingo-style Section Jump Test: pass Milestone of stage k-1 to unlock stage k directly
+    const handleJumpTestStage = async (targetStageNum) => {
+        const prevStageNum = Math.max(1, targetStageNum - 1);
+        setIsLoadingStage(true);
+        const prevStageChunk = await loadRoadmapStageChunk(prevStageNum);
+        setIsLoadingStage(false);
 
-    // Callback when lesson is finished
-    const handleLessonCompleted = (lessonId, score, stars) => {
-        setProgress(getRoadmapProgress());
+        const lessons = prevStageChunk?.lessons || [];
+        const milestone = lessons.find((l) => l.isMilestone) || lessons[lessons.length - 1];
+        if (milestone && milestone.questions?.length > 0) {
+            setActiveLessonData({
+                lesson: milestone,
+                stage: prevStageChunk,
+                unlockStageOnPass: targetStageNum
+            });
+        }
     };
 
     return (
@@ -113,22 +196,22 @@ const HomeLearningRoadmap = ({ isHighlighted = false, awardXP, userId, allCards 
                         🗺️
                     </div>
                     <div>
-                        <div className="flex items-center gap-2">
+                        <div className="flex flex-wrap items-center gap-2">
                             <h2 className="text-base sm:text-lg font-black text-slate-900 dark:text-white tracking-tight">
                                 {t('roadmap.title', 'Lộ Trình Học Tương Tác')}
                             </h2>
-                            <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 border border-amber-300/40 shrink-0">
-                                Beta
+                            <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-300/40 shrink-0">
+                                {langCode === 'ja' ? 'Kana → N1 + Auto SRS' : 'Tương tác + SRS'}
                             </span>
                         </div>
                         <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                            {t('roadmap.subtitle', 'Chinh phục từng bài học tương tác, tích lũy XP và mở khóa toàn bộ các chặng.')}
+                            {t('roadmap.subtitle', 'Học theo sách giáo khoa, Kanji, Ngữ pháp & Đề JLPT — Tự động lưu vào SRS sau mỗi bài.')}
                         </p>
                     </div>
                 </div>
 
-                {/* Retake survey shortcut */}
                 <button
+                    type="button"
                     onClick={() => navigate(ROUTES.ONBOARDING)}
                     className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 bg-white dark:bg-slate-850 border-2 border-b-4 border-slate-200 dark:border-slate-700 rounded-xl transition-all self-start sm:self-auto cursor-pointer select-none active:translate-y-0.5 active:border-b-2"
                 >
@@ -137,186 +220,41 @@ const HomeLearningRoadmap = ({ isHighlighted = false, awardXP, userId, allCards 
                 </button>
             </div>
 
-            {/* 2. STAGE SELECTOR TABS (Duolingo Tactile 3D Pills) */}
-            <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 mb-5">
-                {stages.map((st) => {
-                    const isSelected = st.stage === selectedStageNum;
-                    const isStageUnlocked = (progress.unlockedStages || [1]).includes(st.stage);
-                    const stats = getStageStats(st, progress);
+            {/* 2. STAGE SELECTOR & ACTIVE HERO BAR */}
+            <RoadmapStageHeaderBar
+                stages={stages}
+                progress={progress}
+                selectedStageNum={selectedStageNum}
+                onSelectStage={setSelectedStageNum}
+                currentStage={currentStage}
+                currentStageStats={currentStageStats}
+                isLoadingStage={isLoadingStage}
+                onJumpTestStage={langCode === 'ja' ? handleJumpTestStage : null}
+            />
 
-                    return (
-                        <button
-                            key={st.stage}
-                            onClick={() => setSelectedStageNum(st.stage)}
-                            className={`p-2.5 sm:p-3 rounded-2xl border-2 border-b-4 text-left transition-all cursor-pointer select-none active:translate-y-0.5 active:border-b-2 relative overflow-hidden ${
-                                isSelected
-                                    ? 'bg-emerald-500 border-emerald-400 border-b-emerald-700 text-white shadow-md shadow-emerald-500/20'
-                                    : isStageUnlocked
-                                    ? 'bg-slate-50 dark:bg-slate-850 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 text-slate-700 dark:text-slate-200'
-                                    : 'bg-slate-100/60 dark:bg-slate-900/60 border-slate-200/60 dark:border-slate-800/60 text-slate-400 opacity-75'
-                            }`}
-                        >
-                            <div className="flex items-center justify-between gap-1 mb-1">
-                                <span className="text-base sm:text-lg">{st.icon}</span>
-                                {stats.isAllCompleted ? (
-                                    <span className={`text-[10px] font-black px-1.5 py-0.2 rounded-md ${
-                                        isSelected ? 'bg-white/20 text-white' : 'bg-amber-100 dark:bg-amber-950 text-amber-600'
-                                    }`}>
-                                        ⭐ 100%
-                                    </span>
-                                ) : !isStageUnlocked ? (
-                                    <Lock className="w-3.5 h-3.5 opacity-60" />
-                                ) : (
-                                    <span className={`text-[10px] font-black ${isSelected ? 'text-white/80' : 'text-slate-400'}`}>
-                                        {stats.percent}%
-                                    </span>
-                                )}
-                            </div>
-                            <div className="text-xs font-black truncate">
-                                Chặng {st.stage}
-                            </div>
-                        </button>
-                    );
-                })}
-            </div>
-
-            {/* 3. ACTIVE STAGE HERO BANNER */}
-            <div className="p-4 rounded-2xl bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-sky-500/10 border-2 border-emerald-300/40 dark:border-emerald-800/40 mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-                <div className="space-y-1">
-                    <div className="flex items-center gap-2">
-                        <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-md bg-emerald-500 text-white shadow-xs">
-                            Đang học: Chặng {currentStage.stage}
-                        </span>
-                        {currentStageStats.isAllCompleted && (
-                            <span className="text-[10px] font-black uppercase px-2 py-0.5 rounded-md bg-amber-500 text-white flex items-center gap-1 shadow-xs">
-                                🏆 Đã Xuất Sắc Hoàn Thành
-                            </span>
-                        )}
-                    </div>
-                    <h3 className="font-black text-sm sm:text-base text-slate-900 dark:text-white">
-                        {currentStage.title}
-                    </h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
-                        {currentStage.sub}
-                    </p>
-                </div>
-
-                {/* Stage Progress Capsule */}
-                <div className="shrink-0 sm:text-right">
-                    <div className="text-xs font-black text-slate-700 dark:text-slate-300 mb-1">
-                        {currentStageStats.completed} / {currentStageStats.total} Bài học
-                    </div>
-                    <div className="w-36 bg-slate-200 dark:bg-slate-700 h-2.5 rounded-full overflow-hidden">
-                        <div
-                            className="bg-emerald-500 h-full rounded-full transition-all duration-300"
-                            style={{ width: `${currentStageStats.percent}%` }}
-                        />
-                    </div>
-                </div>
-            </div>
-
-            {/* Locked Hint Toast */}
             {lockedHint && (
                 <div className="mb-4 p-3 rounded-xl bg-amber-50 dark:bg-amber-950/60 border border-amber-300 dark:border-amber-800 text-amber-800 dark:text-amber-200 text-xs font-bold flex items-center justify-center gap-2 animate-in fade-in slide-in-from-top-2">
                     <span>{lockedHint}</span>
                 </div>
             )}
 
-            {/* 4. THE DUOLINGO WINDING PATH (Stepping Stones) */}
-            <div className="relative py-6 sm:py-10 max-w-md mx-auto flex flex-col items-center">
-                {/* Background Connecting Trail Line */}
-                <div className="absolute top-12 bottom-12 left-1/2 -translate-x-1/2 w-1.5 bg-dashed border-l-4 border-dashed border-slate-300 dark:border-slate-700 pointer-events-none -z-0" />
-
-                {/* Lesson Nodes */}
-                <div className="space-y-10 sm:space-y-12 w-full relative z-10">
-                    {currentStage.lessons.map((lesson, idx) => {
-                        const isCompleted = !!progress.completedLessons?.[lesson.id]?.completed;
-                        const isUnlocked = isLessonUnlocked(currentStage, idx, progress);
-                        const isActive = lesson.id === currentActiveLessonId || (!isCompleted && isUnlocked);
-                        const isMilestone = lesson.isMilestone;
-
-                        // Zig-zag offset pattern: center -> left -> center -> right -> center
-                        const offsetClass =
-                            idx % 4 === 1
-                                ? '-translate-x-10 sm:-translate-x-16'
-                                : idx % 4 === 3
-                                ? 'translate-x-10 sm:translate-x-16'
-                                : 'translate-x-0';
-
-                        return (
-                            <div
-                                key={lesson.id}
-                                className={`flex flex-col items-center transition-transform duration-300 ${offsetClass}`}
-                            >
-                                {/* Tooltip Speech Bubble on Active Node (Duolingo Style) */}
-                                {isActive && !isCompleted && (
-                                    <div className="mb-2 animate-bounce flex flex-col items-center">
-                                        <div className="px-3 py-1 rounded-xl bg-emerald-500 text-white font-black text-[11px] uppercase tracking-wider shadow-lg shadow-emerald-500/30 flex items-center gap-1.5">
-                                            <Play className="w-3 h-3 fill-white" />
-                                            <span>Bắt Đầu Học</span>
-                                        </div>
-                                        <div className="w-0 h-0 border-x-4 border-x-transparent border-t-6 border-t-emerald-500" />
-                                    </div>
-                                )}
-
-                                {/* Node Circle Button */}
-                                <button
-                                    onClick={() => handleNodeClick(lesson, currentStage, isUnlocked, isCompleted)}
-                                    className={`group relative rounded-full transition-all select-none cursor-pointer flex items-center justify-center ${
-                                        isMilestone
-                                            ? 'w-20 h-20 sm:w-24 sm:h-24'
-                                            : 'w-16 h-16 sm:w-20 sm:h-20'
-                                    } ${
-                                        isCompleted
-                                            ? 'bg-emerald-500 hover:bg-emerald-400 border-4 border-emerald-400 border-b-[8px] border-b-emerald-700 text-white shadow-lg shadow-emerald-500/30 active:translate-y-1 active:border-b-4'
-                                            : isActive
-                                            ? 'bg-emerald-500 hover:bg-emerald-400 border-4 border-emerald-300 border-b-[8px] border-b-emerald-700 text-white ring-8 ring-emerald-400/30 dark:ring-emerald-500/30 shadow-xl shadow-emerald-500/40 active:translate-y-1 active:border-b-4 animate-pulse'
-                                            : 'bg-slate-200 dark:bg-slate-800 border-4 border-slate-300 dark:border-slate-700 border-b-[8px] border-b-slate-400 dark:border-b-slate-900 text-slate-400 cursor-not-allowed opacity-80'
-                                    }`}
-                                    title={isUnlocked ? lesson.title : 'Hoàn thành bài trước để mở khóa'}
-                                >
-                                    {/* Icon inside circle */}
-                                    {isCompleted ? (
-                                        <div className="flex flex-col items-center">
-                                            <CheckCircle2 className="w-7 h-7 stroke-[3] text-white" />
-                                        </div>
-                                    ) : !isUnlocked ? (
-                                        <Lock className="w-6 h-6 stroke-[2.5]" />
-                                    ) : isMilestone ? (
-                                        <span className="text-3xl sm:text-4xl animate-bounce">
-                                            👑
-                                        </span>
-                                    ) : (
-                                        <span className="text-xl sm:text-2xl font-black font-japanese">
-                                            {lesson.icon || 'あ'}
-                                        </span>
-                                    )}
-
-                                    {/* Star Badge for Completed */}
-                                    {isCompleted && (
-                                        <div className="absolute -top-1 -right-1 w-6 h-6 rounded-full bg-amber-400 border-2 border-white dark:border-slate-900 text-amber-950 flex items-center justify-center text-[10px] font-black shadow-xs">
-                                            ★
-                                        </div>
-                                    )}
-                                </button>
-
-                                {/* Lesson Title & Info under button */}
-                                <div className="mt-2 text-center max-w-[150px]">
-                                    <div className="font-black text-xs sm:text-sm text-slate-800 dark:text-slate-200 leading-snug">
-                                        {lesson.shortTitle}
-                                    </div>
-                                    <div className="text-[10px] font-bold text-slate-400 dark:text-slate-500 mt-0.5 flex items-center justify-center gap-1">
-                                        <Zap className="w-2.5 h-2.5 text-amber-500" />
-                                        <span>+{lesson.xp} XP</span>
-                                    </div>
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>
+            {/* 3. MULTI-UNIT DUOLINGO WINDING PATH */}
+            <div className="space-y-8">
+                {displayUnits.map((unit, uIdx) => (
+                    <RoadmapUnitBlock
+                        key={unit.id || `unit_${uIdx}`}
+                        unit={unit}
+                        unitIndex={uIdx}
+                        currentStage={currentStage}
+                        lessonGlobalIndexMap={lessonGlobalIndexMap}
+                        progress={progress}
+                        currentActiveLessonId={currentActiveLessonId}
+                        onNodeClick={handleNodeClick}
+                    />
+                ))}
             </div>
 
-            {/* 5. INTERACTIVE LESSON RUNNER MODAL */}
+            {/* 4. INTERACTIVE LESSON RUNNER MODAL */}
             {activeLessonData && (
                 <RoadmapLessonModal
                     lesson={activeLessonData.lesson}
@@ -325,8 +263,10 @@ const HomeLearningRoadmap = ({ isHighlighted = false, awardXP, userId, allCards 
                     awardXP={awardXP}
                     userId={userId}
                     allCards={allCards}
-                    onClose={handleCloseModal}
-                    onLessonCompleted={handleLessonCompleted}
+                    folders={folders}
+                    unlockStageOnPass={activeLessonData.unlockStageOnPass}
+                    onClose={() => setActiveLessonData(null)}
+                    onLessonCompleted={() => setProgress(getRoadmapProgress())}
                 />
             )}
         </section>

@@ -1,13 +1,33 @@
 /**
  * Unified Roadmap Curriculum & Progress Management Service
- * Supports Japanese, Korean, and English tracks with Duolingo-style progression.
+ * Supports Japanese (10-Stage Sharded Data-Driven Path), Korean, and English tracks.
  */
 
 import { JA_ROADMAP_STAGES } from './jaCurriculum';
 import { KO_ROADMAP_STAGES } from './koCurriculum';
 import { EN_ROADMAP_STAGES } from './enCurriculum';
+import {
+    ROADMAP_PROGRESS_KEY,
+    mergeProgressObjects,
+    saveProgressToFirestore,
+    hydrateRoadmapProgressFromCloud
+} from './roadmapCloudSync';
+import {
+    getSynchronouslyCachedStages,
+    loadRoadmapManifest,
+    loadRoadmapStageChunk,
+    loadRoadmapLessonById
+} from './roadmapLoader';
+import { auth } from '../../config/firebase';
+import { safeSetLocalStorage } from '../../utils/storageCleanup';
 
-export const ROADMAP_PROGRESS_KEY = 'quizki_roadmap_progress';
+export {
+    ROADMAP_PROGRESS_KEY,
+    loadRoadmapManifest,
+    loadRoadmapStageChunk,
+    loadRoadmapLessonById,
+    hydrateRoadmapProgressFromCloud
+};
 
 /**
  * Get full curriculum stages based on current target language
@@ -16,11 +36,11 @@ export const ROADMAP_PROGRESS_KEY = 'quizki_roadmap_progress';
 export const getRoadmapStages = (lang = 'ja') => {
     if (lang === 'ko' || lang === 'korean') return KO_ROADMAP_STAGES;
     if (lang === 'en' || lang === 'english') return EN_ROADMAP_STAGES;
-    return JA_ROADMAP_STAGES;
+    return getSynchronouslyCachedStages();
 };
 
 /**
- * Retrieve saved progress from localStorage
+ * Retrieve saved progress from localStorage + placement unlocks
  */
 export const getRoadmapProgress = () => {
     if (typeof window === 'undefined' || !window.localStorage) {
@@ -28,35 +48,35 @@ export const getRoadmapProgress = () => {
     }
     try {
         const raw = localStorage.getItem(ROADMAP_PROGRESS_KEY);
-        if (raw) {
-            const parsed = JSON.parse(raw);
-            return {
-                completedLessons: parsed.completedLessons || {},
-                unlockedStages: Array.isArray(parsed.unlockedStages) ? parsed.unlockedStages : [1]
-            };
-        }
+        const parsed = raw ? JSON.parse(raw) : {};
+        return mergeProgressObjects(parsed, {});
     } catch (e) {
         console.warn('Failed to parse roadmap progress:', e);
     }
-    return { completedLessons: {}, unlockedStages: [1] };
+    return mergeProgressObjects({}, {});
 };
 
 /**
  * Check if a specific lesson is unlocked
- * Rule:
- * 1. The very first lesson of an unlocked stage is unlocked if stage is unlocked.
- * 2. Any subsequent lesson is unlocked if the immediately preceding lesson is completed.
- * 3. Any completed lesson is always unlocked (can be reviewed).
  */
 export const isLessonUnlocked = (stage, lessonIndex, progress) => {
+    if (!stage || !Array.isArray(stage.lessons)) return false;
+    const targetLesson = stage.lessons[lessonIndex];
+    if (!targetLesson) return false;
+
+    // Completed lessons are always replayable
+    if (progress.completedLessons?.[targetLesson.id]?.completed) return true;
+
     const stageNumber = stage.stage;
     const isStageUnlocked = (progress.unlockedStages || [1]).includes(stageNumber);
     if (!isStageUnlocked) return false;
 
-    // First lesson in stage is unlocked
+    // First lesson in an unlocked stage is always unlocked
     if (lessonIndex === 0) return true;
 
-    // Subsequent lessons are unlocked if previous lesson is completed
+    // Allow skipping directly to Milestone ("Thi vượt chặng") on an unlocked stage or previous lesson completed
+    if (targetLesson.isMilestone) return true;
+
     const prevLesson = stage.lessons[lessonIndex - 1];
     if (!prevLesson) return false;
     return !!progress.completedLessons?.[prevLesson.id]?.completed;
@@ -66,12 +86,13 @@ export const isLessonUnlocked = (stage, lessonIndex, progress) => {
  * Calculate completion percentage and stats for a given stage
  */
 export const getStageStats = (stage, progress) => {
-    if (!stage || !stage.lessons || stage.lessons.length === 0) {
+    const lessons = stage?.lessons || [];
+    if (lessons.length === 0) {
         return { total: 0, completed: 0, percent: 0, isAllCompleted: false };
     }
-    const total = stage.lessons.length;
+    const total = lessons.length;
     let completed = 0;
-    stage.lessons.forEach(l => {
+    lessons.forEach((l) => {
         if (progress.completedLessons?.[l.id]?.completed) {
             completed += 1;
         }
@@ -89,29 +110,34 @@ export const getStageStats = (stage, progress) => {
  * Find the current active lesson that the user should learn next
  */
 export const findCurrentActiveLessonId = (stages, progress) => {
-    for (const stage of stages) {
-        const isStageUnlocked = (progress.unlockedStages || [1]).includes(stage.stage);
-        if (!isStageUnlocked) continue;
+    const unlockedSet = new Set(progress.unlockedStages || [1]);
+    // Prefer highest unlocked incomplete stage first so placement-placed users jump straight there
+    const sortedStages = [...(stages || [])].sort((a, b) => Number(a.stage) - Number(b.stage));
+    const highestUnlocked = Math.max(...(progress.unlockedStages || [1]));
 
-        for (let i = 0; i < stage.lessons.length; i++) {
-            const lesson = stage.lessons[i];
+    const orderedCandidates = [
+        ...sortedStages.filter((s) => Number(s.stage) === highestUnlocked),
+        ...sortedStages.filter((s) => Number(s.stage) !== highestUnlocked)
+    ];
+
+    for (const stage of orderedCandidates) {
+        if (!unlockedSet.has(stage.stage)) continue;
+        const lessons = stage.lessons || [];
+        for (let i = 0; i < lessons.length; i++) {
+            const lesson = lessons[i];
             const isCompleted = !!progress.completedLessons?.[lesson.id]?.completed;
-            if (!isCompleted) {
-                // If this lesson is unlocked, this is the current active lesson!
-                if (isLessonUnlocked(stage, i, progress)) {
-                    return lesson.id;
-                }
+            if (!isCompleted && isLessonUnlocked(stage, i, progress)) {
+                return lesson.id;
             }
         }
     }
-    // If all completed, return first lesson of first stage for replay
-    return stages[0]?.lessons[0]?.id || null;
+    return stages[0]?.lessons?.[0]?.id || null;
 };
 
 /**
- * Save completion of a lesson, unlocking the next node/stage
+ * Save completion of a lesson, unlocking the next node/stage & syncing to Firestore
  */
-export const saveRoadmapLessonComplete = (lessonId, score = 100, stars = 3, lang = 'ja') => {
+export const saveRoadmapLessonComplete = (lessonId, score = 100, stars = 3, lang = 'ja', options = {}) => {
     const progress = getRoadmapProgress();
     const updatedCompleted = {
         ...progress.completedLessons,
@@ -126,13 +152,20 @@ export const saveRoadmapLessonComplete = (lessonId, score = 100, stars = 3, lang
     const stages = getRoadmapStages(lang);
     const unlockedStagesSet = new Set(progress.unlockedStages || [1]);
 
-    // Check if any stage has just been fully completed, unlocking the next stage
+    // Check stage completion OR milestone completion (Jump-Ahead Test!)
     stages.forEach((stage, idx) => {
-        const isCurrentCompleted = stage.lessons.every(l => updatedCompleted[l.id]?.completed);
-        if (isCurrentCompleted && stages[idx + 1]) {
+        const lessons = stage.lessons || [];
+        const milestone = lessons.find((l) => l.isMilestone);
+        const isCurrentCompleted = lessons.length > 0 && lessons.every((l) => updatedCompleted[l.id]?.completed);
+        const isMilestonePassed = milestone && updatedCompleted[milestone.id]?.completed;
+        if ((isCurrentCompleted || isMilestonePassed) && stages[idx + 1]) {
             unlockedStagesSet.add(stages[idx + 1].stage);
         }
     });
+
+    if (options.unlockStageNum) {
+        unlockedStagesSet.add(Number(options.unlockStageNum));
+    }
 
     const newProgress = {
         completedLessons: updatedCompleted,
@@ -140,27 +173,30 @@ export const saveRoadmapLessonComplete = (lessonId, score = 100, stars = 3, lang
         lastUpdated: Date.now()
     };
 
+    safeSetLocalStorage(ROADMAP_PROGRESS_KEY, JSON.stringify(newProgress));
+
     try {
-        localStorage.setItem(ROADMAP_PROGRESS_KEY, JSON.stringify(newProgress));
         if (typeof window !== 'undefined') {
             window.dispatchEvent(new CustomEvent('quizki-roadmap-updated', { detail: { lessonId, newProgress } }));
         }
-    } catch (e) {
-        console.error('Failed to save roadmap progress:', e);
+    } catch (_) {}
+
+    const activeUid = options.userId || auth?.currentUser?.uid;
+    if (activeUid) {
+        saveProgressToFirestore(activeUid, newProgress).catch(() => {});
     }
 
     return newProgress;
 };
 
 /**
- * Helper to find a lesson across all stages
+ * Helper to find a lesson across cached stages
  */
 export const findLessonById = (lessonId, lang = 'ja') => {
     const stages = getRoadmapStages(lang);
     for (const stage of stages) {
-        const found = stage.lessons.find(l => l.id === lessonId);
+        const found = (stage.lessons || []).find((l) => l.id === lessonId);
         if (found) return { lesson: found, stage };
     }
     return null;
 };
-

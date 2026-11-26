@@ -32,32 +32,32 @@ const getDiagnosedResult = (score) => {
             level: 'n3',
             levelLabel: 'Cấp độ N3 (Trung cấp vững vàng)',
             desc: 'Bạn đã có vốn từ phong phú, nắm vững ngữ pháp liên kết và nhận diện sắc thái N3 rất tốt.',
-            stage: 4,
-            stageLabel: 'Chặng 4: N3 — 3,000 Từ vựng & Phản xạ Kaiwa AI'
+            stage: 6,
+            stageLabel: 'Chặng 6: N3 Trung Cấp Cốt Lõi (Mimikara N3 & SKM)'
         };
     } else if (score >= 9) {
         return {
             level: 'n4',
             levelLabel: 'Cấp độ N4 (Sơ cấp nâng cao)',
-            desc: 'Bạn đã vững các thể động từ cơ bản và kính ngữ. Bước tiếp theo là chinh phục Kanji và cấu trúc N3.',
-            stage: 3,
-            stageLabel: 'Chặng 3: N4 — 1,500 Từ vựng, 300 Kanji & Thể động từ'
+            desc: 'Bạn đã vững các thể động từ cơ bản và giao tiếp N5. Bước tiếp theo là chinh phục Minna N4 & Tango 1500.',
+            stage: 4,
+            stageLabel: 'Chặng 4: N4 Sơ Trung Cấp (Minna 26-38 & Tango 1500)'
         };
     } else if (score >= 5) {
         return {
             level: 'n5_advanced',
-            levelLabel: 'Cấp độ N5 Nâng cao',
-            desc: 'Bạn nắm tốt bảng chữ cái và từ vựng cốt lõi. QuizKi sẽ giúp bạn kết nối từ vựng thành câu hoàn chỉnh.',
+            levelLabel: 'Cấp độ N5 Sơ Cấp',
+            desc: 'Bạn nắm tốt bảng chữ cái Kana. Lộ trình sẽ đưa bạn thẳng vào Minna 1-12, Tango 1000 & Kanji N5 cốt lõi.',
             stage: 2,
-            stageLabel: 'Chặng 2: N5 — 800 Từ vựng & 100 Kanji cốt lõi'
+            stageLabel: 'Chặng 2: N5 Sơ Cấp (Minna 1-12 & Tango 1000)'
         };
     } else {
         return {
             level: 'n5_scratch',
             levelLabel: 'Khởi đầu N5 (Nền tảng căn bản)',
-            desc: 'Lộ trình tối ưu cho bạn là làm chủ bảng chữ cái Kana, phát âm chuẩn và 200 từ vựng căn bản.',
+            desc: 'Lộ trình tối ưu cho bạn là làm chủ bảng chữ cái Kana, phát âm chuẩn và giáo trình Irodori nhập môn.',
             stage: 1,
-            stageLabel: 'Chặng 1: Nền tảng Bảng chữ cái & Phát âm'
+            stageLabel: 'Chặng 1: Bảng Chữ Cái Kana & Giao Tiếp Đầu Đời'
         };
     }
 };

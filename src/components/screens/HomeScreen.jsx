@@ -693,6 +693,7 @@ const HomeScreen = ({
                         awardXP={awardXP}
                         userId={userId}
                         allCards={allCards}
+                        folders={folders}
                     />
                 </div>
 
