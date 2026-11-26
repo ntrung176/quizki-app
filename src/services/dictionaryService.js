@@ -74,7 +74,10 @@ function broadcastProgress(progress) {
  */
 export async function isDictionaryReady() {
     try {
-        if (localStorage.getItem('quizki_dict_ready') === 'true') {
+        if (
+            localStorage.getItem('quizki_dict_ready') === 'true' &&
+            localStorage.getItem('quizki_dict_version') === CURRENT_DICT_VERSION
+        ) {
             return true;
         }
 
@@ -85,8 +88,10 @@ export async function isDictionaryReady() {
             const countReq = store.count();
 
             countReq.onsuccess = () => {
-                const hasData = countReq.result > 1000;
-                if (hasData) {
+                const count = countReq.result || 0;
+                const hasData = count > 1000;
+                // Only mark complete if full corpus (~266k) is present; partial DB still serves queries while remaining chunks finish
+                if (count >= 200000) {
                     localStorage.setItem('quizki_dict_ready', 'true');
                     localStorage.setItem('quizki_dict_version', CURRENT_DICT_VERSION);
                 }
@@ -105,7 +110,10 @@ export async function isDictionaryReady() {
  * Check if local dictionary version matches the current target version
  */
 export function isDictionaryUpToDate() {
-    return localStorage.getItem('quizki_dict_version') === CURRENT_DICT_VERSION;
+    return (
+        localStorage.getItem('quizki_dict_ready') === 'true' &&
+        localStorage.getItem('quizki_dict_version') === CURRENT_DICT_VERSION
+    );
 }
 
 /**
@@ -144,17 +152,31 @@ export async function syncDictionary({ onProgress = null, silent = false } = {})
                 throw new Error('Không thể tải manifest từ điển.');
             }
             const manifest = await manifestRes.json();
+            const targetVer = manifest.version || CURRENT_DICT_VERSION;
             const totalChunks = manifest.chunks || 8;
             const totalEntries = manifest.totalEntries || 266886;
 
-            const db = await openDb();
-            let importedEntries = 0;
-            const SUB_BATCH_SIZE = 1000;
+            const resumeVer = localStorage.getItem('quizki_dict_sync_ver');
+            const lastChunkDone = resumeVer === targetVer
+                ? Math.min(totalChunks, Math.max(0, parseInt(localStorage.getItem('quizki_dict_last_chunk') || '0', 10) || 0))
+                : 0;
+            const startChunk = lastChunkDone < totalChunks ? lastChunkDone + 1 : totalChunks + 1;
 
-            for (let i = 1; i <= totalChunks; i++) {
+            const db = await openDb();
+            let importedEntries = Math.round((lastChunkDone / totalChunks) * totalEntries);
+            const SUB_BATCH_SIZE = 500;
+
+            if (lastChunkDone === 0) {
+                localStorage.setItem('quizki_dict_sync_ver', targetVer);
+                localStorage.setItem('quizki_dict_last_chunk', '0');
+            }
+
+            for (let i = startChunk; i <= totalChunks; i++) {
                 const pct = Math.round(10 + ((i - 1) / totalChunks) * 85);
                 broadcastProgress({
                     percent: pct,
+                    chunk: i,
+                    totalChunks,
                     text: `Đang tải phần ${i}/${totalChunks}... (${importedEntries.toLocaleString()} từ đã lưu)`
                 });
 
@@ -164,7 +186,7 @@ export async function syncDictionary({ onProgress = null, silent = false } = {})
                 }
                 const chunkData = await chunkRes.json();
 
-                // Process in lightweight 1,000-item sub-batches with GC pauses
+                // Process in lightweight 500-item sub-batches with 16ms frame yields to keep scrolling smooth
                 for (let s = 0; s < chunkData.length; s += SUB_BATCH_SIZE) {
                     const slice = chunkData.slice(s, s + SUB_BATCH_SIZE);
                     await new Promise((resolve, reject) => {
@@ -178,27 +200,36 @@ export async function syncDictionary({ onProgress = null, silent = false } = {})
                     });
                     importedEntries += slice.length;
 
-                    // Micro-yield to allow browser rendering and disk I/O flush
-                    await new Promise(r => setTimeout(r, 8));
+                    await new Promise(r => setTimeout(r, 16));
                 }
 
-                // Immediately drop chunkData reference to free memory
+                // Immediately drop chunkData reference to free memory and persist exact resume checkpoint
                 chunkData.length = 0;
+                localStorage.setItem('quizki_dict_sync_ver', targetVer);
+                localStorage.setItem('quizki_dict_last_chunk', String(i));
 
-                // Mark ready right after first chunk is imported so user can start searching immediately!
-                localStorage.setItem('quizki_dict_ready', 'true');
+                broadcastProgress({
+                    percent: Math.round(10 + (i / totalChunks) * 85),
+                    chunk: i,
+                    totalChunks,
+                    chunkCompleted: true,
+                    text: `Đã đồng bộ phần ${i}/${totalChunks}...`
+                });
 
                 // Allow V8 Garbage Collector to reclaim heap before fetching next chunk
                 await new Promise(r => setTimeout(r, 40));
             }
 
+            localStorage.setItem('quizki_dict_ready', 'true');
+            localStorage.setItem('quizki_dict_version', targetVer);
+            localStorage.setItem('quizki_dict_last_chunk', String(totalChunks));
+
             broadcastProgress({
                 percent: 100,
+                chunk: totalChunks,
+                totalChunks,
                 text: `Hoàn tất! Đã lưu ${totalEntries.toLocaleString()} từ & câu ví dụ.`
             });
-
-            localStorage.setItem('quizki_dict_ready', 'true');
-            localStorage.setItem('quizki_dict_version', manifest.version || CURRENT_DICT_VERSION);
             return true;
         } catch (err) {
             console.error('Error syncing dictionary:', err);
@@ -248,7 +279,7 @@ export async function searchDictionary(queryStr, limit = 50) {
     const addEntry = (entry, score) => {
         if (!entry || !entry.w) return;
         const key = `${entry.w}|${entry.r || ''}`;
-        if (!resultsMap.has(key) || resultsMap.get(key).score < score) {
+        if (!resultsMap.has(key) || (resultsMap.get(key)._score || 0) < score) {
             resultsMap.set(key, { ...entry, _score: score });
         }
     };

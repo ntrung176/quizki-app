@@ -192,69 +192,79 @@ export const useAppLogic = () => {
         handleRestoreFromLocalBackup
     } = vocab;
 
+    const lastStatsSyncSigRef = useRef('');
+
     // Đồng bộ số liệu tuần và streak của người dùng vào publicStats theo thời gian thực để bảng xếp hạng (Leaderboard) hiển thị chuẩn
     useEffect(() => {
-        if (!userId || !publicStatsCollectionPath || !db || !isActivityLogsLoaded) return;
+        if (!userId || !publicStatsCollectionPath || !db || !isActivityLogsLoaded || isLoading || isProfileLoading) return;
 
-        const sevenDaysAgo = new Date();
-        sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-        sevenDaysAgo.setHours(0, 0, 0, 0);
-        const cutoffStr = `${sevenDaysAgo.getFullYear()}-${String(sevenDaysAgo.getMonth() + 1).padStart(2, '0')}-${String(sevenDaysAgo.getDate()).padStart(2, '0')}`;
+        const timer = setTimeout(() => {
+            const sevenDaysAgo = new Date();
+            sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+            sevenDaysAgo.setHours(0, 0, 0, 0);
+            const cutoffStr = `${sevenDaysAgo.getFullYear()}-${String(sevenDaysAgo.getMonth() + 1).padStart(2, '0')}-${String(sevenDaysAgo.getDate()).padStart(2, '0')}`;
 
-        const last7DaysLogs = (dailyActivityLogs || []).filter(log => {
-            if (!log || !log.id) return false;
-            return String(log.id) >= cutoffStr;
-        });
+            const last7DaysLogs = (dailyActivityLogs || []).filter(log => {
+                if (!log || !log.id) return false;
+                return String(log.id) >= cutoffStr;
+            });
 
-        const addedLast7Days = last7DaysLogs.reduce((s, l) => s + (l.newWordsAdded || 0), 0);
-        const kanjiLast7Days = last7DaysLogs.reduce((s, l) => s + (l.newKanjiAdded || 0), 0);
-        const reviewsLast7Days = last7DaysLogs.reduce((s, l) => s + (l.reviewsDone || 0) + (l.grammarReviewsDone || 0) + (l.cardsReviewed || 0), 0);
-        const xpGainedLast7Days = last7DaysLogs.reduce((s, l) => s + (l.xpGained || 0), 0);
-        const activeDaysLast7Days = last7DaysLogs.filter(l => 
-            (l.newWordsAdded || 0) > 0 || 
-            (l.newKanjiAdded || 0) > 0 || 
-            (l.reviewsDone || 0) > 0 || 
-            (l.grammarReviewsDone || 0) > 0 || 
-            (l.cardsReviewed || 0) > 0 || 
-            (l.xpGained || 0) > 0
-        ).length;
+            const addedLast7Days = last7DaysLogs.reduce((s, l) => s + (l.newWordsAdded || 0), 0);
+            const kanjiLast7Days = last7DaysLogs.reduce((s, l) => s + (l.newKanjiAdded || 0), 0);
+            const reviewsLast7Days = last7DaysLogs.reduce((s, l) => s + (l.reviewsDone || 0) + (l.grammarReviewsDone || 0) + (l.cardsReviewed || 0), 0);
+            const xpGainedLast7Days = last7DaysLogs.reduce((s, l) => s + (l.xpGained || 0), 0);
+            const activeDaysLast7Days = last7DaysLogs.filter(l => 
+                (l.newWordsAdded || 0) > 0 || 
+                (l.newKanjiAdded || 0) > 0 || 
+                (l.reviewsDone || 0) > 0 || 
+                (l.grammarReviewsDone || 0) > 0 || 
+                (l.cardsReviewed || 0) > 0 || 
+                (l.xpGained || 0) > 0
+            ).length;
 
-        const formulaScore = (reviewsLast7Days * 4) + (addedLast7Days * 3) + (kanjiLast7Days * 5) + (activeDaysLast7Days * 15);
-        const weeklyScore = Math.max(xpGainedLast7Days, formulaScore, reviewsLast7Days * 4);
+            const formulaScore = (reviewsLast7Days * 4) + (addedLast7Days * 3) + (kanjiLast7Days * 5) + (activeDaysLast7Days * 15);
+            const weeklyScore = Math.max(xpGainedLast7Days, formulaScore, reviewsLast7Days * 4);
 
-        let localCachedStreak = 0;
-        try {
-            const cachedStreakStr = localStorage.getItem('quizki_cached_user_streak');
-            if (cachedStreakStr) {
-                localCachedStreak = parseInt(cachedStreakStr, 10) || 0;
-            }
-        } catch (_) {}
+            let localCachedStreak = 0;
+            try {
+                const cachedStreakStr = localStorage.getItem('quizki_cached_user_streak');
+                if (cachedStreakStr) {
+                    localCachedStreak = parseInt(cachedStreakStr, 10) || 0;
+                }
+            } catch (_) {}
 
-        // Đảm bảo tính đơn điệu không bao giờ tụt streak: lấy giá trị cao nhất từ tính toán, đám mây và máy khách
-        const safeSyncStreak = Math.max(calculatedStreak || 0, Number(cloudStreak || 0), localCachedStreak);
-        const streakToSync = Math.max(safeSyncStreak, Number(cloudStreak || 0));
+            // Đảm bảo tính đơn điệu không bao giờ tụt streak: lấy giá trị cao nhất từ tính toán, đám mây và máy khách
+            const safeSyncStreak = Math.max(calculatedStreak || 0, Number(cloudStreak || 0), localCachedStreak);
+            const streakToSync = Math.max(safeSyncStreak, Number(cloudStreak || 0));
 
-        const statsRef = doc(db, publicStatsCollectionPath, userId);
-        setDoc(statsRef, {
-            streak: streakToSync,
-            addedLast7Days,
-            kanjiAddedLast7Days: kanjiLast7Days,
-            reviewsLast7Days,
-            activeDaysLast7Days,
-            weeklyScore,
-            lastActive: Date.now(),
-            updatedAt: Date.now()
-        }, { merge: true }).catch(() => { });
+            const syncSig = `${userId}|${streakToSync}|${addedLast7Days}|${kanjiLast7Days}|${reviewsLast7Days}|${activeDaysLast7Days}|${weeklyScore}`;
+            if (lastStatsSyncSigRef.current === syncSig) return;
+            lastStatsSyncSigRef.current = syncSig;
 
-        // Đồng bộ đồng thời lên user profile để bảo đảm tính nhất quán trên mọi nền tảng
-        if (streakToSync > 0 && appId) {
-            const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
-            setDoc(profileRef, {
+            const statsRef = doc(db, publicStatsCollectionPath, userId);
+            setDoc(statsRef, {
                 streak: streakToSync,
+                addedLast7Days,
+                kanjiAddedLast7Days: kanjiLast7Days,
+                reviewsLast7Days,
+                activeDaysLast7Days,
+                weeklyScore,
+                lastActive: Date.now(),
                 updatedAt: Date.now()
-            }, { merge: true }).catch(() => {});
-        }
-    }, [userId, publicStatsCollectionPath, calculatedStreak, dailyActivityLogs, cloudStreak, isActivityLogsLoaded]);
+            }, { merge: true }).catch(() => { });
+
+            // Đồng bộ đồng thời lên user profile chỉ khi streak tăng để tránh kích hoạt snapshot dư thừa lúc khởi động
+            if (streakToSync > 0 && appId && Number(rawProfile?.streak || 0) < streakToSync) {
+                const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
+                setDoc(profileRef, {
+                    streak: streakToSync,
+                    updatedAt: Date.now()
+                }, { merge: true }).catch(() => {});
+            }
+        }, 1500);
+
+        return () => clearTimeout(timer);
+    }, [userId, publicStatsCollectionPath, calculatedStreak, dailyActivityLogs, cloudStreak, isActivityLogsLoaded, isLoading, isProfileLoading, rawProfile?.streak]);
 
     useEffect(() => {
         setAllCardsRef.current = setAllCards;

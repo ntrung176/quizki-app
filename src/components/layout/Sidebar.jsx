@@ -141,6 +141,7 @@ const Sidebar = ({
     isPremium: isPremiumProp = undefined,
     avatar,
     profile,
+    isProfileLoading = false,
     onTriggerTour,
     isReviewActive = false,
     isRealExamActive = false
@@ -1269,13 +1270,19 @@ const Sidebar = ({
                                             <span className="font-extrabold text-sm text-slate-800 dark:text-white truncate">
                                                 {displayName || profile?.displayName || auth?.currentUser?.displayName || (auth?.currentUser?.email ? auth.currentUser.email.split('@')[0] : t('nav.learner', 'Người học'))}
                                             </span>
-                                            {isPremium ? (
+                                            {isProfileLoading && !profile ? (
+                                                <span className="bg-sky-500/15 text-sky-600 dark:text-sky-400 text-[9px] font-mono font-bold px-1.5 py-0.5 rounded animate-pulse">
+                                                    {t('nav.syncingAccount', 'ĐỒNG BỘ...')}
+                                                </span>
+                                            ) : isPremium ? (
                                                 <span className="bg-amber-500/15 text-amber-600 dark:text-amber-400 text-[9px] font-mono font-black px-1.5 py-0.5 rounded border border-amber-500/30">PREMIUM</span>
                                             ) : (
                                                 <span className="bg-slate-200/60 dark:bg-slate-800 text-slate-600 dark:text-slate-400 text-[9px] font-mono font-bold px-1.5 py-0.5 rounded">FREE</span>
                                             )}
                                         </div>
-                                        <p className="text-[10px] text-slate-400 font-mono mt-0.5">LV {xpDetails.level}</p>
+                                        <p className="text-[10px] text-slate-400 font-mono mt-0.5">
+                                            {isProfileLoading && !profile ? 'LV ...' : `LV ${xpDetails.level}`}
+                                        </p>
                                     </div>
                                     <ChevronRight className="w-4 h-4 text-slate-400 group-hover:text-emerald-500 shrink-0 transition-colors" />
                                 </Link>
@@ -1413,22 +1420,33 @@ const Sidebar = ({
 
                             {/* Level & Premium Info */}
                             <div className="flex flex-col min-w-0 flex-1 justify-center gap-1">
-                                {isPremium ? (
-                                    <span className="text-[9.5px] font-mono font-black uppercase tracking-wider text-amber-500 dark:text-amber-400 flex items-center gap-1">
-                                        <Crown className="w-3 h-3 fill-amber-500 text-amber-500 shrink-0" />
-                                        <span>{t('nav.premiumAccount', 'PREMIUM')}</span>
-                                    </span>
+                                {isProfileLoading && !profile ? (
+                                    <>
+                                        <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400 animate-pulse">
+                                            {t('nav.syncingAccount', 'ĐANG ĐỒNG BỘ...')}
+                                        </span>
+                                        <div className="h-3.5 w-12 rounded-full bg-slate-200 dark:bg-slate-700 animate-pulse" />
+                                    </>
                                 ) : (
-                                    <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
-                                        {t('nav.freeAccount', 'FREE')}
-                                    </span>
+                                    <>
+                                        {isPremium ? (
+                                            <span className="text-[9.5px] font-mono font-black uppercase tracking-wider text-amber-500 dark:text-amber-400 flex items-center gap-1">
+                                                <Crown className="w-3 h-3 fill-amber-500 text-amber-500 shrink-0" />
+                                                <span>{t('nav.premiumAccount', 'PREMIUM')}</span>
+                                            </span>
+                                        ) : (
+                                            <span className="text-[9px] font-mono font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500">
+                                                {t('nav.freeAccount', 'FREE')}
+                                            </span>
+                                        )}
+                                        <div className="flex items-center">
+                                            <span className="inline-flex items-center gap-1 bg-emerald-500 text-white text-[8.5px] font-mono font-black px-2 py-0.5 rounded-full shadow-2xs leading-none">
+                                                <Zap className="w-2.5 h-2.5 fill-white text-white shrink-0" />
+                                                <span>LV {xpDetails.level}</span>
+                                            </span>
+                                        </div>
+                                    </>
                                 )}
-                                <div className="flex items-center">
-                                    <span className="inline-flex items-center gap-1 bg-emerald-500 text-white text-[8.5px] font-mono font-black px-2 py-0.5 rounded-full shadow-2xs leading-none">
-                                        <Zap className="w-2.5 h-2.5 fill-white text-white shrink-0" />
-                                        <span>LV {xpDetails.level}</span>
-                                    </span>
-                                </div>
                             </div>
                         </div>
 

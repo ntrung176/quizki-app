@@ -129,7 +129,8 @@ const SRSVocabScreen = ({
     isAdmin = false,
     onUpdateCard,
     onSaveChanges,
-    vocabCollectionPath
+    vocabCollectionPath,
+    isLoading = false
 }) => {
     const navigate = useNavigate();
     const location = useLocation();
@@ -1784,12 +1785,21 @@ const SRSVocabScreen = ({
 
                         <div className="flex flex-row md:flex-col items-center justify-between bg-slate-50 dark:bg-slate-950/80 rounded-2xl p-4 border border-slate-200 dark:border-slate-800 text-center w-full md:w-64 shrink-0 gap-3">
                             <div className="flex flex-col items-start md:items-center text-left md:text-center">
-                                <span className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight font-mono leading-none">
-                                    {savedSessionInfo ? savedSessionInfo.remaining : globalStats.due}
-                                </span>
+                                {isLoading && allCards.length === 0 ? (
+                                    <div className="h-9 w-16 bg-slate-200 dark:bg-slate-800 rounded-xl animate-pulse" />
+                                ) : (
+                                    <span className="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight font-mono leading-none">
+                                        {savedSessionInfo ? savedSessionInfo.remaining : globalStats.due}
+                                    </span>
+                                )}
                                 <span className="text-[10px] text-slate-500 dark:text-slate-400 font-bold uppercase tracking-wider mt-1">{t('vocab.dueWordsLabel', 'TỪ VỰNG ĐẾN HẠN ÔN')}</span>
                             </div>
-                            {savedSessionInfo ? (
+                            {isLoading && allCards.length === 0 ? (
+                                <div className="md:mt-2 px-4 py-3 md:w-full rounded-2xl text-xs font-black tracking-wider uppercase bg-sky-500/10 border-2 border-sky-500/20 text-sky-600 dark:text-sky-400 flex items-center justify-center gap-2 shrink-0 min-h-[44px] select-none">
+                                    <span className="w-2 h-2 rounded-full bg-sky-500 animate-ping shrink-0" />
+                                    <span>{t('common.syncingShort', 'ĐANG ĐỒNG BỘ...')}</span>
+                                </div>
+                            ) : savedSessionInfo ? (
                                 <button
                                     onClick={handleResumeSavedSession}
                                     className="md:mt-2 px-5 py-3 md:w-full rounded-2xl text-xs font-black tracking-wider uppercase transition-all bg-amber-500 hover:bg-amber-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-amber-700 text-white flex items-center justify-center gap-2 cursor-pointer shrink-0 min-h-[44px] select-none shadow-sm"
@@ -1845,6 +1855,19 @@ const SRSVocabScreen = ({
                     </div>
 
                     {folderStats.length === 0 ? (
+                        isLoading && allCards.length === 0 ? (
+                            <div className="bg-white dark:bg-slate-900 rounded-3xl p-10 text-center border border-sky-200 dark:border-sky-800/60 shadow-md">
+                                <div className="w-16 h-16 bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-800/60 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span className="w-4 h-4 rounded-full bg-sky-500 animate-ping" />
+                                </div>
+                                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                                    {t('vocab.syncingLibraryTitle', 'Đang đồng bộ thư viện từ vựng...')}
+                                </h3>
+                                <p className="text-slate-500 dark:text-slate-400 text-sm">
+                                    {t('vocab.syncingLibraryDesc', 'Hệ thống đang tải các thẻ từ vựng và lịch ôn tập của bạn từ đám mây.')}
+                                </p>
+                            </div>
+                        ) : (
                         <div className="bg-white dark:bg-slate-900 rounded-3xl p-10 text-center border border-slate-200 dark:border-slate-800 shadow-md">
                             <div className="w-16 h-16 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 rounded-full flex items-center justify-center mx-auto mb-4">
                                 <CheckCircle2 className="w-8 h-8 text-emerald-500" />
@@ -1864,6 +1887,7 @@ const SRSVocabScreen = ({
                                 </button>
                             )}
                         </div>
+                        )
                     ) : (
                         <div className="relative px-0 sm:px-8">
                             <style>{`

@@ -121,7 +121,7 @@ const HomeSrsBentoGrid = ({
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
             {pillars.map((p) => {
                 const Icon = p.icon;
-                const hasDue = p.due > 0;
+                const hasDue = !p.isLoading && p.due > 0;
                 return (
                     <div
                         key={p.id}
@@ -147,10 +147,17 @@ const HomeSrsBentoGrid = ({
 
                             {/* Core Metric: Exactly ONE clear status (no redundant duplicates) */}
                             <div className="mb-3">
-                                {hasDue ? (
+                                {p.isLoading ? (
+                                    <div className="flex items-center gap-2.5 py-1">
+                                        <StatSkeleton />
+                                        <span className="text-xs font-bold text-sky-600 dark:text-sky-400 animate-pulse">
+                                            {t('common.syncing', 'Đang đồng bộ...')}
+                                        </span>
+                                    </div>
+                                ) : hasDue ? (
                                     <div className="flex items-baseline gap-2">
                                         <span className="text-3xl font-black font-mono text-slate-900 dark:text-white leading-none">
-                                            {p.isLoading ? <StatSkeleton /> : p.due}
+                                            {p.due}
                                         </span>
                                         <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                                             thẻ cần ôn
@@ -167,15 +174,20 @@ const HomeSrsBentoGrid = ({
                             {/* Sleek, subtle progress line */}
                             <div className="w-full h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden mb-4">
                                 <div
-                                    className={`h-full ${p.progressColor} rounded-full transition-all duration-500`}
-                                    style={{ width: `${Math.min(100, Math.max(0, p.pct))}%` }}
+                                    className={`h-full ${p.isLoading ? 'bg-sky-400/60 animate-pulse w-1/3' : p.progressColor} rounded-full transition-all duration-500`}
+                                    style={p.isLoading ? undefined : { width: `${Math.min(100, Math.max(0, p.pct))}%` }}
                                 />
                             </div>
                         </div>
 
                         {/* Duolingo-styled 3D Button or Countdown Badge when finished */}
                         <div className="pt-1">
-                            {hasDue ? (
+                            {p.isLoading ? (
+                                <div className="w-full py-2.5 px-3 rounded-2xl font-black text-xs uppercase tracking-wider bg-sky-500/10 border-2 border-sky-500/20 text-sky-600 dark:text-sky-400 flex items-center justify-center gap-2 select-none">
+                                    <span className="w-2 h-2 rounded-full bg-sky-500 animate-ping shrink-0" />
+                                    <span>{t('common.syncingCloudShort', 'ĐANG ĐỒNG BỘ...')}</span>
+                                </div>
+                            ) : hasDue ? (
                                 <button
                                     type="button"
                                     onClick={(e) => {

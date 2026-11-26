@@ -1,9 +1,17 @@
-import React, { useState, useEffect, useRef, useMemo } from 'react';
+import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import {
     Search, X, Sparkles, BookOpen, Layers, FileText, ChevronRight,
     Loader2, PenTool
 } from 'lucide-react';
-import { searchDictionary } from '../../services/dictionaryService';
+import {
+    searchDictionary,
+    syncDictionary,
+    isDictionaryUpToDate,
+    isDictionarySyncing,
+    onSyncProgress
+} from '../../services/dictionaryService';
+import { deconjugate } from '../../utils/japaneseDeconjugator';
+import { romajiToHiragana } from '../../utils/romajiConverter';
 import { JOTOBA_KANJI_DATA } from '../../data/jotobaKanjiData';
 import {
     getSharedGrammarPointsList,
@@ -120,50 +128,87 @@ export default function HomeUnifiedSearchBar({
         return Object.values(JOTOBA_KANJI_DATA || {});
     }, []);
 
-    // Load and index canonical Kanji list
-    useEffect(() => {
-        let isMounted = true;
-        getSharedKanjiList().then((list) => {
-            if (!isMounted || !Array.isArray(list)) return;
-            const cMap = new Map();
-            const iMap = new Map();
-            list.forEach(k => {
-                const char = (k.character || k.literal || '').trim();
-                if (char) cMap.set(char, k);
-                if (k.id) iMap.set(k.id, k);
-            });
-            canonicalKanjiMapRef.current = cMap;
-            canonicalIdToDocMapRef.current = iMap;
+    const [corporaVersion, setCorporaVersion] = useState(0);
+    const [isCorporaLoading, setIsCorporaLoading] = useState(false);
+    const [dictSyncState, setDictSyncState] = useState(null);
+    const corporaLoadedRef = useRef(false);
+    const corporaPromiseRef = useRef(null);
+    const grammarListRef = useRef([]);
+    const sharedVocabListRef = useRef([]);
 
-            // Re-sync user's SRS set with canonical character mappings
-            const cachedSrs = getCachedUserSrsData(userId);
-            if (cachedSrs && Object.keys(cachedSrs).length > 0) {
-                setUserKanjiSRS(buildKanjiSrsIdentifierSet(cachedSrs, list));
-            }
-        }).catch(() => {});
+    const ensureCorporaAndDictionaryLoaded = useCallback((shouldSyncDict = false) => {
+        if (shouldSyncDict && !isDictionaryUpToDate() && !isDictionarySyncing()) {
+            syncDictionary({ silent: true })
+                .then(() => {
+                    setCorporaVersion(v => v + 1);
+                    setDictSyncState(null);
+                })
+                .catch(() => {});
+        }
 
-        return () => { isMounted = false; };
+        if (corporaLoadedRef.current) return Promise.resolve();
+        if (corporaPromiseRef.current) return corporaPromiseRef.current;
+
+        setIsCorporaLoading(true);
+        corporaPromiseRef.current = Promise.all([
+            getSharedKanjiList().then((list) => {
+                if (Array.isArray(list)) {
+                    const cMap = new Map();
+                    const iMap = new Map();
+                    list.forEach(k => {
+                        const char = (k.character || k.literal || '').trim();
+                        if (char) cMap.set(char, k);
+                        if (k.id) iMap.set(k.id, k);
+                    });
+                    canonicalKanjiMapRef.current = cMap;
+                    canonicalIdToDocMapRef.current = iMap;
+
+                    const cachedSrs = getCachedUserSrsData(userId);
+                    if (cachedSrs && Object.keys(cachedSrs).length > 0) {
+                        setUserKanjiSRS(buildKanjiSrsIdentifierSet(cachedSrs, list));
+                    }
+                }
+            }).catch(() => {}),
+            getSharedGrammarPointsList().then((list) => {
+                if (Array.isArray(list)) grammarListRef.current = list;
+            }).catch(() => {}),
+            getSharedVocabList().then((list) => {
+                if (Array.isArray(list)) sharedVocabListRef.current = list;
+            }).catch(() => {})
+        ]).finally(() => {
+            corporaLoadedRef.current = true;
+            setIsCorporaLoading(false);
+            setCorporaVersion(v => v + 1);
+            corporaPromiseRef.current = null;
+        });
+
+        return corporaPromiseRef.current;
     }, [userId]);
 
-    // Cached shared grammar points
-    const grammarListRef = useRef([]);
+    // Subscribe to background dictionary indexing progress & idle-warm corpora after initial cloud hydration settles
     useEffect(() => {
-        getSharedGrammarPointsList()
-            .then(list => {
-                if (Array.isArray(list)) grammarListRef.current = list;
-            })
-            .catch(() => {});
-    }, []);
+        const unsubProgress = onSyncProgress((progress) => {
+            if (!progress) return;
+            if (progress.percent >= 100) {
+                setDictSyncState(null);
+                setCorporaVersion(v => v + 1);
+            } else {
+                setDictSyncState(progress);
+                if (progress.chunkCompleted) {
+                    setCorporaVersion(v => v + 1);
+                }
+            }
+        });
 
-    // Cached shared vocab list for Vietnamese meaning search
-    const sharedVocabListRef = useRef([]);
-    useEffect(() => {
-        getSharedVocabList()
-            .then(list => {
-                if (Array.isArray(list)) sharedVocabListRef.current = list;
-            })
-            .catch(() => {});
-    }, []);
+        const idleTimer = setTimeout(() => {
+            ensureCorporaAndDictionaryLoaded(true);
+        }, 3500);
+
+        return () => {
+            clearTimeout(idleTimer);
+            unsubProgress();
+        };
+    }, [ensureCorporaAndDictionaryLoaded]);
 
     // Live subscriptions to user's SRS progress
     useEffect(() => {
@@ -243,59 +288,105 @@ export default function HomeUnifiedSearchBar({
         setIsLoading(true);
         const timer = setTimeout(async () => {
             try {
+                // Ensure local JLPT corpora and background dictionary sync have started cleanly
+                await ensureCorporaAndDictionaryLoaded(true);
+
+                const lowerQ = trimmed.toLowerCase();
                 const normQ = removeTones(trimmed);
                 const normPatternQ = normalizePattern(trimmed);
-                const hasLatin = /[a-zA-Zà-ỹÀ-Ỹ]/.test(trimmed);
+                const kanaQuery = romajiToHiragana(trimmed);
+                const candidateForms = Array.from(new Set([
+                    trimmed,
+                    lowerQ,
+                    kanaQuery,
+                    ...deconjugate(trimmed),
+                    ...deconjugate(kanaQuery)
+                ].filter(Boolean)));
 
-                // 1. Vocabulary Search: Yomitan IndexedDB + Shared Vocab (Vietnamese meanings)
+                // 1. Vocabulary Search: Yomitan IndexedDB + Shared Vocab (Japanese & Vietnamese) + User Deck
                 const yomitanPromise = searchDictionary(trimmed, 25).catch(() => []);
 
-                // In-memory Vietnamese search over 17,000+ JLPT vocabulary items
-                let viVocabMatches = [];
-                const sVocab = sharedVocabListRef.current || [];
-                if (sVocab.length > 0 && hasLatin) {
-                    for (const v of sVocab) {
-                        if (!v) continue;
-                        const mRaw = (v.meaning || '').toLowerCase();
-                        const mNorm = removeTones(mRaw);
-                        const sinoNorm = removeTones(v.sinoViet || v.sinoVietnamese || '');
-                        const wRaw = (v.word || '').toLowerCase();
+                let fallbackVocabMatches = [];
+                const scoreAndPushVocab = (rawWord, reading, meaningVal, sinoViet, level, pos, exObj, allowPrefix) => {
+                    const baseWord = rawWord ? String(rawWord).split('（')[0].split('(')[0].trim() : (reading || '');
+                    if (!baseWord && !reading) return;
+                    const wLow = String(rawWord || '').toLowerCase();
+                    const baseLow = baseWord.toLowerCase();
+                    const rLow = String(reading || '').toLowerCase();
+                    const mRaw = Array.isArray(meaningVal) ? meaningVal.join('; ') : String(meaningVal || '');
+                    const mLow = mRaw.toLowerCase();
+                    const mNorm = removeTones(mLow);
+                    const sinoNorm = removeTones(sinoViet || '');
 
-                        let score = 0;
-                        if (mRaw === trimmed.toLowerCase() || mNorm === normQ) {
-                            score = 1200; // Exact Vietnamese meaning match
-                        } else if (mNorm.startsWith(normQ + ';') || mNorm.startsWith(normQ + ' ') || mNorm.startsWith(normQ + ',')) {
-                            score = 1000;
-                        } else if (sinoNorm === normQ) {
-                            score = 950;
-                        } else if (mNorm.includes(normQ)) {
-                            score = 750;
-                        } else if (sinoNorm.includes(normQ)) {
-                            score = 650;
-                        } else if (wRaw.includes(trimmed.toLowerCase())) {
-                            score = 600;
-                        }
-
-                        if (score > 0) {
-                            const cleanW = v.word ? v.word.split('（')[0].split('(')[0].trim() : (v.reading || '');
-                            viVocabMatches.push({
-                                w: cleanW,
-                                r: v.reading || '',
-                                m: Array.isArray(v.meaning) ? v.meaning : [v.meaning],
-                                hv: v.sinoViet || v.sinoVietnamese || '',
-                                j: v.level ? v.level.replace('N', '') : null,
-                                p: v.pos ? [v.pos] : (v.partOfSpeech ? [v.partOfSpeech] : []),
-                                ex: (v.example || v.exampleSentence) ? {
-                                    ja: v.example || v.exampleSentence,
-                                    vi: v.exampleMeaning || v.exampleTranslation || ''
-                                } : null,
-                                _score: score
-                            });
-                        }
+                    let score = 0;
+                    if (baseLow === lowerQ || wLow === lowerQ || rLow === lowerQ || (kanaQuery && (baseLow === kanaQuery || rLow === kanaQuery))) {
+                        score = 1500;
+                    } else if (candidateForms.some(c => c === baseLow || c === rLow)) {
+                        score = 1350;
+                    } else if (mLow === lowerQ || mNorm === normQ) {
+                        score = 1200;
+                    } else if (baseLow.startsWith(lowerQ) || rLow.startsWith(lowerQ) || (kanaQuery && (baseLow.startsWith(kanaQuery) || rLow.startsWith(kanaQuery)))) {
+                        score = 1100;
+                    } else if (normQ && (mNorm.startsWith(normQ + ';') || mNorm.startsWith(normQ + ' ') || mNorm.startsWith(normQ + ','))) {
+                        score = 1000;
+                    } else if (normQ && sinoNorm === normQ) {
+                        score = 950;
+                    } else if (normQ && mNorm.includes(normQ)) {
+                        score = 750;
+                    } else if (normQ && sinoNorm.includes(normQ)) {
+                        score = 650;
+                    } else if (allowPrefix && (wLow.includes(lowerQ) || rLow.includes(lowerQ))) {
+                        score = 600;
                     }
-                    viVocabMatches.sort((a, b) => b._score - a._score);
-                    viVocabMatches = viVocabMatches.slice(0, 20);
+
+                    if (score > 0) {
+                        fallbackVocabMatches.push({
+                            w: baseWord,
+                            r: reading || '',
+                            m: Array.isArray(meaningVal) ? meaningVal : (meaningVal ? [meaningVal] : []),
+                            hv: sinoViet || '',
+                            j: level ? String(level).replace('N', '') : null,
+                            p: Array.isArray(pos) ? pos : (pos ? [pos] : []),
+                            ex: exObj,
+                            _score: score
+                        });
+                    }
+                };
+
+                const sVocab = sharedVocabListRef.current || [];
+                for (const v of sVocab) {
+                    if (!v) continue;
+                    scoreAndPushVocab(
+                        v.word,
+                        v.reading,
+                        v.meaning,
+                        v.sinoViet || v.sinoVietnamese,
+                        v.level,
+                        v.pos || v.partOfSpeech,
+                        (v.example || v.exampleSentence) ? {
+                            ja: v.example || v.exampleSentence,
+                            vi: v.exampleMeaning || v.exampleTranslation || ''
+                        } : null,
+                        true
+                    );
                 }
+
+                for (const card of (allCards || [])) {
+                    if (!card) continue;
+                    scoreAndPushVocab(
+                        card.front,
+                        card.reading,
+                        card.back || card.meaning,
+                        card.sinoViet,
+                        card.jlptLevel || card.level,
+                        card.partOfSpeech,
+                        card.example ? { ja: card.example, vi: card.exampleMeaning || '' } : null,
+                        true
+                    );
+                }
+
+                fallbackVocabMatches.sort((a, b) => b._score - a._score);
+                const viVocabMatches = fallbackVocabMatches.slice(0, 25);
 
                 // 2. Kanji Search: Unified DB + Jotoba + Direct Kanji Extraction
                 const matchingKanji = [];
@@ -430,7 +521,7 @@ export default function HomeUnifiedSearchBar({
         }, 120);
 
         return () => clearTimeout(timer);
-    }, [query, allKanjiEntries]);
+    }, [query, allKanjiEntries, corporaVersion, allCards, ensureCorporaAndDictionaryLoaded]);
 
     // Quick Kanji SRS bookmark toggle
     const handleToggleKanjiBookmark = async (kanji) => {
@@ -568,8 +659,12 @@ export default function HomeUnifiedSearchBar({
                         onChange={(e) => {
                             setQuery(e.target.value);
                             if (!isDropdownOpen) setIsDropdownOpen(true);
+                            ensureCorporaAndDictionaryLoaded(true);
                         }}
-                        onFocus={() => setIsDropdownOpen(true)}
+                        onFocus={() => {
+                            setIsDropdownOpen(true);
+                            ensureCorporaAndDictionaryLoaded(true);
+                        }}
                         placeholder="日本, nihon, Nhật Bản, nước, yêu..."
                         className="w-full py-3.5 sm:py-4 px-3 bg-transparent text-sm sm:text-base font-semibold text-slate-900 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 focus:outline-none"
                     />
@@ -657,12 +752,31 @@ export default function HomeUnifiedSearchBar({
             {/* Results Dropdown Container */}
             {isDropdownOpen && hasSearchText && (
                 <div className="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden animate-in fade-in slide-in-from-top-2 duration-150 max-h-[70vh] flex flex-col z-40">
+                    {dictSyncState && dictSyncState.percent < 100 && (
+                        <div className="px-4 py-2 bg-sky-50 dark:bg-sky-950/40 border-b border-sky-200/70 dark:border-sky-800/60 flex items-center justify-between gap-3">
+                            <div className="flex items-center gap-2 min-w-0">
+                                <Loader2 className="w-3.5 h-3.5 text-sky-500 animate-spin shrink-0" />
+                                <span className="text-[11px] font-bold text-sky-700 dark:text-sky-300 truncate">
+                                    {dictSyncState.text || `Đang tải từ điển offline (${dictSyncState.percent}%)...`}
+                                </span>
+                            </div>
+                            <span className="text-[10px] font-mono font-black text-sky-600 dark:text-sky-400 shrink-0">
+                                {dictSyncState.percent}%
+                            </span>
+                        </div>
+                    )}
                     <div className="flex-1 overflow-y-auto p-3 sm:p-4 space-y-2">
                         {/* TAB 1: VOCABULARY & SENTENCE TRANSLATION */}
                         {activeTab === 'vocab' && (
                             <>
+                                {(isLoading || isCorporaLoading) && vocabResults.length === 0 && (
+                                    <div className="flex items-center justify-center gap-2 py-6 text-xs font-bold text-sky-600 dark:text-sky-400">
+                                        <Loader2 className="w-4 h-4 animate-spin" />
+                                        <span>Đang tra cứu từ điển & kho từ JLPT...</span>
+                                    </div>
+                                )}
                                 {/* Translation Card: Displayed for sentences, phrases, or whenever no exact dictionary words found */}
-                                {(isSentence || (vocabResults.length === 0 && !isLoading)) && (
+                                {(isSentence || (vocabResults.length === 0 && !isLoading && !isCorporaLoading)) && (
                                     <HomeSentenceTranslateCard
                                         query={query}
                                         onSaveCard={(cardData) => {

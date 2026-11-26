@@ -704,6 +704,14 @@ const mergeServerWithLocalKanjiSrs = (userId, serverSrsMap) => {
 };
 
 let hasFetchedServerKanjiSrs = false;
+let kanjiSrsFirstSnapshotWaiters = [];
+
+const resolveKanjiSrsWaiters = (data) => {
+    if (kanjiSrsFirstSnapshotWaiters.length === 0) return;
+    const waiters = kanjiSrsFirstSnapshotWaiters;
+    kanjiSrsFirstSnapshotWaiters = [];
+    waiters.forEach(resolve => { try { resolve(data); } catch (_) {} });
+};
 
 export const getSharedKanjiSrs = async (userId, forceRefresh = false) => {
     if (!userId) return {};
@@ -721,6 +729,16 @@ export const getSharedKanjiSrs = async (userId, forceRefresh = false) => {
     }
     if (!forceRefresh && hasFetchedServerKanjiSrs && cachedUserSrsData) {
         return cachedUserSrsData;
+    }
+    // Reuse active onSnapshot listener instead of firing a duplicate full-collection getDocs scan
+    if (!forceRefresh && kanjiSrsUnsubscribe && cachedUserIdForSrs === userId && !hasFetchedServerKanjiSrs) {
+        return new Promise((resolve) => {
+            const timeout = setTimeout(() => resolve(cachedUserSrsData || {}), 15000);
+            kanjiSrsFirstSnapshotWaiters.push((data) => {
+                clearTimeout(timeout);
+                resolve(data || cachedUserSrsData || {});
+            });
+        });
     }
     if (userSrsPromise && !forceRefresh) return userSrsPromise;
 
@@ -785,6 +803,7 @@ export const subscribeKanjiSrs = (userId, callback) => {
 
     // If no active Firestore listener yet, create one
     if (!kanjiSrsUnsubscribe) {
+        cachedUserIdForSrs = userId;
         const colRef = collection(db, `artifacts/${appId}/users/${userId}/kanjiSRS`);
         kanjiSrsUnsubscribe = onSnapshot(colRef, (snapshot) => {
             // Build fresh snapshot from server docs to eliminate ghost/phantom cards across devices
@@ -795,6 +814,7 @@ export const subscribeKanjiSrs = (userId, callback) => {
             cachedUserIdForSrs = userId;
             hasFetchedServerKanjiSrs = true;
             userSrsPromise = null;
+            resolveKanjiSrsWaiters(mergedSrs);
             safeSetLocalStorage(`quizki_cached_kanji_srs_${userId}`, JSON.stringify(mergedSrs));
             try {
                 const computed = computeKanjiSrsStats(mergedSrs);

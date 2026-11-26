@@ -2,10 +2,19 @@ import fs from 'fs';
 import path from 'path';
 
 const levels = ['n5', 'n4', 'n3', 'n2', 'n1'];
+const TARGET_CHUNK_BYTES = 250 * 1024; // ~250 KB per chunk for <50ms load & parse
+const jlptDir = path.join(process.cwd(), 'public', 'data', 'jlpt');
+const chunksDir = path.join(jlptDir, 'chunks');
+
+fs.rmSync(chunksDir, { recursive: true, force: true });
+fs.mkdirSync(chunksDir, { recursive: true });
+
 const summary = [];
+const chunksManifest = {};
+let totalChunkFiles = 0;
 
 levels.forEach((lvl) => {
-    const filePath = path.join(process.cwd(), 'public', 'data', 'jlpt', `${lvl}.json`);
+    const filePath = path.join(jlptDir, `${lvl}.json`);
     if (!fs.existsSync(filePath)) {
         console.warn(`File not found: ${filePath}`);
         return;
@@ -13,6 +22,23 @@ levels.forEach((lvl) => {
 
     console.log(`Processing ${lvl}...`);
     const tests = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    const levelChunkFiles = [];
+
+    let chunkIdx = 0;
+    let currentChunk = [];
+    let currentBytes = 2; // []
+
+    const flushChunk = () => {
+        if (currentChunk.length === 0) return null;
+        const fileName = `${lvl}_${chunkIdx}.json`;
+        fs.writeFileSync(path.join(chunksDir, fileName), JSON.stringify(currentChunk), 'utf8');
+        levelChunkFiles.push(fileName);
+        totalChunkFiles++;
+        chunkIdx++;
+        currentChunk = [];
+        currentBytes = 2;
+        return fileName;
+    };
 
     tests.forEach((t) => {
         let questionCount = 0;
@@ -32,6 +58,14 @@ levels.forEach((lvl) => {
             });
         }
 
+        const testByteLen = Buffer.byteLength(JSON.stringify(t), 'utf8');
+        if (currentChunk.length > 0 && currentBytes + testByteLen + 1 > TARGET_CHUNK_BYTES) {
+            flushChunk();
+        }
+        const assignedChunkFile = `${lvl}_${chunkIdx}.json`;
+        currentChunk.push(t);
+        currentBytes += testByteLen + 1;
+
         summary.push({
             id: t.id,
             title: t.title,
@@ -43,22 +77,32 @@ levels.forEach((lvl) => {
             isRoadmapTest: t.isRoadmapTest,
             isPremium: t.isPremium,
             strategy: t.strategy,
-            strategyData: t.strategyData,
             description: t.description,
             bookSlug: t.bookSlug,
             bookTitle: t.bookTitle,
             createdAt: t.createdAt,
             updatedAt: t.updatedAt,
             questionCount,
-            sectionsCount
+            sectionsCount,
+            chunkFile: assignedChunkFile
         });
     });
+
+    flushChunk();
+    chunksManifest[lvl] = levelChunkFiles;
 });
 
-const outPath = path.join(process.cwd(), 'public', 'data', 'jlpt', 'summary.json');
+const outPath = path.join(jlptDir, 'summary.json');
 fs.writeFileSync(outPath, JSON.stringify(summary), 'utf8');
 
-const stat = fs.statSync(outPath);
-console.log(`✅ Successfully generated ${summary.length} tests in summary.json!`);
-console.log(`📁 File size: ${(stat.size / 1024 / 1024).toFixed(2)} MB (${Math.round(stat.size / 1024)} KB)`);
+const manifestPath = path.join(chunksDir, 'manifest.json');
+fs.writeFileSync(manifestPath, JSON.stringify({
+    version: Date.now(),
+    totalTests: summary.length,
+    totalChunks: totalChunkFiles,
+    levels: chunksManifest
+}), 'utf8');
 
+const stat = fs.statSync(outPath);
+console.log(`✅ Successfully generated ${summary.length} tests in summary.json across ${totalChunkFiles} chunks!`);
+console.log(`📁 summary.json size: ${(stat.size / 1024 / 1024).toFixed(2)} MB (${Math.round(stat.size / 1024)} KB)`);

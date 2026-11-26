@@ -21,22 +21,33 @@ const BookVocabSyncChecker = ({ userId, appId, allCards = [], vocabCollectionPat
     const [appliedCount, setAppliedCount] = useState(0);
     const [dismissed, setDismissed] = useState(false);
     // Check for pending updates
+    const checkedForUserRef = React.useRef(null);
     useEffect(() => {
         if (!userId || !appId || !vocabCollectionPath || allCards.length === 0) return;
-        const checkUpdates = async () => {
+        if (checkedForUserRef.current === `${userId}:${allCards.length}`) return;
+
+        let cancelled = false;
+        const timer = setTimeout(async () => {
+            if (cancelled) return;
+            checkedForUserRef.current = `${userId}:${allCards.length}`;
             try {
                 // Get user's last sync timestamp
                 const syncDocRef = doc(db, `artifacts/${appId}/users/${userId}/settings`, 'bookSync');
                 const syncSnap = await getDoc(syncDocRef);
+                if (cancelled) return;
                 const lastSyncAt = syncSnap.exists() ? (syncSnap.data().lastSyncAt?.toDate?.() || new Date(syncSnap.data().lastSyncAt || 0)) : new Date(0);
                 // Get updates newer than last sync
                 const updatesCol = collection(db, `artifacts/${appId}/bookVocabUpdates`);
                 const updatesSnap = await getDocs(updatesCol);
-                if (updatesSnap.empty) return;
-                // Filter updates newer than last sync and matching user's vocab
-                const userWordSet = new Set(
-                    allCards.map(c => c.front.split('（')[0].split('(')[0].trim().toLowerCase())
-                );
+                if (cancelled || updatesSnap.empty) return;
+                // O(1) lookup map from base word -> matching card
+                const wordToCardMap = new Map();
+                for (const c of allCards) {
+                    const baseWord = (c?.front || '').split('（')[0].split('(')[0].trim().toLowerCase();
+                    if (baseWord && !wordToCardMap.has(baseWord)) {
+                        wordToCardMap.set(baseWord, c);
+                    }
+                }
                 const relevant = [];
                 const cardNeedsUpdate = (card, changes, updateDate) => {
                     if (!card || !changes) return false;
@@ -67,11 +78,7 @@ const BookVocabSyncChecker = ({ userId, appId, allCards = [], vocabCollectionPat
                     if (updateDate <= lastSyncAt) return;
                     // Only show if user has this word in their SRS
                     const word = (data.word || '').toLowerCase();
-                    if (!userWordSet.has(word)) return;
-                    // Find the matching user card
-                    const matchedCard = allCards.find(c =>
-                        c.front.split('（')[0].split('(')[0].trim().toLowerCase() === word
-                    );
+                    const matchedCard = wordToCardMap.get(word);
                     if (!matchedCard) return;
 
                     // Skip if card was added after update date or already has latest changes
@@ -96,12 +103,16 @@ const BookVocabSyncChecker = ({ userId, appId, allCards = [], vocabCollectionPat
                         deduped.push(up);
                     }
                 }
-                setPendingUpdates(deduped);
+                if (!cancelled) setPendingUpdates(deduped);
             } catch (e) {
                 console.error('Error checking book vocab updates:', e);
             }
+        }, 3000);
+
+        return () => {
+            cancelled = true;
+            clearTimeout(timer);
         };
-        checkUpdates();
     }, [userId, appId, allCards, vocabCollectionPath]);
     // Apply all updates
     const handleApplyAll = useCallback(async () => {

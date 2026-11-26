@@ -51,6 +51,8 @@ const HomeScreen = ({
     totalCards,
     allCards = [],
     userId,
+    isLoading: isVocabLoading = false,
+    isProfileLoading = false,
     vocabCollectionPath,
     dailyActivityLogs = [],
     isReviewActive = false,
@@ -307,12 +309,12 @@ const HomeScreen = ({
 
         if (!hasLoadedCards && !cachedVocabStats) {
             return {
-                dueCards: null,
-                newCards: null,
-                masteredCards: null,
+                dueCards: isVocabLoading ? null : 0,
+                newCards: isVocabLoading ? null : 0,
+                masteredCards: isVocabLoading ? null : 0,
                 streak: currentStreak,
-                totalCards: null,
-                isInitialLoading: true
+                totalCards: isVocabLoading ? null : 0,
+                isInitialLoading: isVocabLoading
             };
         }
 
@@ -598,9 +600,23 @@ const HomeScreen = ({
     }
 
     const totalMastered = (stats?.masteredCards ?? 0) + (isJapaneseMode ? (kanjiSrsStats?.mastered ?? 0) + (grammarSrsStats?.mastered ?? 0) : 0);
+    const isCloudSyncing = Boolean(userId) && (isProfileLoading || isVocabLoading || kanjiSrsStats?.isInitialLoading || grammarSrsStats?.isInitialLoading);
 
     return (
         <div className="flex flex-col max-w-7xl mx-auto gap-6 p-3 sm:p-5 md:p-8 animate-fade-in relative z-10 font-sans selection:bg-emerald-500/20">
+            {isCloudSyncing && (
+                <div className="flex items-center justify-between gap-3 px-4 py-2.5 rounded-2xl bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-800/60 text-sky-700 dark:text-sky-300 text-xs font-bold shadow-xs animate-fade-in">
+                    <div className="flex items-center gap-2.5 min-w-0">
+                        <span className="w-2.5 h-2.5 rounded-full bg-sky-500 animate-ping shrink-0" />
+                        <span className="truncate">
+                            {t('home.cloudSyncing', 'Đang đồng bộ tài khoản, từ vựng & tiến trình ôn tập từ đám mây...')}
+                        </span>
+                    </div>
+                    <span className="text-[10px] font-mono uppercase tracking-wider px-2 py-0.5 rounded-full bg-sky-500/15 text-sky-600 dark:text-sky-300 shrink-0">
+                        {t('common.syncingShort', 'ĐANG TẢI')}
+                    </span>
+                </div>
+            )}
             {/* Duolingo-styled Guest Conversion Banner */}
             {!userId && (
                 <div className="p-4 sm:p-5 rounded-3xl bg-emerald-50 dark:bg-emerald-950/40 border-2 border-emerald-400 dark:border-emerald-700 shadow-md flex flex-col sm:flex-row items-center justify-between gap-4">

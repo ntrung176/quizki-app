@@ -26,6 +26,10 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
             return true;
         }
     });
+    const rawProfileRef = useRef(rawProfile);
+    useEffect(() => {
+        rawProfileRef.current = rawProfile;
+    }, [rawProfile]);
     const [adminConfig, setAdminConfig] = useState(null);
     const [activePopup, setActivePopup] = useState(null);
     const [geminiApiKeys] = useState(() => getOpenRouterKeys());
@@ -47,9 +51,15 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
 
     // Firestore listener for User Profile Settings
     useEffect(() => {
-        if (!authReady || !settingsDocPath) {
+        if (!authReady) return;
+        if (!settingsDocPath) {
+            setProfile(null);
             setIsProfileLoading(false);
             return;
+        }
+
+        if (!rawProfileRef.current) {
+            setIsProfileLoading(true);
         }
 
         const docRef = doc(db, settingsDocPath);
@@ -340,32 +350,6 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
             if (user) {
                 setUserId(user.uid);
                 if (callbacksRef.current.setNotification) callbacksRef.current.setNotification('');
-                
-                // Tự động đồng bộ email, tên hiển thị và trạng thái hoạt động vào publicStats để Admin quản trị được
-                if (db && appId) {
-                    const userEmail = (user.email || '').trim();
-                    const userDisplayName = user.displayName || (userEmail ? userEmail.split('@')[0] : 'Người học');
-                    const userPhoto = user.photoURL || '';
-                    
-                    const statsDocRef = doc(db, `artifacts/${appId}/public/data/userStats`, user.uid);
-                    setDoc(statsDocRef, {
-                        userId: user.uid,
-                        email: userEmail,
-                        displayName: userDisplayName,
-                        photoURL: userPhoto,
-                        lastLoginAt: Date.now(),
-                        lastActive: Date.now(),
-                        updatedAt: Date.now()
-                    }, { merge: true }).catch(err => console.warn('Auto-sync userStats on login warning:', err));
-
-                    const profileDocRef = doc(db, `artifacts/${appId}/users/${user.uid}/settings/profile`);
-                    setDoc(profileDocRef, {
-                        email: userEmail,
-                        displayName: userDisplayName,
-                        photoURL: userPhoto,
-                        updatedAt: Date.now()
-                    }, { merge: true }).catch(err => console.warn('Auto-sync profile on login warning:', err));
-                }
             } else {
                 setUserId(null);
                 if (callbacksRef.current.setAllCards) callbacksRef.current.setAllCards([]);
@@ -422,13 +406,55 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
         return () => unsubscribe();
     }, []);
 
-    // Defer background kanji progress/srs sync slightly to allow 0ms first meaningful paint
+    const syncedLoginMetaUidRef = useRef(null);
+
+    // Defer identity/publicStats sync until after initial profile hydration so login writes never compete with read streams
+    useEffect(() => {
+        if (!authReady || !userId || isProfileLoading || !db || !appId) return;
+        if (syncedLoginMetaUidRef.current === userId) return;
+        const user = auth?.currentUser;
+        if (!user || user.uid !== userId) return;
+
+        const timer = setTimeout(() => {
+            syncedLoginMetaUidRef.current = userId;
+            const userEmail = (user.email || '').trim();
+            const fallbackDisplayName = user.displayName || (userEmail ? userEmail.split('@')[0] : 'Người học');
+            const userPhoto = user.photoURL || '';
+            const now = Date.now();
+
+            const statsDocRef = doc(db, `artifacts/${appId}/public/data/userStats`, user.uid);
+            const cur = rawProfileRef.current;
+            setDoc(statsDocRef, {
+                userId: user.uid,
+                email: userEmail,
+                displayName: cur?.displayName || fallbackDisplayName,
+                photoURL: cur?.photoURL || userPhoto,
+                lastLoginAt: now,
+                lastActive: now,
+                updatedAt: now
+            }, { merge: true }).catch(err => console.warn('Auto-sync userStats on login warning:', err));
+
+            if (!cur || cur.email !== userEmail || !cur.displayName || (userPhoto && !cur.photoURL)) {
+                const profileDocRef = doc(db, `artifacts/${appId}/users/${user.uid}/settings/profile`);
+                setDoc(profileDocRef, {
+                    email: userEmail,
+                    displayName: cur?.displayName || fallbackDisplayName,
+                    photoURL: cur?.photoURL || userPhoto,
+                    updatedAt: now
+                }, { merge: true }).catch(err => console.warn('Auto-sync profile on login warning:', err));
+            }
+        }, 2500);
+
+        return () => clearTimeout(timer);
+    }, [authReady, userId, isProfileLoading]);
+
+    // Defer background kanji progress/srs sync so startup auth/vocab/profile streams finish first
     useEffect(() => {
         if (!userId) return;
         const timer = setTimeout(() => {
             getSharedKanjiSrs(userId).catch(() => { });
             getSharedKanjiProgress(userId).catch(() => { });
-        }, 500);
+        }, 2500);
         return () => clearTimeout(timer);
     }, [userId]);
 

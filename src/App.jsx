@@ -7,8 +7,6 @@ import AppRoutes from './components/AppRoutes';
 import { Sidebar } from './components/layout';
 import OnboardingTour from './components/ui/OnboardingTour';
 import UpdateNotification from './components/ui/UpdateNotification';
-import { AuthProvider } from './contexts/AuthContext';
-import { StudySetsProvider } from './contexts/StudySetsContext';
 import { FocusProvider } from './context/FocusContext';
 import FocusSessionModal from './components/ui/FocusSessionModal';
 import GlobalModalsContainer from './components/containers/GlobalModalsContainer';
@@ -58,7 +56,7 @@ const AppContent = () => {
 
     const {
         updateAvailable, refreshApp, dismissUpdate, setView, authReady, userId, reviewMode,
-        allCards, reviewCards, isLoading, notification, setNotification, levelUpInfo, setLevelUpInfo,
+        allCards, reviewCards, isLoading, isProfileLoading, notification, setNotification, levelUpInfo, setLevelUpInfo,
         isReviewActive, setIsReviewActive, isRealExamActive, isReviewSessionPage, editingCard,
         setEditingCard, showBatchImportModal, setShowBatchImportModal, batchVocabList, currentBatchIndex,
         isDarkMode, setIsDarkMode, isSidebarCollapsed, profile, dailyActivityLogs, isActivityLogsLoaded,
@@ -167,6 +165,7 @@ const AppContent = () => {
                     isAdmin={userHasAdminPrivileges}
                     userId={userId}
                     profile={profile}
+                    isProfileLoading={isProfileLoading}
                     isPremium={hasPremium}
                     allCards={allCards}
                     isDarkMode={isDarkMode}
@@ -216,6 +215,7 @@ const AppContent = () => {
                                 authReady={authReady}
                                 isAuthenticated={!!userId}
                                 isLoading={isLoading}
+                                isProfileLoading={isProfileLoading}
                                 userId={userId}
                                 profile={profile}
                                 allCards={allCards}
@@ -323,13 +323,9 @@ const AppContent = () => {
 
 const App = () => {
     return (
-        <AuthProvider>
-            <StudySetsProvider>
-                <FocusProvider>
-                    <AppContent />
-                </FocusProvider>
-            </StudySetsProvider>
-        </AuthProvider>
+        <FocusProvider>
+            <AppContent />
+        </FocusProvider>
     );
 };
 

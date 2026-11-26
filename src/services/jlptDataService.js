@@ -81,11 +81,72 @@ const startFirestoreListener = () => {
     }
 };
 
+const SESSION_BOOT_TS = Date.now();
 const loadedLevels = new Set();
 const levelLoadingPromises = new Map();
+const loadedChunks = new Set();
+const chunkLoadingPromises = new Map();
+let chunksManifest = null;
+let chunksManifestPromise = null;
+let currentCacheTag = SESSION_BOOT_TS;
+
+const getChunksManifest = async () => {
+    if (chunksManifest) return chunksManifest;
+    if (chunksManifestPromise) return chunksManifestPromise;
+
+    chunksManifestPromise = (async () => {
+        try {
+            const res = await fetch(`/data/jlpt/chunks/manifest.json?v=${encodeURIComponent(currentCacheTag)}`);
+            if (res && res.ok) {
+                const json = await res.json();
+                chunksManifest = json;
+                return json;
+            }
+        } catch (_) {}
+        return null;
+    })().finally(() => {
+        chunksManifestPromise = null;
+    });
+
+    return chunksManifestPromise;
+};
+
+const loadChunkFile = async (chunkFile) => {
+    if (!chunkFile) return false;
+    if (loadedChunks.has(chunkFile)) return true;
+    if (chunkLoadingPromises.has(chunkFile)) return chunkLoadingPromises.get(chunkFile);
+
+    const promise = (async () => {
+        try {
+            const res = await fetch(`/data/jlpt/chunks/${chunkFile}?v=${encodeURIComponent(currentCacheTag)}`);
+            if (res && res.ok) {
+                const list = await res.json();
+                if (Array.isArray(list) && list.length > 0) {
+                    list.forEach(t => {
+                        if (t && t.id) {
+                            const prev = baseTestsMap.get(t.id) || {};
+                            baseTestsMap.set(t.id, { ...prev, ...t });
+                        }
+                    });
+                    loadedChunks.add(chunkFile);
+                    recomputeCombinedTests();
+                    return true;
+                }
+            }
+        } catch (err) {
+            console.warn(`[jlptDataService] Failed to load chunk ${chunkFile}:`, err);
+        } finally {
+            chunkLoadingPromises.delete(chunkFile);
+        }
+        return false;
+    })();
+
+    chunkLoadingPromises.set(chunkFile, promise);
+    return promise;
+};
 
 /**
- * Lazily loads full test bank for a specific level (n1, n2, n3, n4, n5)
+ * Lazily loads full test bank for a specific level (n1, n2, n3, n4, n5) using sharded chunks when available
  */
 export const loadJLPTLevelData = async (level) => {
     if (!level) return;
@@ -100,7 +161,21 @@ export const loadJLPTLevelData = async (level) => {
 
     const promise = (async () => {
         try {
-            const res = await fetch(`/data/jlpt/${lvlKey}.json?t=${Date.now()}`);
+            const manifest = await getChunksManifest();
+            const levelChunks = manifest?.levels?.[lvlKey];
+            if (Array.isArray(levelChunks) && levelChunks.length > 0) {
+                // Concurrency-limited batch fetching to avoid saturating browser sockets
+                const CONCURRENCY = 6;
+                for (let i = 0; i < levelChunks.length; i += CONCURRENCY) {
+                    const batch = levelChunks.slice(i, i + CONCURRENCY);
+                    await Promise.all(batch.map(chunkName => loadChunkFile(chunkName)));
+                    await new Promise(r => setTimeout(r, 8));
+                }
+                loadedLevels.add(lvlKey);
+                return;
+            }
+
+            const res = await fetch(`/data/jlpt/${lvlKey}.json?v=${encodeURIComponent(currentCacheTag)}`);
             if (res && res.ok) {
                 const list = await res.json();
                 if (Array.isArray(list) && list.length > 0) {
@@ -126,7 +201,7 @@ export const loadJLPTLevelData = async (level) => {
 };
 
 /**
- * Ensures a specific test has its complete sections and questions loaded into memory
+ * Ensures a specific test has its complete sections and questions loaded into memory (<50ms via chunkFile)
  */
 export const ensureFullTestLoaded = async (testId, level) => {
     if (!testId) return null;
@@ -135,14 +210,36 @@ export const ensureFullTestLoaded = async (testId, level) => {
         return existing;
     }
 
-    let targetLvl = level || existing?.level;
+    // Ensure summary metadata (which carries chunkFile) has finished loading if still in flight
+    if (sharedPromise && !existing?.chunkFile) {
+        try { await sharedPromise; } catch (_) {}
+    } else if (baseTestsMap.size === 0) {
+        try { await getSharedJLPTTests(); } catch (_) {}
+    }
+
+    const refreshed = baseTestsMap.get(testId) || existing;
+    if (refreshed && Array.isArray(refreshed.sections) && refreshed.sections.length > 0) {
+        return refreshed;
+    }
+
+    if (refreshed?.chunkFile) {
+        const loaded = await loadChunkFile(refreshed.chunkFile);
+        if (loaded) {
+            const populated = baseTestsMap.get(testId);
+            if (populated && Array.isArray(populated.sections) && populated.sections.length > 0) {
+                return populated;
+            }
+        }
+    }
+
+    let targetLvl = level || refreshed?.level;
     if (!targetLvl) {
         const match = String(testId).toLowerCase().match(/(n[1-5])/);
         targetLvl = match ? match[1] : 'n5';
     }
 
     await loadJLPTLevelData(targetLvl);
-    return baseTestsMap.get(testId) || existing;
+    return baseTestsMap.get(testId) || refreshed;
 };
 
 export const invalidateJLPTCache = () => {
@@ -152,6 +249,11 @@ export const invalidateJLPTCache = () => {
     firestoreDocsMap.clear();
     loadedLevels.clear();
     levelLoadingPromises.clear();
+    loadedChunks.clear();
+    chunkLoadingPromises.clear();
+    chunksManifest = null;
+    chunksManifestPromise = null;
+    currentCacheTag = Date.now();
 };
 
 if (typeof window !== 'undefined') {
@@ -192,13 +294,16 @@ export const getSharedJLPTTests = async (forceRefresh = false) => {
         let cacheConfig = null;
         try {
             cacheConfig = await getCacheConfig();
+            if (cacheConfig?.exportedAt) {
+                currentCacheTag = String(cacheConfig.exportedAt);
+            }
         } catch (e) {
             console.warn('[jlptDataService] Cache config fetch warning:', e);
         }
 
-        // 1. ALWAYS load lightweight summary catalog first (fast, ~3.5MB, < 15MB RAM)
+        // 1. ALWAYS load lightweight summary catalog first (fast, ~3MB, < 15MB RAM)
         try {
-            const res = await fetch(`/data/jlpt/summary.json?t=${Date.now()}`);
+            const res = await fetch(`/data/jlpt/summary.json?v=${encodeURIComponent(currentCacheTag)}`);
             if (res && res.ok) {
                 const data = await res.json();
                 if (Array.isArray(data) && data.length > 0) {

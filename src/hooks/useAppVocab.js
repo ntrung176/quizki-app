@@ -28,7 +28,7 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs, savedStreak 
             return [];
         }
     });
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(() => allCards.length === 0);
 
     const allCardsRef = useRef(allCards);
     useEffect(() => {
@@ -42,10 +42,15 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs, savedStreak 
 
     // Firestore listener for User Vocabulary (allCards)
     useEffect(() => {
-        if (!authReady || !vocabCollectionPath) {
+        if (!authReady) return;
+        if (!vocabCollectionPath) {
             setAllCards([]);
             setIsLoading(false);
             return;
+        }
+
+        if (allCardsRef.current.length === 0) {
+            setIsLoading(true);
         }
 
         const q = query(collection(db, vocabCollectionPath));

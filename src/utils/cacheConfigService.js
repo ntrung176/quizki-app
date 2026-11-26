@@ -5,6 +5,7 @@ import { invalidateBookGroupsCache } from './bookService';
 let cachedConfig = null;
 let configPromise = null;
 let unsubConfig = null;
+let hasBaselineConfig = false;
 
 export const subscribeCacheConfig = () => {
     if (unsubConfig || !db) return;
@@ -13,11 +14,18 @@ export const subscribeCacheConfig = () => {
         unsubConfig = onSnapshot(ref, (snap) => {
             if (snap.exists()) {
                 const newData = snap.data();
+                if (!hasBaselineConfig) {
+                    cachedConfig = newData;
+                    hasBaselineConfig = true;
+                    return;
+                }
                 if (cachedConfig?.exportedAt !== newData?.exportedAt) {
                     cachedConfig = newData;
                     invalidateBookGroupsCache();
                     window.dispatchEvent(new CustomEvent('cache-config-updated', { detail: newData }));
                 }
+            } else {
+                hasBaselineConfig = true;
             }
         }, (err) => {
             console.warn('Real-time cacheConfig listener error:', err);

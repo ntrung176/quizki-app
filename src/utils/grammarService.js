@@ -1603,6 +1603,15 @@ const mergeServerWithLocalGrammarSrs = (userId, serverSrsMap) => {
 
 let hasFetchedServerGrammarSrs = false;
 
+let grammarSrsFirstSnapshotWaiters = [];
+
+const resolveGrammarSrsWaiters = (data) => {
+    if (grammarSrsFirstSnapshotWaiters.length === 0) return;
+    const waiters = grammarSrsFirstSnapshotWaiters;
+    grammarSrsFirstSnapshotWaiters = [];
+    waiters.forEach(resolve => { try { resolve(data); } catch (_) {} });
+};
+
 export const getSharedGrammarSrs = async (userId, forceRefresh = false) => {
     if (!userId) return {};
     if (cachedUserIdForGrammarSrs !== userId) {
@@ -1619,6 +1628,16 @@ export const getSharedGrammarSrs = async (userId, forceRefresh = false) => {
     }
     if (!forceRefresh && hasFetchedServerGrammarSrs && cachedUserGrammarSrsData) {
         return cachedUserGrammarSrsData;
+    }
+    // Reuse active onSnapshot listener instead of firing a duplicate full-collection getDocs scan
+    if (!forceRefresh && grammarSrsUnsubscribe && cachedUserIdForGrammarSrs === userId && !hasFetchedServerGrammarSrs) {
+        return new Promise((resolve) => {
+            const timeout = setTimeout(() => resolve(cachedUserGrammarSrsData || {}), 15000);
+            grammarSrsFirstSnapshotWaiters.push((data) => {
+                clearTimeout(timeout);
+                resolve(data || cachedUserGrammarSrsData || {});
+            });
+        });
     }
     if (userGrammarSrsPromise && !forceRefresh) return userGrammarSrsPromise;
 
@@ -1683,6 +1702,7 @@ export const subscribeGrammarSrs = (userId, callback) => {
 
     // If no active Firestore listener yet, create one
     if (!grammarSrsUnsubscribe) {
+        cachedUserIdForGrammarSrs = userId;
         const colRef = collection(db, `artifacts/${appId}/users/${userId}/grammarSRS`);
         grammarSrsUnsubscribe = onSnapshot(colRef, (snapshot) => {
             // Build fresh snapshot from server docs to eliminate ghost/phantom cards across devices
@@ -1693,6 +1713,7 @@ export const subscribeGrammarSrs = (userId, callback) => {
             cachedUserIdForGrammarSrs = userId;
             hasFetchedServerGrammarSrs = true;
             userGrammarSrsPromise = null;
+            resolveGrammarSrsWaiters(mergedSrs);
             safeSetLocalStorage(`quizki_cached_grammar_srs_${userId}`, JSON.stringify(mergedSrs));
             try {
                 const computed = computeGrammarSrsStats(mergedSrs);

@@ -72,10 +72,10 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
     const location = useLocation();
     const [isEditingInlineMnemonic, setIsEditingInlineMnemonic] = useState(false);
     const [kanjiList, setKanjiList] = useState(() => getCachedKanjiList() || []);
-    const [srsData, setSrsData] = useState(() => (userId ? getCachedUserSrsData() || {} : {}));
+    const [srsData, setSrsData] = useState(() => (userId ? getCachedUserSrsData(userId) || {} : {}));
     const [loading, setLoading] = useState(() => {
         const hasKanji = !!getCachedKanjiList();
-        const hasSrs = userId ? !!getCachedUserSrsData() : true;
+        const hasSrs = userId ? !!getCachedUserSrsData(userId) : true;
         return !(hasKanji && hasSrs);
     });
     const [reviewMode, setReviewMode] = useState(false);
@@ -164,45 +164,26 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             if (document.visibilityState === 'hidden') {
                 handleFlushOnLeave();
             } else if (document.visibilityState === 'visible') {
-                // When returning to the tab from another device, re-sync SRS data from Firestore
-                if (userId && !reviewModeRef.current) {
-                    getSharedKanjiSrs(userId, true).then(freshSrs => {
-                        if (freshSrs) setSrsData(freshSrs);
-                    }).catch(() => {});
-                }
-            }
-        };
-        const handleFocus = () => {
-            if (userId && !reviewModeRef.current) {
-                getSharedKanjiSrs(userId, true).then(freshSrs => {
-                    if (freshSrs) setSrsData(freshSrs);
-                }).catch(() => {});
+                setDashboardTick(Date.now());
             }
         };
         document.addEventListener('visibilitychange', handleVisChange);
-        window.addEventListener('focus', handleFocus);
 
         return () => {
             window.removeEventListener('pagehide', handleFlushOnLeave);
             document.removeEventListener('visibilitychange', handleVisChange);
-            window.removeEventListener('focus', handleFocus);
         };
-    }, [awardXP, userId]);
+    }, [awardXP]);
 
     const [dashboardTick, setDashboardTick] = useState(Date.now());
     useEffect(() => {
-        // Refresh dashboard stats every 30 seconds and sync Firestore in background
+        // Refresh due status on client timer; cloud sync runs live via subscribeKanjiSrs onSnapshot
         if (reviewMode) return;
         const interval = setInterval(() => {
             setDashboardTick(Date.now());
-            if (userId) {
-                getSharedKanjiSrs(userId, true).then(freshSrs => {
-                    if (freshSrs) setSrsData(freshSrs);
-                }).catch(() => {});
-            }
         }, 30000);
         return () => clearInterval(interval);
-    }, [reviewMode, userId]);
+    }, [reviewMode]);
 
     const reviewModeRef = useRef(false);
     // Track cards with pending Firestore writes to prevent onSnapshot from overwriting optimistic updates
@@ -235,7 +216,31 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         let isMounted = true;
         const safetyTimer = setTimeout(() => {
             if (isMounted) setLoading(false);
-        }, 2000);
+        }, 15000);
+
+        // Set up real-time listener for SRS data FIRST so getSharedKanjiSrs reuses its active snapshot stream
+        let unsubSrs = () => { };
+        if (userId) {
+            syncPendingKanjiSrs(userId);
+            unsubSrs = subscribeKanjiSrs(userId, (freshSrs) => {
+                if (!isMounted) return;
+                if (reviewModeRef.current) {
+                    // During review: merge fresh data but PRESERVE optimistic updates
+                    // for cards that have pending Firestore writes
+                    setSrsData(prev => {
+                        const merged = { ...freshSrs };
+                        pendingWriteIds.current.forEach(id => {
+                            if (prev[id]) {
+                                merged[id] = prev[id]; // keep our optimistic value
+                            }
+                        });
+                        return merged;
+                    });
+                } else {
+                    setSrsData(freshSrs);
+                }
+            });
+        }
 
         const load = async () => {
             try {
@@ -259,28 +264,6 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
 
         load();
 
-        // Set up real-time listener for SRS data (cross-device sync)
-        let unsubSrs = () => { };
-        if (userId) {
-            syncPendingKanjiSrs(userId);
-            unsubSrs = subscribeKanjiSrs(userId, (freshSrs) => {
-                if (reviewModeRef.current) {
-                    // During review: merge fresh data but PRESERVE optimistic updates
-                    // for cards that have pending Firestore writes
-                    setSrsData(prev => {
-                        const merged = { ...freshSrs };
-                        pendingWriteIds.current.forEach(id => {
-                            if (prev[id]) {
-                                merged[id] = prev[id]; // keep our optimistic value
-                            }
-                        });
-                        return merged;
-                    });
-                } else {
-                    setSrsData(freshSrs);
-                }
-            });
-        }
         return () => {
             isMounted = false;
             clearTimeout(safetyTimer);

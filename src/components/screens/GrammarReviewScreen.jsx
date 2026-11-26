@@ -67,8 +67,8 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const { t } = useLanguage();
 
     const [grammarList, setGrammarList] = useState([]);
-    const [srsData, setSrsData] = useState(() => (userId ? getCachedUserGrammarSrsData() || {} : {}));
-    const [loading, setLoading] = useState(true);
+    const [srsData, setSrsData] = useState(() => (userId ? getCachedUserGrammarSrsData(userId) || {} : {}));
+    const [loading, setLoading] = useState(() => (userId ? !getCachedUserGrammarSrsData(userId) : false));
 
     const allGrammarList = useMemo(() => {
         const map = new Map();
@@ -116,14 +116,9 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         if (reviewMode) return;
         const interval = setInterval(() => {
             setDashboardTick(Date.now());
-            if (userId) {
-                getSharedGrammarSrs(userId, true).then(freshSrs => {
-                    if (freshSrs) setSrsData(freshSrs);
-                }).catch(() => {});
-            }
         }, 30000);
         return () => clearInterval(interval);
-    }, [reviewMode, userId]);
+    }, [reviewMode]);
 
     const reviewModeRef = useRef(false);
     const pendingWriteIds = useRef(new Set());
@@ -151,30 +146,16 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             if (document.visibilityState === 'hidden') {
                 handleFlushOnLeave();
             } else if (document.visibilityState === 'visible') {
-                // When returning to the tab from another device, re-sync SRS data from Firestore
-                if (userId && !reviewModeRef.current) {
-                    getSharedGrammarSrs(userId, true).then(freshSrs => {
-                        if (freshSrs) setSrsData(freshSrs);
-                    }).catch(() => {});
-                }
-            }
-        };
-        const handleFocus = () => {
-            if (userId && !reviewModeRef.current) {
-                getSharedGrammarSrs(userId, true).then(freshSrs => {
-                    if (freshSrs) setSrsData(freshSrs);
-                }).catch(() => {});
+                setDashboardTick(Date.now());
             }
         };
         document.addEventListener('visibilitychange', handleVisChange);
-        window.addEventListener('focus', handleFocus);
 
         return () => {
             window.removeEventListener('pagehide', handleFlushOnLeave);
             document.removeEventListener('visibilitychange', handleVisChange);
-            window.removeEventListener('focus', handleFocus);
         };
-    }, [awardXP, userId]);
+    }, [awardXP]);
 
     const [showLeechManager, setShowLeechManager] = useState(false);
     const leechGrammarItems = useMemo(() => allGrammarList.filter(g => isLeechCard(srsData[g.id]) || isLeechCard(g)), [allGrammarList, srsData]);
@@ -226,7 +207,30 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         let isMounted = true;
         const safetyTimer = setTimeout(() => {
             if (isMounted) setLoading(false);
-        }, 2000);
+        }, 15000);
+
+        // Set up real-time listener for SRS data FIRST so getSharedGrammarSrs reuses its active snapshot stream
+        let unsubSrs = () => { };
+        if (userId) {
+            syncPendingGrammarSrs(userId);
+            unsubSrs = subscribeGrammarSrs(userId, (freshSrs) => {
+                if (!isMounted) return;
+                if (reviewModeRef.current) {
+                    // During review: merge fresh data but PRESERVE optimistic updates
+                    setSrsData(prev => {
+                        const merged = { ...freshSrs };
+                        pendingWriteIds.current.forEach(id => {
+                            if (prev[id]) {
+                                merged[id] = prev[id];
+                            }
+                        });
+                        return merged;
+                    });
+                } else {
+                    setSrsData(freshSrs);
+                }
+            });
+        }
 
         const load = async () => {
             try {
@@ -250,27 +254,6 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
         load();
 
-        // Set up real-time listener for SRS data (cross-device sync)
-        let unsubSrs = () => { };
-        if (userId) {
-            syncPendingGrammarSrs(userId);
-            unsubSrs = subscribeGrammarSrs(userId, (freshSrs) => {
-                if (reviewModeRef.current) {
-                    // During review: merge fresh data but PRESERVE optimistic updates
-                    setSrsData(prev => {
-                        const merged = { ...freshSrs };
-                        pendingWriteIds.current.forEach(id => {
-                            if (prev[id]) {
-                                merged[id] = prev[id];
-                            }
-                        });
-                        return merged;
-                    });
-                } else {
-                    setSrsData(freshSrs);
-                }
-            });
-        }
         return () => {
             isMounted = false;
             clearTimeout(safetyTimer);

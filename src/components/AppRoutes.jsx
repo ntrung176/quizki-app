@@ -364,6 +364,7 @@ const AppRoutes = ({
     isAuthenticated,
     authReady = true,
     isLoading,
+    isProfileLoading = false,
 
     // User data
     userId,
@@ -697,6 +698,8 @@ const AppRoutes = ({
                                 totalCards={allCards?.length || 0}
                                 allCards={allCards}
                                 userId={userId}
+                                isLoading={isLoading}
+                                isProfileLoading={isProfileLoading}
                                 vocabCollectionPath={vocabCollectionPath}
                                 dailyActivityLogs={dailyActivityLogs}
                                 calculatedStreak={calculatedStreak}
@@ -724,6 +727,7 @@ const AppRoutes = ({
                         <SRSVocabScreen
                             displayName={profile?.displayName}
                             userId={userId}
+                            isLoading={isLoading}
                             isAdmin={isAdmin}
                             folders={folders}
                             cardFolders={cardFolders}

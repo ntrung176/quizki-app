@@ -17,7 +17,7 @@ import JLPTTestDashboard from '../jlptTest/JLPTTestDashboard';
 import JLPTQuestionSearchModal from '../jlptTest/JLPTQuestionSearchModal';
 import JLPTExportImportModal, { sanitizeDataForFirestore } from '../jlptTest/JLPTExportImportModal';
 import { showToast } from '../../utils/toast';
-import { X, Play, BookOpen, Lock, ChevronRight, FileText, Printer, Check } from 'lucide-react';
+import { X, Play, BookOpen, Lock, ChevronRight, FileText, Printer, Check, Loader2 } from 'lucide-react';
 
 export const answerKey = (si, qi) => `s${si}_q${qi}`;
 export const subAnswerKey = (si, qi, sqi) => `s${si}_q${qi}_sq${sqi}`;
@@ -89,6 +89,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
 
     // Real Exam & AI Translation states
     const [pendingStartTest, setPendingStartTest] = useState(null);
+    const [loadingTestDetails, setLoadingTestDetails] = useState(false);
     const [isRealExam, setIsRealExam] = useState(false);
     const [violationCount, setViolationCount] = useState(0);
     const [showViolationWarning, setShowViolationWarning] = useState(false);
@@ -471,9 +472,16 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         }
         setPendingStartTest(test);
         if (!test?.sections || test.sections.length === 0) {
-            ensureFullTestLoaded(test?.id, test?.level).then(fullTest => {
-                if (fullTest) setPendingStartTest(fullTest);
-            });
+            setLoadingTestDetails(true);
+            ensureFullTestLoaded(test?.id, test?.level)
+                .then(fullTest => {
+                    if (fullTest) setPendingStartTest(fullTest);
+                })
+                .finally(() => {
+                    setLoadingTestDetails(false);
+                });
+        } else {
+            setLoadingTestDetails(false);
         }
     };
 
@@ -490,7 +498,12 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         setShowDetailedReview(false);
         let fullTest = targetTest;
         if (!fullTest?.sections || fullTest.sections.length === 0) {
-            fullTest = (await ensureFullTestLoaded(targetTest?.id, targetTest?.level)) || targetTest;
+            setLoadingTestDetails(true);
+            try {
+                fullTest = (await ensureFullTestLoaded(targetTest?.id, targetTest?.level)) || targetTest;
+            } finally {
+                setLoadingTestDetails(false);
+            }
         }
         initTest(fullTest, wasRealExam ? 'real' : 'practice');
     };
@@ -499,7 +512,12 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         setPendingStartTest(null);
         let fullTest = test;
         if (!fullTest?.sections || fullTest.sections.length === 0) {
-            fullTest = (await ensureFullTestLoaded(test?.id, test?.level)) || test;
+            setLoadingTestDetails(true);
+            try {
+                fullTest = (await ensureFullTestLoaded(test?.id, test?.level)) || test;
+            } finally {
+                setLoadingTestDetails(false);
+            }
         }
         setActiveTest(fullTest);
         setIsRealExam(mode === 'real');
@@ -543,7 +561,12 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         try {
             let fullTest = test;
             if (!fullTest?.sections || fullTest.sections.length === 0) {
-                fullTest = (await ensureFullTestLoaded(test?.id, test?.level)) || test;
+                setLoadingTestDetails(true);
+                try {
+                    fullTest = (await ensureFullTestLoaded(test?.id, test?.level)) || test;
+                } finally {
+                    setLoadingTestDetails(false);
+                }
             }
             if (!fullTest) return;
 
@@ -583,7 +606,12 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             setTimeTaken(saved.timeTaken || 0);
             let fullTest = test;
             if (!fullTest?.sections || fullTest.sections.length === 0) {
-                fullTest = (await ensureFullTestLoaded(test?.id, test?.level)) || test;
+                setLoadingTestDetails(true);
+                try {
+                    fullTest = (await ensureFullTestLoaded(test?.id, test?.level)) || test;
+                } finally {
+                    setLoadingTestDetails(false);
+                }
             }
             setActiveTest(fullTest);
             setAnswers(saved.answers || {});
@@ -901,8 +929,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         const testId = pendingStartTest.id || pendingStartTest._id;
         const savedProgress = savedProgresses[testId] || savedProgresses[String(testId)];
         const hasSavedAnswers = !!(savedProgress && savedProgress.answers && Object.keys(savedProgress.answers).length > 0);
+        const hasFullSections = Array.isArray(pendingStartTest.sections) && pendingStartTest.sections.length > 0;
         let totalQ = 0;
-        if (pendingStartTest.sections) {
+        if (hasFullSections) {
             pendingStartTest.sections.forEach(sec => {
                 if (sec.questions) {
                     sec.questions.forEach(q => {
@@ -912,6 +941,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                 }
             });
         }
+        const displayTotalQ = totalQ || pendingStartTest.questionCount || 0;
         const answeredSaved = hasSavedAnswers ? Object.keys(savedProgress.answers).length : 0;
 
         return (
@@ -927,6 +957,12 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                         </button>
                     </div>
                     <div className="p-6 space-y-4">
+                        {(loadingTestDetails || !hasFullSections) && (
+                            <div className="flex items-center gap-2.5 px-3.5 py-2.5 rounded-2xl bg-sky-50 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-800/60 text-sky-700 dark:text-sky-300 text-xs font-bold">
+                                <Loader2 className="w-4 h-4 animate-spin shrink-0 text-sky-500" />
+                                <span>Đang nạp nội dung câu hỏi đề thi...</span>
+                            </div>
+                        )}
                         <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Vui lòng chọn chế độ làm bài thi phù hợp với nhu cầu của bạn:</p>
                         <div className="grid grid-cols-1 gap-4">
                             {hasSavedAnswers && (
@@ -942,7 +978,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                                             Tiếp tục làm bài <span className="px-2 py-0.5 text-[9px] font-extrabold uppercase bg-emerald-600 text-white rounded">Tiến trình</span>
                                         </h4>
                                         <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-                                            Đã làm: <strong className="text-emerald-600 dark:text-emerald-400">{answeredSaved}/{totalQ}</strong> câu.
+                                            Đã làm: <strong className="text-emerald-600 dark:text-emerald-400">{answeredSaved}/{displayTotalQ}</strong> câu.
                                         </p>
                                     </div>
                                 </div>
@@ -1353,6 +1389,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                 onOpenQuestionSearch={() => setShowQuestionSearchModal(true)}
             />
             {renderModeSelectionModal()}
+            {loadingTestDetails && !pendingStartTest && (
+                <div className="fixed inset-0 z-[9999] bg-slate-900/40 backdrop-blur-xs flex items-center justify-center p-4 animate-fade-in">
+                    <div className="bg-white dark:bg-slate-800 rounded-2xl px-6 py-4 shadow-2xl border border-slate-200 dark:border-slate-700 flex items-center gap-3">
+                        <Loader2 className="w-5 h-5 animate-spin text-sky-500" />
+                        <span className="text-sm font-bold text-slate-800 dark:text-white">Đang nạp nội dung đề thi...</span>
+                    </div>
+                </div>
+            )}
             <PremiumLockedModal 
                 isOpen={showPremiumModal} 
                 onClose={() => setShowPremiumModal(false)} 
