@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react';
+import { useLocation } from 'react-router-dom';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { PremiumLockedModal } from '../ui';
 import { doc, updateDoc, setDoc } from 'firebase/firestore';
@@ -103,12 +104,29 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
     const [includeAnswerSheet, setIncludeAnswerSheet] = useState(true);
 
     // Dashboard state persistence across taking tests & returning
+    const location = useLocation();
     const [activeMainTab, setActiveMainTabState] = useState(() => {
-        return sessionStorage.getItem('quizki_jlpt_main_tab') || 'books';
+        const params = new URLSearchParams(location?.search || '');
+        return params.get('tab') || sessionStorage.getItem('quizki_jlpt_main_tab') || 'books';
     });
     const [selectedLevel, setSelectedLevelState] = useState(() => {
-        return sessionStorage.getItem('quizki_jlpt_selected_level') || targetLevel || 'N5';
+        const params = new URLSearchParams(location?.search || '');
+        return params.get('level') || sessionStorage.getItem('quizki_jlpt_selected_level') || targetLevel || 'N5';
     });
+
+    useEffect(() => {
+        const params = new URLSearchParams(location?.search || '');
+        const tabParam = params.get('tab');
+        const levelParam = params.get('level');
+        if (tabParam && ['books', 'roadmap', 'yearly', 'listening_mondai', 'skills', 'drills', 'wrong', 'mock'].includes(tabParam)) {
+            setActiveMainTabState(tabParam);
+            try { sessionStorage.setItem('quizki_jlpt_main_tab', tabParam); } catch (e) {}
+        }
+        if (levelParam && ['all', 'N5', 'N4', 'N3', 'N2', 'N1'].includes(levelParam)) {
+            setSelectedLevelState(levelParam);
+            try { sessionStorage.setItem('quizki_jlpt_selected_level', levelParam); } catch (e) {}
+        }
+    }, [location?.search]);
     const [searchQuery, setSearchQuery] = useState('');
     const [statusFilter, setStatusFilter] = useState('all');
 
@@ -701,6 +719,12 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                                 userAnswer: userAns,
                                 explanation: q.explanation || '',
                                 passage: q.passage || '',
+                                audioUrl: q.audioUrl || '',
+                                audioStartSec: q.audioStartSec ?? null,
+                                audioEndSec: q.audioEndSec ?? null,
+                                imageUrl: q.imageUrl || '',
+                                script: q.script || null,
+                                mondaiTitle: q.mondaiTitle || '',
                                 date: new Date().toISOString()
                             };
                         }
@@ -731,7 +755,13 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             options: item.options,
             correctAnswer: item.correctAnswer,
             explanation: item.explanation,
-            passage: item.passage
+            passage: item.passage,
+            audioUrl: item.audioUrl || '',
+            audioStartSec: item.audioStartSec ?? undefined,
+            audioEndSec: item.audioEndSec ?? undefined,
+            imageUrl: item.imageUrl || '',
+            script: item.script || undefined,
+            mondaiTitle: item.mondaiTitle || ''
         }));
 
         const practiceTest = {

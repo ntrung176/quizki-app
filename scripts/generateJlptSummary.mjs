@@ -66,7 +66,7 @@ levels.forEach((lvl) => {
         currentChunk.push(t);
         currentBytes += testByteLen + 1;
 
-        summary.push({
+        const summaryEntry = {
             id: t.id,
             title: t.title,
             baiNumber: t.baiNumber,
@@ -85,7 +85,18 @@ levels.forEach((lvl) => {
             questionCount,
             sectionsCount,
             chunkFile: assignedChunkFile
-        });
+        };
+        if (t.examYear) summaryEntry.examYear = t.examYear;
+        if (t.examSession) summaryEntry.examSession = t.examSession;
+        if (t.category) summaryEntry.category = t.category;
+        if (t.mondaiNumber) summaryEntry.mondaiNumber = t.mondaiNumber;
+        if (t.hasListening || (Array.isArray(t.sections) && t.sections.some((s) => s?.type === 'listening'))) {
+            summaryEntry.hasListening = true;
+        }
+        if (t.mondaiCounts && Object.keys(t.mondaiCounts).length > 0) {
+            summaryEntry.mondaiCounts = t.mondaiCounts;
+        }
+        summary.push(summaryEntry);
     });
 
     flushChunk();

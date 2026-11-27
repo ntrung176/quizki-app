@@ -4,20 +4,23 @@ import {
     Award, BookOpen, Clock, Calendar, CheckCircle2, 
     FileText, Headphones, Languages, Search, 
     TrendingUp, Target, Compass, Layers, Trophy, X, AlertCircle,
-    Repeat
+    Repeat, Sparkles
 } from 'lucide-react';
 import { ROUTES } from '../../router';
-import { loadJLPTLevelData } from '../../services/jlptDataService';
 import JLPTBooksCollectionTab from './JLPTBooksCollectionTab';
 import JLPTLessonRoadmapTab from './JLPTLessonRoadmapTab';
 import JLPTSkillArenaTab from './JLPTSkillArenaTab';
 import JLPTMockExamsTab from './JLPTMockExamsTab';
 import JLPTDrillsTab from './JLPTDrillsTab';
 import JLPTWrongQuestionsTab from './JLPTWrongQuestionsTab';
+import JLPTYearlyExamsTab from './JLPTYearlyExamsTab';
+import JLPTMondaiListeningTab from './JLPTMondaiListeningTab';
 
 const MAIN_TABS = [
     { id: 'books', label: 'Kho Sách Luyện Thi', icon: BookOpen, desc: 'Tuyển tập giáo trình và đề thi' },
     { id: 'roadmap', label: 'Lộ Trình Theo Bài', icon: Compass, desc: 'Bài học trọn gói 4 kỹ năng' },
+    { id: 'yearly', label: 'Đề Các Năm (2010–2025)', icon: Calendar, desc: 'Đề thi chính thức theo từng kỳ 2010–2025' },
+    { id: 'listening_mondai', label: 'Nghe Theo Mondai', icon: Headphones, desc: 'Luyện nghe tổng hợp theo từng Mondai riêng của mỗi Level' },
     { id: 'skills', label: 'Luyện Kỹ Năng', icon: Target, desc: 'Chữ Hán • Ngữ pháp • Đọc hiểu' },
     { id: 'drills', label: 'Ôn Tập Phản Xạ', icon: Repeat, desc: 'Drills phản xạ ngữ pháp' },
     { id: 'wrong', label: 'Sổ Tay Câu Sai', icon: AlertCircle, desc: 'Ôn luyện lại các câu làm sai' },
@@ -29,7 +32,6 @@ const JLPTTestDashboard = ({
     completedTests = {},
     savedProgresses = {},
     targetLevel = 'N2',
-    handleUpdateTargetLevel,
     activeMainTab: externalActiveMainTab,
     setActiveMainTab: externalSetActiveMainTab,
     selectedLevel: externalSelectedLevel,
@@ -38,9 +40,6 @@ const JLPTTestDashboard = ({
     setSearchQuery: externalSetSearchQuery,
     statusFilter: externalStatusFilter,
     setStatusFilter: externalSetStatusFilter,
-    roadmapProgress = {},
-    toggleRoadmapDay,
-    allCards = [],
     canEdit,
     onOpenQuestionSearch,
     hasPremiumAccess,
@@ -100,7 +99,6 @@ const JLPTTestDashboard = ({
     });
     const completedCount = completedList.length;
     const totalCount = levelTests.length;
-    const progressPct = totalCount > 0 ? Math.round((completedCount / totalCount) * 100) : 0;
 
     const avgScore = completedList.length > 0
         ? Math.round(completedList.reduce((sum, t) => sum + (completedTests[t.id]?.percentage || 0), 0) / completedList.length)
@@ -140,6 +138,13 @@ const JLPTTestDashboard = ({
                                         Ctrl+K
                                     </span>
                                 </button>
+                                <Link 
+                                    to={`${ROUTES.JLPT_ADMIN}?mode=studio`}
+                                    className="px-4 py-2.5 bg-sky-500 hover:bg-sky-400 active:translate-y-0.5 border-b-4 border-sky-700 active:border-b-2 text-white rounded-2xl text-xs font-black transition flex items-center gap-2 shadow-xs cursor-pointer"
+                                >
+                                    <Sparkles className="w-4 h-4" />
+                                    <span>Studio Soạn Đề & Nghe</span>
+                                </Link>
                                 <Link 
                                     to={ROUTES.JLPT_ADMIN}
                                     className="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 active:translate-y-0.5 border-b-4 border-slate-900 active:border-b-2 text-white rounded-2xl text-xs font-bold transition flex items-center gap-2 shadow-xs cursor-pointer"
@@ -317,6 +322,43 @@ const JLPTTestDashboard = ({
                         handleStartPrint={handleStartPrint}
                         handleToggleTestPremium={handleToggleTestPremium}
                         handleToggleTestFixed={handleToggleTestFixed}
+                        setShowPremiumModal={setShowPremiumModal}
+                        setLockedPkgName={setLockedPkgName}
+                    />
+                )}
+
+                {activeMainTab === 'yearly' && (
+                    <JLPTYearlyExamsTab
+                        tests={tests}
+                        completedTests={completedTests}
+                        savedProgresses={savedProgresses}
+                        selectedLevel={selectedLevel}
+                        searchQuery={searchQuery}
+                        statusFilter={statusFilter}
+                        canEdit={canEdit}
+                        hasPremiumAccess={hasPremiumAccess}
+                        startTest={startTest}
+                        reviewTest={reviewTest}
+                        handleStartPrint={handleStartPrint}
+                        handleToggleTestPremium={handleToggleTestPremium}
+                        handleToggleTestFixed={handleToggleTestFixed}
+                        setShowPremiumModal={setShowPremiumModal}
+                        setLockedPkgName={setLockedPkgName}
+                    />
+                )}
+
+                {activeMainTab === 'listening_mondai' && (
+                    <JLPTMondaiListeningTab
+                        tests={tests}
+                        completedTests={completedTests}
+                        savedProgresses={savedProgresses}
+                        selectedLevel={selectedLevel}
+                        searchQuery={searchQuery}
+                        canEdit={canEdit}
+                        hasPremiumAccess={hasPremiumAccess}
+                        startTest={startTest}
+                        reviewTest={reviewTest}
+                        handleToggleTestPremium={handleToggleTestPremium}
                         setShowPremiumModal={setShowPremiumModal}
                         setLockedPkgName={setLockedPkgName}
                     />

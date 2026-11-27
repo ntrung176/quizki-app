@@ -11,6 +11,7 @@ import HandwritingCanvas from '../ui/HandwritingCanvas';
 import ExamAnnotationOverlay from '../screens/ExamAnnotationOverlay';
 import InteractiveReadingPassage from './InteractiveReadingPassage';
 import QuestionExplanationCard from './QuestionExplanationCard';
+import ListeningAudioPlayer from './ListeningAudioPlayer';
 import { SECTION_ICONS, SECTION_COLORS } from './jlptConstants';
 
 export const hasHtmlTags = (str) => {
@@ -788,18 +789,15 @@ const JLPTTestTakeView = ({
                                         </div>
 
                                         {/* Audio Player for Listening */}
-                                        {activeSection?.type === 'listening' && question?.audioUrl && (
-                                            <div className="mb-4 p-3.5 bg-orange-50/80 dark:bg-orange-950/20 border border-orange-200 dark:border-orange-900/50 rounded-2xl flex items-center gap-3">
-                                                <Volume2 className="w-5 h-5 text-orange-600 dark:text-orange-400 shrink-0" />
-                                                <audio 
-                                                    ref={audioRef} 
-                                                    controls 
-                                                    className="flex-1 h-9"
-                                                    src={question.audioUrl} 
-                                                    preload="auto"
-                                                >
-                                                    Trình duyệt không hỗ trợ audio.
-                                                </audio>
+                                        {question?.audioUrl && (activeSection?.type === 'listening' || question?.audioUrl) && (
+                                            <div className="mb-4">
+                                                <ListeningAudioPlayer
+                                                    src={question.audioUrl}
+                                                    startSec={question.audioStartSec}
+                                                    endSec={question.audioEndSec}
+                                                    externalRef={audioRef}
+                                                    label={question.mondaiTitle || activeSection?.title || 'Nghe hiểu JLPT'}
+                                                />
                                             </div>
                                         )}
 

@@ -2,13 +2,14 @@ import React from 'react';
 import { Edit3, Volume2, Check, X } from 'lucide-react';
 import InteractiveReadingPassage from './InteractiveReadingPassage';
 import QuestionExplanationCard from './QuestionExplanationCard';
+import ListeningAudioPlayer from './ListeningAudioPlayer';
 
-export const hasHtmlTags = (str) => {
+const hasHtmlTags = (str) => {
     if (!str) return false;
     return /<\/?[a-z][\s\S]*>/i.test(str);
 };
 
-export const getCleanClassName = (baseClass, text) => {
+const getCleanClassName = (baseClass, text) => {
     if (hasHtmlTags(text)) {
         return baseClass;
     }
@@ -24,7 +25,6 @@ const QuestionContent = React.memo(({
     selectAnswer,
     selectAnswerSub,
     audioRef,
-    isRealExam,
     isReview = false,
     canEdit = false,
     onEditQuestion = null
@@ -46,15 +46,15 @@ const QuestionContent = React.memo(({
                 </div>
             )}
             {/* Audio player for listening */}
-            {section.type === 'listening' && question?.audioUrl && (
-                <div className="mb-6 p-4 bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-xl">
-                    <div className="flex items-center gap-3">
-                        <Volume2 className="w-6 h-6 text-orange-600 dark:text-orange-400" />
-                        <audio ref={audioRef} controls className="flex-1 h-10"
-                            src={question.audioUrl} preload="auto">
-                            Trình duyệt không hỗ trợ audio.
-                        </audio>
-                    </div>
+            {question?.audioUrl && (section?.type === 'listening' || question?.audioUrl) && (
+                <div className="mb-6">
+                    <ListeningAudioPlayer
+                        src={question.audioUrl}
+                        startSec={question.audioStartSec}
+                        endSec={question.audioEndSec}
+                        externalRef={audioRef}
+                        label={question.mondaiTitle || section?.title || 'Nghe hiểu JLPT'}
+                    />
                 </div>
             )}
             {/* Reading passage */}
@@ -123,7 +123,7 @@ const QuestionContent = React.memo(({
                                         }
 
                                         return (
-                                            <div key={oi} onClick={(e) => {
+                                            <div key={oi} onClick={() => {
                                                 if (isReview) return;
                                                 const selection = window.getSelection();
                                                 if (selection && selection.toString().trim().length > 0) {
@@ -195,7 +195,7 @@ const QuestionContent = React.memo(({
                         }
 
                         return (
-                            <div key={oi} onClick={(e) => {
+                            <div key={oi} onClick={() => {
                                 if (isReview) return;
                                 const selection = window.getSelection();
                                 if (selection && selection.toString().trim().length > 0) {

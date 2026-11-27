@@ -1244,7 +1244,10 @@ export const callKaiwaAI = async (systemPrompt, conversationHistory = [], userMe
 };
 
 // ============== WHISPER STT CALL ==============
-export const callWhisperSTT = async (audioBlob, langCode = 'ja') => {
+/**
+ * Resolves the Whisper API endpoint, key, and model (OpenAI or Groq).
+ */
+export const getWhisperApiConfig = async () => {
     let groqKey = import.meta.env.VITE_GROQ_API_KEY;
     const openaiKey = import.meta.env.VITE_OPENAI_API_KEY;
 
@@ -1265,24 +1268,35 @@ export const callWhisperSTT = async (audioBlob, langCode = 'ja') => {
         throw new Error('Thiếu API Key cho Whisper STT. Vui lòng cấu hình VITE_GROQ_API_KEY trong file .env hoặc tab Quản trị Admin (nhận key miễn phí tại https://console.groq.com/keys)');
     }
 
+    if (openaiKey) {
+        return {
+            provider: 'openai',
+            url: 'https://api.openai.com/v1/audio/transcriptions',
+            apiKey: openaiKey,
+            model: 'whisper-1'
+        };
+    }
+
+    return {
+        provider: 'groq',
+        url: 'https://api.groq.com/openai/v1/audio/transcriptions',
+        apiKey: groqKey,
+        model: 'whisper-large-v3'
+    };
+};
+
+export const callWhisperSTT = async (audioBlob, langCode = 'ja') => {
+    const { provider, url, apiKey, model } = await getWhisperApiConfig();
+
     const formData = new FormData();
     // Name the file 'audio.webm' or 'audio.wav' so the API maps the container type
     const file = new File([audioBlob], 'audio.webm', { type: audioBlob.type || 'audio/webm' });
     formData.append('file', file);
-    formData.append('model', 'whisper-large-v3'); // Whisper v3 on Groq
+    formData.append('model', model);
     formData.append('language', langCode || 'ja');
     formData.append('prompt', langCode === 'en' ? 'Natural conversational English speech.' : '日本語の日常会話。です、ます、ひらがな、漢字、カタカナ。');
 
-    let url = 'https://api.groq.com/openai/v1/audio/transcriptions';
-    let apiKey = groqKey;
-
-    if (openaiKey) {
-        url = 'https://api.openai.com/v1/audio/transcriptions';
-        apiKey = openaiKey;
-        formData.set('model', 'whisper-1');
-    }
-
-    console.log(`🎙️ Sending speech to Whisper STT (${langCode || 'ja'}) via ${openaiKey ? 'OpenAI' : 'Groq'}...`);
+    console.log(`🎙️ Sending speech to Whisper STT (${langCode || 'ja'}) via ${provider}...`);
 
     const response = await fetch(url, {
         method: 'POST',

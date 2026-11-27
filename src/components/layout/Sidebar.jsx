@@ -10,7 +10,7 @@ import {
     List, Repeat2, FileCheck, Languages, Shield, Crown, Bell,
     MessageSquare, HelpCircle, Trophy, Cpu, Zap, Activity, Bot, Timer, Globe, Film,
     FileText, GitBranch, MoreHorizontal, Layers, Settings, Library, LayoutGrid, TrendingUp, Bookmark, Search,
-    Palette
+    Palette, Headphones, Calendar, Sparkles
 } from 'lucide-react';
 import { SafeAvatarImage } from '../ui';
 import QuizKiLogo from '../ui/QuizKiLogo';
@@ -761,6 +761,23 @@ const Sidebar = ({
             badge: null,
         });
 
+        if (isJapaneseMode) {
+            items.push({
+                id: 'jlpt_yearly',
+                label: t('nav.jlptYearly', 'Đề JLPT Các Năm (2010–2025)'),
+                icon: Calendar,
+                route: `${ROUTES.JLPT_TEST}?tab=yearly`,
+                badge: null,
+            });
+            items.push({
+                id: 'jlpt_mondai',
+                label: t('nav.jlptMondaiListening', 'Nghe Theo Mondai'),
+                icon: Headphones,
+                route: `${ROUTES.JLPT_TEST}?tab=listening_mondai`,
+                badge: null,
+            });
+        }
+
         // 7. Bảng vinh danh & Tiến độ
         items.push({
             id: 'hub',
@@ -836,6 +853,13 @@ const Sidebar = ({
                 label: t('nav.examManager', 'Quản lý đề thi'),
                 icon: FileCheck,
                 route: ROUTES.JLPT_ADMIN,
+                badge: null,
+            });
+            items.push({
+                id: 'jlpt_studio',
+                label: t('nav.jlptStudio', 'Studio Soạn Đề & Nghe MP3'),
+                icon: Sparkles,
+                route: `${ROUTES.JLPT_ADMIN}?mode=studio`,
                 badge: null,
             });
         }

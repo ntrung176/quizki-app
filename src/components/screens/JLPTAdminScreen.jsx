@@ -12,11 +12,12 @@ import {
     removeSingleJLPTTestFromCache,
     ensureFullTestLoaded
 } from '../../services/jlptDataService';
-import { Plus, Trash2, Edit3, Save, X, ChevronDown, ChevronUp, FileText, Headphones, BookOpen, Languages, AlertTriangle, CheckCircle, Loader2, Copy, Upload, ArrowLeft, Award, Bold, Underline, Highlighter, Italic, Strikethrough, AlignCenter, CornerDownLeft, Palette, Eraser, Type, Lock, Unlock, Crown, Search } from 'lucide-react'
+import { Plus, Trash2, Edit3, Save, X, ChevronDown, ChevronUp, FileText, Headphones, BookOpen, Languages, AlertTriangle, CheckCircle, Loader2, Copy, Upload, ArrowLeft, Award, Bold, Underline, Highlighter, Italic, Strikethrough, AlignCenter, CornerDownLeft, Palette, Eraser, Type, Lock, Unlock, Crown, Search, Sparkles } from 'lucide-react'
 import { Link, useLocation } from 'react-router-dom';
 import { ROUTES } from '../../router';
 import { compressImage, fileToBase64 } from '../../utils/image';
 import AdminPdfIngestorModal from '../admin/AdminPdfIngestorModal';
+import JlptStudioTab from '../admin/JlptStudioTab';
 import JLPTQuestionSearchModal from '../jlptTest/JLPTQuestionSearchModal';
 const SECTION_TYPES = [
     { value: 'vocabulary', label: 'Từ vựng (文字・語彙)', icon: Languages, color: 'blue' },
@@ -383,6 +384,9 @@ const normalizeQuestions = (rawQuestions) => {
 
 const JLPTAdminScreen = ({ userId }) => {
     const location = useLocation();
+    const urlParams = new URLSearchParams(location.search || '');
+    const initialModeParam = urlParams.get('mode') === 'studio' ? 'studio' : 'editor';
+    const [adminWorkspaceTab, setAdminWorkspaceTab] = useState(initialModeParam);
     const [tests, setTests] = useState(() => {
         const cached = getSynchronousJLPTTests();
         if (cached && cached.length > 0) {
@@ -392,6 +396,12 @@ const JLPTAdminScreen = ({ userId }) => {
         }
         return [];
     });
+
+    useEffect(() => {
+        const params = new URLSearchParams(location.search || '');
+        if (params.get('mode') === 'studio') setAdminWorkspaceTab('studio');
+        else if (params.get('mode') === 'editor') setAdminWorkspaceTab('editor');
+    }, [location.search]);
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedLevelFilter, setSelectedLevelFilter] = useState('All');
     const [selectedTypeFilter, setSelectedTypeFilter] = useState('All');
@@ -954,6 +964,28 @@ const JLPTAdminScreen = ({ userId }) => {
                         </div>
                     </div>
                     <div className="flex gap-2.5 flex-wrap">
+                        <button
+                            type="button"
+                            onClick={() => setAdminWorkspaceTab('studio')}
+                            className={`px-4 py-2 text-xs font-black rounded-xl transition flex items-center gap-1.5 shadow-sm cursor-pointer ${
+                                adminWorkspaceTab === 'studio'
+                                    ? 'bg-emerald-500 text-white border-b-2 border-emerald-700'
+                                    : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
+                            }`}
+                        >
+                            <Sparkles className="w-4 h-4" /> Studio Soạn Đề &amp; Nghe MP3
+                        </button>
+                        <button
+                            type="button"
+                            onClick={() => setAdminWorkspaceTab('editor')}
+                            className={`px-4 py-2 text-xs font-black rounded-xl transition flex items-center gap-1.5 shadow-sm cursor-pointer ${
+                                adminWorkspaceTab === 'editor'
+                                    ? 'bg-sky-500 text-white border-b-2 border-sky-700'
+                                    : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700'
+                            }`}
+                        >
+                            <Edit3 className="w-4 h-4" /> Danh sách &amp; Sửa thủ công
+                        </button>
                         <button onClick={() => setShowAiPdfModal(true)}
                             className="px-4 py-2 text-xs font-bold bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white rounded-xl transition flex items-center gap-1.5 shadow-sm cursor-pointer">
                             <FileText className="w-4 h-4" /> Tạo đề từ PDF (AI)
@@ -964,6 +996,23 @@ const JLPTAdminScreen = ({ userId }) => {
                         </button>
                     </div>
                 </div>
+                {adminWorkspaceTab === 'studio' ? (
+                    <JlptStudioTab
+                        initialAuthorMode={urlParams.get('authorMode') || 'yearly'}
+                        initialLevel={urlParams.get('level') || 'N3'}
+                        initialYear={urlParams.get('year') || 2024}
+                        initialSession={urlParams.get('session') || '12'}
+                        initialMondai={urlParams.get('mondai') || 1}
+                        onTestSaved={(saved) => {
+                            if (!saved?.id) return;
+                            setTests((prev) => {
+                                const exists = prev.some((t) => t.id === saved.id);
+                                return exists ? prev.map((t) => (t.id === saved.id ? saved : t)) : [saved, ...prev];
+                            });
+                        }}
+                    />
+                ) : (
+                <>
                 {/* Form nhập liệu */}
                 <div className="bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/50 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] overflow-hidden">
                     <div className="p-5 border-b border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-800/50">
@@ -1675,6 +1724,8 @@ const JLPTAdminScreen = ({ userId }) => {
                         })}
                     </div>
                 </div>
+                </>
+                )}
             </div>
             {/* JSON Import Modal */}
             {showJsonImport && (

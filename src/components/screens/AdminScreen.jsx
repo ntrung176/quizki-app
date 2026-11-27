@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { ROUTES } from '../../router';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import {
     Users, Shield, CheckCircle, AlertTriangle, Bot,
-    DollarSign, MessageSquare, SlidersHorizontal
+    DollarSign, MessageSquare, SlidersHorizontal, Sparkles
 } from 'lucide-react';
 import {
     updateAdminConfig,
@@ -223,6 +225,14 @@ const AdminScreen = ({ publicStatsPath, currentUserId, onAdminDeleteUserData, ad
                         </p>
                     </div>
                 </div>
+
+                <Link
+                    to={`${ROUTES.JLPT_ADMIN}?mode=studio`}
+                    className="px-4 py-2.5 rounded-2xl bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-2 text-white text-xs font-black flex items-center gap-2 shadow-xs shrink-0"
+                >
+                    <Sparkles className="w-4 h-4" />
+                    <span>Studio Soạn Đề &amp; Nghe JLPT</span>
+                </Link>
             </div>
 
             {/* Duolingo 5-Tab Navigation Bar */}
