@@ -35,6 +35,10 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs, savedStreak 
         allCardsRef.current = allCards;
     }, [allCards]);
 
+    // Serialize Firestore writes per cardId so Undo never races with an earlier Rating write
+    const cardWriteSeqRef = useRef({});
+    const cardWriteChainRef = useRef({});
+
     const vocabCollectionPath = useMemo(() => {
         if (!userId) return null;
         return `artifacts/${appId}/users/${userId}/vocabulary`;
@@ -256,9 +260,16 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs, savedStreak 
         };
 
         const safeCardId = String(cardId);
+        const nextSeq = (cardWriteSeqRef.current[safeCardId] || 0) + 1;
+        cardWriteSeqRef.current[safeCardId] = nextSeq;
+        const isRevert = Boolean(updatedFields?._isSrsRevert);
+        if (patchToSave._isSrsRevert !== undefined) {
+            delete patchToSave._isSrsRevert;
+        }
+
         if (userId) {
             updateCachedVocabSrs(userId, safeCardId, patchToSave);
-            recordPendingVocabSync(userId, safeCardId, patchToSave);
+            recordPendingVocabSync(userId, safeCardId, patchToSave, isRevert);
         }
 
         setAllCards(prevCards => {
@@ -274,20 +285,27 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs, savedStreak 
         });
 
         if (userId && vocabCollectionPath) {
-            try {
-                const cardRef = doc(collection(db, vocabCollectionPath), safeCardId);
-                const firestoreData = cleanFirestoreData({
-                    ...updatedFields,
-                    ...(newMasteryState ? { masteryState: newMasteryState } : {}),
-                    updatedAt: Date.now()
-                });
-                await setDoc(cardRef, firestoreData, { merge: true });
-                if (userId) {
-                    removePendingVocabSync(userId, safeCardId);
+            const prevChain = cardWriteChainRef.current[safeCardId] || Promise.resolve();
+            const writePromise = prevChain.catch(() => {}).then(async () => {
+                if (!isRevert && cardWriteSeqRef.current[safeCardId] !== nextSeq) {
+                    return;
                 }
-            } catch (err) {
-                console.warn('⚠️ Failed to persist card mastery state to Firestore:', err);
-            }
+                try {
+                    const cardRef = doc(collection(db, vocabCollectionPath), safeCardId);
+                    const firestoreData = cleanFirestoreData({
+                        ...patchToSave,
+                        updatedAt: Date.now()
+                    });
+                    await setDoc(cardRef, firestoreData, { merge: true });
+                    if (userId && cardWriteSeqRef.current[safeCardId] === nextSeq) {
+                        removePendingVocabSync(userId, safeCardId);
+                    }
+                } catch (err) {
+                    console.warn('⚠️ Failed to persist card mastery state to Firestore:', err);
+                }
+            });
+            cardWriteChainRef.current[safeCardId] = writePromise;
+            await writePromise;
         }
 
         // Tự động ghi nhận hoạt động học tập hàng ngày (dailyActivity) khi học thẻ flashcard / trắc nghiệm / tự luận
@@ -541,7 +559,7 @@ export const useAppVocab = ({ authReady, userId, dailyActivityLogs, savedStreak 
     const handleRevertVocabSrsRating = useCallback(async (cardId, prevData) => {
         if (!cardId) return;
         if (prevData) {
-            await handleUpdateCard(String(cardId), prevData);
+            await handleUpdateCard(String(cardId), { ...prevData, _isSrsRevert: true });
             if (userId && db && appId) {
                 try {
                     const todayStr = getLocalDateString();

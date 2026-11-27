@@ -479,16 +479,33 @@ export const getPendingKanjiSyncMap = (userId) => {
     }
 };
 
-export const recordPendingKanjiSync = (userId, kanjiId, srsData) => {
-    if (!userId || !kanjiId || !srsData || typeof window === 'undefined' || !window.localStorage) return;
+export const recordPendingKanjiSync = (userId, kanjiId, srsData, isRevert = false) => {
+    if (!userId || !kanjiId || (!srsData && !isRevert) || typeof window === 'undefined' || !window.localStorage) return;
     try {
         const key = `quizki_pending_kanji_sync_${userId}`;
         const map = getPendingKanjiSyncMap(userId);
-        map[String(kanjiId)] = {
-            ...(map[String(kanjiId)] || {}),
-            ...srsData,
-            _pendingTime: Date.now()
-        };
+        const safeId = String(kanjiId);
+        if (isRevert && !srsData) {
+            map[safeId] = {
+                _revertedDelete: true,
+                _forceRevert: true,
+                _pendingTime: Date.now()
+            };
+        } else {
+            const nextEntry = {
+                ...(isRevert ? {} : (map[safeId] || {})),
+                ...srsData,
+                _pendingTime: Date.now()
+            };
+            if (isRevert) {
+                nextEntry._forceRevert = true;
+                delete nextEntry._revertedDelete;
+            } else {
+                delete nextEntry._forceRevert;
+                delete nextEntry._revertedDelete;
+            }
+            map[safeId] = nextEntry;
+        }
         safeSetLocalStorage(key, JSON.stringify(map));
     } catch (e) {
         console.warn('⚠️ Failed to record pending kanji sync:', e);
@@ -526,9 +543,17 @@ export const syncPendingKanjiSrs = async (userId) => {
     try {
         for (const [id, srs] of entries) {
             try {
+                if (srs && srs._revertedDelete) {
+                    const { deleteDoc } = await import('firebase/firestore');
+                    await deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, id));
+                    removePendingKanjiSync(userId, id);
+                    continue;
+                }
                 const cleanSrs = { ...srs };
                 delete cleanSrs._pendingTime;
-                await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, id), cleanSrs, { merge: true });
+                delete cleanSrs._forceRevert;
+                delete cleanSrs._revertedDelete;
+                await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, id), cleanSrs, srs?._forceRevert ? {} : { merge: true });
                 removePendingKanjiSync(userId, id);
             } catch (err) {
                 console.warn(`⚠️ Retrying pending kanji SRS sync failed for ${id}:`, err);
@@ -667,13 +692,27 @@ const mergeServerWithLocalKanjiSrs = (userId, serverSrsMap) => {
     const merged = { ...serverSrsMap };
     const now = Date.now();
 
-    // 1. Pending sync items: only take priority if genuinely newer than server and not expired (>24h)
+    // 1. Pending sync items: only take priority if genuinely newer than server and not expired (>24h),
+    // or when explicitly marked _forceRevert during an in-flight Undo operation
     for (const [id, pendingItem] of Object.entries(pendingMap || {})) {
         if (!pendingItem || typeof pendingItem !== 'object') continue;
         const pendingTime = pendingItem._pendingTime || pendingItem.lastReview || 0;
         // Auto-expire zombie writes older than 24 hours
         if (pendingTime > 0 && now - pendingTime > 86400000) {
             removePendingKanjiSync(userId, id);
+            continue;
+        }
+
+        if (pendingItem._forceRevert) {
+            if (pendingItem._revertedDelete) {
+                delete merged[id];
+            } else {
+                const cleanItem = { ...pendingItem };
+                delete cleanItem._pendingTime;
+                delete cleanItem._forceRevert;
+                delete cleanItem._revertedDelete;
+                merged[id] = cleanItem;
+            }
             continue;
         }
 
@@ -697,6 +736,8 @@ const mergeServerWithLocalKanjiSrs = (userId, serverSrsMap) => {
 
         const cleanItem = { ...pendingItem };
         delete cleanItem._pendingTime;
+        delete cleanItem._forceRevert;
+        delete cleanItem._revertedDelete;
         merged[id] = { ...(serverItem || {}), ...cleanItem };
     }
 
@@ -993,6 +1034,62 @@ export const updateCachedUserSrs = (userId, kanjiId, newSrs, kanjiChar = null) =
         try { cb(cachedUserSrsData); } catch (_) {}
     });
     // Dispatch global srs-updated event for instant 0ms badge sync
+    try {
+        window.dispatchEvent(new Event('srs-updated'));
+    } catch (_) {}
+};
+
+export const revertCachedUserSrs = (userId, kanjiId, prevSrs, kanjiChar = null) => {
+    if (!userId || !kanjiId) return;
+    if (!cachedUserSrsData || cachedUserIdForSrs !== userId) {
+        try {
+            const localCached = localStorage.getItem(`quizki_cached_kanji_srs_${userId}`);
+            if (localCached) {
+                cachedUserSrsData = JSON.parse(localCached);
+                cachedUserIdForSrs = userId;
+            }
+        } catch (_) {}
+    }
+    if (!cachedUserSrsData) {
+        cachedUserSrsData = {};
+        cachedUserIdForSrs = userId;
+    }
+
+    const char = kanjiChar || prevSrs?.character || (String(kanjiId).length === 1 ? kanjiId : null);
+
+    if (!prevSrs) {
+        delete cachedUserSrsData[kanjiId];
+        recordPendingKanjiSync(userId, kanjiId, null, true);
+        if (char) {
+            delete cachedUserSrsData[char];
+            delete cachedUserSrsData[`kanji_${char}`];
+            if (char !== kanjiId) recordPendingKanjiSync(userId, char, null, true);
+            if (`kanji_${char}` !== kanjiId) recordPendingKanjiSync(userId, `kanji_${char}`, null, true);
+        }
+    } else {
+        const enriched = char ? { ...prevSrs, character: char } : { ...prevSrs };
+        cachedUserSrsData[kanjiId] = enriched;
+        recordPendingKanjiSync(userId, kanjiId, enriched, true);
+        if (char) {
+            cachedUserSrsData[char] = enriched;
+            if (char !== kanjiId) recordPendingKanjiSync(userId, char, enriched, true);
+            if (cachedUserSrsData[`kanji_${char}`] !== undefined) {
+                cachedUserSrsData[`kanji_${char}`] = enriched;
+            }
+        }
+    }
+
+    safeSetLocalStorage(`quizki_cached_kanji_srs_${userId}`, JSON.stringify(cachedUserSrsData));
+    try {
+        const computed = computeKanjiSrsStats(cachedUserSrsData);
+        const serialized = JSON.stringify(computed);
+        localStorage.setItem(`quizki_cached_kanji_srs_stats_${userId}`, serialized);
+        localStorage.setItem('quizki_cached_kanji_srs_stats', serialized);
+    } catch (_) {}
+
+    kanjiSrsListeners.forEach(cb => {
+        try { cb(cachedUserSrsData); } catch (_) {}
+    });
     try {
         window.dispatchEvent(new Event('srs-updated'));
     } catch (_) {}

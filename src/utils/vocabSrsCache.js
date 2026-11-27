@@ -10,7 +10,9 @@ const SRS_KEYS = [
     'srsInterval', 'srsEase', 'srsLearningStep', 'srsIsLapsed', 'srsReps',
     'srsLapseCount', 'srsPrelapseInterval', 'srsState', 'nextReview_back',
     'lastReviewed_back', 'lastReviewed', 'state', 'interval', 'ease',
-    'nextReview', 'masteryState', 'intervalIndex_back', 'correctStreak_back',
+    'learningStep', 'isLapsed', 'reps', 'lapseCount', 'prelapseInterval',
+    'seenCount', 'needsMistakeReview', 'nextReview', 'masteryState',
+    'intervalIndex_back', 'correctStreak_back',
     'nextReview_synonym', 'nextReview_example', 'nextReview_dictation',
     'lastReviewed_synonym', 'lastReviewed_example', 'lastReviewed_dictation',
     'lastStudied', 'rating', 'userMnemonic', 'mnemonic', 'customMnemonic'
@@ -26,17 +28,23 @@ export const getPendingVocabSyncMap = (userId) => {
     }
 };
 
-export const recordPendingVocabSync = (userId, cardId, patch) => {
+export const recordPendingVocabSync = (userId, cardId, patch, isRevert = false) => {
     if (!userId || !cardId || !patch || typeof window === 'undefined' || !window.localStorage) return;
     try {
         const key = `quizki_pending_vocab_sync_${userId}`;
         const map = getPendingVocabSyncMap(userId);
         const safeId = String(cardId);
-        map[safeId] = {
-            ...(map[safeId] || {}),
+        const nextEntry = {
+            ...(isRevert ? {} : (map[safeId] || {})),
             ...patch,
             _pendingTime: Date.now()
         };
+        if (isRevert) {
+            nextEntry._forceRevert = true;
+        } else {
+            delete nextEntry._forceRevert;
+        }
+        map[safeId] = nextEntry;
         safeSetLocalStorage(key, JSON.stringify(map));
     } catch (e) {
         console.warn('⚠️ Failed to record pending vocab sync:', e);
@@ -123,6 +131,7 @@ export const mergeCachedVocabSrs = (userId, cards = []) => {
         if (hasPending && pendingSyncMap[safeId]) {
             const pendingData = { ...pendingSyncMap[safeId] };
             delete pendingData._pendingTime;
+            delete pendingData._forceRevert;
             const merged = { ...card, ...pendingData };
             pendingSyncCards.push(merged);
             return merged;

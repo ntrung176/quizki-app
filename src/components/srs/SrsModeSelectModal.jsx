@@ -1,6 +1,6 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import { Layers, Keyboard, X, ChevronRight } from 'lucide-react';
+import { Layers, Keyboard, ListChecks, X, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../../context/LanguageContext';
 
 const SrsModeSelectModal = ({
@@ -50,12 +50,12 @@ const SrsModeSelectModal = ({
                     </button>
                 </div>
 
-                {/* 2 Options */}
-                <div className="space-y-3.5">
+                {/* 3 Options */}
+                <div className="space-y-3">
                     {/* Option 1: Flashcard */}
                     <button
                         onClick={() => handleSelect('flashcard')}
-                        className="w-full text-left p-3.5 sm:p-4.5 rounded-2xl border-2 border-slate-200/80 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-500 bg-white dark:bg-slate-850 hover:bg-blue-50/30 dark:hover:bg-blue-950/30 transition-all duration-200 flex items-center gap-3 sm:gap-4 group cursor-pointer shadow-sm hover:shadow-md active:scale-[0.98]"
+                        className="w-full text-left p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200/80 dark:border-slate-800 hover:border-blue-500 dark:hover:border-blue-500 bg-white dark:bg-slate-850 hover:bg-blue-50/30 dark:hover:bg-blue-950/30 transition-all duration-200 flex items-center gap-3 sm:gap-4 group cursor-pointer shadow-sm hover:shadow-md active:scale-[0.98]"
                     >
                         <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-sky-500 text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
                             <Layers className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -76,10 +76,34 @@ const SrsModeSelectModal = ({
                         <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors shrink-0" />
                     </button>
 
-                    {/* Option 2: Anki Typing */}
+                    {/* Option 2: Multiple Choice Quiz */}
+                    <button
+                        onClick={() => handleSelect('multiple_choice')}
+                        className="w-full text-left p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200/80 dark:border-slate-800 hover:border-amber-500 dark:hover:border-amber-500 bg-white dark:bg-slate-850 hover:bg-amber-50/30 dark:hover:bg-amber-950/30 transition-all duration-200 flex items-center gap-3 sm:gap-4 group cursor-pointer shadow-sm hover:shadow-md active:scale-[0.98]"
+                    >
+                        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-500 text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
+                            <ListChecks className="w-5 h-5 sm:w-6 sm:h-6" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                            <div className="flex items-center gap-2">
+                                <span className="font-extrabold text-sm sm:text-base text-slate-900 dark:text-white group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors">
+                                    {t('srs.modeMultipleChoice', 'Chọn trắc nghiệm (Quiz)')}
+                                </span>
+                                <span className="shrink-0 whitespace-nowrap px-2 py-0.5 rounded-full text-[10px] font-bold bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300">
+                                    {t('srs.modeMultipleChoiceSub', 'Phản xạ')}
+                                </span>
+                            </div>
+                            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed line-clamp-2">
+                                {t('srs.modeMultipleChoiceDesc', 'Chọn 1 trong 4 đáp án, xem đúng/sai tức thì rồi đánh giá chu kỳ SRS.')}
+                            </p>
+                        </div>
+                        <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5 text-slate-400 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors shrink-0" />
+                    </button>
+
+                    {/* Option 3: Anki Typing */}
                     <button
                         onClick={() => handleSelect('typing')}
-                        className="w-full text-left p-3.5 sm:p-4.5 rounded-2xl border-2 border-slate-200/80 dark:border-slate-800 hover:border-emerald-500 dark:hover:border-emerald-500 bg-white dark:bg-slate-850 hover:bg-emerald-50/30 dark:hover:bg-emerald-950/30 transition-all duration-200 flex items-center gap-3 sm:gap-4 group cursor-pointer shadow-sm hover:shadow-md active:scale-[0.98]"
+                        className="w-full text-left p-3.5 sm:p-4 rounded-2xl border-2 border-slate-200/80 dark:border-slate-800 hover:border-emerald-500 dark:hover:border-emerald-500 bg-white dark:bg-slate-850 hover:bg-emerald-50/30 dark:hover:bg-emerald-950/30 transition-all duration-200 flex items-center gap-3 sm:gap-4 group cursor-pointer shadow-sm hover:shadow-md active:scale-[0.98]"
                     >
                         <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center shrink-0 shadow-md group-hover:scale-105 transition-transform">
                             <Keyboard className="w-5 h-5 sm:w-6 sm:h-6" />

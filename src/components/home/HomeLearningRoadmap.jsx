@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Compass } from 'lucide-react';
 import { ROUTES } from '../../router';
 import { useLanguage } from '../../context/LanguageContext';
@@ -25,6 +25,7 @@ import RoadmapUnitBlock from './RoadmapUnitBlock';
  */
 const HomeLearningRoadmap = ({ isHighlighted = false, awardXP, userId, allCards = [], folders = [] }) => {
     const navigate = useNavigate();
+    const location = useLocation();
     const { t } = useLanguage();
     const { isKoreanMode, isEnglishMode } = useTargetLanguage();
 
@@ -75,8 +76,17 @@ const HomeLearningRoadmap = ({ isHighlighted = false, awardXP, userId, allCards 
         return findCurrentActiveLessonId(stages, progress);
     }, [stages, progress]);
 
-    // Auto-select stage containing active lesson on initial placement/load
+    // Auto-select stage containing active lesson on initial placement/load or explicit survey result
     const hasAutoSelectedRef = React.useRef(false);
+    useEffect(() => {
+        const diagnosedStage = Number(location.state?.diagnosedStage || 0);
+        if (diagnosedStage >= 1 && diagnosedStage <= 10) {
+            setProgress(getRoadmapProgress());
+            setSelectedStageNum(diagnosedStage);
+            hasAutoSelectedRef.current = true;
+        }
+    }, [location.state?.diagnosedStage]);
+
     useEffect(() => {
         if (hasAutoSelectedRef.current || !currentActiveLessonId || stages.length === 0) return;
         for (const st of stages) {

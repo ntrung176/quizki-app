@@ -25,25 +25,39 @@ const VocabCardSettingsModal = ({
                     {t('vocab.cardSettingsTitle', 'Cấu hình thẻ ghi nhớ')}
                 </h4>
                 <div className="space-y-4 text-xs font-semibold text-slate-700 dark:text-slate-350">
-                    {/* Review Type: Typing mode toggle */}
-                    <div className="flex items-center justify-between border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
-                        <div>
+                    {/* Review Type: 3-mode selector (Flashcard / Quiz / Typing) */}
+                    <div className="border-b border-gray-150/40 dark:border-slate-700 pb-3 mb-2">
+                        <div className="mb-2">
                             <span className="text-emerald-600 dark:text-emerald-400 font-bold block">
-                                {t('vocab.typingModeTitle', 'Chế độ gõ câu trả lời (Typing)')}
+                                {t('vocab.reviewMethodTitle', 'Phương pháp ôn tập')}
                             </span>
                             <span className="text-[11px] text-gray-400 dark:text-gray-500 font-normal">
-                                {t('vocab.typingModeDesc', 'Gõ đáp án và so sánh kết quả từng ký tự')}
+                                {t('vocab.reviewMethodDesc', 'Chọn Lật thẻ, Trắc nghiệm 4 đáp án hoặc Gõ tự luận')}
                             </span>
                         </div>
-                        <label className="relative inline-flex items-center cursor-pointer shrink-0 ml-2">
-                            <input
-                                type="checkbox"
-                                checked={cardSettings.reviewType === 'typing'}
-                                onChange={(e) => setCardSettings(prev => ({ ...prev, reviewType: e.target.checked ? 'typing' : 'flashcard' }))}
-                                className="sr-only peer"
-                            />
-                            <div className="w-9 h-5 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-emerald-600"></div>
-                        </label>
+                        <div className="grid grid-cols-3 gap-1.5 bg-gray-100 dark:bg-slate-900/70 p-1 rounded-xl border border-gray-200/70 dark:border-slate-700/70">
+                            {[
+                                { id: 'flashcard', label: t('srs.modeShortFlashcard', 'Lật thẻ'), activeClass: 'bg-sky-500 text-white shadow-sm' },
+                                { id: 'multiple_choice', label: t('srs.modeShortQuiz', 'Trắc nghiệm'), activeClass: 'bg-amber-500 text-white shadow-sm' },
+                                { id: 'typing', label: t('srs.modeShortTyping', 'Gõ từ'), activeClass: 'bg-emerald-600 text-white shadow-sm' },
+                            ].map((opt) => {
+                                const isSelected = (cardSettings.reviewType || 'flashcard') === opt.id;
+                                return (
+                                    <button
+                                        key={opt.id}
+                                        type="button"
+                                        onClick={() => setCardSettings(prev => ({ ...prev, reviewType: opt.id }))}
+                                        className={`py-1.5 px-2 rounded-lg text-[11px] font-bold transition-all cursor-pointer ${
+                                            isSelected
+                                                ? opt.activeClass
+                                                : 'text-slate-600 dark:text-slate-300 hover:bg-white/70 dark:hover:bg-slate-800'
+                                        }`}
+                                    >
+                                        {opt.label}
+                                    </button>
+                                );
+                            })}
+                        </div>
                     </div>
 
                     {/* Swap sides */}

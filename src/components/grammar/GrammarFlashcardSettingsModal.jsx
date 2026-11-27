@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import { Settings, X, RotateCcw, Volume2, Layers, BookOpen, CheckCircle2 } from 'lucide-react';
 
 export const DEFAULT_GRAMMAR_FLASHCARD_SETTINGS = {
-    reviewType: 'flashcard', // Cố định flashcard 3D cho ngữ pháp
+    reviewType: 'flashcard', // 'flashcard' | 'multiple_choice' | 'typing'
     studyMode: 'ja_to_vi', // 'ja_to_vi' | 'vi_to_ja' | 'random'
     showLevel: true,
     showConnection: true,
@@ -18,6 +18,11 @@ export const DEFAULT_GRAMMAR_FLASHCARD_SETTINGS = {
     autoPlayAudio: false,
 };
 
+const normalizeGrammarReviewType = (val) => {
+    if (val === 'multiple_choice' || val === 'typing' || val === 'flashcard') return val;
+    return 'flashcard';
+};
+
 const GrammarFlashcardSettingsModal = ({
     isOpen,
     onClose,
@@ -29,7 +34,7 @@ const GrammarFlashcardSettingsModal = ({
     const currentSettings = {
         ...DEFAULT_GRAMMAR_FLASHCARD_SETTINGS,
         ...settings,
-        reviewType: 'flashcard', // Luôn ép cố định flashcard
+        reviewType: normalizeGrammarReviewType(settings?.reviewType),
     };
 
     const handleToggle = (key) => {
@@ -43,6 +48,13 @@ const GrammarFlashcardSettingsModal = ({
         onUpdateSettings({
             ...currentSettings,
             studyMode: mode,
+        });
+    };
+
+    const handleSetReviewType = (reviewType) => {
+        onUpdateSettings({
+            ...currentSettings,
+            reviewType: normalizeGrammarReviewType(reviewType),
         });
     };
 
@@ -84,6 +96,37 @@ const GrammarFlashcardSettingsModal = ({
                     >
                         <X className="w-5 h-5" />
                     </button>
+                </div>
+
+                {/* Section 0: Review Type (Flashcard / Quiz / Typing) */}
+                <div className="space-y-2">
+                    <div className="flex items-center gap-1.5 text-xs font-bold text-slate-700 dark:text-slate-300 uppercase tracking-wider">
+                        <Layers className="w-3.5 h-3.5 text-sky-500" />
+                        <span>Phương pháp ôn tập:</span>
+                    </div>
+                    <div className="grid grid-cols-3 gap-1.5 bg-slate-100 dark:bg-slate-800/80 p-1 rounded-2xl border border-slate-200/80 dark:border-slate-700/70">
+                        {[
+                            { id: 'flashcard', label: 'Lật thẻ', activeClass: 'bg-sky-500 text-white shadow-sm' },
+                            { id: 'multiple_choice', label: 'Trắc nghiệm', activeClass: 'bg-amber-500 text-white shadow-sm' },
+                            { id: 'typing', label: 'Gõ từ', activeClass: 'bg-emerald-600 text-white shadow-sm' },
+                        ].map((opt) => {
+                            const isSelected = currentSettings.reviewType === opt.id;
+                            return (
+                                <button
+                                    key={opt.id}
+                                    type="button"
+                                    onClick={() => handleSetReviewType(opt.id)}
+                                    className={`py-2 px-2 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+                                        isSelected
+                                            ? opt.activeClass
+                                            : 'text-slate-600 dark:text-slate-300 hover:bg-white/70 dark:hover:bg-slate-700/60'
+                                    }`}
+                                >
+                                    {opt.label}
+                                </button>
+                            );
+                        })}
+                    </div>
                 </div>
 
                 {/* Section 1: Study Direction (Chiều câu hỏi & gợi ý) */}

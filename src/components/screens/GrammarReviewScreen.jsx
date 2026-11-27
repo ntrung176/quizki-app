@@ -6,7 +6,8 @@ import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGri
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
-import { getSharedGrammarPointsList, getSharedGrammarSrs, getCachedUserGrammarSrsData, updateCachedUserGrammarSrs, subscribeGrammarSrs, removePendingGrammarSync, syncPendingGrammarSrs } from '../../utils/grammarService';
+import { getSharedGrammarPointsList, getSharedGrammarSrs, getCachedUserGrammarSrsData, updateCachedUserGrammarSrs, revertCachedUserGrammarSrs, subscribeGrammarSrs, removePendingGrammarSync, syncPendingGrammarSrs } from '../../utils/grammarService';
+import { cleanFirestoreData } from '../../utils/firestoreHelpers';
 import { logGrammarActivity } from '../../utils/grammarHistory';
 import { formatCountdown, getCardState, calculateAnkiSRS, getCardPreviewIntervals, parseNextReviewMs, isSrsCardDue, isLeechCard, getLearnAheadLimitMs, DEFAULT_LEARN_AHEAD_MINS } from '../../utils/srs';
 import SRSForecastChart from '../ui/SRSForecastChart';
@@ -20,6 +21,10 @@ import { useLanguage } from '../../context/LanguageContext';
 import { speakExampleSentence } from '../../utils/audio';
 import GrammarFlashcard from '../grammar/GrammarFlashcard';
 import GrammarFlashcardSettingsModal, { DEFAULT_GRAMMAR_FLASHCARD_SETTINGS } from '../grammar/GrammarFlashcardSettingsModal';
+import SrsTypingInput from '../srs/SrsTypingInput';
+import SrsMultipleChoicePanel from '../srs/SrsMultipleChoicePanel';
+import SrsModeSelectModal from '../srs/SrsModeSelectModal';
+import { resolveGrammarStudyDirection } from '../srs/srsQuizHelper';
 
 const getPreviewIntervals = (srs, cardId = null) => {
     return getCardPreviewIntervals(srs, cardId);
@@ -103,9 +108,13 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const [reviewQueue, setReviewQueue] = useState([]);
     const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
     const [isFlipped, setIsFlipped] = useState(false);
+    const [hasCheckedAnswer, setHasCheckedAnswer] = useState(false);
     const [reviewHistory, setReviewHistory] = useState([]);
     const [isAnimatingFlip, setIsAnimatingFlip] = useState(true);
     const [slideDirection, setSlideDirection] = useState('');
+    const [reviewUndoNonce, setReviewUndoNonce] = useState(0);
+    const [showModeModal, setShowModeModal] = useState(false);
+    const pendingModeCardsRef = useRef(null);
     const sessionXpRef = useRef(0);
     const completedCardIds = useRef(new Set());
     const activeReviewCardIds = useRef(new Set());
@@ -123,6 +132,11 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const reviewModeRef = useRef(false);
     const pendingWriteIds = useRef(new Set());
     const intervalCacheRef = useRef({});
+    const isRatingProcessingRef = useRef(false);
+    const lastRatedCardIdRef = useRef(null);
+    const lastRatedTimeRef = useRef(0);
+    const writeSeqRef = useRef({});
+    const writeChainRef = useRef({});
 
     useEffect(() => {
         reviewModeRef.current = reviewMode;
@@ -160,17 +174,48 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const [showLeechManager, setShowLeechManager] = useState(false);
     const leechGrammarItems = useMemo(() => allGrammarList.filter(g => isLeechCard(srsData[g.id]) || isLeechCard(g)), [allGrammarList, srsData]);
 
+    const normalizeGrammarReviewType = (val) => {
+        if (val === 'multiple_choice' || val === 'typing' || val === 'flashcard') return val;
+        return 'flashcard';
+    };
+
     const [flashcardSettings, setFlashcardSettings] = useState(() => {
         try {
             const saved = localStorage.getItem('quizki_grammar_flashcard_settings_v1');
             if (saved) {
-                return { ...DEFAULT_GRAMMAR_FLASHCARD_SETTINGS, ...JSON.parse(saved), reviewType: 'flashcard' };
+                const parsed = JSON.parse(saved);
+                return {
+                    ...DEFAULT_GRAMMAR_FLASHCARD_SETTINGS,
+                    ...parsed,
+                    reviewType: normalizeGrammarReviewType(parsed?.reviewType),
+                };
             }
         } catch (e) { }
         return DEFAULT_GRAMMAR_FLASHCARD_SETTINGS;
     });
     const [showSettingsModal, setShowSettingsModal] = useState(false);
     const [isPreparingSession, setIsPreparingSession] = useState(false);
+
+    const reviewType = flashcardSettings.reviewType || 'flashcard';
+    const isTypingMode = reviewType === 'typing';
+    const isMultipleChoiceMode = reviewType === 'multiple_choice';
+    const isQuizOrTyping = isTypingMode || isMultipleChoiceMode;
+
+    useEffect(() => {
+        setHasCheckedAnswer(false);
+    }, [currentReviewIndex, reviewMode, reviewType]);
+
+    const applyReviewType = useCallback((mode) => {
+        const normalized = normalizeGrammarReviewType(mode);
+        setFlashcardSettings(prev => {
+            const updated = { ...prev, reviewType: normalized };
+            try {
+                localStorage.setItem('quizki_grammar_flashcard_settings_v1', JSON.stringify(updated));
+            } catch (e) { }
+            return updated;
+        });
+        setHasCheckedAnswer(false);
+    }, []);
 
     useEffect(() => {
         if (setIsReviewActive) {
@@ -184,7 +229,12 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     }, [reviewMode, setIsReviewActive]);
 
     const handleUpdateSettings = (newSettings) => {
-        const updated = { ...newSettings, reviewType: 'flashcard' };
+        const nextReviewType = normalizeGrammarReviewType(newSettings?.reviewType);
+        const updated = { ...newSettings, reviewType: nextReviewType };
+        if (nextReviewType !== flashcardSettings.reviewType) {
+            setIsFlipped(false);
+            setHasCheckedAnswer(false);
+        }
         setFlashcardSettings(updated);
         try {
             localStorage.setItem('quizki_grammar_flashcard_settings_v1', JSON.stringify(updated));
@@ -535,12 +585,18 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         return () => clearInterval(intervalId);
     }, [reviewMode, currentReviewIndex, reviewQueue.length, createGrammarCardFromWaiting, getLearningCardsWaiting]);
 
-    const runStartReview = (customList = null) => {
+    const runStartReview = (customList = null, explicitMode = null) => {
         const validList = Array.isArray(customList) && customList.length > 0
             ? customList
             : dueGrammar;
 
         if (!Array.isArray(validList) || validList.length === 0) return;
+
+        if (explicitMode) {
+            applyReviewType(explicitMode);
+        } else {
+            setHasCheckedAnswer(false);
+        }
 
         sessionXpRef.current = 0;
         completedCardIds.current.clear();
@@ -581,22 +637,27 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         const validCustomList = Array.isArray(customList) && customList.length > 0 ? customList : null;
         const targetList = validCustomList || dueGrammar;
         if (!Array.isArray(targetList) || targetList.length === 0) return;
-        runStartReview(targetList);
+        pendingModeCardsRef.current = validCustomList;
+        setShowModeModal(true);
     };
 
     const hasAutoStartedRef = useRef(false);
 
-    // Auto start review session when navigated from Home Screen
+    // Auto start review session or sync reviewType when navigated from Home Screen
     useEffect(() => {
+        if (location.state?.reviewType) {
+            applyReviewType(location.state.reviewType);
+        }
+
         if (location.state?.autoStart && !hasAutoStartedRef.current && !loading && !reviewMode) {
             if (dueGrammar.length > 0) {
                 hasAutoStartedRef.current = true;
-                runStartReview();
+                runStartReview(null, location.state?.reviewType || null);
             } else {
                 hasAutoStartedRef.current = true; // No due grammar, stay on overview tab
             }
         }
-    }, [location.state, loading, reviewMode, dueGrammar.length]);
+    }, [location.state, loading, reviewMode, dueGrammar.length, applyReviewType]);
 
     const [reviewTick, setReviewTick] = useState(Date.now());
 
@@ -618,12 +679,24 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
     const handleRating = (rating) => {
         if (!currentCard || !userId) return;
 
-        const srs = srsData[currentCard.id] || currentCard.srsData || currentCard;
-        const result = calculateAnkiSRS(srs, rating);
         const now = Date.now();
+        if (isRatingProcessingRef.current) return;
+        if (lastRatedCardIdRef.current === currentCard.id && (now - lastRatedTimeRef.current < 400)) {
+            return;
+        }
+        isRatingProcessingRef.current = true;
+        lastRatedCardIdRef.current = currentCard.id;
+        lastRatedTimeRef.current = now;
+        setTimeout(() => {
+            isRatingProcessingRef.current = false;
+        }, 350);
+
+        const prevSrsRaw = srsData[currentCard.id] || currentCard.srsData || null;
+        const srs = prevSrsRaw || currentCard;
+        const result = calculateAnkiSRS(srs, rating);
         const nextReviewOffset = result.nextReviewOffsetMs !== undefined ? result.nextReviewOffsetMs : (result.interval * 60000);
         const newSrs = {
-            ...(srs && typeof srs === 'object' ? srs : {}),
+            ...(prevSrsRaw && typeof prevSrsRaw === 'object' ? prevSrsRaw : {}),
             interval: result.interval,
             ease: result.ease,
             nextReview: now + nextReviewOffset,
@@ -638,7 +711,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
         let basePoints = rating === 'again' ? 8 : rating === 'hard' ? 25 : rating === 'good' ? 45 : 60;
         let promotionBonus = 0;
-        const oldState = srs?.state || 'NEW';
+        const oldState = prevSrsRaw?.state || 'NEW';
         const newState = result.state;
         if (oldState === 'NEW' && newState === 'LEARNING') {
             promotionBonus = 10;
@@ -660,7 +733,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         setReviewHistory(prev => [...prev, {
             cardIndex: currentReviewIndex,
             cardId: currentCard.id,
-            srs: srs ? { ...srs } : null,
+            srs: prevSrsRaw ? { ...prevSrsRaw } : null,
             isFlipped: isFlipped,
             xpAwarded: totalXp,
             queue: [...reviewQueue]
@@ -827,22 +900,32 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
         sessionXpRef.current += totalXp;
 
-        pendingWriteIds.current.add(currentCard.id);
-        (async () => {
+        const opKey = String(currentCard.id);
+        const targetCardId = currentCard.id;
+        const opSeq = (writeSeqRef.current[opKey] || 0) + 1;
+        writeSeqRef.current[opKey] = opSeq;
+
+        pendingWriteIds.current.add(targetCardId);
+        const prevChain = writeChainRef.current[opKey] || Promise.resolve();
+        writeChainRef.current[opKey] = prevChain.catch(() => {}).then(async () => {
             let attempts = 0;
             let success = false;
             while (attempts < 3 && !success) {
+                if (writeSeqRef.current[opKey] !== opSeq) return;
                 try {
-                    await setDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, currentCard.id), newSrs, { merge: true });
-                    const now = new Date();
-                    const todayDateString = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+                    await setDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, targetCardId), cleanFirestoreData(newSrs), { merge: true });
+                    if (writeSeqRef.current[opKey] !== opSeq) return;
+                    const nowDate = new Date();
+                    const todayDateString = `${nowDate.getFullYear()}-${String(nowDate.getMonth() + 1).padStart(2, '0')}-${String(nowDate.getDate()).padStart(2, '0')}`;
                     const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
                     await setDoc(activityRef, {
                         grammarReviewsDone: increment(1),
                         reviewsDone: increment(1)
                     }, { merge: true }).catch(err => console.warn('Lỗi ghi activity Grammar:', err));
                     success = true;
-                    removePendingGrammarSync(userId, currentCard.id);
+                    if (writeSeqRef.current[opKey] === opSeq) {
+                        removePendingGrammarSync(userId, targetCardId);
+                    }
                 } catch (e) {
                     attempts++;
                     console.error(`Error updating Grammar SRS in background (attempt ${attempts}):`, e);
@@ -850,12 +933,12 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         await new Promise(r => setTimeout(r, 400 * attempts));
                     }
                 } finally {
-                    if (success || attempts >= 3) {
-                        pendingWriteIds.current.delete(currentCard.id);
+                    if ((success || attempts >= 3) && writeSeqRef.current[opKey] === opSeq) {
+                        pendingWriteIds.current.delete(targetCardId);
                     }
                 }
             }
-        })();
+        });
     };
 
     const saveSessionState = () => { };
@@ -904,10 +987,26 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
         const { cardIndex, cardId, srs, isFlipped: wasFlipped, xpAwarded, queue: savedQueue } = lastAction;
 
+        isRatingProcessingRef.current = false;
+        lastRatedCardIdRef.current = null;
+        lastRatedTimeRef.current = 0;
+
+        const opKey = String(cardId);
+        const opSeq = (writeSeqRef.current[opKey] || 0) + 1;
+        writeSeqRef.current[opKey] = opSeq;
+
+        if (intervalCacheRef.current) {
+            delete intervalCacheRef.current[cardId];
+        }
+
         if (savedQueue) {
             setReviewQueue(savedQueue);
         }
         completedCardIds.current.delete(cardId);
+        completedCardIds.current.delete(String(cardId));
+        activeReviewCardIds.current.add(String(cardId));
+
+        pendingWriteIds.current.add(cardId);
 
         setSrsData(prev => {
             const next = { ...prev };
@@ -918,13 +1017,19 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             }
             return next;
         });
-        updateCachedUserGrammarSrs(userId, cardId, srs || null);
+        revertCachedUserGrammarSrs(userId, cardId, srs || null);
 
         setIsAnimatingFlip(false);
         setSlideDirection('right');
         setTimeout(() => {
             setCurrentReviewIndex(cardIndex);
-            setIsFlipped(wasFlipped || false);
+            if (isQuizOrTyping) {
+                setIsFlipped(false);
+                setHasCheckedAnswer(false);
+            } else {
+                setIsFlipped(wasFlipped || false);
+            }
+            setReviewUndoNonce(n => n + 1);
             setSlideDirection('left');
             setTimeout(() => {
                 setSlideDirection('');
@@ -934,17 +1039,19 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             }, 20);
         }, 70);
 
-        sessionXpRef.current -= xpAwarded;
+        sessionXpRef.current = Math.max(0, (sessionXpRef.current || 0) - (xpAwarded || 0));
 
-        (async () => {
+        const prevChain = writeChainRef.current[opKey] || Promise.resolve();
+        writeChainRef.current[opKey] = prevChain.catch(() => {}).then(async () => {
             try {
+                if (writeSeqRef.current[opKey] !== opSeq) return;
                 if (srs) {
-                    await setDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, cardId), srs);
+                    await setDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, cardId), cleanFirestoreData(srs));
                 } else {
                     await deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, cardId));
                 }
-                const now = new Date();
-                const todayDateString = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+                const nowDate = new Date();
+                const todayDateString = `${nowDate.getFullYear()}-${String(nowDate.getMonth() + 1).padStart(2, '0')}-${String(nowDate.getDate()).padStart(2, '0')}`;
                 const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
                 await setDoc(activityRef, {
                     grammarReviewsDone: increment(-1),
@@ -952,8 +1059,13 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 }, { merge: true }).catch(err => console.warn('Lỗi revert activity Grammar:', err));
             } catch (e) {
                 console.error('Error reverting Grammar SRS in background:', e);
+            } finally {
+                if (writeSeqRef.current[opKey] === opSeq) {
+                    removePendingGrammarSync(userId, cardId);
+                    pendingWriteIds.current.delete(cardId);
+                }
             }
-        })();
+        });
     };
 
     useEffect(() => {
@@ -964,15 +1076,27 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
             if (activeTag === 'INPUT' || activeTag === 'TEXTAREA' || e.target?.isContentEditable) {
                 return;
             }
+            // Khi đang ở chế độ gõ hoặc trắc nghiệm và chưa nộp đáp án: khóa phím tắt lật thẻ & đánh giá 1-4
+            if (isQuizOrTyping && !hasCheckedAnswer) {
+                if (isTypingMode && e.key.length === 1 && !e.ctrlKey && !e.altKey && !e.metaKey) {
+                    const inputEl = document.querySelector('[data-tour-id="SRS_TYPING_PANEL"] input');
+                    if (inputEl && document.activeElement !== inputEl) {
+                        inputEl.focus();
+                    }
+                }
+                return;
+            }
             if (e.key === ' ') {
                 e.preventDefault();
                 setIsFlipped(f => !f);
                 playFlipSound();
             }
-            if (e.key === '1') handleRating('again');
-            if (e.key === '2') handleRating('hard');
-            if (e.key === '3') handleRating('good');
-            if (e.key === '4') handleRating('easy');
+            if (!isQuizOrTyping || hasCheckedAnswer) {
+                if (e.key === '1') { e.preventDefault(); handleRating('again'); }
+                if (e.key === '2') { e.preventDefault(); handleRating('hard'); }
+                if (e.key === '3') { e.preventDefault(); handleRating('good'); }
+                if (e.key === '4') { e.preventDefault(); handleRating('easy'); }
+            }
             if (e.key === 's' || e.key === 'S') {
                 e.preventDefault();
                 setShowSettingsModal(s => !s);
@@ -988,7 +1112,7 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
         };
         window.addEventListener('keydown', handler);
         return () => window.removeEventListener('keydown', handler);
-    }, [reviewMode, currentCard, currentReviewIndex, reviewHistory, flashcardSettings]);
+    }, [reviewMode, currentCard, currentReviewIndex, reviewHistory, flashcardSettings, isTypingMode, isQuizOrTyping, hasCheckedAnswer]);
 
     if (loading) {
         return (
@@ -1087,9 +1211,10 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
 
                     {/* Rich Grammar SRS Flashcard */}
                     <GrammarFlashcard
-                        key={`${currentCard.id}_${currentReviewIndex}_${flashcardSettings.studyMode}`}
+                        key={`${currentCard.id}_${currentReviewIndex}_${flashcardSettings.studyMode}_${reviewType}`}
                         card={currentCard}
                         isFlipped={isFlipped}
+                        disableFrontClick={isQuizOrTyping && !hasCheckedAnswer}
                         onFlip={() => {
                             setIsFlipped(f => !f);
                             playFlipSound();
@@ -1100,28 +1225,79 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                         onSpeak={speakText}
                     />
 
-                    {/* Rating Buttons */}
-                    <div className="w-full space-y-3 animate-fade-in mt-2">
-                        <div className="grid grid-cols-4 gap-2.5 w-full">
-                            {[
-                                { key: 'again', label: t('srs.again', 'Quên rồi'), interval: intervals.again, bg: 'bg-rose-50 hover:bg-rose-100 dark:bg-rose-950 dark:hover:bg-rose-900', border: 'border-2 border-b-4 border-rose-300 dark:border-rose-700 shadow-sm', text: 'text-rose-600 dark:text-rose-300', sub: 'text-rose-500/80 dark:text-rose-400' },
-                                { key: 'hard', label: t('srs.hard', 'Khó'), interval: intervals.hard, bg: 'bg-amber-50 hover:bg-amber-100 dark:bg-amber-950 dark:hover:bg-amber-900', border: 'border-2 border-b-4 border-amber-300 dark:border-amber-700 shadow-sm', text: 'text-amber-600 dark:text-amber-300', sub: 'text-amber-500/80 dark:text-amber-400' },
-                                { key: 'good', label: t('srs.good', 'Tốt'), interval: intervals.good, bg: 'bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950 dark:hover:bg-emerald-900', border: 'border-2 border-b-4 border-emerald-400 dark:border-emerald-600 shadow-sm', text: 'text-emerald-600 dark:text-emerald-300', sub: 'text-emerald-500/80 dark:text-emerald-400' },
-                                { key: 'easy', label: t('srs.easy', 'Dễ'), interval: intervals.easy, bg: 'bg-sky-50 hover:bg-sky-100 dark:bg-sky-950 dark:hover:bg-sky-900', border: 'border-2 border-b-4 border-sky-300 dark:border-sky-600 shadow-sm', text: 'text-sky-600 dark:text-sky-300', sub: 'text-sky-500/80 dark:text-sky-400' },
-                            ].map(btn => (
-                                <button key={btn.key} onClick={(e) => { e.stopPropagation(); handleRating(btn.key); }}
-                                    className={`flex flex-col justify-center items-center py-3 rounded-2xl ${btn.bg} ${btn.border} text-center transition-all active:translate-y-0.5 active:border-b-2 cursor-pointer select-none`}>
-                                    <div className={`font-black ${btn.text} text-xs uppercase tracking-wider leading-tight`}>{btn.label}</div>
-                                    <div className={`text-[10px] font-mono font-bold ${btn.sub} mt-0.5`}>{btn.interval}</div>
-                                </button>
-                            ))}
+                    {/* Typing Input Component for Grammar */}
+                    {isTypingMode && (
+                        <div className="w-full mt-1 sm:mt-2">
+                            <SrsTypingInput
+                                key={`${currentCard.id}_${currentReviewIndex}_${reviewUndoNonce}_${flashcardSettings.studyMode}`}
+                                card={currentCard}
+                                isFlipped={isFlipped}
+                                isReversed={resolveGrammarStudyDirection(currentCard, flashcardSettings.studyMode) === 'vi_to_ja'}
+                                expectedLanguage={resolveGrammarStudyDirection(currentCard, flashcardSettings.studyMode) === 'vi_to_ja' ? 'ja' : 'vi'}
+                                onFlip={() => {
+                                    setIsAnimatingFlip(true);
+                                    setIsFlipped(true);
+                                    playFlipSound();
+                                }}
+                                onCheck={() => {
+                                    setHasCheckedAnswer(true);
+                                    setIsAnimatingFlip(true);
+                                    setIsFlipped(true);
+                                    playFlipSound();
+                                }}
+                                onQuickRate={(rating) => handleRating(rating)}
+                                placeholder={resolveGrammarStudyDirection(currentCard, flashcardSettings.studyMode) === 'vi_to_ja'
+                                    ? t('grammar.typeJapanesePlaceholder', 'Nhập mẫu ngữ pháp tiếng Nhật...')
+                                    : t('grammar.typeVietnamesePlaceholder', 'Nhập nghĩa tiếng Việt...')}
+                            />
                         </div>
+                    )}
 
-                        <div className="text-center text-[10px] text-gray-400 dark:text-gray-500">
-                            <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">Space</kbd> {t('studyModes.flipHint', 'lật thẻ')} •
-                            <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">1-4</kbd> {t('vocab.rateCard', 'đánh giá')}
+                    {/* Multiple Choice Panel Component for Grammar */}
+                    {isMultipleChoiceMode && (
+                        <div className="w-full mt-1 sm:mt-2">
+                            <SrsMultipleChoicePanel
+                                type="grammar"
+                                card={currentCard}
+                                pool={grammarList}
+                                grammarStudyMode={resolveGrammarStudyDirection(currentCard, flashcardSettings.studyMode)}
+                                cardIndex={currentReviewIndex}
+                                undoNonce={reviewUndoNonce}
+                                isFlipped={isFlipped}
+                                showFurigana={flashcardSettings.showFurigana !== false}
+                                onCheck={() => {
+                                    setHasCheckedAnswer(true);
+                                    setIsAnimatingFlip(true);
+                                    setIsFlipped(true);
+                                }}
+                            />
                         </div>
-                    </div>
+                    )}
+
+                    {/* Rating Buttons: Hidden in typing / multiple_choice mode until user checks answer */}
+                    {(!isQuizOrTyping || hasCheckedAnswer) && (
+                        <div className="w-full space-y-3 animate-fade-in mt-2">
+                            <div className="grid grid-cols-4 gap-2.5 w-full">
+                                {[
+                                    { key: 'again', label: t('srs.again', 'Quên rồi'), interval: intervals.again, bg: 'bg-rose-50 hover:bg-rose-100 dark:bg-rose-950 dark:hover:bg-rose-900', border: 'border-2 border-b-4 border-rose-300 dark:border-rose-700 shadow-sm', text: 'text-rose-600 dark:text-rose-300', sub: 'text-rose-500/80 dark:text-rose-400' },
+                                    { key: 'hard', label: t('srs.hard', 'Khó'), interval: intervals.hard, bg: 'bg-amber-50 hover:bg-amber-100 dark:bg-amber-950 dark:hover:bg-amber-900', border: 'border-2 border-b-4 border-amber-300 dark:border-amber-700 shadow-sm', text: 'text-amber-600 dark:text-amber-300', sub: 'text-amber-500/80 dark:text-amber-400' },
+                                    { key: 'good', label: t('srs.good', 'Tốt'), interval: intervals.good, bg: 'bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950 dark:hover:bg-emerald-900', border: 'border-2 border-b-4 border-emerald-400 dark:border-emerald-600 shadow-sm', text: 'text-emerald-600 dark:text-emerald-300', sub: 'text-emerald-500/80 dark:text-emerald-400' },
+                                    { key: 'easy', label: t('srs.easy', 'Dễ'), interval: intervals.easy, bg: 'bg-sky-50 hover:bg-sky-100 dark:bg-sky-950 dark:hover:bg-sky-900', border: 'border-2 border-b-4 border-sky-300 dark:border-sky-600 shadow-sm', text: 'text-sky-600 dark:text-sky-300', sub: 'text-sky-500/80 dark:text-sky-400' },
+                                ].map(btn => (
+                                    <button key={btn.key} onClick={(e) => { e.stopPropagation(); handleRating(btn.key); }}
+                                        className={`flex flex-col justify-center items-center py-3 rounded-2xl ${btn.bg} ${btn.border} text-center transition-all active:translate-y-0.5 active:border-b-2 cursor-pointer select-none`}>
+                                        <div className={`font-black ${btn.text} text-xs uppercase tracking-wider leading-tight`}>{btn.label}</div>
+                                        <div className={`text-[10px] font-mono font-bold ${btn.sub} mt-0.5`}>{btn.interval}</div>
+                                    </button>
+                                ))}
+                            </div>
+
+                            <div className="text-center text-[10px] text-gray-400 dark:text-gray-500">
+                                <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">Space</kbd> {t('studyModes.flipHint', 'lật thẻ')} •
+                                <kbd className="px-1.5 py-0.5 bg-gray-100 dark:bg-slate-700 rounded text-[10px] mx-0.5">1-4</kbd> {t('vocab.rateCard', 'đánh giá')}
+                            </div>
+                        </div>
+                    )}
 
                     {/* Settings Modal inside Review Session */}
                     <GrammarFlashcardSettingsModal
@@ -1469,6 +1645,23 @@ const GrammarReviewScreen = ({ awardXP, setIsReviewActive }) => {
                 onClose={() => setShowSettingsModal(false)}
                 settings={flashcardSettings}
                 onUpdateSettings={handleUpdateSettings}
+            />
+
+            {/* SRS Mode Selection Modal (Flashcard / Quiz / Typing) */}
+            <SrsModeSelectModal
+                isOpen={showModeModal}
+                onClose={() => {
+                    pendingModeCardsRef.current = null;
+                    setShowModeModal(false);
+                }}
+                title={t('grammar.selectReviewMode', 'Chọn chế độ ôn tập Ngữ pháp')}
+                cardCount={pendingModeCardsRef.current?.length || dueGrammar.length}
+                onSelectMode={(mode) => {
+                    const cardsToRun = pendingModeCardsRef.current;
+                    pendingModeCardsRef.current = null;
+                    applyReviewType(mode);
+                    runStartReview(cardsToRun, mode);
+                }}
             />
 
 

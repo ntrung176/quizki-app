@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { Layers, ArrowRight, CheckCircle2, RotateCw, RotateCcw, BookOpen, Calendar, Play, Plus, Zap, Award, ChevronLeft, ChevronRight, Target, Volume2, Settings, Headphones, Edit2, Lightbulb, Clock, Cpu, Repeat2 } from 'lucide-react'
 import { TopTabBar, SrsPrewarmLoader, PersonalMnemonicModal, SrsCountdownTimer } from '../ui';
 import SrsTypingInput from '../srs/SrsTypingInput';
+import SrsMultipleChoicePanel from '../srs/SrsMultipleChoicePanel';
 import SrsModeSelectModal from '../srs/SrsModeSelectModal';
 import VocabCardSettingsModal from '../srs/VocabCardSettingsModal';
 import { VOCAB_TABS } from '../../config/tabs';
@@ -12,7 +13,7 @@ import { ROUTES } from '../../router';
 import FuriganaText from '../ui/FuriganaText';
 import Flashcard from '../ui/Flashcard';
 import { preloadKuroshiro } from '../../utils/furiganaHelper';
-import { calculateAnkiSRS, parseNextReviewMs, isVocabCardDue, isLeechCard, getCardPreviewIntervals, getLearnAheadLimitMs, DEFAULT_LEARN_AHEAD_MINS } from '../../utils/srs';
+import { calculateAnkiSRS, parseNextReviewMs, isVocabCardDue, isLeechCard, getCardPreviewIntervals, getLearnAheadLimitMs, DEFAULT_LEARN_AHEAD_MINS, DEFAULT_EASE } from '../../utils/srs';
 import SRSForecastChart from '../ui/SRSForecastChart';
 import LeechManagerModal from '../ui/LeechManagerModal';
 import { flashCorrect, launchFanfare } from '../../utils/celebrations';
@@ -967,45 +968,73 @@ const SRSVocabScreen = ({
             isRatingProcessingRef.current = false;
         }, 350);
 
-        // Save card's previous SRS fields to history stack for Undo
+        // Calculate next SRS state from session cache (if already reviewed once this session) or initial card
+        const priorSessionSrs = sessionSrsData.current[card.id] || null;
+        const src = priorSessionSrs || card;
+        const resolvedInterval = src.srsInterval !== undefined ? src.srsInterval : (src.interval !== undefined ? src.interval : (src.currentInterval_back || 0));
+        const resolvedEase = src.srsEase !== undefined ? src.srsEase : (src.ease !== undefined ? src.ease : DEFAULT_EASE);
+        const resolvedLearningStep = src.srsLearningStep !== undefined ? src.srsLearningStep : (src.learningStep !== undefined ? src.learningStep : null);
+        const resolvedIsLapsed = src.srsIsLapsed !== undefined ? src.srsIsLapsed : (src.isLapsed || false);
+        const resolvedReps = src.srsReps !== undefined ? src.srsReps : (src.reps || 0);
+        const resolvedLapseCount = src.srsLapseCount !== undefined ? src.srsLapseCount : (src.lapseCount || 0);
+        const resolvedPrelapse = src.srsPrelapseInterval !== undefined ? src.srsPrelapseInterval : (src.prelapseInterval !== undefined ? src.prelapseInterval : null);
+        const resolvedState = src.srsState !== undefined ? src.srsState : (src.state || null);
+
+        // Save complete pre-rating SRS snapshot (both srs* and canonical aliases) for exact Undo
         const prevSrsFields = {
-            srsInterval: card.srsInterval || 0,
-            srsEase: card.srsEase || 2.5,
-            srsLearningStep: card.srsLearningStep !== undefined ? card.srsLearningStep : null,
-            srsIsLapsed: card.srsIsLapsed || false,
-            srsReps: card.srsReps || 0,
-            srsLapseCount: card.srsLapseCount || 0,
-            srsPrelapseInterval: card.srsPrelapseInterval || null,
-            srsState: card.srsState || null,
-            intervalIndex_back: typeof card.intervalIndex_back === 'number' ? card.intervalIndex_back : -1,
-            nextReview_back: card.nextReview_back || null,
-            lastReviewed: card.lastReviewed || null,
-            needsMistakeReview: card.needsMistakeReview || false,
-            masteryState: card.masteryState || 'not_learned'
+            srsInterval: resolvedInterval,
+            srsEase: resolvedEase,
+            srsLearningStep: resolvedLearningStep,
+            srsIsLapsed: resolvedIsLapsed,
+            srsReps: resolvedReps,
+            srsLapseCount: resolvedLapseCount,
+            srsPrelapseInterval: resolvedPrelapse,
+            srsState: resolvedState,
+            interval: resolvedInterval,
+            ease: resolvedEase,
+            learningStep: resolvedLearningStep,
+            isLapsed: resolvedIsLapsed,
+            reps: resolvedReps,
+            lapseCount: resolvedLapseCount,
+            prelapseInterval: resolvedPrelapse,
+            state: resolvedState,
+            intervalIndex_back: typeof src.intervalIndex_back === 'number' ? src.intervalIndex_back : (typeof card.intervalIndex_back === 'number' ? card.intervalIndex_back : -1),
+            nextReview_back: src.nextReview_back ?? card.nextReview_back ?? null,
+            nextReview: src.nextReview ?? src.nextReview_back ?? card.nextReview ?? card.nextReview_back ?? null,
+            lastReviewed: src.lastReviewed ?? card.lastReviewed ?? null,
+            lastReviewed_back: src.lastReviewed_back ?? src.lastReviewed ?? card.lastReviewed_back ?? card.lastReviewed ?? null,
+            needsMistakeReview: src.needsMistakeReview ?? card.needsMistakeReview ?? false,
+            masteryState: src.masteryState || card.masteryState || 'not_learned',
+            seenCount: typeof src.seenCount === 'number' ? src.seenCount : (typeof card.seenCount === 'number' ? card.seenCount : 0),
+            rating: src.rating ?? card.rating ?? null
         };
+
+        const ratingStr = String(rating || 'good').toLowerCase();
+        const xpReward = POINTS?.SRS_VOCAB?.[ratingStr] || POINTS?.SRS_VOCAB?.good || 4;
 
         setReviewHistory(prev => [...prev, {
             cardIndex: currentReviewIndex,
             cardId: card.id,
             srsFields: prevSrsFields,
+            hadSessionSrs: Boolean(priorSessionSrs),
+            xpAwarded: xpReward,
             isFlipped: isFlipped,
             queue: [...reviewQueue]
         }]);
 
-        // Calculate next SRS state locally
-        const currentSrs = sessionSrsData.current[card.id] || {
-            interval: card.srsInterval !== undefined ? card.srsInterval : (card.interval !== undefined ? card.interval : (card.currentInterval_back || 0)),
-            ease: card.srsEase !== undefined ? card.srsEase : (card.ease || 2.5),
-            learningStep: card.srsLearningStep !== undefined ? card.srsLearningStep : (card.learningStep !== undefined ? card.learningStep : null),
-            isLapsed: card.srsIsLapsed !== undefined ? card.srsIsLapsed : (card.isLapsed || false),
-            reps: card.srsReps !== undefined ? card.srsReps : (card.reps || 0),
-            lapseCount: card.srsLapseCount !== undefined ? card.srsLapseCount : (card.lapseCount || 0),
-            prelapseInterval: card.srsPrelapseInterval !== undefined ? card.srsPrelapseInterval : (card.prelapseInterval || null),
-            state: card.srsState || card.state || null,
-            intervalIndex_back: typeof card.intervalIndex_back === 'number' ? card.intervalIndex_back : -1,
-            masteryState: card.masteryState || 'not_learned',
-            seenCount: typeof card.seenCount === 'number' ? card.seenCount : 0,
-            lastReviewed: card.lastReviewed || null
+        const currentSrs = {
+            interval: resolvedInterval,
+            ease: resolvedEase,
+            learningStep: resolvedLearningStep,
+            isLapsed: resolvedIsLapsed,
+            reps: resolvedReps,
+            lapseCount: resolvedLapseCount,
+            prelapseInterval: resolvedPrelapse,
+            state: resolvedState,
+            intervalIndex_back: prevSrsFields.intervalIndex_back,
+            masteryState: prevSrsFields.masteryState,
+            seenCount: prevSrsFields.seenCount,
+            lastReviewed: prevSrsFields.lastReviewed
         };
 
         const result = calculateAnkiSRS(currentSrs, rating);
@@ -1024,9 +1053,15 @@ const SRSVocabScreen = ({
             srsState: result.state,
             nextReview_back: nowTime + nextReviewOffset,
             lastReviewed: nowTime,
+            lastReviewed_back: nowTime,
             state: result.state,
             interval: result.interval,
             ease: result.ease,
+            learningStep: result.learningStep,
+            isLapsed: result.isLapsed,
+            reps: result.reps,
+            lapseCount: result.lapseCount,
+            prelapseInterval: result.prelapseInterval,
             nextReview: nowTime + nextReviewOffset,
             masteryState: result.state === 'REVIEW' ? 'memorized' : 'learning'
         };
@@ -1036,9 +1071,7 @@ const SRSVocabScreen = ({
             delete intervalCacheRef.current[card.id];
         }
 
-        // Calculate XP reward synchronously
-        const ratingStr = String(rating || 'good').toLowerCase();
-        const xpReward = POINTS?.SRS_VOCAB?.[ratingStr] || POINTS?.SRS_VOCAB?.good || 4;
+        // Accumulate XP synchronously (xpReward already computed above)
         sessionXpRef.current += xpReward;
 
         // Call parent update vocab srs rating on Firestore asynchronously
@@ -1248,25 +1281,32 @@ const SRSVocabScreen = ({
         const lastAction = reviewHistory[reviewHistory.length - 1];
         setReviewHistory(prev => prev.slice(0, -1));
 
-        const { cardIndex, cardId, srsFields, isFlipped: wasFlipped, queue: savedQueue } = lastAction;
+        const { cardIndex, cardId, srsFields, hadSessionSrs, xpAwarded, isFlipped: wasFlipped, queue: savedQueue } = lastAction;
 
-        if (savedQueue) {
-            setReviewQueue(savedQueue);
-        }
+        isRatingProcessingRef.current = false;
+        lastRatedCardIdRef.current = null;
+        lastRatedTimeRef.current = 0;
+
         completedCardIds.current.delete(cardId);
+        completedCardIds.current.delete(String(cardId));
+        activeReviewCardIds.current.add(String(cardId));
+
+        if (intervalCacheRef.current) {
+            delete intervalCacheRef.current[cardId];
+        }
 
         // Revert sessionSrsData local cache
-        if (srsFields) {
+        if (hadSessionSrs && srsFields) {
             sessionSrsData.current[cardId] = { ...srsFields };
         } else {
             delete sessionSrsData.current[cardId];
         }
 
-        // 1. Revert local states immediately in current reviewQueue
+        // 1. Revert local states immediately in current reviewQueue (atomic single update)
         setReviewQueue(prevQueue => {
-            const nextQueue = [...prevQueue];
-            const idx = nextQueue.findIndex(c => c.id === cardId);
-            if (idx !== -1) {
+            const nextQueue = savedQueue ? [...savedQueue] : [...prevQueue];
+            const idx = nextQueue.findIndex(c => String(c.id) === String(cardId));
+            if (idx !== -1 && srsFields) {
                 nextQueue[idx] = {
                     ...nextQueue[idx],
                     ...srsFields
@@ -1275,10 +1315,16 @@ const SRSVocabScreen = ({
             return nextQueue;
         });
 
+        sessionXpRef.current = Math.max(0, (sessionXpRef.current || 0) - (xpAwarded || 0));
+
         // 2. Revert in App.jsx's setAllCards state immediately & Firestore doc in background
         if (onRevertVocabSrsRating) {
-            const revertedXp = onRevertVocabSrsRating(cardId, srsFields, true);
-            sessionXpRef.current -= (revertedXp || 0);
+            pendingWriteIds.current.add(cardId);
+            Promise.resolve(onRevertVocabSrsRating(cardId, srsFields, true))
+                .catch(() => {})
+                .finally(() => {
+                    pendingWriteIds.current.delete(cardId);
+                });
         }
 
         // Restore index and flipped state with slide animation
@@ -1286,7 +1332,7 @@ const SRSVocabScreen = ({
         setSlideDirection('right');
         setTimeout(() => {
             setCurrentReviewIndex(cardIndex);
-            if (cardSettings?.reviewType === 'typing') {
+            if (cardSettings?.reviewType === 'typing' || cardSettings?.reviewType === 'multiple_choice') {
                 setIsFlipped(false);
                 setHasCheckedTyping(false);
             } else {
@@ -1312,9 +1358,10 @@ const SRSVocabScreen = ({
             if (activeTag === 'INPUT' || activeTag === 'TEXTAREA' || e.target?.isContentEditable) {
                 return;
             }
-            // Khi đang ở chế độ gõ và chưa nộp đáp án: không nuốt phím tắt và auto focus input nếu bị mất focus
-            if (cardSettings?.reviewType === 'typing' && !hasCheckedTyping) {
-                if (e.key.length === 1 && !e.ctrlKey && !e.altKey && !e.metaKey) {
+            // Khi đang ở chế độ gõ hoặc trắc nghiệm và chưa nộp đáp án: khóa Space lật thẻ và phím 1-4 đánh giá SRS
+            const isInteractiveMode = cardSettings?.reviewType === 'typing' || cardSettings?.reviewType === 'multiple_choice';
+            if (isInteractiveMode && !hasCheckedTyping) {
+                if (cardSettings?.reviewType === 'typing' && e.key.length === 1 && !e.ctrlKey && !e.altKey && !e.metaKey) {
                     const inputEl = document.querySelector('[data-tour-id="SRS_TYPING_PANEL"] input');
                     if (inputEl && document.activeElement !== inputEl) {
                         inputEl.focus();
@@ -1327,7 +1374,7 @@ const SRSVocabScreen = ({
                 setIsFlipped(f => !f);
                 playFlipSound();
             }
-            if (cardSettings?.reviewType !== 'typing' || hasCheckedTyping) {
+            if (!isInteractiveMode || hasCheckedTyping) {
                 if (e.key === '1') { e.preventDefault(); handleRating('again'); }
                 if (e.key === '2') { e.preventDefault(); handleRating('hard'); }
                 if (e.key === '3') { e.preventDefault(); handleRating('good'); }
@@ -1577,8 +1624,29 @@ const SRSVocabScreen = ({
                         </div>
                     )}
 
-                    {/* SRS Rating Buttons: Hidden in typing mode until user checks answer */}
-                    {(cardSettings.reviewType !== 'typing' || hasCheckedTyping) && (
+                    {/* Multiple Choice Panel Component */}
+                    {cardSettings.reviewType === 'multiple_choice' && (
+                        <div className="w-full mt-1 sm:mt-2">
+                            <SrsMultipleChoicePanel
+                                type="vocab"
+                                card={currentCard}
+                                pool={filteredCards}
+                                swapSides={cardSettings.swapSides}
+                                cardIndex={currentReviewIndex}
+                                undoNonce={reviewUndoNonce}
+                                isFlipped={isFlipped}
+                                showFurigana={cardSettings.front?.furigana !== false}
+                                onCheck={() => {
+                                    setHasCheckedTyping(true);
+                                    setIsAnimatingFlip(true);
+                                    setIsFlipped(true);
+                                }}
+                            />
+                        </div>
+                    )}
+
+                    {/* SRS Rating Buttons: Hidden in typing / multiple_choice mode until user checks answer */}
+                    {((cardSettings.reviewType !== 'typing' && cardSettings.reviewType !== 'multiple_choice') || hasCheckedTyping) && (
                         <div className="w-full space-y-2 sm:space-y-3 animate-fade-in mt-2 sm:mt-3.5">
                             <div className="grid grid-cols-4 gap-1.5 sm:gap-3.5 w-full" data-tour-id="RATING_PANEL">
                                 {[

@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
-    ArrowLeft, ArrowRight, Check, Bell, Sparkles, Trophy, Flame,
-    Compass, RotateCcw, Target
+    ArrowLeft, ArrowRight, Check, Bell, Sparkles, Trophy, Flame, Lock
 } from 'lucide-react';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { FlagIcon } from '../ui/FlagIcon';
 import { ROUTES } from '../../router';
-import { auth } from '../../config/firebase';
+import { auth, db, appId } from '../../config/firebase';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
+import { ROADMAP_PROGRESS_KEY } from '../../data/roadmap/roadmapCloudSync';
 import {
     ONBOARDING_LANGUAGES,
     NATIVE_LANGUAGES,
@@ -18,48 +19,26 @@ import {
     VALUE_PROPOSITIONS,
     DAILY_GOALS,
     STARTING_PATHS,
-    PLACEMENT_QUESTIONS_JA,
-    PLACEMENT_QUESTIONS_EN
+    PLACEMENT_QUESTIONS_JA
 } from './onboardingData';
+import {
+    ROADMAP_STAGE_SUMMARIES,
+    getScratchDiagnosis,
+    checkAdaptiveCeiling,
+    evaluatePlacementPerformance
+} from './placementEvaluator';
 
 const STORAGE_KEY = 'quizki_onboarding_survey';
 const ROADMAP_KEY = 'quizki_user_roadmap';
 const TOTAL_BASE_STEPS = 9; // Step 0 to 8
 
-const getDiagnosedResult = (score) => {
-    if (score >= 12) {
-        return {
-            level: 'n3',
-            levelLabel: 'Cấp độ N3 (Trung cấp vững vàng)',
-            desc: 'Bạn đã có vốn từ phong phú, nắm vững ngữ pháp liên kết và nhận diện sắc thái N3 rất tốt.',
-            stage: 6,
-            stageLabel: 'Chặng 6: N3 Trung Cấp Cốt Lõi (Mimikara N3 & SKM)'
-        };
-    } else if (score >= 9) {
-        return {
-            level: 'n4',
-            levelLabel: 'Cấp độ N4 (Sơ cấp nâng cao)',
-            desc: 'Bạn đã vững các thể động từ cơ bản và giao tiếp N5. Bước tiếp theo là chinh phục Minna N4 & Tango 1500.',
-            stage: 4,
-            stageLabel: 'Chặng 4: N4 Sơ Trung Cấp (Minna 26-38 & Tango 1500)'
-        };
-    } else if (score >= 5) {
-        return {
-            level: 'n5_advanced',
-            levelLabel: 'Cấp độ N5 Sơ Cấp',
-            desc: 'Bạn nắm tốt bảng chữ cái Kana. Lộ trình sẽ đưa bạn thẳng vào Minna 1-12, Tango 1000 & Kanji N5 cốt lõi.',
-            stage: 2,
-            stageLabel: 'Chặng 2: N5 Sơ Cấp (Minna 1-12 & Tango 1000)'
-        };
-    } else {
-        return {
-            level: 'n5_scratch',
-            levelLabel: 'Khởi đầu N5 (Nền tảng căn bản)',
-            desc: 'Lộ trình tối ưu cho bạn là làm chủ bảng chữ cái Kana, phát âm chuẩn và giáo trình Irodori nhập môn.',
-            stage: 1,
-            stageLabel: 'Chặng 1: Bảng Chữ Cái Kana & Giao Tiếp Đầu Đời'
-        };
-    }
+const LEVEL_BADGE_COLORS = {
+    Kana: 'bg-rose-100 text-rose-700 dark:bg-rose-950/60 dark:text-rose-300',
+    N5: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950/60 dark:text-emerald-300',
+    N4: 'bg-sky-100 text-sky-800 dark:bg-sky-950/60 dark:text-sky-300',
+    N3: 'bg-amber-100 text-amber-800 dark:bg-amber-950/60 dark:text-amber-300',
+    N2: 'bg-teal-100 text-teal-800 dark:bg-teal-950/60 dark:text-teal-300',
+    N1: 'bg-orange-100 text-orange-800 dark:bg-orange-950/60 dark:text-orange-300'
 };
 
 const OnboardingSurveyScreen = () => {
@@ -69,40 +48,40 @@ const OnboardingSurveyScreen = () => {
 
     const [step, setStep] = useState(0);
     const [answers, setAnswers] = useState(() => {
+        const defaults = {
+            targetLang: 'ja',
+            nativeLang: 'vi',
+            source: null,
+            motivation: null,
+            level: null,
+            dailyGoal: 15,
+            notifications: false,
+            startingPath: null,
+            placementScore: 0,
+            placementAnswers: {},
+            diagnosedLevel: null,
+            startingStage: 1
+        };
         try {
             const saved = localStorage.getItem(STORAGE_KEY);
-            return saved ? JSON.parse(saved) : {
-                targetLang: 'ja',
-                nativeLang: 'vi',
-                source: null,
-                motivation: null,
-                level: null,
-                dailyGoal: 15,
-                notifications: false,
-                startingPath: null,
-                placementScore: 0,
-                diagnosedLevel: null
+            if (!saved) return defaults;
+            const parsed = JSON.parse(saved);
+            return {
+                ...defaults,
+                ...parsed,
+                // Tiếng Anh & Tiếng Hàn đang BETA -> luôn khoá mặc định về Tiếng Nhật
+                targetLang: 'ja'
             };
         } catch (_) {
-            return {
-                targetLang: 'ja',
-                nativeLang: 'vi',
-                source: null,
-                motivation: null,
-                level: null,
-                dailyGoal: 15,
-                notifications: false,
-                startingPath: null,
-                placementScore: 0,
-                diagnosedLevel: null
-            };
+            return defaults;
         }
     });
 
+    const [betaLangHint, setBetaLangHint] = useState('');
     const [placementIndex, setPlacementIndex] = useState(0);
-    const [placementScore, setPlacementScore] = useState(0);
-    const [selectedPlacementOpt, setSelectedPlacementOpt] = useState(null);
-    const [placementAnswered, setPlacementAnswered] = useState(false);
+    const [placementAnswers, setPlacementAnswers] = useState(() => answers.placementAnswers || {});
+    const [adaptiveNotice, setAdaptiveNotice] = useState('');
+    const [manualStageOverride, setManualStageOverride] = useState(null);
 
     const [isAnalyzing, setIsAnalyzing] = useState(false);
     const [analyzingProgress, setAnalyzingProgress] = useState(0);
@@ -164,11 +143,12 @@ const OnboardingSurveyScreen = () => {
             if (answers.startingPath === 'test') {
                 setStep(9);
                 setPlacementIndex(0);
-                setPlacementScore(0);
-                setPlacementAnswered(false);
-                setSelectedPlacementOpt(null);
+                setPlacementAnswers({});
+                setAdaptiveNotice('');
+                setManualStageOverride(null);
                 return;
             } else {
+                setManualStageOverride(null);
                 setStep(10);
                 return;
             }
@@ -198,8 +178,6 @@ const OnboardingSurveyScreen = () => {
     const handlePlacementBack = () => {
         if (placementIndex > 0) {
             setPlacementIndex(prev => prev - 1);
-            setSelectedPlacementOpt(null);
-            setPlacementAnswered(false);
         } else {
             setStep(8);
         }
@@ -215,96 +193,164 @@ const OnboardingSurveyScreen = () => {
         setStep(8);
     };
 
-    const placementQuestions = answers.targetLang === 'en' ? PLACEMENT_QUESTIONS_EN : PLACEMENT_QUESTIONS_JA;
+    const placementQuestions = PLACEMENT_QUESTIONS_JA;
+    const selectedPlacementOpt = placementAnswers[placementIndex];
+    const placementAnswered = selectedPlacementOpt !== undefined && selectedPlacementOpt !== '__SKIPPED__';
+    const livePlacementStats = useMemo(
+        () => evaluatePlacementPerformance(placementAnswers, placementQuestions),
+        [placementAnswers, placementQuestions]
+    );
 
     const handlePlacementSelect = (opt) => {
         if (placementAnswered) return;
-        setSelectedPlacementOpt(opt);
-        setPlacementAnswered(true);
+        setPlacementAnswers(prev => ({ ...prev, [placementIndex]: opt }));
+    };
 
-        const currentQ = placementQuestions[placementIndex];
-        const isCorrect = opt === currentQ.answer;
-        if (isCorrect) {
-            setPlacementScore(s => s + 1);
-        }
+    const finishPlacementAssessment = (finalAnswersMap, reason = '') => {
+        const diag = evaluatePlacementPerformance(finalAnswersMap, placementQuestions);
+        setAdaptiveNotice(reason);
+        setManualStageOverride(null);
+        setAnswers(prev => ({
+            ...prev,
+            targetLang: 'ja',
+            placementAnswers: finalAnswersMap,
+            placementScore: diag.totalCorrect,
+            diagnosedLevel: diag.level,
+            startingStage: diag.stage
+        }));
+        setStep(10);
     };
 
     const handlePlacementNext = () => {
-        if (placementIndex < placementQuestions.length - 1) {
-            setPlacementIndex(prev => prev + 1);
-            setSelectedPlacementOpt(null);
-            setPlacementAnswered(false);
-        } else {
-            const finalScore = (placementAnswered && selectedPlacementOpt === placementQuestions[placementIndex].answer)
-                ? placementScore
-                : placementScore;
-            const diag = getDiagnosedResult(finalScore);
-            setAnswers(prev => ({
-                ...prev,
-                placementScore: finalScore,
-                diagnosedLevel: diag.level,
-                startingStage: diag.stage
-            }));
-            setStep(10);
+        const updatedAnswers = placementAnswers[placementIndex] !== undefined
+            ? placementAnswers
+            : { ...placementAnswers, [placementIndex]: '__SKIPPED__' };
+
+        if (placementAnswers[placementIndex] === undefined) {
+            setPlacementAnswers(updatedAnswers);
         }
+
+        const adaptiveCheck = checkAdaptiveCeiling(placementIndex, updatedAnswers, placementQuestions);
+        if (adaptiveCheck.shouldStop || placementIndex >= placementQuestions.length - 1) {
+            finishPlacementAssessment(updatedAnswers, adaptiveCheck.reason || '');
+            return;
+        }
+
+        setPlacementIndex(prev => prev + 1);
     };
 
-    const persistRoadmapData = () => {
-        const isScratch = answers.startingPath === 'scratch';
-        const diag = isScratch
-            ? { level: 'n5_scratch', stage: 1, levelLabel: 'Khởi đầu N5 (Từ số 0)' }
-            : getDiagnosedResult(answers.placementScore || 0);
+    const rawDiagnosis = useMemo(() => {
+        if (answers.startingPath === 'scratch') {
+            return getScratchDiagnosis();
+        }
+        return evaluatePlacementPerformance(
+            Object.keys(placementAnswers).length > 0 ? placementAnswers : (answers.placementAnswers || {}),
+            placementQuestions
+        );
+    }, [answers.startingPath, answers.placementAnswers, placementAnswers, placementQuestions]);
+
+    const effectiveStage = manualStageOverride || rawDiagnosis.stage || 1;
+    const diagnosis = useMemo(() => {
+        if (!manualStageOverride || manualStageOverride === rawDiagnosis.stage) {
+            return rawDiagnosis;
+        }
+        const overrideMeta = ROADMAP_STAGE_SUMMARIES[manualStageOverride] || rawDiagnosis;
+        const unlockedStages = [];
+        for (let s = 1; s <= manualStageOverride; s++) unlockedStages.push(s);
+        return {
+            ...rawDiagnosis,
+            ...overrideMeta,
+            unlockedStages
+        };
+    }, [rawDiagnosis, manualStageOverride]);
+
+    const persistRoadmapData = async (chosenStage = effectiveStage) => {
+        const stageNum = Math.max(1, Math.min(10, Number(chosenStage || 1)));
+        const stageMeta = ROADMAP_STAGE_SUMMARIES[stageNum] || ROADMAP_STAGE_SUMMARIES[1];
+        const unlockedStages = [];
+        for (let s = 1; s <= stageNum; s++) unlockedStages.push(s);
 
         const bundle = {
-            targetLang: answers.targetLang,
-            nativeLang: answers.nativeLang,
+            targetLang: 'ja',
+            nativeLang: answers.nativeLang || 'vi',
             dailyGoal: answers.dailyGoal || 15,
-            startingPath: answers.startingPath,
-            placementScore: answers.placementScore || 0,
-            diagnosedLevel: diag.level,
-            startingStage: diag.stage,
+            startingPath: answers.startingPath || 'scratch',
+            placementScore: diagnosis.totalCorrect || 0,
+            diagnosedLevel: stageMeta.level,
+            startingStage: stageNum,
+            tierBreakdown: diagnosis.tierBreakdown || [],
             updatedAt: Date.now()
         };
 
+        let nextProgress = { completedLessons: {}, unlockedStages, lastUpdated: Date.now() };
         try {
+            const rawPrev = localStorage.getItem(ROADMAP_PROGRESS_KEY);
+            const prevProg = rawPrev ? JSON.parse(rawPrev) : {};
+            const mergedStages = new Set([1, ...(prevProg.unlockedStages || []), ...unlockedStages]);
+            nextProgress = {
+                completedLessons: prevProg.completedLessons || {},
+                unlockedStages: Array.from(mergedStages).sort((a, b) => a - b),
+                lastUpdated: Date.now()
+            };
             localStorage.setItem(ROADMAP_KEY, JSON.stringify(bundle));
+            localStorage.setItem(ROADMAP_PROGRESS_KEY, JSON.stringify(nextProgress));
             localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...answers, ...bundle }));
+            window.dispatchEvent(new CustomEvent('quizki-roadmap-updated', { detail: { newProgress: nextProgress } }));
         } catch (_) {}
 
-        return bundle;
+        const activeUid = auth?.currentUser?.uid;
+        if (activeUid && db && appId) {
+            try {
+                const roadmapRef = doc(db, `artifacts/${appId}/users/${activeUid}/settings/roadmap`);
+                const snap = await getDoc(roadmapRef).catch(() => null);
+                const cloudData = snap?.exists?.() ? snap.data() : {};
+                const cloudStages = Array.isArray(cloudData.unlockedStages) ? cloudData.unlockedStages : [];
+                const syncedStages = Array.from(new Set([1, ...cloudStages, ...nextProgress.unlockedStages])).sort((a, b) => a - b);
+
+                await setDoc(roadmapRef, {
+                    ...bundle,
+                    completedLessons: { ...(cloudData.completedLessons || {}), ...(nextProgress.completedLessons || {}) },
+                    unlockedStages: syncedStages,
+                    lastUpdated: Date.now()
+                }, { merge: true });
+
+                const profileRef = doc(db, `artifacts/${appId}/users/${activeUid}/settings/profile`);
+                await setDoc(profileRef, {
+                    targetLanguage: 'ja',
+                    dailyGoal: bundle.dailyGoal,
+                    updatedAt: Date.now()
+                }, { merge: true }).catch(() => {});
+            } catch (err) {
+                console.warn('Sync placement roadmap to Firestore warning:', err);
+            }
+        }
+
+        return { bundle, stageNum };
     };
 
-    const handleStartDirectStudy = () => {
-        if (answers.targetLang && setTargetLanguage) {
-            setTargetLanguage(answers.targetLang);
+    const handleStartDirectStudy = async () => {
+        if (setTargetLanguage) setTargetLanguage('ja');
+        const { stageNum } = await persistRoadmapData(effectiveStage);
+        const isSignedIn = Boolean(auth?.currentUser);
+        if (!isSignedIn) {
+            try {
+                localStorage.setItem('quizki_guest_mode', 'true');
+            } catch (_) {}
         }
-        persistRoadmapData();
-        try {
-            localStorage.setItem('quizki_guest_mode', 'true');
-        } catch (_) {}
-        navigate(ROUTES.HOME, { state: { focusRoadmap: true, isGuest: true } });
+        navigate(ROUTES.HOME, {
+            state: {
+                focusRoadmap: true,
+                diagnosedStage: stageNum,
+                ...(!isSignedIn ? { isGuest: true } : {})
+            }
+        });
     };
 
-    const handleCreateProfile = () => {
-        if (answers.targetLang && setTargetLanguage) {
-            setTargetLanguage(answers.targetLang);
-        }
-        persistRoadmapData();
+    const handleCreateProfile = async () => {
+        if (setTargetLanguage) setTargetLanguage('ja');
+        await persistRoadmapData(effectiveStage);
         navigate(`${ROUTES.LOGIN}?mode=register`);
     };
-
-    const diagnosis = useMemo(() => {
-        if (answers.startingPath === 'scratch') {
-            return {
-                level: 'n5_scratch',
-                levelLabel: 'Khởi đầu N5 (Từ số 0)',
-                desc: 'Lộ trình tối ưu cho bạn là làm quen bảng chữ cái Kana, phát âm chuẩn và 200 từ vựng căn bản.',
-                stage: 1,
-                stageLabel: 'Chặng 1: Nền tảng Bảng chữ cái & Phát âm'
-            };
-        }
-        return getDiagnosedResult(answers.placementScore || 0);
-    }, [answers.startingPath, answers.placementScore]);
 
     const progressPercent = step === 9
         ? Math.round(((placementIndex + 1) / placementQuestions.length) * 100)
@@ -349,27 +395,36 @@ const OnboardingSurveyScreen = () => {
 
                         <div className="grid grid-cols-1 gap-3">
                             {ONBOARDING_LANGUAGES.map((lang) => {
-                                const isSelected = answers.targetLang === lang.id;
+                                const isDisabled = Boolean(lang.disabled);
+                                const isSelected = !isDisabled && answers.targetLang === lang.id;
                                 return (
                                     <div
                                         key={lang.id}
                                         onClick={() => {
+                                            if (isDisabled) {
+                                                setBetaLangHint(`${lang.title} hiện đang trong giai đoạn BETA (sắp ra mắt). Vui lòng chọn Tiếng Nhật để bắt đầu lộ trình chuẩn!`);
+                                                return;
+                                            }
+                                            setBetaLangHint('');
                                             setAnswers(prev => ({ ...prev, targetLang: lang.id }));
                                             if (setTargetLanguage) setTargetLanguage(lang.id);
                                         }}
-                                        className={`p-3.5 sm:p-4 rounded-2xl border-2 border-b-4 transition-all flex items-center justify-between gap-3.5 cursor-pointer select-none active:translate-y-0.5 active:border-b-2 ${
-                                            isSelected
-                                                ? 'bg-sky-50 dark:bg-sky-950/40 border-sky-500 text-sky-950 dark:text-sky-100 ring-2 ring-sky-400/20'
-                                                : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 text-slate-800 dark:text-slate-100'
+                                        aria-disabled={isDisabled}
+                                        className={`p-3.5 sm:p-4 rounded-2xl border-2 border-b-4 transition-all flex items-center justify-between gap-3.5 select-none ${
+                                            isDisabled
+                                                ? 'bg-slate-50/80 dark:bg-slate-900/50 border-slate-200/80 dark:border-slate-800/80 text-slate-400 dark:text-slate-500 opacity-75 cursor-not-allowed'
+                                                : isSelected
+                                                ? 'bg-sky-50 dark:bg-sky-950/40 border-sky-500 text-sky-950 dark:text-sky-100 ring-2 ring-sky-400/20 cursor-pointer active:translate-y-0.5 active:border-b-2'
+                                                : 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 text-slate-800 dark:text-slate-100 cursor-pointer active:translate-y-0.5 active:border-b-2'
                                         }`}
                                     >
                                         <div className="flex items-center gap-3.5 min-w-0">
-                                            <FlagIcon countryCode={lang.code} className="w-8 h-6 rounded-sm shadow-xs object-cover shrink-0" />
+                                            <FlagIcon countryCode={lang.code} className={`w-8 h-6 rounded-sm shadow-xs object-cover shrink-0 ${isDisabled ? 'grayscale opacity-70' : ''}`} />
                                             <div className="min-w-0">
-                                                <div className="flex items-center gap-2">
+                                                <div className="flex items-center gap-2 flex-wrap">
                                                     <h3 className="font-black text-sm sm:text-base">{lang.title}</h3>
                                                     {lang.tag && (
-                                                        <span className={`text-[10px] font-bold px-1.5 py-0.2 rounded-full shrink-0 ${lang.tagColor}`}>
+                                                        <span className={`text-[10px] font-black px-2 py-0.5 rounded-full shrink-0 uppercase tracking-wide ${lang.tagColor}`}>
                                                             {lang.tag}
                                                         </span>
                                                     )}
@@ -377,15 +432,26 @@ const OnboardingSurveyScreen = () => {
                                                 <p className="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5">{lang.sub}</p>
                                             </div>
                                         </div>
-                                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${
-                                            isSelected ? 'border-sky-500 bg-sky-500 text-white' : 'border-slate-300 dark:border-slate-700'
-                                        }`}>
-                                            {isSelected && <Check className="w-3 h-3 stroke-[3]" />}
-                                        </div>
+                                        {isDisabled ? (
+                                            <div className="w-7 h-7 rounded-xl bg-amber-100/80 dark:bg-amber-950/60 border border-amber-300/60 dark:border-amber-800 flex items-center justify-center shrink-0 text-amber-600 dark:text-amber-400" title="Phiên bản BETA - Sắp ra mắt">
+                                                <Lock className="w-3.5 h-3.5" />
+                                            </div>
+                                        ) : (
+                                            <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${
+                                                isSelected ? 'border-sky-500 bg-sky-500 text-white' : 'border-slate-300 dark:border-slate-700'
+                                            }`}>
+                                                {isSelected && <Check className="w-3 h-3 stroke-[3]" />}
+                                            </div>
+                                        )}
                                     </div>
                                 );
                             })}
                         </div>
+                        {betaLangHint && (
+                            <div className="p-3 rounded-xl bg-amber-50 dark:bg-amber-950/40 border border-amber-200 dark:border-amber-800/80 text-xs font-bold text-amber-800 dark:text-amber-200 animate-fade-in">
+                                ⏳ {betaLangHint}
+                            </div>
+                        )}
                     </div>
                 )}
 
@@ -738,24 +804,36 @@ const OnboardingSurveyScreen = () => {
                 {/* STEP 9: PLACEMENT TEST */}
                 {step === 9 && (
                     <div className="space-y-4 animate-fade-in">
-                        <div className="flex items-center justify-between text-xs font-bold text-slate-500">
-                            <div className="flex items-center gap-2">
+                        <div className="flex items-center justify-between gap-2 text-xs font-bold text-slate-500 flex-wrap">
+                            <div className="flex items-center gap-2 flex-wrap">
                                 <span className="text-sky-600 dark:text-sky-400 font-mono uppercase tracking-wider font-black">
-                                    Placement Test • Câu {placementIndex + 1}/{placementQuestions.length}
+                                    Đánh giá trình độ • Câu {placementIndex + 1}/{placementQuestions.length}
                                 </span>
                                 {placementQuestions[placementIndex].level && (
-                                    <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-full ${
-                                        placementQuestions[placementIndex].level === 'N3'
-                                            ? 'bg-teal-100 text-teal-700 dark:bg-teal-950 dark:text-teal-300'
-                                            : placementQuestions[placementIndex].level === 'N4'
-                                            ? 'bg-amber-100 text-amber-800 dark:bg-amber-950 dark:text-amber-300'
-                                            : 'bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300'
-                                    }`}>
-                                        Cấp độ {placementQuestions[placementIndex].level}
+                                    <span className={`text-[10px] font-black uppercase px-2 py-0.5 rounded-full ${LEVEL_BADGE_COLORS[placementQuestions[placementIndex].level] || LEVEL_BADGE_COLORS.N5}`}>
+                                        {placementQuestions[placementIndex].level}
+                                    </span>
+                                )}
+                                {placementQuestions[placementIndex].skill && (
+                                    <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                                        {placementQuestions[placementIndex].skill}
                                     </span>
                                 )}
                             </div>
-                            <span className="font-mono text-emerald-600 dark:text-emerald-400 font-black">Đúng: {placementScore}</span>
+                            <div className="flex items-center gap-3">
+                                <span className="font-mono text-emerald-600 dark:text-emerald-400 font-black">
+                                    Đúng: {livePlacementStats.totalCorrect}
+                                </span>
+                                {livePlacementStats.answeredCount >= 3 && (
+                                    <button
+                                        type="button"
+                                        onClick={() => finishPlacementAssessment(placementAnswers, 'Bạn đã chọn chốt kết quả sớm dựa trên các cấp độ vừa trả lời.')}
+                                        className="text-[11px] font-bold text-sky-600 dark:text-sky-400 hover:underline cursor-pointer"
+                                    >
+                                        Chấm điểm ngay →
+                                    </button>
+                                )}
+                            </div>
                         </div>
 
                         {/* Question card */}
@@ -838,10 +916,10 @@ const OnboardingSurveyScreen = () => {
                                 </div>
                             </div>
                         ) : (
-                            <div className="space-y-4">
+                            <div className="space-y-3.5">
                                 <div className="text-center sm:text-left">
                                     <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 text-xs font-black uppercase tracking-wider mb-1.5">
-                                        <Trophy className="w-3.5 h-3.5" /> Lộ trình đã sẵn sàng
+                                        <Trophy className="w-3.5 h-3.5" /> {diagnosis.levelLabel}
                                     </div>
                                     <h1 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white">
                                         Kế hoạch học tập dành riêng cho bạn!
@@ -849,14 +927,19 @@ const OnboardingSurveyScreen = () => {
                                     <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400 mt-1">
                                         {diagnosis.desc}
                                     </p>
+                                    {adaptiveNotice && (
+                                        <p className="text-[11px] font-semibold text-sky-600 dark:text-sky-400 mt-1">
+                                            🧭 {adaptiveNotice}
+                                        </p>
+                                    )}
                                 </div>
 
                                 {/* Overview Badges */}
-                                <div className="grid grid-cols-3 gap-2.5 p-3.5 rounded-3xl bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 shadow-xs text-center">
+                                <div className="grid grid-cols-3 gap-2.5 p-3 rounded-3xl bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 shadow-xs text-center">
                                     <div className="p-1 border-r border-slate-100 dark:border-slate-800">
                                         <span className="text-[10px] text-slate-400 font-bold block uppercase">Ngôn ngữ</span>
                                         <span className="text-xs sm:text-sm font-black text-slate-800 dark:text-white mt-0.5 block truncate">
-                                            {answers.targetLang === 'ja' ? 'Tiếng Nhật 🇯🇵' : answers.targetLang === 'en' ? 'Tiếng Anh 🇬🇧' : 'Tiếng Hàn 🇰🇷'}
+                                            Tiếng Nhật 🇯🇵
                                         </span>
                                     </div>
                                     <div className="p-1 border-r border-slate-100 dark:border-slate-800">
@@ -866,50 +949,109 @@ const OnboardingSurveyScreen = () => {
                                         </span>
                                     </div>
                                     <div className="p-1">
-                                        <span className="text-[10px] text-slate-400 font-bold block uppercase">Điểm khởi đầu</span>
-                                        <span className="text-xs font-black text-emerald-600 dark:text-emerald-400 mt-0.5 block truncate">
-                                            Chặng {diagnosis.stage}
+                                        <span className="text-[10px] text-slate-400 font-bold block uppercase">Xếp chặng</span>
+                                        <span className="text-xs sm:text-sm font-black text-emerald-600 dark:text-emerald-400 mt-0.5 block truncate">
+                                            Chặng {effectiveStage} / 10
                                         </span>
                                     </div>
                                 </div>
 
-                                {/* Recommended Stage Box */}
-                                <div className="p-4 rounded-3xl bg-emerald-50 dark:bg-emerald-950/30 border-2 border-emerald-400 dark:border-emerald-700 flex items-center justify-between gap-3">
-                                    <div className="flex items-center gap-3 min-w-0">
-                                        <span className="text-2xl">🎯</span>
-                                        <div className="min-w-0">
-                                            <span className="text-[10px] font-black uppercase text-emerald-700 dark:text-emerald-300">
-                                                Khuyến nghị xuất phát
-                                            </span>
-                                            <h4 className="font-bold text-sm text-slate-900 dark:text-white truncate">
-                                                {diagnosis.stageLabel}
-                                            </h4>
-                                        </div>
+                                {/* Per-tier Breakdown Bar (only shown after placement test) */}
+                                {answers.startingPath === 'test' && Array.isArray(diagnosis.tierBreakdown) && diagnosis.tierBreakdown.length > 0 && (
+                                    <div className="grid grid-cols-6 gap-1.5">
+                                        {diagnosis.tierBreakdown.map((tier) => {
+                                            const tested = tier.answered > 0;
+                                            const passed = tested && tier.correct >= 2;
+                                            return (
+                                                <div
+                                                    key={tier.level}
+                                                    className={`p-2 rounded-xl border text-center ${
+                                                        !tested
+                                                            ? 'bg-slate-50/70 dark:bg-slate-900/40 border-slate-200/70 dark:border-slate-800 text-slate-400'
+                                                            : passed
+                                                            ? 'bg-emerald-50 dark:bg-emerald-950/40 border-emerald-400/70 text-emerald-700 dark:text-emerald-300'
+                                                            : 'bg-amber-50 dark:bg-amber-950/30 border-amber-300/70 text-amber-700 dark:text-amber-300'
+                                                    }`}
+                                                >
+                                                    <span className="text-[10px] font-black block">{tier.level}</span>
+                                                    <span className="text-xs font-mono font-bold block mt-0.5">
+                                                        {tested ? `${tier.correct}/${tier.total}` : '—'}
+                                                    </span>
+                                                </div>
+                                            );
+                                        })}
                                     </div>
-                                    <span className="text-xs font-black uppercase px-2.5 py-1 rounded-lg bg-emerald-500 text-white shrink-0 shadow-xs">
-                                        Đã xếp lớp
-                                    </span>
+                                )}
+
+                                {/* Recommended Stage Box + Optional Stage Override */}
+                                <div className="p-4 rounded-3xl bg-emerald-50 dark:bg-emerald-950/30 border-2 border-emerald-400 dark:border-emerald-700 space-y-2.5">
+                                    <div className="flex items-center justify-between gap-3">
+                                        <div className="flex items-center gap-3 min-w-0">
+                                            <span className="text-2xl shrink-0">🎯</span>
+                                            <div className="min-w-0">
+                                                <span className="text-[10px] font-black uppercase text-emerald-700 dark:text-emerald-300">
+                                                    Mở khóa Chặng 1 → Chặng {effectiveStage}
+                                                </span>
+                                                <h4 className="font-bold text-sm text-slate-900 dark:text-white truncate">
+                                                    {diagnosis.stageLabel}
+                                                </h4>
+                                            </div>
+                                        </div>
+                                        <span className="text-xs font-black uppercase px-2.5 py-1 rounded-lg bg-emerald-500 text-white shrink-0 shadow-xs">
+                                            Đã xếp lớp
+                                        </span>
+                                    </div>
+
+                                    <div className="flex items-center justify-between gap-2 pt-1.5 border-t border-emerald-200/60 dark:border-emerald-800/50">
+                                        <span className="text-[11px] font-semibold text-emerald-800 dark:text-emerald-300">
+                                            Muốn điều chỉnh chặng xuất phát?
+                                        </span>
+                                        <select
+                                            value={effectiveStage}
+                                            onChange={(e) => setManualStageOverride(Number(e.target.value))}
+                                            className="px-2.5 py-1 text-xs font-bold bg-white dark:bg-slate-900 border border-emerald-300 dark:border-emerald-700 rounded-lg text-slate-800 dark:text-slate-100 outline-none cursor-pointer"
+                                        >
+                                            {Object.values(ROADMAP_STAGE_SUMMARIES).map((s) => (
+                                                <option key={s.stage} value={s.stage}>
+                                                    Chặng {s.stage} ({s.jlptLevel})
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
                                 </div>
 
                                 {/* Final CTAs */}
-                                <div className="space-y-2.5 pt-2">
-                                    <button
-                                        type="button"
-                                        onClick={handleCreateProfile}
-                                        className="w-full py-4 bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 text-white font-black text-sm uppercase tracking-wider rounded-2xl shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2 select-none"
-                                    >
-                                        <span>TẠO HỒ SƠ ĐỂ LƯU TIẾN TRÌNH</span>
-                                        <ArrowRight className="w-4 h-4 stroke-[3]" />
-                                    </button>
+                                {auth?.currentUser ? (
+                                    <div className="space-y-2.5 pt-1">
+                                        <button
+                                            type="button"
+                                            onClick={handleStartDirectStudy}
+                                            className="w-full py-4 bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 text-white font-black text-sm uppercase tracking-wider rounded-2xl shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2 select-none"
+                                        >
+                                            <span>VÀO HỌC NGAY CHẶNG {effectiveStage} ({diagnosis.jlptLevel})</span>
+                                            <ArrowRight className="w-4 h-4 stroke-[3]" />
+                                        </button>
+                                    </div>
+                                ) : (
+                                    <div className="space-y-2.5 pt-1">
+                                        <button
+                                            type="button"
+                                            onClick={handleCreateProfile}
+                                            className="w-full py-4 bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-0 text-white font-black text-sm uppercase tracking-wider rounded-2xl shadow-lg transition-all cursor-pointer flex items-center justify-center gap-2 select-none"
+                                        >
+                                            <span>TẠO HỒ SƠ ĐỂ LƯU TIẾN TRÌNH</span>
+                                            <ArrowRight className="w-4 h-4 stroke-[3]" />
+                                        </button>
 
-                                    <button
-                                        type="button"
-                                        onClick={handleStartDirectStudy}
-                                        className="w-full py-3.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 text-slate-700 dark:text-slate-200 font-black text-xs uppercase tracking-wider rounded-2xl transition-all cursor-pointer select-none"
-                                    >
-                                        <span>BẮT ĐẦU HỌC NGAY THEO LỘ TRÌNH</span>
-                                    </button>
-                                </div>
+                                        <button
+                                            type="button"
+                                            onClick={handleStartDirectStudy}
+                                            className="w-full py-3.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 text-slate-700 dark:text-slate-200 font-black text-xs uppercase tracking-wider rounded-2xl transition-all cursor-pointer select-none"
+                                        >
+                                            <span>BẮT ĐẦU HỌC NGAY CHẶNG {effectiveStage}</span>
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                         )}
                     </div>

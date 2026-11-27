@@ -4,11 +4,13 @@ import { useNavigate, useLocation } from 'react-router-dom';
 import { Calendar, Clock, Target, ChevronLeft, RotateCcw, RotateCw, BarChart3, Cpu, Play, Zap } from 'lucide-react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 import SrsTypingInput from '../srs/SrsTypingInput';
+import SrsMultipleChoicePanel from '../srs/SrsMultipleChoicePanel';
 import SrsModeSelectModal from '../srs/SrsModeSelectModal';
 import { db, appId } from '../../config/firebase';
 import { collection, getDocs, doc, setDoc, increment, deleteDoc } from 'firebase/firestore'
 import { getAuth } from 'firebase/auth';
-import { getSharedKanjiList, getSharedKanjiSrs, getCachedKanjiList, getCachedUserSrsData, updateCachedUserSrs, subscribeKanjiSrs, removePendingKanjiSync, syncPendingKanjiSrs } from '../../utils/kanjiService';
+import { getSharedKanjiList, getSharedKanjiSrs, getCachedKanjiList, getCachedUserSrsData, updateCachedUserSrs, revertCachedUserSrs, subscribeKanjiSrs, removePendingKanjiSync, syncPendingKanjiSrs } from '../../utils/kanjiService';
+import { cleanFirestoreData } from '../../utils/firestoreHelpers';
 import { getJotobaKanjiData } from '../../data/jotobaKanjiData';
 
 import { logKanjiActivity } from '../../utils/kanjiHistory';
@@ -88,10 +90,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
     const [slideDirection, setSlideDirection] = useState('');
     const [reviewUndoNonce, setReviewUndoNonce] = useState(0);
     const [showModeModal, setShowModeModal] = useState(false);
-
-    useEffect(() => {
-        setHasCheckedTyping(false);
-    }, [currentReviewIndex, reviewMode]);
+    const pendingModeCardsRef = useRef(null);
 
     useEffect(() => {
         if (setIsReviewActive) {
@@ -110,13 +109,26 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             return false;
         }
     });
-    const [typingMode, setTypingMode] = useState(() => {
+    const normalizeKanjiReviewType = (val) => {
+        if (val === 'typing' || val === 'multiple_choice' || val === 'flashcard') return val;
+        return 'flashcard';
+    };
+
+    const [reviewModeType, setReviewModeType] = useState(() => {
         try {
-            return localStorage.getItem('quizki_kanji_review_type') === 'typing';
+            return normalizeKanjiReviewType(localStorage.getItem('quizki_kanji_review_type'));
         } catch (_) {
-            return false;
+            return 'flashcard';
         }
     });
+
+    const typingMode = reviewModeType === 'typing';
+    const multipleChoiceMode = reviewModeType === 'multiple_choice';
+    const isQuizOrTyping = typingMode || multipleChoiceMode;
+
+    useEffect(() => {
+        setHasCheckedTyping(false);
+    }, [currentReviewIndex, reviewMode, reviewModeType]);
 
     const toggleKanjiSwapSides = () => {
         setKanjiSwapSides(prev => {
@@ -130,16 +142,19 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
 
     useEffect(() => {
         try {
-            localStorage.setItem('quizki_kanji_review_type', typingMode ? 'typing' : 'flashcard');
+            localStorage.setItem('quizki_kanji_review_type', reviewModeType);
         } catch (_) { }
-    }, [typingMode]);
+    }, [reviewModeType]);
 
-    // Đồng bộ lập tức chế độ ôn tập Kanji (Flashcard vs Typing) vào state và localStorage
-    const applyTypingMode = useCallback((isTyping) => {
+    // Đồng bộ lập tức chế độ ôn tập Kanji (Flashcard / Trắc nghiệm / Typing) vào state và localStorage
+    const applyReviewModeType = useCallback((mode) => {
+        const normalized = typeof mode === 'boolean'
+            ? (mode ? 'typing' : 'flashcard')
+            : normalizeKanjiReviewType(mode);
         try {
-            localStorage.setItem('quizki_kanji_review_type', isTyping ? 'typing' : 'flashcard');
+            localStorage.setItem('quizki_kanji_review_type', normalized);
         } catch (_) {}
-        setTypingMode(isTyping);
+        setReviewModeType(normalized);
     }, []);
 
     const sessionXpRef = useRef(0);
@@ -192,6 +207,8 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
     const isRatingProcessingRef = useRef(false);
     const lastRatedCardIdRef = useRef(null);
     const lastRatedTimeRef = useRef(0);
+    const writeSeqRef = useRef({});
+    const writeChainRef = useRef({});
 
     useEffect(() => {
         reviewModeRef.current = reviewMode;
@@ -645,15 +662,19 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
 
     const [isPreparingSession, setIsPreparingSession] = useState(false);
 
-    const runStartReview = (customList = null, explicitTyping = null) => {
+    const runStartReview = (customList = null, explicitMode = null) => {
         const list = customList || dueKanji;
         if (list.length === 0) return;
-        if (explicitTyping !== null) {
-            setTypingMode(explicitTyping);
+        if (explicitMode !== null) {
+            const normalized = typeof explicitMode === 'boolean'
+                ? (explicitMode ? 'typing' : 'flashcard')
+                : normalizeKanjiReviewType(explicitMode);
+            setReviewModeType(normalized);
             try {
-                localStorage.setItem('quizki_kanji_review_type', explicitTyping ? 'typing' : 'flashcard');
+                localStorage.setItem('quizki_kanji_review_type', normalized);
             } catch (_) { }
         }
+        setHasCheckedTyping(false);
         sessionXpRef.current = 0;
         completedCardIds.current.clear();
         const mappedList = list.map(c => {
@@ -701,6 +722,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
     const startReview = (customList = null) => {
         const list = customList || dueKanji;
         if (list.length === 0) return;
+        pendingModeCardsRef.current = Array.isArray(customList) && customList.length > 0 ? customList : null;
         setShowModeModal(true);
     };
 
@@ -709,19 +731,19 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
     // Tự động khởi chạy hoặc đồng bộ reviewType khi chuyển hướng từ Trang chủ
     useEffect(() => {
         if (location.state?.reviewType) {
-            applyTypingMode(location.state.reviewType === 'typing');
+            applyReviewModeType(location.state.reviewType);
         }
 
         if (location.state?.autoStart && !hasAutoStartedRef.current && !loading && !reviewMode) {
             if (dueKanji.length > 0) {
                 hasAutoStartedRef.current = true;
-                const isTyping = location.state?.reviewType === 'typing';
-                runStartReview(null, isTyping);
+                const chosenMode = location.state?.reviewType || null;
+                runStartReview(null, chosenMode);
             } else {
                 hasAutoStartedRef.current = true; // No due kanji, stay on overview tab
             }
         }
-    }, [location.state, loading, reviewMode, dueKanji.length, applyTypingMode]);
+    }, [location.state, loading, reviewMode, dueKanji.length, applyReviewModeType]);
 
 
 
@@ -757,10 +779,11 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             isRatingProcessingRef.current = false;
         }, 350);
 
-        const srs = srsData[currentCard.id] || currentCard.srsData || currentCard;
+        const char = currentCard.character || currentCard.kanji || currentCard.literal || (currentCard.id?.length === 1 ? currentCard.id : '');
+        const prevSrsRaw = srsData[currentCard.id] || (char ? srsData[char] : null) || (char ? srsData[`kanji_${char}`] : null) || currentCard.srsData || null;
+        const srs = prevSrsRaw || currentCard;
         const result = calculateAnkiSRS(srs, rating);
         const nextReviewOffset = result.nextReviewOffsetMs !== undefined ? result.nextReviewOffsetMs : (result.interval * 60000);
-        const char = currentCard.character || currentCard.kanji || currentCard.literal || (currentCard.id?.length === 1 ? currentCard.id : '');
         const newSrs = {
             id: currentCard.id,
             character: char,
@@ -784,7 +807,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         else if (rating === 'easy') basePoints = 60;
 
         let promotionBonus = 0;
-        const oldState = srs?.state || 'NEW';
+        const oldState = prevSrsRaw?.state || 'NEW';
         const newState = result.state;
         if (oldState === 'NEW' && newState === 'LEARNING') {
             promotionBonus = 10;
@@ -802,11 +825,12 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         }
         const totalXp = Math.round((basePoints + promotionBonus) * multiplier);
 
-        // Save current card's state to history stack for Undo, including totalXp (shallow clone srs)
+        // Save current card's state to history stack for Undo, including totalXp and clean pre-rating srs snapshot
         setReviewHistory(prev => [...prev, {
             cardIndex: currentReviewIndex,
             cardId: currentCard.id,
-            srs: srs ? { ...srs } : null,
+            char,
+            srs: prevSrsRaw ? { ...prevSrsRaw } : null,
             isFlipped: isFlipped,
             xpAwarded: totalXp,
             queue: [...reviewQueue]
@@ -981,36 +1005,48 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         // Accumulate session XP
         sessionXpRef.current += totalXp;
 
-        // 2. Perform Firestore writes asynchronously in the background with retry
+        // 2. Perform Firestore writes asynchronously in the background serialized per card
+        const opKey = String(currentCard.id);
+        const opSeq = (writeSeqRef.current[opKey] || 0) + 1;
+        writeSeqRef.current[opKey] = opSeq;
+
         pendingWriteIds.current.add(currentCard.id);
         if (char) {
             pendingWriteIds.current.add(char);
             pendingWriteIds.current.add(`kanji_${char}`);
         }
-        (async () => {
+        const targetCardId = currentCard.id;
+        const prevHadPrefixedDoc = Boolean(char && `kanji_${char}` !== targetCardId && srsData[`kanji_${char}`]);
+        const prevChain = writeChainRef.current[opKey] || Promise.resolve();
+        writeChainRef.current[opKey] = prevChain.catch(() => {}).then(async () => {
             let attempts = 0;
             let success = false;
             while (attempts < 3 && !success) {
+                if (writeSeqRef.current[opKey] !== opSeq) return;
                 try {
-                    await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, currentCard.id), newSrs, { merge: true });
+                    await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, targetCardId), newSrs, { merge: true });
+                    if (writeSeqRef.current[opKey] !== opSeq) return;
                     // Keep shadow/alias documents in sync unconditionally so stale keys don't linger in Firestore
-                    if (char && char !== currentCard.id) {
+                    if (char && char !== targetCardId) {
                         await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, char), newSrs, { merge: true }).catch(() => {});
                     }
-                    if (char && `kanji_${char}` !== currentCard.id && srsData[`kanji_${char}`]) {
+                    if (writeSeqRef.current[opKey] !== opSeq) return;
+                    if (prevHadPrefixedDoc) {
                         await deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, `kanji_${char}`)).catch(() => {});
                     }
-                    const now = new Date();
-                    const todayDateString = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+                    const nowDate = new Date();
+                    const todayDateString = `${nowDate.getFullYear()}-${String(nowDate.getMonth() + 1).padStart(2, '0')}-${String(nowDate.getDate()).padStart(2, '0')}`;
                     const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
                     await setDoc(activityRef, {
                         reviewsDone: increment(1)
                     }, { merge: true }).catch(err => console.warn('Lỗi ghi activity Kanji:', err));
                     success = true;
-                    removePendingKanjiSync(userId, currentCard.id);
-                    if (char) {
-                        removePendingKanjiSync(userId, char);
-                        removePendingKanjiSync(userId, `kanji_${char}`);
+                    if (writeSeqRef.current[opKey] === opSeq) {
+                        removePendingKanjiSync(userId, targetCardId);
+                        if (char) {
+                            removePendingKanjiSync(userId, char);
+                            removePendingKanjiSync(userId, `kanji_${char}`);
+                        }
                     }
                 } catch (e) {
                     attempts++;
@@ -1019,8 +1055,8 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                         await new Promise(r => setTimeout(r, 400 * attempts));
                     }
                 } finally {
-                    if (success || attempts >= 3) {
-                        pendingWriteIds.current.delete(currentCard.id);
+                    if ((success || attempts >= 3) && writeSeqRef.current[opKey] === opSeq) {
+                        pendingWriteIds.current.delete(targetCardId);
                         if (char) {
                             pendingWriteIds.current.delete(char);
                             pendingWriteIds.current.delete(`kanji_${char}`);
@@ -1028,7 +1064,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                     }
                 }
             }
-        })();
+        });
         console.timeEnd('⚡ SRS_RATING_KANJI');
     };
 
@@ -1078,30 +1114,72 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         const lastAction = reviewHistory[reviewHistory.length - 1];
         setReviewHistory(prev => prev.slice(0, -1));
 
-        const { cardIndex, cardId, srs, isFlipped: wasFlipped, xpAwarded, queue: savedQueue } = lastAction;
+        const { cardIndex, cardId, char: savedChar, srs, isFlipped: wasFlipped, xpAwarded, queue: savedQueue } = lastAction;
+        const resolvedChar = savedChar || srs?.character || (String(cardId).length === 1 ? String(cardId) : '');
+
+        isRatingProcessingRef.current = false;
+        lastRatedCardIdRef.current = null;
+        lastRatedTimeRef.current = 0;
+
+        const opKey = String(cardId);
+        const opSeq = (writeSeqRef.current[opKey] || 0) + 1;
+        writeSeqRef.current[opKey] = opSeq;
+
+        if (intervalCacheRef.current) {
+            delete intervalCacheRef.current[cardId];
+            if (resolvedChar) {
+                delete intervalCacheRef.current[resolvedChar];
+                delete intervalCacheRef.current[`kanji_${resolvedChar}`];
+            }
+        }
+
+        completedCardIds.current.delete(String(cardId));
+        activeReviewCardIds.current.add(String(cardId));
+        if (resolvedChar) {
+            completedCardIds.current.delete(resolvedChar);
+            completedCardIds.current.delete(`kanji_${resolvedChar}`);
+            activeReviewCardIds.current.add(resolvedChar);
+        }
+
+        // Guard pending writes across all alias keys so onSnapshot cannot overwrite optimistic undo
+        pendingWriteIds.current.add(cardId);
+        if (resolvedChar) {
+            pendingWriteIds.current.add(resolvedChar);
+            pendingWriteIds.current.add(`kanji_${resolvedChar}`);
+        }
 
         if (savedQueue) {
             setReviewQueue(savedQueue);
         }
-        completedCardIds.current.delete(cardId);
 
-        // 1. Revert local states immediately
+        // 1. Revert local states immediately across all alias keys
         setSrsData(prev => {
             const next = { ...prev };
             if (srs) {
-                next[cardId] = { ...srs };
+                const restored = { ...srs };
+                next[cardId] = restored;
+                if (resolvedChar) {
+                    next[resolvedChar] = restored;
+                    if (next[`kanji_${resolvedChar}`] !== undefined) {
+                        next[`kanji_${resolvedChar}`] = restored;
+                    }
+                }
             } else {
                 delete next[cardId];
+                if (resolvedChar) {
+                    delete next[resolvedChar];
+                    delete next[`kanji_${resolvedChar}`];
+                }
             }
             return next;
         });
-        updateCachedUserSrs(userId, cardId, srs || null);
+        revertCachedUserSrs(userId, cardId, srs || null, resolvedChar || null);
 
         setIsAnimatingFlip(false);
         setSlideDirection('right');
         setTimeout(() => {
             setCurrentReviewIndex(cardIndex);
-            if (typingMode) {
+            if (isQuizOrTyping) {
                 setIsFlipped(false);
                 setHasCheckedTyping(false);
             } else {
@@ -1117,29 +1195,54 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             }, 20);
         }, 70);
 
-        // Revert session XP
-        sessionXpRef.current -= xpAwarded;
+        // Revert session XP safely
+        sessionXpRef.current = Math.max(0, (sessionXpRef.current || 0) - (xpAwarded || 0));
 
-        // 2. Revert Firestore writes asynchronously in the background
-        (async () => {
+        // 2. Revert Firestore writes serialized after any in-flight Rating write
+        const prevChain = writeChainRef.current[opKey] || Promise.resolve();
+        writeChainRef.current[opKey] = prevChain.catch(() => {}).then(async () => {
             try {
+                if (writeSeqRef.current[opKey] !== opSeq) return;
                 if (srs) {
-                    await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, cardId), srs);
+                    const cleanSrs = cleanFirestoreData(srs);
+                    await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, cardId), cleanSrs);
+                    if (resolvedChar && resolvedChar !== cardId) {
+                        await setDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, resolvedChar), cleanSrs).catch(() => {});
+                    }
                 } else {
                     await deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, cardId));
+                    if (resolvedChar && resolvedChar !== cardId) {
+                        await deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, resolvedChar)).catch(() => {});
+                    }
+                    if (resolvedChar && `kanji_${resolvedChar}` !== cardId) {
+                        await deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/kanjiSRS`, `kanji_${resolvedChar}`)).catch(() => {});
+                    }
                 }
 
                 // Giảm lượt ôn tập trong ngày
-                const now = new Date();
-                const todayDateString = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
+                const nowDate = new Date();
+                const todayDateString = `${nowDate.getFullYear()}-${String(nowDate.getMonth() + 1).padStart(2, '0')}-${String(nowDate.getDate()).padStart(2, '0')}`;
                 const activityRef = doc(db, `artifacts/${appId}/users/${userId}/dailyActivity`, todayDateString);
                 await setDoc(activityRef, {
                     reviewsDone: increment(-1)
                 }, { merge: true }).catch(err => console.warn('Lỗi revert activity Kanji:', err));
             } catch (e) {
                 console.error('Error reverting SRS in background:', e);
+            } finally {
+                if (writeSeqRef.current[opKey] === opSeq) {
+                    removePendingKanjiSync(userId, cardId);
+                    if (resolvedChar) {
+                        removePendingKanjiSync(userId, resolvedChar);
+                        removePendingKanjiSync(userId, `kanji_${resolvedChar}`);
+                    }
+                    pendingWriteIds.current.delete(cardId);
+                    if (resolvedChar) {
+                        pendingWriteIds.current.delete(resolvedChar);
+                        pendingWriteIds.current.delete(`kanji_${resolvedChar}`);
+                    }
+                }
             }
-        })();
+        });
     };
 
     useEffect(() => {
@@ -1150,9 +1253,9 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
             if (activeTag === 'INPUT' || activeTag === 'TEXTAREA' || e.target?.isContentEditable) {
                 return;
             }
-            // Khi đang ở chế độ gõ và chưa nộp đáp án: không nuốt phím phím tắt và auto focus input nếu bị mất focus
-            if (typingMode && !hasCheckedTyping) {
-                if (e.key.length === 1 && !e.ctrlKey && !e.altKey && !e.metaKey) {
+            // Khi đang ở chế độ gõ hoặc trắc nghiệm và chưa nộp đáp án: khóa phím tắt và auto focus input nếu là chế độ gõ
+            if (isQuizOrTyping && !hasCheckedTyping) {
+                if (typingMode && e.key.length === 1 && !e.ctrlKey && !e.altKey && !e.metaKey) {
                     const inputEl = document.querySelector('[data-tour-id="SRS_TYPING_PANEL"] input');
                     if (inputEl && document.activeElement !== inputEl) {
                         inputEl.focus();
@@ -1165,7 +1268,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                 setIsFlipped(f => !f);
                 playFlipSound();
             }
-            if (!typingMode || hasCheckedTyping) {
+            if (!isQuizOrTyping || hasCheckedTyping) {
                 if (e.key === '1') { e.preventDefault(); handleRating('again'); }
                 if (e.key === '2') { e.preventDefault(); handleRating('hard'); }
                 if (e.key === '3') { e.preventDefault(); handleRating('good'); }
@@ -1178,7 +1281,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
         };
         window.addEventListener('keydown', handler);
         return () => window.removeEventListener('keydown', handler);
-    }, [reviewMode, currentCard, currentReviewIndex, reviewHistory, typingMode, hasCheckedTyping]);
+    }, [reviewMode, currentCard, currentReviewIndex, reviewHistory, typingMode, isQuizOrTyping, hasCheckedTyping]);
 
     if (loading) {
         return (
@@ -1273,11 +1376,11 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                         >
                             <div
                                 onClick={() => {
-                                    if (typingMode && !hasCheckedTyping) return;
+                                    if (isQuizOrTyping && !hasCheckedTyping) return;
                                     setIsFlipped(f => !f);
                                     playFlipSound();
                                 }}
-                                className={typingMode && !hasCheckedTyping ? 'cursor-default' : 'cursor-pointer'}
+                                className={isQuizOrTyping && !hasCheckedTyping ? 'cursor-default' : 'cursor-pointer'}
                                 style={{
                                     position: 'relative',
                                     width: '100%',
@@ -1311,7 +1414,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                                     {!kanjiSwapSides ? (
                                         <>
                                             <div className="text-[140px] leading-none font-bold text-gray-800 dark:text-white select-none font-japanese">{currentCard.character}</div>
-                                            {!typingMode && (
+                                            {!isQuizOrTyping && (
                                                 <div className="absolute bottom-6 left-0 right-0 text-center">
                                                     <span className="text-xs text-gray-400 dark:text-gray-500 px-3.5 py-1.5 bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400 rounded-full text-xs font-semibold shadow-sm tracking-wide">{t('vocab.flipCard', 'Nhấn để lật thẻ')}</span>
                                                 </div>
@@ -1328,7 +1431,7 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                                             <div className="text-xl sm:text-2xl text-cyan-600 dark:text-cyan-400 font-semibold">
                                                 {currentCard.meaning || '—'}
                                             </div>
-                                            {!typingMode && (
+                                            {!isQuizOrTyping && (
                                                 <div className="pt-4">
                                                     <span className="text-xs text-gray-400 dark:text-gray-500 px-3.5 py-1.5 bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400 rounded-full text-xs font-semibold shadow-sm tracking-wide">{t('vocab.flipCard', 'Nhấn để lật thẻ')}</span>
                                                 </div>
@@ -1483,8 +1586,28 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                         </div>
                     )}
 
-                    {/* Rating buttons: Hidden in typing mode until user checks answer */}
-                    {(!typingMode || hasCheckedTyping) && (
+                    {/* Multiple Choice Panel Component for Kanji */}
+                    {multipleChoiceMode && (
+                        <div className="w-full mt-2">
+                            <SrsMultipleChoicePanel
+                                type="kanji"
+                                card={currentCard}
+                                pool={kanjiList}
+                                swapSides={kanjiSwapSides}
+                                cardIndex={currentReviewIndex}
+                                undoNonce={reviewUndoNonce}
+                                isFlipped={isFlipped}
+                                onCheck={() => {
+                                    setHasCheckedTyping(true);
+                                    setIsAnimatingFlip(true);
+                                    setIsFlipped(true);
+                                }}
+                            />
+                        </div>
+                    )}
+
+                    {/* Rating buttons: Hidden in typing / multiple_choice mode until user checks answer */}
+                    {(!isQuizOrTyping || hasCheckedTyping) && (
                         <div className="w-full space-y-3 animate-fade-in mt-4">
                             <div className="grid grid-cols-4 gap-2.5 w-full">
                                 {[
@@ -1836,16 +1959,20 @@ const KanjiReviewScreen = ({ awardXP, setIsReviewActive, isAdmin = false }) => {
                 }}
             />
 
-            {/* SRS Mode Selection Modal (Flashcard vs Anki Typing) */}
+            {/* SRS Mode Selection Modal (Flashcard / Quiz / Typing) */}
             <SrsModeSelectModal
                 isOpen={showModeModal}
-                onClose={() => setShowModeModal(false)}
+                onClose={() => {
+                    pendingModeCardsRef.current = null;
+                    setShowModeModal(false);
+                }}
                 title={t('kanji.selectReviewMode', 'Chọn chế độ ôn tập Kanji')}
-                cardCount={dueKanji.length}
+                cardCount={pendingModeCardsRef.current?.length || dueKanji.length}
                 onSelectMode={(mode) => {
-                    const isTyping = mode === 'typing';
-                    applyTypingMode(isTyping);
-                    runStartReview(null, isTyping);
+                    const cardsToRun = pendingModeCardsRef.current;
+                    pendingModeCardsRef.current = null;
+                    applyReviewModeType(mode);
+                    runStartReview(cardsToRun, mode);
                 }}
             />
         </div>

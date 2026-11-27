@@ -1500,16 +1500,33 @@ export const getPendingGrammarSyncMap = (userId) => {
     }
 };
 
-export const recordPendingGrammarSync = (userId, grammarId, srsData) => {
-    if (!userId || !grammarId || !srsData || typeof window === 'undefined' || !window.localStorage) return;
+export const recordPendingGrammarSync = (userId, grammarId, srsData, isRevert = false) => {
+    if (!userId || !grammarId || (!srsData && !isRevert) || typeof window === 'undefined' || !window.localStorage) return;
     try {
         const key = `quizki_pending_grammar_sync_${userId}`;
         const map = getPendingGrammarSyncMap(userId);
-        map[String(grammarId)] = {
-            ...(map[String(grammarId)] || {}),
-            ...srsData,
-            _pendingTime: Date.now()
-        };
+        const safeId = String(grammarId);
+        if (isRevert && !srsData) {
+            map[safeId] = {
+                _revertedDelete: true,
+                _forceRevert: true,
+                _pendingTime: Date.now()
+            };
+        } else {
+            const nextEntry = {
+                ...(isRevert ? {} : (map[safeId] || {})),
+                ...srsData,
+                _pendingTime: Date.now()
+            };
+            if (isRevert) {
+                nextEntry._forceRevert = true;
+                delete nextEntry._revertedDelete;
+            } else {
+                delete nextEntry._forceRevert;
+                delete nextEntry._revertedDelete;
+            }
+            map[safeId] = nextEntry;
+        }
         safeSetLocalStorage(key, JSON.stringify(map));
     } catch (e) {
         console.warn('⚠️ Failed to record pending grammar sync:', e);
@@ -1547,9 +1564,17 @@ export const syncPendingGrammarSrs = async (userId) => {
     try {
         for (const [id, srs] of entries) {
             try {
+                if (srs && srs._revertedDelete) {
+                    const { deleteDoc } = await import('firebase/firestore');
+                    await deleteDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, id));
+                    removePendingGrammarSync(userId, id);
+                    continue;
+                }
                 const cleanSrs = { ...srs };
                 delete cleanSrs._pendingTime;
-                await setDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, id), cleanSrs, { merge: true });
+                delete cleanSrs._forceRevert;
+                delete cleanSrs._revertedDelete;
+                await setDoc(doc(db, `artifacts/${appId}/users/${userId}/grammarSRS`, id), cleanSrs, srs?._forceRevert ? {} : { merge: true });
                 removePendingGrammarSync(userId, id);
             } catch (err) {
                 console.warn(`⚠️ Retrying pending grammar SRS sync failed for ${id}:`, err);
@@ -1565,13 +1590,27 @@ const mergeServerWithLocalGrammarSrs = (userId, serverSrsMap) => {
     const merged = { ...serverSrsMap };
     const now = Date.now();
 
-    // 1. Pending sync items: only take priority if genuinely newer than server and not expired (>24h)
+    // 1. Pending sync items: only take priority if genuinely newer than server and not expired (>24h),
+    // or when explicitly marked _forceRevert during an in-flight Undo operation
     for (const [id, pendingItem] of Object.entries(pendingMap || {})) {
         if (!pendingItem || typeof pendingItem !== 'object') continue;
         const pendingTime = pendingItem._pendingTime || pendingItem.lastReview || 0;
         // Auto-expire zombie writes older than 24 hours
         if (pendingTime > 0 && now - pendingTime > 86400000) {
             removePendingGrammarSync(userId, id);
+            continue;
+        }
+
+        if (pendingItem._forceRevert) {
+            if (pendingItem._revertedDelete) {
+                delete merged[id];
+            } else {
+                const cleanItem = { ...pendingItem };
+                delete cleanItem._pendingTime;
+                delete cleanItem._forceRevert;
+                delete cleanItem._revertedDelete;
+                merged[id] = cleanItem;
+            }
             continue;
         }
 
@@ -1595,6 +1634,8 @@ const mergeServerWithLocalGrammarSrs = (userId, serverSrsMap) => {
 
         const cleanItem = { ...pendingItem };
         delete cleanItem._pendingTime;
+        delete cleanItem._forceRevert;
+        delete cleanItem._revertedDelete;
         merged[id] = { ...(serverItem || {}), ...cleanItem };
     }
 
@@ -1814,6 +1855,46 @@ export const updateCachedUserGrammarSrs = (userId, grammarId, newSrs) => {
         try { cb(cachedUserGrammarSrsData); } catch (_) {}
     });
     // Dispatch global srs-updated event for instant 0ms badge sync
+    try {
+        window.dispatchEvent(new Event('srs-updated'));
+    } catch (_) {}
+};
+
+export const revertCachedUserGrammarSrs = (userId, grammarId, prevSrs) => {
+    if (!userId || !grammarId) return;
+    if (!cachedUserGrammarSrsData || cachedUserIdForGrammarSrs !== userId) {
+        try {
+            const localCached = localStorage.getItem(`quizki_cached_grammar_srs_${userId}`);
+            if (localCached) {
+                cachedUserGrammarSrsData = JSON.parse(localCached);
+                cachedUserIdForGrammarSrs = userId;
+            }
+        } catch (_) {}
+    }
+    if (!cachedUserGrammarSrsData) {
+        cachedUserGrammarSrsData = {};
+        cachedUserIdForGrammarSrs = userId;
+    }
+
+    if (!prevSrs) {
+        delete cachedUserGrammarSrsData[grammarId];
+        recordPendingGrammarSync(userId, grammarId, null, true);
+    } else {
+        cachedUserGrammarSrsData[grammarId] = { ...prevSrs };
+        recordPendingGrammarSync(userId, grammarId, { ...prevSrs }, true);
+    }
+    safeSetLocalStorage(`quizki_cached_grammar_srs_${userId}`, JSON.stringify(cachedUserGrammarSrsData));
+
+    try {
+        const computed = computeGrammarSrsStats(cachedUserGrammarSrsData);
+        const serialized = JSON.stringify(computed);
+        localStorage.setItem(`quizki_cached_grammar_srs_stats_${userId}`, serialized);
+        localStorage.setItem('quizki_cached_grammar_srs_stats', serialized);
+    } catch (_) {}
+
+    grammarSrsListeners.forEach(cb => {
+        try { cb(cachedUserGrammarSrsData); } catch (_) {}
+    });
     try {
         window.dispatchEvent(new Event('srs-updated'));
     } catch (_) {}

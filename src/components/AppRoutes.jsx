@@ -659,7 +659,7 @@ const AppRoutes = ({
     }
 
     return (
-        <React.Suspense fallback={<div className="min-h-screen flex items-center justify-center bg-slate-50 dark:bg-slate-900"><LoadingIndicator text={t('common.loadingFeatures', 'Đang nạp tính năng...')} /></div>}>
+        <React.Suspense fallback={<div className="w-full flex-1 flex items-center justify-center min-h-[calc(100dvh-6rem)] bg-transparent"><LoadingIndicator text={t('common.loadingFeatures', 'Đang nạp tính năng...')} /></div>}>
             <SectionErrorBoundary name={t('common.appScreen', 'Màn hình ứng dụng')} resetKeys={[location.pathname, location.search]}>
                 <Routes>
                     {/* Public routes */}

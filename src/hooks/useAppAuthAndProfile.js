@@ -341,6 +341,10 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
 
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user && !user.emailVerified) {
+                if (typeof window !== 'undefined' && window.__quizki_registration_syncing) {
+                    setAuthReady(true);
+                    return;
+                }
                 if (callbacksRef.current.setNotification) callbacksRef.current.setNotification("Email chưa xác thực. Vui lòng kiểm tra hộp thư và bấm link xác nhận, sau đó đăng nhập lại.");
                 signOut(auth);
                 setUserId(null);

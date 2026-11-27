@@ -148,6 +148,7 @@ const GrammarFlashcard = ({
     card,
     isFlipped = false,
     onFlip,
+    disableFrontClick = false,
     isAnimatingFlip = true,
     slideDirection = '',
     settings = {},
@@ -231,8 +232,11 @@ const GrammarFlashcard = ({
                 }}
             >
                 <div
-                    onClick={onFlip}
-                    className="cursor-pointer"
+                    onClick={() => {
+                        if (disableFrontClick && !isFlipped) return;
+                        if (onFlip) onFlip();
+                    }}
+                    className={disableFrontClick && !isFlipped ? 'cursor-default' : 'cursor-pointer'}
                     style={{
                         position: 'relative',
                         width: '100%',
@@ -282,9 +286,11 @@ const GrammarFlashcard = ({
                                     </span>
                                 )}
                             </div>
-                            <span className="text-xs text-slate-400 font-medium">
-                                Nhấn để lật thẻ (Space)
-                            </span>
+                            {!disableFrontClick && (
+                                <span className="text-xs text-slate-400 font-medium">
+                                    Nhấn để lật thẻ (Space)
+                                </span>
+                            )}
                         </div>
 
                         {/* Nội dung chính Mặt trước */}

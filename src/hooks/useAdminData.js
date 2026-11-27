@@ -46,8 +46,9 @@ export const useAdminData = ({ publicStatsPath, currentUserId, adminConfig, onAd
         const q = query(collection(db, publicStatsPath));
         const unsubscribe = onSnapshot(q, (snapshot) => {
             const userList = snapshot.docs.map(d => ({
-                id: d.id,
-                ...d.data()
+                userId: d.id,
+                ...d.data(),
+                id: d.id
             }));
             setUsers(userList);
             setIsLoading(false);
@@ -369,112 +370,148 @@ export const useAdminData = ({ publicStatsPath, currentUserId, adminConfig, onAd
 
     const [isSyncingAllUsers, setIsSyncingAllUsers] = useState(false);
 
-    const handleSyncUserByUidOrEmail = async (rawInput) => {
-        if (!rawInput || !rawInput.trim() || !db || !publicStatsPath) return null;
-        const input = rawInput.trim();
+    const handleSyncUserByUidOrEmail = async (rawInputOrPayload) => {
+        if (!db || !publicStatsPath) return null;
+        const payload = (typeof rawInputOrPayload === 'object' && rawInputOrPayload !== null)
+            ? rawInputOrPayload
+            : { input: String(rawInputOrPayload || '') };
+
+        let uidInput = (payload.uid || '').trim();
+        let emailInput = (payload.email || '').trim();
+        const customDisplayName = (payload.displayName || '').trim();
+        const initialPackage = (payload.packageId || '').trim();
+
+        const singleInput = (payload.input || '').trim();
+        if (singleInput) {
+            if (singleInput.includes('@')) {
+                if (!emailInput) emailInput = singleInput;
+            } else if (!uidInput) {
+                uidInput = singleInput;
+            }
+        }
+
+        if (!uidInput && !emailInput) return null;
         setIsLoading(true);
         try {
-            // Case 1: Search by Email across all settings/profile documents
-            if (input.includes('@')) {
-                const targetEmailLower = input.toLowerCase();
-                let foundUid = null;
-                let foundData = null;
+            let targetUid = uidInput || null;
+            let existingProfileData = null;
 
-                try {
-                    // Try collectionGroup query for profile
-                    const cgSnap = await getDocs(collectionGroup(db, 'settings'));
-                    for (const docSnap of cgSnap.docs) {
-                        if (docSnap.id === 'profile') {
-                            const data = docSnap.data() || {};
-                            if ((data.email || '').trim().toLowerCase() === targetEmailLower) {
-                                foundUid = docSnap.ref.parent?.parent?.id;
-                                foundData = data;
-                                break;
+            // Step 1: If only Email provided, scan userStats, collectionGroup('settings'), and creditRequests
+            if (!targetUid && emailInput) {
+                const targetEmailLower = emailInput.toLowerCase();
+
+                const matchedLocal = users.find(u => (u.email || '').trim().toLowerCase() === targetEmailLower);
+                if (matchedLocal?.userId) {
+                    targetUid = matchedLocal.userId;
+                    existingProfileData = matchedLocal;
+                }
+
+                if (!targetUid) {
+                    try {
+                        const cgSnap = await getDocs(collectionGroup(db, 'settings'));
+                        for (const docSnap of cgSnap.docs) {
+                            if (docSnap.id === 'profile') {
+                                const data = docSnap.data() || {};
+                                if ((data.email || '').trim().toLowerCase() === targetEmailLower) {
+                                    targetUid = docSnap.ref.parent?.parent?.id;
+                                    existingProfileData = data;
+                                    break;
+                                }
                             }
                         }
+                    } catch (cgErr) {
+                        console.warn('CollectionGroup search error:', cgErr);
                     }
-                } catch (cgErr) {
-                    console.warn('CollectionGroup search error:', cgErr);
                 }
 
-                if (foundUid && foundData) {
-                    const userEmail = (foundData.email || input).trim();
-                    const displayName = foundData.displayName || userEmail.split('@')[0] || 'Người học';
-                    const userObj = {
-                        userId: foundUid,
-                        email: userEmail,
-                        displayName: displayName,
-                        photoURL: foundData.photoURL || '',
-                        totalCards: foundData.totalCards || 0,
-                        xp: foundData.xp || foundData.score || 0,
-                        ...foundData
-                    };
-                    const statsRef = doc(db, publicStatsPath, foundUid);
-                    await setDoc(statsRef, userObj, { merge: true });
-                    setUsers(prev => {
-                        const existingIdx = prev.findIndex(u => u.userId === foundUid);
-                        if (existingIdx >= 0) {
-                            const updated = [...prev];
-                            updated[existingIdx] = { ...updated[existingIdx], ...userObj };
-                            return updated;
-                        }
-                        return [userObj, ...prev];
+                if (!targetUid) {
+                    const matchedCredit = creditRequests.find(r => (r.userEmail || '').trim().toLowerCase() === targetEmailLower && r.userId);
+                    if (matchedCredit) {
+                        targetUid = matchedCredit.userId;
+                    }
+                }
+
+                if (!targetUid) {
+                    setNotification({
+                        type: 'warning',
+                        message: `Tài khoản "${emailInput}" chưa có hồ sơ Firestore (do chưa xác thực email lúc đăng ký). Hãy dán User UID từ Firebase Console vào ô Đồng bộ để kích hoạt ngay!`
                     });
-                    setSelectedUser(userObj);
-                    setNotification({ type: 'success', message: `🎉 Đã tìm thấy tài khoản "${displayName}" (${userEmail}) và đồng bộ vào danh sách Admin!` });
-                    return userObj;
-                } else {
-                    setNotification({ type: 'warning', message: `Không tìm thấy tài khoản nào có email "${input}" trên hệ thống Firestore.` });
-                    return null;
+                    return { needsUid: true, email: emailInput };
                 }
             }
 
-            // Case 2: Search by UID
-            const profileRef = doc(db, `artifacts/${appId}/users/${input}/settings/profile`);
-            const snap = await getDoc(profileRef);
-            if (snap.exists()) {
-                const pData = snap.data();
-                const userEmail = (pData.email || '').trim();
-                const displayName = pData.displayName || userEmail?.split('@')[0] || 'Người học';
-                const userObj = {
-                    userId: input,
-                    email: userEmail,
-                    displayName: displayName,
-                    photoURL: pData.photoURL || '',
-                    totalCards: pData.totalCards || 0,
-                    xp: pData.xp || pData.score || 0,
-                    ...pData
+            // Step 2: Hydrate existing profile + stats for targetUid, and persist BOTH settings/profile & userStats
+            const profileRef = doc(db, `artifacts/${appId}/users/${targetUid}/settings/profile`);
+            const statsRef = doc(db, publicStatsPath, targetUid);
+            const [profileSnap, statsSnap] = await Promise.all([
+                getDoc(profileRef).catch(() => null),
+                getDoc(statsRef).catch(() => null)
+            ]);
+
+            const pData = profileSnap?.exists?.() ? profileSnap.data() : (existingProfileData || {});
+            const sData = statsSnap?.exists?.() ? statsSnap.data() : {};
+            const resolvedEmail = (emailInput || pData.email || sData.email || '').trim();
+            const resolvedName = customDisplayName || pData.displayName || sData.displayName || (resolvedEmail ? resolvedEmail.split('@')[0] : `User_${targetUid.slice(0, 6)}`);
+
+            let packagePatch = {};
+            if (initialPackage === 'premium_1m' || initialPackage === 'premium_1y' || initialPackage === 'premium_3y') {
+                const days = initialPackage === 'premium_3y' ? 3 * 365 : (initialPackage === 'premium_1y' ? 365 : 30);
+                packagePatch = {
+                    unlockedSpecializedPackages: [initialPackage, 'premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'],
+                    isPremiumUnlocked: true,
+                    premiumExpiresAt: Date.now() + days * 24 * 60 * 60 * 1000
                 };
-                const statsRef = doc(db, publicStatsPath, input);
-                await setDoc(statsRef, userObj, { merge: true });
-                setUsers(prev => {
-                    const existingIdx = prev.findIndex(u => u.userId === input);
-                    if (existingIdx >= 0) {
-                        const updated = [...prev];
-                        updated[existingIdx] = { ...updated[existingIdx], ...userObj };
-                        return updated;
-                    }
-                    return [userObj, ...prev];
-                });
-                setSelectedUser(userObj);
-                setNotification({ type: 'success', message: `✅ Đã đồng bộ tài khoản "${displayName}" (${userEmail || input}) vào danh sách Admin!` });
-                return userObj;
-            } else {
-                const userObj = {
-                    userId: input,
-                    email: '',
-                    displayName: `User_${input.slice(0, 6)}`,
-                    photoURL: '',
-                    totalCards: 0,
-                    xp: 0
-                };
-                const statsRef = doc(db, publicStatsPath, input);
-                await setDoc(statsRef, userObj, { merge: true });
-                setUsers(prev => [userObj, ...prev]);
-                setSelectedUser(userObj);
-                setNotification({ type: 'success', message: `✅ Đã tạo hồ sơ quản trị cho UID ${input}!` });
-                return userObj;
             }
+
+            const now = Date.now();
+            const profileWrite = {
+                ...pData,
+                displayName: resolvedName,
+                ...(resolvedEmail ? { email: resolvedEmail } : {}),
+                ...packagePatch,
+                updatedAt: now
+            };
+            if (!profileSnap?.exists?.()) {
+                profileWrite.dailyGoal = pData.dailyGoal || 15;
+                profileWrite.targetLanguage = pData.targetLanguage || 'ja';
+                profileWrite.hasSeenHelp = true;
+                profileWrite.createdAt = now;
+            }
+            await setDoc(profileRef, profileWrite, { merge: true });
+
+            const userObj = {
+                ...pData,
+                ...sData,
+                userId: targetUid,
+                id: targetUid,
+                email: resolvedEmail,
+                displayName: resolvedName,
+                photoURL: pData.photoURL || sData.photoURL || '',
+                totalCards: sData.totalCards || pData.totalCards || 0,
+                xp: sData.xp || sData.score || pData.xp || 0,
+                ...packagePatch,
+                ...(packagePatch.isPremiumUnlocked ? { isPremium: true } : {}),
+                updatedAt: now
+            };
+            await setDoc(statsRef, userObj, { merge: true });
+
+            setUsers(prev => {
+                const existingIdx = prev.findIndex(u => u.userId === targetUid);
+                if (existingIdx >= 0) {
+                    const updated = [...prev];
+                    updated[existingIdx] = { ...updated[existingIdx], ...userObj };
+                    return updated;
+                }
+                return [userObj, ...prev];
+            });
+            setSelectedUser(userObj);
+            setNotification({
+                type: 'success',
+                message: packagePatch.isPremiumUnlocked
+                    ? `👑 Đã đồng bộ "${resolvedName}" (${resolvedEmail || targetUid}) & kích hoạt Premium thành công!`
+                    : `✅ Đã đồng bộ "${resolvedName}" (${resolvedEmail || targetUid}) vào danh sách Admin!`
+            });
+            return userObj;
         } catch (e) {
             console.error('Error syncing user by input:', e);
             setNotification({ type: 'error', message: 'Lỗi đồng bộ người dùng: ' + e.message });

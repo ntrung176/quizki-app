@@ -216,10 +216,14 @@ const LoginScreen = () => {
             }
         }
         setIsEmailLoading(true);
+        if (typeof window !== 'undefined') window.__quizki_registration_syncing = true;
         try {
             if (mode === 'login') {
                 const cred = await signInWithEmailAndPassword(auth, email.trim(), password);
                 if (!cred.user.emailVerified) {
+                    if (db) {
+                        await syncUserRoadmapAndProfile(cred.user, null, language);
+                    }
                     const now = Date.now();
                     const timeSinceLastEmail = now - lastVerificationEmailTime;
                     if (timeSinceLastEmail < EMAIL_COOLDOWN_MS) {
@@ -245,6 +249,10 @@ const LoginScreen = () => {
                 }
             } else {
                 const cred = await createUserWithEmailAndPassword(auth, email.trim(), password);
+                // Sync profile & public userStats BEFORE sendEmailVerification/signOut so user appears in Admin immediately
+                if (db) {
+                    await syncUserRoadmapAndProfile(cred.user, email.trim().split('@')[0], language);
+                }
                 try {
                     await sendEmailVerification(cred.user);
                     lastVerificationEmailTime = Date.now();
@@ -257,9 +265,6 @@ const LoginScreen = () => {
                     } else {
                         setInfo(language === 'vi' ? 'Đăng ký thành công! Nhưng không gửi được email xác thực. Vui lòng đăng nhập lại để nhận email xác thực mới.' : 'Registration successful! Could not send verification email. Please sign in again.');
                     }
-                }
-                if (db) {
-                    await syncUserRoadmapAndProfile(cred.user, email.trim().split('@')[0], language);
                 }
                 await signOut(auth);
             }
@@ -279,6 +284,7 @@ const LoginScreen = () => {
             }
             if (msg) setError(msg);
         } finally {
+            if (typeof window !== 'undefined') window.__quizki_registration_syncing = false;
             setIsEmailLoading(false);
         }
     };

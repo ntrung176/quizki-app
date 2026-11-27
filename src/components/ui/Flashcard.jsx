@@ -290,7 +290,7 @@ const Flashcard = ({
     const isEnglishCard = checkIsEnglishCard(card, isEnglishMode);
     const isKoreanCard = checkIsKoreanCard(card, isKoreanMode);
 
-    const isTypingMode = cardSettings?.reviewType === 'typing' && hasCheckedTyping !== undefined;
+    const isTypingMode = (cardSettings?.reviewType === 'typing' || cardSettings?.reviewType === 'multiple_choice') && hasCheckedTyping !== undefined;
     const isTypingBlocked = isTypingMode && hasCheckedTyping === false;
 
     const showExample = Boolean(cardSettings?.back?.example);

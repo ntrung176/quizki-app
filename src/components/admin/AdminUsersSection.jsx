@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Users, Search, BarChart3, Clock, Zap, Crown, Loader2, Shield, BookOpen, Languages, CreditCard, UserX, ShieldCheck, Trash2 } from 'lucide-react';
+import AdminSyncUserModal from './AdminSyncUserModal';
 
 const AdminUsersSection = ({
     stats,
@@ -37,6 +38,8 @@ const AdminUsersSection = ({
     handleSyncAllUsersFromFirestore,
     isSyncingAllUsers
 }) => {
+    const [showSyncModal, setShowSyncModal] = useState(false);
+
     return (
         <>
             {/* Stats Cards */}
@@ -147,14 +150,9 @@ const AdminUsersSection = ({
                             </button>
                             <button
                                 type="button"
-                                onClick={async () => {
-                                    const uidInput = window.prompt("Nhập Email hoặc User UID người dùng để đồng bộ vào Admin (ví dụ: buiphuongthao010120@gmail.com hoặc RZfXCpw3JPeG9CsaWmqlQk...):");
-                                    if (uidInput && uidInput.trim() && handleSyncUserByUidOrEmail) {
-                                        await handleSyncUserByUidOrEmail(uidInput.trim());
-                                    }
-                                }}
+                                onClick={() => setShowSyncModal(true)}
                                 className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-bold text-xs rounded-xl shadow-sm transition-all flex items-center gap-1.5 cursor-pointer active:scale-95 border border-slate-300 dark:border-slate-600"
-                                title="Đồng bộ người dùng qua Email hoặc User UID"
+                                title="Đồng bộ người dùng qua Email hoặc User UID (Firebase Auth)"
                             >
                                 <Search className="w-3.5 h-3.5 text-emerald-500" />
                                 <span>Tìm & Đồng bộ Email / UID</span>
@@ -184,10 +182,16 @@ const AdminUsersSection = ({
                                 <p className="text-gray-600 dark:text-gray-300 font-medium">Không tìm thấy người dùng {searchQuery ? `"${searchQuery}"` : ''}</p>
                                 {searchQuery && (
                                     <div className="mt-4">
-                                        <p className="text-xs text-gray-400 mb-3">Người dùng mới đăng nhập Google có thể chưa cập nhật hồ sơ công khai.</p>
+                                        <p className="text-xs text-gray-400 mb-3">Người dùng mới đăng ký Email hoặc chưa đồng bộ hồ sơ công khai có thể cần dán User UID từ Firebase Console.</p>
                                         <button
                                             type="button"
-                                            onClick={() => handleSyncUserByUidOrEmail && handleSyncUserByUidOrEmail(searchQuery)}
+                                            onClick={async () => {
+                                                if (!handleSyncUserByUidOrEmail) return;
+                                                const res = await handleSyncUserByUidOrEmail(searchQuery);
+                                                if (res?.needsUid) {
+                                                    setShowSyncModal(true);
+                                                }
+                                            }}
                                             className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl shadow transition-all inline-flex items-center gap-1.5 cursor-pointer"
                                         >
                                             <Search className="w-3.5 h-3.5" />
@@ -498,6 +502,13 @@ const AdminUsersSection = ({
                     )}
                 </div>
             </div>
+
+            <AdminSyncUserModal
+                isOpen={showSyncModal}
+                initialQuery={searchQuery}
+                onClose={() => setShowSyncModal(false)}
+                onSync={handleSyncUserByUidOrEmail}
+            />
         </>
     );
 };
