@@ -6,6 +6,7 @@ import { showToast } from '../../utils/toast';
 import PremiumLockedModal from '../ui/PremiumLockedModal';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { getLanguageService, isEnglishCard, isKoreanCard, formatIPA } from '../../languages';
+import { AiCostTag } from '../ui/AiCreditBadge';
 
 const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExample, allCards = [], canUserUseAI }) => {
     const { isEnglishMode, isKoreanMode } = useTargetLanguage();
@@ -179,8 +180,15 @@ const EditCardForm = ({ card, onSave, onBack, onGeminiAssist, onGenerateMoreExam
                                 className="flex-1 pl-2 md:pl-3 lg:pl-4 pr-2 md:pr-12 py-1.5 md:py-2 lg:py-3 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg md:rounded-xl focus:border-emerald-500 dark:focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 dark:focus:ring-emerald-900/50 font-medium text-sm md:text-base lg:text-lg text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500"
                             />
                             {onGeminiAssist && (
-                                <button type="button" onClick={handleAiAssist} className="px-2 md:px-3 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 rounded-lg md:rounded-xl font-bold hover:bg-emerald-200 dark:hover:bg-emerald-900/50 flex-shrink-0 text-xs md:text-sm">
-                                    {isAiLoading ? <Loader2 className="animate-spin w-4 h-4 md:w-5 md:h-5" /> : "AI"}
+                                <button type="button" onClick={handleAiAssist} className="px-2.5 md:px-3 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 rounded-lg md:rounded-xl font-bold hover:bg-emerald-200 dark:hover:bg-emerald-900/50 flex-shrink-0 text-xs md:text-sm inline-flex items-center gap-1.5">
+                                    {isAiLoading ? (
+                                        <Loader2 className="animate-spin w-4 h-4 md:w-5 md:h-5" />
+                                    ) : (
+                                        <>
+                                            <span>AI</span>
+                                            <AiCostTag featureId="vocab_gen" />
+                                        </>
+                                    )}
                                 </button>
                             )}
                         </div>

@@ -1,8 +1,10 @@
 import './App.css';
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { auth, db, appId } from './config/firebase';
-import { AlertTriangle, CheckCircle } from 'lucide-react';
+import { AlertTriangle, CheckCircle, Wrench } from 'lucide-react';
+import MaintenanceScreen from './components/ui/MaintenanceScreen';
+import { updateAdminConfig } from './utils/adminSettings';
 import AppRoutes from './components/AppRoutes';
 import { Sidebar } from './components/layout';
 import OnboardingTour from './components/ui/OnboardingTour';
@@ -24,6 +26,7 @@ import DictionaryModal from './components/dictionary/DictionaryModal';
 
 const AppContent = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const appLogic = useAppLogic();
     const [showDictionaryModal, setShowDictionaryModal] = React.useState(false);
     const [dictInitialWord, setDictInitialWord] = React.useState('');
@@ -83,6 +86,19 @@ const AppContent = () => {
     }, [authReady]);
 
     const isAuthPage = location.pathname === '/login' || location.pathname === '/onboarding' || location.pathname.startsWith('/auth');
+    const isMaintenanceActive = Boolean(adminConfig?.maintenanceMode);
+
+    if (authReady && isMaintenanceActive && !userHasAdminPrivileges && !isAuthPage) {
+        return (
+            <div className={`min-h-screen font-sans ${isDarkMode ? 'dark' : ''}`}>
+                <MaintenanceScreen
+                    message={adminConfig?.maintenanceMessage}
+                    isAuthenticated={Boolean(userId)}
+                />
+            </div>
+        );
+    }
+
     const isStaticInfoPage = ['/terms', '/privacy', '/help'].includes(location.pathname);
     const isGuestActive = !userId && (
         (typeof window !== 'undefined' && (
@@ -185,6 +201,37 @@ const AppContent = () => {
                             ? (isSidebarCollapsed ? 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-0 lg:pt-0 lg:pb-12 lg:pl-20' : 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-0 lg:pt-0 lg:pb-12 lg:pl-44')
                             : (isSidebarCollapsed ? 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-12 lg:pl-20' : 'pt-[calc(3.5rem+env(safe-area-inset-top,0px))] pb-[calc(4rem+env(safe-area-inset-bottom,0px))] lg:pt-0 lg:pb-12 lg:pl-44')
             }`}>
+                {/* Maintenance Mode Active Banner (visible only to Admin/QTV) */}
+                {isMaintenanceActive && userHasAdminPrivileges && (
+                    <div className="bg-amber-500 border-b-2 border-amber-700 text-white text-xs font-extrabold px-4 py-2 flex flex-wrap items-center justify-between gap-2 relative z-40">
+                        <div className="flex items-center gap-2">
+                            <Wrench className="w-4 h-4 shrink-0" />
+                            <span>CHẾ ĐỘ BẢO TRÌ ĐANG BẬT — Học viên hiện đang thấy màn hình bảo trì hệ thống.</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                            <button
+                                type="button"
+                                onClick={() => navigate('/admin')}
+                                className="bg-white/20 hover:bg-white/30 text-white font-bold px-2.5 py-1 rounded-lg transition-all text-[11px] cursor-pointer"
+                            >
+                                Trang Admin
+                            </button>
+                            <button
+                                type="button"
+                                onClick={async () => {
+                                    const ok = await updateAdminConfig({ maintenanceMode: false }, userId);
+                                    if (ok && setNotification) {
+                                        setNotification('Đã tắt chế độ bảo trì hệ thống.');
+                                    }
+                                }}
+                                className="bg-white text-amber-700 hover:bg-amber-50 font-black px-2.5 py-1 rounded-lg transition-all text-[11px] cursor-pointer"
+                            >
+                                Tắt bảo trì
+                            </button>
+                        </div>
+                    </div>
+                )}
+
                 {/* Admin Test Mode Banner */}
                 {profile?.trialPricingTier && (
                     <div className="bg-emerald-600 text-white text-xs font-semibold px-4 py-2.5 flex items-center justify-between shadow-md relative z-40">

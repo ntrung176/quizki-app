@@ -1,252 +1,170 @@
 import React, { useState, useEffect } from 'react';
-import { Bot, Settings, Layers, FileText, Wand2, Sparkles, BookMarked, Mic, Key, Check, Loader2 } from 'lucide-react';
-import { AI_FEATURES, OPENROUTER_MODELS, updateAdminConfig } from '../../utils/adminSettings';
+import { Settings, Sparkles, Info, Zap, Coins, Save, RotateCcw, Loader2, ShieldCheck } from 'lucide-react';
+import { AI_FEATURES, OPENROUTER_MODELS } from '../../utils/adminSettings';
+import {
+    AI_FEATURE_CREDITS,
+    getEditableAiCreditFeatures,
+    getFeatureCreditCost,
+    WELCOME_AI_CREDITS,
+    PREMIUM_INCLUDED_CREDITS
+} from '../../utils/aiCreditManager';
 
-const AdminAiSection = ({ adminConfig, currentUserId, handleChangeFeatureModel, onOpenGrammarStandardizer, onOpenPdfIngestor, onOpenBlankFiller }) => {
-    const [groqKeyInput, setGroqKeyInput] = useState(adminConfig?.groqApiKey || '');
-    const [savingGroqKey, setSavingGroqKey] = useState(false);
-    const [groqSaved, setGroqSaved] = useState(false);
+const FEATURE_DEFAULTS = {
+    vocab_gen: 'openai/gpt-4o-mini',
+    grammar_gen: 'google/gemini-2.5-flash',
+    vocab_sino_viet: 'google/gemini-3.1-flash-lite',
+    more_examples: 'openai/gpt-4o-mini',
+    ocr_image: 'openai/gpt-4o-mini',
+    grammar_check: 'openai/gpt-4o-mini',
+    kaiwa_agent: 'google/gemini-2.5-flash'
+};
+
+const AdminAiSection = ({
+    adminConfig,
+    handleChangeFeatureModel,
+    handleSaveFeatureCosts,
+    savingConfig
+}) => {
+    const editableFeatures = getEditableAiCreditFeatures();
+
+    const buildInitialCosts = () => {
+        const map = {};
+        editableFeatures.forEach((f) => {
+            const configured = adminConfig?.aiFeatureCosts?.[f.id];
+            map[f.id] = configured !== undefined && configured !== null
+                ? Number(configured)
+                : getFeatureCreditCost(f.id);
+        });
+        return map;
+    };
+
+    const [draftCosts, setDraftCosts] = useState(buildInitialCosts);
+    const [savingCosts, setSavingCosts] = useState(false);
 
     useEffect(() => {
-        if (adminConfig?.groqApiKey !== undefined) {
-            setGroqKeyInput(adminConfig.groqApiKey);
-        }
-    }, [adminConfig?.groqApiKey]);
+        setDraftCosts(buildInitialCosts());
+    }, [adminConfig?.aiFeatureCosts]);
 
-    const handleSaveGroqKey = async () => {
-        setSavingGroqKey(true);
+    const handleCostInput = (featureId, rawVal) => {
+        const num = Math.max(0, Math.min(50, Math.floor(Number(rawVal) || 0)));
+        setDraftCosts((prev) => ({ ...prev, [featureId]: num }));
+    };
+
+    const handleStepCost = (featureId, delta) => {
+        setDraftCosts((prev) => {
+            const cur = Number(prev[featureId] ?? getFeatureCreditCost(featureId));
+            return { ...prev, [featureId]: Math.max(0, Math.min(50, cur + delta)) };
+        });
+    };
+
+    const hasUnsavedCosts = editableFeatures.some((f) => {
+        const saved = adminConfig?.aiFeatureCosts?.[f.id] ?? AI_FEATURE_CREDITS[f.id]?.cost ?? 1;
+        return Number(draftCosts[f.id]) !== Number(saved);
+    });
+
+    const handleSaveAllCosts = async () => {
+        if (!handleSaveFeatureCosts) return;
+        setSavingCosts(true);
         try {
-            await updateAdminConfig({ groqApiKey: groqKeyInput.trim() }, currentUserId);
-            setGroqSaved(true);
-            setTimeout(() => setGroqSaved(false), 3000);
-        } catch (e) {
-            console.error('Failed to save Groq API key:', e);
-            alert('Lỗi lưu Groq API Key: ' + e.message);
+            await handleSaveFeatureCosts(draftCosts);
         } finally {
-            setSavingGroqKey(false);
+            setSavingCosts(false);
         }
     };
+
+    const handleResetDefaults = async () => {
+        const defaults = {};
+        editableFeatures.forEach((f) => {
+            defaults[f.id] = AI_FEATURE_CREDITS[f.id]?.cost ?? 1;
+        });
+        setDraftCosts(defaults);
+        if (handleSaveFeatureCosts) {
+            setSavingCosts(true);
+            try {
+                await handleSaveFeatureCosts(defaults);
+            } finally {
+                setSavingCosts(false);
+            }
+        }
+    };
+
     return (
-        <div className="space-y-4">
-            {/* AI Provider Selection */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5">
-                <div className="flex items-center justify-between flex-wrap gap-3">
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
-                            <Bot className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
-                        </div>
-                        <div>
-                            <p className="font-bold text-gray-800 dark:text-white">AI Provider: OpenRouter / Gemini Direct</p>
-                            <p className="text-xs text-gray-500 dark:text-gray-400">Sử dụng các mô hình AI chất lượng cao thông qua OpenRouter và Gemini</p>
-                        </div>
-                    </div>
-
-                    <div className="flex items-center gap-2 flex-wrap">
-                        {onOpenBlankFiller && (
-                            <button
-                                type="button"
-                                onClick={onOpenBlankFiller}
-                                className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all cursor-pointer"
-                            >
-                                <Sparkles className="w-4 h-4" />
-                                ✨ AI Điền Từ Vào Ví Dụ Sách
-                            </button>
-                        )}
-                        {onOpenPdfIngestor && (
-                            <button
-                                type="button"
-                                onClick={() => onOpenPdfIngestor()}
-                                className="px-4 py-2.5 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all cursor-pointer"
-                            >
-                                <FileText className="w-4 h-4" />
-                                🚀 AI PDF Ingestor (Nhập dữ liệu tự động)
-                            </button>
-                        )}
-                        {onOpenGrammarStandardizer && (
-                            <button
-                                type="button"
-                                onClick={onOpenGrammarStandardizer}
-                                className="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all cursor-pointer"
-                            >
-                                <Wand2 className="w-4 h-4" />
-                                AI Chuẩn Hóa Cấu Trúc Ngữ Pháp
-                            </button>
-                        )}
-                    </div>
-                </div>
-            </div>
-
-            {/* Special AI Tools Box: Blank Filler */}
-            <div className="bg-gradient-to-r from-teal-500/10 via-emerald-500/10 to-sky-500/10 dark:from-teal-950/40 dark:via-emerald-950/40 dark:to-sky-950/40 rounded-2xl border border-teal-200/80 dark:border-teal-800/80 p-5 flex items-center justify-between flex-wrap gap-4">
-                <div className="flex items-center gap-3.5">
-                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-teal-600 to-emerald-600 text-white flex items-center justify-center shadow-md">
-                        <Sparkles className="w-5 h-5" />
+        <div className="space-y-5">
+            {/* Per-Feature Model Selector + Quick Credit Cost */}
+            <div className="bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-700/80 p-5 space-y-4 shadow-sm">
+                <div className="flex items-center gap-3 border-b-2 border-slate-100 dark:border-slate-800 pb-3.5">
+                    <div className="w-10 h-10 rounded-2xl bg-sky-500 border-b-4 border-sky-700 text-white flex items-center justify-center shrink-0">
+                        <Settings className="w-5 h-5" />
                     </div>
                     <div>
-                        <h4 className="font-bold text-slate-900 dark:text-white text-sm md:text-base flex items-center gap-2">
-                            AI Lắp Từ Vào Chỗ Trống Ví Dụ Sách (Blank Example Filler)
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-teal-500/20 text-teal-700 dark:text-teal-300 font-black uppercase">
-                                Công cụ mới
-                            </span>
-                        </h4>
-                        <p className="text-xs text-slate-600 dark:text-slate-300 mt-0.5 max-w-2xl">
-                            Quét toàn bộ kho sách hoặc theo nhóm/sách chỉ định để tìm các câu ví dụ có chỗ trống (______, （　）, [ ]). AI tự động lắp từ vựng vào, chia đúng thể ngữ pháp (thể て, た, ない, khả năng, bị động...) và giữ trọn Furigana chuẩn.
+                        <p className="font-black text-slate-900 dark:text-white text-base">
+                            Cấu hình mô hình cho từng tính năng AI
+                        </p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400">
+                            Chọn model tối ưu riêng cho từng nghiệp vụ và chỉnh số Credit AI tiêu hao
                         </p>
                     </div>
                 </div>
 
-                <button
-                    type="button"
-                    onClick={onOpenBlankFiller}
-                    className="px-4 py-2.5 rounded-xl bg-teal-600 hover:bg-teal-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all shrink-0 cursor-pointer"
-                >
-                    <Sparkles className="w-4 h-4" />
-                    Khởi Chạy AI Điền Từ Ví Dụ
-                </button>
-            </div>
-
-            {/* Special AI Tools Box: PDF Ingestion Engine */}
-            <div className="bg-gradient-to-r from-emerald-500/10 via-teal-500/10 to-emerald-500/10 dark:from-emerald-950/40 dark:via-teal-950/40 dark:to-emerald-950/40 rounded-2xl border border-emerald-200/80 dark:border-emerald-800/80 p-5 flex items-center justify-between flex-wrap gap-4">
-                <div className="flex items-center gap-3.5">
-                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-emerald-600 to-teal-500 text-white flex items-center justify-center shadow-md">
-                        <FileText className="w-5 h-5" />
-                    </div>
-                    <div>
-                        <h4 className="font-bold text-slate-900 dark:text-white text-sm md:text-base flex items-center gap-2">
-                            AI PDF Ingestion Engine (Trích xuất & Soạn tự động từ PDF)
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-black uppercase">
-                                New Tool
-                            </span>
-                        </h4>
-                        <p className="text-xs text-slate-600 dark:text-slate-300 mt-0.5 max-w-2xl">
-                            Nạp trực tiếp file PDF giáo trình, sách từ vựng, đề thi JLPT hoặc ngữ pháp. AI sẽ tự động đọc, phân tích layout, trích xuất cấu trúc chuẩn và nhập thẳng vào hệ thống mà không cần làm thủ công.
-                        </p>
-                    </div>
-                </div>
-
-                <button
-                    type="button"
-                    onClick={() => onOpenPdfIngestor && onOpenPdfIngestor()}
-                    className="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all shrink-0 cursor-pointer"
-                >
-                    <FileText className="w-4 h-4" />
-                    Khởi Chạy AI Soạn Từ PDF
-                </button>
-            </div>
-
-            {/* Special AI Tools Box: Grammar Standardizer */}
-            <div className="bg-gradient-to-r from-emerald-500/10 via-sky-500/10 to-teal-500/10 dark:from-emerald-950/40 dark:via-sky-950/40 dark:to-teal-950/40 rounded-2xl border border-emerald-200/80 dark:border-emerald-800/80 p-5 flex items-center justify-between flex-wrap gap-4">
-                <div className="flex items-center gap-3.5">
-                    <div className="w-11 h-11 rounded-2xl bg-emerald-600 text-white flex items-center justify-center shadow-md">
-                        <Layers className="w-5 h-5" />
-                    </div>
-                    <div>
-                        <h4 className="font-bold text-slate-900 dark:text-white text-sm md:text-base flex items-center gap-2">
-                            Chuẩn hóa Cấu trúc Ngữ pháp Hàng loạt (Batch Standardizer)
-                            <span className="text-[10px] px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-black">
-                                Mới
-                            </span>
-                        </h4>
-                        <p className="text-xs text-slate-600 dark:text-slate-300 mt-0.5">
-                            Chuyển đổi toàn bộ cấu trúc Mazii rải rác sang công thức đóng mở ngoặc [ ] chuẩn giáo trình Shinkanzen Master / Soumatome theo từng cấp độ N5 - N1
-                        </p>
-                    </div>
-                </div>
-
-                <button
-                    type="button"
-                    onClick={onOpenGrammarStandardizer}
-                    className="px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-2 shadow-sm transition-all shrink-0 cursor-pointer"
-                >
-                    <Wand2 className="w-4 h-4" />
-                    Mở Bảng Điều Khiển
-                </button>
-            </div>
-
-            {/* Cấu hình Whisper STT (Groq Cloud) */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 space-y-3">
-                <div className="flex items-center justify-between flex-wrap gap-3 border-b border-gray-100 dark:border-gray-700 pb-3">
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center">
-                            <Mic className="w-5 h-5 text-sky-600 dark:text-sky-400" />
-                        </div>
-                        <div>
-                            <p className="font-bold text-gray-800 dark:text-white">Cấu hình Speech-to-Text: Groq Whisper STT</p>
-                            <p className="text-xs text-gray-500 dark:text-gray-400">Dùng cho Luyện nói Kaiwa AI & Shadowing (Miễn phí 100% tại console.groq.com)</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-3 items-center">
-                    <div className="relative flex-1 w-full">
-                        <Key className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
-                        <input
-                            type="password"
-                            value={groqKeyInput}
-                            onChange={(e) => setGroqKeyInput(e.target.value)}
-                            placeholder="Nhập Groq API Key (bắt đầu bằng gsk_...)"
-                            className="w-full pl-9 pr-3 py-2.5 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-xl outline-none text-xs dark:text-white font-mono focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20"
-                        />
-                    </div>
-                    <button
-                        type="button"
-                        onClick={handleSaveGroqKey}
-                        disabled={savingGroqKey}
-                        className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-sky-600 hover:bg-sky-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer disabled:opacity-50 shrink-0"
-                    >
-                        {savingGroqKey ? <Loader2 className="w-4 h-4 animate-spin" /> : groqSaved ? <Check className="w-4 h-4 text-white" /> : null}
-                        {groqSaved ? 'Đã lưu thành công!' : 'Lưu Key Groq'}
-                    </button>
-                </div>
-                <p className="text-[11px] text-gray-400 leading-relaxed">
-                    💡 Khóa API này được lưu bảo mật trong cấu hình hệ thống (Firestore). Bạn cũng có thể điền trực tiếp vào biến <code>VITE_GROQ_API_KEY</code> trong file <code>.env</code>.
-                </p>
-            </div>
-
-            {/* Cấu hình Model theo tính năng */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-5 space-y-4">
-                <div className="flex items-center gap-3 border-b border-gray-100 dark:border-gray-700 pb-3">
-                    <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
-                        <Settings className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
-                    </div>
-                    <div>
-                        <p className="font-bold text-gray-800 dark:text-white">Cấu hình mô hình cho từng tính năng AI</p>
-                        <p className="text-xs text-gray-500 dark:text-gray-400">Chọn mô hình hoạt động riêng biệt cho từng nghiệp vụ</p>
-                    </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
                     {AI_FEATURES.map((feature) => {
-                        const FEATURE_DEFAULTS = {
-                            vocab_gen: 'openai/gpt-4o-mini',
-                            grammar_gen: 'google/gemini-2.5-flash',
-                            vocab_sino_viet: 'google/gemini-3.1-flash-lite',
-                            more_examples: 'openai/gpt-4o-mini',
-                            fill_example_blanks: 'google/gemini-2.5-flash',
-                            ocr_image: 'openai/gpt-4o-mini',
-                            grammar_check: 'openai/gpt-4o-mini'
-                        };
                         const currentValue = adminConfig?.aiFeatureModels?.[feature.id] || FEATURE_DEFAULTS[feature.id] || 'google/gemini-2.5-flash';
+                        const creditCost = Number(draftCosts[feature.id] ?? getFeatureCreditCost(feature.id));
                         return (
-                            <div key={feature.id} className="p-4 rounded-xl border border-gray-100 dark:border-gray-700 bg-gray-50/50 dark:bg-gray-900/10 flex flex-col justify-between gap-3 hover:border-emerald-500/20 transition-all duration-200">
+                            <div
+                                key={feature.id}
+                                className="p-4 rounded-2xl border-2 border-slate-200/80 dark:border-slate-700/80 bg-slate-50/70 dark:bg-slate-800/50 flex flex-col justify-between gap-3 hover:border-emerald-400 dark:hover:border-emerald-600 transition-all"
+                            >
                                 <div>
-                                    <p className="font-bold text-sm text-gray-800 dark:text-white flex items-center gap-2">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                                        {feature.label}
-                                    </p>
-                                    <p className="text-xs text-gray-400 mt-1 leading-relaxed min-h-[32px]">
+                                    <div className="flex items-center justify-between gap-2">
+                                        <p className="font-extrabold text-sm text-slate-800 dark:text-white flex items-center gap-2">
+                                            <Sparkles className="w-3.5 h-3.5 text-emerald-500 shrink-0" />
+                                            <span>{feature.label}</span>
+                                        </p>
+                                        <div className="inline-flex items-center gap-1 bg-amber-100 dark:bg-amber-950/60 border border-amber-300 dark:border-amber-800 rounded-xl px-1.5 py-0.5 shrink-0">
+                                            <button
+                                                type="button"
+                                                onClick={() => handleStepCost(feature.id, -1)}
+                                                className="w-5 h-5 rounded-md bg-white/80 dark:bg-slate-900 text-amber-700 dark:text-amber-300 font-black text-xs hover:bg-white cursor-pointer"
+                                                title="Giảm 1 Credit"
+                                            >
+                                                -
+                                            </button>
+                                            <Zap className="w-3 h-3 fill-amber-500 text-amber-500 ml-0.5" />
+                                            <input
+                                                type="number"
+                                                min={0}
+                                                max={50}
+                                                value={creditCost}
+                                                onChange={(e) => handleCostInput(feature.id, e.target.value)}
+                                                className="w-8 text-center bg-transparent text-xs font-black text-amber-800 dark:text-amber-200 outline-none"
+                                            />
+                                            <button
+                                                type="button"
+                                                onClick={() => handleStepCost(feature.id, 1)}
+                                                className="w-5 h-5 rounded-md bg-white/80 dark:bg-slate-900 text-amber-700 dark:text-amber-300 font-black text-xs hover:bg-white cursor-pointer"
+                                                title="Tăng 1 Credit"
+                                            >
+                                                +
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
                                         {feature.description}
                                     </p>
                                 </div>
                                 <div>
-                                    <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block mb-1">Mô hình hoạt động</label>
+                                    <label className="text-[10px] font-black text-slate-400 uppercase tracking-wider block mb-1">
+                                        Mô hình hoạt động
+                                    </label>
                                     <select
                                         value={currentValue}
+                                        disabled={savingConfig}
                                         onChange={(e) => handleChangeFeatureModel(feature.id, e.target.value)}
-                                        className="w-full px-3 py-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg outline-none text-xs dark:text-white focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 transition-all font-medium"
+                                        className="w-full px-3 py-2 bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-700 rounded-xl outline-none text-xs text-slate-800 dark:text-white focus:border-emerald-500 transition-all font-bold cursor-pointer"
                                     >
                                         {OPENROUTER_MODELS.map(model => (
-                                             <option key={model.value} value={model.value}>{model.label}</option>
+                                            <option key={model.value} value={model.value}>{model.label}</option>
                                         ))}
                                     </select>
                                 </div>
@@ -256,10 +174,109 @@ const AdminAiSection = ({ adminConfig, currentUserId, handleChangeFeatureModel, 
                 </div>
             </div>
 
-            {/* Info note */}
-            <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4">
-                <p className="text-sm text-blue-700 dark:text-blue-300">
-                    <strong>💡 Lưu ý:</strong> AI được kiểm soát bằng hệ thống lượt sử dụng. Tất cả người dùng có thể dùng AI trong giới hạn lượt. Quản lý lượt ở tab <strong>Gói & Lượt AI</strong>.
+            {/* Editable AI Credit Cost Matrix (All User-Facing AI Features) */}
+            <div className="bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-700/80 p-5 space-y-4 shadow-sm">
+                <div className="flex flex-wrap items-center justify-between gap-3 border-b-2 border-slate-100 dark:border-slate-800 pb-3.5">
+                    <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-2xl bg-amber-500 border-b-4 border-amber-700 text-white flex items-center justify-center shrink-0">
+                            <Coins className="w-5 h-5" />
+                        </div>
+                        <div>
+                            <p className="font-black text-slate-900 dark:text-white text-base">
+                                Chỉnh sửa Credit AI tốn cho mỗi tính năng
+                            </p>
+                            <p className="text-xs text-slate-500 dark:text-slate-400">
+                                Tân thủ: {WELCOME_AI_CREDITS} Credit • Premium 1 Năm: +{PREMIUM_INCLUDED_CREDITS.premium_1y} • Premium 3 Năm: +{PREMIUM_INCLUDED_CREDITS.premium_3y.toLocaleString()} (Tối đa 50 Credit/lượt)
+                            </p>
+                        </div>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                        <button
+                            type="button"
+                            onClick={handleResetDefaults}
+                            disabled={savingCosts}
+                            className="px-3 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border-2 border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 text-xs font-extrabold text-slate-700 dark:text-slate-200 flex items-center gap-1.5 cursor-pointer transition-all disabled:opacity-50"
+                        >
+                            <RotateCcw className="w-3.5 h-3.5" />
+                            <span>Mặc định</span>
+                        </button>
+                        <button
+                            type="button"
+                            onClick={handleSaveAllCosts}
+                            disabled={savingCosts || !hasUnsavedCosts}
+                            className={`px-4 py-2 rounded-xl border-b-4 active:translate-y-0.5 active:border-b-2 text-xs font-black uppercase tracking-wider flex items-center gap-1.5 transition-all cursor-pointer disabled:opacity-50 ${
+                                hasUnsavedCosts
+                                    ? 'bg-emerald-500 hover:bg-emerald-400 border-emerald-700 text-white shadow-sm'
+                                    : 'bg-emerald-100 dark:bg-emerald-950/40 border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300'
+                            }`}
+                        >
+                            {savingCosts ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Save className="w-3.5 h-3.5" />}
+                            <span>{hasUnsavedCosts ? 'Lưu định mức Credit' : 'Đã đồng bộ'}</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2.5">
+                    {editableFeatures.map((item) => {
+                        const val = Number(draftCosts[item.id] ?? item.cost);
+                        const savedVal = Number(adminConfig?.aiFeatureCosts?.[item.id] ?? AI_FEATURE_CREDITS[item.id]?.cost ?? 1);
+                        const isDirty = val !== savedVal;
+                        return (
+                            <div
+                                key={item.id}
+                                className={`flex items-center justify-between gap-2.5 px-3.5 py-2.5 rounded-2xl border-2 transition-all ${
+                                    isDirty
+                                        ? 'bg-amber-50/70 dark:bg-amber-950/20 border-amber-400 dark:border-amber-700'
+                                        : 'bg-slate-50 dark:bg-slate-800/60 border-slate-200 dark:border-slate-700/80'
+                                }`}
+                            >
+                                <div className="min-w-0">
+                                    <p className="text-xs font-extrabold text-slate-800 dark:text-slate-100 truncate">
+                                        {item.shortLabel}
+                                    </p>
+                                    <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
+                                        {item.estimateText}
+                                    </p>
+                                </div>
+                                <div className="flex items-center gap-1 shrink-0 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl px-1.5 py-1">
+                                    <button
+                                        type="button"
+                                        onClick={() => handleStepCost(item.id, -1)}
+                                        className="w-5 h-5 rounded-md bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-200 font-black text-xs cursor-pointer"
+                                    >
+                                        -
+                                    </button>
+                                    <input
+                                        type="number"
+                                        min={0}
+                                        max={50}
+                                        value={val}
+                                        onChange={(e) => handleCostInput(item.id, e.target.value)}
+                                        className="w-9 text-center bg-transparent text-xs font-black text-slate-900 dark:text-white outline-none tabular-nums"
+                                    />
+                                    <span className="text-[11px] text-amber-500 font-black">⚡</span>
+                                    <button
+                                        type="button"
+                                        onClick={() => handleStepCost(item.id, 1)}
+                                        className="w-5 h-5 rounded-md bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 text-slate-700 dark:text-slate-200 font-black text-xs cursor-pointer"
+                                    >
+                                        +
+                                    </button>
+                                </div>
+                            </div>
+                        );
+                    })}
+                </div>
+            </div>
+
+            {/* Security & Sync Note */}
+            <div className="bg-sky-50 dark:bg-sky-950/40 border-2 border-sky-200 dark:border-sky-800/70 rounded-2xl p-4 flex items-center gap-3">
+                <div className="w-9 h-9 rounded-xl bg-sky-500 text-white flex items-center justify-center shrink-0">
+                    <ShieldCheck className="w-4 h-4" />
+                </div>
+                <p className="text-xs sm:text-sm text-sky-800 dark:text-sky-200 font-medium leading-relaxed">
+                    Mọi thay đổi định mức Credit AI có hiệu lực ngay lập tức trên toàn hệ thống. Firestore Rules đã khóa chặt quyền tạo/xóa profile và chặn mọi hình thức tự tăng Credit từ client.
                 </p>
             </div>
         </div>

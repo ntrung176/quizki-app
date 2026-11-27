@@ -698,6 +698,7 @@ const AppRoutes = ({
                                 totalCards={allCards?.length || 0}
                                 allCards={allCards}
                                 userId={userId}
+                                aiCreditsRemaining={aiCreditsRemaining ?? 50}
                                 isLoading={isLoading}
                                 isProfileLoading={isProfileLoading}
                                 vocabCollectionPath={vocabCollectionPath}

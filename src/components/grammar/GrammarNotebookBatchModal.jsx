@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { X, Sparkles, Loader2, FileText, Plus, CheckCircle } from 'lucide-react';
 import { aiBatchGenerateGrammarNotebook } from '../../utils/grammarNotebookService';
 import { showToast } from '../../utils/toast';
+import { AiCreditPill, AiCostTag } from '../ui/AiCreditBadge';
 
 export const GrammarNotebookBatchModal = ({ isOpen, onClose, onImportItems }) => {
     const [activeTab, setActiveTab] = useState('ai'); // 'ai' | 'raw'
@@ -77,19 +78,22 @@ export const GrammarNotebookBatchModal = ({ isOpen, onClose, onImportItems }) =>
         <div className="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in">
             <div className="bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-6 max-w-xl w-full shadow-2xl space-y-4">
                 {/* Header */}
-                <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
-                    <div className="flex items-center gap-2 text-sky-600 dark:text-sky-400">
-                        <Sparkles className="w-5 h-5" />
-                        <h3 className="text-base sm:text-lg font-black text-slate-800 dark:text-white">
+                <div className="flex items-center justify-between gap-2 border-b border-slate-100 dark:border-slate-800 pb-3">
+                    <div className="flex items-center gap-2 text-sky-600 dark:text-sky-400 min-w-0">
+                        <Sparkles className="w-5 h-5 shrink-0" />
+                        <h3 className="text-base sm:text-lg font-black text-slate-800 dark:text-white truncate">
                             Nhập hàng loạt & AI Soạn ngữ pháp
                         </h3>
                     </div>
-                    <button
-                        onClick={onClose}
-                        className="p-1.5 rounded-xl text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
-                    >
-                        <X className="w-5 h-5" />
-                    </button>
+                    <div className="flex items-center gap-2 shrink-0">
+                        <AiCreditPill featureId="grammar-notebook-batch" compact />
+                        <button
+                            onClick={onClose}
+                            className="p-1.5 rounded-xl text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer"
+                        >
+                            <X className="w-5 h-5" />
+                        </button>
+                    </div>
                 </div>
 
                 {/* Tabs */}
@@ -166,6 +170,7 @@ export const GrammarNotebookBatchModal = ({ isOpen, onClose, onImportItems }) =>
                         >
                             {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
                             <span>{loading ? 'AI đang soạn thông tin đầy đủ...' : 'AI Soạn và thêm vào sổ tay'}</span>
+                            {!loading && <AiCostTag featureId="grammar-notebook-batch" darkBg />}
                         </button>
                     </div>
                 ) : (

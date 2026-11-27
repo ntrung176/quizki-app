@@ -5,6 +5,7 @@ import { useLanguage } from '../../context/LanguageContext';
 import { getLanguageService } from '../../languages';
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
+import { AiCreditPill, AiCostTag } from '../ui/AiCreditBadge';
 
 const BatchAiModal = ({
     isOpen,
@@ -273,14 +274,17 @@ const BatchAiModal = ({
                             </p>
                         </div>
                     </div>
-                    {(!isGenerating && !isOcrLoading) && (
-                        <button 
-                            onClick={onClose} 
-                            className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 transition cursor-pointer shrink-0"
-                        >
-                            <X className="w-5 h-5" />
-                        </button>
-                    )}
+                    <div className="flex items-center gap-2 shrink-0">
+                        <AiCreditPill featureId={activeTab === 'image' ? 'ocr_image' : 'vocab_gen'} remaining={aiCreditsRemaining} compact />
+                        {(!isGenerating && !isOcrLoading) && (
+                            <button 
+                                onClick={onClose} 
+                                className="p-2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-800 transition cursor-pointer shrink-0"
+                            >
+                                <X className="w-5 h-5" />
+                            </button>
+                        )}
+                    </div>
                 </div>
 
                 {/* Body Content */}
@@ -430,6 +434,7 @@ const BatchAiModal = ({
                                             >
                                                 <Sparkles className="w-4 h-4" />
                                                 <span>Bắt đầu quét & trích xuất từ ảnh</span>
+                                                <AiCostTag featureId="ocr_image" darkBg />
                                             </button>
                                         </div>
                                     ) : (
@@ -512,6 +517,7 @@ const BatchAiModal = ({
                             >
                                 <Play className="w-4 h-4 fill-white" />
                                 <span>Tạo thẻ bằng AI</span>
+                                <AiCostTag featureId="vocab_gen" darkBg />
                             </button>
                         )}
                     </div>

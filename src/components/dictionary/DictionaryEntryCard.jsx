@@ -4,6 +4,7 @@ import { Volume2, Loader2, Wand2, Check, BookPlus } from 'lucide-react';
 import { speakExampleSentence } from '../../utils/audio';
 import { aiTranslateSentence } from '../../utils/aiProvider';
 import { accentNumberToPitchParts } from '../../utils/pitchAccent';
+import { AiCostTag } from '../ui/AiCreditBadge';
 
 // Map common Japanese POS abbreviations to friendly Vietnamese labels
 const POS_LABELS = {
@@ -300,9 +301,10 @@ const DictionaryEntryCard = ({
                                 type="button"
                                 onClick={handleTranslateExample}
                                 disabled={isTranslating}
-                                className="px-3 py-1.5 rounded-xl text-xs font-bold bg-sky-50 hover:bg-sky-100 dark:bg-sky-950/60 dark:hover:bg-sky-900 text-sky-600 dark:text-sky-300 border-2 border-b-3 border-sky-200 dark:border-sky-800 active:translate-y-0.5 active:border-b-1 transition-all shrink-0 cursor-pointer"
+                                className="px-3 py-1.5 rounded-xl text-xs font-bold bg-sky-50 hover:bg-sky-100 dark:bg-sky-950/60 dark:hover:bg-sky-900 text-sky-600 dark:text-sky-300 border-2 border-b-3 border-sky-200 dark:border-sky-800 active:translate-y-0.5 active:border-b-1 transition-all shrink-0 cursor-pointer inline-flex items-center gap-1.5"
                             >
-                                {isTranslating ? t('dictionary.translating', 'Đang dịch...') : t('dictionary.translateVi', 'Dịch tiếng Việt')}
+                                <span>{isTranslating ? t('dictionary.translating', 'Đang dịch...') : t('dictionary.translateVi', 'Dịch tiếng Việt')}</span>
+                                {!isTranslating && <AiCostTag featureId="sentence_translate" />}
                             </button>
                         </div>
                     )}
@@ -372,6 +374,7 @@ const DictionaryEntryCard = ({
                             <>
                                 <Wand2 className="w-3.5 h-3.5 text-amber-200" />
                                 <span>{t('dictionary.createWithAi', 'Tạo thẻ học với AI')}</span>
+                                <AiCostTag featureId="vocab_gen" darkBg />
                             </>
                         )}
                     </button>

@@ -13,6 +13,7 @@ import { doc, getDoc, setDoc, updateDoc } from 'firebase/firestore';
 import { getPosLabel } from '../../config/constants';
 import { searchDictionary } from '../../services/dictionaryService';
 import { getCreationTime, sortStudySetsOldToNew } from '../../utils/studySetSorter';
+import { AiCostTag } from './AiCreditBadge';
 
 // Helper to format Japanese readings: e.g. "日本語（にほんご）" -> "日本語 (にほんご)"
 const formatReading = (text) => {
@@ -831,7 +832,8 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                 className="w-full mt-3 py-2 bg-gradient-to-r from-emerald-500 to-sky-500 hover:from-emerald-600 hover:to-sky-600 text-white rounded-xl text-xs font-black shadow-md shadow-emerald-50 dark:shadow-none transition-all flex items-center justify-center gap-1.5 cursor-pointer"
                             >
                                 <Wand2 className="w-3.5 h-3.5 text-amber-300" />
-                                Tra cứu mở rộng bằng AI
+                                <span>Tra cứu mở rộng bằng AI</span>
+                                <AiCostTag featureId="vocab_gen" darkBg />
                             </button>
                         </div>
                     )}
@@ -933,6 +935,7 @@ const VocabularySelectionLookup = ({ allCards = [], folders = [], handleAddCard,
                                             <>
                                                 <Wand2 className="w-3.5 h-3.5 text-amber-200 stroke-[2.5px]" />
                                                 <span>Tạo thẻ với AI</span>
+                                                <AiCostTag featureId="vocab_gen" darkBg />
                                             </>
                                         )}
                                     </button>

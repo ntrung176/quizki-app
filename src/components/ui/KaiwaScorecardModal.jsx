@@ -33,7 +33,7 @@ Trả về kết quả thuần JSON chuẩn với định dạng:
 }`;
 
         try {
-            const raw = await callAI(prompt);
+            const raw = await callAI(prompt, null, 'kaiwa_scorecard');
             const clean = raw.replace(/```json/g, '').replace(/```/g, '').trim();
             const parsed = JSON.parse(clean);
             setScoreData(parsed);

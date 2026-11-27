@@ -1,17 +1,23 @@
 import React, { useState, useEffect, useRef, useMemo } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
-import { Zap, Star, Crown, Gift, Check, CreditCard, CheckCircle, Loader2, QrCode, Copy, Ticket, X, ArrowLeft, ChevronRight, Settings, BookOpen, Languages, Trophy, AlertTriangle, Trash2, Plus, Lightbulb } from 'lucide-react'
-import { submitCreditRequest, createPendingAutoPayment, DEFAULT_AI_PACKAGES, DEFAULT_SPECIALIZED_PACKAGES, validateVoucher, calculateDiscountedPrice, redeemVoucher, processPaymentSecurely, submitAndApproveCreditRequest, updateAdminConfig } from '../../utils/adminSettings';
+import { Zap, Star, Crown, Gift, Check, CreditCard, CheckCircle, Loader2, QrCode, Copy, Ticket, X, ArrowLeft, ChevronRight, Settings, BookOpen, Languages, Trophy, AlertTriangle, Trash2, Plus, Lightbulb, Sparkles } from 'lucide-react'
+import { submitCreditRequest, createPendingAutoPayment, DEFAULT_AI_PACKAGES, DEFAULT_SPECIALIZED_PACKAGES, validateVoucher, calculateDiscountedPrice, redeemVoucher, updateAdminConfig } from '../../utils/adminSettings';
 import { generateOrderCode, generateVietQR, checkPaymentStatus, getSepayToken } from '../../utils/sepayPayment';
 import { sendAIPurchaseSuccessEmail, sendAIPendingConfirmationEmail } from '../../utils/email';
 import { doc, updateDoc, onSnapshot } from 'firebase/firestore';
 import { db, appId } from '../../config/firebase';
+import AiCreditPacksSection from './AiCreditPacksSection';
+import { getPremiumBonusCredits } from '../../utils/aiCreditManager';
 
 const ICONS = {
     premium_1m: Crown,
     premium_1y: Crown,
     premium_3y: Crown,
     premium: Crown,
+    credit_starter: Zap,
+    credit_popular: Sparkles,
+    credit_pro: Crown,
+    credit_max: Gift,
     starter: Zap,
     popular: Star,
     best_value: Crown,
@@ -27,6 +33,10 @@ const COLORS = {
     premium_1y: 'from-amber-500 to-orange-500',
     premium_3y: 'from-amber-500 to-orange-600',
     premium: 'from-amber-500 to-orange-600',
+    credit_starter: 'from-sky-500 to-cyan-500',
+    credit_popular: 'from-emerald-500 to-teal-500',
+    credit_pro: 'from-amber-500 to-orange-500',
+    credit_max: 'from-teal-500 to-emerald-600',
     starter: 'from-blue-500 to-cyan-500',
     popular: 'from-emerald-500 to-sky-500',
     best_value: 'from-amber-500 to-orange-600',
@@ -42,6 +52,10 @@ const BG_LIGHT = {
     premium_1y: 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20',
     premium_3y: 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20',
     premium: 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20',
+    credit_starter: 'from-sky-50 to-cyan-50 dark:from-sky-950/20 dark:to-cyan-950/20',
+    credit_popular: 'from-emerald-50 to-teal-50 dark:from-emerald-950/20 dark:to-teal-950/20',
+    credit_pro: 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20',
+    credit_max: 'from-teal-50 to-emerald-50 dark:from-teal-950/20 dark:to-emerald-950/20',
     starter: 'from-blue-50 to-cyan-50 dark:from-blue-950/20 dark:to-cyan-950/20',
     popular: 'from-emerald-50 to-sky-50 dark:from-emerald-950/20 dark:to-sky-950/20',
     best_value: 'from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20',
@@ -96,19 +110,29 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
     const [adminTab, setAdminTab] = useState('specialized'); // 'specialized' | 'general' | 'simulation'
 
     const packagesReady = adminConfig !== null && adminConfig._fromCache === false;
-    const packages = adminConfig?.aiCreditPackages || DEFAULT_AI_PACKAGES;
+    const packages = (adminConfig?.aiCreditPackages && adminConfig.aiCreditPackages.length > 0)
+        ? adminConfig.aiCreditPackages
+        : DEFAULT_AI_PACKAGES;
+    const normalizeSpecializedPackages = (list) => {
+        return (list || DEFAULT_SPECIALIZED_PACKAGES)
+            .filter(pkg => pkg.id !== 'premium')
+            .map(pkg => {
+                const defaultMatch = DEFAULT_SPECIALIZED_PACKAGES.find(d => d.id === pkg.id);
+                if (!defaultMatch) return pkg;
+                const hasOutdatedUnlimitedCopy = Array.isArray(pkg.unlockedFeatures) &&
+                    pkg.unlockedFeatures.some(f => /không giới hạn đàm thoại|Hạn mức AI Kitsu VIP|Giọng đọc bản xứ không giới hạn|400 Credit AI|1\.000 Credit AI/i.test(f));
+                const isLegacy = !pkg.unlockedFeatures || pkg.unlockedFeatures.length <= 5 || hasOutdatedUnlimitedCopy;
+                return {
+                    ...pkg,
+                    includedCredits: defaultMatch.includedCredits,
+                    description: isLegacy ? defaultMatch.description : (pkg.description || defaultMatch.description),
+                    unlockedFeatures: isLegacy ? defaultMatch.unlockedFeatures : pkg.unlockedFeatures
+                };
+            });
+    };
+
     const specializedPackages = useMemo(() => {
-        const raw = (adminConfig?.specializedPackages || DEFAULT_SPECIALIZED_PACKAGES).filter(pkg => pkg.id !== 'premium');
-        return raw.map(pkg => {
-            const defaultMatch = DEFAULT_SPECIALIZED_PACKAGES.find(d => d.id === pkg.id);
-            if (!defaultMatch) return pkg;
-            const isLegacy = !pkg.unlockedFeatures || pkg.unlockedFeatures.length <= 5;
-            return {
-                ...pkg,
-                description: isLegacy ? defaultMatch.description : (pkg.description || defaultMatch.description),
-                unlockedFeatures: isLegacy ? defaultMatch.unlockedFeatures : pkg.unlockedFeatures
-            };
-        });
+        return normalizeSpecializedPackages(adminConfig?.specializedPackages);
     }, [adminConfig?.specializedPackages]);
 
     // User's unlocked specialized packages
@@ -128,21 +152,10 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
     // Initialize/sync Admin editing state
     useEffect(() => {
         if (adminConfig) {
-            const rawSpecialized = (adminConfig.specializedPackages || DEFAULT_SPECIALIZED_PACKAGES)
-                .filter(pkg => pkg.id !== 'premium')
-                .map(pkg => {
-                    const defaultMatch = DEFAULT_SPECIALIZED_PACKAGES.find(d => d.id === pkg.id);
-                    if (!defaultMatch) return pkg;
-                    const isLegacy = !pkg.unlockedFeatures || pkg.unlockedFeatures.length <= 5;
-                    return {
-                        ...pkg,
-                        description: isLegacy ? defaultMatch.description : (pkg.description || defaultMatch.description),
-                        unlockedFeatures: isLegacy ? defaultMatch.unlockedFeatures : pkg.unlockedFeatures
-                    };
-                });
+            const rawSpecialized = normalizeSpecializedPackages(adminConfig.specializedPackages);
 
             setEditedConfig({
-                aiCreditPackages: adminConfig.aiCreditPackages || DEFAULT_AI_PACKAGES,
+                aiCreditPackages: (adminConfig.aiCreditPackages && adminConfig.aiCreditPackages.length > 0) ? adminConfig.aiCreditPackages : DEFAULT_AI_PACKAGES,
                 specializedPackages: rawSpecialized,
                 bankId: adminConfig.bankId || 'MB',
                 bankAccountNo: adminConfig.bankAccountNo || '',
@@ -453,9 +466,10 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                 </div>
 
                 {/* Tabs */}
-                <div className="flex border-b border-gray-100 dark:border-slate-700 mb-6 gap-2">
+                <div className="flex flex-wrap border-b border-gray-100 dark:border-slate-700 mb-6 gap-2">
                     {[
                         { id: 'specialized', label: 'Quản lý Gói Premium' },
+                        { id: 'credits', label: 'Quản lý Gói Credit AI' },
                         { id: 'general', label: 'Cấu hình Chung & SePay' },
                         { id: 'simulation', label: 'Thử Nghiệm Mở Khóa' },
                     ].map(tab => (
@@ -472,6 +486,112 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         </button>
                     ))}
                 </div>
+
+                {/* Tab: Quản lý Gói Credit AI */}
+                {adminTab === 'credits' && (
+                    <div className="space-y-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            {(editedConfig.aiCreditPackages || []).map((pkg, idx) => (
+                                <div key={pkg.id || idx} className="relative border border-gray-200 dark:border-slate-700 rounded-2xl p-4 bg-gray-50/50 dark:bg-slate-900/30 space-y-2.5">
+                                    <div className="flex items-center justify-between pb-2 border-b border-gray-100 dark:border-slate-800">
+                                        <p className="text-xs font-bold text-emerald-600 uppercase">Gói Credit: {pkg.name}</p>
+                                        <button
+                                            type="button"
+                                            onClick={() => deleteCreditPackage(idx)}
+                                            className="p-1 rounded-lg text-red-500 hover:bg-red-50 dark:hover:bg-red-950/20 transition-colors"
+                                            title="Xóa gói Credit"
+                                        >
+                                            <Trash2 className="w-4 h-4" />
+                                        </button>
+                                    </div>
+                                    <div className="grid grid-cols-2 gap-2.5">
+                                        <div>
+                                            <label className="text-[10px] font-bold text-gray-500">Tên gói</label>
+                                            <input
+                                                type="text"
+                                                value={pkg.name}
+                                                onChange={(e) => {
+                                                    const updated = [...editedConfig.aiCreditPackages];
+                                                    updated[idx] = { ...updated[idx], name: e.target.value };
+                                                    setEditedConfig({ ...editedConfig, aiCreditPackages: updated });
+                                                }}
+                                                className="w-full px-2.5 py-1.5 text-xs bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-lg dark:text-white"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="text-[10px] font-bold text-gray-500">Số lượng Credit AI</label>
+                                            <input
+                                                type="number"
+                                                value={pkg.cards || 0}
+                                                onChange={(e) => {
+                                                    const updated = [...editedConfig.aiCreditPackages];
+                                                    updated[idx] = { ...updated[idx], cards: Number(e.target.value) };
+                                                    setEditedConfig({ ...editedConfig, aiCreditPackages: updated });
+                                                }}
+                                                className="w-full px-2.5 py-1.5 text-xs bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-lg dark:text-white"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="text-[10px] font-bold text-gray-500">Giá gốc (VND)</label>
+                                            <input
+                                                type="number"
+                                                value={pkg.originalPrice || 0}
+                                                onChange={(e) => {
+                                                    const updated = [...editedConfig.aiCreditPackages];
+                                                    updated[idx] = { ...updated[idx], originalPrice: Number(e.target.value) };
+                                                    setEditedConfig({ ...editedConfig, aiCreditPackages: updated });
+                                                }}
+                                                className="w-full px-2.5 py-1.5 text-xs bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-lg dark:text-white"
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className="text-[10px] font-bold text-gray-500">Giá bán (VND)</label>
+                                            <input
+                                                type="number"
+                                                value={pkg.salePrice || 0}
+                                                onChange={(e) => {
+                                                    const updated = [...editedConfig.aiCreditPackages];
+                                                    updated[idx] = { ...updated[idx], salePrice: Number(e.target.value) };
+                                                    setEditedConfig({ ...editedConfig, aiCreditPackages: updated });
+                                                }}
+                                                className="w-full px-2.5 py-1.5 text-xs bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-lg dark:text-white"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label className="text-[10px] font-bold text-gray-500">Mô tả</label>
+                                        <input
+                                            type="text"
+                                            value={pkg.description || ''}
+                                            onChange={(e) => {
+                                                const updated = [...editedConfig.aiCreditPackages];
+                                                updated[idx] = { ...updated[idx], description: e.target.value };
+                                                setEditedConfig({ ...editedConfig, aiCreditPackages: updated });
+                                            }}
+                                            className="w-full px-2.5 py-1.5 text-xs bg-white dark:bg-slate-800 border border-gray-300 dark:border-slate-600 rounded-lg dark:text-white"
+                                        />
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                        <div className="flex flex-col sm:flex-row gap-3">
+                            <button
+                                type="button"
+                                onClick={addCreditPackage}
+                                className="flex-1 flex items-center justify-center p-3.5 border-2 border-dashed border-gray-300 dark:border-slate-700 hover:border-sky-500 rounded-2xl text-xs font-bold text-gray-500 hover:text-sky-600 gap-2 cursor-pointer"
+                            >
+                                <Plus className="w-4 h-4" /> Thêm gói Credit AI mới
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => setEditedConfig({ ...editedConfig, aiCreditPackages: DEFAULT_AI_PACKAGES })}
+                                className="flex-1 flex items-center justify-center p-3.5 border-2 border-dashed border-emerald-300 dark:border-emerald-700 hover:border-emerald-500 rounded-2xl text-xs font-bold text-emerald-600 gap-2 cursor-pointer"
+                            >
+                                <Zap className="w-4 h-4" /> Khôi phục 4 gói Credit AI mặc định
+                            </button>
+                        </div>
+                    </div>
+                )}
 
                 {/* Tab: Quản lý Gói Premium */}
                 {adminTab === 'specialized' && (
@@ -791,7 +911,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                 <div className="mt-6 flex justify-end gap-3 border-t border-gray-100 dark:border-slate-700 pt-4">
                     <button
                         onClick={() => setAdminEditMode(false)}
-                        className="px-5 py-2.5 text-xs font-bold text-gray-600 hover:bg-gray-150 rounded-xl"
+                        className="px-5 py-2.5 text-xs font-bold text-gray-600 hover:bg-gray-100 rounded-xl"
                     >
                         Hủy
                     </button>
@@ -839,9 +959,26 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         {t('upgrade.heroTitle', 'Mở khóa tài khoản Premium Quizki')}
                     </h1>
 
-                    <p className="max-w-3xl mx-auto text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed mb-6 font-medium">
-                        {t('upgrade.heroSubtitle', 'Mở khóa toàn diện tất cả tính năng: Trọn bộ giáo trình N5 - N1, 2.136 Kanji nét viết, Spaced Repetition (SRS), luyện đề JLPT thực chiến & Trợ lý đàm thoại AI Kitsu.')}
+                    <p className="max-w-3xl mx-auto text-sm sm:text-base text-gray-500 dark:text-gray-400 leading-relaxed mb-5 font-medium">
+                        {t('upgrade.heroSubtitle', 'Mở khóa toàn diện tất cả tính năng: Trọn bộ giáo trình N5 - N1, 2.136 Kanji nét viết, Spaced Repetition (SRS), luyện đề JLPT thực chiến & Tặng kèm Credit AI trải nghiệm (nạp thêm Credit AI riêng bất cứ lúc nào).')}
                     </p>
+
+                    {/* Current AI Credit Balance Pill */}
+                    <div className="inline-flex flex-wrap items-center justify-center gap-3 bg-white dark:bg-slate-900 border-2 border-b-4 border-sky-200 dark:border-sky-800 rounded-2xl px-4 py-2.5 shadow-sm mb-2">
+                        <div className="flex items-center gap-2 text-xs sm:text-sm font-black text-slate-800 dark:text-white">
+                            <Zap className="w-4 h-4 text-amber-500 fill-amber-400 shrink-0" />
+                            <span>Số dư Credit AI hiện tại:</span>
+                            <span className="text-sky-600 dark:text-sky-400 tabular-nums">
+                                {isAdmin ? '∞ (Admin)' : `${Number(creditsRemaining || 0).toLocaleString()} Credit`}
+                            </span>
+                        </div>
+                        <a
+                            href="#ai-credit-packs"
+                            className="text-xs font-black text-emerald-600 dark:text-emerald-400 hover:underline flex items-center gap-1"
+                        >
+                            Nạp thêm Credit AI <ChevronRight className="w-3.5 h-3.5" />
+                        </a>
+                    </div>
                 </div>
 
                 {/* Admin Live Config Form */}
@@ -971,6 +1108,17 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                     </div>
 
                                     <div className="mt-auto pt-5 border-t-2 border-slate-100 dark:border-slate-800">
+                                        {(pkg.includedCredits || getPremiumBonusCredits(pkg.id) > 0) && (
+                                            <div className="mb-3.5 px-3.5 py-2 rounded-2xl bg-sky-50 dark:bg-sky-950/50 border-2 border-sky-200 dark:border-sky-800/80 flex items-center justify-between gap-2 text-xs">
+                                                <span className="font-bold text-sky-700 dark:text-sky-300 flex items-center gap-1.5">
+                                                    <Zap className="w-3.5 h-3.5 text-amber-500 fill-amber-400 shrink-0" />
+                                                    Tặng kèm cố định khi kích hoạt:
+                                                </span>
+                                                <span className="font-black text-sky-800 dark:text-sky-200 tabular-nums shrink-0">
+                                                    +{(pkg.includedCredits || getPremiumBonusCredits(pkg.id)).toLocaleString()} Credit AI
+                                                </span>
+                                            </div>
+                                        )}
                                         {!isUnlocked ? (
                                             <>
                                                 <div className="flex items-baseline justify-between gap-2 mb-4">
@@ -1010,6 +1158,12 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                         })}
                     </div>
                 )}
+
+                {/* AI Credit Add-on Top-up Packs & Cost Transparency */}
+                <AiCreditPacksSection
+                    packages={packages}
+                    onSelectPackage={handleSelectPackage}
+                />
             </div>
         );
     }
@@ -1096,15 +1250,15 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
 
                         {/* Reassurance Guarantees */}
                         <div className="pt-4 border-t-2 border-amber-200/50 dark:border-slate-800 space-y-3">
-                            <div className="flex items-center gap-3 text-xs font-bold text-slate-600 dark:text-slate-350">
+                            <div className="flex items-center gap-3 text-xs font-bold text-slate-600 dark:text-slate-300">
                                 <span className="w-7 h-7 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center font-black text-sm">⚡</span>
                                 <span>Kích hoạt tự động tức thì ngay khi thanh toán</span>
                             </div>
-                            <div className="flex items-center gap-3 text-xs font-bold text-slate-600 dark:text-slate-350">
+                            <div className="flex items-center gap-3 text-xs font-bold text-slate-600 dark:text-slate-300">
                                 <span className="w-7 h-7 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center font-black text-sm">🛡️</span>
                                 <span>Bảo mật chuẩn VietQR 24/7 của Napas & Ngân hàng</span>
                             </div>
-                            <div className="flex items-center gap-3 text-xs font-bold text-slate-600 dark:text-slate-350">
+                            <div className="flex items-center gap-3 text-xs font-bold text-slate-600 dark:text-slate-300">
                                 <span className="w-7 h-7 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center font-black text-sm">👑</span>
                                 <span>Hỗ trợ ưu tiên 1-1 riêng biệt trong suốt thời hạn</span>
                             </div>
@@ -1179,7 +1333,7 @@ const UpgradeScreen = ({ creditsRemaining = 0, adminConfig, userId, userName, us
                                         <button 
                                             onClick={handleApplyVoucher} 
                                             disabled={voucherLoading || !voucherCode.trim()} 
-                                            className="px-6 py-3 bg-emerald-500 hover:bg-emerald-450 active:bg-emerald-600 text-white rounded-xl text-xs font-black uppercase tracking-wider border-2 border-emerald-600 border-b-4 active:border-b-2 active:translate-y-0.5 disabled:opacity-50 transition-all flex items-center gap-1.5 shadow-sm"
+                                            className="px-6 py-3 bg-emerald-500 hover:bg-emerald-400 active:bg-emerald-600 text-white rounded-xl text-xs font-black uppercase tracking-wider border-2 border-emerald-600 border-b-4 active:border-b-2 active:translate-y-0.5 disabled:opacity-50 transition-all flex items-center gap-1.5 shadow-sm"
                                         >
                                             {voucherLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : null}
                                             {t('upgrade.apply', 'Áp dụng')}

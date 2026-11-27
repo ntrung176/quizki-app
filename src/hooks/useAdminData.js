@@ -42,15 +42,24 @@ export const useAdminData = ({ publicStatsPath, currentUserId, adminConfig, onAd
 
     // Load users
     useEffect(() => {
-        if (!db || !publicStatsPath) return;
+        if (!db || !publicStatsPath) {
+            setIsLoading(false);
+            return;
+        }
         const q = query(collection(db, publicStatsPath));
         const unsubscribe = onSnapshot(q, (snapshot) => {
-            const userList = snapshot.docs.map(d => ({
-                userId: d.id,
-                ...d.data(),
-                id: d.id
-            }));
+            const userList = snapshot.docs.map(d => {
+                const data = d.data() || {};
+                return {
+                    ...data,
+                    userId: d.id,
+                    id: d.id
+                };
+            });
             setUsers(userList);
+            setIsLoading(false);
+        }, (error) => {
+            console.error('Error loading admin users:', error);
             setIsLoading(false);
         });
         return () => unsubscribe();
@@ -180,6 +189,8 @@ export const useAdminData = ({ publicStatsPath, currentUserId, adminConfig, onAd
                 setLocalUserUpdates(prev => ({
                     ...prev,
                     [selectedUser.userId]: {
+                        ...(mergedUser.email ? { email: mergedUser.email } : {}),
+                        ...(mergedUser.displayName ? { displayName: mergedUser.displayName } : {}),
                         unlockedSpecializedPackages: mergedUser.unlockedSpecializedPackages || [],
                         isPremiumUnlocked: mergedUser.isPremiumUnlocked || false,
                         isPremium: mergedUser.isPremium || false,
@@ -245,6 +256,13 @@ export const useAdminData = ({ publicStatsPath, currentUserId, adminConfig, onAd
                     premiumExpiresAt
                 }
             }));
+            setUsers(prev => prev.map(u => u.userId === selectedUser.userId ? {
+                ...u,
+                unlockedSpecializedPackages,
+                isPremiumUnlocked,
+                isPremium: isPremiumUnlocked,
+                premiumExpiresAt
+            } : u));
             setSelectedUser(prev => prev ? {
                 ...prev,
                 unlockedSpecializedPackages,
@@ -273,13 +291,19 @@ export const useAdminData = ({ publicStatsPath, currentUserId, adminConfig, onAd
         return { total, totalCards, activeToday };
     }, [users]);
 
+    const isUserPremiumExpired = (u) => {
+        if (!u?.premiumExpiresAt) return false;
+        const expiryTime = u.premiumExpiresAt.toDate ? u.premiumExpiresAt.toDate().getTime() : Number(u.premiumExpiresAt || 0);
+        return Boolean(expiryTime && expiryTime < Date.now());
+    };
+
     const filteredUsers = useMemo(() => {
         let result = users.map(u => ({
             ...u,
             ...(localUserUpdates[u.userId] || {})
         }));
         if (searchQuery.trim()) {
-            const q = searchQuery.toLowerCase();
+            const q = searchQuery.toLowerCase().trim();
             result = result.filter(u =>
                 (u.displayName || '').toLowerCase().includes(q) ||
                 (u.userId || '').toLowerCase().includes(q) ||
@@ -294,21 +318,36 @@ export const useAdminData = ({ publicStatsPath, currentUserId, adminConfig, onAd
             result = result.filter(u => u.userId !== currentUserId && !adminConfig?.moderators?.includes(u.userId));
         }
 
-        if (planFilter !== 'all') {
+        if (planFilter === 'all_premium') {
+            result = result.filter(u => getUserActivePlan(u) !== 'free');
+        } else if (planFilter === 'expired') {
+            result = result.filter(u => isUserPremiumExpired(u) && getUserActivePlan(u) === 'free');
+        } else if (planFilter !== 'all') {
             result = result.filter(u => getUserActivePlan(u) === planFilter);
         }
+
         result.sort((a, b) => {
-            let aVal, bVal;
-            switch (sortBy) {
-                case 'displayName':
-                    aVal = (a.displayName || '').toLowerCase();
-                    bVal = (b.displayName || '').toLowerCase();
-                    break;
-                default:
-                    aVal = a.totalCards || 0;
-                    bVal = b.totalCards || 0;
+            if (sortBy === 'displayName') {
+                const cmp = (a.displayName || '').localeCompare(b.displayName || '', 'vi', { sensitivity: 'base' });
+                if (cmp !== 0) return sortOrder === 'asc' ? cmp : -cmp;
+                return (a.userId || '').localeCompare(b.userId || '');
             }
-            return sortOrder === 'asc' ? (aVal > bVal ? 1 : -1) : (aVal < bVal ? 1 : -1);
+            let aVal = 0;
+            let bVal = 0;
+            if (sortBy === 'lastActive') {
+                aVal = extractUserLastActive(a);
+                bVal = extractUserLastActive(b);
+            } else if (sortBy === 'xp') {
+                aVal = Number(a.xp ?? a.score ?? 0);
+                bVal = Number(b.xp ?? b.score ?? 0);
+            } else {
+                aVal = Number(a.totalCards || 0);
+                bVal = Number(b.totalCards || 0);
+            }
+            if (aVal !== bVal) {
+                return sortOrder === 'asc' ? aVal - bVal : bVal - aVal;
+            }
+            return (a.userId || '').localeCompare(b.userId || '');
         });
         return result;
     }, [users, searchQuery, sortBy, sortOrder, roleFilter, planFilter, adminConfig, currentUserId, creditRequests, localUserUpdates]);
@@ -602,6 +641,7 @@ export const useAdminData = ({ publicStatsPath, currentUserId, adminConfig, onAd
         setSelectedUser,
         handleSelectUser: setSelectedUser,
         selectedUserProfile,
+        setSelectedUserProfile,
         selectedUserPackageState,
         setSelectedUserPackageState,
         updatingUserPackage,

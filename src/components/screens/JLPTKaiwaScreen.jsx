@@ -15,6 +15,7 @@ import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import KaiwaScorecardModal from '../ui/KaiwaScorecardModal';
 import AiKaiwaCallOverlay from '../ui/AiKaiwaCallOverlay';
 import KaiwaCoachSection from '../kaiwa/KaiwaCoachSection';
+import { AiCreditPill, AiCostTag } from '../ui/AiCreditBadge';
 
 
 // Level configurations with futuristic Cyber gradients & HUD tags
@@ -265,30 +266,12 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
     const [transcript, setTranscript] = useState('');
     const [speechSupported, setSpeechSupported] = useState(true);
 
-    // Active timer effect during Kaiwa chat
+    // Credit-based metering governs Kaiwa usage (no arbitrary 10-minute timer wall when credits > 0)
     useEffect(() => {
         if (step !== 'chat' || isUnlimited) return;
-
-        if (dailyUsedSeconds >= DAILY_KAIWA_LIMIT_SECONDS) {
-            setShowTimeLimitModal(true);
-            return;
-        }
-
         const interval = setInterval(() => {
-            setDailyUsedSeconds(prev => {
-                const nextSec = prev + 1;
-                try {
-                    localStorage.setItem(`quizki_kaiwa_used_${getTodayStr()}`, String(nextSec));
-                } catch (e) { }
-
-                if (nextSec >= DAILY_KAIWA_LIMIT_SECONDS) {
-                    setShowTimeLimitModal(true);
-                    if (audioRef.current) audioRef.current.pause();
-                }
-                return nextSec;
-            });
+            setDailyUsedSeconds(prev => prev + 1);
         }, 1000);
-
         return () => clearInterval(interval);
     }, [step, isUnlimited]);
 
@@ -1029,10 +1012,15 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
             }
         } catch (error) {
             console.error('Error starting conversation:', error);
+            const isInsufficient = error?.code === 'INSUFFICIENT_AI_CREDITS';
             setConversation([{
                 sender: 'ai',
-                textJa: isEnglishMode ? "Hello! It seems there was a network connection issue. Please try again." : 'こんにちは！接続に問題が発生したようです。もう一度やり直してください。',
-                textVi: 'Xin chào! Đã xảy ra lỗi kết nối. Vui lòng thử lại.',
+                textJa: isInsufficient
+                    ? 'クレジットが不足しています。アップグレードページから追加してください。'
+                    : (isEnglishMode ? "Hello! It seems there was a network connection issue. Please try again." : 'こんにちは！接続に問題が発生したようです。もう一度やり直してください。'),
+                textVi: isInsufficient
+                    ? `⚠️ ${error.message}`
+                    : 'Xin chào! Đã xảy ra lỗi kết nối. Vui lòng thử lại.',
                 suggestions: []
             }]);
         } finally {
@@ -1357,11 +1345,16 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
             }
         } catch (error) {
             console.error('Error sending message:', error);
+            const isInsufficient = error?.code === 'INSUFFICIENT_AI_CREDITS';
             setConversation(prev => [...prev, {
                 sender: 'ai',
-                textJa: 'すみません、もう一度言っていただくか、メッセージを再送信してください。',
-                textVi: 'Xin lỗi, bạn có thể nói lại hoặc gửi lại tin nhắn được không?',
-                suggestions: [
+                textJa: isInsufficient
+                    ? 'クレジットが不足しています。アップグレードページから追加してください。'
+                    : 'すみません、もう一度言っていただくか、メッセージを再送信してください。',
+                textVi: isInsufficient
+                    ? `⚠️ ${error.message}`
+                    : 'Xin lỗi, bạn có thể nói lại hoặc gửi lại tin nhắn được không?',
+                suggestions: isInsufficient ? [] : [
                     "はい、わかりました。",
                     "そうですね。詳しく教[おし]えてください。",
                     "もう一[いち]度[ど]お願[ねが]いします。"
@@ -1674,13 +1667,20 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
                                                     </div>
 
                                                     {/* 3D Duolingo CTA Button - ALWAYS PINNED AT BOTTOM, NO SCROLLING! */}
-                                                    <div className="shrink-0 pt-2 border-t border-slate-100 dark:border-slate-800">
+                                                    <div className="shrink-0 pt-2 border-t border-slate-100 dark:border-slate-800 space-y-2">
+                                                        <div className="flex items-center justify-between gap-2">
+                                                            <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400">
+                                                                Chi phí hội thoại: <strong className="text-amber-600 dark:text-amber-400">3 Credit AI / lượt phản hồi</strong>
+                                                            </span>
+                                                            <AiCreditPill featureId="kaiwa_agent" isUnlimited={isUnlimited} compact />
+                                                        </div>
                                                         <button
                                                             onClick={() => handleStartConversation()}
                                                             className="w-full py-3.5 px-6 rounded-2xl bg-emerald-500 hover:bg-emerald-400 active:translate-y-1 active:border-b-2 border-2 border-b-[5px] border-emerald-700 text-white font-black text-sm tracking-wider transition-all duration-150 cursor-pointer flex items-center justify-center gap-2.5 select-none shadow-lg shadow-emerald-500/20"
                                                         >
                                                             <Play className="w-5 h-5 fill-white" />
                                                             <span>{practiceMode === 'lesson' ? 'BẮT ĐẦU PHẢN XẠ BÀI HỌC' : 'BẮT ĐẦU TRÒ CHUYỆN AI'}</span>
+                                                            <AiCostTag featureId="kaiwa_agent" darkBg />
                                                         </button>
                                                     </div>
                                                 </div>
@@ -1767,24 +1767,8 @@ const JLPTKaiwaScreen = ({ profile, isAdmin, awardXP }) => {
 
                                                 {/* Controls HUD Panel (Desktop always visible, Mobile collapsible drawer) */}
                                                 <div className={`flex items-center gap-2 flex-wrap transition-all ${showMobileSettings ? 'flex pt-2 border-t border-slate-200 dark:border-slate-800 sm:border-0 sm:pt-0' : 'hidden sm:flex'}`}>
-                                                    {/* Daily Time Limit HUD Badge */}
-                                                    {!isUnlimited ? (
-                                                        <div
-                                                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-50 dark:bg-amber-950/60 border-2 border-b-3 border-amber-300 dark:border-amber-800 text-amber-700 dark:text-amber-300 text-xs font-black shadow-xs flex-1 sm:flex-none justify-center"
-                                                            title="Giới hạn 10 phút luyện Kaiwa mỗi ngày cho tài khoản Premium"
-                                                        >
-                                                            <Clock className="w-3.5 h-3.5 text-amber-500 animate-pulse" />
-                                                            <span>{t('kaiwa.trialBadge', 'Thử nghiệm:')} {formatTime(Math.max(0, DAILY_KAIWA_LIMIT_SECONDS - dailyUsedSeconds))}</span>
-                                                        </div>
-                                                    ) : (
-                                                        <div
-                                                            className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-50 dark:bg-emerald-950/60 border-2 border-b-3 border-emerald-300 dark:border-emerald-800 text-emerald-700 dark:text-emerald-300 text-xs font-black shadow-xs flex-1 sm:flex-none justify-center"
-                                                            title="Tài khoản Quản trị viên không giới hạn thời lượng Kaiwa"
-                                                        >
-                                                            <ShieldCheck className="w-3.5 h-3.5 text-emerald-500" />
-                                                            <span>Admin: Không giới hạn</span>
-                                                        </div>
-                                                    )}
+                                                    {/* Live AI Credit Pill */}
+                                                    <AiCreditPill featureId="kaiwa_agent" isUnlimited={isUnlimited} compact />
 
                                                     {/* Hands-Free VAD Mode Toggle Button */}
                                                     <button

@@ -7,6 +7,7 @@ import FuriganaRenderer from '../kaiwa/FuriganaRenderer';
 import { speakExampleSentence } from '../../utils/audio';
 import { translateFast, translateWithAI, detectSourceLanguage } from '../../services/sentenceTranslationService';
 import { showToast } from '../../utils/toast';
+import { AiCreditPill, AiCostTag } from '../ui/AiCreditBadge';
 
 export default function HomeSentenceTranslateCard({
     query,
@@ -249,10 +250,13 @@ export default function HomeSentenceTranslateCard({
 
             {/* Section: BẢN DỊCH */}
             <div className="space-y-3">
-                <div className="flex items-center justify-between">
-                    <h3 className="text-xs font-black uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                        Bản dịch ({targetLang === 'ja' ? 'Tiếng Nhật' : 'Tiếng Việt'})
-                    </h3>
+                <div className="flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex items-center gap-2 flex-wrap">
+                        <h3 className="text-xs font-black uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                            Bản dịch ({targetLang === 'ja' ? 'Tiếng Nhật' : 'Tiếng Việt'})
+                        </h3>
+                        <AiCreditPill featureId="sentence_translate" compact />
+                    </div>
 
                     {/* Mode Segmented Switch: Dịch nhanh vs Dịch AI */}
                     <div className="flex bg-slate-100 dark:bg-slate-800 p-1 rounded-2xl border border-slate-200 dark:border-slate-700/80 gap-1">
@@ -280,6 +284,7 @@ export default function HomeSentenceTranslateCard({
                         >
                             <Sparkles className="w-3.5 h-3.5" />
                             <span>Dịch AI</span>
+                            <AiCostTag featureId="sentence_translate" darkBg={mode === 'ai'} />
                         </button>
                     </div>
                 </div>

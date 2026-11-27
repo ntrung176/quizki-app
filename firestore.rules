@@ -51,30 +51,72 @@ service cloud.firestore {
 
     match /artifacts/{appId}/users/{userId}/settings/{docId} {
       allow read: if isOwner(userId) || hasAdminPrivileges(appId);
-      allow create: if (isOwner(userId) && isReasonableSize()) || hasAdminPrivileges(appId);
-      // LƯU Ý BẢO MẬT: Đã chặn quyền update profile/credits từ client
-      // Luồng cộng tiền hiện tại được xử lý hoàn toàn qua Cloudflare Workers Webhook (Admin SDK) bảo mật.
+      // BẢO MẬT NGHIÊM NGẶT: Không cho user tự tạo/xóa profile để bơm Credit AI hoặc Premium
+      allow create: if hasAdminPrivileges(appId) ||
+                    (
+                      isOwner(userId) &&
+                      docId == 'profile' &&
+                      isReasonableSize() &&
+                      !request.resource.data.keys().hasAny([
+                        'isPremiumUnlocked', 'isPremium', 'premiumExpiresAt',
+                        'unlockedSpecializedPackages', 'trialPricingTier',
+                        'simulatedCredits', 'role', 'isAdmin'
+                      ]) &&
+                      (
+                        !('aiCreditsRemaining' in request.resource.data) ||
+                        request.resource.data.aiCreditsRemaining == null ||
+                        request.resource.data.aiCreditsRemaining == 50
+                      )
+                    ) ||
+                    (
+                      isOwner(userId) &&
+                      docId != 'profile' &&
+                      isReasonableSize() &&
+                      !request.resource.data.keys().hasAny([
+                        'aiCreditsRemaining', 'isPremiumUnlocked', 'isPremium',
+                        'premiumExpiresAt', 'unlockedSpecializedPackages',
+                        'trialPricingTier', 'simulatedCredits', 'role', 'isAdmin'
+                      ])
+                    );
       allow update: if hasAdminPrivileges(appId) || 
                     (
                       isOwner(userId) && 
                       (
-                        // Trường hợp 1: Cập nhật thông tin thông thường (không chạm đến credits và premium)
-                        !request.resource.data.diff(resource.data).affectedKeys().hasAny(['aiCreditsRemaining', 'isPremiumUnlocked', 'premiumExpiresAt', 'unlockedSpecializedPackages']) ||
+                        // Trường hợp 1: Cập nhật thông tin thông thường (chặn hoàn toàn sửa credits, premium, role, trialTier)
+                        !request.resource.data.diff(resource.data).affectedKeys().hasAny([
+                          'aiCreditsRemaining', 'isPremiumUnlocked', 'isPremium',
+                          'premiumExpiresAt', 'unlockedSpecializedPackages',
+                          'trialPricingTier', 'simulatedCredits', 'role', 'isAdmin'
+                        ]) ||
                         
-                        // Trường hợp 2: Khởi tạo aiCreditsRemaining từ null/undefined thành 100
+                        // Trường hợp 2: Khởi tạo aiCreditsRemaining từ null/undefined thành 50 (chỉ profile, 1 lần duy nhất)
                         (
+                          docId == 'profile' &&
                           request.resource.data.diff(resource.data).affectedKeys().hasOnly(['aiCreditsRemaining']) &&
                           (!('aiCreditsRemaining' in resource.data) || resource.data.aiCreditsRemaining == null) &&
-                          request.resource.data.aiCreditsRemaining == 100
+                          request.resource.data.aiCreditsRemaining == 50
+                        ) ||
+
+                        // Trường hợp 2b: Chỉ cho phép khấu trừ aiCreditsRemaining (1..50 credit, kết quả int >= 0, không bao giờ tăng)
+                        (
+                          docId == 'profile' &&
+                          request.resource.data.diff(resource.data).affectedKeys().hasOnly(['aiCreditsRemaining']) &&
+                          ('aiCreditsRemaining' in resource.data) &&
+                          resource.data.aiCreditsRemaining is int &&
+                          request.resource.data.aiCreditsRemaining is int &&
+                          request.resource.data.aiCreditsRemaining >= 0 &&
+                          request.resource.data.aiCreditsRemaining < resource.data.aiCreditsRemaining &&
+                          (resource.data.aiCreditsRemaining - request.resource.data.aiCreditsRemaining) >= 1 &&
+                          (resource.data.aiCreditsRemaining - request.resource.data.aiCreditsRemaining) <= 50
                         ) ||
                         
-                        // Trường hợp 3: Người được giới thiệu tự động kích hoạt 30 ngày (1 tháng) Premium khi nhập mã giới thiệu
+                        // Trường hợp 3: Người được giới thiệu nhận 30 ngày dùng thử qua mã giới thiệu
                         (
-                          // Phải có trường referredBy lần đầu tiên
+                          docId == 'profile' &&
                           request.resource.data.referredBy != null &&
                           (!('referredBy' in resource.data) || resource.data.referredBy == null) &&
                           request.resource.data.diff(resource.data).affectedKeys().hasOnly(['referredBy', 'isPremiumUnlocked', 'premiumExpiresAt', 'unlockedSpecializedPackages']) &&
-                          // Giới hạn số ngày dùng thử tối đa là 30 ngày (30 * 24 * 60 * 60 * 1000 = 2592000000 ms) + 1 phút đệm
+                          !request.resource.data.unlockedSpecializedPackages.hasAny(['premium_1y', 'premium_3y']) &&
                           (
                             (!('premiumExpiresAt' in resource.data) || resource.data.premiumExpiresAt == null || resource.data.premiumExpiresAt < request.time.toMillis()) ? 
                             request.resource.data.premiumExpiresAt <= request.time.toMillis() + 2592060000 : 
@@ -84,17 +126,21 @@ service cloud.firestore {
                       )
                     ) ||
                     (
-                      // Trường hợp 4: Cho phép người được giới thiệu cộng 30 ngày (1 tháng) Premium cho người giới thiệu (chủ tài khoản profile này)
+                      // Trường hợp 4: Cộng thưởng 30 ngày cho người giới thiệu (bắt buộc tồn tại bản ghi referral của caller, không phải tự giới thiệu)
+                      docId == 'profile' &&
                       isAuthenticated() &&
+                      request.auth.uid != userId &&
+                      exists(/databases/$(database)/documents/artifacts/$(appId)/referrals/$(request.auth.uid)) &&
                       request.resource.data.diff(resource.data).affectedKeys().hasOnly(['isPremiumUnlocked', 'premiumExpiresAt', 'unlockedSpecializedPackages']) &&
-                      // Giới hạn số ngày cộng thêm tối đa là 30 ngày (30 * 24 * 60 * 60 * 1000 = 2592000000 ms) + 1 phút đệm
+                      !request.resource.data.unlockedSpecializedPackages.hasAny(['premium_1y', 'premium_3y']) &&
                       (
                         (!('premiumExpiresAt' in resource.data) || resource.data.premiumExpiresAt == null || resource.data.premiumExpiresAt < request.time.toMillis()) ? 
                         request.resource.data.premiumExpiresAt <= request.time.toMillis() + 2592060000 : 
                         request.resource.data.premiumExpiresAt <= resource.data.premiumExpiresAt + 2592060000
                       )
                     );
-      allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
+      // Không cho phép user tự xóa settings/profile để reset credit về 50 nhiều lần
+      allow delete: if hasAdminPrivileges(appId);
     }
     
     match /artifacts/{appId}/users/{userId}/vocabulary/{vocabId} {
@@ -230,18 +276,33 @@ service cloud.firestore {
     
     match /artifacts/{appId}/public/data/userStats/{userId} {
       allow read: if true;
-      allow create: if isOwner(userId) || hasAdminPrivileges(appId);
-      allow update: if isOwner(userId) || hasAdminPrivileges(appId) || (
-                      // Cho phép cập nhật thông tin premium của người khác khi cộng thưởng giới thiệu
+      allow create: if hasAdminPrivileges(appId) || (
+                      isOwner(userId) &&
+                      !request.resource.data.keys().hasAny([
+                        'aiCreditsRemaining', 'isPremiumUnlocked', 'isPremium',
+                        'premiumExpiresAt', 'unlockedSpecializedPackages',
+                        'trialPricingTier', 'simulatedCredits', 'role', 'isAdmin'
+                      ])
+                    );
+      allow update: if hasAdminPrivileges(appId) || (
+                      isOwner(userId) &&
+                      !request.resource.data.diff(resource.data).affectedKeys().hasAny([
+                        'aiCreditsRemaining', 'isPremiumUnlocked', 'isPremium',
+                        'premiumExpiresAt', 'unlockedSpecializedPackages',
+                        'trialPricingTier', 'simulatedCredits', 'role', 'isAdmin'
+                      ])
+                    ) || (
                       isAuthenticated() &&
-                      request.resource.data.diff(resource.data).affectedKeys().hasOnly(['isPremiumUnlocked', 'isPremium', 'premiumExpiresAt', 'unlockedSpecializedPackages']) &&
+                      exists(/databases/$(database)/documents/artifacts/$(appId)/referrals/$(request.auth.uid)) &&
+                      request.resource.data.diff(resource.data).affectedKeys().hasOnly(['isPremiumUnlocked', 'isPremium', 'premiumExpiresAt', 'unlockedSpecializedPackages', 'referredBy']) &&
+                      !request.resource.data.unlockedSpecializedPackages.hasAny(['premium_1y', 'premium_3y']) &&
                       (
                         (!('premiumExpiresAt' in resource.data) || resource.data.premiumExpiresAt == null || resource.data.premiumExpiresAt < request.time.toMillis()) ? 
                         request.resource.data.premiumExpiresAt <= request.time.toMillis() + 2592060000 : 
                         request.resource.data.premiumExpiresAt <= resource.data.premiumExpiresAt + 2592060000
                       )
                     );
-      allow delete: if isOwner(userId) || hasAdminPrivileges(appId);
+      allow delete: if hasAdminPrivileges(appId);
     }
     
     // ============================================
@@ -382,19 +443,15 @@ service cloud.firestore {
     // ============================================
     
     match /artifacts/{appId}/creditRequests/{requestId} {
+      // Chỉ cho phép client tạo yêu cầu trạng thái pending (việc duyệt & cộng credit chỉ do SePay Webhook Admin SDK hoặc Admin thực hiện)
       allow create: if isAuthenticated() && (
         hasAdminPrivileges(appId) ||
         (
           request.resource.data.userId == request.auth.uid &&
-          (
-            request.resource.data.status == 'pending' ||
-            (
-              request.resource.data.status == 'approved' &&
-              request.resource.data.autoApproved == true &&
-              request.resource.data.transactionId != null &&
-              exists(/databases/$(database)/documents/artifacts/$(appId)/processedTransactions/$(request.resource.data.transactionId))
-            )
-          )
+          request.resource.data.status == 'pending' &&
+          request.resource.data.processedAt == null &&
+          request.resource.data.processedBy == null &&
+          !request.resource.data.keys().hasAny(['autoApproved', 'transactionId', 'isManualAllocation'])
         )
       );
       allow read: if hasAdminPrivileges(appId) || (isAuthenticated() && resource.data.userId == request.auth.uid);
@@ -403,13 +460,12 @@ service cloud.firestore {
     }
     
     // ============================================
-    // 10. PROCESSED TRANSACTIONS (Giao dịch đã xử lý)
+    // 10. PROCESSED TRANSACTIONS (Giao dịch đã xử lý - Chỉ Server Webhook / Admin)
     // ============================================
     
     match /artifacts/{appId}/processedTransactions/{txId} {
       allow read: if isAuthenticated() && (resource.data.userId == request.auth.uid || hasAdminPrivileges(appId));
-      allow create: if isAuthenticated() && request.resource.data.userId == request.auth.uid;
-      allow update, delete: if false;
+      allow create, update, delete: if hasAdminPrivileges(appId);
     }
     
     // ============================================

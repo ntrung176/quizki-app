@@ -15,6 +15,7 @@ import PremiumLockedModal from '../ui/PremiumLockedModal';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { getLanguageService, isEnglishCard, isKoreanCard } from '../../languages';
+import { AiCreditPill, AiCostTag } from '../ui/AiCreditBadge';
 
 const isCardModified = (card, originalCard) => {
     if (!originalCard) return true;
@@ -564,15 +565,20 @@ const EditSetScreen = ({
                 </div>
 
                 {/* Tools Menu Row - Equal Symmetrical Spacing & Distinct Color */}
-                <div className="flex items-center justify-between relative z-20">
-                    <button
-                        type="button"
-                        onClick={handleAddCardRow}
-                        className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold rounded-2xl text-white bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer shadow-xs select-none"
-                    >
-                        <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
-                        <span>{t('editSet.addNewCard', 'Thêm thẻ')}</span>
-                    </button>
+                <div className="flex items-center justify-between gap-2 relative z-20 flex-wrap">
+                    <div className="flex items-center gap-2">
+                        <button
+                            type="button"
+                            onClick={handleAddCardRow}
+                            className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold rounded-2xl text-white bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer shadow-xs select-none"
+                        >
+                            <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
+                            <span>{t('editSet.addNewCard', 'Thêm thẻ')}</span>
+                        </button>
+                        {onGeminiAssist && (
+                            <AiCreditPill featureId="vocab_gen" remaining={aiCreditsRemaining} compact />
+                        )}
+                    </div>
 
                     <div className="relative">
                         <button
@@ -613,7 +619,8 @@ const EditSetScreen = ({
                                                     <span className="w-6 h-6 rounded-lg bg-blue-100 dark:bg-slate-700 text-blue-600 dark:text-blue-400 flex items-center justify-center text-[10px] font-black shrink-0">
                                                         AI
                                                     </span>
-                                                    <span>{t('editSet.batchAi', 'Batch AI Generation')}</span>
+                                                    <span className="flex-1">{t('editSet.batchAi', 'Batch AI Generation')}</span>
+                                                    <AiCostTag featureId="vocab_gen" />
                                                 </button>
                                                 <button
                                                     type="button"
@@ -631,7 +638,8 @@ const EditSetScreen = ({
                                                     <div className="w-6 h-6 rounded-lg bg-emerald-100 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
                                                         <Camera className="w-3.5 h-3.5" />
                                                     </div>
-                                                    <span>{t('editSet.ocrImage', 'Extract from Image (OCR)')}</span>
+                                                    <span className="flex-1">{t('editSet.ocrImage', 'Extract from Image (OCR)')}</span>
+                                                    <AiCostTag featureId="ocr_image" />
                                                 </button>
                                             </>
                                         )}

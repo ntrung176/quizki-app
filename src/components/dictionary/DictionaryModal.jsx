@@ -14,6 +14,7 @@ import { showToast } from '../../utils/toast';
 import { useLanguage } from '../../context/LanguageContext';
 import { ensureFuriganaFormat } from '../../utils/furiganaHelper';
 import { sortStudySetsOldToNew } from '../../utils/studySetSorter';
+import { AiCreditPill } from '../ui/AiCreditBadge';
 
 const getCleanWord = (text) => {
     if (!text) return '';
@@ -379,14 +380,17 @@ const DictionaryModal = ({
                         </div>
                     </div>
 
-                    <button
-                        type="button"
-                        onClick={onClose}
-                        className="p-2 rounded-2xl border-2 border-b-4 border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 active:translate-y-0.5 active:border-b-2 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-all cursor-pointer shrink-0"
-                        title={t('common.close', 'Đóng') + ' (ESC)'}
-                    >
-                        <X className="w-5 h-5 stroke-[2.5px]" />
-                    </button>
+                    <div className="flex items-center gap-2 shrink-0">
+                        <AiCreditPill featureId="vocab_gen" compact />
+                        <button
+                            type="button"
+                            onClick={onClose}
+                            className="p-2 rounded-2xl border-2 border-b-4 border-slate-200 dark:border-slate-800 hover:bg-slate-100 dark:hover:bg-slate-800 active:translate-y-0.5 active:border-b-2 text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-all cursor-pointer shrink-0"
+                            title={t('common.close', 'Đóng') + ' (ESC)'}
+                        >
+                            <X className="w-5 h-5 stroke-[2.5px]" />
+                        </button>
+                    </div>
                 </div>
 
                 {/* Search Bar Input */}

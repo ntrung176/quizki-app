@@ -24,6 +24,7 @@ import { showToast, showConfirm } from '../../utils/toast';
 import { getSafeLocalDateString } from '../../utils/streakHelper';
 import { TopTabBar } from '../ui';
 import { GRAMMAR_TABS } from '../../config/tabs';
+import { AiCreditPill, AiCostTag } from '../ui/AiCreditBadge';
 
 const SAMPLE_POINTS_JSON = `[
   {
@@ -1144,8 +1145,11 @@ const GrammarPointsScreen = ({ isAdmin, profile = null }) => {
                                                 <div className="flex flex-wrap items-center gap-2.5 mt-4">
                                                     <button onClick={() => handleReviewAiCheck(id)} disabled={!translateAnswers[id]?.trim() || isAiLoading}
                                                         className="px-4 py-2 bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-2 border-emerald-700 text-white text-xs font-black uppercase tracking-wider rounded-xl disabled:opacity-40 flex items-center gap-1.5 transition-all cursor-pointer select-none">
-                                                        {isAiLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Bot className="w-4 h-4" />} AI đánh giá
+                                                        {isAiLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Bot className="w-4 h-4" />}
+                                                        <span>AI đánh giá</span>
+                                                        {!isAiLoading && <AiCostTag featureId="grammar_check" darkBg />}
                                                     </button>
+                                                    <AiCreditPill featureId="grammar_check" compact />
                                                     <button onClick={() => setShowTranslateAnswer(p => ({ ...p, [id]: true }))}
                                                         className="px-4 py-2 bg-white dark:bg-slate-800 border-2 border-b-4 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 text-xs font-bold uppercase tracking-wider rounded-xl hover:bg-slate-50 dark:hover:bg-slate-750 active:translate-y-0.5 active:border-b-2 flex items-center gap-1.5 transition-all cursor-pointer select-none">
                                                         <Eye className="w-4 h-4" /> Xem đáp án

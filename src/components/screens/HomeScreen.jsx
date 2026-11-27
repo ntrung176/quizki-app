@@ -51,6 +51,7 @@ const HomeScreen = ({
     totalCards,
     allCards = [],
     userId,
+    aiCreditsRemaining = null,
     isLoading: isVocabLoading = false,
     isProfileLoading = false,
     vocabCollectionPath,
@@ -699,10 +700,11 @@ const HomeScreen = ({
 
                 {/* RIGHT COLUMN: Telemetry, Habit Loop & Shortcuts (4 cols - Fixed & Sticky like Duolingo) */}
                 <div className="lg:col-span-4 space-y-5 lg:sticky lg:top-4 self-start lg:max-h-[calc(100vh-2rem)] lg:overflow-y-auto custom-scrollbar">
-                    {/* 1. Telemetry Bar (Flame Streak, Mastered Cards, Target Language) */}
+                    {/* 1. Telemetry Bar (Flame Streak, Mastered Cards, AI Credits, Target Language) */}
                     <HomeTelemetryBar
                         streak={stats.streak ?? 0}
                         totalMastered={totalMastered}
+                        aiCreditsRemaining={aiCreditsRemaining}
                         targetLanguage={targetLanguage}
                     />
 

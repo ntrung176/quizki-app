@@ -1,6 +1,11 @@
-import React, { useState } from 'react';
-import { Users, Search, BarChart3, Clock, Zap, Crown, Loader2, Shield, BookOpen, Languages, CreditCard, UserX, ShieldCheck, Trash2 } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Users, Search, BarChart3, Clock, Zap, Crown, Loader2, RefreshCw, ChevronDown } from 'lucide-react';
 import AdminSyncUserModal from './AdminSyncUserModal';
+import AdminUserDetailPanel from './AdminUserDetailPanel';
+import AdminCreditResetModal from './AdminCreditResetModal';
+import { extractUserLastActive, isUserOnline, formatLastActive } from '../../utils/userActivityHelper';
+
+const PAGE_STEP = 40;
 
 const AdminUsersSection = ({
     stats,
@@ -36,128 +41,151 @@ const AdminUsersSection = ({
     setConfirmDelete,
     handleSyncUserByUidOrEmail,
     handleSyncAllUsersFromFirestore,
-    isSyncingAllUsers
+    isSyncingAllUsers,
+    onSingleUserCreditsUpdated
 }) => {
     const [showSyncModal, setShowSyncModal] = useState(false);
+    const [showResetCreditsModal, setShowResetCreditsModal] = useState(false);
+    const [visibleLimit, setVisibleLimit] = useState(PAGE_STEP);
+
+    // Reset visible page count when search or filters change
+    useEffect(() => {
+        setVisibleLimit(PAGE_STEP);
+    }, [searchQuery, roleFilter, planFilter, sortBy, sortOrder]);
+
+    const visibleUsers = filteredUsers.slice(0, visibleLimit);
+    const hasMoreUsers = filteredUsers.length > visibleLimit;
+    const modCount = adminConfig?.moderators?.length || 0;
 
     return (
-        <>
-            {/* Stats Cards */}
-            <div className="grid grid-cols-3 gap-3">
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center">
-                            <Users className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
-                        </div>
-                        <div>
-                            <p className="text-2xl font-bold text-gray-800 dark:text-white">{stats.total}</p>
-                            <p className="text-xs text-gray-500">Tổng người dùng</p>
-                        </div>
+        <div className="space-y-5">
+            {/* KPI Summary Cards */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
+                <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border-2 border-b-4 border-slate-200 dark:border-slate-700/80 flex items-center gap-3.5">
+                    <div className="w-11 h-11 rounded-2xl bg-emerald-500 border-b-4 border-emerald-700 text-white flex items-center justify-center shrink-0">
+                        <Users className="w-5 h-5" />
+                    </div>
+                    <div>
+                        <p className="text-2xl font-black text-slate-900 dark:text-white leading-none">{stats.total}</p>
+                        <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mt-1">Tổng người dùng ({modCount} QTV)</p>
                     </div>
                 </div>
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-sky-100 dark:bg-sky-900/30 flex items-center justify-center">
-                            <BarChart3 className="w-5 h-5 text-sky-600 dark:text-sky-400" />
-                        </div>
-                        <div>
-                            <p className="text-2xl font-bold text-sky-600">{stats.totalCards}</p>
-                            <p className="text-xs text-gray-500">Tổng flashcard</p>
-                        </div>
+
+                <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border-2 border-b-4 border-slate-200 dark:border-slate-700/80 flex items-center gap-3.5">
+                    <div className="w-11 h-11 rounded-2xl bg-sky-500 border-b-4 border-sky-700 text-white flex items-center justify-center shrink-0">
+                        <BarChart3 className="w-5 h-5" />
+                    </div>
+                    <div>
+                        <p className="text-2xl font-black text-sky-600 dark:text-sky-400 leading-none">{stats.totalCards.toLocaleString()}</p>
+                        <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mt-1">Tổng Flashcard</p>
                     </div>
                 </div>
-                <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
-                    <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-lg bg-cyan-100 dark:bg-cyan-900/30 flex items-center justify-center">
-                            <Clock className="w-5 h-5 text-cyan-600 dark:text-cyan-400" />
-                        </div>
-                        <div>
-                            <p className="text-2xl font-bold text-cyan-600">{stats.activeToday}</p>
-                            <p className="text-xs text-gray-500">Hoạt động hôm nay</p>
-                        </div>
+
+                <div className="bg-white dark:bg-slate-900 rounded-2xl p-4 border-2 border-b-4 border-slate-200 dark:border-slate-700/80 flex items-center gap-3.5">
+                    <div className="w-11 h-11 rounded-2xl bg-amber-500 border-b-4 border-amber-700 text-white flex items-center justify-center shrink-0">
+                        <Clock className="w-5 h-5" />
+                    </div>
+                    <div>
+                        <p className="text-2xl font-black text-amber-600 dark:text-amber-400 leading-none">{stats.activeToday}</p>
+                        <p className="text-xs font-bold text-slate-500 dark:text-slate-400 mt-1">Hoạt động hôm nay</p>
                     </div>
                 </div>
             </div>
 
-            {/* Filters & Search */}
-            <div className="bg-white dark:bg-gray-800 rounded-xl p-4 border border-gray-200 dark:border-gray-700">
-                <div className="flex flex-col md:flex-row gap-3">
+            {/* Search & Filters */}
+            <div className="bg-white dark:bg-slate-900 rounded-2xl p-3.5 border-2 border-slate-200 dark:border-slate-700/80">
+                <div className="flex flex-col md:flex-row gap-2.5">
                     <div className="flex-1 relative">
-                        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+                        <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
                         <input
-                            type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}
-                            placeholder="Tìm kiếm theo tên, email hoặc ID..."
-                            className="w-full pl-10 pr-4 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none"
+                            type="text"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            placeholder="Tìm kiếm theo tên, email hoặc User UID..."
+                            className="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-xl focus:border-emerald-500 outline-none text-slate-800 dark:text-white font-medium"
                         />
                     </div>
                     <select
                         value={roleFilter}
                         onChange={(e) => setRoleFilter(e.target.value)}
-                        className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg outline-none dark:text-white"
+                        className="px-3 py-2.5 text-xs font-bold bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-xl outline-none text-slate-700 dark:text-white cursor-pointer"
                     >
                         <option value="all">Tất cả vai trò</option>
-                        <option value="admin">👑 Admin</option>
-                        <option value="moderator">🛡️ Quản trị viên</option>
-                        <option value="user">👤 Người dùng</option>
+                        <option value="admin">👑 Admin chính</option>
+                        <option value="moderator">🛡️ Quản trị viên (QTV)</option>
+                        <option value="user">👤 Học viên</option>
                     </select>
                     <select
                         value={planFilter}
                         onChange={(e) => setPlanFilter(e.target.value)}
-                        className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg outline-none dark:text-white"
+                        className="px-3 py-2.5 text-xs font-bold bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-xl outline-none text-slate-700 dark:text-white cursor-pointer"
                     >
-                        <option value="all">Tất cả gói</option>
-                        <option value="premium_1m">👑 Gói Premium 1 Tháng</option>
-                        <option value="premium_1y">👑 Gói Premium 1 Năm</option>
-                        <option value="premium_3y">👑 Gói Premium 3 Năm</option>
+                        <option value="all">Tất cả gói cước</option>
+                        <option value="all_premium">👑 Đang dùng Premium</option>
+                        <option value="premium_1m">• Premium 1 Tháng</option>
+                        <option value="premium_1y">• Premium 1 Năm</option>
+                        <option value="premium_3y">• Premium 3 Năm</option>
+                        <option value="expired">⚠️ Đã hết hạn</option>
                         <option value="free">👤 Gói Miễn Phí</option>
                     </select>
                     <select
                         value={`${sortBy}-${sortOrder}`}
-                        onChange={(e) => { const [by, order] = e.target.value.split('-'); setSortBy(by); setSortOrder(order); }}
-                        className="px-3 py-2 text-sm bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-lg outline-none dark:text-white"
+                        onChange={(e) => {
+                            const [by, order] = e.target.value.split('-');
+                            setSortBy(by);
+                            setSortOrder(order);
+                        }}
+                        className="px-3 py-2.5 text-xs font-bold bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-xl outline-none text-slate-700 dark:text-white cursor-pointer"
                     >
                         <option value="totalCards-desc">Nhiều thẻ nhất</option>
                         <option value="totalCards-asc">Ít thẻ nhất</option>
-                        <option value="displayName-asc">Tên A-Z</option>
-                        <option value="displayName-desc">Tên Z-A</option>
+                        <option value="lastActive-desc">Hoạt động gần nhất</option>
+                        <option value="xp-desc">XP cao nhất</option>
+                        <option value="displayName-asc">Tên A → Z</option>
+                        <option value="displayName-desc">Tên Z → A</option>
                     </select>
                 </div>
             </div>
 
-            {/* Main Content: User List + Details */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* User List + Sticky Detail Panel (items-start fixes empty stretched box & clipped rows) */}
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
                 {/* User List */}
-                <div className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden">
-                    <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex flex-wrap items-center justify-between gap-2">
-                        <h3 className="font-semibold text-gray-800 dark:text-white flex items-center gap-2">
-                            <Users className="w-4 h-4" />
-                            Danh sách người dùng ({filteredUsers.length})
-                        </h3>
+                <div className="lg:col-span-7 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-700/80 overflow-hidden shadow-sm">
+                    <div className="p-4 border-b-2 border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2.5">
+                        <div className="flex items-center gap-2">
+                            <h3 className="font-extrabold text-sm text-slate-800 dark:text-white flex items-center gap-2">
+                                <Users className="w-4 h-4 text-emerald-500" />
+                                Danh sách người dùng
+                            </h3>
+                            <span className="px-2 py-0.5 rounded-full text-xs font-black bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300">
+                                {filteredUsers.length}
+                            </span>
+                        </div>
+
                         <div className="flex items-center gap-2 flex-wrap">
                             <button
                                 type="button"
                                 disabled={isSyncingAllUsers}
                                 onClick={() => handleSyncAllUsersFromFirestore && handleSyncAllUsersFromFirestore()}
-                                className="px-3 py-1.5 bg-gradient-to-r from-blue-600 to-emerald-600 hover:from-blue-700 hover:to-emerald-700 disabled:opacity-50 text-white font-bold text-xs rounded-xl shadow-sm transition-all flex items-center gap-1.5 cursor-pointer active:scale-95 border border-white/20"
-                                title="Quét toàn bộ tài khoản người dùng trên Firestore và nạp đầy đủ vào danh sách quản trị"
+                                className="px-3 py-1.5 bg-sky-500 hover:bg-sky-600 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-2 disabled:opacity-50 text-white font-extrabold text-xs rounded-xl transition-all flex items-center gap-1.5 cursor-pointer"
+                                title="Quét toàn bộ tài khoản người dùng trên Firestore"
                             >
-                                {isSyncingAllUsers ? (
-                                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                                ) : (
-                                    <Users className="w-3.5 h-3.5" />
-                                )}
-                                <span>{isSyncingAllUsers ? 'Đang Quét...' : 'Quét & Đồng Bộ Tất Cả User'}</span>
+                                {isSyncingAllUsers ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <RefreshCw className="w-3.5 h-3.5" />}
+                                <span>{isSyncingAllUsers ? 'Đang quét...' : 'Đồng bộ tất cả'}</span>
                             </button>
+
                             <button
                                 type="button"
                                 onClick={() => setShowSyncModal(true)}
-                                className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-700 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-bold text-xs rounded-xl shadow-sm transition-all flex items-center gap-1.5 cursor-pointer active:scale-95 border border-slate-300 dark:border-slate-600"
-                                title="Đồng bộ người dùng qua Email hoặc User UID (Firebase Auth)"
+                                className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border-2 border-b-4 border-slate-300 dark:border-slate-600 active:translate-y-0.5 active:border-b-2 text-slate-700 dark:text-slate-200 font-extrabold text-xs rounded-xl transition-all flex items-center gap-1.5 cursor-pointer"
+                                title="Tìm và đồng bộ người dùng theo Email hoặc User UID"
                             >
                                 <Search className="w-3.5 h-3.5 text-emerald-500" />
-                                <span>Tìm & Đồng bộ Email / UID</span>
+                                <span>Tìm Email / UID</span>
                             </button>
+
                             <button
+                                type="button"
                                 onClick={async () => {
                                     try {
                                         const { normalizeAllUserScores } = await import('../../utils/normalizeUserScore');
@@ -167,339 +195,199 @@ const AdminUsersSection = ({
                                         setNotification({ type: 'error', message: 'Lỗi chuẩn hóa điểm: ' + e.message });
                                     }
                                 }}
-                                className="px-3 py-1.5 bg-gradient-to-r from-amber-500 via-emerald-600 to-teal-600 hover:from-amber-600 hover:to-teal-700 text-white font-extrabold text-xs rounded-xl shadow transition-all flex items-center gap-1.5 cursor-pointer active:scale-95 border border-white/20"
-                                title="Gán trực tiếp Score = XP cho tất cả người dùng trên Bảng xếp hạng"
+                                className="px-3 py-1.5 bg-amber-500 hover:bg-amber-600 border-b-4 border-amber-700 active:translate-y-0.5 active:border-b-2 text-white font-extrabold text-xs rounded-xl transition-all flex items-center gap-1.5 cursor-pointer"
+                                title="Gán trực tiếp Score = XP trên Bảng xếp hạng"
                             >
-                                <Zap className="w-3.5 h-3.5 fill-amber-300 text-amber-300" />
-                                <span>Chuẩn Hóa Điểm (Score = XP)</span>
+                                <Zap className="w-3.5 h-3.5" />
+                                <span>Score = XP</span>
+                            </button>
+
+                            <button
+                                type="button"
+                                onClick={() => setShowResetCreditsModal(true)}
+                                className="px-3 py-1.5 bg-rose-500 hover:bg-rose-600 border-b-4 border-rose-700 active:translate-y-0.5 active:border-b-2 text-white font-extrabold text-xs rounded-xl transition-all flex items-center gap-1.5 cursor-pointer"
+                                title="Reset lượt AI gói 1 Năm / 3 Năm về đúng chuẩn & xử lý tài khoản cheat Credit"
+                            >
+                                <RefreshCw className="w-3.5 h-3.5" />
+                                <span>Reset Credit AI</span>
                             </button>
                         </div>
                     </div>
-                    <div className="max-h-[500px] overflow-y-auto">
+
+                    <div className="max-h-[680px] overflow-y-auto divide-y divide-slate-100 dark:divide-slate-800/80">
                         {filteredUsers.length === 0 ? (
-                            <div className="p-8 text-center text-gray-400">
-                                <Users className="w-12 h-12 mx-auto mb-3 opacity-50" />
-                                <p className="text-gray-600 dark:text-gray-300 font-medium">Không tìm thấy người dùng {searchQuery ? `"${searchQuery}"` : ''}</p>
+                            <div className="p-8 text-center text-slate-400">
+                                <Users className="w-12 h-12 mx-auto mb-3 opacity-40" />
+                                <p className="text-slate-600 dark:text-slate-300 font-bold text-sm">
+                                    Không tìm thấy người dùng {searchQuery ? `"${searchQuery}"` : ''}
+                                </p>
                                 {searchQuery && (
                                     <div className="mt-4">
-                                        <p className="text-xs text-gray-400 mb-3">Người dùng mới đăng ký Email hoặc chưa đồng bộ hồ sơ công khai có thể cần dán User UID từ Firebase Console.</p>
+                                        <p className="text-xs text-slate-400 mb-3">
+                                            Tài khoản mới đăng ký có thể cần đồng bộ hồ sơ từ Email hoặc Firebase UID.
+                                        </p>
                                         <button
                                             type="button"
                                             onClick={async () => {
                                                 if (!handleSyncUserByUidOrEmail) return;
                                                 const res = await handleSyncUserByUidOrEmail(searchQuery);
-                                                if (res?.needsUid) {
-                                                    setShowSyncModal(true);
-                                                }
+                                                if (res?.needsUid) setShowSyncModal(true);
                                             }}
-                                            className="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl shadow transition-all inline-flex items-center gap-1.5 cursor-pointer"
+                                            className="px-4 py-2 bg-emerald-500 hover:bg-emerald-600 border-b-4 border-emerald-700 text-white text-xs font-extrabold rounded-xl transition-all inline-flex items-center gap-1.5 cursor-pointer"
                                         >
                                             <Search className="w-3.5 h-3.5" />
-                                            <span>Tìm kiếm & Đồng bộ "{searchQuery}"</span>
+                                            <span>Tìm & Đồng bộ "{searchQuery}"</span>
                                         </button>
                                     </div>
                                 )}
                             </div>
                         ) : (
-                            <div className="divide-y divide-gray-100 dark:divide-gray-700">
-                                {filteredUsers.map(user => {
-                                    const isMod = adminConfig?.moderators?.includes(user.userId);
+                            <>
+                                {visibleUsers.map(user => {
+                                    const isMod = Boolean(adminConfig?.moderators?.includes(user.userId));
+                                    const isSelf = user.userId === currentUserId;
+                                    const isSelected = selectedUser?.userId === user.userId;
+                                    const activePlan = getUserActivePlan(user);
+                                    const lastActiveMs = extractUserLastActive(user);
+                                    const online = isUserOnline(lastActiveMs);
+
+                                    let expiryTime = 0;
+                                    if (user.premiumExpiresAt) {
+                                        expiryTime = user.premiumExpiresAt.toDate
+                                            ? user.premiumExpiresAt.toDate().getTime()
+                                            : Number(user.premiumExpiresAt || 0);
+                                    }
+                                    const isExpired = Boolean(expiryTime && expiryTime < Date.now());
+
+                                    let planBadge = (
+                                        <span className="text-[10px] text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full font-bold">
+                                            FREE
+                                        </span>
+                                    );
+                                    if (isExpired && activePlan === 'free') {
+                                        planBadge = (
+                                            <span className="text-[10px] text-rose-600 dark:text-rose-400 bg-rose-50 dark:bg-rose-950/50 border border-rose-200 dark:border-rose-800 px-2 py-0.5 rounded-full font-black">
+                                                HẾT HẠN
+                                            </span>
+                                        );
+                                    } else if (activePlan === 'premium_3y') {
+                                        planBadge = <span className="text-[10px] text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-950/60 px-2 py-0.5 rounded-full font-black">👑 3 NĂM</span>;
+                                    } else if (activePlan === 'premium_1y') {
+                                        planBadge = <span className="text-[10px] text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-950/60 px-2 py-0.5 rounded-full font-black">👑 1 NĂM</span>;
+                                    } else if (activePlan === 'premium_1m') {
+                                        planBadge = <span className="text-[10px] text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-950/60 px-2 py-0.5 rounded-full font-black">👑 1 THÁNG</span>;
+                                    } else if (activePlan === 'premium') {
+                                        planBadge = <span className="text-[10px] text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-950/60 px-2 py-0.5 rounded-full font-black">👑 PREMIUM</span>;
+                                    }
+
                                     return (
-                                        <div
+                                        <button
                                             key={user.userId}
+                                            type="button"
                                             onClick={() => handleSelectUser(user)}
-                                            className={`p-4 hover:bg-gray-50 dark:hover:bg-gray-700/50 cursor-pointer transition-colors ${selectedUser?.userId === user.userId ? 'bg-emerald-50 dark:bg-emerald-900/20' : ''}`}
+                                            className={`w-full text-left p-3.5 sm:px-4 hover:bg-slate-50 dark:hover:bg-slate-800/60 cursor-pointer transition-colors flex items-center gap-3 ${
+                                                isSelected
+                                                    ? 'bg-emerald-50/80 dark:bg-emerald-950/35 border-l-4 border-emerald-500'
+                                                    : 'border-l-4 border-transparent'
+                                            }`}
                                         >
-                                            <div className="flex items-center justify-between">
-                                                <div className="flex items-center gap-3">
-                                                    <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold ${isMod ? 'bg-amber-500' : 'bg-emerald-500'}`}>
-                                                        {(user.displayName || '?')[0].toUpperCase()}
-                                                    </div>
-                                                    <div>
-                                                        <p className="font-medium text-gray-800 dark:text-white flex items-center gap-1.5 flex-wrap">
-                                                            {user.displayName || 'Chưa đặt tên'}
-                                                            {user.userId === currentUserId && (
-                                                                <span className="text-xs bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 px-2 py-0.5 rounded-full">Bạn</span>
-                                                            )}
-                                                            {isMod && (
-                                                                <span className="text-xs bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 px-2 py-0.5 rounded-full flex items-center gap-0.5">
-                                                                    <Crown className="w-3 h-3" /> QTV
-                                                                </span>
-                                                            )}
-                                                        </p>
-                                                        <p className="text-xs text-gray-400 dark:text-gray-500 leading-none mt-0.5">{user.email || 'no-email@example.com'}</p>
-                                                        <div className="flex flex-wrap items-center gap-2 text-xs text-gray-550 dark:text-gray-450 mt-1.5">
-                                                            <span className="font-semibold">{user.totalCards || 0} thẻ</span>
-                                                            {(() => {
-                                                                const activePlan = getUserActivePlan(user);
+                                            <div className="relative shrink-0">
+                                                <div
+                                                    className={`w-10 h-10 rounded-2xl flex items-center justify-center text-white font-black text-sm border-b-2 ${
+                                                        isSelf
+                                                            ? 'bg-sky-500 border-sky-700'
+                                                            : isMod
+                                                                ? 'bg-amber-500 border-amber-700'
+                                                                : 'bg-emerald-500 border-emerald-700'
+                                                    }`}
+                                                >
+                                                    {(user.displayName || user.email || '?')[0].toUpperCase()}
+                                                </div>
+                                                {online && (
+                                                    <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border-2 border-white dark:border-slate-900" />
+                                                )}
+                                            </div>
 
-                                                                let isExpired = false;
-                                                                if (user.premiumExpiresAt) {
-                                                                    const expiryTime = user.premiumExpiresAt.toDate ? user.premiumExpiresAt.toDate().getTime() : Number(user.premiumExpiresAt || 0);
-                                                                    if (expiryTime && expiryTime < Date.now()) {
-                                                                        isExpired = true;
-                                                                    }
-                                                                }
+                                            <div className="flex-1 min-w-0">
+                                                <div className="flex items-center gap-1.5 flex-wrap">
+                                                    <span className="font-extrabold text-sm text-slate-800 dark:text-white truncate max-w-[200px]">
+                                                        {user.displayName || 'Chưa đặt tên'}
+                                                    </span>
+                                                    {isSelf && (
+                                                        <span className="text-[10px] font-black bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 px-2 py-0.5 rounded-full">
+                                                            Admin
+                                                        </span>
+                                                    )}
+                                                    {isMod && (
+                                                        <span className="text-[10px] font-black bg-amber-100 dark:bg-amber-950/60 text-amber-700 dark:text-amber-300 px-2 py-0.5 rounded-full inline-flex items-center gap-0.5">
+                                                            <Crown className="w-2.5 h-2.5" /> QTV
+                                                        </span>
+                                                    )}
+                                                </div>
 
-                                                                if (isExpired) {
-                                                                    return <span className="text-[10px] text-red-500 bg-red-50 dark:bg-red-950/20 px-1.5 py-0.5 rounded font-bold">HẾT HẠN</span>;
-                                                                }
-                                                                if (activePlan === 'premium_3y') {
-                                                                    return <span className="text-[10px] text-amber-700 bg-amber-50 dark:bg-amber-950/20 px-1.5 py-0.5 rounded font-black">👑 3 NĂM</span>;
-                                                                }
-                                                                if (activePlan === 'premium_1y') {
-                                                                    return <span className="text-[10px] text-amber-700 bg-amber-50 dark:bg-amber-950/20 px-1.5 py-0.5 rounded font-black">👑 1 NĂM</span>;
-                                                                }
-                                                                if (activePlan === 'premium_1m') {
-                                                                    return <span className="text-[10px] text-amber-700 bg-amber-50 dark:bg-amber-950/20 px-1.5 py-0.5 rounded font-black">👑 1 THÁNG</span>;
-                                                                }
-                                                                if (activePlan === 'premium') {
-                                                                    return <span className="text-[10px] text-emerald-500 bg-emerald-50 dark:bg-emerald-950/20 px-1.5 py-0.5 rounded font-bold">👑 PREMIUM</span>;
-                                                                }
-                                                                return <span className="text-[10px] text-gray-400 bg-gray-100 dark:bg-gray-800 px-1.5 py-0.5 rounded">FREE</span>;
-                                                            })()}
-                                                            {user.premiumExpiresAt && (
-                                                                <span className="text-[10px] text-gray-400">
-                                                                    Hạn: {(() => {
-                                                                        const d = user.premiumExpiresAt.toDate ? user.premiumExpiresAt.toDate() : new Date(user.premiumExpiresAt);
-                                                                        return `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
-                                                                    })()}
-                                                                </span>
-                                                            )}
-                                                        </div>
-                                                    </div>
+                                                <p className={`text-xs truncate mt-0.5 ${user.email ? 'text-slate-500 dark:text-slate-400' : 'text-slate-400 dark:text-slate-500 italic'}`}>
+                                                    {user.email || `Chưa đồng bộ email • UID: ${user.userId?.slice(0, 8)}...`}
+                                                </p>
+
+                                                <div className="flex flex-wrap items-center gap-2 text-[11px] text-slate-500 dark:text-slate-400 mt-1.5">
+                                                    <span className="font-bold text-slate-700 dark:text-slate-300">{user.totalCards || 0} thẻ</span>
+                                                    <span>•</span>
+                                                    {planBadge}
+                                                    {expiryTime > 0 && (
+                                                        <span className="text-[10px] text-slate-400">
+                                                            Hạn: {new Date(expiryTime).toLocaleDateString('vi-VN')}
+                                                        </span>
+                                                    )}
+                                                    {!online && lastActiveMs > 0 && (
+                                                        <span className="text-[10px] text-slate-400 hidden sm:inline">
+                                                            • {formatLastActive(lastActiveMs, '')}
+                                                        </span>
+                                                    )}
                                                 </div>
                                             </div>
-                                        </div>
+                                        </button>
                                     );
                                 })}
-                            </div>
+
+                                {hasMoreUsers && (
+                                    <div className="p-3 text-center bg-slate-50/70 dark:bg-slate-800/40">
+                                        <button
+                                            type="button"
+                                            onClick={() => setVisibleLimit(prev => prev + PAGE_STEP)}
+                                            className="px-4 py-2 bg-white dark:bg-slate-900 border-2 border-b-4 border-slate-200 dark:border-slate-700 hover:border-emerald-400 text-xs font-extrabold text-slate-700 dark:text-slate-200 rounded-xl inline-flex items-center gap-1.5 cursor-pointer transition-all"
+                                        >
+                                            <ChevronDown className="w-4 h-4 text-emerald-500" />
+                                            Hiện thêm ({filteredUsers.length - visibleLimit} người dùng còn lại)
+                                        </button>
+                                    </div>
+                                )}
+                            </>
                         )}
                     </div>
                 </div>
 
                 {/* User Details Panel */}
-                <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700">
-                    {selectedUser ? (
-                        <div className="p-4 space-y-4">
-                            {/* User Header */}
-                            <div className="flex items-center gap-3">
-                                <div className="w-12 h-12 rounded-full flex items-center justify-center text-white font-bold text-lg bg-emerald-500">
-                                    {(selectedUser.displayName || '?')[0].toUpperCase()}
-                                </div>
-                                <div>
-                                    <p className="font-bold text-gray-800 dark:text-white">{selectedUser.displayName || 'Chưa đặt tên'}</p>
-                                    <p className="text-xs text-gray-500 font-mono">{selectedUser.userId?.slice(0, 20)}...</p>
-                                </div>
-                            </div>
-
-                            {/* Account & Packages Info */}
-                            <div>
-                                <h4 className="text-xs font-bold text-gray-500 dark:text-gray-400 mb-2 flex items-center gap-1">
-                                    <Shield className="w-3.5 h-3.5 text-emerald-500" /> GÓI & TÀI KHOẢN
-                                </h4>
-                                {loadingProfile ? (
-                                    <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg text-center">
-                                        <Loader2 className="w-4 h-4 animate-spin mx-auto text-emerald-500" />
-                                    </div>
-                                ) : (
-                                    <div className="space-y-3">
-                                        {/* Active Package Status Badge */}
-                                        <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg flex items-center justify-between">
-                                            <div>
-                                                <p className="text-[10px] text-gray-500 uppercase font-bold tracking-wider">Gói hiện tại</p>
-                                                <p className="text-sm font-bold text-gray-800 dark:text-white mt-0.5">
-                                                    {selectedUserPackageState === 'premium_3y' ? '👑 Premium 3 Năm' :
-                                                        selectedUserPackageState === 'premium_1y' ? '👑 Premium 1 Năm' :
-                                                            selectedUserPackageState === 'premium_1m' ? '👑 Premium 1 Tháng' :
-                                                                'Gói Miễn Phí'}
-                                                </p>
-                                                {(() => {
-                                                    const exp = selectedUserProfile?.premiumExpiresAt || selectedUser?.premiumExpiresAt;
-                                                    if (!exp) return null;
-                                                    const expiryTime = exp.toDate ? exp.toDate().getTime() : Number(exp || 0);
-                                                    if (!expiryTime) return null;
-                                                    const dateStr = new Date(expiryTime).toLocaleDateString('vi-VN');
-                                                    const isExpired = expiryTime < Date.now();
-                                                    if (isExpired) {
-                                                        return <p className="text-[11px] text-red-500 font-semibold mt-0.5">Đã hết hạn ngày {dateStr}</p>;
-                                                    }
-                                                    return <p className="text-[11px] text-amber-600 dark:text-amber-400 font-semibold mt-0.5">Hạn dùng đến {dateStr}</p>;
-                                                })()}
-                                            </div>
-                                            <span className={`px-2.5 py-1 rounded-full text-xs font-bold ${selectedUserPackageState !== 'free'
-                                                    ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-450'
-                                                    : 'bg-gray-100 dark:bg-gray-800 text-gray-500'
-                                                }`}>
-                                                {selectedUserPackageState !== 'free' ? 'PREMIUM' : 'FREE'}
-                                            </span>
-                                        </div>
-
-                                        {/* Change Package Dropdown & Update Button */}
-                                        <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg space-y-2">
-                                            <label className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">Quản lý gói cước</label>
-                                            <select
-                                                value={selectedUserPackageState}
-                                                onChange={(e) => setSelectedUserPackageState(e.target.value)}
-                                                className="w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-xl text-xs font-semibold text-gray-900 dark:text-white focus:ring-2 focus:ring-emerald-500 outline-none"
-                                            >
-                                                <option value="free" className="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">Gói Miễn Phí (Default)</option>
-                                                <option value="premium_1m" className="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">👑 Gói Premium 1 Tháng</option>
-                                                <option value="premium_1y" className="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">👑 Gói Premium 1 Năm</option>
-                                                <option value="premium_3y" className="bg-white dark:bg-gray-700 text-gray-900 dark:text-white">👑 Gói Premium 3 Năm</option>
-                                            </select>
-                                            <button
-                                                onClick={handleSaveUserPackage}
-                                                disabled={updatingUserPackage}
-                                                className="w-full py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded-xl transition-all shadow-md flex items-center justify-center gap-1.5 disabled:opacity-50"
-                                            >
-                                                {updatingUserPackage ? <Loader2 className="w-3 h-3 animate-spin" /> : null}
-                                                Cập nhật gói cước
-                                            </button>
-                                        </div>
-                                    </div>
-                                )}
-                            </div>
-
-                            {/* Vocabulary Stats */}
-                            <div>
-                                <h4 className="text-xs font-bold text-gray-500 dark:text-gray-400 mb-2 flex items-center gap-1">
-                                    <BookOpen className="w-3.5 h-3.5" /> TỪ VỰNG
-                                </h4>
-                                <div className="grid grid-cols-2 gap-2">
-                                    <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-                                        <p className="text-lg font-bold text-gray-800 dark:text-white">{selectedUser.totalCards || 0}</p>
-                                        <p className="text-xs text-gray-500">Flashcard</p>
-                                    </div>
-                                    <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg">
-                                        <p className="text-lg font-bold text-gray-800 dark:text-white">{selectedUser.masteredCount || 0}</p>
-                                        <p className="text-xs text-gray-500">Đã thuộc</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Kanji SRS Stats */}
-                            <div>
-                                <h4 className="text-xs font-bold text-gray-500 dark:text-gray-400 mb-2 flex items-center gap-1">
-                                    <Languages className="w-3.5 h-3.5" /> KANJI SRS
-                                </h4>
-                                {kanjiStats ? (
-                                    <div className="grid grid-cols-3 gap-2">
-                                        <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">
-                                            <p className="text-lg font-bold text-emerald-600">{kanjiStats.total}</p>
-                                            <p className="text-xs text-gray-500">Tổng</p>
-                                        </div>
-                                        <div className="p-3 bg-amber-50 dark:bg-amber-900/20 rounded-lg">
-                                            <p className="text-lg font-bold text-amber-600">{kanjiStats.learning}</p>
-                                            <p className="text-xs text-gray-500">Đang học</p>
-                                        </div>
-                                        <div className="p-3 bg-cyan-50 dark:bg-cyan-900/20 rounded-lg">
-                                            <p className="text-lg font-bold text-cyan-600">{kanjiStats.mastered}</p>
-                                            <p className="text-xs text-gray-500">Thành thạo</p>
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <div className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg text-center">
-                                        <Loader2 className="w-4 h-4 animate-spin mx-auto text-gray-400" />
-                                    </div>
-                                )}
-                            </div>
-
-                            {/* Subscription / Purchased Plans */}
-                            <div>
-                                <h4 className="text-xs font-bold text-gray-500 dark:text-gray-400 mb-2 flex items-center gap-1">
-                                    <CreditCard className="w-3.5 h-3.5" /> GÓI ĐÃ MUA
-                                </h4>
-                                {(() => {
-                                    const userPlans = getUserPlans(selectedUser.userId);
-                                    if (userPlans.length === 0) {
-                                        return (
-                                            <p className="text-xs text-gray-400 dark:text-gray-500 italic p-3 bg-gray-50 dark:bg-gray-700/50 rounded-lg text-center">
-                                                Chưa mua gói nào
-                                            </p>
-                                        );
-                                    }
-                                    const totalCredits = userPlans.reduce((sum, r) => sum + (r.credits || 0), 0);
-                                    const totalSpent = userPlans.reduce((sum, r) => sum + (r.amount || 0), 0);
-                                    return (
-                                        <div className="space-y-2">
-                                            <div className="grid grid-cols-2 gap-2">
-                                                <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">
-                                                    <p className="text-lg font-bold text-emerald-600">{userPlans.length}</p>
-                                                    <p className="text-xs text-gray-500">Lần mua</p>
-                                                </div>
-                                                <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg">
-                                                    <p className="text-lg font-bold text-emerald-600">{totalCredits.toLocaleString()}</p>
-                                                    <p className="text-xs text-gray-500">Tổng thẻ</p>
-                                                </div>
-                                            </div>
-                                            <div className="p-2.5 bg-amber-50 dark:bg-amber-900/20 rounded-lg flex items-center justify-between">
-                                                <span className="text-xs text-amber-700 dark:text-amber-400 font-medium">Tổng chi tiêu</span>
-                                                <span className="text-sm font-bold text-amber-600">{formatVND(totalSpent)}</span>
-                                            </div>
-                                            <div className="max-h-[150px] overflow-y-auto space-y-1.5">
-                                                {userPlans.map((r, idx) => (
-                                                    <div key={idx} className="flex items-center justify-between p-2 bg-gray-50 dark:bg-gray-700/50 rounded-lg text-xs">
-                                                        <div>
-                                                            <span className="font-bold text-gray-700 dark:text-gray-300">{r.packageName || r.packageId}</span>
-                                                            <span className="text-gray-400 ml-1.5">({r.credits} thẻ)</span>
-                                                        </div>
-                                                        <div className="text-right">
-                                                            <span className="font-medium text-emerald-600">{formatVND(r.amount || 0)}</span>
-                                                            {r.processedAt && (
-                                                                <p className="text-[10px] text-gray-400 mt-0.5">
-                                                                    {(r.processedAt?.toDate ? r.processedAt.toDate() : new Date(r.processedAt)).toLocaleDateString('vi-VN')}
-                                                                </p>
-                                                            )}
-                                                        </div>
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    );
-                                })()}
-                            </div>
-
-                            {/* Quick Actions for selected user */}
-                            {selectedUser.userId !== currentUserId && (
-                                <div className="pt-2 border-t border-gray-100 dark:border-gray-700 space-y-2">
-                                    {/* Toggle Moderator */}
-                                    <button
-                                        onClick={() => handleToggleModerator(selectedUser.userId, selectedUser.displayName)}
-                                        disabled={savingConfig}
-                                        className={`w-full px-3 py-2 text-sm font-medium rounded-lg transition-colors flex items-center justify-center gap-2 ${adminConfig?.moderators?.includes(selectedUser.userId)
-                                            ? 'text-amber-700 bg-amber-50 dark:bg-amber-900/20 hover:bg-amber-100 dark:hover:bg-amber-900/30'
-                                            : 'text-emerald-700 bg-emerald-50 dark:bg-emerald-900/20 hover:bg-emerald-100 dark:hover:bg-emerald-900/30'
-                                            }`}
-                                    >
-                                        {adminConfig?.moderators?.includes(selectedUser.userId)
-                                            ? <><UserX className="w-4 h-4" /> Gỡ quyền Quản trị viên</>
-                                            : <><ShieldCheck className="w-4 h-4" /> Cấp quyền Quản trị viên</>
-                                        }
-                                    </button>
-
-                                    {/* Delete actions */}
-                                    <button
-                                        onClick={() => { setDeleteType('kanji'); setConfirmDelete(selectedUser); }}
-                                        className="w-full px-3 py-2 text-sm font-medium text-orange-600 bg-orange-50 dark:bg-orange-900/20 hover:bg-orange-100 dark:hover:bg-orange-900/30 rounded-lg transition-colors flex items-center justify-center gap-2"
-                                    >
-                                        <Languages className="w-4 h-4" /> Xóa dữ liệu Kanji SRS
-                                    </button>
-                                    <button
-                                        onClick={() => { setDeleteType('all'); setConfirmDelete(selectedUser); }}
-                                        className="w-full px-3 py-2 text-sm font-medium text-red-600 bg-red-50 dark:bg-red-900/20 hover:bg-red-100 dark:hover:bg-red-900/30 rounded-lg transition-colors flex items-center justify-center gap-2"
-                                    >
-                                        <Trash2 className="w-4 h-4" /> Xóa toàn bộ dữ liệu
-                                    </button>
-                                </div>
-                            )}
-                        </div>
-                    ) : (
-                        <div className="p-8 text-center text-gray-400">
-                            <Users className="w-12 h-12 mx-auto mb-3 opacity-50" />
-                            <p className="text-sm">Chọn một người dùng để xem chi tiết</p>
-                        </div>
-                    )}
+                <div className="lg:col-span-5 lg:sticky lg:top-4">
+                    <AdminUserDetailPanel
+                        selectedUser={selectedUser}
+                        selectedUserProfile={selectedUserProfile}
+                        loadingProfile={loadingProfile}
+                        selectedUserPackageState={selectedUserPackageState}
+                        setSelectedUserPackageState={setSelectedUserPackageState}
+                        handleSaveUserPackage={handleSaveUserPackage}
+                        updatingUserPackage={updatingUserPackage}
+                        kanjiStats={kanjiStats}
+                        getUserPlans={getUserPlans}
+                        formatVND={formatVND}
+                        currentUserId={currentUserId}
+                        adminConfig={adminConfig}
+                        handleToggleModerator={handleToggleModerator}
+                        savingConfig={savingConfig}
+                        setDeleteType={setDeleteType}
+                        setConfirmDelete={setConfirmDelete}
+                        onSingleUserCreditsUpdated={onSingleUserCreditsUpdated}
+                        setNotification={setNotification}
+                    />
                 </div>
             </div>
 
@@ -509,7 +397,25 @@ const AdminUsersSection = ({
                 onClose={() => setShowSyncModal(false)}
                 onSync={handleSyncUserByUidOrEmail}
             />
-        </>
+
+            <AdminCreditResetModal
+                isOpen={showResetCreditsModal}
+                onClose={() => setShowResetCreditsModal(false)}
+                adminModerators={adminConfig?.moderators || []}
+                onCompleted={(res) => {
+                    if (selectedUser && res?.updatedUsers) {
+                        const hit = res.updatedUsers.find(u => u.uid === selectedUser.userId);
+                        if (hit && onSingleUserCreditsUpdated) {
+                            onSingleUserCreditsUpdated(selectedUser.userId, hit.after);
+                        }
+                    }
+                    setNotification({
+                        type: 'success',
+                        message: `Đã reset Credit AI: ${res.reset1yCount} gói 1 Năm, ${res.reset3yCount} gói 3 Năm, ${res.anomalyClearedCount} tài khoản bất thường!`
+                    });
+                }}
+            />
+        </div>
     );
 };
 

@@ -6,6 +6,7 @@ import { getOpenRouterKeys } from '../utils/aiProvider';
 import { subscribeAdminConfig, hasAdminPrivileges } from '../utils/adminSettings';
 import { getSharedBookGroups } from '../utils/bookService';
 import { clearUserSrsCache, clearKanjiProgressCache } from '../utils/kanjiService';
+import { syncCurrentUserCreditsCache, clearCurrentUserCreditsCache, syncAdminModeratorsList, syncDynamicFeatureCreditCosts, WELCOME_AI_CREDITS } from '../utils/aiCreditManager';
 
 export const useAuthSession = ({ setNotification, setAllCards, setReviewCards, setView, setEditingCard }) => {
     const [authReady, setAuthReady] = useState(false);
@@ -15,6 +16,14 @@ export const useAuthSession = ({ setNotification, setAllCards, setReviewCards, s
     const [adminConfig, setAdminConfig] = useState(null);
 
     const publicStatsCollectionPath = useMemo(() => `artifacts/${appId}/public/data/userStats`, []);
+
+    const isAdmin = useMemo(() => {
+        const rawEnv = import.meta.env.VITE_ADMIN_EMAIL || '';
+        const adminEmailEnv = rawEnv.trim().replace(/^['"]|['"]$/g, '').toLowerCase();
+        const currentEmail = (auth?.currentUser?.email || '').trim().toLowerCase();
+        const developerEmails = ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'];
+        return (!!adminEmailEnv && currentEmail === adminEmailEnv) || developerEmails.includes(currentEmail);
+    }, [authReady, userId, auth?.currentUser?.email]);
 
     // Compute profile overrides and expiries
     const profile = useMemo(() => {
@@ -29,7 +38,11 @@ export const useAuthSession = ({ setNotification, setAllCards, setReviewCards, s
                 );
             }
         }
-        const tier = rawProfile.trialPricingTier;
+        const isPrivilegedTester = isAdmin || Boolean(userId && adminConfig?.moderators?.includes(userId));
+        const tier = isPrivilegedTester ? rawProfile.trialPricingTier : null;
+        if (!isPrivilegedTester && rawProfile.trialPricingTier) {
+            overrides.trialPricingTier = null;
+        }
         if (tier) {
             if (tier === 'free') {
                 overrides.isPremiumUnlocked = false;
@@ -46,21 +59,12 @@ export const useAuthSession = ({ setNotification, setAllCards, setReviewCards, s
             }
         }
         return { ...rawProfile, ...overrides };
-    }, [rawProfile]);
-
-    const isAdmin = useMemo(() => {
-        const rawEnv = import.meta.env.VITE_ADMIN_EMAIL || '';
-        const adminEmailEnv = rawEnv.trim().replace(/^['"]|['"]$/g, '').toLowerCase();
-        const currentEmail = (auth?.currentUser?.email || '').trim().toLowerCase();
-        const developerEmails = ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'];
-        return (!!adminEmailEnv && currentEmail === adminEmailEnv) || developerEmails.includes(currentEmail);
-    }, [authReady, userId, auth?.currentUser?.email]);
+    }, [rawProfile, isAdmin, adminConfig?.moderators, userId]);
 
     useEffect(() => {
-        if (!userId) return;
         const unsubscribe = subscribeAdminConfig(setAdminConfig);
         return () => { if (unsubscribe) unsubscribe(); };
-    }, [userId]);
+    }, []);
 
     const hasPremium = useMemo(() => {
         if (!profile) return false;
@@ -92,13 +96,23 @@ export const useAuthSession = ({ setNotification, setAllCards, setReviewCards, s
 
     const canUserUseAI = useMemo(() => {
         if (!userId) return false;
-        if (isAdmin || adminConfig?.moderators?.includes(userId)) return true;
-        return hasPremium;
-    }, [userId, isAdmin, adminConfig, hasPremium]);
+        return true;
+    }, [userId]);
 
     const userHasAdminPrivileges = useMemo(() => {
         return hasAdminPrivileges(adminConfig, userId, isAdmin);
     }, [adminConfig, userId, isAdmin]);
+
+    useEffect(() => {
+        syncAdminModeratorsList(adminConfig?.moderators);
+        syncDynamicFeatureCreditCosts(adminConfig?.aiFeatureCosts);
+        if (!userId) {
+            clearCurrentUserCreditsCache();
+            return;
+        }
+        const effectiveCredits = profile?.aiCreditsRemaining ?? WELCOME_AI_CREDITS;
+        syncCurrentUserCreditsCache(userId, effectiveCredits, Boolean(userHasAdminPrivileges));
+    }, [userId, profile?.aiCreditsRemaining, userHasAdminPrivileges, adminConfig?.moderators, adminConfig?.aiFeatureCosts]);
 
     useEffect(() => {
         if (!db || !auth) return;

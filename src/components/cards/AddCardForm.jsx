@@ -14,6 +14,7 @@ import PremiumLockedModal from '../ui/PremiumLockedModal';
 import { useLanguage } from '../../context/LanguageContext';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { getLanguageService, isEnglishCard, isKoreanCard } from '../../languages';
+import { AiCreditPill, AiCostTag } from '../ui/AiCreditBadge';
 
 const isMobileDevice = () => {
     return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
@@ -222,10 +223,17 @@ export const CardEditorItem = ({
                                     type="button"
                                     onClick={() => onAiAssist(card.id)}
                                     disabled={isAiLoading || !card.front.trim()}
-                                    className="flex items-center justify-center px-3.5 py-2 bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 text-white rounded-2xl transition-all font-black text-xs disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0 min-w-[38px] cursor-pointer select-none"
-                                    title={t('forms.aiAutoFill', 'Tự động điền thông tin bằng AI (Alt+G)')}
+                                    className="flex items-center justify-center gap-1.5 px-3 py-2 bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-0 text-white rounded-2xl transition-all font-black text-xs disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0 min-w-[38px] cursor-pointer select-none"
+                                    title={t('forms.aiAutoFill', 'Tự động điền thông tin bằng AI (Alt+G) — Tốn 1 Credit AI')}
                                 >
-                                    {isAiLoading ? <Loader2 className="animate-spin w-4 h-4" /> : <span className="tracking-wide">AI</span>}
+                                    {isAiLoading ? (
+                                        <Loader2 className="animate-spin w-4 h-4" />
+                                    ) : (
+                                        <>
+                                            <span className="tracking-wide">AI</span>
+                                            <AiCostTag featureId="vocab_gen" darkBg />
+                                        </>
+                                    )}
                                 </button>
                             )}
                         </div>
@@ -1347,15 +1355,20 @@ const AddCardForm = ({
                 </div>
 
                 {/* Tools Menu Row - Equal Symmetrical Spacing & Distinct Color */}
-                <div className="flex items-center justify-between relative z-20">
-                    <button
-                        type="button"
-                        onClick={handleAddCardRow}
-                        className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold rounded-2xl text-white bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer shadow-xs select-none"
-                    >
-                        <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
-                        <span>{t('editSet.addNewCard', 'Thêm thẻ')}</span>
-                    </button>
+                <div className="flex items-center justify-between gap-2 relative z-20 flex-wrap">
+                    <div className="flex items-center gap-2">
+                        <button
+                            type="button"
+                            onClick={handleAddCardRow}
+                            className="flex items-center gap-1.5 px-4 py-2 text-xs font-bold rounded-2xl text-white bg-sky-500 hover:bg-sky-400 border-b-4 border-sky-700 active:translate-y-0.5 active:border-b-2 transition-all cursor-pointer shadow-xs select-none"
+                        >
+                            <Plus className="w-3.5 h-3.5 stroke-[2.5]" />
+                            <span>{t('editSet.addNewCard', 'Thêm thẻ')}</span>
+                        </button>
+                        {onGeminiAssist && (
+                            <AiCreditPill featureId="vocab_gen" remaining={aiCreditsRemaining} compact />
+                        )}
+                    </div>
 
                     <div className="relative">
                         <button
@@ -1396,7 +1409,8 @@ const AddCardForm = ({
                                                 <div className="w-7 h-7 rounded-lg bg-sky-100 dark:bg-sky-950/50 text-sky-600 dark:text-sky-400 flex items-center justify-center text-[10px] font-black shrink-0 border border-sky-200 dark:border-sky-800">
                                                     AI
                                                 </div>
-                                                <span className="font-extrabold">{t('forms.aiBatch', 'Tạo bằng AI hàng loạt')}</span>
+                                                <span className="font-extrabold flex-1">{t('forms.aiBatch', 'Tạo bằng AI hàng loạt')}</span>
+                                                <AiCostTag featureId="vocab_gen" />
                                             </button>
                                             <button
                                                 type="button"
@@ -1414,7 +1428,8 @@ const AddCardForm = ({
                                                 <div className="w-7 h-7 rounded-lg bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 border border-emerald-200 dark:border-emerald-800">
                                                     <Camera className="w-3.5 h-3.5" />
                                                 </div>
-                                                <span className="font-extrabold">{t('editSet.ocrImage', 'Tạo từ vựng từ ảnh (OCR)')}</span>
+                                                <span className="font-extrabold flex-1">{t('editSet.ocrImage', 'Tạo từ vựng từ ảnh (OCR)')}</span>
+                                                <AiCostTag featureId="ocr_image" />
                                             </button>
                                         </>
                                     )}

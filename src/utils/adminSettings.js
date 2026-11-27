@@ -1,17 +1,56 @@
 // --- Admin Settings & Permissions Utilities ---
 import { doc, getDoc, setDoc, updateDoc, onSnapshot, collection, addDoc, deleteDoc, serverTimestamp, query, orderBy, increment, arrayUnion } from 'firebase/firestore'
 import { db, appId } from '../config/firebase';
+import { syncDynamicFeatureCreditCosts, syncAdminModeratorsList } from './aiCreditManager';
 // Firestore path for admin settings
 const getAdminSettingsPath = () => `artifacts/${appId}/settings`;
 const ADMIN_CONFIG_DOC = 'adminConfig';
-// Default AI Credit packages (admin can customize)
-export const DEFAULT_AI_PACKAGES = [];
+// Default AI Credit packages (admin can customize; unit pricing calibrated to cover OpenRouter LLM + Speech API costs cleanly)
+export const DEFAULT_AI_PACKAGES = [
+    {
+        id: 'credit_starter',
+        name: 'Gói Trải Nghiệm AI',
+        cards: 200,
+        originalPrice: 39000,
+        salePrice: 29000,
+        badge: 'Khởi động',
+        description: 'Phù hợp dùng thử Kaiwa AI (~66 lượt), Dịch AI hoặc tạo ~200 thẻ từ vựng.'
+    },
+    {
+        id: 'credit_popular',
+        name: 'Gói Tăng Tốc AI',
+        cards: 500,
+        originalPrice: 89000,
+        salePrice: 59000,
+        badge: 'Phổ biến nhất',
+        description: 'Tối ưu cho học viên tạo flashcard AI hàng tuần & luyện nói Kaiwa thường xuyên.'
+    },
+    {
+        id: 'credit_pro',
+        name: 'Gói Cao Thủ Kaiwa',
+        cards: 1200,
+        originalPrice: 199000,
+        salePrice: 119000,
+        badge: 'Tiết kiệm 40%',
+        description: 'Thoải mái hội thoại 1-1 cùng AI Kitsu (~400 lượt) & quét OCR giáo trình.'
+    },
+    {
+        id: 'credit_max',
+        name: 'Gói Siêu Cấp AI',
+        cards: 3000,
+        originalPrice: 449000,
+        salePrice: 249000,
+        badge: 'Giá tốt nhất',
+        description: 'Dung lượng khổng lồ (~1.000 lượt Kaiwa AI) cho giai đoạn ôn thi JLPT nước rút.'
+    }
+];
 export const DEFAULT_SPECIALIZED_PACKAGES = [
     {
         id: 'premium_1m',
         name: 'Gói Premium 1 Tháng',
         icon: 'Crown',
-        description: 'Trải nghiệm toàn bộ tính năng cao cấp và kho học liệu chuyên sâu không giới hạn trong 1 tháng.',
+        includedCredits: 100,
+        description: 'Mở khóa toàn bộ giáo trình & tính năng học tập trong 1 tháng, tặng kèm 100 Credit AI.',
         originalPrice: 59000,
         salePrice: 29000,
         unlockedFeatures: [
@@ -20,14 +59,15 @@ export const DEFAULT_SPECIALIZED_PACKAGES = [
             '⚡ 6 chế độ học chuyên sâu: Flashcard 3D, Trắc nghiệm, Tự luận, Đồng nghĩa, Ghép thẻ & Test',
             '🏯 Thư viện 2.136 Kanji: Nét viết động, bộ thủ, âm Hán Việt & ví dụ thực tế',
             '📖 Sổ tay ngữ pháp N5-N1 & Mindmap tư duy trực quan',
-            '🤖 Luyện nói Kaiwa AI Kitsu, Video Shadowing và OCR quét ảnh tạo flashcard'
+            '🤖 Tặng sẵn 100 Credit AI: Dùng cho Kaiwa AI Kitsu, Dịch AI, OCR & Tạo thẻ (có thể mua thêm gói Credit)'
         ]
     },
     {
         id: 'premium_1y',
         name: 'Gói Premium 1 Năm',
         icon: 'Crown',
-        description: 'Mở khóa toàn bộ tính năng cao cấp & kho học liệu trong 1 năm. Bứt phá từ sơ cấp lên N2/N1.',
+        includedCredits: 800,
+        description: 'Mở khóa toàn bộ tính năng App & kho học liệu trong 1 năm + Tặng cố định 800 Credit AI.',
         originalPrice: 499000,
         salePrice: 259000,
         unlockedFeatures: [
@@ -37,8 +77,8 @@ export const DEFAULT_SPECIALIZED_PACKAGES = [
             '🏯 Thư viện 2.136 Kanji Jouyou: Thứ tự nét viết động, âm Hán Việt, Onyomi, Kunyomi & bài tập ghép từ',
             '📖 Sổ tay ngữ pháp & Mindmap AI: So sánh mẫu câu dễ nhầm lẫn (Nuances) và phân tích cấu trúc trực quan',
             '📝 Luyện thi thử JLPT thực chiến: Đề thi chuẩn format kỳ thi thật, bấm giờ, chấm điểm & giải thích chi tiết',
-            '🤖 Trợ lý AI Kitsu & Video Shadowing: Luyện nói Kaiwa phản xạ 1-1, chỉnh phát âm theo ngữ cảnh phim/anime',
-            '📸 Quét ảnh tạo thẻ tự động (OCR AI): Nhận diện chữ sách/vở trong 1 giây & Giọng đọc bản xứ không giới hạn',
+            '🤖 Tặng sẵn 800 Credit AI: Trải nghiệm trợ lý Kaiwa AI 1-1, Dịch AI, OCR quét ảnh (hết có thể nạp thêm Credit)',
+            '🔊 Hệ thống phát âm Nhật/Anh/Hàn đầy đủ & Video Shadowing tương tác',
             '☁️ Đồng bộ đám mây Cloud thời gian thực: Học mượt mà trên Điện thoại, Máy tính bảng và Laptop'
         ]
     },
@@ -46,17 +86,18 @@ export const DEFAULT_SPECIALIZED_PACKAGES = [
         id: 'premium_3y',
         name: 'Gói Premium 3 Năm',
         icon: 'Crown',
-        description: 'Đồng hành trọn vẹn từ sơ cấp đến thành thạo N1 và giao tiếp làm việc tại Nhật trong 3 năm. Tiết kiệm tối đa.',
+        includedCredits: 3000,
+        description: 'Mở khóa trọn vẹn mọi tính năng suốt 3 năm + Tặng cố định 3.000 Credit AI dùng cho các tác vụ AI.',
         originalPrice: 1499000,
         salePrice: 559000,
         unlockedFeatures: [
-            '👑 Mở khóa TOÀN BỘ đặc quyền của Gói 1 Năm (Giáo trình, SRS, 2.136 Kanji, Ngữ pháp, JLPT, Kaiwa AI)',
-            '💎 Tiết kiệm tối đa 63% chi phí: Chỉ ~15.000đ/tháng – Tiết kiệm hơn 940.000đ so với gia hạn từng năm',
+            '👑 Mở khóa TOÀN BỘ tính năng của Gói 1 Năm (Giáo trình, SRS, 2.136 Kanji, Ngữ pháp, Đề JLPT, Shadowing)',
+            '⚡ Tặng sẵn 3.000 Credit AI cố định: Thoải mái trải nghiệm Kaiwa AI (~1.000 lượt), OCR & AI tạo thẻ (nạp thêm bất cứ lúc nào)',
+            '💎 Tiết kiệm tối đa 63% chi phí: Chỉ ~15.500đ/tháng – Tiết kiệm hơn 940.000đ so với gia hạn từng năm',
             '🔒 Khóa giá ưu đãi trọn đời 3 năm: Yên tâm học tập lâu dài, cam kết không phát sinh chi phí khi app tăng giá',
             '🎯 Lộ trình dài hạn không ngắt quãng: Đủ thời gian chinh phục từ con số 0 lên N3, N2, N1 và đi làm tại Nhật',
-            '🚀 Hạn mức AI Kitsu VIP cao cấp: Ưu tiên tốc độ xử lý AI nhanh nhất, không giới hạn đàm thoại và phân tích ngữ cảnh',
             '🔄 Tự động cập nhật trọn đời 3 năm: Miễn phí 100% kho đề thi JLPT mới nhất, bài học và giáo trình bổ sung tương lai',
-            '⚡ Kênh hỗ trợ ưu tiên 1-1 riêng biệt: Đội ngũ admin hỗ trợ học tập, phương pháp học và kỹ thuật 24/7',
+            '🛡️ Kênh hỗ trợ ưu tiên 1-1 riêng biệt: Đội ngũ admin hỗ trợ học tập, phương pháp học và kỹ thuật 24/7',
             '🏆 Huy hiệu VIP Vinh Danh Hoàng Gia: Vương miện độc quyền hiển thị trên Bảng xếp hạng và trang cá nhân'
         ]
     }
@@ -75,6 +116,21 @@ const DEFAULT_ADMIN_CONFIG = {
         ocr_image: 'openai/gpt-4o-mini',
         grammar_check: 'openai/gpt-4o-mini',
         kaiwa_agent: 'google/gemini-2.5-flash'
+    },
+    aiFeatureCosts: {
+        vocab_gen: 1,
+        grammar_gen: 2,
+        vocab_sino_viet: 1,
+        more_examples: 1,
+        ocr_image: 3,
+        grammar_check: 1,
+        kaiwa_agent: 3,
+        sentence_translate: 1,
+        jlpt_explain: 2,
+        kaiwa_scorecard: 2,
+        'grammar-notebook-ai': 1,
+        'grammar-notebook-batch': 4,
+        'kanji-vocab-generator': 3
     },
     aiAllowedUsers: [],
     aiAllowAll: false,
@@ -99,7 +155,10 @@ export const loadAdminConfig = async () => {
         const ref = doc(db, getAdminSettingsPath(), ADMIN_CONFIG_DOC);
         const snap = await getDoc(ref);
         if (snap.exists()) {
-            return { ...DEFAULT_ADMIN_CONFIG, ...snap.data() };
+            const cfg = { ...DEFAULT_ADMIN_CONFIG, ...snap.data() };
+            syncDynamicFeatureCreditCosts(cfg.aiFeatureCosts);
+            syncAdminModeratorsList(cfg.moderators);
+            return cfg;
         }
         return { ...DEFAULT_ADMIN_CONFIG };
     } catch (e) {
@@ -114,6 +173,8 @@ export const subscribeAdminConfig = (callback) => {
         return onSnapshot(ref, { includeMetadataChanges: true }, (snap) => {
             if (snap.exists()) {
                 const config = { ...DEFAULT_ADMIN_CONFIG, ...snap.data(), _fromCache: snap.metadata.fromCache };
+                syncDynamicFeatureCreditCosts(config.aiFeatureCosts);
+                syncAdminModeratorsList(config.moderators);
                 console.log(`✅ Admin config loaded (${snap.metadata.fromCache ? 'cache' : 'server'}):`, { aiEnabled: config.aiEnabled, aiAllowAll: config.aiAllowAll, aiAllowedUsers: config.aiAllowedUsers?.length || 0, moderators: config.moderators?.length || 0 });
                 callback(config);
             } else {
@@ -166,7 +227,6 @@ export const updateAdminConfig = async (fields, updatedByUserId) => {
 // Check if a user can use AI features
 export const canUseAI = (adminConfig, userId, isAdmin) => {
     if (!adminConfig) return false;
-    if (!adminConfig.aiEnabled) return false;
     // Admin always has access
     if (isAdmin) return true;
     // Moderators always have access
@@ -242,7 +302,6 @@ export const AI_FEATURES = [
     { id: 'grammar_gen', label: 'Tạo ngữ pháp (Grammar Gen)', description: 'Tạo giải thích cấu trúc, nghĩa, ví dụ và ngữ cảnh cho thẻ ngữ pháp mới.' },
     { id: 'vocab_sino_viet', label: 'Dịch Hán Việt tự động', description: 'Tự động tra cứu và dịch âm Hán Việt cho từ vựng từ sách.' },
     { id: 'more_examples', label: 'Tạo thêm ví dụ', description: 'Tạo thêm câu ví dụ tiếng Nhật tự nhiên kèm nghĩa tiếng Việt theo ngữ cảnh.' },
-    { id: 'fill_example_blanks', label: 'AI Điền từ vào ví dụ sách', description: 'Tự động lắp từ vựng và chia đúng thể cho các câu ví dụ bị khuyết trong kho sách.' },
     { id: 'ocr_image', label: 'Quét chữ từ ảnh (OCR)', description: 'Trích xuất danh sách từ vựng tiếng Nhật từ hình ảnh tải lên.' },
     { id: 'grammar_check', label: 'Chấm điểm/Phân tích Ngữ pháp', description: 'Chấm điểm câu dịch, phân tích lỗi sai và đối chiếu ngữ pháp.' },
     { id: 'kaiwa_agent', label: 'Phòng Kaiwa AI (AI Agent)', description: 'Mô hình AI đóng vai giáo viên bản xứ tương tác hội thoại và sửa lỗi phát âm.' },
@@ -301,29 +360,9 @@ export const createPendingAutoPayment = async (orderCode, userId, userName, user
  * Submit và tự động approve credit request (dùng cho thanh toán tự động qua SePay)
  * Ghi status='approved' ngay để admin dashboard hiển thị đúng doanh thu
  */
-export const submitAndApproveCreditRequest = async (userId, userName, userEmail, packageInfo, transactionId) => {
-    try {
-        const colRef = collection(db, getCreditRequestsPath());
-        await addDoc(colRef, {
-            userId,
-            userName: userName || '',
-            userEmail: userEmail || '',
-            packageId: packageInfo.id,
-            packageName: packageInfo.name,
-            credits: packageInfo.cards !== undefined ? packageInfo.cards : ('specialized:' + packageInfo.id),
-            amount: packageInfo.salePrice,
-            status: 'approved', // Tự động approve vì đã xác nhận qua SePay
-            autoApproved: true,  // Đánh dấu là tự động duyệt
-            transactionId: transactionId || null,
-            createdAt: serverTimestamp(),
-            processedAt: serverTimestamp(),
-            processedBy: 'sepay_auto',
-        });
-        return true;
-    } catch (e) {
-        console.error('Submit & approve credit request error:', e);
-        return false;
-    }
+export const submitAndApproveCreditRequest = async () => {
+    console.warn('[Security] Direct client approval is disabled. Payments must be verified via SePay webhook.');
+    return false;
 };
 // Admin loads all pending credit requests
 export const subscribeCreditRequests = (callback) => {
@@ -349,7 +388,7 @@ const approveCreditRequest = async (requestId, userId, credits, adminUserId) => 
             if (packageId.startsWith('premium')) {
                 const profileSnap = await getDoc(profileRef);
                 const currentCredits = profileSnap.exists() ? (profileSnap.data().aiCreditsRemaining || 0) : 0;
-                const bonusCredits = packageId === 'premium_3y' ? 6000 : (packageId === 'premium_1y' ? 2000 : (packageId === 'premium_1m' ? 200 : 0));
+                const bonusCredits = packageId === 'premium_3y' ? 3000 : (packageId === 'premium_1y' ? 800 : (packageId === 'premium_1m' ? 100 : 0));
                 
                 // Calculate expiration date (extending if already active)
                 const durationMs = packageId === 'premium_3y' ? 3 * 365 * 24 * 60 * 60 * 1000 : (packageId === 'premium_1y' ? 365 * 24 * 60 * 60 * 1000 : 30 * 24 * 60 * 60 * 1000);
@@ -423,7 +462,7 @@ export const manuallyApplyPackageToUser = async (userId, userName, userEmail, pa
             creditsValue = 'specialized:' + packageInfo.id;
             const profileSnap = await getDoc(profileRef);
             const currentCredits = profileSnap.exists() ? (profileSnap.data().aiCreditsRemaining || 0) : 0;
-            const bonusCredits = packageInfo.id === 'premium_3y' ? 6000 : (packageInfo.id === 'premium_1y' ? 2000 : (packageInfo.id === 'premium_1m' ? 200 : 0));
+            const bonusCredits = packageInfo.id === 'premium_3y' ? 3000 : (packageInfo.id === 'premium_1y' ? 800 : (packageInfo.id === 'premium_1m' ? 100 : 0));
             
             // Calculate expiration date (extending if already active)
             const durationMs = packageInfo.id === 'premium_3y' ? 3 * 365 * 24 * 60 * 60 * 1000 : (packageInfo.id === 'premium_1y' ? 365 * 24 * 60 * 60 * 1000 : 30 * 24 * 60 * 60 * 1000);
@@ -531,102 +570,9 @@ const isTransactionProcessed = async (transactionId) => {
  * @param {number} amount - Payment amount in VND
  * @returns {{ success: boolean, error?: string }}
  */
-export const processPaymentSecurely = async (transactionId, orderCode, userId, credits, amount) => {
-    if (!transactionId || !orderCode || !userId || !credits) {
-        return { success: false, error: 'Missing required parameters' };
-    }
-    const txRef = doc(db, getProcessedTxPath(), String(transactionId));
-    const profileRef = doc(db, `artifacts/${appId}/users/${userId}/settings/profile`);
-    const MAX_RETRIES = 3;
-    const RETRY_DELAY_MS = 2000;
-    const sleep = (ms) => new Promise(res => setTimeout(res, ms));
-    for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
-        try {
-            // Step 1: Check duplicate (simple getDoc, không dùng transaction để tránh quota)
-            const txSnap = await getDoc(txRef);
-            if (txSnap.exists()) {
-                console.warn(`⚠️ Duplicate transaction blocked: TX#${transactionId}`);
-                return { success: false, error: 'Giao dịch này đã được xử lý trước đó' };
-            }
-            // Step 2: Read current credits
-            const profileSnap = await getDoc(profileRef);
-            const currentCredits = profileSnap.exists() ? (profileSnap.data().aiCreditsRemaining || 0) : 0;
-            // Step 3: Mark transaction as processed
-            await setDoc(txRef, {
-                transactionId: String(transactionId),
-                orderCode,
-                userId,
-                credits,
-                amount,
-                processedAt: new Date().toISOString(),
-                timestamp: Date.now(),
-            });
-            // Step 4: Update credits or unlock package
-            if (typeof credits === 'string' && credits.startsWith('specialized:')) {
-                const packageId = credits.replace('specialized:', '');
-                if (packageId.startsWith('premium')) {
-                    const bonusCredits = packageId === 'premium_3y' ? 6000 : (packageId === 'premium_1y' ? 2000 : (packageId === 'premium_1m' ? 200 : 0));
-                    
-                    // Calculate expiration date (extending if already active)
-                    const durationMs = packageId === 'premium_3y' ? 3 * 365 * 24 * 60 * 60 * 1000 : (packageId === 'premium_1y' ? 365 * 24 * 60 * 60 * 1000 : 30 * 24 * 60 * 60 * 1000);
-                    const currentExpiry = profileSnap.exists() ? (profileSnap.data().premiumExpiresAt || 0) : 0;
-                    const currentExpiryMs = currentExpiry?.toDate ? currentExpiry.toDate().getTime() : Number(currentExpiry || 0);
-                    const baseTime = currentExpiryMs > Date.now() ? currentExpiryMs : Date.now();
-                    const premiumExpiresAt = baseTime + durationMs;
-
-                    await setDoc(profileRef, {
-                        unlockedSpecializedPackages: arrayUnion(packageId, 'premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'),
-                        isPremiumUnlocked: true,
-                        aiCreditsRemaining: currentCredits + bonusCredits,
-                        premiumExpiresAt
-                    }, { merge: true });
-                    console.log(`✅ Payment processed: TX#${transactionId}, unlocked premium package ${packageId}, added ${bonusCredits} credits, expires at ${new Date(premiumExpiresAt).toISOString()}`);
-
-                    // Check and apply referral rewards for referrer
-                    try {
-                        const { checkAndApplyReferralRewards } = await import('./referralService');
-                        await checkAndApplyReferralRewards(userId, profileSnap.exists() ? (profileSnap.data().displayName || 'Người học') : 'Người học');
-                    } catch (refErr) {
-                        console.error('Lỗi cộng thưởng giới thiệu:', refErr);
-                    }
-
-                    return { success: true, newCredits: currentCredits + bonusCredits };
-                } else {
-                    await setDoc(profileRef, {
-                        unlockedSpecializedPackages: arrayUnion(packageId)
-                    }, { merge: true });
-                    console.log(`✅ Payment processed: TX#${transactionId}, unlocked specialized package ${packageId}`);
-                    return { success: true, newCredits: currentCredits };
-                }
-            } else {
-                const creditNum = Number(credits) || 0;
-                if (profileSnap.exists()) {
-                    await updateDoc(profileRef, { aiCreditsRemaining: increment(creditNum) });
-                } else {
-                    await setDoc(profileRef, { aiCreditsRemaining: creditNum }, { merge: true });
-                }
-                const newCredits = currentCredits + creditNum;
-                console.log(`✅ Payment processed: TX#${transactionId}, +${creditNum} credits → total ${newCredits}`);
-                return { success: true, newCredits };
-            }
-        } catch (e) {
-            const isQuotaError = e?.code === 'resource-exhausted' || e?.message?.includes('Quota') || e?.message?.includes('429');
-            if (isQuotaError) {
-                if (attempt < MAX_RETRIES) {
-                    const delay = RETRY_DELAY_MS * attempt; // 2s, 4s, 6s
-                    console.warn(`⏳ Firestore quota hit (lần ${attempt}/${MAX_RETRIES}), thử lại sau ${delay / 1000}s...`);
-                    await sleep(delay);
-                    continue;
-                } else {
-                    console.error(`❌ Firestore quota exhausted sau ${MAX_RETRIES} lần thử. Credit chưa được cộng.`);
-                    return { success: false, error: 'Firebase quota exceeded. Vui lòng thử lại sau.' };
-                }
-            }
-            console.error('Process payment error:', e);
-            return { success: false, error: e.message };
-        }
-    }
-    return { success: false, error: 'Max retries exceeded' };
+export const processPaymentSecurely = async () => {
+    console.warn('[Security] Client-side payment processing is disabled. All payments are verified strictly via SePay Webhook.');
+    return { success: false, error: 'Thanh toán chỉ được xác nhận qua Webhook máy chủ bảo mật.' };
 };
 // ============== VOUCHER MANAGEMENT ==============
 const getVouchersPath = () => `artifacts/${appId}/vouchers`;

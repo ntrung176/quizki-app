@@ -53,12 +53,12 @@ const AdminSyncUserModal = ({ isOpen, initialQuery = '', onClose, onSync }) => {
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/60 backdrop-blur-xs p-4" onClick={onClose}>
             <div
-                className="w-full max-w-md bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xl overflow-hidden"
+                className="w-full max-w-md bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-700 shadow-2xl overflow-hidden"
                 onClick={(e) => e.stopPropagation()}
             >
-                <div className="px-5 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-lg bg-emerald-100 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 flex items-center justify-center">
+                <div className="px-5 py-4 border-b-2 border-slate-100 dark:border-slate-800 flex items-center justify-between">
+                    <div className="flex items-center gap-2.5">
+                        <div className="w-9 h-9 rounded-xl bg-emerald-500 border-b-2 border-emerald-700 text-white flex items-center justify-center">
                             <UserPlus className="w-4 h-4" />
                         </div>
                         <div>
@@ -150,7 +150,7 @@ const AdminSyncUserModal = ({ isOpen, initialQuery = '', onClose, onSync }) => {
                         <button
                             type="submit"
                             disabled={submitting || (!uid.trim() && !email.trim())}
-                            className="px-4 py-2 text-xs font-bold bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white rounded-xl shadow flex items-center gap-1.5 cursor-pointer"
+                            className="px-4 py-2 text-xs font-extrabold bg-emerald-500 hover:bg-emerald-600 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-2 disabled:opacity-50 text-white rounded-xl flex items-center gap-1.5 cursor-pointer transition-all"
                         >
                             {submitting && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
                             <span>Đồng bộ & Lưu vào Admin</span>

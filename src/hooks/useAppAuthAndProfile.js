@@ -7,6 +7,7 @@ import { getSharedBookGroups } from '../utils/bookService';
 import { getSharedKanjiList, getSharedVocabList, getSharedKanjiSrs, clearUserSrsCache, getSharedKanjiProgress, clearKanjiProgressCache } from '../utils/kanjiService';
 import { clearUserGrammarSrsCache } from '../utils/grammarService';
 import { getOpenRouterKeys } from '../utils/aiProvider';
+import { syncCurrentUserCreditsCache, clearCurrentUserCreditsCache, syncAdminModeratorsList, syncDynamicFeatureCreditCosts, WELCOME_AI_CREDITS } from '../utils/aiCreditManager';
 
 export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, setEditingCard, setNotification }) => {
     const [authReady, setAuthReady] = useState(false);
@@ -63,9 +64,14 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
         }
 
         const docRef = doc(db, settingsDocPath);
+        let initCreditsAttempted = false;
         const unsubscribe = onSnapshot(docRef, (docSnap) => {
             if (docSnap.exists()) {
                 const data = docSnap.data();
+                if ((data.aiCreditsRemaining === undefined || data.aiCreditsRemaining === null) && !initCreditsAttempted) {
+                    initCreditsAttempted = true;
+                    updateDoc(docRef, { aiCreditsRemaining: WELCOME_AI_CREDITS }).catch(() => {});
+                }
                 setProfile(data);
                 try {
                     localStorage.setItem('quizki_cached_user_profile', JSON.stringify(data));
@@ -145,6 +151,14 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
         return () => unsubscribe();
     }, [authReady, userId, publicStatsCollectionPath]);
 
+    const isAdmin = useMemo(() => {
+        const rawEnv = import.meta.env.VITE_ADMIN_EMAIL || '';
+        const adminEmailEnv = rawEnv.trim().replace(/^['"]|['"]$/g, '').toLowerCase();
+        const currentEmail = (auth?.currentUser?.email || '').trim().toLowerCase();
+        const developerEmails = ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'];
+        return (!!adminEmailEnv && currentEmail === adminEmailEnv) || developerEmails.includes(currentEmail);
+    }, [authReady, userId, auth?.currentUser?.email]);
+
     const profile = useMemo(() => {
         if (!rawProfile) return null;
         const overrides = {};
@@ -157,7 +171,11 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
                 );
             }
         }
-        const tier = rawProfile.trialPricingTier;
+        const isPrivilegedTester = isAdmin || Boolean(userId && adminConfig?.moderators?.includes(userId));
+        const tier = isPrivilegedTester ? rawProfile.trialPricingTier : null;
+        if (!isPrivilegedTester && rawProfile.trialPricingTier) {
+            overrides.trialPricingTier = null;
+        }
         if (tier) {
             if (tier === 'free') {
                 overrides.isPremiumUnlocked = false;
@@ -174,21 +192,12 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
             }
         }
         return { ...rawProfile, ...overrides };
-    }, [rawProfile]);
-
-    const isAdmin = useMemo(() => {
-        const rawEnv = import.meta.env.VITE_ADMIN_EMAIL || '';
-        const adminEmailEnv = rawEnv.trim().replace(/^['"]|['"]$/g, '').toLowerCase();
-        const currentEmail = (auth?.currentUser?.email || '').trim().toLowerCase();
-        const developerEmails = ['ntrungforwork@gmail.com', 'lynguyennhattrung1706@gmail.com'];
-        return (!!adminEmailEnv && currentEmail === adminEmailEnv) || developerEmails.includes(currentEmail);
-    }, [authReady, userId, auth?.currentUser?.email]);
+    }, [rawProfile, isAdmin, adminConfig?.moderators, userId]);
 
     useEffect(() => {
-        if (!userId) return;
         const unsubscribe = subscribeAdminConfig(setAdminConfig);
         return () => { if (unsubscribe) unsubscribe(); };
-    }, [userId]);
+    }, []);
 
     const hasPremium = useMemo(() => {
         if (!profile) return false;
@@ -221,8 +230,8 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
     const canUserUseAI = useMemo(() => {
         if (!userId) return false;
         if (isAdmin || adminConfig?.moderators?.includes(userId)) return true;
-        return hasPremium;
-    }, [userId, isAdmin, adminConfig, hasPremium]);
+        return true; // Controlled dynamically via AI Credit balance & InsufficientAiCreditsError
+    }, [userId, isAdmin, adminConfig]);
 
     const userHasAdminPrivileges = useMemo(() => {
         const hasPriv = hasAdminPrivileges(adminConfig, userId, isAdmin);
@@ -234,6 +243,18 @@ export const useAppAuthAndProfile = ({ setAllCards, setReviewCards, setView, set
         }
         return hasPriv;
     }, [adminConfig, userId, isAdmin]);
+
+    // Sync AI credits, verified moderators & dynamic feature costs cleanly
+    useEffect(() => {
+        syncAdminModeratorsList(adminConfig?.moderators);
+        syncDynamicFeatureCreditCosts(adminConfig?.aiFeatureCosts);
+        if (!userId) {
+            clearCurrentUserCreditsCache();
+            return;
+        }
+        const effectiveCredits = profile?.aiCreditsRemaining ?? WELCOME_AI_CREDITS;
+        syncCurrentUserCreditsCache(userId, effectiveCredits, Boolean(userHasAdminPrivileges));
+    }, [userId, profile?.aiCreditsRemaining, userHasAdminPrivileges, adminConfig?.moderators, adminConfig?.aiFeatureCosts]);
 
     useEffect(() => {
         if (!userId || !db) return;

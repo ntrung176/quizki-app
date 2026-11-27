@@ -1,4 +1,5 @@
 import { getOpenRouterKeys, OPENROUTER_MODELS, getEffectiveModel, extractOpenRouterText, callAI, getAiProxyUrl } from '../../utils/aiProvider';
+import { assertCanAffordAi, consumeAiCredits } from '../../utils/aiCreditManager';
 
 export const callKaiwaAI = async (systemPrompt, conversationHistory = [], userMessage = '', forcedModel = null) => {
     const keys = getOpenRouterKeys();
@@ -7,6 +8,8 @@ export const callKaiwaAI = async (systemPrompt, conversationHistory = [], userMe
         const prompt = `${systemPrompt}\n\n${historyText ? `Lịch sử hội thoại:\n${historyText}\n\n` : ''}Người dùng: ${userMessage}`;
         return callAI(prompt, forcedModel, 'kaiwa_agent');
     }
+
+    assertCanAffordAi('kaiwa_agent');
 
     let activeModel = forcedModel;
     if (!activeModel) {
@@ -93,6 +96,7 @@ export const callKaiwaAI = async (systemPrompt, conversationHistory = [], userMe
                 const text = extractOpenRouterText(result);
                 if (text) {
                     console.log(`✅ OpenRouter Kaiwa (${currentModel}) thành công!`);
+                    await consumeAiCredits('kaiwa_agent');
                     return text;
                 }
             }

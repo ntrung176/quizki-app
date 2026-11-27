@@ -14,6 +14,7 @@ import { CardEditorItem } from './AddCardForm';
 import PremiumLockedModal from '../ui/PremiumLockedModal';
 import { useTargetLanguage } from '../../context/TargetLanguageContext';
 import { getLanguageService } from '../../languages';
+import { AiCreditPill } from '../ui/AiCreditBadge';
 
 const QuickAddVocabForm = ({
     folders = [], // These are the study sets (type !== 'folder')
@@ -277,15 +278,20 @@ const QuickAddVocabForm = ({
                         </div>
                     </div>
                     
-                    <button
-                        type="button"
-                        onClick={handleTriggerSave}
-                        disabled={isSaving}
-                        className="px-6 py-2.5 text-sm font-bold rounded-xl text-white bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 shadow-md transition-colors disabled:opacity-50 flex items-center gap-2"
-                    >
-                        {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Check className="w-4 h-4" />}
-                        Lưu từ vựng
-                    </button>
+                    <div className="flex items-center gap-2.5 flex-wrap justify-end">
+                        {onGeminiAssist && (
+                            <AiCreditPill featureId="vocab_gen" remaining={aiCreditsRemaining} compact />
+                        )}
+                        <button
+                            type="button"
+                            onClick={handleTriggerSave}
+                            disabled={isSaving}
+                            className="px-6 py-2.5 text-sm font-bold rounded-xl text-white bg-teal-600 hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600 shadow-md transition-colors disabled:opacity-50 flex items-center gap-2"
+                        >
+                            {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Check className="w-4 h-4" />}
+                            Lưu từ vựng
+                        </button>
+                    </div>
                 </div>
 
                 {/* Cards List */}

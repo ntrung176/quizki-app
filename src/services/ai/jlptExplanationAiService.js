@@ -95,7 +95,7 @@ Trả về DUY NHẤT một chuỗi JSON hợp lệ (không kèm markdown ngoài
   "explanation": "✅ Lựa chọn chính xác: ...\\n\\n📌 Phân tích các phương án: ...\\n\\n📖 Căn cứ & Giải thích chi tiết: ...\\n\\n💡 Mẹo làm bài: ..."
 }`;
 
-    const rawResponse = await callAI(prompt, null, 'grammar_check', 2000);
+    const rawResponse = await callAI(prompt, null, 'jlpt_explain', 2000);
     const parsed = parseJsonFromAI(rawResponse);
 
     if (!parsed || typeof parsed.detectedCorrectIndex !== 'number') {

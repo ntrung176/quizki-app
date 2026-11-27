@@ -285,7 +285,7 @@ async function executeFirestoreBillingTransaction(token, userId, credits, transa
             ['premium', 'vocab_zen', 'grammar_zen', 'kanji_zen', 'jlpt_prep'].forEach(p => {
                 if (!unlockedPackages.includes(p)) unlockedPackages.push(p);
             });
-            const bonus = pkgId === 'premium_3y' ? 6000 : (pkgId === 'premium_1y' ? 2000 : 200);
+            const bonus = pkgId === 'premium_3y' ? 3000 : (pkgId === 'premium_1y' ? 800 : (pkgId === 'premium_1m' ? 100 : 0));
             const durationMs = pkgId === 'premium_3y' ? 3 * 365 * 24 * 3600 * 1000 : (pkgId === 'premium_1y' ? 365 * 24 * 3600 * 1000 : 30 * 24 * 3600 * 1000);
             const baseTime = existingExpiresAt > Date.now() ? existingExpiresAt : Date.now();
             updateFields.fields.aiCreditsRemaining = { integerValue: currentCredits + bonus };

@@ -317,23 +317,23 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
     const selectedThread = threads.find(t => t.userId === selectedUserId);
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 bg-white dark:bg-gray-800 rounded-2xl border border-gray-200 dark:border-gray-700 overflow-hidden h-[calc(100vh-240px)] md:h-[calc(100vh-200px)] min-h-[350px] max-h-[700px] shadow-sm">
+        <div className="grid grid-cols-1 md:grid-cols-3 bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-700/80 overflow-hidden h-[calc(100vh-240px)] md:h-[calc(100vh-200px)] min-h-[420px] max-h-[720px] shadow-sm">
             {/* Thread List */}
-            <div className={`border-r border-gray-100 dark:border-gray-700 flex flex-col h-full min-h-0 bg-slate-50/50 dark:bg-slate-900/30 font-sans ${selectedUserId ? 'hidden md:flex' : 'flex'}`}>
-                <div className="p-4 border-b border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800">
-                    <h3 className="font-bold text-gray-800 dark:text-white flex items-center gap-2 text-xs">
-                        <MessageSquare className="w-5 h-5 text-[#2E5B70]" />
+            <div className={`border-r-2 border-slate-100 dark:border-slate-800 flex flex-col h-full min-h-0 bg-slate-50/70 dark:bg-slate-900/50 font-sans ${selectedUserId ? 'hidden md:flex' : 'flex'}`}>
+                <div className="p-4 border-b-2 border-slate-100 dark:border-slate-800 bg-white dark:bg-slate-900">
+                    <h3 className="font-extrabold text-slate-800 dark:text-white flex items-center gap-2 text-xs uppercase tracking-wider">
+                        <MessageSquare className="w-4 h-4 text-emerald-500" />
                         Hội thoại hỗ trợ ({threads.length})
                     </h3>
                 </div>
 
-                <div className="flex-1 overflow-y-auto divide-y divide-gray-100 dark:divide-gray-750 support-chat-scrollbar">
+                <div className="flex-1 overflow-y-auto divide-y divide-slate-100 dark:divide-slate-800 support-chat-scrollbar">
                     {loadingThreads ? (
                         <div className="p-8 text-center">
-                            <Loader2 className="w-6 h-6 animate-spin text-[#2E5B70] mx-auto" />
+                            <Loader2 className="w-6 h-6 animate-spin text-emerald-500 mx-auto" />
                         </div>
                     ) : threads.length === 0 ? (
-                        <div className="p-8 text-center text-gray-400 dark:text-gray-500 text-xs italic">
+                        <div className="p-8 text-center text-slate-400 dark:text-slate-500 text-xs italic">
                             Chưa có yêu cầu hỗ trợ nào.
                         </div>
                     ) : (
@@ -345,34 +345,34 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                 <div
                                     key={thread.userId}
                                     onClick={() => setSelectedUserId(thread.userId)}
-                                    className={`p-4 cursor-pointer hover:bg-white dark:hover:bg-gray-800 transition-all flex items-start gap-3 relative ${isSelected ? 'bg-white dark:bg-gray-800 border-l-4 border-[#2E5B70]' : ''
+                                    className={`p-4 cursor-pointer hover:bg-white dark:hover:bg-slate-800/70 transition-all flex items-start gap-3 relative ${isSelected ? 'bg-white dark:bg-slate-800 border-l-4 border-emerald-500' : 'border-l-4 border-transparent'
                                         }`}
                                 >
                                     <div className="relative flex-shrink-0">
-                                        <div className="w-10 h-10 rounded-full bg-gradient-to-br from-emerald-50 to-blue-50 dark:from-slate-700 dark:to-slate-800 flex items-center justify-center font-bold text-[#2E5B70] dark:text-[#3B728C] border border-slate-200 dark:border-slate-700">
+                                        <div className="w-10 h-10 rounded-2xl bg-sky-500 border-b-2 border-sky-700 flex items-center justify-center font-black text-white">
                                             {(thread.displayName || '?')[0].toUpperCase()}
                                         </div>
                                         {isOnline && (
-                                            <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 rounded-full border-2 border-white dark:border-gray-800" title="Online" />
+                                            <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-emerald-500 rounded-full border-2 border-white dark:border-slate-900" title="Online" />
                                         )}
                                     </div>
                                     <div className="flex-1 min-w-0">
                                         <div className="flex items-center justify-between mb-1">
-                                            <p className="font-bold text-xs text-gray-800 dark:text-gray-200 truncate pr-2">
+                                            <p className="font-bold text-xs text-slate-800 dark:text-slate-100 truncate pr-2">
                                                 {thread.displayName}
                                             </p>
                                             {thread.lastMessage.createdAt && (
-                                                <span className="text-[10px] text-gray-455 whitespace-nowrap">
+                                                <span className="text-[10px] text-slate-400 whitespace-nowrap">
                                                     {thread.lastMessage.createdAt.toDate ? thread.lastMessage.createdAt.toDate().toLocaleTimeString('vi-VN', { hour: '2-digit', minute: '2-digit' }) : ''}
                                                 </span>
                                             )}
                                         </div>
-                                        <p className={`text-xs truncate ${needsReply ? 'text-gray-900 dark:text-gray-100 font-bold' : 'text-gray-400 dark:text-gray-500'}`}>
+                                        <p className={`text-xs truncate ${needsReply ? 'text-slate-900 dark:text-white font-bold' : 'text-slate-400 dark:text-slate-500'}`}>
                                             {thread.lastMessage.isAdmin ? 'Bạn: ' : ''}{thread.lastMessage.text || '[Hình ảnh]'}
                                         </p>
                                     </div>
                                     {needsReply && (
-                                        <span className="absolute top-4 right-4 w-2 h-2 bg-[#2E5B70] rounded-full animate-pulse" />
+                                        <span className="absolute top-4 right-4 w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse" />
                                     )}
                                 </div>
                             );
@@ -382,37 +382,37 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
             </div>
 
             {/* Chat Pane */}
-            <div className={`md:col-span-2 flex flex-col h-full min-h-0 bg-white dark:bg-gray-800 font-sans ${!selectedUserId ? 'hidden md:flex' : 'flex'}`}>
+            <div className={`md:col-span-2 flex flex-col h-full min-h-0 bg-white dark:bg-slate-900 font-sans ${!selectedUserId ? 'hidden md:flex' : 'flex'}`}>
                 {selectedThread ? (
                     <>
                         {/* Chat Header */}
-                        <div className="p-4 border-b border-gray-105 dark:border-gray-700 flex items-center justify-between">
+                        <div className="p-4 border-b-2 border-slate-100 dark:border-slate-800 flex items-center justify-between">
                             <div className="flex items-center gap-3">
                                 <button
                                     onClick={() => setSelectedUserId(null)}
-                                    className="md:hidden p-1.5 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg cursor-pointer text-gray-500"
+                                    className="md:hidden p-1.5 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl cursor-pointer text-slate-500"
                                 >
                                     <ChevronLeft className="w-5 h-5" />
                                 </button>
                                 <div>
                                     <div className="flex items-center gap-1.5">
-                                        <h4 className="font-bold text-gray-800 dark:text-white text-xs leading-none">
+                                        <h4 className="font-extrabold text-slate-800 dark:text-white text-sm leading-none">
                                             {selectedThread.displayName}
                                         </h4>
-                                        <span className={`w-1.5 h-1.5 rounded-full ${checkUserOnline(selectedThread.userId, selectedThread) ? 'bg-emerald-500 animate-pulse' : 'bg-gray-400'}`} />
+                                        <span className={`w-2 h-2 rounded-full ${checkUserOnline(selectedThread.userId, selectedThread) ? 'bg-emerald-500 animate-pulse' : 'bg-slate-400'}`} />
                                     </div>
-                                    <p className="text-[10px] text-gray-440 dark:text-gray-500 font-mono mt-1.5">
-                                        {checkUserOnline(selectedThread.userId, selectedThread) ? 'Trực tuyến' : formatUserLastActive(selectedThread.userId, selectedThread)} | Email: {selectedThread.email || 'N/A'} | ID: {selectedThread.userId}
+                                    <p className="text-[11px] text-slate-400 dark:text-slate-500 font-mono mt-1">
+                                        {checkUserOnline(selectedThread.userId, selectedThread) ? 'Trực tuyến' : formatUserLastActive(selectedThread.userId, selectedThread)} • Email: {selectedThread.email || 'N/A'} • ID: {selectedThread.userId}
                                     </p>
                                 </div>
                             </div>
                         </div>
 
                         {/* Message Stream */}
-                        <div className="flex-1 overflow-y-auto overflow-x-hidden p-4 bg-slate-50 dark:bg-slate-950 space-y-3 support-chat-scrollbar">
+                        <div className="flex-1 overflow-y-auto overflow-x-hidden p-4 bg-slate-50 dark:bg-slate-950/60 space-y-3 support-chat-scrollbar">
                             {loadingMessages ? (
                                 <div className="h-full flex items-center justify-center">
-                                    <Loader2 className="w-6 h-6 animate-spin text-[#2E5B70]" />
+                                    <Loader2 className="w-6 h-6 animate-spin text-emerald-500" />
                                 </div>
                             ) : (() => {
                                 const lastAdminMsgIndex = [...messages].reverse().findIndex(msg => msg.isAdmin);
@@ -433,15 +433,15 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                             key={msg.id || index}
                                             className={`flex flex-col ${isSelf ? 'items-end' : 'items-start'} mb-2`}
                                         >
-                                            <span className="text-[9px] text-slate-400 dark:text-slate-500 font-bold mb-0.5 px-1">
+                                            <span className="text-[10px] text-slate-400 dark:text-slate-500 font-bold mb-0.5 px-1">
                                                 {isSelf ? 'Ban quản trị' : selectedThread.displayName}
-                                                {formattedTime && <span className="font-normal text-slate-400/80 dark:text-slate-550/80 ml-1.5">{formattedTime}</span>}
+                                                {formattedTime && <span className="font-normal text-slate-400 ml-1.5">{formattedTime}</span>}
                                             </span>
                                             <div className="flex items-center gap-2 max-w-[85%] group relative">
                                                 {isSelf && (
                                                     <div className="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity duration-150 relative">
                                                         {activeReactionPicker === msg.id && (
-                                                            <div className="absolute bottom-full mb-1 left-0 flex items-center gap-1 bg-white dark:bg-slate-800 border border-gray-150 dark:border-slate-700 shadow-xl rounded-full px-2 py-1 z-30 flex-row">
+                                                            <div className="absolute bottom-full mb-1 left-0 flex items-center gap-1 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 shadow-xl rounded-full px-2 py-1 z-30 flex-row">
                                                                 {['👍', '❤️', '😂', '😮', '😢', '😠'].map(emoji => (
                                                                     <button
                                                                         key={emoji}
@@ -450,7 +450,7 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                                                             handleReact(msg.id, emoji);
                                                                             setActiveReactionPicker(null);
                                                                         }}
-                                                                        className="text-base hover:scale-130 transition-transform duration-100 p-0.5 cursor-pointer"
+                                                                        className="text-base hover:scale-125 transition-transform duration-100 p-0.5 cursor-pointer"
                                                                     >
                                                                         {emoji}
                                                                     </button>
@@ -460,7 +460,7 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                                         <button
                                                             type="button"
                                                             onClick={() => setActiveReactionPicker(activeReactionPicker === msg.id ? null : msg.id)}
-                                                            className="p-1 hover:bg-slate-100 dark:hover:bg-slate-855 rounded-full text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+                                                            className="p-1 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
                                                             title="Bày tỏ cảm xúc"
                                                         >
                                                             <Smile className="w-3.5 h-3.5" />
@@ -468,7 +468,7 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                                         <button
                                                             type="button"
                                                             onClick={() => setReplyingTo({ id: msg.id, senderName: msg.isAdmin ? 'Ban quản trị' : (selectedThread.displayName || 'Người dùng'), text: msg.text, imageUrl: msg.imageUrl })}
-                                                            className="p-1 hover:bg-slate-100 dark:hover:bg-slate-855 rounded-full text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+                                                            className="p-1 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
                                                             title="Trả lời"
                                                         >
                                                             <CornerUpLeft className="w-3.5 h-3.5" />
@@ -479,13 +479,13 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                                 <div
                                                     className={`rounded-2xl px-3.5 py-2.5 text-xs shadow-sm relative ${
                                                         isSelf
-                                                            ? 'bg-[#2E5B70] text-white rounded-tr-none'
-                                                            : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-tl-none border border-gray-150/40 dark:border-slate-700/50'
+                                                            ? 'bg-emerald-600 text-white rounded-tr-none border-b-2 border-emerald-700'
+                                                            : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 rounded-tl-none border-2 border-slate-200 dark:border-slate-700'
                                                     }`}
                                                 >
                                                     {msg.replyTo && (
-                                                        <div className="mb-2 text-[10px] text-slate-400 dark:text-slate-450 bg-black/5 dark:bg-white/5 rounded-lg px-2 py-1.5 max-w-[220px] truncate border-l-2 border-[#2E5B70]/60">
-                                                            <span className="font-bold text-[#2E5B70] dark:text-[#3B728C] mr-1">
+                                                        <div className="mb-2 text-[10px] text-slate-400 dark:text-slate-300 bg-black/5 dark:bg-white/10 rounded-lg px-2 py-1.5 max-w-[220px] truncate border-l-2 border-emerald-400">
+                                                            <span className="font-bold text-emerald-500 dark:text-emerald-300 mr-1">
                                                                 {msg.replyTo.senderName}:
                                                             </span>
                                                             {msg.replyTo.text || '[Hình ảnh]'}
@@ -495,7 +495,7 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                                     {msg.text && <p className="whitespace-pre-wrap leading-relaxed">{msg.text}</p>}
 
                                                     {msg.imageUrl && (
-                                                        <div className="mt-2 rounded-lg overflow-hidden border border-black/5 dark:border-white/5 max-w-[260px]">
+                                                        <div className="mt-2 rounded-lg overflow-hidden border border-black/5 dark:border-white/10 max-w-[260px]">
                                                             <img
                                                                 src={msg.imageUrl}
                                                                 alt="Đính kèm"
@@ -507,12 +507,12 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
 
                                                     {/* Reactions Display */}
                                                     {msg.reactions && Object.keys(msg.reactions).length > 0 && (
-                                                        <div className={`absolute -bottom-2.5 ${isSelf ? 'right-2' : 'left-2'} bg-white dark:bg-slate-800 border border-gray-150 dark:border-slate-700 shadow-sm rounded-full px-1.5 py-0.5 flex items-center gap-0.5 text-[9px] z-10 select-none`}>
+                                                        <div className={`absolute -bottom-2.5 ${isSelf ? 'right-2' : 'left-2'} bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm rounded-full px-1.5 py-0.5 flex items-center gap-0.5 text-[9px] z-10 select-none`}>
                                                             {Array.from(new Set(Object.values(msg.reactions))).map((emoji, idx) => (
                                                                 <span key={idx}>{emoji}</span>
                                                             ))}
                                                             {Object.keys(msg.reactions).length > 1 && (
-                                                                <span className="text-slate-455 dark:text-slate-400 font-bold ml-0.5">{Object.keys(msg.reactions).length}</span>
+                                                                <span className="text-slate-500 dark:text-slate-300 font-bold ml-0.5">{Object.keys(msg.reactions).length}</span>
                                                             )}
                                                         </div>
                                                     )}
@@ -523,7 +523,7 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                                         <button
                                                             type="button"
                                                             onClick={() => setReplyingTo({ id: msg.id, senderName: msg.isAdmin ? 'Ban quản trị' : (selectedThread.displayName || 'Người dùng'), text: msg.text, imageUrl: msg.imageUrl })}
-                                                            className="p-1 hover:bg-slate-100 dark:hover:bg-slate-855 rounded-full text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+                                                            className="p-1 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
                                                             title="Trả lời"
                                                         >
                                                             <CornerUpLeft className="w-3.5 h-3.5" />
@@ -531,13 +531,13 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                                         <button
                                                             type="button"
                                                             onClick={() => setActiveReactionPicker(activeReactionPicker === msg.id ? null : msg.id)}
-                                                            className="p-1 hover:bg-slate-100 dark:hover:bg-slate-855 rounded-full text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
+                                                            className="p-1 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full text-slate-400 hover:text-slate-600 transition-colors cursor-pointer"
                                                             title="Bày tỏ cảm xúc"
                                                         >
                                                             <Smile className="w-3.5 h-3.5" />
                                                         </button>
                                                         {activeReactionPicker === msg.id && (
-                                                            <div className="absolute bottom-full mb-1 right-0 flex items-center gap-1 bg-white dark:bg-slate-800 border border-gray-150 dark:border-slate-700 shadow-xl rounded-full px-2 py-1 z-30 flex-row">
+                                                            <div className="absolute bottom-full mb-1 right-0 flex items-center gap-1 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 shadow-xl rounded-full px-2 py-1 z-30 flex-row">
                                                                 {['👍', '❤️', '😂', '😮', '😢', '😠'].map(emoji => (
                                                                     <button
                                                                         key={emoji}
@@ -546,7 +546,7 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                                                             handleReact(msg.id, emoji);
                                                                             setActiveReactionPicker(null);
                                                                         }}
-                                                                        className="text-base hover:scale-130 transition-transform duration-100 p-0.5 cursor-pointer"
+                                                                        className="text-base hover:scale-125 transition-transform duration-100 p-0.5 cursor-pointer"
                                                                     >
                                                                         {emoji}
                                                                     </button>
@@ -557,7 +557,7 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                                 )}
                                             </div>
                                             {isSelf && isLastAdminMsg && (
-                                                <span className="text-[9px] text-slate-400 dark:text-slate-500 mt-1 mr-1">
+                                                <span className="text-[10px] text-slate-400 dark:text-slate-500 mt-1 mr-1">
                                                     {selectedThread?.hasUnreadUser ? 'Đã gửi' : 'Đã đọc'}
                                                 </span>
                                             )}
@@ -570,14 +570,14 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
 
                         {/* Image Preview */}
                         {selectedImage && (
-                            <div className="p-3 bg-slate-100 dark:bg-slate-800 border-t border-gray-200/60 dark:border-slate-700/60 flex items-center justify-between">
+                            <div className="p-3 bg-slate-100 dark:bg-slate-800 border-t-2 border-slate-200 dark:border-slate-700 flex items-center justify-between">
                                 <div className="flex items-center gap-2">
-                                    <img src={selectedImage} className="w-14 h-14 object-cover rounded-md border border-gray-200" alt="Preview" />
-                                    <span className="text-xs text-slate-400 font-medium">Đính kèm 1 ảnh</span>
+                                    <img src={selectedImage} className="w-14 h-14 object-cover rounded-xl border border-slate-200" alt="Preview" />
+                                    <span className="text-xs text-slate-500 dark:text-slate-300 font-bold">Đính kèm 1 ảnh</span>
                                 </div>
                                 <button
                                     onClick={() => setSelectedImage(null)}
-                                    className="p-1 hover:bg-slate-200 dark:hover:bg-slate-750 text-slate-400 dark:text-slate-500 rounded-full cursor-pointer"
+                                    className="p-1.5 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-400 rounded-full cursor-pointer"
                                 >
                                     <XIcon className="w-4 h-4" />
                                 </button>
@@ -586,19 +586,19 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
 
                         {/* Reply Quoted Preview */}
                         {replyingTo && (
-                            <div className="px-4 py-2 bg-slate-100 dark:bg-slate-800 border-t border-gray-150 dark:border-slate-700 flex items-center justify-between text-xs animate-slide-up">
-                                <div className="flex-1 min-w-0 border-l-2 border-[#2E5B70] pl-2">
-                                    <p className="font-bold text-[#2E5B70] dark:text-[#3B728C] leading-none mb-1 text-[10px]">
+                            <div className="px-4 py-2 bg-slate-100 dark:bg-slate-800 border-t-2 border-slate-200 dark:border-slate-700 flex items-center justify-between text-xs">
+                                <div className="flex-1 min-w-0 border-l-2 border-emerald-500 pl-2">
+                                    <p className="font-bold text-emerald-600 dark:text-emerald-400 leading-none mb-1 text-[10px]">
                                         Đang trả lời {replyingTo.senderName}
                                     </p>
-                                    <p className="text-[11px] text-slate-550 dark:text-slate-400 truncate">
+                                    <p className="text-[11px] text-slate-500 dark:text-slate-400 truncate">
                                         {replyingTo.text || '[Hình ảnh]'}
                                     </p>
                                 </div>
                                 <button
                                     type="button"
                                     onClick={() => setReplyingTo(null)}
-                                    className="p-1 text-slate-400 hover:text-slate-600 hover:bg-slate-200 dark:hover:bg-slate-750 rounded-full transition-colors cursor-pointer ml-2"
+                                    className="p-1 text-slate-400 hover:text-slate-600 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-full transition-colors cursor-pointer ml-2"
                                 >
                                     <XIcon className="w-3.5 h-3.5" />
                                 </button>
@@ -606,11 +606,11 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                         )}
 
                         {/* Input Area */}
-                        <form onSubmit={handleSendReply} className="p-4 border-t border-gray-100 dark:border-gray-700 flex items-center gap-2.5">
+                        <form onSubmit={handleSendReply} className="p-3.5 border-t-2 border-slate-100 dark:border-slate-800 flex items-center gap-2.5">
                             <button
                                 type="button"
                                 onClick={() => fileInputRef.current?.click()}
-                                className="p-2.5 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all cursor-pointer"
+                                className="p-2.5 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all cursor-pointer"
                                 title="Đính kèm hình ảnh"
                             >
                                 <ImageIcon className="w-5 h-5" />
@@ -635,31 +635,31 @@ const AdminSupportChatSection = ({ users, currentUserId }) => {
                                     }
                                 }}
                                 onPaste={handlePaste}
-                                className="flex-1 py-2 px-3 text-xs bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:border-[#2E5B70] text-slate-800 dark:text-slate-200 placeholder-slate-400 resize-none max-h-[120px] min-h-[36px] leading-relaxed scrollbar-hide"
+                                className="flex-1 py-2.5 px-3.5 text-xs bg-slate-50 dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:border-emerald-500 text-slate-800 dark:text-slate-100 placeholder-slate-400 resize-none max-h-[120px] min-h-[38px] leading-relaxed scrollbar-hide"
                                 placeholder="Gõ câu trả lời của bạn hoặc dán ảnh (Ctrl+V)..."
                             />
 
                             <button
                                 type="submit"
                                 disabled={(!replyText.trim() && !selectedImage) || sending}
-                                className="px-4 py-2.5 bg-[#2E5B70] hover:bg-[#203F4F] text-white rounded-xl font-bold text-xs disabled:opacity-40 transition-all flex items-center gap-1.5 cursor-pointer"
+                                className="px-4 py-2.5 bg-emerald-500 hover:bg-emerald-600 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-2 text-white rounded-xl font-extrabold text-xs disabled:opacity-40 transition-all flex items-center gap-1.5 cursor-pointer"
                             >
                                 {sending ? (
                                     <Loader2 className="w-4 h-4 animate-spin" />
                                 ) : (
                                     <>
                                         <Send className="w-3.5 h-3.5" />
-                                        Gửi phản hồi
+                                        Gửi
                                     </>
                                 )}
                             </button>
                         </form>
                     </>
                 ) : (
-                    <div className="h-full flex flex-col items-center justify-center text-center p-6 text-gray-400">
+                    <div className="h-full flex flex-col items-center justify-center text-center p-6 text-slate-400">
                         <MessageSquare className="w-16 h-16 opacity-30 mb-3" />
-                        <p className="text-sm font-semibold">Chưa chọn hội thoại nào</p>
-                        <p className="text-xs text-gray-455 dark:text-gray-500 max-w-sm mt-1">
+                        <p className="text-sm font-extrabold text-slate-600 dark:text-slate-300">Chưa chọn hội thoại nào</p>
+                        <p className="text-xs text-slate-400 dark:text-slate-500 max-w-sm mt-1">
                             Chọn một người dùng từ danh sách bên trái để bắt đầu hỗ trợ trực tuyến.
                         </p>
                     </div>

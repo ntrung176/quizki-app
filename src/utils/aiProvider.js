@@ -11,6 +11,7 @@ import { normalizePosKey } from '../config/constants';
 import { isEnglishText } from './englishVocab';
 import { getLanguageService } from '../languages';
 import { getJotobaKanjiData } from '../data/jotobaKanjiData';
+import { assertCanAffordAi, consumeAiCredits } from './aiCreditManager';
 // ============== KEY MANAGEMENT ==============
 
 export const getAiProxyUrl = () => {
@@ -235,6 +236,9 @@ export const callAI = async (prompt, forcedOpenRouterModel = null, featureId = n
         throw new Error('Chưa cấu hình AI. Vui lòng thêm VITE_AI_PROXY_URL hoặc VITE_OPENROUTER_API_KEY vào file .env');
     }
 
+    const effectiveFeatureId = featureId || 'default';
+    assertCanAffordAi(effectiveFeatureId);
+
     let activeModel = forcedOpenRouterModel;
     if (!activeModel) {
         try {
@@ -265,10 +269,14 @@ export const callAI = async (prompt, forcedOpenRouterModel = null, featureId = n
     activeModel = getEffectiveModel(activeModel);
     const effectiveMaxTokens = maxTokens || (featureId === 'pdf_ingest' ? 8192 : null);
     console.log(
-        `%c[AI Provider] 🔵 OPENROUTER (${keys.length} keys) | Feature: ${featureId || 'default'} | Model: ${activeModel} | MaxTokens: ${effectiveMaxTokens || 1500}`,
+        `%c[AI Provider] 🔵 OPENROUTER (${keys.length} keys) | Feature: ${effectiveFeatureId} | Model: ${activeModel} | MaxTokens: ${effectiveMaxTokens || 1500}`,
         'color: #38bdf8; font-weight: bold; background: #0c4a6e; padding: 4px 8px; border-radius: 4px;'
     );
-    return callWithRetry(prompt, 0, 0, activeModel, effectiveMaxTokens);
+    const responseText = await callWithRetry(prompt, 0, 0, activeModel, effectiveMaxTokens);
+    if (responseText && String(responseText).trim()) {
+        await consumeAiCredits(effectiveFeatureId);
+    }
+    return responseText;
 };
 
 
@@ -1105,6 +1113,8 @@ export const callKaiwaAI = async (systemPrompt, conversationHistory = [], userMe
         return callAI(prompt, forcedModel, 'kaiwa_agent');
     }
 
+    assertCanAffordAi('kaiwa_agent');
+
     let activeModel = forcedModel;
     if (!activeModel) {
         try {
@@ -1191,6 +1201,7 @@ export const callKaiwaAI = async (systemPrompt, conversationHistory = [], userMe
                 const text = extractOpenRouterText(result);
                 if (text) {
                     console.log(`✅ OpenRouter Kaiwa (${currentModel}) thành công!`);
+                    await consumeAiCredits('kaiwa_agent');
                     return text;
                 }
             }
