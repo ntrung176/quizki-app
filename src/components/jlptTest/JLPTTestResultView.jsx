@@ -14,11 +14,13 @@ import HandwritingCanvas from '../ui/HandwritingCanvas';
 import ExamAnnotationOverlay from '../screens/ExamAnnotationOverlay';
 import ListeningAudioPlayer from './ListeningAudioPlayer';
 import ListeningScriptBox from './ListeningScriptBox';
+import PreloadedQuestionImage from './PreloadedQuestionImage';
 import JlptScoreBreakdownCard from './JlptScoreBreakdownCard';
 import AiImageRecreatorModal from '../admin/AiImageRecreatorModal';
 import { ListeningMondaiFilterBar, ListeningMondaiSectionBanner } from './ListeningMondaiHeader';
 import { SECTION_ICONS, SECTION_COLORS } from './jlptConstants';
 import { getListeningDisplayMeta, groupQuestionsByMondai, isBareNumberOptions, buildSectionDisplayClusters, resolveSharedMondaiAudioUrl, resolveQuestionMondai } from './jlptYearlyConstants';
+import { preloadTestImages } from '../../utils/jlptMediaPreloader';
 
 export const hasHtmlTags = (str) => {
     if (!str) return false;
@@ -155,6 +157,12 @@ const JLPTTestResultView = ({
     const listeningMondaiData = useMemo(() => {
         return groupQuestionsByMondai(activeSection?.questions || [], activeTest?.level, activeSection?.title, activeSection?.type);
     }, [activeSection, activeTest?.level]);
+
+    useEffect(() => {
+        if (activeTest) {
+            preloadTestImages(activeTest);
+        }
+    }, [activeTest]);
 
     const mondaiSharedAudioUrls = useMemo(() => {
         const map = {};
@@ -915,9 +923,7 @@ const JLPTTestResultView = ({
 
                                                 {/* Question Image */}
                                                 {question?.imageUrl && (
-                                                    <div className="mb-4 max-w-xl mx-auto rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white p-2 flex justify-center">
-                                                        <img src={question.imageUrl} alt="Hình minh họa" className="max-h-80 object-contain rounded-xl" />
-                                                    </div>
+                                                    <PreloadedQuestionImage src={question.imageUrl} alt="Hình minh họa" />
                                                 )}
 
                                                 {/* Multi-Question or Single Question Choices */}

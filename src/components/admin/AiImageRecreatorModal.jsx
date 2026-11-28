@@ -3,6 +3,7 @@ import { createPortal } from 'react-dom';
 import { X, Wand2, Upload, ClipboardPaste, Loader2, CheckCircle2, RefreshCw } from 'lucide-react';
 import { recreateIllustrationWithAI } from '../../services/ai/jlptImageRecreatorService';
 import { uploadBase64ImageToStorage } from '../../utils/jlptAudioProcessor';
+import { optimizeImageDataUrlForWeb } from '../../utils/jlptMediaPreloader';
 import { compressImage } from '../../utils/image';
 import { showToast } from '../../utils/toast';
 
@@ -91,17 +92,21 @@ const AiImageRecreatorModal = ({
     };
 
     const handleSaveAndAttach = async (useOriginalInstead = false) => {
-        const targetDataUrl = useOriginalInstead ? refDataUrl : (generatedDataUrl || refDataUrl);
-        if (!targetDataUrl) return;
+        const rawTarget = useOriginalInstead ? refDataUrl : (generatedDataUrl || refDataUrl);
+        if (!rawTarget) return;
         setSaving(true);
+        const optimizedDataUrl = await optimizeImageDataUrlForWeb(rawTarget, 960, 0.86);
+        const ext = optimizedDataUrl.startsWith('data:image/webp')
+            ? 'webp'
+            : (optimizedDataUrl.startsWith('data:image/jpeg') ? 'jpg' : 'png');
         try {
-            const path = `${storagePrefix}/ai_img_${Date.now()}.png`;
-            const url = await uploadBase64ImageToStorage(targetDataUrl, path);
+            const path = `${storagePrefix}/ai_img_${Date.now()}.${ext}`;
+            const url = await uploadBase64ImageToStorage(optimizedDataUrl, path);
             await onSaveImage(url);
-            showToast('Đã lưu ảnh & gắn trực tiếp vào câu hỏi!', 'success');
+            showToast('Đã tối ưu dung lượng, lưu & gắn ảnh vào câu hỏi!', 'success');
             onClose();
         } catch {
-            await onSaveImage(targetDataUrl);
+            await onSaveImage(optimizedDataUrl);
             showToast('Đã gắn ảnh trực tiếp vào câu hỏi.', 'info');
             onClose();
         } finally {

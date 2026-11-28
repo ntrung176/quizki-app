@@ -20,6 +20,7 @@ import JLPTExportImportModal, { sanitizeDataForFirestore } from '../jlptTest/JLP
 import JLPTQuickTestEditorModal from '../jlptTest/JLPTQuickTestEditorModal';
 import { testHasListening } from '../jlptTest/jlptYearlyConstants';
 import { computeJlptScoreBreakdown, buildJlptExamPhases } from '../../utils/jlptScoringRules';
+import { preloadTestImages } from '../../utils/jlptMediaPreloader';
 import { showToast } from '../../utils/toast';
 import { X, Play, BookOpen, Lock, ChevronRight, FileText, Printer, Check, Loader2, Edit3, Trash2, AlertTriangle } from 'lucide-react';
 
@@ -525,11 +526,17 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             return;
         }
         setPendingStartTest(test);
+        if (Array.isArray(test?.sections) && test.sections.length > 0) {
+            preloadTestImages(test);
+        }
         if (!test?.sections || test.sections.length === 0) {
             setLoadingTestDetails(true);
             ensureFullTestLoaded(test?.id, test?.level)
                 .then(fullTest => {
-                    if (fullTest) setPendingStartTest(fullTest);
+                    if (fullTest) {
+                        setPendingStartTest(fullTest);
+                        preloadTestImages(fullTest);
+                    }
                 })
                 .finally(() => {
                     setLoadingTestDetails(false);
@@ -574,6 +581,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             }
         }
         setActiveTest(fullTest);
+        preloadTestImages(fullTest);
         setIsRealExam(mode === 'real');
         setViolationCount(0);
         setShowViolationWarning(false);
@@ -680,6 +688,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                 }
             }
             setActiveTest(fullTest);
+            preloadTestImages(fullTest);
             setAnswers(saved.answers || {});
             setCurrentSectionIdx(0);
             setCurrentQuestionIdx(0);

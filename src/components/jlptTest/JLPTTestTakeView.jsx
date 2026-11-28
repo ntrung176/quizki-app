@@ -13,11 +13,13 @@ import InteractiveReadingPassage from './InteractiveReadingPassage';
 import QuestionExplanationCard from './QuestionExplanationCard';
 import ListeningAudioPlayer from './ListeningAudioPlayer';
 import ListeningScriptBox from './ListeningScriptBox';
+import PreloadedQuestionImage from './PreloadedQuestionImage';
 import AiImageRecreatorModal from '../admin/AiImageRecreatorModal';
 import { ListeningMondaiFilterBar, ListeningMondaiSectionBanner } from './ListeningMondaiHeader';
 import { SECTION_ICONS, SECTION_COLORS } from './jlptConstants';
 import { getListeningDisplayMeta, groupQuestionsByMondai, isBareNumberOptions, buildSectionDisplayClusters, resolveSharedMondaiAudioUrl, resolveQuestionMondai } from './jlptYearlyConstants';
 import { aiAnalyzeReadingPassage, aiBatchAnalyzeReadingSections, hasRichReadingAnalysis } from '../../services/ai/jlptExplanationAiService';
+import { preloadTestImages } from '../../utils/jlptMediaPreloader';
 import { showToast } from '../../utils/toast';
 
 export const hasHtmlTags = (str) => {
@@ -188,6 +190,13 @@ const JLPTTestTakeView = ({
             setSelectedMondaiFilter('');
         }
     }, [currentSectionIdx]);
+
+    // Preload and pre-decode all section/Mondai images in the background
+    useEffect(() => {
+        if (activeTest) {
+            preloadTestImages(activeTest);
+        }
+    }, [activeTest]);
 
     const activeSection = activeTest?.sections?.[selectedTabIdx] || activeTest?.sections?.[0];
 
@@ -1086,9 +1095,7 @@ const JLPTTestTakeView = ({
 
                                             {/* Question Image */}
                                             {question?.imageUrl && (
-                                                <div className="mb-4 max-w-xl mx-auto rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white p-2 flex justify-center">
-                                                    <img src={question.imageUrl} alt="Hình ảnh câu hỏi" className="max-h-80 object-contain rounded-xl" />
-                                                </div>
+                                                <PreloadedQuestionImage src={question.imageUrl} alt="Hình ảnh câu hỏi" />
                                             )}
 
                                             {/* Collapsible Per-Question Listening Script Drawer */}

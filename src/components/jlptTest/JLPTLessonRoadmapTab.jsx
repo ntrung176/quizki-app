@@ -1,11 +1,12 @@
 import React, { useState, useMemo } from 'react';
 import { 
-    CheckCircle2, Clock, Play, RotateCcw, Lock, Unlock, 
+    CheckCircle2, Clock, Lock, Unlock, 
     BookOpen, Languages, FileText, Award, ChevronDown, ChevronUp,
     Search, Filter, Printer, Eye, EyeOff, Layers, Check, Edit3, Trash2
 } from 'lucide-react';
 import { LEVEL_GRADIENTS, getTestQuestionCount } from './jlptConstants';
 import JLPTStrategyModal from './JLPTStrategyModal';
+import JLPTCardActionButtons from './JLPTCardActionButtons';
 
 const SKILL_ICONS = {
     vocab: Languages,
@@ -266,7 +267,7 @@ const JLPTLessonRoadmapTab = ({
                     </div>
                 </div>
 
-                <div className="flex items-center gap-2 shrink-0">
+                <div className="flex flex-wrap items-center justify-end gap-2 shrink-0">
                     {canEdit && (
                         <button
                             onClick={(e) => { e.stopPropagation(); handleToggleTestPremium && handleToggleTestPremium(e, test); }}
@@ -310,41 +311,17 @@ const JLPTLessonRoadmapTab = ({
                         </button>
                     )}
 
-                    {status === 'completed' ? (
-                        <button
-                            onClick={() => {
-                                if (isLocked) {
-                                    setLockedPkgName('jlpt_prep');
-                                    setShowPremiumModal(true);
-                                } else {
-                                    reviewTest(test);
-                                }
-                            }}
-                            className="px-3.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 dark:bg-slate-800 dark:text-slate-300 border-b-2 border-slate-300 dark:border-slate-700 rounded-xl text-xs font-bold uppercase tracking-wider transition flex items-center gap-1 cursor-pointer active:translate-y-0.5 active:border-b-0 select-none"
-                        >
-                            <RotateCcw className="w-3 h-3" />
-                            <span>Xem lại</span>
-                        </button>
-                    ) : (
-                        <button
-                            onClick={() => {
-                                if (isLocked) {
-                                    setLockedPkgName('jlpt_prep');
-                                    setShowPremiumModal(true);
-                                } else {
-                                    startTest(test);
-                                }
-                            }}
-                            className={`px-3.5 py-1.5 rounded-xl text-xs font-black uppercase tracking-wider transition flex items-center gap-1.5 cursor-pointer active:translate-y-0.5 active:border-b-0 border-b-2 select-none ${
-                                isLocked
-                                    ? 'bg-amber-500 hover:bg-amber-400 border-amber-700 text-white'
-                                    : 'bg-emerald-500 hover:bg-emerald-400 border-emerald-700 text-white'
-                            }`}
-                        >
-                            <Play className="w-3.5 h-3.5 fill-white text-white" />
-                            <span>{status === 'in_progress' ? 'Làm tiếp' : 'Bắt đầu'}</span>
-                        </button>
-                    )}
+                    <JLPTCardActionButtons
+                        test={test}
+                        status={status}
+                        isLocked={isLocked}
+                        startTest={startTest}
+                        reviewTest={reviewTest}
+                        setLockedPkgName={setLockedPkgName}
+                        setShowPremiumModal={setShowPremiumModal}
+                        startLabel="Bắt đầu"
+                        compact
+                    />
                 </div>
             </div>
         );

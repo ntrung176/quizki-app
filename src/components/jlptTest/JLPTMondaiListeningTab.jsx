@@ -1,11 +1,12 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
-    Headphones, Play, RotateCcw, CheckCircle2, Lock, Unlock,
+    Headphones, Play, CheckCircle2, Lock, Unlock,
     Layers, Sparkles, ArrowLeft, Award, Clock, PlusCircle, Loader2, Edit3, Trash2
 } from 'lucide-react';
 import { ROUTES } from '../../router';
 import { LEVEL_GRADIENTS, getTestQuestionCount } from './jlptConstants';
+import JLPTCardActionButtons from './JLPTCardActionButtons';
 import { loadJLPTLevelData, ensureFullTestLoaded } from '../../services/jlptDataService';
 import {
     JLPT_LEVELS,
@@ -301,7 +302,7 @@ const JLPTMondaiListeningTab = ({
                                         </div>
                                     </div>
 
-                                    <div className="pt-2.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-2">
+                                    <div className="pt-2.5 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2">
                                         <div className="flex items-center gap-1.5">
                                             {canEdit && onEditTest && (
                                                 <button
@@ -331,27 +332,16 @@ const JLPTMondaiListeningTab = ({
                                                 </button>
                                             )}
                                         </div>
-                                        {status === 'completed' ? (
-                                            <button
-                                                type="button"
-                                                onClick={() => (locked ? (setLockedPkgName('jlpt_prep'), setShowPremiumModal(true)) : reviewTest(test))}
-                                                className="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-extrabold flex items-center gap-1.5 cursor-pointer"
-                                            >
-                                                <RotateCcw className="w-3.5 h-3.5" />
-                                                <span>Xem lại</span>
-                                            </button>
-                                        ) : (
-                                            <button
-                                                type="button"
-                                                onClick={() => (locked ? (setLockedPkgName('jlpt_prep'), setShowPremiumModal(true)) : startTest(test))}
-                                                className={`px-3.5 py-2 rounded-xl text-xs font-black uppercase text-white border-b-4 flex items-center gap-1.5 cursor-pointer ${
-                                                    locked ? 'bg-amber-500 border-amber-700' : 'bg-emerald-500 hover:bg-emerald-400 border-emerald-700'
-                                                }`}
-                                            >
-                                                <Play className="w-3.5 h-3.5 fill-white" />
-                                                <span>Luyện tập</span>
-                                            </button>
-                                        )}
+                                        <JLPTCardActionButtons
+                                            test={test}
+                                            status={status}
+                                            isLocked={locked}
+                                            startTest={startTest}
+                                            reviewTest={reviewTest}
+                                            setLockedPkgName={setLockedPkgName}
+                                            setShowPremiumModal={setShowPremiumModal}
+                                            startLabel="Luyện tập"
+                                        />
                                     </div>
                                 </div>
                             );

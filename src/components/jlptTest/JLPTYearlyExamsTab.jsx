@@ -2,10 +2,11 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
     Calendar, CheckCircle2, Clock, Headphones, Lock, Unlock,
-    Play, Printer, RotateCcw, Sparkles, Award, PlusCircle, AlertCircle, Edit3, Trash2
+    Printer, Sparkles, Award, PlusCircle, AlertCircle, Edit3, Trash2
 } from 'lucide-react';
 import { ROUTES } from '../../router';
 import { LEVEL_GRADIENTS, getTestQuestionCount } from './jlptConstants';
+import JLPTCardActionButtons from './JLPTCardActionButtons';
 import {
     JLPT_LEVELS,
     JLPT_YEARS,
@@ -237,7 +238,7 @@ const JLPTYearlyExamsTab = ({
                     </div>
                 </div>
 
-                <div className="pt-2.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-2">
+                <div className="pt-2.5 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2">
                     <div className="flex items-center gap-1.5">
                         <button
                             type="button"
@@ -276,43 +277,15 @@ const JLPTYearlyExamsTab = ({
                         )}
                     </div>
 
-                    {status === 'completed' ? (
-                        <button
-                            type="button"
-                            onClick={() => {
-                                if (isLocked) {
-                                    setLockedPkgName('jlpt_prep');
-                                    setShowPremiumModal(true);
-                                } else {
-                                    reviewTest(test);
-                                }
-                            }}
-                            className="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 border-b-2 border-slate-300 dark:border-slate-700 text-xs font-extrabold flex items-center gap-1.5 cursor-pointer"
-                        >
-                            <RotateCcw className="w-3.5 h-3.5" />
-                            <span>Xem lại</span>
-                        </button>
-                    ) : (
-                        <button
-                            type="button"
-                            onClick={() => {
-                                if (isLocked) {
-                                    setLockedPkgName('jlpt_prep');
-                                    setShowPremiumModal(true);
-                                } else {
-                                    startTest(test);
-                                }
-                            }}
-                            className={`px-3.5 py-2 rounded-xl text-xs font-black uppercase tracking-wider text-white border-b-4 active:translate-y-0.5 active:border-b-2 flex items-center gap-1.5 cursor-pointer ${
-                                isLocked
-                                    ? 'bg-amber-500 hover:bg-amber-400 border-amber-700'
-                                    : 'bg-emerald-500 hover:bg-emerald-400 border-emerald-700'
-                            }`}
-                        >
-                            <Play className="w-3.5 h-3.5 fill-white" />
-                            <span>{status === 'in_progress' ? 'Làm tiếp' : 'Vào thi'}</span>
-                        </button>
-                    )}
+                    <JLPTCardActionButtons
+                        test={test}
+                        status={status}
+                        isLocked={isLocked}
+                        startTest={startTest}
+                        reviewTest={reviewTest}
+                        setLockedPkgName={setLockedPkgName}
+                        setShowPremiumModal={setShowPremiumModal}
+                    />
                 </div>
             </div>
         );

@@ -1,9 +1,10 @@
 import React, { useMemo, useState } from 'react';
 import { 
-    Award, Lock, Unlock, Clock, FileCheck, Play, RotateCcw, 
+    Award, Lock, Unlock, Clock, FileCheck,
     Printer, ShieldCheck, Zap, CheckCircle2, Edit3, Trash2 
 } from 'lucide-react';
 import { LEVEL_GRADIENTS, getTestQuestionCount } from './jlptConstants';
+import JLPTCardActionButtons from './JLPTCardActionButtons';
 
 const JLPTMockExamsTab = ({
     tests,
@@ -235,7 +236,7 @@ const JLPTMockExamsTab = ({
                                 </div>
                             </div>
 
-                            <div className="mt-5 pt-3.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-2">
+                            <div className="mt-5 pt-3.5 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2">
                                 <div className="flex items-center gap-1.5">
                                     <button 
                                         onClick={(e) => { e.stopPropagation(); handleStartPrint(test); }} 
@@ -267,41 +268,16 @@ const JLPTMockExamsTab = ({
                                     )}
                                 </div>
 
-                                {status === 'completed' ? (
-                                    <button
-                                        onClick={() => {
-                                            if (isLocked) {
-                                                setLockedPkgName('jlpt_prep');
-                                                setShowPremiumModal(true);
-                                            } else {
-                                                reviewTest(test);
-                                            }
-                                        }}
-                                        className="px-4 py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-700 dark:bg-slate-800 dark:text-slate-300 border-b-4 border-slate-300 dark:border-slate-700 rounded-2xl text-xs font-bold uppercase tracking-wider transition flex items-center gap-1.5 cursor-pointer active:translate-y-0.5 active:border-b-2 select-none"
-                                    >
-                                        <RotateCcw className="w-3.5 h-3.5" />
-                                        <span>Xem lại kết quả</span>
-                                    </button>
-                                ) : (
-                                    <button
-                                        onClick={() => {
-                                            if (isLocked) {
-                                                setLockedPkgName('jlpt_prep');
-                                                setShowPremiumModal(true);
-                                            } else {
-                                                startTest(test);
-                                            }
-                                        }}
-                                        className={`px-4 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider transition flex items-center gap-1.5 cursor-pointer active:translate-y-0.5 active:border-b-0 border-b-4 select-none ${
-                                            isLocked
-                                                ? 'bg-amber-500 hover:bg-amber-400 border-amber-700 text-white'
-                                                : 'bg-emerald-500 hover:bg-emerald-400 border-emerald-700 text-white'
-                                        }`}
-                                    >
-                                        <Play className="w-3.5 h-3.5 fill-white text-white" />
-                                        <span>{status === 'in_progress' ? 'Làm tiếp' : 'Vào phòng thi'}</span>
-                                    </button>
-                                )}
+                                <JLPTCardActionButtons
+                                    test={test}
+                                    status={status}
+                                    isLocked={isLocked}
+                                    startTest={startTest}
+                                    reviewTest={reviewTest}
+                                    setLockedPkgName={setLockedPkgName}
+                                    setShowPremiumModal={setShowPremiumModal}
+                                    startLabel="Vào phòng thi"
+                                />
                             </div>
                         </div>
                     );

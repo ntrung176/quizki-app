@@ -1,10 +1,11 @@
 import React, { useState, useMemo } from 'react';
 import { 
     Languages, BookOpen, FileText, Headphones, Award, Lock, Unlock, 
-    Printer, RotateCcw, Play, Search, Filter, CheckCircle2, Clock,
+    Printer, Search, Filter, CheckCircle2, Clock,
     ChevronRight, ArrowLeft, Layers, Check, Edit3, Trash2
 } from 'lucide-react';
 import { LEVEL_GRADIENTS, getTestQuestionCount } from './jlptConstants';
+import JLPTCardActionButtons from './JLPTCardActionButtons';
 
 const SKILL_CATEGORIES = [
     { key: 'reading', label: 'Đọc hiểu Yomimono', sub: 'Reading Comprehension', icon: FileText, color: 'emerald' },
@@ -348,7 +349,7 @@ const JLPTSkillArenaTab = ({
                                     </div>
                                 </div>
 
-                                <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-2">
+                                <div className="mt-4 pt-3 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2">
                                     <div className="flex items-center gap-1.5">
                                         <button 
                                             onClick={(e) => { e.stopPropagation(); handleStartPrint(test); }} 
@@ -380,41 +381,16 @@ const JLPTSkillArenaTab = ({
                                         )}
                                     </div>
 
-                                    {status === 'completed' ? (
-                                        <button
-                                            onClick={() => {
-                                                if (isLocked) {
-                                                    setLockedPkgName('jlpt_prep');
-                                                    setShowPremiumModal(true);
-                                                } else {
-                                                    reviewTest(test);
-                                                }
-                                            }}
-                                            className="px-4 py-2 bg-emerald-50 hover:bg-emerald-100 text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 rounded-xl text-xs font-bold transition flex items-center gap-1.5 cursor-pointer active:scale-95"
-                                        >
-                                            <RotateCcw className="w-3.5 h-3.5" />
-                                            <span>Xem lại</span>
-                                        </button>
-                                    ) : (
-                                        <button
-                                            onClick={() => {
-                                                if (isLocked) {
-                                                    setLockedPkgName('jlpt_prep');
-                                                    setShowPremiumModal(true);
-                                                } else {
-                                                    startTest(test);
-                                                }
-                                            }}
-                                            className={`px-4 py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider transition flex items-center gap-1.5 cursor-pointer active:translate-y-0.5 active:border-b-0 border-b-4 select-none ${
-                                                isLocked
-                                                    ? 'bg-amber-500 hover:bg-amber-400 border-amber-700 text-white'
-                                                    : 'bg-emerald-500 hover:bg-emerald-400 border-emerald-700 text-white'
-                                            }`}
-                                        >
-                                            <Play className="w-3.5 h-3.5 fill-white text-white" />
-                                            <span>{status === 'in_progress' ? 'Làm tiếp' : 'Bắt đầu'}</span>
-                                        </button>
-                                    )}
+                                    <JLPTCardActionButtons
+                                        test={test}
+                                        status={status}
+                                        isLocked={isLocked}
+                                        startTest={startTest}
+                                        reviewTest={reviewTest}
+                                        setLockedPkgName={setLockedPkgName}
+                                        setShowPremiumModal={setShowPremiumModal}
+                                        startLabel="Bắt đầu"
+                                    />
                                 </div>
                             </div>
                         );
