@@ -3,6 +3,7 @@ import { Edit3, Volume2, Check, X } from 'lucide-react';
 import InteractiveReadingPassage from './InteractiveReadingPassage';
 import QuestionExplanationCard from './QuestionExplanationCard';
 import ListeningAudioPlayer from './ListeningAudioPlayer';
+import { getListeningDisplayMeta, isBareNumberOptions } from './jlptYearlyConstants';
 
 const hasHtmlTags = (str) => {
     if (!str) return false;
@@ -31,6 +32,8 @@ const QuestionContent = React.memo(({
 }) => {
     const answerKey = (si, qi) => `s${si}_q${qi}`;
     const subAnswerKey = (si, qi, sqi) => `s${si}_q${qi}_sq${sqi}`;
+    const qMeta = getListeningDisplayMeta(question, currentQuestionIdx, section?.title, section?.type);
+    const bareListeningOpts = qMeta.isListening && isBareNumberOptions(question?.options);
 
     return (
         <>
@@ -76,7 +79,23 @@ const QuestionContent = React.memo(({
             )}
             {/* Question */}
             <div className="mb-6">
-                <h3 className={getCleanClassName("text-xl md:text-2xl font-normal text-gray-800 dark:text-gray-100 leading-relaxed font-japanese", question?.question)} dangerouslySetInnerHTML={{ __html: question?.question }} />
+                {qMeta.isListening ? (
+                    <div className="space-y-2">
+                        <div className="flex items-center gap-2.5">
+                            <span className="px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-black">
+                                {qMeta.pairCode}
+                            </span>
+                            <span className="text-lg font-black text-slate-900 dark:text-white font-japanese">
+                                {qMeta.banLabel}
+                            </span>
+                        </div>
+                        {qMeta.paperPrompt && (
+                            <h3 className={getCleanClassName("text-lg md:text-xl font-normal text-gray-800 dark:text-gray-100 leading-relaxed font-japanese", qMeta.paperPrompt)} dangerouslySetInnerHTML={{ __html: qMeta.paperPrompt }} />
+                        )}
+                    </div>
+                ) : (
+                    <h3 className={getCleanClassName("text-xl md:text-2xl font-normal text-gray-800 dark:text-gray-100 leading-relaxed font-japanese", question?.question)} dangerouslySetInnerHTML={{ __html: question?.question }} />
+                )}
             </div>
             {/* Options */}
             {question?.subQuestions && question.subQuestions.length > 0 ? (
@@ -137,9 +156,11 @@ const QuestionContent = React.memo(({
                                                 <div className="flex items-center justify-between">
                                                     <div className="flex items-center gap-2.5">
                                                         <div className={`w-6 h-6 rounded-full flex items-center justify-center text-xs font-bold flex-shrink-0 select-none ${circleStyle}`}>
-                                                            {String.fromCharCode(65 + oi)}
+                                                            {qMeta.isListening ? oi + 1 : String.fromCharCode(65 + oi)}
                                                         </div>
-                                                        <span className={getCleanClassName("font-japanese animate-fade-in", opt)} dangerouslySetInnerHTML={{ __html: opt }} />
+                                                        {!isBareNumberOptions(sq.options) && (
+                                                            <span className={getCleanClassName("font-japanese animate-fade-in", opt)} dangerouslySetInnerHTML={{ __html: opt }} />
+                                                        )}
                                                     </div>
                                                     {isReview && (
                                                         <>
@@ -165,7 +186,10 @@ const QuestionContent = React.memo(({
                     })}
                 </div>
             ) : (
-                <div className="space-y-3 mb-8">
+                <div className={bareListeningOpts
+                    ? (question?.options?.length === 3 ? 'grid grid-cols-3 gap-3 mb-8' : 'grid grid-cols-2 sm:grid-cols-4 gap-3 mb-8')
+                    : 'space-y-3 mb-8'
+                }>
                     {question?.options?.map((opt, oi) => {
                         const key = answerKey(currentSectionIdx, currentQuestionIdx);
                         const isSelected = answers[key] === oi;
@@ -207,11 +231,13 @@ const QuestionContent = React.memo(({
                                     isReview ? 'cursor-default' : 'cursor-pointer'
                                 } ${optStyle}`}>
                                 <div className="flex items-center justify-between">
-                                    <div className="flex items-center gap-3">
+                                    <div className={`flex items-center gap-3 ${bareListeningOpts ? 'mx-auto justify-center' : ''}`}>
                                         <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold flex-shrink-0 select-none ${circleStyle}`}>
-                                            {String.fromCharCode(65 + oi)}
+                                            {qMeta.isListening ? oi + 1 : String.fromCharCode(65 + oi)}
                                         </div>
-                                        <span className={getCleanClassName("font-japanese", opt)} dangerouslySetInnerHTML={{ __html: opt }} />
+                                        {!bareListeningOpts && (
+                                            <span className={getCleanClassName("font-japanese", opt)} dangerouslySetInnerHTML={{ __html: opt }} />
+                                        )}
                                     </div>
                                     {isReview && (
                                         <>

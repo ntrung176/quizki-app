@@ -849,13 +849,6 @@ const Sidebar = ({
                 badge: null,
             });
             items.push({
-                id: 'jlpt_admin',
-                label: t('nav.examManager', 'Quản lý đề thi'),
-                icon: FileCheck,
-                route: ROUTES.JLPT_ADMIN,
-                badge: null,
-            });
-            items.push({
                 id: 'jlpt_studio',
                 label: t('nav.jlptStudio', 'Studio Soạn Đề & Nghe MP3'),
                 icon: Sparkles,

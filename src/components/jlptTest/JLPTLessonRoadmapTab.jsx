@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react';
 import { 
     CheckCircle2, Clock, Play, RotateCcw, Lock, Unlock, 
     BookOpen, Languages, FileText, Award, ChevronDown, ChevronUp,
-    Search, Filter, Printer, Eye, EyeOff, Layers, Check
+    Search, Filter, Printer, Eye, EyeOff, Layers, Check, Edit3, Trash2
 } from 'lucide-react';
 import { LEVEL_GRADIENTS, getTestQuestionCount } from './jlptConstants';
 import JLPTStrategyModal from './JLPTStrategyModal';
@@ -31,6 +31,8 @@ const JLPTLessonRoadmapTab = ({
     searchQuery,
     statusFilter,
     canEdit,
+    onEditTest,
+    onDeleteTest,
     hasPremiumAccess,
     startTest,
     reviewTest,
@@ -285,6 +287,28 @@ const JLPTLessonRoadmapTab = ({
                     >
                         <Printer className="w-3.5 h-3.5" />
                     </button>
+
+                    {canEdit && onEditTest && (
+                        <button
+                            type="button"
+                            onClick={(e) => { e.stopPropagation(); onEditTest(test); }}
+                            className="p-1.5 rounded-lg bg-sky-50 hover:bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800 transition cursor-pointer"
+                            title="Sửa trực tiếp đề thi này"
+                        >
+                            <Edit3 className="w-3.5 h-3.5" />
+                        </button>
+                    )}
+
+                    {canEdit && onDeleteTest && (
+                        <button
+                            type="button"
+                            onClick={(e) => { e.stopPropagation(); onDeleteTest(test); }}
+                            className="p-1.5 rounded-lg text-slate-400 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition cursor-pointer"
+                            title="Xóa đề thi này"
+                        >
+                            <Trash2 className="w-3.5 h-3.5" />
+                        </button>
+                    )}
 
                     {status === 'completed' ? (
                         <button

@@ -1,3 +1,7 @@
+import { getLevelExamBlueprint, resolveSectionMondaiMeta } from './jlptLevelBlueprints.js';
+
+export { getLevelExamBlueprint, resolveSectionMondaiMeta };
+
 /**
  * Constants and metadata helpers for JLPT Yearly Exams (2010–2025)
  * and Level-specific Listening Mondai structure.
@@ -112,18 +116,22 @@ export const parseYearlyExamMeta = (test) => {
     return { isYearly: false, year: null, session: null, periodKey: '' };
 };
 
+const FULLWIDTH_DIGIT_MAP = { '０': '0', '１': '1', '２': '2', '３': '3', '４': '4', '５': '5', '６': '6', '７': '7', '８': '8', '９': '9' };
+
+const normalizeAsciiDigits = (raw = '') => String(raw).replace(/[０-９]/g, (ch) => FULLWIDTH_DIGIT_MAP[ch] ?? ch);
+
 /**
- * Resolves Mondai number (1..5) from a listening question object or title.
+ * Resolves Mondai number (1..15) from a question object or title.
  */
-export const resolveQuestionMondai = (q = {}, fallbackTitle = '') => {
+export const resolveQuestionMondai = (q = {}, fallbackTitle = '', maxMondai = 15) => {
     const explicit = Number(q.mondai ?? q.mondaiNumber ?? 0);
-    if (explicit >= 1 && explicit <= 5) return explicit;
+    if (explicit >= 1 && explicit <= maxMondai) return explicit;
 
     const text = `${q.mondaiTitle || ''} ${q.stem || ''} ${q.question || ''} ${fallbackTitle || ''}`;
-    const match = text.match(/(?:mondai|問題|m)\s*([1-5１-５])/i);
+    const match = text.match(/(?:mondai|問題|\bm)\s*([0-9０-９]{1,2})/i);
     if (match) {
-        const digitMap = { '１': 1, '２': 2, '３': 3, '４': 4, '５': 5 };
-        return digitMap[match[1]] || Number(match[1]) || 1;
+        const parsed = Number(normalizeAsciiDigits(match[1]));
+        if (parsed >= 1 && parsed <= maxMondai) return parsed;
     }
     return 1;
 };
@@ -139,4 +147,217 @@ export const testHasListening = (test) => {
         return test.sections.some((s) => s?.type === 'listening' || /聴解|nghe hiểu|listening/i.test(s?.title || ''));
     }
     return /nghe hiểu|聴解|listening/i.test(`${test.title || ''} ${test.description || ''}`);
+};
+
+/**
+ * Checks whether a JLPT Mondai uses 3 choices by official exam convention.
+ */
+export const isThreeOptionMondai = (level = 'N3', mondai = 1) => {
+    const lvl = String(level || 'N3').toUpperCase().trim();
+    const m = Number(mondai) || 1;
+    if (lvl === 'N5' || lvl === 'N4') return m === 3 || m === 4;
+    if (lvl === 'N3') return m === 4 || m === 5;
+    if (lvl === 'N2' || lvl === 'N1') return m === 4;
+    return false;
+};
+
+/**
+ * Returns true if choices contain only bare option numbers (e.g. ["1","2","3","4"] or ["1","2","3"]).
+ */
+export const isBareNumberOptions = (options = []) => {
+    if (!Array.isArray(options) || options.length === 0) return false;
+    return options.every((opt, idx) => {
+        const clean = String(opt ?? '').replace(/<[^>]+>/g, '').trim();
+        return clean === String(idx + 1) || clean === String(idx + 1) + '.' || /^[1-4]$/.test(clean);
+    });
+};
+
+/**
+ * Returns normalized display metadata for a JLPT question (listening Mondai code, label, etc.).
+ */
+export const getListeningDisplayMeta = (question = {}, fallbackIndex = 0, sectionTitle = '', sectionType = '') => {
+    const isExplicitNonListening = ['vocabulary', 'grammar', 'reading'].includes(sectionType) && !question.audioUrl;
+    const isListening = !isExplicitNonListening && (
+        sectionType === 'listening'
+        || Boolean(question.audioUrl)
+        || (Number(question.mondai) >= 1 && Number(question.mondai) <= 5)
+        || /聴解|nghe hiểu|listening/i.test(sectionTitle || '')
+    );
+
+    const mondaiNum = resolveQuestionMondai(question, sectionTitle, isListening ? 5 : 15);
+    const qNumInMondai = Number(question.questionNumber) || (fallbackIndex + 1);
+    const pairCode = `${mondaiNum}-${qNumInMondai}`;
+    const banLabel = `${qNumInMondai}番`;
+
+    // Prevent spoken Whisper/Script text from leaking before listening on properly structured listening items
+    const rawQText = String(question.question || '').replace(/<[^>]+>/g, '').trim();
+    const stemClean = String(question.stem || '').trim();
+    const spokenQClean = String(question.spokenQuestion || '').trim();
+    const looksLikeSpokenAudio = isListening && (
+        /(?:話しています|話して|聞いて|質問|何をしますか|どうしますか|何と言いますか)/.test(rawQText)
+        || /<p>/i.test(String(question.question || ''))
+        || (stemClean && rawQText.includes(stemClean))
+        || (spokenQClean && rawQText.includes(spokenQClean))
+    );
+    const isPlaceholderOrSpoiler = !rawQText
+        || rawQText === banLabel
+        || rawQText === `${mondaiNum}-${qNumInMondai}`
+        || looksLikeSpokenAudio;
+
+    const paperPrompt = question.paperPrompt
+        ? String(question.paperPrompt).trim()
+        : (isListening && !isPlaceholderOrSpoiler ? question.question : (!isListening ? question.question : ''));
+
+    return {
+        isListening,
+        mondaiNum,
+        qNumInMondai,
+        pairCode,
+        banLabel,
+        paperPrompt,
+        hasExplicitMondai: Number(question.mondai ?? question.mondaiNumber ?? 0) >= 1
+    };
+};
+
+/**
+ * Groups an array of section questions by Mondai, supporting both Listening (1..5) and Lang/Reading (1..15).
+ */
+export const groupQuestionsByMondai = (questions = [], level = 'N3', sectionTitle = '', sectionType = '') => {
+    const isListening = sectionType === 'listening'
+        || (!['vocabulary', 'grammar', 'reading'].includes(sectionType) && /聴解|nghe hiểu|listening/i.test(sectionTitle || ''));
+    const maxMondai = isListening ? 5 : 15;
+    const groupsMap = new Map();
+    const perMondaiCounter = {};
+
+    questions.forEach((q, qIdx) => {
+        const mNum = resolveQuestionMondai(q, sectionTitle, maxMondai);
+        perMondaiCounter[mNum] = (perMondaiCounter[mNum] || 0) + 1;
+        const qNumInMondai = Number(q.questionNumber) || perMondaiCounter[mNum];
+        if (!groupsMap.has(mNum)) {
+            groupsMap.set(mNum, {
+                mondai: mNum,
+                meta: isListening ? getMondaiMeta(level, mNum) : resolveSectionMondaiMeta(level, sectionType, mNum, sectionTitle),
+                items: []
+            });
+        }
+        groupsMap.get(mNum).items.push({
+            question: q,
+            qIdx,
+            mondai: mNum,
+            qNumInMondai,
+            pairCode: `${mNum}-${qNumInMondai}`,
+            banLabel: isListening ? `${qNumInMondai}番` : `Câu ${qNumInMondai}`
+        });
+    });
+
+    const groups = Array.from(groupsMap.values()).sort((a, b) => a.mondai - b.mondai);
+    const hasExplicitMondais = questions.some((q) => Number(q?.mondai ?? q?.mondaiNumber) >= 1);
+    return {
+        groups,
+        hasMondaiStructure: groups.length > 1 || hasExplicitMondais,
+        isListening
+    };
+};
+
+const extractQuestionPassage = (q = {}, sectionPassages = null) => {
+    const rawFromIndex = Array.isArray(sectionPassages) && typeof q.passageIndex === 'number'
+        ? sectionPassages[q.passageIndex]
+        : null;
+    const passageHtml = q.passage || rawFromIndex?.passage || '';
+    const passageData = q.passageData || rawFromIndex?.passageData || null;
+    const normalizedKey = String(passageHtml || passageData?.japanese || '')
+        .replace(/\s+/g, ' ')
+        .trim();
+    const hasPassage = Boolean(passageData || normalizedKey.length > 0);
+    return { passageHtml, passageData, normalizedKey, hasPassage };
+};
+
+/**
+ * Groups consecutive section questions sharing a reading passage into unified display clusters
+ * so the reading passage sits cleanly ABOVE all of its questions rather than splitting Question 1 or detaching Question 2+.
+ */
+export const buildSectionDisplayClusters = ({
+    questions = [],
+    sectionPassages = null,
+    sectionTitle = '',
+    sectionType = '',
+    mondaiFilter = 'all',
+    hasMondaiStructure = false,
+    mondaiGroups = []
+}) => {
+    const clusters = [];
+    let lastShownMondai = null;
+
+    questions.forEach((q, qIdx) => {
+        const qMeta = getListeningDisplayMeta(q, qIdx, sectionTitle, sectionType);
+        if (hasMondaiStructure && mondaiFilter !== 'all' && String(mondaiFilter) !== String(qMeta.mondaiNum)) {
+            return;
+        }
+
+        const mondaiGroup = hasMondaiStructure && lastShownMondai !== qMeta.mondaiNum
+            ? (mondaiGroups.find((g) => g.mondai === qMeta.mondaiNum) || null)
+            : null;
+        if (hasMondaiStructure) lastShownMondai = qMeta.mondaiNum;
+
+        const passageInfo = extractQuestionPassage(q, sectionPassages);
+        const entry = { question: q, qIdx, qMeta };
+
+        if (!qMeta.isListening && passageInfo.hasPassage) {
+            const prevCluster = clusters[clusters.length - 1];
+            const canMergeWithPrev = prevCluster
+                && prevCluster.isPassageCluster
+                && prevCluster.mondaiNum === qMeta.mondaiNum
+                && passageInfo.normalizedKey.length >= 10
+                && prevCluster.passageKey === passageInfo.normalizedKey;
+
+            if (canMergeWithPrev) {
+                prevCluster.items.push(entry);
+                return;
+            }
+
+            clusters.push({
+                id: `cluster_${qIdx}`,
+                isPassageCluster: true,
+                mondaiNum: qMeta.mondaiNum,
+                mondaiGroup,
+                passageKey: passageInfo.normalizedKey,
+                passageHtml: passageInfo.passageHtml,
+                passageData: passageInfo.passageData,
+                explanationText: q.explanation || q.detail || '',
+                firstQuestion: q,
+                items: [entry]
+            });
+            return;
+        }
+
+        clusters.push({
+            id: `single_${qIdx}`,
+            isPassageCluster: false,
+            mondaiNum: qMeta.mondaiNum,
+            mondaiGroup,
+            items: [entry]
+        });
+    });
+
+    return clusters;
+};
+
+/**
+ * Returns a single shared audioUrl when a Mondai group (>= 2 questions) shares one whole-Mondai audio
+ * file with no per-question start/end timestamps (e.g. sliced per Mondai). Returns '' otherwise.
+ */
+export const resolveSharedMondaiAudioUrl = (mondaiGroup) => {
+    const items = mondaiGroup?.items;
+    if (!Array.isArray(items) || items.length < 2) return '';
+    const firstUrl = String(items[0]?.question?.audioUrl || '').trim();
+    if (!firstUrl) return '';
+    const allSameWholeTrack = items.every(({ question }) => {
+        if (!question) return false;
+        const url = String(question.audioUrl || '').trim();
+        const hasTimestampSlice = typeof question.audioStartSec === 'number'
+            && typeof question.audioEndSec === 'number'
+            && question.audioEndSec > question.audioStartSec;
+        return url === firstUrl && !hasTimestampSlice;
+    });
+    return allSameWholeTrack ? firstUrl : '';
 };

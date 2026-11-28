@@ -147,14 +147,16 @@ const ListeningAudioPlayerInner = ({
                 </button>
 
                 <div className="flex-1 min-w-0 space-y-1">
-                    {(label || hasSegmentBounds) && (
+                    {(Boolean(label) || hasSegmentBounds) && (
                         <div className="flex items-center justify-between text-[10px] font-extrabold text-amber-800 dark:text-amber-300">
-                            <span className="flex items-center gap-1 truncate">
-                                <Volume2 className="w-3 h-3 shrink-0" />
-                                <span className="truncate">{label || 'Audio Nghe hiểu JLPT'}</span>
-                            </span>
+                            {Boolean(label) && (
+                                <span className="flex items-center gap-1 truncate">
+                                    <Volume2 className="w-3 h-3 shrink-0" />
+                                    <span className="truncate">{label}</span>
+                                </span>
+                            )}
                             {hasSegmentBounds && (
-                                <span className="font-mono text-amber-700/80 dark:text-amber-300/80 shrink-0 ml-2">
+                                <span className="font-mono text-amber-700/80 dark:text-amber-300/80 shrink-0 ml-auto">
                                     [{formatTimeShort(effectiveStart)} – {formatTimeShort(effectiveEnd)}]
                                 </span>
                             )}

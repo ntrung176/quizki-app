@@ -2,12 +2,12 @@ import React, { useState, useEffect, useCallback, useRef, useMemo } from 'react'
 import { useLocation } from 'react-router-dom';
 import LoadingIndicator from '../ui/LoadingIndicator';
 import { PremiumLockedModal } from '../ui';
-import { doc, updateDoc, setDoc } from 'firebase/firestore';
+import { doc, updateDoc, setDoc, deleteDoc } from 'firebase/firestore';
 import { db, appId } from '../../config/firebase';
 import { playCompletionFanfare } from '../../utils/soundEffects';
 
 import { useJLPTTestData } from '../../hooks/useJLPTTestData';
-import { updateSingleJLPTTestInCache, ensureFullTestLoaded } from '../../services/jlptDataService';
+import { updateSingleJLPTTestInCache, removeSingleJLPTTestFromCache, ensureFullTestLoaded } from '../../services/jlptDataService';
 import PrintErrorBoundary from '../jlptTest/PrintErrorBoundary';
 import JLPTPrintView from '../jlptTest/JLPTPrintView';
 import PrintPortal from '../jlptTest/PrintPortal';
@@ -17,8 +17,11 @@ import JLPTTestResultView from '../jlptTest/JLPTTestResultView';
 import JLPTTestDashboard from '../jlptTest/JLPTTestDashboard';
 import JLPTQuestionSearchModal from '../jlptTest/JLPTQuestionSearchModal';
 import JLPTExportImportModal, { sanitizeDataForFirestore } from '../jlptTest/JLPTExportImportModal';
+import JLPTQuickTestEditorModal from '../jlptTest/JLPTQuickTestEditorModal';
+import { testHasListening } from '../jlptTest/jlptYearlyConstants';
+import { computeJlptScoreBreakdown, buildJlptExamPhases } from '../../utils/jlptScoringRules';
 import { showToast } from '../../utils/toast';
-import { X, Play, BookOpen, Lock, ChevronRight, FileText, Printer, Check, Loader2 } from 'lucide-react';
+import { X, Play, BookOpen, Lock, ChevronRight, FileText, Printer, Check, Loader2, Edit3, Trash2, AlertTriangle } from 'lucide-react';
 
 export const answerKey = (si, qi) => `s${si}_q${qi}`;
 export const subAnswerKey = (si, qi, sqi) => `s${si}_q${qi}_sq${sqi}`;
@@ -70,6 +73,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
 
     // Admin Edit HTML states
     const [editingQuestionData, setEditingQuestionData] = useState(null);
+    const [editingFullTest, setEditingFullTest] = useState(null);
+    const [confirmDeleteTest, setConfirmDeleteTest] = useState(null);
+    const [deletingTest, setDeletingTest] = useState(false);
     const [savingHtml, setSavingHtml] = useState(false);
     const [showExportImportModal, setShowExportImportModal] = useState(false);
 
@@ -147,15 +153,23 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
     const [showSettingsMenu, setShowSettingsMenu] = useState(false);
     const settingsMenuRef = useRef(null);
 
-    // Timer
+    // Timer & Phased JLPT Real-Exam Timing
     const [timeRemaining, setTimeRemaining] = useState(0);
     const [timerActive, setTimerActive] = useState(false);
     const [testStartTime, setTestStartTime] = useState(null);
     const [timeTaken, setTimeTaken] = useState(0);
     const [wasRealExam, setWasRealExam] = useState(false);
+    const [examPhases, setExamPhases] = useState([]);
+    const [currentPhaseIdx, setCurrentPhaseIdx] = useState(0);
+    const [phaseElapsedOffsetSec, setPhaseElapsedOffsetSec] = useState(0);
+    const examPhasesRef = useRef([]);
+    const currentPhaseIdxRef = useRef(0);
+    const submitTestRef = useRef(null);
     const timerRef = useRef(null);
     const audioRef = useRef(null);
     const containerRef = useRef(null);
+    examPhasesRef.current = examPhases;
+    currentPhaseIdxRef.current = currentPhaseIdx;
 
     // Premium Lock State
     const [showPremiumModal, setShowPremiumModal] = useState(false);
@@ -236,23 +250,33 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         }
     }, [isPrintTriggered, printingTest]);
 
-    // Timer countdown
+    // Phased Real-Exam Timer Countdown (auto-advances Lang/Reading -> Listening separate clock -> auto submit)
     useEffect(() => {
-        if (timerActive && timeRemaining > 0) {
-            timerRef.current = setInterval(() => {
-                setTimeRemaining(prev => {
-                    if (prev <= 1) {
-                        clearInterval(timerRef.current);
-                        setTimerActive(false);
-                        setShowResult(true);
-                        return 0;
-                    }
-                    return prev - 1;
-                });
-            }, 1000);
+        if (!timerActive) return undefined;
+        if (timeRemaining <= 0) {
+            const phases = examPhasesRef.current;
+            const curIdx = currentPhaseIdxRef.current;
+            if (isRealExam && phases.length > 0 && curIdx < phases.length - 1) {
+                const nextIdx = curIdx + 1;
+                const prevSec = phases[curIdx]?.seconds || 0;
+                const nextPhase = phases[nextIdx];
+                setPhaseElapsedOffsetSec((p) => p + prevSec);
+                setCurrentPhaseIdx(nextIdx);
+                setCurrentSectionIdx(nextPhase.sectionIndices?.[0] ?? 0);
+                setCurrentQuestionIdx(0);
+                setTimeRemaining(nextPhase.seconds);
+                showToast(`⏰ Hết giờ phần trước! Bắt đầu tính giờ riêng: ${nextPhase.label} (${nextPhase.minutes} phút).`, 'info');
+            } else {
+                setTimerActive(false);
+                submitTestRef.current?.();
+            }
+            return undefined;
         }
+        timerRef.current = setInterval(() => {
+            setTimeRemaining((prev) => Math.max(0, prev - 1));
+        }, 1000);
         return () => clearInterval(timerRef.current);
-    }, [timerActive]);
+    }, [timerActive, timeRemaining, isRealExam]);
 
     const toggleFullscreen = useCallback(async () => {
         try {
@@ -470,7 +494,19 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             });
             return { ...sec, correct: secCorrect, total: secTotal };
         });
-        return { correct, total, percentage: total > 0 ? Math.round((correct / total) * 100) : 0, sectionResults };
+        const jlptScore = computeJlptScoreBreakdown({
+            test: activeTest,
+            answers,
+            answerKeyFn: answerKey,
+            subAnswerKeyFn: subAnswerKey
+        });
+        return {
+            correct,
+            total,
+            percentage: total > 0 ? Math.round((correct / total) * 100) : 0,
+            sectionResults,
+            jlptScore
+        };
     };
 
     const formatTime = (s) => {
@@ -562,11 +598,23 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         setWasRealExam(mode === 'real');
 
         if (mode === 'real') {
-            setTimeRemaining((fullTest.timeLimit || 60) * 60);
+            const phases = buildJlptExamPhases(fullTest);
+            setExamPhases(phases);
+            setCurrentPhaseIdx(0);
+            setPhaseElapsedOffsetSec(0);
+            if (phases.length > 0) {
+                setCurrentSectionIdx(phases[0].sectionIndices?.[0] ?? 0);
+                setTimeRemaining(phases[0].seconds);
+            } else {
+                setTimeRemaining((fullTest.timeLimit || 60) * 60);
+            }
             setTimerActive(true);
             sessionStorage.setItem('realExamModeActive', 'true');
             window.dispatchEvent(new Event('realExamModeChange'));
         } else {
+            setExamPhases([]);
+            setCurrentPhaseIdx(0);
+            setPhaseElapsedOffsetSec(0);
             setTimeRemaining(0);
             setTimerActive(false);
             sessionStorage.removeItem('realExamModeActive');
@@ -643,8 +691,10 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
     const submitTest = () => {
         setTimerActive(false);
         clearInterval(timerRef.current);
-        const taken = isRealExam 
-            ? (activeTest.timeLimit * 60) - timeRemaining 
+        const taken = isRealExam
+            ? (examPhases.length > 0
+                ? phaseElapsedOffsetSec + Math.max(0, (examPhases[currentPhaseIdx]?.seconds || 0) - timeRemaining)
+                : Math.max(0, (activeTest.timeLimit * 60) - timeRemaining))
             : Math.round((Date.now() - (testStartTime || Date.now())) / 1000);
         setTimeTaken(taken);
 
@@ -659,6 +709,12 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                 percentage: results.percentage,
                 correct: results.correct,
                 total: results.total,
+                jlptScore: results.jlptScore ? {
+                    totalScore: results.jlptScore.totalScore,
+                    maxScore: results.jlptScore.maxScore,
+                    passed: results.jlptScore.passed,
+                    isFullJlptExam: results.jlptScore.isFullJlptExam
+                } : null,
                 answers: answers,
                 wasRealExam: wasRealExam,
                 timeTaken: taken,
@@ -745,6 +801,46 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             if (testXp > 0) awardXP(testXp);
         }
     };
+    submitTestRef.current = submitTest;
+
+    const handleAdvanceExamPhase = () => {
+        if (!isRealExam || currentPhaseIdx >= examPhases.length - 1) {
+            submitTest();
+            return;
+        }
+        const curPhase = examPhases[currentPhaseIdx];
+        const nextIdx = currentPhaseIdx + 1;
+        const nextPhase = examPhases[nextIdx];
+        const spentThisPhase = Math.max(0, (curPhase?.seconds || 0) - timeRemaining);
+        setPhaseElapsedOffsetSec((p) => p + spentThisPhase);
+        setCurrentPhaseIdx(nextIdx);
+        setCurrentSectionIdx(nextPhase.sectionIndices?.[0] ?? 0);
+        setCurrentQuestionIdx(0);
+        setTimeRemaining(nextPhase.seconds);
+        showToast(`⏱️ Đã chốt "${curPhase.label}". Bắt đầu tính giờ riêng: ${nextPhase.label} (${nextPhase.minutes} phút)!`, 'success');
+    };
+
+    const handleSaveQuestionImage = async (sectionIdx, questionIdx, imgUrl) => {
+        if (!activeTest) return false;
+        const updatedSections = JSON.parse(JSON.stringify(activeTest.sections || []));
+        if (!updatedSections[sectionIdx]?.questions?.[questionIdx]) return false;
+        updatedSections[sectionIdx].questions[questionIdx] = {
+            ...updatedSections[sectionIdx].questions[questionIdx],
+            imageUrl: imgUrl
+        };
+        const updatedTest = { ...activeTest, sections: updatedSections, updatedAt: Date.now() };
+        try {
+            const cleanPayload = sanitizeDataForFirestore(updatedTest);
+            await setDoc(doc(db, `artifacts/${appId}/jlptTests`, activeTest.id), cleanPayload, { merge: true });
+            updateSingleJLPTTestInCache(activeTest.id, cleanPayload);
+            setActiveTest((prev) => ({ ...prev, sections: updatedSections }));
+            setTests((prev) => prev.map((t) => (t.id === activeTest.id ? { ...t, sections: updatedSections } : t)));
+            return true;
+        } catch (err) {
+            showToast('Lưu ảnh thất bại: ' + err.message, 'error');
+            return false;
+        }
+    };
 
     const handleStartPracticeWrong = (wrongList) => {
         if (!wrongList || wrongList.length === 0) return;
@@ -799,17 +895,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         const hasAnswers = answers && Object.keys(answers).length > 0;
 
         if (!hasAnswers) {
-            // Nếu chưa chọn đáp án nào, không lưu tiến trình (và xóa tiến trình cũ nếu có)
-            const newProgresses = { ...savedProgresses };
-            if (newProgresses[testId] || newProgresses[String(testId)]) {
-                delete newProgresses[testId];
-                delete newProgresses[String(testId)];
-                setSavedProgresses(newProgresses);
-                try {
-                    localStorage.setItem('quizki_jlpt_saved_progresses', JSON.stringify(newProgresses));
-                } catch (e) {}
-                saveProgressesToFirestore(newProgresses);
-            }
             showToast("Chưa chọn câu trả lời nào, không lưu tiến trình.", "info");
             exitTest();
             return;
@@ -858,6 +943,28 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             showToast('Lỗi khi lưu HTML câu hỏi: ' + err.message, 'error');
         } finally {
             setSavingHtml(false);
+        }
+    };
+
+    const handleSaveTestSections = async (updatedSections, toastMsg = 'Đã lưu phân tích bài đọc vào đề thi!') => {
+        if (!activeTest || !canEdit) return false;
+        try {
+            const testRef = doc(db, `artifacts/${appId}/jlptTests`, activeTest.id);
+            const cleanPayload = sanitizeDataForFirestore({
+                ...activeTest,
+                sections: updatedSections,
+                updatedAt: Date.now()
+            });
+            await setDoc(testRef, cleanPayload, { merge: true });
+            updateSingleJLPTTestInCache(activeTest.id, { sections: cleanPayload.sections });
+            setActiveTest((prev) => (prev ? { ...prev, sections: cleanPayload.sections } : prev));
+            setTests((prevTests) => prevTests.map((t) => (t.id === activeTest.id ? { ...t, sections: cleanPayload.sections } : t)));
+            if (toastMsg) showToast(toastMsg, 'success');
+            return true;
+        } catch (err) {
+            console.error('Error saving sections:', err);
+            showToast('Lỗi khi lưu dữ liệu vào đề thi: ' + err.message, 'error');
+            return false;
         }
     };
 
@@ -933,6 +1040,101 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         setPrintingTest(fullTest);
     };
 
+    const handleSaveFullTest = async (updatedTest) => {
+        if (!canEdit || !updatedTest?.id) return false;
+        try {
+            const totalQ = (updatedTest.sections || []).reduce((sum, sec) => (
+                sum + (sec.questions || []).reduce((qs, q) => qs + (q.subQuestions?.length || 1), 0)
+            ), 0);
+            const cleanPayload = sanitizeDataForFirestore({
+                ...updatedTest,
+                questionCount: totalQ,
+                hasListening: testHasListening(updatedTest),
+                updatedAt: Date.now()
+            });
+            const testRef = doc(db, `artifacts/${appId}/jlptTests`, updatedTest.id);
+            await setDoc(testRef, cleanPayload, { merge: true });
+            updateSingleJLPTTestInCache(updatedTest.id, cleanPayload);
+            setTests((prev) => prev.map((t) => (t.id === updatedTest.id ? { ...t, ...cleanPayload } : t)));
+            setActiveTest((prev) => (prev?.id === updatedTest.id ? { ...prev, ...cleanPayload } : prev));
+            setPendingStartTest((prev) => (prev?.id === updatedTest.id ? { ...prev, ...cleanPayload } : prev));
+            showToast('Đã lưu thay đổi đề thi thành công!', 'success');
+            return true;
+        } catch (err) {
+            console.error('Error saving full test:', err);
+            showToast('Lỗi khi lưu đề thi: ' + err.message, 'error');
+            return false;
+        }
+    };
+
+    const handleConfirmDeleteTest = async () => {
+        if (!canEdit || !confirmDeleteTest?.id || deletingTest) return;
+        setDeletingTest(true);
+        try {
+            await deleteDoc(doc(db, `artifacts/${appId}/jlptTests`, confirmDeleteTest.id));
+            removeSingleJLPTTestFromCache(confirmDeleteTest.id);
+            setTests((prev) => prev.filter((t) => t.id !== confirmDeleteTest.id));
+            if (activeTest?.id === confirmDeleteTest.id) exitTest();
+            if (pendingStartTest?.id === confirmDeleteTest.id) setPendingStartTest(null);
+            if (editingFullTest?.id === confirmDeleteTest.id) setEditingFullTest(null);
+            showToast(`Đã xóa đề thi "${confirmDeleteTest.title}"!`, 'success');
+            setConfirmDeleteTest(null);
+        } catch (err) {
+            console.error('Error deleting JLPT test:', err);
+            showToast('Lỗi khi xóa đề thi: ' + err.message, 'error');
+        } finally {
+            setDeletingTest(false);
+        }
+    };
+
+    const renderQuickEditModal = () => (
+        <>
+            {canEdit && editingFullTest && (
+                <JLPTQuickTestEditorModal
+                    isOpen={!!editingFullTest}
+                    onClose={() => setEditingFullTest(null)}
+                    initialTest={editingFullTest}
+                    onSaveTest={handleSaveFullTest}
+                    onDeleteTest={setConfirmDeleteTest}
+                />
+            )}
+            {canEdit && confirmDeleteTest && (
+                <div className="fixed inset-0 z-[9999] bg-slate-950/70 backdrop-blur-xs flex items-center justify-center p-4 animate-fade-in">
+                    <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-2xl max-w-sm w-full p-6 text-center space-y-4">
+                        <div className="w-12 h-12 rounded-2xl bg-rose-50 dark:bg-rose-950/40 text-rose-500 flex items-center justify-center mx-auto">
+                            <AlertTriangle className="w-6 h-6" />
+                        </div>
+                        <div className="space-y-1">
+                            <h3 className="text-base font-black text-slate-900 dark:text-white">Xác nhận xóa đề thi</h3>
+                            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
+                                Đề thi <strong className="text-slate-800 dark:text-slate-200">{confirmDeleteTest.title}</strong> sẽ bị xóa khỏi Firestore và danh sách hiển thị.
+                            </p>
+                        </div>
+                        <div className="flex items-center gap-2 pt-1">
+                            <button
+                                type="button"
+                                disabled={deletingTest}
+                                onClick={() => setConfirmDeleteTest(null)}
+                                className="flex-1 px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-bold cursor-pointer"
+                            >
+                                Hủy bỏ
+                            </button>
+                            <button
+                                type="button"
+                                disabled={deletingTest}
+                                onClick={handleConfirmDeleteTest}
+                                className="flex-1 px-4 py-2.5 rounded-xl bg-rose-500 hover:bg-rose-600 disabled:opacity-50 text-white text-xs font-black flex items-center justify-center gap-1.5 cursor-pointer"
+                            >
+                                {deletingTest ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Trash2 className="w-3.5 h-3.5" />}
+                                <span>{deletingTest ? 'Đang xóa...' : 'Xóa vĩnh viễn'}</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+        </>
+    );
+
     const furiganaStyles = useMemo(() => {
         let styles = '';
         if (!showFurigana) {
@@ -982,9 +1184,26 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                             <span className="text-[10px] font-extrabold uppercase bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-400 px-2 py-0.5 rounded-md">Cấu hình bài thi</span>
                             <h3 className="text-lg font-black text-slate-800 dark:text-white mt-1 leading-snug">{pendingStartTest.title}</h3>
                         </div>
-                        <button onClick={() => setPendingStartTest(null)} className="p-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition cursor-pointer">
-                            <X className="w-5 h-5" />
-                        </button>
+                        <div className="flex items-center gap-1.5 shrink-0">
+                            {canEdit && (
+                                <button
+                                    type="button"
+                                    onClick={() => {
+                                        const t = pendingStartTest;
+                                        setPendingStartTest(null);
+                                        setEditingFullTest(t);
+                                    }}
+                                    className="px-2.5 py-1.5 rounded-xl text-xs font-black bg-sky-50 hover:bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800 flex items-center gap-1 cursor-pointer transition"
+                                    title="Sửa trực tiếp đề thi này"
+                                >
+                                    <Edit3 className="w-3.5 h-3.5" />
+                                    <span>Sửa đề</span>
+                                </button>
+                            )}
+                            <button onClick={() => setPendingStartTest(null)} className="p-1.5 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition cursor-pointer">
+                                <X className="w-5 h-5" />
+                            </button>
+                        </div>
                     </div>
                     <div className="p-6 space-y-4">
                         {(loadingTestDetails || !hasFullSections) && (
@@ -1053,8 +1272,23 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                                     <Lock className="w-5 h-5" />
                                 </div>
                                 <div className="flex-1">
-                                    <h4 className="text-sm font-extrabold text-slate-800 dark:text-white">Chế độ Thi thực tế</h4>
-                                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">Giả lập phòng thi thật. Bắt buộc Full màn hình. Tự động nộp bài nếu vi phạm 3 lần.</p>
+                                    <h4 className="text-sm font-extrabold text-slate-800 dark:text-white">Chế độ Thi thực tế (Chuẩn giờ JLPT)</h4>
+                                    <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
+                                        Chia đồng hồ riêng từng phần đúng quy chế JLPT (phần Nghe tính giờ độc lập). Bắt buộc Full màn hình.
+                                    </p>
+                                    {hasFullSections && (() => {
+                                        const previewPhases = buildJlptExamPhases(pendingStartTest);
+                                        if (!previewPhases.length) return null;
+                                        return (
+                                            <div className="flex flex-wrap gap-1.5 mt-2">
+                                                {previewPhases.map((ph, idx) => (
+                                                    <span key={ph.id} className="px-2 py-0.5 rounded-lg bg-rose-50 dark:bg-rose-950/50 border border-rose-200 dark:border-rose-800 text-rose-700 dark:text-rose-300 text-[10px] font-black">
+                                                        {idx + 1}. {ph.isListening ? 'Nghe hiểu' : ph.label}: {ph.minutes}p
+                                                    </span>
+                                                ))}
+                                            </div>
+                                        );
+                                    })()}
                                 </div>
                             </div>
                         </div>
@@ -1171,7 +1405,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
     // Show Result View
     if (showResult && activeTest) {
         const results = getResults();
-        const passed = results.percentage >= 60;
+        const passed = results?.jlptScore ? results.jlptScore.passed : results.percentage >= 60;
         return (
             <>
                 <JLPTTestResultView
@@ -1222,8 +1456,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                     setEditingQuestionData={setEditingQuestionData}
                     handleSaveQuestionHtml={handleSaveQuestionHtml}
                     onOpenExportImport={() => setShowExportImportModal(true)}
+                    onEditTest={canEdit ? setEditingFullTest : null}
+                    onSaveQuestionImage={canEdit ? handleSaveQuestionImage : null}
                 />
                 {renderModeSelectionModal()}
+                {renderQuickEditModal()}
                 <PremiumLockedModal 
                     isOpen={showPremiumModal} 
                     onClose={() => setShowPremiumModal(false)} 
@@ -1291,6 +1528,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                     onEditQuestion={(q, sIdx, qIdx, targetTab) => setEditingQuestionData({ question: targetTab ? { ...q, _targetTab: targetTab } : q, sectionIdx: sIdx, questionIdx: qIdx })}
                     setShowQuestionSearchModal={setShowQuestionSearchModal}
                     submitTest={submitTest}
+                    exitTest={exitTest}
                     saveProgressAndExit={saveProgressAndExit}
                     goToQuestion={goToQuestion}
                     nextQuestion={nextQuestion}
@@ -1332,6 +1570,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                     editingQuestionData={editingQuestionData}
                     setEditingQuestionData={setEditingQuestionData}
                     handleSaveQuestionHtml={handleSaveQuestionHtml}
+                    onSaveSections={canEdit ? handleSaveTestSections : null}
                     showViolationWarning={showViolationWarning}
                     setShowViolationWarning={setShowViolationWarning}
                     violationCount={violationCount}
@@ -1355,9 +1594,15 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                     handleToggleTestFixed={handleToggleTestFixed}
                     handleStartPrint={() => handleStartPrint(activeTest)}
                     onOpenExportImport={() => setShowExportImportModal(true)}
+                    onEditTest={canEdit ? setEditingFullTest : null}
                     setAnswers={setAnswers}
+                    examPhases={examPhases}
+                    currentPhaseIdx={currentPhaseIdx}
+                    onAdvancePhase={handleAdvanceExamPhase}
+                    onSaveQuestionImage={canEdit ? handleSaveQuestionImage : null}
                 />
                 {renderModeSelectionModal()}
+                {renderQuickEditModal()}
                 {renderPrintElements()}
                 {canEdit && (
                     <JLPTQuestionSearchModal
@@ -1417,8 +1662,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                 onClearAllWrongQuestions={clearAllWrongQuestions}
                 onStartPracticeWrong={handleStartPracticeWrong}
                 onOpenQuestionSearch={() => setShowQuestionSearchModal(true)}
+                onEditTest={canEdit ? setEditingFullTest : null}
+                onDeleteTest={canEdit ? setConfirmDeleteTest : null}
             />
             {renderModeSelectionModal()}
+            {renderQuickEditModal()}
             {loadingTestDetails && !pendingStartTest && (
                 <div className="fixed inset-0 z-[9999] bg-slate-900/40 backdrop-blur-xs flex items-center justify-center p-4 animate-fade-in">
                     <div className="bg-white dark:bg-slate-800 rounded-2xl px-6 py-4 shadow-2xl border border-slate-200 dark:border-slate-700 flex items-center gap-3">

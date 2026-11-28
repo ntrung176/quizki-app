@@ -527,7 +527,7 @@ const AppRoutes = ({
         } else if (path === '/jlpt/test') {
             title = isEn ? `JLPT Exam Prep | ${brand}` : 'Luyện thi JLPT | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/jlpt/admin') {
-            title = isEn ? `JLPT Admin | ${brand}` : 'Quản trị JLPT | QUIZKI - HỌC TẬP HIỆN ĐẠI';
+            title = isEn ? `JLPT Studio | ${brand}` : 'Studio Soạn Đề JLPT | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/grammar') {
             title = isEn ? `Japanese Grammar | ${brand}` : 'Ngữ pháp Tiếng Nhật | QUIZKI - HỌC TẬP HIỆN ĐẠI';
         } else if (path === '/grammar/review') {

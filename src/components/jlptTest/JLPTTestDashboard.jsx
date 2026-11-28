@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
     Award, BookOpen, Clock, Calendar, CheckCircle2, 
-    FileText, Headphones, Languages, Search, 
+    Headphones, Languages, Search, 
     TrendingUp, Target, Compass, Layers, Trophy, X, AlertCircle,
     Repeat, Sparkles
 } from 'lucide-react';
@@ -41,6 +41,8 @@ const JLPTTestDashboard = ({
     statusFilter: externalStatusFilter,
     setStatusFilter: externalSetStatusFilter,
     canEdit,
+    onEditTest,
+    onDeleteTest,
     onOpenQuestionSearch,
     hasPremiumAccess,
     startTest,
@@ -143,14 +145,7 @@ const JLPTTestDashboard = ({
                                     className="px-4 py-2.5 bg-sky-500 hover:bg-sky-400 active:translate-y-0.5 border-b-4 border-sky-700 active:border-b-2 text-white rounded-2xl text-xs font-black transition flex items-center gap-2 shadow-xs cursor-pointer"
                                 >
                                     <Sparkles className="w-4 h-4" />
-                                    <span>Studio Soạn Đề & Nghe</span>
-                                </Link>
-                                <Link 
-                                    to={ROUTES.JLPT_ADMIN}
-                                    className="px-4 py-2.5 bg-slate-800 hover:bg-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 active:translate-y-0.5 border-b-4 border-slate-900 active:border-b-2 text-white rounded-2xl text-xs font-bold transition flex items-center gap-2 shadow-xs cursor-pointer"
-                                >
-                                    <FileText className="w-4 h-4" />
-                                    <span>Quản trị Đề thi</span>
+                                    <span>Studio Soạn Đề &amp; Nghe</span>
                                 </Link>
                             </>
                         )}
@@ -296,6 +291,8 @@ const JLPTTestDashboard = ({
                         selectedLevel={selectedLevel}
                         searchQuery={searchQuery}
                         canEdit={canEdit}
+                        onEditTest={onEditTest}
+                        onDeleteTest={onDeleteTest}
                         hasPremiumAccess={hasPremiumAccess}
                         startTest={startTest}
                         reviewTest={reviewTest}
@@ -316,6 +313,8 @@ const JLPTTestDashboard = ({
                         searchQuery={searchQuery}
                         statusFilter={statusFilter}
                         canEdit={canEdit}
+                        onEditTest={onEditTest}
+                        onDeleteTest={onDeleteTest}
                         hasPremiumAccess={hasPremiumAccess}
                         startTest={startTest}
                         reviewTest={reviewTest}
@@ -336,6 +335,8 @@ const JLPTTestDashboard = ({
                         searchQuery={searchQuery}
                         statusFilter={statusFilter}
                         canEdit={canEdit}
+                        onEditTest={onEditTest}
+                        onDeleteTest={onDeleteTest}
                         hasPremiumAccess={hasPremiumAccess}
                         startTest={startTest}
                         reviewTest={reviewTest}
@@ -355,6 +356,8 @@ const JLPTTestDashboard = ({
                         selectedLevel={selectedLevel}
                         searchQuery={searchQuery}
                         canEdit={canEdit}
+                        onEditTest={onEditTest}
+                        onDeleteTest={onDeleteTest}
                         hasPremiumAccess={hasPremiumAccess}
                         startTest={startTest}
                         reviewTest={reviewTest}
@@ -373,6 +376,8 @@ const JLPTTestDashboard = ({
                         searchQuery={searchQuery}
                         statusFilter={statusFilter}
                         canEdit={canEdit}
+                        onEditTest={onEditTest}
+                        onDeleteTest={onDeleteTest}
                         hasPremiumAccess={hasPremiumAccess}
                         startTest={startTest}
                         reviewTest={reviewTest}
@@ -412,6 +417,8 @@ const JLPTTestDashboard = ({
                         searchQuery={searchQuery}
                         statusFilter={statusFilter}
                         canEdit={canEdit}
+                        onEditTest={onEditTest}
+                        onDeleteTest={onDeleteTest}
                         hasPremiumAccess={hasPremiumAccess}
                         startTest={startTest}
                         reviewTest={reviewTest}

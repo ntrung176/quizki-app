@@ -4,7 +4,7 @@ import {
     Maximize, Minimize, ChevronLeft, ChevronRight, Edit3, 
     CheckCircle, XCircle, Pencil, RotateCcw, Play, Printer, 
     List, CheckCircle2, ChevronDown, Volume2, BookOpen, Layers,
-    HelpCircle, Eye, EyeOff, FileCode
+    HelpCircle, Eye, EyeOff, FileCode, Wand2
 } from 'lucide-react';
 import QuestionContent from './QuestionContent';
 import QuestionEditModal from './QuestionEditModal';
@@ -12,7 +12,13 @@ import QuestionExplanationCard from './QuestionExplanationCard';
 import InteractiveReadingPassage from './InteractiveReadingPassage';
 import HandwritingCanvas from '../ui/HandwritingCanvas';
 import ExamAnnotationOverlay from '../screens/ExamAnnotationOverlay';
+import ListeningAudioPlayer from './ListeningAudioPlayer';
+import ListeningScriptBox from './ListeningScriptBox';
+import JlptScoreBreakdownCard from './JlptScoreBreakdownCard';
+import AiImageRecreatorModal from '../admin/AiImageRecreatorModal';
+import { ListeningMondaiFilterBar, ListeningMondaiSectionBanner } from './ListeningMondaiHeader';
 import { SECTION_ICONS, SECTION_COLORS } from './jlptConstants';
+import { getListeningDisplayMeta, groupQuestionsByMondai, isBareNumberOptions, buildSectionDisplayClusters, resolveSharedMondaiAudioUrl, resolveQuestionMondai } from './jlptYearlyConstants';
 
 export const hasHtmlTags = (str) => {
     if (!str) return false;
@@ -130,9 +136,13 @@ const JLPTTestResultView = ({
     setEditingQuestionData,
     handleSaveQuestionHtml,
     handleStartPrint,
-    onOpenExportImport
+    onOpenExportImport,
+    onEditTest,
+    onSaveQuestionImage = null
 }) => {
     const [selectedTabIdx, setSelectedTabIdx] = useState(currentSectionIdx || 0);
+    const [selectedMondaiFilter, setSelectedMondaiFilter] = useState('');
+    const [aiImageTarget, setAiImageTarget] = useState(null);
     const [showMobileTOC, setShowMobileTOC] = useState(false);
     const [activeNoteTarget, setActiveNoteTarget] = useState(null); // { sIdx, qIdx }
     const rightScrollContainerRef = useRef(null);
@@ -141,6 +151,34 @@ const JLPTTestResultView = ({
     const subAnswerKey = (si, qi, sqi) => `s${si}_q${qi}_sq${sqi}`;
 
     const activeSection = activeTest?.sections?.[selectedTabIdx] || activeTest?.sections?.[0];
+
+    const listeningMondaiData = useMemo(() => {
+        return groupQuestionsByMondai(activeSection?.questions || [], activeTest?.level, activeSection?.title, activeSection?.type);
+    }, [activeSection, activeTest?.level]);
+
+    const mondaiSharedAudioUrls = useMemo(() => {
+        const map = {};
+        if (!listeningMondaiData.isListening) return map;
+        listeningMondaiData.groups.forEach((g) => {
+            const shared = resolveSharedMondaiAudioUrl(g);
+            if (shared) map[g.mondai] = shared;
+        });
+        return map;
+    }, [listeningMondaiData]);
+
+    const effectiveMondaiFilter = listeningMondaiData.groups.some((g) => String(g.mondai) === String(selectedMondaiFilter))
+        ? selectedMondaiFilter
+        : (listeningMondaiData.groups[0]?.mondai ?? 'all');
+
+    const displayClusters = useMemo(() => buildSectionDisplayClusters({
+        questions: activeSection?.questions || [],
+        sectionPassages: activeSection?.passages,
+        sectionTitle: activeSection?.title,
+        sectionType: activeSection?.type,
+        mondaiFilter: effectiveMondaiFilter,
+        hasMondaiStructure: listeningMondaiData.hasMondaiStructure,
+        mondaiGroups: listeningMondaiData.groups
+    }), [activeSection, effectiveMondaiFilter, listeningMondaiData]);
 
     // Calculate total questions & total correct
     const { totalQ, correctCount, sectionStats } = useMemo(() => {
@@ -196,7 +234,12 @@ const JLPTTestResultView = ({
 
     // Scroll to specific question card
     const scrollToQuestion = (sIdx, qIdx) => {
+        const sec = activeTest?.sections?.[sIdx];
+        const targetQ = sec?.questions?.[qIdx];
         setSelectedTabIdx(sIdx);
+        if (targetQ) {
+            setSelectedMondaiFilter(resolveQuestionMondai(targetQ, sec?.title || '', sec?.type === 'listening' ? 5 : 15));
+        }
         setShowMobileTOC(false);
         setTimeout(() => {
             const el = document.getElementById(`review-q-card-${sIdx}-${qIdx}`);
@@ -433,6 +476,17 @@ const JLPTTestResultView = ({
 
                     {/* Right Controls: Score Badge, Settings, Fullscreen */}
                     <div className="flex items-center gap-2 shrink-0">
+                        {canEdit && onEditTest && (
+                            <button
+                                type="button"
+                                onClick={() => onEditTest(activeTest)}
+                                className="px-3 py-1.5 rounded-xl text-xs font-black bg-sky-50 hover:bg-sky-100 dark:bg-sky-950/60 dark:hover:bg-sky-900/60 text-sky-700 dark:text-sky-300 transition flex items-center gap-1.5 cursor-pointer border border-sky-300 dark:border-sky-800 active:scale-95 shadow-2xs"
+                                title="Sửa trực tiếp toàn bộ đề thi"
+                            >
+                                <Edit3 className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
+                                <span className="hidden sm:inline">Sửa đề</span>
+                            </button>
+                        )}
                         {/* Export / Import Button for Admin */}
                         {canEdit && onOpenExportImport && (
                             <button
@@ -447,7 +501,10 @@ const JLPTTestResultView = ({
                         {/* Score summary badge */}
                         <div className="px-2.5 sm:px-3 py-1 rounded-xl text-xs font-mono font-black flex items-center gap-1.5 bg-emerald-50 text-emerald-700 dark:bg-emerald-950/50 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800 shadow-xs">
                             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500" />
-                            <span>{correctCount}/{totalQ} câu đúng ({results?.percentage ?? Math.round((correctCount / Math.max(1, totalQ)) * 100)}%)</span>
+                            <span>
+                                {results?.jlptScore ? `${results.jlptScore.totalScore}/${results.jlptScore.maxScore}đ · ` : ''}
+                                {correctCount}/{totalQ} câu đúng ({results?.percentage ?? Math.round((correctCount / Math.max(1, totalQ)) * 100)}%)
+                            </span>
                         </div>
 
                         {/* Settings Menu */}
@@ -592,19 +649,23 @@ const JLPTTestResultView = ({
                                         <div className="grid grid-cols-5 gap-1.5">
                                             {activeTest?.sections?.[sIdx]?.questions?.map((q, qIdx) => {
                                                 const correct = isQuestionCorrect(sIdx, qIdx, q);
+                                                const secMeta = activeTest?.sections?.[sIdx];
+                                                const qDisplay = secMeta?.type === 'listening'
+                                                    ? getListeningDisplayMeta(q, qIdx, secMeta.title, secMeta.type).pairCode
+                                                    : (qIdx + 1);
 
                                                 return (
                                                     <button
                                                         key={qIdx}
                                                         onClick={() => scrollToQuestion(sIdx, qIdx)}
-                                                        className={`h-7.5 rounded-lg text-xs font-bold transition-all cursor-pointer flex items-center justify-center select-none active:scale-90 ${
+                                                        className={`h-7.5 rounded-lg text-[11px] font-bold transition-all cursor-pointer flex items-center justify-center select-none active:scale-90 ${
                                                             correct
                                                                 ? 'bg-emerald-500 text-white shadow-xs hover:bg-emerald-600 font-black'
                                                                 : 'bg-rose-500 text-white shadow-xs hover:bg-rose-600 font-black'
                                                         }`}
-                                                        title={`Câu ${qIdx + 1} (${correct ? 'Đúng' : 'Sai'})`}
+                                                        title={`Câu ${qDisplay} (${correct ? 'Đúng' : 'Sai'})`}
                                                     >
-                                                        {qIdx + 1}
+                                                        {qDisplay}
                                                     </button>
                                                 );
                                             })}
@@ -640,7 +701,7 @@ const JLPTTestResultView = ({
                     {/* RIGHT SCROLLABLE QUESTIONS FEED ("SỔ CÂU HỎI XUỐNG") */}
                     <main 
                         ref={rightScrollContainerRef}
-                        className="flex-1 min-h-0 h-full overflow-y-auto px-3.5 sm:px-6 md:px-8 py-4 sm:py-6 space-y-5 scroll-smooth custom-scrollbar relative overscroll-y-contain"
+                        className="flex-1 min-w-0 min-h-0 h-full overflow-y-auto px-3.5 sm:px-6 md:px-8 py-4 sm:py-6 space-y-5 scroll-smooth custom-scrollbar relative overscroll-y-contain"
                         style={{ WebkitOverflowScrolling: 'touch', touchAction: 'pan-y' }}
                         id="jlpt-review-right-scroll-container"
                     >
@@ -670,7 +731,7 @@ const JLPTTestResultView = ({
                                 </div>
 
                                 {/* 4 Section Tabs Horizontal Pills */}
-                                <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-0.5 scroll-smooth">
+                                <div className="flex flex-wrap items-center gap-2 py-0.5">
                                     {sectionStats.map((sec, sIdx) => {
                                         const isActive = selectedTabIdx === sIdx;
                                         return (
@@ -678,6 +739,7 @@ const JLPTTestResultView = ({
                                                 key={sIdx}
                                                 onClick={() => {
                                                     setSelectedTabIdx(sIdx);
+                                                    setSelectedMondaiFilter('');
                                                     if (rightScrollContainerRef.current) {
                                                         rightScrollContainerRef.current.scrollTo({ top: 0, behavior: 'smooth' });
                                                     }
@@ -703,6 +765,16 @@ const JLPTTestResultView = ({
                                         );
                                     })}
                                 </div>
+
+                                {listeningMondaiData.hasMondaiStructure && (
+                                    <ListeningMondaiFilterBar
+                                        groups={listeningMondaiData.groups}
+                                        totalCount={activeSection?.questions?.length || 0}
+                                        selectedMondai={effectiveMondaiFilter}
+                                        onSelectMondai={setSelectedMondaiFilter}
+                                        isListening={listeningMondaiData.isListening}
+                                    />
+                                )}
 
                                 {/* Actions Bar */}
                                 <div className="flex flex-wrap items-center justify-between gap-2 pt-2 border-t border-slate-100 dark:border-slate-800">
@@ -739,231 +811,308 @@ const JLPTTestResultView = ({
 
                             {/* 2. QUESTIONS STREAM (ROLL XUỐNG CÙNG GIẢI THÍCH CHI TIẾT) */}
                             <div className="space-y-5" id="jlpt-review-questions-stream-container">
-                                {activeSection?.questions?.map((question, qIdx) => {
-                                    const qKey = answerKey(selectedTabIdx, qIdx);
-                                    const userChoice = answers[qKey];
-                                    const isCorrect = isQuestionCorrect(selectedTabIdx, qIdx, question);
-                                    const hasSub = question.subQuestions && question.subQuestions.length > 0;
+                                {(() => {
+                                    const renderReviewQuestionItem = ({ question, qIdx, qMeta }, insideCluster = false) => {
+                                        const qKey = answerKey(selectedTabIdx, qIdx);
+                                        const userChoice = answers[qKey];
+                                        const isCorrect = isQuestionCorrect(selectedTabIdx, qIdx, question);
+                                        const hasSub = question.subQuestions && question.subQuestions.length > 0;
+                                        const bareListeningOpts = qMeta.isListening && isBareNumberOptions(question.options);
 
-                                    return (
-                                        <div 
-                                            key={qIdx}
-                                            id={`review-q-card-${selectedTabIdx}-${qIdx}`}
-                                            className={`bg-white dark:bg-slate-900 border rounded-2xl sm:rounded-3xl p-4 sm:p-6 transition-all duration-200 shadow-xs scroll-mt-28 sm:scroll-mt-32 ${
+                                        const wrapperClass = insideCluster
+                                            ? 'pt-5 first:pt-1 scroll-mt-28 sm:scroll-mt-32'
+                                            : `bg-white dark:bg-slate-900 border rounded-2xl sm:rounded-3xl p-4 sm:p-6 transition-all duration-200 shadow-xs scroll-mt-28 sm:scroll-mt-32 ${
                                                 isCorrect
                                                     ? 'border-emerald-200 dark:border-emerald-900/60'
                                                     : 'border-rose-200 dark:border-rose-900/60'
-                                            }`}
-                                        >
-                                            {/* Question Card Header */}
-                                            <div className="flex items-start justify-between gap-3 mb-4">
-                                                <div className="flex items-start gap-3 min-w-0 flex-1">
-                                                    {/* Number Badge */}
-                                                    <span className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl font-black text-xs sm:text-sm flex items-center justify-center shrink-0 shadow-xs ${
-                                                        isCorrect
-                                                            ? 'bg-emerald-500 text-white'
-                                                            : 'bg-rose-500 text-white'
-                                                    }`}>
-                                                        {qIdx + 1}
-                                                    </span>
+                                            }`;
 
-                                                    {/* Prompt & Status */}
-                                                    <div className="min-w-0 flex-1 pt-0.5 space-y-1">
-                                                        <div className="flex items-center gap-2">
-                                                            <span className={`px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider ${
-                                                                isCorrect
-                                                                    ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950/80 dark:text-emerald-400'
-                                                                    : 'bg-rose-100 text-rose-700 dark:bg-rose-950/80 dark:text-rose-400'
-                                                            }`}>
-                                                                {isCorrect ? '✓ Đáp án đúng' : '✕ Đáp án sai'}
-                                                            </span>
-                                                        </div>
-                                                        <div 
-                                                            className={getCleanClassName("text-[16px] sm:text-[18px] font-medium text-slate-900 dark:text-slate-100 leading-relaxed font-japanese", question.question)} 
-                                                            dangerouslySetInnerHTML={{ __html: question.question }} 
-                                                        />
-                                                    </div>
-                                                </div>
+                                        return (
+                                            <div
+                                                key={qIdx}
+                                                id={`review-q-card-${selectedTabIdx}-${qIdx}`}
+                                                className={wrapperClass}
+                                            >
+                                                {/* Question Card Header */}
+                                                <div className="flex items-start justify-between gap-3 mb-4">
+                                                    <div className="flex items-start gap-3 min-w-0 flex-1">
+                                                        {/* Number Badge */}
+                                                        <span className={`px-2.5 h-7 sm:h-8 min-w-8 rounded-xl font-black text-xs sm:text-sm flex items-center justify-center shrink-0 shadow-xs ${
+                                                            isCorrect
+                                                                ? 'bg-emerald-500 text-white'
+                                                                : 'bg-rose-500 text-white'
+                                                        }`}>
+                                                            {qMeta.isListening ? qMeta.pairCode : qIdx + 1}
+                                                        </span>
 
-                                                {/* Tools */}
-                                                <div className="flex items-center gap-1.5 shrink-0">
-                                                    {canEdit && setEditingQuestionData && (
-                                                        <button
-                                                            onClick={() => setEditingQuestionData({ question: question, sectionIdx: selectedTabIdx, questionIdx: qIdx })}
-                                                            className="p-1.5 text-slate-400 hover:text-amber-500 rounded-lg hover:bg-amber-50 dark:hover:bg-amber-950/30 transition cursor-pointer"
-                                                            title="Sửa HTML câu hỏi"
-                                                        >
-                                                            <Edit3 className="w-3.5 h-3.5" />
-                                                        </button>
-                                                    )}
-                                                </div>
-                                            </div>
-
-                                            {/* Reading Passage if exists */}
-                                            {(() => {
-                                                const prevQ = qIdx > 0 ? activeSection?.questions?.[qIdx - 1] : null;
-                                                const currentPassage = (question.passage || (activeSection?.passages && typeof question.passageIndex === 'number' ? activeSection.passages[question.passageIndex]?.passage : '') || question.passageData?.japanese || '').trim();
-                                                const prevPassage = prevQ ? ((prevQ.passage || (activeSection?.passages && typeof prevQ.passageIndex === 'number' ? activeSection.passages[prevQ.passageIndex]?.passage : '') || prevQ.passageData?.japanese || '').trim()) : '';
-
-                                                const isSamePassage = !!(currentPassage && prevPassage && currentPassage === prevPassage);
-                                                const hasPassage = !!(question?.passageData || question?.passage || (activeSection?.passages && typeof question?.passageIndex === 'number'));
-
-                                                if (!hasPassage) return null;
-
-                                                if (isSamePassage) {
-                                                    return (
-                                                        <div className="mb-3.5 inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-emerald-50/80 dark:bg-emerald-950/40 text-xs font-bold text-emerald-700 dark:text-emerald-300 border border-emerald-200/60 dark:border-emerald-800/40">
-                                                            <BookOpen className="w-3.5 h-3.5" />
-                                                            <span>Câu hỏi cùng bài đọc ở trên ↑</span>
-                                                        </div>
-                                                    );
-                                                }
-
-                                                return (
-                                                    <div className="mb-4">
-                                                        <InteractiveReadingPassage
-                                                            passageHtml={question.passage || (activeSection?.passages && typeof question?.passageIndex === 'number' ? activeSection.passages[question.passageIndex]?.passage : '')}
-                                                            passageData={question.passageData || (activeSection?.passages && typeof question?.passageIndex === 'number' ? activeSection.passages[question.passageIndex]?.passageData : null)}
-                                                            explanationText={question.explanation || question.detail}
-                                                            question={question}
-                                                        />
-                                                    </div>
-                                                );
-                                            })()}
-
-                                            {/* Multi-Question or Single Question Choices */}
-                                            {hasSub ? (
-                                                <div className="space-y-4 pl-0 sm:pl-3 border-l-0 sm:border-l-2 border-slate-100 dark:border-slate-800">
-                                                    {question.subQuestions.map((sq, sqi) => {
-                                                        const sqKey = subAnswerKey(selectedTabIdx, qIdx, sqi);
-                                                        const subUserAns = answers[sqKey];
-                                                        const subIsCorrect = subUserAns === sq.correctAnswer;
-
-                                                        return (
-                                                            <div key={sqi} className="p-3.5 rounded-2xl bg-slate-50/70 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 space-y-3">
-                                                                <div className="flex items-start gap-2">
-                                                                    <span className={`w-6 h-6 rounded-lg text-xs font-black flex items-center justify-center shrink-0 ${
-                                                                        subIsCorrect ? 'bg-emerald-500 text-white' : 'bg-rose-500 text-white'
-                                                                    }`}>
-                                                                        {sqi + 1}
+                                                        {/* Prompt & Status */}
+                                                        <div className="min-w-0 flex-1 pt-0.5 space-y-1">
+                                                            <div className="flex items-center gap-2 flex-wrap">
+                                                                {qMeta.isListening && (
+                                                                    <span className="text-sm sm:text-base font-black text-slate-900 dark:text-white font-japanese">
+                                                                        {qMeta.banLabel}
                                                                     </span>
-                                                                    <div 
-                                                                        className={getCleanClassName("text-sm sm:text-base font-medium text-slate-800 dark:text-slate-200 font-japanese leading-relaxed", sq.question)}
-                                                                        dangerouslySetInnerHTML={{ __html: sq.question }}
-                                                                    />
-                                                                </div>
-
-                                                                {/* Options Grid */}
-                                                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                                                                    {sq.options?.map((opt, optIdx) => {
-                                                                        const isOptionCorrect = optIdx === sq.correctAnswer;
-                                                                        const isUserPick = optIdx === subUserAns;
-
-                                                                        let optClass = 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300';
-                                                                        if (isOptionCorrect) {
-                                                                            optClass = 'bg-emerald-50 dark:bg-emerald-950/50 border-2 border-emerald-500 text-emerald-900 dark:text-emerald-100 font-bold';
-                                                                        } else if (isUserPick && !isOptionCorrect) {
-                                                                            optClass = 'bg-rose-50 dark:bg-rose-950/50 border-2 border-rose-500 text-rose-900 dark:text-rose-100 font-bold';
-                                                                        }
-
-                                                                        return (
-                                                                            <div
-                                                                                key={optIdx}
-                                                                                className={`p-3 rounded-xl border flex items-center justify-between gap-2 text-xs sm:text-sm font-japanese ${optClass}`}
-                                                                            >
-                                                                                <div className="flex items-center gap-2 min-w-0 flex-1">
-                                                                                    <span className="font-bold text-xs opacity-70">
-                                                                                        {String.fromCharCode(65 + optIdx)}.
-                                                                                    </span>
-                                                                                    <span dangerouslySetInnerHTML={{ __html: opt }} />
-                                                                                </div>
-                                                                                {isOptionCorrect && (
-                                                                                    <span className="px-2 py-0.5 rounded text-[10px] font-black bg-emerald-500 text-white shrink-0">
-                                                                                        Đáp án đúng
-                                                                                    </span>
-                                                                                )}
-                                                                                {isUserPick && !isOptionCorrect && (
-                                                                                    <span className="px-2 py-0.5 rounded text-[10px] font-black bg-rose-500 text-white shrink-0">
-                                                                                        Bạn chọn
-                                                                                    </span>
-                                                                                )}
-                                                                            </div>
-                                                                        );
-                                                                    })}
-                                                                </div>
-
-                                                                {/* Subquestion Explanation Card */}
-                                                                <QuestionExplanationCard
-                                                                    question={sq}
-                                                                    options={sq.options || []}
-                                                                    correctAnswer={sq.correctAnswer}
-                                                                    userAnswer={subUserAns}
-                                                                    onEditQuestion={canEdit && setEditingQuestionData ? () => setEditingQuestionData({ question, sectionIdx: selectedTabIdx, questionIdx: qIdx }) : null}
-                                                                />
+                                                                )}
+                                                                <span className={`px-2 py-0.5 rounded-md text-[10px] font-black uppercase tracking-wider ${
+                                                                    isCorrect
+                                                                        ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-950/80 dark:text-emerald-400'
+                                                                        : 'bg-rose-100 text-rose-700 dark:bg-rose-950/80 dark:text-rose-400'
+                                                                }`}>
+                                                                    {isCorrect ? '✓ Đáp án đúng' : '✕ Đáp án sai'}
+                                                                </span>
                                                             </div>
-                                                        );
-                                                    })}
-                                                </div>
-                                            ) : (
-                                                /* Single Question Choices */
-                                                <div className="space-y-3">
-                                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                                                        {question.options?.map((opt, optIdx) => {
-                                                            const isOptionCorrect = optIdx === question.correctAnswer;
-                                                            const isUserPick = optIdx === userChoice;
+                                                            {(!qMeta.isListening || qMeta.paperPrompt) && (
+                                                                <div
+                                                                    className={getCleanClassName("text-[16px] sm:text-[18px] font-medium text-slate-900 dark:text-slate-100 leading-relaxed font-japanese", qMeta.isListening ? qMeta.paperPrompt : question.question)}
+                                                                    dangerouslySetInnerHTML={{ __html: qMeta.isListening ? qMeta.paperPrompt : question.question }}
+                                                                />
+                                                            )}
+                                                        </div>
+                                                    </div>
 
-                                                            let optClass = 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300';
-                                                            if (isOptionCorrect) {
-                                                                optClass = 'bg-emerald-50 dark:bg-emerald-950/50 border-2 border-emerald-500 text-emerald-900 dark:text-emerald-100 font-bold';
-                                                            } else if (isUserPick && !isOptionCorrect) {
-                                                                optClass = 'bg-rose-50 dark:bg-rose-950/50 border-2 border-rose-500 text-rose-900 dark:text-rose-100 font-bold';
-                                                            }
+                                                    {/* Tools */}
+                                                    <div className="flex items-center gap-1.5 shrink-0">
+                                                        {canEdit && onSaveQuestionImage && (
+                                                            <button
+                                                                type="button"
+                                                                onClick={() => setAiImageTarget({
+                                                                    sIdx: selectedTabIdx,
+                                                                    qIdx,
+                                                                    label: qMeta.isListening ? `M${qMeta.mondaiNum} · ${qMeta.banLabel}` : `Câu ${qIdx + 1}`,
+                                                                    existingUrl: question.imageUrl || ''
+                                                                })}
+                                                                className="px-2 py-1 rounded-lg bg-sky-50 hover:bg-sky-100 dark:bg-sky-950/50 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800 text-[11px] font-black flex items-center gap-1 cursor-pointer transition"
+                                                                title="Dán ảnh chụp đề & vẽ lại bằng AI cho đẹp"
+                                                            >
+                                                                <Wand2 className="w-3 h-3" />
+                                                                <span>Ảnh AI</span>
+                                                            </button>
+                                                        )}
+                                                        {canEdit && setEditingQuestionData && (
+                                                            <button
+                                                                onClick={() => setEditingQuestionData({ question: question, sectionIdx: selectedTabIdx, questionIdx: qIdx })}
+                                                                className="p-1.5 text-slate-400 hover:text-amber-500 rounded-lg hover:bg-amber-50 dark:hover:bg-amber-950/30 transition cursor-pointer"
+                                                                title="Sửa HTML câu hỏi"
+                                                            >
+                                                                <Edit3 className="w-3.5 h-3.5" />
+                                                            </button>
+                                                        )}
+                                                    </div>
+                                                </div>
+
+                                                {/* Per-question Audio Player ONLY when NOT sharing a Mondai track */}
+                                                {question?.audioUrl && !mondaiSharedAudioUrls[qMeta.mondaiNum] && (
+                                                    <div className="mb-4">
+                                                        <ListeningAudioPlayer
+                                                            src={question.audioUrl}
+                                                            startSec={question.audioStartSec}
+                                                            endSec={question.audioEndSec}
+                                                            label=""
+                                                            compact
+                                                        />
+                                                    </div>
+                                                )}
+
+                                                {/* Question Image */}
+                                                {question?.imageUrl && (
+                                                    <div className="mb-4 max-w-xl mx-auto rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-white p-2 flex justify-center">
+                                                        <img src={question.imageUrl} alt="Hình minh họa" className="max-h-80 object-contain rounded-xl" />
+                                                    </div>
+                                                )}
+
+                                                {/* Multi-Question or Single Question Choices */}
+                                                {hasSub ? (
+                                                    <div className="space-y-4 pl-0 sm:pl-3 border-l-0 sm:border-l-2 border-slate-100 dark:border-slate-800">
+                                                        {qMeta.isListening && (
+                                                            <ListeningScriptBox
+                                                                question={question}
+                                                                revealAnswer
+                                                                compact
+                                                            />
+                                                        )}
+                                                        {question.subQuestions.map((sq, sqi) => {
+                                                            const sqKey = subAnswerKey(selectedTabIdx, qIdx, sqi);
+                                                            const subUserAns = answers[sqKey];
+                                                            const subIsCorrect = subUserAns === sq.correctAnswer;
 
                                                             return (
-                                                                <div
-                                                                    key={optIdx}
-                                                                    className={`p-3.5 rounded-2xl border flex items-center justify-between gap-2.5 text-xs sm:text-sm font-japanese transition-all ${optClass}`}
-                                                                >
-                                                                    <div className="flex items-center gap-2.5 min-w-0 flex-1">
-                                                                        <span className="w-6 h-6 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-black text-xs flex items-center justify-center shrink-0">
-                                                                            {String.fromCharCode(65 + optIdx)}
+                                                                <div key={sqi} className="p-3.5 rounded-2xl bg-slate-50/70 dark:bg-slate-950/40 border border-slate-200/80 dark:border-slate-800 space-y-3">
+                                                                    <div className="flex items-start gap-2">
+                                                                        <span className={`w-6 h-6 rounded-lg text-xs font-black flex items-center justify-center shrink-0 ${
+                                                                            subIsCorrect ? 'bg-emerald-500 text-white' : 'bg-rose-500 text-white'
+                                                                        }`}>
+                                                                            {sqi + 1}
                                                                         </span>
-                                                                        <div 
-                                                                            className="leading-relaxed"
-                                                                            dangerouslySetInnerHTML={{ __html: opt }} 
+                                                                        <div
+                                                                            className={getCleanClassName("text-sm sm:text-base font-medium text-slate-800 dark:text-slate-200 font-japanese leading-relaxed", sq.question)}
+                                                                            dangerouslySetInnerHTML={{ __html: sq.question }}
                                                                         />
                                                                     </div>
-                                                                    {isOptionCorrect && (
-                                                                        <span className="px-2 py-0.5 rounded-md text-[10px] font-black bg-emerald-500 text-white shrink-0">
-                                                                            Đáp án đúng
-                                                                        </span>
-                                                                    )}
-                                                                    {isUserPick && !isOptionCorrect && (
-                                                                        <span className="px-2 py-0.5 rounded-md text-[10px] font-black bg-rose-500 text-white shrink-0">
-                                                                            Bạn chọn
-                                                                        </span>
-                                                                    )}
+
+                                                                    <div className={qMeta.isListening ? 'grid grid-cols-1 gap-2' : 'grid grid-cols-1 sm:grid-cols-2 gap-2'}>
+                                                                        {sq.options?.map((opt, optIdx) => {
+                                                                            const isOptionCorrect = optIdx === sq.correctAnswer;
+                                                                            const isUserPick = optIdx === subUserAns;
+
+                                                                            let optClass = 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300';
+                                                                            if (isOptionCorrect) {
+                                                                                optClass = 'bg-emerald-50 dark:bg-emerald-950/50 border-2 border-emerald-500 text-emerald-900 dark:text-emerald-100 font-bold';
+                                                                            } else if (isUserPick && !isOptionCorrect) {
+                                                                                optClass = 'bg-rose-50 dark:bg-rose-950/50 border-2 border-rose-500 text-rose-900 dark:text-rose-100 font-bold';
+                                                                            }
+
+                                                                            return (
+                                                                                <div
+                                                                                    key={optIdx}
+                                                                                    className={`p-3 rounded-xl border flex items-center justify-between gap-2 text-xs sm:text-sm font-japanese ${optClass}`}
+                                                                                >
+                                                                                    <div className="flex items-center gap-2 min-w-0 flex-1">
+                                                                                        <span className="font-bold text-xs opacity-70">
+                                                                                            {qMeta.isListening ? `${optIdx + 1}.` : `${String.fromCharCode(65 + optIdx)}.`}
+                                                                                        </span>
+                                                                                        <span dangerouslySetInnerHTML={{ __html: opt }} />
+                                                                                    </div>
+                                                                                    {isOptionCorrect && (
+                                                                                        <span className="px-2 py-0.5 rounded text-[10px] font-black bg-emerald-500 text-white shrink-0">
+                                                                                            Đáp án đúng
+                                                                                        </span>
+                                                                                    )}
+                                                                                    {isUserPick && !isOptionCorrect && (
+                                                                                        <span className="px-2 py-0.5 rounded text-[10px] font-black bg-rose-500 text-white shrink-0">
+                                                                                            Bạn chọn
+                                                                                        </span>
+                                                                                    )}
+                                                                                </div>
+                                                                            );
+                                                                        })}
+                                                                    </div>
+
+                                                                    <QuestionExplanationCard
+                                                                        question={sq}
+                                                                        options={sq.options || []}
+                                                                        correctAnswer={sq.correctAnswer}
+                                                                        userAnswer={subUserAns}
+                                                                        onEditQuestion={canEdit && setEditingQuestionData ? () => setEditingQuestionData({ question, sectionIdx: selectedTabIdx, questionIdx: qIdx }) : null}
+                                                                    />
                                                                 </div>
                                                             );
                                                         })}
                                                     </div>
+                                                ) : (
+                                                    <div className="space-y-3">
+                                                        <div className={qMeta.isListening
+                                                            ? (bareListeningOpts ? (question.options?.length === 3 ? 'grid grid-cols-3 gap-2.5' : 'grid grid-cols-2 sm:grid-cols-4 gap-2.5') : 'grid grid-cols-1 gap-2')
+                                                            : 'grid grid-cols-1 sm:grid-cols-2 gap-2.5'
+                                                        }>
+                                                            {question.options?.map((opt, optIdx) => {
+                                                                const isOptionCorrect = optIdx === question.correctAnswer;
+                                                                const isUserPick = optIdx === userChoice;
 
-                                                    {/* Full Explanation Card */}
-                                                    <QuestionExplanationCard
-                                                        question={question}
-                                                        options={question.options || []}
-                                                        correctAnswer={question.correctAnswer}
-                                                        userAnswer={userChoice}
-                                                        onEditQuestion={canEdit && setEditingQuestionData ? () => setEditingQuestionData({ question, sectionIdx: selectedTabIdx, questionIdx: qIdx }) : null}
+                                                                let optClass = 'bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300';
+                                                                if (isOptionCorrect) {
+                                                                    optClass = 'bg-emerald-50 dark:bg-emerald-950/50 border-2 border-emerald-500 text-emerald-900 dark:text-emerald-100 font-bold';
+                                                                } else if (isUserPick && !isOptionCorrect) {
+                                                                    optClass = 'bg-rose-50 dark:bg-rose-950/50 border-2 border-rose-500 text-rose-900 dark:text-rose-100 font-bold';
+                                                                }
+
+                                                                return (
+                                                                    <div
+                                                                        key={optIdx}
+                                                                        className={`p-3.5 rounded-2xl border flex items-center justify-between gap-2.5 text-xs sm:text-sm font-japanese transition-all ${optClass}`}
+                                                                    >
+                                                                        <div className={`flex items-center gap-2.5 min-w-0 flex-1 ${bareListeningOpts ? 'justify-center' : ''}`}>
+                                                                            <span className="w-6 h-6 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-black text-xs flex items-center justify-center shrink-0">
+                                                                                {qMeta.isListening ? optIdx + 1 : String.fromCharCode(65 + optIdx)}
+                                                                            </span>
+                                                                            {!bareListeningOpts && (
+                                                                                <div
+                                                                                    className="leading-relaxed"
+                                                                                    dangerouslySetInnerHTML={{ __html: opt }}
+                                                                                />
+                                                                            )}
+                                                                        </div>
+                                                                        {isOptionCorrect && (
+                                                                            <span className="px-2 py-0.5 rounded-md text-[10px] font-black bg-emerald-500 text-white shrink-0">
+                                                                                Đáp án đúng
+                                                                            </span>
+                                                                        )}
+                                                                        {isUserPick && !isOptionCorrect && (
+                                                                            <span className="px-2 py-0.5 rounded-md text-[10px] font-black bg-rose-500 text-white shrink-0">
+                                                                                Bạn chọn
+                                                                            </span>
+                                                                        )}
+                                                                    </div>
+                                                                );
+                                                            })}
+                                                        </div>
+
+                                                        <QuestionExplanationCard
+                                                            question={question}
+                                                            options={question.options || []}
+                                                            correctAnswer={question.correctAnswer}
+                                                            userAnswer={userChoice}
+                                                            onEditQuestion={canEdit && setEditingQuestionData ? () => setEditingQuestionData({ question, sectionIdx: selectedTabIdx, questionIdx: qIdx }) : null}
+                                                        />
+                                                    </div>
+                                                )}
+
+                                                {/* Note & Teacher Correction Container */}
+                                                {renderReviewNoteContainer(selectedTabIdx, qIdx)}
+                                            </div>
+                                        );
+                                    };
+
+                                    return displayClusters.map((cluster) => {
+                                        const allCorrect = cluster.items.every((it) => isQuestionCorrect(selectedTabIdx, it.qIdx, it.question));
+                                        const anyCorrect = cluster.items.some((it) => isQuestionCorrect(selectedTabIdx, it.qIdx, it.question));
+                                        const clusterBorder = allCorrect
+                                            ? 'border-emerald-200 dark:border-emerald-900/60'
+                                            : anyCorrect
+                                                ? 'border-sky-200 dark:border-sky-900/60'
+                                                : 'border-rose-200 dark:border-rose-900/60';
+
+                                        return (
+                                            <React.Fragment key={cluster.id}>
+                                                {cluster.mondaiGroup && (
+                                                    <ListeningMondaiSectionBanner
+                                                        group={cluster.mondaiGroup}
+                                                        isListening={listeningMondaiData.isListening}
+                                                        sharedAudioUrl={mondaiSharedAudioUrls[cluster.mondaiGroup.mondai] || ''}
+                                                        compactAudio
                                                     />
-                                                </div>
-                                            )}
+                                                )}
+                                                {cluster.isPassageCluster ? (
+                                                    <div className={`bg-white dark:bg-slate-900 border-2 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-xs space-y-5 ${clusterBorder}`}>
+                                                        <div className="flex items-center justify-between gap-2 pb-2.5 border-b border-slate-100 dark:border-slate-800">
+                                                            <span className="inline-flex items-center gap-1.5 text-xs font-black text-emerald-700 dark:text-emerald-300 uppercase tracking-wider">
+                                                                <BookOpen className="w-4 h-4 text-emerald-500" />
+                                                                <span>
+                                                                    {cluster.items.length > 1
+                                                                        ? `Bài đọc chung · ${cluster.items.length} câu hỏi (Câu ${cluster.items[0].qIdx + 1} – Câu ${cluster.items[cluster.items.length - 1].qIdx + 1})`
+                                                                        : `Bài đọc hiểu · Câu ${cluster.items[0].qIdx + 1}`}
+                                                                </span>
+                                                            </span>
+                                                        </div>
 
-                                            {/* Note & Teacher Correction Container */}
-                                            {renderReviewNoteContainer(selectedTabIdx, qIdx)}
-                                        </div>
-                                    );
-                                })}
+                                                        <InteractiveReadingPassage
+                                                            passageHtml={cluster.passageHtml}
+                                                            passageData={cluster.passageData}
+                                                            explanationText={cluster.explanationText}
+                                                            question={cluster.firstQuestion}
+                                                            isRealExam={false}
+                                                        />
+
+                                                        <div className="divide-y divide-slate-200/80 dark:divide-slate-800 space-y-5">
+                                                            {cluster.items.map((item) => renderReviewQuestionItem(item, true))}
+                                                        </div>
+                                                    </div>
+                                                ) : (
+                                                    renderReviewQuestionItem(cluster.items[0], false)
+                                                )}
+                                            </React.Fragment>
+                                        );
+                                    });
+                                })()}
                             </div>
                         </div>
                     </main>
@@ -989,15 +1138,19 @@ const JLPTTestResultView = ({
                                         <div className="grid grid-cols-5 gap-1.5">
                                             {activeTest?.sections?.[sIdx]?.questions?.map((q, qIdx) => {
                                                 const correct = isQuestionCorrect(sIdx, qIdx, q);
+                                                const secMeta = activeTest?.sections?.[sIdx];
+                                                const qDisplay = secMeta?.type === 'listening'
+                                                    ? getListeningDisplayMeta(q, qIdx, secMeta.title, secMeta.type).pairCode
+                                                    : (qIdx + 1);
                                                 return (
                                                     <button
                                                         key={qIdx}
                                                         onClick={() => scrollToQuestion(sIdx, qIdx)}
-                                                        className={`h-7.5 rounded-lg text-xs font-bold flex items-center justify-center ${
+                                                        className={`h-7.5 rounded-lg text-[11px] font-bold flex items-center justify-center ${
                                                             correct ? 'bg-emerald-500 text-white' : 'bg-rose-500 text-white'
                                                         }`}
                                                     >
-                                                        {qIdx + 1}
+                                                        {qDisplay}
                                                     </button>
                                                 );
                                             })}
@@ -1024,6 +1177,17 @@ const JLPTTestResultView = ({
                         onSave={handleSaveQuestionHtml} 
                     />
                 )}
+
+                {aiImageTarget && onSaveQuestionImage && (
+                    <AiImageRecreatorModal
+                        isOpen={!!aiImageTarget}
+                        onClose={() => setAiImageTarget(null)}
+                        storagePrefix={`jlpt_images/${(activeTest?.level || 'jlpt').toLowerCase()}`}
+                        questionLabel={aiImageTarget.label}
+                        existingImageUrl={aiImageTarget.existingUrl}
+                        onSaveImage={(url) => onSaveQuestionImage(aiImageTarget.sIdx, aiImageTarget.qIdx, url)}
+                    />
+                )}
             </div>
         );
     }
@@ -1041,14 +1205,32 @@ const JLPTTestResultView = ({
                         {passed ? <Award className="w-10 h-10" /> : <AlertTriangle className="w-10 h-10" />}
                     </div>
                     <h2 className="text-2xl sm:text-3xl font-black mb-1">
-                        {passed ? '🎉 Chúc mừng bạn đã vượt qua!' : '💪 Hãy tiếp tục cố gắng hơn!'}
+                        {passed
+                            ? '🎉 Chúc mừng bạn đã vượt qua!'
+                            : (results?.jlptScore?.failedByCutoffOnly
+                                ? '⚠️ Trượt do dưới điểm liệt!'
+                                : '💪 Hãy tiếp tục cố gắng hơn!')}
                     </h2>
-                    <div className="text-5xl sm:text-6xl font-black my-3 font-mono tracking-tight">
-                        {results?.percentage ?? Math.round((correctCount / Math.max(1, totalQ)) * 100)}%
-                    </div>
-                    <p className="text-base sm:text-lg font-bold opacity-90">
-                        {correctCount}/{totalQ} câu trả lời chính xác
-                    </p>
+                    {results?.jlptScore ? (
+                        <div className="my-3">
+                            <div className="text-5xl sm:text-6xl font-black font-mono tracking-tight">
+                                {results.jlptScore.totalScore}
+                                <span className="text-2xl sm:text-3xl opacity-75">/{results.jlptScore.maxScore}</span>
+                            </div>
+                            <p className="text-xs sm:text-sm font-bold opacity-90 mt-1">
+                                Điểm quy đổi chuẩn JLPT · {results?.percentage ?? Math.round((correctCount / Math.max(1, totalQ)) * 100)}% ({correctCount}/{totalQ} câu đúng)
+                            </p>
+                        </div>
+                    ) : (
+                        <>
+                            <div className="text-5xl sm:text-6xl font-black my-3 font-mono tracking-tight">
+                                {results?.percentage ?? Math.round((correctCount / Math.max(1, totalQ)) * 100)}%
+                            </div>
+                            <p className="text-base sm:text-lg font-bold opacity-90">
+                                {correctCount}/{totalQ} câu trả lời chính xác
+                            </p>
+                        </>
+                    )}
                     <p className="text-xs opacity-80 mt-1">
                         {wasRealExam ? (
                             <>Thời gian hoàn thành: {formatTime(timeTaken)} / {activeTest.timeLimit} phút (Thi thực tế)</>
@@ -1057,6 +1239,11 @@ const JLPTTestResultView = ({
                         )}
                     </p>
                 </div>
+
+                {/* Official JLPT Scaled Score Breakdown (DungMori 2024 + Legacy Extrapolated) */}
+                {results?.jlptScore && (
+                    <JlptScoreBreakdownCard jlptScore={results.jlptScore} />
+                )}
 
                 {/* Section Scores Grid */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

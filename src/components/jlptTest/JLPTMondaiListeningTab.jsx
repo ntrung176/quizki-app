@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
     Headphones, Play, RotateCcw, CheckCircle2, Lock, Unlock,
-    Layers, Sparkles, ArrowLeft, Award, Clock, PlusCircle, Loader2
+    Layers, Sparkles, ArrowLeft, Award, Clock, PlusCircle, Loader2, Edit3, Trash2
 } from 'lucide-react';
 import { ROUTES } from '../../router';
 import { LEVEL_GRADIENTS, getTestQuestionCount } from './jlptConstants';
@@ -22,6 +22,8 @@ const JLPTMondaiListeningTab = ({
     selectedLevel = 'N3',
     searchQuery = '',
     canEdit = false,
+    onEditTest = null,
+    onDeleteTest = null,
     hasPremiumAccess = false,
     startTest,
     reviewTest,
@@ -299,7 +301,36 @@ const JLPTMondaiListeningTab = ({
                                         </div>
                                     </div>
 
-                                    <div className="pt-2.5 border-t border-slate-100 dark:border-slate-800 flex justify-end">
+                                    <div className="pt-2.5 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between gap-2">
+                                        <div className="flex items-center gap-1.5">
+                                            {canEdit && onEditTest && (
+                                                <button
+                                                    type="button"
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        onEditTest(test);
+                                                    }}
+                                                    className="px-2.5 py-1.5 rounded-xl bg-sky-50 hover:bg-sky-100 dark:bg-sky-950/60 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800 text-[11px] font-black flex items-center gap-1 cursor-pointer"
+                                                    title="Sửa trực tiếp bộ nghe này"
+                                                >
+                                                    <Edit3 className="w-3.5 h-3.5" />
+                                                    <span>Sửa đề</span>
+                                                </button>
+                                            )}
+                                            {canEdit && onDeleteTest && (
+                                                <button
+                                                    type="button"
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        onDeleteTest(test);
+                                                    }}
+                                                    className="p-1.5 rounded-xl text-slate-400 hover:text-rose-500 hover:bg-rose-50 dark:hover:bg-rose-950/40 transition cursor-pointer"
+                                                    title="Xóa bài nghe này"
+                                                >
+                                                    <Trash2 className="w-4 h-4" />
+                                                </button>
+                                            )}
+                                        </div>
                                         {status === 'completed' ? (
                                             <button
                                                 type="button"

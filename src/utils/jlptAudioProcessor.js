@@ -8,7 +8,13 @@
  */
 import { ref, uploadBytesResumable, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { storage } from '../config/firebase';
-import { getWhisperApiConfig } from './aiProvider';
+import { callAI, getWhisperApiConfig } from './aiProvider';
+import { extractMondaiBoundariesFromSegments } from './jlptWhisperSegments';
+export {
+    groupWhisperSegmentsIntoBlocks,
+    normalizeWhisperCueText,
+    extractMondaiBoundariesFromSegments
+} from './jlptWhisperSegments';
 
 const WHISPER_MAX_CHUNK_SEC = 400; // ~6m40s at 16kHz mono = ~12.8 MB WAV (well under Groq 25MB cap)
 
@@ -38,7 +44,7 @@ export const decodeAudioFile = async (file) => {
 /**
  * Downmixes an AudioBuffer into a mono Float32Array.
  */
-const getMonoChannelData = (audioBuffer) => {
+export const getMonoChannelData = (audioBuffer) => {
     const length = audioBuffer.length;
     const channels = audioBuffer.numberOfChannels;
     if (channels === 1) return audioBuffer.getChannelData(0);
@@ -273,70 +279,6 @@ export const transcribeAudioWithTimestamps = async (audioBuffer, {
 };
 
 /**
- * Heuristically groups Whisper timestamped segments into JLPT Mondai/Question blocks
- * based on spoken cues (問題1..5, 1番..12番, 例) and long silences.
- */
-export const groupWhisperSegmentsIntoBlocks = (segments = [], totalDuration = 0) => {
-    if (!Array.isArray(segments) || segments.length === 0) return [];
-
-    const fullDigit = (str) => str.replace(/[０-９]/g, (c) => String.fromCharCode(c.charCodeAt(0) - 0xFEE0));
-    let currentMondai = 1;
-    const blocks = [];
-    let currentBlock = null;
-
-    const flush = () => {
-        if (currentBlock && currentBlock.segments.length > 0) {
-            currentBlock.transcriptJa = currentBlock.segments.map((s) => s.text).join('\n');
-            currentBlock.startSec = Number(Math.max(0, currentBlock.segments[0].start - 0.3).toFixed(1));
-            currentBlock.endSec = Number(Math.min(totalDuration || currentBlock.segments.at(-1).end + 2, currentBlock.segments.at(-1).end + 1.2).toFixed(1));
-            blocks.push(currentBlock);
-        }
-        currentBlock = null;
-    };
-
-    for (let i = 0; i < segments.length; i++) {
-        const seg = segments[i];
-        const norm = fullDigit(seg.text || '');
-
-        const mondaiMatch = norm.match(/問題\s*([1-5])/);
-        if (mondaiMatch) {
-            currentMondai = Number(mondaiMatch[1]);
-        }
-
-        const banMatch = norm.match(/(?:^|\s|。|、)([1-9]|1[0-4])\s*番(?:\s|。|$|、)/);
-        const prevEnd = currentBlock?.segments?.at(-1)?.end ?? seg.start;
-        const gapFromPrev = seg.start - prevEnd;
-
-        if (banMatch) {
-            flush();
-            currentBlock = {
-                mondai: currentMondai,
-                questionNumber: Number(banMatch[1]),
-                segments: [seg]
-            };
-        } else if (!currentBlock) {
-            currentBlock = {
-                mondai: currentMondai,
-                questionNumber: blocks.length + 1,
-                segments: [seg]
-            };
-        } else if (gapFromPrev >= 6.5 && currentBlock.segments.length >= 2) {
-            flush();
-            currentBlock = {
-                mondai: currentMondai,
-                questionNumber: (blocks.at(-1)?.questionNumber || 0) + 1,
-                segments: [seg]
-            };
-        } else {
-            currentBlock.segments.push(seg);
-        }
-    }
-    flush();
-
-    return blocks;
-};
-
-/**
  * Uploads an audio or image Blob/File to Firebase Storage and returns its public download URL.
  */
 export const uploadFileToFirebaseStorage = (fileOrBlob, storagePath, onProgress = () => {}) => {
@@ -380,4 +322,154 @@ export const formatTimeShort = (sec = 0) => {
     const m = Math.floor(safe / 60);
     const s = safe % 60;
     return `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+};
+
+const blobToBase64 = (blob) => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onloadend = () => {
+        const res = String(reader.result || '');
+        const commaIdx = res.indexOf(',');
+        resolve(commaIdx !== -1 ? res.slice(commaIdx + 1) : res);
+    };
+    reader.onerror = () => reject(new Error('Không thể chuyển Blob audio sang base64.'));
+    reader.readAsDataURL(blob);
+});
+
+const parseGeminiCuesJson = (raw = '') => {
+    const text = String(raw || '').trim();
+    const fence = text.match(/```(?:json)?\s*([\s\S]*?)```/i);
+    const body = fence ? fence[1].trim() : text;
+    try {
+        return JSON.parse(body);
+    } catch {
+        const firstBrace = body.indexOf('{');
+        const lastBrace = body.lastIndexOf('}');
+        if (firstBrace !== -1 && lastBrace > firstBrace) {
+            return JSON.parse(body.slice(firstBrace, lastBrace + 1));
+        }
+        return null;
+    }
+};
+
+/**
+ * Fast AI Mondai Boundary Scanner ("Mondai ichi", "Mondai ni", "問題1..5", "1番", outro).
+ * Primary: Groq/OpenAI Whisper verbose_json at compact 8 kHz mono chunks (2 concurrent requests).
+ * Fallback: OpenRouter Gemini 2.5 Flash multimodal `input_audio` when no Whisper API key is configured.
+ */
+export const detectMondaiBoundariesWithAI = async (audioBuffer, {
+    level = 'N3',
+    trimIntroAndExample = false,
+    onProgress = () => {},
+    signal = null
+} = {}) => {
+    if (!audioBuffer) throw new Error('Chưa có dữ liệu Audio đã giải mã.');
+    const totalDuration = audioBuffer.duration;
+    const { silences } = detectSilenceSegments(audioBuffer, { minSilenceSec: 1.5, minSegmentSec: 6 });
+
+    let hasWhisperKey = false;
+    try {
+        await getWhisperApiConfig();
+        hasWhisperKey = true;
+    } catch {
+        hasWhisperKey = false;
+    }
+
+    const maxChunkSec = hasWhisperKey ? 620 : 140; // 8kHz mono WAV: 620s ~ 9.9MB (Groq), 140s ~ 2.2MB (Gemini)
+    const boundaries = [0];
+    let lastBoundary = 0;
+    while (totalDuration - lastBoundary > maxChunkSec) {
+        const idealEnd = lastBoundary + maxChunkSec;
+        const candidate = silences
+            .map((s) => (s.startSec + s.endSec) / 2)
+            .filter((t) => t > lastBoundary + 45 && t <= idealEnd)
+            .pop();
+        const nextBoundary = candidate ? Number(candidate.toFixed(2)) : Number(idealEnd.toFixed(2));
+        boundaries.push(nextBoundary);
+        lastBoundary = nextBoundary;
+    }
+    boundaries.push(Number(totalDuration.toFixed(2)));
+
+    const chunkJobs = [];
+    for (let i = 0; i < boundaries.length - 1; i++) {
+        chunkJobs.push({ index: i, start: boundaries[i], end: boundaries[i + 1] });
+    }
+
+    const allSegments = [];
+    const totalChunks = chunkJobs.length;
+    let completed = 0;
+
+    if (hasWhisperKey) {
+        // Run Whisper chunks with concurrency=2 for fast parallel Mondai keyword scan
+        const CONCURRENCY = 2;
+        for (let i = 0; i < chunkJobs.length; i += CONCURRENCY) {
+            if (signal?.aborted) throw new Error('Đã hủy quét AI.');
+            const batch = chunkJobs.slice(i, i + CONCURRENCY);
+            const batchResults = await Promise.all(batch.map(async (job) => {
+                const wavBlob = encodeAudioSliceToWavBlob(audioBuffer, job.start, job.end, 8000);
+                const result = await callWhisperVerboseSTT(wavBlob, 'ja', signal);
+                completed += 1;
+                onProgress({
+                    percent: Math.round((completed / totalChunks) * 90),
+                    detail: `Whisper đang nghe tìm Mondai (${completed}/${totalChunks} đoạn)...`
+                });
+                return (result.segments || [])
+                    .filter((seg) => seg.text)
+                    .map((seg) => ({
+                        start: Number((job.start + seg.start).toFixed(2)),
+                        end: Number((job.start + seg.end).toFixed(2)),
+                        text: seg.text
+                    }));
+            }));
+            batchResults.forEach((list) => allSegments.push(...list));
+        }
+    } else {
+        for (let i = 0; i < chunkJobs.length; i++) {
+            if (signal?.aborted) throw new Error('Đã hủy quét AI.');
+            const job = chunkJobs[i];
+            onProgress({
+                percent: Math.round((i / totalChunks) * 90),
+                detail: `Gemini AI đang nghe tìm từ khóa Mondai (${i + 1}/${totalChunks})...`
+            });
+            const wavBlob = encodeAudioSliceToWavBlob(audioBuffer, job.start, job.end, 8000);
+            const base64Audio = await blobToBase64(wavBlob);
+            const chunkLen = (job.end - job.start).toFixed(1);
+            const raw = await callAI([
+                {
+                    type: 'text',
+                    text: `Nghe đoạn audio JLPT ${level} dài ${chunkLen} giây này. Tìm MỌI thời điểm (offsetSec tính từ 0.0 đầu đoạn clip) mà người đọc nói:
+- "問題1 / もんだいいち / Mondai ichi", "問題2 / もんだいに / Mondai ni", "問題3 / もんだいさん", "問題4 / もんだいよん", "問題5 / もんだいご"
+- "例 / れい" (Ví dụ)
+- Câu mở đầu "1番 / いちばん"
+- Câu kết thúc "これで聴解試験を終わります"
+Trả về DUY NHẤT JSON: { "cues": [{ "offsetSec": 12.5, "text": "問題2。問題2では..." }] }`
+                },
+                { type: 'input_audio', input_audio: { data: base64Audio, format: 'wav' } }
+            ], 'google/gemini-2.5-flash', 'pdf_ingest', 1200);
+
+            const parsed = parseGeminiCuesJson(raw);
+            (parsed?.cues || []).forEach((c) => {
+                const offset = Number(c?.offsetSec);
+                if (!Number.isFinite(offset) || !c?.text) return;
+                allSegments.push({
+                    start: Number((job.start + Math.max(0, offset)).toFixed(2)),
+                    end: Number((job.start + Math.max(0, offset + 2)).toFixed(2)),
+                    text: String(c.text)
+                });
+            });
+        }
+    }
+
+    onProgress({ percent: 95, detail: 'Đang khớp mốc Mondai & từ khóa chuyển phần...' });
+    const extracted = extractMondaiBoundariesFromSegments(allSegments, {
+        totalDuration,
+        level,
+        trimIntroAndExample
+    });
+
+    onProgress({ percent: 100, detail: `Nhận diện được ${extracted.detectedCount} Mondai!` });
+    return {
+        ...extracted,
+        engine: hasWhisperKey ? 'whisper' : 'gemini',
+        segmentsCount: allSegments.length
+    };
 };

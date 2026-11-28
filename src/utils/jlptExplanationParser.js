@@ -207,7 +207,7 @@ export function parseJlptExplanation(rawText, options = [], correctIndex = -1) {
 
     // 1. Extract Tips
     let tips = '';
-    const tipsMatch = text.match(/(?:💡\s*Mẹo làm bài|Mẹo làm bài|💡\s*Mẹo ghi nhớ|Mẹo ghi nhớ|💡\s*Lưu ý|Lưu ý ngữ pháp|Bí quyết & Mẹo làm bài nhanh|💡\s*BÍ QUYẾT & MẸO LÀM BÀI NHANH|Mẹo tránh bẫy)\s*[:：]\s*([\s\S]*?)(?=(?:📖|❇|$))/i);
+    const tipsMatch = text.match(/(?:💡\s*Mẹo làm bài|Mẹo làm bài|💡\s*Mẹo ghi nhớ|Mẹo ghi nhớ|💡\s*Lưu ý|Lưu ý ngữ pháp|Bí quyết & Mẹo làm bài nhanh|💡\s*BÍ QUYẾT & MẸO LÀM BÀI NHANH|Mẹo tránh bẫy)\s*[:：]\s*([\s\S]*?)(?=(?:📖|📌|❇|$))/i);
     if (tipsMatch) {
         tips = tipsMatch[1].trim();
         text = text.replace(tipsMatch[0], '').trim();
@@ -215,7 +215,7 @@ export function parseJlptExplanation(rawText, options = [], correctIndex = -1) {
 
     // 2. Extract Detailed Explanation Block ("📖 Căn cứ & Giải thích chi tiết:")
     let detailedExplanation = '';
-    const detailMatch = text.match(/(?:📖\s*Căn cứ\s*(?:&|và)\s*Giải thích chi tiết|Căn cứ\s*(?:&|và)\s*Giải thích chi tiết)\s*[:：]\s*([\s\S]*?)(?=(?:💡|📖\s*Từ vựng|❇|$))/i);
+    const detailMatch = text.match(/(?:📖\s*Căn cứ\s*(?:&|và)\s*Giải thích chi tiết|Căn cứ\s*(?:&|và)\s*Giải thích chi tiết)\s*[:：]\s*([\s\S]*?)(?=(?:📌|💡|📖\s*Dịch|📖\s*Từ vựng|❇|$))/i);
     if (detailMatch) {
         detailedExplanation = detailMatch[1].trim();
         text = text.replace(detailMatch[0], '').trim();
@@ -325,7 +325,7 @@ export function parseJlptExplanation(rawText, options = [], correctIndex = -1) {
 
     // 7. Extract Translation
     let translation = '';
-    const transMatch = text.match(/(?:📖\s*Dịch câu hỏi|Dịch câu hỏi|📖\s*Dịch bài đọc|Dịch nghĩa|Bản dịch|📖\s*Dịch)\s*[:：]\s*([\s\S]*?)(?=(?:💡|📖\s*Từ vựng|❇|$))/i);
+    const transMatch = text.match(/(?:📖\s*Dịch câu hỏi|Dịch câu hỏi|📖\s*Dịch bài đọc|Dịch nghĩa|Bản dịch|📖\s*Dịch)\s*[:：]\s*([\s\S]*?)(?=(?:📌|💡|📖\s*Căn cứ|📖\s*Trích dẫn|📖\s*Từ vựng|❇|$))/i);
     if (transMatch) {
         translation = transMatch[1].trim();
     } else if (sentences.length > 0) {
@@ -350,7 +350,7 @@ export function parseJlptExplanation(rawText, options = [], correctIndex = -1) {
     }
 
     correctReason = correctReason
-        .replace(/^\([a-d1-4]\)\s*[^–\n]*\n?/i, '')
+        .replace(/^\([a-d1-4]\)\s*[^\n]*\n+(?=[–-]|Lý do)/i, '')
         .replace(/(?:Trích dẫn|Phân tích|Căn cứ)[\s\S]*$/i, '')
         .trim();
 
@@ -452,15 +452,91 @@ export function parseJlptExplanation(rawText, options = [], correctIndex = -1) {
 }
 
 /**
+ * Normalizes pre-generated passageData fields so InteractiveReadingPassage and SentenceBreakdownModal
+ * share a consistent schema (`jp`, `rawJp`, `vi`, `vocab`, `grammar`, `vocabList`, `grammarPoints`).
+ */
+const normalizeStructuredPassageData = (existingPassageData, rawPassageHtml = '') => {
+    const cleanPassage = cleanHtmlText(rawPassageHtml || existingPassageData?.japanese || existingPassageData?.rawJapanese || '');
+    const normalizedSentences = (existingPassageData.sentences || [])
+        .filter((s) => s && (s.jp || s.rawJp))
+        .map((s) => {
+            const jpText = String(s.jp || s.rawJp || '').trim();
+            const vocab = Array.isArray(s.vocab)
+                ? s.vocab
+                    .filter((v) => v && v.w)
+                    .map((v) => ({
+                        w: String(v.w || '').trim(),
+                        read: String(v.read || v.w || '').trim(),
+                        vi: String(v.vi || v.meaning || '').trim()
+                    }))
+                : [];
+            const grammar = Array.isArray(s.grammar)
+                ? s.grammar
+                    .filter((g) => g && g.point)
+                    .map((g) => {
+                        const meaning = String(g.vi || g.meaning || '').trim();
+                        return {
+                            point: String(g.point || '').trim(),
+                            vi: meaning,
+                            meaning,
+                            structure: String(g.structure || '').trim()
+                        };
+                    })
+                : [];
+            return {
+                jp: jpText,
+                rawJp: String(s.rawJp || jpText).replace(/<\/?[^>]+(>|$)/g, '').trim(),
+                vi: String(s.vi || '').trim(),
+                reading: String(s.reading || '').trim(),
+                vocab,
+                grammar
+            };
+        });
+
+    const vocabList = Array.isArray(existingPassageData.vocabList) && existingPassageData.vocabList.length > 0
+        ? existingPassageData.vocabList
+        : (() => {
+            const seen = new Set();
+            const merged = [];
+            normalizedSentences.forEach((s) => {
+                (s.vocab || []).forEach((v) => {
+                    const key = `${v.w}_${v.read}`;
+                    if (!seen.has(key) && v.vi) {
+                        seen.add(key);
+                        merged.push(v);
+                    }
+                });
+            });
+            return merged;
+        })();
+
+    return {
+        title: String(existingPassageData.title || 'Đọc hiểu chuyên sâu').trim(),
+        titleVi: String(existingPassageData.titleVi || '').trim(),
+        japanese: cleanPassage,
+        rawJapanese: cleanPassage,
+        vietnamese: String(existingPassageData.vietnamese || '').trim(),
+        sentences: normalizedSentences,
+        grammarPoints: Array.isArray(existingPassageData.grammarPoints) ? existingPassageData.grammarPoints : [],
+        vocabList
+    };
+};
+
+/**
  * Builds interactive passageData for any reading passage dynamically
  */
 export function buildInteractivePassageData(passageHtmlOrText, explanationText = '', existingPassageData = null) {
-    if (existingPassageData && existingPassageData.sentences && existingPassageData.sentences.length > 0) {
-        return existingPassageData;
+    if (existingPassageData && Array.isArray(existingPassageData.sentences) && existingPassageData.sentences.length > 0) {
+        return normalizeStructuredPassageData(existingPassageData, passageHtmlOrText);
     }
 
-    const rawPassage = passageHtmlOrText || existingPassageData?.japanese || existingPassageData?.rawJapanese || '';
-    const cleanPassage = cleanHtmlText(rawPassage);
+    const rawSource = String(passageHtmlOrText || existingPassageData?.japanese || existingPassageData?.rawJapanese || '');
+    // Preserve block/table line boundaries before stripping HTML tags
+    const blockPreserved = rawSource
+        .replace(/<\/(?:p|div|li|tr|h[1-6])>/gi, '\n')
+        .replace(/<br\s*\/?>/gi, '\n')
+        .replace(/<\/(?:td|th)>/gi, ' · ');
+    const cleanPassage = cleanHtmlText(blockPreserved);
     if (!cleanPassage && !explanationText) return null;
 
     const parsedExp = parseJlptExplanation(explanationText);

@@ -70,19 +70,22 @@ YÊU CẦU 2: TẠO GIẢI THÍCH SIÊU NGẮN GỌN ("RẤT NGẮN ĐỌC VÀ H
 ✅ Lựa chọn chính xác:
 [Chỉ 1 câu ngắn gọn nêu trực diện lý do phương án này đúng, giải thích thẳng vào trọng tâm]
 
+📖 Dịch câu hỏi:
+[Dịch tự nhiên câu đề / câu hỏi / ý chốt chính sang tiếng Việt trong 1–2 câu để người học hình dung ngữ cảnh ngay]
+
 ${cleanPassage ? `📖 Trích dẫn: 「...」\n[Chỉ trích 1 câu ngắn then chốt chứa thông tin trong bài đọc/đoạn văn]\n` : ''}
 📌 Phân tích các phương án:
-✗ (a) [1 dòng siêu ngắn chỉ ra lỗi sai của phương án A - chỉ viết nếu A sai]
-✗ (b) [1 dòng siêu ngắn chỉ ra lỗi sai của phương án B - chỉ viết nếu B sai]
-✗ (c) [1 dòng siêu ngắn chỉ ra lỗi sai của phương án C - chỉ viết nếu C sai]
-✗ (d) [1 dòng siêu ngắn chỉ ra lỗi sai của phương án D - chỉ viết nếu D sai]
+✗ (a) [1 dòng siêu ngắn: nghĩa + lý do phương án A sai - chỉ viết nếu A sai]
+✗ (b) [1 dòng siêu ngắn: nghĩa + lý do phương án B sai - chỉ viết nếu B sai]
+✗ (c) [1 dòng siêu ngắn: nghĩa + lý do phương án C sai - chỉ viết nếu C sai]
+✗ (d) [1 dòng siêu ngắn: nghĩa + lý do phương án D sai - chỉ viết nếu D sai]
 (LƯU Ý: Chỉ liệt kê các phương án SAI với dấu ✗. Tuyệt đối KHÔNG liệt kê phương án đúng trong mục 📌 Phân tích các phương án)
 
 📖 Căn cứ & Giải thích chi tiết:
-[Chỉ 1-2 câu ngắn hoặc 2-3 gạch đầu dòng siêu súc tích làm sáng tỏ bản chất (ngữ pháp, từ vựng hoặc công thức tính toán). Đọc là hiểu ngay]
+[Chỉ 1-2 câu ngắn hoặc 2-3 gạch đầu dòng siêu súc tích làm sáng tỏ bản chất (ngữ pháp, từ vựng hoặc công thức). Đọc là hiểu ngay]
 
 💡 Mẹo làm bài:
-[Chỉ 1 câu mẹo ngắn đắt giá hoặc dấu hiệu nhận biết nhanh]
+[Chỉ 1 câu mẹo ngắn đắt giá giúp hình dung nhanh hoặc dấu hiệu nhận biết]
 
 =======================================================
 ĐỊNH DẠNG TRẢ VỀ:
@@ -92,7 +95,7 @@ Trả về DUY NHẤT một chuỗi JSON hợp lệ (không kèm markdown ngoài
   "detectedCorrectLetter": "A", // "A", "B", "C" hoặc "D"
   "isCurrentAnswerCorrect": true, // boolean so sánh với ${currentCorrectIndex}
   "mismatchNotice": null, // Nếu sai thì ghi rõ: "Đáp án cấu hình là ${currentLetter} bị sai. Đáp án đúng thực sự là [X] vì...", nếu đúng ghi null
-  "explanation": "✅ Lựa chọn chính xác: ...\\n\\n📌 Phân tích các phương án: ...\\n\\n📖 Căn cứ & Giải thích chi tiết: ...\\n\\n💡 Mẹo làm bài: ..."
+  "explanation": "✅ Lựa chọn chính xác: ...\\n\\n📖 Dịch câu hỏi: ...\\n\\n📌 Phân tích các phương án:\\n✗ (b) ...\\n\\n📖 Căn cứ & Giải thích chi tiết: ...\\n\\n💡 Mẹo làm bài: ..."
 }`;
 
     const rawResponse = await callAI(prompt, null, 'jlpt_explain', 2000);
@@ -132,6 +135,224 @@ Trả về DUY NHẤT một chuỗi JSON hợp lệ (không kèm markdown ngoài
         isCurrentAnswerCorrect: isCorrect,
         mismatchNotice: parsed.mismatchNotice || (!isCorrect ? `Đáp án đúng là ${safeLetter}, khác với ${currentLetter} đang chọn.` : null),
         explanation: (parsed.explanation || '').trim()
+    };
+};
+
+const stripPassageToReadableText = (html = '') => {
+    return String(html || '')
+        .replace(/<\/(?:p|div|li|tr|h[1-6])>/gi, '\n')
+        .replace(/<br\s*\/?>/gi, '\n')
+        .replace(/<\/(?:td|th)>/gi, ' | ')
+        .replace(/<\/?[a-z][\s\S]*?>/gi, '')
+        .replace(/[ \t]+/g, ' ')
+        .replace(/\n{3,}/g, '\n\n')
+        .trim();
+};
+
+/**
+ * Normalizes passageData produced either by Gemini Pro Neon external JSON or internal AI batch analyzer.
+ */
+export const normalizePassageBreakdownPayload = (rawPd, passageHtml = '') => {
+    if (!rawPd || typeof rawPd !== 'object') return null;
+    const rawSentences = Array.isArray(rawPd.sentences) ? rawPd.sentences : [];
+    const sentences = rawSentences
+        .filter((s) => s && (s.jp || s.rawJp))
+        .map((s) => {
+            const jp = String(s.jp || s.rawJp || '').trim();
+            const vocab = Array.isArray(s.vocab)
+                ? s.vocab
+                    .filter((v) => v && v.w)
+                    .map((v) => ({
+                        w: String(v.w || '').trim(),
+                        read: String(v.read || v.w || '').trim(),
+                        vi: String(v.vi || v.meaning || '').trim()
+                    }))
+                : [];
+            const grammar = Array.isArray(s.grammar)
+                ? s.grammar
+                    .filter((g) => g && g.point)
+                    .map((g) => {
+                        const vi = String(g.vi || g.meaning || '').trim();
+                        return {
+                            point: String(g.point || '').trim(),
+                            vi,
+                            meaning: vi,
+                            structure: String(g.structure || '').trim()
+                        };
+                    })
+                : [];
+            return {
+                jp,
+                rawJp: jp.replace(/<\/?[^>]+(>|$)/g, '').trim(),
+                vi: String(s.vi || '').trim(),
+                vocab,
+                grammar
+            };
+        });
+
+    const vietnamese = String(rawPd.vietnamese || '').trim()
+        || sentences.map((s) => s.vi).filter(Boolean).join(' ');
+
+    if (sentences.length === 0 && !vietnamese) return null;
+
+    const vocabList = [];
+    const seenVocab = new Set();
+    sentences.forEach((s) => {
+        (s.vocab || []).forEach((v) => {
+            const key = `${v.w}_${v.read}`;
+            if (!seenVocab.has(key) && v.vi) {
+                seenVocab.add(key);
+                vocabList.push(v);
+            }
+        });
+    });
+
+    const grammarPoints = [];
+    const seenGrammar = new Set();
+    sentences.forEach((s, idx) => {
+        (s.grammar || []).forEach((g) => {
+            if (!seenGrammar.has(g.point)) {
+                seenGrammar.add(g.point);
+                grammarPoints.push({ ...g, sentenceIdx: idx });
+            }
+        });
+    });
+
+    const cleanJp = stripPassageToReadableText(passageHtml || rawPd.japanese || rawPd.rawJapanese || '');
+    return {
+        title: String(rawPd.title || 'Đọc hiểu chuyên sâu').trim(),
+        titleVi: String(rawPd.titleVi || '').trim(),
+        japanese: cleanJp,
+        rawJapanese: cleanJp,
+        vietnamese,
+        sentences,
+        vocabList,
+        grammarPoints
+    };
+};
+
+export const hasRichReadingAnalysis = (q) => {
+    const pd = q?.passageData;
+    if (!pd || !Array.isArray(pd.sentences) || pd.sentences.length === 0) return false;
+    return Boolean(pd.vietnamese) && pd.sentences.some((s) => Boolean(s?.vi));
+};
+
+/**
+ * Uses AI (Gemini 2.5 Flash) to generate full Vietnamese translation + per-sentence vocab & grammar breakdown
+ * for a single JLPT reading passage so learners get instant interactive breakdowns in Practice Mode.
+ */
+export const aiAnalyzeReadingPassage = async ({
+    passageHtml = '',
+    level = 'N3'
+} = {}) => {
+    const cleanText = stripPassageToReadableText(passageHtml);
+    if (!cleanText || cleanText.length < 10) {
+        throw new Error('Đoạn văn quá ngắn hoặc rỗng, không thể phân tích.');
+    }
+
+    const prompt = `Bạn là giảng viên JLPT ${level} chuyên đọc hiểu. Hãy phân tích chi tiết BÀI ĐỌC sau sang JSON cho học viên luyện tập (dịch toàn bài + phân tích từng câu với từ vựng & ngữ pháp trọng tâm):
+
+BÀI ĐỌC TIẾNG NHẬT:
+"""
+${cleanText.slice(0, 6500)}
+"""
+
+YÊU CẦU:
+1. "title": Tên ngắn gọn tiếng Nhật đại diện bài đọc (vd: AとBの意見, 図書館案内...).
+2. "titleVi": Tiêu đề tiếng Việt ngắn gọn (3–8 từ).
+3. "vietnamese": Bản dịch tiếng Việt hoàn chỉnh, tự nhiên, sát nghĩa toàn bộ bài đọc (kể cả ghi chú (注) nếu có).
+4. "sentences": Tách toàn bộ bài đọc thành TỪNG CÂU (hoặc từng mục thông tin rõ ràng nếu là bảng thông báo/tìm kiếm thông tin), theo đúng thứ tự từ đầu đến cuối bài:
+   - "jp": Nguyên văn tiếng Nhật câu/mục đó (giữ nguyên chữ trong bài).
+   - "vi": Dịch nghĩa tiếng Việt chuẩn xác cho riêng câu đó.
+   - "vocab": 1–4 từ vựng / kanji đáng chú ý trong câu (mỗi từ: { "w": "漢字", "read": "hiragana", "vi": "nghĩa ngắn" }).
+   - "grammar": 0–2 mẫu ngữ pháp nổi bật trong câu (mỗi mẫu: { "point": "〜...", "vi": "ý nghĩa & cách dùng siêu ngắn" }).
+
+Trả về DUY NHẤT 1 OBJECT JSON HỢP LỆ (không markdown thừa):
+{
+  "title": "...",
+  "titleVi": "...",
+  "vietnamese": "...",
+  "sentences": [
+    {
+      "jp": "...",
+      "vi": "...",
+      "vocab": [{ "w": "...", "read": "...", "vi": "..." }],
+      "grammar": [{ "point": "...", "vi": "..." }]
+    }
+  ]
+}`;
+
+    const raw = await callAI(prompt, 'google/gemini-2.5-flash', 'jlpt_explain', 4096);
+    const parsed = parseJsonFromAI(raw);
+    const normalized = normalizePassageBreakdownPayload(parsed, passageHtml);
+    if (!normalized) {
+        throw new Error('AI không trả về dữ liệu phân tích hợp lệ cho bài đọc này.');
+    }
+    return normalized;
+};
+
+/**
+ * Batch-analyzes reading passages across one or all sections, deduplicating shared multi-question passages
+ * so each unique passage is analyzed only once by AI.
+ */
+export const aiBatchAnalyzeReadingSections = async (sections = [], {
+    targetSectionIdx = null,
+    level = 'N3',
+    forceAll = false,
+    onProgress = () => {},
+    signal = null
+} = {}) => {
+    const updatedSections = JSON.parse(JSON.stringify(sections || []));
+    const passageTasksMap = new Map(); // normalizedKey -> { passageHtml, targets: [{ sIdx, qIdx }] }
+
+    updatedSections.forEach((sec, sIdx) => {
+        if (targetSectionIdx !== null && sIdx !== targetSectionIdx) return;
+        if (sec?.type === 'listening') return;
+
+        (sec?.questions || []).forEach((q, qIdx) => {
+            const rawHtml = String(q?.passage || '').trim();
+            if (!rawHtml || rawHtml.replace(/<[^>]+>/g, '').trim().length < 20) return;
+            if (!forceAll && hasRichReadingAnalysis(q)) return;
+
+            const key = rawHtml.replace(/\s+/g, ' ').trim();
+            if (!passageTasksMap.has(key)) {
+                passageTasksMap.set(key, { passageHtml: rawHtml, targets: [] });
+            }
+            passageTasksMap.get(key).targets.push({ sIdx, qIdx });
+        });
+    });
+
+    const tasks = Array.from(passageTasksMap.values());
+    if (tasks.length === 0) {
+        return { updatedSections, analyzedCount: 0, totalUnique: 0 };
+    }
+
+    let analyzedCount = 0;
+    for (let i = 0; i < tasks.length; i++) {
+        if (signal?.aborted) break;
+        const task = tasks[i];
+        onProgress({
+            current: i + 1,
+            total: tasks.length,
+            percent: Math.round((i / tasks.length) * 100),
+            detail: `AI đang phân tích bài đọc ${i + 1}/${tasks.length}...`
+        });
+        try {
+            const pd = await aiAnalyzeReadingPassage({ passageHtml: task.passageHtml, level });
+            task.targets.forEach(({ sIdx, qIdx }) => {
+                updatedSections[sIdx].questions[qIdx].passageData = pd;
+            });
+            analyzedCount += 1;
+        } catch (err) {
+            console.warn(`Batch reading analysis failed at passage ${i + 1}:`, err);
+        }
+    }
+
+    onProgress({ current: tasks.length, total: tasks.length, percent: 100, detail: 'Hoàn tất phân tích bài đọc!' });
+    return {
+        updatedSections,
+        analyzedCount,
+        totalUnique: tasks.length
     };
 };
 

@@ -6,6 +6,7 @@ import {
 } from 'lucide-react';
 import { parseJlptExplanation } from '../../utils/jlptExplanationParser';
 import SentenceBreakdownModal from './SentenceBreakdownModal';
+import ListeningScriptBox from './ListeningScriptBox';
 import { speakJapanese } from '../../utils/audio';
 
 const QuestionExplanationCard = ({ 
@@ -19,7 +20,6 @@ const QuestionExplanationCard = ({
     const [isBreakdownModalOpen, setIsBreakdownModalOpen] = useState(false);
     const [breakdownSentenceIdx, setBreakdownSentenceIdx] = useState(0);
     const [playingVocab, setPlayingVocab] = useState(null);
-    const [showScriptVi, setShowScriptVi] = useState(true);
 
     const rawExplanation = question.explanation || question.detail || question.grammarNote || '';
     
@@ -43,7 +43,10 @@ const QuestionExplanationCard = ({
         return res;
     }, [rawExplanation, options, correctIdx, question]);
 
-    const correctLetter = correctIdx >= 0 ? String.fromCharCode(65 + correctIdx) : '';
+    const isListeningItem = Boolean(question?.audioUrl || question?.mondai || question?.spokenQuestion || (Array.isArray(question?.script) && question.script.length > 0));
+    const correctLetter = correctIdx >= 0
+        ? (isListeningItem ? String(correctIdx + 1) : String.fromCharCode(65 + correctIdx))
+        : '';
     const correctOptionText = correctIdx >= 0 && options[correctIdx] ? options[correctIdx] : '';
 
     const handleSpeakVocab = (text, reading = '') => {
@@ -111,62 +114,12 @@ const QuestionExplanationCard = ({
             </div>
 
             {/* 1b. Script Hội Thoại Nghe Hiểu Song Ngữ (nếu có) */}
-            {Array.isArray(question?.script) && question.script.length > 0 && (
-                <div className="bg-white dark:bg-slate-800/95 rounded-2xl p-4 sm:p-5 border border-sky-200 dark:border-sky-900/60 shadow-xs space-y-3">
-                    <div className="flex items-center justify-between gap-2 pb-2 border-b border-slate-100 dark:border-slate-700/60">
-                        <div className="flex items-center gap-2">
-                            <Volume2 className="w-4 h-4 text-sky-500 shrink-0" />
-                            <span className="text-xs font-black uppercase text-sky-700 dark:text-sky-300 tracking-wider">
-                                Script Hội Thoại (Nhật – Việt)
-                            </span>
-                        </div>
-                        <button
-                            type="button"
-                            onClick={() => setShowScriptVi((v) => !v)}
-                            className="px-2.5 py-1 rounded-xl bg-sky-50 hover:bg-sky-100 dark:bg-sky-950/50 text-sky-700 dark:text-sky-300 text-[11px] font-bold cursor-pointer transition"
-                        >
-                            {showScriptVi ? 'Ẩn dịch Việt' : 'Hiện dịch Việt'}
-                        </button>
-                    </div>
-
-                    <div className="space-y-2.5">
-                        {question.script.map((line, lIdx) => {
-                            const sp = String(line.speaker || 'Narrator');
-                            const badgeStyle = sp === 'M'
-                                ? 'bg-sky-100 dark:bg-sky-950/70 text-sky-700 dark:text-sky-300 border-sky-200 dark:border-sky-800'
-                                : sp === 'F'
-                                    ? 'bg-amber-100 dark:bg-amber-950/70 text-amber-700 dark:text-amber-300 border-amber-200 dark:border-amber-800'
-                                    : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-600';
-                            const spLabel = sp === 'M' ? 'Nam' : sp === 'F' ? 'Nữ' : 'Dẫn';
-
-                            return (
-                                <div key={lIdx} className="flex items-start gap-2.5 p-2.5 rounded-xl bg-slate-50/80 dark:bg-slate-900/60 border border-slate-100 dark:border-slate-800">
-                                    <button
-                                        type="button"
-                                        onClick={() => handleSpeakVocab(line.ja)}
-                                        className="p-1.5 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-400 hover:text-emerald-600 cursor-pointer shrink-0 mt-0.5"
-                                        title="Nghe câu này"
-                                    >
-                                        <Volume2 className={`w-3.5 h-3.5 ${playingVocab === line.ja ? 'text-emerald-500 animate-pulse' : ''}`} />
-                                    </button>
-                                    <span className={`px-2 py-0.5 rounded-md text-[10px] font-black border shrink-0 mt-0.5 ${badgeStyle}`}>
-                                        {spLabel}
-                                    </span>
-                                    <div className="flex-1 min-w-0 space-y-0.5">
-                                        <p className="font-japanese text-xs sm:text-sm font-semibold text-slate-900 dark:text-white leading-relaxed">
-                                            {line.ja || line.text}
-                                        </p>
-                                        {showScriptVi && line.vi && (
-                                            <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-                                                {line.vi}
-                                            </p>
-                                        )}
-                                    </div>
-                                </div>
-                            );
-                        })}
-                    </div>
-                </div>
+            {isListeningItem && (
+                <ListeningScriptBox
+                    question={question}
+                    correctIdx={correctIdx}
+                    revealAnswer
+                />
             )}
 
             {/* 2. Correct Answer Card (Phương án đúng & Lý do đúng) */}
@@ -221,17 +174,21 @@ const QuestionExplanationCard = ({
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                        {parsed.wrongReasons.map((item, idx) => (
+                        {parsed.wrongReasons.map((item, idx) => {
+                            const wrongLabel = isListeningItem && typeof item.idx === 'number' && item.idx >= 0
+                                ? String(item.idx + 1)
+                                : item.option;
+                            return (
                             <div 
                                 key={idx}
                                 className="bg-white/90 dark:bg-slate-800/70 rounded-2xl p-3.5 border border-rose-150 dark:border-rose-950/60 flex items-start gap-2.5 text-xs sm:text-sm shadow-2xs hover:border-rose-300 dark:hover:border-rose-800 transition-colors"
                             >
                                 <span className="w-5.5 h-5.5 rounded-lg bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 font-black text-xs flex items-center justify-center shrink-0 mt-0.5 border border-rose-200 dark:border-rose-900">
-                                    {item.option}
+                                    {wrongLabel}
                                 </span>
                                 <div className="space-y-1.5 min-w-0 flex-1">
                                     <span className="font-black text-[11px] uppercase text-rose-600 dark:text-rose-400 block">
-                                        Phương án {item.option} chưa đúng:
+                                        Phương án {wrongLabel} chưa đúng:
                                     </span>
                                     {item.quote && (
                                         <div className="p-1.5 rounded-lg bg-slate-50 dark:bg-slate-900/60 border border-slate-200/60 dark:border-slate-800 text-[11px] text-slate-600 dark:text-slate-300">
@@ -248,7 +205,8 @@ const QuestionExplanationCard = ({
                                     </p>
                                 </div>
                             </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
             )}

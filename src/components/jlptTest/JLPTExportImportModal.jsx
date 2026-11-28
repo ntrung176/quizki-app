@@ -7,40 +7,7 @@ import {
     ArrowRight, Info
 } from 'lucide-react';
 
-/**
- * Normalizes answer to 0-based index (0, 1, 2, 3)
- */
-export const normalizeAnswerIndex = (rawAnswer, options = []) => {
-    if (typeof rawAnswer === 'number') {
-        // If 1-based (1..4)
-        if (rawAnswer >= 1 && rawAnswer <= options.length) {
-            return rawAnswer - 1;
-        }
-        // If 0-based (0..3)
-        if (rawAnswer >= 0 && rawAnswer < options.length) {
-            return rawAnswer;
-        }
-    }
-    if (typeof rawAnswer === 'string') {
-        const trimmed = rawAnswer.trim().toUpperCase();
-        if (trimmed === 'A' || trimmed === '1') return 0;
-        if (trimmed === 'B' || trimmed === '2') return 1;
-        if (trimmed === 'C' || trimmed === '3') return 2;
-        if (trimmed === 'D' || trimmed === '4') return 3;
-        
-        // Find matching text in options
-        if (Array.isArray(options)) {
-            const foundIdx = options.findIndex(opt => {
-                if (!opt || typeof opt !== 'string') return false;
-                const cleanOpt = opt.replace(/<\/?[^>]+(>|$)/g, '').trim().toLowerCase();
-                const cleanRaw = rawAnswer.replace(/<\/?[^>]+(>|$)/g, '').trim().toLowerCase();
-                return cleanOpt === cleanRaw || (cleanOpt && cleanRaw.includes(cleanOpt));
-            });
-            if (foundIdx !== -1) return foundIdx;
-        }
-    }
-    return 0;
-};
+import { normalizeAnswerIndex, detectBatchOneBasedIndexing } from '../../utils/jlptAnswerIndex';
 
 /**
  * Strips all undefined fields recursively to prevent Firestore setDoc errors
@@ -65,10 +32,12 @@ export const sanitizeDataForFirestore = (data) => {
 /**
  * Builds a clean question object with no undefined fields
  */
-export const buildCleanQuestion = (oldQ = {}, newQ = {}) => {
+export const buildCleanQuestion = (oldQ = {}, newQ = {}, { oneBased = false } = {}) => {
     const optList = Array.isArray(newQ.options) && newQ.options.length > 0 ? newQ.options : (oldQ.options || []);
-    const rawAns = newQ.correctAnswer ?? newQ.answer ?? newQ.correct ?? oldQ.correctAnswer ?? 0;
-    const normalizedAns = normalizeAnswerIndex(rawAns, optList);
+    const newRawAns = newQ.correctAnswer ?? newQ.answer ?? newQ.correct;
+    const hasNewAns = newRawAns !== undefined && newRawAns !== null;
+    const rawAns = hasNewAns ? newRawAns : (oldQ.correctAnswer ?? 0);
+    const normalizedAns = normalizeAnswerIndex(rawAns, optList, { oneBased: hasNewAns ? oneBased : false });
 
     const qObj = {
         ...oldQ,
@@ -92,8 +61,10 @@ export const buildCleanQuestion = (oldQ = {}, newQ = {}) => {
         qObj.subQuestions = newQ.subQuestions.map((sq, sqi) => {
             const oldSq = (oldQ.subQuestions || [])[sqi] || {};
             const sqOpts = Array.isArray(sq.options) && sq.options.length > 0 ? sq.options : (oldSq.options || []);
-            const sqRawAns = sq.correctAnswer ?? sq.answer ?? oldSq.correctAnswer ?? 0;
-            const sqNormAns = normalizeAnswerIndex(sqRawAns, sqOpts);
+            const sqNewRawAns = sq.correctAnswer ?? sq.answer ?? sq.correct;
+            const hasNewSqAns = sqNewRawAns !== undefined && sqNewRawAns !== null;
+            const sqRawAns = hasNewSqAns ? sqNewRawAns : (oldSq.correctAnswer ?? 0);
+            const sqNormAns = normalizeAnswerIndex(sqRawAns, sqOpts, { oneBased: hasNewSqAns ? oneBased : false });
             return {
                 ...oldSq,
                 question: sq.question || oldSq.question || '',
@@ -197,7 +168,7 @@ const JLPTExportImportModal = ({
                 (sec.questions || []).forEach((q, qIdx) => {
                     const rawAns = q.correctAnswer ?? q.answer ?? q.correct ?? 0;
                     const optList = Array.isArray(q.options) ? q.options : [];
-                    const normalizedAnsIdx = normalizeAnswerIndex(rawAns, optList);
+                    const normalizedAnsIdx = normalizeAnswerIndex(rawAns, optList, { oneBased: false });
 
                     const item = {
                         id: globalIdx++,
@@ -219,7 +190,7 @@ const JLPTExportImportModal = ({
                                 subId: sqi + 1,
                                 question: sq.question || '',
                                 options: sqOpts,
-                                correctAnswer: normalizeAnswerIndex(sqAns, sqOpts) + 1,
+                                correctAnswer: normalizeAnswerIndex(sqAns, sqOpts, { oneBased: false }) + 1,
                                 explanation: sq.explanation || sq.detail || ''
                             };
                         });
@@ -237,7 +208,7 @@ const JLPTExportImportModal = ({
             return (sec.questions || []).map((q, qIdx) => {
                 const rawAns = q.correctAnswer ?? q.answer ?? q.correct ?? 0;
                 const optList = Array.isArray(q.options) ? q.options : [];
-                const normalizedAnsIdx = normalizeAnswerIndex(rawAns, optList);
+                const normalizedAnsIdx = normalizeAnswerIndex(rawAns, optList, { oneBased: false });
 
                 const item = {
                     id: qIdx + 1,
@@ -259,7 +230,7 @@ const JLPTExportImportModal = ({
                             subId: sqi + 1,
                             question: sq.question || '',
                             options: sqOpts,
-                            correctAnswer: normalizeAnswerIndex(sqAns, sqOpts) + 1,
+                            correctAnswer: normalizeAnswerIndex(sqAns, sqOpts, { oneBased: false }) + 1,
                             explanation: sq.explanation || sq.detail || ''
                         };
                     });
@@ -346,13 +317,13 @@ ${formattedExportJson}`;
     // Parse and validate imported JSON in realtime
     const importValidation = useMemo(() => {
         if (!jsonInput.trim()) {
-            return { isValid: false, questions: [], error: null, count: 0 };
+            return { isValid: false, questions: [], isOneBased: true, error: null, count: 0 };
         }
 
         try {
             const parsed = cleanAndExtractJson(jsonInput);
             if (!parsed) {
-                return { isValid: false, questions: [], error: 'Không tìm thấy dữ liệu mảng JSON hợp lệ.', count: 0 };
+                return { isValid: false, questions: [], isOneBased: true, error: 'Không tìm thấy dữ liệu mảng JSON hợp lệ.', count: 0 };
             }
 
             let extractedList = [];
@@ -383,7 +354,7 @@ ${formattedExportJson}`;
             }
 
             if (!Array.isArray(extractedList) || extractedList.length === 0) {
-                return { isValid: false, questions: [], error: 'Mảng JSON không chứa danh sách câu hỏi nào.', count: 0 };
+                return { isValid: false, questions: [], isOneBased: true, error: 'Mảng JSON không chứa danh sách câu hỏi nào.', count: 0 };
             }
 
             // Validate that elements resemble questions
@@ -392,12 +363,15 @@ ${formattedExportJson}`;
             });
 
             if (validQuestions.length === 0) {
-                return { isValid: false, questions: [], error: 'Các mục trong JSON không đúng định dạng câu hỏi JLPT (thiếu "question" hoặc "options").', count: 0 };
+                return { isValid: false, questions: [], isOneBased: true, error: 'Các mục trong JSON không đúng định dạng câu hỏi JLPT (thiếu "question" hoặc "options").', count: 0 };
             }
+
+            const isOneBased = detectBatchOneBasedIndexing(validQuestions, true);
 
             return {
                 isValid: true,
                 questions: validQuestions,
+                isOneBased,
                 error: null,
                 count: validQuestions.length
             };
@@ -405,6 +379,7 @@ ${formattedExportJson}`;
             return {
                 isValid: false,
                 questions: [],
+                isOneBased: true,
                 error: 'Lỗi cú pháp JSON: ' + err.message,
                 count: 0
             };
@@ -430,11 +405,13 @@ ${formattedExportJson}`;
                     const oldSqOpts = Array.isArray(oldSq.options) ? oldSq.options : [];
                     const newSqOpts = Array.isArray(newSq.options) && newSq.options.length > 0 ? newSq.options : oldSqOpts;
 
-                    const oldSqRaw = oldSq.correctAnswer !== undefined ? (typeof oldSq.correctAnswer === 'number' ? oldSq.correctAnswer - 1 : oldSq.correctAnswer) : 0;
-                    const oldSqAns = normalizeAnswerIndex(oldSqRaw, oldSqOpts);
+                    const oldSqRaw = oldSq.correctAnswer ?? 1;
+                    const oldSqAns = normalizeAnswerIndex(oldSqRaw, oldSqOpts, { oneBased: true });
 
                     const newSqRaw = newSq.correctAnswer ?? newSq.answer ?? newSq.correct;
-                    const newSqAns = normalizeAnswerIndex(newSqRaw, newSqOpts);
+                    const newSqAns = newSqRaw !== undefined && newSqRaw !== null
+                        ? normalizeAnswerIndex(newSqRaw, newSqOpts, { oneBased: importValidation.isOneBased })
+                        : oldSqAns;
 
                     if (oldSqAns !== newSqAns) {
                         diffList.push({
@@ -456,11 +433,13 @@ ${formattedExportJson}`;
                 const oldOpts = Array.isArray(oldQ.options) ? oldQ.options : [];
                 const newOpts = Array.isArray(newQ.options) && newQ.options.length > 0 ? newQ.options : oldOpts;
 
-                const oldRaw = oldQ.correctAnswer !== undefined ? (typeof oldQ.correctAnswer === 'number' ? oldQ.correctAnswer - 1 : oldQ.correctAnswer) : 0;
-                const oldAnsIdx = normalizeAnswerIndex(oldRaw, oldOpts);
+                const oldRaw = oldQ.correctAnswer ?? 1;
+                const oldAnsIdx = normalizeAnswerIndex(oldRaw, oldOpts, { oneBased: true });
 
                 const newRaw = newQ.correctAnswer ?? newQ.answer ?? newQ.correct;
-                const newAnsIdx = normalizeAnswerIndex(newRaw, newOpts);
+                const newAnsIdx = newRaw !== undefined && newRaw !== null
+                    ? normalizeAnswerIndex(newRaw, newOpts, { oneBased: importValidation.isOneBased })
+                    : oldAnsIdx;
 
                 if (oldAnsIdx !== newAnsIdx) {
                     diffList.push({
@@ -503,7 +482,7 @@ ${formattedExportJson}`;
                     
                     const mergedQuestions = newQuestions.map((newQ, idx) => {
                         const oldQ = existingQList[idx] || {};
-                        return buildCleanQuestion(oldQ, newQ);
+                        return buildCleanQuestion(oldQ, newQ, { oneBased: importValidation.isOneBased });
                     });
 
                     targetSec.questions = mergedQuestions;
@@ -520,7 +499,7 @@ ${formattedExportJson}`;
                         sec.questions = sec.questions.map((oldQ, idx) => {
                             const newQ = secSlice[idx];
                             if (!newQ) return oldQ;
-                            return buildCleanQuestion(oldQ, newQ);
+                            return buildCleanQuestion(oldQ, newQ, { oneBased: importValidation.isOneBased });
                         });
                     }
                 });
@@ -864,10 +843,15 @@ ${formattedExportJson}`;
                                             /* All questions preview */
                                             importValidation.questions.map((pq, pqi) => {
                                                 const optList = Array.isArray(pq.options) ? pq.options : [];
-                                                const ansIdx = normalizeAnswerIndex(pq.correctAnswer ?? pq.answer, optList);
+                                                const rawPqAns = pq.correctAnswer ?? pq.answer ?? pq.correct;
                                                 const oldQ = questionsToExport[pqi];
-                                                const oldRaw = oldQ?.correctAnswer !== undefined ? (typeof oldQ.correctAnswer === 'number' ? oldQ.correctAnswer - 1 : oldQ.correctAnswer) : 0;
-                                                const oldAnsIdx = oldQ ? normalizeAnswerIndex(oldRaw, oldQ.options) : ansIdx;
+                                                const ansIdx = normalizeAnswerIndex(
+                                                    rawPqAns !== undefined && rawPqAns !== null ? rawPqAns : (oldQ?.correctAnswer ?? 0),
+                                                    optList,
+                                                    { oneBased: rawPqAns !== undefined && rawPqAns !== null ? importValidation.isOneBased : true }
+                                                );
+                                                const oldRaw = oldQ?.correctAnswer ?? 1;
+                                                const oldAnsIdx = oldQ ? normalizeAnswerIndex(oldRaw, oldQ.options, { oneBased: true }) : ansIdx;
                                                 const isChanged = oldQ && ansIdx !== oldAnsIdx;
 
                                                 return (

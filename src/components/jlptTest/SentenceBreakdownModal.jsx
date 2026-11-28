@@ -242,7 +242,7 @@ const SentenceBreakdownModal = ({
                                             <span>{cleanVi(g.point)}</span>
                                         </div>
                                         <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-sans leading-relaxed pl-3 font-medium">
-                                            {cleanVi(g.vi)}
+                                            {cleanVi(g.vi || g.meaning || g.structure || '')}
                                         </p>
                                     </div>
                                 ))}
