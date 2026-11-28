@@ -8,6 +8,7 @@ import {
 } from 'lucide-react';
 import QuestionContent from './QuestionContent';
 import QuestionEditModal from './QuestionEditModal';
+import ReadingPassageEditModal from './ReadingPassageEditModal';
 import QuestionExplanationCard from './QuestionExplanationCard';
 import InteractiveReadingPassage from './InteractiveReadingPassage';
 import HandwritingCanvas from '../ui/HandwritingCanvas';
@@ -20,6 +21,8 @@ import AiImageRecreatorModal from '../admin/AiImageRecreatorModal';
 import { ListeningMondaiFilterBar, ListeningMondaiSectionBanner } from './ListeningMondaiHeader';
 import { SECTION_ICONS, SECTION_COLORS } from './jlptConstants';
 import { getListeningDisplayMeta, groupQuestionsByMondai, isBareNumberOptions, buildSectionDisplayClusters, resolveSharedMondaiAudioUrl, resolveQuestionMondai } from './jlptYearlyConstants';
+import { buildJlptExamPhases } from '../../utils/jlptScoringRules';
+import { applyEditedPassageToClusterSections } from '../../utils/jlptExplanationParser';
 import { preloadTestImages } from '../../utils/jlptMediaPreloader';
 
 export const hasHtmlTags = (str) => {
@@ -140,11 +143,13 @@ const JLPTTestResultView = ({
     handleStartPrint,
     onOpenExportImport,
     onEditTest,
-    onSaveQuestionImage = null
+    onSaveQuestionImage = null,
+    onSaveSections = null
 }) => {
     const [selectedTabIdx, setSelectedTabIdx] = useState(currentSectionIdx || 0);
     const [selectedMondaiFilter, setSelectedMondaiFilter] = useState('');
     const [aiImageTarget, setAiImageTarget] = useState(null);
+    const [editingPassageCluster, setEditingPassageCluster] = useState(null);
     const [showMobileTOC, setShowMobileTOC] = useState(false);
     const [activeNoteTarget, setActiveNoteTarget] = useState(null); // { sIdx, qIdx }
     const rightScrollContainerRef = useRef(null);
@@ -697,7 +702,7 @@ const JLPTTestResultView = ({
                             </div>
 
                             <button
-                                onClick={() => (retakeTest || startTest)(activeTest)}
+                                onClick={() => (startTest || retakeTest)(activeTest)}
                                 className="w-full py-3 rounded-2xl font-black text-xs uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-4 border-emerald-700 text-white transition flex items-center justify-center gap-1.5 cursor-pointer select-none"
                             >
                                 <RotateCcw className="w-3.5 h-3.5 stroke-[2.5]" />
@@ -807,7 +812,7 @@ const JLPTTestResultView = ({
                                         )}
 
                                         <button
-                                            onClick={() => (retakeTest || startTest)(activeTest)}
+                                            onClick={() => (startTest || retakeTest)(activeTest)}
                                             className="px-4 py-2 rounded-xl text-xs font-black uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 active:border-b-0 border-b-2 border-emerald-700 text-white transition flex items-center gap-1.5 cursor-pointer select-none"
                                         >
                                             <RotateCcw className="w-3.5 h-3.5" />
@@ -1106,6 +1111,8 @@ const JLPTTestResultView = ({
                                                             explanationText={cluster.explanationText}
                                                             question={cluster.firstQuestion}
                                                             isRealExam={false}
+                                                            canEdit={canEdit && Boolean(onSaveSections)}
+                                                            onEditPassage={(canEdit && onSaveSections) ? () => setEditingPassageCluster(cluster) : null}
                                                         />
 
                                                         <div className="divide-y divide-slate-200/80 dark:divide-slate-800 space-y-5">
@@ -1184,6 +1191,30 @@ const JLPTTestResultView = ({
                     />
                 )}
 
+                {editingPassageCluster && canEdit && onSaveSections && (
+                    <ReadingPassageEditModal
+                        isOpen={!!editingPassageCluster}
+                        onClose={() => setEditingPassageCluster(null)}
+                        initialPassageHtml={editingPassageCluster.firstQuestion?.passage || editingPassageCluster.passageHtml || ''}
+                        clusterQuestions={(editingPassageCluster.items || []).map((it) => it.question)}
+                        questionRangeLabel={
+                            editingPassageCluster.items?.length > 1
+                                ? `Câu ${editingPassageCluster.items[0].qIdx + 1} – Câu ${editingPassageCluster.items[editingPassageCluster.items.length - 1].qIdx + 1}`
+                                : `Câu ${(editingPassageCluster.items?.[0]?.qIdx ?? 0) + 1}`
+                        }
+                        onSave={(nextPassageHtml) => {
+                            const qIndices = (editingPassageCluster.items || []).map((it) => it.qIdx);
+                            const updatedSections = applyEditedPassageToClusterSections(
+                                activeTest?.sections || [],
+                                selectedTabIdx,
+                                qIndices,
+                                nextPassageHtml
+                            );
+                            return onSaveSections(updatedSections, 'Đã lưu chỉnh sửa bài đọc & phần gạch chân!');
+                        }}
+                    />
+                )}
+
                 {aiImageTarget && onSaveQuestionImage && (
                     <AiImageRecreatorModal
                         isOpen={!!aiImageTarget}
@@ -1202,9 +1233,9 @@ const JLPTTestResultView = ({
     // VIEW 2: SCORECARD SUMMARY VIEW
     // =========================================================================
     return (
-        <div ref={containerRef} className="min-h-screen bg-[#FAFBFD] dark:bg-slate-950 p-4 md:p-8 font-sans animate-fade-in text-slate-900 dark:text-slate-100">
+        <div ref={containerRef} className="fixed inset-0 z-50 overflow-y-auto bg-[#FAFBFD] dark:bg-slate-950 p-4 sm:p-6 md:p-8 font-sans animate-fade-in text-slate-900 dark:text-slate-100 custom-scrollbar">
             {furiganaStyleElement}
-            <div className="max-w-4xl mx-auto space-y-6">
+            <div className="max-w-4xl mx-auto space-y-6 pb-8">
                 {/* Score Card Hero */}
                 <div className={`bg-gradient-to-br ${passed ? 'from-emerald-600 via-teal-700 to-emerald-800' : 'from-rose-600 via-pink-700 to-rose-800'} rounded-3xl p-8 text-white text-center shadow-xl relative overflow-hidden`}>
                     <div className="w-20 h-20 mx-auto mb-3 rounded-3xl bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-inner">
@@ -1238,9 +1269,13 @@ const JLPTTestResultView = ({
                         </>
                     )}
                     <p className="text-xs opacity-80 mt-1">
-                        {wasRealExam ? (
-                            <>Thời gian hoàn thành: {formatTime(timeTaken)} / {activeTest.timeLimit} phút (Thi thực tế)</>
-                        ) : (
+                        {wasRealExam ? (() => {
+                            const phases = buildJlptExamPhases(activeTest);
+                            const totalMinutes = phases.length > 0
+                                ? phases.reduce((sum, p) => sum + (p.minutes || 0), 0)
+                                : (activeTest.timeLimit || 60);
+                            return <>Thời gian hoàn thành: {formatTime(timeTaken)} / {totalMinutes} phút (Thi thực tế)</>;
+                        })() : (
                             <>Thời gian làm bài: {formatTime(timeTaken)} (Luyện tập)</>
                         )}
                     </p>
@@ -1292,7 +1327,7 @@ const JLPTTestResultView = ({
                         ← Về trang danh sách
                     </button>
                     <button 
-                        onClick={() => (retakeTest || startTest)(activeTest)} 
+                        onClick={() => (startTest || retakeTest)(activeTest)} 
                         className="px-5 py-3 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-2xl text-xs font-bold uppercase tracking-wider border-b-4 border-slate-300 dark:border-slate-700 active:translate-y-0.5 active:border-b-2 transition flex items-center gap-1.5 cursor-pointer select-none"
                     >
                         <RotateCcw className="w-3.5 h-3.5" />

@@ -9,7 +9,335 @@
  */
 export function cleanHtmlText(str) {
     if (!str) return '';
-    return str.replace(/<\/?[a-z][\s\S]*>/gi, ' ').replace(/[ \t]+/g, ' ').trim();
+    return String(str)
+        .replace(/<rt[^>]*>[\s\S]*?<\/rt>/gi, '')
+        .replace(/<rp[^>]*>[\s\S]*?<\/rp>/gi, '')
+        .replace(/<\/?[a-z][^>]*>/gi, '')
+        .replace(/[ \t]+/g, ' ')
+        .trim();
+}
+
+const stripTagsKeepingPlainText = (html = '') => String(html || '')
+    .replace(/<rt[^>]*>[\s\S]*?<\/rt>/gi, '')
+    .replace(/<rp[^>]*>[\s\S]*?<\/rp>/gi, '')
+    .replace(/<\/?[a-z][\s\S]*?>/gi, '')
+    .replace(/\u3000/g, ' ')
+    .replace(/[ \t]+/g, ' ')
+    .trim();
+
+const preserveSafeInlinePassageHtml = (str = '') => {
+    if (!str) return '';
+    return String(str)
+        .replace(/<(?:u|ins)\b[^>]*>/gi, '<u>')
+        .replace(/<\/(?:u|ins)>/gi, '</u>')
+        .replace(/<span\b[^>]*text-decoration\s*:\s*underline[^>]*>([\s\S]*?)<\/span>/gi, '<u>$1</u>')
+        .replace(/<(?!\/?(?:u|b|strong|em|i|mark|ruby|rt|rp)\b)[a-z][^>]*>/gi, ' ')
+        .replace(/[ \t]+/g, ' ')
+        .trim();
+};
+
+const isMeaningfulUnderlineTarget = (text = '') => {
+    const clean = String(text || '').trim();
+    if (!clean) return false;
+    if (/^[★☆\s\u3000_＿ー\-0-9０-９()（）]+$/.test(clean)) return false;
+    return clean.length >= 2 || /[\u3040-\u30FF\u4E00-\u9FAF]/.test(clean);
+};
+
+const REFERENCE_QUOTE_FOLLOWERS = '(?:とあるが|とある|と書いてある|と書かれている|と書かれてある|を指している|とはどういう意味|とは何|はなぜか|はどれか)';
+
+/**
+ * Extracts underlined phrases (or explicit quoted JLPT reading references) from a question list.
+ */
+export function extractUnderlineTargetsFromQuestions(questions = [], rawPassageHtml = '') {
+    const seen = new Set();
+    const targets = [];
+    const plainPassage = rawPassageHtml ? stripTagsKeepingPlainText(rawPassageHtml) : '';
+
+    const pushTarget = (rawCandidate) => {
+        const clean = stripTagsKeepingPlainText(rawCandidate);
+        if (!isMeaningfulUnderlineTarget(clean) || seen.has(clean)) return;
+        seen.add(clean);
+        targets.push(clean);
+    };
+
+    const inspectQuestionText = (qHtml = '') => {
+        const str = String(qHtml || '');
+        if (!str) return;
+
+        // 1. Explicit underline markup (<u>, <ins>, or inline underline style)
+        const uRegex = /<(?:u|ins)\b[^>]*>([\s\S]*?)<\/(?:u|ins)>|<span\b[^>]*text-decoration\s*:\s*underline[^>]*>([\s\S]*?)<\/span>/gi;
+        let m;
+        let foundExplicit = false;
+        while ((m = uRegex.exec(str)) !== null) {
+            const inner = m[1] ?? m[2] ?? '';
+            if (inner) {
+                foundExplicit = true;
+                pushTarget(inner);
+            }
+        }
+
+        // 2. Quoted Japanese phrase right before standard JLPT reference stems
+        const quoteRefRegex = new RegExp(`[「『]([^」』]{2,48})[」』]\\s*${REFERENCE_QUOTE_FOLLOWERS}`, 'g');
+        while ((m = quoteRefRegex.exec(stripTagsKeepingPlainText(str))) !== null) {
+            pushTarget(m[1]);
+        }
+
+        // 3. Fallback when question omitted <u> tags completely, but verbatim prefix before "とあるが" appears in passage
+        if (!foundExplicit && plainPassage) {
+            const plainQ = stripTagsKeepingPlainText(str);
+            const rawPrefixMatch = plainQ.match(new RegExp(`(?:^|[\\s　、。:：(（])([^\\n。、？！「」『』]{3,42})${REFERENCE_QUOTE_FOLLOWERS}`));
+            if (rawPrefixMatch?.[1]) {
+                const candidate = rawPrefixMatch[1].trim();
+                if (candidate.length >= 3 && plainPassage.includes(candidate)) {
+                    pushTarget(candidate);
+                }
+            }
+        }
+    };
+
+    (Array.isArray(questions) ? questions : [questions]).forEach((q) => {
+        if (!q) return;
+        inspectQuestionText(q.question || q.paperPrompt || '');
+        if (Array.isArray(q.subQuestions)) {
+            q.subQuestions.forEach((sq) => inspectQuestionText(sq?.question || ''));
+        }
+    });
+
+    return targets.sort((a, b) => b.length - a.length);
+}
+
+const escapeRegex = (s = '') => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+/**
+ * Safely wraps matching target phrases in `<u>...</u>` inside HTML/text without touching tag attributes or double-wrapping existing `<u>` tags.
+ */
+export function injectUnderlinesIntoHtml(htmlOrText = '', targets = []) {
+    const source = String(htmlOrText || '');
+    const list = (Array.isArray(targets) ? targets : []).filter(Boolean);
+    if (!source || list.length === 0) return source;
+
+    const pattern = new RegExp(`(${list.map(escapeRegex).join('|')})`, 'g');
+    const tokens = source.split(/(<[^>]+>)/g);
+    let underlineDepth = 0;
+    let skipDepth = 0;
+
+    return tokens.map((token) => {
+        if (!token) return '';
+        if (token.startsWith('<') && token.endsWith('>')) {
+            if (/^<(?:u|ins)\b/i.test(token) || /^<span\b[^>]*text-decoration\s*:\s*underline/i.test(token)) {
+                underlineDepth += 1;
+            } else if (/^<\/(?:u|ins|span)>/i.test(token) && underlineDepth > 0) {
+                underlineDepth = Math.max(0, underlineDepth - 1);
+            } else if (/^<(?:rt|rp|style|script)\b/i.test(token)) {
+                skipDepth += 1;
+            } else if (/^<\/(?:rt|rp|style|script)>/i.test(token) && skipDepth > 0) {
+                skipDepth = Math.max(0, skipDepth - 1);
+            }
+            return token;
+        }
+        if (underlineDepth > 0 || skipDepth > 0) return token;
+        return token.replace(pattern, '<u>$1</u>');
+    }).join('');
+}
+
+const CIRCLED_MARKER_REGEX = /[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽]+/g;
+
+const stripCircledMarkers = (str = '') => String(str || '').replace(CIRCLED_MARKER_REGEX, '').trim();
+
+const normalizeSentenceForCompare = (htmlOrText = '') => stripTagsKeepingPlainText(htmlOrText)
+    .replace(CIRCLED_MARKER_REGEX, '')
+    .replace(/[\s\u3000、。,.・「」『』()（）]+/g, '');
+
+/**
+ * Extracts underline targets along with their surrounding source sentence contexts
+ * so circled markers omitted by AI (`①`, `②`, etc.) can still be matched accurately per sentence.
+ */
+export function extractSourceUnderlineRules(sourceHtml = '', extraTargets = []) {
+    const rawStr = String(sourceHtml || '');
+    const rulesMap = new Map();
+
+    const registerRule = (rawTarget, ctxNorm = '') => {
+        const cleanRaw = stripTagsKeepingPlainText(rawTarget);
+        if (!isMeaningfulUnderlineTarget(cleanRaw)) return;
+        const stripped = stripCircledMarkers(cleanRaw);
+        if (!rulesMap.has(cleanRaw)) {
+            rulesMap.set(cleanRaw, {
+                rawTarget: cleanRaw,
+                strippedTarget: stripped,
+                contextSentencesNorm: []
+            });
+        }
+        if (ctxNorm) {
+            const rule = rulesMap.get(cleanRaw);
+            if (!rule.contextSentencesNorm.includes(ctxNorm)) {
+                rule.contextSentencesNorm.push(ctxNorm);
+            }
+        }
+    };
+
+    const rawSentences = rawStr
+        .replace(/<\/(?:p|div|li|tr|h[1-6])>/gi, '\n')
+        .replace(/<br\s*\/?>/gi, '\n')
+        .split(/[。！？\n]+/)
+        .map((s) => s.trim())
+        .filter(Boolean);
+
+    const uRegex = /<(?:u|ins)\b[^>]*>([\s\S]*?)<\/(?:u|ins)>|<span\b[^>]*text-decoration\s*:\s*underline[^>]*>([\s\S]*?)<\/span>/gi;
+    rawSentences.forEach((sentHtml) => {
+        const sentNorm = normalizeSentenceForCompare(sentHtml);
+        uRegex.lastIndex = 0;
+        let m;
+        while ((m = uRegex.exec(sentHtml)) !== null) {
+            const inner = m[1] ?? m[2] ?? '';
+            if (inner) registerRule(inner, sentNorm);
+        }
+    });
+
+    (Array.isArray(extraTargets) ? extraTargets : []).forEach((t) => registerRule(t, ''));
+
+    return Array.from(rulesMap.values()).sort((a, b) => b.rawTarget.length - a.rawTarget.length);
+}
+
+/**
+ * Injects `<u>...</u>` into a sentence HTML string, restoring omitted circled markers (`①`, `②`)
+ * when aligned with its source sentence or when the stripped phrase appears uniquely across sentences.
+ */
+export function injectUnderlinesIntoSentenceHtml(sentenceHtml = '', rules = [], allSentencePlainTexts = []) {
+    const base = String(sentenceHtml || '');
+    const list = Array.isArray(rules) ? rules : [];
+    if (!base || list.length === 0) return base;
+
+    let result = injectUnderlinesIntoHtml(base, list.map((r) => r.rawTarget));
+    const sentNorm = normalizeSentenceForCompare(base);
+
+    list.forEach((rule) => {
+        if (!rule.strippedTarget || rule.strippedTarget === rule.rawTarget) return;
+        const plainNow = stripTagsKeepingPlainText(result);
+        if (plainNow.includes(rule.rawTarget) && result.includes(`<u>${rule.rawTarget}</u>`)) return;
+
+        const matchesContext = rule.contextSentencesNorm.some(
+            (ctx) => ctx && sentNorm && (ctx === sentNorm || ctx.includes(sentNorm) || sentNorm.includes(ctx))
+        );
+        const strippedHits = (allSentencePlainTexts || []).filter((txt) => txt.includes(rule.strippedTarget)).length;
+        const isUniqueInPassage = strippedHits === 1;
+
+        if (!matchesContext && !isUniqueInPassage) return;
+        if (!plainNow.includes(rule.strippedTarget)) return;
+
+        // Avoid double-wrapping or duplicating marker; match optional marker right before strippedTarget
+        const tokens = result.split(/(<[^>]+>)/g);
+        let underlineDepth = 0;
+        let skipDepth = 0;
+        let replaced = false;
+        const flexRegex = new RegExp(`(?:${CIRCLED_MARKER_REGEX.source}\\s*)?${escapeRegex(rule.strippedTarget)}`);
+
+        result = tokens.map((token) => {
+            if (!token) return '';
+            if (token.startsWith('<') && token.endsWith('>')) {
+                if (/^<(?:u|ins)\b/i.test(token)) underlineDepth += 1;
+                else if (/^<\/(?:u|ins)>/i.test(token) && underlineDepth > 0) underlineDepth -= 1;
+                else if (/^<(?:rt|rp|style|script)\b/i.test(token)) skipDepth += 1;
+                else if (/^<\/(?:rt|rp|style|script)>/i.test(token) && skipDepth > 0) skipDepth -= 1;
+                return token;
+            }
+            if (replaced || underlineDepth > 0 || skipDepth > 0) return token;
+            if (flexRegex.test(token)) {
+                replaced = true;
+                return token.replace(flexRegex, `<u>${rule.rawTarget}</u>`);
+            }
+            return token;
+        }).join('');
+    });
+
+    return result;
+}
+
+/**
+ * Ensures questions with shared reading/grammar passages have matching `<u>...</u>` marks inside `passage` & `passageData`.
+ */
+export function syncQuestionsWithPassageUnderlines(questions = []) {
+    if (!Array.isArray(questions) || questions.length === 0) return questions;
+
+    const targetsByPassageKey = new Map();
+    questions.forEach((q) => {
+        if (!q?.passage) return;
+        const pKey = stripTagsKeepingPlainText(q.passage).replace(/\s+/g, ' ');
+        if (!pKey) return;
+        if (!targetsByPassageKey.has(pKey)) targetsByPassageKey.set(pKey, new Set());
+        const set = targetsByPassageKey.get(pKey);
+        extractUnderlineTargetsFromQuestions([q], q.passage).forEach((t) => set.add(t));
+    });
+
+    return questions.map((q) => {
+        if (!q?.passage) return q;
+        const pKey = stripTagsKeepingPlainText(q.passage).replace(/\s+/g, ' ');
+        const targets = Array.from(targetsByPassageKey.get(pKey) || []).sort((a, b) => b.length - a.length);
+        if (targets.length === 0) return q;
+
+        const nextPassage = injectUnderlinesIntoHtml(q.passage, targets);
+        let nextPd = q.passageData;
+        if (nextPd && Array.isArray(nextPd.sentences)) {
+            const rules = extractSourceUnderlineRules(nextPassage, targets);
+            const allPlains = nextPd.sentences.map((s) => stripTagsKeepingPlainText(s?.jp || s?.rawJp || ''));
+            nextPd = {
+                ...nextPd,
+                sentences: nextPd.sentences.map((s) => (
+                    s?.jp ? { ...s, jp: injectUnderlinesIntoSentenceHtml(s.jp, rules, allPlains) } : s
+                ))
+            };
+        }
+        if (nextPassage === q.passage && nextPd === q.passageData) return q;
+        return {
+            ...q,
+            passage: nextPassage,
+            ...(nextPd ? { passageData: nextPd } : {})
+        };
+    });
+}
+
+/**
+ * Updates `passage` HTML across every question index in a shared reading cluster and preserves
+ * user-edited `<u>...</u>` underlines inside `passageData.sentences[].jp` (replacing stripped sentences cleanly).
+ */
+export function applyEditedPassageToClusterSections(sections = [], sectionIdx = 0, questionIndices = [], nextPassageHtml = '') {
+    const updatedSections = JSON.parse(JSON.stringify(sections || []));
+    const targetSection = updatedSections[sectionIdx];
+    if (!targetSection || !Array.isArray(targetSection.questions)) return updatedSections;
+
+    const nextHtml = String(nextPassageHtml || '').trim();
+    const rules = extractSourceUnderlineRules(nextHtml);
+    const preservedBlock = preserveSafeInlinePassageHtmlWithBlocks(nextHtml);
+    const cleanJp = cleanHtmlText(preservedBlock);
+
+    (questionIndices || []).forEach((qi) => {
+        const q = targetSection.questions[qi];
+        if (!q) return;
+        q.passage = nextHtml;
+        if (q.passageData && Array.isArray(q.passageData.sentences)) {
+            const strippedSentences = q.passageData.sentences.map((s) => (
+                s ? stripTagsKeepingPlainText(String(s.jp || s.rawJp || '').replace(/<\/?u>/gi, '')).trim() : ''
+            ));
+            q.passageData = {
+                ...q.passageData,
+                japanese: preservedBlock || cleanJp,
+                rawJapanese: cleanJp,
+                sentences: q.passageData.sentences.map((s, sIdx) => {
+                    if (!s) return s;
+                    const baseClean = strippedSentences[sIdx];
+                    const syncedJp = rules.length > 0
+                        ? injectUnderlinesIntoSentenceHtml(baseClean, rules, strippedSentences)
+                        : baseClean;
+                    return {
+                        ...s,
+                        jp: syncedJp,
+                        rawJp: cleanHtmlText(syncedJp) || baseClean
+                    };
+                })
+            };
+        }
+    });
+
+    return updatedSections;
 }
 
 /**
@@ -451,16 +779,29 @@ export function parseJlptExplanation(rawText, options = [], correctIndex = -1) {
     };
 }
 
+const preserveSafeInlinePassageHtmlWithBlocks = (rawSource = '') => {
+    const blockPreserved = String(rawSource || '')
+        .replace(/<\/(?:p|div|li|tr|h[1-6])>/gi, '\n')
+        .replace(/<br\s*\/?>/gi, '\n')
+        .replace(/<\/(?:td|th)>/gi, ' · ');
+    return preserveSafeInlinePassageHtml(blockPreserved);
+};
+
 /**
  * Normalizes pre-generated passageData fields so InteractiveReadingPassage and SentenceBreakdownModal
  * share a consistent schema (`jp`, `rawJp`, `vi`, `vocab`, `grammar`, `vocabList`, `grammarPoints`).
  */
 const normalizeStructuredPassageData = (existingPassageData, rawPassageHtml = '') => {
-    const cleanPassage = cleanHtmlText(rawPassageHtml || existingPassageData?.japanese || existingPassageData?.rawJapanese || '');
-    const normalizedSentences = (existingPassageData.sentences || [])
-        .filter((s) => s && (s.jp || s.rawJp))
-        .map((s) => {
-            const jpText = String(s.jp || s.rawJp || '').trim();
+    const sourceHtml = rawPassageHtml || existingPassageData?.japanese || existingPassageData?.rawJapanese || '';
+    const cleanPassage = cleanHtmlText(sourceHtml);
+    const preservedHtml = preserveSafeInlinePassageHtmlWithBlocks(sourceHtml);
+    const underlineRules = extractSourceUnderlineRules(sourceHtml);
+    const filteredSentences = (existingPassageData.sentences || []).filter((s) => s && (s.jp || s.rawJp));
+    const allSentencePlains = filteredSentences.map((s) => stripTagsKeepingPlainText(s.jp || s.rawJp || ''));
+
+    const normalizedSentences = filteredSentences.map((s) => {
+        const rawSentenceHtml = String(s.jp || s.rawJp || '').trim();
+        const jpText = injectUnderlinesIntoSentenceHtml(rawSentenceHtml, underlineRules, allSentencePlains);
             const vocab = Array.isArray(s.vocab)
                 ? s.vocab
                     .filter((v) => v && v.w)
@@ -513,13 +854,40 @@ const normalizeStructuredPassageData = (existingPassageData, rawPassageHtml = ''
     return {
         title: String(existingPassageData.title || 'Đọc hiểu chuyên sâu').trim(),
         titleVi: String(existingPassageData.titleVi || '').trim(),
-        japanese: cleanPassage,
+        japanese: preservedHtml || cleanPassage,
         rawJapanese: cleanPassage,
         vietnamese: String(existingPassageData.vietnamese || '').trim(),
         sentences: normalizedSentences,
         grammarPoints: Array.isArray(existingPassageData.grammarPoints) ? existingPassageData.grammarPoints : [],
         vocabList
     };
+};
+
+/**
+ * Splits Japanese text cleanly into sentence segments while keeping balanced `<u>...</u>` tags if a highlight spans across sentences.
+ */
+const balanceUnderlineTagsAcrossSegments = (segments = []) => {
+    let openUnderline = false;
+    return segments.map((seg) => {
+        let s = seg;
+        if (openUnderline && !s.startsWith('<u>')) {
+            s = `<u>${s}`;
+        }
+        const opens = (s.match(/<u>/gi) || []).length;
+        const closes = (s.match(/<\/u>/gi) || []).length;
+        if (opens > closes) {
+            openUnderline = true;
+            return `${s}</u>`;
+        }
+        if (closes > opens) {
+            openUnderline = false;
+            return s;
+        }
+        if (openUnderline && closes === opens && !s.includes('<u>')) {
+            openUnderline = false;
+        }
+        return s;
+    });
 };
 
 /**
@@ -531,12 +899,8 @@ export function buildInteractivePassageData(passageHtmlOrText, explanationText =
     }
 
     const rawSource = String(passageHtmlOrText || existingPassageData?.japanese || existingPassageData?.rawJapanese || '');
-    // Preserve block/table line boundaries before stripping HTML tags
-    const blockPreserved = rawSource
-        .replace(/<\/(?:p|div|li|tr|h[1-6])>/gi, '\n')
-        .replace(/<br\s*\/?>/gi, '\n')
-        .replace(/<\/(?:td|th)>/gi, ' · ');
-    const cleanPassage = cleanHtmlText(blockPreserved);
+    const preservedPassageHtml = preserveSafeInlinePassageHtmlWithBlocks(rawSource);
+    const cleanPassage = cleanHtmlText(preservedPassageHtml);
     if (!cleanPassage && !explanationText) return null;
 
     const parsedExp = parseJlptExplanation(explanationText);
@@ -546,36 +910,38 @@ export function buildInteractivePassageData(passageHtmlOrText, explanationText =
 
     let sentences = [];
 
-    if (cleanPassage) {
-        // Split cleanPassage by paragraphs / sentences (preserving authentic passage only)
-        const lines = cleanPassage.split(/\n+/).map(l => l.trim()).filter(Boolean);
-        const passageSegments = [];
+    if (preservedPassageHtml) {
+        // Split preservedPassageHtml by paragraphs / sentences while keeping inline `<u>...</u>` formatting
+        const lines = preservedPassageHtml.split(/\n+/).map(l => l.trim()).filter(Boolean);
+        const rawSegments = [];
 
         lines.forEach(line => {
             const rawSentences = line.split(/([。！？]+)/).filter(Boolean);
             for (let i = 0; i < rawSentences.length; i += 2) {
                 const sText = (rawSentences[i] + (rawSentences[i + 1] || '')).trim();
                 if (sText.length > 0) {
-                    passageSegments.push(sText);
+                    rawSegments.push(sText);
                 }
             }
         });
 
+        const passageSegments = balanceUnderlineTagsAcrossSegments(rawSegments);
+
         sentences = passageSegments.map((seg) => {
-            // Match sentence with explanation translation if available
+            const segPlain = cleanHtmlText(seg);
             const matched = expSentences.find(s => {
                 const sClean = s.rawJp.replace(/[\s\u3000]+/g, '');
-                const segClean = seg.replace(/[\s\u3000]+/g, '');
+                const segClean = segPlain.replace(/[\s\u3000]+/g, '');
                 return sClean === segClean || sClean.includes(segClean) || segClean.includes(sClean);
             });
 
             return {
                 jp: seg,
-                rawJp: seg,
+                rawJp: segPlain,
                 vi: matched ? matched.vi : '',
                 reading: matched ? matched.reading : '',
-                grammar: grammarPoints.filter(g => seg.includes(g.point.replace(/[〜~()（）]/g, ''))),
-                vocab: vocabList.filter(v => seg.includes(v.w))
+                grammar: grammarPoints.filter(g => segPlain.includes(g.point.replace(/[〜~()（）]/g, ''))),
+                vocab: vocabList.filter(v => segPlain.includes(v.w))
             };
         });
     } else if (expSentences.length > 0) {
@@ -585,7 +951,7 @@ export function buildInteractivePassageData(passageHtmlOrText, explanationText =
     return {
         title: existingPassageData?.title || 'Đọc hiểu chuyên sâu',
         titleVi: existingPassageData?.titleVi || '',
-        japanese: cleanPassage,
+        japanese: preservedPassageHtml || cleanPassage,
         rawJapanese: cleanPassage,
         vietnamese: parsedExp?.translation || existingPassageData?.vietnamese || '',
         sentences: sentences,

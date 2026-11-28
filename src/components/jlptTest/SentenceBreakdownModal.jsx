@@ -134,7 +134,7 @@ const SentenceBreakdownModal = ({
                     <div className="p-4 sm:p-5 rounded-2xl bg-slate-50 dark:bg-slate-950/50 border border-slate-200/80 dark:border-slate-800 space-y-3">
                         <div className="flex items-start justify-between gap-3">
                             <div 
-                                className="text-base sm:text-xl font-japanese font-medium text-slate-900 dark:text-slate-100 leading-loose flex-1"
+                                className="text-base sm:text-xl font-japanese font-medium text-slate-900 dark:text-slate-100 leading-loose flex-1 [&_u]:underline [&_u]:decoration-2 [&_u]:underline-offset-4"
                                 dangerouslySetInnerHTML={{ __html: sentence.jp }}
                             />
                             <button

@@ -6,6 +6,7 @@ import { callAI, getEffectiveModel } from '../../utils/aiProvider';
 import { safeParseJsonWithRepair } from './aiPdfIngestorService';
 import { normalizeAnswerIndex, detectBatchOneBasedIndexing } from '../../utils/jlptAnswerIndex';
 import { normalizePassageBreakdownPayload } from './jlptExplanationAiService';
+import { syncQuestionsWithPassageUnderlines } from '../../utils/jlptExplanationParser';
 import {
     getLevelExamBlueprint,
     resolveQuestionMondai,
@@ -149,9 +150,9 @@ QUY TẮC BẮT BUỘC:
 2. BẮT BUỘC lấy ĐỦ TẤT CẢ mọi câu hỏi có đủ 4 lựa chọn trong đoạn văn bản trên (không bỏ sót bất kỳ câu Từ vựng, Chữ Hán, Ngữ pháp nào!). Ghi đúng "mondai", "mondaiTitle" (ví dụ "問題1：漢字読み"), và "questionNumber" (1, 2, 3...).
 3. Chỉ bỏ qua câu nào thực sự bị cắt ngang chưa thấy đủ 4 lựa chọn ở mép trang (vì đoạn gối trang sau sẽ lấy trọn câu đó).
 4. Định dạng câu hỏi chuẩn:
-   - Gạch chân từ trọng tâm bằng <u>...</u>.
+   - Gạch chân từ trọng tâm bằng <u>...</u> Ở CẢ trường "question" VÀ NGAY TRONG đoạn văn "passage" (nếu câu hỏi nhắc "<u>...</u>とあるが...", cụm tương ứng trong "passage" CŨNG BẮT BUỘC phải bọc <u>...</u>).
    - Câu sắp xếp ★: ghi đủ "<u>\u3000</u> <u>\u3000</u> <u>★</u> <u>\u3000</u>".
-   - Bài đọc hiểu ("reading") & bài đục lỗ ("文章の文法"): BẮT BUỘC copy ĐẦY ĐỦ đoạn văn (bao gồm cả đoạn A và đoạn B ở 総合理解, lẫn bảng biểu HTML <table> và ghi chú (注) ở 情報検索) vào "passage" của từng câu!
+   - Bài đọc hiểu ("reading") & bài đục lỗ ("文章の文法"): BẮT BUỘC copy ĐẦY ĐỦ đoạn văn (giữ nguyên mọi phần gạch chân <u>...</u>, bao gồm cả đoạn A và đoạn B ở 総合理解, lẫn bảng biểu HTML <table> và ghi chú (注) ở 情報検索) vào "passage" của từng câu!
 5. "options": 4 phương án nguyên văn tiếng Nhật, KHÔNG kèm số thứ tự "1.", "2." ở đầu.
 6. "correctAnswer": index 0..3 (ưu tiên đối chiếu BẢNG ĐÁP ÁN THAM CHIẾU); "explanation": viết siêu ngắn gọn để người làm đọc 5 giây hình dung được ngay theo form:
    "✅ Lựa chọn chính xác: [1 câu trọng tâm]\\n\\n📖 Dịch câu hỏi: [Dịch tự nhiên câu đề/ý chính]\\n\\n📌 Phân tích các phương án:\\n✗ (b) [nghĩa & lý do sai]\\n...\\n\\n💡 Mẹo làm bài: [1 mẹo ngắn tránh bẫy]" (chỉ liệt kê phương án sai bằng ✗).
@@ -251,10 +252,12 @@ TRẢ VỀ DUY NHẤT 1 JSON:
     return Array.from(questionBucketBySec.values())
         .sort((a, b) => (defaultOrder[a.type] || 9) - (defaultOrder[b.type] || 9))
         .map((bucket) => {
-            const qs = Array.from(bucket.map.values()).sort((a, b) => {
-                if (a.questionNumber && b.questionNumber) return a.questionNumber - b.questionNumber;
-                return (a.mondai || 0) - (b.mondai || 0);
-            });
+            const qs = syncQuestionsWithPassageUnderlines(
+                Array.from(bucket.map.values()).sort((a, b) => {
+                    if (a.questionNumber && b.questionNumber) return a.questionNumber - b.questionNumber;
+                    return (a.mondai || 0) - (b.mondai || 0);
+                })
+            );
             return {
                 type: bucket.type,
                 title: bucket.title,
@@ -459,10 +462,12 @@ export const parseGeminiExternalJsonBundle = (rawText = '', level = 'N3', mondai
         .map((bucket) => ({
             type: bucket.type,
             title: bucket.title,
-            questions: propagateSharedPassageData(Array.from(bucket.map.values()).sort((a, b) => {
-                if (a.questionNumber && b.questionNumber) return a.questionNumber - b.questionNumber;
-                return (a.mondai || 0) - (b.mondai || 0);
-            }))
+            questions: syncQuestionsWithPassageUnderlines(
+                propagateSharedPassageData(Array.from(bucket.map.values()).sort((a, b) => {
+                    if (a.questionNumber && b.questionNumber) return a.questionNumber - b.questionNumber;
+                    return (a.mondai || 0) - (b.mondai || 0);
+                }))
+            )
         }))
         .filter((s) => s.questions.length > 0);
 

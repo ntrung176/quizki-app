@@ -1,4 +1,5 @@
 import { getLevelExamBlueprint, resolveSectionMondaiMeta } from './jlptLevelBlueprints.js';
+import { extractUnderlineTargetsFromQuestions, injectUnderlinesIntoHtml } from '../../utils/jlptExplanationParser.js';
 
 export { getLevelExamBlueprint, resolveSectionMondaiMeta };
 
@@ -18,10 +19,10 @@ export const JLPT_SESSIONS = [
 
 export const JLPT_TOTAL_TIME_BY_LEVEL = {
     N5: 90,
-    N4: 105,
+    N4: 115,
     N3: 140,
     N2: 155,
-    N1: 170
+    N1: 165
 };
 
 export const JLPT_LISTENING_TIME_BY_LEVEL = {
@@ -30,6 +31,59 @@ export const JLPT_LISTENING_TIME_BY_LEVEL = {
     N3: 40,
     N2: 50,
     N1: 55
+};
+
+/**
+ * Returns official JLPT exam timing breakdown (minutes) per level and exam period.
+ * Reflects official jlpt.jp revisions:
+ * - Dec 2020 (2020-12+): N5 -> 20/40/30 (90p), N4 -> 25/55/35 (115p)
+ * - Dec 2022 (2022-12+): N1 Listening -> 55p (total 165p, down from 60p / 170p)
+ */
+export const getOfficialJlptTiming = (level = 'N3', testOrMeta = null) => {
+    const lvl = String(level || 'N3').toUpperCase().trim();
+    const meta = testOrMeta && (testOrMeta.year || testOrMeta.examYear)
+        ? {
+            year: Number(testOrMeta.year || testOrMeta.examYear) || null,
+            session: String(testOrMeta.session || testOrMeta.examSession || '12').padStart(2, '0')
+        }
+        : parseYearlyExamMeta(testOrMeta);
+
+    const year = meta?.year ? Number(meta.year) : null;
+    const session = meta?.session ? String(meta.session).padStart(2, '0') : '12';
+    const isPreDec2020 = Boolean(year && (year < 2020 || (year === 2020 && session === '07')));
+    const isPreDec2022 = Boolean(year && (year < 2022 || (year === 2022 && session === '07')));
+
+    switch (lvl) {
+        case 'N5':
+            return isPreDec2020
+                ? { vocab: 25, grammarReading: 50, listening: 30, writtenTotal: 75, total: 105, era: 'legacy' }
+                : { vocab: 20, grammarReading: 40, listening: 30, writtenTotal: 60, total: 90, era: 'modern' };
+        case 'N4':
+            return isPreDec2020
+                ? { vocab: 30, grammarReading: 60, listening: 35, writtenTotal: 90, total: 125, era: 'legacy' }
+                : { vocab: 25, grammarReading: 55, listening: 35, writtenTotal: 80, total: 115, era: 'modern' };
+        case 'N3':
+            return { vocab: 30, grammarReading: 70, listening: 40, writtenTotal: 100, total: 140, era: isPreDec2020 ? 'legacy' : 'modern' };
+        case 'N2':
+            return { langReading: 105, listening: 50, writtenTotal: 105, total: 155, era: 'modern' };
+        case 'N1':
+            return isPreDec2022
+                ? { langReading: 110, listening: 60, writtenTotal: 110, total: 170, era: 'legacy' }
+                : { langReading: 110, listening: 55, writtenTotal: 110, total: 165, era: 'modern' };
+        default:
+            return { vocab: 30, grammarReading: 70, listening: 40, writtenTotal: 100, total: 140, era: 'modern' };
+    }
+};
+
+export const getOfficialJlptTotalMinutes = (test = null, hasAudioOverride = null) => {
+    if (!test) return 60;
+    const lvl = String(test.level || 'N3').toUpperCase().trim();
+    const t = getOfficialJlptTiming(lvl, test);
+    const hasAudio = typeof hasAudioOverride === 'boolean' ? hasAudioOverride : testHasListening(test);
+    if (test.isSkillTest && test.skillType === 'listening') {
+        return Number(test.timeLimit) || t.listening;
+    }
+    return hasAudio ? t.total : t.writtenTotal;
 };
 
 /**
@@ -339,7 +393,18 @@ export const buildSectionDisplayClusters = ({
         });
     });
 
-    return clusters;
+    return clusters.map((cluster) => {
+        if (!cluster.isPassageCluster || !cluster.passageHtml) return cluster;
+        const targets = extractUnderlineTargetsFromQuestions(
+            cluster.items.map((it) => it.question),
+            cluster.passageHtml
+        );
+        if (targets.length === 0) return cluster;
+        return {
+            ...cluster,
+            passageHtml: injectUnderlinesIntoHtml(cluster.passageHtml, targets)
+        };
+    });
 };
 
 /**

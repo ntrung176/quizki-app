@@ -380,7 +380,7 @@ QUY TẮC XUẤT JSON PHẦN NGHE HIỂU & SCRIPT BẮT BUỘC:
                 : bp.langReadingPromptRules;
 
     const readingBreakdownRule = part !== 'vocab_grammar'
-        ? `\n   - PHÂN TÍCH TỪNG CÂU BÀI ĐỌC ("passageData" — DÀNH CHO CHẾ ĐỘ LUYỆN TẬP): Đối với MỌI bài đọc ("type": "reading"), ở CÂU ĐẦU TIÊN của mỗi bài đọc (các câu tiếp theo chung bài đọc đó không cần lặp lại "passageData" để tránh dài JSON), BẮT BUỘC thêm object "passageData" gồm:\n     * "title": tên ngắn gọn tiếng Nhật\n     * "titleVi": tiêu đề tiếng Việt ngắn\n     * "vietnamese": bản dịch tiếng Việt đầy đủ toàn bài đọc\n     * "sentences": mảng phân tích ĐỦ TỪNG CÂU trong bài đọc theo đúng thứ tự: [{ "jp": "nguyên văn câu tiếng Nhật", "vi": "dịch tiếng Việt tự nhiên câu đó", "vocab": [{ "w": "Từ Kanji", "read": "cách đọc hiragana", "vi": "nghĩa ngắn" }], "grammar": [{ "point": "〜mẫu ngữ pháp", "vi": "ý nghĩa ngắn" }] }]`
+        ? `\n   - PHÂN TÍCH TỪNG CÂU BÀI ĐỌC ("passageData" — DÀNH CHO CHẾ ĐỘ LUYỆN TẬP): Đối với MỌI bài đọc ("type": "reading"), ở CÂU ĐẦU TIÊN của mỗi bài đọc (các câu tiếp theo chung bài đọc đó không cần lặp lại "passageData" để tránh dài JSON), BẮT BUỘC thêm object "passageData" gồm:\n     * "title": tên ngắn gọn tiếng Nhật\n     * "titleVi": tiêu đề tiếng Việt ngắn\n     * "vietnamese": bản dịch tiếng Việt đầy đủ toàn bài đọc\n     * "sentences": mảng phân tích ĐỦ TỪNG CÂU trong bài đọc theo đúng thứ tự: [{ "jp": "nguyên văn câu tiếng Nhật (GIỮ NGUYÊN thẻ <u>...</u> ở đoạn được gạch chân)", "vi": "dịch tiếng Việt tự nhiên câu đó", "vocab": [{ "w": "Từ Kanji", "read": "cách đọc hiragana", "vi": "nghĩa ngắn" }], "grammar": [{ "point": "〜mẫu ngữ pháp", "vi": "ý nghĩa ngắn" }] }]`
         : '';
 
     const listeningRuleBlock = part === 'full_exam'
@@ -407,9 +407,9 @@ QUY TẮC XUẤT JSON BẮT BUỘC (KHÔNG BỎ SÓT BẤT KỲ CÂU NÀO):
    - "mondaiTitle": ví dụ "問題1：漢字読み"
    - "questionNumber": số thứ tự câu trên đề (1, 2, 3...)
 3. Định dạng HTML sạch:
-   - Từ/cụm gạch chân: bọc bằng <u>...</u>
+   - Từ/cụm gạch chân: BẮT BUỘC bọc bằng <u>...</u> Ở CẢ trường "question" VÀ NGAY TRONG đoạn văn "passage" (cũng như "passageData.sentences[].jp"). Ví dụ: nếu câu hỏi ghi "<u>やってみようと思った</u>とあるが…", thì cụm tương ứng bên trong "passage" CŨNG PHẢI bọc bằng <u>やってみようと思った</u>!
    - Câu sắp xếp ★: ghi đủ "<u>\\u3000</u> <u>\\u3000</u> <u>★</u> <u>\\u3000</u>"
-   - Câu Đọc hiểu & Điền đoạn văn (文章の文法): COPY TOÀN BỘ đoạn văn gốc (bao gồm cả đoạn A & B của bài so sánh 総合理解, bảng biểu HTML <table> và ghi chú (注) của bài 情報検索) vào trường "passage" của từng câu thuộc bài đó!${readingBreakdownRule}
+   - Câu Đọc hiểu & Điền đoạn văn (文章の文法): COPY TOÀN BỘ đoạn văn gốc (giữ nguyên mọi phần gạch chân <u>...</u> trong bài, bao gồm cả đoạn A & B của bài so sánh 総合理解, bảng biểu HTML <table> và ghi chú (注) của bài 情報検索) vào trường "passage" của từng câu thuộc bài đó!${readingBreakdownRule}
 4. "options": mảng đúng 4 đáp án tiếng Nhật nguyên văn (hoặc 3 đáp án đối với Nghe hiểu Trả lời nhanh), bỏ số 1/2/3/4 ở đầu.
 5. "correctAnswer": chỉ số 0-based (0 = lựa chọn 1, 1 = lựa chọn 2, 2 = lựa chọn 3, 3 = lựa chọn 4). Đối chiếu chuẩn xác với đáp án đính kèm (nếu đề không kèm đáp án, hãy tự giải chính xác tuyệt đối).
 6. ${GEMINI_EXPLANATION_SPEC_NON_LISTEN}${listeningRuleBlock}

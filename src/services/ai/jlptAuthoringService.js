@@ -12,8 +12,7 @@ import { extractPdfText, extractPdfPageImages, chunkPdfPages } from './pdfExtrac
 import { sanitizeDataForFirestore } from '../../components/jlptTest/JLPTExportImportModal';
 import { normalizeAnswerIndex, detectBatchOneBasedIndexing } from '../../utils/jlptAnswerIndex';
 import {
-    JLPT_TOTAL_TIME_BY_LEVEL,
-    JLPT_LISTENING_TIME_BY_LEVEL,
+    getOfficialJlptTiming,
     getMondaiListForLevel,
     getMondaiMeta,
     getLevelExamBlueprint,
@@ -581,9 +580,10 @@ export const buildAuthoredTestObject = ({
     }
 
     const onlyListening = sections.length > 0 && sections.every((s) => s.type === 'listening');
+    const timing = getOfficialJlptTiming(normLevel, { examYear: yearNum, examSession: sess });
     const defaultTime = onlyListening
-        ? (JLPT_LISTENING_TIME_BY_LEVEL[normLevel] || 40)
-        : (JLPT_TOTAL_TIME_BY_LEVEL[normLevel] || 140);
+        ? timing.listening
+        : (hasListen ? timing.total : timing.writtenTotal);
 
     const id = `jlpt-yearly-${normLevel.toLowerCase()}-${yearNum}-${sess}`;
     return {
@@ -692,13 +692,11 @@ export const mergeListeningIntoExistingTest = (existingTest, listeningQuestions 
 
     const hasListen = combinedListening.length > 0;
     const listeningCounts = countListeningMondais(sections);
-    const hadListenBefore = testHasListening(existingTest);
-    const listenMinutes = JLPT_LISTENING_TIME_BY_LEVEL[normLevel] || 40;
-    const fullTargetMinutes = JLPT_TOTAL_TIME_BY_LEVEL[normLevel] || 140;
-    let nextTimeLimit = existingTest.timeLimit || fullTargetMinutes;
-    if (!hadListenBefore && hasListen && nextTimeLimit < fullTargetMinutes - 15) {
-        nextTimeLimit = Math.min(fullTargetMinutes, nextTimeLimit + listenMinutes);
-    }
+    const timing = getOfficialJlptTiming(normLevel, { examYear: yearNum, examSession: sess });
+    const fullTargetMinutes = timing.total;
+    const nextTimeLimit = baseNonListening.length > 0
+        ? (hasListen ? fullTargetMinutes : timing.writtenTotal)
+        : (existingTest.timeLimit || timing.listening);
 
     const updated = {
         ...existingTest,

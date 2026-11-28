@@ -3,7 +3,7 @@
  * automatically extrapolated proportionally for legacy JLPT exams (2010–2021) or custom question counts.
  */
 import { normalizeJlptLevel, getExamEra } from '../components/jlptTest/jlptLevelBlueprints.js';
-import { resolveQuestionMondai, parseYearlyExamMeta } from '../components/jlptTest/jlptYearlyConstants.js';
+import { resolveQuestionMondai, parseYearlyExamMeta, getOfficialJlptTiming } from '../components/jlptTest/jlptYearlyConstants.js';
 
 /**
  * Per-Mondai base weights & expected 2024 question counts from DungMori scoring tables.
@@ -184,12 +184,40 @@ export const JLPT_SCORING_BLUEPRINTS = {
     }
 };
 
-export const normalizeSectionSkill = (sec = {}) => {
-    const type = String(sec?.type || '').toLowerCase();
+const hasAudioQuestions = (sec = {}) => (
+    Array.isArray(sec?.questions)
+    && sec.questions.some((q) => Boolean(q?.audioUrl) || (typeof q?.audioStartSec === 'number' && q.audioStartSec >= 0))
+);
+
+const isCombinedWrittenSection = (sec = {}) => {
+    const type = String(sec?.type || '').toLowerCase().trim();
     const title = String(sec?.title || '').toLowerCase();
-    if (type === 'listening' || /聴解|nghe|listening/.test(title)) return 'listening';
-    if (type === 'reading' || /読解|đọc|reading/.test(title)) return 'reading';
-    if (type === 'grammar' || /文法|ngữ pháp|grammar/.test(title)) return 'grammar';
+    if (['full', 'mixed', 'lang_reading', 'written'].includes(type)) return true;
+    return !type && (/tổng hợp|総合/.test(title) || (/言語知識/.test(title) && !/文字|語彙|vocabulary|từ vựng/.test(title)));
+};
+
+export const normalizeSectionSkill = (sec = {}) => {
+    const type = String(sec?.type || '').toLowerCase().trim();
+    const title = String(sec?.title || '').toLowerCase();
+    if (type === 'listening' || type === 'audio' || type === 'choukai') return 'listening';
+    const explicitWritten = ['vocabulary', 'kanji', 'grammar', 'reading', 'grammar_reading', 'lang_reading', 'full', 'mixed'].includes(type);
+    if (explicitWritten) {
+        if (Array.isArray(sec?.questions) && sec.questions.length > 0 && sec.questions.every((q) => Boolean(q?.audioUrl))) {
+            return 'listening';
+        }
+        if (type === 'grammar_reading' || type === 'reading') return 'reading';
+        if (type === 'grammar') return 'grammar';
+        return 'vocabulary';
+    }
+    if (
+        /聴解|ちょうかい|choukai|nghe hiểu|luyện nghe|phần nghe|listening/.test(title)
+        || (/(?:mondai|問題)\s*[1-5]\s*[:：]\s*(?:課題理解|ポイント理解|概要理解|発話表現|即時応答|統合理解)/.test(title))
+        || hasAudioQuestions(sec)
+    ) {
+        return 'listening';
+    }
+    if (/読解|đọc hiểu|reading/.test(title)) return 'reading';
+    if (/文法|ngữ pháp|grammar/.test(title)) return 'grammar';
     return 'vocabulary';
 };
 
@@ -426,41 +454,98 @@ export const computeJlptScoreBreakdown = ({
 };
 
 /**
- * Official JLPT Real-Exam Timed Phases by Level & Exam Era (< 2020 vs >= 2020).
+ * Official JLPT Real-Exam Timed Phases by Level & Exam Era (per jlpt.jp).
+ * - N5/N4 revised Dec 2020 (2020-12+): N5 20/40/30 (90p), N4 25/55/35 (115p)
+ * - N1 revised Dec 2022 (2022-12+): Listening 55p (110+55=165p, down from 60p/170p)
  * Always places Listening (聴解) into its own separate timed phase just like real JLPT exam rules.
  */
 export const JLPT_OFFICIAL_PHASE_MINUTES = {
     N5: { legacy: { vocab: 25, grammarReading: 50, listening: 30 }, modern: { vocab: 20, grammarReading: 40, listening: 30 } },
-    N4: { legacy: { vocab: 30, grammarReading: 60, listening: 35 }, modern: { vocab: 25, grammarReading: 50, listening: 30 } },
+    N4: { legacy: { vocab: 30, grammarReading: 60, listening: 35 }, modern: { vocab: 25, grammarReading: 55, listening: 35 } },
     N3: { legacy: { vocab: 30, grammarReading: 70, listening: 40 }, modern: { vocab: 30, grammarReading: 70, listening: 40 } },
     N2: { legacy: { langReading: 105, listening: 50 }, modern: { langReading: 105, listening: 50 } },
-    N1: { legacy: { langReading: 110, listening: 60 }, modern: { langReading: 110, listening: 60 } }
+    N1: { legacy: { langReading: 110, listening: 60 }, modern: { langReading: 110, listening: 55 } }
 };
 
 /**
  * Splits a JLPT test's `sections` into official JLPT timed exam phases for Real Exam mode.
- * Returns an ordered array of `{ id, label, ja, minutes, seconds, sectionIndices, isListening }`.
+ * Guarantees Listening (聴解) ALWAYS runs on its own dedicated final clock across N5–N1,
+ * while preserving explicit durations on standalone skill drills and book worksheets.
+ * Returns `{ id, label, shortLabel, ja, minutes, seconds, sectionIndices, isListening }[]`.
  */
 export const buildJlptExamPhases = (test = null) => {
     if (!test || !Array.isArray(test.sections) || test.sections.length === 0) return [];
     const lvl = normalizeJlptLevel(test.level || 'N3');
     const yearlyMeta = parseYearlyExamMeta(test);
-    const isPre2020 = yearlyMeta.year && yearlyMeta.year < 2020;
-    const timing = JLPT_OFFICIAL_PHASE_MINUTES[lvl]?.[isPre2020 ? 'legacy' : 'modern'] || JLPT_OFFICIAL_PHASE_MINUTES.N3.modern;
+    const timing = getOfficialJlptTiming(lvl, test);
+    const isYearlyExam = Boolean(yearlyMeta.isYearly || test.category === 'yearly');
 
     const buckets = { vocab: [], grammarReading: [], langReading: [], listening: [] };
+    let hasCombinedWritten = false;
     test.sections.forEach((sec, idx) => {
         const skill = normalizeSectionSkill(sec);
         if (skill === 'listening') {
             buckets.listening.push(idx);
         } else if (lvl === 'N2' || lvl === 'N1') {
             buckets.langReading.push(idx);
-        } else if (skill === 'vocabulary') {
-            buckets.vocab.push(idx);
         } else {
-            buckets.grammarReading.push(idx);
+            if (isCombinedWrittenSection(sec)) {
+                hasCombinedWritten = true;
+            }
+            if (skill === 'vocabulary') {
+                buckets.vocab.push(idx);
+            } else {
+                buckets.grammarReading.push(idx);
+            }
         }
     });
+
+    const isListeningOnlyDrill = buckets.listening.length > 0
+        && buckets.vocab.length === 0
+        && buckets.grammarReading.length === 0
+        && buckets.langReading.length === 0
+        && (Boolean(test.isSkillTest) || test.category === 'mondai_listening' || (test.timeLimit > 0 && test.timeLimit < timing.listening));
+
+    if (isListeningOnlyDrill) {
+        const mins = Math.max(1, Number(test.timeLimit) || timing.listening);
+        return [{
+            id: 'listening',
+            label: 'Nghe hiểu (Tính giờ riêng)',
+            shortLabel: 'Nghe hiểu',
+            ja: '聴解',
+            minutes: mins,
+            seconds: mins * 60,
+            sectionIndices: buckets.listening,
+            isListening: true
+        }];
+    }
+
+    const isStandaloneBookOrDrill = !isYearlyExam
+        && buckets.listening.length === 0
+        && (
+            Boolean(test.isSkillTest)
+            || String(test.id || '').includes('roadmap')
+            || String(test.id || '').includes('worksheet')
+            || (buckets.vocab.length === 0 && buckets.grammarReading.length === 0 && buckets.langReading.length <= 1)
+            || (buckets.vocab.length > 0 && buckets.grammarReading.length === 0)
+            || (buckets.grammarReading.length > 0 && buckets.vocab.length === 0)
+        )
+        && Number(test.timeLimit) > 0;
+
+    if (isStandaloneBookOrDrill) {
+        const mins = Math.max(1, Number(test.timeLimit) || 60);
+        const allIndices = test.sections.map((_, idx) => idx);
+        return [{
+            id: 'drill',
+            label: test.sections.length === 1 ? (test.sections[0].title || 'Làm bài chuẩn giờ') : 'Tổng thời gian bài thi',
+            shortLabel: 'Làm bài',
+            ja: '試験時間',
+            minutes: mins,
+            seconds: mins * 60,
+            sectionIndices: allIndices,
+            isListening: false
+        }];
+    }
 
     const phases = [];
     if (lvl === 'N2' || lvl === 'N1') {
@@ -469,6 +554,7 @@ export const buildJlptExamPhases = (test = null) => {
             phases.push({
                 id: 'lang_reading',
                 label: 'Kiến thức ngôn ngữ & Đọc hiểu',
+                shortLabel: 'Ngôn ngữ & Đọc',
                 ja: '言語知識（文字・語彙・文法）・読解',
                 minutes: mins,
                 seconds: mins * 60,
@@ -476,12 +562,25 @@ export const buildJlptExamPhases = (test = null) => {
                 isListening: false
             });
         }
+    } else if (hasCombinedWritten && buckets.vocab.length > 0 && buckets.grammarReading.length === 0) {
+        const mins = timing.writtenTotal;
+        phases.push({
+            id: 'lang_reading',
+            label: 'Kiến thức ngôn ngữ & Đọc hiểu',
+            shortLabel: 'Ngôn ngữ & Đọc',
+            ja: '言語知識・読解',
+            minutes: mins,
+            seconds: mins * 60,
+            sectionIndices: buckets.vocab,
+            isListening: false
+        });
     } else {
         if (buckets.vocab.length > 0) {
             const mins = timing.vocab;
             phases.push({
                 id: 'vocab',
                 label: 'Từ vựng · Chữ Hán',
+                shortLabel: 'Từ vựng',
                 ja: '言語知識（文字・語彙）',
                 minutes: mins,
                 seconds: mins * 60,
@@ -494,6 +593,7 @@ export const buildJlptExamPhases = (test = null) => {
             phases.push({
                 id: 'grammar_reading',
                 label: 'Ngữ pháp & Đọc hiểu',
+                shortLabel: 'Ngữ pháp & Đọc',
                 ja: '言語知識（文法）・読解',
                 minutes: mins,
                 seconds: mins * 60,
@@ -508,6 +608,7 @@ export const buildJlptExamPhases = (test = null) => {
         phases.push({
             id: 'listening',
             label: 'Nghe hiểu (Tính giờ riêng)',
+            shortLabel: 'Nghe hiểu',
             ja: '聴解',
             minutes: mins,
             seconds: mins * 60,

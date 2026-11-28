@@ -1,4 +1,5 @@
 import { callAI, parseJsonFromAI } from '../../utils/aiProvider';
+import { extractSourceUnderlineRules, injectUnderlinesIntoSentenceHtml } from '../../utils/jlptExplanationParser';
 
 /**
  * Strips HTML tags for clean AI prompt context
@@ -149,16 +150,31 @@ const stripPassageToReadableText = (html = '') => {
         .trim();
 };
 
+const stripPassagePreservingUnderline = (html = '') => {
+    return String(html || '')
+        .replace(/<\/(?:p|div|li|tr|h[1-6])>/gi, '\n')
+        .replace(/<br\s*\/?>/gi, '\n')
+        .replace(/<\/(?:td|th)>/gi, ' | ')
+        .replace(/<(?:u|ins)\b[^>]*>/gi, '<u>')
+        .replace(/<\/(?:u|ins)>/gi, '</u>')
+        .replace(/<(?!\/?u\b)[a-z][\s\S]*?>/gi, '')
+        .replace(/[ \t]+/g, ' ')
+        .replace(/\n{3,}/g, '\n\n')
+        .trim();
+};
+
 /**
  * Normalizes passageData produced either by Gemini Pro Neon external JSON or internal AI batch analyzer.
  */
 export const normalizePassageBreakdownPayload = (rawPd, passageHtml = '') => {
     if (!rawPd || typeof rawPd !== 'object') return null;
     const rawSentences = Array.isArray(rawPd.sentences) ? rawPd.sentences : [];
-    const sentences = rawSentences
-        .filter((s) => s && (s.jp || s.rawJp))
+    const underlineRules = extractSourceUnderlineRules(passageHtml);
+    const validSentences = rawSentences.filter((s) => s && (s.jp || s.rawJp));
+    const allPlains = validSentences.map((s) => String(s.rawJp || s.jp || '').replace(/<\/?[^>]+(>|$)/g, '').trim());
+    const sentences = validSentences
         .map((s) => {
-            const jp = String(s.jp || s.rawJp || '').trim();
+            const jp = injectUnderlinesIntoSentenceHtml(String(s.jp || s.rawJp || '').trim(), underlineRules, allPlains);
             const vocab = Array.isArray(s.vocab)
                 ? s.vocab
                     .filter((v) => v && v.w)
@@ -245,7 +261,7 @@ export const aiAnalyzeReadingPassage = async ({
     passageHtml = '',
     level = 'N3'
 } = {}) => {
-    const cleanText = stripPassageToReadableText(passageHtml);
+    const cleanText = stripPassagePreservingUnderline(passageHtml);
     if (!cleanText || cleanText.length < 10) {
         throw new Error('Đoạn văn quá ngắn hoặc rỗng, không thể phân tích.');
     }
@@ -262,7 +278,7 @@ YÊU CẦU:
 2. "titleVi": Tiêu đề tiếng Việt ngắn gọn (3–8 từ).
 3. "vietnamese": Bản dịch tiếng Việt hoàn chỉnh, tự nhiên, sát nghĩa toàn bộ bài đọc (kể cả ghi chú (注) nếu có).
 4. "sentences": Tách toàn bộ bài đọc thành TỪNG CÂU (hoặc từng mục thông tin rõ ràng nếu là bảng thông báo/tìm kiếm thông tin), theo đúng thứ tự từ đầu đến cuối bài:
-   - "jp": Nguyên văn tiếng Nhật câu/mục đó (giữ nguyên chữ trong bài).
+   - "jp": Nguyên văn tiếng Nhật câu/mục đó (giữ nguyên chữ trong bài VÀ GIỮ NGUYÊN cặp thẻ <u>...</u> ở đoạn được gạch chân nếu có).
    - "vi": Dịch nghĩa tiếng Việt chuẩn xác cho riêng câu đó.
    - "vocab": 1–4 từ vựng / kanji đáng chú ý trong câu (mỗi từ: { "w": "漢字", "read": "hiragana", "vi": "nghĩa ngắn" }).
    - "grammar": 0–2 mẫu ngữ pháp nổi bật trong câu (mỗi mẫu: { "point": "〜...", "vi": "ý nghĩa & cách dùng siêu ngắn" }).

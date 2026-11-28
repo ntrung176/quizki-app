@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
+import { showConfirm } from '../../utils/toast';
 import { 
     MousePointer, 
     Pencil, 
@@ -119,15 +120,30 @@ const ExamAnnotationOverlay = ({
     sectionIdx, 
     questionIdx, 
     isEnabled,
-    readOnly = false
+    readOnly = false,
+    scrollContainerId = 'jlpt-take-right-scroll-container',
+    contentWrapperId = 'jlpt-questions-stream-container'
 }) => {
     const shouldRender = isEnabled || readOnly;
     const canvasRef = useRef(null);
     const overlayRef = useRef(null);
     const toolbarRef = useRef(null);
+    const prevEnabledRef = useRef(false);
+
+    const getScrollParent = useCallback(() => (
+        document.getElementById(scrollContainerId)
+        || document.getElementById('jlpt-main-scroll-container')
+        || overlayRef.current?.parentElement
+    ), [scrollContainerId]);
+
+    const getContentWrapper = useCallback(() => (
+        document.getElementById(contentWrapperId)
+        || document.getElementById('jlpt-question-content-wrapper')
+        || getScrollParent()
+    ), [contentWrapperId, getScrollParent]);
 
     // --- Toolbar State ---
-    const [activeTool, setActiveTool] = useState('cursor'); // 'cursor' | 'pen' | 'line' | 'curve' | 'highlighter' | 'text-highlighter' | 'eraser' | 'text' | 'sticky'
+    const [activeTool, setActiveTool] = useState(isEnabled && !readOnly ? 'pen' : 'cursor'); // 'cursor' | 'pen' | 'line' | 'curve' | 'highlighter' | 'text-highlighter' | 'eraser' | 'text' | 'sticky'
     const [penColor, setPenColor] = useState('#ef4444');
     const [highlighterColor, setHighlighterColor] = useState('#fef08a');
     
@@ -234,23 +250,38 @@ const ExamAnnotationOverlay = ({
         }
     };
 
+    // --- Auto-switch to Pen when turning Scratchpad ON so user can write immediately ---
+    useEffect(() => {
+        if (isEnabled && !readOnly && !prevEnabledRef.current) {
+            setActiveTool((prev) => (prev === 'cursor' ? 'pen' : prev));
+        }
+        prevEnabledRef.current = Boolean(isEnabled && !readOnly);
+    }, [isEnabled, readOnly]);
+
     // --- Dynamic Text Highlight Rendering via CSS Custom Highlights API ---
     useEffect(() => {
-        if (!shouldRender) return;
+        const clearCssHighlights = () => {
+            if (typeof CSS === 'undefined' || !CSS.highlights) return;
+            CSS.highlights.delete('hl-yellow');
+            CSS.highlights.delete('hl-green');
+            CSS.highlights.delete('hl-pink');
+        };
+
+        if (!shouldRender) {
+            clearCssHighlights();
+            return clearCssHighlights;
+        }
         
         if (typeof CSS === 'undefined' || !CSS.highlights || typeof Highlight === 'undefined') {
-            return;
+            return undefined;
         }
 
-        // Clear existing highlights
-        CSS.highlights.delete('hl-yellow');
-        CSS.highlights.delete('hl-green');
-        CSS.highlights.delete('hl-pink');
+        clearCssHighlights();
 
-        if (selectionHighlights.length === 0) return;
+        if (selectionHighlights.length === 0) return clearCssHighlights;
 
-        const container = document.getElementById('jlpt-question-content-wrapper');
-        if (!container) return;
+        const container = getContentWrapper();
+        if (!container) return clearCssHighlights;
 
         const yellowRanges = [];
         const greenRanges = [];
@@ -268,39 +299,42 @@ const ExamAnnotationOverlay = ({
         if (yellowRanges.length > 0) CSS.highlights.set('hl-yellow', new Highlight(...yellowRanges));
         if (greenRanges.length > 0) CSS.highlights.set('hl-green', new Highlight(...greenRanges));
         if (pinkRanges.length > 0) CSS.highlights.set('hl-pink', new Highlight(...pinkRanges));
-    }, [selectionHighlights, shouldRender, questionKey]);
+
+        return clearCssHighlights;
+    }, [selectionHighlights, shouldRender, questionKey, getContentWrapper]);
 
     // --- Text Selection Highlight Handler ---
     useEffect(() => {
-        if (!isEnabled || activeTool !== 'text-highlighter') return;
+        if (!isEnabled || readOnly || activeTool !== 'text-highlighter') return;
 
         const handleSelectionMouseUp = () => {
-            const selection = window.getSelection();
-            if (!selection || selection.isCollapsed || selection.rangeCount === 0) return;
+            setTimeout(() => {
+                const selection = window.getSelection();
+                if (!selection || selection.isCollapsed || selection.rangeCount === 0) return;
 
-            const range = selection.getRangeAt(0);
-            const container = document.getElementById('jlpt-question-content-wrapper');
-            if (!container || !container.contains(range.commonAncestorContainer)) return;
+                const range = selection.getRangeAt(0);
+                const container = getContentWrapper();
+                if (!container || !container.contains(range.commonAncestorContainer)) return;
 
-            const offsets = getRangeOffsets(range, container);
-            if (offsets) {
-                const newHighlight = {
-                    id: `hl_${Date.now()}`,
-                    startOffset: offsets.startOffset,
-                    endOffset: offsets.endOffset,
-                    color: highlighterColor
-                };
-                
-                // Clear blue default browser selection
-                selection.removeAllRanges();
+                const offsets = getRangeOffsets(range, container);
+                if (offsets) {
+                    const newHighlight = {
+                        id: `hl_${Date.now()}`,
+                        startOffset: offsets.startOffset,
+                        endOffset: offsets.endOffset,
+                        color: highlighterColor
+                    };
+                    
+                    selection.removeAllRanges();
 
-                const updated = [...selectionHighlights, newHighlight];
-                setSelectionHighlights(updated);
-                saveAnnotations(strokes, textObjects, stickyNotes, updated);
-            }
+                    const updated = [...selectionHighlights, newHighlight];
+                    setSelectionHighlights(updated);
+                    saveAnnotations(strokes, textObjects, stickyNotes, updated);
+                }
+            }, 0);
         };
 
-        const container = document.getElementById('jlpt-question-content-wrapper');
+        const container = getContentWrapper();
         if (container) {
             container.addEventListener('pointerup', handleSelectionMouseUp);
         }
@@ -309,11 +343,11 @@ const ExamAnnotationOverlay = ({
                 container.removeEventListener('pointerup', handleSelectionMouseUp);
             }
         };
-    }, [isEnabled, activeTool, highlighterColor, selectionHighlights, strokes, textObjects, stickyNotes]);
+    }, [isEnabled, readOnly, activeTool, highlighterColor, selectionHighlights, strokes, textObjects, stickyNotes, getContentWrapper]);
 
     // --- Eraser for Text Selection Highlights ---
     const handleTextEraserAction = (clientX, clientY) => {
-        const container = document.getElementById('jlpt-question-content-wrapper');
+        const container = getContentWrapper();
         if (!container) return;
 
         let caretRange = null;
@@ -371,89 +405,60 @@ const ExamAnnotationOverlay = ({
     };
 
     // --- Canvas Sizing (covers full scroll container height) ---
-    const updateSize = useCallback(() => {
-        const parent = document.getElementById('jlpt-main-scroll-container') || overlayRef.current?.parentElement;
-        const wrapper = document.getElementById('jlpt-question-content-wrapper');
-        
-        if (parent && wrapper) {
-            const parentWidth = parent.scrollWidth || parent.clientWidth || parent.offsetWidth;
-            const parentHeight = parent.scrollHeight || parent.clientHeight || parent.offsetHeight;
-            const wrapperWidth = wrapper.clientWidth || wrapper.offsetWidth;
-            const wrapperHeight = wrapper.clientHeight || wrapper.offsetHeight;
-            
-            if (parentWidth > 0 && parentHeight > 0 && wrapperWidth > 0 && wrapperHeight > 0) {
-                const parentRect = parent.getBoundingClientRect();
-                const wrapperRect = wrapper.getBoundingClientRect();
-                
-                // Position of wrapper relative to parent scrollable content area
-                const currentOffsetLeft = wrapperRect.left - parentRect.left + parent.scrollLeft;
-                const currentOffsetTop = wrapperRect.top - parentRect.top + parent.scrollTop;
-                
-                setOffsetLeft(currentOffsetLeft);
-                setOffsetTop(currentOffsetTop);
-                setCanvasSize({ width: parentWidth, height: parentHeight });
-                setWrapperSize({ width: wrapperWidth, height: wrapperHeight });
-                
-                setRefSize(prev => {
-                    if (prev.width === 768 && prev.height === 800) {
-                        return { width: wrapperWidth, height: wrapperHeight };
-                    }
-                    return prev;
-                });
-            } else {
-                let retries = 0;
-                const check = () => {
-                    const p = document.getElementById('jlpt-main-scroll-container') || overlayRef.current?.parentElement;
-                    const w = document.getElementById('jlpt-question-content-wrapper');
-                    if (p && w) {
-                        const pW = p.scrollWidth || p.clientWidth;
-                        const pH = p.scrollHeight || p.clientHeight;
-                        const wW = w.clientWidth;
-                        const wH = w.clientHeight;
-                        if (pW > 0 && pH > 0 && wW > 0 && wH > 0) {
-                            const pRect = p.getBoundingClientRect();
-                            const wRect = w.getBoundingClientRect();
-                            
-                            const currentOffsetLeft = wRect.left - pRect.left + p.scrollLeft;
-                            const currentOffsetTop = wRect.top - pRect.top + p.scrollTop;
-                            
-                            setOffsetLeft(currentOffsetLeft);
-                            setOffsetTop(currentOffsetTop);
-                            setCanvasSize({ width: pW, height: pH });
-                            setWrapperSize({ width: wW, height: wH });
-                            
-                            setRefSize(prev => {
-                                if (prev.width === 768 && prev.height === 800) {
-                                    return { width: wW, height: wH };
-                                }
-                                return prev;
-                            });
-                        } else if (retries < 5) {
-                            retries++;
-                            setTimeout(check, 50 * retries);
-                        }
-                    }
-                };
-                setTimeout(check, 50);
-            }
+    const measureOverlayBounds = useCallback(() => {
+        const parent = getScrollParent();
+        const wrapper = getContentWrapper();
+        if (!parent || !wrapper) return false;
+
+        const parentWidth = Math.max(parent.scrollWidth || 0, parent.clientWidth || 0, parent.offsetWidth || 0);
+        const parentHeight = Math.min(16384, Math.max(parent.scrollHeight || 0, parent.clientHeight || 0, parent.offsetHeight || 0));
+        const wrapperWidth = wrapper.clientWidth || wrapper.offsetWidth || parentWidth;
+        const wrapperHeight = wrapper.clientHeight || wrapper.offsetHeight || parentHeight;
+
+        if (parentWidth <= 0 || parentHeight <= 0 || wrapperWidth <= 0 || wrapperHeight <= 0) {
+            return false;
         }
-    }, []);
+
+        const parentRect = parent.getBoundingClientRect();
+        const wrapperRect = wrapper.getBoundingClientRect();
+        const currentOffsetLeft = wrapperRect.left - parentRect.left + parent.scrollLeft;
+        const currentOffsetTop = wrapperRect.top - parentRect.top + parent.scrollTop;
+
+        setOffsetLeft(currentOffsetLeft);
+        setOffsetTop(currentOffsetTop);
+        setCanvasSize((prev) => (prev.width === parentWidth && prev.height === parentHeight ? prev : { width: parentWidth, height: parentHeight }));
+        setWrapperSize((prev) => (prev.width === wrapperWidth && prev.height === wrapperHeight ? prev : { width: wrapperWidth, height: wrapperHeight }));
+        setRefSize((prev) => (prev.width === 768 && prev.height === 800 ? { width: wrapperWidth, height: wrapperHeight } : prev));
+        return true;
+    }, [getScrollParent, getContentWrapper]);
+
+    const updateSize = useCallback(() => {
+        if (measureOverlayBounds()) return;
+        let retries = 0;
+        const retryMeasure = () => {
+            if (!measureOverlayBounds() && retries < 6) {
+                retries += 1;
+                setTimeout(retryMeasure, 60 * retries);
+            }
+        };
+        setTimeout(retryMeasure, 50);
+    }, [measureOverlayBounds]);
 
     useEffect(() => {
         if (!shouldRender) return;
-        
-        updateSize();
-        const initialTimer = setTimeout(updateSize, 100);
 
-        const parent = document.getElementById('jlpt-main-scroll-container') || overlayRef.current?.parentElement;
-        const wrapper = document.getElementById('jlpt-question-content-wrapper');
+        updateSize();
+        const initialTimer = setTimeout(updateSize, 120);
+
+        const parent = getScrollParent();
+        const wrapper = getContentWrapper();
         if (!parent) return () => clearTimeout(initialTimer);
 
         const observer = new ResizeObserver(() => {
             updateSize();
         });
         observer.observe(parent);
-        if (wrapper) {
+        if (wrapper && wrapper !== parent) {
             observer.observe(wrapper);
         }
 
@@ -464,7 +469,7 @@ const ExamAnnotationOverlay = ({
             observer.disconnect();
             window.removeEventListener('resize', updateSize);
         };
-    }, [updateSize, questionKey, shouldRender]);
+    }, [updateSize, questionKey, shouldRender, getScrollParent, getContentWrapper]);
 
     // Redraw on change
     useEffect(() => {
@@ -496,7 +501,7 @@ const ExamAnnotationOverlay = ({
             yy = b.y;
         } else {
             xx = a.x + param * C;
-            yy = b.y + param * D;
+            yy = a.y + param * D;
         }
 
         const dx = p.x - xx;
@@ -696,6 +701,7 @@ const ExamAnnotationOverlay = ({
         const coords = getCanvasCoords(e);
 
         if (activeTool === 'eraser') {
+            try { e.currentTarget?.setPointerCapture?.(e.pointerId); } catch {}
             setIsDrawing(true);
             handleEraserAction(coords, e.clientX, e.clientY);
             return;
@@ -716,8 +722,8 @@ const ExamAnnotationOverlay = ({
             const newNote = {
                 id: `sticky_${Date.now()}`,
                 text: '',
-                x: (coords.x - offsetLeft - 20) / ratioX,
-                y: (coords.y - offsetTop - 20) / ratioY,
+                x: Math.max(8, (coords.x - offsetLeft - 20) / ratioX),
+                y: Math.max(8, (coords.y - offsetTop - 20) / ratioY),
                 width: 190,
                 height: 150,
                 color: '#fef08a'
@@ -757,6 +763,7 @@ const ExamAnnotationOverlay = ({
         }
 
         // Pen, Highlighter, Line
+        try { e.currentTarget?.setPointerCapture?.(e.pointerId); } catch {}
         setIsDrawing(true);
         setCurrentPoints([coords]);
     };
@@ -784,12 +791,17 @@ const ExamAnnotationOverlay = ({
             if (activeTool === 'pen' || activeTool === 'highlighter') {
                 setCurrentPoints(prev => [...prev, coords]);
             } else if (activeTool === 'line') {
-                setCurrentPoints([currentPoints[0], coords]);
+                setCurrentPoints(prev => (prev.length ? [prev[0], coords] : [coords]));
             }
         }
     };
 
     const handlePointerUp = (e) => {
+        try {
+            if (e?.pointerId !== undefined && e.currentTarget?.hasPointerCapture?.(e.pointerId)) {
+                e.currentTarget.releasePointerCapture(e.pointerId);
+            }
+        } catch {}
         if (!isDrawing && !curveState) return;
         setIsDrawing(false);
 
@@ -1033,7 +1045,8 @@ const ExamAnnotationOverlay = ({
     };
 
     const clearAllAnnotations = async () => {
-        const ok = await window.showConfirm("Bạn có chắc chắn muốn xóa tất cả nháp và ghi chú vẽ trực tiếp trên câu hỏi này?", { type: 'danger' });
+        const confirmFn = (typeof window !== 'undefined' && window.showConfirm) || showConfirm;
+        const ok = await confirmFn("Bạn có chắc chắn muốn xóa tất cả nháp và ghi chú vẽ trực tiếp trên phần này?", { type: 'danger', confirmText: 'Xóa tất cả' });
         if (ok) {
             setStrokes([]);
             setTextObjects([]);
@@ -1089,14 +1102,18 @@ const ExamAnnotationOverlay = ({
         const hasOptions = ['pen', 'line', 'curve', 'highlighter', 'text-highlighter'].includes(activeTool);
         if (!hasOptions || isCollapsed) return null;
 
+        const viewportH = typeof window !== 'undefined' ? window.innerHeight : 800;
+        const clampedTop = Math.max(64, Math.min(viewportH - 280, toolbarPos.y + 40));
+        const clampedLeft = toolbarPos.x !== null ? `${Math.max(12, toolbarPos.x - 170)}px` : 'auto';
+
         return (
             <div 
-                className="fixed z-50 bg-white/95 dark:bg-slate-900/95 backdrop-blur border border-slate-200/60 dark:border-slate-800/80 rounded-2xl shadow-2xl p-3 flex flex-col gap-2.5 transition-all duration-200 select-none text-left"
+                className="fixed z-[60] bg-white/95 dark:bg-slate-900/95 backdrop-blur border border-slate-200/80 dark:border-slate-800 rounded-2xl shadow-2xl p-3 flex flex-col gap-2.5 transition-all duration-200 select-none text-left"
                 style={{ 
                     right: toolbarPos.x !== null ? 'auto' : '82px',
-                    left: toolbarPos.x !== null ? `${toolbarPos.x - 170}px` : 'auto', 
-                    top: `${toolbarPos.y + 40}px`,
-                    width: '150px',
+                    left: clampedLeft, 
+                    top: `${clampedTop}px`,
+                    width: '156px',
                     pointerEvents: 'auto'
                 }}
             >
@@ -1135,8 +1152,8 @@ const ExamAnnotationOverlay = ({
                                 onClick={() => { setActiveTool('line'); setCurveState(null); }}
                                 className={`w-full text-left px-2 py-1.5 rounded-lg text-xs font-bold flex items-center gap-2 transition ${
                                     activeTool === 'line' 
-                                        ? 'bg-emerald-50 text-emerald-655 dark:bg-emerald-950/40 dark:text-emerald-400' 
-                                        : 'text-slate-600 hover:bg-slate-50 dark:text-slate-350 dark:hover:bg-slate-800/50'
+                                        ? 'bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400' 
+                                        : 'text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800/50'
                                 }`}
                             >
                                 <Minus className="w-3.5 h-3.5 rotate-45" /> Đường thẳng
@@ -1145,8 +1162,8 @@ const ExamAnnotationOverlay = ({
                                 onClick={() => { setActiveTool('curve'); setCurveState(null); }}
                                 className={`w-full text-left px-2 py-1.5 rounded-lg text-xs font-bold flex items-center gap-2 transition ${
                                     activeTool === 'curve' 
-                                        ? 'bg-emerald-50 text-emerald-655 dark:bg-emerald-950/40 dark:text-emerald-400' 
-                                        : 'text-slate-600 hover:bg-slate-50 dark:text-slate-350 dark:hover:bg-slate-800/50'
+                                        ? 'bg-emerald-50 text-emerald-600 dark:bg-emerald-950/40 dark:text-emerald-400' 
+                                        : 'text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800/50'
                                 }`}
                             >
                                 <CurveIcon className="w-3.5 h-3.5" /> Đường cong
@@ -1159,13 +1176,13 @@ const ExamAnnotationOverlay = ({
                 {(activeTool === 'text-highlighter' || activeTool === 'highlighter') && (
                     <div className="flex flex-col gap-2.5">
                         <span className="text-[9px] text-slate-400 font-bold px-1 uppercase tracking-wider">Cách highlight</span>
-                        <div className="flex flex-col gap-1 border-b border-slate-100 dark:border-slate-850 pb-2">
+                        <div className="flex flex-col gap-1 border-b border-slate-100 dark:border-slate-800 pb-2">
                             <button
                                 onClick={() => setActiveTool('text-highlighter')}
                                 className={`w-full text-left px-2 py-1.5 rounded-lg text-xs font-bold flex items-center gap-2 transition ${
                                     activeTool === 'text-highlighter' 
                                         ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-400' 
-                                        : 'text-slate-600 hover:bg-slate-50 dark:text-slate-350 dark:hover:bg-slate-800/50'
+                                        : 'text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800/50'
                                 }`}
                             >
                                 <TextHighlightIcon className="w-3.5 h-3.5 text-amber-500" /> Quét chọn chữ
@@ -1175,15 +1192,15 @@ const ExamAnnotationOverlay = ({
                                 className={`w-full text-left px-2 py-1.5 rounded-lg text-xs font-bold flex items-center gap-2 transition ${
                                     activeTool === 'highlighter' 
                                         ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-400' 
-                                        : 'text-slate-600 hover:bg-slate-50 dark:text-slate-350 dark:hover:bg-slate-800/50'
+                                        : 'text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800/50'
                                 }`}
                             >
-                                <Highlighter className="w-3.5 h-3.5 text-amber-555" /> Vẽ tự do
+                                <Highlighter className="w-3.5 h-3.5 text-amber-500" /> Vẽ tự do
                             </button>
                         </div>
 
                         <span className="text-[9px] text-slate-400 font-bold px-1 uppercase tracking-wider">Màu highlight</span>
-                        <div className="flex gap-1.5 justify-around mt-0.5 pb-2 border-b border-slate-100 dark:border-slate-850">
+                        <div className="flex gap-1.5 justify-around mt-0.5 pb-2 border-b border-slate-100 dark:border-slate-800">
                             {COLORS.highlighter.map((col) => {
                                 const isSelected = highlighterColor === col.value;
                                 return (
@@ -1207,7 +1224,7 @@ const ExamAnnotationOverlay = ({
                         <div className="pt-0.5">
                             <button
                                 onClick={clearAllHighlights}
-                                className="w-full text-left px-2 py-1.5 rounded-lg text-xs font-bold flex items-center gap-2 text-rose-600 dark:text-rose-455 hover:bg-rose-50 dark:hover:bg-rose-955/20 transition cursor-pointer"
+                                className="w-full text-left px-2 py-1.5 rounded-lg text-xs font-bold flex items-center gap-2 text-rose-600 dark:text-rose-400 hover:bg-rose-50 dark:hover:bg-rose-950/20 transition cursor-pointer"
                                 title="Xoá toàn bộ highlight của câu này"
                             >
                                 <Trash2 className="w-3.5 h-3.5 text-rose-500" /> Xoá tất cả
@@ -1239,8 +1256,8 @@ const ExamAnnotationOverlay = ({
                                     onClick={() => setPenThickness(size)}
                                     className={`text-[9px] font-extrabold w-5 h-5 rounded-full flex items-center justify-center border transition cursor-pointer ${
                                         penThickness === size
-                                            ? 'bg-emerald-55 border-emerald-300 text-emerald-600 dark:bg-emerald-950/45 dark:border-emerald-800 dark:text-emerald-400 font-black'
-                                            : 'border-transparent text-slate-400 hover:text-slate-600 dark:hover:text-slate-305'
+                                            ? 'bg-emerald-50 border-emerald-300 text-emerald-600 dark:bg-emerald-950/45 dark:border-emerald-800 dark:text-emerald-400 font-black'
+                                            : 'border-transparent text-slate-400 hover:text-slate-600 dark:hover:text-slate-300'
                                     }`}
                                 >
                                     {size}
@@ -1258,7 +1275,7 @@ const ExamAnnotationOverlay = ({
     return (
         <div 
             ref={overlayRef} 
-            className="absolute z-20 overflow-visible pointer-events-none"
+            className="absolute !mt-0 z-20 overflow-visible pointer-events-none"
             style={{ 
                 left: 0,
                 top: 0,
@@ -1279,6 +1296,7 @@ const ExamAnnotationOverlay = ({
                     top: 0,
                     width: `${canvasSize.width}px`,
                     height: `${canvasSize.height}px`,
+                    touchAction: (readOnly || activeTool === 'cursor' || activeTool === 'text-highlighter') ? 'auto' : 'none',
                     cursor: readOnly ? 'default' : ((activeTool === 'cursor' || activeTool === 'text-highlighter') ? 'default' : 
                             activeTool === 'eraser' ? 'cell' : 
                             activeTool === 'text' ? 'text' : 'crosshair'),
@@ -1287,6 +1305,7 @@ const ExamAnnotationOverlay = ({
                 onPointerDown={readOnly ? undefined : handlePointerDown}
                 onPointerMove={readOnly ? undefined : handlePointerMove}
                 onPointerUp={readOnly ? undefined : handlePointerUp}
+                onPointerCancel={readOnly ? undefined : handlePointerUp}
             />
 
             {/* Sticky Notes */}
@@ -1361,7 +1380,7 @@ const ExamAnnotationOverlay = ({
                 return (
                     <div
                         key={textObj.id}
-                        className="absolute z-25 group select-none text-annotation-box flex items-center rounded hover:bg-slate-100/30 hover:ring-1 hover:ring-slate-350/50 dark:hover:bg-slate-800/20 dark:hover:ring-slate-700/60"
+                        className="absolute z-[25] group select-none text-annotation-box flex items-center rounded hover:bg-slate-100/30 hover:ring-1 hover:ring-slate-300/50 dark:hover:bg-slate-800/20 dark:hover:ring-slate-700/60"
                         style={{
                             left: `${textObj.x * ratioX + offsetLeft}px`,
                             top: `${textObj.y * ratioY + offsetTop}px`,
@@ -1477,7 +1496,7 @@ const ExamAnnotationOverlay = ({
                     {/* Floating Toolbar */}
                     <div 
                         ref={toolbarRef}
-                        className={`fixed z-50 flex flex-col items-center bg-white/95 dark:bg-slate-900/95 backdrop-blur border border-slate-200/60 dark:border-slate-800/80 rounded-2xl shadow-2xl transition-all duration-200 select-none ${
+                        className={`fixed z-[60] flex flex-col items-center bg-white/95 dark:bg-slate-900/95 backdrop-blur border border-slate-200/80 dark:border-slate-800 rounded-2xl shadow-2xl transition-all duration-200 select-none ${
                             isCollapsed ? 'py-2 px-1' : 'py-3 px-2'
                         }`}
                         style={{ 
@@ -1508,10 +1527,10 @@ const ExamAnnotationOverlay = ({
                             {/* Cursor */}
                             <button
                                 onClick={() => setActiveTool('cursor')}
-                                className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all ${
+                                className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all cursor-pointer ${
                                     activeTool === 'cursor' 
                                         ? 'bg-emerald-600 text-white shadow-md shadow-emerald-500/25 scale-105' 
-                                        : 'text-slate-655 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                                 }`}
                                 title="Con trỏ chuột (Chọn đáp án đề thi)"
                             >
@@ -1522,10 +1541,10 @@ const ExamAnnotationOverlay = ({
                             <div className="relative group/tool">
                                 <button
                                     onClick={() => setActiveTool('pen')}
-                                    className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all ${
+                                    className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all cursor-pointer ${
                                         activeTool === 'pen' 
                                             ? 'bg-red-500 text-white shadow-md shadow-red-500/25 scale-105' 
-                                            : 'text-slate-655 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                            : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                                     }`}
                                     title="Bút vẽ tự do (Xem màu ở menu phụ)"
                                 >
@@ -1547,10 +1566,10 @@ const ExamAnnotationOverlay = ({
                                         setActiveTool('line'); 
                                     }
                                 }}
-                                className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all relative ${
+                                className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all relative cursor-pointer ${
                                     (activeTool === 'line' || activeTool === 'curve')
                                         ? 'bg-emerald-600 text-white shadow-md shadow-emerald-500/25 scale-105' 
-                                        : 'text-slate-655 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                                 }`}
                                 title="Kẻ đường thẳng / đường cong (Nhấp mở menu phụ chọn loại nét)"
                             >
@@ -1565,14 +1584,14 @@ const ExamAnnotationOverlay = ({
                                         setActiveTool('text-highlighter'); 
                                     }
                                 }}
-                                className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all relative ${
+                                className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all relative cursor-pointer ${
                                     (activeTool === 'text-highlighter' || activeTool === 'highlighter')
                                         ? 'bg-amber-400 text-slate-900 shadow-md shadow-amber-400/25 scale-105' 
-                                        : 'text-slate-655 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                                 }`}
                                 style={{
-                                    backgroundColor: (activeTool === 'text-highlighter' || activeTool === 'highlighter') ? highlighterColor : 'transparent',
-                                    color: (activeTool === 'text-highlighter' || activeTool === 'highlighter') ? '#0f172a' : 'inherit'
+                                    backgroundColor: (activeTool === 'text-highlighter' || activeTool === 'highlighter') ? highlighterColor : undefined,
+                                    color: (activeTool === 'text-highlighter' || activeTool === 'highlighter') ? '#0f172a' : undefined
                                 }}
                                 title="Bút highlight (Nhấp mở menu phụ chọn cách tô và màu sắc)"
                             >
@@ -1583,10 +1602,10 @@ const ExamAnnotationOverlay = ({
                             {/* Eraser */}
                             <button
                                 onClick={() => setActiveTool('eraser')}
-                                className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all ${
+                                className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all cursor-pointer ${
                                     activeTool === 'eraser' 
                                         ? 'bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-900 shadow-md scale-105' 
-                                        : 'text-slate-655 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                                 }`}
                                 title="Tẩy (Xóa nét vẽ, hoặc click chữ highlight để xóa)"
                             >
@@ -1596,10 +1615,10 @@ const ExamAnnotationOverlay = ({
                             {/* Text Tool */}
                             <button
                                 onClick={() => setActiveTool('text')}
-                                className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all ${
+                                className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all cursor-pointer ${
                                     activeTool === 'text' 
                                         ? 'bg-emerald-600 text-white shadow-md shadow-emerald-500/25 scale-105' 
-                                        : 'text-slate-655 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                                 }`}
                                 title="Gõ chữ trên đề (Kéo để di chuyển, double click để sửa)"
                             >
@@ -1609,10 +1628,10 @@ const ExamAnnotationOverlay = ({
                             {/* Sticky Note */}
                             <button
                                 onClick={() => setActiveTool('sticky')}
-                                className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all ${
+                                className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all cursor-pointer ${
                                     activeTool === 'sticky' 
                                         ? 'bg-yellow-400 text-slate-900 shadow-md shadow-yellow-400/25 scale-105' 
-                                        : 'text-slate-655 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
+                                        : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800'
                                 }`}
                                 title="Chèn giấy note (Kéo để di chuyển, kéo góc dưới phải để phóng to)"
                             >
@@ -1631,7 +1650,7 @@ const ExamAnnotationOverlay = ({
                             {/* Help */}
                             <button
                                 onClick={() => setShowHelp(!showHelp)}
-                                className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all ${
+                                className={`w-9 h-9 rounded-xl flex items-center justify-center transition-all cursor-pointer ${
                                     showHelp 
                                         ? 'bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-white' 
                                         : 'text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -1649,7 +1668,7 @@ const ExamAnnotationOverlay = ({
 
             {/* Help Dialog Modal */}
             {showHelp && !isCollapsed && !readOnly && createPortal(
-                <div className="fixed inset-0 z-55 flex items-center justify-center p-4 bg-black/45 backdrop-blur-xs font-sans">
+                <div className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/45 backdrop-blur-xs font-sans">
                     <div className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-3xl p-6 max-w-sm shadow-2xl space-y-4 text-left animate-fade-in">
                         <div className="flex items-center justify-between border-b border-slate-100 dark:border-slate-800 pb-3">
                             <h4 className="font-extrabold text-sm text-slate-800 dark:text-white uppercase tracking-wider flex items-center gap-1.5">
@@ -1657,12 +1676,12 @@ const ExamAnnotationOverlay = ({
                             </h4>
                             <button 
                                 onClick={() => setShowHelp(false)}
-                                className="text-slate-400 hover:text-slate-650 dark:hover:text-slate-350 transition"
+                                className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 transition cursor-pointer"
                             >
                                 <X className="w-4 h-4" />
                             </button>
                         </div>
-                        <ul className="space-y-3 text-xs text-slate-600 dark:text-slate-350 leading-relaxed font-medium">
+                        <ul className="space-y-3 text-xs text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
                             <li className="flex items-start gap-2">
                                 <span className="bg-emerald-100 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 w-5 h-5 rounded-full flex items-center justify-center text-[10px] font-bold shrink-0 mt-0.5">1</span>
                                 <span><b>Bút viết:</b> Vẽ tự do trên màn hình. Mở menu phụ để chọn màu viết.</span>

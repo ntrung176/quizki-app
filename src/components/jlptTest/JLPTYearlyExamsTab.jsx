@@ -17,7 +17,9 @@ import {
     JLPT_YEARS,
     JLPT_SESSIONS,
     parseYearlyExamMeta,
-    testHasListening
+    testHasListening,
+    getOfficialJlptTiming,
+    getOfficialJlptTotalMinutes
 } from './jlptYearlyConstants';
 
 const JLPTYearlyExamsTab = ({
@@ -228,7 +230,13 @@ const JLPTYearlyExamsTab = ({
                         <span>•</span>
                         <span className="flex items-center gap-1">
                             <Clock className="w-3.5 h-3.5 text-sky-500" />
-                            {test.timeLimit || 60} phút
+                            {(() => {
+                                const timing = getOfficialJlptTiming(test.level, test);
+                                const officialMins = getOfficialJlptTotalMinutes(test, hasAudio);
+                                return hasAudio
+                                    ? `${officialMins} phút (Nghe ${timing.listening}p riêng)`
+                                    : `${officialMins} phút`;
+                            })()}
                         </span>
                     </div>
                 </div>

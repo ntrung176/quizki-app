@@ -29,7 +29,7 @@ import {
 } from '../../utils/jlptExamRecovery';
 import { preloadTestImages } from '../../utils/jlptMediaPreloader';
 import { showToast } from '../../utils/toast';
-import { X, Play, BookOpen, Lock, ChevronRight, FileText, Printer, Check, Loader2, Edit3, Trash2, AlertTriangle } from 'lucide-react';
+import { X, Play, BookOpen, Lock, ChevronRight, FileText, Printer, Check, Loader2, Edit3, Trash2, AlertTriangle, Clock } from 'lucide-react';
 
 export const answerKey = (si, qi) => `s${si}_q${qi}`;
 export const subAnswerKey = (si, qi, sqi) => `s${si}_q${qi}_sq${sqi}`;
@@ -127,6 +127,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
     const [examViolationStoppedReason, setExamViolationStoppedReason] = useState('');
     const [examAudioStates, setExamAudioStates] = useState({});
     const [suspendedRealExams, setSuspendedRealExams] = useState(() => loadSuspendedRealExams());
+    const [showSecretTimeModal, setShowSecretTimeModal] = useState(false);
+    const [secretTimeMinutes, setSecretTimeMinutes] = useState('0');
+    const [secretTimeSeconds, setSecretTimeSeconds] = useState('0');
     const hasEnteredFullscreenRef = useRef(false);
     const lastViolationTimeRef = useRef(0);
 
@@ -517,16 +520,35 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         }
     }, [showResult, isRealExam, answers, activeTest, recordWrongQuestions]);
 
+    const isSectionLockedByPhase = useCallback((si) => {
+        if (!isRealExam) return false;
+        const activePhase = examPhasesRef.current?.[currentPhaseIdxRef.current];
+        return Boolean(activePhase && !activePhase.sectionIndices.includes(si));
+    }, [isRealExam]);
+
     const goToQuestion = (si, qi) => {
+        if (isSectionLockedByPhase(si)) return;
         setCurrentSectionIdx(si);
         setCurrentQuestionIdx(qi);
     };
 
     const nextQuestion = () => {
-        const section = activeTest.sections[currentSectionIdx];
+        const section = activeTest?.sections?.[currentSectionIdx];
+        if (!section) return;
         if (currentQuestionIdx < section.questions.length - 1) {
             setCurrentQuestionIdx(currentQuestionIdx + 1);
-        } else if (currentSectionIdx < activeTest.sections.length - 1) {
+            return;
+        }
+        if (isRealExam && examPhasesRef.current?.length > 0) {
+            const activePhase = examPhasesRef.current[currentPhaseIdxRef.current];
+            const posInPhase = activePhase?.sectionIndices?.indexOf(currentSectionIdx) ?? -1;
+            if (activePhase && posInPhase >= 0 && posInPhase < activePhase.sectionIndices.length - 1) {
+                setCurrentSectionIdx(activePhase.sectionIndices[posInPhase + 1]);
+                setCurrentQuestionIdx(0);
+            }
+            return;
+        }
+        if (currentSectionIdx < activeTest.sections.length - 1) {
             setCurrentSectionIdx(currentSectionIdx + 1);
             setCurrentQuestionIdx(0);
         }
@@ -535,7 +557,20 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
     const prevQuestion = () => {
         if (currentQuestionIdx > 0) {
             setCurrentQuestionIdx(currentQuestionIdx - 1);
-        } else if (currentSectionIdx > 0) {
+            return;
+        }
+        if (isRealExam && examPhasesRef.current?.length > 0) {
+            const activePhase = examPhasesRef.current[currentPhaseIdxRef.current];
+            const posInPhase = activePhase?.sectionIndices?.indexOf(currentSectionIdx) ?? -1;
+            if (activePhase && posInPhase > 0) {
+                const prevSi = activePhase.sectionIndices[posInPhase - 1];
+                const prevSec = activeTest.sections[prevSi];
+                setCurrentSectionIdx(prevSi);
+                setCurrentQuestionIdx(Math.max(0, (prevSec?.questions?.length || 1) - 1));
+            }
+            return;
+        }
+        if (currentSectionIdx > 0) {
             const prevSec = activeTest.sections[currentSectionIdx - 1];
             setCurrentSectionIdx(currentSectionIdx - 1);
             setCurrentQuestionIdx(prevSec.questions.length - 1);
@@ -632,30 +667,10 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         } catch (e) {}
     };
 
-    const retakeTest = async (test) => {
+    const retakeTest = (test) => {
         const targetTest = test || activeTest;
         if (!targetTest) return;
-        let isPremium = targetTest?.level !== 'N5' || targetTest?.isPremium;
-        if (isPremium && !hasPremiumAccess) {
-            setLockedPkgName('Luyện đề thi thử JLPT');
-            setShowPremiumModal(true);
-            return;
-        }
-        if (wasRealExam) {
-            requestRealExamFullscreenSync();
-        }
-        setShowResult(false);
-        setShowDetailedReview(false);
-        let fullTest = targetTest;
-        if (!fullTest?.sections || fullTest.sections.length === 0) {
-            setLoadingTestDetails(true);
-            try {
-                fullTest = (await ensureFullTestLoaded(targetTest?.id, targetTest?.level)) || targetTest;
-            } finally {
-                setLoadingTestDetails(false);
-            }
-        }
-        initTest(fullTest, wasRealExam ? 'real' : 'practice');
+        startTest(targetTest);
     };
 
     const initTest = async (test, mode = 'practice', isResume = false, realExamRecovery = null) => {
@@ -720,7 +735,12 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                 const targetPhaseIdx = phases.length > 0
                     ? Math.min(Math.max(0, Number(realExamRecovery.currentPhaseIdx) || 0), maxPhaseIdx)
                     : 0;
+                const allowedSecs = phases[targetPhaseIdx]?.sectionIndices || [];
+                const validSecIdx = allowedSecs.includes(realExamRecovery.currentSectionIdx)
+                    ? realExamRecovery.currentSectionIdx
+                    : (allowedSecs[0] ?? 0);
                 setCurrentPhaseIdx(targetPhaseIdx);
+                setCurrentSectionIdx(validSecIdx);
                 setPhaseElapsedOffsetSec(Math.max(0, Number(realExamRecovery.phaseElapsedOffsetSec) || 0));
                 setTimeRemaining(Math.max(1, Number(realExamRecovery.timeRemaining) || 60));
             } else {
@@ -728,6 +748,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                 setPhaseElapsedOffsetSec(0);
                 if (phases.length > 0) {
                     setCurrentSectionIdx(phases[0].sectionIndices?.[0] ?? 0);
+                    setCurrentQuestionIdx(0);
                     setTimeRemaining(phases[0].seconds);
                 } else {
                     setTimeRemaining((fullTest.timeLimit || 60) * 60);
@@ -837,6 +858,8 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
     };
 
     const secretReactivateRef = useRef(null);
+    const secretTimeAdjustRef = useRef(null);
+
     useEffect(() => {
         secretReactivateRef.current = () => {
             if (isRealExam && activeTest && !showResult) {
@@ -850,17 +873,70 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             }
             reactivateRealExam();
         };
+
+        secretTimeAdjustRef.current = () => {
+            if (!activeTest || showResult) return;
+            if (showSecretTimeModal) {
+                setShowSecretTimeModal(false);
+                return;
+            }
+            const baseSec = isRealExam
+                ? Math.max(0, Number(timeRemaining) || 0)
+                : Math.max(0, Math.round((Date.now() - (testStartTime || Date.now())) / 1000));
+            setSecretTimeMinutes(String(Math.floor(baseSec / 60)));
+            setSecretTimeSeconds(String(baseSec % 60));
+            setShowSecretTimeModal(true);
+        };
     });
 
-    // Secret shortcut: Alt + Shift + R to reset proctor strikes during real exam or reactivate stopped exam
+    const nudgeSecretTimeDraft = (deltaMinutes) => {
+        const curMins = Math.max(0, parseInt(secretTimeMinutes, 10) || 0);
+        const curSecs = Math.min(59, Math.max(0, parseInt(secretTimeSeconds, 10) || 0));
+        const nextTotal = Math.max(10, (curMins * 60) + curSecs + (deltaMinutes * 60));
+        setSecretTimeMinutes(String(Math.floor(nextTotal / 60)));
+        setSecretTimeSeconds(String(nextTotal % 60));
+    };
+
+    const applySecretTimeAdjustment = (e) => {
+        e?.preventDefault?.();
+        if (!activeTest) return;
+        const mins = Math.max(0, parseInt(secretTimeMinutes, 10) || 0);
+        const secs = Math.min(59, Math.max(0, parseInt(secretTimeSeconds, 10) || 0));
+        const totalSec = (mins * 60) + secs;
+
+        if (isRealExam) {
+            const safeSec = Math.max(5, totalSec);
+            setTimeRemaining(safeSec);
+            setTimerActive(true);
+            setShowSecretTimeModal(false);
+            showToast(`⏱️ Đã chỉnh đồng hồ thi thực tế còn ${formatTime(safeSec)}.`, 'success');
+        } else {
+            setTestStartTime(Date.now() - (totalSec * 1000));
+            setShowSecretTimeModal(false);
+            showToast(`⏱️ Đã chỉnh thời gian đã làm: ${formatTime(totalSec)}.`, 'success');
+        }
+    };
+
+    // Secret shortcuts: Alt + Shift + R (reactivate / reset strikes) & Alt + Shift + E (adjust exam clock)
     useEffect(() => {
         const handleSecretShortcut = (e) => {
             if (!e.altKey || !e.shiftKey) return;
-            if (e.code !== 'KeyR' && String(e.key || '').toLowerCase() !== 'r') return;
+            const code = e.code;
+            const keyLower = String(e.key || '').toLowerCase();
+            const isReactivate = code === 'KeyR' || keyLower === 'r';
+            const isTimeAdjust = code === 'KeyE' || keyLower === 'e';
+            if (!isReactivate && !isTimeAdjust) return;
+
+            const isInSecretModal = Boolean(e.target?.closest?.('[data-secret-time-modal="true"]'));
             const tag = (e.target?.tagName || '').toUpperCase();
-            if (tag === 'INPUT' || tag === 'TEXTAREA' || e.target?.isContentEditable) return;
+            if (!isInSecretModal && (tag === 'INPUT' || tag === 'TEXTAREA' || e.target?.isContentEditable)) return;
+
             e.preventDefault();
-            secretReactivateRef.current?.();
+            if (isTimeAdjust) {
+                secretTimeAdjustRef.current?.();
+            } else {
+                secretReactivateRef.current?.();
+            }
         };
         window.addEventListener('keydown', handleSecretShortcut);
         return () => window.removeEventListener('keydown', handleSecretShortcut);
@@ -1079,6 +1155,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             recordWrongQuestions(wrongItems);
         }
 
+        setShowSecretTimeModal(false);
         setShowResult(true);
         setShowDetailedReview(false);
         playCompletionFanfare();
@@ -1575,13 +1652,28 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                                     {hasFullSections && (() => {
                                         const previewPhases = buildJlptExamPhases(pendingStartTest);
                                         if (!previewPhases.length) return null;
+                                        const totalPreviewMinutes = previewPhases.reduce((s, p) => s + (p.minutes || 0), 0);
                                         return (
-                                            <div className="flex flex-wrap gap-1.5 mt-2">
-                                                {previewPhases.map((ph, idx) => (
-                                                    <span key={ph.id} className="px-2 py-0.5 rounded-lg bg-rose-50 dark:bg-rose-950/50 border border-rose-200 dark:border-rose-800 text-rose-700 dark:text-rose-300 text-[10px] font-black">
-                                                        {idx + 1}. {ph.isListening ? 'Nghe hiểu' : ph.label}: {ph.minutes}p
-                                                    </span>
-                                                ))}
+                                            <div className="mt-2.5 space-y-1.5">
+                                                <div className="flex flex-wrap gap-1.5">
+                                                    {previewPhases.map((ph, idx) => (
+                                                        <span
+                                                            key={`${ph.id}_${idx}`}
+                                                            className={`px-2 py-0.5 rounded-lg border text-[10px] font-black ${
+                                                                ph.isListening
+                                                                    ? 'bg-amber-50 dark:bg-amber-950/50 border-amber-300 dark:border-amber-800 text-amber-800 dark:text-amber-300'
+                                                                    : 'bg-rose-50 dark:bg-rose-950/50 border-rose-200 dark:border-rose-800 text-rose-700 dark:text-rose-300'
+                                                            }`}
+                                                        >
+                                                            {ph.isListening ? '🎧 ' : ''}Ca {idx + 1}: {ph.shortLabel || ph.label} ({ph.minutes}p)
+                                                        </span>
+                                                    ))}
+                                                </div>
+                                                {previewPhases.length > 1 && (
+                                                    <p className="text-[10px] font-bold text-slate-500 dark:text-slate-400">
+                                                        Tổng thời gian chuẩn JLPT: <strong className="text-slate-700 dark:text-slate-200">{totalPreviewMinutes} phút</strong> · Từng ca khóa chéo &amp; tính giờ riêng biệt.
+                                                    </p>
+                                                )}
                                             </div>
                                         );
                                     })()}
@@ -1744,7 +1836,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                     timeTaken={timeTaken}
                     formatTime={formatTime}
                     exitTest={exitTest}
-                    startTest={retakeTest}
+                    startTest={startTest}
                     retakeTest={retakeTest}
                     goToQuestion={goToQuestion}
                     nextQuestion={nextQuestion}
@@ -1778,6 +1870,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                     editingQuestionData={editingQuestionData}
                     setEditingQuestionData={setEditingQuestionData}
                     handleSaveQuestionHtml={handleSaveQuestionHtml}
+                    onSaveSections={canEdit ? handleSaveTestSections : null}
                     onOpenExportImport={() => setShowExportImportModal(true)}
                     onEditTest={canEdit ? setEditingFullTest : null}
                     onSaveQuestionImage={canEdit ? handleSaveQuestionImage : null}
@@ -1947,6 +2040,113 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                         onSaveSections={handleImportTestSections}
                         showToast={showToast}
                     />
+                )}
+                {showSecretTimeModal && (
+                    <div
+                        data-secret-time-modal="true"
+                        className="fixed inset-0 z-[120] bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in font-sans"
+                        onClick={() => setShowSecretTimeModal(false)}
+                    >
+                        <form
+                            onSubmit={applySecretTimeAdjustment}
+                            onClick={(e) => e.stopPropagation()}
+                            className="bg-white dark:bg-slate-900 border-2 border-sky-300 dark:border-sky-800 border-b-4 rounded-3xl p-6 max-w-md w-full shadow-2xl space-y-4"
+                        >
+                            <div className="flex items-center justify-between gap-2 pb-2.5 border-b border-slate-100 dark:border-slate-800">
+                                <div className="flex items-center gap-2.5">
+                                    <div className="w-10 h-10 rounded-2xl bg-sky-500 border-2 border-sky-600 border-b-4 border-b-sky-700 text-white flex items-center justify-center shrink-0">
+                                        <Clock className="w-5 h-5" />
+                                    </div>
+                                    <div>
+                                        <h3 className="text-base font-black text-slate-900 dark:text-white">
+                                            {isRealExam ? 'Chỉnh đồng hồ còn lại' : 'Chỉnh thời gian đã làm'}
+                                        </h3>
+                                        <p className="text-[11px] font-bold text-slate-500 dark:text-slate-400">
+                                            {isRealExam
+                                                ? (examPhases[currentPhaseIdx]
+                                                    ? `${examPhases[currentPhaseIdx].label} · Hiện tại ${formatTime(timeRemaining)}`
+                                                    : `Hiện tại: ${formatTime(timeRemaining)}`)
+                                                : 'Chế độ Luyện tập'}
+                                        </p>
+                                    </div>
+                                </div>
+                                <button
+                                    type="button"
+                                    onClick={() => setShowSecretTimeModal(false)}
+                                    className="p-1.5 rounded-xl text-slate-400 hover:text-slate-600 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
+                                >
+                                    <X className="w-5 h-5" />
+                                </button>
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-3">
+                                <label className="space-y-1">
+                                    <span className="text-xs font-black text-slate-600 dark:text-slate-300">Phút</span>
+                                    <input
+                                        type="number"
+                                        min="0"
+                                        max="600"
+                                        autoFocus
+                                        value={secretTimeMinutes}
+                                        onChange={(e) => setSecretTimeMinutes(e.target.value)}
+                                        className="w-full px-3.5 py-2.5 rounded-2xl bg-slate-50 dark:bg-slate-950 border-2 border-slate-200 dark:border-slate-800 focus:border-sky-500 focus:outline-none text-base font-black font-mono text-slate-900 dark:text-white"
+                                    />
+                                </label>
+                                <label className="space-y-1">
+                                    <span className="text-xs font-black text-slate-600 dark:text-slate-300">Giây</span>
+                                    <input
+                                        type="number"
+                                        min="0"
+                                        max="59"
+                                        value={secretTimeSeconds}
+                                        onChange={(e) => setSecretTimeSeconds(e.target.value)}
+                                        className="w-full px-3.5 py-2.5 rounded-2xl bg-slate-50 dark:bg-slate-950 border-2 border-slate-200 dark:border-slate-800 focus:border-sky-500 focus:outline-none text-base font-black font-mono text-slate-900 dark:text-white"
+                                    />
+                                </label>
+                            </div>
+
+                            <div className="flex flex-wrap items-center gap-1.5">
+                                {[-5, 5, 10, 15, 30].map((delta) => (
+                                    <button
+                                        key={delta}
+                                        type="button"
+                                        onClick={() => nudgeSecretTimeDraft(delta)}
+                                        className="px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border-2 border-slate-200 dark:border-slate-700 border-b-2 text-xs font-black text-slate-700 dark:text-slate-200 cursor-pointer active:translate-y-0.5"
+                                    >
+                                        {delta > 0 ? `+${delta}p` : `${delta}p`}
+                                    </button>
+                                ))}
+                                {isRealExam && examPhases[currentPhaseIdx]?.minutes && (
+                                    <button
+                                        type="button"
+                                        onClick={() => {
+                                            setSecretTimeMinutes(String(examPhases[currentPhaseIdx].minutes));
+                                            setSecretTimeSeconds('0');
+                                        }}
+                                        className="px-2.5 py-1.5 rounded-xl bg-sky-50 hover:bg-sky-100 dark:bg-sky-950/60 border-2 border-sky-200 dark:border-sky-800 border-b-2 text-xs font-black text-sky-700 dark:text-sky-300 cursor-pointer active:translate-y-0.5"
+                                    >
+                                        Full {examPhases[currentPhaseIdx].minutes}p
+                                    </button>
+                                )}
+                            </div>
+
+                            <div className="grid grid-cols-2 gap-2.5 pt-2">
+                                <button
+                                    type="button"
+                                    onClick={() => setShowSecretTimeModal(false)}
+                                    className="py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 dark:hover:bg-slate-700 border-2 border-slate-200 dark:border-slate-700 border-b-4 text-slate-700 dark:text-slate-200 cursor-pointer active:translate-y-0.5 active:border-b-2"
+                                >
+                                    Hủy
+                                </button>
+                                <button
+                                    type="submit"
+                                    className="py-2.5 rounded-2xl text-xs font-black uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 border-2 border-emerald-600 border-b-4 border-b-emerald-700 text-white cursor-pointer active:translate-y-0.5 active:border-b-2"
+                                >
+                                    Áp dụng
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                 )}
             </>
         );

@@ -116,7 +116,7 @@ QUY TẮC BẮT BUỘC KHI TRÍCH XUẤT ĐỀ THI JLPT:
 1. TIÊU ĐỀ & CẤP ĐỘ:
    - "title": Tên đề thi rõ ràng từ header tài liệu (Ví dụ: "JLPT N2 - Đề thi 07/2021" hoặc "JLPT N3 - Đề chính thức").
    - "level": Cấp độ JLPT ("N1", "N2", "N3", "N4", "N5").
-   - "timeLimit": Thời gian làm bài theo quy chuẩn JLPT (N1: 110, N2: 105, N3: 70, N4: 60, N5: 60 phút).
+   - "timeLimit": Tổng thời gian làm bài chuẩn JLPT (khi có đủ Đề viết + Nghe hiểu: N1: 165, N2: 155, N3: 140, N4: 115, N5: 90; nếu chỉ có phần Viết chưa ghép Nghe: N1: 110, N2: 105, N3: 100, N4: 80, N5: 60 phút).
 
 2. PHÂN CHIA SECTIONS (CÁC PHẦN THI CHUẨN):
    - "vocabulary": Từ vựng & Chữ Hán (文字・語彙: Mondai 1 đến Mondai 6).
@@ -130,6 +130,7 @@ QUY TẮC BẮT BUỘC KHI TRÍCH XUẤT ĐỀ THI JLPT:
 
 4. BÀI ĐỌC HIỂU ("passage"):
    - Với tất cả các câu hỏi thuộc phần Đọc hiểu (読解) hoặc bài văn điền từ (問題 9): BẮT BUỘC phải trích xuất toàn bộ nội dung bài văn gốc vào trường "passage" (giữ nguyên các đoạn văn, tiêu đề phụ, chú thích từ vựng 注1, 注2).
+   - QUAN TRỌNG: Mọi cụm từ được gạch chân trong bài đọc (những chỗ câu hỏi dùng "<u>...</u>とあるが...") BẮT BUỘC phải bọc thẻ <u>...</u> ĐỒNG BỘ ở CẢ bên trong "passage" VÀ bên trong "question"!
    - Nếu nhiều câu hỏi cùng dùng chung một đoạn văn (ví dụ: Mondai 11 (1) có câu 57, 58, 59): hãy gán cùng đoạn văn đó vào trường "passage" của tất cả các câu hỏi đó.
 
 5. ĐỊNH DẠNG CÂU HỎI & ĐÁP ÁN:
@@ -341,9 +342,9 @@ const mergeExtractedChunks = (category, chunksData) => {
                                 type: secType,
                                 title: sec.title || (
                                     secType === 'vocabulary' ? 'Từ vựng (文字・語彙)' :
-                                    secType === 'grammar' ? 'Ngữ pháp (文法)' :
-                                    secType === 'reading' ? 'Đọc hiểu (読解)' :
-                                    secType === 'listening' ? 'Nghe hiểu (聴解)' : secType
+                                        secType === 'grammar' ? 'Ngữ pháp (文法)' :
+                                            secType === 'reading' ? 'Đọc hiểu (読解)' :
+                                                secType === 'listening' ? 'Nghe hiểu (聴解)' : secType
                                 ),
                                 questions: []
                             });
@@ -447,7 +448,7 @@ export const safeParseJsonWithRepair = (rawText) => {
     // 3. Extract candidate between outermost { } or [ ]
     const firstBrace = text.indexOf('{');
     const firstBracket = text.indexOf('[');
-    
+
     let startIndex = -1;
     let endChar = '';
     if (firstBrace !== -1 && (firstBracket === -1 || firstBrace < firstBracket)) {
@@ -554,8 +555,8 @@ export const processPdfWithAI = async (pdfFile, {
     model = 'google/gemini-2.5-flash',
     pageRange = 'ALL',
     customInstructions = '',
-    onProgress = () => {},
-    onLog = () => {},
+    onProgress = () => { },
+    onLog = () => { },
     signal = null
 } = {}) => {
     onLog(`📄 Đang mở và phân tích cấu trúc tài liệu PDF "${pdfFile.name}"...`);

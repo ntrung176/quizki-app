@@ -1,5 +1,6 @@
 import React from 'react';
 import AnswerSheet from './AnswerSheet';
+import { syncQuestionsWithPassageUnderlines } from '../../utils/jlptExplanationParser';
 
 const JLPTPrintView = ({ test, includeAnswers, includeAnswerSheet }) => {
     console.log("JLPTPrintView: Rendering test", test?.id, "sections count:", test?.sections?.length);
@@ -124,7 +125,7 @@ const JLPTPrintView = ({ test, includeAnswers, includeAnswerSheet }) => {
             </div>
 
             {sectionsList.map((sec, si) => {
-                const questionsList = sec?.questions || sec?.items || [];
+                const questionsList = syncQuestionsWithPassageUnderlines(sec?.questions || sec?.items || []);
                 return (
                     <div key={si} className="mb-8">
                         <h3 className="print-section-header uppercase">
