@@ -70,3 +70,27 @@ export const getTestQuestionCount = (test) => {
     return 0;
 };
 
+/**
+ * Resolves completion status ('completed' | 'in_progress' | 'not_started') for a JLPT test.
+ */
+export const getTestStatus = (test, completedTests = {}, savedProgresses = {}) => {
+    if (!test) return 'not_started';
+    const testId = test.id || test._id;
+    if (!testId) return 'not_started';
+    if (completedTests[testId] || completedTests[String(testId)]) return 'completed';
+    const saved = savedProgresses[testId] || savedProgresses[String(testId)];
+    if (saved?.answers && Object.keys(saved.answers).length > 0) return 'in_progress';
+    return 'not_started';
+};
+
+/**
+ * Returns rounded integer percentage score for a completed JLPT test, or null.
+ */
+export const getTestScore = (test, completedTests = {}) => {
+    if (!test) return null;
+    const testId = test.id || test._id;
+    if (!testId) return null;
+    const completed = completedTests[testId] || completedTests[String(testId)];
+    return typeof completed?.percentage === 'number' ? Math.round(completed.percentage) : null;
+};
+

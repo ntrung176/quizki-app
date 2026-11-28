@@ -5,7 +5,12 @@ import {
     Layers, Sparkles, ArrowLeft, Award, Clock, PlusCircle, Loader2, Edit3, Trash2
 } from 'lucide-react';
 import { ROUTES } from '../../router';
-import { LEVEL_GRADIENTS, getTestQuestionCount } from './jlptConstants';
+import {
+    LEVEL_GRADIENTS,
+    getTestQuestionCount,
+    getTestStatus as resolveTestStatus,
+    getTestScore as resolveTestScore
+} from './jlptConstants';
 import JLPTCardActionButtons from './JLPTCardActionButtons';
 import { loadJLPTLevelData, ensureFullTestLoaded } from '../../services/jlptDataService';
 import {
@@ -22,6 +27,7 @@ const JLPTMondaiListeningTab = ({
     savedProgresses = {},
     selectedLevel = 'N3',
     searchQuery = '',
+    statusFilter = 'all',
     canEdit = false,
     onEditTest = null,
     onDeleteTest = null,
@@ -68,20 +74,8 @@ const JLPTMondaiListeningTab = ({
 
     const mondaiList = useMemo(() => getMondaiListForLevel(activeLevel), [activeLevel]);
 
-    const getTestStatus = (test) => {
-        const id = test?.id || test?._id;
-        if (!id) return 'not_started';
-        if (completedTests[id] || completedTests[String(id)]) return 'completed';
-        const saved = savedProgresses[id] || savedProgresses[String(id)];
-        if (saved?.answers && Object.keys(saved.answers).length > 0) return 'in_progress';
-        return 'not_started';
-    };
-
-    const getTestScore = (test) => {
-        const id = test?.id || test?._id;
-        const comp = completedTests[id] || completedTests[String(id)];
-        return typeof comp?.percentage === 'number' ? Math.round(comp.percentage) : null;
-    };
+    const getTestStatus = (test) => resolveTestStatus(test, completedTests, savedProgresses);
+    const getTestScore = (test) => resolveTestScore(test, completedTests);
 
     // Aggregate per-Mondai standalone tests AND questions extracted from full yearly exams of activeLevel
     const mondaiSummaryMap = useMemo(() => {
@@ -193,6 +187,9 @@ const JLPTMondaiListeningTab = ({
         const entry = mondaiSummaryMap.get(selectedMondai);
         const mMeta = entry?.meta || getMondaiListForLevel(activeLevel)[0];
         const standaloneFiltered = (entry?.standaloneTests || []).filter((t) => {
+            if (statusFilter !== 'all' && resolveTestStatus(t, completedTests, savedProgresses) !== statusFilter) {
+                return false;
+            }
             if (!searchQuery.trim()) return true;
             return (t.title || '').toLowerCase().includes(searchQuery.toLowerCase().trim());
         });

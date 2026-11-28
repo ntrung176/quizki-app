@@ -27,6 +27,13 @@ import { X, Play, BookOpen, Lock, ChevronRight, FileText, Printer, Check, Loader
 export const answerKey = (si, qi) => `s${si}_q${qi}`;
 export const subAnswerKey = (si, qi, sqi) => `s${si}_q${qi}_sq${sqi}`;
 
+const VALID_MAIN_TABS = ['books', 'yearly', 'listening_mondai', 'drills', 'wrong'];
+const LEGACY_TAB_MAP = { skills: 'books', roadmap: 'books', mock: 'yearly' };
+const normalizeMainTab = (rawTab) => {
+    const mapped = LEGACY_TAB_MAP[rawTab] || rawTab;
+    return VALID_MAIN_TABS.includes(mapped) ? mapped : 'books';
+};
+
 const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP }) => {
     // Custom Hook for JLPT Data and States
     const {
@@ -114,7 +121,8 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
     const location = useLocation();
     const [activeMainTab, setActiveMainTabState] = useState(() => {
         const params = new URLSearchParams(location?.search || '');
-        return params.get('tab') || sessionStorage.getItem('quizki_jlpt_main_tab') || 'books';
+        const rawTab = params.get('tab') || sessionStorage.getItem('quizki_jlpt_main_tab');
+        return normalizeMainTab(rawTab);
     });
     const [selectedLevel, setSelectedLevelState] = useState(() => {
         const params = new URLSearchParams(location?.search || '');
@@ -125,9 +133,10 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         const params = new URLSearchParams(location?.search || '');
         const tabParam = params.get('tab');
         const levelParam = params.get('level');
-        if (tabParam && ['books', 'roadmap', 'yearly', 'listening_mondai', 'skills', 'drills', 'wrong', 'mock'].includes(tabParam)) {
-            setActiveMainTabState(tabParam);
-            try { sessionStorage.setItem('quizki_jlpt_main_tab', tabParam); } catch (e) {}
+        if (tabParam) {
+            const nextTab = normalizeMainTab(tabParam);
+            setActiveMainTabState(nextTab);
+            try { sessionStorage.setItem('quizki_jlpt_main_tab', nextTab); } catch (e) {}
         }
         if (levelParam && ['all', 'N5', 'N4', 'N3', 'N2', 'N1'].includes(levelParam)) {
             setSelectedLevelState(levelParam);
@@ -138,8 +147,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
     const [statusFilter, setStatusFilter] = useState('all');
 
     const setActiveMainTab = (tab) => {
-        setActiveMainTabState(tab);
-        try { sessionStorage.setItem('quizki_jlpt_main_tab', tab); } catch (e) {}
+        const nextTab = normalizeMainTab(tab);
+        setActiveMainTabState(nextTab);
+        try { sessionStorage.setItem('quizki_jlpt_main_tab', nextTab); } catch (e) {}
     };
 
     const setSelectedLevel = (lvl) => {

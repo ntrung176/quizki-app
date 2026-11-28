@@ -4,7 +4,12 @@ import {
     ChevronRight, ArrowLeft, Search, Filter, Lock, Unlock, Printer,
     Languages, FileText, Check, Edit3, Trash2
 } from 'lucide-react';
-import { LEVEL_GRADIENTS, getTestQuestionCount } from './jlptConstants';
+import {
+    LEVEL_GRADIENTS,
+    getTestQuestionCount,
+    getTestStatus as resolveTestStatus,
+    getTestScore as resolveTestScore
+} from './jlptConstants';
 import JLPTCardActionButtons from './JLPTCardActionButtons';
 
 const SKILL_LABELS = {
@@ -68,6 +73,7 @@ const JLPTBooksCollectionTab = ({
     savedProgresses = {},
     selectedLevel = 'all',
     searchQuery = '',
+    statusFilter = 'all',
     canEdit,
     onEditTest,
     onDeleteTest,
@@ -84,25 +90,8 @@ const JLPTBooksCollectionTab = ({
     const [selectedSkillFilter, setSelectedSkillFilter] = useState('all');
     const [bookInnerSearch, setBookInnerSearch] = useState('');
 
-    const getTestStatus = (test) => {
-        if (!test) return 'not_started';
-        const testId = test.id || test._id;
-        const completed = completedTests[testId] || completedTests[String(testId)];
-        if (completed) return 'completed';
-        const saved = savedProgresses[testId] || savedProgresses[String(testId)];
-        if (saved && saved.answers && Object.keys(saved.answers).length > 0) return 'in_progress';
-        return 'not_started';
-    };
-
-    const getTestScore = (test) => {
-        if (!test) return null;
-        const testId = test.id || test._id;
-        const completed = completedTests[testId] || completedTests[String(testId)];
-        if (completed && typeof completed.percentage === 'number') {
-            return Math.round(completed.percentage);
-        }
-        return null;
-    };
+    const getTestStatus = (test) => resolveTestStatus(test, completedTests, savedProgresses);
+    const getTestScore = (test) => resolveTestScore(test, completedTests);
 
     // Group tests into distinct Books / Curricula
     const books = useMemo(() => {
@@ -147,11 +136,14 @@ const JLPTBooksCollectionTab = ({
         });
     }, [tests]);
 
-    // Filter books by level, search query, and skill
+    // Filter books by level, search query, skill, and status
     const filteredBooks = useMemo(() => {
         return books.filter(b => {
             if (selectedLevel !== 'all' && b.level !== selectedLevel) return false;
             if (selectedSkillFilter !== 'all' && b.skillType !== selectedSkillFilter) return false;
+            if (statusFilter !== 'all' && !b.tests.some(t => resolveTestStatus(t, completedTests, savedProgresses) === statusFilter)) {
+                return false;
+            }
 
             if (searchQuery.trim()) {
                 const q = searchQuery.toLowerCase().trim();
@@ -163,11 +155,14 @@ const JLPTBooksCollectionTab = ({
 
             return true;
         });
-    }, [books, selectedLevel, selectedSkillFilter, searchQuery]);
+    }, [books, selectedLevel, selectedSkillFilter, searchQuery, statusFilter, completedTests, savedProgresses]);
 
     // If a book is selected, render the inside chapter list
     if (selectedBook) {
         const bookTests = selectedBook.tests.filter(t => {
+            if (statusFilter !== 'all' && resolveTestStatus(t, completedTests, savedProgresses) !== statusFilter) {
+                return false;
+            }
             if (!bookInnerSearch.trim()) return true;
             const q = bookInnerSearch.toLowerCase().trim();
             return (t.title || '').toLowerCase().includes(q) || (t.description || '').toLowerCase().includes(q);

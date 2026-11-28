@@ -5,7 +5,12 @@ import {
     Printer, Sparkles, Award, PlusCircle, AlertCircle, Edit3, Trash2
 } from 'lucide-react';
 import { ROUTES } from '../../router';
-import { LEVEL_GRADIENTS, getTestQuestionCount } from './jlptConstants';
+import {
+    LEVEL_GRADIENTS,
+    getTestQuestionCount,
+    getTestStatus as resolveTestStatus,
+    getTestScore as resolveTestScore
+} from './jlptConstants';
 import JLPTCardActionButtons from './JLPTCardActionButtons';
 import {
     JLPT_LEVELS,
@@ -39,20 +44,12 @@ const JLPTYearlyExamsTab = ({
 
     const activeMatrixLevel = selectedLevel === 'all' ? 'N3' : selectedLevel;
 
-    const getTestStatus = useCallback((test) => {
-        if (!test) return 'not_started';
-        const id = test.id || test._id;
-        if (completedTests[id] || completedTests[String(id)]) return 'completed';
-        const saved = savedProgresses[id] || savedProgresses[String(id)];
-        if (saved?.answers && Object.keys(saved.answers).length > 0) return 'in_progress';
-        return 'not_started';
-    }, [completedTests, savedProgresses]);
+    const getTestStatus = useCallback(
+        (test) => resolveTestStatus(test, completedTests, savedProgresses),
+        [completedTests, savedProgresses]
+    );
 
-    const getTestScore = (test) => {
-        const id = test?.id || test?._id;
-        const completed = completedTests[id] || completedTests[String(id)];
-        return typeof completed?.percentage === 'number' ? Math.round(completed.percentage) : null;
-    };
+    const getTestScore = (test) => resolveTestScore(test, completedTests);
 
     // Index all yearly tests found in tests array
     const yearlyTests = useMemo(() => {

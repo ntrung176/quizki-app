@@ -1,30 +1,23 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-    Award, BookOpen, Clock, Calendar, CheckCircle2, 
-    Headphones, Languages, Search, 
-    TrendingUp, Target, Compass, Layers, Trophy, X, AlertCircle,
+    BookOpen, Clock, Calendar, CheckCircle2, 
+    Headphones, Search, TrendingUp, X, AlertCircle,
     Repeat, Sparkles
 } from 'lucide-react';
 import { ROUTES } from '../../router';
 import JLPTBooksCollectionTab from './JLPTBooksCollectionTab';
-import JLPTLessonRoadmapTab from './JLPTLessonRoadmapTab';
-import JLPTSkillArenaTab from './JLPTSkillArenaTab';
-import JLPTMockExamsTab from './JLPTMockExamsTab';
 import JLPTDrillsTab from './JLPTDrillsTab';
 import JLPTWrongQuestionsTab from './JLPTWrongQuestionsTab';
 import JLPTYearlyExamsTab from './JLPTYearlyExamsTab';
 import JLPTMondaiListeningTab from './JLPTMondaiListeningTab';
 
 const MAIN_TABS = [
-    { id: 'books', label: 'Kho Sách Luyện Thi', icon: BookOpen, desc: 'Tuyển tập giáo trình và đề thi' },
-    { id: 'roadmap', label: 'Lộ Trình Theo Bài', icon: Compass, desc: 'Bài học trọn gói 4 kỹ năng' },
+    { id: 'books', label: 'Kho Sách Luyện Thi', icon: BookOpen, desc: 'Tuyển tập giáo trình & luyện theo kỹ năng' },
     { id: 'yearly', label: 'Đề Các Năm (2010–2025)', icon: Calendar, desc: 'Đề thi chính thức theo từng kỳ 2010–2025' },
     { id: 'listening_mondai', label: 'Nghe Theo Mondai', icon: Headphones, desc: 'Luyện nghe tổng hợp theo từng Mondai riêng của mỗi Level' },
-    { id: 'skills', label: 'Luyện Kỹ Năng', icon: Target, desc: 'Chữ Hán • Ngữ pháp • Đọc hiểu' },
     { id: 'drills', label: 'Ôn Tập Phản Xạ', icon: Repeat, desc: 'Drills phản xạ ngữ pháp' },
     { id: 'wrong', label: 'Sổ Tay Câu Sai', icon: AlertCircle, desc: 'Ôn luyện lại các câu làm sai' },
-    { id: 'mock', label: 'Phòng Thi Tổng Hợp', icon: Trophy, desc: 'Đề thi mô phỏng JLPT tính giờ' },
 ];
 
 const JLPTTestDashboard = ({
@@ -114,16 +107,29 @@ const JLPTTestDashboard = ({
                 </div>
             )}
 
-            <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
-                {/* 1. Header & Quick Actions */}
-                <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                    <div>
+            <div className="max-w-6xl mx-auto space-y-4 sm:space-y-5">
+                {/* 1. Compact Header + Inline Stats */}
+                <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
+                    <div className="space-y-1.5">
                         <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 dark:text-white">
                             Trung Tâm Luyện Thi JLPT
                         </h1>
-                        <p className="text-slate-500 dark:text-slate-400 text-xs sm:text-sm font-medium mt-1 max-w-xl">
-                            {tests.length} bộ đề luyện tập và bài đọc hiểu song ngữ từ N5 đến N1.
-                        </p>
+                        <div className="flex flex-wrap items-center gap-2 text-xs font-bold">
+                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/80">
+                                <CheckCircle2 className="w-3.5 h-3.5" />
+                                <span>Đã xong: {completedCount}/{totalCount} đề</span>
+                            </span>
+                            {avgScore > 0 && (
+                                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-sky-50 dark:bg-sky-950/50 text-sky-700 dark:text-sky-300 border border-sky-200/80 dark:border-sky-800/80">
+                                    <TrendingUp className="w-3.5 h-3.5" />
+                                    <span>Độ chính xác TB: {avgScore}%</span>
+                                </span>
+                            )}
+                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-300 border border-rose-200/80 dark:border-rose-800/80">
+                                <Clock className="w-3.5 h-3.5" />
+                                <span>Kỳ thi JLPT: Còn {jlptCountdown} ngày</span>
+                            </span>
+                        </div>
                     </div>
 
                     <div className="flex items-center gap-2.5 self-start md:self-center flex-wrap">
@@ -152,42 +158,40 @@ const JLPTTestDashboard = ({
                     </div>
                 </div>
 
-                {/* 2. Top Bar: Level Selector + Progress Stats */}
-                <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-4 sm:p-5 shadow-xs space-y-4">
-                    {/* Level Tabs */}
-                    <div className="flex flex-wrap items-center justify-between gap-3">
-                        <div className="flex flex-wrap items-center gap-1.5 p-1 bg-slate-100 dark:bg-slate-800/80 rounded-2xl">
-                            {[
-                                { key: 'all', label: 'Tất cả' },
-                                { key: 'N5', label: 'N5' },
-                                { key: 'N4', label: 'N4' },
-                                { key: 'N3', label: 'N3' },
-                                { key: 'N2', label: 'N2' },
-                                { key: 'N1', label: 'N1' }
-                            ].map(lvl => (
-                                <button
-                                    key={lvl.key}
-                                    onClick={() => setSelectedLevel(lvl.key)}
-                                    className={`px-3.5 sm:px-4 py-2 text-xs sm:text-sm font-extrabold rounded-xl transition-all cursor-pointer select-none ${
-                                        selectedLevel === lvl.key
-                                            ? 'bg-emerald-500 text-white border-b-2 border-emerald-700 font-black shadow-xs'
-                                            : 'text-slate-500 hover:text-slate-800 dark:text-slate-400'
-                                    }`}
-                                >
-                                    {lvl.label}
-                                </button>
-                            ))}
-                        </div>
+                {/* 2. Single-row Filter Bar: Level + Search + Status */}
+                <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-2.5 sm:p-3 shadow-xs flex flex-wrap items-center justify-between gap-2.5">
+                    <div className="flex flex-wrap items-center gap-1 p-1 bg-slate-100 dark:bg-slate-800/80 rounded-xl">
+                        {[
+                            { key: 'all', label: 'Tất cả' },
+                            { key: 'N5', label: 'N5' },
+                            { key: 'N4', label: 'N4' },
+                            { key: 'N3', label: 'N3' },
+                            { key: 'N2', label: 'N2' },
+                            { key: 'N1', label: 'N1' }
+                        ].map(lvl => (
+                            <button
+                                key={lvl.key}
+                                onClick={() => setSelectedLevel(lvl.key)}
+                                className={`px-3 sm:px-3.5 py-1.5 text-xs sm:text-sm font-extrabold rounded-lg transition-all cursor-pointer select-none ${
+                                    selectedLevel === lvl.key
+                                        ? 'bg-emerald-500 text-white border-b-2 border-emerald-700 font-black shadow-xs'
+                                        : 'text-slate-500 hover:text-slate-800 dark:text-slate-400'
+                                }`}
+                            >
+                                {lvl.label}
+                            </button>
+                        ))}
+                    </div>
 
-                        {/* Search Input */}
-                        <div className="relative min-w-[220px] sm:w-64">
-                            <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                    <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 w-full md:w-auto flex-1 md:flex-initial justify-end">
+                        <div className="relative flex-1 sm:w-60 md:w-64">
+                            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
                             <input
                                 type="text"
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                placeholder="Tìm kiếm bài học, đề thi..."
-                                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 rounded-2xl pl-9 pr-8 py-2 text-xs font-medium text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500"
+                                placeholder="Tìm kiếm sách, đề thi..."
+                                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 rounded-xl pl-9 pr-8 py-2 text-xs font-medium text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500"
                             />
                             {searchQuery && (
                                 <button 
@@ -198,63 +202,22 @@ const JLPTTestDashboard = ({
                                 </button>
                             )}
                         </div>
-                    </div>
 
-                    {/* Stats Summary Strip */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-3 border-t border-slate-100 dark:border-slate-800/80">
-                        <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                                <CheckCircle2 className="w-5 h-5" />
-                            </div>
-                            <div>
-                                <p className="text-[10px] font-bold uppercase text-slate-400">Đã hoàn thành</p>
-                                <p className="text-sm sm:text-base font-black text-slate-800 dark:text-white">
-                                    {completedCount} <span className="text-xs font-medium text-slate-400">/ {totalCount} đề</span>
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-2xl bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
-                                <TrendingUp className="w-5 h-5" />
-                            </div>
-                            <div>
-                                <p className="text-[10px] font-bold uppercase text-slate-400">Độ chính xác TB</p>
-                                <p className="text-sm sm:text-base font-black text-slate-800 dark:text-white">
-                                    {avgScore > 0 ? `${avgScore}%` : 'Chưa có'}
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="flex items-center gap-3">
-                            <div className="w-10 h-10 rounded-2xl bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 flex items-center justify-center shrink-0">
-                                <Clock className="w-5 h-5" />
-                            </div>
-                            <div>
-                                <p className="text-[10px] font-bold uppercase text-slate-400">Kỳ thi JLPT kế tiếp</p>
-                                <p className="text-sm sm:text-base font-black text-slate-800 dark:text-white">
-                                    Còn {jlptCountdown} ngày
-                                </p>
-                            </div>
-                        </div>
-
-                        <div className="flex items-center justify-end">
-                            <select
-                                value={statusFilter}
-                                onChange={(e) => setStatusFilter(e.target.value)}
-                                className="w-full sm:w-auto bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 rounded-2xl px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-300 focus:outline-none cursor-pointer"
-                            >
-                                <option value="all">Trạng thái: Tất cả</option>
-                                <option value="completed">Đã hoàn thành</option>
-                                <option value="in_progress">Đang làm dở</option>
-                                <option value="not_started">Chưa làm</option>
-                            </select>
-                        </div>
+                        <select
+                            value={statusFilter}
+                            onChange={(e) => setStatusFilter(e.target.value)}
+                            className="bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-300 focus:outline-none cursor-pointer shrink-0"
+                        >
+                            <option value="all">Trạng thái: Tất cả</option>
+                            <option value="completed">Đã hoàn thành</option>
+                            <option value="in_progress">Đang làm dở</option>
+                            <option value="not_started">Chưa làm</option>
+                        </select>
                     </div>
                 </div>
 
-                {/* 3. Main Navigation Switcher (6 Pillars) */}
-                <div className="flex items-center gap-1.5 sm:gap-2 p-1.5 bg-slate-200/70 dark:bg-slate-900 rounded-3xl border border-slate-200/60 dark:border-slate-800 shadow-2xs overflow-x-auto no-scrollbar">
+                {/* 3. Main Navigation Switcher (5 Core Tabs) */}
+                <div className="flex items-center gap-1.5 p-1.5 bg-slate-200/70 dark:bg-slate-900 rounded-2xl border border-slate-200/60 dark:border-slate-800 shadow-2xs overflow-x-auto no-scrollbar">
                     {MAIN_TABS.map(tab => {
                         const Icon = tab.icon;
                         const isSelected = activeMainTab === tab.id;
@@ -264,7 +227,7 @@ const JLPTTestDashboard = ({
                             <button
                                 key={tab.id}
                                 onClick={() => setActiveMainTab(tab.id)}
-                                className={`flex-1 py-3 px-2 sm:px-4 rounded-2xl text-center transition-all duration-200 cursor-pointer flex items-center justify-center gap-1.5 sm:gap-2 shrink-0 ${
+                                className={`flex-1 min-w-fit py-2.5 px-3 sm:px-4 rounded-xl text-center transition-all duration-200 cursor-pointer flex items-center justify-center gap-1.5 sm:gap-2 shrink-0 ${
                                     isSelected
                                         ? 'bg-white dark:bg-slate-800 text-slate-950 dark:text-white shadow-sm font-black text-xs sm:text-sm border border-slate-200/80 dark:border-slate-700'
                                         : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 font-bold text-xs sm:text-sm'
@@ -285,27 +248,6 @@ const JLPTTestDashboard = ({
                 {/* 4. Active Tab Content Rendering */}
                 {activeMainTab === 'books' && (
                     <JLPTBooksCollectionTab
-                        tests={tests}
-                        completedTests={completedTests}
-                        savedProgresses={savedProgresses}
-                        selectedLevel={selectedLevel}
-                        searchQuery={searchQuery}
-                        canEdit={canEdit}
-                        onEditTest={onEditTest}
-                        onDeleteTest={onDeleteTest}
-                        hasPremiumAccess={hasPremiumAccess}
-                        startTest={startTest}
-                        reviewTest={reviewTest}
-                        handleStartPrint={handleStartPrint}
-                        handleToggleTestPremium={handleToggleTestPremium}
-                        handleToggleTestFixed={handleToggleTestFixed}
-                        setShowPremiumModal={setShowPremiumModal}
-                        setLockedPkgName={setLockedPkgName}
-                    />
-                )}
-
-                {activeMainTab === 'roadmap' && (
-                    <JLPTLessonRoadmapTab
                         tests={tests}
                         completedTests={completedTests}
                         savedProgresses={savedProgresses}
@@ -355,25 +297,6 @@ const JLPTTestDashboard = ({
                         savedProgresses={savedProgresses}
                         selectedLevel={selectedLevel}
                         searchQuery={searchQuery}
-                        canEdit={canEdit}
-                        onEditTest={onEditTest}
-                        onDeleteTest={onDeleteTest}
-                        hasPremiumAccess={hasPremiumAccess}
-                        startTest={startTest}
-                        reviewTest={reviewTest}
-                        handleToggleTestPremium={handleToggleTestPremium}
-                        setShowPremiumModal={setShowPremiumModal}
-                        setLockedPkgName={setLockedPkgName}
-                    />
-                )}
-
-                {activeMainTab === 'skills' && (
-                    <JLPTSkillArenaTab
-                        tests={tests}
-                        completedTests={completedTests}
-                        savedProgresses={savedProgresses}
-                        selectedLevel={selectedLevel}
-                        searchQuery={searchQuery}
                         statusFilter={statusFilter}
                         canEdit={canEdit}
                         onEditTest={onEditTest}
@@ -381,9 +304,7 @@ const JLPTTestDashboard = ({
                         hasPremiumAccess={hasPremiumAccess}
                         startTest={startTest}
                         reviewTest={reviewTest}
-                        handleStartPrint={handleStartPrint}
                         handleToggleTestPremium={handleToggleTestPremium}
-                        handleToggleTestFixed={handleToggleTestFixed}
                         setShowPremiumModal={setShowPremiumModal}
                         setLockedPkgName={setLockedPkgName}
                     />
@@ -405,28 +326,6 @@ const JLPTTestDashboard = ({
                         onClearAllWrongQuestions={onClearAllWrongQuestions}
                         onStartPracticeWrong={onStartPracticeWrong}
                         onAddFlashcard={onAddFlashcard}
-                    />
-                )}
-
-                {activeMainTab === 'mock' && (
-                    <JLPTMockExamsTab
-                        tests={tests}
-                        completedTests={completedTests}
-                        savedProgresses={savedProgresses}
-                        selectedLevel={selectedLevel}
-                        searchQuery={searchQuery}
-                        statusFilter={statusFilter}
-                        canEdit={canEdit}
-                        onEditTest={onEditTest}
-                        onDeleteTest={onDeleteTest}
-                        hasPremiumAccess={hasPremiumAccess}
-                        startTest={startTest}
-                        reviewTest={reviewTest}
-                        handleStartPrint={handleStartPrint}
-                        handleToggleTestPremium={handleToggleTestPremium}
-                        handleToggleTestFixed={handleToggleTestFixed}
-                        setShowPremiumModal={setShowPremiumModal}
-                        setLockedPkgName={setLockedPkgName}
                     />
                 )}
             </div>
