@@ -34,6 +34,13 @@ const normalizeMainTab = (rawTab) => {
     return VALID_MAIN_TABS.includes(mapped) ? mapped : 'books';
 };
 
+const VALID_JLPT_LEVELS = ['N5', 'N4', 'N3', 'N2', 'N1'];
+const normalizeJlptLevel = (rawLevel, fallback = 'N5') => {
+    if (VALID_JLPT_LEVELS.includes(rawLevel)) return rawLevel;
+    if (VALID_JLPT_LEVELS.includes(fallback)) return fallback;
+    return 'N5';
+};
+
 const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP }) => {
     // Custom Hook for JLPT Data and States
     const {
@@ -110,6 +117,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
     const [showViolationWarning, setShowViolationWarning] = useState(false);
     const [showFullscreenRequired, setShowFullscreenRequired] = useState(false);
     const [violationType, setViolationType] = useState('');
+    const [examViolationStoppedReason, setExamViolationStoppedReason] = useState('');
+    const hasEnteredFullscreenRef = useRef(false);
+    const lastViolationTimeRef = useRef(0);
 
     // PDF Export & Printing states
     const [printingTest, setPrintingTest] = useState(null);
@@ -126,7 +136,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
     });
     const [selectedLevel, setSelectedLevelState] = useState(() => {
         const params = new URLSearchParams(location?.search || '');
-        return params.get('level') || sessionStorage.getItem('quizki_jlpt_selected_level') || targetLevel || 'N5';
+        const fromParam = params.get('level');
+        let fromLocal = '';
+        let fromSession = '';
+        try {
+            fromLocal = localStorage.getItem('quizki_jlpt_selected_level') || '';
+            fromSession = sessionStorage.getItem('quizki_jlpt_selected_level') || '';
+        } catch (e) { }
+        return normalizeJlptLevel(fromParam || fromLocal || fromSession, targetLevel);
     });
 
     useEffect(() => {
@@ -136,25 +153,45 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         if (tabParam) {
             const nextTab = normalizeMainTab(tabParam);
             setActiveMainTabState(nextTab);
-            try { sessionStorage.setItem('quizki_jlpt_main_tab', nextTab); } catch (e) {}
+            try { sessionStorage.setItem('quizki_jlpt_main_tab', nextTab); } catch (e) { }
         }
-        if (levelParam && ['all', 'N5', 'N4', 'N3', 'N2', 'N1'].includes(levelParam)) {
+        if (levelParam && VALID_JLPT_LEVELS.includes(levelParam)) {
             setSelectedLevelState(levelParam);
-            try { sessionStorage.setItem('quizki_jlpt_selected_level', levelParam); } catch (e) {}
+            try {
+                localStorage.setItem('quizki_jlpt_selected_level', levelParam);
+                sessionStorage.setItem('quizki_jlpt_selected_level', levelParam);
+            } catch (e) { }
         }
     }, [location?.search]);
+
+    useEffect(() => {
+        const params = new URLSearchParams(location?.search || '');
+        if (params.get('level')) return;
+        let savedLocal = '';
+        try {
+            savedLocal = localStorage.getItem('quizki_jlpt_selected_level') || '';
+        } catch (e) { }
+        if (!VALID_JLPT_LEVELS.includes(savedLocal) && VALID_JLPT_LEVELS.includes(targetLevel)) {
+            setSelectedLevelState(targetLevel);
+        }
+    }, [targetLevel, location?.search]);
+
     const [searchQuery, setSearchQuery] = useState('');
-    const [statusFilter, setStatusFilter] = useState('all');
 
     const setActiveMainTab = (tab) => {
         const nextTab = normalizeMainTab(tab);
         setActiveMainTabState(nextTab);
-        try { sessionStorage.setItem('quizki_jlpt_main_tab', nextTab); } catch (e) {}
+        try { sessionStorage.setItem('quizki_jlpt_main_tab', nextTab); } catch (e) { }
     };
 
     const setSelectedLevel = (lvl) => {
-        setSelectedLevelState(lvl);
-        try { sessionStorage.setItem('quizki_jlpt_selected_level', lvl); } catch (e) {}
+        const nextLvl = normalizeJlptLevel(lvl);
+        setSelectedLevelState(nextLvl);
+        try {
+            localStorage.setItem('quizki_jlpt_selected_level', nextLvl);
+            sessionStorage.setItem('quizki_jlpt_selected_level', nextLvl);
+        } catch (e) { }
+        handleUpdateTargetLevel?.(nextLvl);
     };
 
     // Settings for furigana and timer
@@ -210,7 +247,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             const updatedSections = JSON.parse(JSON.stringify(targetTest.sections));
             updatedSections[sectionIdx].questions[questionIdx] = updatedQuestion;
             const testRef = doc(db, `artifacts/${appId}/jlptTests`, testId);
-            await setDoc(testRef, { 
+            await setDoc(testRef, {
                 ...targetTest,
                 sections: updatedSections,
                 updatedAt: Date.now()
@@ -293,56 +330,71 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         try {
             if (!document.fullscreenElement) {
                 await document.documentElement?.requestFullscreen?.();
+                hasEnteredFullscreenRef.current = true;
                 setIsFullscreen(true);
-            } else {
+                setShowFullscreenRequired(false);
+                return true;
+            }
+            if (!isRealExam) {
                 await document.exitFullscreen?.();
                 setIsFullscreen(false);
             }
-        } catch (e) { console.error(e); }
+            return !!document.fullscreenElement;
+        } catch (e) {
+            console.error(e);
+            return false;
+        }
+    }, [isRealExam]);
+
+    const registerExamViolation = useCallback((source) => {
+        const now = Date.now();
+        if (now - lastViolationTimeRef.current < 800) return;
+        lastViolationTimeRef.current = now;
+
+        setViolationCount((prev) => {
+            const next = prev + 1;
+            if (next >= 3) {
+                setShowViolationWarning(false);
+                setShowFullscreenRequired(false);
+                setTimeout(() => submitTestRef.current?.({ terminatedByViolation: true }), 0);
+            } else {
+                setViolationType(source);
+                if (source === 'fullscreen' || !document.fullscreenElement) {
+                    setShowFullscreenRequired(true);
+                } else {
+                    setShowViolationWarning(true);
+                }
+                showToast(`⚠️ Cảnh báo vi phạm (${next}/3): Không được thoát Toàn màn hình hay rời trang thi!`, 'error');
+            }
+            return next;
+        });
     }, []);
 
     useEffect(() => {
         const handler = () => {
             const isFS = !!document.fullscreenElement;
             setIsFullscreen(isFS);
-            if (!isFS && activeTest && !showResult && isRealExam) {
-                setViolationCount(prev => {
-                    const next = prev + 1;
-                    if (next >= 3) {
-                        submitTest();
-                        alert("Bài thi đã tự động nộp do vi phạm quy chế rời màn hình quá 3 lần!");
-                    } else {
-                        setViolationType('fullscreen');
-                        setShowFullscreenRequired(true);
-                    }
-                    return next;
-                });
+            if (isFS) {
+                hasEnteredFullscreenRef.current = true;
+                setShowFullscreenRequired(false);
+            } else if (activeTest && !showResult && isRealExam && hasEnteredFullscreenRef.current) {
+                registerExamViolation('fullscreen');
             }
         };
         document.addEventListener('fullscreenchange', handler);
         return () => document.removeEventListener('fullscreenchange', handler);
-    }, [activeTest, showResult, isRealExam]);
+    }, [activeTest, showResult, isRealExam, registerExamViolation]);
 
     useEffect(() => {
         if (!activeTest || showResult || !isRealExam) return;
         const handleVisibilityChange = () => {
             if (document.hidden || document.visibilityState === 'hidden') {
-                setViolationCount(prev => {
-                    const next = prev + 1;
-                    if (next >= 3) {
-                        submitTest();
-                        alert("Bài thi đã tự động nộp do vi phạm quy chế rời màn hình quá 3 lần!");
-                    } else {
-                        setViolationType('tab');
-                        setShowViolationWarning(true);
-                    }
-                    return next;
-                });
+                registerExamViolation('tab');
             }
         };
         document.addEventListener('visibilitychange', handleVisibilityChange);
         return () => document.removeEventListener('visibilitychange', handleVisibilityChange);
-    }, [activeTest, showResult, isRealExam]);
+    }, [activeTest, showResult, isRealExam, registerExamViolation]);
 
     useEffect(() => {
         const container = containerRef.current;
@@ -376,14 +428,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         if (!isRealExam && activeTest?.sections?.[si]?.questions?.[qi]) {
             const sec = activeTest.sections[si];
             const q = sec.questions[qi];
-            const correctIndex = typeof q.correctAnswer === 'number' 
-                ? q.correctAnswer 
-                : (typeof q.answer === 'number' 
-                    ? q.answer 
-                    : (typeof q.correct === 'number' 
-                        ? q.correct 
-                        : (typeof q.correct === 'string' && q.options 
-                            ? q.options.findIndex(o => o.trim() === q.correct.trim()) 
+            const correctIndex = typeof q.correctAnswer === 'number'
+                ? q.correctAnswer
+                : (typeof q.answer === 'number'
+                    ? q.answer
+                    : (typeof q.correct === 'number'
+                        ? q.correct
+                        : (typeof q.correct === 'string' && q.options
+                            ? q.options.findIndex(o => o.trim() === q.correct.trim())
                             : -1)));
 
             if (correctIndex !== -1 && optIdx !== correctIndex) {
@@ -423,14 +475,14 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             const sec = activeTest.sections[si];
             const q = sec.questions[qi];
             const sq = q.subQuestions[sqi];
-            const correctIndex = typeof sq.correctAnswer === 'number' 
-                ? sq.correctAnswer 
-                : (typeof sq.answer === 'number' 
-                    ? sq.answer 
-                    : (typeof sq.correct === 'number' 
-                        ? sq.correct 
-                        : (typeof sq.correct === 'string' && sq.options 
-                            ? sq.options.findIndex(o => o.trim() === sq.correct.trim()) 
+            const correctIndex = typeof sq.correctAnswer === 'number'
+                ? sq.correctAnswer
+                : (typeof sq.answer === 'number'
+                    ? sq.answer
+                    : (typeof sq.correct === 'number'
+                        ? sq.correct
+                        : (typeof sq.correct === 'string' && sq.options
+                            ? sq.options.findIndex(o => o.trim() === sq.correct.trim())
                             : -1)));
 
             if (correctIndex !== -1 && optIdx !== correctIndex) {
@@ -556,6 +608,21 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         }
     };
 
+    const requestRealExamFullscreenSync = () => {
+        try {
+            if (document.documentElement && !document.fullscreenElement && document.documentElement.requestFullscreen) {
+                const res = document.documentElement.requestFullscreen();
+                if (res && typeof res.then === 'function') {
+                    res.then(() => {
+                        hasEnteredFullscreenRef.current = true;
+                        setIsFullscreen(true);
+                        setShowFullscreenRequired(false);
+                    }).catch(() => {});
+                }
+            }
+        } catch (e) {}
+    };
+
     const retakeTest = async (test) => {
         const targetTest = test || activeTest;
         if (!targetTest) return;
@@ -564,6 +631,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             setLockedPkgName('Luyện đề thi thử JLPT');
             setShowPremiumModal(true);
             return;
+        }
+        if (wasRealExam) {
+            requestRealExamFullscreenSync();
         }
         setShowResult(false);
         setShowDetailedReview(false);
@@ -581,6 +651,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
 
     const initTest = async (test, mode = 'practice', isResume = false) => {
         setPendingStartTest(null);
+        if (mode === 'real') {
+            requestRealExamFullscreenSync();
+        }
         let fullTest = test;
         if (!fullTest?.sections || fullTest.sections.length === 0) {
             setLoadingTestDetails(true);
@@ -593,9 +666,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         setActiveTest(fullTest);
         preloadTestImages(fullTest);
         setIsRealExam(mode === 'real');
+        hasEnteredFullscreenRef.current = !!document.fullscreenElement;
+        lastViolationTimeRef.current = 0;
         setViolationCount(0);
         setShowViolationWarning(false);
-        setShowFullscreenRequired(false);
+        setExamViolationStoppedReason('');
 
         const testId = fullTest?.id || fullTest?._id;
         const savedProgress = isResume ? (savedProgresses[testId] || savedProgresses[String(testId)]) : null;
@@ -629,7 +704,30 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             setTimerActive(true);
             sessionStorage.setItem('realExamModeActive', 'true');
             window.dispatchEvent(new Event('realExamModeChange'));
+
+            if (!document.fullscreenElement) {
+                try {
+                    const req = document.documentElement?.requestFullscreen?.();
+                    if (req && typeof req.then === 'function') {
+                        req.then(() => {
+                            hasEnteredFullscreenRef.current = true;
+                            setIsFullscreen(true);
+                            setShowFullscreenRequired(false);
+                        }).catch(() => {
+                            setShowFullscreenRequired(true);
+                        });
+                    } else {
+                        setShowFullscreenRequired(true);
+                    }
+                } catch {
+                    setShowFullscreenRequired(true);
+                }
+            } else {
+                hasEnteredFullscreenRef.current = true;
+                setShowFullscreenRequired(false);
+            }
         } else {
+            setShowFullscreenRequired(false);
             setExamPhases([]);
             setCurrentPhaseIdx(0);
             setPhaseElapsedOffsetSec(0);
@@ -638,6 +736,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             sessionStorage.removeItem('realExamModeActive');
             window.dispatchEvent(new Event('realExamModeChange'));
         }
+    };
+
+    const startRealExamWithFullscreen = (targetTest) => {
+        requestRealExamFullscreenSync();
+        return initTest(targetTest, 'real', false);
     };
 
     const handleSelectTestFromSearch = async (test, sectionIdx = 0, questionIdx = 0) => {
@@ -707,9 +810,27 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         }
     };
 
-    const submitTest = () => {
+    const submitTest = (options = {}) => {
+        const { terminatedByViolation = false } = options || {};
         setTimerActive(false);
         clearInterval(timerRef.current);
+        setShowViolationWarning(false);
+        setShowFullscreenRequired(false);
+
+        if (typeof document !== 'undefined' && document.fullscreenElement) {
+            try {
+                document.exitFullscreen?.().catch(() => {});
+            } catch (e) {}
+        }
+
+        if (terminatedByViolation) {
+            const msg = 'Bài thi đã tự động dừng và nộp ngay do thoát toàn màn hình / rời phòng thi 3 lần!';
+            setExamViolationStoppedReason(msg);
+            showToast(msg, 'error');
+        } else {
+            setExamViolationStoppedReason('');
+        }
+
         const taken = isRealExam
             ? (examPhases.length > 0
                 ? phaseElapsedOffsetSec + Math.max(0, (examPhases[currentPhaseIdx]?.seconds || 0) - timeRemaining)
@@ -863,7 +984,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
 
     const handleStartPracticeWrong = (wrongList) => {
         if (!wrongList || wrongList.length === 0) return;
-        
+
         const questions = wrongList.map((item, idx) => ({
             id: `wrong_q_${idx}`,
             question: item.question,
@@ -901,6 +1022,15 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         setTimerActive(false);
         clearInterval(timerRef.current);
         setIsRealExam(false);
+        setShowViolationWarning(false);
+        setShowFullscreenRequired(false);
+        setExamViolationStoppedReason('');
+        hasEnteredFullscreenRef.current = false;
+        if (typeof document !== 'undefined' && document.fullscreenElement) {
+            try {
+                document.exitFullscreen?.().catch(() => {});
+            } catch (e) {}
+        }
         sessionStorage.removeItem('realExamModeActive');
         window.dispatchEvent(new Event('realExamModeChange'));
         setActiveTest(null);
@@ -931,7 +1061,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         setSavedProgresses(newProgresses);
         try {
             localStorage.setItem('quizki_jlpt_saved_progresses', JSON.stringify(newProgresses));
-        } catch (e) {}
+        } catch (e) { }
         saveProgressesToFirestore(newProgresses);
         showToast("Đã lưu tiến trình làm bài!", "success");
         exitTest();
@@ -945,7 +1075,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             const updatedSections = JSON.parse(JSON.stringify(activeTest.sections));
             updatedSections[sectionIdx].questions[questionIdx] = updatedQuestion;
             const testRef = doc(db, `artifacts/${appId}/jlptTests`, activeTest.id);
-            const cleanUpdatedTest = sanitizeDataForFirestore({ 
+            const cleanUpdatedTest = sanitizeDataForFirestore({
                 ...activeTest,
                 sections: updatedSections,
                 updatedAt: Date.now()
@@ -1006,11 +1136,11 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         try {
             const testRef = doc(db, `artifacts/${appId}/jlptTests`, test.id);
             const nextVal = !test.isFixed;
-            await setDoc(testRef, { 
-                ...test, 
-                isFixed: nextVal, 
-                isDataStandardized: nextVal, 
-                updatedAt: Date.now() 
+            await setDoc(testRef, {
+                ...test,
+                isFixed: nextVal,
+                isDataStandardized: nextVal,
+                updatedAt: Date.now()
             }, { merge: true });
             updateSingleJLPTTestInCache(test.id, { isFixed: nextVal, isDataStandardized: nextVal });
             showToast(`Đã đánh dấu đề: ${nextVal ? 'Đã chuẩn data' : 'Chưa chuẩn'}`, 'success');
@@ -1234,7 +1364,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                         <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">Vui lòng chọn chế độ làm bài thi phù hợp với nhu cầu của bạn:</p>
                         <div className="grid grid-cols-1 gap-4">
                             {hasSavedAnswers && (
-                                <div 
+                                <div
                                     onClick={() => initTest(pendingStartTest, 'practice', true)}
                                     className="group border-2 border-emerald-500 dark:border-emerald-500 rounded-2xl p-4 cursor-pointer transition-all hover:shadow-md bg-emerald-50/10 dark:bg-emerald-950/10 flex items-start gap-3.5"
                                 >
@@ -1252,7 +1382,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                                 </div>
                             )}
 
-                            <div 
+                            <div
                                 onClick={() => {
                                     if (hasSavedAnswers) {
                                         const newProgresses = { ...savedProgresses };
@@ -1261,7 +1391,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                                         setSavedProgresses(newProgresses);
                                         try {
                                             localStorage.setItem('quizki_jlpt_saved_progresses', JSON.stringify(newProgresses));
-                                        } catch (e) {}
+                                        } catch (e) { }
                                         saveProgressesToFirestore(newProgresses);
                                     }
                                     initTest(pendingStartTest, 'practice', false);
@@ -1281,9 +1411,9 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                                 </div>
                             </div>
 
-                            <div 
+                            <div
                                 onClick={() => {
-                                    initTest(pendingStartTest, 'real', false);
+                                    startRealExamWithFullscreen(pendingStartTest);
                                 }}
                                 className="group border-2 border-slate-200 dark:border-slate-700 hover:border-rose-500 rounded-2xl p-4 cursor-pointer transition-all hover:shadow-md bg-slate-50/50 dark:bg-slate-900/30 flex items-start gap-3.5"
                             >
@@ -1293,7 +1423,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                                 <div className="flex-1">
                                     <h4 className="text-sm font-extrabold text-slate-800 dark:text-white">Chế độ Thi thực tế (Chuẩn giờ JLPT)</h4>
                                     <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1 leading-relaxed">
-                                        Chia đồng hồ riêng từng phần đúng quy chế JLPT (phần Nghe tính giờ độc lập). Bắt buộc Full màn hình.
+                                        Tính giờ riêng từng phần, Audio chỉ phát 1 lần (không tua/reset/đổi tốc độ) và bắt buộc Full màn hình (cảnh báo khi thoát, 3 lần tự dừng bài thi).
                                     </p>
                                     {hasFullSections && (() => {
                                         const previewPhases = buildJlptExamPhases(pendingStartTest);
@@ -1408,10 +1538,10 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                     <PrintPortal>
                         <div className="print-container-wrapper">
                             <PrintErrorBoundary>
-                                <JLPTPrintView 
-                                    test={printingTest} 
-                                    includeAnswers={includeAnswers} 
-                                    includeAnswerSheet={includeAnswerSheet} 
+                                <JLPTPrintView
+                                    test={printingTest}
+                                    includeAnswers={includeAnswers}
+                                    includeAnswerSheet={includeAnswerSheet}
                                 />
                             </PrintErrorBoundary>
                         </div>
@@ -1427,6 +1557,33 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         const passed = results?.jlptScore ? results.jlptScore.passed : results.percentage >= 60;
         return (
             <>
+                {examViolationStoppedReason && (
+                    <div className="fixed inset-0 z-[110] bg-slate-950/75 backdrop-blur-sm flex items-center justify-center p-4 animate-fade-in font-sans">
+                        <div className="bg-white dark:bg-slate-900 border-2 border-rose-300 dark:border-rose-800 border-b-4 rounded-3xl p-6 max-w-md w-full shadow-2xl space-y-4 text-center">
+                            <div className="w-14 h-14 rounded-2xl bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 border-2 border-rose-200 dark:border-rose-800 flex items-center justify-center mx-auto">
+                                <AlertTriangle className="w-8 h-8" />
+                            </div>
+                            <div className="space-y-1.5">
+                                <span className="inline-block px-3 py-1 rounded-xl bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 text-[11px] font-black uppercase tracking-wider">
+                                    Bài thi đã bị dừng tự động
+                                </span>
+                                <h3 className="text-lg font-black text-slate-900 dark:text-white">
+                                    Vi phạm quy chế Toàn màn hình (3/3)
+                                </h3>
+                                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                                    {examViolationStoppedReason} Kết quả các câu đã chọn trước đó đã được hệ thống tự động chấm và lưu lại.
+                                </p>
+                            </div>
+                            <button
+                                type="button"
+                                onClick={() => setExamViolationStoppedReason('')}
+                                className="w-full py-3 rounded-2xl text-xs font-black uppercase tracking-wider bg-rose-500 hover:bg-rose-400 border-2 border-rose-600 border-b-4 border-b-rose-700 active:translate-y-0.5 active:border-b-2 text-white transition-all cursor-pointer select-none"
+                            >
+                                Xem kết quả bài thi
+                            </button>
+                        </div>
+                    </div>
+                )}
                 <JLPTTestResultView
                     activeTest={activeTest}
                     showDetailedReview={showDetailedReview}
@@ -1480,10 +1637,10 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                 />
                 {renderModeSelectionModal()}
                 {renderQuickEditModal()}
-                <PremiumLockedModal 
-                    isOpen={showPremiumModal} 
-                    onClose={() => setShowPremiumModal(false)} 
-                    pkgName={lockedPkgName} 
+                <PremiumLockedModal
+                    isOpen={showPremiumModal}
+                    onClose={() => setShowPremiumModal(false)}
+                    pkgName={lockedPkgName}
                 />
                 {renderPrintElements()}
                 {canEdit && (
@@ -1604,12 +1761,12 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                             delete newProgresses[testId];
                             delete newProgresses[String(testId)];
                             setSavedProgresses(newProgresses);
-                            try { localStorage.setItem('quizki_jlpt_saved_progresses', JSON.stringify(newProgresses)); } catch (e) {}
+                            try { localStorage.setItem('quizki_jlpt_saved_progresses', JSON.stringify(newProgresses)); } catch (e) { }
                             saveProgressesToFirestore(newProgresses);
                         }
                         initTest(pendingStartTest, 'practice', false);
                     }}
-                    startRealExamConfirm={() => initTest(pendingStartTest, 'real', false)}
+                    startRealExamConfirm={() => startRealExamWithFullscreen(pendingStartTest)}
                     handleToggleTestFixed={handleToggleTestFixed}
                     handleStartPrint={() => handleStartPrint(activeTest)}
                     onOpenExportImport={() => setShowExportImportModal(true)}
@@ -1661,8 +1818,6 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                 setSelectedLevel={setSelectedLevel}
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
-                statusFilter={statusFilter}
-                setStatusFilter={setStatusFilter}
                 roadmapProgress={roadmapProgress}
                 toggleRoadmapDay={toggleRoadmapDay}
                 allCards={allCards}
@@ -1694,10 +1849,10 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                     </div>
                 </div>
             )}
-            <PremiumLockedModal 
-                isOpen={showPremiumModal} 
-                onClose={() => setShowPremiumModal(false)} 
-                pkgName={lockedPkgName} 
+            <PremiumLockedModal
+                isOpen={showPremiumModal}
+                onClose={() => setShowPremiumModal(false)}
+                pkgName={lockedPkgName}
             />
             {renderPrintElements()}
             {canEdit && (

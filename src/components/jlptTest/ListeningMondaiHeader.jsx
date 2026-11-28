@@ -72,7 +72,10 @@ export const ListeningMondaiSectionBanner = ({
     isListening = true,
     sharedAudioUrl = '',
     externalAudioRef = null,
-    compactAudio = false
+    compactAudio = false,
+    examMode = false,
+    examTrackState = null,
+    onExamTrackStateChange = null
 }) => {
     if (!group) return null;
     const tone = isListening ? MONDAI_TONES.listening : MONDAI_TONES.reading;
@@ -107,6 +110,9 @@ export const ListeningMondaiSectionBanner = ({
                     externalRef={externalAudioRef}
                     label=""
                     compact={compactAudio}
+                    examMode={examMode}
+                    persistedState={examTrackState}
+                    onStateChange={onExamTrackStateChange}
                 />
             )}
         </div>

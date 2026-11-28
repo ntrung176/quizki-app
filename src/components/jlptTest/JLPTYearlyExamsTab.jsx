@@ -26,7 +26,6 @@ const JLPTYearlyExamsTab = ({
     savedProgresses = {},
     selectedLevel = 'N3',
     searchQuery = '',
-    statusFilter = 'all',
     canEdit = false,
     onEditTest = null,
     onDeleteTest = null,
@@ -106,7 +105,7 @@ const JLPTYearlyExamsTab = ({
         return { filled, withAudio, totalSlots: 31 }; // 32 - cancelled 2020-07
     }, [examSlotMap, activeMatrixLevel]);
 
-    // Flat filtered list when selectedLevel === 'all' or viewMode !== 'matrix'
+    // Flat filtered list when viewMode !== 'matrix'
     const flatFilteredTests = useMemo(() => {
         return yearlyTests
             .filter(({ test, meta }) => {
@@ -123,14 +122,13 @@ const JLPTYearlyExamsTab = ({
                         || meta.periodKey.includes(q);
                     if (!hit) return false;
                 }
-                if (statusFilter !== 'all' && getTestStatus(test) !== statusFilter) return false;
                 return true;
             })
             .sort((a, b) => {
                 if ((b.meta.year || 0) !== (a.meta.year || 0)) return (b.meta.year || 0) - (a.meta.year || 0);
                 return Number(b.meta.session || 0) - Number(a.meta.session || 0);
             });
-    }, [yearlyTests, selectedLevel, viewMode, yearFilter, searchQuery, statusFilter, getTestStatus]);
+    }, [yearlyTests, selectedLevel, viewMode, yearFilter, searchQuery]);
 
     const renderFilledTestCard = (test, periodLabel) => {
         const status = getTestStatus(test);
@@ -142,7 +140,7 @@ const JLPTYearlyExamsTab = ({
         const lvlGradient = LEVEL_GRADIENTS[test.level] || 'from-emerald-500 to-sky-600';
 
         return (
-            <div className="bg-white dark:bg-slate-900 rounded-2xl border-2 border-slate-200/80 dark:border-slate-800 p-4 hover:border-emerald-400 dark:hover:border-emerald-600 hover:shadow-md transition-all flex flex-col justify-between gap-3">
+            <div className="bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 border-b-slate-300 dark:border-b-slate-950 p-4 hover:border-emerald-400 dark:hover:border-emerald-500 hover:shadow-md transition-all flex flex-col justify-between gap-3">
                 <div className="space-y-2.5">
                     <div className="flex items-center justify-between gap-2 flex-wrap">
                         <div className="flex items-center gap-1.5 flex-wrap">
@@ -160,7 +158,7 @@ const JLPTYearlyExamsTab = ({
                             ) : canEdit && (
                                 <Link
                                     to={`${ROUTES.JLPT_ADMIN}?mode=studio&authorMode=append&testId=${encodeURIComponent(test.id)}&level=${test.level}&year=${periodMeta.year || 2024}&session=${periodMeta.session || '12'}`}
-                                    className="px-2 py-0.5 rounded-lg bg-sky-500 hover:bg-sky-400 text-white font-black text-[10px] flex items-center gap-1 shadow-2xs transition"
+                                    className="px-2.5 py-0.5 rounded-xl bg-sky-500 hover:bg-sky-400 border-2 border-sky-600 border-b-2 border-b-sky-700 active:translate-y-0.5 text-white font-black text-[10px] flex items-center gap-1 transition-all"
                                     title="Mở Studio ghép thêm phần Nghe vào đề này mà vẫn giữ nguyên Từ vựng/Đọc"
                                 >
                                     <PlusCircle className="w-3 h-3" />
@@ -235,12 +233,12 @@ const JLPTYearlyExamsTab = ({
                     </div>
                 </div>
 
-                <div className="pt-2.5 border-t border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2">
+                <div className="pt-2.5 border-t-2 border-slate-100 dark:border-slate-800 flex flex-wrap items-center justify-between gap-2">
                     <div className="flex items-center gap-1.5">
                         <button
                             type="button"
                             onClick={() => handleStartPrint && handleStartPrint(test)}
-                            className="p-1.5 text-slate-400 hover:text-emerald-600 transition cursor-pointer"
+                            className="p-2 rounded-xl border-2 border-transparent hover:border-slate-200 dark:hover:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-400 hover:text-emerald-600 transition cursor-pointer"
                             title="In đề thi"
                         >
                             <Printer className="w-4 h-4" />
@@ -252,7 +250,7 @@ const JLPTYearlyExamsTab = ({
                                     e.stopPropagation();
                                     onEditTest(test);
                                 }}
-                                className="px-2.5 py-1.5 rounded-xl bg-sky-50 hover:bg-sky-100 dark:bg-sky-950/60 dark:hover:bg-sky-900/60 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800 text-[11px] font-black flex items-center gap-1 transition cursor-pointer"
+                                className="px-2.5 py-1.5 rounded-xl bg-sky-50 hover:bg-sky-100 dark:bg-sky-950/60 dark:hover:bg-sky-900/60 text-sky-700 dark:text-sky-300 border-2 border-sky-200 dark:border-sky-800 border-b-2 border-b-sky-300 dark:border-b-sky-900 text-[11px] font-black flex items-center gap-1 transition-all active:translate-y-0.5 cursor-pointer"
                                 title="Sửa trực tiếp đề thi này"
                             >
                                 <Edit3 className="w-3.5 h-3.5" />
@@ -289,12 +287,12 @@ const JLPTYearlyExamsTab = ({
     };
 
     return (
-        <div className="space-y-6 animate-fade-in">
-            {/* Summary Banner & Controls */}
-            <div className="bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200/80 dark:border-slate-800 p-4 sm:p-5 shadow-xs space-y-4">
+        <div className="space-y-5 animate-fade-in">
+            {/* Duolingo Summary Banner & Controls */}
+            <div className="bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 border-b-slate-300 dark:border-b-slate-950 p-4 sm:p-5 shadow-xs space-y-4">
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="flex items-start gap-3">
-                        <div className="w-11 h-11 rounded-2xl bg-sky-500 border-b-4 border-sky-700 text-white flex items-center justify-center shrink-0">
+                        <div className="w-11 h-11 rounded-2xl bg-sky-500 border-2 border-sky-600 border-b-4 border-b-sky-700 text-white flex items-center justify-center shrink-0">
                             <Calendar className="w-5 h-5" />
                         </div>
                         <div>
@@ -312,7 +310,7 @@ const JLPTYearlyExamsTab = ({
                     {canEdit && (
                         <Link
                             to={`${ROUTES.JLPT_ADMIN}?mode=studio&authorMode=yearly&level=${activeMatrixLevel}`}
-                            className="px-4 py-2.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 active:translate-y-0.5 active:border-b-2 text-white text-xs font-black flex items-center gap-2 shrink-0 self-start md:self-center shadow-xs"
+                            className="px-4 py-2.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 border-2 border-emerald-600 border-b-4 border-b-emerald-700 active:translate-y-0.5 active:border-b-2 text-white text-xs font-black uppercase tracking-wider flex items-center gap-2 shrink-0 self-start md:self-center shadow-xs transition-all select-none"
                         >
                             <Sparkles className="w-4 h-4" />
                             <span>Soạn Đề Các Năm (PDF + MP3)</span>
@@ -320,27 +318,29 @@ const JLPTYearlyExamsTab = ({
                     )}
                 </div>
 
-                {/* Progress Bar for current level */}
+                {/* Duolingo Progress Bar for current level */}
                 {selectedLevel !== 'all' && (
                     <div className="space-y-1.5">
-                        <div className="flex items-center justify-between text-[11px] font-extrabold text-slate-500 dark:text-slate-400">
+                        <div className="flex items-center justify-between text-[11px] font-black text-slate-500 dark:text-slate-400">
                             <span>Tiến độ hoàn thiện kho đề {activeMatrixLevel} (2010–2025)</span>
                             <span className="text-emerald-600 dark:text-emerald-400 font-mono">
                                 {levelStats.filled}/{levelStats.totalSlots} kỳ ({Math.round((levelStats.filled / levelStats.totalSlots) * 100)}%)
                             </span>
                         </div>
-                        <div className="h-2.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                        <div className="h-3.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full overflow-hidden">
                             <div
-                                className="h-full bg-emerald-500 rounded-full transition-all duration-500"
+                                className="h-full bg-emerald-500 rounded-full transition-all duration-500 relative"
                                 style={{ width: `${Math.min(100, Math.round((levelStats.filled / levelStats.totalSlots) * 100))}%` }}
-                            />
+                            >
+                                <div className="absolute inset-x-1.5 top-0.5 h-1 rounded-full bg-white/30" />
+                            </div>
                         </div>
                     </div>
                 )}
 
-                {/* Filters Row */}
-                <div className="flex flex-wrap items-center justify-between gap-3 pt-2 border-t border-slate-100 dark:border-slate-800">
-                    <div className="flex flex-wrap items-center gap-1.5">
+                {/* Duolingo Filters Row */}
+                <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t-2 border-slate-100 dark:border-slate-800">
+                    <div className="flex flex-wrap items-center gap-2">
                         {[
                             { id: 'matrix', label: 'Lưới 2010–2025' },
                             { id: 'available', label: 'Chỉ hiện kỳ đã có đề' },
@@ -350,10 +350,10 @@ const JLPTYearlyExamsTab = ({
                                 key={m.id}
                                 type="button"
                                 onClick={() => setViewMode(m.id)}
-                                className={`px-3 py-1.5 rounded-xl text-xs font-extrabold transition cursor-pointer ${
+                                className={`px-3.5 py-1.5 rounded-2xl border-2 border-b-4 text-xs font-black transition-all active:translate-y-0.5 active:border-b-2 cursor-pointer select-none ${
                                     viewMode === m.id
-                                        ? 'bg-sky-500 text-white border-b-2 border-sky-700'
-                                        : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:text-slate-900'
+                                        ? 'bg-sky-500 hover:bg-sky-400 border-sky-600 border-b-sky-700 text-white'
+                                        : 'bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-700 border-slate-200 dark:border-slate-700 border-b-slate-300 dark:border-b-slate-950 text-slate-600 dark:text-slate-300'
                                 }`}
                             >
                                 {m.label}
@@ -361,7 +361,7 @@ const JLPTYearlyExamsTab = ({
                         ))}
                     </div>
 
-                    <div className="flex items-center gap-1.5">
+                    <div className="flex flex-wrap items-center gap-1.5">
                         {[
                             { id: 'all', label: '2010–2025' },
                             { id: '2020-2025', label: '2020–2025' },
@@ -372,10 +372,10 @@ const JLPTYearlyExamsTab = ({
                                 key={r.id}
                                 type="button"
                                 onClick={() => setYearFilter(r.id)}
-                                className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition cursor-pointer ${
+                                className={`px-3 py-1.5 rounded-2xl border-2 border-b-4 text-[11px] font-black transition-all active:translate-y-0.5 active:border-b-2 cursor-pointer select-none ${
                                     yearFilter === r.id
-                                        ? 'bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-700'
-                                        : 'bg-slate-50 dark:bg-slate-800/60 text-slate-500 hover:text-slate-800'
+                                        ? 'bg-emerald-500 hover:bg-emerald-400 border-emerald-600 border-b-emerald-700 text-white'
+                                        : 'bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-700 border-slate-200 dark:border-slate-700 border-b-slate-300 dark:border-b-slate-950 text-slate-600 dark:text-slate-300'
                                 }`}
                             >
                                 {r.label}
@@ -392,15 +392,15 @@ const JLPTYearlyExamsTab = ({
                         return (
                             <div
                                 key={yr}
-                                className="bg-slate-50/80 dark:bg-slate-900/50 rounded-3xl border border-slate-200/80 dark:border-slate-800 p-4 space-y-3"
+                                className="bg-slate-50/80 dark:bg-slate-900/50 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 border-b-slate-300/70 dark:border-b-slate-950 p-4 space-y-3"
                             >
                                 <div className="flex items-center justify-between px-1">
-                                    <div className="flex items-center gap-2">
-                                        <span className="px-3 py-1 rounded-xl bg-slate-900 dark:bg-slate-800 text-white font-black text-xs font-mono">
+                                    <div className="flex items-center gap-2.5">
+                                        <span className="px-3.5 py-1 rounded-2xl bg-slate-900 dark:bg-slate-800 border-2 border-slate-700 border-b-4 border-b-slate-950 text-white font-black text-xs font-mono">
                                             Năm {yr}
                                         </span>
                                         <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
-                                            JLPT {activeMatrixLevel} · Kỳ Tháng 7 & Tháng 12
+                                            JLPT {activeMatrixLevel} · Kỳ Tháng 7 &amp; Tháng 12
                                         </span>
                                     </div>
                                 </div>
@@ -416,7 +416,6 @@ const JLPTYearlyExamsTab = ({
                                                 const match = (existingTest.title || '').toLowerCase().includes(q) || `${yr}`.includes(q);
                                                 if (!match) return null;
                                             }
-                                            if (statusFilter !== 'all' && getTestStatus(existingTest) !== statusFilter) return null;
                                             return (
                                                 <React.Fragment key={sess.id}>
                                                     {renderFilledTestCard(existingTest, `Kỳ ${sess.label}/${yr}`)}
@@ -428,7 +427,7 @@ const JLPTYearlyExamsTab = ({
                                             return (
                                                 <div
                                                     key={sess.id}
-                                                    className="rounded-2xl border-2 border-dashed border-slate-200 dark:border-slate-800 bg-slate-100/60 dark:bg-slate-900/40 p-4 flex items-center justify-between gap-3 opacity-75"
+                                                    className="rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-800 bg-slate-100/60 dark:bg-slate-900/40 p-4 flex items-center justify-between gap-3 opacity-75"
                                                 >
                                                     <div className="flex items-center gap-2.5">
                                                         <AlertCircle className="w-4 h-4 text-slate-400 shrink-0" />
@@ -446,11 +445,11 @@ const JLPTYearlyExamsTab = ({
                                         return (
                                             <div
                                                 key={sess.id}
-                                                className="rounded-2xl border-2 border-dashed border-slate-200 dark:border-slate-800 bg-white/60 dark:bg-slate-900/30 p-4 flex items-center justify-between gap-3"
+                                                className="rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-800 bg-white/70 dark:bg-slate-900/40 p-4 flex items-center justify-between gap-3"
                                             >
                                                 <div>
                                                     <div className="flex items-center gap-2">
-                                                        <span className="px-2 py-0.5 rounded-md bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 font-black text-[10px]">
+                                                        <span className="px-2 py-0.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 font-black text-[10px]">
                                                             {activeMatrixLevel}
                                                         </span>
                                                         <span className="text-xs font-extrabold text-slate-600 dark:text-slate-300">
@@ -463,7 +462,7 @@ const JLPTYearlyExamsTab = ({
                                                 {canEdit && (
                                                     <Link
                                                         to={`${ROUTES.JLPT_ADMIN}?mode=studio&authorMode=yearly&level=${activeMatrixLevel}&year=${yr}&session=${sess.id}`}
-                                                        className="px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 dark:bg-emerald-950/50 dark:hover:bg-emerald-900/60 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 text-[11px] font-black flex items-center gap-1 shrink-0 transition"
+                                                        className="px-3.5 py-2 rounded-2xl bg-emerald-500 hover:bg-emerald-400 border-2 border-emerald-600 border-b-4 border-b-emerald-700 active:translate-y-0.5 active:border-b-2 text-white text-[11px] font-black uppercase tracking-wider flex items-center gap-1.5 shrink-0 transition-all select-none"
                                                     >
                                                         <PlusCircle className="w-3.5 h-3.5" />
                                                         <span>Soạn kỳ này</span>
@@ -486,8 +485,8 @@ const JLPTYearlyExamsTab = ({
                     ))}
                 </div>
             ) : (
-                <div className="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 p-10 text-center space-y-3">
-                    <div className="w-14 h-14 rounded-2xl bg-sky-50 dark:bg-sky-950/40 text-sky-500 flex items-center justify-center mx-auto">
+                <div className="bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 p-10 text-center space-y-3">
+                    <div className="w-14 h-14 rounded-2xl bg-sky-50 dark:bg-sky-950/40 text-sky-500 border-2 border-sky-200 dark:border-sky-800 flex items-center justify-center mx-auto">
                         <Calendar className="w-7 h-7" />
                     </div>
                     <h4 className="text-base font-black text-slate-800 dark:text-white">
@@ -502,7 +501,7 @@ const JLPTYearlyExamsTab = ({
                         <div className="pt-2">
                             <Link
                                 to={`${ROUTES.JLPT_ADMIN}?mode=studio&authorMode=yearly&level=${activeMatrixLevel}`}
-                                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 border-b-4 border-emerald-700 text-white text-xs font-black"
+                                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 border-2 border-emerald-600 border-b-4 border-b-emerald-700 active:translate-y-0.5 active:border-b-2 text-white text-xs font-black uppercase tracking-wider transition-all"
                             >
                                 <Sparkles className="w-4 h-4" />
                                 <span>Mở Studio Soạn Đề Ngay</span>

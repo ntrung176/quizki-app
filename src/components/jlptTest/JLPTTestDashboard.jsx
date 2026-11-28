@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-    BookOpen, Clock, Calendar, CheckCircle2, 
-    Headphones, Search, TrendingUp, X, AlertCircle,
+    BookOpen, Clock, Calendar,
+    Headphones, Search, X, AlertCircle,
     Repeat, Sparkles
 } from 'lucide-react';
 import { ROUTES } from '../../router';
@@ -24,15 +24,13 @@ const JLPTTestDashboard = ({
     tests = [],
     completedTests = {},
     savedProgresses = {},
-    targetLevel = 'N2',
+    targetLevel = 'N5',
     activeMainTab: externalActiveMainTab,
     setActiveMainTab: externalSetActiveMainTab,
     selectedLevel: externalSelectedLevel,
     setSelectedLevel: externalSetSelectedLevel,
     searchQuery: externalSearchQuery,
     setSearchQuery: externalSetSearchQuery,
-    statusFilter: externalStatusFilter,
-    setStatusFilter: externalSetStatusFilter,
     canEdit,
     onEditTest,
     onDeleteTest,
@@ -55,7 +53,6 @@ const JLPTTestDashboard = ({
     const [internalActiveMainTab, setInternalActiveMainTab] = useState('books');
     const [internalSelectedLevel, setInternalSelectedLevel] = useState(targetLevel || 'N5');
     const [internalSearchQuery, setInternalSearchQuery] = useState('');
-    const [internalStatusFilter, setInternalStatusFilter] = useState('all');
 
     const activeMainTab = externalActiveMainTab !== undefined ? externalActiveMainTab : internalActiveMainTab;
     const setActiveMainTab = externalSetActiveMainTab || setInternalActiveMainTab;
@@ -65,14 +62,6 @@ const JLPTTestDashboard = ({
 
     const searchQuery = externalSearchQuery !== undefined ? externalSearchQuery : internalSearchQuery;
     const setSearchQuery = externalSetSearchQuery || setInternalSearchQuery;
-
-    const statusFilter = externalStatusFilter !== undefined ? externalStatusFilter : internalStatusFilter;
-    const setStatusFilter = externalSetStatusFilter || setInternalStatusFilter;
-
-    // Full level test banks are loaded on-demand when the user starts/reviews a test (ensureFullTestLoaded).
-    // The dashboard stays extremely lean using the lightweight summary catalog (< 150MB RAM).
-
-
 
     // JLPT Countdown calculation
     const jlptCountdown = (() => {
@@ -86,69 +75,45 @@ const JLPTTestDashboard = ({
         return Math.max(0, Math.ceil(diffTime / (1000 * 60 * 60 * 24)));
     })();
 
-    // Stats calculation for selected level
-    const levelTests = tests.filter(t => selectedLevel === 'all' || t.level === selectedLevel);
-    const completedList = levelTests.filter(t => {
-        const testId = t.id || t._id;
-        return !!completedTests[testId];
-    });
-    const completedCount = completedList.length;
-    const totalCount = levelTests.length;
-
-    const avgScore = completedList.length > 0
-        ? Math.round(completedList.reduce((sum, t) => sum + (completedTests[t.id]?.percentage || 0), 0) / completedList.length)
-        : 0;
-
     return (
         <div className="jlpt-screen min-h-screen bg-[#FAFBFD] dark:bg-slate-950 p-3.5 sm:p-5 md:p-8 font-sans animate-fade-in text-slate-900 dark:text-slate-100">
             {notification && (
-                <div className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-50 bg-slate-900/95 dark:bg-slate-800/95 text-white px-5 py-3 rounded-2xl shadow-2xl border border-slate-700/50 flex items-center gap-2 text-xs font-bold backdrop-blur-md animate-fade-in pointer-events-none">
+                <div className="fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-50 bg-slate-900/95 dark:bg-slate-800/95 text-white px-5 py-3 rounded-2xl shadow-2xl border-2 border-slate-700/60 flex items-center gap-2 text-xs font-bold backdrop-blur-md animate-fade-in pointer-events-none">
                     <span>{notification}</span>
                 </div>
             )}
 
             <div className="max-w-6xl mx-auto space-y-4 sm:space-y-5">
-                {/* 1. Compact Header + Inline Stats */}
+                {/* 1. Compact Header + Countdown Badge + Admin Actions */}
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
-                    <div className="space-y-1.5">
+                    <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
                         <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900 dark:text-white">
                             Trung Tâm Luyện Thi JLPT
                         </h1>
-                        <div className="flex flex-wrap items-center gap-2 text-xs font-bold">
-                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200/80 dark:border-emerald-800/80">
-                                <CheckCircle2 className="w-3.5 h-3.5" />
-                                <span>Đã xong: {completedCount}/{totalCount} đề</span>
-                            </span>
-                            {avgScore > 0 && (
-                                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-sky-50 dark:bg-sky-950/50 text-sky-700 dark:text-sky-300 border border-sky-200/80 dark:border-sky-800/80">
-                                    <TrendingUp className="w-3.5 h-3.5" />
-                                    <span>Độ chính xác TB: {avgScore}%</span>
-                                </span>
-                            )}
-                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-rose-50 dark:bg-rose-950/50 text-rose-600 dark:text-rose-300 border border-rose-200/80 dark:border-rose-800/80">
-                                <Clock className="w-3.5 h-3.5" />
-                                <span>Kỳ thi JLPT: Còn {jlptCountdown} ngày</span>
-                            </span>
-                        </div>
+                        <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-2xl bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-300 border-2 border-rose-200 dark:border-rose-800 border-b-4 border-b-rose-300 dark:border-b-rose-950 text-xs font-black">
+                            <Clock className="w-3.5 h-3.5" />
+                            <span>Kỳ thi JLPT: Còn {jlptCountdown} ngày</span>
+                        </span>
                     </div>
 
                     <div className="flex items-center gap-2.5 self-start md:self-center flex-wrap">
                         {canEdit && (
                             <>
                                 <button
+                                    type="button"
                                     onClick={onOpenQuestionSearch}
-                                    className="px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 active:translate-y-0.5 border-b-4 border-emerald-700 active:border-b-2 text-white rounded-2xl text-xs font-black transition-all flex items-center gap-2 shadow-xs cursor-pointer select-none"
+                                    className="px-4 py-2.5 bg-emerald-500 hover:bg-emerald-400 active:translate-y-0.5 border-2 border-emerald-600 border-b-4 border-b-emerald-700 active:border-b-2 text-white rounded-2xl text-xs font-black uppercase tracking-wider transition-all flex items-center gap-2 shadow-xs cursor-pointer select-none"
                                     title="Tìm kiếm và sửa nhanh câu hỏi trên toàn bộ đề thi (Ctrl + K)"
                                 >
                                     <Search className="w-4 h-4 stroke-[2.5]" />
                                     <span>Tìm & Sửa câu hỏi</span>
-                                    <span className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] bg-emerald-700/80 rounded-md font-mono">
+                                    <span className="hidden sm:inline-block px-1.5 py-0.5 text-[10px] bg-emerald-700/80 rounded-lg font-mono">
                                         Ctrl+K
                                     </span>
                                 </button>
                                 <Link 
                                     to={`${ROUTES.JLPT_ADMIN}?mode=studio`}
-                                    className="px-4 py-2.5 bg-sky-500 hover:bg-sky-400 active:translate-y-0.5 border-b-4 border-sky-700 active:border-b-2 text-white rounded-2xl text-xs font-black transition flex items-center gap-2 shadow-xs cursor-pointer"
+                                    className="px-4 py-2.5 bg-sky-500 hover:bg-sky-400 active:translate-y-0.5 border-2 border-sky-600 border-b-4 border-b-sky-700 active:border-b-2 text-white rounded-2xl text-xs font-black uppercase tracking-wider transition-all flex items-center gap-2 shadow-xs cursor-pointer select-none"
                                 >
                                     <Sparkles className="w-4 h-4" />
                                     <span>Studio Soạn Đề &amp; Nghe</span>
@@ -158,66 +123,51 @@ const JLPTTestDashboard = ({
                     </div>
                 </div>
 
-                {/* 2. Single-row Filter Bar: Level + Search + Status */}
-                <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200/80 dark:border-slate-800 p-2.5 sm:p-3 shadow-xs flex flex-wrap items-center justify-between gap-2.5">
-                    <div className="flex flex-wrap items-center gap-1 p-1 bg-slate-100 dark:bg-slate-800/80 rounded-xl">
-                        {[
-                            { key: 'all', label: 'Tất cả' },
-                            { key: 'N5', label: 'N5' },
-                            { key: 'N4', label: 'N4' },
-                            { key: 'N3', label: 'N3' },
-                            { key: 'N2', label: 'N2' },
-                            { key: 'N1', label: 'N1' }
-                        ].map(lvl => (
-                            <button
-                                key={lvl.key}
-                                onClick={() => setSelectedLevel(lvl.key)}
-                                className={`px-3 sm:px-3.5 py-1.5 text-xs sm:text-sm font-extrabold rounded-lg transition-all cursor-pointer select-none ${
-                                    selectedLevel === lvl.key
-                                        ? 'bg-emerald-500 text-white border-b-2 border-emerald-700 font-black shadow-xs'
-                                        : 'text-slate-500 hover:text-slate-800 dark:text-slate-400'
-                                }`}
-                            >
-                                {lvl.label}
-                            </button>
-                        ))}
+                {/* 2. Duolingo Control Bar: N5–N1 Level Selector + Search */}
+                <div className="bg-white dark:bg-slate-900 rounded-3xl border-2 border-slate-200 dark:border-slate-800 border-b-4 border-b-slate-300 dark:border-b-slate-950 p-3 shadow-xs flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex flex-wrap items-center gap-1.5">
+                        {['N5', 'N4', 'N3', 'N2', 'N1'].map(lvl => {
+                            const isActive = selectedLevel === lvl;
+                            return (
+                                <button
+                                    key={lvl}
+                                    type="button"
+                                    onClick={() => setSelectedLevel(lvl)}
+                                    className={`px-4 py-2 text-xs sm:text-sm font-black uppercase tracking-wider rounded-2xl border-2 border-b-4 transition-all active:translate-y-0.5 active:border-b-2 cursor-pointer select-none ${
+                                        isActive
+                                            ? 'bg-emerald-500 hover:bg-emerald-400 border-emerald-600 border-b-emerald-700 text-white shadow-xs'
+                                            : 'bg-slate-100 hover:bg-slate-200/80 dark:bg-slate-800 dark:hover:bg-slate-700 border-slate-200 dark:border-slate-700 border-b-slate-300 dark:border-b-slate-950 text-slate-600 dark:text-slate-300'
+                                    }`}
+                                >
+                                    {lvl}
+                                </button>
+                            );
+                        })}
                     </div>
 
-                    <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 w-full md:w-auto flex-1 md:flex-initial justify-end">
-                        <div className="relative flex-1 sm:w-60 md:w-64">
-                            <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-                            <input
-                                type="text"
-                                value={searchQuery}
-                                onChange={(e) => setSearchQuery(e.target.value)}
-                                placeholder="Tìm kiếm sách, đề thi..."
-                                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 rounded-xl pl-9 pr-8 py-2 text-xs font-medium text-slate-800 dark:text-slate-200 focus:outline-none focus:border-emerald-500"
-                            />
-                            {searchQuery && (
-                                <button 
-                                    onClick={() => setSearchQuery('')}
-                                    className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 cursor-pointer"
-                                >
-                                    <X className="w-3.5 h-3.5" />
-                                </button>
-                            )}
-                        </div>
-
-                        <select
-                            value={statusFilter}
-                            onChange={(e) => setStatusFilter(e.target.value)}
-                            className="bg-slate-50 dark:bg-slate-950 border border-slate-200/80 dark:border-slate-800 rounded-xl px-3 py-2 text-xs font-semibold text-slate-700 dark:text-slate-300 focus:outline-none cursor-pointer shrink-0"
-                        >
-                            <option value="all">Trạng thái: Tất cả</option>
-                            <option value="completed">Đã hoàn thành</option>
-                            <option value="in_progress">Đang làm dở</option>
-                            <option value="not_started">Chưa làm</option>
-                        </select>
+                    <div className="relative flex-1 min-w-[220px] sm:max-w-xs">
+                        <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
+                        <input
+                            type="text"
+                            value={searchQuery}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            placeholder="Tìm kiếm sách, đề thi..."
+                            className="w-full bg-slate-50 dark:bg-slate-950 border-2 border-slate-200 dark:border-slate-800 rounded-2xl pl-9 pr-8 py-2 text-xs font-bold text-slate-800 dark:text-slate-200 placeholder:text-slate-400 focus:outline-none focus:border-emerald-500 transition-colors"
+                        />
+                        {searchQuery && (
+                            <button 
+                                type="button"
+                                onClick={() => setSearchQuery('')}
+                                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 cursor-pointer"
+                            >
+                                <X className="w-3.5 h-3.5" />
+                            </button>
+                        )}
                     </div>
                 </div>
 
-                {/* 3. Main Navigation Switcher (5 Core Tabs) */}
-                <div className="flex items-center gap-1.5 p-1.5 bg-slate-200/70 dark:bg-slate-900 rounded-2xl border border-slate-200/60 dark:border-slate-800 shadow-2xs overflow-x-auto no-scrollbar">
+                {/* 3. Duolingo Tab Navigation Switcher (5 Core Tabs) */}
+                <div className="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1">
                     {MAIN_TABS.map(tab => {
                         const Icon = tab.icon;
                         const isSelected = activeMainTab === tab.id;
@@ -226,17 +176,22 @@ const JLPTTestDashboard = ({
                         return (
                             <button
                                 key={tab.id}
+                                type="button"
                                 onClick={() => setActiveMainTab(tab.id)}
-                                className={`flex-1 min-w-fit py-2.5 px-3 sm:px-4 rounded-xl text-center transition-all duration-200 cursor-pointer flex items-center justify-center gap-1.5 sm:gap-2 shrink-0 ${
+                                className={`flex-1 min-w-fit py-2.5 px-3.5 sm:px-4 rounded-2xl border-2 border-b-4 transition-all duration-150 cursor-pointer flex items-center justify-center gap-2 shrink-0 active:translate-y-0.5 active:border-b-2 select-none text-xs sm:text-sm font-black ${
                                     isSelected
-                                        ? 'bg-white dark:bg-slate-800 text-slate-950 dark:text-white shadow-sm font-black text-xs sm:text-sm border border-slate-200/80 dark:border-slate-700'
-                                        : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-200 font-bold text-xs sm:text-sm'
+                                        ? 'bg-sky-500 hover:bg-sky-400 border-sky-600 border-b-sky-700 text-white shadow-xs'
+                                        : 'bg-white hover:bg-slate-50 dark:bg-slate-900 dark:hover:bg-slate-800 border-slate-200 dark:border-slate-800 border-b-slate-300 dark:border-b-slate-950 text-slate-600 dark:text-slate-300 hover:border-sky-300 dark:hover:border-sky-700'
                                 }`}
                             >
-                                <Icon className={`w-4 h-4 shrink-0 ${isSelected ? 'text-emerald-500' : 'text-slate-400'}`} />
+                                <Icon className={`w-4 h-4 shrink-0 ${isSelected ? 'text-white' : 'text-sky-500'}`} />
                                 <span className="whitespace-nowrap">{tab.label}</span>
                                 {wrongCount > 0 && (
-                                    <span className="px-1.5 py-0.2 rounded-full text-[10px] font-black bg-rose-500 text-white shrink-0">
+                                    <span className={`px-2 py-0.5 rounded-full text-[10px] font-black shrink-0 ${
+                                        isSelected
+                                            ? 'bg-white text-rose-600'
+                                            : 'bg-rose-500 text-white'
+                                    }`}>
                                         {wrongCount}
                                     </span>
                                 )}
@@ -253,7 +208,6 @@ const JLPTTestDashboard = ({
                         savedProgresses={savedProgresses}
                         selectedLevel={selectedLevel}
                         searchQuery={searchQuery}
-                        statusFilter={statusFilter}
                         canEdit={canEdit}
                         onEditTest={onEditTest}
                         onDeleteTest={onDeleteTest}
@@ -275,7 +229,6 @@ const JLPTTestDashboard = ({
                         savedProgresses={savedProgresses}
                         selectedLevel={selectedLevel}
                         searchQuery={searchQuery}
-                        statusFilter={statusFilter}
                         canEdit={canEdit}
                         onEditTest={onEditTest}
                         onDeleteTest={onDeleteTest}
@@ -297,7 +250,6 @@ const JLPTTestDashboard = ({
                         savedProgresses={savedProgresses}
                         selectedLevel={selectedLevel}
                         searchQuery={searchQuery}
-                        statusFilter={statusFilter}
                         canEdit={canEdit}
                         onEditTest={onEditTest}
                         onDeleteTest={onDeleteTest}

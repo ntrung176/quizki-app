@@ -171,10 +171,15 @@ const JLPTTestTakeView = ({
     const [aiImageTarget, setAiImageTarget] = useState(null);
     const [activeNoteTarget, setActiveNoteTarget] = useState(null); // { sIdx, qIdx }
     const [openScriptKeys, setOpenScriptKeys] = useState({});
+    const [examAudioStates, setExamAudioStates] = useState({});
     const [analyzingPassageKey, setAnalyzingPassageKey] = useState('');
     const [localPassageDataMap, setLocalPassageDataMap] = useState({});
     const [batchAnalyzeProgress, setBatchAnalyzeProgress] = useState(null);
     const isInstantPracticeMode = !isRealExam; // Luyện tập: Hiện đáp án ngay | Thi thực tế: Tắt (chấm điểm sau khi nộp)
+
+    useEffect(() => {
+        setExamAudioStates({});
+    }, [activeTest?.id, isRealExam]);
 
     const activePhase = isRealExam && Array.isArray(examPhases) && examPhases.length > 0
         ? (examPhases[currentPhaseIdx] || null)
@@ -601,14 +606,25 @@ const JLPTTestTakeView = ({
                         )}
                     </div>
 
-                    {/* Fullscreen Toggle */}
-                    <button 
-                        onClick={toggleFullscreen}
-                        className="p-1.5 text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 transition rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
-                        title="Toàn màn hình"
-                    >
-                        {isFullscreen ? <Minimize className="w-4.5 h-4.5" /> : <Maximize className="w-4.5 h-4.5" />}
-                    </button>
+                    {/* Fullscreen Toggle / Real-Exam Lock Indicator */}
+                    {isRealExam && isFullscreen ? (
+                        <span
+                            className="px-2.5 py-1 rounded-xl bg-emerald-50 dark:bg-emerald-950/50 text-emerald-700 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-800 text-[11px] font-black hidden sm:inline-flex items-center gap-1 select-none"
+                            title="Chế độ thi thực tế đang khóa Toàn màn hình"
+                        >
+                            <Maximize className="w-3.5 h-3.5" />
+                            <span>Full màn hình</span>
+                        </span>
+                    ) : (
+                        <button
+                            type="button"
+                            onClick={toggleFullscreen}
+                            className="p-1.5 text-slate-500 hover:text-slate-800 dark:text-slate-400 dark:hover:text-slate-200 transition rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
+                            title="Toàn màn hình"
+                        >
+                            {isFullscreen ? <Minimize className="w-4.5 h-4.5" /> : <Maximize className="w-4.5 h-4.5" />}
+                        </button>
+                    )}
                 </div>
             </header>
 
@@ -961,12 +977,13 @@ const JLPTTestTakeView = ({
                                     const hasDrawNote = !!notes?.[dKey];
                                     const isNoteOpen = activeNoteTarget?.sIdx === selectedTabIdx && activeNoteTarget?.qIdx === qIdx;
                                     const qStatus = getQuestionStatus(selectedTabIdx, qIdx, question);
-                                    const hasScriptData = qMeta.isListening && (
+                                    const hasScriptData = !isRealExam && qMeta.isListening && (
                                         (Array.isArray(question?.script) && question.script.length > 0)
                                         || Boolean(question?.stem)
                                         || Boolean(question?.spokenQuestion)
                                         || (Array.isArray(question?.spokenOptions) && question.spokenOptions.length > 0)
                                     );
+                                    const qTrackKey = `q_${selectedTabIdx}_${qIdx}_${question?.audioUrl || ''}__${question?.audioStartSec ?? 0}__${question?.audioEndSec ?? 'full'}`;
                                     const isScriptOpen = !!openScriptKeys[qKey];
 
                                     const wrapperClass = insideCluster
@@ -1087,8 +1104,10 @@ const JLPTTestTakeView = ({
                                                         src={question.audioUrl}
                                                         startSec={question.audioStartSec}
                                                         endSec={question.audioEndSec}
-                                                        externalRef={audioRef}
                                                         label=""
+                                                        examMode={isRealExam}
+                                                        persistedState={examAudioStates[qTrackKey] || null}
+                                                        onStateChange={(st) => setExamAudioStates((prev) => ({ ...prev, [qTrackKey]: st }))}
                                                     />
                                                 </div>
                                             )}
@@ -1405,13 +1424,19 @@ const JLPTTestTakeView = ({
                                     );
                                 };
 
-                                return displayClusters.map((cluster) => (
+                                return displayClusters.map((cluster) => {
+                                    const sharedUrl = cluster.mondaiGroup ? (mondaiSharedAudioUrls[cluster.mondaiGroup.mondai] || '') : '';
+                                    const mondaiTrackKey = cluster.mondaiGroup ? `mondai_${selectedTabIdx}_${cluster.mondaiGroup.mondai}_${sharedUrl}` : '';
+                                    return (
                                     <React.Fragment key={cluster.id}>
                                         {cluster.mondaiGroup && (
                                             <ListeningMondaiSectionBanner
                                                 group={cluster.mondaiGroup}
                                                 isListening={listeningMondaiData.isListening}
-                                                sharedAudioUrl={mondaiSharedAudioUrls[cluster.mondaiGroup.mondai] || ''}
+                                                sharedAudioUrl={sharedUrl}
+                                                examMode={isRealExam}
+                                                examTrackState={mondaiTrackKey ? (examAudioStates[mondaiTrackKey] || null) : null}
+                                                onExamTrackStateChange={mondaiTrackKey ? (st) => setExamAudioStates((prev) => ({ ...prev, [mondaiTrackKey]: st })) : null}
                                             />
                                         )}
                                         {cluster.isPassageCluster ? (
@@ -1445,7 +1470,8 @@ const JLPTTestTakeView = ({
                                             renderTakeQuestionItem(cluster.items[0], false)
                                         )}
                                     </React.Fragment>
-                                ));
+                                    );
+                                });
                             })()}
                         </div>
 
@@ -1802,6 +1828,103 @@ const JLPTTestTakeView = ({
                     existingImageUrl={aiImageTarget.existingUrl}
                     onSaveImage={(url) => onSaveQuestionImage(aiImageTarget.sIdx, aiImageTarget.qIdx, url)}
                 />
+            )}
+
+            {/* 10. REAL EXAM FULLSCREEN & 3-STRIKE PROCTORING MODALS */}
+            {isRealExam && showFullscreenRequired && (
+                <div className="fixed inset-0 z-[100] bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 animate-fade-in font-sans">
+                    <div className="bg-white dark:bg-slate-900 border-2 border-rose-300 dark:border-rose-800 border-b-4 rounded-3xl p-6 max-w-md w-full shadow-2xl space-y-4 text-center">
+                        <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mx-auto border-2 ${
+                            violationCount > 0
+                                ? 'bg-rose-50 dark:bg-rose-950/60 text-rose-600 dark:text-rose-400 border-rose-200 dark:border-rose-800'
+                                : 'bg-sky-50 dark:bg-sky-950/60 text-sky-600 dark:text-sky-400 border-sky-200 dark:border-sky-800'
+                        }`}>
+                            <ShieldAlert className="w-8 h-8" />
+                        </div>
+
+                        {violationCount > 0 ? (
+                            <div className="space-y-2">
+                                <span className="inline-block px-3 py-1 rounded-xl bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 text-[11px] font-black uppercase tracking-wider border border-rose-200 dark:border-rose-800">
+                                    Cảnh báo vi phạm lần {violationCount}/3
+                                </span>
+                                <h3 className="text-lg font-black text-slate-900 dark:text-white">
+                                    Bạn đã thoát chế độ Toàn màn hình!
+                                </h3>
+                                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                                    Quy chế thi thực tế yêu cầu bật Toàn màn hình suốt thời gian làm bài. Nếu thoát đủ <strong>3 lần</strong> (chỉ còn <strong>{Math.max(0, 3 - violationCount)} lần</strong>), bài thi sẽ tự động dừng và nộp ngay.
+                                </p>
+                            </div>
+                        ) : (
+                            <div className="space-y-2">
+                                <h3 className="text-lg font-black text-slate-900 dark:text-white">
+                                    Kích hoạt Toàn màn hình để thi thực tế
+                                </h3>
+                                <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                                    Trình duyệt chưa tự mở Toàn màn hình. Vui lòng bấm nút bên dưới để vào phòng thi chuẩn JLPT.
+                                </p>
+                            </div>
+                        )}
+
+                        <div className="space-y-2 pt-2">
+                            <button
+                                type="button"
+                                onClick={async () => {
+                                    const entered = await toggleFullscreen?.();
+                                    if (entered || document.fullscreenElement) {
+                                        setShowFullscreenRequired(false);
+                                    }
+                                }}
+                                className="w-full py-3 rounded-2xl text-xs font-black uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 border-2 border-emerald-600 border-b-4 border-b-emerald-700 active:translate-y-0.5 active:border-b-2 text-white transition-all cursor-pointer flex items-center justify-center gap-2 select-none"
+                            >
+                                <Maximize className="w-4 h-4" />
+                                <span>{violationCount > 0 ? 'Quay lại Toàn Màn Hình ngay' : 'Bật Toàn Màn Hình & Bắt đầu'}</span>
+                            </button>
+                            <button
+                                type="button"
+                                onClick={() => {
+                                    setShowFullscreenRequired(false);
+                                    submitTest?.();
+                                }}
+                                className="w-full py-2 rounded-xl text-xs font-bold text-slate-500 hover:text-rose-600 dark:text-slate-400 transition cursor-pointer"
+                            >
+                                Dừng &amp; Nộp bài thi ngay
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            )}
+
+            {isRealExam && showViolationWarning && !showFullscreenRequired && (
+                <div className="fixed inset-0 z-[100] bg-slate-950/85 backdrop-blur-md flex items-center justify-center p-4 animate-fade-in font-sans">
+                    <div className="bg-white dark:bg-slate-900 border-2 border-amber-300 dark:border-amber-800 border-b-4 rounded-3xl p-6 max-w-md w-full shadow-2xl space-y-4 text-center">
+                        <div className="w-14 h-14 rounded-2xl bg-amber-50 dark:bg-amber-950/60 text-amber-600 dark:text-amber-400 border-2 border-amber-200 dark:border-amber-800 flex items-center justify-center mx-auto">
+                            <ShieldAlert className="w-8 h-8" />
+                        </div>
+                        <div className="space-y-2">
+                            <span className="inline-block px-3 py-1 rounded-xl bg-rose-100 dark:bg-rose-950 text-rose-700 dark:text-rose-300 text-[11px] font-black uppercase tracking-wider border border-rose-200 dark:border-rose-800">
+                                Cảnh báo rời màn hình ({violationCount}/3)
+                            </span>
+                            <h3 className="text-lg font-black text-slate-900 dark:text-white">
+                                Không được chuyển tab hoặc rời phòng thi!
+                            </h3>
+                            <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                                Hệ thống đã ghi nhận lần cảnh báo <strong>{violationCount}/3</strong>. Nếu vi phạm đủ <strong>3 lần</strong>, bài thi sẽ tự động dừng ngay lập tức.
+                            </p>
+                        </div>
+                        <button
+                            type="button"
+                            onClick={async () => {
+                                setShowViolationWarning(false);
+                                if (!document.fullscreenElement) {
+                                    await toggleFullscreen?.();
+                                }
+                            }}
+                            className="w-full py-3 rounded-2xl text-xs font-black uppercase tracking-wider bg-emerald-500 hover:bg-emerald-400 border-2 border-emerald-600 border-b-4 border-b-emerald-700 active:translate-y-0.5 active:border-b-2 text-white transition-all cursor-pointer select-none"
+                        >
+                            Tôi đã hiểu · Tiếp tục làm bài
+                        </button>
+                    </div>
+                </div>
             )}
         </div>
     );
