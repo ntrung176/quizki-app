@@ -20,6 +20,13 @@ import JLPTExportImportModal, { sanitizeDataForFirestore } from '../jlptTest/JLP
 import JLPTQuickTestEditorModal from '../jlptTest/JLPTQuickTestEditorModal';
 import { testHasListening } from '../jlptTest/jlptYearlyConstants';
 import { computeJlptScoreBreakdown, buildJlptExamPhases } from '../../utils/jlptScoringRules';
+import {
+    buildRealExamSnapshot,
+    clearSuspendedRealExam,
+    loadSuspendedRealExams,
+    resolveRealExamResumeState,
+    saveSuspendedRealExam
+} from '../../utils/jlptExamRecovery';
 import { preloadTestImages } from '../../utils/jlptMediaPreloader';
 import { showToast } from '../../utils/toast';
 import { X, Play, BookOpen, Lock, ChevronRight, FileText, Printer, Check, Loader2, Edit3, Trash2, AlertTriangle } from 'lucide-react';
@@ -118,6 +125,8 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
     const [showFullscreenRequired, setShowFullscreenRequired] = useState(false);
     const [violationType, setViolationType] = useState('');
     const [examViolationStoppedReason, setExamViolationStoppedReason] = useState('');
+    const [examAudioStates, setExamAudioStates] = useState({});
+    const [suspendedRealExams, setSuspendedRealExams] = useState(() => loadSuspendedRealExams());
     const hasEnteredFullscreenRef = useRef(false);
     const lastViolationTimeRef = useRef(0);
 
@@ -649,7 +658,7 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         initTest(fullTest, wasRealExam ? 'real' : 'practice');
     };
 
-    const initTest = async (test, mode = 'practice', isResume = false) => {
+    const initTest = async (test, mode = 'practice', isResume = false, realExamRecovery = null) => {
         setPendingStartTest(null);
         if (mode === 'real') {
             requestRealExamFullscreenSync();
@@ -673,17 +682,30 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         setExamViolationStoppedReason('');
 
         const testId = fullTest?.id || fullTest?._id;
-        const savedProgress = isResume ? (savedProgresses[testId] || savedProgresses[String(testId)]) : null;
-        if (savedProgress && savedProgress.answers && Object.keys(savedProgress.answers).length > 0) {
-            setAnswers(savedProgress.answers || {});
-            setCurrentSectionIdx(savedProgress.currentSectionIdx || 0);
-            setCurrentQuestionIdx(savedProgress.currentQuestionIdx || 0);
-            setTestStartTime(Date.now() - ((savedProgress.timeSpentSoFar || 0) * 1000));
-        } else {
-            setCurrentSectionIdx(0);
-            setCurrentQuestionIdx(0);
-            setAnswers({});
+
+        if (mode === 'real' && realExamRecovery) {
+            setAnswers(realExamRecovery.answers || {});
+            setCurrentSectionIdx(realExamRecovery.currentSectionIdx || 0);
+            setCurrentQuestionIdx(realExamRecovery.currentQuestionIdx || 0);
+            setExamAudioStates(realExamRecovery.examAudioStates || {});
             setTestStartTime(Date.now());
+        } else {
+            setExamAudioStates({});
+            const savedProgress = isResume ? (savedProgresses[testId] || savedProgresses[String(testId)]) : null;
+            if (savedProgress && savedProgress.answers && Object.keys(savedProgress.answers).length > 0) {
+                setAnswers(savedProgress.answers || {});
+                setCurrentSectionIdx(savedProgress.currentSectionIdx || 0);
+                setCurrentQuestionIdx(savedProgress.currentQuestionIdx || 0);
+                setTestStartTime(Date.now() - ((savedProgress.timeSpentSoFar || 0) * 1000));
+            } else {
+                setCurrentSectionIdx(0);
+                setCurrentQuestionIdx(0);
+                setAnswers({});
+                setTestStartTime(Date.now());
+            }
+            if (mode === 'real' && testId) {
+                setSuspendedRealExams(clearSuspendedRealExam(testId));
+            }
         }
 
         setShowResult(false);
@@ -693,13 +715,23 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         if (mode === 'real') {
             const phases = buildJlptExamPhases(fullTest);
             setExamPhases(phases);
-            setCurrentPhaseIdx(0);
-            setPhaseElapsedOffsetSec(0);
-            if (phases.length > 0) {
-                setCurrentSectionIdx(phases[0].sectionIndices?.[0] ?? 0);
-                setTimeRemaining(phases[0].seconds);
+            if (realExamRecovery) {
+                const maxPhaseIdx = Math.max(0, phases.length - 1);
+                const targetPhaseIdx = phases.length > 0
+                    ? Math.min(Math.max(0, Number(realExamRecovery.currentPhaseIdx) || 0), maxPhaseIdx)
+                    : 0;
+                setCurrentPhaseIdx(targetPhaseIdx);
+                setPhaseElapsedOffsetSec(Math.max(0, Number(realExamRecovery.phaseElapsedOffsetSec) || 0));
+                setTimeRemaining(Math.max(1, Number(realExamRecovery.timeRemaining) || 60));
             } else {
-                setTimeRemaining((fullTest.timeLimit || 60) * 60);
+                setCurrentPhaseIdx(0);
+                setPhaseElapsedOffsetSec(0);
+                if (phases.length > 0) {
+                    setCurrentSectionIdx(phases[0].sectionIndices?.[0] ?? 0);
+                    setTimeRemaining(phases[0].seconds);
+                } else {
+                    setTimeRemaining((fullTest.timeLimit || 60) * 60);
+                }
             }
             setTimerActive(true);
             sessionStorage.setItem('realExamModeActive', 'true');
@@ -742,6 +774,97 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
         requestRealExamFullscreenSync();
         return initTest(targetTest, 'real', false);
     };
+
+    const reactivateRealExam = async (explicitTest = null) => {
+        requestRealExamFullscreenSync();
+
+        let candidateTest = explicitTest;
+        if (!candidateTest) {
+            if (activeTest && showResult) {
+                candidateTest = activeTest;
+            } else if (pendingStartTest) {
+                candidateTest = pendingStartTest;
+            } else {
+                const suspendedList = Object.values(suspendedRealExams || {}).sort((a, b) => (b?.savedAt || 0) - (a?.savedAt || 0));
+                const latestSuspended = suspendedList.find((item) => item?.testId && item?.timeRemaining > 0);
+                if (latestSuspended) {
+                    candidateTest = tests.find((t) => t.id === latestSuspended.testId || String(t._id) === String(latestSuspended.testId));
+                } else {
+                    const latestCompletedEntry = Object.entries(completedTests || {})
+                        .filter(([, entry]) => entry?.wasRealExam)
+                        .sort((a, b) => new Date(b[1]?.date || 0).getTime() - new Date(a[1]?.date || 0).getTime())[0];
+                    if (latestCompletedEntry) {
+                        const [targetId] = latestCompletedEntry;
+                        candidateTest = tests.find((t) => t.id === targetId || String(t._id) === String(targetId));
+                    }
+                }
+            }
+        }
+
+        if (!candidateTest) {
+            showToast('Không tìm thấy phiên thi thực tế nào cần khôi phục.', 'info');
+            return;
+        }
+
+        let fullTest = candidateTest;
+        if (!fullTest?.sections || fullTest.sections.length === 0) {
+            setLoadingTestDetails(true);
+            try {
+                fullTest = (await ensureFullTestLoaded(candidateTest?.id, candidateTest?.level)) || candidateTest;
+            } finally {
+                setLoadingTestDetails(false);
+            }
+        }
+
+        const testId = fullTest?.id || fullTest?._id;
+        const recovery = resolveRealExamResumeState({
+            test: fullTest,
+            completedEntry: completedTests[testId] || completedTests[String(testId)] || null,
+            suspendedEntry: suspendedRealExams[testId] || suspendedRealExams[String(testId)] || null,
+            buildPhasesFn: buildJlptExamPhases
+        });
+
+        if (!recovery) {
+            showToast('Phiên thi này đã hết giờ hoặc không có dữ liệu thi thực tế để khôi phục.', 'info');
+            return;
+        }
+
+        await initTest(fullTest, 'real', false, recovery);
+        showToast(
+            `🔓 Đã kích hoạt lại bài thi: giữ ${recovery.answeredCount}/${recovery.totalQuestions} câu · còn ${formatTime(recovery.timeRemaining)} (${recovery.phaseLabel}).`,
+            'success'
+        );
+    };
+
+    const secretReactivateRef = useRef(null);
+    useEffect(() => {
+        secretReactivateRef.current = () => {
+            if (isRealExam && activeTest && !showResult) {
+                lastViolationTimeRef.current = 0;
+                setViolationCount(0);
+                setShowViolationWarning(false);
+                setShowFullscreenRequired(false);
+                requestRealExamFullscreenSync();
+                showToast('🔓 Đã đặt lại bộ đếm vi phạm (0/3).', 'success');
+                return;
+            }
+            reactivateRealExam();
+        };
+    });
+
+    // Secret shortcut: Alt + Shift + R to reset proctor strikes during real exam or reactivate stopped exam
+    useEffect(() => {
+        const handleSecretShortcut = (e) => {
+            if (!e.altKey || !e.shiftKey) return;
+            if (e.code !== 'KeyR' && String(e.key || '').toLowerCase() !== 'r') return;
+            const tag = (e.target?.tagName || '').toUpperCase();
+            if (tag === 'INPUT' || tag === 'TEXTAREA' || e.target?.isContentEditable) return;
+            e.preventDefault();
+            secretReactivateRef.current?.();
+        };
+        window.addEventListener('keydown', handleSecretShortcut);
+        return () => window.removeEventListener('keydown', handleSecretShortcut);
+    }, []);
 
     const handleSelectTestFromSearch = async (test, sectionIdx = 0, questionIdx = 0) => {
         setShowQuestionSearchModal(false);
@@ -838,6 +961,28 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
             : Math.round((Date.now() - (testStartTime || Date.now())) / 1000);
         setTimeTaken(taken);
 
+        const realSnapshot = (terminatedByViolation && activeTest)
+            ? buildRealExamSnapshot({
+                test: activeTest,
+                answers,
+                currentSectionIdx,
+                currentQuestionIdx,
+                timeRemaining,
+                phaseElapsedOffsetSec,
+                examPhases,
+                currentPhaseIdx,
+                timeTaken: taken,
+                terminatedByViolation: true,
+                examAudioStates
+            })
+            : null;
+
+        if (realSnapshot && activeTest?.id) {
+            setSuspendedRealExams(saveSuspendedRealExam(activeTest.id, realSnapshot));
+        } else if (activeTest?.id) {
+            setSuspendedRealExams(clearSuspendedRealExam(activeTest.id));
+        }
+
         setIsRealExam(false);
         sessionStorage.removeItem('realExamModeActive');
         window.dispatchEvent(new Event('realExamModeChange'));
@@ -857,6 +1002,8 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                 } : null,
                 answers: answers,
                 wasRealExam: wasRealExam,
+                terminatedByViolation: Boolean(terminatedByViolation),
+                realExamSnapshot: realSnapshot,
                 timeTaken: taken,
                 date: new Date().toISOString()
             }
@@ -1776,6 +1923,8 @@ const JLPTTestScreen = ({ isAdmin, allCards = [], profile = {}, userId, awardXP 
                     currentPhaseIdx={currentPhaseIdx}
                     onAdvancePhase={handleAdvanceExamPhase}
                     onSaveQuestionImage={canEdit ? handleSaveQuestionImage : null}
+                    examAudioStates={examAudioStates}
+                    setExamAudioStates={setExamAudioStates}
                 />
                 {renderModeSelectionModal()}
                 {renderQuickEditModal()}

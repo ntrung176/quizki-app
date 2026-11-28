@@ -159,7 +159,9 @@ const JLPTTestTakeView = ({
     examPhases = [],
     currentPhaseIdx = 0,
     onAdvancePhase = null,
-    onSaveQuestionImage = null
+    onSaveQuestionImage = null,
+    examAudioStates: externalExamAudioStates = null,
+    setExamAudioStates: externalSetExamAudioStates = null
 }) => {
     const [selectedTabIdx, setSelectedTabIdx] = useState(currentSectionIdx || 0);
     const [selectedMondaiFilter, setSelectedMondaiFilter] = useState('');
@@ -171,15 +173,19 @@ const JLPTTestTakeView = ({
     const [aiImageTarget, setAiImageTarget] = useState(null);
     const [activeNoteTarget, setActiveNoteTarget] = useState(null); // { sIdx, qIdx }
     const [openScriptKeys, setOpenScriptKeys] = useState({});
-    const [examAudioStates, setExamAudioStates] = useState({});
+    const [internalExamAudioStates, setInternalExamAudioStates] = useState({});
+    const examAudioStates = externalExamAudioStates ?? internalExamAudioStates;
+    const setExamAudioStates = externalSetExamAudioStates ?? setInternalExamAudioStates;
     const [analyzingPassageKey, setAnalyzingPassageKey] = useState('');
     const [localPassageDataMap, setLocalPassageDataMap] = useState({});
     const [batchAnalyzeProgress, setBatchAnalyzeProgress] = useState(null);
     const isInstantPracticeMode = !isRealExam; // Luyện tập: Hiện đáp án ngay | Thi thực tế: Tắt (chấm điểm sau khi nộp)
 
     useEffect(() => {
-        setExamAudioStates({});
-    }, [activeTest?.id, isRealExam]);
+        if (!externalSetExamAudioStates) {
+            setInternalExamAudioStates({});
+        }
+    }, [activeTest?.id, isRealExam, externalSetExamAudioStates]);
 
     const activePhase = isRealExam && Array.isArray(examPhases) && examPhases.length > 0
         ? (examPhases[currentPhaseIdx] || null)
@@ -1883,7 +1889,7 @@ const JLPTTestTakeView = ({
                                 type="button"
                                 onClick={() => {
                                     setShowFullscreenRequired(false);
-                                    submitTest?.();
+                                    submitTest?.({ terminatedByViolation: true });
                                 }}
                                 className="w-full py-2 rounded-xl text-xs font-bold text-slate-500 hover:text-rose-600 dark:text-slate-400 transition cursor-pointer"
                             >
